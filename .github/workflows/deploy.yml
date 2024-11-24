@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  
   workflow_dispatch:
 
 jobs:
@@ -19,15 +20,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install Node.js
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18
+        node-version: 22
 
     - name: Install dependencies
       run: npm install
 
-    - name: Build project with secrets
+    - name: Create env file using Github secrets
       env:
         VITE_FIREBASE_API_KEY: ${{ secrets.VITE_FIREBASE_API_KEY }}
         VITE_FIREBASE_AUTH_DOMAIN: ${{ secrets.VITE_FIREBASE_AUTH_DOMAIN }}
@@ -36,9 +37,11 @@ jobs:
         VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
         VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
         VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}
+
+    - name: Build project
       run: npm run build
     
-    - name: Deploy to GitHub Pages
+    - name: Upload to GitHub Pages
       uses: actions/upload-pages-artifact@v1
       with:
         path: ./dist
