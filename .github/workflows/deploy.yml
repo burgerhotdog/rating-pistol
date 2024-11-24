@@ -32,9 +32,13 @@ jobs:
         VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
         VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_FIREBASE_MEASUREMENT_ID }}
       run: npm run build
-
+    
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: ./dist
+
+    - name: Publish to GitHub Pages
+      uses: actions/deploy-pages@v2
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: dist
