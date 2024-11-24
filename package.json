@@ -1,6 +1,6 @@
 {
   "name": "gacha-manager",
-  "private": false,
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://darrenwang18.github.io/Gacha-Manager",
