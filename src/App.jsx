@@ -34,9 +34,9 @@ const App = () => {
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Current Number: {number}</h1>
+      <h1>Fart counter: {number}</h1>
       <button onClick={incrementNumber} style={{ padding: "10px 20px", fontSize: "16px" }}>
-        Increment
+        I farted
       </button>
     </div>
   );
