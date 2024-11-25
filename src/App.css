@@ -40,3 +40,13 @@
 .read-the-docs {
   color: #888;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Ensure the body takes the full height of the viewport */
+  background-image: url('/background.webp');
+  background-size: cover; /* Make the image cover the entire page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+}
