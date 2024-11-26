@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 import { onAuthStateChanged } from 'firebase/auth';  // Import onAuthStateChanged
 import { auth } from './firebase';  // Import your Firebase auth object
 import Login from './Login';
-import Menu from './Menu2';
+import Menu from './Menu';
 import GI from './GI';
 import HSR from './HSR';
 import ZZZ from './ZZZ';
