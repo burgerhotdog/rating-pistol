@@ -1,12 +1,13 @@
 import React from 'react';
-import './1.css';
+import BackToMenu from './BackToMenu';
 
-const hsr = () => {
+const HSR = () => {
   return (
     <div id="style">
       Honkai Star Rail
+      <BackToMenu />
     </div>
   );
 };
 
-export default hsr;
+export default HSR;

@@ -1,12 +1,13 @@
 import React from 'react';
-import './1.css';
+import BackToMenu from './BackToMenu';
 
-const gi = () => {
+const GI = () => {
   return (
     <div id="style">
       Genshin Impact
+      <BackToMenu />
     </div>
   );
 };
 
-export default gi;
+export default GI;

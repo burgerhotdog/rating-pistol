@@ -1,12 +1,13 @@
 import React from 'react';
-import './1.css';
+import BackToMenu from './BackToMenu';
 
-const wuwa = () => {
+const WUWA = () => {
   return (
     <div id="style">
       Wuthering Waves
+      <BackToMenu />
     </div>
   );
 };
 
-export default wuwa;
+export default WUWA;

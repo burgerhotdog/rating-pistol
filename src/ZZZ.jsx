@@ -1,12 +1,13 @@
 import React from 'react';
-import './1.css';
+import BackToMenu from './BackToMenu';
 
-const zzz = () => {
+const ZZZ = () => {
   return (
     <div id="style">
       Zenless Zone Zero
+      <BackToMenu />
     </div>
   );
 };
 
-export default zzz;
+export default ZZZ;
