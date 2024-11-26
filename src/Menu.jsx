@@ -17,16 +17,16 @@ const Menu = () => {
           Main Menu
         </Typography>
 
-        <Button component={Link} to="/gi" variant="contained" color="primary" fullWidth>
+        <Button component={Link} to="/gi" variant="contained" fullWidth>
           Genshin Impact
         </Button>
-        <Button component={Link} to="/hsr" variant="contained" color="primary" fullWidth>
+        <Button component={Link} to="/hsr" variant="contained" fullWidth>
           Honkai Star Rail
         </Button>
-        <Button component={Link} to="/zzz" variant="contained" color="primary" fullWidth>
+        <Button component={Link} to="/zzz" variant="contained" fullWidth>
           Zenless Zone Zero
         </Button>
-        <Button component={Link} to="/wuwa" variant="contained" color="primary" fullWidth>
+        <Button component={Link} to="/wuwa" variant="contained" fullWidth>
           Wuthering Waves
         </Button>
       </Box>

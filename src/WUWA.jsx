@@ -1,12 +1,20 @@
 import React from 'react';
+import { Box, Typography } from '@mui/material';
 import BackToMenu from './BackToMenu';
 
 const WUWA = () => {
   return (
-    <div id="style">
-      Wuthering Waves
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
+      gap={2}
+      sx={{ textAlign: 'center' }}
+    >
+      <Typography variant="h4" gutterBottom>Wuthering Waves</Typography>
       <BackToMenu />
-    </div>
+    </Box>
   );
 };
 
