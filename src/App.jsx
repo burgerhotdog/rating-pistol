@@ -15,12 +15,13 @@ import './App.css';
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(null);
+  const [uid, setUid] = useState(null);
   const navigate = useNavigate();
 
-  // function to store uid
+  // function to store uid to state and db
   async function storeUid() {
     if (auth.currentUser) {
-      const uid = auth.currentUser.uid;
+      setUid(auth.currentUser.uid);
       const email = auth.currentUser.email ? { email: auth.currentUser.email } : {};
       await setDoc(doc(db, "users", uid), email, { merge: true });
     }
@@ -31,6 +32,7 @@ function App() {
     const initialAuth = async () => {
       await setPersistence(auth, browserLocalPersistence);
       if (auth.currentUser) {
+        await storeUid();
         setIsSignedIn(auth.currentUser.isAnonymous ? false : true);
       } else {
         try {
@@ -84,7 +86,7 @@ function App() {
   return (
     <>
       <SignInStatus 
-        isSignedIn={isSignedIn} 
+        isSignedIn={isSignedIn}
         handleSignIn={handleSignIn}
         handleSignOut={handleSignOut}
       />
