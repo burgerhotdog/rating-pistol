@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
+import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import { setPersistence, browserLocalPersistence, signInAnonymously, signInWithPopup, GoogleAuthProvider , signOut } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from './firebase';
+import SignInStatus from './Components/SignInStatus';
 import Menu from './Pages/Menu';
-import LoginStatus from './Components/LoginStatus';
 
 import GI from './Pages/GI';
 import HSR from './Pages/HSR';
@@ -14,48 +14,80 @@ import WUWA from './Pages/WUWA';
 import './App.css';
 
 function App() {
-  // login state
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isSignedIn, setIsSignedIn] = useState(null);
+  const navigate = useNavigate();
 
+  // function to store uid
   async function storeUid() {
     if (auth.currentUser) {
-      const email = auth.currentUser.email || "guest";
-      await setDoc(doc(db, "users", auth.currentUser.uid), { email }, { merge: true });
+      const uid = auth.currentUser.uid;
+      const email = auth.currentUser.email ? { email: auth.currentUser.email } : {};
+      await setDoc(doc(db, "users", uid), email, { merge: true });
     }
   }
 
-  // update login state based on auth state
+  // auth on initial page load
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        if (user.isAnonymous) {
-          setIsLoggedIn(false); // anonymous auth -> not logged in
-        } else {
-          setIsLoggedIn(true); // google auth -> logged in
-        }
-        await storeUid();
+    const initialAuth = async () => {
+      await setPersistence(auth, browserLocalPersistence);
+      if (auth.currentUser) {
+        setIsSignedIn(auth.currentUser.isAnonymous ? false : true);
       } else {
-        if (isLoggedIn === null){
-          if (!auth.currentUser || !auth.currentUser.isAnonymous) {
-            // If there's no anonymous user, do anonymous auth
-            await signInAnonymously(auth);
-          }
-          setIsLoggedIn(false);
+        try {
+          await signInAnonymously(auth);
           await storeUid();
+          setIsSignedIn(false);
+        } catch (error) {
+          console.error("initial load fail:", error);
         }
       }
-    });
-    return () => unsubscribe();
+      navigate('/menu');
+    };
+    initialAuth();
   }, []);
 
-  // loading... message for first time visit
-  if (isLoggedIn === null) {
+  // function for sign-in
+  const handleSignIn = async () => {
+    try {
+      await signInWithPopup(auth, new GoogleAuthProvider());
+      await storeUid();
+      setIsSignedIn(true);
+      navigate('/menu');
+    } catch (error) {
+      if (error.code === "auth/cancelled-popup-request" || error.code === "auth/popup-closed-by-user") {
+        console.warn("sign-in popup closed by user");
+      } else {
+        console.error("sign-in failed:", error);
+        alert("An error occurred during Sign-In attempt. Please try again.");
+      }
+    }
+  };
+
+  // function for sign-out
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      await signInAnonymously(auth);
+      await storeUid();
+      setIsSignedIn(false);
+      navigate('/menu');
+    } catch (error) {
+      console.error("sign-out error occured:", error);
+    }
+  };
+
+  // display loading... on initial page load
+  if (isSignedIn === null) {
     return <div>Loading...</div>;
   }
 
   return (
-    <Router>
-      <LoginStatus isLoggedIn={isLoggedIn} />
+    <>
+      <SignInStatus 
+        isSignedIn={isSignedIn} 
+        handleSignIn={handleSignIn}
+        handleSignOut={handleSignOut}
+      />
       <Routes>
         <Route path="/menu" element={<Menu />} />
         
@@ -66,7 +98,7 @@ function App() {
         
         <Route path="*" element={<Navigate to="/menu" replace />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
