@@ -4,7 +4,7 @@ import { Box, Button, Typography, Container } from '@mui/material';
 
 const Menu = () => {
   return (
-    <Container maxWidth="sm" sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Container maxWidth="sm" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <Box
         display="flex"
         flexDirection="column"
@@ -13,8 +13,8 @@ const Menu = () => {
         gap={2}
         sx={{ width: '100%' }}
       >
-        <Typography variant="h4" gutterBottom>
-          Main Menu
+        <Typography variant="h2" gutterBottom>
+          Gacha Manager
         </Typography>
 
         <Button component={Link} to="/gi" variant="contained" fullWidth>

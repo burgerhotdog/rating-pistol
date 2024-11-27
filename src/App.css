@@ -4,3 +4,7 @@
   padding: 2rem;
   text-align: center;
 }
+
+body {
+  overflow-y: scroll; /* Forces the vertical scrollbar to always be visible */
+}

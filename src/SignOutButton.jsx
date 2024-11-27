@@ -1,18 +1,16 @@
 import React from 'react';
-import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 import { auth } from './firebase';
 import { Button, Box } from '@mui/material';
 
-const Logout = () => {
+const SignOutButton = () => {
   const navigate = useNavigate();
+  const email = auth.currentUser.email;
 
-  const email = auth.currentUser.isAnonymous ? 'Guest User' : auth.currentUser.email;
-
-  // handle logout
   const handleSignOut = async () => {
     await signOut(auth);
-    navigate('/login');
+    navigate('/menu');
   };
   
   return (
@@ -28,10 +26,10 @@ const Logout = () => {
     >
       <span style={{ marginRight: '10px' }}>{email}</span>
       <Button onClick={handleSignOut}>
-        {auth.currentUser.isAnonymous ? 'Sign in' : 'Sign Out'}
+        Sign Out
       </Button>
     </Box>
   );
 };
   
-export default Logout;
+export default SignOutButton;
