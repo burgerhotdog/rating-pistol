@@ -23,7 +23,7 @@ function App() {
     if (auth.currentUser) {
       setUid(auth.currentUser.uid);
       const email = auth.currentUser.email ? { email: auth.currentUser.email } : {};
-      await setDoc(doc(db, "users", uid), email, { merge: true });
+      await setDoc(doc(db, "users", auth.currentUser.uid), email, { merge: true });
     }
   }
 
