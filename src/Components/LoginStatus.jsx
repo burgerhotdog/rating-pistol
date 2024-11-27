@@ -16,8 +16,8 @@ const LoginStatus = ({ isLoggedIn }) => {
 
   const handleSignOut = async () => {
     await signOut(auth);
-    navigate('/menu');
     await signInAnonymously(auth);
+    navigate('/menu');
   };
   
   return (

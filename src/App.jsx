@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
-import { auth } from './firebase';
+import { doc, setDoc } from 'firebase/firestore';
+import { auth, db } from './firebase';
 import Menu from './Pages/Menu';
 import LoginStatus from './Components/LoginStatus';
 
@@ -16,19 +17,32 @@ function App() {
   // login state
   const [isLoggedIn, setIsLoggedIn] = useState(null);
 
+  async function storeUid() {
+    if (auth.currentUser) {
+      const email = auth.currentUser.email || "guest";
+      await setDoc(doc(db, "users", auth.currentUser.uid), { email }, { merge: true });
+    }
+  }
+
   // update login state based on auth state
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         if (user.isAnonymous) {
           setIsLoggedIn(false); // anonymous auth -> not logged in
         } else {
           setIsLoggedIn(true); // google auth -> logged in
         }
+        await storeUid();
       } else {
-        // no auth (first time visit), do anonymous auth -> not logged in
-        signInAnonymously(auth);
-        setIsLoggedIn(false);
+        if (isLoggedIn === null){
+          if (!auth.currentUser || !auth.currentUser.isAnonymous) {
+            // If there's no anonymous user, do anonymous auth
+            await signInAnonymously(auth);
+          }
+          setIsLoggedIn(false);
+          await storeUid();
+        }
       }
     });
     return () => unsubscribe();
