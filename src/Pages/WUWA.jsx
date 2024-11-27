@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import BackToMenu from './BackToMenu';
+import BackToMenu from '../Components/BackToMenu';
 
-const ZZZ = () => {
+const WUWA = () => {
   return (
     <Box
       display="flex"
@@ -12,10 +12,10 @@ const ZZZ = () => {
       gap={2}
       sx={{ textAlign: 'center' }}
     >
-      <Typography variant="h4" gutterBottom>Zenless Zone Zero</Typography>
+      <Typography variant="h4" gutterBottom>Wuthering Waves</Typography>
       <BackToMenu />
     </Box>
   );
 };
 
-export default ZZZ;
+export default WUWA;

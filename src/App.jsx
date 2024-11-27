@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged, signInAnonymously } from 'firebase/auth';
 import { auth } from './firebase';
-import Menu from './Menu';
-import SignInButton from './SignInButton';
-import SignOutButton from './SignOutButton';
+import Menu from './Pages/Menu';
+import LoginStatus from './Components/LoginStatus';
 
-import GI from './GI';
-import HSR from './HSR';
-import ZZZ from './ZZZ';
-import WUWA from './WUWA';
+import GI from './Pages/GI';
+import HSR from './Pages/HSR';
+import ZZZ from './Pages/ZZZ';
+import WUWA from './Pages/WUWA';
 
 import './App.css';
 
@@ -42,7 +41,7 @@ function App() {
 
   return (
     <Router>
-      {isLoggedIn ? <SignOutButton /> : <SignInButton />}
+      <LoginStatus isLoggedIn={isLoggedIn} />
       <Routes>
         <Route path="/menu" element={<Menu />} />
         

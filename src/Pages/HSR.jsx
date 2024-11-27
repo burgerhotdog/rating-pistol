@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import BackToMenu from './BackToMenu';
+import BackToMenu from '../Components/BackToMenu';
 
-const GI = () => {
+const HSR = () => {
   return (
     <Box
       display="flex"
@@ -12,10 +12,10 @@ const GI = () => {
       gap={2}
       sx={{ textAlign: 'center' }}
     >
-      <Typography variant="h4" gutterBottom>Genshin Impact</Typography>
+      <Typography variant="h4" gutterBottom>Honkai Star Rail</Typography>
       <BackToMenu />
     </Box>
   );
 };
 
-export default GI;
+export default HSR;
