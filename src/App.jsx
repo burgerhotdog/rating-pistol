@@ -93,18 +93,18 @@ function App() {
           root: {
             backgroundColor: '#242424',
             color: 'e0e0e0',
-          },
-        },
+          }
+        }
       },
       MuiTableCell: { styleOverrides: { root: { color: '#e0e0e0' } } },
       MuiSelect: {
         styleOverrides: {
           root: { color: '#e0e0e0' },
           icon: { color: '#e0e0e0' }
-        },
+        }
       },
       MuiMenu: { styleOverrides: { paper: { backgroundColor: '#333333' } } }
-    },
+    }
   });
 
   return (

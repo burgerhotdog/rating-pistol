@@ -33,6 +33,7 @@ const GIModal = ({
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
+          backgroundColor: '#242424',
           width: 400,
           boxShadow: 24,
           p: 4,
