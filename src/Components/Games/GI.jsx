@@ -60,8 +60,6 @@ const GI = () => {
       sx={{
         textAlign: 'center',
         padding: 2,
-        backgroundColor: '#242424', // Dark background color
-        color: '#e0e0e0', // Softer white text color
         minHeight: '100vh',
         fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif', // Custom font
       }}
@@ -76,20 +74,20 @@ const GI = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ color: '#e0e0e0' }}>Name</TableCell>
-              <TableCell sx={{ color: '#e0e0e0' }}>Constellation</TableCell>
-              <TableCell sx={{ color: '#e0e0e0' }}>Weapon</TableCell>
-              <TableCell sx={{ color: '#e0e0e0' }}>Refinement</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Constellation</TableCell>
+              <TableCell>Weapon</TableCell>
+              <TableCell>Refinement</TableCell>
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {characters.map((character, index) => (
               <TableRow key={index}>
-                <TableCell sx={{ color: '#e0e0e0' }}>{character.name}</TableCell>
-                <TableCell sx={{ color: '#e0e0e0' }}>{character.constellation}</TableCell>
-                <TableCell sx={{ color: '#e0e0e0' }}>{character.weapon}</TableCell>
-                <TableCell sx={{ color: '#e0e0e0' }}>{character.refinement}</TableCell>
+                <TableCell>{character.name}</TableCell>
+                <TableCell>{character.constellation}</TableCell>
+                <TableCell>{character.weapon}</TableCell>
+                <TableCell>{character.refinement}</TableCell>
                 <TableCell>
                   <Button
                     size="small"

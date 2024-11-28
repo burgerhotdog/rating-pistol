@@ -25,7 +25,8 @@ const Menu = () => {
             backgroundPosition: 'center',
             height: '80px', 
             fontWeight: 'bold', 
-            fontSize: '1.3rem', 
+            fontSize: '1.2rem', 
+            color: '#e0e0e0',
             '&:hover': {
               opacity: 0.8,
             },
@@ -44,7 +45,8 @@ const Menu = () => {
             backgroundPosition: 'center', 
             height: '80px', 
             fontWeight: 'bold', 
-            fontSize: '1.3rem', 
+            fontSize: '1.2rem', 
+            color: '#e0e0e0',
             '&:hover': {
               opacity: 0.8,
             },
@@ -63,7 +65,8 @@ const Menu = () => {
             backgroundPosition: 'center',
             height: '80px', 
             fontWeight: 'bold', 
-            fontSize: '1.3rem', 
+            fontSize: '1.2rem', 
+            color: '#e0e0e0',
             '&:hover': {
               opacity: 0.8,
             },
@@ -82,7 +85,8 @@ const Menu = () => {
             backgroundPosition: 'center',
             height: '80px', 
             fontWeight: 'bold', 
-            fontSize: '1.3rem', 
+            fontSize: '1.2rem', 
+            color: '#e0e0e0',
             '&:hover': {
               opacity: 0.8,
             },

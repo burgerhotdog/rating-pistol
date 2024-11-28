@@ -11,6 +11,7 @@ import HSR from './Components/Games/HSR';
 import ZZZ from './Components/Games/ZZZ';
 import WUWA from './Components/Games/WUWA';
 
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './App.css';
 
 function App() {
@@ -83,8 +84,31 @@ function App() {
     return <div>Loading...</div>;
   }
 
+  // theme
+  const theme = createTheme({
+    typography: { allVariants: { color: '#e0e0e0' } },
+    components: {
+      MuiBox: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#242424',
+            color: 'e0e0e0',
+          },
+        },
+      },
+      MuiTableCell: { styleOverrides: { root: { color: '#e0e0e0' } } },
+      MuiSelect: {
+        styleOverrides: {
+          root: { color: '#e0e0e0' },
+          icon: { color: '#e0e0e0' }
+        },
+      },
+      MuiMenu: { styleOverrides: { paper: { backgroundColor: '#333333' } } }
+    },
+  });
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <SignInStatus 
         isSignedIn={isSignedIn}
         handleSignIn={handleSignIn}
@@ -100,7 +124,7 @@ function App() {
         
         <Route path="*" element={<Navigate to="/menu" replace />} />
       </Routes>
-    </>
+    </ThemeProvider>
   );
 }
 

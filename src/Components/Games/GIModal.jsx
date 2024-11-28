@@ -34,8 +34,6 @@ const GIModal = ({
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: 400,
-          bgcolor: '#242424', // Dark background color for modal
-          color: '#e0e0e0', // Softer white text color for modal
           boxShadow: 24,
           p: 4,
           borderRadius: 2,
@@ -55,11 +53,7 @@ const GIModal = ({
           sx={{
             input: { color: '#e0e0e0' }, // Softer text color in input field
             '& .MuiInputLabel-root': { color: '#e0e0e0' }, // Softer label color
-            '& .MuiOutlinedInput-root': {
-              backgroundColor: '#3b3b3b', // Opaque background for input field
-              borderColor: '#646cff', // Light border color
-            },
-            '& .MuiOutlinedInput-notchedOutline': { borderColor: '#646cff' }, // Border color
+            '& .MuiOutlinedInput-root': { backgroundColor: '#3b3b3b' }
           }}
         />
         <Typography variant="body1" sx={{ mt: 2 }}>
@@ -72,9 +66,7 @@ const GIModal = ({
           onChange={handleInputChange}
           sx={{
             mb: 2,
-            color: '#e0e0e0', // Softer text color in Select field
             backgroundColor: '#3b3b3b', // Opaque background for Select field
-            '& .MuiOutlinedInput-root': { borderColor: '#646cff' }, // Outline border color
           }}
         >
           {['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6'].map((level) => (
@@ -94,11 +86,7 @@ const GIModal = ({
           sx={{
             input: { color: '#e0e0e0' }, // Softer text color in input field
             '& .MuiInputLabel-root': { color: '#e0e0e0' }, // Softer label color
-            '& .MuiOutlinedInput-root': {
-              backgroundColor: '#3b3b3b', // Opaque background for input field
-              borderColor: '#646cff', // Light border color
-            },
-            '& .MuiOutlinedInput-notchedOutline': { borderColor: '#646cff' }, // Border color
+            '& .MuiOutlinedInput-root': { backgroundColor: '#3b3b3b' }
           }}
         />
 
@@ -113,8 +101,7 @@ const GIModal = ({
           sx={{
             mb: 2,
             color: '#e0e0e0', // Softer text color in Select field
-            backgroundColor: '#3b3b3b', // Opaque background for Select field
-            '& .MuiOutlinedInput-root': { borderColor: '#646cff' }, // Outline border color
+            backgroundColor: '#3b3b3b'
           }}
         >
           {['r1', 'r2', 'r3', 'r4', 'r5'].map((level) => (
