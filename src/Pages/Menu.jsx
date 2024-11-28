@@ -4,29 +4,90 @@ import { Box, Button, Typography, Container } from '@mui/material';
 
 const Menu = () => {
   return (
-    <Container maxWidth="sm" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Container>
       <Box
         display="flex"
         flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        gap={2}
-        sx={{ width: '100%' }}
+        gap={1.5}
       >
-        <Typography variant="h2" gutterBottom>
+        <Typography variant="h3" gutterBottom>
           Gacha Manager
         </Typography>
 
-        <Button component={Link} to="/gi" variant="contained" fullWidth>
+        <Button 
+          component={Link} 
+          to="/gi" 
+          variant="contained" 
+          fullWidth 
+          sx={{
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/gi.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            height: '80px', 
+            fontWeight: 'bold', 
+            fontSize: '1.3rem', 
+            '&:hover': {
+              opacity: 0.8,
+            },
+          }}
+        >
           Genshin Impact
         </Button>
-        <Button component={Link} to="/hsr" variant="contained" fullWidth>
+        <Button 
+          component={Link} 
+          to="/hsr" 
+          variant="contained" 
+          fullWidth 
+          sx={{ 
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/hsr.webp)', 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center', 
+            height: '80px', 
+            fontWeight: 'bold', 
+            fontSize: '1.3rem', 
+            '&:hover': {
+              opacity: 0.8,
+            },
+          }}
+        >
           Honkai Star Rail
         </Button>
-        <Button component={Link} to="/zzz" variant="contained" fullWidth>
+        <Button 
+          component={Link} 
+          to="/zzz" 
+          variant="contained" 
+          fullWidth 
+          sx={{
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/zzz.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            height: '80px', 
+            fontWeight: 'bold', 
+            fontSize: '1.3rem', 
+            '&:hover': {
+              opacity: 0.8,
+            },
+          }}
+        >
           Zenless Zone Zero
         </Button>
-        <Button component={Link} to="/wuwa" variant="contained" fullWidth>
+        <Button 
+          component={Link} 
+          to="/wuwa" 
+          variant="contained" 
+          fullWidth 
+          sx={{
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/wuwa.webp)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            height: '80px', 
+            fontWeight: 'bold', 
+            fontSize: '1.3rem', 
+            '&:hover': {
+              opacity: 0.8,
+            },
+          }}
+        >
           Wuthering Waves
         </Button>
       </Box>
