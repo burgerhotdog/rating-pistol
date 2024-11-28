@@ -1,5 +1,3 @@
-// src/Components/CharacterModal.js
-
 import React from 'react';
 import {
   Box,
@@ -11,7 +9,7 @@ import {
   Modal,
 } from '@mui/material';
 
-const CharacterModal = ({
+const GIModal = ({
   openModal,
   setOpenModal,
   newCharacter,
@@ -145,4 +143,4 @@ const CharacterModal = ({
   );
 };
 
-export default CharacterModal;
+export default GIModal;

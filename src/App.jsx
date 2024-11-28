@@ -4,12 +4,12 @@ import { setPersistence, browserLocalPersistence, signInAnonymously, signInWithP
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from './firebase';
 import SignInStatus from './Components/SignInStatus';
-import Menu from './Pages/Menu';
+import Menu from './Components/Menu';
 
-import GI from './Pages/GI';
-import HSR from './Pages/HSR';
-import ZZZ from './Pages/ZZZ';
-import WUWA from './Pages/WUWA';
+import GI from './Components/Games/GI';
+import HSR from './Components/Games/HSR';
+import ZZZ from './Components/Games/ZZZ';
+import WUWA from './Components/Games/WUWA';
 
 import './App.css';
 

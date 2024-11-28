@@ -1,9 +1,7 @@
-// src/Pages/GI.js
-
 import React, { useState } from 'react';
 import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import BackToMenu from '../Components/BackToMenu';
-import CharacterModal from './CharacterModal';
+import BackToMenu from '../BackToMenu';
+import GIModal from './GIModal';
 
 const GI = () => {
   const [characters, setCharacters] = useState([]);
@@ -123,7 +121,7 @@ const GI = () => {
       </Button>
 
       {/* Modal for Adding/Editing Characters */}
-      <CharacterModal
+      <GIModal
         openModal={openModal}
         setOpenModal={setOpenModal}
         newCharacter={newCharacter}
