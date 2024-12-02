@@ -4,50 +4,60 @@ import BackToMenu from '../BackToMenu';
 import GIModal from './GIModal';
 
 const GI = () => {
-  const [characters, setCharacters] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
-  const [newCharacter, setNewCharacter] = useState({
-    name: '',
+  // modal state
+  const [isModal, setIsModal] = useState(false);
+  const toggleModal = () => setIsModal(prev => !prev);
+
+  // characters data
+  const [myChars, setMyChars] = useState([]);
+  const [newChar, setNewChar] = useState({
+    name: '(select)',
     constellation: 'c0',
-    weapon: '',
+    weapon: '(select)',
     refinement: 'r1',
   });
   const [editIndex, setEditIndex] = useState(null); // Track index for editing
 
+  // on form input change
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setNewCharacter({ ...newCharacter, [name]: value });
+    setNewChar({ ...newChar, [name]: value });
   };
 
-  const handleSaveCharacter = () => {
+  // save button
+  const handleSaveChar = () => {
     if (editIndex !== null) {
-      // Update existing character
-      const updatedCharacters = [...characters];
-      updatedCharacters[editIndex] = newCharacter;
-      setCharacters(updatedCharacters);
+      // edit existing character
+      const updatedChars = [...myChars];
+      updatedChars[editIndex] = newChar;
+      setMyChars(updatedChars);
       setEditIndex(null);
     } else {
-      // Add new character
-      setCharacters([...characters, newCharacter]);
+      // add new character
+      setMyChars([...myChars, newChar]);
     }
-    setNewCharacter({
+
+    // reset states
+    setNewChar({
       name: '',
       constellation: 'c0',
       weapon: '',
       refinement: 'r1',
     });
-    setOpenModal(false);
+    toggleModal();
   };
 
-  const handleEditCharacter = (index) => {
+  // edit button
+  const handleEditChar = (index) => {
     setEditIndex(index);
-    setNewCharacter(characters[index]);
-    setOpenModal(true);
+    setNewChar(myChars[index]);
+    toggleModal();
   };
 
-  const handleDeleteCharacter = (index) => {
-    const updatedCharacters = characters.filter((_, i) => i !== index);
-    setCharacters(updatedCharacters);
+  // cancel button
+  const handleDeleteChar = (index) => {
+    const updatedChars = myChars.filter((_, i) => i !== index);
+    setMyChars(updatedChars);
   };
 
   return (
@@ -61,7 +71,7 @@ const GI = () => {
         textAlign: 'center',
         padding: 2,
         minHeight: '100vh',
-        fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif', // Custom font
+        fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
       }}
     >
       <Typography variant="h4" gutterBottom>
@@ -82,18 +92,18 @@ const GI = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {characters.map((character, index) => (
+            {myChars.map((char, index) => (
               <TableRow key={index}>
-                <TableCell>{character.name}</TableCell>
-                <TableCell>{character.constellation}</TableCell>
-                <TableCell>{character.weapon}</TableCell>
-                <TableCell>{character.refinement}</TableCell>
+                <TableCell>{char.name}</TableCell>
+                <TableCell>{char.constellation}</TableCell>
+                <TableCell>{char.weapon}</TableCell>
+                <TableCell>{char.refinement}</TableCell>
                 <TableCell>
                   <Button
                     size="small"
                     variant="outlined"
                     color="primary"
-                    onClick={() => handleEditCharacter(index)}
+                    onClick={() => handleEditChar(index)}
                     sx={{ mr: 1 }}
                   >
                     Edit
@@ -102,7 +112,7 @@ const GI = () => {
                     size="small"
                     variant="outlined"
                     color="secondary"
-                    onClick={() => handleDeleteCharacter(index)}
+                    onClick={() => handleDeleteChar(index)}
                   >
                     Delete
                   </Button>
@@ -113,19 +123,19 @@ const GI = () => {
         </Table>
       </TableContainer>
 
-      {/* Add Character Button */}
-      <Button variant="contained" color="primary" onClick={() => setOpenModal(true)}>
+      {/* add character button */}
+      <Button variant="contained" color="primary" onClick={toggleModal}>
         Add Character
       </Button>
 
-      {/* Modal for Adding/Editing Characters */}
+      {/* modal for adding/editing characters */}
       <GIModal
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-        newCharacter={newCharacter}
-        setNewCharacter={setNewCharacter}
+        isModal={isModal}
+        toggleModal={toggleModal}
+        newChar={newChar}
+        setNewChar={setNewChar}
         handleInputChange={handleInputChange}
-        handleSaveCharacter={handleSaveCharacter}
+        handleSaveChar={handleSaveChar}
         editIndex={editIndex}
       />
     </Box>

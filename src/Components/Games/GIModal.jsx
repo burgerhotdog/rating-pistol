@@ -2,20 +2,18 @@ import React from 'react';
 import { Box, Typography, TextField, Select, MenuItem, Button, Modal } from '@mui/material';
 
 const GIModal = ({
-  openModal,
-  setOpenModal,
-  newCharacter,
-  setNewCharacter,
+  isModal,
+  toggleModal,
+  newChar,
+  setNewChar,
   handleInputChange,
-  handleSaveCharacter,
+  handleSaveChar,
   editIndex,
 }) => {
   return (
     <Modal
-      open={openModal}
-      onClose={() => {
-        setOpenModal(false);
-      }}
+      open={isModal}
+      onClose={toggleModal}
       aria-labelledby="add-character-modal"
       aria-describedby="add-character-modal-description"
     >
@@ -36,52 +34,53 @@ const GIModal = ({
           {editIndex !== null ? 'Edit Character' : 'Add New Character'}
         </Typography>
 
-        <TextField
+        <Typography variant="body1" sx={{ mt: 2 }}>
+          Name
+        </Typography>
+        <Select
           fullWidth
-          label="Name"
           name="name"
-          value={newCharacter.name}
+          value={newChar.name}
           onChange={handleInputChange}
-          margin="normal"
-          sx={{
-            input: { color: '#e0e0e0' }, // Softer text color in input field
-            '& .MuiInputLabel-root': { color: '#e0e0e0' }, // Softer label color
-            '& .MuiOutlinedInput-root': { backgroundColor: '#3b3b3b' }
-          }}
-        />
+        >
+          {['(select)', 'character1', 'character2'].map((item) => (
+            <MenuItem key={item} value={item}>
+              {item}
+            </MenuItem>
+          ))}
+        </Select>
+
         <Typography variant="body1" sx={{ mt: 2 }}>
           Constellation
         </Typography>
         <Select
           fullWidth
           name="constellation"
-          value={newCharacter.constellation}
+          value={newChar.constellation}
           onChange={handleInputChange}
-          sx={{
-            mb: 2,
-            backgroundColor: '#3b3b3b', // Opaque background for Select field
-          }}
         >
-          {['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6'].map((level) => (
-            <MenuItem key={level} value={level}>
-              {level.toUpperCase()}
+          {['c0', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6'].map((item) => (
+            <MenuItem key={item} value={item}>
+              {item}
             </MenuItem>
           ))}
         </Select>
 
-        <TextField
+        <Typography variant="body1" sx={{ mt: 2 }}>
+          Weapon
+        </Typography>
+        <Select
           fullWidth
-          label="Weapon"
           name="weapon"
-          value={newCharacter.weapon}
+          value={newChar.weapon}
           onChange={handleInputChange}
-          margin="normal"
-          sx={{
-            input: { color: '#e0e0e0' }, // Softer text color in input field
-            '& .MuiInputLabel-root': { color: '#e0e0e0' }, // Softer label color
-            '& .MuiOutlinedInput-root': { backgroundColor: '#3b3b3b' }
-          }}
-        />
+        >
+          {['(select)', 'weapon1', 'weapon2'].map((item) => (
+            <MenuItem key={item} value={item}>
+              {item}
+            </MenuItem>
+          ))}
+        </Select>
 
         <Typography variant="body1" sx={{ mt: 2 }}>
           Refinement
@@ -89,32 +88,21 @@ const GIModal = ({
         <Select
           fullWidth
           name="refinement"
-          value={newCharacter.refinement}
+          value={newChar.refinement}
           onChange={handleInputChange}
-          sx={{
-            mb: 2,
-            color: '#e0e0e0', // Softer text color in Select field
-            backgroundColor: '#3b3b3b'
-          }}
         >
-          {['r1', 'r2', 'r3', 'r4', 'r5'].map((level) => (
-            <MenuItem key={level} value={level}>
-              {level.toUpperCase()}
+          {['r1', 'r2', 'r3', 'r4', 'r5'].map((item) => (
+            <MenuItem key={item} value={item}>
+              {item}
             </MenuItem>
           ))}
         </Select>
 
         <Box display="flex" justifyContent="center" gap={2} mt={2}>
-          <Button
-            variant="outlined"
-            color="secondary"
-            onClick={() => {
-              setOpenModal(false);
-            }}
-          >
+          <Button variant="outlined" color="secondary" onClick={toggleModal}>
             Cancel
           </Button>
-          <Button variant="contained" color="primary" onClick={handleSaveCharacter}>
+          <Button variant="contained" color="primary" onClick={handleSaveChar}>
             Save
           </Button>
         </Box>
