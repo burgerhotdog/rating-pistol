@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Typography,
-  TextField,
-  Select,
-  MenuItem,
-  Button,
-  Modal,
-} from '@mui/material';
+import { Box, Typography, TextField, Select, MenuItem, Button, Modal } from '@mui/material';
 
 const GIModal = ({
   openModal,
