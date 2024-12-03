@@ -3,7 +3,7 @@ import { auth } from '../firebase';
 import { Button, Box } from '@mui/material';
 
 const SignInStatus = ({ isSignedIn, handleSignIn, handleSignOut }) => {
-  const email = !isSignedIn ? "(not signed in)" : auth.currentUser.email;
+  const email = isSignedIn ? auth.currentUser.email : "(not signed in)";
   
   return (
     <Box
@@ -17,8 +17,8 @@ const SignInStatus = ({ isSignedIn, handleSignIn, handleSignOut }) => {
       }}
     >
       <span style={{ marginRight: '10px' }}>{email}</span>
-      <Button onClick={!isSignedIn ? handleSignIn : handleSignOut}>
-        {!isSignedIn ? "Sign In" : "Sign Out"}
+      <Button onClick={isSignedIn ? handleSignOut : handleSignIn}>
+        {isSignedIn ? "Sign Out" : "Sign In"}
       </Button>
     </Box>
   );

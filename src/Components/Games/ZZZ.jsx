@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import BackToMenu from '../Components/BackToMenu';
+import BackToMenu from '../BackToMenu';
 
 const ZZZ = () => {
   return (

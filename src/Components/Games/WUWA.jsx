@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import BackToMenu from '../Components/BackToMenu';
+import BackToMenu from '../BackToMenu';
 
-const GI = () => {
+const WUWA = () => {
   return (
     <Box
       display="flex"
@@ -12,10 +12,10 @@ const GI = () => {
       gap={2}
       sx={{ textAlign: 'center' }}
     >
-      <Typography variant="h4" gutterBottom>Genshin Impact</Typography>
+      <Typography variant="h4" gutterBottom>Wuthering Waves</Typography>
       <BackToMenu />
     </Box>
   );
 };
 
-export default GI;
+export default WUWA;

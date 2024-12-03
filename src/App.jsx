@@ -1,60 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
-import { setPersistence, browserLocalPersistence, signInAnonymously, signInWithPopup, GoogleAuthProvider , signOut } from 'firebase/auth';
+import { setPersistence, browserLocalPersistence, onAuthStateChanged, signInWithPopup, GoogleAuthProvider , signOut } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from './firebase';
 import SignInStatus from './Components/SignInStatus';
-import Menu from './Pages/Menu';
+import Menu from './Components/Menu';
 
-import GI from './Pages/GI';
-import HSR from './Pages/HSR';
-import ZZZ from './Pages/ZZZ';
-import WUWA from './Pages/WUWA';
-
+import GI from './Components/Games/GI';
+import HSR from './Components/Games/HSR';
+import ZZZ from './Components/Games/ZZZ';
+import WUWA from './Components/Games/WUWA';
 import './App.css';
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(null);
-  const [uid, setUid] = useState(null);
-  const navigate = useNavigate();
 
   // function to store uid to state and db
   async function storeUid() {
-    if (auth.currentUser) {
-      setUid(auth.currentUser.uid);
-      const email = auth.currentUser.email ? { email: auth.currentUser.email } : {};
-      await setDoc(doc(db, "users", auth.currentUser.uid), email, { merge: true });
-    }
+    const email = auth.currentUser.email;
+    await setDoc(doc(db, "users", auth.currentUser.uid), { email }, { merge: true });
   }
 
-  // auth on initial page load
+  // update isSignedIn and store uid on auth change
   useEffect(() => {
-    const initialAuth = async () => {
-      await setPersistence(auth, browserLocalPersistence);
-      if (auth.currentUser) {
-        await storeUid();
-        setIsSignedIn(auth.currentUser.isAnonymous ? false : true);
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        await setDoc(doc(db, "users", user.uid), { email: user.email }, { merge: true });
+        setIsSignedIn(true);
       } else {
-        try {
-          await signInAnonymously(auth);
-          await storeUid();
-          setIsSignedIn(false);
-        } catch (error) {
-          console.error("initial load fail:", error);
-        }
+        setIsSignedIn(false);
       }
-      navigate('/menu');
-    };
-    initialAuth();
+    });
+    return () => unsubscribe();
   }, []);
 
   // function for sign-in
   const handleSignIn = async () => {
     try {
+      await setPersistence(auth, browserLocalPersistence);
       await signInWithPopup(auth, new GoogleAuthProvider());
-      await storeUid();
-      setIsSignedIn(true);
-      navigate('/menu');
     } catch (error) {
       if (error.code === "auth/cancelled-popup-request" || error.code === "auth/popup-closed-by-user") {
         console.warn("sign-in popup closed by user");
@@ -67,15 +51,7 @@ function App() {
 
   // function for sign-out
   const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-      await signInAnonymously(auth);
-      await storeUid();
-      setIsSignedIn(false);
-      navigate('/menu');
-    } catch (error) {
-      console.error("sign-out error occured:", error);
-    }
+    await signOut(auth);
   };
 
   // display loading... on initial page load
