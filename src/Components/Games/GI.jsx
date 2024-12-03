@@ -1,83 +1,37 @@
 import React, { useState } from 'react';
-import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
+import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import BackToMenu from '../BackToMenu';
-import GIAdd from './GIAdd';
+import GIAddEdit from './GIAddEdit';
 import GIDelete from './GIDelete';
+import GIChar from './GIChar';
 
 const GI = () => {
-  // modal states
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(state => !state);
+  // modal and index states
+  const [isAddEditOpen, setIsAddEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const toggleDelete = () => setIsDeleteOpen(state => !state);
-
-  // my characters data
-  const [myChars, setMyChars] = useState([]);
-  const [newChar, setNewChar] = useState({
-    name: '(select)',
-    constellation: 'c0',
-    weapon: '(select)',
-    refinement: 'r1',
-  });
-
-  // track index for edit and delete
   const [editIndex, setEditIndex] = useState(null);
   const [deleteIndex, setDeleteIndex] = useState(null);
 
-  // on form input change
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewChar({ ...newChar, [name]: value });
+  // character data
+  const [myChars, setMyChars] = useState([]);
+  const [newChar, setNewChar] = useState(GIChar);
+
+  // button handlers
+  const handleAddChar = () => {
+    setEditIndex(null);
+    setNewChar(GIChar());
+    setIsAddEditOpen(true);
   };
 
-  // save button
-  const handleSaveChar = () => {
-    if (editIndex !== null) {
-      // edit existing character
-      const updatedChars = [...myChars];
-      updatedChars[editIndex] = newChar;
-      setMyChars(updatedChars);
-      setEditIndex(null);
-    } else {
-      // add new character
-      setMyChars([...myChars, newChar]);
-    }
-
-    // reset states
-    setNewChar({
-      name: '(select)',
-      constellation: 'c0',
-      weapon: '(select)',
-      refinement: 'r1',
-    });
-    toggleModal();
-  };
-
-  // edit button
   const handleEditChar = (index) => {
     setEditIndex(index);
     setNewChar(myChars[index]);
-    toggleModal();
+    setIsAddEditOpen(true);
   };
 
-  // open confirmation dialog after using delete button
   const handleDeleteChar = (index) => {
     setDeleteIndex(index);
-    toggleDelete();
-  };
-
-  // confirm delete
-  const handleConfirmDelete = () => {
-    const updatedChars = myChars.filter((_, i) => i !== deleteIndex);
-    setMyChars(updatedChars);
-    toggleDelete();
-    setDeleteIndex(null);
-  };
-
-  // cancel delete
-  const handleCancelDelete = () => {
-    toggleDelete();
-    setDeleteIndex(null);
+    setIsDeleteOpen(true);
   };
 
   return (
@@ -98,8 +52,6 @@ const GI = () => {
         Genshin Impact
       </Typography>
       <BackToMenu />
-
-      {/* Character Table */}
       <TableContainer sx={{ maxWidth: 800, mt: 2 }}>
         <Table>
           <TableHead>
@@ -126,6 +78,7 @@ const GI = () => {
                   <TableCell>{char.weapon}</TableCell>
                   <TableCell>{char.refinement}</TableCell>
                   <TableCell>
+                    {/* button to edit character */}
                     <Button
                       size="small"
                       variant="outlined"
@@ -135,6 +88,7 @@ const GI = () => {
                     >
                       Edit
                     </Button>
+                    {/* button to delete character */}
                     <Button
                       size="small"
                       variant="outlined"
@@ -151,27 +105,29 @@ const GI = () => {
         </Table>
       </TableContainer>
 
-      {/* Add character button */}
-      <Button variant="contained" color="primary" onClick={toggleModal}>
+      {/* button to add character */}
+      <Button variant="contained" color="primary" onClick={handleAddChar}>
         Add Character
       </Button>
 
-      {/* modal for adding/editing characters */}
-      <GIAdd
-        isModalOpen={isModalOpen}
-        toggleModal={toggleModal}
+      {/* modal to add or edit character */}
+      <GIAddEdit
+        isAddEditOpen={isAddEditOpen}
+        setIsAddEditOpen={setIsAddEditOpen}
+        editIndex={editIndex}
+        setEditIndex={setEditIndex}
+        myChars={myChars}
+        setMyChars={setMyChars}
         newChar={newChar}
         setNewChar={setNewChar}
-        handleInputChange={handleInputChange}
-        handleSaveChar={handleSaveChar}
-        editIndex={editIndex}
       />
 
-      {/* Confirmation Dialog */}
+      {/* modal to delete character */}
       <GIDelete
         isDeleteOpen={isDeleteOpen}
-        toggleDelete={toggleDelete}
-        handleConfirmDelete={handleConfirmDelete}
+        setIsDeleteOpen={setIsDeleteOpen}
+        deleteIndex={deleteIndex}
+        setDeleteIndex={setDeleteIndex}
       />
     </Box>
   );
