@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Select, MenuItem, Button, Modal } from '@mui/material';
+import { Box, Typography, Button, Modal } from '@mui/material';
 
 const GIDelete = ({
   isDeleteOpen,
