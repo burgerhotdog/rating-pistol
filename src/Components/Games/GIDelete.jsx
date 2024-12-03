@@ -3,15 +3,28 @@ import { Box, Typography, Button, Modal } from '@mui/material';
 
 const GIDelete = ({
   isDeleteOpen,
-  toggleDelete,
-  handleConfirmDelete
+  setIsDeleteOpen,
+  deleteIndex,
+  setDeleteIndex,
 }) => {
+  // delete
+  const handleConfirmDelete = () => {
+    const updatedChars = myChars.filter((_, i) => i !== deleteIndex);
+    setMyChars(updatedChars);
+    setDeleteIndex(null);
+    setIsDeleteOpen(false);
+  };
+
+  // cancel
+  const handleCancelDelete = () => {
+    setDeleteIndex(null);
+    setIsDeleteOpen(false);
+  };
+
   return (
     <Modal
       open={isDeleteOpen}
-      onClose={toggleDelete}
-      aria-labelledby="delete-character-modal"
-      aria-describedby="delete-character-modal-description"
+      onClose={handleCancelDelete}
     >
       <Box
         sx={{
@@ -34,7 +47,7 @@ const GIDelete = ({
         </Typography>
 
         <Box display="flex" justifyContent="center" gap={2} mt={2}>
-          <Button variant="outlined" color="primary" onClick={toggleDelete}>
+          <Button variant="outlined" color="primary" onClick={handleCancelDelete}>
             Cancel
           </Button>
           <Button variant="contained" color="secondary" onClick={handleConfirmDelete}>
