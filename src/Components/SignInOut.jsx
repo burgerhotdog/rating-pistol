@@ -2,7 +2,7 @@ import React from 'react';
 import { auth } from '../firebase';
 import { Button, Box } from '@mui/material';
 
-const SignInStatus = ({ isSignedIn, handleSignIn, handleSignOut }) => {
+const SignInOut = ({ isSignedIn, handleSignIn, handleSignOut }) => {
   const email = isSignedIn ? auth.currentUser.email : "(not signed in)";
   
   return (
@@ -24,4 +24,4 @@ const SignInStatus = ({ isSignedIn, handleSignIn, handleSignOut }) => {
   );
 };
   
-export default SignInStatus;
+export default SignInOut;
