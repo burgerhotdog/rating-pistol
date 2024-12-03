@@ -14,7 +14,7 @@ const GIDelete = ({
     setDeleteIndex(null);
     setIsDeleteOpen(false);
   };
-  
+
   // cancel
   const handleCancelDelete = () => {
     setDeleteIndex(null);
@@ -25,8 +25,6 @@ const GIDelete = ({
     <Modal
       open={isDeleteOpen}
       onClose={handleCancelDelete}
-      aria-labelledby="delete-character-modal"
-      aria-describedby="delete-character-modal-description"
     >
       <Box
         sx={{

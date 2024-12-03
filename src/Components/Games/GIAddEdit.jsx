@@ -67,8 +67,6 @@ const GIAddEdit = ({
     <Modal
       open={isAddEditOpen}
       onClose={handleCancelAddEdit}
-      aria-labelledby="add-character-modal"
-      aria-describedby="add-character-modal-description"
     >
       <Box
         sx={{
