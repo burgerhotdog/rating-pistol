@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Typography, TextField, Select, MenuItem, Button, Modal } from '@mui/material';
+import { Box, Typography, Select, MenuItem, Button, Modal } from '@mui/material';
 
-const GIModal = ({
-  isModal,
+const GIAdd = ({
+  isModalOpen,
   toggleModal,
   newChar,
   setNewChar,
@@ -12,7 +12,7 @@ const GIModal = ({
 }) => {
   return (
     <Modal
-      open={isModal}
+      open={isModalOpen}
       onClose={toggleModal}
       aria-labelledby="add-character-modal"
       aria-describedby="add-character-modal-description"
@@ -111,4 +111,4 @@ const GIModal = ({
   );
 };
 
-export default GIModal;
+export default GIAdd;

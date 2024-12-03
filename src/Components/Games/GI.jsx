@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 import BackToMenu from '../BackToMenu';
-import GIModal from './GIModal';
+import GIAdd from './GIAdd';
+import GIDelete from './GIDelete';
 
 const GI = () => {
-  // modal state
-  const [isModal, setIsModal] = useState(false);
-  const toggleModal = () => setIsModal(prev => !prev);
+  // modal states
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(state => !state);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const toggleDelete = () => setIsDeleteOpen(state => !state);
 
-  // characters data
+  // my characters data
   const [myChars, setMyChars] = useState([]);
   const [newChar, setNewChar] = useState({
     name: '(select)',
@@ -16,7 +19,10 @@ const GI = () => {
     weapon: '(select)',
     refinement: 'r1',
   });
-  const [editIndex, setEditIndex] = useState(null); // Track index for editing
+
+  // track index for edit and delete
+  const [editIndex, setEditIndex] = useState(null);
+  const [deleteIndex, setDeleteIndex] = useState(null);
 
   // on form input change
   const handleInputChange = (e) => {
@@ -39,9 +45,9 @@ const GI = () => {
 
     // reset states
     setNewChar({
-      name: '',
+      name: '(select)',
       constellation: 'c0',
-      weapon: '',
+      weapon: '(select)',
       refinement: 'r1',
     });
     toggleModal();
@@ -54,10 +60,24 @@ const GI = () => {
     toggleModal();
   };
 
-  // cancel button
+  // open confirmation dialog after using delete button
   const handleDeleteChar = (index) => {
-    const updatedChars = myChars.filter((_, i) => i !== index);
+    setDeleteIndex(index);
+    toggleDelete();
+  };
+
+  // confirm delete
+  const handleConfirmDelete = () => {
+    const updatedChars = myChars.filter((_, i) => i !== deleteIndex);
     setMyChars(updatedChars);
+    toggleDelete();
+    setDeleteIndex(null);
+  };
+
+  // cancel delete
+  const handleCancelDelete = () => {
+    toggleDelete();
+    setDeleteIndex(null);
   };
 
   return (
@@ -92,51 +112,66 @@ const GI = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {myChars.map((char, index) => (
-              <TableRow key={index}>
-                <TableCell>{char.name}</TableCell>
-                <TableCell>{char.constellation}</TableCell>
-                <TableCell>{char.weapon}</TableCell>
-                <TableCell>{char.refinement}</TableCell>
-                <TableCell>
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    color="primary"
-                    onClick={() => handleEditChar(index)}
-                    sx={{ mr: 1 }}
-                  >
-                    Edit
-                  </Button>
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    color="secondary"
-                    onClick={() => handleDeleteChar(index)}
-                  >
-                    Delete
-                  </Button>
+            {myChars.length === 0 ? (
+              <TableRow>
+                <TableCell colSpan={5} align="center">
+                  No characters to display
                 </TableCell>
               </TableRow>
-            ))}
+            ) : (
+              myChars.map((char, index) => (
+                <TableRow key={index}>
+                  <TableCell>{char.name}</TableCell>
+                  <TableCell>{char.constellation}</TableCell>
+                  <TableCell>{char.weapon}</TableCell>
+                  <TableCell>{char.refinement}</TableCell>
+                  <TableCell>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="primary"
+                      onClick={() => handleEditChar(index)}
+                      sx={{ mr: 1 }}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="secondary"
+                      onClick={() => handleDeleteChar(index)}
+                    >
+                      Delete
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
           </TableBody>
         </Table>
       </TableContainer>
 
-      {/* add character button */}
+      {/* Add character button */}
       <Button variant="contained" color="primary" onClick={toggleModal}>
         Add Character
       </Button>
 
       {/* modal for adding/editing characters */}
-      <GIModal
-        isModal={isModal}
+      <GIAdd
+        isModalOpen={isModalOpen}
         toggleModal={toggleModal}
         newChar={newChar}
         setNewChar={setNewChar}
         handleInputChange={handleInputChange}
         handleSaveChar={handleSaveChar}
         editIndex={editIndex}
+      />
+
+      {/* Confirmation Dialog */}
+      <GIDelete
+        isDeleteOpen={isDeleteOpen}
+        toggleDelete={toggleDelete}
+        handleConfirmDelete={handleConfirmDelete}
       />
     </Box>
   );
