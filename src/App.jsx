@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
-import { setPersistence, browserLocalPersistence, onAuthStateChanged, signInWithPopup, GoogleAuthProvider , signOut } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from './firebase';
 import SignInOut from './Components/SignInOut';
@@ -29,15 +29,6 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  const handleSignIn = async () => {
-    await setPersistence(auth, browserLocalPersistence);
-    await signInWithPopup(auth, new GoogleAuthProvider());
-  };
-
-  const handleSignOut = async () => {
-    await signOut(auth);
-  };
-
   // display loading... on initial page load
   if (isLoading == true) {
     return <div>Loading...</div>;
@@ -47,8 +38,6 @@ function App() {
     <HashRouter>
       <SignInOut 
         isSignedIn={isSignedIn}
-        handleSignIn={handleSignIn}
-        handleSignOut={handleSignOut}
       />
       <Routes>
         <Route path="/menu" element={<Menu />} />

@@ -1,9 +1,19 @@
 import React from 'react';
 import { auth } from '../firebase';
 import { Button, Box } from '@mui/material';
+import { setPersistence, browserLocalPersistence, signInWithPopup, GoogleAuthProvider , signOut } from 'firebase/auth';
 
-const SignInOut = ({ isSignedIn, handleSignIn, handleSignOut }) => {
+const SignInOut = ({ isSignedIn }) => {
   const email = isSignedIn ? auth.currentUser.email : "(not signed in)";
+
+  const handleSignIn = async () => {
+    await setPersistence(auth, browserLocalPersistence);
+    await signInWithPopup(auth, new GoogleAuthProvider());
+  };
+
+  const handleSignOut = async () => {
+    await signOut(auth);
+  };
   
   return (
     <Box
