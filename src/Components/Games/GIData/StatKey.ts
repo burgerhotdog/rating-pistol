@@ -18,3 +18,5 @@ type StatKey
   | "pyro_dmg_" //Pyro DMG Bonus
   | "cryo_dmg_" //Cryo DMG Bonus
   | "dendro_dmg_" //Dendro DMG Bonus
+
+export default StatKey;

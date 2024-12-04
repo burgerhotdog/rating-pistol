@@ -14,6 +14,7 @@ import './App.css';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [uid, setUid] = useState(null);
 
   // update state and store uid when auth changes
   useEffect(() => {
@@ -21,8 +22,10 @@ function App() {
       if (user) {
         await setDoc(doc(db, "users", user.uid), { email: user.email }, { merge: true });
         setIsSignedIn(true);
+        setUid(user.uid);
       } else {
         setIsSignedIn(false);
+        setUid(null);
       }
       setIsLoading(false);
     });
@@ -41,10 +44,10 @@ function App() {
       />
       <Routes>
         <Route path="/menu" element={<Menu />} />
-        <Route path="/gi" element={<GI />} />
-        <Route path="/hsr" element={<HSR />} />
-        <Route path="/zzz" element={<ZZZ />} />
-        <Route path="/wuwa" element={<WUWA />} />
+        <Route path="/gi" element={<GI uid={uid} />} />
+        <Route path="/hsr" element={<HSR uid={uid} />} />
+        <Route path="/zzz" element={<ZZZ uid={uid} />} />
+        <Route path="/wuwa" element={<WUWA uid={uid} />} />
         <Route path="*" element={<Navigate to="/menu" replace />} />
       </Routes>
     </HashRouter>

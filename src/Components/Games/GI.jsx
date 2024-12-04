@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { auth } from '../../firebase';
+import { auth, db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
 import GIAddEdit from './GIAddEdit';
 import GIDelete from './GIDelete';
 import GIChar from './GIChar';
 
-const GI = () => {
+const GI = ({ uid }) => {
   // modal and index states
   const [isAddEditOpen, setIsAddEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -16,6 +16,26 @@ const GI = () => {
   // character data
   const [myChars, setMyChars] = useState([]);
   const [newChar, setNewChar] = useState(GIChar);
+
+  // load myChars on auth change
+  useEffect(() => {
+    const fetchData = async () => {
+      if (uid) {
+        const giRef = db.collection('users').doc(uid).collection('IGOOD');
+        const querySnapshot = await giRef.get();
+        if (querySnapshot.empty) {
+          console.log('IGOOD collection does not exist');
+          setMyChars([]);
+        } else {
+          const chars = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+          setMyChars(chars);
+        }
+      } else {
+        setMyChars([]);
+      }
+    };
+    fetchData();
+  }, [uid]);
 
   // button handlers
   const handleAddChar = () => {

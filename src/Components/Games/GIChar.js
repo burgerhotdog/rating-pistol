@@ -1,5 +1,6 @@
 const GIChar = () => ({
-    name: '',
+    key: '',
+    level: 1,
     constellation: 0,
     weapon: '',
     refinement: 1,

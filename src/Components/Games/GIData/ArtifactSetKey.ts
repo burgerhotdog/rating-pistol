@@ -52,3 +52,5 @@ type ArtifactSetKey
   | "ViridescentVenerer" //Viridescent Venerer
   | "VourukashasGlow" //Vourukasha's Glow
   | "WanderersTroupe" //Wanderer's Troupe
+
+export default ArtifactSetKey;

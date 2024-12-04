@@ -91,3 +91,5 @@ type CharacterKey
   | "Yoimiya" //Yoimiya
   | "YunJin" //Yun Jin
   | "Zhongli" //Zhongli
+
+export default CharacterKey;

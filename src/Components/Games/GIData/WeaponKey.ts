@@ -202,3 +202,5 @@ type WeaponKey
   | "WolfFang" //Wolf-Fang
   | "WolfsGravestone" //Wolf's Gravestone
   | "XiphosMoonlight" //Xiphos' Moonlight
+
+export default WeaponKey;
