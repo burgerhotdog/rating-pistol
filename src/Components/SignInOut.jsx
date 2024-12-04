@@ -1,7 +1,7 @@
 import React from 'react';
-import { auth } from '../firebase';
-import { Button, Box } from '@mui/material';
 import { setPersistence, browserLocalPersistence, signInWithPopup, GoogleAuthProvider , signOut } from 'firebase/auth';
+import { Button, Box } from '@mui/material';
+import { auth } from '../firebase';
 
 const SignInOut = ({ isSignedIn }) => {
   const email = isSignedIn ? auth.currentUser.email : "(not signed in)";

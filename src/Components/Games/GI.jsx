@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { auth } from '../../firebase';
 import BackToMenu from '../BackToMenu';
 import GIAddEdit from './GIAddEdit';
 import GIDelete from './GIDelete';
