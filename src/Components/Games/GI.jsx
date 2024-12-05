@@ -73,12 +73,10 @@ const GI = ({ uid }) => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      gap={2}
       sx={{
         textAlign: 'center',
         padding: 2,
         minHeight: '100vh',
-        fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
       }}
     >
       <Typography variant="h4" gutterBottom>
@@ -161,6 +159,8 @@ const GI = ({ uid }) => {
         setIsDeleteOpen={setIsDeleteOpen}
         deleteIndex={deleteIndex}
         setDeleteIndex={setDeleteIndex}
+        myChars={myChars}
+        setMyChars={setMyChars}
       />
     </Box>
   );

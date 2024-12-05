@@ -9,15 +9,16 @@ const Menu = () => {
         display="flex"
         flexDirection="column"
         gap={1.5}
+        sx={{
+          color: "rgba(255, 255, 255, 0.87)"
+        }}
       >
         <Typography variant="h3" gutterBottom>
           Gacha Manager
         </Typography>
-
         <Button 
           component={Link} 
           to="/gi" 
-          variant="contained" 
           fullWidth 
           sx={{
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/gi.webp)',
@@ -26,7 +27,7 @@ const Menu = () => {
             height: '80px', 
             fontWeight: 'bold', 
             fontSize: '1.2rem', 
-            color: '#e0e0e0',
+            color: 'inherit', 
             '&:hover': {
               opacity: 0.8,
             },
@@ -37,7 +38,6 @@ const Menu = () => {
         <Button 
           component={Link} 
           to="/hsr" 
-          variant="contained" 
           fullWidth 
           sx={{ 
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/hsr.webp)', 
@@ -46,7 +46,7 @@ const Menu = () => {
             height: '80px', 
             fontWeight: 'bold', 
             fontSize: '1.2rem', 
-            color: '#e0e0e0',
+            color: 'inherit',
             '&:hover': {
               opacity: 0.8,
             },
@@ -57,7 +57,6 @@ const Menu = () => {
         <Button 
           component={Link} 
           to="/zzz" 
-          variant="contained" 
           fullWidth 
           sx={{
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/zzz.webp)',
@@ -66,7 +65,7 @@ const Menu = () => {
             height: '80px', 
             fontWeight: 'bold', 
             fontSize: '1.2rem', 
-            color: '#e0e0e0',
+            color: 'inherit',
             '&:hover': {
               opacity: 0.8,
             },
@@ -77,7 +76,6 @@ const Menu = () => {
         <Button 
           component={Link} 
           to="/wuwa" 
-          variant="contained" 
           fullWidth 
           sx={{
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/wuwa.webp)',
@@ -86,7 +84,7 @@ const Menu = () => {
             height: '80px', 
             fontWeight: 'bold', 
             fontSize: '1.2rem', 
-            color: '#e0e0e0',
+            color: 'inherit',
             '&:hover': {
               opacity: 0.8,
             },
