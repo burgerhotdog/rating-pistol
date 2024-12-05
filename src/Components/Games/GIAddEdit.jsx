@@ -29,7 +29,7 @@ const GIAddEdit = ({
   // valid character check before saving
   const validate = () => {
     const errors = [];
-    if (!newChar.name) errors.push("No name selected");
+    if (!newChar.id) errors.push("No name selected");
     if (!newChar.weapon) errors.push("No weapon selected");
     if (errors.length) {
       setError(errors.join(', '));
@@ -90,8 +90,8 @@ const GIAddEdit = ({
         </Typography>
         <Select
           fullWidth
-          name="name"
-          value={newChar.name || "(select)"}
+          name="id"
+          value={newChar.id || "(select)"}
           onChange={handleInput}
         >
           <MenuItem value="(select)" disabled style={{ color: 'gray' }}>
@@ -145,7 +145,7 @@ const GIAddEdit = ({
         <Select
           fullWidth
           name="refinement"
-          value={newChar.refinement}
+          value={newChar.weaponRefinement}
           onChange={handleInput}
         >
           {refinements.map((item) => (

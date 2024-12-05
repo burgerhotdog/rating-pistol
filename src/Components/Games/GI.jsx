@@ -19,22 +19,34 @@ const GI = ({ uid }) => {
 
   // load myChars on auth change
   useEffect(() => {
-    const fetchData = async () => {
-      if (uid) {
-        const giRef = db.collection('users').doc(uid).collection('IGOOD');
-        const querySnapshot = await giRef.get();
-        if (querySnapshot.empty) {
-          console.log('IGOOD collection does not exist');
-          setMyChars([]);
-        } else {
-          const chars = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-          setMyChars(chars);
-        }
-      } else {
+    const fetchDB = async () => {
+      if (!uid) {
         setMyChars([]);
       }
+
+      const colGI = db.collection('users').doc(uid).collection('genshin_impact');
+      const charDocs = await colGI.get();
+
+      const characters = await Promise.all(
+        charDocs.docs.map(async (charDoc) => {
+          const charData = charDoc.data();
+          const colArti = colGI.doc(charDoc.id).collection('artifacts');
+          const artiDocs = await colArti.get();
+
+          // Collect artifact data
+          const artifacts = {};
+          artiDocs.forEach((artiDoc) => {
+            artifacts[artiDoc.id] = artiDoc.data();
+          });
+
+          // Return character data with artifacts
+          return { id: charDoc.id, ...charData, artifacts };
+        })
+      )
+
+      setMyChars(characters);
     };
-    fetchData();
+    fetchDB();
   }, [uid]);
 
   // button handlers
@@ -94,10 +106,10 @@ const GI = ({ uid }) => {
             ) : (
               myChars.map((char, index) => (
                 <TableRow key={index}>
-                  <TableCell>{char.name}</TableCell>
+                  <TableCell>{char.id}</TableCell>
                   <TableCell>{char.constellation}</TableCell>
                   <TableCell>{char.weapon}</TableCell>
-                  <TableCell>{char.refinement}</TableCell>
+                  <TableCell>{char.weaponRefinement}</TableCell>
                   <TableCell>
                     {/* button to edit character */}
                     <Button
