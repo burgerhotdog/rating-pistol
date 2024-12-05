@@ -6,6 +6,8 @@ const GIDelete = ({
   setIsDeleteOpen,
   deleteIndex,
   setDeleteIndex,
+  myChars,
+  setMyChars,
 }) => {
   // delete
   const handleConfirmDelete = () => {

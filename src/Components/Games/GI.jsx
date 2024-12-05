@@ -149,6 +149,8 @@ const GI = ({ uid }) => {
         setIsDeleteOpen={setIsDeleteOpen}
         deleteIndex={deleteIndex}
         setDeleteIndex={setDeleteIndex}
+        myChars={myChars}
+        setMyChars={setMyChars}
       />
     </Box>
   );
