@@ -9,7 +9,6 @@ import GI from './Components/Games/GI';
 import HSR from './Components/Games/HSR';
 import ZZZ from './Components/Games/ZZZ';
 import WUWA from './Components/Games/WUWA';
-import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);

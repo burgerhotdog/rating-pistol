@@ -1,6 +1,6 @@
 import React from 'react';
 import { setPersistence, browserLocalPersistence, signInWithPopup, GoogleAuthProvider , signOut } from 'firebase/auth';
-import { Button, Box } from '@mui/material';
+import { Button, Box, Typography } from '@mui/material';
 import { auth } from '../firebase';
 
 const SignInOut = ({ isSignedIn }) => {
@@ -26,7 +26,7 @@ const SignInOut = ({ isSignedIn }) => {
         justifyContent: 'flex-end',
       }}
     >
-      <span style={{ marginRight: '10px' }}>{email}</span>
+      <Typography sx={{marginRight: '10px'}}>{email}</Typography>
       <Button onClick={isSignedIn ? handleSignOut : handleSignIn}>
         {isSignedIn ? "Sign Out" : "Sign In"}
       </Button>
