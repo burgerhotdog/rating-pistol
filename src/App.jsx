@@ -22,11 +22,9 @@ function App() {
         await setDoc(doc(db, "users", user.uid), { email: user.email }, { merge: true });
         setIsSignedIn(true);
         setUid(user.uid);
-        console.log('uid added');
       } else {
         setIsSignedIn(false);
         setUid(null);
-        console.log('uid removed');
       }
       setIsLoading(false);
     });

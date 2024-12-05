@@ -1,7 +1,10 @@
 import React from 'react';
 import { Box, Typography, Button, Modal } from '@mui/material';
+import { doc, deleteDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
 
 const GIDelete = ({
+  uid,
   isDeleteOpen,
   setIsDeleteOpen,
   deleteIndex,
@@ -10,9 +13,12 @@ const GIDelete = ({
   setMyChars,
 }) => {
   // delete
-  const handleConfirmDelete = () => {
+  const handleConfirmDelete = async () => {
+    const charToDelete = myChars[deleteIndex];
     const updatedChars = myChars.filter((_, i) => i !== deleteIndex);
     setMyChars(updatedChars);
+    const charDocRef = doc(db, 'users', uid, 'GenshinImpact', charToDelete.id);
+    await deleteDoc(charDocRef);
     setDeleteIndex(null);
     setIsDeleteOpen(false);
   };

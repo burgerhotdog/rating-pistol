@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Box, Typography, Select, MenuItem, Button, Modal } from '@mui/material';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../firebase';
 import GIChar from './GIChar';
 
 const GIAddEdit = ({
+  uid,
   isAddEditOpen,
   setIsAddEditOpen,
   editIndex,
@@ -40,14 +43,23 @@ const GIAddEdit = ({
   };
 
   // save
-  const handleConfirmAddEdit = () => {
+  const handleConfirmAddEdit = async () => {
     if (!validate()) return;
     if (editIndex === null) { // add char
-      setMyChars([...myChars, newChar]);
+      let updatedChars = [...myChars, newChar];
+      setMyChars(updatedChars);
+
+      const { id, ...charWithoutId } = newChar;
+      const charDocRef = doc(db, 'users', uid, 'GenshinImpact', newChar.id);
+      await setDoc(charDocRef, charWithoutId, { merge: true });
     } else { // edit char
-      const updatedChars = [...myChars];
+      let updatedChars = [...myChars];
       updatedChars[editIndex] = newChar;
       setMyChars(updatedChars);
+
+      const { id, ...charWithoutId } = newChar;
+      const charDocRef = doc(db, 'users', uid, 'GenshinImpact', newChar.id);
+      await setDoc(charDocRef, charWithoutId, { merge: true });
     }
     setError('');
     setEditIndex(null);

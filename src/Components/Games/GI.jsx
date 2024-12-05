@@ -44,7 +44,7 @@ const GI = ({ uid }) => {
             const artifactData = artiDoc.data();
             dbArtifacts[artiDoc.id] = artifactData;
           });
-          
+
           return { id: charDoc.id, ...charData, dbArtifacts };
         })
       )
@@ -148,6 +148,7 @@ const GI = ({ uid }) => {
 
       {/* modal to add or edit character */}
       <GIAddEdit
+        uid={uid}
         isAddEditOpen={isAddEditOpen}
         setIsAddEditOpen={setIsAddEditOpen}
         editIndex={editIndex}
@@ -160,6 +161,7 @@ const GI = ({ uid }) => {
 
       {/* modal to delete character */}
       <GIDelete
+        uid={uid}
         isDeleteOpen={isDeleteOpen}
         setIsDeleteOpen={setIsDeleteOpen}
         deleteIndex={deleteIndex}
