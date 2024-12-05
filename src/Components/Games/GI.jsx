@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { auth, db } from '../../firebase';
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
 import GIAddEdit from './GIAddEdit';
 import GIDelete from './GIDelete';
@@ -20,31 +21,35 @@ const GI = ({ uid }) => {
   // load myChars on auth change
   useEffect(() => {
     const fetchDB = async () => {
+      // blank table if not signed in
       if (!uid) {
         setMyChars([]);
+        return;
       }
 
-      const colGI = db.collection('users').doc(uid).collection('genshin_impact');
-      const charDocs = await colGI.get();
+      // pull genshin collection
+      const dbGICollection = collection(db, 'users', uid, 'GenshinImpact');
+      const dbCharDocs = await getDocs(dbGICollection);
 
-      const characters = await Promise.all(
-        charDocs.docs.map(async (charDoc) => {
+      // pull data for each char
+      const dbCharacters = await Promise.all(
+        dbCharDocs.docs.map(async (charDoc) => {
           const charData = charDoc.data();
-          const colArti = colGI.doc(charDoc.id).collection('artifacts');
-          const artiDocs = await colArti.get();
+          const dbArtiCollection = collection(db, 'users', uid, 'GenshinImpact', charDoc.id, 'artifacts');
+          const dbArtiDocs = await getDocs(dbArtiCollection);
 
-          // Collect artifact data
-          const artifacts = {};
-          artiDocs.forEach((artiDoc) => {
-            artifacts[artiDoc.id] = artiDoc.data();
+          // pull data for each artifact
+          const dbArtifacts = {};
+          dbArtiDocs.forEach((artiDoc) => {
+            const artifactData = artiDoc.data();
+            dbArtifacts[artiDoc.id] = artifactData;
           });
-
-          // Return character data with artifacts
-          return { id: charDoc.id, ...charData, artifacts };
+          
+          return { id: charDoc.id, ...charData, dbArtifacts };
         })
       )
 
-      setMyChars(characters);
+      setMyChars(dbCharacters);
     };
     fetchDB();
   }, [uid]);
