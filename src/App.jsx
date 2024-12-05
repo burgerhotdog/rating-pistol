@@ -3,12 +3,12 @@ import { HashRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db } from './firebase';
-import SignInOut from './Components/SignInOut';
 import Menu from './Components/Menu';
-import GI from './Components/Games/GI';
-import HSR from './Components/Games/HSR';
-import ZZZ from './Components/Games/ZZZ';
-import WUWA from './Components/Games/WUWA';
+import SignInOut from './Components/SignInOut';
+import GenshinImpact from './Components/GenshinImpact/GenshinImpact';
+import HonkaiStarRail from './Components/HonkaiStarRail/HonkaiStarRail';
+import ZenlessZoneZero from './Components/ZenlessZoneZero/ZenlessZoneZero';
+import WutheringWaves from './Components/WutheringWaves/WutheringWaves';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,10 +43,10 @@ function App() {
       />
       <Routes>
         <Route path="/menu" element={<Menu />} />
-        <Route path="/gi" element={<GI uid={uid} />} />
-        <Route path="/hsr" element={<HSR uid={uid} />} />
-        <Route path="/zzz" element={<ZZZ uid={uid} />} />
-        <Route path="/wuwa" element={<WUWA uid={uid} />} />
+        <Route path="/gi" element={<GenshinImpact uid={uid} />} />
+        <Route path="/hsr" element={<HonkaiStarRail uid={uid} />} />
+        <Route path="/zzz" element={<ZenlessZoneZero uid={uid} />} />
+        <Route path="/wuwa" element={<WutheringWaves uid={uid} />} />
         <Route path="*" element={<Navigate to="/menu" replace />} />
       </Routes>
     </HashRouter>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Box, Typography, Button, Modal } from '@mui/material';
 import { doc, deleteDoc } from 'firebase/firestore';
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
+import { Box, Typography, Button, Modal } from '@mui/material';
 
-const GIDelete = ({
+const Delete = ({
   uid,
   isDeleteOpen,
   setIsDeleteOpen,
@@ -67,4 +67,4 @@ const GIDelete = ({
   );
 };
 
-export default GIDelete;
+export default Delete;

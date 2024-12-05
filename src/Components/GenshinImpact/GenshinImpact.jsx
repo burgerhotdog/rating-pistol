@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import { collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { collection, getDocs, doc } from "firebase/firestore";
 import { db } from '../../firebase';
+import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import BackToMenu from '../BackToMenu';
-import GIAddEdit from './GIAddEdit';
-import GIDelete from './GIDelete';
-import GIChar from './GIChar';
+import Save from './modals/Save';
+import Delete from './modals/Delete';
+import template from './data/template';
 
-const GI = ({ uid }) => {
+const GenshinImpact = ({ uid }) => {
   // modal and index states
   const [isAddEditOpen, setIsAddEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -16,7 +16,7 @@ const GI = ({ uid }) => {
 
   // character data
   const [myChars, setMyChars] = useState([]);
-  const [newChar, setNewChar] = useState(GIChar);
+  const [newChar, setNewChar] = useState(template);
 
   // load myChars on auth change
   useEffect(() => {
@@ -57,7 +57,7 @@ const GI = ({ uid }) => {
   // button handlers
   const handleAddChar = () => {
     setEditIndex(null);
-    setNewChar(GIChar());
+    setNewChar(template());
     setIsAddEditOpen(true);
   };
 
@@ -147,7 +147,7 @@ const GI = ({ uid }) => {
       </Button>
 
       {/* modal to add or edit character */}
-      <GIAddEdit
+      <Save
         uid={uid}
         isAddEditOpen={isAddEditOpen}
         setIsAddEditOpen={setIsAddEditOpen}
@@ -160,7 +160,7 @@ const GI = ({ uid }) => {
       />
 
       {/* modal to delete character */}
-      <GIDelete
+      <Delete
         uid={uid}
         isDeleteOpen={isDeleteOpen}
         setIsDeleteOpen={setIsDeleteOpen}
@@ -173,4 +173,4 @@ const GI = ({ uid }) => {
   );
 };
 
-export default GI;
+export default GenshinImpact;

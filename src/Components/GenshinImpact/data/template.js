@@ -1,4 +1,4 @@
-const GIChar = () => ({
+const template = () => ({
   id: '',
   level: 1,
   constellation: 0,
@@ -14,4 +14,4 @@ const GIChar = () => ({
   },
 });
   
-export default GIChar;
+export default template;

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Typography, Select, MenuItem, Button, Modal } from '@mui/material';
 import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../../firebase';
-import GIChar from './GIChar';
+import { db } from '../../../firebase';
+import { Box, Typography, Select, MenuItem, Button, Modal } from '@mui/material';
+import template from '../data/template';
 
-const GIAddEdit = ({
+const Save = ({
   uid,
   isAddEditOpen,
   setIsAddEditOpen,
@@ -63,7 +63,7 @@ const GIAddEdit = ({
     }
     setError('');
     setEditIndex(null);
-    setNewChar(GIChar());
+    setNewChar(template());
     setIsAddEditOpen(false);
   };
 
@@ -71,7 +71,7 @@ const GIAddEdit = ({
   const handleCancelAddEdit = () => {
     setError('');
     setEditIndex(null);
-    setNewChar(GIChar());
+    setNewChar(template());
     setIsAddEditOpen(false);
   };
 
@@ -192,4 +192,4 @@ const GIAddEdit = ({
   );
 };
 
-export default GIAddEdit;
+export default Save;

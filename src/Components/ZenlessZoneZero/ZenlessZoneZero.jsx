@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import BackToMenu from '../BackToMenu';
 
-const ZZZ = () => {
+const ZenlessZoneZero = () => {
   return (
     <Box
       display="flex"
@@ -18,4 +18,4 @@ const ZZZ = () => {
   );
 };
 
-export default ZZZ;
+export default ZenlessZoneZero;

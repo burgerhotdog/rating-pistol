@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import BackToMenu from '../BackToMenu';
 
-const WUWA = () => {
+const WutheringWaves = () => {
   return (
     <Box
       display="flex"
@@ -18,4 +18,4 @@ const WUWA = () => {
   );
 };
 
-export default WUWA;
+export default WutheringWaves;
