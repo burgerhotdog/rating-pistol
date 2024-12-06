@@ -1,11 +1,6 @@
 import React from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
-import {
-  Box,
-  Button,
-  Modal,
-  Typography
-} from '@mui/material';
+import { Box, Button, Modal, Typography } from '@mui/material';
 import { db } from '../../../firebase';
 
 const Delete = ({
@@ -17,40 +12,37 @@ const Delete = ({
   newId,
   setNewId,
 }) => {
-  // Delete button
+  /* Delete button */
   const handleDelete = async () => {
     try {
       // Delete document from firestore
       const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
       await deleteDoc(characterDocRef);
-  
-      // Delete entry from local object by creating a new copy
+      // Delete entry from myCharacters
       setMyCharacters((prevCharacters) => {
-        const updatedCharacters = { ...prevCharacters };  // Copy the existing characters
-        delete updatedCharacters[newId];  // Delete the specific character by ID
-        return updatedCharacters;  // Return the updated object to trigger a re-render
+        const updatedCharacters = { ...prevCharacters }; // Make copy of myCharacters
+        delete updatedCharacters[newId]; // Delete entry from copy
+        return updatedCharacters; // Return copy
       });
     } catch (error) {
-      console.error("handleConfirmDelete: ", error);
+      // Catch errors
+      console.error("handleDelete: ", error);
     } finally {
-      // Reset id and close modal
+      // Reset variables
       setNewId('');
       setIsDeleteOpen(false);
     }
   };
 
-  // Cancel button
+  /* Cancel button */
   const handleCancel = () => {
-    // Reset id and close modal
+    // Reset variables
     setNewId('');
     setIsDeleteOpen(false);
   };
 
   return (
-    <Modal
-      open={isDeleteOpen}
-      onClose={handleCancel}
-    >
+    <Modal open={isDeleteOpen} onClose={handleCancel}>
       <Box
         sx={{
           position: 'absolute',
@@ -64,13 +56,12 @@ const Delete = ({
           borderRadius: 2,
         }}
       >
-        <Typography id="delete-modal-title" variant="h6" component="h2">
+        <Typography variant="h6" component="h2">
           Confirm Deletion
         </Typography>
-        <Typography id="delete-modal-description" sx={{ mt: 2 }}>
+        <Typography sx={{ mt: 2 }}>
           Are you sure you want to delete this character?
         </Typography>
-
         <Box display="flex" justifyContent="center" gap={2} mt={2}>
           <Button variant="outlined" color="primary" onClick={handleCancel}>
             Cancel

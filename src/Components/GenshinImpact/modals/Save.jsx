@@ -10,10 +10,14 @@ import {
 } from '@mui/material';
 import { db } from '../../../firebase';
 
+/* Used for converting character names to ids */
 function toPascalCase(str) {
-  return str
-      .replace(/(^\w|[\s_-]\w)/g, match => match.replace(/[\s_-]/, '').toUpperCase())
-      .replace(/\W/g, '');
+  const words = str.split(/[\s_-]+/);
+  const capitalizedWords = words.map(word => { 
+    word.charAt(0).toUpperCase() + 
+    word.slice(1).toLowerCase()
+  });
+  return capitalizedWords.join('');;
 }
 
 const Save = ({
