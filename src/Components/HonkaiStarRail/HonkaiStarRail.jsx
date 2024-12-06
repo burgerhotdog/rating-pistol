@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import BackToMenu from '../BackToMenu';
 
-const HSR = () => {
+const HonkaiStarRail = () => {
   return (
     <Box
       display="flex"
@@ -18,4 +18,4 @@ const HSR = () => {
   );
 };
 
-export default HSR;
+export default HonkaiStarRail;
