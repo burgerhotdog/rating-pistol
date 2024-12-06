@@ -1,74 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { collection, getDocs, doc } from "firebase/firestore";
+import React, { useEffect, useState } from 'react';
+import { collection, getDocs } from "firebase/firestore";
+import {
+  Box,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material';
 import { db } from '../../firebase';
-import { Box, Typography, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import BackToMenu from '../BackToMenu';
 import Save from './modals/Save';
 import Delete from './modals/Delete';
-import template from './data/template';
+import { templateArtifact, templateCharacter } from './data/template';
 
 const GenshinImpact = ({ uid }) => {
-  // modal and index states
-  const [isAddEditOpen, setIsAddEditOpen] = useState(false);
+  // Modal states
+  const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const [editIndex, setEditIndex] = useState(null);
-  const [deleteIndex, setDeleteIndex] = useState(null);
 
-  // character data
-  const [myChars, setMyChars] = useState([]);
-  const [newChar, setNewChar] = useState(template);
+  // Local character object
+  const [myCharacters, setMyCharacters] = useState({});
 
-  // load myChars on auth change
+  /* New character data structures: */
+  // Id
+  const [newId, setNewId] = useState('');
+  // Character
+  const [newCharacter, setNewCharacter] = useState(templateCharacter);
+  // Artifact map
+  // const [newArtifacts, setNewArtifacts] = useState({});
+
+  // Update myCharacters when user signs in or out
   useEffect(() => {
     const fetchDB = async () => {
-      // blank table if not signed in
+      // If signed out, clears myCharacters
       if (!uid) {
-        setMyChars([]);
+        setMyCharacters({});
         return;
       }
 
-      // pull genshin collection
-      const dbGICollection = collection(db, 'users', uid, 'GenshinImpact');
-      const dbCharDocs = await getDocs(dbGICollection);
+      // If signed in, loads myCharacters from firestore
+      // Pull character documents
+      const characterDocsRef = collection(db, 'users', uid, 'GenshinImpact');
+      const characterDocs = await getDocs(characterDocsRef);
 
-      // pull data for each char
-      const dbCharacters = await Promise.all(
-        dbCharDocs.docs.map(async (charDoc) => {
-          const charData = charDoc.data();
-          const dbArtiCollection = collection(db, 'users', uid, 'GenshinImpact', charDoc.id, 'artifacts');
-          const dbArtiDocs = await getDocs(dbArtiCollection);
+      const myCharactersObj = {};
+      characterDocs.docs.forEach((characterDoc) => {
+        myCharactersObj[characterDoc.id] = characterDoc.data();
+      });
 
-          // pull data for each artifact
-          const dbArtifacts = {};
-          dbArtiDocs.forEach((artiDoc) => {
-            const artifactData = artiDoc.data();
-            dbArtifacts[artiDoc.id] = artifactData;
-          });
-
-          return { id: charDoc.id, ...charData, dbArtifacts };
-        })
-      )
-
-      setMyChars(dbCharacters);
+      setMyCharacters(myCharactersObj);
     };
     fetchDB();
   }, [uid]);
 
-  // button handlers
-  const handleAddChar = () => {
-    setEditIndex(null);
-    setNewChar(template());
-    setIsAddEditOpen(true);
+  /* Button handlers */
+  // Add character
+  const handleAddCharacter = () => {
+    setNewId('');
+    setNewCharacter(templateCharacter());
+    setIsSaveOpen(true);
   };
 
-  const handleEditChar = (index) => {
-    setEditIndex(index);
-    setNewChar(myChars[index]);
-    setIsAddEditOpen(true);
+  // Edit
+  const handleEditCharacter = (id) => {
+    setNewId(id);
+    setNewCharacter(myCharacters[id]);
+    setIsSaveOpen(true);
   };
 
-  const handleDeleteChar = (index) => {
-    setDeleteIndex(index);
+  // Delete
+  const handleDeleteCharacter = (id) => {
+    setNewId(id);
     setIsDeleteOpen(true);
   };
 
@@ -100,36 +106,36 @@ const GenshinImpact = ({ uid }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {myChars.length === 0 ? (
+            {Object.keys(myCharacters).length === 0 ? (
               <TableRow>
                 <TableCell colSpan={5} align="center">
                   No characters to display
                 </TableCell>
               </TableRow>
             ) : (
-              myChars.map((char, index) => (
-                <TableRow key={index}>
-                  <TableCell>{char.id}</TableCell>
-                  <TableCell>{char.constellation}</TableCell>
-                  <TableCell>{char.weapon}</TableCell>
-                  <TableCell>{char.weaponRefinement}</TableCell>
+              Object.entries(myCharacters).map(([id, character]) => (
+                <TableRow key={id}>
+                  <TableCell>{character.name}</TableCell>
+                  <TableCell>{character.constellation}</TableCell>
+                  <TableCell>{character.weapon.name}</TableCell>
+                  <TableCell>{character.weapon.refinement}</TableCell>
                   <TableCell>
-                    {/* button to edit character */}
+                    {/* Edit button */}
                     <Button
                       size="small"
                       variant="outlined"
                       color="primary"
-                      onClick={() => handleEditChar(index)}
+                      onClick={() => handleEditCharacter(id)}
                       sx={{ mr: 1 }}
                     >
                       Edit
                     </Button>
-                    {/* button to delete character */}
+                    {/* Delete button */}
                     <Button
                       size="small"
                       variant="outlined"
                       color="secondary"
-                      onClick={() => handleDeleteChar(index)}
+                      onClick={() => handleDeleteCharacter(id)}
                     >
                       Delete
                     </Button>
@@ -142,21 +148,21 @@ const GenshinImpact = ({ uid }) => {
       </TableContainer>
 
       {/* button to add character */}
-      <Button variant="contained" color="primary" onClick={handleAddChar}>
+      <Button variant="contained" color="primary" onClick={handleAddCharacter}>
         Add Character
       </Button>
 
       {/* modal to add or edit character */}
       <Save
         uid={uid}
-        isAddEditOpen={isAddEditOpen}
-        setIsAddEditOpen={setIsAddEditOpen}
-        editIndex={editIndex}
-        setEditIndex={setEditIndex}
-        myChars={myChars}
-        setMyChars={setMyChars}
-        newChar={newChar}
-        setNewChar={setNewChar}
+        isSaveOpen={isSaveOpen}
+        setIsSaveOpen={setIsSaveOpen}
+        myCharacters={myCharacters}
+        setMyCharacters={setMyCharacters}
+        newId={newId}
+        setNewId={setNewId}
+        newCharacter={newCharacter}
+        setNewCharacter={setNewCharacter}
       />
 
       {/* modal to delete character */}
@@ -164,10 +170,10 @@ const GenshinImpact = ({ uid }) => {
         uid={uid}
         isDeleteOpen={isDeleteOpen}
         setIsDeleteOpen={setIsDeleteOpen}
-        deleteIndex={deleteIndex}
-        setDeleteIndex={setDeleteIndex}
-        myChars={myChars}
-        setMyChars={setMyChars}
+        myCharacters={myCharacters}
+        setMyCharacters={setMyCharacters}
+        newId={newId}
+        setNewId={setNewId}
       />
     </Box>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Button, Typography, Container } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 
 const Menu = () => {
   return (
@@ -18,7 +18,7 @@ const Menu = () => {
         </Typography>
         <Button 
           component={Link} 
-          to="/gi" 
+          to="/genshin-impact" 
           fullWidth 
           sx={{
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/gi.webp)',
@@ -37,7 +37,7 @@ const Menu = () => {
         </Button>
         <Button 
           component={Link} 
-          to="/hsr" 
+          to="/honkai-star-rail" 
           fullWidth 
           sx={{ 
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/hsr.webp)', 
@@ -56,7 +56,7 @@ const Menu = () => {
         </Button>
         <Button 
           component={Link} 
-          to="/zzz" 
+          to="/zenless-zone-zero" 
           fullWidth 
           sx={{
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/zzz.webp)',
@@ -75,7 +75,7 @@ const Menu = () => {
         </Button>
         <Button 
           component={Link} 
-          to="/wuwa" 
+          to="/wuthering-waves" 
           fullWidth 
           sx={{
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/wuwa.webp)',

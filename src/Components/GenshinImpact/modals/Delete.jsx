@@ -1,38 +1,55 @@
 import React from 'react';
-import { doc, deleteDoc } from 'firebase/firestore';
+import { deleteDoc, doc } from 'firebase/firestore';
+import {
+  Box,
+  Button,
+  Modal,
+  Typography
+} from '@mui/material';
 import { db } from '../../../firebase';
-import { Box, Typography, Button, Modal } from '@mui/material';
 
 const Delete = ({
   uid,
   isDeleteOpen,
   setIsDeleteOpen,
-  deleteIndex,
-  setDeleteIndex,
-  myChars,
-  setMyChars,
+  myCharacters,
+  setMyCharacters,
+  newId,
+  setNewId,
 }) => {
-  // delete
-  const handleConfirmDelete = async () => {
-    const charToDelete = myChars[deleteIndex];
-    const updatedChars = myChars.filter((_, i) => i !== deleteIndex);
-    setMyChars(updatedChars);
-    const charDocRef = doc(db, 'users', uid, 'GenshinImpact', charToDelete.id);
-    await deleteDoc(charDocRef);
-    setDeleteIndex(null);
-    setIsDeleteOpen(false);
+  // Delete button
+  const handleDelete = async () => {
+    try {
+      // Delete document from firestore
+      const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
+      await deleteDoc(characterDocRef);
+  
+      // Delete entry from local object by creating a new copy
+      setMyCharacters((prevCharacters) => {
+        const updatedCharacters = { ...prevCharacters };  // Copy the existing characters
+        delete updatedCharacters[newId];  // Delete the specific character by ID
+        return updatedCharacters;  // Return the updated object to trigger a re-render
+      });
+    } catch (error) {
+      console.error("handleConfirmDelete: ", error);
+    } finally {
+      // Reset id and close modal
+      setNewId('');
+      setIsDeleteOpen(false);
+    }
   };
 
-  // cancel
-  const handleCancelDelete = () => {
-    setDeleteIndex(null);
+  // Cancel button
+  const handleCancel = () => {
+    // Reset id and close modal
+    setNewId('');
     setIsDeleteOpen(false);
   };
 
   return (
     <Modal
       open={isDeleteOpen}
-      onClose={handleCancelDelete}
+      onClose={handleCancel}
     >
       <Box
         sx={{
@@ -55,10 +72,10 @@ const Delete = ({
         </Typography>
 
         <Box display="flex" justifyContent="center" gap={2} mt={2}>
-          <Button variant="outlined" color="primary" onClick={handleCancelDelete}>
+          <Button variant="outlined" color="primary" onClick={handleCancel}>
             Cancel
           </Button>
-          <Button variant="contained" color="secondary" onClick={handleConfirmDelete}>
+          <Button variant="contained" color="secondary" onClick={handleDelete}>
             Delete
           </Button>
         </Box>

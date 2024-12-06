@@ -1,17 +1,24 @@
-const template = () => ({
-  id: '',
+const templateCharacter = () => ({
+  name: '',
   level: 1,
   constellation: 0,
-  weapon: '',
-  weaponLevel: 1,
-  weaponRefinement: 1,
-  artifacts: {
-    flower: { level: 1 },
-    feather: { level: 1 },
-    sands: { level: 1 },
-    goblet: { level: 1 },
-    circlet: { level: 1 },
+  weapon: {
+    name: '',
+    level: 1,
+    refinement: 1,
   },
+  talents: {
+    normal: 1,
+    skill: 1,
+    burst: 1,
+  }
+});
+
+const templateArtifact = () => ({
+  level: 1,
+  set: '',
+  mainStat: '',
+  subStats: {},
 });
   
-export default template;
+export { templateArtifact, templateCharacter };

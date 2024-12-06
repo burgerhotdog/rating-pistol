@@ -4,11 +4,6 @@ const theme = createTheme({
   palette: {
     mode: "dark",
   },
-  typography: {
-    allVariants: {
-      textAlign: 'center',
-    },
-  },
   components: {
     MuiCssBaseline: {
       styleOverrides: {

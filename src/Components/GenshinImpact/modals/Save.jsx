@@ -1,39 +1,72 @@
 import React, { useState } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
+import {
+  Box,
+  Button,
+  MenuItem,
+  Modal,
+  Select,
+  Typography,
+} from '@mui/material';
 import { db } from '../../../firebase';
-import { Box, Typography, Select, MenuItem, Button, Modal } from '@mui/material';
-import template from '../data/template';
+
+function toPascalCase(str) {
+  return str
+      .replace(/(^\w|[\s_-]\w)/g, match => match.replace(/[\s_-]/, '').toUpperCase())
+      .replace(/\W/g, '');
+}
 
 const Save = ({
   uid,
-  isAddEditOpen,
-  setIsAddEditOpen,
-  editIndex,
-  setEditIndex,
-  myChars,
-  setMyChars,
-  newChar,
-  setNewChar,
+  isSaveOpen,
+  setIsSaveOpen,
+  myCharacters,
+  setMyCharacters,
+  newId,
+  setNewId,
+  newCharacter,
+  setNewCharacter,
 }) => {
-  // error state
+  // Error state
   const [error, setError] = useState('');
 
-  // handle form inputs
-  const handleInput = (e) => {
+  // Handle character field inputs
+  const handleCharacterField = (e) => {
     const { name, value } = e.target;
-    setNewChar({ ...newChar, [name]: value });
+
+    // set the id if the field was the name
+    if (name === 'name') {
+      setNewId(toPascalCase(value));
+    }
+  
+    // Check if the name refers to a nested property (e.g., 'weapon.name')
+    if (name.includes('.')) {
+      const [outerKey, innerKey] = name.split('.');  // e.g., 'weapon' and 'name'
+  
+      setNewCharacter((prevCharacter) => ({
+        ...prevCharacter,  // Copy the outer object
+        [outerKey]: {
+          ...prevCharacter[outerKey],  // Copy the inner object (e.g., 'weapon')
+          [innerKey]: value,           // Update the nested property
+        },
+      }));
+    } else {
+      // For non-nested properties, just update the property directly
+      setNewCharacter((prevCharacter) => ({
+        ...prevCharacter,  // Copy the outer object
+        [name]: value,     // Update the property
+      }));
+    }
   };
 
-  const characterNames = ['character1', 'character2', 'character3'];
-  const constellations = [0, 1, 2, 3, 4, 5, 6];
-  const weapons = ['weapon1', 'weapon2', 'weapon3'];
-  const refinements = [1, 2, 3, 4, 5];
+  const characterNames = ['Venti', 'Zhongli', 'Raiden Shogun', 'Nahida', 'Furina'];
+  const weaponNames = ['Elegy for the End', 'Vortex Vanquisher', 'Engulfing Lightning', 'A Thousand Floating Dreams', 'Splendor of Tranquil Waters'];
 
-  // valid character check before saving
+  // Validation before saving
   const validate = () => {
     const errors = [];
-    if (!newChar.id) errors.push("No name selected");
-    if (!newChar.weapon) errors.push("No weapon selected");
+    if (!newId) errors.push("No name selected");
+    if (!newCharacter.weapon || !newCharacter.weapon.name) errors.push("No weapon selected");
     if (errors.length) {
       setError(errors.join(', '));
       return false;
@@ -42,43 +75,40 @@ const Save = ({
     return true;
   };
 
-  // save
-  const handleConfirmAddEdit = async () => {
+  // Save button
+  const handleSave = async () => {
+    // Perform validation checks
     if (!validate()) return;
-    if (editIndex === null) { // add char
-      let updatedChars = [...myChars, newChar];
-      setMyChars(updatedChars);
 
-      const { id, ...charWithoutId } = newChar;
-      const charDocRef = doc(db, 'users', uid, 'GenshinImpact', newChar.id);
-      await setDoc(charDocRef, charWithoutId, { merge: true });
-    } else { // edit char
-      let updatedChars = [...myChars];
-      updatedChars[editIndex] = newChar;
-      setMyChars(updatedChars);
+    // Prepare Firestore document reference
+    const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
 
-      const { id, ...charWithoutId } = newChar;
-      const charDocRef = doc(db, 'users', uid, 'GenshinImpact', newChar.id);
-      await setDoc(charDocRef, charWithoutId, { merge: true });
-    }
+    // Update in Firestore
+    await setDoc(characterDocRef, newCharacter, { merge: true });
+
+    // Update in local state (myCharacters)
+    setMyCharacters((prevCharacters) => ({
+      ...prevCharacters,
+      [newId]: newCharacter, // Either add or edit the character
+    }));
+
+    // Reset id and close modal
     setError('');
-    setEditIndex(null);
-    setNewChar(template());
-    setIsAddEditOpen(false);
+    setNewId('');
+    setIsSaveOpen(false);
   };
 
-  // cancel
-  const handleCancelAddEdit = () => {
+  // Cancel button
+  const handleCancel = () => {
     setError('');
-    setEditIndex(null);
-    setNewChar(template());
-    setIsAddEditOpen(false);
+    setNewId('');
+    setIsSaveOpen(false);
   };
 
   return (
     <Modal
-      open={isAddEditOpen}
-      onClose={handleCancelAddEdit}
+      open={isSaveOpen}
+      onClose={handleCancel}
     >
       <Box
         sx={{
@@ -94,7 +124,7 @@ const Save = ({
         }}
       >
         <Typography variant="h6" gutterBottom>
-          {editIndex === null ? 'Add New Character' : 'Edit Character'}
+          {myCharacters.hasOwnProperty(newId) ? 'Edit Character' : 'Add New Character'}
         </Typography>
 
         <Typography variant="body1" sx={{ mt: 2 }}>
@@ -102,18 +132,30 @@ const Save = ({
         </Typography>
         <Select
           fullWidth
-          name="id"
-          value={newChar.id || "(select)"}
-          onChange={handleInput}
+          name="name"
+          value={newCharacter.name || ""}
+          onChange={handleCharacterField}
+          displayEmpty
+          disabled={myCharacters.hasOwnProperty(newId)}
         >
-          <MenuItem value="(select)" disabled style={{ color: 'gray' }}>
+          <MenuItem value="" disabled style={{ color: 'gray' }}>
             (select)
           </MenuItem>
-          {characterNames.map((item) => (
-            <MenuItem key={item} value={item}>
-              {item}
+          {newCharacter.name && newCharacter.name !== '' && (
+            <MenuItem key={newCharacter.name} value={newCharacter.name}>
+              {newCharacter.name}
             </MenuItem>
-          ))}
+          )}
+          {characterNames
+            .filter(
+              (item) =>
+                !Object.values(myCharacters).some((char) => char.name === item)
+            )
+            .map((item) => (
+              <MenuItem key={item} value={item}>
+                {item}
+              </MenuItem>
+            ))}
         </Select>
 
         <Typography variant="body1" sx={{ mt: 2 }}>
@@ -122,10 +164,10 @@ const Save = ({
         <Select
           fullWidth
           name="constellation"
-          value={newChar.constellation}
-          onChange={handleInput}
+          value={newCharacter.constellation}
+          onChange={handleCharacterField}
         >
-          {constellations.map((item) => (
+          {[0, 1, 2, 3, 4, 5, 6].map((item) => (
             <MenuItem key={item} value={item}>
               {'C' + item}
             </MenuItem>
@@ -137,14 +179,15 @@ const Save = ({
         </Typography>
         <Select
           fullWidth
-          name="weapon"
-          value={newChar.weapon || "(select)"}
-          onChange={handleInput}
+          name="weapon.name"
+          value={newCharacter.weapon.name || ""}
+          onChange={handleCharacterField}
+          displayEmpty
         >
-          <MenuItem value="(select)" disabled style={{ color: 'gray' }}>
+          <MenuItem value="" disabled style={{ color: 'gray' }}>
             (select)
           </MenuItem>
-          {weapons.map((item) => (
+          {weaponNames.map((item) => (
             <MenuItem key={item} value={item}>
               {item}
             </MenuItem>
@@ -156,11 +199,11 @@ const Save = ({
         </Typography>
         <Select
           fullWidth
-          name="refinement"
-          value={newChar.weaponRefinement}
-          onChange={handleInput}
+          name="weapon.refinement"
+          value={newCharacter.weapon.refinement}
+          onChange={handleCharacterField}
         >
-          {refinements.map((item) => (
+          {[1, 2, 3, 4, 5].map((item) => (
             <MenuItem key={item} value={item}>
               {'R' + item}
             </MenuItem>
@@ -180,10 +223,10 @@ const Save = ({
         
         {/* buttons */}
         <Box display="flex" justifyContent="center" gap={2} mt={2}>
-          <Button variant="outlined" color="secondary" onClick={handleCancelAddEdit}>
+          <Button variant="outlined" color="secondary" onClick={handleCancel}>
             Cancel
           </Button>
-          <Button variant="contained" color="primary" onClick={handleConfirmAddEdit}>
+          <Button variant="contained" color="primary" onClick={handleSave}>
             Save
           </Button>
         </Box>
