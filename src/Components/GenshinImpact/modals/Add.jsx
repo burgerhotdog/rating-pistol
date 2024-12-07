@@ -12,18 +12,17 @@ import { db } from '../../../firebase';
 
 /* Used for converting character names to ids */
 function toPascalCase(str) {
-  const words = str.split(/[\s_-]+/);
-  const capitalizedWords = words.map(word => { 
-    word.charAt(0).toUpperCase() + 
-    word.slice(1).toLowerCase()
-  });
-  return capitalizedWords.join('');;
+  return str
+    .replace(/'/g, '')
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('');
 }
 
-const Save = ({
+const Add = ({
   uid,
-  isSaveOpen,
-  setIsSaveOpen,
+  isAddOpen,
+  setIsAddOpen,
   myCharacters,
   setMyCharacters,
   newId,
@@ -31,14 +30,16 @@ const Save = ({
   newCharacter,
   setNewCharacter,
 }) => {
-  // Error state
   const [error, setError] = useState('');
 
-  // Handle character field inputs
+  const characterNames = ['Venti', 'Zhongli', 'Raiden Shogun', 'Nahida', 'Furina'];
+  const weaponNames = ['Elegy for the End', 'Vortex Vanquisher', 'Engulfing Lightning', 'A Thousand Floating Dreams', 'Splendor of Tranquil Waters'];
+
+  /* Handle character field inputs */
   const handleCharacterField = (e) => {
     const { name, value } = e.target;
 
-    // set the id if the field was the name
+    // Set the id if the field was the name
     if (name === 'name') {
       setNewId(toPascalCase(value));
     }
@@ -63,14 +64,14 @@ const Save = ({
     }
   };
 
-  const characterNames = ['Venti', 'Zhongli', 'Raiden Shogun', 'Nahida', 'Furina'];
-  const weaponNames = ['Elegy for the End', 'Vortex Vanquisher', 'Engulfing Lightning', 'A Thousand Floating Dreams', 'Splendor of Tranquil Waters'];
-
   // Validation before saving
   const validate = () => {
     const errors = [];
+    // Types of errors
     if (!newId) errors.push("No name selected");
     if (!newCharacter.weapon || !newCharacter.weapon.name) errors.push("No weapon selected");
+
+    // Display message
     if (errors.length) {
       setError(errors.join(', '));
       return false;
@@ -79,50 +80,45 @@ const Save = ({
     return true;
   };
 
-  // Save button
+  /* Save button */
   const handleSave = async () => {
     // Perform validation checks
     if (!validate()) return;
 
-    // Prepare Firestore document reference
-    const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
+    // Update document in Firestore
+    if (uid) {
+      const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
+      await setDoc(characterDocRef, newCharacter, { merge: true });
+    }
 
-    // Update in Firestore
-    await setDoc(characterDocRef, newCharacter, { merge: true });
-
-    // Update in local state (myCharacters)
+    // Update entry in myCharacters
     setMyCharacters((prevCharacters) => ({
       ...prevCharacters,
-      [newId]: newCharacter, // Either add or edit the character
+      [newId]: newCharacter,
     }));
 
-    // Reset id and close modal
     setError('');
     setNewId('');
-    setIsSaveOpen(false);
+    setIsAddOpen(false);
   };
 
-  // Cancel button
+  /* Cancel button */
   const handleCancel = () => {
     setError('');
     setNewId('');
-    setIsSaveOpen(false);
+    setIsAddOpen(false);
   };
 
   return (
-    <Modal
-      open={isSaveOpen}
-      onClose={handleCancel}
-    >
+    <Modal open={isAddOpen} onClose={handleCancel}>
       <Box
         sx={{
+          backgroundColor: '#1c1c1c',
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          backgroundColor: '#242424',
           width: 400,
-          boxShadow: 24,
           p: 4,
           borderRadius: 2,
         }}
@@ -145,11 +141,6 @@ const Save = ({
           <MenuItem value="" disabled style={{ color: 'gray' }}>
             (select)
           </MenuItem>
-          {newCharacter.name && newCharacter.name !== '' && (
-            <MenuItem key={newCharacter.name} value={newCharacter.name}>
-              {newCharacter.name}
-            </MenuItem>
-          )}
           {characterNames
             .filter(
               (item) =>
@@ -239,4 +230,4 @@ const Save = ({
   );
 };
 
-export default Save;
+export default Add;

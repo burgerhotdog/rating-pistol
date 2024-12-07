@@ -12,7 +12,7 @@ const HonkaiStarRail = () => {
       gap={2}
       sx={{ textAlign: 'center' }}
     >
-      <Typography variant="h4" gutterBottom>Honkai Star Rail</Typography>
+      <Typography variant="h4">Honkai Star Rail</Typography>
       <BackToMenu />
     </Box>
   );

@@ -16,8 +16,11 @@ const Delete = ({
   const handleDelete = async () => {
     try {
       // Delete document from firestore
-      const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
-      await deleteDoc(characterDocRef);
+      if (uid) {
+        const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
+        await deleteDoc(characterDocRef);
+      }
+
       // Delete entry from myCharacters
       setMyCharacters((prevCharacters) => {
         const updatedCharacters = { ...prevCharacters }; // Make copy of myCharacters
@@ -25,10 +28,8 @@ const Delete = ({
         return updatedCharacters; // Return copy
       });
     } catch (error) {
-      // Catch errors
       console.error("handleDelete: ", error);
     } finally {
-      // Reset variables
       setNewId('');
       setIsDeleteOpen(false);
     }
@@ -36,7 +37,6 @@ const Delete = ({
 
   /* Cancel button */
   const handleCancel = () => {
-    // Reset variables
     setNewId('');
     setIsDeleteOpen(false);
   };
@@ -45,13 +45,12 @@ const Delete = ({
     <Modal open={isDeleteOpen} onClose={handleCancel}>
       <Box
         sx={{
+          backgroundColor: '#1c1c1c',
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          backgroundColor: '#242424',
           width: 400,
-          boxShadow: 24,
           p: 4,
           borderRadius: 2,
         }}
@@ -62,6 +61,7 @@ const Delete = ({
         <Typography sx={{ mt: 2 }}>
           Are you sure you want to delete this character?
         </Typography>
+
         <Box display="flex" justifyContent="center" gap={2} mt={2}>
           <Button variant="outlined" color="primary" onClick={handleCancel}>
             Cancel

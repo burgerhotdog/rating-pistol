@@ -12,7 +12,7 @@ const ZenlessZoneZero = () => {
       gap={2}
       sx={{ textAlign: 'center' }}
     >
-      <Typography variant="h4" gutterBottom>Zenless Zone Zero</Typography>
+      <Typography variant="h4">Zenless Zone Zero</Typography>
       <BackToMenu />
     </Box>
   );

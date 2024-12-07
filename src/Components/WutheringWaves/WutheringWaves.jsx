@@ -12,7 +12,7 @@ const WutheringWaves = () => {
       gap={2}
       sx={{ textAlign: 'center' }}
     >
-      <Typography variant="h4" gutterBottom>Wuthering Waves</Typography>
+      <Typography variant="h4">Wuthering Waves</Typography>
       <BackToMenu />
     </Box>
   );

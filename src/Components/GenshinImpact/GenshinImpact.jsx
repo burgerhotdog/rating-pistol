@@ -13,13 +13,15 @@ import {
 } from '@mui/material';
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
-import Save from './modals/Save';
+import Add from './modals/Add';
+import Edit from './modals/Edit';
 import Delete from './modals/Delete';
 import { templateArtifact, templateCharacter } from './data/template';
 
 const GenshinImpact = ({ uid }) => {
   // Modal states
-  const [isSaveOpen, setIsSaveOpen] = useState(false);
+  const [isAddOpen, setIsAddOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
   // Local character object
@@ -57,22 +59,21 @@ const GenshinImpact = ({ uid }) => {
     fetchDB();
   }, [uid]);
 
-  /* Button handlers */
-  // Add character
+  /* Add character button */
   const handleAddCharacter = () => {
     setNewId('');
     setNewCharacter(templateCharacter());
-    setIsSaveOpen(true);
+    setIsAddOpen(true);
   };
 
-  // Edit
+  /* Edit button */
   const handleEditCharacter = (id) => {
     setNewId(id);
     setNewCharacter(myCharacters[id]);
-    setIsSaveOpen(true);
+    setIsEditOpen(true);
   };
 
-  // Delete
+  /* Delete button */
   const handleDeleteCharacter = (id) => {
     setNewId(id);
     setIsDeleteOpen(true);
@@ -90,7 +91,7 @@ const GenshinImpact = ({ uid }) => {
         minHeight: '100vh',
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4">
         Genshin Impact
       </Typography>
       <BackToMenu />
@@ -152,11 +153,24 @@ const GenshinImpact = ({ uid }) => {
         Add Character
       </Button>
 
-      {/* modal to add or edit character */}
-      <Save
+      {/* modal to add character */}
+      <Add
         uid={uid}
-        isSaveOpen={isSaveOpen}
-        setIsSaveOpen={setIsSaveOpen}
+        isAddOpen={isAddOpen}
+        setIsAddOpen={setIsAddOpen}
+        myCharacters={myCharacters}
+        setMyCharacters={setMyCharacters}
+        newId={newId}
+        setNewId={setNewId}
+        newCharacter={newCharacter}
+        setNewCharacter={setNewCharacter}
+      />
+
+      {/* modal to edit character */}
+      <Edit
+        uid={uid}
+        isEditOpen={isEditOpen}
+        setIsEditOpen={setIsEditOpen}
         myCharacters={myCharacters}
         setMyCharacters={setMyCharacters}
         newId={newId}
