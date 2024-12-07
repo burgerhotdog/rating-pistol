@@ -10,15 +10,6 @@ import {
 } from '@mui/material';
 import { db } from '../../../firebase';
 
-/* Used for converting character names to ids */
-function toPascalCase(str) {
-  return str
-    .replace(/'/g, '')
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join('');
-}
-
 const Edit = ({
   uid,
   isEditOpen,
@@ -38,11 +29,6 @@ const Edit = ({
   /* Handle character field inputs */
   const handleCharacterField = (e) => {
     const { name, value } = e.target;
-
-    // Set the id if the field was the name
-    if (name === 'name') {
-      setNewId(toPascalCase(value));
-    }
   
     // Check if the name refers to a nested property (e.g., 'weapon.name')
     if (name.includes('.')) {
