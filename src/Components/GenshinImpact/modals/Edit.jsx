@@ -109,7 +109,7 @@ const Edit = ({
         }}
       >
         <Typography variant="h6" gutterBottom>
-          {myCharacters.hasOwnProperty(newId) ? 'Edit Character' : 'Add New Character'}
+          Edit Character
         </Typography>
 
         <Typography variant="body1" sx={{ mt: 2 }}>
