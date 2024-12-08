@@ -13,7 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 import { db } from '../../../firebase';
-import RaidenImage from '../../../assets/characters/GenshinImpact/RaidenShogun.webp'
+import { characterImages, weaponImages } from '../data/images'
 
 /* Used for converting character names to ids */
 function toPascalCase(str) {
@@ -179,7 +179,7 @@ const Add = ({
               <Grid size={4}>
                 <img
                   width='100%'
-                  src={RaidenImage}
+                  src={characterImages.RaidenShogun}
                   alt="Raiden"
                 />
                 <Box display="flex" justifyContent="center" gap={2} mt={2}>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Container, Typography } from '@mui/material';
-import gi from '../assets/gi.webp'
-import hsr from '../assets/hsr.webp'
-import zzz from '../assets/zzz.webp'
-import ww from '../assets/ww.webp'
+import gi from '../assets/gi/banner.webp'
+import hsr from '../assets/hsr/banner.webp'
+import zzz from '../assets/zzz/banner.webp'
+import ww from '../assets/ww/banner.webp'
 
 const tint = 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))';
 
