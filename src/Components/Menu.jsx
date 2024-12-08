@@ -10,28 +10,25 @@ const tint = 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))';
 
 const Menu = () => {
   return (
-    <Container
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-      }}
-    >
+    <Container maxWidth='sm'>
       <Box
+        component='body'
         display='flex'
         flexDirection='column'
-        gap={2}
-        sx={{
-          width: '400px',
-        }}
+        alignItems='center'
+        justifyContent='center'
+        minHeight='100vh'
+        sx={{ padding: 2 }}
       >
         {/* Genshin Impact */}
         <Button className='menuButton'
           component={Link}
           to='/genshin-impact'
           fullWidth
-          sx={{backgroundImage: `${tint}, url(${gi})`}}
+          sx={{
+            backgroundImage: `${tint}, url(${gi})`,
+            margin: 1,
+          }}
         >
           Genshin Impact
         </Button>
@@ -41,7 +38,10 @@ const Menu = () => {
           component={Link}
           to='/honkai-star-rail'
           fullWidth
-          sx={{backgroundImage: `${tint}, url(${hsr})`}}
+          sx={{
+            backgroundImage: `${tint}, url(${hsr})`,
+            margin: 1,
+          }}
         >
           Honkai Star Rail
         </Button>
@@ -51,7 +51,10 @@ const Menu = () => {
           component={Link}
           to='/zenless-zone-zero'
           fullWidth
-          sx={{backgroundImage: `${tint}, url(${zzz})`}}
+          sx={{
+            backgroundImage: `${tint}, url(${zzz})`,
+            margin: 1,
+          }}
         >
           Zenless Zone Zero
         </Button>
@@ -61,7 +64,10 @@ const Menu = () => {
           component={Link}
           to='/wuthering-waves'
           fullWidth
-          sx={{backgroundImage: `${tint}, url(${ww})`}}
+          sx={{
+            backgroundImage: `${tint}, url(${ww})`,
+            margin: 1,
+          }}
         >
           Wuthering Waves
         </Button>
