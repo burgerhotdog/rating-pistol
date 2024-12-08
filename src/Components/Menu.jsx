@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Button, Container } from '@mui/material';
 import gi from '../assets/gi/banner.webp'
 import hsr from '../assets/hsr/banner.webp'
 import zzz from '../assets/zzz/banner.webp'

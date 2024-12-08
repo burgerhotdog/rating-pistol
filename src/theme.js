@@ -2,10 +2,11 @@ import { createTheme } from "@mui/material";
 
 const theme = createTheme({
   palette: {
-    mode: "dark",
+    mode: 'dark',
     text: {
-      primary: "rgba(255, 255, 255, 0.87)",
-      secondary: "rgba(255, 255, 255, 0.6)",
+      primary: 'rgba(255, 255, 255, 0.87)',
+      secondary: 'rgba(255, 255, 255, 0.7)',
+      disabled: 'rgba(255, 255, 255, 0.5)',
     },
     background: {
       default: '#121212',
@@ -22,7 +23,7 @@ const theme = createTheme({
             height: '80px', 
             fontWeight: 'bold', 
             fontSize: '1.2rem', 
-            color: "rgba(255, 255, 255, 0.87)",
+            color: 'rgba(255, 255, 255, 0.87)',
             '&:hover': {
               opacity: 0.8,
             },
@@ -33,14 +34,14 @@ const theme = createTheme({
     MuiMenu: {
       styleOverrides: {
         paper: {
-          backgroundColor: "#333333",
+          backgroundColor: '#333333',
         },
       },
     },
     MuiSelect: {
       styleOverrides: {
         root: {
-          backgroundColor: "#3b3b3b",
+          backgroundColor: '#3b3b3b',
         },
       },
     },

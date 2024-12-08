@@ -3,6 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import {
   Box,
   Button,
+  Container,
   Table,
   TableBody,
   TableCell,
@@ -80,116 +81,126 @@ const GenshinImpact = ({ uid }) => {
   };
 
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{
-        textAlign: 'center',
-        padding: 2,
-        minHeight: '100vh',
-      }}
-    >
-      <Typography variant="h4">
-        Genshin Impact
-      </Typography>
-      <BackToMenu />
-      <TableContainer sx={{ maxWidth: 800, mt: 2 }}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Constellation</TableCell>
-              <TableCell>Weapon</TableCell>
-              <TableCell>Refinement</TableCell>
-              <TableCell></TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {Object.keys(myCharacters).length === 0 ? (
+    <Container maxWidth='sm'>
+      <Box
+        component='header'
+        display='flex'
+        flexDirection='column'
+        alignItems='center'
+        sx={{ marginTop: 4 }}
+      >
+        <Typography variant='h4'>Genshin Impact</Typography>
+        <BackToMenu />
+      </Box>
+      <Box
+        component='body'
+        display='flex'
+        flexDirection='column'
+        alignItems='center'
+      >
+        <TableContainer sx={{ maxWidth: 800, mt: 2 }}>
+          <Table>
+            <TableHead>
               <TableRow>
-                <TableCell colSpan={5} align="center">
-                  No characters to display
-                </TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Constellation</TableCell>
+                <TableCell>Weapon</TableCell>
+                <TableCell>Refinement</TableCell>
+                <TableCell></TableCell>
               </TableRow>
-            ) : (
-              Object.entries(myCharacters).map(([id, character]) => (
-                <TableRow key={id}>
-                  <TableCell>{character.name}</TableCell>
-                  <TableCell>{character.constellation}</TableCell>
-                  <TableCell>{character.weapon.name}</TableCell>
-                  <TableCell>{character.weapon.refinement}</TableCell>
-                  <TableCell>
-                    {/* Edit button */}
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      color="primary"
-                      onClick={() => handleEditCharacter(id)}
-                      sx={{ mr: 1 }}
-                    >
-                      Edit
-                    </Button>
-                    {/* Delete button */}
-                    <Button
-                      size="small"
-                      variant="outlined"
-                      color="secondary"
-                      onClick={() => handleDeleteCharacter(id)}
-                    >
-                      Delete
-                    </Button>
+            </TableHead>
+
+            <TableBody>
+              {Object.keys(myCharacters).length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={5} align='center'>
+                    No characters to display
                   </TableCell>
                 </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+              ) : (
+                Object.entries(myCharacters).map(([id, character]) => (
+                  <TableRow key={id}>
+                    <TableCell>{character.name}</TableCell>
+                    <TableCell>{character.constellation}</TableCell>
+                    <TableCell>{character.weapon.name}</TableCell>
+                    <TableCell>{character.weapon.refinement}</TableCell>
+                    <TableCell>
+                      {/* Edit button */}
+                      <Button
+                        size='small'
+                        variant='outlined'
+                        color='primary'
+                        onClick={() => handleEditCharacter(id)}
+                        sx={{ mr: 1 }}
+                      >
+                        Edit
+                      </Button>
 
-      {/* button to add character */}
-      <Button variant="contained" color="primary" onClick={handleAddCharacter}>
-        Add Character
-      </Button>
+                      {/* Delete button */}
+                      <Button
+                        size='small'
+                        variant='outlined'
+                        color='secondary'
+                        onClick={() => handleDeleteCharacter(id)}
+                      >
+                        Delete
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
 
-      {/* modal to add character */}
-      <Add
-        uid={uid}
-        isAddOpen={isAddOpen}
-        setIsAddOpen={setIsAddOpen}
-        myCharacters={myCharacters}
-        setMyCharacters={setMyCharacters}
-        newId={newId}
-        setNewId={setNewId}
-        newCharacter={newCharacter}
-        setNewCharacter={setNewCharacter}
-      />
+        {/* Add character button */}
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={handleAddCharacter}
+          sx={{ marginTop: 2 }}
+        >
+          Add Character
+        </Button>
 
-      {/* modal to edit character */}
-      <Edit
-        uid={uid}
-        isEditOpen={isEditOpen}
-        setIsEditOpen={setIsEditOpen}
-        myCharacters={myCharacters}
-        setMyCharacters={setMyCharacters}
-        newId={newId}
-        setNewId={setNewId}
-        newCharacter={newCharacter}
-        setNewCharacter={setNewCharacter}
-      />
+        {/* modal for add character */}
+        <Add
+          uid={uid}
+          isAddOpen={isAddOpen}
+          setIsAddOpen={setIsAddOpen}
+          myCharacters={myCharacters}
+          setMyCharacters={setMyCharacters}
+          newId={newId}
+          setNewId={setNewId}
+          newCharacter={newCharacter}
+          setNewCharacter={setNewCharacter}
+        />
 
-      {/* modal to delete character */}
-      <Delete
-        uid={uid}
-        isDeleteOpen={isDeleteOpen}
-        setIsDeleteOpen={setIsDeleteOpen}
-        myCharacters={myCharacters}
-        setMyCharacters={setMyCharacters}
-        newId={newId}
-        setNewId={setNewId}
-      />
-    </Box>
+        {/* modal for edit character */}
+        <Edit
+          uid={uid}
+          isEditOpen={isEditOpen}
+          setIsEditOpen={setIsEditOpen}
+          myCharacters={myCharacters}
+          setMyCharacters={setMyCharacters}
+          newId={newId}
+          setNewId={setNewId}
+          newCharacter={newCharacter}
+          setNewCharacter={setNewCharacter}
+        />
+
+        {/* modal for delete character */}
+        <Delete
+          uid={uid}
+          isDeleteOpen={isDeleteOpen}
+          setIsDeleteOpen={setIsDeleteOpen}
+          myCharacters={myCharacters}
+          setMyCharacters={setMyCharacters}
+          newId={newId}
+          setNewId={setNewId}
+        />
+      </Box>        
+    </Container>
   );
 };
 

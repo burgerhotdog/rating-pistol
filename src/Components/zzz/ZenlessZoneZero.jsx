@@ -10,7 +10,7 @@ const ZenlessZoneZero = () => {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        sx={{ margin: 2 }}
+        sx={{ marginTop: 4 }}
       >
         <Typography variant="h4">Zenless Zone Zero</Typography>
         <BackToMenu />
@@ -20,9 +20,8 @@ const ZenlessZoneZero = () => {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        sx={{ margin: 2 }}
       >
-        <Typography variant="body1">
+        <Typography variant='body1' sx={{ marginTop: 2 }}>
           Coming soon
         </Typography>
       </Box>

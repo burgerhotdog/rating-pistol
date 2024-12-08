@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid2';
 import {
   Box,
   Button,
+  Container,
   FormControl,
   InputLabel,
   MenuItem,
@@ -128,6 +129,8 @@ const Add = ({
       <Box
         display='flex'
         flexDirection='column'
+        alignItems='center'
+        justifyContent='center'
         sx={{
           position: 'absolute',
           top: '50%',
@@ -138,8 +141,6 @@ const Add = ({
           padding: 4,
           borderRadius: 2,
           backgroundColor: '#1c1c1c',
-          justifyContent: 'center',
-          alignItems: 'center',
         }}
       >
         {/* Title & Select character*/}
@@ -149,7 +150,7 @@ const Add = ({
             sx={{
               display: 'flex',
               alignItems: 'center',
-              mr: 2,
+              marginRight: 2,
             }}
           >
             Add character
@@ -172,7 +173,7 @@ const Add = ({
           </Select>
         </Box>
 
-        {/* Character, Weapon, Talents */}
+        {/* Character form */}
         {newId && (
           <FormControl size='small'>
             <Grid container spacing={4}>
@@ -331,6 +332,7 @@ const Add = ({
             </Grid>
           </FormControl>
         )}
+
         {/* Error message */}
         {error && (
           <Typography variant="body2" color="error" sx={{ mt: 2, textAlign: 'center' }}>
@@ -355,7 +357,7 @@ const Add = ({
             </Button>
           </Box>
         </Grid>
-      </Box>
+      </Box>      
     </Modal>
   );
 };
