@@ -13,11 +13,6 @@ const theme = createTheme({
     }
   },
   components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        
-      }
-    },
     MuiButton: {
       styleOverrides: {
         root: {

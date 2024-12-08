@@ -45,7 +45,7 @@ const Auth = ({ setUid }) => {
       await setPersistence(auth, browserLocalPersistence);
       await signInWithPopup(auth, new GoogleAuthProvider());
     } catch (error) {
-      console.error("Sign-in failed", error);
+      console.error('handleSignIn: ', error);
       setIsLoading(false);
     }
   };
@@ -56,7 +56,7 @@ const Auth = ({ setUid }) => {
     try {
       await signOut(auth);
     } catch (error) {
-      console.error("Sign-out failed", error);
+      console.error('handleSignOut: ', error);
       setIsLoading(false);
     }
   };
@@ -65,20 +65,18 @@ const Auth = ({ setUid }) => {
     <Box
       sx={{
         position: 'fixed',
-        top: 10,
-        right: 10,
+        top: 8,
+        right: 8,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
       }}
     >
       {isLoading ? (
-      <Typography sx={{ marginRight: '10px' }}>
-        Loading...
-      </Typography>
+        <Typography>Loading...</Typography>
       ) : (
       <>
-        <Typography sx={{ marginRight: '10px' }}>
+        <Typography variant='button' sx={{mr: 1}}>
           {email ? email : ''}
         </Typography>
         <Button onClick={email ? handleSignOut : handleSignIn}>

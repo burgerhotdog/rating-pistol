@@ -5,6 +5,7 @@ import {
   Box,
   Button,
   FormControl,
+  InputLabel,
   MenuItem,
   Modal,
   Select,
@@ -12,6 +13,7 @@ import {
   Typography,
 } from '@mui/material';
 import { db } from '../../../firebase';
+import RaidenImage from '../../../assets/characters/GenshinImpact/RaidenShogun.webp'
 
 /* Used for converting character names to ids */
 function toPascalCase(str) {
@@ -124,177 +126,235 @@ const Add = ({
   return (
     <Modal open={isAddOpen} onClose={handleCancel}>
       <Box
+        display='flex'
+        flexDirection='column'
         sx={{
-          backgroundColor: '#1c1c1c',
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           width: '80%',
           height: '80%',
-          p: 4,
+          padding: 4,
           borderRadius: 2,
+          backgroundColor: '#1c1c1c',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        <FormControl size='small'>
-          {/* Title */}
-          <Box display='flex'>
-            <Typography variant="h6" sx={{mr: 2}}>
-              Add New Character
-            </Typography>
-
-            <Select
-              size='small'
-              name="name"
-              value={newCharacter.name || ''}
-              onChange={handleCharacterField}
-              displayEmpty
-            >
-              <MenuItem value="" disabled>
-                (select)
+        {/* Title & Select character*/}
+        <Box display='flex'>
+          <Typography 
+            variant='button'
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              mr: 2,
+            }}
+          >
+            Add character
+          </Typography>
+          <Select
+            size='small'
+            name="name"
+            value={newCharacter.name || ''}
+            onChange={handleCharacterField}
+            displayEmpty
+          >
+            <MenuItem value="" disabled>
+              (select)
+            </MenuItem>
+            {availableNames.map((item) => (
+              <MenuItem key={item} value={item}>
+                {item}
               </MenuItem>
-              {availableNames.map((item) => (
-                <MenuItem key={item} value={item}>
-                  {item}
-                </MenuItem>
-              ))}
-            </Select>
-          </Box>
+            ))}
+          </Select>
+        </Box>
 
-          
+        {/* Character, Weapon, Talents */}
+        {newId && (
+          <FormControl size='small'>
+            <Grid container spacing={4}>
+              <Grid size={4}>
+                <img
+                  width='100%'
+                  src={RaidenImage}
+                  alt="Raiden"
+                />
+                <Box display="flex" justifyContent="center" gap={2} mt={2}>
+                  <TextField
+                    fullWidth
+                    label='Level'
+                    type="number"
+                    name="level"
+                    value={newCharacter.level}
+                    onChange={handleCharacterField}
+                  />
 
-          {/* Grid Container */}
-          <Grid container spacing={4}>
-            {/* Character and weapon stats */}
-            <Grid size={6}>
-              <Typography variant="body1">
-                Level
-              </Typography>
-              <TextField
-                fullWidth
-                type="number"
-                name="level"
-                value={newCharacter.level}
-                onChange={handleCharacterField}
-              />
+                  <TextField
+                    fullWidth
+                    label='Constellation'
+                    type="number"
+                    name="constellation"
+                    value={newCharacter.constellation}
+                    onChange={handleCharacterField}
+                  />
+                </Box>
+              </Grid>
+
+              <Grid size={4}>
+                <Typography variant="h6">Weapon</Typography>
+                <Box display="flex" justifyContent="center" gap={2} mt={2}>
+                  <TextField
+                    fullWidth
+                    label='Level'
+                    type="number"
+                    name="weapon.level"
+                    value={newCharacter.weapon.level}
+                    onChange={handleCharacterField}
+                  />
+
+                  <TextField
+                    fullWidth
+                    label='Refinement'
+                    type="number"
+                    name="weapon.refinement"
+                    value={newCharacter.weapon.refinement}
+                    onChange={handleCharacterField}
+                  />
+                </Box>
+              </Grid>
+
+              <Grid size={4}>
+                <Typography variant="h6">Talents</Typography>
+
+                <TextField
+                  fullWidth
+                  label='Normal'
+                  type="number"
+                  name="talents.normal"
+                  value={newCharacter.talents.normal}
+                  onChange={handleCharacterField}
+                />
+                
+                <TextField
+                  fullWidth
+                  label='Skill'
+                  type="number"
+                  name="talents.skill"
+                  value={newCharacter.talents.skill}
+                  onChange={handleCharacterField}
+                />
+
+                <TextField
+                  fullWidth
+                  label='Burst'
+                  type="number"
+                  name="talents.burst"
+                  value={newCharacter.talents.burst}
+                  onChange={handleCharacterField}
+                />
+              </Grid>
             </Grid>
-
-            {/* Talent levels */}
-            <Grid size={6}>
-              <Typography variant="body1">Normal Attack</Typography>
-              <TextField
-                fullWidth
-                type="number"
-                name="talents.normal"
-                value={newCharacter.talents.normal}
-                onChange={handleCharacterField}
-              />
               
-              <Typography variant="body1">Elemental Skill</Typography>
-              <TextField
-                fullWidth
-                type="number"
-                name="talents.skill"
-                value={newCharacter.talents.skill}
-                onChange={handleCharacterField}
-              />
+            <Typography variant="h6">Artifacts</Typography>
+            <Grid container spacing={4}>
+              <Grid size={2.4}>
+                <FormControl size='small'>
+                  <InputLabel id="flower-label">Flower</InputLabel>
+                  <Select
+                    labelId="flower-label"
+                    name='flower'
+                    value={'HP'}
+                    disabled
+                  >
+                    <MenuItem value='HP'>
+                      HP
+                    </MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
 
-              <Typography variant="body1">Elemental Burst</Typography>
-              <TextField
-                fullWidth
-                type="number"
-                name="talents.burst"
-                value={newCharacter.talents.burst}
-                onChange={handleCharacterField}
-              />
+              <Grid size={2.4}>
+                <Select
+                  fullWidth
+                  label='plume'
+                  name='plume'
+                  value={'ATK'}
+                  disabled
+                >
+                  <MenuItem value='ATK'>
+                    ATK
+                  </MenuItem>
+                </Select>
+              </Grid>
+
+              <Grid size={2.4}>
+                <Select
+                  fullWidth
+                  label='sands'
+                  name='sands'
+                  value={''}
+                >
+                  <MenuItem value="">
+                    (select)
+                  </MenuItem>
+                </Select>
+              </Grid>
+
+              <Grid size={2.4}>
+                <Select
+                  fullWidth
+                  label='goblet'
+                  name='goblet'
+                  value={''}
+                >
+                  <MenuItem value="">
+                    (select)
+                  </MenuItem>
+                </Select>
+              </Grid>
+
+              <Grid size={2.4}>
+                <Select
+                  fullWidth
+                  label='circlet'
+                  name='circlet'
+                  value={''}
+                >
+                  <MenuItem value="">
+                    (select)
+                  </MenuItem>
+                </Select>
+              </Grid>
             </Grid>
+          </FormControl>
+        )}
+        {/* Error message */}
+        {error && (
+          <Typography variant="body2" color="error" sx={{ mt: 2, textAlign: 'center' }}>
+            {error}
+          </Typography>
+        )}
+
+        {/* Buttons Section */}
+        <Grid size={12}>
+          <Box display="flex" justifyContent="center" gap={2} mt={2}>
+            <Button variant="outlined" color="secondary" onClick={handleCancel}>
+              Cancel
+            </Button>
             
-            {/* Artifacts */}
-            <Grid size={12}>
-              <Typography variant="h6">Artifacts</Typography>
-            </Grid>
-            <Grid size={2.4}>
-              <Typography variant="body1">Flower</Typography>
-              <Select
-                fullWidth
-                name='flower'
-                value={''}
-              >
-                <MenuItem value="">
-                  (select)
-                </MenuItem>
-              </Select>
-            </Grid>
-            <Grid size={2.4}>
-              <Typography variant="body1">Feather</Typography>
-              <Select
-                fullWidth
-                name='feather'
-                value={''}
-              >
-                <MenuItem value="">
-                  (select)
-                </MenuItem>
-              </Select>
-            </Grid>
-            <Grid size={2.4}>
-              <Typography variant="body1">Sands</Typography>
-              <Select
-                fullWidth
-                name='sands'
-                value={''}
-              >
-                <MenuItem value="">
-                  (select)
-                </MenuItem>
-              </Select>
-            </Grid>
-            <Grid size={2.4}>
-              <Typography variant="body1">Goblet</Typography>
-              <Select
-                fullWidth
-                name='goblet'
-                value={''}
-              >
-                <MenuItem value="">
-                  (select)
-                </MenuItem>
-              </Select>
-            </Grid>
-            <Grid size={2.4}>
-              <Typography variant="body1">Circlet</Typography>
-              <Select
-                fullWidth
-                name='circlet'
-                value={''}
-              >
-                <MenuItem value="">
-                  (select)
-                </MenuItem>
-              </Select>
-            </Grid>
-            <Grid size={1} />
-
-            {/* Error message */}
-            {error && (
-              <Typography variant="body2" color="error" sx={{ mt: 2, textAlign: 'center' }}>
-                {error}
-              </Typography>
-            )}
-
-            {/* Buttons Section */}
-            <Grid size={12}>
-              <Box display="flex" justifyContent="center" gap={2} mt={2}>
-                <Button variant="outlined" color="secondary" onClick={handleCancel}>
-                  Cancel
-                </Button>
-                <Button variant="contained" color="primary" onClick={handleSave}>
-                  Save
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
-        </FormControl>
+            <Button 
+              variant="contained"
+              color="primary"
+              onClick={handleSave}
+              disabled={!newId}
+            >
+              Save
+            </Button>
+          </Box>
+        </Grid>
       </Box>
     </Modal>
   );
