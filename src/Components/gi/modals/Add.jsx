@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid2';
 import {
   Box,
   Button,
-  Container,
   FormControl,
   InputLabel,
   MenuItem,
@@ -91,8 +90,11 @@ const Add = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newId) errors.push('No name selected');
-    if (!newCharacter.weapon || !newCharacter.weapon.name) errors.push('No weapon selected');
+    if (!newId) errors.push('No character selected');
+    if (!newCharacter.weapon.name) errors.push('No weapon selected');
+    if (!newCharacter.slot3.mainStat) errors.push('No sands selected');
+    if (!newCharacter.slot4.mainStat) errors.push('No goblet selected');
+    if (!newCharacter.slot5.mainStat) errors.push('No Circlet selected');
 
     // Display message
     if (errors.length) {
