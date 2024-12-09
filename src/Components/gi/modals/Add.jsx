@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { doc, setDoc } from 'firebase/firestore';
 import Grid from '@mui/material/Grid2';
 import {
+  Autocomplete,
   Box,
   Button,
   FormControl,
@@ -15,15 +16,6 @@ import {
 import { db } from '../../../firebase';
 import { characterImages } from '../data/images';
 import template from '../data/template';
-
-/* Used for converting character names to ids */
-function toPascalCase(str) {
-  return str
-    .replace(/'/g, '')
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join('');
-}
 
 const Add = ({
   uid,
@@ -53,35 +45,41 @@ const Add = ({
     setAvailableNames(notInMyCharacters);
   }, [myCharacters]);
 
-  /* Handle form inputs */
+  /* Pass name input to newId and newCharacter */
+  const handleNameInput = (value) => {
+    // convert name to id
+    const words = value.replace(/'/g, '').split(' ');
+    const id = words.map(word => (
+      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    )).join('');
+
+    // set new id and name
+    setNewId(id);
+    setNewCharacter(({
+      ...template(),
+      name: value,
+    }));
+  };
+
+  /* Pass form inputs to newCharacter */
   const handleInput = (e) => {
     const { name, value } = e.target;
 
-    // Set the id and reset newCharacter if the field was the name
-    if (name === 'name') {
-      setNewId(toPascalCase(value));
-      setNewCharacter((prevCharacter) => ({
-        ...template(),
-        name: value,
-      }));
-    }
-  
-    // Check if the name refers to a nested property (e.g., 'weapon.name')
+    // Check if the name points to a map
     if (name.includes('.')) {
-      const [outerKey, innerKey] = name.split('.');  // e.g., 'weapon' and 'name'
+      const [outerKey, innerKey] = name.split('.');
   
       setNewCharacter((prevCharacter) => ({
-        ...prevCharacter,  // Copy the outer object
+        ...prevCharacter,
         [outerKey]: {
-          ...prevCharacter[outerKey],  // Copy the inner object (e.g., 'weapon')
-          [innerKey]: value,           // Update the nested property
+          ...prevCharacter[outerKey],
+          [innerKey]: value,
         },
       }));
     } else {
-      // For non-nested properties, just update the property directly
       setNewCharacter((prevCharacter) => ({
-        ...prevCharacter,  // Copy the outer object
-        [name]: value,     // Update the property
+        ...prevCharacter,
+        [name]: value,
       }));
     }
   };
@@ -96,7 +94,7 @@ const Add = ({
     if (!newCharacter.slot4.mainStat) errors.push('No goblet selected');
     if (!newCharacter.slot5.mainStat) errors.push('No Circlet selected');
 
-    // Display message
+    // Display error message
     if (errors.length) {
       setError(errors.join(', '));
       return false;
@@ -165,22 +163,15 @@ const Add = ({
           >
             Add character
           </Typography>
-          <Select
+          <Autocomplete
+            disablePortal
             size='small'
-            name='name'
             value={newCharacter.name}
-            onChange={handleInput}
-            displayEmpty
-          >
-            <MenuItem value='' disabled>
-              (select)
-            </MenuItem>
-            {availableNames.map((item) => (
-              <MenuItem key={item} value={item}>
-                {item}
-              </MenuItem>
-            ))}
-          </Select>
+            options={availableNames}
+            onChange={(event, newValue) => handleNameInput(newValue)}
+            sx={{ width: 200 }}
+            renderInput={(params) => <TextField {...params} label="Name" />}
+          />
         </Box>
 
         {newId && (
@@ -235,23 +226,25 @@ const Add = ({
                 <Typography variant="h6" sx={{ mt: 1 }}>Weapon details</Typography>
 
                 <FormControl fullWidth size='small' sx={{ mt: 1 }}>
-                  <InputLabel id='weapon-label' shrink>Name</InputLabel>
-                  <Select
-                    labelId="weapon-label"
-                    name='weapon.name'
+                  <Autocomplete
+                    fullwidth
+                    disablePortal
+                    size='small'
+                    name={newCharacter.weapon}
                     value={newCharacter.weapon.name}
-                    onChange={handleInput}
-                    displayEmpty
-                  >
-                    <MenuItem value='' disabled>
-                      (select)
-                    </MenuItem>
-                    {weaponNames.map((item) => (
-                      <MenuItem key={item} value={item}>
-                        {item}
-                      </MenuItem>
-                    ))}
-                  </Select>
+                    options={weaponNames}
+                    onChange={(event, newValue) => {
+                      // Update weapon name in newCharacter
+                      setNewCharacter((prevCharacter) => ({
+                        ...prevCharacter,
+                        weapon: {
+                          ...prevCharacter.weapon,
+                          name: newValue || '', // Set weapon name to the selected value
+                        },
+                      }));
+                    }}
+                    renderInput={(params) => <TextField {...params} label="Name" />}
+                  />
                 </FormControl>
 
                 <Box display="flex" justifyContent="center" gap={2} mt={2}>
