@@ -17,7 +17,7 @@ import BackToMenu from '../BackToMenu';
 import Add from './modals/Add';
 import Edit from './modals/Edit';
 import Delete from './modals/Delete';
-import { templateArtifact, templateCharacter } from './data/template';
+import template from './data/template';
 
 const GenshinImpact = ({ uid }) => {
   // Modal states
@@ -29,12 +29,8 @@ const GenshinImpact = ({ uid }) => {
   const [myCharacters, setMyCharacters] = useState({});
 
   /* New character data structures: */
-  // Id
   const [newId, setNewId] = useState('');
-  // Character
-  const [newCharacter, setNewCharacter] = useState(templateCharacter);
-  // Artifact map
-  // const [newArtifacts, setNewArtifacts] = useState({});
+  const [newCharacter, setNewCharacter] = useState(template);
 
   // Update myCharacters when user signs in or out
   useEffect(() => {
@@ -63,7 +59,7 @@ const GenshinImpact = ({ uid }) => {
   /* Add character button */
   const handleAddCharacter = () => {
     setNewId('');
-    setNewCharacter(templateCharacter());
+    setNewCharacter(template());
     setIsAddOpen(true);
   };
 
@@ -93,12 +89,11 @@ const GenshinImpact = ({ uid }) => {
         <BackToMenu />
       </Box>
       <Box
-        component='body'
         display='flex'
         flexDirection='column'
         alignItems='center'
       >
-        <TableContainer sx={{ maxWidth: 800, mt: 2 }}>
+        <TableContainer sx={{ maxWidth: 800, marginTop: 2 }}>
           <Table>
             <TableHead>
               <TableRow>

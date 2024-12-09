@@ -41,6 +41,9 @@ const Add = ({
 
   const characterNames = ['Venti', 'Zhongli', 'Raiden Shogun', 'Nahida', 'Furina'];
   const weaponNames = ['Elegy for the End', 'Vortex Vanquisher', 'Engulfing Lightning', 'A Thousand Floating Dreams', 'Splendor of Tranquil Waters'];
+  const mainStatSands = ['HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Energy Recharge'];
+  const mainStatGoblet = ['HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Elemental DMG Bonus', 'Physical DMG Bonus'];
+  const mainStatCirclet = ['HP%', 'ATK%', 'DEF%', 'CRIT Rate', 'CRIT DMG', 'Healing Bonus'];
 
   /* Update available names when myCharacters changes */
   useEffect(() => {
@@ -50,8 +53,8 @@ const Add = ({
     setAvailableNames(notInMyCharacters);
   }, [myCharacters]);
 
-  /* Handle character field inputs */
-  const handleCharacterField = (e) => {
+  /* Handle form inputs */
+  const handleInput = (e) => {
     const { name, value } = e.target;
 
     // Set the id if the field was the name
@@ -83,8 +86,8 @@ const Add = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newId) errors.push("No name selected");
-    if (!newCharacter.weapon || !newCharacter.weapon.name) errors.push("No weapon selected");
+    if (!newId) errors.push('No name selected');
+    if (!newCharacter.weapon || !newCharacter.weapon.name) errors.push('No weapon selected');
 
     // Display message
     if (errors.length) {
@@ -157,12 +160,12 @@ const Add = ({
           </Typography>
           <Select
             size='small'
-            name="name"
+            name='name'
             value={newCharacter.name || ''}
-            onChange={handleCharacterField}
+            onChange={handleInput}
             displayEmpty
           >
-            <MenuItem value="" disabled>
+            <MenuItem value='' disabled>
               (select)
             </MenuItem>
             {availableNames.map((item) => (
@@ -175,31 +178,46 @@ const Add = ({
 
         {/* Character form */}
         {newId && (
-          <FormControl size='small'>
+          <Box>
             <Grid container spacing={4}>
               <Grid size={4}>
+              <Box
+                sx={{
+                  position: 'relative',
+                  width: '100%',
+                  height: 200,
+                  overflow: 'hidden',
+                }}
+              >
                 <img
-                  width='100%'
-                  src={characterImages.RaidenShogun}
-                  alt="Raiden"
+                  src={characterImages[newId]}
+                  alt='Character'
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
                 />
-                <Box display="flex" justifyContent="center" gap={2} mt={2}>
+              </Box>
+                <Box display="flex" justifyContent='center' gap={2} mt={2}>
                   <TextField
+                    size='small'
                     fullWidth
                     label='Level'
-                    type="number"
-                    name="level"
+                    type='number'
+                    name='level'
                     value={newCharacter.level}
-                    onChange={handleCharacterField}
+                    onChange={handleInput}
                   />
 
                   <TextField
+                    size='small'
                     fullWidth
                     label='Constellation'
-                    type="number"
-                    name="constellation"
+                    type='number'
+                    name='constellation'
                     value={newCharacter.constellation}
-                    onChange={handleCharacterField}
+                    onChange={handleInput}
                   />
                 </Box>
               </Grid>
@@ -208,21 +226,23 @@ const Add = ({
                 <Typography variant="h6">Weapon</Typography>
                 <Box display="flex" justifyContent="center" gap={2} mt={2}>
                   <TextField
+                    size='small'
                     fullWidth
                     label='Level'
                     type="number"
                     name="weapon.level"
                     value={newCharacter.weapon.level}
-                    onChange={handleCharacterField}
+                    onChange={handleInput}
                   />
 
                   <TextField
+                    size='small'
                     fullWidth
                     label='Refinement'
                     type="number"
                     name="weapon.refinement"
                     value={newCharacter.weapon.refinement}
-                    onChange={handleCharacterField}
+                    onChange={handleInput}
                   />
                 </Box>
               </Grid>
@@ -231,30 +251,36 @@ const Add = ({
                 <Typography variant="h6">Talents</Typography>
 
                 <TextField
-                  fullWidth
                   label='Normal'
-                  type="number"
-                  name="talents.normal"
+                  type='number'
+                  name='talents.normal'
                   value={newCharacter.talents.normal}
-                  onChange={handleCharacterField}
+                  onChange={handleInput}
+                  fullWidth
+                  size='small'
+                  sx={{ marginTop: 2 }}
                 />
                 
                 <TextField
-                  fullWidth
                   label='Skill'
-                  type="number"
-                  name="talents.skill"
+                  type='number'
+                  name='talents.skill'
                   value={newCharacter.talents.skill}
-                  onChange={handleCharacterField}
+                  onChange={handleInput}
+                  fullWidth
+                  size='small'
+                  sx={{ marginTop: 2 }}
                 />
 
                 <TextField
-                  fullWidth
                   label='Burst'
-                  type="number"
-                  name="talents.burst"
+                  type='number'
+                  name='talents.burst'
                   value={newCharacter.talents.burst}
-                  onChange={handleCharacterField}
+                  onChange={handleInput}
+                  fullWidth
+                  size='small'
+                  sx={{ marginTop: 2 }}
                 />
               </Grid>
             </Grid>
@@ -262,12 +288,12 @@ const Add = ({
             <Typography variant="h6">Artifacts</Typography>
             <Grid container spacing={4}>
               <Grid size={2.4}>
-                <FormControl size='small'>
-                  <InputLabel id="flower-label">Flower</InputLabel>
+                <FormControl fullWidth size='small'>
+                  <InputLabel id='slot1-label'>Flower</InputLabel>
                   <Select
-                    labelId="flower-label"
-                    name='flower'
-                    value={'HP'}
+                    labelId="slot1-label"
+                    name='slot1.mainStat'
+                    value={newCharacter.slot1.mainStat}
                     disabled
                   >
                     <MenuItem value='HP'>
@@ -278,59 +304,88 @@ const Add = ({
               </Grid>
 
               <Grid size={2.4}>
-                <Select
-                  fullWidth
-                  label='plume'
-                  name='plume'
-                  value={'ATK'}
-                  disabled
-                >
-                  <MenuItem value='ATK'>
-                    ATK
-                  </MenuItem>
-                </Select>
+                <FormControl fullWidth size='small'>
+                  <InputLabel id='slot2-label'>Plume</InputLabel>
+                  <Select
+                    labelId="slot2-label"
+                    name='slot2.mainStat'
+                    value={newCharacter.slot2.mainStat}
+                    disabled
+                  >
+                    <MenuItem value='ATK'>
+                      ATK
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </Grid>
 
               <Grid size={2.4}>
-                <Select
-                  fullWidth
-                  label='sands'
-                  name='sands'
-                  value={''}
-                >
-                  <MenuItem value="">
-                    (select)
-                  </MenuItem>
-                </Select>
+                <FormControl fullWidth size='small'>
+                  <InputLabel id='slot3-label' shrink>Sands</InputLabel>
+                  <Select
+                    labelId='slot3-label'
+                    name='slot3.mainStat'
+                    value={newCharacter.slot3.mainStat}
+                    onChange={handleInput}
+                    displayEmpty
+                  >
+                    <MenuItem value=''>
+                      (select)
+                    </MenuItem>
+                    {mainStatSands.map((item) => (
+                      <MenuItem key={item} value={item}>
+                        {item}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Grid>
 
               <Grid size={2.4}>
-                <Select
-                  fullWidth
-                  label='goblet'
-                  name='goblet'
-                  value={''}
-                >
-                  <MenuItem value="">
-                    (select)
-                  </MenuItem>
-                </Select>
+                <FormControl fullWidth size='small'>
+                  <InputLabel id='slot4-label' shrink>Goblet</InputLabel>
+                  <Select
+                    labelId='slot4-label'
+                    name='slot4.mainStat'
+                    value={newCharacter.slot4.mainStat}
+                    onChange={handleInput}
+                    displayEmpty
+                  >
+                    <MenuItem value=''>
+                      (select)
+                    </MenuItem>
+                    {mainStatGoblet.map((item) => (
+                      <MenuItem key={item} value={item}>
+                        {item}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Grid>
 
               <Grid size={2.4}>
-                <Select
-                  fullWidth
-                  label='circlet'
-                  name='circlet'
-                  value={''}
-                >
-                  <MenuItem value="">
-                    (select)
-                  </MenuItem>
-                </Select>
+                <FormControl fullWidth size='small'>
+                  <InputLabel id='slot5-label' shrink>Circlet</InputLabel>
+                  <Select
+                    labelId='slot5-label'
+                    name='slot5.mainStat'
+                    value={newCharacter.slot5.mainStat}
+                    onChange={handleInput}
+                    displayEmpty
+                  >
+                    <MenuItem value=''>
+                      (select)
+                    </MenuItem>
+                    {mainStatCirclet.map((item) => (
+                      <MenuItem key={item} value={item}>
+                        {item}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Grid>
             </Grid>
-          </FormControl>
+          </Box>
         )}
 
         {/* Error message */}

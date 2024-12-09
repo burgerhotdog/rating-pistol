@@ -16,7 +16,6 @@ const ZenlessZoneZero = () => {
         <BackToMenu />
       </Box>
       <Box
-        component="body"
         display="flex"
         flexDirection="column"
         alignItems="center"
