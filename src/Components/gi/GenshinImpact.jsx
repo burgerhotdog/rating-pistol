@@ -77,7 +77,7 @@ const GenshinImpact = ({ uid }) => {
   };
 
   return (
-    <Container maxWidth='sm'>
+    <Container maxWidth='md'>
       <Box
         component='header'
         display='flex'

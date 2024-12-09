@@ -14,7 +14,8 @@ import {
   Typography,
 } from '@mui/material';
 import { db } from '../../../firebase';
-import { characterImages, weaponImages } from '../data/images'
+import { characterImages } from '../data/images';
+import template from '../data/template';
 
 /* Used for converting character names to ids */
 function toPascalCase(str) {
@@ -43,7 +44,7 @@ const Add = ({
   const weaponNames = ['Elegy for the End', 'Vortex Vanquisher', 'Engulfing Lightning', 'A Thousand Floating Dreams', 'Splendor of Tranquil Waters'];
   const mainStatSands = ['HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Energy Recharge'];
   const mainStatGoblet = ['HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Elemental DMG Bonus', 'Physical DMG Bonus'];
-  const mainStatCirclet = ['HP%', 'ATK%', 'DEF%', 'CRIT Rate', 'CRIT DMG', 'Healing Bonus'];
+  const mainStatCirclet = ['HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'CRIT Rate', 'CRIT DMG', 'Healing Bonus'];
 
   /* Update available names when myCharacters changes */
   useEffect(() => {
@@ -57,9 +58,13 @@ const Add = ({
   const handleInput = (e) => {
     const { name, value } = e.target;
 
-    // Set the id if the field was the name
+    // Set the id and reset newCharacter if the field was the name
     if (name === 'name') {
       setNewId(toPascalCase(value));
+      setNewCharacter((prevCharacter) => ({
+        ...template(),
+        name: value,
+      }));
     }
   
     // Check if the name refers to a nested property (e.g., 'weapon.name')
@@ -161,7 +166,7 @@ const Add = ({
           <Select
             size='small'
             name='name'
-            value={newCharacter.name || ''}
+            value={newCharacter.name}
             onChange={handleInput}
             displayEmpty
           >
@@ -176,30 +181,35 @@ const Add = ({
           </Select>
         </Box>
 
-        {/* Character form */}
         {newId && (
           <Box>
             <Grid container spacing={4}>
+              {/* Character image */}
               <Grid size={4}>
-              <Box
-                sx={{
-                  position: 'relative',
-                  width: '100%',
-                  height: 200,
-                  overflow: 'hidden',
-                }}
-              >
-                <img
-                  src={characterImages[newId]}
-                  alt='Character'
-                  style={{
+                <Box
+                  sx={{
+                    position: 'relative',
                     width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
+                    height: 256,
+                    overflow: 'hidden',
                   }}
-                />
-              </Box>
-                <Box display="flex" justifyContent='center' gap={2} mt={2}>
+                >
+                  <img
+                    src={characterImages[newId]}
+                    alt='Character'
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </Box>
+              </Grid>
+
+              <Grid size={4}>
+                <Typography variant="h6">Character details</Typography>
+
+                <Box display="flex" justifyContent='center' gap={2} mt={1}>
                   <TextField
                     size='small'
                     fullWidth
@@ -220,10 +230,28 @@ const Add = ({
                     onChange={handleInput}
                   />
                 </Box>
-              </Grid>
+                <Typography variant="h6" sx={{ mt: 1 }}>Weapon details</Typography>
 
-              <Grid size={4}>
-                <Typography variant="h6">Weapon</Typography>
+                <FormControl fullWidth size='small' sx={{ mt: 1 }}>
+                  <InputLabel id='weapon-label' shrink>Name</InputLabel>
+                  <Select
+                    labelId="weapon-label"
+                    name='weapon.name'
+                    value={newCharacter.weapon.name}
+                    onChange={handleInput}
+                    displayEmpty
+                  >
+                    <MenuItem value='' disabled>
+                      (select)
+                    </MenuItem>
+                    {weaponNames.map((item) => (
+                      <MenuItem key={item} value={item}>
+                        {item}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+
                 <Box display="flex" justifyContent="center" gap={2} mt={2}>
                   <TextField
                     size='small'
@@ -258,7 +286,7 @@ const Add = ({
                   onChange={handleInput}
                   fullWidth
                   size='small'
-                  sx={{ marginTop: 2 }}
+                  sx={{ marginTop: 1 }}
                 />
                 
                 <TextField
