@@ -12,7 +12,6 @@ const Menu = () => {
   return (
     <Container maxWidth='sm'>
       <Box
-        component='body'
         display='flex'
         flexDirection='column'
         alignItems='center'
