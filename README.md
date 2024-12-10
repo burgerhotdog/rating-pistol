@@ -1,1 +1,1 @@
-# Gacha Manager
+# Rating Pistol

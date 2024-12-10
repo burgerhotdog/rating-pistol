@@ -1,9 +1,9 @@
 {
-  "name": "gacha-manager",
+  "name": "rating-pistol",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://darrenwang18.github.io/Gacha-Manager",
+  "homepage": "https://burgerhotdog.github.io/rating-pistol",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
