@@ -16,6 +16,8 @@ import {
 import { db } from '../../../firebase';
 import { characterImages } from '../data/images';
 import template from '../data/template';
+import characters from '../data/characters';
+import weapons from '../data/weapons';
 
 const Add = ({
   uid,
@@ -31,15 +33,13 @@ const Add = ({
   const [error, setError] = useState('');
   const [availableNames, setAvailableNames] = useState([]);
 
-  const characterNames = ['Venti', 'Zhongli', 'Raiden Shogun', 'Nahida', 'Furina'];
-  const weaponNames = ['Elegy for the End', 'Vortex Vanquisher', 'Engulfing Lightning', 'A Thousand Floating Dreams', 'Splendor of Tranquil Waters'];
   const mainStatSands = ['HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Energy Recharge'];
   const mainStatGoblet = ['HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'Elemental DMG Bonus', 'Physical DMG Bonus'];
   const mainStatCirclet = ['HP%', 'ATK%', 'DEF%', 'Elemental Mastery', 'CRIT Rate', 'CRIT DMG', 'Healing Bonus'];
 
   /* Update available names when myCharacters changes */
   useEffect(() => {
-    const notInMyCharacters = characterNames.filter(
+    const notInMyCharacters = characters.filter(
       (item) => !Object.values(myCharacters).some((char) => char.name === item)
     );
     setAvailableNames(notInMyCharacters);
@@ -232,7 +232,7 @@ const Add = ({
                     size='small'
                     name={newCharacter.weapon}
                     value={newCharacter.weapon.name}
-                    options={weaponNames}
+                    options={weapons}
                     onChange={(event, newValue) => {
                       // Update weapon name in newCharacter
                       setNewCharacter((prevCharacter) => ({
@@ -281,7 +281,7 @@ const Add = ({
                   onChange={handleInput}
                   fullWidth
                   size='small'
-                  sx={{ marginTop: 1 }}
+                  sx={{ mt: 1 }}
                 />
                 
                 <TextField
@@ -292,7 +292,7 @@ const Add = ({
                   onChange={handleInput}
                   fullWidth
                   size='small'
-                  sx={{ marginTop: 2 }}
+                  sx={{ mt: 2 }}
                 />
 
                 <TextField
@@ -303,7 +303,7 @@ const Add = ({
                   onChange={handleInput}
                   fullWidth
                   size='small'
-                  sx={{ marginTop: 2 }}
+                  sx={{ mt: 2 }}
                 />
               </Grid>
             </Grid>
