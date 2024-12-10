@@ -1,20 +1,8 @@
 const template = () => ({
   name: '',
-  level: 90,
-  constellation: 0,
-  weapon: {
-    name: '',
-    level: 90,
-    refinement: 1,
-  },
-  talents: {
-    normal: 1,
-    skill: 1,
-    burst: 1,
-  },
+  weapon: '',
   slotSet: '',
   slot1: {
-    level: 20,
     mainStat: 'HP',
     subStatName1: '',
     subStatName2: '',
@@ -26,7 +14,6 @@ const template = () => ({
     subStatValue4: 0,
   },
   slot2: {
-    level: 20,
     mainStat: 'ATK',
     subStatName1: '',
     subStatName2: '',
@@ -38,7 +25,6 @@ const template = () => ({
     subStatValue4: 0,
   },
   slot3: {
-    level: 20,
     mainStat: '',
     subStatName1: '',
     subStatName2: '',
@@ -50,7 +36,6 @@ const template = () => ({
     subStatValue4: 0,
   },
   slot4: {
-    level: 20,
     mainStat: '',
     subStatName1: '',
     subStatName2: '',
@@ -62,7 +47,6 @@ const template = () => ({
     subStatValue4: 0,
   },
   slot5: {
-    level: 20,
     mainStat: '',
     subStatName1: '',
     subStatName2: '',

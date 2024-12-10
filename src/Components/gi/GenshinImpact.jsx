@@ -14,16 +14,16 @@ import {
 } from '@mui/material';
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
-import Add from './modals/Add';
-import Edit from './modals/Edit';
+import Save from './modals/Save';
 import Delete from './modals/Delete';
 import template from './data/template';
 
 const GenshinImpact = ({ uid }) => {
   // Modal states
-  const [isAddOpen, setIsAddOpen] = useState(false);
-  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+
+  const [isEditMode, setIsEditMode] = useState(false);
 
   // Local character object
   const [myCharacters, setMyCharacters] = useState({});
@@ -60,14 +60,16 @@ const GenshinImpact = ({ uid }) => {
   const handleAddCharacter = () => {
     setNewId('');
     setNewCharacter(template());
-    setIsAddOpen(true);
+    setIsEditMode(false);
+    setIsSaveOpen(true);
   };
 
   /* Edit button */
   const handleEditCharacter = (id) => {
     setNewId(id);
     setNewCharacter(myCharacters[id]);
-    setIsEditOpen(true);
+    setIsEditMode(true);
+    setIsSaveOpen(true);
   };
 
   /* Delete button */
@@ -98,9 +100,9 @@ const GenshinImpact = ({ uid }) => {
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
-                <TableCell>Constellation</TableCell>
                 <TableCell>Weapon</TableCell>
-                <TableCell>Refinement</TableCell>
+                <TableCell>Artifacts</TableCell>
+                <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
@@ -116,9 +118,9 @@ const GenshinImpact = ({ uid }) => {
                 Object.entries(myCharacters).map(([id, character]) => (
                   <TableRow key={id}>
                     <TableCell>{character.name}</TableCell>
-                    <TableCell>{character.constellation}</TableCell>
-                    <TableCell>{character.weapon.name}</TableCell>
-                    <TableCell>{character.weapon.refinement}</TableCell>
+                    <TableCell>{character.weapon}</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button
@@ -159,23 +161,11 @@ const GenshinImpact = ({ uid }) => {
         </Button>
 
         {/* modal for add character */}
-        <Add
+        <Save
           uid={uid}
-          isAddOpen={isAddOpen}
-          setIsAddOpen={setIsAddOpen}
-          myCharacters={myCharacters}
-          setMyCharacters={setMyCharacters}
-          newId={newId}
-          setNewId={setNewId}
-          newCharacter={newCharacter}
-          setNewCharacter={setNewCharacter}
-        />
-
-        {/* modal for edit character */}
-        <Edit
-          uid={uid}
-          isEditOpen={isEditOpen}
-          setIsEditOpen={setIsEditOpen}
+          isSaveOpen={isSaveOpen}
+          setIsSaveOpen={setIsSaveOpen}
+          isEditMode={isEditMode}
           myCharacters={myCharacters}
           setMyCharacters={setMyCharacters}
           newId={newId}

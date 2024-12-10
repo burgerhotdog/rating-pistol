@@ -59,7 +59,13 @@ const Delete = ({
           Confirm Deletion
         </Typography>
         <Typography sx={{ mt: 2 }}>
-          Are you sure you want to delete this character?
+          Are you sure you want to delete {' '}
+          {myCharacters[newId] ? (
+            <strong>{myCharacters[newId].name}</strong>
+          ) : (
+            ''
+          )}
+          ?
         </Typography>
 
         <Box display="flex" justifyContent="center" gap={2} mt={2}>
