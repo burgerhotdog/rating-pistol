@@ -1,93 +1,71 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Button, Container, Typography } from '@mui/material';
+import { Box, Button, Container } from '@mui/material';
+import gi from '../assets/gi/banner.webp'
+import hsr from '../assets/hsr/banner.webp'
+import zzz from '../assets/zzz/banner.webp'
+import ww from '../assets/ww/banner.webp'
+
+const tint = 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))';
 
 const Menu = () => {
   return (
-    <Container>
+    <Container maxWidth='sm'>
       <Box
-        display="flex"
-        flexDirection="column"
-        gap={1.5}
-        sx={{
-          color: "rgba(255, 255, 255, 0.87)"
-        }}
+        display='flex'
+        flexDirection='column'
+        alignItems='center'
+        justifyContent='center'
+        minHeight='100vh'
+        sx={{ padding: 2 }}
       >
-        <Typography variant="h3" gutterBottom>
-          Gacha Manager
-        </Typography>
-        <Button 
-          component={Link} 
-          to="/genshin-impact" 
-          fullWidth 
+        {/* Genshin Impact */}
+        <Button className='menuButton'
+          component={Link}
+          to='/genshin-impact'
+          fullWidth
           sx={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/gi.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '80px', 
-            fontWeight: 'bold', 
-            fontSize: '1.2rem', 
-            color: 'inherit', 
-            '&:hover': {
-              opacity: 0.8,
-            },
+            backgroundImage: `${tint}, url(${gi})`,
+            margin: 1,
           }}
         >
           Genshin Impact
         </Button>
-        <Button 
-          component={Link} 
-          to="/honkai-star-rail" 
-          fullWidth 
-          sx={{ 
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/hsr.webp)', 
-            backgroundSize: 'cover', 
-            backgroundPosition: 'center', 
-            height: '80px', 
-            fontWeight: 'bold', 
-            fontSize: '1.2rem', 
-            color: 'inherit',
-            '&:hover': {
-              opacity: 0.8,
-            },
+
+        {/* Honkai Star Rail */}
+        <Button className='menuButton'
+          component={Link}
+          to='/honkai-star-rail'
+          fullWidth
+          sx={{
+            backgroundImage: `${tint}, url(${hsr})`,
+            margin: 1,
           }}
         >
           Honkai Star Rail
         </Button>
-        <Button 
-          component={Link} 
-          to="/zenless-zone-zero" 
-          fullWidth 
+
+        {/* Zenless Zone Zero */}
+        <Button className='menuButton'
+          component={Link}
+          to='/zenless-zone-zero'
+          fullWidth
           sx={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/zzz.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '80px', 
-            fontWeight: 'bold', 
-            fontSize: '1.2rem', 
-            color: 'inherit',
-            '&:hover': {
-              opacity: 0.8,
-            },
+            backgroundImage: `${tint}, url(${zzz})`,
+            margin: 1,
           }}
         >
           Zenless Zone Zero
         </Button>
-        <Button 
-          component={Link} 
-          to="/wuthering-waves" 
-          fullWidth 
+
+        {/* Wuthering Waves */}
+        <Button className='menuButton'
+          component={Link}
+          to='/wuthering-waves'
+          fullWidth
           sx={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Gacha-Manager/wuwa.webp)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            height: '80px', 
-            fontWeight: 'bold', 
-            fontSize: '1.2rem', 
-            color: 'inherit',
-            '&:hover': {
-              opacity: 0.8,
-            },
+            backgroundImage: `${tint}, url(${ww})`,
+            margin: 1,
           }}
         >
           Wuthering Waves
