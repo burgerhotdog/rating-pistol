@@ -6,8 +6,6 @@ import {
   Box,
   Button,
   Card,
-  CardActions,
-  CardContent,
   FormControl,
   InputLabel,
   MenuItem,
@@ -21,7 +19,9 @@ import { characterImages } from '../data/images';
 import template from '../data/template';
 import characters from '../data/characters';
 import weapons from '../data/weapons';
-import { slot3, slot4, slot5, subs } from '../data/artifacts'
+import { slot3, slot4, slot5, subs } from '../data/slotStats';
+import sets from '../data/slotSets';
+import SlotCard from './SlotCard';
 
 const Save = ({
   uid,
@@ -63,14 +63,15 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharacter.weapon) errors.push('No weapon selected!');
+    if (!newCharacter.weapon) errors.push('No weapon selected');
+    if (!newCharacter.slotSet) errors.push('No artifact set selected');
     if (
       !newCharacter.slot1.mainStat ||
       !newCharacter.slot2.mainStat ||
       !newCharacter.slot3.mainStat ||
       !newCharacter.slot4.mainStat ||
       !newCharacter.slot5.mainStat
-    ) errors.push('Artifacts must be filled out!');
+    ) errors.push('Artifacts must be filled out');
 
     // Display error message
     if (errors.length) {
@@ -176,6 +177,7 @@ const Save = ({
                   width: '100%',
                   height: 500,
                   overflow: 'hidden',
+                  mt: 2,
                 }}
               >
                 <img
@@ -191,998 +193,84 @@ const Save = ({
             </Grid>
 
             <Grid size={6}>
-              <Grid container spacing={2}>
+              <Autocomplete
+                disablePortal
+                size='small'
+                value={newCharacter.slotSet}
+                options={sets}
+                sx={{ width: 200 }}
+                onChange={(event, newValue) => {
+                  setNewCharacter((prev) => ({
+                    ...prev,
+                    slotSet: newValue,
+                  }));
+                }}
+                renderInput={(params) => <TextField {...params} label="Artifact Set" />}
+              />
+              <Grid container spacing={2} mt={2}>
                 {/* Slot 1 */}
                 <Grid size={6}>
-                  <Card sx={{ padding: 1 }}>
-                    <Grid container spacing={1}>
-                      <Grid size={4}>
-                        <Typography variant="body1">Flower</Typography>
-                      </Grid>
-                      <Grid size={8}>
-                        <Select
-                          name='slot1.mainStat'
-                          value={newCharacter.slot1.mainStat}
-                          size='small'
-                          fullWidth
-                          disabled
-                          sx={{
-                            height: '32px'
-                          }}
-                        >
-                          <MenuItem value='HP'>
-                            HP
-                          </MenuItem>
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot1.subStatName1'
-                          value={newCharacter.slot1.subStatName1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot1.subStatValue1"
-                          value={newCharacter.slot1.subStatValue1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot1.subStatName2'
-                          value={newCharacter.slot1.subStatName2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot1.subStatValue2"
-                          value={newCharacter.slot1.subStatValue2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot1.subStatName3'
-                          value={newCharacter.slot1.subStatName3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot1.subStatValue3"
-                          value={newCharacter.slot1.subStatValue3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot1.subStatName4'
-                          value={newCharacter.slot1.subStatName4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot1.subStatValue4"
-                          value={newCharacter.slot1.subStatValue4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Card>
+                  <SlotCard
+                    slotName={'Flower'}
+                    slotNumber={1}
+                    slotMainStats={['HP']}
+                    slotSubStats={subs}
+                    newCharacter={newCharacter}
+                    handleArtifact={handleArtifact}
+                    isDisabled={true}
+                  />
                 </Grid>
 
                 {/* Slot 2 */}
                 <Grid size={6}>
-                  <Card sx={{ padding: 1 }}>
-                    <Grid container spacing={1}>
-                      <Grid size={4}>
-                        <Typography variant="body1">Plume</Typography>
-                      </Grid>
-                      <Grid size={8}>
-                        <Select
-                          name='slot2.mainStat'
-                          value={newCharacter.slot2.mainStat}
-                          size='small'
-                          fullWidth
-                          disabled
-                          sx={{
-                            height: '32px'
-                          }}
-                        >
-                          <MenuItem value='ATK'>
-                            ATK
-                          </MenuItem>
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot2.subStatName1'
-                          value={newCharacter.slot2.subStatName1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot2.subStatValue1"
-                          value={newCharacter.slot2.subStatValue1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot2.subStatName2'
-                          value={newCharacter.slot2.subStatName2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot2.subStatValue2"
-                          value={newCharacter.slot2.subStatValue2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot2.subStatName3'
-                          value={newCharacter.slot2.subStatName3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot2.subStatValue3"
-                          value={newCharacter.slot2.subStatValue3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot2.subStatName4'
-                          value={newCharacter.slot2.subStatName4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot2.subStatValue4"
-                          value={newCharacter.slot2.subStatValue4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Card>
+                  <SlotCard
+                    slotName={'Plume'}
+                    slotNumber={2}
+                    slotMainStats={['ATK']}
+                    slotSubStats={subs}
+                    newCharacter={newCharacter}
+                    handleArtifact={handleArtifact}
+                    isDisabled={true}
+                  />
                 </Grid>
 
                 {/* Slot 3 */}
                 <Grid size={6}>
-                  <Card sx={{ padding: 1 }}>
-                    <Grid container spacing={1}>
-                      <Grid size={4}>
-                        <Typography variant="body1">Sands</Typography>
-                      </Grid>
-                      <Grid size={8}>
-                        <Select
-                          name='slot3.mainStat'
-                          value={newCharacter.slot3.mainStat}
-                          onChange={handleArtifact}
-                          size='small'
-                          displayEmpty
-                          fullWidth
-                          sx={{
-                            height: '32px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (main)
-                          </MenuItem>
-                          {slot4.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot3.subStatName1'
-                          value={newCharacter.slot3.subStatName1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot3.subStatValue1"
-                          value={newCharacter.slot3.subStatValue1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot3.subStatName2'
-                          value={newCharacter.slot3.subStatName2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot3.subStatValue2"
-                          value={newCharacter.slot3.subStatValue2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot3.subStatName3'
-                          value={newCharacter.slot3.subStatName3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot3.subStatValue3"
-                          value={newCharacter.slot3.subStatValue3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot3.subStatName4'
-                          value={newCharacter.slot3.subStatName4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot3.subStatValue4"
-                          value={newCharacter.slot3.subStatValue4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Card>
+                  <SlotCard
+                    slotName={'Sands'}
+                    slotNumber={3}
+                    slotMainStats={slot3}
+                    slotSubStats={subs}
+                    newCharacter={newCharacter}
+                    handleArtifact={handleArtifact}
+                    isDisabled={false}
+                  />
                 </Grid>
 
                 {/* Slot 4 */}
                 <Grid size={6}>
-                  <Card sx={{ padding: 1 }}>
-                    <Grid container spacing={1}>
-                      <Grid size={4}>
-                        <Typography variant="body1">Goblet</Typography>
-                      </Grid>
-                      <Grid size={8}>
-                        <Select
-                          name='slot4.mainStat'
-                          value={newCharacter.slot4.mainStat}
-                          onChange={handleArtifact}
-                          size='small'
-                          displayEmpty
-                          fullWidth
-                          sx={{
-                            height: '32px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (main)
-                          </MenuItem>
-                          {slot4.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot4.subStatName1'
-                          value={newCharacter.slot4.subStatName1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot4.subStatValue1"
-                          value={newCharacter.slot4.subStatValue1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot4.subStatName2'
-                          value={newCharacter.slot4.subStatName2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot4.subStatValue2"
-                          value={newCharacter.slot4.subStatValue2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot4.subStatName3'
-                          value={newCharacter.slot4.subStatName3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot4.subStatValue3"
-                          value={newCharacter.slot4.subStatValue3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot4.subStatName4'
-                          value={newCharacter.slot4.subStatName4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot4.subStatValue4"
-                          value={newCharacter.slot4.subStatValue4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Card>
+                  <SlotCard
+                    slotName={'Goblet'}
+                    slotNumber={4}
+                    slotMainStats={slot4}
+                    slotSubStats={subs}
+                    newCharacter={newCharacter}
+                    handleArtifact={handleArtifact}
+                    isDisabled={false}
+                  />
                 </Grid>
 
                 {/* Slot 5 */}
                 <Grid size={6}>
-                  <Card sx={{ padding: 1 }}>
-                    <Grid container spacing={1}>
-                      <Grid size={4}>
-                        <Typography variant="body1">Circlet</Typography>
-                      </Grid>
-                      <Grid size={8}>
-                        <Select
-                          name='slot5.mainStat'
-                          value={newCharacter.slot5.mainStat}
-                          onChange={handleArtifact}
-                          size='small'
-                          displayEmpty
-                          fullWidth
-                          sx={{
-                            height: '32px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (main)
-                          </MenuItem>
-                          {slot4.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot5.subStatName1'
-                          value={newCharacter.slot5.subStatName1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot5.subStatValue1"
-                          value={newCharacter.slot5.subStatValue1}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot5.subStatName2'
-                          value={newCharacter.slot5.subStatName2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot5.subStatValue2"
-                          value={newCharacter.slot5.subStatValue2}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot5.subStatName3'
-                          value={newCharacter.slot5.subStatName3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot5.subStatValue3"
-                          value={newCharacter.slot5.subStatValue3}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                      <Grid size={6}>
-                        <Select
-                          name='slot5.subStatName4'
-                          value={newCharacter.slot5.subStatName4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          displayEmpty
-                          sx={{
-                            height: '24px'
-                          }}
-                        >
-                          <MenuItem value='' disabled>
-                            (sub)
-                          </MenuItem>
-                          {subs.map((item) => (
-                            <MenuItem key={item} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                        </Select>
-                      </Grid>
-                      <Grid size={6}>
-                        <TextField
-                          type="number"
-                          name="slot5.subStatValue4"
-                          value={newCharacter.slot5.subStatValue4}
-                          onChange={handleArtifact}
-                          size='small'
-                          fullWidth
-                          sx={{
-                            '& .MuiInputBase-root': {
-                              height: '24px',
-                              padding: '0 14px',
-                            },
-                            '& input': {
-                              height: '100%',
-                              padding: '0',
-                            },
-                          }}
-                        />
-                      </Grid>
-                    </Grid>
-                  </Card>
+                  <SlotCard
+                    slotName={'Circlet'}
+                    slotNumber={5}
+                    slotMainStats={slot5}
+                    slotSubStats={subs}
+                    newCharacter={newCharacter}
+                    handleArtifact={handleArtifact}
+                    isDisabled={false}
+                  />
                 </Grid>
               </Grid>
             </Grid>

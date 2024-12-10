@@ -1,7 +1,7 @@
 const template = () => ({
   name: '',
-  weapon: '',
-  slotSet: '',
+  weapon: "",
+  slotSet: "",
   slot1: {
     mainStat: 'HP',
     subStatName1: '',
