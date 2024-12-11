@@ -15,7 +15,7 @@ import {
   Typography,
 } from '@mui/material';
 import { db } from '../../../firebase';
-import { characterImages } from '../data/images';
+import images from '../data/images';
 import template from '../data/template';
 import characters from '../data/characters';
 import weapons from '../data/weapons';
@@ -50,14 +50,33 @@ const Save = ({
   const handleArtifact = (e) => {
     const { name, value } = e.target;
     const [outerKey, innerKey] = name.split('.');
-    setNewCharacter((prevCharacter) => ({
-      ...prevCharacter,
-      [outerKey]: {
+
+    setNewCharacter((prevCharacter) => {
+      const updatedSlot = {
         ...prevCharacter[outerKey],
         [innerKey]: value,
-      },
-    }));
+      };
+
+      // Check if the mainStat is being updated
+      if (innerKey === 'mainStat') {
+        // Reset substats when mainStat changes
+        updatedSlot.subStatName1 = '';
+        updatedSlot.subStatValue1 = 0;
+        updatedSlot.subStatName2 = '';
+        updatedSlot.subStatValue2 = 0;
+        updatedSlot.subStatName3 = '';
+        updatedSlot.subStatValue3 = 0;
+        updatedSlot.subStatName4 = '';
+        updatedSlot.subStatValue4 = 0;
+      }
+
+      return {
+        ...prevCharacter,
+        [outerKey]: updatedSlot,
+      };
+    });
   };
+
 
   // Validation before saving
   const validate = () => {
@@ -65,13 +84,6 @@ const Save = ({
     // Types of errors
     if (!newCharacter.weapon) errors.push('No weapon selected');
     if (!newCharacter.slotSet) errors.push('No artifact set selected');
-    if (
-      !newCharacter.slot1.mainStat ||
-      !newCharacter.slot2.mainStat ||
-      !newCharacter.slot3.mainStat ||
-      !newCharacter.slot4.mainStat ||
-      !newCharacter.slot5.mainStat
-    ) errors.push('Artifacts must be filled out');
 
     // Display error message
     if (errors.length) {
@@ -181,7 +193,7 @@ const Save = ({
                 }}
               >
                 <img
-                  src={characterImages[newId]}
+                  src={images[newId]}
                   alt='Character'
                   style={{
                     width: '100%',
