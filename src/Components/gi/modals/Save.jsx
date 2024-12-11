@@ -15,7 +15,7 @@ import {
   Typography,
 } from '@mui/material';
 import { db } from '../../../firebase';
-import { characterImages } from '../data/images';
+import images from '../data/images';
 import template from '../data/template';
 import characters from '../data/characters';
 import weapons from '../data/weapons';
@@ -181,7 +181,7 @@ const Save = ({
                 }}
               >
                 <img
-                  src={characterImages[newId]}
+                  src={images[newId]}
                   alt='Character'
                   style={{
                     width: '100%',
