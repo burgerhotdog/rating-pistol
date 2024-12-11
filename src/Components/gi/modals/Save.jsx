@@ -84,13 +84,6 @@ const Save = ({
     // Types of errors
     if (!newCharacter.weapon) errors.push('No weapon selected');
     if (!newCharacter.slotSet) errors.push('No artifact set selected');
-    if (
-      !newCharacter.slot1.mainStat ||
-      !newCharacter.slot2.mainStat ||
-      !newCharacter.slot3.mainStat ||
-      !newCharacter.slot4.mainStat ||
-      !newCharacter.slot5.mainStat
-    ) errors.push('Artifacts must be filled out');
 
     // Display error message
     if (errors.length) {

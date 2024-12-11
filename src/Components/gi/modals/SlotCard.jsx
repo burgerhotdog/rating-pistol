@@ -90,7 +90,12 @@ const SlotCard = ({
                 type="number"
                 name={`slot${slotNumber}.subStatValue${subIndex}`}
                 value={newCharacter[`slot${slotNumber}`][`subStatValue${subIndex}`]}
-                onChange={handleArtifact}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^\d*\.?\d?$/.test(value)) { // Allow only numbers with up to 1 decimal place
+                    handleArtifact(e);
+                  }
+                }}
                 size="small"
                 fullWidth
                 sx={{
