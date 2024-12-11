@@ -19,13 +19,13 @@ import Delete from './modals/Delete';
 import template from './data/template';
 
 const GenshinImpact = ({ uid }) => {
-  // Modal states
+  /* Modal states */
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
   const [isEditMode, setIsEditMode] = useState(false);
 
-  // Local character object
+  /* Local character object */
   const [myCharacters, setMyCharacters] = useState({});
 
   /* New character data structures: */
@@ -85,7 +85,7 @@ const GenshinImpact = ({ uid }) => {
         display='flex'
         flexDirection='column'
         alignItems='center'
-        sx={{ marginTop: 4 }}
+        sx={{ mt: 4 }}
       >
         <Typography variant='h4'>Genshin Impact</Typography>
         <BackToMenu />
@@ -95,7 +95,7 @@ const GenshinImpact = ({ uid }) => {
         flexDirection='column'
         alignItems='center'
       >
-        <TableContainer sx={{ maxWidth: 800, marginTop: 2 }}>
+        <TableContainer sx={{ maxWidth: 800, mt: 2 }}>
           <Table>
             <TableHead>
               <TableRow>
@@ -155,7 +155,7 @@ const GenshinImpact = ({ uid }) => {
           variant='contained'
           color='primary'
           onClick={handleAddCharacter}
-          sx={{ marginTop: 2 }}
+          sx={{ mt: 2 }}
         >
           Add Character
         </Button>

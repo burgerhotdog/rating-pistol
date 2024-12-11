@@ -50,14 +50,33 @@ const Save = ({
   const handleArtifact = (e) => {
     const { name, value } = e.target;
     const [outerKey, innerKey] = name.split('.');
-    setNewCharacter((prevCharacter) => ({
-      ...prevCharacter,
-      [outerKey]: {
+
+    setNewCharacter((prevCharacter) => {
+      const updatedSlot = {
         ...prevCharacter[outerKey],
         [innerKey]: value,
-      },
-    }));
+      };
+
+      // Check if the mainStat is being updated
+      if (innerKey === 'mainStat') {
+        // Reset substats when mainStat changes
+        updatedSlot.subStatName1 = '';
+        updatedSlot.subStatValue1 = 0;
+        updatedSlot.subStatName2 = '';
+        updatedSlot.subStatValue2 = 0;
+        updatedSlot.subStatName3 = '';
+        updatedSlot.subStatValue3 = 0;
+        updatedSlot.subStatName4 = '';
+        updatedSlot.subStatValue4 = 0;
+      }
+
+      return {
+        ...prevCharacter,
+        [outerKey]: updatedSlot,
+      };
+    });
   };
+
 
   // Validation before saving
   const validate = () => {
