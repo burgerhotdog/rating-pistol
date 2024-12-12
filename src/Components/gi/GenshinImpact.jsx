@@ -16,12 +16,14 @@ import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
 import Save from './modals/Save';
 import Delete from './modals/Delete';
+import Enka from './modals/Enka';
 import template from './data/template';
 
 const GenshinImpact = ({ uid }) => {
   /* Modal states */
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isEnkaOpen, setIsEnkaOpen] = useState(false);
 
   const [isEditMode, setIsEditMode] = useState(false);
 
@@ -76,6 +78,14 @@ const GenshinImpact = ({ uid }) => {
   const handleDeleteCharacter = (id) => {
     setNewId(id);
     setIsDeleteOpen(true);
+  };
+
+  /* Enka button */
+  const handleAddEnka = () => {
+    setNewId('');
+    setNewCharacter(template());
+    setIsEditMode(false);
+    setIsEnkaOpen(true);
   };
 
   return (
@@ -157,7 +167,17 @@ const GenshinImpact = ({ uid }) => {
           onClick={handleAddCharacter}
           sx={{ mt: 2 }}
         >
-          Add Character
+          Add character manually
+        </Button>
+
+        {/* Add character from enka button */}
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={handleAddEnka}
+          sx={{ mt: 2 }}
+        >
+          Load characters from uid
         </Button>
 
         {/* modal for add character */}
@@ -179,6 +199,17 @@ const GenshinImpact = ({ uid }) => {
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
+          myCharacters={myCharacters}
+          setMyCharacters={setMyCharacters}
+          newId={newId}
+          setNewId={setNewId}
+        />
+
+        {/* modal for enka */}
+        <Enka
+          uid={uid}
+          isEnkaOpen={isEnkaOpen}
+          setIsEnkaOpen={setIsEnkaOpen}
           myCharacters={myCharacters}
           setMyCharacters={setMyCharacters}
           newId={newId}
