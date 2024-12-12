@@ -4,9 +4,6 @@ import { Box, Button, Modal, TextField, Typography } from '@mui/material';
 const Enka = ({
   isEnkaOpen,
   setIsEnkaOpen,
-  setMyCharacters,
-  newId,
-  setNewId,
 }) => {
   const [enkaUid, setEnkaUid] = useState('');
 

@@ -210,10 +210,6 @@ const GenshinImpact = ({ uid }) => {
           uid={uid}
           isEnkaOpen={isEnkaOpen}
           setIsEnkaOpen={setIsEnkaOpen}
-          myCharacters={myCharacters}
-          setMyCharacters={setMyCharacters}
-          newId={newId}
-          setNewId={setNewId}
         />
       </Box>        
     </Container>
