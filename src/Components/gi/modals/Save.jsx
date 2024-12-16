@@ -5,12 +5,7 @@ import {
   Autocomplete,
   Box,
   Button,
-  Card,
-  FormControl,
-  InputLabel,
-  MenuItem,
   Modal,
-  Select,
   TextField,
   Typography,
 } from '@mui/material';
@@ -38,7 +33,7 @@ const Save = ({
   const [error, setError] = useState('');
   const [availableNames, setAvailableNames] = useState([]);
 
-  /* Update available names when myCharacters changes */
+  // Update available names when myCharacters changes
   useEffect(() => {
     const notInMyCharacters = characters.filter(
       (item) => !Object.values(myCharacters).some((char) => char.name === item)
@@ -46,7 +41,7 @@ const Save = ({
     setAvailableNames(notInMyCharacters);
   }, [myCharacters]);
 
-  /* Pass artifact inputs to newCharacter */
+  // Pass artifact inputs to newCharacter
   const handleArtifact = (e) => {
     const { name, value } = e.target;
     const [outerKey, innerKey] = name.split('.');
@@ -116,7 +111,7 @@ const Save = ({
     setIsSaveOpen(false);
   };
 
-  /* Cancel button */
+  // Cancel button handler
   const handleCancel = () => {
     setError('');
     setNewId('');

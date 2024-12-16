@@ -12,16 +12,17 @@ const Delete = ({
   newId,
   setNewId,
 }) => {
-  /* Delete button */
+  // Delete button handler
   const handleDelete = async () => {
     try {
-      // Delete document from firestore
       if (uid) {
+        // If signed in:
+        // Delete document from firestore
         const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
         await deleteDoc(characterDocRef);
       }
 
-      // Delete entry from myCharacters
+      // Delete object from myCharacters
       setMyCharacters((prevCharacters) => {
         const updatedCharacters = { ...prevCharacters }; // Make copy of myCharacters
         delete updatedCharacters[newId]; // Delete entry from copy
@@ -35,7 +36,7 @@ const Delete = ({
     }
   };
 
-  /* Cancel button */
+  // Cancel button handler
   const handleCancel = () => {
     setNewId('');
     setIsDeleteOpen(false);
