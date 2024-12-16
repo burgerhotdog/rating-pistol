@@ -14,9 +14,10 @@ import {
 } from '@mui/material';
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
-import Save from './modals/Save';
-import Delete from './modals/Delete';
+import Save from './components/Save';
+import Delete from './components/Delete';
 import template from './data/template';
+import Score from './components/Score';
 
 const GenshinImpact = ({ uid }) => {
   // Modal states
@@ -99,7 +100,7 @@ const GenshinImpact = ({ uid }) => {
       >
         <TableContainer sx={{ maxWidth: 800, mt: 2 }}>
           <Table>
-            {/* Table header labels */}
+            {/* Table headers */}
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
@@ -124,7 +125,7 @@ const GenshinImpact = ({ uid }) => {
                     <TableCell>{character.name}</TableCell>
                     <TableCell>{character.weapon}</TableCell>
                     <TableCell>{character.slotSet}</TableCell>
-                    <TableCell></TableCell>
+                    <TableCell><Score character={character} /></TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button
@@ -164,7 +165,7 @@ const GenshinImpact = ({ uid }) => {
           Add character
         </Button>
 
-        {/* modal for add character */}
+        {/* Save modal */}
         <Save
           uid={uid}
           isSaveOpen={isSaveOpen}
@@ -178,7 +179,7 @@ const GenshinImpact = ({ uid }) => {
           setNewCharacter={setNewCharacter}
         />
 
-        {/* modal for delete character */}
+        {/* Delete modal */}
         <Delete
           uid={uid}
           isDeleteOpen={isDeleteOpen}

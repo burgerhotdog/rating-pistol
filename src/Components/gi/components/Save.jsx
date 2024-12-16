@@ -72,7 +72,6 @@ const Save = ({
     });
   };
 
-
   // Validation before saving
   const validate = () => {
     const errors = [];

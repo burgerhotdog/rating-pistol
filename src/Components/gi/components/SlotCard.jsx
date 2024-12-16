@@ -24,10 +24,9 @@ const SlotCard = ({
     // Include the current value of this substat key to prevent it from being filtered out
     const currentSubStat = newCharacter[`slot${slotNumber}`][subStatKey];
   
-    return slotSubStats.filter(
-      (stat) =>
-        (stat !== mainStat && !selectedSubStats.includes(stat)) ||
-        stat === currentSubStat
+    return slotSubStats.filter((stat) => (
+      stat !== mainStat && !selectedSubStats.includes(stat)) ||
+      stat === currentSubStat
     );
   };
 
