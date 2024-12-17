@@ -218,12 +218,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Flower'}
-                    slotNumber={1}
-                    slotMainStats={['HP']}
-                    slotSubStats={subs}
+                    slotNumber={'slot1'}
+                    newId={newId}
                     newCharacter={newCharacter}
                     handleArtifact={handleArtifact}
-                    isDisabled={true}
                   />
                 </Grid>
 
@@ -231,12 +229,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Plume'}
-                    slotNumber={2}
-                    slotMainStats={['ATK']}
-                    slotSubStats={subs}
+                    slotNumber={'slot2'}
+                    newId={newId}
                     newCharacter={newCharacter}
                     handleArtifact={handleArtifact}
-                    isDisabled={true}
                   />
                 </Grid>
 
@@ -244,12 +240,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Sands'}
-                    slotNumber={3}
-                    slotMainStats={slot3}
-                    slotSubStats={subs}
+                    slotNumber={'slot3'}
+                    newId={newId}
                     newCharacter={newCharacter}
                     handleArtifact={handleArtifact}
-                    isDisabled={false}
                   />
                 </Grid>
 
@@ -257,12 +251,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Goblet'}
-                    slotNumber={4}
-                    slotMainStats={slot4}
-                    slotSubStats={subs}
+                    slotNumber={'slot4'}
+                    newId={newId}
                     newCharacter={newCharacter}
                     handleArtifact={handleArtifact}
-                    isDisabled={false}
                   />
                 </Grid>
 
@@ -270,12 +262,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Circlet'}
-                    slotNumber={5}
-                    slotMainStats={slot5}
-                    slotSubStats={subs}
+                    slotNumber={'slot5'}
+                    newId={newId}
                     newCharacter={newCharacter}
                     handleArtifact={handleArtifact}
-                    isDisabled={false}
                   />
                 </Grid>
               </Grid>

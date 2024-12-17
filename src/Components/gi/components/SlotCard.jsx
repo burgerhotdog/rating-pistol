@@ -1,34 +1,16 @@
 import React from 'react';
 import Grid from '@mui/material/Grid2';
-import { Card, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { Card, TextField, Typography } from '@mui/material';
+import characterMains from '../data/characterMains';
+import characterSubs from '../data/characterSubs';
 
 const SlotCard = ({
   slotName,
   slotNumber,
-  slotMainStats,
-  slotSubStats,
+  newId,
   newCharacter,
   handleArtifact,
-  isDisabled,
 }) => {
-  // Helper function to filter substat options
-  const getFilteredSubStats = (subStatKey) => {
-    const mainStat = newCharacter[`slot${slotNumber}`].mainStat;
-    const selectedSubStats = [
-      newCharacter[`slot${slotNumber}`].subStatName1,
-      newCharacter[`slot${slotNumber}`].subStatName2,
-      newCharacter[`slot${slotNumber}`].subStatName3,
-      newCharacter[`slot${slotNumber}`].subStatName4,
-    ];
-  
-    // Include the current value of this substat key to prevent it from being filtered out
-    const currentSubStat = newCharacter[`slot${slotNumber}`][subStatKey];
-  
-    return slotSubStats.filter((stat) => (
-      stat !== mainStat && !selectedSubStats.includes(stat)) ||
-      stat === currentSubStat
-    );
-  };
 
   return (
     <Card sx={{ padding: 1 }}>
@@ -37,58 +19,21 @@ const SlotCard = ({
           <Typography variant="body1">{slotName}</Typography>
         </Grid>
         <Grid size={8}>
-          <Select
-            name={`slot${slotNumber}.mainStat`}
-            value={newCharacter[`slot${slotNumber}`].mainStat}
-            onChange={handleArtifact}
-            size="small"
-            disabled={isDisabled}
-            displayEmpty
-            fullWidth
-            sx={{
-              height: '32px',
-            }}
-          >
-            <MenuItem value="" disabled>
-              (main)
-            </MenuItem>
-            {slotMainStats.map((item) => (
-              <MenuItem key={item} value={item}>
-                {item}
-              </MenuItem>
-            ))}
-          </Select>
+          <Typography variant="body1">{characterMains[newId][0]}</Typography>
         </Grid>
 
-        {[1, 2, 3, 4].map((subIndex) => (
+        {[0, 1, 2].map((subIndex) => (
           <React.Fragment key={subIndex}>
             <Grid size={8}>
-              <Select
-                name={`slot${slotNumber}.subStatName${subIndex}`}
-                value={newCharacter[`slot${slotNumber}`][`subStatName${subIndex}`]}
-                onChange={handleArtifact}
-                size="small"
-                fullWidth
-                displayEmpty
-                sx={{
-                  height: '24px',
-                }}
-              >
-                <MenuItem value="" disabled>
-                  (sub)
-                </MenuItem>
-                {getFilteredSubStats(`subStatName${subIndex}`).map((item) => (
-                  <MenuItem key={item} value={item}>
-                    {item}
-                  </MenuItem>
-                ))}
-              </Select>
+              <Typography variant="body2">
+                {characterSubs[newId][subIndex]}
+              </Typography>
             </Grid>
             <Grid size={4}>
               <TextField
                 type="number"
-                name={`slot${slotNumber}.subStatValue${subIndex}`}
-                value={newCharacter[`slot${slotNumber}`][`subStatValue${subIndex}`]}
+                name={`${slotNumber}.sub${subIndex}`}
+                value={newCharacter[slotNumber][`sub${subIndex}`]}
                 onChange={(e) => {
                   const value = e.target.value;
                   if (/^\d*\.?\d?$/.test(value)) { // Allow only numbers with up to 1 decimal place
