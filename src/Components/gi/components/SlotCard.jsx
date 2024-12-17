@@ -12,7 +12,7 @@ const SlotCard = ({
   setNewCharacter,
 }) => {
   // Pass artifact inputs to newCharacter
-  const handleArtifact = (e) => {
+  const handleSub = (e) => {
     const { name, value } = e.target;
     const [slotKey, subKey] = name.split('.');
 
@@ -54,7 +54,7 @@ const SlotCard = ({
                 onChange={(e) => {
                   const value = e.target.value;
                   if (/^\d*\.?\d?$/.test(value)) { // Allow only numbers with up to 1 decimal place
-                    handleArtifact(e);
+                    handleSub(e);
                   }
                 }}
                 size="small"
