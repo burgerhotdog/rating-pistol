@@ -124,7 +124,7 @@ const GenshinImpact = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>{character.name}</TableCell>
                     <TableCell>{character.weapon}</TableCell>
-                    <TableCell>{character.slotSet}</TableCell>
+                    <TableCell>{character.set}</TableCell>
                     <TableCell><Score character={character} /></TableCell>
                     <TableCell>
                       {/* Edit button */}

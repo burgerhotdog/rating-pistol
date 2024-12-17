@@ -41,43 +41,12 @@ const Save = ({
     setAvailableNames(notInMyCharacters);
   }, [myCharacters]);
 
-  // Pass artifact inputs to newCharacter
-  const handleArtifact = (e) => {
-    const { name, value } = e.target;
-    const [outerKey, innerKey] = name.split('.');
-
-    setNewCharacter((prevCharacter) => {
-      const updatedSlot = {
-        ...prevCharacter[outerKey],
-        [innerKey]: value,
-      };
-
-      // Check if the mainStat is being updated
-      if (innerKey === 'mainStat') {
-        // Reset substats when mainStat changes
-        updatedSlot.subStatName1 = '';
-        updatedSlot.subStatValue1 = 0;
-        updatedSlot.subStatName2 = '';
-        updatedSlot.subStatValue2 = 0;
-        updatedSlot.subStatName3 = '';
-        updatedSlot.subStatValue3 = 0;
-        updatedSlot.subStatName4 = '';
-        updatedSlot.subStatValue4 = 0;
-      }
-
-      return {
-        ...prevCharacter,
-        [outerKey]: updatedSlot,
-      };
-    });
-  };
-
   // Validation before saving
   const validate = () => {
     const errors = [];
     // Types of errors
     if (!newCharacter.weapon) errors.push('No weapon selected');
-    if (!newCharacter.slotSet) errors.push('No artifact set selected');
+    if (!newCharacter.set) errors.push('No artifact set selected');
 
     // Display error message
     if (errors.length) {
@@ -202,13 +171,13 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharacter.slotSet}
+                value={newCharacter.set}
                 options={sets}
                 sx={{ width: 200 }}
                 onChange={(event, newValue) => {
                   setNewCharacter((prev) => ({
                     ...prev,
-                    slotSet: newValue,
+                    set: newValue,
                   }));
                 }}
                 renderInput={(params) => <TextField {...params} label="Artifact Set" />}
@@ -218,10 +187,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Flower'}
-                    slotNumber={'slot1'}
+                    slotIndex={0}
                     newId={newId}
                     newCharacter={newCharacter}
-                    handleArtifact={handleArtifact}
+                    setNewCharacter={setNewCharacter}
                   />
                 </Grid>
 
@@ -229,10 +198,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Plume'}
-                    slotNumber={'slot2'}
+                    slotIndex={1}
                     newId={newId}
                     newCharacter={newCharacter}
-                    handleArtifact={handleArtifact}
+                    setNewCharacter={setNewCharacter}
                   />
                 </Grid>
 
@@ -240,10 +209,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Sands'}
-                    slotNumber={'slot3'}
+                    slotIndex={2}
                     newId={newId}
                     newCharacter={newCharacter}
-                    handleArtifact={handleArtifact}
+                    setNewCharacter={setNewCharacter}
                   />
                 </Grid>
 
@@ -251,10 +220,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Goblet'}
-                    slotNumber={'slot4'}
+                    slotIndex={3}
                     newId={newId}
                     newCharacter={newCharacter}
-                    handleArtifact={handleArtifact}
+                    setNewCharacter={setNewCharacter}
                   />
                 </Grid>
 
@@ -262,10 +231,10 @@ const Save = ({
                 <Grid size={6}>
                   <SlotCard
                     slotName={'Circlet'}
-                    slotNumber={'slot5'}
+                    slotIndex={4}
                     newId={newId}
                     newCharacter={newCharacter}
-                    handleArtifact={handleArtifact}
+                    setNewCharacter={setNewCharacter}
                   />
                 </Grid>
               </Grid>

@@ -1,16 +1,33 @@
 import React from 'react';
 import Grid from '@mui/material/Grid2';
 import { Card, TextField, Typography } from '@mui/material';
-import characterMains from '../data/characterMains';
-import characterSubs from '../data/characterSubs';
+import mainstats from '../data/mainstats';
+import substats from '../data/substats';
 
 const SlotCard = ({
   slotName,
-  slotNumber,
+  slotIndex,
   newId,
   newCharacter,
-  handleArtifact,
+  setNewCharacter,
 }) => {
+  // Pass artifact inputs to newCharacter
+  const handleArtifact = (e) => {
+    const { name, value } = e.target;
+    const [slotKey, subKey] = name.split('.');
+
+    setNewCharacter((prevCharacter) => {
+      const updatedSlot = {
+        ...prevCharacter[slotKey],
+        [subKey]: value,
+      };
+
+      return {
+        ...prevCharacter,
+        [slotKey]: updatedSlot,
+      };
+    });
+  };
 
   return (
     <Card sx={{ padding: 1 }}>
@@ -19,21 +36,21 @@ const SlotCard = ({
           <Typography variant="body1">{slotName}</Typography>
         </Grid>
         <Grid size={8}>
-          <Typography variant="body1">{characterMains[newId][0]}</Typography>
+          <Typography variant="body1">{mainstats[newId][slotIndex]}</Typography>
         </Grid>
 
         {[0, 1, 2].map((subIndex) => (
           <React.Fragment key={subIndex}>
             <Grid size={8}>
               <Typography variant="body2">
-                {characterSubs[newId][subIndex]}
+                {substats[newId][subIndex]}
               </Typography>
             </Grid>
             <Grid size={4}>
               <TextField
                 type="number"
-                name={`${slotNumber}.sub${subIndex}`}
-                value={newCharacter[slotNumber][`sub${subIndex}`]}
+                name={`${slotIndex}.${subIndex}`}
+                value={newCharacter[slotIndex][subIndex]}
                 onChange={(e) => {
                   const value = e.target.value;
                   if (/^\d*\.?\d?$/.test(value)) { // Allow only numbers with up to 1 decimal place
