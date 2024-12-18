@@ -35,8 +35,8 @@ const Save = ({
 
   // Update available names when myCharacters changes
   useEffect(() => {
-    const characternames = Object.keys(characterdb).sort();
-    const notInMyCharacters = characternames.filter(
+    const characterNames = Object.values(characterdb).map(item => item.name).sort();
+    const notInMyCharacters = characterNames.filter(
       (item) => !Object.values(myCharacters).some((char) => char.name === item)
     );
     setAvailableNames(notInMyCharacters);

@@ -1,40 +1,64 @@
 const setdb = [
-  "Archaic Petra",
+  // Version 5.0
+  "Obsidian Codex",
+  "Scroll of the Hero of Cinder City",
+
+  // Version 4.6
+  "Fragment of Harmonic Whimsy",
+  "Unfinished Reverie",
+
+  // Version 4.3
+  "Nighttime Whispers in the Echoing Woods",
+  "Song of Days Past",
+
+  // Version 4.0
+  "Golden Troupe",
+  "Marechaussee Hunter",
+
+  // Version 3.6
+  "Nymph's Dream",
+  "Vourukasha's Glow",
+
+  // Version 3.3
+  "Desert Pavilion Chronicle",
+  "Flower of Paradise Lost",
+
+  // Version 3.0
+  "Deepwood Memories",
+  "Gilded Dreams",
+
+  // Version 2.6
+  "Echoes of an Offering",
+  "Vermillion Hereafter",
+
+  // Version 2.3
+  "Husk of Opulent Dreams",
+  "Ocean-Hued Clam",
+
+  // Version 2.0
+  "Emblem of Severed Fate",
+  "Shimenawa's Reminiscence",
+
+  // Version 1.5
+  "Pale Flame",
+  "Tenacity of the Millelith",
+
+  // Version 1.2
   "Blizzard Strayer",
+  "Heart of Depth",
+
+  // Version 1.0
+  "Archaic Petra",
   "Bloodstained Chivalry",
   "Crimson Witch of Flames",
-  "Deepwood Memories",
-  "Desert Pavilion Chronicle",
-  "Echoes of an Offering",
-  "Emblem of Severed Fate",
-  "Flower of Paradise Lost",
-  "Fragment of Harmonic Whimsy",
-  "Gilded Dreams",
   "Gladiator's Finale",
-  "Golden Troupe",
-  "Heart of Depth",
-  "Husk of Opulent Dreams",
-  "Instructor",
   "Lavawalker",
   "Maiden Beloved",
-  "Marechaussee Hunter",
-  "Nighttime Whispers in the Echoing Woods",
   "Noblesse Oblige",
-  "Nymph's Dream",
-  "Obsidian Codex",
-  "Ocean-Hued Clam",
-  "Pale Flame",
   "Retracing Bolide",
-  "Scroll of the Hero of Cinder City",
-  "Shimenawa's Reminiscence",
-  "Song of Days Past",
-  "Tenacity of the Millelith",
   "Thundering Fury",
   "Thundersoother",
-  "Unfinished Reverie",
-  "Vermillion Hereafter",
   "Viridescent Venerer",
-  "Vourukasha's Glow",
   "Wanderer's Troupe",
 ];
 

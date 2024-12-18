@@ -1,6 +1,7 @@
 const characterdb = {
   // Version 1.0
   Amber: {
+    name: "Amber",
     quality: 0,
     element: "pyro",
     weapon: "bow",
@@ -9,6 +10,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Barbara: {
+    name: "Barbara",
     quality: 0,
     element: "hydro",
     weapon: "catalyst",
@@ -17,6 +19,7 @@ const characterdb = {
     substats: ["Energy Recharge", "HP%", "HP"],
   },
   Beidou: {
+    name: "Beidou",
     quality: 0,
     element: "electro",
     weapon: "claymore",
@@ -25,6 +28,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Bennett: {
+    name: "Bennett",
     quality: 0,
     element: "pyro",
     weapon: "sword",
@@ -33,6 +37,7 @@ const characterdb = {
     substats: ["Energy Recharge", "HP%", "HP"],
   },
   Chongyun: {
+    name: "Chongyun",
     quality: 0,
     element: "cryo",
     weapon: "claymore",
@@ -41,6 +46,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Diluc: {
+    name: "Diluc",
     quality: 1,
     element: "pyro",
     weapon: "claymore",
@@ -49,6 +55,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Fischl: {
+    name: "Fischl",
     quality: 0,
     element: "electro",
     weapon: "bow",
@@ -57,6 +64,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Jean: {
+    name: "Jean",
     quality: 1,
     element: "anemo",
     weapon: "sword",
@@ -65,6 +73,7 @@ const characterdb = {
     substats: ["Energy Recharge", "ATK%", "ATK"],
   },
   Kaeya: {
+    name: "Kaeya",
     quality: 0,
     element: "cryo",
     weapon: "sword",
@@ -73,6 +82,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Keqing: {
+    name: "Keqing",
     quality: 1,
     element: "electro",
     weapon: "sword",
@@ -81,6 +91,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Klee: {
+    name: "Klee",
     quality: 1,
     element: "pyro",
     weapon: "catalyst",
@@ -89,6 +100,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Lisa: {
+    name: "Lisa",
     quality: 0,
     element: "electro",
     weapon: "catalyst",
@@ -97,6 +109,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Mona: {
+    name: "Mona",
     quality: 1,
     element: "hydro",
     weapon: "catalyst",
@@ -105,6 +118,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Ningguang: {
+    name: "Ningguang",
     quality: 0,
     element: "geo",
     weapon: "catalyst",
@@ -113,6 +127,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Noelle: {
+    name: "Noelle",
     quality: 0,
     element: "geo",
     weapon: "claymore",
@@ -121,6 +136,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
   Qiqi: {
+    name: "Qiqi",
     quality: 1,
     element: "cryo",
     weapon: "sword",
@@ -129,6 +145,7 @@ const characterdb = {
     substats: ["Energy Recharge", "ATK%", "ATK"],
   },
   Razor: {
+    name: "Razor",
     quality: 0,
     element: "electro",
     weapon: "claymore",
@@ -137,6 +154,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Sucrose: {
+    name: "Sucrose",
     quality: 0,
     element: "anemo",
     weapon: "catalyst",
@@ -145,6 +163,7 @@ const characterdb = {
     substats: ["Energy Recharge", "Elemental Mastery", "ATK%"],
   },
   Venti: {
+    name: "Venti",
     quality: 1,
     element: "anemo",
     weapon: "bow",
@@ -153,6 +172,7 @@ const characterdb = {
     substats: ["Energy Recharge", "Elemental Mastery", "ATK%"],
   },
   Xiangling: {
+    name: "Xiangling",
     quality: 0,
     element: "pyro",
     weapon: "polearm",
@@ -161,6 +181,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Xingqiu: {
+    name: "Xingqiu",
     quality: 0,
     element: "hydro",
     weapon: "sword",
@@ -171,6 +192,7 @@ const characterdb = {
 
   // Version 1.1
   Diona: {
+    name: "Diona",
     quality: 0,
     element: "cryo",
     weapon: "bow",
@@ -179,6 +201,7 @@ const characterdb = {
     substats: ["Energy Recharge", "HP%", "HP"],
   },
   Tartaglia: {
+    name: "Tartaglia",
     quality: 1,
     element: "hydro",
     weapon: "bow",
@@ -187,6 +210,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Xinyan: {
+    name: "Xinyan",
     quality: 0,
     element: "pyro",
     weapon: "claymore",
@@ -195,6 +219,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Zhongli: {
+    name: "Zhongli",
     quality: 1,
     element: "geo",
     weapon: "polearm",
@@ -205,6 +230,7 @@ const characterdb = {
 
   // Version 1.2
   Albedo: {
+    name: "Albedo",
     quality: 1,
     element: "geo",
     weapon: "sword",
@@ -213,6 +239,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
   Ganyu: {
+    name: "Ganyu",
     quality: 1,
     element: "cryo",
     weapon: "bow",
@@ -223,6 +250,7 @@ const characterdb = {
 
   // Version 1.3
   HuTao: {
+    name: "Hu Tao",
     quality: 1,
     element: "pyro",
     weapon: "polearm",
@@ -231,6 +259,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
   },
   Xiao: {
+    name: "Xiao",
     quality: 1,
     element: "anemo",
     weapon: "polearm",
@@ -241,6 +270,7 @@ const characterdb = {
 
   // Version 1.4
   Rosaria: {
+    name: "Rosaria",
     quality: 0,
     element: "cryo",
     weapon: "polearm",
@@ -251,6 +281,7 @@ const characterdb = {
 
   // Version 1.5
   Eula: {
+    name: "Eula",
     quality: 1,
     element: "cryo",
     weapon: "claymore",
@@ -259,6 +290,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Yanfei: {
+    name: "Yanfei",
     quality: 0,
     element: "pyro",
     weapon: "catalyst",
@@ -269,6 +301,7 @@ const characterdb = {
 
   // Version 1.6
   KaedeharaKazuha: {
+    name: "Kaedehara Kazuha",
     quality: 1,
     element: "anemo",
     weapon: "sword",
@@ -279,6 +312,7 @@ const characterdb = {
 
   // Version 2.0
   KamisatoAyaka: {
+    name: "Kamisato Ayaka",
     quality: 1,
     element: "cryo",
     weapon: "sword",
@@ -287,6 +321,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Sayu: {
+    name: "Sayu",
     quality: 0,
     element: "anemo",
     weapon: "claymore",
@@ -295,6 +330,7 @@ const characterdb = {
     substats: ["Energy Recharge", "ATK%", "ATK"],
   },
   Yoimiya: {
+    name: "Yoimiya",
     quality: 1,
     element: "pyro",
     weapon: "bow",
@@ -305,6 +341,7 @@ const characterdb = {
 
   // Version 2.1
   Aloy: {
+    name: "Aloy",
     quality: 1,
     element: "cryo",
     weapon: "bow",
@@ -313,6 +350,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   KujouSara: {
+    name: "Kujou Sara",
     quality: 0,
     element: "electro",
     weapon: "bow",
@@ -321,6 +359,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
   },
   RaidenShogun: {
+    name: "Raiden Shogun",
     quality: 1,
     element: "electro",
     weapon: "polearm",
@@ -329,6 +368,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
   },
   SangonomiyaKokomi: {
+    name: "Sangonomiya Kokomi",
     quality: 1,
     element: "hydro",
     weapon: "catalyst",
@@ -339,6 +379,7 @@ const characterdb = {
 
   // Version 2.2
   Thoma: {
+    name: "Thoma",
     quality: 0,
     element: "pyro",
     weapon: "polearm",
@@ -349,6 +390,7 @@ const characterdb = {
 
   // Version 2.3
   AratakiItto: {
+    name: "Arataki Itto",
     quality: 1,
     element: "geo",
     weapon: "claymore",
@@ -357,6 +399,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
   Gorou: {
+    name: "Gorou",
     quality: 0,
     element: "geo",
     weapon: "bow",
@@ -367,6 +410,7 @@ const characterdb = {
 
   // Version 2.4
   Shenhe: {
+    name: "Shenhe",
     quality: 1,
     element: "cryo",
     weapon: "polearm",
@@ -375,6 +419,7 @@ const characterdb = {
     substats: ["Energy Recharge", "ATK%", "ATK"],
   },
   YunJin: {
+    name: "Yun Jin",
     quality: 0,
     element: "geo",
     weapon: "polearm",
@@ -385,6 +430,7 @@ const characterdb = {
 
   // Version 2.5
   YaeMiko: {
+    name: "Yae Miko",
     quality: 1,
     element: "electro",
     weapon: "catalyst",
@@ -395,6 +441,7 @@ const characterdb = {
 
   // Version 2.6
   KamisatoAyato: {
+    name: "Kamisato Ayato",
     quality: 1,
     element: "hydro",
     weapon: "sword",
@@ -405,6 +452,7 @@ const characterdb = {
 
   // Version 2.7
   KukiShinobu: {
+    name: "Kuki Shinobu",
     quality: 0,
     element: "electro",
     weapon: "sword",
@@ -413,6 +461,7 @@ const characterdb = {
     substats: ["Energy Recharge", "Elemental Mastery", "HP%"],
   },
   Yelan: {
+    name: "Yelan",
     quality: 1,
     element: "hydro",
     weapon: "bow",
@@ -423,6 +472,7 @@ const characterdb = {
 
   // Version 2.8
   ShikanoinHeizou: {
+    name: "Shikanoin Heizou",
     quality: 0,
     element: "anemo",
     weapon: "catalyst",
@@ -433,6 +483,7 @@ const characterdb = {
 
   // Version 3.0
   Collei: {
+    name: "Collei",
     quality: 0,
     element: "dendro",
     weapon: "bow",
@@ -441,6 +492,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Dori: {
+    name: "Dori",
     quality: 0,
     element: "electro",
     weapon: "claymore",
@@ -449,6 +501,7 @@ const characterdb = {
     substats: ["Energy Recharge", "HP%", "HP"],
   },
   Tighnari: {
+    name: "Tighnari",
     quality: 1,
     element: "dendro",
     weapon: "bow",
@@ -459,6 +512,7 @@ const characterdb = {
 
   // Version 3.1
   Candace: {
+    name: "Candace",
     quality: 0,
     element: "hydro",
     weapon: "polearm",
@@ -467,6 +521,7 @@ const characterdb = {
     substats: ["Energy Recharge", "HP%", "HP"],
   },
   Cyno: {
+    name: "Cyno",
     quality: 1,
     element: "electro",
     weapon: "polearm",
@@ -475,6 +530,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "Elemental Mastery"],
   },
   Nilou: {
+    name: "Nilou",
     quality: 1,
     element: "hydro",
     weapon: "sword",
@@ -485,6 +541,7 @@ const characterdb = {
 
   // Version 3.2
   Layla: {
+    name: "Layla",
     quality: 0,
     element: "cryo",
     weapon: "sword",
@@ -493,6 +550,7 @@ const characterdb = {
     substats: ["Energy Recharge", "HP%", "HP"],
   },
   Nahida: {
+    name: "Nahida",
     quality: 1,
     element: "dendro",
     weapon: "catalyst",
@@ -503,6 +561,7 @@ const characterdb = {
 
   // Version 3.3
   Faruzan: {
+    name: "Faruzan",
     quality: 0,
     element: "anemo",
     weapon: "bow",
@@ -511,6 +570,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
   },
   Wanderer: {
+    name: "Wanderer",
     quality: 1,
     element: "anemo",
     weapon: "catalyst",
@@ -521,6 +581,7 @@ const characterdb = {
 
   // Version 3.4
   Alhaitham: {
+    name: "Alhaitham",
     quality: 1,
     element: "dendro",
     weapon: "sword",
@@ -529,6 +590,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "Elemental Mastery"],
   },
   Yaoyao: {
+    name: "Yaoyao",
     quality: 0,
     element: "dendro",
     weapon: "polearm",
@@ -539,6 +601,7 @@ const characterdb = {
 
   // Version 3.5
   Dehya: {
+    name: "Dehya",
     quality: 1,
     element: "pyro",
     weapon: "claymore",
@@ -547,6 +610,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
   },
   Mika: {
+    name: "Mika",
     quality: 0,
     element: "cryo",
     weapon: "polearm",
@@ -557,6 +621,7 @@ const characterdb = {
 
   // Version 3.6
   Baizhu: {
+    name: "Baizhu",
     quality: 1,
     element: "dendro",
     weapon: "catalyst",
@@ -565,6 +630,7 @@ const characterdb = {
     substats: ["Energy Recharge", "HP%", "HP"],
   },
   Kaveh: {
+    name: "Kaveh",
     quality: 0,
     element: "dendro",
     weapon: "claymore",
@@ -575,6 +641,7 @@ const characterdb = {
 
   // Version 3.7
   Kirara: {
+    name: "Kirara",
     quality: 0,
     element: "dendro",
     weapon: "sword",
@@ -585,6 +652,7 @@ const characterdb = {
 
   // Version 4.0
   Freminet: {
+    name: "Freminet",
     quality: 0,
     element: "cryo",
     weapon: "claymore",
@@ -593,6 +661,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Lynette: {
+    name: "Lynette",
     quality: 0,
     element: "anemo",
     weapon: "sword",
@@ -601,6 +670,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
   },
   Lyney: {
+    name: "Lyney",
     quality: 1,
     element: "pyro",
     weapon: "bow",
@@ -611,6 +681,7 @@ const characterdb = {
 
   // Version 4.1
   Neuvillette: {
+    name: "Neuvillette",
     quality: 1,
     element: "hydro",
     weapon: "catalyst",
@@ -619,6 +690,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
   },
   Wriothesley: {
+    name: "Wriothesley",
     quality: 1,
     element: "cryo",
     weapon: "catalyst",
@@ -629,6 +701,7 @@ const characterdb = {
 
   // Version 4.2
   Charlotte: {
+    name: "Charlotte",
     quality: 0,
     element: "cryo",
     weapon: "catalyst",
@@ -637,6 +710,7 @@ const characterdb = {
     substats: ["Energy Recharge", "ATK%", "ATK"],
   },
   Furina: {
+    name: "Furina",
     quality: 1,
     element: "hydro",
     weapon: "sword",
@@ -647,6 +721,7 @@ const characterdb = {
 
   // Version 4.3
   Chevreuse: {
+    name: "Chevreuse",
     quality: 0,
     element: "pyro",
     weapon: "polearm",
@@ -655,6 +730,7 @@ const characterdb = {
     substats: ["Energy Recharge", "HP%", "HP"],
   },
   Navia: {
+    name: "Navia",
     quality: 1,
     element: "geo",
     weapon: "claymore",
@@ -665,6 +741,7 @@ const characterdb = {
 
   // Version 4.4
   Gaming: {
+    name: "Gaming",
     quality: 0,
     element: "pyro",
     weapon: "claymore",
@@ -673,6 +750,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Xianyun: {
+    name: "Xianyun",
     quality: 1,
     element: "anemo",
     weapon: "catalyst",
@@ -683,6 +761,7 @@ const characterdb = {
 
   // Version 4.5
   Chiori: {
+    name: "Chiori",
     quality: 1,
     element: "geo",
     weapon: "sword",
@@ -693,6 +772,7 @@ const characterdb = {
 
   // Version 4.6
   Arlecchino: {
+    name: "Arlecchino",
     quality: 1,
     element: "pyro",
     weapon: "polearm",
@@ -703,6 +783,7 @@ const characterdb = {
 
   // Version 4.7
   Clorinde: {
+    name: "Clorinde",
     quality: 1,
     element: "electro",
     weapon: "sword",
@@ -711,6 +792,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Sethos: {
+    name: "Sethos",
     quality: 0,
     element: "electro",
     weapon: "bow",
@@ -719,6 +801,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
   },
   Sigewinne: {
+    name: "Sigewinne",
     quality: 1,
     element: "hydro",
     weapon: "bow",
@@ -729,6 +812,7 @@ const characterdb = {
 
   // Version 4.8
   Emilie: {
+    name: "Emilie",
     quality: 1,
     element: "dendro",
     weapon: "polearm",
@@ -739,6 +823,7 @@ const characterdb = {
 
   // Version 5.0
   Kachina: {
+    name: "Kachina",
     quality: 0,
     element: "geo",
     weapon: "polearm",
@@ -747,6 +832,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
   Kinich: {
+    name: "Kinich",
     quality: 1,
     element: "dendro",
     weapon: "claymore",
@@ -755,6 +841,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Mualani: {
+    name: "Mualani",
     quality: 1,
     element: "hydro",
     weapon: "catalyst",
@@ -765,6 +852,7 @@ const characterdb = {
 
   // Version 5.1
   Xilonen: {
+    name: "Xilonen",
     quality: 1,
     element: "geo",
     weapon: "sword",
@@ -775,6 +863,7 @@ const characterdb = {
 
   // Version 5.2
   Chasca: {
+    name: "Chasca",
     quality: 1,
     element: "anemo",
     weapon: "bow",
@@ -783,6 +872,7 @@ const characterdb = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Ororon: {
+    name: "Ororon",
     quality: 0,
     element: "electro",
     weapon: "bow",

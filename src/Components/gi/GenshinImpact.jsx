@@ -16,7 +16,7 @@ import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
 import Save from './components/Save';
 import Delete from './components/Delete';
-import template from './data/template';
+import template from './components/template';
 import Score from './components/Score';
 
 const GenshinImpact = ({ uid }) => {
