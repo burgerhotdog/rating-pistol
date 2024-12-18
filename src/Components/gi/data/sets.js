@@ -1,4 +1,4 @@
-const sets = [
+const setdb = [
   "Archaic Petra",
   "Blizzard Strayer",
   "Bloodstained Chivalry",
@@ -38,4 +38,4 @@ const sets = [
   "Wanderer's Troupe",
 ];
 
-export default sets;
+export default setdb;

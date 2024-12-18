@@ -10,11 +10,11 @@ import {
   Typography,
 } from '@mui/material';
 import { db } from '../../../firebase';
-import template from '../data/template';
-import weapons from '../data/weapons';
-import sets from '../data/slotSets';
 import SlotCard from './SlotCard';
+import template from './template';
 import characterdb from '../data/characters';
+import weapondb from '../data/weapons';
+import setdb from '../data/sets';
 
 const images = import.meta.glob('../../../assets/gi/*.webp', { eager: true });
 
@@ -135,7 +135,7 @@ const Save = ({
                   disablePortal
                   size='small'
                   value={newCharacter.weapon}
-                  options={weapons}
+                  options={weapondb}
                   sx={{ width: 200 }}
                   onChange={(event, newValue) => {
                     setNewCharacter((prev) => ({
@@ -172,7 +172,7 @@ const Save = ({
                 disablePortal
                 size='small'
                 value={newCharacter.set}
-                options={sets}
+                options={setdb}
                 sx={{ width: 200 }}
                 onChange={(event, newValue) => {
                   setNewCharacter((prev) => ({

@@ -1,4 +1,4 @@
-const weapons = [
+const weapondb = [
   "A Thousand Floating Dreams",
   "Absolution",
   "Akuoumaru",
@@ -204,4 +204,4 @@ const weapons = [
   "Xiphos' Moonlight"
 ];
 
-export default weapons;
+export default weapondb;
