@@ -10,13 +10,13 @@ import {
   Typography,
 } from '@mui/material';
 import { db } from '../../../firebase';
-import images from '../data/images';
 import template from '../data/template';
-import characters from '../data/characters';
 import weapons from '../data/weapons';
-import { slot3, slot4, slot5, subs } from '../data/slotStats';
 import sets from '../data/slotSets';
 import SlotCard from './SlotCard';
+import characterdb from '../data/characters';
+
+const images = import.meta.glob('../../../assets/gi/*.webp', { eager: true });
 
 const Save = ({
   uid,
@@ -35,7 +35,8 @@ const Save = ({
 
   // Update available names when myCharacters changes
   useEffect(() => {
-    const notInMyCharacters = characters.filter(
+    const characternames = Object.keys(characterdb).sort();
+    const notInMyCharacters = characternames.filter(
       (item) => !Object.values(myCharacters).some((char) => char.name === item)
     );
     setAvailableNames(notInMyCharacters);
@@ -156,8 +157,7 @@ const Save = ({
                 }}
               >
                 <img
-                  src={images[newId]}
-                  alt='Character'
+                  src={images[`../../../assets/gi/${newId}.webp`]?.default}
                   style={{
                     width: '100%',
                     height: '100%',

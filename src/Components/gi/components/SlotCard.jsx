@@ -1,8 +1,7 @@
 import React from 'react';
 import Grid from '@mui/material/Grid2';
 import { Card, TextField, Typography } from '@mui/material';
-import mainstats from '../data/mainstats';
-import substats from '../data/substats';
+import characterdb from '../data/characters';
 
 const SlotCard = ({
   slotName,
@@ -36,14 +35,14 @@ const SlotCard = ({
           <Typography variant="body1">{slotName}</Typography>
         </Grid>
         <Grid size={8}>
-          <Typography variant="body1">{mainstats[newId][slotIndex]}</Typography>
+          <Typography variant="body1">{characterdb[newId].mainstats[slotIndex]}</Typography>
         </Grid>
 
         {[0, 1, 2].map((subIndex) => (
           <React.Fragment key={subIndex}>
             <Grid size={8}>
               <Typography variant="body2">
-                {substats[newId][subIndex]}
+                {characterdb[newId].substats[subIndex]}
               </Typography>
             </Grid>
             <Grid size={4}>
