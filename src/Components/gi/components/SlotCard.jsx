@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@mui/material/Grid2';
-import { Card, TextField, Typography } from '@mui/material';
+import { Box, Card, Divider, TextField, Typography } from '@mui/material';
 import characterdb from '../data/characters';
 
 const SlotCard = ({
@@ -29,13 +29,21 @@ const SlotCard = ({
   };
 
   return (
-    <Card sx={{ padding: 1 }}>
+    <Card sx={{ padding: 2 }}>
       <Grid container spacing={1}>
-        <Grid size={4}>
-          <Typography variant="body1">{slotName}</Typography>
+        <Grid size={12}>
+          <Box display='flex' justifyContent='space-between' alignItems="center">
+            <Typography variant="body1">
+              {slotName + ":"}
+            </Typography>
+            <Typography variant="body1" align="right">
+              {characterdb[newId].mainstats[slotIndex]}
+            </Typography>
+          </Box>
         </Grid>
-        <Grid size={8}>
-          <Typography variant="body1">{characterdb[newId].mainstats[slotIndex]}</Typography>
+
+        <Grid size={12}>
+          <Divider />
         </Grid>
 
         {[0, 1, 2].map((subIndex) => (
