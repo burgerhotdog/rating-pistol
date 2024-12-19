@@ -89,25 +89,23 @@ const Save = ({
 
   return (
     <Modal open={isSaveOpen} onClose={handleCancel}>
-      <Box
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        justifyContent='center'
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          padding: 4,
-          borderRadius: 2,
-          backgroundColor: '#1c1c1c',
-        }}
-      >
+      <Box sx={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        padding: 4,
+        borderRadius: 2,
+        backgroundColor: '#1c1c1c',
+      }}>
         {newId ? (
           <Grid container spacing={4} width='1000px'>
             <Grid size={6}>
-              <Box display='flex'>
+              <Box sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
                 {/* Select Character */}
                 <Autocomplete
                   disablePortal
@@ -146,16 +144,15 @@ const Save = ({
                   renderInput={(params) => <TextField {...params} label="Weapon" />}
                 />
               </Box>
+
               {/* Image */}
-              <Box
-                sx={{
-                  position: 'relative',
-                  width: '100%',
-                  height: 500,
-                  overflow: 'hidden',
-                  mt: 2,
-                }}
-              >
+              <Box sx={{
+                position: 'relative',
+                width: '100%',
+                height: 500,
+                overflow: 'hidden',
+                mt: 2,
+              }}>
                 <img
                   src={images[`../../../assets/gi/${newId}.webp`]?.default}
                   style={{
@@ -183,65 +180,29 @@ const Save = ({
                 renderInput={(params) => <TextField {...params} label="Artifact Set" />}
               />
               <Grid container spacing={2} mt={2}>
-                {/* Slot 1 */}
-                <Grid size={6}>
-                  <SlotCard
-                    slotName={'Flower'}
-                    slotIndex={0}
-                    newId={newId}
-                    newCharacter={newCharacter}
-                    setNewCharacter={setNewCharacter}
-                  />
-                </Grid>
-
-                {/* Slot 2 */}
-                <Grid size={6}>
-                  <SlotCard
-                    slotName={'Plume'}
-                    slotIndex={1}
-                    newId={newId}
-                    newCharacter={newCharacter}
-                    setNewCharacter={setNewCharacter}
-                  />
-                </Grid>
-
-                {/* Slot 3 */}
-                <Grid size={6}>
-                  <SlotCard
-                    slotName={'Sands'}
-                    slotIndex={2}
-                    newId={newId}
-                    newCharacter={newCharacter}
-                    setNewCharacter={setNewCharacter}
-                  />
-                </Grid>
-
-                {/* Slot 4 */}
-                <Grid size={6}>
-                  <SlotCard
-                    slotName={'Goblet'}
-                    slotIndex={3}
-                    newId={newId}
-                    newCharacter={newCharacter}
-                    setNewCharacter={setNewCharacter}
-                  />
-                </Grid>
-
-                {/* Slot 5 */}
-                <Grid size={6}>
-                  <SlotCard
-                    slotName={'Circlet'}
-                    slotIndex={4}
-                    newId={newId}
-                    newCharacter={newCharacter}
-                    setNewCharacter={setNewCharacter}
-                  />
-                </Grid>
+                {['Flower', 'Plume', 'Sands', 'Goblet', 'Circlet'].map(
+                  (slotName, index) => (
+                    <Grid size={6} key={slotName}>
+                      <SlotCard
+                        slotName={slotName}
+                        slotIndex={index}
+                        newId={newId}
+                        newCharacter={newCharacter}
+                        setNewCharacter={setNewCharacter}
+                      />
+                    </Grid>
+                  )
+                )}
               </Grid>
             </Grid>
           </Grid>
         ) : (
-          <Box>
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column',
+          }}>
             <Typography variant='h6' gutterBottom>
               Add character
             </Typography>
