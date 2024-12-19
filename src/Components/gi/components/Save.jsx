@@ -35,9 +35,9 @@ const Save = ({
 
   // Update available names when myCharacters changes
   useEffect(() => {
-    const characterNames = Object.values(characterdb).map(item => item.name);
+    const characterNames = Object.keys(characterdb);
     const notInMyCharacters = characterNames.filter(
-      (item) => !Object.values(myCharacters).some((char) => char.name === item)
+      (id) => !Object.keys(myCharacters).includes(id)
     );
     setAvailableNames(notInMyCharacters);
   }, [myCharacters]);
@@ -112,19 +112,18 @@ const Save = ({
                 <Autocomplete
                   disablePortal
                   size='small'
-                  value={newCharacter.name}
+                  value={newId}
                   options={availableNames}
                   onChange={(event, newValue) => {
-                    const words = newValue.replace(/'/g, '').split(' ');
-                    const id = words.map(word => (
-                      word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-                    )).join('');
-                    setNewId(id);
+                    const selectedCharacter = characterdb[newValue];  // Get the character by id
+                    setNewId(newValue);  // Set the id (key)
                     setNewCharacter(({
                       ...template(),
-                      name: newValue,
+                      name: selectedCharacter.name,  // Set the character name
                     }));
                   }}
+                  getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
+                  isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
                   sx={{ width: 200, mr: 2}}
                   renderInput={(params) => <TextField {...params} label="Character" />}
                   disabled={isEditMode}
@@ -248,21 +247,20 @@ const Save = ({
             <Autocomplete
               disablePortal
               size='small'
-              value={newCharacter.name}
+              value={newId}
               options={availableNames}
               onChange={(event, newValue) => {
-                const words = newValue.replace(/'/g, '').split(' ');
-                const id = words.map(word => (
-                  word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-                )).join('');
-                setNewId(id);
+                const selectedCharacter = characterdb[newValue];  // Get the character by id
+                setNewId(newValue);  // Set the id (key)
                 setNewCharacter(({
                   ...template(),
-                  name: newValue,
+                  name: selectedCharacter.name,  // Set the character name
                 }));
               }}
-              sx={{ width: 250, mb: 2 }}
-              renderInput={(params) => <TextField {...params} label="Select" />}
+              getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
+              isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
+              sx={{ width: 200, mr: 2}}
+              renderInput={(params) => <TextField {...params} label="Character" />}
             />
           </Box>
         )}
