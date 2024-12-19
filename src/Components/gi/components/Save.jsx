@@ -221,7 +221,7 @@ const Save = ({
               getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
               isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
               sx={{ width: 200, mr: 2}}
-              renderInput={(params) => <TextField {...params} label="Character" />}
+              renderInput={(params) => <TextField {...params} label="Select" />}
             />
           </Box>
         )}
