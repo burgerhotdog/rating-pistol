@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from 'firebase/firestore';
 import {
   Box,
   Button,
@@ -12,53 +12,55 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
-import Save from './modals/Save';
-import Delete from './modals/Delete';
-import Enka from './modals/Enka';
-import template from './data/template';
+import Save from './components/Save';
+import Delete from './components/Delete';
+import template from './components/template';
+import Score from './components/Score';
+import weapondb from './data/weapons';
 
 const GenshinImpact = ({ uid }) => {
-  /* Modal states */
+  // Modal states
   const [isSaveOpen, setIsSaveOpen] = useState(false);
-  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const [isEnkaOpen, setIsEnkaOpen] = useState(false);
-
   const [isEditMode, setIsEditMode] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
-  /* Local character object */
+  // Local character objects
   const [myCharacters, setMyCharacters] = useState({});
 
-  /* New character data structures: */
+  // New character object
   const [newId, setNewId] = useState('');
   const [newCharacter, setNewCharacter] = useState(template);
 
-  // Update myCharacters when user signs in or out
+  // Update local characters on uid change
   useEffect(() => {
     const fetchDB = async () => {
-      // If signed out, clears myCharacters
-      if (!uid) {
+      if (uid) {
+        // If signed in:
+        // load characters from firestore
+        const characterDocsRef = collection(db, 'users', uid, 'GenshinImpact');
+        const characterDocs = await getDocs(characterDocsRef);
+  
+        // Convert documents to objects
+        const docsToObjects = {};
+        characterDocs.docs.forEach((characterDoc) => {
+          docsToObjects[characterDoc.id] = characterDoc.data();
+        });
+  
+        // Store objects in myCharacters
+        setMyCharacters(docsToObjects);
+      } else {
+        // If signed out:
+        // Clear myCharacters
         setMyCharacters({});
-        return;
       }
-
-      // If signed in, loads myCharacters from firestore
-      // Pull character documents
-      const characterDocsRef = collection(db, 'users', uid, 'GenshinImpact');
-      const characterDocs = await getDocs(characterDocsRef);
-
-      const myCharactersObj = {};
-      characterDocs.docs.forEach((characterDoc) => {
-        myCharactersObj[characterDoc.id] = characterDoc.data();
-      });
-
-      setMyCharacters(myCharactersObj);
     };
     fetchDB();
   }, [uid]);
 
-  /* Add character button */
+  // Add character button handler
   const handleAddCharacter = () => {
     setNewId('');
     setNewCharacter(template());
@@ -66,7 +68,7 @@ const GenshinImpact = ({ uid }) => {
     setIsSaveOpen(true);
   };
 
-  /* Edit button */
+  // Edit button handler
   const handleEditCharacter = (id) => {
     setNewId(id);
     setNewCharacter(myCharacters[id]);
@@ -74,18 +76,10 @@ const GenshinImpact = ({ uid }) => {
     setIsSaveOpen(true);
   };
 
-  /* Delete button */
+  // Delete button handler
   const handleDeleteCharacter = (id) => {
     setNewId(id);
     setIsDeleteOpen(true);
-  };
-
-  /* Enka button */
-  const handleAddEnka = () => {
-    setNewId('');
-    setNewCharacter(template());
-    setIsEditMode(false);
-    setIsEnkaOpen(true);
   };
 
   return (
@@ -100,6 +94,7 @@ const GenshinImpact = ({ uid }) => {
         <Typography variant='h4'>Genshin Impact</Typography>
         <BackToMenu />
       </Box>
+
       <Box
         display='flex'
         flexDirection='column'
@@ -107,6 +102,7 @@ const GenshinImpact = ({ uid }) => {
       >
         <TableContainer sx={{ maxWidth: 800, mt: 2 }}>
           <Table>
+            {/* Table headers */}
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
@@ -117,6 +113,7 @@ const GenshinImpact = ({ uid }) => {
               </TableRow>
             </TableHead>
 
+            {/* Table data */}
             <TableBody>
               {Object.keys(myCharacters).length === 0 ? (
                 <TableRow>
@@ -128,9 +125,9 @@ const GenshinImpact = ({ uid }) => {
                 Object.entries(myCharacters).map(([id, character]) => (
                   <TableRow key={id}>
                     <TableCell>{character.name}</TableCell>
-                    <TableCell>{character.weapon}</TableCell>
-                    <TableCell>{character.slotSet}</TableCell>
-                    <TableCell></TableCell>
+                    <TableCell>{weapondb[character.weapon].name}</TableCell>
+                    <TableCell>{character.set}</TableCell>
+                    <TableCell><Score character={character} /></TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button
@@ -140,7 +137,7 @@ const GenshinImpact = ({ uid }) => {
                         onClick={() => handleEditCharacter(id)}
                         sx={{ mr: 1 }}
                       >
-                        Edit
+                        <EditIcon />
                       </Button>
 
                       {/* Delete button */}
@@ -150,7 +147,7 @@ const GenshinImpact = ({ uid }) => {
                         color='secondary'
                         onClick={() => handleDeleteCharacter(id)}
                       >
-                        Delete
+                        <DeleteIcon />
                       </Button>
                     </TableCell>
                   </TableRow>
@@ -167,20 +164,10 @@ const GenshinImpact = ({ uid }) => {
           onClick={handleAddCharacter}
           sx={{ mt: 2 }}
         >
-          Add character manually
+          Add character
         </Button>
 
-        {/* Add character from enka button */}
-        <Button
-          variant='contained'
-          color='primary'
-          onClick={handleAddEnka}
-          sx={{ mt: 2 }}
-        >
-          Load characters from uid
-        </Button>
-
-        {/* modal for add character */}
+        {/* Save modal */}
         <Save
           uid={uid}
           isSaveOpen={isSaveOpen}
@@ -194,7 +181,7 @@ const GenshinImpact = ({ uid }) => {
           setNewCharacter={setNewCharacter}
         />
 
-        {/* modal for delete character */}
+        {/* Delete modal */}
         <Delete
           uid={uid}
           isDeleteOpen={isDeleteOpen}
@@ -203,13 +190,6 @@ const GenshinImpact = ({ uid }) => {
           setMyCharacters={setMyCharacters}
           newId={newId}
           setNewId={setNewId}
-        />
-
-        {/* modal for enka */}
-        <Enka
-          uid={uid}
-          isEnkaOpen={isEnkaOpen}
-          setIsEnkaOpen={setIsEnkaOpen}
         />
       </Box>        
     </Container>

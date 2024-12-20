@@ -10,16 +10,8 @@ const Enka = ({
   const fetchEnkaData = async () => {
     try {
       console.log(enkaUid);
-      const response = await fetch(`https://enka.network/api/uid/${enkaUid}`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch Enka data');
-      }
-      const data = await response.json();
-      
-      console.log(data);
     } catch (error) {
       console.error('Enka API Error:', error);
-      // Handle error (e.g., show error message to user)
     }
   };
 
