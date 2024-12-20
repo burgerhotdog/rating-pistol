@@ -2,7 +2,7 @@ const characterdb = {
   // Version 5.2
   Chasca: {
     name: "Chasca",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "anemo",
     mainstats: ["HP", "ATK", "ATK%", "ATK%", "CRIT Rate"],
@@ -10,7 +10,7 @@ const characterdb = {
   },
   Ororon: {
     name: "Ororon",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Electro DMG", "CRIT Rate"],
@@ -20,7 +20,7 @@ const characterdb = {
   // Version 5.1
   Xilonen: {
     name: "Xilonen",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "geo",
     mainstats: ["HP", "ATK", "Energy Recharge", "DEF%", "Healing Bonus"],
@@ -30,7 +30,7 @@ const characterdb = {
   // Version 5.0
   Kachina: {
     name: "Kachina",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "geo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Geo DMG", "CRIT Rate"],
@@ -38,7 +38,7 @@ const characterdb = {
   },
   Kinich: {
     name: "Kinich",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "claymore",
     vision: "dendro",
     mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT DMG"],
@@ -46,7 +46,7 @@ const characterdb = {
   },
   Mualani: {
     name: "Mualani",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT DMG"],
@@ -56,7 +56,7 @@ const characterdb = {
   // Version 4.8
   Emilie: {
     name: "Emilie",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "polearm",
     vision: "dendro",
     mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT Rate"],
@@ -66,7 +66,7 @@ const characterdb = {
   // Version 4.7
   Clorinde: {
     name: "Clorinde",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate"],
@@ -74,7 +74,7 @@ const characterdb = {
   },
   Sethos: {
     name: "Sethos",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "electro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Electro DMG", "CRIT Rate"],
@@ -82,7 +82,7 @@ const characterdb = {
   },
   Sigewinne: {
     name: "Sigewinne",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
@@ -92,7 +92,7 @@ const characterdb = {
   // Version 4.6
   Arlecchino: {
     name: "Arlecchino",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
@@ -102,7 +102,7 @@ const characterdb = {
   // Version 4.5
   Chiori: {
     name: "Chiori",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate"],
@@ -112,7 +112,7 @@ const characterdb = {
   // Version 4.4
   Gaming: {
     name: "Gaming",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
@@ -120,7 +120,7 @@ const characterdb = {
   },
   Xianyun: {
     name: "Xianyun",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "ATK%"],
@@ -130,7 +130,7 @@ const characterdb = {
   // Version 4.3
   Chevreuse: {
     name: "Chevreuse",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
@@ -138,7 +138,7 @@ const characterdb = {
   },
   Navia: {
     name: "Navia",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "claymore",
     vision: "geo",
     mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate"],
@@ -148,7 +148,7 @@ const characterdb = {
   // Version 4.2
   Charlotte: {
     name: "Charlotte",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "catalyst",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "Healing Bonus"],
@@ -156,7 +156,7 @@ const characterdb = {
   },
   Furina: {
     name: "Furina",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "CRIT Rate"],
@@ -166,7 +166,7 @@ const characterdb = {
   // Version 4.1
   Neuvillette: {
     name: "Neuvillette",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT DMG"],
@@ -174,7 +174,7 @@ const characterdb = {
   },
   Wriothesley: {
     name: "Wriothesley",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT DMG"],
@@ -184,7 +184,7 @@ const characterdb = {
   // Version 4.0
   Freminet: {
     name: "Freminet",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate"],
@@ -192,7 +192,7 @@ const characterdb = {
   },
   Lynette: {
     name: "Lynette",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "sword",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Anemo DMG", "CRIT Rate"],
@@ -200,7 +200,7 @@ const characterdb = {
   },
   Lyney: {
     name: "Lyney",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
@@ -210,7 +210,7 @@ const characterdb = {
   // Version 3.7
   Kirara: {
     name: "Kirara",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "sword",
     vision: "dendro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
@@ -220,7 +220,7 @@ const characterdb = {
   // Version 3.6
   Baizhu: {
     name: "Baizhu",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "HP%"],
@@ -228,7 +228,7 @@ const characterdb = {
   },
   Kaveh: {
     name: "Kaveh",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Elemental Mastery", "Elemental Mastery"],
@@ -238,7 +238,7 @@ const characterdb = {
   // Version 3.5
   Dehya: {
     name: "Dehya",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "claymore",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Pyro DMG", "CRIT DMG"],
@@ -246,7 +246,7 @@ const characterdb = {
   },
   Mika: {
     name: "Mika",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
@@ -256,7 +256,7 @@ const characterdb = {
   // Version 3.4
   Alhaitham: {
     name: "Alhaitham",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Dendro DMG", "CRIT Rate"],
@@ -264,7 +264,7 @@ const characterdb = {
   },
   Yaoyao: {
     name: "Yaoyao",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
@@ -274,7 +274,7 @@ const characterdb = {
   // Version 3.3
   Faruzan: {
     name: "Faruzan",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Anemo DMG", "CRIT Rate"],
@@ -282,7 +282,7 @@ const characterdb = {
   },
   Wanderer: {
     name: "Wanderer",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate"],
@@ -292,7 +292,7 @@ const characterdb = {
   // Version 3.2
   Layla: {
     name: "Layla",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "sword",
     vision: "cryo",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
@@ -300,7 +300,7 @@ const characterdb = {
   },
   Nahida: {
     name: "Nahida",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Dendro DMG", "CRIT DMG"],
@@ -310,7 +310,7 @@ const characterdb = {
   // Version 3.1
   Candace: {
     name: "Candace",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Rechage", "HP%", "HP%"],
@@ -318,7 +318,7 @@ const characterdb = {
   },
   Cyno: {
     name: "Cyno",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "polearm",
     vision: "electro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Electro DMG", "CRIT DMG"],
@@ -326,7 +326,7 @@ const characterdb = {
   },
   Nilou: {
     name: "Nilou",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
@@ -336,7 +336,7 @@ const characterdb = {
   // Version 3.0
   Collei: {
     name: "Collei",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Dendro DMG", "CRIT Rate"],
@@ -344,7 +344,7 @@ const characterdb = {
   },
   Dori: {
     name: "Dori",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
@@ -352,7 +352,7 @@ const characterdb = {
   },
   Tighnari: {
     name: "Tighnari",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Dendro DMG", "CRIT DMG"],
@@ -362,7 +362,7 @@ const characterdb = {
   // Version 2.8
   ShikanoinHeizou: {
     name: "Shikanoin Heizou",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "catalyst",
     vision: "anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate"],
@@ -372,7 +372,7 @@ const characterdb = {
   // Version 2.7
   KukiShinobu: {
     name: "Kuki Shinobu",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "sword",
     vision: "electro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
@@ -380,7 +380,7 @@ const characterdb = {
   },
   Yelan: {
     name: "Yelan",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Hydro DMG", "CRIT Rate"],
@@ -390,7 +390,7 @@ const characterdb = {
   // Version 2.6
   KamisatoAyato: {
     name: "Kamisato Ayato",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "hydro",
     mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT DMG"],
@@ -400,7 +400,7 @@ const characterdb = {
   // Version 2.5
   YaeMiko: {
     name: "Yae Miko",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate"],
@@ -410,7 +410,7 @@ const characterdb = {
   // Version 2.4
   Shenhe: {
     name: "Shenhe",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "polearm",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "ATK%", "ATK%"],
@@ -418,7 +418,7 @@ const characterdb = {
   },
   YunJin: {
     name: "Yun Jin",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "geo",
     mainstats: ["HP", "ATK", "Energy Recharge", "DEF%", "DEF%"],
@@ -428,7 +428,7 @@ const characterdb = {
   // Version 2.3
   AratakiItto: {
     name: "Arataki Itto",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "claymore",
     vision: "geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate"],
@@ -436,7 +436,7 @@ const characterdb = {
   },
   Gorou: {
     name: "Gorou",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "geo",
     mainstats: ["HP", "ATK", "Energy Recharge", "DEF%", "Healing Bonus"],
@@ -446,7 +446,7 @@ const characterdb = {
   // Version 2.2
   Thoma: {
     name: "Thoma",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "HP%"],
@@ -456,7 +456,7 @@ const characterdb = {
   // Version 2.1
   Aloy: {
     name: "Aloy",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate"],
@@ -464,7 +464,7 @@ const characterdb = {
   },
   KujouSara: {
     name: "Kujou Sara",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Electro DMG", "CRIT Rate"],
@@ -472,7 +472,7 @@ const characterdb = {
   },
   RaidenShogun: {
     name: "Raiden Shogun",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "polearm",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Electro DMG", "CRIT Rate"],
@@ -480,7 +480,7 @@ const characterdb = {
   },
   SangonomiyaKokomi: {
     name: "Sangonomiya Kokomi",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "Healing Bonus"],
@@ -490,7 +490,7 @@ const characterdb = {
   // Version 2.0
   KamisatoAyaka: {
     name: "Kamisato Ayaka",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT DMG"],
@@ -498,7 +498,7 @@ const characterdb = {
   },
   Sayu: {
     name: "Sayu",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "Healing Bonus"],
@@ -506,7 +506,7 @@ const characterdb = {
   },
   Yoimiya: {
     name: "Yoimiya",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
@@ -516,7 +516,7 @@ const characterdb = {
   // Version 1.6
   KaedeharaKazuha: {
     name: "Kaedehara Kazuha",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
@@ -526,7 +526,7 @@ const characterdb = {
   // Version 1.5
   Eula: {
     name: "Eula",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "claymore",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate"],
@@ -534,7 +534,7 @@ const characterdb = {
   },
   Yanfei: {
     name: "Yanfei",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "catalyst",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
@@ -544,7 +544,7 @@ const characterdb = {
   // Version 1.4
   Rosaria: {
     name: "Rosaria",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Cryo DMG", "CRIT Rate"],
@@ -554,7 +554,7 @@ const characterdb = {
   // Version 1.3
   HuTao: {
     name: "Hu Tao",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "HP%", "Pyro DMG", "CRIT Rate"],
@@ -562,7 +562,7 @@ const characterdb = {
   },
   Xiao: {
     name: "Xiao",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "polearm",
     vision: "anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT DMG"],
@@ -572,7 +572,7 @@ const characterdb = {
   // Version 1.2
   Albedo: {
     name: "Albedo",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate"],
@@ -580,7 +580,7 @@ const characterdb = {
   },
   Ganyu: {
     name: "Ganyu",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate"],
@@ -590,7 +590,7 @@ const characterdb = {
   // Version 1.1
   Diona: {
     name: "Diona",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
@@ -598,7 +598,7 @@ const characterdb = {
   },
   Tartaglia: {
     name: "Tartaglia",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "hydro",
     mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT DMG"],
@@ -606,7 +606,7 @@ const characterdb = {
   },
   Xinyan: {
     name: "Xinyan",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG%", "CRIT Rate"],
@@ -614,7 +614,7 @@ const characterdb = {
   },
   Zhongli: {
     name: "Zhongli",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "polearm",
     vision: "geo",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
@@ -624,7 +624,7 @@ const characterdb = {
   // Version 1.0
   Amber: {
     name: "Amber",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Pyro DMG", "CRIT Rate"],
@@ -632,7 +632,7 @@ const characterdb = {
   },
   Barbara: {
     name: "Barbara",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
@@ -640,7 +640,7 @@ const characterdb = {
   },
   Beidou: {
     name: "Beidou",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge%", "Electro DMG", "CRIT Rate"],
@@ -648,7 +648,7 @@ const characterdb = {
   },
   Bennett: {
     name: "Bennett",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "sword",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
@@ -656,7 +656,7 @@ const characterdb = {
   },
   Chongyun: {
     name: "Chongyun",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate"],
@@ -664,7 +664,7 @@ const characterdb = {
   },
   Diluc: {
     name: "Diluc",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "claymore",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
@@ -672,7 +672,7 @@ const characterdb = {
   },
   Fischl: {
     name: "Fischl",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "bow",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate"],
@@ -680,7 +680,7 @@ const characterdb = {
   },
   Jean: {
     name: "Jean",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "Healing Bonus"],
@@ -688,7 +688,7 @@ const characterdb = {
   },
   Kaeya: {
     name: "Kaeya",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "sword",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Cryo DMG", "CRIT Rate"],
@@ -696,7 +696,7 @@ const characterdb = {
   },
   Keqing: {
     name: "Keqing",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate"],
@@ -704,7 +704,7 @@ const characterdb = {
   },
   Klee: {
     name: "Klee",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
@@ -712,7 +712,7 @@ const characterdb = {
   },
   Lisa: {
     name: "Lisa",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "catalyst",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Electro DMG", "CRIT Rate"],
@@ -720,7 +720,7 @@ const characterdb = {
   },
   Mona: {
     name: "Mona",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Hydro DMG", "CRIT Rate"],
@@ -728,7 +728,7 @@ const characterdb = {
   },
   Ningguang: {
     name: "Ningguang",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "catalyst",
     vision: "geo",
     mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate"],
@@ -736,7 +736,7 @@ const characterdb = {
   },
   Noelle: {
     name: "Noelle",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate"],
@@ -744,7 +744,7 @@ const characterdb = {
   },
   Qiqi: {
     name: "Qiqi",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "sword",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "Healing Bonus"],
@@ -752,7 +752,7 @@ const characterdb = {
   },
   Razor: {
     name: "Razor",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "claymore",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate"],
@@ -760,7 +760,7 @@ const characterdb = {
   },
   Sucrose: {
     name: "Sucrose",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "catalyst",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
@@ -768,7 +768,7 @@ const characterdb = {
   },
   Venti: {
     name: "Venti",
-    rarity: 5,
+    rarity: "5 Star",
     weapon: "bow",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
@@ -776,7 +776,7 @@ const characterdb = {
   },
   Xiangling: {
     name: "Xiangling",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge%", "Pyro DMG", "CRIT Rate"],
@@ -784,7 +784,7 @@ const characterdb = {
   },
   Xingqiu: {
     name: "Xingqiu",
-    rarity: 4,
+    rarity: "4 Star",
     weapon: "sword",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge%", "Hydro DMG", "CRIT Rate"],

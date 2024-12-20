@@ -40,6 +40,13 @@ const Save = ({
     const filteredCharacterKeys = allCharacterKeys.filter(
       (id) => !Object.keys(myCharacters).includes(id)
     );
+
+    filteredCharacterKeys.sort((a, b) => {
+      const rarityA = characterdb[a]?.rarity || '';
+      const rarityB = characterdb[b]?.rarity || '';
+      return rarityB.localeCompare(rarityA);
+    });
+
     setAvailableNames(filteredCharacterKeys);
   }, [myCharacters]);
 
@@ -50,6 +57,13 @@ const Save = ({
       const filteredWeaponKeys = allWeaponKeys.filter(
         (id) => characterdb[newId].weapon === weapondb[id].type
       );
+
+      filteredWeaponKeys.sort((a, b) => {
+        const rarityA = weapondb[a]?.rarity || '';
+        const rarityB = weapondb[b]?.rarity || '';
+        return rarityB.localeCompare(rarityA);
+      });
+
       setAvailableWeapons(filteredWeaponKeys);
     }
   }, [newId]);
@@ -121,6 +135,7 @@ const Save = ({
                 size='small'
                 value={newId}
                 options={availableNames}
+                groupBy={(option) => characterdb[option].rarity}
                 onChange={(event, newValue) => {
                   // Check if newValue is valid
                   if (newValue) {
@@ -139,6 +154,12 @@ const Save = ({
                 getOptionLabel={(id) => characterdb[id]?.name}  // Display the character name in the dropdown
                 isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
                 renderInput={(params) => <TextField {...params} label="Character" />}
+                renderGroup={(params) => (
+                  <div key={params.group}>
+                    <strong style={{ padding: '8px' }}>{params.group}</strong>
+                    <div>{params.children}</div>
+                  </div>
+                )}
                 fullWidth
                 disabled={isEditMode}
               />
@@ -151,6 +172,7 @@ const Save = ({
                 size='small'
                 value={newCharacter.weapon}
                 options={availableWeapons}
+                groupBy={(option) => weapondb[option].rarity}
                 onChange={(event, newValue) => {
                   setNewCharacter((prev) => ({
                     ...prev,
@@ -160,6 +182,12 @@ const Save = ({
                 getOptionLabel={(id) => weapondb[id]?.name || ''}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Weapon" />}
+                renderGroup={(params) => (
+                  <div key={params.group}>
+                    <strong style={{ padding: '8px' }}>{params.group}</strong>
+                    <div>{params.children}</div>
+                  </div>
+                )}
                 fullWidth
               />
             </Grid>
@@ -219,6 +247,7 @@ const Save = ({
             size='small'
             value={newId}
             options={availableNames}
+            groupBy={(option) => characterdb[option].rarity}
             onChange={(event, newValue) => {
               // Check if newValue is valid
               if (newValue) {
@@ -236,8 +265,14 @@ const Save = ({
             }}
             getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
             isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
-            sx={{ width: 200 }}
             renderInput={(params) => <TextField {...params} label="Select" />}
+            renderGroup={(params) => (
+              <div key={params.group}>
+                <strong style={{ padding: '8px' }}>{params.group}</strong>
+                <div>{params.children}</div>
+              </div>
+            )}
+            sx={{ width: 240 }}
           />
         )}
 
