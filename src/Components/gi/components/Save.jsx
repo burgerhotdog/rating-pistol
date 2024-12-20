@@ -95,9 +95,9 @@ const Save = ({
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
+        backgroundColor: '#1c1c1c',
         padding: 4,
         borderRadius: 2,
-        backgroundColor: '#1c1c1c',
       }}>        
         {/* Data grid */}
         {newId ? (
@@ -163,21 +163,14 @@ const Save = ({
 
             {/* Image */}
             <Grid size={6}>
-              <Box sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: 500,
-              }}>
-                <img
-                  src={images[`../../../assets/gi/${newId}.webp`]?.default}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'contain',
-                  }}
-                />
-              </Box>
+              <img
+                src={images[`../../../assets/gi/${newId}.webp`]?.default}
+                style={{
+                  width: '100%',
+                  height: 500,
+                  objectFit: 'contain',
+                }}
+              />
             </Grid>
 
             {/* Artifact grid */}
