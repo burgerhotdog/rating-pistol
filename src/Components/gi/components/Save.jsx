@@ -32,15 +32,27 @@ const Save = ({
 }) => {
   const [error, setError] = useState('');
   const [availableNames, setAvailableNames] = useState([]);
+  const [availableWeapons, setAvailableWeapons] = useState([]);
 
   // Update available names when myCharacters changes
   useEffect(() => {
-    const characterNames = Object.keys(characterdb);
-    const notInMyCharacters = characterNames.filter(
+    const allCharacterKeys = Object.keys(characterdb).sort();
+    const filteredCharacterKeys = allCharacterKeys.filter(
       (id) => !Object.keys(myCharacters).includes(id)
     );
-    setAvailableNames(notInMyCharacters);
+    setAvailableNames(filteredCharacterKeys);
   }, [myCharacters]);
+
+  // Update available weapons when newId changes
+  useEffect(() => {
+    if (characterdb[newId]) {
+      const allWeaponKeys = Object.keys(weapondb).sort();
+      const filteredWeaponKeys = allWeaponKeys.filter(
+        (id) => characterdb[newId].weapon === weapondb[id].type
+      );
+      setAvailableWeapons(filteredWeaponKeys);
+    }
+  }, [newId]);
 
   // Validation before saving
   const validate = () => {
@@ -110,17 +122,24 @@ const Save = ({
                 value={newId}
                 options={availableNames}
                 onChange={(event, newValue) => {
-                  const selectedCharacter = characterdb[newValue];  // Get the character by id
-                  setNewId(newValue);  // Set the id (key)
-                  setNewCharacter(({
-                    ...template(),
-                    name: selectedCharacter.name,  // Set the character name
-                  }));
+                  // Check if newValue is valid
+                  if (newValue) {
+                    const selectedCharacter = characterdb[newValue]; // Get the character by id
+                    setNewId(newValue); // Set the id (key)
+                    setNewCharacter({
+                      ...template(),
+                      name: selectedCharacter.name, // Set the character name
+                    });
+                  } else {
+                    // Handle the case when no character is selected (clear selection)
+                    setNewId('');
+                    setNewCharacter(template()); // Reset the new character data
+                  }
                 }}
-                getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
+                getOptionLabel={(id) => characterdb[id]?.name}  // Display the character name in the dropdown
                 isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
-                fullWidth
                 renderInput={(params) => <TextField {...params} label="Character" />}
+                fullWidth
                 disabled={isEditMode}
               />
             </Grid>
@@ -131,15 +150,17 @@ const Save = ({
                 disablePortal
                 size='small'
                 value={newCharacter.weapon}
-                options={weapondb}
-                fullWidth
+                options={availableWeapons}
                 onChange={(event, newValue) => {
                   setNewCharacter((prev) => ({
                     ...prev,
                     weapon: newValue,
                   }));
                 }}
+                getOptionLabel={(id) => weapondb[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Weapon" />}
+                fullWidth
               />
             </Grid>
 
@@ -199,12 +220,19 @@ const Save = ({
             value={newId}
             options={availableNames}
             onChange={(event, newValue) => {
-              const selectedCharacter = characterdb[newValue];  // Get the character by id
-              setNewId(newValue);  // Set the id (key)
-              setNewCharacter(({
-                ...template(),
-                name: selectedCharacter.name,  // Set the character name
-              }));
+              // Check if newValue is valid
+              if (newValue) {
+                const selectedCharacter = characterdb[newValue]; // Get the character by id
+                setNewId(newValue); // Set the id (key)
+                setNewCharacter({
+                  ...template(),
+                  name: selectedCharacter.name, // Set the character name
+                });
+              } else {
+                // Handle the case when no character is selected (clear selection)
+                setNewId('');
+                setNewCharacter(template()); // Reset the new character data
+              }
             }}
             getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
             isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection

@@ -19,6 +19,7 @@ import Save from './components/Save';
 import Delete from './components/Delete';
 import template from './components/template';
 import Score from './components/Score';
+import weapondb from './data/weapons';
 
 const GenshinImpact = ({ uid }) => {
   // Modal states
@@ -124,7 +125,7 @@ const GenshinImpact = ({ uid }) => {
                 Object.entries(myCharacters).map(([id, character]) => (
                   <TableRow key={id}>
                     <TableCell>{character.name}</TableCell>
-                    <TableCell>{character.weapon}</TableCell>
+                    <TableCell>{weapondb[character.weapon].name}</TableCell>
                     <TableCell>{character.set}</TableCell>
                     <TableCell><Score character={character} /></TableCell>
                     <TableCell>
