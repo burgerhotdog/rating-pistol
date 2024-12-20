@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from 'firebase/firestore';
 import {
   Box,
   Button,
@@ -12,6 +12,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
 import Save from './components/Save';
@@ -135,7 +136,7 @@ const GenshinImpact = ({ uid }) => {
                         onClick={() => handleEditCharacter(id)}
                         sx={{ mr: 1 }}
                       >
-                        Edit
+                        <EditIcon />
                       </Button>
 
                       {/* Delete button */}
@@ -145,7 +146,7 @@ const GenshinImpact = ({ uid }) => {
                         color='secondary'
                         onClick={() => handleDeleteCharacter(id)}
                       >
-                        Delete
+                        <DeleteIcon />
                       </Button>
                     </TableCell>
                   </TableRow>

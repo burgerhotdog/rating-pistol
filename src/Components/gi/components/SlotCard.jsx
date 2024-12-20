@@ -32,11 +32,15 @@ const SlotCard = ({
     <Card sx={{ padding: 2 }}>
       <Grid container spacing={1}>
         <Grid size={12}>
-          <Box display='flex' justifyContent='space-between' alignItems="center">
-            <Typography variant="body1">
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}>
+            <Typography variant='body1'>
               {slotName + ":"}
             </Typography>
-            <Typography variant="body1" align="right">
+            <Typography variant='body1' align='right'>
               {characterdb[newId].mainstats[slotIndex]}
             </Typography>
           </Box>
@@ -49,13 +53,13 @@ const SlotCard = ({
         {[0, 1, 2].map((subIndex) => (
           <React.Fragment key={subIndex}>
             <Grid size={8}>
-              <Typography variant="body2">
+              <Typography variant='body2'>
                 {characterdb[newId].substats[subIndex]}
               </Typography>
             </Grid>
             <Grid size={4}>
               <TextField
-                type="number"
+                type='number'
                 name={`${slotIndex}.${subIndex}`}
                 value={newCharacter[slotIndex][subIndex]}
                 onChange={(e) => {
@@ -64,7 +68,7 @@ const SlotCard = ({
                     handleSub(e);
                   }
                 }}
-                size="small"
+                size='small'
                 fullWidth
                 sx={{
                   '& .MuiInputBase-root': {

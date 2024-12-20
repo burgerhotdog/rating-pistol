@@ -44,36 +44,45 @@ const Delete = ({
 
   return (
     <Modal open={isDeleteOpen} onClose={handleCancel}>
-      <Box
-        sx={{
-          backgroundColor: '#1c1c1c',
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 400,
-          p: 4,
-          borderRadius: 2,
-        }}
-      >
-        <Typography variant="h6" component="h2">
-          Confirm Deletion
-        </Typography>
-        <Typography sx={{ mt: 2 }}>
-          Are you sure you want to delete {' '}
-          {myCharacters[newId] ? (
-            <strong>{myCharacters[newId].name}</strong>
-          ) : (
-            ''
-          )}
+      {/* Modal Styles */}
+      <Box sx={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: '#1c1c1c',
+        padding: 4,
+        borderRadius: 2,
+      }}>
+        {/* Text section */}
+        <Typography variant='body1'>
+          Are you sure you want to delete{' '}
+          <strong>{myCharacters[newId]?.name ?? null}</strong>
           ?
         </Typography>
 
-        <Box display="flex" justifyContent="center" gap={2} mt={2}>
-          <Button variant="outlined" color="primary" onClick={handleCancel}>
+        {/* Buttons section */}
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 2,
+          mt: 2,
+        }}>
+          <Button
+            variant='outlined'
+            color='primary'
+            onClick={handleCancel}
+            sx={{ width: 80 }}
+          >
             Cancel
           </Button>
-          <Button variant="contained" color="secondary" onClick={handleDelete}>
+          <Button
+            variant='contained'
+            color='secondary'
+            onClick={handleDelete}
+            sx={{ width: 80 }}
+          >
             Delete
           </Button>
         </Box>
