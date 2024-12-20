@@ -102,6 +102,7 @@ const Save = ({
         {/* Data grid */}
         {newId ? (
           <Grid container spacing={2} sx={{ width: 1024 }}>
+            {/* Select character */}
             <Grid size={3}>
               <Autocomplete
                 disablePortal
@@ -123,6 +124,8 @@ const Save = ({
                 disabled={isEditMode}
               />
             </Grid>
+
+            {/* Select weapon */}
             <Grid size={3}>
               <Autocomplete
                 disablePortal
@@ -139,6 +142,8 @@ const Save = ({
                 renderInput={(params) => <TextField {...params} label="Weapon" />}
               />
             </Grid>
+
+            {/* Select artifact set */}
             <Grid size={6}>
               <Autocomplete
                 disablePortal
@@ -155,6 +160,8 @@ const Save = ({
                 renderInput={(params) => <TextField {...params} label="Artifact Set" />}
               />
             </Grid>
+
+            {/* Image */}
             <Grid size={6}>
               <Box sx={{
                 display: 'flex',
@@ -172,11 +179,10 @@ const Save = ({
                 />
               </Box>
             </Grid>
+
+            {/* Artifact grid */}
             <Grid size={6}>
-              <Grid container spacing={2} sx={{
-                height: 'auto',
-                flexGrow: 1,
-              }}>
+              <Grid container spacing={2}>
                 {['Flower', 'Plume', 'Sands', 'Goblet', 'Circlet'].map(
                   (slotName, index) => (
                     <Grid size={6} key={slotName}>
@@ -186,7 +192,6 @@ const Save = ({
                         newId={newId}
                         newCharacter={newCharacter}
                         setNewCharacter={setNewCharacter}
-                        sx={{ height: '100%' }}
                       />
                     </Grid>
                   )
