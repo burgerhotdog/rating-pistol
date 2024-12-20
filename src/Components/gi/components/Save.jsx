@@ -89,6 +89,7 @@ const Save = ({
 
   return (
     <Modal open={isSaveOpen} onClose={handleCancel}>
+      {/* Modal Styles */}
       <Box sx={{
         position: 'absolute',
         top: '50%',
@@ -97,79 +98,54 @@ const Save = ({
         padding: 4,
         borderRadius: 2,
         backgroundColor: '#1c1c1c',
-      }}>
+      }}>        
+        {/* Data grid */}
         {newId ? (
-          <Grid container spacing={4} width='1000px'>
-            <Grid size={6}>
-              <Box sx={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-                {/* Select Character */}
-                <Autocomplete
-                  disablePortal
-                  size='small'
-                  value={newId}
-                  options={availableNames}
-                  onChange={(event, newValue) => {
-                    const selectedCharacter = characterdb[newValue];  // Get the character by id
-                    setNewId(newValue);  // Set the id (key)
-                    setNewCharacter(({
-                      ...template(),
-                      name: selectedCharacter.name,  // Set the character name
-                    }));
-                  }}
-                  getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
-                  isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
-                  sx={{ width: 200, mr: 2}}
-                  renderInput={(params) => <TextField {...params} label="Character" />}
-                  disabled={isEditMode}
-                />
-
-                {/* Select Weapon */}
-                <Autocomplete
-                  disablePortal
-                  size='small'
-                  value={newCharacter.weapon}
-                  options={weapondb}
-                  sx={{ width: 200 }}
-                  onChange={(event, newValue) => {
-                    setNewCharacter((prev) => ({
-                      ...prev,
-                      weapon: newValue,
-                    }));
-                  }}
-                  renderInput={(params) => <TextField {...params} label="Weapon" />}
-                />
-              </Box>
-
-              {/* Image */}
-              <Box sx={{
-                position: 'relative',
-                width: '100%',
-                height: 500,
-                overflow: 'hidden',
-                mt: 2,
-              }}>
-                <img
-                  src={images[`../../../assets/gi/${newId}.webp`]?.default}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </Box>
+          <Grid container spacing={2} sx={{ width: 1024 }}>
+            <Grid size={3}>
+              <Autocomplete
+                disablePortal
+                size='small'
+                value={newId}
+                options={availableNames}
+                onChange={(event, newValue) => {
+                  const selectedCharacter = characterdb[newValue];  // Get the character by id
+                  setNewId(newValue);  // Set the id (key)
+                  setNewCharacter(({
+                    ...template(),
+                    name: selectedCharacter.name,  // Set the character name
+                  }));
+                }}
+                getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
+                isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
+                fullWidth
+                renderInput={(params) => <TextField {...params} label="Character" />}
+                disabled={isEditMode}
+              />
             </Grid>
-
+            <Grid size={3}>
+              <Autocomplete
+                disablePortal
+                size='small'
+                value={newCharacter.weapon}
+                options={weapondb}
+                fullWidth
+                onChange={(event, newValue) => {
+                  setNewCharacter((prev) => ({
+                    ...prev,
+                    weapon: newValue,
+                  }));
+                }}
+                renderInput={(params) => <TextField {...params} label="Weapon" />}
+              />
+            </Grid>
             <Grid size={6}>
               <Autocomplete
                 disablePortal
                 size='small'
                 value={newCharacter.set}
                 options={setdb}
-                sx={{ width: 200 }}
+                fullWidth
                 onChange={(event, newValue) => {
                   setNewCharacter((prev) => ({
                     ...prev,
@@ -178,7 +154,29 @@ const Save = ({
                 }}
                 renderInput={(params) => <TextField {...params} label="Artifact Set" />}
               />
-              <Grid container spacing={2} mt={2}>
+            </Grid>
+            <Grid size={6}>
+              <Box sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: 500,
+              }}>
+                <img
+                  src={images[`../../../assets/gi/${newId}.webp`]?.default}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                  }}
+                />
+              </Box>
+            </Grid>
+            <Grid size={6}>
+              <Grid container spacing={2} sx={{
+                height: 'auto',
+                flexGrow: 1,
+              }}>
                 {['Flower', 'Plume', 'Sands', 'Goblet', 'Circlet'].map(
                   (slotName, index) => (
                     <Grid size={6} key={slotName}>
@@ -188,6 +186,7 @@ const Save = ({
                         newId={newId}
                         newCharacter={newCharacter}
                         setNewCharacter={setNewCharacter}
+                        sx={{ height: '100%' }}
                       />
                     </Grid>
                   )
@@ -196,58 +195,55 @@ const Save = ({
             </Grid>
           </Grid>
         ) : (
-          <Box sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-          }}>
-            <Typography variant='h6' gutterBottom>
-              Add character
-            </Typography>
-            <Autocomplete
-              disablePortal
-              size='small'
-              value={newId}
-              options={availableNames}
-              onChange={(event, newValue) => {
-                const selectedCharacter = characterdb[newValue];  // Get the character by id
-                setNewId(newValue);  // Set the id (key)
-                setNewCharacter(({
-                  ...template(),
-                  name: selectedCharacter.name,  // Set the character name
-                }));
-              }}
-              getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
-              isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
-              sx={{ width: 200, mr: 2}}
-              renderInput={(params) => <TextField {...params} label="Select" />}
-            />
-          </Box>
+          <Autocomplete
+            disablePortal
+            size='small'
+            value={newId}
+            options={availableNames}
+            onChange={(event, newValue) => {
+              const selectedCharacter = characterdb[newValue];  // Get the character by id
+              setNewId(newValue);  // Set the id (key)
+              setNewCharacter(({
+                ...template(),
+                name: selectedCharacter.name,  // Set the character name
+              }));
+            }}
+            getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
+            isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
+            sx={{ width: 200 }}
+            renderInput={(params) => <TextField {...params} label="Select" />}
+          />
         )}
 
-        {/* Error message */}
+        {/* Error section */}
         {error && (
           <Typography variant="body2" color="error" sx={{ mt: 2, textAlign: 'center' }}>
             {error}
           </Typography>
         )}
 
-        {/* Buttons Section */}
-        <Box display="flex" justifyContent="center" gap={2} mt={2}>
+        {/* Buttons section */}
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 2,
+          mt: 2,
+        }}>
           <Button
             variant="outlined"
             color="secondary"
             onClick={handleCancel}
+            sx={{ width: 80 }}
           >
             Cancel
           </Button>
-          
           <Button 
             variant="contained"
             color="primary"
             onClick={handleSave}
             disabled={!newId}
+            sx={{ width: 80 }}
           >
             Save
           </Button>
