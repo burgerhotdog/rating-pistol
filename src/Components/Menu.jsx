@@ -11,14 +11,14 @@ const tint = 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))';
 const Menu = () => {
   return (
     <Container maxWidth='sm'>
-      <Box
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        justifyContent='center'
-        minHeight='100vh'
-        sx={{ padding: 2 }}
-      >
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        padding: 2,
+      }}>
         {/* Genshin Impact */}
         <Button className='menuButton'
           component={Link}
