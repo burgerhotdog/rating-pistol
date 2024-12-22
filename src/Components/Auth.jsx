@@ -62,27 +62,34 @@ const Auth = ({ setUid }) => {
   };
   
   return (
-    <Box
-      sx={{
-        position: 'fixed',
-        top: 8,
-        right: 8,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end',
-      }}
-    >
+    <Box sx={{
+      position: 'fixed',
+      top: 8,
+      right: 8,
+    }}>
       {isLoading ? (
-        <Typography>Loading...</Typography>
+        <Box sx= {{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <Typography>Loading...</Typography>
+        </Box>
       ) : (
-      <>
-        <Typography variant='button' sx={{mr: 1}}>
+      <Box sx= {{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 1,
+      }}>
+        <Typography variant='button'>
           {email ? email : ''}
         </Typography>
+
         <Button onClick={email ? handleSignOut : handleSignIn}>
           {email ? 'Sign Out' : 'Sign In'}
         </Button>
-      </>
+      </Box>
       )}
     </Box>
   );

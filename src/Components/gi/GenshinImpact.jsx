@@ -13,13 +13,15 @@ import {
   Typography,
 } from '@mui/material';
 import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
+
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
+import Score from './components/Score';
 import Save from './components/Save';
 import Delete from './components/Delete';
-import template from './components/template';
-import Score from './components/Score';
-import weapondb from './data/weapons';
+import initCharObj from './components/initCharObj';
+
+import weapData from './data/weapData';
 
 const GenshinImpact = ({ uid }) => {
   // Modal states
@@ -28,57 +30,57 @@ const GenshinImpact = ({ uid }) => {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
   // Local character objects
-  const [myCharacters, setMyCharacters] = useState({});
+  const [myChars, setMyChars] = useState({});
 
   // New character object
-  const [newId, setNewId] = useState('');
-  const [newCharacter, setNewCharacter] = useState(template);
+  const [newCharId, setNewCharId] = useState('');
+  const [newCharObj, setNewCharObj] = useState(initCharObj);
 
-  // Update local characters on uid change
+  // Update myChars on uid change
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
         // If signed in:
-        // load characters from firestore
-        const characterDocsRef = collection(db, 'users', uid, 'GenshinImpact');
-        const characterDocs = await getDocs(characterDocsRef);
+        // Fetch character documents from firestore
+        const charDocsRef = collection(db, 'users', uid, 'GenshinImpact');
+        const charDocs = await getDocs(charDocsRef);
   
         // Convert documents to objects
-        const docsToObjects = {};
-        characterDocs.docs.forEach((characterDoc) => {
-          docsToObjects[characterDoc.id] = characterDoc.data();
+        const docsToObjs = {};
+        charDocs.docs.forEach((charDoc) => {
+          docsToObjs[charDoc.id] = charDoc.data();
         });
   
-        // Store objects in myCharacters
-        setMyCharacters(docsToObjects);
+        // Store objects in myChars
+        setMyChars(docsToObjs);
       } else {
         // If signed out:
-        // Clear myCharacters
-        setMyCharacters({});
+        // Clear myChars
+        setMyChars({});
       }
     };
     fetchDB();
   }, [uid]);
 
   // Add character button handler
-  const handleAddCharacter = () => {
-    setNewId('');
-    setNewCharacter(template());
+  const handleAdd = () => {
+    setNewCharId('');
+    setNewCharObj(initCharObj());
     setIsEditMode(false);
     setIsSaveOpen(true);
   };
 
   // Edit button handler
-  const handleEditCharacter = (id) => {
-    setNewId(id);
-    setNewCharacter(myCharacters[id]);
+  const handleEdit = (id) => {
+    setNewCharId(id);
+    setNewCharObj(myChars[id]);
     setIsEditMode(true);
     setIsSaveOpen(true);
   };
 
   // Delete button handler
-  const handleDeleteCharacter = (id) => {
-    setNewId(id);
+  const handleDelete = (id) => {
+    setNewCharId(id);
     setIsDeleteOpen(true);
   };
 
@@ -115,26 +117,26 @@ const GenshinImpact = ({ uid }) => {
 
             {/* Table data */}
             <TableBody>
-              {Object.keys(myCharacters).length === 0 ? (
+              {Object.keys(myChars).length === 0 ? (
                 <TableRow>
                   <TableCell colSpan={5} align='center'>
                     No characters to display
                   </TableCell>
                 </TableRow>
               ) : (
-                Object.entries(myCharacters).map(([id, character]) => (
+                Object.entries(myChars).map(([id, char]) => (
                   <TableRow key={id}>
-                    <TableCell>{character.name}</TableCell>
-                    <TableCell>{weapondb[character.weapon].name}</TableCell>
-                    <TableCell>{character.set}</TableCell>
-                    <TableCell><Score character={character} /></TableCell>
+                    <TableCell>{char.name}</TableCell>
+                    <TableCell>{weapData[char.weapId].name}</TableCell>
+                    <TableCell>{char.set}</TableCell>
+                    <TableCell><Score char={char} /></TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button
                         size='small'
                         variant='outlined'
                         color='primary'
-                        onClick={() => handleEditCharacter(id)}
+                        onClick={() => handleEdit(id)}
                         sx={{ mr: 1 }}
                       >
                         <EditIcon />
@@ -145,7 +147,7 @@ const GenshinImpact = ({ uid }) => {
                         size='small'
                         variant='outlined'
                         color='secondary'
-                        onClick={() => handleDeleteCharacter(id)}
+                        onClick={() => handleDelete(id)}
                       >
                         <DeleteIcon />
                       </Button>
@@ -161,7 +163,7 @@ const GenshinImpact = ({ uid }) => {
         <Button
           variant='contained'
           color='primary'
-          onClick={handleAddCharacter}
+          onClick={handleAdd}
           sx={{ mt: 2 }}
         >
           Add character
@@ -173,12 +175,12 @@ const GenshinImpact = ({ uid }) => {
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
           isEditMode={isEditMode}
-          myCharacters={myCharacters}
-          setMyCharacters={setMyCharacters}
-          newId={newId}
-          setNewId={setNewId}
-          newCharacter={newCharacter}
-          setNewCharacter={setNewCharacter}
+          myChars={myChars}
+          setMyChars={setMyChars}
+          newCharId={newCharId}
+          setNewCharId={setNewCharId}
+          newCharObj={newCharObj}
+          setNewCharObj={setNewCharObj}
         />
 
         {/* Delete modal */}
@@ -186,10 +188,12 @@ const GenshinImpact = ({ uid }) => {
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
-          myCharacters={myCharacters}
-          setMyCharacters={setMyCharacters}
-          newId={newId}
-          setNewId={setNewId}
+          myChars={myChars}
+          setMyChars={setMyChars}
+          newCharId={newCharId}
+          setNewCharId={setNewCharId}
+          newCharObj={newCharObj}
+          setNewCharObj={setNewCharObj}
         />
       </Box>        
     </Container>

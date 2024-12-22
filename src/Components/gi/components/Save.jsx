@@ -9,12 +9,14 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+
 import { db } from '../../../firebase';
 import SlotCard from './SlotCard';
-import template from './template';
-import characterdb from '../data/characters';
-import weapondb from '../data/weapons';
-import setdb from '../data/sets';
+import initCharObj from './initCharObj';
+
+import charData from '../data/charData';
+import weapData from '../data/weapData';
+import setData from '../data/setData';
 
 const images = import.meta.glob('../../../assets/gi/*.webp', { eager: true });
 
@@ -23,93 +25,104 @@ const Save = ({
   isSaveOpen,
   setIsSaveOpen,
   isEditMode,
-  myCharacters,
-  setMyCharacters,
-  newId,
-  setNewId,
-  newCharacter,
-  setNewCharacter,
+  myChars,
+  setMyChars,
+  newCharId,
+  setNewCharId,
+  newCharObj,
+  setNewCharObj,
 }) => {
   const [error, setError] = useState('');
-  const [availableNames, setAvailableNames] = useState([]);
-  const [availableWeapons, setAvailableWeapons] = useState([]);
+  const [availableCharIds, setAvailableCharIds] = useState([]);
+  const [availableWeapIds, setAvailableWeapIds] = useState([]);
 
-  // Update available names when myCharacters changes
+  // Update availableCharIds when myChars changes
   useEffect(() => {
-    const allCharacterKeys = Object.keys(characterdb).sort();
-    const filteredCharacterKeys = allCharacterKeys.filter(
-      (id) => !Object.keys(myCharacters).includes(id)
+    // Filter out used character ids
+    const allCharIds = Object.keys(charData).sort();
+    const filteredCharIds = allCharIds.filter(
+      (id) => !Object.keys(myChars).includes(id)
     );
 
-    filteredCharacterKeys.sort((a, b) => {
-      const rarityA = characterdb[a]?.rarity || '';
-      const rarityB = characterdb[b]?.rarity || '';
+    // Sort by rarity
+    filteredCharIds.sort((a, b) => {
+      const rarityA = charData[a]?.rarity || '';
+      const rarityB = charData[b]?.rarity || '';
       return rarityB.localeCompare(rarityA);
     });
 
-    setAvailableNames(filteredCharacterKeys);
-  }, [myCharacters]);
+    // Update state
+    setAvailableCharIds(filteredCharIds);
+  }, [myChars]);
 
-  // Update available weapons when newId changes
+  // Update availableWeapIds when newCharId changes
   useEffect(() => {
-    if (characterdb[newId]) {
-      const allWeaponKeys = Object.keys(weapondb).sort();
-      const filteredWeaponKeys = allWeaponKeys.filter(
-        (id) => characterdb[newId].weapon === weapondb[id].type
+    if (charData[newCharId]) {
+      // Filter out weapon ids with wrong type
+      const allWeapIds = Object.keys(weapData).sort();
+      const filteredWeapIds = allWeapIds.filter(
+        (id) => charData[newCharId].weapType === weapData[id].type
       );
 
-      filteredWeaponKeys.sort((a, b) => {
-        const rarityA = weapondb[a]?.rarity || '';
-        const rarityB = weapondb[b]?.rarity || '';
+      // Sort by rarity
+      filteredWeapIds.sort((a, b) => {
+        const rarityA = weapData[a]?.rarity || '';
+        const rarityB = weapData[b]?.rarity || '';
         return rarityB.localeCompare(rarityA);
       });
 
-      setAvailableWeapons(filteredWeaponKeys);
+      // Update state
+      setAvailableWeapIds(filteredWeapIds);
     }
-  }, [newId]);
+  }, [newCharId]);
 
   // Validation before saving
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharacter.weapon) errors.push('No weapon selected');
-    if (!newCharacter.set) errors.push('No artifact set selected');
+    if (!newCharObj.weapId) errors.push('No weapon selected');
+    if (!newCharObj.set) errors.push('No artifact set selected');
 
     // Display error message
     if (errors.length) {
       setError(errors.join(', '));
       return false;
+    } else {
+      setError('');
+      return true;
     }
-    setError('');
-    return true;
   };
 
-  /* Save button */
+  // Save button handler
   const handleSave = async () => {
     // Perform validation checks
     if (!validate()) return;
 
-    // Update document in Firestore
+    // Save document to Firestore
     if (uid) {
-      const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
-      await setDoc(characterDocRef, newCharacter, { merge: true });
+      const charDocRef = doc(db, 'users', uid, 'GenshinImpact', newCharId);
+      await setDoc(charDocRef, newCharObj, { merge: true });
     }
 
-    // Update entry in myCharacters
-    setMyCharacters((prevCharacters) => ({
-      ...prevCharacters,
-      [newId]: newCharacter,
+    // Save obj to myChars
+    setMyChars((prevChars) => ({
+      ...prevChars,
+      [newCharId]: newCharObj,
     }));
 
+    // Reset states
     setError('');
-    setNewId('');
+    setNewCharId('');
+    setNewCharObj(initCharObj());
     setIsSaveOpen(false);
   };
 
   // Cancel button handler
   const handleCancel = () => {
+    // Reset states
     setError('');
-    setNewId('');
+    setNewCharId('');
+    setNewCharObj(initCharObj());
     setIsSaveOpen(false);
   };
 
@@ -126,33 +139,32 @@ const Save = ({
         borderRadius: 2,
       }}>        
         {/* Data grid */}
-        {newId ? (
+        {newCharId ? (
           <Grid container spacing={2} sx={{ width: 1024 }}>
             {/* Select character */}
             <Grid size={3}>
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newId}
-                options={availableNames}
-                groupBy={(option) => characterdb[option].rarity}
+                value={newCharId}
+                options={availableCharIds}
+                groupBy={(option) => charData[option].rarity}
                 onChange={(event, newValue) => {
-                  // Check if newValue is valid
                   if (newValue) {
-                    const selectedCharacter = characterdb[newValue]; // Get the character by id
-                    setNewId(newValue); // Set the id (key)
-                    setNewCharacter({
-                      ...template(),
-                      name: selectedCharacter.name, // Set the character name
+                    // If character selected:
+                    setNewCharId(newValue);
+                    setNewCharObj({
+                      ...initCharObj(),
+                      name: charData[newValue].name,
                     });
                   } else {
-                    // Handle the case when no character is selected (clear selection)
-                    setNewId('');
-                    setNewCharacter(template()); // Reset the new character data
+                    // If no character selected:
+                    setNewCharId('');
+                    setNewCharObj(initCharObj());
                   }
                 }}
-                getOptionLabel={(id) => characterdb[id]?.name}  // Display the character name in the dropdown
-                isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
+                getOptionLabel={(id) => charData[id]?.name}
+                isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Character" />}
                 renderGroup={(params) => (
                   <div key={params.group}>
@@ -170,16 +182,16 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharacter.weapon}
-                options={availableWeapons}
-                groupBy={(option) => weapondb[option].rarity}
+                value={newCharObj.weapId}
+                options={availableWeapIds}
+                groupBy={(option) => weapData[option].rarity}
                 onChange={(event, newValue) => {
-                  setNewCharacter((prev) => ({
+                  setNewCharObj((prev) => ({
                     ...prev,
-                    weapon: newValue,
+                    weapId: newValue,
                   }));
                 }}
-                getOptionLabel={(id) => weapondb[id]?.name || ''}
+                getOptionLabel={(id) => weapData[id]?.name || ''}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Weapon" />}
                 renderGroup={(params) => (
@@ -197,11 +209,11 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharacter.set}
-                options={setdb}
+                value={newCharObj.set}
+                options={setData}
                 fullWidth
                 onChange={(event, newValue) => {
-                  setNewCharacter((prev) => ({
+                  setNewCharObj((prev) => ({
                     ...prev,
                     set: newValue,
                   }));
@@ -213,7 +225,7 @@ const Save = ({
             {/* Image */}
             <Grid size={6}>
               <img
-                src={images[`../../../assets/gi/${newId}.webp`]?.default}
+                src={images[`../../../assets/gi/${newCharId}.webp`]?.default}
                 style={{
                   width: '100%',
                   height: 500,
@@ -231,9 +243,9 @@ const Save = ({
                       <SlotCard
                         slotName={slotName}
                         slotIndex={index}
-                        newId={newId}
-                        newCharacter={newCharacter}
-                        setNewCharacter={setNewCharacter}
+                        newCharId={newCharId}
+                        newCharObj={newCharObj}
+                        setNewCharObj={setNewCharObj}
                       />
                     </Grid>
                   )
@@ -245,26 +257,25 @@ const Save = ({
           <Autocomplete
             disablePortal
             size='small'
-            value={newId}
-            options={availableNames}
-            groupBy={(option) => characterdb[option].rarity}
+            value={newCharId}
+            options={availableCharIds}
+            groupBy={(option) => charData[option].rarity}
             onChange={(event, newValue) => {
-              // Check if newValue is valid
               if (newValue) {
-                const selectedCharacter = characterdb[newValue]; // Get the character by id
-                setNewId(newValue); // Set the id (key)
-                setNewCharacter({
-                  ...template(),
-                  name: selectedCharacter.name, // Set the character name
+                // If character selected:
+                setNewCharId(newValue);
+                setNewCharObj({
+                  ...initCharObj(),
+                  name: charData[newValue].name,
                 });
               } else {
-                // Handle the case when no character is selected (clear selection)
-                setNewId('');
-                setNewCharacter(template()); // Reset the new character data
+                // If no character selected:
+                setNewCharId('');
+                setNewCharObj(initCharObj());
               }
             }}
-            getOptionLabel={(id) => characterdb[id]?.name || ''}  // Display the character name in the dropdown
-            isOptionEqualToValue={(option, value) => option === value}  // Compare ids for selection
+            getOptionLabel={(id) => charData[id]?.name || ''}
+            isOptionEqualToValue={(option, value) => option === value}
             renderInput={(params) => <TextField {...params} label="Select" />}
             renderGroup={(params) => (
               <div key={params.group}>
@@ -299,12 +310,13 @@ const Save = ({
           >
             Cancel
           </Button>
+
           <Button 
             variant="contained"
             color="primary"
             onClick={handleSave}
-            disabled={!newId}
             sx={{ width: 80 }}
+            disabled={!newCharId}
           >
             Save
           </Button>

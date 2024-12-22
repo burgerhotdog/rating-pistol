@@ -1,9 +1,9 @@
-const characterdb = {
+const charData = {
   // Version 5.2
   Chasca: {
     name: "Chasca",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "anemo",
     mainstats: ["HP", "ATK", "ATK%", "ATK%", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -11,7 +11,7 @@ const characterdb = {
   Ororon: {
     name: "Ororon",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -21,7 +21,7 @@ const characterdb = {
   Xilonen: {
     name: "Xilonen",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "geo",
     mainstats: ["HP", "ATK", "Energy Recharge", "DEF%", "Healing Bonus"],
     substats: ["Energy Recharge", "DEF%", "DEF"],
@@ -31,7 +31,7 @@ const characterdb = {
   Kachina: {
     name: "Kachina",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "geo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Geo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
@@ -39,7 +39,7 @@ const characterdb = {
   Kinich: {
     name: "Kinich",
     rarity: "5 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "dendro",
     mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -47,7 +47,7 @@ const characterdb = {
   Mualani: {
     name: "Mualani",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
@@ -57,7 +57,7 @@ const characterdb = {
   Emilie: {
     name: "Emilie",
     rarity: "5 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "dendro",
     mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -67,7 +67,7 @@ const characterdb = {
   Clorinde: {
     name: "Clorinde",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -75,7 +75,7 @@ const characterdb = {
   Sethos: {
     name: "Sethos",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "electro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
@@ -83,7 +83,7 @@ const characterdb = {
   Sigewinne: {
     name: "Sigewinne",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -93,7 +93,7 @@ const characterdb = {
   Arlecchino: {
     name: "Arlecchino",
     rarity: "5 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -103,7 +103,7 @@ const characterdb = {
   Chiori: {
     name: "Chiori",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
@@ -113,7 +113,7 @@ const characterdb = {
   Gaming: {
     name: "Gaming",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -121,7 +121,7 @@ const characterdb = {
   Xianyun: {
     name: "Xianyun",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "ATK%"],
     substats: ["Energy Recharge", "ATK%", "ATK"],
@@ -131,7 +131,7 @@ const characterdb = {
   Chevreuse: {
     name: "Chevreuse",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -139,7 +139,7 @@ const characterdb = {
   Navia: {
     name: "Navia",
     rarity: "5 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "geo",
     mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -149,7 +149,7 @@ const characterdb = {
   Charlotte: {
     name: "Charlotte",
     rarity: "4 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "Healing Bonus"],
     substats: ["Energy Recharge", "ATK%", "ATK"],
@@ -157,7 +157,7 @@ const characterdb = {
   Furina: {
     name: "Furina",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
@@ -167,7 +167,7 @@ const characterdb = {
   Neuvillette: {
     name: "Neuvillette",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
@@ -175,7 +175,7 @@ const characterdb = {
   Wriothesley: {
     name: "Wriothesley",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -185,7 +185,7 @@ const characterdb = {
   Freminet: {
     name: "Freminet",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -193,7 +193,7 @@ const characterdb = {
   Lynette: {
     name: "Lynette",
     rarity: "4 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Anemo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
@@ -201,7 +201,7 @@ const characterdb = {
   Lyney: {
     name: "Lyney",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -211,7 +211,7 @@ const characterdb = {
   Kirara: {
     name: "Kirara",
     rarity: "4 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "dendro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -221,7 +221,7 @@ const characterdb = {
   Baizhu: {
     name: "Baizhu",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -229,7 +229,7 @@ const characterdb = {
   Kaveh: {
     name: "Kaveh",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Elemental Mastery", "Elemental Mastery"],
     substats: ["Energy Recharge", "Elemental Mastery", "ATK%"],
@@ -239,7 +239,7 @@ const characterdb = {
   Dehya: {
     name: "Dehya",
     rarity: "5 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Pyro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
@@ -247,7 +247,7 @@ const characterdb = {
   Mika: {
     name: "Mika",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -257,7 +257,7 @@ const characterdb = {
   Alhaitham: {
     name: "Alhaitham",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Dendro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "Elemental Mastery"],
@@ -265,7 +265,7 @@ const characterdb = {
   Yaoyao: {
     name: "Yaoyao",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -275,7 +275,7 @@ const characterdb = {
   Faruzan: {
     name: "Faruzan",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Anemo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
@@ -283,7 +283,7 @@ const characterdb = {
   Wanderer: {
     name: "Wanderer",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -293,7 +293,7 @@ const characterdb = {
   Layla: {
     name: "Layla",
     rarity: "4 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "cryo",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -301,7 +301,7 @@ const characterdb = {
   Nahida: {
     name: "Nahida",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Dendro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "Elemental Mastery"],
@@ -311,7 +311,7 @@ const characterdb = {
   Candace: {
     name: "Candace",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Rechage", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -319,7 +319,7 @@ const characterdb = {
   Cyno: {
     name: "Cyno",
     rarity: "5 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "electro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Electro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "Elemental Mastery"],
@@ -327,7 +327,7 @@ const characterdb = {
   Nilou: {
     name: "Nilou",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -337,7 +337,7 @@ const characterdb = {
   Collei: {
     name: "Collei",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Dendro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -345,7 +345,7 @@ const characterdb = {
   Dori: {
     name: "Dori",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -353,7 +353,7 @@ const characterdb = {
   Tighnari: {
     name: "Tighnari",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "dendro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Dendro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "Elemental Mastery"],
@@ -363,7 +363,7 @@ const characterdb = {
   ShikanoinHeizou: {
     name: "Shikanoin Heizou",
     rarity: "4 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -373,7 +373,7 @@ const characterdb = {
   KukiShinobu: {
     name: "Kuki Shinobu",
     rarity: "4 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "electro",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
     substats: ["Energy Recharge", "Elemental Mastery", "HP%"],
@@ -381,7 +381,7 @@ const characterdb = {
   Yelan: {
     name: "Yelan",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Hydro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
@@ -391,7 +391,7 @@ const characterdb = {
   KamisatoAyato: {
     name: "Kamisato Ayato",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "hydro",
     mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -401,7 +401,7 @@ const characterdb = {
   YaeMiko: {
     name: "Yae Miko",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -411,7 +411,7 @@ const characterdb = {
   Shenhe: {
     name: "Shenhe",
     rarity: "5 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "ATK%", "ATK%"],
     substats: ["Energy Recharge", "ATK%", "ATK"],
@@ -419,7 +419,7 @@ const characterdb = {
   YunJin: {
     name: "Yun Jin",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "geo",
     mainstats: ["HP", "ATK", "Energy Recharge", "DEF%", "DEF%"],
     substats: ["Energy Recharge", "DEF%", "DEF"],
@@ -429,7 +429,7 @@ const characterdb = {
   AratakiItto: {
     name: "Arataki Itto",
     rarity: "5 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
@@ -437,7 +437,7 @@ const characterdb = {
   Gorou: {
     name: "Gorou",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "geo",
     mainstats: ["HP", "ATK", "Energy Recharge", "DEF%", "Healing Bonus"],
     substats: ["Energy Recharge", "DEF%", "DEF"],
@@ -447,7 +447,7 @@ const characterdb = {
   Thoma: {
     name: "Thoma",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -457,7 +457,7 @@ const characterdb = {
   Aloy: {
     name: "Aloy",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -465,7 +465,7 @@ const characterdb = {
   KujouSara: {
     name: "Kujou Sara",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
@@ -473,7 +473,7 @@ const characterdb = {
   RaidenShogun: {
     name: "Raiden Shogun",
     rarity: "5 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "Energy Recharge"],
@@ -481,7 +481,7 @@ const characterdb = {
   SangonomiyaKokomi: {
     name: "Sangonomiya Kokomi",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "Healing Bonus"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -491,7 +491,7 @@ const characterdb = {
   KamisatoAyaka: {
     name: "Kamisato Ayaka",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -499,7 +499,7 @@ const characterdb = {
   Sayu: {
     name: "Sayu",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "Healing Bonus"],
     substats: ["Energy Recharge", "ATK%", "ATK"],
@@ -507,7 +507,7 @@ const characterdb = {
   Yoimiya: {
     name: "Yoimiya",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -517,7 +517,7 @@ const characterdb = {
   KaedeharaKazuha: {
     name: "Kaedehara Kazuha",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
     substats: ["Energy Recharge", "Elemental Mastery", "ATK%"],
@@ -527,7 +527,7 @@ const characterdb = {
   Eula: {
     name: "Eula",
     rarity: "5 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -535,7 +535,7 @@ const characterdb = {
   Yanfei: {
     name: "Yanfei",
     rarity: "4 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -545,7 +545,7 @@ const characterdb = {
   Rosaria: {
     name: "Rosaria",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Cryo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -555,7 +555,7 @@ const characterdb = {
   HuTao: {
     name: "Hu Tao",
     rarity: "5 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "HP%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
@@ -563,7 +563,7 @@ const characterdb = {
   Xiao: {
     name: "Xiao",
     rarity: "5 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -573,7 +573,7 @@ const characterdb = {
   Albedo: {
     name: "Albedo",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
@@ -581,7 +581,7 @@ const characterdb = {
   Ganyu: {
     name: "Ganyu",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -591,7 +591,7 @@ const characterdb = {
   Diona: {
     name: "Diona",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -599,7 +599,7 @@ const characterdb = {
   Tartaglia: {
     name: "Tartaglia",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "hydro",
     mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -607,7 +607,7 @@ const characterdb = {
   Xinyan: {
     name: "Xinyan",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG%", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -615,7 +615,7 @@ const characterdb = {
   Zhongli: {
     name: "Zhongli",
     rarity: "5 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "geo",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -625,7 +625,7 @@ const characterdb = {
   Amber: {
     name: "Amber",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -633,7 +633,7 @@ const characterdb = {
   Barbara: {
     name: "Barbara",
     rarity: "4 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -641,7 +641,7 @@ const characterdb = {
   Beidou: {
     name: "Beidou",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge%", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -649,7 +649,7 @@ const characterdb = {
   Bennett: {
     name: "Bennett",
     rarity: "4 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge", "HP%", "Healing Bonus"],
     substats: ["Energy Recharge", "HP%", "HP"],
@@ -657,7 +657,7 @@ const characterdb = {
   Chongyun: {
     name: "Chongyun",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -665,7 +665,7 @@ const characterdb = {
   Diluc: {
     name: "Diluc",
     rarity: "5 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -673,7 +673,7 @@ const characterdb = {
   Fischl: {
     name: "Fischl",
     rarity: "4 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -681,7 +681,7 @@ const characterdb = {
   Jean: {
     name: "Jean",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "Healing Bonus"],
     substats: ["Energy Recharge", "ATK%", "ATK"],
@@ -689,7 +689,7 @@ const characterdb = {
   Kaeya: {
     name: "Kaeya",
     rarity: "4 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "Cryo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -697,7 +697,7 @@ const characterdb = {
   Keqing: {
     name: "Keqing",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -705,7 +705,7 @@ const characterdb = {
   Klee: {
     name: "Klee",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -713,7 +713,7 @@ const characterdb = {
   Lisa: {
     name: "Lisa",
     rarity: "4 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "electro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Electro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -721,7 +721,7 @@ const characterdb = {
   Mona: {
     name: "Mona",
     rarity: "5 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge", "Hydro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -729,7 +729,7 @@ const characterdb = {
   Ningguang: {
     name: "Ningguang",
     rarity: "4 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "geo",
     mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -737,7 +737,7 @@ const characterdb = {
   Noelle: {
     name: "Noelle",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
@@ -745,7 +745,7 @@ const characterdb = {
   Qiqi: {
     name: "Qiqi",
     rarity: "5 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "cryo",
     mainstats: ["HP", "ATK", "Energy Recharge", "ATK%", "Healing Bonus"],
     substats: ["Energy Recharge", "ATK%", "ATK"],
@@ -753,7 +753,7 @@ const characterdb = {
   Razor: {
     name: "Razor",
     rarity: "4 Star",
-    weapon: "claymore",
+    weapType: "claymore",
     vision: "electro",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -761,7 +761,7 @@ const characterdb = {
   Sucrose: {
     name: "Sucrose",
     rarity: "4 Star",
-    weapon: "catalyst",
+    weapType: "catalyst",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
     substats: ["Energy Recharge", "Elemental Mastery", "ATK%"],
@@ -769,7 +769,7 @@ const characterdb = {
   Venti: {
     name: "Venti",
     rarity: "5 Star",
-    weapon: "bow",
+    weapType: "bow",
     vision: "anemo",
     mainstats: ["HP", "ATK", "Elemental Mastery", "Elemental Mastery", "Elemental Mastery"],
     substats: ["Energy Recharge", "Elemental Mastery", "ATK%"],
@@ -777,7 +777,7 @@ const characterdb = {
   Xiangling: {
     name: "Xiangling",
     rarity: "4 Star",
-    weapon: "polearm",
+    weapType: "polearm",
     vision: "pyro",
     mainstats: ["HP", "ATK", "Energy Recharge%", "Pyro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
@@ -785,11 +785,11 @@ const characterdb = {
   Xingqiu: {
     name: "Xingqiu",
     rarity: "4 Star",
-    weapon: "sword",
+    weapType: "sword",
     vision: "hydro",
     mainstats: ["HP", "ATK", "Energy Recharge%", "Hydro DMG", "CRIT Rate"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 };
 
-export default characterdb;
+export default charData;

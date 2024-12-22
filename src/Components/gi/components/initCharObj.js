@@ -1,6 +1,6 @@
-const template = () => ({
+const initCharObj = () => ({
   name: "",
-  weapon: "",
+  weapId: "",
   set: "",
   0: {
     0: 0,
@@ -29,4 +29,4 @@ const template = () => ({
   },
 });
   
-export default template;
+export default initCharObj;

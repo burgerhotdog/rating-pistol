@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Score = ({ character }) => {
+const Score = ({ char }) => {
   const getScore = () => {
     // Calculate total sum of rolls
     // First and second substats count as 1 roll
     // Third substat counts as 0.5 roll
     let total = 0;
     for (let slot = 0; slot <= 4; slot++) {
-      total += Number(character[slot][0] ?? 0);
-      total += Number(character[slot][1] ?? 0);
-      total += Number(character[slot][2] ?? 0) / 2;
+      total += Number(char[slot][0] ?? 0);
+      total += Number(char[slot][1] ?? 0);
+      total += Number(char[slot][2] ?? 0) / 2;
     }
 
     /* Return it as a percentage of 25
