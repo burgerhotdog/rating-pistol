@@ -90,6 +90,7 @@ const SlotCard = ({
                     padding: '0',
                   },
                 }}
+                disabled={charData[newCharId].substats[slotIndex] === charData[newCharId].mainstats[subIndex]}
               />
             </Grid>
           </React.Fragment>
