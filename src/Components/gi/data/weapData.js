@@ -1,4 +1,4 @@
-const weapondb = {
+const weapData = {
   // Version 5.2
   AstralVulturesCrimsonPlumage: {
     name: "Astral Vulture's Crimson Plumage",
@@ -1032,4 +1032,4 @@ const weapondb = {
   },
 };
 
-export default weapondb;
+export default weapData;

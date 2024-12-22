@@ -2,43 +2,49 @@ import React from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { Box, Button, Modal, Typography } from '@mui/material';
 import { db } from '../../../firebase';
+import initCharObj from './initCharObj';
 
 const Delete = ({
   uid,
   isDeleteOpen,
   setIsDeleteOpen,
-  myCharacters,
-  setMyCharacters,
-  newId,
-  setNewId,
+  myChars,
+  setMyChars,
+  newCharId,
+  setNewCharId,
+  newCharObj,
+  setNewCharObj,
 }) => {
   // Delete button handler
   const handleDelete = async () => {
     try {
+      // If signed in:
       if (uid) {
-        // If signed in:
         // Delete document from firestore
-        const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newId);
+        const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newCharId);
         await deleteDoc(characterDocRef);
       }
 
-      // Delete object from myCharacters
-      setMyCharacters((prevCharacters) => {
-        const updatedCharacters = { ...prevCharacters }; // Make copy of myCharacters
-        delete updatedCharacters[newId]; // Delete entry from copy
-        return updatedCharacters; // Return copy
+      // Delete object from myChars
+      setMyChars((prevChars) => {
+        const updatedChars = { ...prevChars };
+        delete updatedChars[newCharId];
+        return updatedChars;
       });
     } catch (error) {
       console.error("handleDelete: ", error);
     } finally {
-      setNewId('');
+      // Reset states
+      setNewCharId('');
+      setNewCharObj(initCharObj());
       setIsDeleteOpen(false);
     }
   };
 
   // Cancel button handler
   const handleCancel = () => {
-    setNewId('');
+    setNewCharId('');
+    setNewCharObj(initCharObj());
     setIsDeleteOpen(false);
   };
 
@@ -57,7 +63,7 @@ const Delete = ({
         {/* Text section */}
         <Typography variant='body1'>
           Are you sure you want to delete{' '}
-          <strong>{myCharacters[newId]?.name ?? null}</strong>
+          <strong>{myChars[newCharId]?.name ?? null}</strong>
           ?
         </Typography>
 
@@ -77,6 +83,7 @@ const Delete = ({
           >
             Cancel
           </Button>
+          
           <Button
             variant='contained'
             color='secondary'

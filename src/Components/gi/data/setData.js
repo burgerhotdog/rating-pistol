@@ -1,4 +1,4 @@
-const setdb = [
+const setData = [
   // Version 5.0
   "Obsidian Codex",
   "Scroll of the Hero of Cinder City",
@@ -62,4 +62,4 @@ const setdb = [
   "Wanderer's Troupe",
 ];
 
-export default setdb;
+export default setData;
