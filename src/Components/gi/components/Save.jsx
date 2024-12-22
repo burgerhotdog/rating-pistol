@@ -13,12 +13,11 @@ import {
 import { db } from '../../../firebase';
 import SlotCard from './SlotCard';
 import initCharObj from './initCharObj';
-
 import charData from '../data/charData';
 import weapData from '../data/weapData';
 import setData from '../data/setData';
 
-const images = import.meta.glob('../../../assets/gi/*.webp', { eager: true });
+const images = import.meta.glob('../../../assets/gi/splash/*.webp', { eager: true });
 
 const Save = ({
   uid,
@@ -225,7 +224,8 @@ const Save = ({
             {/* Image */}
             <Grid size={6}>
               <img
-                src={images[`../../../assets/gi/${newCharId}.webp`]?.default}
+                src={images[`../../../assets/gi/splash/${newCharId}.webp`]?.default}
+                alt={newCharObj.name || 'Character Splash'}
                 style={{
                   width: '100%',
                   height: 500,

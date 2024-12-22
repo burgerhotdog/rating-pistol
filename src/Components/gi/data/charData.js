@@ -5,7 +5,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "ATK%", "ATK%", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "ATK%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Ororon: {
@@ -13,7 +13,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "bow",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -33,7 +33,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "geo",
-    mainstats: ["HP", "ATK", "ER%", "Geo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ER%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
   Kinich: {
@@ -41,7 +41,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "claymore",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Mualani: {
@@ -49,7 +49,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
   },
 
@@ -59,7 +59,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "polearm",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -69,7 +69,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Sethos: {
@@ -77,7 +77,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "bow",
     vision: "electro",
-    mainstats: ["HP", "ATK", "EM", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "EM", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
   },
   Sigewinne: {
@@ -95,7 +95,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "polearm",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -105,7 +105,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "geo",
-    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
 
@@ -115,7 +115,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Xianyun: {
@@ -123,7 +123,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "ATK%", "ATK%"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "ATK%", "ATK%"],
     substats: ["ER%", "ATK%", "ATK"],
   },
 
@@ -133,7 +133,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "HP%"],
+    mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
   },
   Navia: {
@@ -141,7 +141,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "claymore",
     vision: "geo",
-    mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -159,7 +159,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "Hydro DMG/HP%", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "HP% / ER%", "Hydro DMG / HP%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
   },
 
@@ -169,7 +169,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
   },
   Wriothesley: {
@@ -177,7 +177,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -187,7 +187,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Lynette: {
@@ -195,7 +195,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "sword",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Anemo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Lyney: {
@@ -203,7 +203,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -213,7 +213,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "sword",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "HP%"],
+    mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
   },
 
@@ -223,7 +223,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "HP%"],
+    mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
   },
   Kaveh: {
@@ -231,7 +231,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "EM/ER%", "EM", "EM"],
+    mainstats: ["HP", "ATK", "EM / ER%", "EM", "EM"],
     substats: ["ER%", "EM", "ATK%"],
   },
 
@@ -241,7 +241,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "claymore",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Mika: {
@@ -249,7 +249,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "Healing Bonus"],
+    mainstats: ["HP", "ATK", "ER%", "HP%", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
   },
 
@@ -259,7 +259,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "EM", "Dendro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "EM", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
   },
   Yaoyao: {
@@ -267,7 +267,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "Healing Bonus"],
+    mainstats: ["HP", "ATK", "ER%", "HP%", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
   },
 
@@ -277,7 +277,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "bow",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "ER%", "Anemo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ER%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ER%"],
   },
   Wanderer: {
@@ -285,7 +285,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -295,7 +295,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "sword",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "HP%"],
+    mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
   },
   Nahida: {
@@ -303,7 +303,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "EM", "Dendro DMG/EM", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "EM", "Dendro DMG / EM", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
   },
 
@@ -313,7 +313,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "HP%"],
+    mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
   },
   Cyno: {
@@ -321,7 +321,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "polearm",
     vision: "electro",
-    mainstats: ["HP", "ATK", "EM", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "EM", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
   },
   Nilou: {
@@ -339,7 +339,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "bow",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "ER%", "Dendro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ER%", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ER%"],
   },
   Dori: {
@@ -347,7 +347,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "electro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "Healing Bonus"],
+    mainstats: ["HP", "ATK", "ER%", "HP%", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
   },
   Tighnari: {
@@ -355,7 +355,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "dendro",
-    mainstats: ["HP", "ATK", "EM", "Dendro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "EM", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
   },
 
@@ -365,7 +365,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "catalyst",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -383,7 +383,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "Hydro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "HP% / ER%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
   },
 
@@ -393,7 +393,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -403,7 +403,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -413,7 +413,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "polearm",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "ATK%", "ATK%"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "ATK%", "ATK%"],
     substats: ["ER%", "ATK%", "ATK"],
   },
   YunJin: {
@@ -421,7 +421,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "geo",
-    mainstats: ["HP", "ATK", "DEF%/ER%", "DEF%", "DEF%"],
+    mainstats: ["HP", "ATK", "DEF% / ER%", "DEF%", "DEF%"],
     substats: ["ER%", "DEF%", "DEF"],
   },
 
@@ -431,7 +431,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "claymore",
     vision: "geo",
-    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
   Gorou: {
@@ -449,7 +449,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "HP%"],
+    mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
   },
 
@@ -459,7 +459,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   KujouSara: {
@@ -467,7 +467,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "bow",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ER%", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ER%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ER%"],
   },
   RaidenShogun: {
@@ -475,7 +475,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "polearm",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ER%", "Electro DMG/ATK%", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ER%", "Electro DMG / ATK%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ER%"],
   },
   SangonomiyaKokomi: {
@@ -493,7 +493,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Sayu: {
@@ -509,7 +509,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -519,7 +519,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "EM/ER%", "EM", "EM"],
+    mainstats: ["HP", "ATK", "EM / ER%", "EM", "EM"],
     substats: ["ER%", "EM", "ATK%"],
   },
 
@@ -529,7 +529,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "claymore",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Yanfei: {
@@ -537,7 +537,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "catalyst",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -547,7 +547,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Cryo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -557,7 +557,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "polearm",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "HP%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "HP%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
   },
   Xiao: {
@@ -565,7 +565,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "polearm",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -575,7 +575,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "geo",
-    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
   Ganyu: {
@@ -583,7 +583,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
@@ -593,7 +593,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "bow",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "HP%/ER%", "HP%", "Healing Bonus"],
+    mainstats: ["HP", "ATK", "ER%", "HP%", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
   },
   Tartaglia: {
@@ -601,7 +601,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Xinyan: {
@@ -609,7 +609,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Physical DMG%", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Physical DMG%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Zhongli: {
@@ -627,7 +627,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "bow",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Barbara: {
@@ -643,7 +643,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Bennett: {
@@ -659,7 +659,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Cryo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Diluc: {
@@ -667,7 +667,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "claymore",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Fischl: {
@@ -675,7 +675,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "bow",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Jean: {
@@ -691,7 +691,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "sword",
     vision: "cryo",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Cryo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Keqing: {
@@ -699,7 +699,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "sword",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Klee: {
@@ -707,7 +707,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Lisa: {
@@ -715,7 +715,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "catalyst",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Electro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Mona: {
@@ -723,7 +723,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "catalyst",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Hydro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Ningguang: {
@@ -731,7 +731,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "catalyst",
     vision: "geo",
-    mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Noelle: {
@@ -739,7 +739,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "geo",
-    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
   Qiqi: {
@@ -755,7 +755,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "claymore",
     vision: "electro",
-    mainstats: ["HP", "ATK", "ATK%", "ATK%", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK%", "ATK%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Sucrose: {
@@ -763,7 +763,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "catalyst",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "EM/ER%", "EM", "EM"],
+    mainstats: ["HP", "ATK", "EM / ER%", "EM", "EM"],
     substats: ["ER%", "EM", "ATK%"],
   },
   Venti: {
@@ -771,7 +771,7 @@ const charData = {
     rarity: "5 Star",
     weapType: "bow",
     vision: "anemo",
-    mainstats: ["HP", "ATK", "EM/ER%", "EM", "EM"],
+    mainstats: ["HP", "ATK", "EM / ER%", "EM", "EM"],
     substats: ["ER%", "EM", "ATK%"],
   },
   Xiangling: {
@@ -779,7 +779,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "polearm",
     vision: "pyro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Pyro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Xingqiu: {
@@ -787,7 +787,7 @@ const charData = {
     rarity: "4 Star",
     weapType: "sword",
     vision: "hydro",
-    mainstats: ["HP", "ATK", "ATK%/ER%", "Hydro DMG", "CRIT Rate/DMG"],
+    mainstats: ["HP", "ATK", "ATK% / ER%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 };

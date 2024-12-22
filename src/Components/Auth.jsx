@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { Box, Button, Typography } from '@mui/material';
+
 import { auth, db } from '../firebase';
 
 const Auth = ({ setUid }) => {

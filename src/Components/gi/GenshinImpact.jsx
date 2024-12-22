@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
+import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -12,7 +13,6 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
@@ -20,8 +20,9 @@ import Score from './components/Score';
 import Save from './components/Save';
 import Delete from './components/Delete';
 import initCharObj from './components/initCharObj';
-
 import weapData from './data/weapData';
+
+const icons = import.meta.glob('../../assets/gi/icon/*.webp', { eager: true });
 
 const GenshinImpact = ({ uid }) => {
   // Modal states
@@ -107,6 +108,7 @@ const GenshinImpact = ({ uid }) => {
             {/* Table headers */}
             <TableHead>
               <TableRow>
+                <TableCell></TableCell>
                 <TableCell>Name</TableCell>
                 <TableCell>Weapon</TableCell>
                 <TableCell>Artifacts</TableCell>
@@ -119,17 +121,28 @@ const GenshinImpact = ({ uid }) => {
             <TableBody>
               {Object.keys(myChars).length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={5} align='center'>
+                  <TableCell colSpan={6} align='center'>
                     No characters to display
                   </TableCell>
                 </TableRow>
               ) : (
                 Object.entries(myChars).map(([id, char]) => (
                   <TableRow key={id}>
+                    <TableCell>
+                      <img
+                        src={icons[`../../assets/gi/icon/${id}_Icon.webp`]?.default}
+                        alt={char.name || 'Character Icon'}
+                        style={{
+                          width: 50,
+                          height: 50,
+                          objectFit: 'contain',
+                        }}
+                      />
+                    </TableCell>
                     <TableCell>{char.name}</TableCell>
                     <TableCell>{weapData[char.weapId].name}</TableCell>
                     <TableCell>{char.set}</TableCell>
-                    <TableCell><Score char={char} /></TableCell>
+                    <TableCell><Score id={id} char={char} /></TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button
