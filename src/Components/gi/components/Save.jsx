@@ -13,7 +13,6 @@ import {
 import { db } from '../../../firebase';
 import SlotCard from './SlotCard';
 import initCharObj from './initCharObj';
-
 import charData from '../data/charData';
 import weapData from '../data/weapData';
 import setData from '../data/setData';

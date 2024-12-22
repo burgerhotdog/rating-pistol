@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
+import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -12,7 +13,6 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';

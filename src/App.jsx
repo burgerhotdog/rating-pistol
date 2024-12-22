@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+
 import Auth from './Components/Auth';
 import Menu from './Components/Menu';
 import GenshinImpact from './Components/gi/GenshinImpact';

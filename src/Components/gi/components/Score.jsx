@@ -12,10 +12,10 @@ const Score = ({ char }) => {
       total += Number(char[slot][2] ?? 0) / 2;
     }
 
-    /* Return it as a percentage of 25
-    25 represents an ideal amount of substat rolls
+    // Return it as a percentage of 25
+    // 25 represents an ideal amount of substat rolls
     
-    This is calculated using Prydwen's algorithm.
+    /* This is calculated using Prydwen's algorithm.
     There are 40 total substats possible (5 slots * 8 substats per slot).
     20 rolls are evenly distributed between all 10 different substats (2 rolls each).
     The remaining 20 rolls are assigned to the best substats for each character.
