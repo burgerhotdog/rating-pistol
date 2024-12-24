@@ -12,6 +12,8 @@ import {
   TableHead,
   TableRow,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
 
 import { db } from '../../firebase';
@@ -36,6 +38,10 @@ const GenshinImpact = ({ uid }) => {
   // New character object
   const [newCharId, setNewCharId] = useState('');
   const [newCharObj, setNewCharObj] = useState(initCharObj);
+
+  // Theme and breakpoint
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.only('xs'));
 
   // Update myChars on uid change
   useEffect(() => {
@@ -110,8 +116,8 @@ const GenshinImpact = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                <TableCell>Weapon</TableCell>
-                <TableCell>Artifacts</TableCell>
+                {!isXs && <TableCell>Weapon</TableCell>}
+                {!isXs && <TableCell>Artifacts</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -140,8 +146,8 @@ const GenshinImpact = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{char.name}</TableCell>
-                    <TableCell>{weapData[char.weapId].name}</TableCell>
-                    <TableCell>{char.set}</TableCell>
+                    {!isXs && <TableCell>{weapData[char.weapId].name}</TableCell>}
+                    {!isXs && <TableCell>{char.set}</TableCell>}
                     <TableCell><Score id={id} char={char} /></TableCell>
                     <TableCell>
                       {/* Edit button */}
