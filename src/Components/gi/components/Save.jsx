@@ -8,6 +8,8 @@ import {
   Modal,
   TextField,
   Typography,
+  useTheme,
+  useMediaQuery,
 } from '@mui/material';
 
 import { db } from '../../../firebase';
@@ -34,6 +36,10 @@ const Save = ({
   const [error, setError] = useState('');
   const [availableCharIds, setAvailableCharIds] = useState([]);
   const [availableWeapIds, setAvailableWeapIds] = useState([]);
+  
+  // Theme and breakpoint
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.only('xs'));
 
   // Update availableCharIds when myChars changes
   useEffect(() => {
@@ -136,12 +142,16 @@ const Save = ({
         backgroundColor: '#1c1c1c',
         padding: 4,
         borderRadius: 2,
+        ...(newCharId && {
+          maxHeight: '80vh',
+          overflowY: 'auto',
+        }),
       }}>        
         {/* Data grid */}
         {newCharId ? (
-          <Grid container spacing={2} sx={{ width: 1024 }}>
+          <Grid container spacing={2} sx={{ width: { xs: 256, sm: 1024 } }}>
             {/* Select character */}
-            <Grid size={3}>
+            <Grid size={{ xs: 12, sm: 3 }}>
               <Autocomplete
                 disablePortal
                 size='small'
@@ -177,7 +187,7 @@ const Save = ({
             </Grid>
 
             {/* Select weapon */}
-            <Grid size={3}>
+            <Grid size={{ xs: 12, sm: 3 }}>
               <Autocomplete
                 disablePortal
                 size='small'
@@ -204,7 +214,7 @@ const Save = ({
             </Grid>
 
             {/* Select artifact set */}
-            <Grid size={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <Autocomplete
                 disablePortal
                 size='small'
@@ -222,24 +232,26 @@ const Save = ({
             </Grid>
 
             {/* Image */}
-            <Grid size={6}>
-              <img
-                src={images[`../../../assets/gi/splash/${newCharId}.webp`]?.default}
-                alt={newCharObj.name || 'Character Splash'}
-                style={{
-                  width: '100%',
-                  height: 500,
-                  objectFit: 'contain',
-                }}
-              />
+            <Grid size={{ xs: 12, sm: 6 }}>
+              {!isXs && (
+                <img
+                  src={images[`../../../assets/gi/splash/${newCharId}.webp`]?.default}
+                  alt={newCharObj.name || 'Character Splash'}
+                  style={{
+                    width: '100%',
+                    height: 500,
+                    objectFit: 'contain',
+                  }}
+                />
+              )}
             </Grid>
 
             {/* Artifact grid */}
-            <Grid size={6}>
+            <Grid size={{ xs: 12, sm: 6 }}>
               <Grid container spacing={2}>
                 {['Flower', 'Plume', 'Sands', 'Goblet', 'Circlet'].map(
                   (slotName, index) => (
-                    <Grid size={6} key={slotName}>
+                    <Grid size={{ xs: 12, sm: 6 }} key={slotName}>
                       <SlotCard
                         slotName={slotName}
                         slotIndex={index}
