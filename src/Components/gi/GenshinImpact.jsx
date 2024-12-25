@@ -122,6 +122,7 @@ const GenshinImpact = ({ uid }) => {
                   </TableCell>
                 </TableRow>
               ) : (
+                // Order characters in table by score
                 Object.entries(myChars)
                 .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
                 .map(([id, char]) => (

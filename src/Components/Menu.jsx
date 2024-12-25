@@ -17,18 +17,15 @@ const Menu = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100vh',
-        padding: 2,
+        mt: 8,
+        gap: 2,
       }}>
         {/* Genshin Impact */}
         <Button className='menuButton'
           component={Link}
           to='/genshin-impact'
           fullWidth
-          sx={{
-            backgroundImage: `${tint}, url(${gi})`,
-            margin: 1,
-          }}
+          sx={{ backgroundImage: `${tint}, url(${gi})` }}
         >
           Genshin Impact
         </Button>
@@ -38,10 +35,7 @@ const Menu = () => {
           component={Link}
           to='/honkai-star-rail'
           fullWidth
-          sx={{
-            backgroundImage: `${tint}, url(${hsr})`,
-            margin: 1,
-          }}
+          sx={{ backgroundImage: `${tint}, url(${hsr})` }}
         >
           Honkai Star Rail
         </Button>
@@ -51,10 +45,7 @@ const Menu = () => {
           component={Link}
           to='/zenless-zone-zero'
           fullWidth
-          sx={{
-            backgroundImage: `${tint}, url(${zzz})`,
-            margin: 1,
-          }}
+          sx={{ backgroundImage: `${tint}, url(${zzz})` }}
         >
           Zenless Zone Zero
         </Button>
@@ -64,10 +55,7 @@ const Menu = () => {
           component={Link}
           to='/wuthering-waves'
           fullWidth
-          sx={{
-            backgroundImage: `${tint}, url(${ww})`,
-            margin: 1,
-          }}
+          sx={{ backgroundImage: `${tint}, url(${ww})` }}
         >
           Wuthering Waves
         </Button>
