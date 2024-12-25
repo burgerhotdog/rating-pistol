@@ -18,6 +18,7 @@ import initCharObj from './initCharObj';
 import charData from '../data/charData';
 import weapData from '../data/weapData';
 import setData from '../data/setData';
+import getScore from './getScore';
 
 const images = import.meta.glob('../../../assets/gi/splash/*.webp', { eager: true });
 
@@ -39,7 +40,7 @@ const Save = ({
   
   // Theme and breakpoint
   const theme = useTheme();
-  const isXs = useMediaQuery(theme.breakpoints.only('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.only('xs'));
 
   // Update availableCharIds when myChars changes
   useEffect(() => {
@@ -102,6 +103,9 @@ const Save = ({
   const handleSave = async () => {
     // Perform validation checks
     if (!validate()) return;
+
+    // Calcuate and set score
+    newCharObj.score = getScore(newCharId, newCharObj);
 
     // Save document to Firestore
     if (uid) {
@@ -233,7 +237,7 @@ const Save = ({
 
             {/* Image */}
             <Grid size={{ xs: 12, sm: 6 }}>
-              {!isXs && (
+              {!isMobile && (
                 <img
                   src={images[`../../../assets/gi/splash/${newCharId}.webp`]?.default}
                   alt={newCharObj.name || 'Character Splash'}
