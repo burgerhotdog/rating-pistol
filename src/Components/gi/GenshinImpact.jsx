@@ -41,7 +41,7 @@ const GenshinImpact = ({ uid }) => {
 
   // Theme and breakpoint
   const theme = useTheme();
-  const isXs = useMediaQuery(theme.breakpoints.only('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.only('xs'));
 
   // Update myChars on uid change
   useEffect(() => {
@@ -116,8 +116,8 @@ const GenshinImpact = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {!isXs && <TableCell>Weapon</TableCell>}
-                {!isXs && <TableCell>Artifacts</TableCell>}
+                {!isMobile && <TableCell>Weapon</TableCell>}
+                {!isMobile && <TableCell>Artifacts</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -132,7 +132,8 @@ const GenshinImpact = ({ uid }) => {
                   </TableCell>
                 </TableRow>
               ) : (
-                Object.entries(myChars).map(([id, char]) => (
+                Object.entries(myChars)
+                .sort(([, a], [, b]) => (b.score || 0) - (a.score || 0)).map(([id, char]) => (
                   <TableRow key={id}>
                     <TableCell>
                       <img
@@ -146,9 +147,9 @@ const GenshinImpact = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{char.name}</TableCell>
-                    {!isXs && <TableCell>{weapData[char.weapId].name}</TableCell>}
-                    {!isXs && <TableCell>{char.set}</TableCell>}
-                    <TableCell><Score id={id} char={char} /></TableCell>
+                    {!isMobile && <TableCell>{weapData[char.weapId].name}</TableCell>}
+                    {!isMobile && <TableCell>{char.set}</TableCell>}
+                    <TableCell>{char.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button
