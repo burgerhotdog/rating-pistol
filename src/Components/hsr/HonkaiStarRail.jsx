@@ -1,28 +1,19 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
-import BackToMenu from '../BackToMenu';
+import Back from '../Back';
 
 const HonkaiStarRail = () => {
   return (
-    <Container maxWidth='sm'>
-      <Box
-        component='header'
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        sx={{ marginTop: 4 }}
-      >
-        <Typography variant='h4'>Honkai Star Rail</Typography>
-        <BackToMenu />
-      </Box>
-      <Box
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-      >
-        <Typography variant='body1' sx={{ marginTop: 2 }}>
-          Coming soon
-        </Typography>
+    <Container>
+      <Back />
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        mt: 4,
+      }}>
+        <Typography variant='h3'>Honkai Star Rail</Typography>
+        <Typography variant="body2">Updated for version 2.7</Typography>
       </Box>
     </Container>
   );
