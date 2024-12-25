@@ -17,8 +17,7 @@ import {
 } from '@mui/material';
 
 import { db } from '../../firebase';
-import BackToMenu from '../BackToMenu';
-import Score from './components/Score';
+import Back from '../Back';
 import Save from './components/Save';
 import Delete from './components/Delete';
 import initCharObj from './components/initCharObj';
@@ -27,27 +26,26 @@ import weapData from './data/weapData';
 const icons = import.meta.glob('../../assets/gi/icon/*.webp', { eager: true });
 
 const GenshinImpact = ({ uid }) => {
-  // Modal states
+  // Modal States
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
-  // Local character objects
+  // Local Character Objects
   const [myChars, setMyChars] = useState({});
 
-  // New character object
+  // New Character Object
   const [newCharId, setNewCharId] = useState('');
   const [newCharObj, setNewCharObj] = useState(initCharObj);
 
-  // Theme and breakpoint
+  // Mobile layout breakpoint
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.only('xs'));
 
-  // Update myChars on uid change
+  // Populate myChars when user signs in/out
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
-        // If signed in:
         // Fetch character documents from firestore
         const charDocsRef = collection(db, 'users', uid, 'GenshinImpact');
         const charDocs = await getDocs(charDocsRef);
@@ -61,7 +59,6 @@ const GenshinImpact = ({ uid }) => {
         // Store objects in myChars
         setMyChars(docsToObjs);
       } else {
-        // If signed out:
         // Clear myChars
         setMyChars({});
       }
@@ -92,24 +89,17 @@ const GenshinImpact = ({ uid }) => {
   };
 
   return (
-    <Container maxWidth='md'>
-      <Box
-        component='header'
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-        sx={{ mt: 4 }}
-      >
-        <Typography variant='h4'>Genshin Impact</Typography>
-        <BackToMenu />
-      </Box>
-
-      <Box
-        display='flex'
-        flexDirection='column'
-        alignItems='center'
-      >
-        <TableContainer sx={{ maxWidth: 800, mt: 2 }}>
+    <Container>
+      <Back />
+      <Box sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        mt: 4,
+      }}>
+        <Typography variant='h3'>Genshin Impact</Typography>
+        <Typography variant="body2">Updated for version 5.2</Typography>
+        <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}
             <TableHead>
@@ -132,8 +122,10 @@ const GenshinImpact = ({ uid }) => {
                   </TableCell>
                 </TableRow>
               ) : (
+                // Order characters in table by score
                 Object.entries(myChars)
-                .sort(([, a], [, b]) => (b.score || 0) - (a.score || 0)).map(([id, char]) => (
+                .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
+                .map(([id, char]) => (
                   <TableRow key={id}>
                     <TableCell>
                       <img

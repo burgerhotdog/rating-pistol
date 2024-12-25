@@ -42,7 +42,7 @@ const Save = ({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.only('xs'));
 
-  // Update availableCharIds when myChars changes
+  // Update availableCharIds after saving or deleting a character
   useEffect(() => {
     // Filter out used character ids
     const allCharIds = Object.keys(charData).sort();
@@ -61,7 +61,7 @@ const Save = ({
     setAvailableCharIds(filteredCharIds);
   }, [myChars]);
 
-  // Update availableWeapIds when newCharId changes
+  // Update availableWeapIds after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
       // Filter out weapon ids with wrong type
@@ -86,8 +86,8 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapId) errors.push('No weapon selected');
-    if (!newCharObj.set) errors.push('No artifact set selected');
+    if (!newCharObj.weapId) errors.push('Select a weapon');
+    if (!newCharObj.set) errors.push('Select an artifact set');
 
     // Display error message
     if (errors.length) {
@@ -113,7 +113,7 @@ const Save = ({
       await setDoc(charDocRef, newCharObj, { merge: true });
     }
 
-    // Save obj to myChars
+    // Save object to myChars
     setMyChars((prevChars) => ({
       ...prevChars,
       [newCharId]: newCharObj,
@@ -137,7 +137,6 @@ const Save = ({
 
   return (
     <Modal open={isSaveOpen} onClose={handleCancel}>
-      {/* Modal Styles */}
       <Box sx={{
         position: 'absolute',
         top: '50%',
@@ -164,14 +163,12 @@ const Save = ({
                 groupBy={(option) => charData[option].rarity}
                 onChange={(event, newValue) => {
                   if (newValue) {
-                    // If character selected:
                     setNewCharId(newValue);
                     setNewCharObj({
                       ...initCharObj(),
                       name: charData[newValue].name,
                     });
                   } else {
-                    // If no character selected:
                     setNewCharId('');
                     setNewCharObj(initCharObj());
                   }
@@ -278,14 +275,12 @@ const Save = ({
             groupBy={(option) => charData[option].rarity}
             onChange={(event, newValue) => {
               if (newValue) {
-                // If character selected:
                 setNewCharId(newValue);
                 setNewCharObj({
                   ...initCharObj(),
                   name: charData[newValue].name,
                 });
               } else {
-                // If no character selected:
                 setNewCharId('');
                 setNewCharObj(initCharObj());
               }
