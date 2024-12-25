@@ -1,0 +1,60 @@
+const charData = {
+  Bailu: {
+    name: "Bailu",
+    rarity: "5 Star",
+    path: "Abundance",
+    type: "Lightning",
+    mainstats: ["HP", "ATK", "OHB", "SPD", "HP%", "ERR"],
+    substats: ["HP%", "SPD", "EFF RES%"],
+  },
+  Bronya: {
+    name: "Bronya",
+    rarity: "5 Star",
+    path: "Harmony",
+    type: "Wind",
+    mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "HP% / DEF%", "ERR"],
+    substats: ["CRIT DMG", "SPD", "EFF RES%"],
+  },
+  Clara: {
+    name: "Clara",
+    rarity: "5 Star",
+    path: "Destruction",
+    type: "Physical",
+    mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Physical DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Gepard: {
+    name: "Gepard",
+    rarity: "5 Star",
+    path: "Preservation",
+    type: "Ice",
+    mainstats: ["HP", "ATK", "DEF%", "SPD", "DEF%", "ERR"],
+    substats: ["DEF%", "SPD", "EFF RES%"],
+  },
+  Himeko: {
+    name: "Himeko",
+    rarity: "5 Star",
+    path: "Erudition",
+    type: "Fire",
+    mainstats: ["HP", "ATK", "CRIT Rate", "SPD / ATK%", "Fire DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Welt: {
+    name: "Welt",
+    rarity: "5 Star",
+    path: "Nihility",
+    type: "Imaginary",
+    mainstats: ["HP", "ATK", "CRIT Rate", "SPD / ATK%", "Imaginary DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "EHR%"],
+  },
+  Yanqing: {
+    name: "Yanqing",
+    rarity: "5 Star",
+    path: "Hunt",
+    type: "Ice",
+    mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "Ice DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+};
+
+export default charData;

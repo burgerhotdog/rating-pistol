@@ -12,7 +12,7 @@ const ZenlessZoneZero = () => {
         alignItems: 'center',
         mt: 4,
       }}>
-        <Typography variant='h3'>Honkai Star Rail</Typography>
+        <Typography variant='h3'>Zenless Zone Zero</Typography>
         <Typography variant="body2">Updated for version 1.4</Typography>
       </Box>
     </Container>
