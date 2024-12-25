@@ -214,7 +214,7 @@ const Save = ({
               />
             </Grid>
 
-            {/* Select artifact set */}
+            {/* Select relic set */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Autocomplete
                 disablePortal
@@ -228,7 +228,7 @@ const Save = ({
                     set: newValue,
                   }));
                 }}
-                renderInput={(params) => <TextField {...params} label="Artifact Set" />}
+                renderInput={(params) => <TextField {...params} label="Relic Set" />}
               />
             </Grid>
 
