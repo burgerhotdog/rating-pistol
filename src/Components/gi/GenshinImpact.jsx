@@ -18,7 +18,6 @@ import {
 
 import { db } from '../../firebase';
 import BackToMenu from '../BackToMenu';
-import Score from './components/Score';
 import Save from './components/Save';
 import Delete from './components/Delete';
 import initCharObj from './components/initCharObj';
