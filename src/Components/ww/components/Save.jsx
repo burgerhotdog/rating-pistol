@@ -67,7 +67,7 @@ const Save = ({
       // Filter out weapon ids with wrong type
       const allWeapIds = Object.keys(weapData).sort();
       const filteredWeapIds = allWeapIds.filter(
-        (id) => charData[newCharId].weapType === weapData[id].type
+        (id) => charData[newCharId].weapon === weapData[id].type
       );
 
       // Sort by rarity
@@ -86,7 +86,7 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapId) errors.push('Select a weapon');
+    if (!newCharObj.weapon) errors.push('Select a weapon');
     if (!newCharObj.set) errors.push('Select an artifact set');
 
     // Display error message
@@ -109,7 +109,7 @@ const Save = ({
 
     // Save document to Firestore
     if (uid) {
-      const charDocRef = doc(db, 'users', uid, 'GenshinImpact', newCharId);
+      const charDocRef = doc(db, 'users', uid, 'WutheringWaves', newCharId);
       await setDoc(charDocRef, newCharObj, { merge: true });
     }
 
@@ -192,13 +192,13 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.weapId}
+                value={newCharObj.weapon}
                 options={availableWeapIds}
                 groupBy={(option) => weapData[option].rarity}
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    weapId: newValue,
+                    weapon: newValue,
                   }));
                 }}
                 getOptionLabel={(id) => weapData[id]?.name || ''}
@@ -236,7 +236,7 @@ const Save = ({
             <Grid size={{ xs: 12, sm: 6 }}>
               {!isMobile && (
                 <img
-                  src={images[`../../../assets/gi/splash/${newCharId}.webp`]?.default}
+                  src={images[`../../../assets/ww/splash/${newCharId}.webp`]?.default}
                   alt={newCharObj.name || 'Character Splash'}
                   style={{
                     width: '100%',
@@ -250,7 +250,7 @@ const Save = ({
             {/* Artifact grid */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Grid container spacing={2}>
-                {['Flower', 'Plume', 'Sands', 'Goblet', 'Circlet'].map(
+                {['4 Cost', '3 Cost', '3 Cost', '1 Cost', '1 Cost'].map(
                   (slotName, index) => (
                     <Grid size={{ xs: 12, sm: 6 }} key={slotName}>
                       <SlotCard

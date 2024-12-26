@@ -22,7 +22,7 @@ const Delete = ({
       // If signed in:
       if (uid) {
         // Delete document from firestore
-        const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newCharId);
+        const characterDocRef = doc(db, 'users', uid, 'ZenlessZoneZero', newCharId);
         await deleteDoc(characterDocRef);
       }
 

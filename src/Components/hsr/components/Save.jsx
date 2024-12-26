@@ -67,7 +67,7 @@ const Save = ({
       // Filter out weapon ids with wrong type
       const allWeapIds = Object.keys(weapData).sort();
       const filteredWeapIds = allWeapIds.filter(
-        (id) => charData[newCharId].path === weapData[id].path
+        (id) => charData[newCharId].weapon === weapData[id].type
       );
 
       // Sort by rarity
@@ -86,7 +86,7 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapId) errors.push('Select a weapon');
+    if (!newCharObj.weapon) errors.push('Select a weapon');
     if (!newCharObj.set) errors.push('Select an artifact set');
 
     // Display error message
@@ -192,13 +192,13 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.weapId}
+                value={newCharObj.weapon}
                 options={availableWeapIds}
                 groupBy={(option) => weapData[option].rarity}
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    weapId: newValue,
+                    weapon: newValue,
                   }));
                 }}
                 getOptionLabel={(id) => weapData[id]?.name || ''}

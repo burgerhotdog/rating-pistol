@@ -139,7 +139,7 @@ const GenshinImpact = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{char.name}</TableCell>
-                    {!isMobile && <TableCell>{weapData[char.weapId].name}</TableCell>}
+                    {!isMobile && <TableCell>{weapData[char.weapon].name}</TableCell>}
                     {!isMobile && <TableCell>{char.set}</TableCell>}
                     <TableCell>{char.score}</TableCell>
                     <TableCell>
