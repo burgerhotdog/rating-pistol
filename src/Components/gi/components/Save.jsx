@@ -67,7 +67,7 @@ const Save = ({
       // Filter out weapon ids with wrong type
       const allWeapIds = Object.keys(weapData).sort();
       const filteredWeapIds = allWeapIds.filter(
-        (id) => charData[newCharId].weapType === weapData[id].type
+        (id) => charData[newCharId].weapon === weapData[id].type
       );
 
       // Sort by rarity

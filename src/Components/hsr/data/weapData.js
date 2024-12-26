@@ -3,37 +3,37 @@ const weapData = {
   ButTheBattleIsntOver: {
     name: "But the Battle Isn't Over",
     rarity: "5 Star",
-    path: "Harmony",
+    type: "Harmony",
   },
   InTheNameOfTheWord: {
     name: "In the Name of the World",
     rarity: "5 Star",
-    path: "Nihility",
+    type: "Nihility",
   },
   MomentOfVictory: {
     name: "Moment of Victory",
     rarity: "5 Star",
-    path: "Preservation",
+    type: "Preservation",
   },
   NightOnTheMilkyWay: {
     name: "Night on the Milky Way",
     rarity: "5 Star",
-    path: "Erudition",
+    type: "Erudition",
   },
   SleepLikeTheDead: {
     name: "Sleep Like the Dead",
     rarity: "5 Star",
-    path: "Hunt",
+    type: "Hunt",
   },
   SomethingIrreplaceable: {
     name: "Something Irreplaceable",
     rarity: "5 Star",
-    path: "Destruction",
+    type: "Destruction",
   },
   TimeWaitsForNoOne: {
     name: "Time Waits for No One",
     rarity: "5 Star",
-    path: "Abundance",
+    type: "Abundance",
   },
 };
 
