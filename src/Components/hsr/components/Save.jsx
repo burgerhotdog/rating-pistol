@@ -37,6 +37,8 @@ const Save = ({
   const [error, setError] = useState('');
   const [availableCharIds, setAvailableCharIds] = useState([]);
   const [availableWeapIds, setAvailableWeapIds] = useState([]);
+  const [availableRelicSetIds, setAvailableRelicSetIds] = useState([]);
+  const [availablePlanarSetIds, setAvailablePlanarSetIds] = useState([]);
   
   // Theme and breakpoint
   const theme = useTheme();
@@ -44,18 +46,11 @@ const Save = ({
 
   // Update availableCharIds after saving or deleting a character
   useEffect(() => {
-    // Filter out used character ids
+    // Filter in character ids that are unused
     const allCharIds = Object.keys(charData).sort();
     const filteredCharIds = allCharIds.filter(
       (id) => !Object.keys(myChars).includes(id)
     );
-
-    // Sort by rarity
-    filteredCharIds.sort((a, b) => {
-      const rarityA = charData[a]?.rarity || '';
-      const rarityB = charData[b]?.rarity || '';
-      return rarityB.localeCompare(rarityA);
-    });
 
     // Update state
     setAvailableCharIds(filteredCharIds);
@@ -64,21 +59,42 @@ const Save = ({
   // Update availableWeapIds after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
-      // Filter out weapon ids with wrong type
+      // Filter in weapon ids for correct type
       const allWeapIds = Object.keys(weapData).sort();
       const filteredWeapIds = allWeapIds.filter(
-        (id) => charData[newCharId].weapon === weapData[id].type
+        (id) => weapData[id].type === charData[newCharId].weapon
       );
-
-      // Sort by rarity
-      filteredWeapIds.sort((a, b) => {
-        const rarityA = weapData[a]?.rarity || '';
-        const rarityB = weapData[b]?.rarity || '';
-        return rarityB.localeCompare(rarityA);
-      });
 
       // Update state
       setAvailableWeapIds(filteredWeapIds);
+    }
+  }, [newCharId]);
+
+  // Update availableRelicSetIds after selecting a character
+  useEffect(() => {
+    if (charData[newCharId]) {
+      // Filter in set ids for relics
+      const allSetIds = Object.keys(setData).sort();
+      const filteredSetIds = allSetIds.filter(
+        (id) => setData[id].type === "Relic"
+      );
+
+      // Update state
+      setAvailableRelicSetIds(filteredSetIds);
+    }
+  }, [newCharId]);
+
+  // Update availablePlanarSetIds after selecting a character
+  useEffect(() => {
+    if (charData[newCharId]) {
+      // Filter in set ids for planars
+      const allSetIds = Object.keys(setData).sort();
+      const filteredSetIds = allSetIds.filter(
+        (id) => setData[id].type === "Planar"
+      );
+
+      // Update state
+      setAvailablePlanarSetIds(filteredSetIds);
     }
   }, [newCharId]);
 
@@ -86,8 +102,8 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon) errors.push('Select a weapon');
-    if (!newCharObj.set) errors.push('Select an artifact set');
+    if (!newCharObj.weapon.key) errors.push('Select a weapon');
+    if (!newCharObj.relicSet.key) errors.push('Select an artifact set');
 
     // Display error message
     if (errors.length) {
@@ -160,7 +176,6 @@ const Save = ({
                 size='small'
                 value={newCharId}
                 options={availableCharIds}
-                groupBy={(option) => charData[option].rarity}
                 onChange={(event, newValue) => {
                   if (newValue) {
                     setNewCharId(newValue);
@@ -176,12 +191,6 @@ const Save = ({
                 getOptionLabel={(id) => charData[id]?.name}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Character" />}
-                renderGroup={(params) => (
-                  <div key={params.group}>
-                    <strong style={{ padding: '8px' }}>{params.group}</strong>
-                    <div>{params.children}</div>
-                  </div>
-                )}
                 fullWidth
                 disabled={isEditMode}
               />
@@ -192,43 +201,67 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.weapon}
+                value={newCharObj.weapon.key}
                 options={availableWeapIds}
-                groupBy={(option) => weapData[option].rarity}
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    weapon: newValue,
+                    weapon: {
+                      key: newValue,
+                      entry: weapData[newValue],
+                    },
                   }));
                 }}
                 getOptionLabel={(id) => weapData[id]?.name || ''}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Weapon" />}
-                renderGroup={(params) => (
-                  <div key={params.group}>
-                    <strong style={{ padding: '8px' }}>{params.group}</strong>
-                    <div>{params.children}</div>
-                  </div>
-                )}
                 fullWidth
               />
             </Grid>
 
             {/* Select relic set */}
-            <Grid size={{ xs: 12, sm: 6 }}>
+            <Grid size={{ xs: 12, sm: 3 }}>
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.set}
-                options={setData}
+                value={newCharObj.relicSet.key}
+                options={availableRelicSetIds}
                 fullWidth
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    set: newValue,
+                    relicSet: {
+                      key: newValue,
+                      entry: setData[newValue],
+                    },
                   }));
                 }}
+                getOptionLabel={(id) => setData[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Relic Set" />}
+              />
+            </Grid>
+
+            {/* Select planar set */}
+            <Grid size={{ xs: 12, sm: 3 }}>
+              <Autocomplete
+                disablePortal
+                size='small'
+                value={newCharObj.planarSet.key}
+                options={availablePlanarSetIds}
+                fullWidth
+                onChange={(event, newValue) => {
+                  setNewCharObj((prev) => ({
+                    ...prev,
+                    planarSet: {
+                      key: newValue,
+                      entry: setData[newValue],
+                    },
+                  }));
+                }}
+                getOptionLabel={(id) => setData[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => <TextField {...params} label="Planar Set" />}
               />
             </Grid>
 
@@ -247,7 +280,7 @@ const Save = ({
               )}
             </Grid>
 
-            {/* Artifact grid */}
+            {/* Relic grid */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Grid container spacing={2}>
                 {['Head', 'Hands', 'Chest', 'Boots', 'Orb', 'Rope'].map(
@@ -272,7 +305,6 @@ const Save = ({
             size='small'
             value={newCharId}
             options={availableCharIds}
-            groupBy={(option) => charData[option].rarity}
             onChange={(event, newValue) => {
               if (newValue) {
                 setNewCharId(newValue);
@@ -288,12 +320,6 @@ const Save = ({
             getOptionLabel={(id) => charData[id]?.name || ''}
             isOptionEqualToValue={(option, value) => option === value}
             renderInput={(params) => <TextField {...params} label="Select" />}
-            renderGroup={(params) => (
-              <div key={params.group}>
-                <strong style={{ padding: '8px' }}>{params.group}</strong>
-                <div>{params.children}</div>
-              </div>
-            )}
             sx={{ width: 240 }}
           />
         )}
