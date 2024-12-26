@@ -1,14 +1,32 @@
-const setData = [
+const setData = {
   // Version 1.0
-  "Celestial Light",
-  "Freezing Frost",
-  "Lingering Tunes",
-  "Molten Rift",
-  "Moonlit Clouds",
-  "Rejuvenating Glow",
-  "Sierra Gale",
-  "Sun-sinking Eclipse",
-  "Void Thunder",
-];
+  CelestialLight: {
+    name: "Celestial Light",
+  },
+  FreezingFrost: {
+    name: "Freezing Frost",
+  },
+  LingeringTunes: {
+    name: "Lingering Tunes",
+  },
+  MoltenRift: {
+    name: "Molten Rift",
+  },
+  MoonlitClouds: {
+    name: "Moonlit Clouds",
+  },
+  RejuvenatingGlow: {
+    name: "Rejuvenating Glow",
+  },
+  SierraGale: {
+    name: "Sierra Gale",
+  },
+  SunSinkingEclipse: {
+    name: "Sun-sinking Eclipse",
+  },
+  VoidThunder: {
+    name: "Void Thunder",
+  },
+};
 
 export default setData;

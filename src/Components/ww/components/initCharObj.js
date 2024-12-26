@@ -1,7 +1,13 @@
 const initCharObj = () => ({
   name: "",
-  weapon: "",
-  set: "",
+  weapon: {
+    key: "",
+    entry: {},
+  },
+  set: {
+    key: "",
+    entry: {},
+  },
   score: 0,
   0: {
     0: 0,

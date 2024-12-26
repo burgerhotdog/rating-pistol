@@ -105,7 +105,7 @@ const HonkaiStarRail = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {!isMobile && <TableCell>Weapon</TableCell>}
+                {!isMobile && <TableCell>Light Cone</TableCell>}
                 {!isMobile && <TableCell>Relics</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>

@@ -21,7 +21,6 @@ import Back from '../Back';
 import Save from './components/Save';
 import Delete from './components/Delete';
 import initCharObj from './components/initCharObj';
-import weapData from './data/weapData';
 
 const icons = import.meta.glob('../../assets/ww/icon/*.webp', { eager: true });
 
@@ -107,7 +106,7 @@ const WutheringWaves = ({ uid }) => {
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
                 {!isMobile && <TableCell>Weapon</TableCell>}
-                {!isMobile && <TableCell>Artifacts</TableCell>}
+                {!isMobile && <TableCell>Echoes</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -139,8 +138,8 @@ const WutheringWaves = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{char.name}</TableCell>
-                    {!isMobile && <TableCell>{weapData[char.weapon].name}</TableCell>}
-                    {!isMobile && <TableCell>{char.set}</TableCell>}
+                    {!isMobile && <TableCell>{char.weapon.entry.name}</TableCell>}
+                    {!isMobile && <TableCell>{char.set.entry.name}</TableCell>}
                     <TableCell>{char.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}

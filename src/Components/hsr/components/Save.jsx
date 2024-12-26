@@ -110,8 +110,9 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon.key) errors.push('Select a weapon');
-    if (!newCharObj.relicSet.key) errors.push('Select an artifact set');
+    if (!newCharObj.weapon.key) errors.push('Select light cone');
+    if (!newCharObj.relicSet.key) errors.push('Select relic set');
+    if (!newCharObj.planarSet.key) errors.push('Select planar set');
 
     // Display error message
     if (errors.length) {
@@ -234,7 +235,6 @@ const Save = ({
                 size='small'
                 value={newCharObj.relicSet.key}
                 options={availableRelicSetIds}
-                fullWidth
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
@@ -247,6 +247,7 @@ const Save = ({
                 getOptionLabel={(id) => setData[id]?.name || ''}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Relic Set" />}
+                fullWidth
               />
             </Grid>
 
@@ -257,7 +258,6 @@ const Save = ({
                 size='small'
                 value={newCharObj.planarSet.key}
                 options={availablePlanarSetIds}
-                fullWidth
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
@@ -270,6 +270,7 @@ const Save = ({
                 getOptionLabel={(id) => setData[id]?.name || ''}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Planar Set" />}
+                fullWidth
               />
             </Grid>
 
