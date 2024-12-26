@@ -21,7 +21,6 @@ import Back from '../Back';
 import Save from './components/Save';
 import Delete from './components/Delete';
 import initCharObj from './components/initCharObj';
-import weapData from './data/weapData';
 
 const icons = import.meta.glob('../../assets/gi/icon/*.webp', { eager: true });
 
@@ -139,8 +138,8 @@ const GenshinImpact = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{char.name}</TableCell>
-                    {!isMobile && <TableCell>{weapData[char.weapon].name}</TableCell>}
-                    {!isMobile && <TableCell>{char.set}</TableCell>}
+                    {!isMobile && <TableCell>{char.weapon.entry.name}</TableCell>}
+                    {!isMobile && <TableCell>{char.set.entry.name}</TableCell>}
                     <TableCell>{char.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}

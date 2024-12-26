@@ -46,8 +46,10 @@ const Save = ({
 
   // Update availableCharIds after saving or deleting a character
   useEffect(() => {
-    // Filter in character ids that are unused
+    // Sort alphabetically
     const allCharIds = Object.keys(charData).sort();
+    
+    // Only include unused character ids
     const filteredCharIds = allCharIds.filter(
       (id) => !Object.keys(myChars).includes(id)
     );
@@ -59,8 +61,10 @@ const Save = ({
   // Update availableWeapIds after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
-      // Filter in weapon ids for correct type
+      // Sort alphabetically
       const allWeapIds = Object.keys(weapData).sort();
+
+      // Only include correct type weapon ids
       const filteredWeapIds = allWeapIds.filter(
         (id) => weapData[id].type === charData[newCharId].weapon
       );
@@ -73,8 +77,10 @@ const Save = ({
   // Update availableRelicSetIds after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
-      // Filter in set ids for relics
+      // Sort alphabetically
       const allSetIds = Object.keys(setData).sort();
+
+      // Only include set ids for relics
       const filteredSetIds = allSetIds.filter(
         (id) => setData[id].type === "Relic"
       );
@@ -87,8 +93,10 @@ const Save = ({
   // Update availablePlanarSetIds after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
-      // Filter in set ids for planars
+      // Sort alphabetically
       const allSetIds = Object.keys(setData).sort();
+
+      // Only include set ids for planars
       const filteredSetIds = allSetIds.filter(
         (id) => setData[id].type === "Planar"
       );

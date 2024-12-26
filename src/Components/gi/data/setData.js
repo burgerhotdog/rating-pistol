@@ -1,65 +1,137 @@
-const setData = [
+const setData = {
   // Version 5.0
-  "Obsidian Codex",
-  "Scroll of the Hero of Cinder City",
+  ObsidianCodex: {
+    name: "Obsidian Codex",
+  },
+  ScrollOfTheHeroOfCinderCity: {
+    name: "Scroll of the Hero of Cinder City",
+  },
 
   // Version 4.6
-  "Fragment of Harmonic Whimsy",
-  "Unfinished Reverie",
+  FragmentOfHarmonicWhimsy: {
+    name: "Fragment of Harmonic Whimsy",
+  },
+  UnfinishedReverie: {
+    name: "Unfinished Reverie",
+  },
 
   // Version 4.3
-  "Nighttime Whispers in the Echoing Woods",
-  "Song of Days Past",
+  NighttimeWhispersInTheEchoingWoods: {
+    name: "Nighttime Whispers in the Echoing Woods",
+  },
+  SongOfDaysPast: {
+    name: "Song of Days Past",
+  },
 
   // Version 4.0
-  "Golden Troupe",
-  "Marechaussee Hunter",
+  GoldenTroupe: {
+    name: "Golden Troupe",
+  },
+  MarechausseeHunter: {
+    name: "Marechaussee Hunter",
+  },
 
   // Version 3.6
-  "Nymph's Dream",
-  "Vourukasha's Glow",
+  NymphsDream: {
+    name: "Nymph's Dream",
+  },
+  VourukashasGlow: {
+    name: "Vourukasha's Glow",
+  },
 
   // Version 3.3
-  "Desert Pavilion Chronicle",
-  "Flower of Paradise Lost",
+  DesertPavilionChronicle: {
+    name: "Desert Pavilion Chronicle",
+  },
+  FlowerOfParadiseLost: {
+    name: "Flower of Paradise Lost",
+  },
 
   // Version 3.0
-  "Deepwood Memories",
-  "Gilded Dreams",
+  DeepwoodMemories: {
+    name: "Deepwood Memories",
+  },
+  GildedDreams: {
+    name: "Gilded Dreams",
+  },
 
   // Version 2.6
-  "Echoes of an Offering",
-  "Vermillion Hereafter",
+  EchoesOfAnOffering: {
+    name: "Echoes of an Offering",
+  },
+  VermillionHereafter: {
+    name: "Vermillion Hereafter",
+  },
 
   // Version 2.3
-  "Husk of Opulent Dreams",
-  "Ocean-Hued Clam",
+  HuskOfOpulentDreams: {
+    name: "Husk of Opulent Dreams",
+  },
+  OceanHuedClam: {
+    name: "Ocean-Hued Clam",
+  },
 
   // Version 2.0
-  "Emblem of Severed Fate",
-  "Shimenawa's Reminiscence",
+  EmblemOfSeveredFate: {
+    name: "Emblem of Severed Fate",
+  },
+  ShimenawasReminiscence: {
+    name: "Shimenawa's Reminiscence",
+  },
 
   // Version 1.5
-  "Pale Flame",
-  "Tenacity of the Millelith",
+  PaleFlame: {
+    name: "Pale Flame",
+  },
+  TenacityOfTheMillelith: {
+    name: "Tenacity of the Millelith",
+  },
 
   // Version 1.2
-  "Blizzard Strayer",
-  "Heart of Depth",
+  BlizzardStrayer: {
+    name: "Blizzard Strayer",
+  },
+  HeartOfDepth: {
+    name: "Heart of Depth",
+  },
 
   // Version 1.0
-  "Archaic Petra",
-  "Bloodstained Chivalry",
-  "Crimson Witch of Flames",
-  "Gladiator's Finale",
-  "Lavawalker",
-  "Maiden Beloved",
-  "Noblesse Oblige",
-  "Retracing Bolide",
-  "Thundering Fury",
-  "Thundersoother",
-  "Viridescent Venerer",
-  "Wanderer's Troupe",
-];
+  ArchaicPetra: {
+    name: "Archaic Petra",
+  },
+  BloodstainedChivalry: {
+    name: "Bloodstained Chivalry",
+  },
+  CrimsonWitchOfFlames: {
+    name: "Crimson Witch of Flames",
+  },
+  GladiatorsFinale: {
+    name: "Gladiator's Finale",
+  },
+  Lavawalker: {
+    name: "Lavawalker",
+  },
+  MaidenBeloved: {
+    name: "Maiden Beloved",
+  },
+  NoblesseOblige: {
+    name: "Noblesse Oblige",
+  },
+  RetracingBolide: {
+    name: "Retracing Bolide",
+  },
+  ThunderingFury: {
+    name: "Thundering Fury",
+  },
+  Thundersoother: {
+    name: "Thundersoother",
+  },
+  ViridescentVenerer: {
+    name: "Viridescent Venerer",
+  },
+  WanderersTroupe: {
+    name: "Wanderer's Troupe",
+  },
+};
 
 export default setData;
