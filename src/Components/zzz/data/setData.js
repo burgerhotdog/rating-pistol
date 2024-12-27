@@ -7,6 +7,8 @@ const setData = {
     name: "Branch & Blade Song",
   },
 
+  // Version 1.3
+
   // Version 1.2
   ChaosJazz: {
     name: "Chaos Jazz",
@@ -14,6 +16,8 @@ const setData = {
   ProtoPunk: {
     name: "Proto Punk",
   },
+
+  // Version 1.1
 
   // Version 1.0
   ChaoticMetal: {
