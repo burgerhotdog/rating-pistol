@@ -257,6 +257,8 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
   },
+  
+  // Version 3.8
 
   // Version 3.7
   IbisPiercer: {

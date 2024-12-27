@@ -1,4 +1,6 @@
 const setData = {
+  // Version 2.7
+  
   // Version 2.6
   SacerdosRelivedOrdeal: {
     name: "Sacerdos' Relived Ordeal",
@@ -18,6 +20,8 @@ const setData = {
     name: "The Wondrous BananAmusement Park",
     type: "Planar",
   },
+  
+  // Version 2.4
 
   // Version 2.3
   DuranDynastyOfRunningWolves: {
@@ -36,6 +40,8 @@ const setData = {
     name: "The Wind-Soaring Valorous",
     type: "Relic",
   },
+
+  // Version 2.2
 
   // Version 2.1
   IzumoGenseiAndTakamaDivineRealm: {
@@ -57,6 +63,8 @@ const setData = {
     type: "Relic",
   },
 
+  // Version 1.6
+
   // Version 1.5
   FirmamentFrontlineGlamoth: {
     name: "Firmament Frontline: Glamoth",
@@ -75,6 +83,10 @@ const setData = {
     type: "Relic",
   },
 
+  // Version 1.4
+
+  // Version 1.3
+
   // Version 1.2
   BrokenKeel: {
     name: "Broken Keel",
@@ -92,6 +104,8 @@ const setData = {
     name: "Rutilant Arena",
     type: "Planar",
   },
+
+  // Version 1.1
 
   // Version 1.0
   BandOfSizzlingThunder: {

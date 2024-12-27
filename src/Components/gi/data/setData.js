@@ -1,4 +1,8 @@
 const setData = {
+  // Version 5.2
+
+  // Version 5.1
+
   // Version 5.0
   ObsidianCodex: {
     name: "Obsidian Codex",
@@ -6,6 +10,10 @@ const setData = {
   ScrollOfTheHeroOfCinderCity: {
     name: "Scroll of the Hero of Cinder City",
   },
+
+  // Version 4.8
+
+  // Version 4.7
 
   // Version 4.6
   FragmentOfHarmonicWhimsy: {
@@ -15,6 +23,10 @@ const setData = {
     name: "Unfinished Reverie",
   },
 
+  // Version 4.5
+
+  // Version 4.4
+
   // Version 4.3
   NighttimeWhispersInTheEchoingWoods: {
     name: "Nighttime Whispers in the Echoing Woods",
@@ -22,6 +34,10 @@ const setData = {
   SongOfDaysPast: {
     name: "Song of Days Past",
   },
+
+  // Version 4.2
+
+  // Version 4.1
 
   // Version 4.0
   GoldenTroupe: {
@@ -31,6 +47,10 @@ const setData = {
     name: "Marechaussee Hunter",
   },
 
+  // Version 3.8
+
+  // Version 3.7
+
   // Version 3.6
   NymphsDream: {
     name: "Nymph's Dream",
@@ -38,6 +58,10 @@ const setData = {
   VourukashasGlow: {
     name: "Vourukasha's Glow",
   },
+
+  // Version 3.5
+
+  // Version 3.4
 
   // Version 3.3
   DesertPavilionChronicle: {
@@ -47,6 +71,10 @@ const setData = {
     name: "Flower of Paradise Lost",
   },
 
+  // Version 3.2
+
+  // Version 3.1
+
   // Version 3.0
   DeepwoodMemories: {
     name: "Deepwood Memories",
@@ -54,6 +82,10 @@ const setData = {
   GildedDreams: {
     name: "Gilded Dreams",
   },
+
+  // Version 2.8
+
+  // Version 2.7
 
   // Version 2.6
   EchoesOfAnOffering: {
@@ -63,6 +95,10 @@ const setData = {
     name: "Vermillion Hereafter",
   },
 
+  // Version 2.5
+
+  // Version 2.4
+
   // Version 2.3
   HuskOfOpulentDreams: {
     name: "Husk of Opulent Dreams",
@@ -70,6 +106,10 @@ const setData = {
   OceanHuedClam: {
     name: "Ocean-Hued Clam",
   },
+
+  // Version 2.2
+
+  // Version 2.1
 
   // Version 2.0
   EmblemOfSeveredFate: {
@@ -79,6 +119,8 @@ const setData = {
     name: "Shimenawa's Reminiscence",
   },
 
+  // Version 1.6
+
   // Version 1.5
   PaleFlame: {
     name: "Pale Flame",
@@ -87,6 +129,10 @@ const setData = {
     name: "Tenacity of the Millelith",
   },
 
+  // Version 1.4
+
+  // Version 1.3
+
   // Version 1.2
   BlizzardStrayer: {
     name: "Blizzard Strayer",
@@ -94,6 +140,8 @@ const setData = {
   HeartOfDepth: {
     name: "Heart of Depth",
   },
+
+  // Version 1.1
 
   // Version 1.0
   ArchaicPetra: {

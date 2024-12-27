@@ -207,6 +207,8 @@ const charData = {
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
 
+  // Version 3.8
+
   // Version 3.7
   Kirara: {
     name: "Kirara",
