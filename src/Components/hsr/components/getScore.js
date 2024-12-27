@@ -22,7 +22,7 @@ const getScore = ( id, char ) => {
   // Calculate total sum of rolls
   // First and second substats count as 1 roll
   // Third substat counts as 0.5 roll
-  for (let slot = 0; slot <= 5; slot++) {
+  for (let slot = 0; slot < 6; slot++) {
     total += Number(char[slot][0] ?? 0) / subValues[charData[id].substats[0]];
     total += Number(char[slot][1] ?? 0) / subValues[charData[id].substats[1]];
     total += (Number(char[slot][2] ?? 0) / subValues[charData[id].substats[2]]) / 2;
