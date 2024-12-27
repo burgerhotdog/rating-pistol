@@ -96,7 +96,7 @@ const HonkaiStarRail = ({ uid }) => {
         alignItems: 'center',
         mt: 4,
       }}>
-        <Typography variant='h3'>Honkai Star Rail</Typography>
+        <Typography variant='h4'>Honkai Star Rail</Typography>
         <Typography variant="body2">Updated for version 2.7</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>

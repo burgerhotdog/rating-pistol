@@ -96,7 +96,7 @@ const GenshinImpact = ({ uid }) => {
         alignItems: 'center',
         mt: 4,
       }}>
-        <Typography variant='h3'>Genshin Impact</Typography>
+        <Typography variant='h4'>Genshin Impact</Typography>
         <Typography variant="body2">Updated for version 5.2</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>

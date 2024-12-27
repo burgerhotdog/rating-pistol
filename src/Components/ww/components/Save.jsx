@@ -20,7 +20,7 @@ import weapData from '../data/weapData';
 import setData from '../data/setData';
 import getScore from './getScore';
 
-const images = import.meta.glob('../../../assets/gi/splash/*.webp', { eager: true });
+const images = import.meta.glob('../../../assets/ww/splash/*.webp', { eager: true });
 
 const Save = ({
   uid,
