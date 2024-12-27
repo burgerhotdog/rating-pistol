@@ -139,7 +139,7 @@ const HonkaiStarRail = ({ uid }) => {
                     </TableCell>
                     <TableCell>{char.name}</TableCell>
                     {!isMobile && <TableCell>{char.weapon.entry.name}</TableCell>}
-                    {!isMobile && <TableCell>{char.relicSet.entry.name + " + " + char.planarSet.entry.name}</TableCell>}
+                    {!isMobile && <TableCell>{char.set1.entry.name + " + " + char.set2.entry.name}</TableCell>}
                     <TableCell>{char.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}

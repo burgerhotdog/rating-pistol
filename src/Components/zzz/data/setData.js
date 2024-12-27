@@ -1,21 +1,57 @@
-const setData = [
+const setData = {
+  // Version 1.4
+  AstralVoice: {
+    name: "Astral Voice",
+  },
+  BranchBladeSong: {
+    name: "Branch & Blade Song",
+  },
+
   // Version 1.2
-  "Chaos Jazz",
-  "Proto Punk",
+  ChaosJazz: {
+    name: "Chaos Jazz",
+  },
+  ProtoPunk: {
+    name: "Proto Punk",
+  },
 
   // Version 1.0
-  "Chaotic Metal",
-  "Fanged Metal",
-  "Freedom Blues",
-  "Hormone Punk",
-  "Inferno Metal",
-  "Polar Metal",
-  "Puffer Electro",
-  "Shockstar Disco",
-  "Soul Rock",
-  "Swing Jazz",
-  "Thunder Metal",
-  "Woodpecker Electro",
-];
+  ChaoticMetal: {
+    name: "Chaotic Metal",
+  },
+  FangedMetal: {
+    name: "Fanged Metal",
+  },
+  FreedomBlues: {
+    name: "Freedom Blues",
+  },
+  HormonePunk: {
+    name: "Hormone Punk",
+  },
+  InfernoMetal: {
+    name: "Inferno Metal",
+  },
+  PolarMetal: {
+    name: "Polar Metal",
+  },
+  PufferElectro: {
+    name: "Puffer Electro",
+  },
+  ShockstarDisco: {
+    name: "Shockstar Disco",
+  },
+  SoulRock: {
+    name: "Soul Rock",
+  },
+  SwingJazz: {
+    name: "Swing Jazz",
+  },
+  ThunderMetal: {
+    name: "Thunder Metal",
+  },  
+  WoodpeckerElectro: {
+    name: "Woodpecker Electro",
+  },
+};
 
 export default setData;

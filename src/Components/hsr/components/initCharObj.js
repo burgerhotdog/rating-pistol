@@ -4,11 +4,11 @@ const initCharObj = () => ({
     key: "",
     entry: {},
   },
-  relicSet: {
+  set1: {
     key: "",
     entry: {},
   },
-  planarSet: {
+  set2: {
     key: "",
     entry: {},
   },

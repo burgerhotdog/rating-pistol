@@ -37,6 +37,8 @@ const Save = ({
   const [error, setError] = useState('');
   const [availableCharIds, setAvailableCharIds] = useState([]);
   const [availableWeapIds, setAvailableWeapIds] = useState([]);
+  const [availableSet1Ids, setAvailableSet1Ids] = useState([]);
+  const [availableSet2Ids, setAvailableSet2Ids] = useState([]);
   
   // Theme and breakpoint
   const theme = useTheme();
@@ -44,18 +46,13 @@ const Save = ({
 
   // Update availableCharIds after saving or deleting a character
   useEffect(() => {
-    // Filter out used character ids
+    // Sort alphabetically
     const allCharIds = Object.keys(charData).sort();
+
+    // Only include unused character ids
     const filteredCharIds = allCharIds.filter(
       (id) => !Object.keys(myChars).includes(id)
     );
-
-    // Sort by rarity
-    filteredCharIds.sort((a, b) => {
-      const rarityA = charData[a]?.rarity || '';
-      const rarityB = charData[b]?.rarity || '';
-      return rarityB.localeCompare(rarityA);
-    });
 
     // Update state
     setAvailableCharIds(filteredCharIds);
@@ -64,30 +61,52 @@ const Save = ({
   // Update availableWeapIds after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
-      // Filter out weapon ids with wrong type
+      // Sort alphabetically
       const allWeapIds = Object.keys(weapData).sort();
-      const filteredWeapIds = allWeapIds.filter(
-        (id) => charData[newCharId].weapon === weapData[id].type
-      );
 
-      // Sort by rarity
-      filteredWeapIds.sort((a, b) => {
-        const rarityA = weapData[a]?.rarity || '';
-        const rarityB = weapData[b]?.rarity || '';
-        return rarityB.localeCompare(rarityA);
-      });
+      // Only include correct type weapon ids
+      const filteredWeapIds = allWeapIds.filter(
+        (id) => weapData[id].type === charData[newCharId].weapon
+      );
 
       // Update state
       setAvailableWeapIds(filteredWeapIds);
     }
   }, [newCharId]);
 
+  // Update availableSet1Ids after selecting a character
+  useEffect(() => {
+    if (charData[newCharId]) {
+      // Sort alphabetically
+      const allSetIds = Object.keys(setData).sort();
+
+      // Update state
+      setAvailableSet1Ids(allSetIds);
+    }
+  }, [newCharId]);
+
+  // Update availableSet2Ids after selecting a character or set1
+  useEffect(() => {
+    if (charData[newCharId]) {
+      // Sort alphabetically
+      const allSetIds = Object.keys(setData).sort();
+
+      // Remove set1 key from array
+      const index = allSetIds.indexOf(newCharObj.set1.key);
+      if (index > -1) allSetIds.splice(index, 1);
+
+      // Update state
+      setAvailableSet2Ids(allSetIds);
+    }
+  }, [newCharId, newCharObj.set1.key]);
+
   // Validation before saving
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon) errors.push('Select a weapon');
-    if (!newCharObj.set) errors.push('Select an artifact set');
+    if (!newCharObj.weapon.key) errors.push('Select W-Engine');
+    if (!newCharObj.set1.key) errors.push('Select 4P drive set');
+    if (!newCharObj.set2.key) errors.push('Select 2P drive set');
 
     // Display error message
     if (errors.length) {
@@ -160,7 +179,6 @@ const Save = ({
                 size='small'
                 value={newCharId}
                 options={availableCharIds}
-                groupBy={(option) => charData[option].rarity}
                 onChange={(event, newValue) => {
                   if (newValue) {
                     setNewCharId(newValue);
@@ -176,12 +194,6 @@ const Save = ({
                 getOptionLabel={(id) => charData[id]?.name}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => <TextField {...params} label="Character" />}
-                renderGroup={(params) => (
-                  <div key={params.group}>
-                    <strong style={{ padding: '8px' }}>{params.group}</strong>
-                    <div>{params.children}</div>
-                  </div>
-                )}
                 fullWidth
                 disabled={isEditMode}
               />
@@ -192,43 +204,70 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.weapon}
+                value={newCharObj.weapon.key}
                 options={availableWeapIds}
-                groupBy={(option) => weapData[option].rarity}
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    weapon: newValue,
+                    weapon: {
+                      key: newValue,
+                      entry: weapData[newValue],
+                    },
                   }));
                 }}
                 getOptionLabel={(id) => weapData[id]?.name || ''}
                 isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="Weapon" />}
-                renderGroup={(params) => (
-                  <div key={params.group}>
-                    <strong style={{ padding: '8px' }}>{params.group}</strong>
-                    <div>{params.children}</div>
-                  </div>
-                )}
+                renderInput={(params) => <TextField {...params} label="W-Engine" />}
                 fullWidth
               />
             </Grid>
 
-            {/* Select artifact set */}
-            <Grid size={{ xs: 12, sm: 6 }}>
+            {/* Select 4P drive set */}
+            <Grid size={{ xs: 12, sm: 3 }}>
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.set}
-                options={setData}
-                fullWidth
+                value={newCharObj.set1.key}
+                options={availableSet1Ids}
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    set: newValue,
+                    set1: {
+                      key: newValue,
+                      entry: setData[newValue],
+                    },
+                    set2: prev.set2.key === newValue
+                      ? { key: "", entry: {} }
+                      : prev.set2,
                   }));
                 }}
-                renderInput={(params) => <TextField {...params} label="Artifact Set" />}
+                getOptionLabel={(id) => setData[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => <TextField {...params} label="4P Drive Set" />}
+                fullWidth
+              />
+            </Grid>
+
+            {/* Select 2P drive set */}
+            <Grid size={{ xs: 12, sm: 3 }}>
+              <Autocomplete
+                disablePortal
+                size='small'
+                value={newCharObj.set2.key}
+                options={availableSet2Ids}
+                onChange={(event, newValue) => {
+                  setNewCharObj((prev) => ({
+                    ...prev,
+                    set2: {
+                      key: newValue,
+                      entry: setData[newValue],
+                    },
+                  }));
+                }}
+                getOptionLabel={(id) => setData[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => <TextField {...params} label="2P Drive Set" />}
+                fullWidth
               />
             </Grid>
 
@@ -247,7 +286,7 @@ const Save = ({
               )}
             </Grid>
 
-            {/* Artifact grid */}
+            {/* Disk grid */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Grid container spacing={2}>
                 {['Disk 1', 'Disk 2', 'Disk 3', 'Disk 4', 'Disk 5', 'Disk 6'].map(
@@ -272,7 +311,6 @@ const Save = ({
             size='small'
             value={newCharId}
             options={availableCharIds}
-            groupBy={(option) => charData[option].rarity}
             onChange={(event, newValue) => {
               if (newValue) {
                 setNewCharId(newValue);
@@ -288,12 +326,6 @@ const Save = ({
             getOptionLabel={(id) => charData[id]?.name || ''}
             isOptionEqualToValue={(option, value) => option === value}
             renderInput={(params) => <TextField {...params} label="Select" />}
-            renderGroup={(params) => (
-              <div key={params.group}>
-                <strong style={{ padding: '8px' }}>{params.group}</strong>
-                <div>{params.children}</div>
-              </div>
-            )}
             sx={{ width: 240 }}
           />
         )}

@@ -37,8 +37,8 @@ const Save = ({
   const [error, setError] = useState('');
   const [availableCharIds, setAvailableCharIds] = useState([]);
   const [availableWeapIds, setAvailableWeapIds] = useState([]);
-  const [availableRelicSetIds, setAvailableRelicSetIds] = useState([]);
-  const [availablePlanarSetIds, setAvailablePlanarSetIds] = useState([]);
+  const [availableSet1Ids, setAvailableSet1Ids] = useState([]);
+  const [availableSet2Ids, setAvailableSet2Ids] = useState([]);
   
   // Theme and breakpoint
   const theme = useTheme();
@@ -74,7 +74,7 @@ const Save = ({
     }
   }, [newCharId]);
 
-  // Update availableRelicSetIds after selecting a character
+  // Update availableSet1Ids after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
       // Sort alphabetically
@@ -86,11 +86,11 @@ const Save = ({
       );
 
       // Update state
-      setAvailableRelicSetIds(filteredSetIds);
+      setAvailableSet1Ids(filteredSetIds);
     }
   }, [newCharId]);
 
-  // Update availablePlanarSetIds after selecting a character
+  // Update availableSet2Ids after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
       // Sort alphabetically
@@ -102,7 +102,7 @@ const Save = ({
       );
 
       // Update state
-      setAvailablePlanarSetIds(filteredSetIds);
+      setAvailableSet2Ids(filteredSetIds);
     }
   }, [newCharId]);
 
@@ -111,8 +111,8 @@ const Save = ({
     const errors = [];
     // Types of errors
     if (!newCharObj.weapon.key) errors.push('Select light cone');
-    if (!newCharObj.relicSet.key) errors.push('Select relic set');
-    if (!newCharObj.planarSet.key) errors.push('Select planar set');
+    if (!newCharObj.set1.key) errors.push('Select relic set');
+    if (!newCharObj.set2.key) errors.push('Select planar set');
 
     // Display error message
     if (errors.length) {
@@ -233,12 +233,12 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.relicSet.key}
-                options={availableRelicSetIds}
+                value={newCharObj.set1.key}
+                options={availableSet1Ids}
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    relicSet: {
+                    set1: {
                       key: newValue,
                       entry: setData[newValue],
                     },
@@ -256,12 +256,12 @@ const Save = ({
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.planarSet.key}
-                options={availablePlanarSetIds}
+                value={newCharObj.set2.key}
+                options={availableSet2Ids}
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    planarSet: {
+                    set2: {
                       key: newValue,
                       entry: setData[newValue],
                     },
