@@ -13,7 +13,7 @@ const charData = {
     rarity: "5 Star",
     weapon: "Nihility",
     element: "Fire",
-    mainstats: ["HP", "ATK", "EHR%", "SPD", "HP% / DEF%", "BE / ERR"],
+    mainstats: ["HP", "ATK", "EHR%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["EHR%", "BE", "SPD"],
   },
   
@@ -44,6 +44,14 @@ const charData = {
     mainstats: ["HP", "ATK", "OHB", "SPD", "ATK%", "ERR"],
     substats: ["BE", "SPD", "ATK%"],
   },
+  Moze: {
+    name: "Moze",
+    rarity: "4 Star",
+    weapon: "Hunt",
+    element: "Lightning",
+    mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Lightning DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
   
   // Version 2.4
   Jiaoqiu: {
@@ -53,6 +61,14 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "Fire DMG", "ERR"],
     substats: ["EHR%", "SPD", "ATK%"],
+  },
+  March7thTheHunt: {
+    name: "March 7th • The Hunt",
+    rarity: "4 Star",
+    weapon: "Hunt",
+    element: "Imaginary",
+    mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Imaginary DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Yunli: {
     name: "Yunli",
@@ -116,6 +132,14 @@ const charData = {
     mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "DEF%", "DEF%"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
   },
+  Gallagher: {
+    name: "Gallagher",
+    rarity: "4 Star",
+    weapon: "Abundance",
+    element: "Fire",
+    mainstats: ["HP", "ATK", "OHB", "SPD", "HP% / DEF%", "ERR"],
+    substats: ["BE", "SPD", "EFF RES%"],
+  },
   
   // Version 2.0
   BlackSwan: {
@@ -125,6 +149,14 @@ const charData = {
     element: "Wind",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "Wind DMG", "ATK%"],
     substats: ["EHR%", "SPD", "ATK%"],
+  },
+  Misha: {
+    name: "Misha",
+    rarity: "4 Star",
+    weapon: "Destruction",
+    element: "Ice",
+    mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Ice DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   Sparkle: {
     name: "Sparkle",
@@ -152,6 +184,14 @@ const charData = {
     mainstats: ["HP", "ATK", "HP% / DEF%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["BE", "SPD", "EFF RES%"],
   },
+  Xueyi: {
+    name: "Xueyi",
+    rarity: "4 Star",
+    weapon: "Destruction",
+    element: "Quantum",
+    mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "ATK%", "BE"],
+    substats: ["CRIT Rate", "CRIT DMG", "BE"],
+  },
   
   // Version 1.5
   Argenti: {
@@ -161,6 +201,14 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Hanya: {
+    name: "Hanya",
+    rarity: "4 Star",
+    weapon: "Harmony",
+    element: "Physical",
+    mainstats: ["HP", "ATK", "HP% / DEF%", "SPD", "HP% / DEF%", "ERR"],
+    substats: ["HP%", "SPD", "EFF RES%"],
   },
   Huohuo: {
     name: "Huohuo",
@@ -172,6 +220,14 @@ const charData = {
   },
   
   // Version 1.4
+  Guinaifen: {
+    name: "Guinaifen",
+    rarity: "4 Star",
+    weapon: "Nihility",
+    element: "Fire",
+    mainstats: ["HP", "ATK", "ATK%", "SPD", "Fire DMG", "ATK%"],
+    substats: ["EHR%", "SPD", "ATK%"],
+  },
   Jingliu: {
     name: "Jingliu",
     rarity: "5 Star",
@@ -206,6 +262,14 @@ const charData = {
     mainstats: ["HP", "ATK", "HP%", "SPD", "HP%", "ERR"],
     substats: ["HP%", "SPD", "DEF%"],
   },
+  Lynx: {
+    name: "Lynx",
+    rarity: "4 Star",
+    weapon: "Abundance",
+    element: "Quantum",
+    mainstats: ["HP", "ATK", "OHB", "SPD", "HP%", "ERR"],
+    substats: ["HP%", "SPD", "EFF RES%"],
+  },
   
   // Version 1.2
   Blade: {
@@ -223,6 +287,14 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "ATK%", "ATK%", "Lightning DMG", "ATK%"],
     substats: ["ATK%", "SPD", "EHR%"],
+  },
+  Luka: {
+    name: "Luka",
+    rarity: "4 Star",
+    weapon: "Nihility",
+    element: "Physical",
+    mainstats: ["HP", "ATK", "EHR%", "SPD", "Physical DMG", "BE"],
+    substats: ["BE", "SPD", "EHR%"],
   },
   
   // Version 1.1
@@ -242,8 +314,32 @@ const charData = {
     mainstats: ["HP", "ATK", "EHR%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["EHR%", "SPD", "EFF RES%"],
   },
+  Yukong: {
+    name: "Yukong",
+    rarity: "4 Star",
+    weapon: "Harmony",
+    element: "Imaginary",
+    mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Imaginary DMG", "ERR"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
 
   // Version 1.0
+  Arlan: {
+    name: "Arlan",
+    rarity: "4 Star",
+    weapon: "Destruction",
+    element: "Lightning",
+    mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Lightning DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Asta: {
+    name: "Asta",
+    rarity: "4 Star",
+    weapon: "Harmony",
+    element: "Fire",
+    mainstats: ["HP", "ATK", "HP% / DEF%", "SPD", "HP% / DEF%", "ERR"],
+    substats: ["HP%", "SPD", "EFF RES%"],
+  },
   Bailu: {
     name: "Bailu",
     rarity: "5 Star",
@@ -268,6 +364,14 @@ const charData = {
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  DanHeng: {
+    name: "Dan Heng",
+    rarity: "4 Star",
+    weapon: "Hunt",
+    element: "Wind",
+    mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Wind DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
   Gepard: {
     name: "Gepard",
     rarity: "5 Star",
@@ -276,12 +380,28 @@ const charData = {
     mainstats: ["HP", "ATK", "DEF%", "SPD", "DEF%", "ERR"],
     substats: ["DEF%", "SPD", "EFF RES%"],
   },
+  Herta: {
+    name: "Herta",
+    rarity: "4 Star",
+    weapon: "Erudition",
+    element: "Ice",
+    mainstats: ["HP", "ATK", "CRIT Rate / DMG", "ATK%", "Ice DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
   Himeko: {
     name: "Himeko",
     rarity: "5 Star",
     weapon: "Erudition",
     element: "Fire",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD / ATK%", "Fire DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Hook: {
+    name: "Hook",
+    rarity: "4 Star",
+    weapon: "Destruction",
+    element: "Fire",
+    mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Fire DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
   JingYuan: {
@@ -292,6 +412,46 @@ const charData = {
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Lightning DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  March7th: {
+    name: "March 7th",
+    rarity: "4 Star",
+    weapon: "Preservation",
+    element: "Ice",
+    mainstats: ["HP", "ATK", "EHR%", "SPD", "DEF%", "ERR"],
+    substats: ["EHR%", "SPD", "DEF%"],
+  },
+  Natasha: {
+    name: "Natasha",
+    rarity: "4 Star",
+    weapon: "Abundance",
+    element: "Physical",
+    mainstats: ["HP", "ATK", "OHB", "SPD", "HP%", "ERR"],
+    substats: ["HP%", "SPD", "EFF RES%"],
+  },
+  Pela: {
+    name: "Pela",
+    rarity: "4 Star",
+    weapon: "Nihility",
+    element: "Ice",
+    mainstats: ["HP", "ATK", "EHR%", "SPD", "HP% / DEF%", "ERR"],
+    substats: ["EHR%", "SPD", "EFF RES%"],
+  },
+  Qingque: {
+    name: "Qingque",
+    rarity: "4 Star",
+    weapon: "Erudition",
+    element: "Quantum",
+    mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Quantum DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Sampo: {
+    name: "Sampo",
+    rarity: "4 Star",
+    weapon: "Nihility",
+    element: "Wind",
+    mainstats: ["HP", "ATK", "EHR%", "SPD", "Wind DMG", "ATK%"],
+    substats: ["EHR%", "SPD", "ATK%"],
+  },
   Seele: {
     name: "Seele",
     rarity: "5 Star",
@@ -299,6 +459,30 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Quantum DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Serval: {
+    name: "Serval",
+    rarity: "4 Star",
+    weapon: "Erudition",
+    element: "Lightning",
+    mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Lightning DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Sushang: {
+    name: "Sushang",
+    rarity: "4 Star",
+    weapon: "Hunt",
+    element: "Physical",
+    mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Physical DMG", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+  Tingyun: {
+    name: "Tingyun",
+    rarity: "4 Star",
+    weapon: "Harmony",
+    element: "Lightning",
+    mainstats: ["HP", "ATK", "ATK%", "SPD", "ATK%", "ERR"],
+    substats: ["ATK%", "SPD", "EFF RES%"],
   },
   Welt: {
     name: "Welt",

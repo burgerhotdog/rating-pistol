@@ -9,7 +9,7 @@ const getScore = ( id, char ) => {
     "ATK%": 9,
     "HP%": 9,
     "DEF%": 11.4,
-    "ER%": 10.3,
+    "ER": 10.3,
     "CRIT Rate": 8.4,
     "CRIT DMG": 16.8,
     "Basic DMG": 9,
