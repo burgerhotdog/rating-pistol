@@ -22,7 +22,8 @@ import Save from './components/Save';
 import Delete from './components/Delete';
 import initCharObj from './components/initCharObj';
 
-const icons = import.meta.glob('../../assets/hsr/icon/*.webp', { eager: true });
+const iconMedia = import.meta.glob('../../assets/hsr/icon/*.webp', { eager: true });
+const weaponMedia = import.meta.glob('../../assets/hsr/weapon/*.webp', { eager: true });
 
 const HonkaiStarRail = ({ uid }) => {
   // Modal States
@@ -128,8 +129,8 @@ const HonkaiStarRail = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={icons[`../../assets/hsr/icon/${id}_Icon.webp`]?.default}
-                        alt={char.name || 'Character Icon'}
+                        src={iconMedia[`../../assets/hsr/icon/${id}_Icon.webp`]?.default}
+                        alt={char.name || 'Icon'}
                         style={{
                           width: 50,
                           height: 50,
@@ -138,8 +139,24 @@ const HonkaiStarRail = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{char.name}</TableCell>
-                    {!isMobile && <TableCell>{char.weapon.entry.name}</TableCell>}
-                    {!isMobile && <TableCell>{char.set1.entry.name + " + " + char.set2.entry.name}</TableCell>}
+                    {!isMobile && (
+                      <TableCell>
+                        <img
+                          src={weaponMedia[`../../assets/hsr/weapon/${char.weapon.key}.webp`]?.default}
+                          alt={char.weapon.entry.name || 'Weapon'}
+                          style={{
+                            width: 50,
+                            height: 50,
+                            objectFit: 'contain',
+                          }}
+                        />
+                      </TableCell>
+                    )}
+                    {!isMobile && (
+                      <TableCell>
+                        {char.set1.entry.name + " + " + char.set2.entry.name}
+                      </TableCell>
+                    )}
                     <TableCell>{char.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}
