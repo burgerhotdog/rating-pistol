@@ -130,7 +130,7 @@ const HonkaiStarRail = ({ uid }) => {
                     <TableCell>
                       <img
                         src={iconMedia[`../../assets/hsr/icon/${id}_Icon.webp`]?.default}
-                        alt={char.name || 'Character Icon'}
+                        alt={char.name || 'Icon'}
                         style={{
                           width: 50,
                           height: 50,
@@ -139,8 +139,24 @@ const HonkaiStarRail = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{char.name}</TableCell>
-                    {!isMobile && <TableCell>{char.weapon.entry.name}</TableCell>}
-                    {!isMobile && <TableCell>{char.set1.entry.name + " + " + char.set2.entry.name}</TableCell>}
+                    {!isMobile && (
+                      <TableCell>
+                        <img
+                          src={weaponMedia[`../../assets/hsr/weapon/${char.weapon.key}.webp`]?.default}
+                          alt={char.weapon.entry.name || 'Weapon'}
+                          style={{
+                            width: 50,
+                            height: 50,
+                            objectFit: 'contain',
+                          }}
+                        />
+                      </TableCell>
+                    )}
+                    {!isMobile && (
+                      <TableCell>
+                        {char.set1.entry.name + " + " + char.set2.entry.name}
+                      </TableCell>
+                    )}
                     <TableCell>{char.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}
