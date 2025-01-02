@@ -1,4 +1,21 @@
 const setData = {
+  // Version 2.0
+  EmpyreanAnthem: {
+    name: "Empyrean Anthem",
+  },
+  EternalRadiance: {
+    name: "Eternal Radiance",
+  },
+  FrostyResolve: {
+    name: "Frosty Resolve",
+  },
+  MidnightVeil: {
+    name: "Midnight Veil",
+  },
+  TidebreakingCourage: {
+    name: "Tidebreaking Courage",
+  },
+
   // Version 1.4
   
   // Version 1.3

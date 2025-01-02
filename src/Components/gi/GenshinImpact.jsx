@@ -99,7 +99,7 @@ const GenshinImpact = ({ uid }) => {
         mt: 4,
       }}>
         <Typography variant='h4'>Genshin Impact</Typography>
-        <Typography variant="body2">Updated for version 5.2</Typography>
+        <Typography variant="body2">Updated for version 5.3</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}

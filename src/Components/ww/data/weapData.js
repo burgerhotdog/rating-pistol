@@ -1,4 +1,11 @@
 const weapData = {
+  // Version 2.0
+  TheLastDance: {
+    name: "The Last Dance",
+    rarity: "5 Star",
+    type: "Pistols",
+  },
+
   // Version 1.4
   RedSpring: {
     name: "Red Spring",

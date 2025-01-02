@@ -1,4 +1,14 @@
 const charData = {
+  // Version 2.0
+  Carlotta: {
+    name: "Carlotta",
+    rarity: "5 Star",
+    weapon: "Pistols",
+    element: "Glacio",
+    mainstats: ["CRIT Rate / DMG", "Glacio DMG", "Glacio DMG", "ATK%", "ATK%"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+
   // Version 1.4
   Camellya: {
     name: "Camellya",
