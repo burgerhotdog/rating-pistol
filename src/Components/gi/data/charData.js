@@ -1,4 +1,22 @@
 const charData = {
+  // Version 5.3
+  Citlali: {
+    name: "Citlali",
+    rarity: "5 Star",
+    weapon: "Catalyst",
+    element: "Cryo",
+    mainstats: ["HP", "ATK", "ER%", "EM", "EM"],
+    substats: ["ER%", "EM", "ATK%"],
+  },
+  Mavuika: {
+    name: "Mavuika",
+    rarity: "5 Star",
+    weapon: "Claymore",
+    element: "Pyro",
+    mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
+    substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+  },
+
   // Version 5.2
   Chasca: {
     name: "Chasca",

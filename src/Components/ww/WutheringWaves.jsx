@@ -99,7 +99,7 @@ const WutheringWaves = ({ uid }) => {
         mt: 4,
       }}>
         <Typography variant='h4'>Wuthering Waves</Typography>
-        <Typography variant="body2">Updated for version 1.4</Typography>
+        <Typography variant="body2">Updated for version 2.0</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}

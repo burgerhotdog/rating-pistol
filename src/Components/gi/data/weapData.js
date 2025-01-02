@@ -1,4 +1,16 @@
 const weapData = {
+  // Version 5.3
+  AThousandBlazingSuns: {
+    name: "A Thousand Blazing Suns",
+    rarity: "5 Star",
+    type: "Claymore",
+  },
+  StarcallersWatch: {
+    name: "Starcaller's Watch",
+    rarity: "5 Star",
+    type: "Catalyst",
+  },
+  
   // Version 5.2
   AstralVulturesCrimsonPlumage: {
     name: "Astral Vulture's Crimson Plumage",
