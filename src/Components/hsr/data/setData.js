@@ -176,6 +176,10 @@ const setData = {
     name: "Sprightly Vonwacq",
     type: "Planar",
   },
+  TaliaKingdomOfBanditry: {
+    name: "Talia: Kingdom of Banditry",
+    type: "Planar",
+  },
   ThiefOfShootingMeteor: {
     name: "Thief of Shooting Meteor",
     type: "Relic",

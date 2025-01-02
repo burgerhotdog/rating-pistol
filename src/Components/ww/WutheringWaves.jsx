@@ -24,6 +24,7 @@ import initCharObj from './components/initCharObj';
 
 const iconMedia = import.meta.glob('../../assets/ww/icon/*.webp', { eager: true });
 const weaponMedia = import.meta.glob('../../assets/ww/weapon/*.webp', { eager: true });
+const setMedia = import.meta.glob('../../assets/ww/set/*.webp', { eager: true });
 
 const WutheringWaves = ({ uid }) => {
   // Modal States
@@ -154,7 +155,15 @@ const WutheringWaves = ({ uid }) => {
                     )}
                     {!isMobile && (
                       <TableCell>
-                        {char.set.entry.name}
+                        <img
+                          src={setMedia[`../../assets/ww/set/${char.set.key}.webp`]?.default}
+                          alt={char.set.entry.name || 'Set'}
+                          style={{
+                            width: 50,
+                            height: 50,
+                            objectFit: 'contain',
+                          }}
+                        />
                       </TableCell>
                     )}
                     <TableCell>{char.score}</TableCell>

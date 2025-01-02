@@ -24,6 +24,7 @@ import initCharObj from './components/initCharObj';
 
 const iconMedia = import.meta.glob('../../assets/gi/icon/*.webp', { eager: true });
 const weaponMedia = import.meta.glob('../../assets/gi/weapon/*.webp', { eager: true });
+const setMedia = import.meta.glob('../../assets/gi/set/*.webp', { eager: true });
 
 const GenshinImpact = ({ uid }) => {
   // Modal States
@@ -154,7 +155,15 @@ const GenshinImpact = ({ uid }) => {
                     )}
                     {!isMobile && (
                       <TableCell>
-                        {char.set.entry.name}
+                        <img
+                          src={setMedia[`../../assets/gi/set/${char.set.key}.webp`]?.default}
+                          alt={char.set.entry.name || 'Set'}
+                          style={{
+                            width: 50,
+                            height: 50,
+                            objectFit: 'contain',
+                          }}
+                        />
                       </TableCell>
                     )}
                     <TableCell>{char.score}</TableCell>
