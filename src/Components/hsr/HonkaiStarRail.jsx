@@ -24,6 +24,7 @@ import initCharObj from './components/initCharObj';
 
 const iconMedia = import.meta.glob('../../assets/hsr/icon/*.webp', { eager: true });
 const weaponMedia = import.meta.glob('../../assets/hsr/weapon/*.webp', { eager: true });
+const setMedia = import.meta.glob('../../assets/hsr/set/*.webp', { eager: true });
 
 const HonkaiStarRail = ({ uid }) => {
   // Modal States
@@ -154,7 +155,32 @@ const HonkaiStarRail = ({ uid }) => {
                     )}
                     {!isMobile && (
                       <TableCell>
-                        {char.set1.entry.name + " + " + char.set2.entry.name}
+                        <Box sx={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          gap: 1,
+                        }}>
+                          <img
+                            src={setMedia[`../../assets/hsr/set/${char.set1.key}.webp`]?.default}
+                            alt={char.set1.entry.name || 'Set 1'}
+                            style={{
+                              width: 50,
+                              height: 50,
+                              objectFit: 'contain',
+                            }}
+                          />
+                          <Typography>+</Typography>
+                          <img
+                            src={setMedia[`../../assets/hsr/set/${char.set2.key}.webp`]?.default}
+                            alt={char.set2.entry.name || 'Set 2'}
+                            style={{
+                              width: 50,
+                              height: 50,
+                              objectFit: 'contain',
+                            }}
+                          />
+                        </Box>
                       </TableCell>
                     )}
                     <TableCell>{char.score}</TableCell>
