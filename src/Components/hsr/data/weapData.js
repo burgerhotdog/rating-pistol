@@ -398,8 +398,8 @@ const weapData = {
     rarity: "4 Star",
     type: "Erudition",
   },
-  Meditation: {
-    name: "Meditation",
+  Mediation: {
+    name: "Mediation",
     rarity: "3 Star",
     type: "Harmony",
   },

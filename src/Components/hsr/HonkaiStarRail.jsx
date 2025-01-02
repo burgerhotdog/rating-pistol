@@ -22,7 +22,8 @@ import Save from './components/Save';
 import Delete from './components/Delete';
 import initCharObj from './components/initCharObj';
 
-const icons = import.meta.glob('../../assets/hsr/icon/*.webp', { eager: true });
+const iconMedia = import.meta.glob('../../assets/hsr/icon/*.webp', { eager: true });
+const weaponMedia = import.meta.glob('../../assets/hsr/weapon/*.webp', { eager: true });
 
 const HonkaiStarRail = ({ uid }) => {
   // Modal States
@@ -128,7 +129,7 @@ const HonkaiStarRail = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={icons[`../../assets/hsr/icon/${id}_Icon.webp`]?.default}
+                        src={iconMedia[`../../assets/hsr/icon/${id}_Icon.webp`]?.default}
                         alt={char.name || 'Character Icon'}
                         style={{
                           width: 50,
