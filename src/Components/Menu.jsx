@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Button, Container } from '@mui/material';
-
-import gi from '../assets/gi/gi.webp'
-import hsr from '../assets//hsr/hsr.webp'
-import zzz from '../assets/zzz/zzz.webp'
-import ww from '../assets/ww/ww.webp'
+import GENSHIN_IMPACT from '../assets/genshin-impact.webp'
+import HONKAI_STAR_RAIL from '../assets/honkai-star-rail.webp'
+import ZENLESS_ZONE_ZERO from '../assets/zenless-zone-zero.webp'
+import WUTHERING_WAVES from '../assets/wuthering-waves.webp'
 
 const tint = 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))';
 
@@ -25,7 +24,7 @@ const Menu = () => {
           component={Link}
           to='/genshin-impact'
           fullWidth
-          sx={{ backgroundImage: `${tint}, url(${gi})` }}
+          sx={{ backgroundImage: `${tint}, url(${GENSHIN_IMPACT})` }}
         >
           Genshin Impact
         </Button>
@@ -35,7 +34,7 @@ const Menu = () => {
           component={Link}
           to='/honkai-star-rail'
           fullWidth
-          sx={{ backgroundImage: `${tint}, url(${hsr})` }}
+          sx={{ backgroundImage: `${tint}, url(${HONKAI_STAR_RAIL})` }}
         >
           Honkai Star Rail
         </Button>
@@ -45,7 +44,7 @@ const Menu = () => {
           component={Link}
           to='/zenless-zone-zero'
           fullWidth
-          sx={{ backgroundImage: `${tint}, url(${zzz})` }}
+          sx={{ backgroundImage: `${tint}, url(${ZENLESS_ZONE_ZERO})` }}
         >
           Zenless Zone Zero
         </Button>
@@ -55,7 +54,7 @@ const Menu = () => {
           component={Link}
           to='/wuthering-waves'
           fullWidth
-          sx={{ backgroundImage: `${tint}, url(${ww})` }}
+          sx={{ backgroundImage: `${tint}, url(${WUTHERING_WAVES})` }}
         >
           Wuthering Waves
         </Button>

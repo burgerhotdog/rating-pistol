@@ -1,9 +1,8 @@
 import React from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { Box, Button, Modal, Typography } from '@mui/material';
-
 import { db } from '../../../firebase';
-import initCharObj from './initCharObj';
+import initCharObj from '../initCharObj';
 
 const Delete = ({
   uid,
@@ -22,7 +21,7 @@ const Delete = ({
       // If signed in:
       if (uid) {
         // Delete document from firestore
-        const characterDocRef = doc(db, 'users', uid, 'HonkaiStarRail', newCharId);
+        const characterDocRef = doc(db, 'users', uid, 'GenshinImpact', newCharId);
         await deleteDoc(characterDocRef);
       }
 

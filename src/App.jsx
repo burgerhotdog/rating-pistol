@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-
-import Auth from './Components/Auth';
-import Menu from './Components/Menu';
-import GenshinImpact from './Components/gi/GenshinImpact';
-import HonkaiStarRail from './Components/hsr/HonkaiStarRail';
-import ZenlessZoneZero from './Components/zzz/ZenlessZoneZero';
-import WutheringWaves from './Components/ww/WutheringWaves';
+import Auth from './components/Auth';
+import Menu from './components/Menu';
+import GenshinImpact from './pages/genshin-impact/GenshinImpact';
+import HonkaiStarRail from './pages/honkai-star-rail/HonkaiStarRail';
+import ZenlessZoneZero from './pages/zenless-zone-zero/ZenlessZoneZero';
+import WutheringWaves from './pages/wuthering-waves/WutheringWaves';
 
 function App() {
   const [uid, setUid] = useState(null);
