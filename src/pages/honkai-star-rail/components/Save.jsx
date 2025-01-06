@@ -11,16 +11,15 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-
 import { db } from '../../../firebase';
 import SlotCard from './SlotCard';
-import initCharObj from './initCharObj';
+import getScore from '../getScore';
+import initCharObj from '../initCharObj';
 import charData from '../data/charData';
 import weapData from '../data/weapData';
 import setData from '../data/setData';
-import getScore from './getScore';
 
-const images = import.meta.glob('../../../assets/ww/splash/*.webp', { eager: true });
+const images = import.meta.glob('../assets/splash/*.webp', { eager: true });
 
 const Save = ({
   uid,
@@ -37,7 +36,8 @@ const Save = ({
   const [error, setError] = useState('');
   const [availableCharIds, setAvailableCharIds] = useState([]);
   const [availableWeapIds, setAvailableWeapIds] = useState([]);
-  const [availableSetIds, setAvailableSetIds] = useState([]);
+  const [availableSet1Ids, setAvailableSet1Ids] = useState([]);
+  const [availableSet2Ids, setAvailableSet2Ids] = useState([]);
   
   // Theme and breakpoint
   const theme = useTheme();
@@ -47,8 +47,8 @@ const Save = ({
   useEffect(() => {
     // Sort alphabetically
     const allCharIds = Object.keys(charData).sort();
-
-    // Only keep unused character ids
+    
+    // Only include unused character ids
     const filteredCharIds = allCharIds.filter(
       (id) => !Object.keys(myChars).includes(id)
     );
@@ -63,9 +63,9 @@ const Save = ({
       // Sort alphabetically
       const allWeapIds = Object.keys(weapData).sort();
 
-      // Only keep correct type weapon ids
+      // Only include correct type weapon ids
       const filteredWeapIds = allWeapIds.filter(
-        (id) => charData[newCharId].weapon === weapData[id].type
+        (id) => weapData[id].type === charData[newCharId].weapon
       );
 
       // Update state
@@ -73,14 +73,35 @@ const Save = ({
     }
   }, [newCharId]);
 
-  // Update availableSetIds after selecting a character
+  // Update availableSet1Ids after selecting a character
   useEffect(() => {
     if (charData[newCharId]) {
       // Sort alphabetically
       const allSetIds = Object.keys(setData).sort();
 
+      // Only include set ids for relics
+      const filteredSetIds = allSetIds.filter(
+        (id) => setData[id].type === "Relic"
+      );
+
       // Update state
-      setAvailableSetIds(allSetIds);
+      setAvailableSet1Ids(filteredSetIds);
+    }
+  }, [newCharId]);
+
+  // Update availableSet2Ids after selecting a character
+  useEffect(() => {
+    if (charData[newCharId]) {
+      // Sort alphabetically
+      const allSetIds = Object.keys(setData).sort();
+
+      // Only include set ids for planars
+      const filteredSetIds = allSetIds.filter(
+        (id) => setData[id].type === "Planar"
+      );
+
+      // Update state
+      setAvailableSet2Ids(filteredSetIds);
     }
   }, [newCharId]);
 
@@ -88,8 +109,9 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon.key) errors.push('Select weapon');
-    if (!newCharObj.set.key) errors.push('Select echo set');
+    if (!newCharObj.weapon.key) errors.push('Select light cone');
+    if (!newCharObj.set1.key) errors.push('Select relic set');
+    if (!newCharObj.set2.key) errors.push('Select planar set');
 
     // Display error message
     if (errors.length) {
@@ -111,7 +133,7 @@ const Save = ({
 
     // Save document to Firestore
     if (uid) {
-      const charDocRef = doc(db, 'users', uid, 'WutheringWaves', newCharId);
+      const charDocRef = doc(db, 'users', uid, 'HonkaiStarRail', newCharId);
       await setDoc(charDocRef, newCharObj, { merge: true });
     }
 
@@ -205,17 +227,17 @@ const Save = ({
               />
             </Grid>
 
-            {/* Select artifact set */}
-            <Grid size={{ xs: 12, sm: 6 }}>
+            {/* Select relic set */}
+            <Grid size={{ xs: 12, sm: 3 }}>
               <Autocomplete
                 disablePortal
                 size='small'
-                value={newCharObj.set.key}
-                options={availableSetIds}
+                value={newCharObj.set1.key}
+                options={availableSet1Ids}
                 onChange={(event, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
-                    set: {
+                    set1: {
                       key: newValue,
                       entry: setData[newValue],
                     },
@@ -223,7 +245,30 @@ const Save = ({
                 }}
                 getOptionLabel={(id) => setData[id]?.name || ''}
                 isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="Echo Set" />}
+                renderInput={(params) => <TextField {...params} label="Relic Set" />}
+                fullWidth
+              />
+            </Grid>
+
+            {/* Select planar set */}
+            <Grid size={{ xs: 12, sm: 3 }}>
+              <Autocomplete
+                disablePortal
+                size='small'
+                value={newCharObj.set2.key}
+                options={availableSet2Ids}
+                onChange={(event, newValue) => {
+                  setNewCharObj((prev) => ({
+                    ...prev,
+                    set2: {
+                      key: newValue,
+                      entry: setData[newValue],
+                    },
+                  }));
+                }}
+                getOptionLabel={(id) => setData[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => <TextField {...params} label="Planar Set" />}
                 fullWidth
               />
             </Grid>
@@ -232,7 +277,7 @@ const Save = ({
             <Grid size={{ xs: 12, sm: 6 }}>
               {!isMobile && (
                 <img
-                  src={images[`../../../assets/ww/splash/${newCharId}.webp`]?.default}
+                  src={images[`../assets/splash/${newCharId}.webp`]?.default}
                   alt={newCharObj.name || 'Character Splash'}
                   style={{
                     width: '100%',
@@ -243,54 +288,22 @@ const Save = ({
               )}
             </Grid>
 
-            {/* Artifact grid */}
+            {/* Relic grid */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Grid container spacing={2}>
-                <Grid size={{ xs: 12, sm: 12 }}>
-                  <SlotCard
-                    slotName={"4-Cost"}
-                    slotIndex={0}
-                    newCharId={newCharId}
-                    newCharObj={newCharObj}
-                    setNewCharObj={setNewCharObj}
-                  />
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
-                  <SlotCard
-                    slotName={"3-Cost"}
-                    slotIndex={1}
-                    newCharId={newCharId}
-                    newCharObj={newCharObj}
-                    setNewCharObj={setNewCharObj}
-                  />
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
-                  <SlotCard
-                    slotName={"3-Cost"}
-                    slotIndex={2}
-                    newCharId={newCharId}
-                    newCharObj={newCharObj}
-                    setNewCharObj={setNewCharObj}
-                  />
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
-                  <SlotCard
-                    slotName={"1-Cost"}
-                    slotIndex={3}
-                    newCharId={newCharId}
-                    newCharObj={newCharObj}
-                    setNewCharObj={setNewCharObj}
-                  />
-                </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
-                  <SlotCard
-                    slotName={"1-Cost"}
-                    slotIndex={4}
-                    newCharId={newCharId}
-                    newCharObj={newCharObj}
-                    setNewCharObj={setNewCharObj}
-                  />
-                </Grid>
+                {['Head', 'Hands', 'Chest', 'Boots', 'Orb', 'Rope'].map(
+                  (slotName, index) => (
+                    <Grid size={{ xs: 12, sm: 6 }} key={slotName}>
+                      <SlotCard
+                        slotName={slotName}
+                        slotIndex={index}
+                        newCharId={newCharId}
+                        newCharObj={newCharObj}
+                        setNewCharObj={setNewCharObj}
+                      />
+                    </Grid>
+                  )
+                )}
               </Grid>
             </Grid>
           </Grid>

@@ -15,16 +15,15 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-
 import { db } from '../../firebase';
-import Back from '../Back';
+import Back from '../../components/Back';
 import Save from './components/Save';
 import Delete from './components/Delete';
-import initCharObj from './components/initCharObj';
+import initCharObj from './initCharObj';
 
-const iconMedia = import.meta.glob('../../assets/gi/icon/*.webp', { eager: true });
-const weaponMedia = import.meta.glob('../../assets/gi/weapon/*.webp', { eager: true });
-const setMedia = import.meta.glob('../../assets/gi/set/*.webp', { eager: true });
+const iconMedia = import.meta.glob('./assets/icon/*.webp', { eager: true });
+const weaponMedia = import.meta.glob('./assets/weapon/*.webp', { eager: true });
+const setMedia = import.meta.glob('./assets/set/*.webp', { eager: true });
 
 const GenshinImpact = ({ uid }) => {
   // Modal States
@@ -130,7 +129,7 @@ const GenshinImpact = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={iconMedia[`../../assets/gi/icon/${id}_Icon.webp`]?.default}
+                        src={iconMedia[`./assets/icon/${id}_Icon.webp`]?.default}
                         alt={char.name || 'Icon'}
                         style={{
                           width: 50,
@@ -143,7 +142,7 @@ const GenshinImpact = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={weaponMedia[`../../assets/gi/weapon/${char.weapon.key}.webp`]?.default}
+                          src={weaponMedia[`./assets/weapon/${char.weapon.key}.webp`]?.default}
                           alt={char.weapon.entry.name || 'Weapon'}
                           style={{
                             width: 50,
@@ -156,7 +155,7 @@ const GenshinImpact = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={setMedia[`../../assets/gi/set/${char.set.key}.webp`]?.default}
+                          src={setMedia[`./assets/set/${char.set.key}.webp`]?.default}
                           alt={char.set.entry.name || 'Set'}
                           style={{
                             width: 50,

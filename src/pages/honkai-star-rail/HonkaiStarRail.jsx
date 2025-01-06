@@ -15,16 +15,15 @@ import {
   useTheme,
   useMediaQuery,
 } from '@mui/material';
-
 import { db } from '../../firebase';
-import Back from '../Back';
+import Back from '../../components/Back';
 import Save from './components/Save';
 import Delete from './components/Delete';
-import initCharObj from './components/initCharObj';
+import initCharObj from './initCharObj';
 
-const iconMedia = import.meta.glob('../../assets/zzz/icon/*.webp', { eager: true });
-const weaponMedia = import.meta.glob('../../assets/zzz/weapon/*.webp', { eager: true });
-const setMedia = import.meta.glob('../../assets/zzz/set/*.webp', { eager: true });
+const iconMedia = import.meta.glob('./assets/icon/*.webp', { eager: true });
+const weaponMedia = import.meta.glob('./assets/weapon/*.webp', { eager: true });
+const setMedia = import.meta.glob('./assets/set/*.webp', { eager: true });
 
 const HonkaiStarRail = ({ uid }) => {
   // Modal States
@@ -48,7 +47,7 @@ const HonkaiStarRail = ({ uid }) => {
     const fetchDB = async () => {
       if (uid) {
         // Fetch character documents from firestore
-        const charDocsRef = collection(db, 'users', uid, 'ZenlessZoneZero');
+        const charDocsRef = collection(db, 'users', uid, 'HonkaiStarRail');
         const charDocs = await getDocs(charDocsRef);
   
         // Convert documents to objects
@@ -98,8 +97,8 @@ const HonkaiStarRail = ({ uid }) => {
         alignItems: 'center',
         mt: 4,
       }}>
-        <Typography variant='h4'>Zenless Zone Zero</Typography>
-        <Typography variant="body2">Updated for version 1.4</Typography>
+        <Typography variant='h4'>Honkai Star Rail</Typography>
+        <Typography variant="body2">Updated for version 2.7</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}
@@ -107,8 +106,8 @@ const HonkaiStarRail = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {!isMobile && <TableCell>W-Engine</TableCell>}
-                {!isMobile && <TableCell>Drive Disks</TableCell>}
+                {!isMobile && <TableCell>Light Cone</TableCell>}
+                {!isMobile && <TableCell>Relics</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -130,7 +129,7 @@ const HonkaiStarRail = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={iconMedia[`../../assets/zzz/icon/${id}_Icon.webp`]?.default}
+                        src={iconMedia[`./assets/icon/${id}_Icon.webp`]?.default}
                         alt={char.name || 'Icon'}
                         style={{
                           width: 50,
@@ -143,7 +142,7 @@ const HonkaiStarRail = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={weaponMedia[`../../assets/zzz/weapon/${char.weapon.key}.webp`]?.default}
+                          src={weaponMedia[`./assets/weapon/${char.weapon.key}.webp`]?.default}
                           alt={char.weapon.entry.name || 'Weapon'}
                           style={{
                             width: 50,
@@ -162,7 +161,7 @@ const HonkaiStarRail = ({ uid }) => {
                           gap: 1,
                         }}>
                           <img
-                            src={setMedia[`../../assets/zzz/set/${char.set1.key}.webp`]?.default}
+                            src={setMedia[`./assets/set/${char.set1.key}.webp`]?.default}
                             alt={char.set1.entry.name || 'Set 1'}
                             style={{
                               width: 50,
@@ -172,7 +171,7 @@ const HonkaiStarRail = ({ uid }) => {
                           />
                           <Typography>+</Typography>
                           <img
-                            src={setMedia[`../../assets/zzz/set/${char.set2.key}.webp`]?.default}
+                            src={setMedia[`./assets/set/${char.set2.key}.webp`]?.default}
                             alt={char.set2.entry.name || 'Set 2'}
                             style={{
                               width: 50,

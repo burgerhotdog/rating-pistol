@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Card, Divider, TextField, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-
 import charData from '../data/charData';
 
 const SlotCard = ({
@@ -91,7 +90,6 @@ const SlotCard = ({
                     padding: '0',
                   },
                 }}
-                disabled={charData[newCharId].substats[subIndex] === charData[newCharId].mainstats[slotIndex]}
               />
             </Grid>
           </React.Fragment>
