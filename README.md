@@ -1,6 +1,6 @@
 # Rating Pistol
 
-Build tracker and artifact grader for:
+Build tracker for:
 - Genshin Impact
 - Honkai Star Rail
 - Zenless Zone Zero
