@@ -19,7 +19,8 @@ import charData from '../data/charData';
 import weapData from '../data/weapData';
 import setData from '../data/setData';
 
-const images = import.meta.glob('../assets/splash/*.webp', { eager: true });
+const iconMedia = import.meta.glob('../assets/icon/*.webp', { eager: true });
+const weaponMedia = import.meta.glob('../assets/weapon/*.webp', { eager: true });
 
 const Save = ({
   uid,
@@ -177,10 +178,23 @@ const Save = ({
         {/* Buttons section */}
         <Box sx={{
           display: 'flex',
-          justifyContent: 'left',
+          justifyContent: 'center',
           alignItems: 'center',
           gap: 2,
         }}>
+          {/* Icon */}
+          {newCharId && (
+            <img
+              src={iconMedia[`../assets/icon/${newCharId}_Icon.webp`]?.default}
+              alt={newCharObj.name || 'Icon'}
+              style={{
+                width: 50,
+                height: 50,
+                objectFit: 'contain',
+              }}
+            />
+          )}
+
           {/* Select Character */}
           <Autocomplete
             size='small'
@@ -210,16 +224,19 @@ const Save = ({
             disabled={isEditMode}
           />
 
-          <Button 
-            variant="contained"
-            color="primary"
-            onClick={handleSave}
-            sx={{ width: 80 }}
-            disabled={!newCharId}
-          >
-            Save
-          </Button>
+          {/* Save button */}
+          {newCharId && (
+            <Button 
+              variant="contained"
+              color="primary"
+              onClick={handleSave}
+              sx={{ width: 80 }}
+            >
+              Save
+            </Button>
+          )}
 
+          {/* Cancel button */}
           <Button
             variant="outlined"
             color="secondary"
@@ -332,10 +349,10 @@ const Save = ({
 
             {/* Image */}
             <Grid size={{ xs: 12, md: 4 }}>
-              {!isMobile && (
+              {!isMobile && newCharObj.weapon.key && (
                 <img
-                  src={images[`../assets/splash/${newCharId}.webp`]?.default}
-                  alt={newCharObj.name || 'Character Splash'}
+                  src={weaponMedia[`../assets/weapon/${newCharObj.weapon.key}.webp`]?.default}
+                  alt={newCharObj.weapon.entry.name || 'Weapon'}
                   style={{
                     width: '100%',
                     height: 500,
