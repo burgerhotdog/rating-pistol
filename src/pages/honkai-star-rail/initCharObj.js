@@ -13,36 +13,62 @@ const initCharObj = () => ({
     entry: {},
   },
   score: 0,
-  0: {
-    0: 0,
-    1: 0,
-    2: 0,
-  },
-  1: {
-    0: 0,
-    1: 0,
-    2: 0,
-  },
-  2: {
-    0: 0,
-    1: 0,
-    2: 0,
-  },
-  3: {
-    0: 0,
-    1: 0,
-    2: 0,
-  },
-  4: {
-    0: 0,
-    1: 0,
-    2: 0,
-  },
-  5: {
-    0: 0,
-    1: 0,
-    2: 0,
-  },
+  pieces: [
+    {
+      mainstat: "hp",
+      substats: [
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+      ],
+    },
+    {
+      mainstat: "atk",
+      substats: [
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+      ],
+    },
+    {
+      mainstat: "",
+      substats: [
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+      ],
+    },
+    {
+      mainstat: "",
+      substats: [
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+      ],
+    },
+    {
+      mainstat: "",
+      substats: [
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+      ],
+    },
+    {
+      mainstat: "",
+      substats: [
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+        { name: "", value: "" },
+      ],
+    },
+  ],
 });
   
 export default initCharObj;

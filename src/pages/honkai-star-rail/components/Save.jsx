@@ -12,7 +12,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import { db } from '../../../firebase';
-import SlotCard from './SlotCard';
+import Piece from './Piece';
 import getScore from '../getScore';
 import initCharObj from '../initCharObj';
 import charData from '../data/charData';
@@ -41,7 +41,7 @@ const Save = ({
   
   // Theme and breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.only('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   // Update availableCharIds after saving or deleting a character
   useEffect(() => {
@@ -161,155 +161,28 @@ const Save = ({
 
   return (
     <Modal open={isSaveOpen} onClose={handleCancel}>
-      <Box sx={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: '#1c1c1c',
-        padding: 4,
-        borderRadius: 2,
-        ...(newCharId && {
-          maxHeight: '80vh',
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          backgroundColor: '#1c1c1c',
+          padding: 4,
+          borderRadius: 2,
+          maxHeight: '90vh',
           overflowY: 'auto',
-        }),
-      }}>        
-        {/* Data grid */}
-        {newCharId ? (
-          <Grid container spacing={2} sx={{ width: { xs: 256, sm: 1024 } }}>
-            {/* Select character */}
-            <Grid size={{ xs: 12, sm: 3 }}>
-              <Autocomplete
-                disablePortal
-                size='small'
-                value={newCharId}
-                options={availableCharIds}
-                onChange={(event, newValue) => {
-                  if (newValue) {
-                    setNewCharId(newValue);
-                    setNewCharObj({
-                      ...initCharObj(),
-                      name: charData[newValue].name,
-                    });
-                  } else {
-                    setNewCharId('');
-                    setNewCharObj(initCharObj());
-                  }
-                }}
-                getOptionLabel={(id) => charData[id]?.name}
-                isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="Character" />}
-                fullWidth
-                disabled={isEditMode}
-              />
-            </Grid>
-
-            {/* Select weapon */}
-            <Grid size={{ xs: 12, sm: 3 }}>
-              <Autocomplete
-                disablePortal
-                size='small'
-                value={newCharObj.weapon.key}
-                options={availableWeapIds}
-                onChange={(event, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    weapon: {
-                      key: newValue,
-                      entry: weapData[newValue],
-                    },
-                  }));
-                }}
-                getOptionLabel={(id) => weapData[id]?.name || ''}
-                isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="Weapon" />}
-                fullWidth
-              />
-            </Grid>
-
-            {/* Select relic set */}
-            <Grid size={{ xs: 12, sm: 3 }}>
-              <Autocomplete
-                disablePortal
-                size='small'
-                value={newCharObj.set1.key}
-                options={availableSet1Ids}
-                onChange={(event, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    set1: {
-                      key: newValue,
-                      entry: setData[newValue],
-                    },
-                  }));
-                }}
-                getOptionLabel={(id) => setData[id]?.name || ''}
-                isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="Relic Set" />}
-                fullWidth
-              />
-            </Grid>
-
-            {/* Select planar set */}
-            <Grid size={{ xs: 12, sm: 3 }}>
-              <Autocomplete
-                disablePortal
-                size='small'
-                value={newCharObj.set2.key}
-                options={availableSet2Ids}
-                onChange={(event, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    set2: {
-                      key: newValue,
-                      entry: setData[newValue],
-                    },
-                  }));
-                }}
-                getOptionLabel={(id) => setData[id]?.name || ''}
-                isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="Planar Set" />}
-                fullWidth
-              />
-            </Grid>
-
-            {/* Image */}
-            <Grid size={{ xs: 12, sm: 6 }}>
-              {!isMobile && (
-                <img
-                  src={images[`../assets/splash/${newCharId}.webp`]?.default}
-                  alt={newCharObj.name || 'Character Splash'}
-                  style={{
-                    width: '100%',
-                    height: 500,
-                    objectFit: 'contain',
-                  }}
-                />
-              )}
-            </Grid>
-
-            {/* Relic grid */}
-            <Grid size={{ xs: 12, sm: 6 }}>
-              <Grid container spacing={2}>
-                {['Head', 'Hands', 'Chest', 'Boots', 'Orb', 'Rope'].map(
-                  (slotName, index) => (
-                    <Grid size={{ xs: 12, sm: 6 }} key={slotName}>
-                      <SlotCard
-                        slotName={slotName}
-                        slotIndex={index}
-                        newCharId={newCharId}
-                        newCharObj={newCharObj}
-                        setNewCharObj={setNewCharObj}
-                      />
-                    </Grid>
-                  )
-                )}
-              </Grid>
-            </Grid>
-          </Grid>
-        ) : (
+        }}
+      >
+        {/* Buttons section */}
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'left',
+          alignItems: 'center',
+          gap: 2,
+        }}>
+          {/* Select Character */}
           <Autocomplete
-            disablePortal
             size='small'
             value={newCharId}
             options={availableCharIds}
@@ -327,34 +200,15 @@ const Save = ({
             }}
             getOptionLabel={(id) => charData[id]?.name || ''}
             isOptionEqualToValue={(option, value) => option === value}
-            renderInput={(params) => <TextField {...params} label="Select" />}
-            sx={{ width: 240 }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Character"
+              />
+            )}
+            sx={{ width: 320 }}
+            disabled={isEditMode}
           />
-        )}
-
-        {/* Error section */}
-        {error && (
-          <Typography variant="body2" color="error" sx={{ mt: 2, textAlign: 'center' }}>
-            {error}
-          </Typography>
-        )}
-
-        {/* Buttons section */}
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 2,
-          mt: 2,
-        }}>
-          <Button
-            variant="outlined"
-            color="secondary"
-            onClick={handleCancel}
-            sx={{ width: 80 }}
-          >
-            Cancel
-          </Button>
 
           <Button 
             variant="contained"
@@ -365,7 +219,150 @@ const Save = ({
           >
             Save
           </Button>
+
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={handleCancel}
+            sx={{ width: 80 }}
+          >
+            Cancel
+          </Button>
+          
+          {/* Error section */}
+          {error && (
+            <Typography
+              variant="body2"
+              color="error"
+            >
+              {error}
+            </Typography>
+          )}
         </Box>
+
+        {/* Data grid */}
+        {newCharId && (
+          <Grid container
+            spacing={2}
+            sx={{
+              width: { xs: 256, md: 1280 },
+              mt: 2,
+            }}
+          >
+            {/* Select weapon */}
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Autocomplete
+                size='small'
+                value={newCharObj.weapon.key}
+                options={availableWeapIds}
+                onChange={(event, newValue) => {
+                  setNewCharObj((prev) => ({
+                    ...prev,
+                    weapon: {
+                      key: newValue,
+                      entry: weapData[newValue],
+                    },
+                  }));
+                }}
+                getOptionLabel={(id) => weapData[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Weapon"
+                  />
+                )}
+                fullWidth
+              />
+            </Grid>
+
+            {/* Select relic set */}
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Autocomplete
+                size='small'
+                value={newCharObj.set1.key}
+                options={availableSet1Ids}
+                onChange={(event, newValue) => {
+                  setNewCharObj((prev) => ({
+                    ...prev,
+                    set1: {
+                      key: newValue,
+                      entry: setData[newValue],
+                    },
+                  }));
+                }}
+                getOptionLabel={(id) => setData[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="4P Cavern Relics"
+                  />
+                )}
+                fullWidth
+              />
+            </Grid>
+
+            {/* Select planar set */}
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Autocomplete
+                size='small'
+                value={newCharObj.set2.key}
+                options={availableSet2Ids}
+                onChange={(event, newValue) => {
+                  setNewCharObj((prev) => ({
+                    ...prev,
+                    set2: {
+                      key: newValue,
+                      entry: setData[newValue],
+                    },
+                  }));
+                }}
+                getOptionLabel={(id) => setData[id]?.name || ''}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="2P Planar Ornaments"
+                  />
+                )}
+                fullWidth
+              />
+            </Grid>
+
+            {/* Image */}
+            <Grid size={{ xs: 12, md: 4 }}>
+              {!isMobile && (
+                <img
+                  src={images[`../assets/splash/${newCharId}.webp`]?.default}
+                  alt={newCharObj.name || 'Character Splash'}
+                  style={{
+                    width: '100%',
+                    height: 500,
+                    objectFit: 'contain',
+                  }}
+                />
+              )}
+            </Grid>
+
+            {/* Piece grid */}
+            <Grid size={{ xs: 12, md: 8 }}>
+              <Grid container spacing={2}>
+                {[0, 1, 2, 3, 4, 5].map((index) => (
+                  <Grid size={{ xs: 12, md: 4 }} key={index}>
+                    <Piece
+                      index={index}
+                      newCharObj={newCharObj}
+                      setNewCharObj={setNewCharObj}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
+        )}
+
+        
       </Box>      
     </Modal>
   );
