@@ -91,12 +91,14 @@ const HonkaiStarRail = ({ uid }) => {
   return (
     <Container>
       <Back />
-      <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        mt: 4,
-      }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          mt: 4,
+        }}
+      >
         <Typography variant='h4'>Honkai Star Rail</Typography>
         <Typography variant="body2">Updated for version 2.7</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
@@ -214,8 +216,8 @@ const HonkaiStarRail = ({ uid }) => {
 
         {/* Add character button */}
         <Button
-          variant='contained'
-          color='primary'
+          variant="contained"
+          color="primary"
           onClick={handleAdd}
           sx={{ mt: 2 }}
         >
