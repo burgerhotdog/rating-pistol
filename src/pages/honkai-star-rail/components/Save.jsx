@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
-import Grid from '@mui/material/Grid2';
+import React, { useEffect, useState } from "react";
+import { doc, setDoc } from "firebase/firestore";
+import Grid from "@mui/material/Grid2";
 import {
   Autocomplete,
   Box,
@@ -10,17 +10,17 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
-} from '@mui/material';
-import { db } from '../../../firebase';
-import Piece from './Piece';
-import getScore from '../getScore';
-import initCharObj from '../initCharObj';
-import charData from '../data/charData';
-import weapData from '../data/weapData';
-import setData from '../data/setData';
+} from "@mui/material";
+import { db } from "../../../firebase";
+import Piece from "./Piece";
+import getScore from "../getScore";
+import initCharObj from "../initCharObj";
+import charData from "../data/charData";
+import weapData from "../data/weapData";
+import setData from "../data/setData";
 
-const iconMedia = import.meta.glob('../assets/icon/*.webp', { eager: true });
-const weaponMedia = import.meta.glob('../assets/weapon/*.webp', { eager: true });
+const iconMedia = import.meta.glob("../assets/icon/*.webp", { eager: true });
+const weaponMedia = import.meta.glob("../assets/weapon/*.webp", { eager: true });
 
 const Save = ({
   uid,
@@ -34,92 +34,47 @@ const Save = ({
   newCharObj,
   setNewCharObj,
 }) => {
-  const [error, setError] = useState('');
-  const [availableCharIds, setAvailableCharIds] = useState([]);
-  const [availableWeapIds, setAvailableWeapIds] = useState([]);
-  const [availableSet1Ids, setAvailableSet1Ids] = useState([]);
-  const [availableSet2Ids, setAvailableSet2Ids] = useState([]);
+  const [error, setError] = useState("");
   
   // Theme and breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // Update availableCharIds after saving or deleting a character
-  useEffect(() => {
-    // Sort alphabetically
-    const allCharIds = Object.keys(charData).sort();
-    
-    // Only include unused character ids
-    const filteredCharIds = allCharIds.filter(
-      (id) => !Object.keys(myChars).includes(id)
-    );
+  // Gets filtered character ids for select character
+  const getFilteredCharIds = () => {
+    return Object.keys(charData)
+      .filter(id => !Object.keys(myChars).includes(id))
+      .sort();
+  };
 
-    // Update state
-    setAvailableCharIds(filteredCharIds);
-  }, [myChars]);
+  // Gets filtered weapon ids for select weapon
+  const getFilteredWeapIds = () => {
+    return Object.keys(weapData)
+      .filter(id => weapData[id].type === charData[newCharId].weapon)
+      .sort();
+  };
 
-  // Update availableWeapIds after selecting a character
-  useEffect(() => {
-    if (charData[newCharId]) {
-      // Sort alphabetically
-      const allWeapIds = Object.keys(weapData).sort();
-
-      // Only include correct type weapon ids
-      const filteredWeapIds = allWeapIds.filter(
-        (id) => weapData[id].type === charData[newCharId].weapon
-      );
-
-      // Update state
-      setAvailableWeapIds(filteredWeapIds);
-    }
-  }, [newCharId]);
-
-  // Update availableSet1Ids after selecting a character
-  useEffect(() => {
-    if (charData[newCharId]) {
-      // Sort alphabetically
-      const allSetIds = Object.keys(setData).sort();
-
-      // Only include set ids for relics
-      const filteredSetIds = allSetIds.filter(
-        (id) => setData[id].type === "Relic"
-      );
-
-      // Update state
-      setAvailableSet1Ids(filteredSetIds);
-    }
-  }, [newCharId]);
-
-  // Update availableSet2Ids after selecting a character
-  useEffect(() => {
-    if (charData[newCharId]) {
-      // Sort alphabetically
-      const allSetIds = Object.keys(setData).sort();
-
-      // Only include set ids for planars
-      const filteredSetIds = allSetIds.filter(
-        (id) => setData[id].type === "Planar"
-      );
-
-      // Update state
-      setAvailableSet2Ids(filteredSetIds);
-    }
-  }, [newCharId]);
+  // Gets filtered set ids for select set
+  const getFilteredSetIds = (setType) => {
+    return Object.keys(setData)
+      .filter(id => setData[id].type === setType)
+      .sort();
+  };
 
   // Validation before saving
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon.key) errors.push('Select light cone');
-    if (!newCharObj.set1.key) errors.push('Select relic set');
-    if (!newCharObj.set2.key) errors.push('Select planar set');
+    if (!newCharObj.weapon.key) errors.push("Select light cone");
+    if (!newCharObj.set1.key) errors.push("Select relic set");
+    if (!newCharObj.set2.key) errors.push("Select planar set");
 
     // Display error message
     if (errors.length) {
-      setError(errors.join(', '));
+      setError(errors.join(", "));
       return false;
     } else {
-      setError('');
+      setError("");
       return true;
     }
   };
@@ -134,7 +89,7 @@ const Save = ({
 
     // Save document to Firestore
     if (uid) {
-      const charDocRef = doc(db, 'users', uid, 'HonkaiStarRail', newCharId);
+      const charDocRef = doc(db, "users", uid, "HonkaiStarRail", newCharId);
       await setDoc(charDocRef, newCharObj, { merge: true });
     }
 
@@ -145,8 +100,8 @@ const Save = ({
     }));
 
     // Reset states
-    setError('');
-    setNewCharId('');
+    setError("");
+    setNewCharId("");
     setNewCharObj(initCharObj());
     setIsSaveOpen(false);
   };
@@ -154,8 +109,8 @@ const Save = ({
   // Cancel button handler
   const handleCancel = () => {
     // Reset states
-    setError('');
-    setNewCharId('');
+    setError("");
+    setNewCharId("");
     setNewCharObj(initCharObj());
     setIsSaveOpen(false);
   };
@@ -164,43 +119,43 @@ const Save = ({
     <Modal open={isSaveOpen} onClose={handleCancel}>
       <Box
         sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          backgroundColor: '#1c1c1c',
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: "#1c1c1c",
           padding: 4,
           borderRadius: 2,
-          maxHeight: '90vh',
-          overflowY: 'auto',
+          maxHeight: "90vh",
+          overflowY: "auto",
         }}
       >
         {/* Buttons section */}
         <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           gap: 2,
         }}>
           {/* Icon */}
           {newCharId && (
             <img
               src={iconMedia[`../assets/icon/${newCharId}_Icon.webp`]?.default}
-              alt={newCharObj.name || 'Icon'}
+              alt={newCharObj.name || "Icon"}
               style={{
                 width: 50,
                 height: 50,
-                objectFit: 'contain',
+                objectFit: "contain",
               }}
             />
           )}
 
           {/* Select Character */}
           <Autocomplete
-            size='small'
+            size="small"
             value={newCharId}
-            options={availableCharIds}
-            onChange={(event, newValue) => {
+            options={getFilteredCharIds()}
+            onChange={(_, newValue, reason) => {
               if (newValue) {
                 setNewCharId(newValue);
                 setNewCharObj({
@@ -208,11 +163,11 @@ const Save = ({
                   name: charData[newValue].name,
                 });
               } else {
-                setNewCharId('');
+                setNewCharId("");
                 setNewCharObj(initCharObj());
               }
             }}
-            getOptionLabel={(id) => charData[id]?.name || ''}
+            getOptionLabel={(id) => charData[id]?.name || ""}
             isOptionEqualToValue={(option, value) => option === value}
             renderInput={(params) => (
               <TextField
@@ -222,6 +177,7 @@ const Save = ({
             )}
             sx={{ width: 320 }}
             disabled={isEditMode}
+            disableClearable={newCharId === ""}
           />
 
           {/* Save button */}
@@ -269,10 +225,10 @@ const Save = ({
             {/* Select weapon */}
             <Grid size={{ xs: 12, md: 4 }}>
               <Autocomplete
-                size='small'
+                size="small"
                 value={newCharObj.weapon.key}
-                options={availableWeapIds}
-                onChange={(event, newValue) => {
+                options={getFilteredWeapIds()}
+                onChange={(_, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
                     weapon: {
@@ -281,7 +237,7 @@ const Save = ({
                     },
                   }));
                 }}
-                getOptionLabel={(id) => weapData[id]?.name || ''}
+                getOptionLabel={(id) => weapData[id]?.name || ""}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
                   <TextField
@@ -296,10 +252,10 @@ const Save = ({
             {/* Select relic set */}
             <Grid size={{ xs: 12, md: 4 }}>
               <Autocomplete
-                size='small'
+                size="small"
                 value={newCharObj.set1.key}
-                options={availableSet1Ids}
-                onChange={(event, newValue) => {
+                options={getFilteredSetIds("Relic")}
+                onChange={(_, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
                     set1: {
@@ -308,7 +264,7 @@ const Save = ({
                     },
                   }));
                 }}
-                getOptionLabel={(id) => setData[id]?.name || ''}
+                getOptionLabel={(id) => setData[id]?.name || ""}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
                   <TextField
@@ -323,10 +279,10 @@ const Save = ({
             {/* Select planar set */}
             <Grid size={{ xs: 12, md: 4 }}>
               <Autocomplete
-                size='small'
+                size="small"
                 value={newCharObj.set2.key}
-                options={availableSet2Ids}
-                onChange={(event, newValue) => {
+                options={getFilteredSetIds("Planar")}
+                onChange={(_, newValue) => {
                   setNewCharObj((prev) => ({
                     ...prev,
                     set2: {
@@ -335,7 +291,7 @@ const Save = ({
                     },
                   }));
                 }}
-                getOptionLabel={(id) => setData[id]?.name || ''}
+                getOptionLabel={(id) => setData[id]?.name || ""}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
                   <TextField
@@ -352,11 +308,11 @@ const Save = ({
               {!isMobile && newCharObj.weapon.key && (
                 <img
                   src={weaponMedia[`../assets/weapon/${newCharObj.weapon.key}.webp`]?.default}
-                  alt={newCharObj.weapon.entry.name || 'Weapon'}
+                  alt={newCharObj.weapon.entry.name || "Weapon"}
                   style={{
-                    width: '100%',
+                    width: "100%",
                     height: 500,
-                    objectFit: 'contain',
+                    objectFit: "contain",
                   }}
                 />
               )}
@@ -378,8 +334,6 @@ const Save = ({
             </Grid>
           </Grid>
         )}
-
-        
       </Box>      
     </Modal>
   );
