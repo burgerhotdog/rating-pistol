@@ -36,18 +36,18 @@ const SUBSTAT_OPTIONS = [
 ];
 
 const Piece = ({
-  index,
   newCharObj,
   setNewCharObj,
+  mainIndex,
 }) => {
-  // Pass mainstat change to newCharObj
+  // Pass mainstat data to newCharObj
   const handleMainstat = (newValue) => {
     setNewCharObj((prev) => {
       // Create a copy of the pieces array
       const updatedPieces = [...prev.pieces];
 
-      // Update the information in the copy
-      updatedPieces[index] = {
+      // Update the data in the copy
+      updatedPieces[mainIndex] = {
         mainstat: newValue || "",
         substats: Array(4).fill({ name: "", value: "" }),
       };
@@ -59,20 +59,20 @@ const Piece = ({
     });
   };
 
-  // Pass substat change to newCharObj
+  // Pass substat data to newCharObj
   const handleSubstat = (newValue, subIndex, attribute) => {
     setNewCharObj((prev) => {
       // Create a copy of the substats array
       const updatedPieces = [...prev.pieces];
-      const updatedSubstats = [...updatedPieces[index].substats];
+      const updatedSubstats = [...updatedPieces[mainIndex].substats];
 
-      // Update the information in the copy
+      // Update the data in the copy
       updatedSubstats[subIndex] = {
         ...updatedSubstats[subIndex],
         [attribute]: newValue || "",
       };
-      updatedPieces[index] = {
-        ...updatedPieces[index],
+      updatedPieces[mainIndex] = {
+        ...updatedPieces[mainIndex],
         substats: updatedSubstats,
       };
 
@@ -85,8 +85,8 @@ const Piece = ({
 
   const getFilteredSubstatOptions = (subIndex) => {
     // Get the selected mainstat and substat names
-    const selectedMainstat = newCharObj.pieces[index].mainstat;
-    const selectedSubstatNames = newCharObj.pieces[index].substats
+    const selectedMainstat = newCharObj.pieces[mainIndex].mainstat;
+    const selectedSubstatNames = newCharObj.pieces[mainIndex].substats
       .map((substat) => substat.name)
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
@@ -104,18 +104,18 @@ const Piece = ({
         <Grid size={12}>
           <Autocomplete
             size="small"
-            value={newCharObj.pieces[index].mainstat || ""}
-            options={MAINSTAT_OPTIONS[index]}
+            value={newCharObj.pieces[mainIndex].mainstat || ""}
+            options={MAINSTAT_OPTIONS[mainIndex]}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
                 {...params}
-                label={PIECE_NAMES[index]}
+                label={PIECE_NAMES[mainIndex]}
               />
             )}
             fullWidth
-            disabled={index === 0 || index === 1}
-            disableClearable={newCharObj.pieces[index].mainstat === ""}
+            disabled={mainIndex === 0 || mainIndex === 1}
+            disableClearable={newCharObj.pieces[mainIndex].mainstat === ""}
           />
         </Grid>
 
@@ -126,12 +126,12 @@ const Piece = ({
 
         {/* Substats */}
         {[0, 1, 2, 3].map((subIndex) => (
-          <React.Fragment key={`${index}-${subIndex}`}>
+          <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Name Dropdown */}
             <Grid size={8}>
               <Autocomplete
                 size="small"
-                value={newCharObj.pieces[index].substats[subIndex].name || ""}
+                value={newCharObj.pieces[mainIndex].substats[subIndex].name || ""}
                 options={getFilteredSubstatOptions(subIndex)}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "name")}
                 renderInput={(params) => (
@@ -141,7 +141,7 @@ const Piece = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.pieces[index].substats[subIndex].name === ""}
+                disableClearable={newCharObj.pieces[mainIndex].substats[subIndex].name === ""}
               />
             </Grid>
 
@@ -149,7 +149,7 @@ const Piece = ({
             <Grid size={4}>
               <TextField
                 size="small"
-                value={newCharObj.pieces[index].substats[subIndex].value || ""}
+                value={newCharObj.pieces[mainIndex].substats[subIndex].value || ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   if (/^\d*\.?\d{0,1}$/.test(newValue)) {

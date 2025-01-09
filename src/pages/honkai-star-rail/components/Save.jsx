@@ -37,7 +37,7 @@ const Save = ({
 }) => {
   const [error, setError] = useState("");
   
-  // Theme and breakpoint
+  // Mobile layout breakpoint
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -317,19 +317,19 @@ const Save = ({
                 />
               )}
               {!isMobile && !newCharObj.weapon.key && (
-                <Typography textAlign={"center"}>No weapon selected</Typography>
+                <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>
 
             {/* Piece grid */}
             <Grid size={{ xs: 12, md: 8 }}>
               <Grid container spacing={2}>
-                {[0, 1, 2, 3, 4, 5].map((index) => (
-                  <Grid size={{ xs: 12, md: 4 }} key={index}>
+                {[0, 1, 2, 3, 4, 5].map((mainIndex) => (
+                  <Grid size={{ xs: 12, md: 4 }} key={mainIndex}>
                     <Piece
-                      index={index}
                       newCharObj={newCharObj}
                       setNewCharObj={setNewCharObj}
+                      mainIndex={mainIndex}
                     />
                   </Grid>
                 ))}

@@ -40,7 +40,7 @@ const HonkaiStarRail = ({ uid }) => {
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.only("xs"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -118,6 +118,7 @@ const HonkaiStarRail = ({ uid }) => {
             {/* Table data */}
             <TableBody>
               {Object.keys(myChars).length === 0 ? (
+                // In the case that there are no saved characters
                 <TableRow>
                   <TableCell colSpan={6} align="center">
                     No characters to display
