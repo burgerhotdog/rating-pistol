@@ -12,7 +12,7 @@ const initCharObj = () => ({
     key: "",
     entry: {},
   },
-  score: 0,
+  score: "",
   pieces: [
     {
       mainstat: "hp",

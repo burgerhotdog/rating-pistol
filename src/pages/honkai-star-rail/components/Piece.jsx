@@ -1,5 +1,5 @@
 import React from 'react';
-import { Autocomplete, Box, Card, Divider, MenuItem, Select, TextField, Typography } from '@mui/material';
+import { Autocomplete, Card, Divider, TextField } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 
 const PIECE_NAMES = [
@@ -7,7 +7,7 @@ const PIECE_NAMES = [
   "Hands",
   "Body",
   "Feet",
-  "Sphere",
+  "Orb",
   "Rope",
 ]
 
@@ -41,66 +41,54 @@ const Piece = ({
   setNewCharObj,
 }) => {
   // Pass mainstat change to newCharObj
-  const handleMainstat = (_, value) => {
-    setNewCharObj((prevChar) => {
-      // Create copy of pieces array
-      const updatedPieces = [...prevChar.pieces];
-  
-      // Update mainstat of piece at index
+  const handleMainstat = (value, reason) => {
+    setNewCharObj((prevCharObj) => {
+      // Create a copy of the pieces array
+      const updatedPieces = [...prevCharObj.pieces];
+
+      // Update the information in the copy
       updatedPieces[index] = {
-        mainstat: value,
-        substats: [
-          { name: "", value: "" },
-          { name: "", value: "" },
-          { name: "", value: "" },
-          { name: "", value: "" },
-        ],
+        mainstat: reason === "clear" ? "" : value,
+        substats: Array(4).fill({ name: "", value: "" }),
       };
-  
-      // Return updated state
+
       return {
-        ...prevChar,
+        ...prevCharObj,
         pieces: updatedPieces,
       };
     });
   };
 
   // Pass substat change to newCharObj
-  const handleSubstat = (e, subIndex, attribute) => {
-    const value = e.target.value;
-    setNewCharObj((prevChar) => {
-      // Create copy of pieces array
-      const updatedPieces = [...prevChar.pieces];
-
-      // Create copy of substats array for piece at index
+  const handleSubstat = (value, reason, subIndex, attribute) => {
+    setNewCharObj((prevCharObj) => {
+      // Create a copy of the substats array
+      const updatedPieces = [...prevCharObj.pieces];
       const updatedSubstats = [...updatedPieces[index].substats];
 
-      // Update substat attribute for substat at subIndex
+      // Update the information in the copy
       updatedSubstats[subIndex] = {
         ...updatedSubstats[subIndex],
-        [attribute]: value,
+        [attribute]: reason === "clear" ? "" : value,
       };
-
-      // Update substats array for piece at index
       updatedPieces[index] = {
         ...updatedPieces[index],
         substats: updatedSubstats,
       };
 
-      // Return updated state
       return {
-        ...prevChar,
+        ...prevCharObj,
         pieces: updatedPieces,
       };
     });
   };
 
-  const getFilteredSubstatOptions = (currentIndex) => {
+  const getFilteredSubstatOptions = (subIndex) => {
     // Get the selected mainstat and substat names
     const selectedMainstat = newCharObj.pieces[index].mainstat;
     const selectedSubstatNames = newCharObj.pieces[index].substats
       .map((substat) => substat.name)
-      .filter((_, idx) => idx !== currentIndex); // Exclude the current substat index
+      .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
     return SUBSTAT_OPTIONS.filter(
       (option) =>
@@ -110,7 +98,7 @@ const Piece = ({
   };
 
   return (
-    <Card sx={{ padding: 2 }}>
+    <Card sx={{ p: 2 }}>
       <Grid container spacing={1}>
         {/* Mainstat */}
         <Grid size={12}>
@@ -118,7 +106,9 @@ const Piece = ({
             size='small'
             value={newCharObj.pieces[index].mainstat || ""}
             options={MAINSTAT_OPTIONS[index]}
-            onChange={handleMainstat}
+            onChange={(_, value, reason) => {
+              handleMainstat(value, reason);
+            }}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -127,6 +117,7 @@ const Piece = ({
             )}
             fullWidth
             disabled={index === 0 || index === 1}
+            disableClearable={newCharObj.pieces[index].mainstat === ""}
           />
         </Grid>
 
@@ -139,32 +130,36 @@ const Piece = ({
         {[0, 1, 2, 3].map((subIndex) => (
           <React.Fragment key={`${index}-${subIndex}`}>
             {/* Substat Name Dropdown */}
-            <Grid size={6}>
-              <Select
+            <Grid size={8}>
+              <Autocomplete
+                size='small'
                 value={newCharObj.pieces[index].substats[subIndex].name || ""}
-                onChange={(e) => handleSubstat(e, subIndex, "name")}
-                size="small"
+                options={getFilteredSubstatOptions(subIndex)}
+                onChange={(_, value, reason) => {
+                  handleSubstat(value, reason, subIndex, "name");
+                }}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label={"substat"}
+                  />
+                )}
                 fullWidth
-              >
-                {getFilteredSubstatOptions(subIndex).map((option) => (
-                  <MenuItem key={option} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </Select>
+                disableClearable={newCharObj.pieces[index].substats[subIndex].name === ""}
+              />
             </Grid>
 
             {/* Substat Value Input */}
-            <Grid size={6}>
+            <Grid size={4}>
               <TextField
+                size="small"
                 value={newCharObj.pieces[index].substats[subIndex].value || ""}
                 onChange={(e) => {
                   const value = e.target.value;
                   if (/^\d*\.?\d{0,1}$/.test(value)) {
-                    handleSubstat(e, subIndex, "value")
+                    handleSubstat(value, null, subIndex, "value")
                   }
                 }}
-                size="small"
                 fullWidth
               />
             </Grid>
