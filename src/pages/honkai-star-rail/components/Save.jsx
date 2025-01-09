@@ -162,12 +162,14 @@ const Save = ({
         }}
       >
         {/* Buttons section */}
-        <Box sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 2,
-        }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 2,
+          }}
+        >
           {/* Icon */}
           {newCharId && (
             <img
@@ -302,7 +304,7 @@ const Save = ({
               />
             </Grid>
 
-            {/* Image */}
+            {/* Weapon Image */}
             <Grid size={{ xs: 12, md: 4 }}>
               {!isMobile && newCharObj.weapon.key && (
                 <img
@@ -314,6 +316,9 @@ const Save = ({
                     objectFit: "contain",
                   }}
                 />
+              )}
+              {!isMobile && !newCharObj.weapon.key && (
+                <Typography textAlign={"center"}>No weapon selected</Typography>
               )}
             </Grid>
 

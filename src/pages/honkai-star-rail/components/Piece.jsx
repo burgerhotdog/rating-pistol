@@ -1,6 +1,6 @@
-import React from 'react';
-import { Autocomplete, Card, Divider, TextField } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import React from "react";
+import { Autocomplete, Card, Divider, TextField } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 
 const PIECE_NAMES = [
   "Head",
@@ -42,9 +42,9 @@ const Piece = ({
 }) => {
   // Pass mainstat change to newCharObj
   const handleMainstat = (newValue) => {
-    setNewCharObj((prevCharObj) => {
+    setNewCharObj((prev) => {
       // Create a copy of the pieces array
-      const updatedPieces = [...prevCharObj.pieces];
+      const updatedPieces = [...prev.pieces];
 
       // Update the information in the copy
       updatedPieces[index] = {
@@ -53,7 +53,7 @@ const Piece = ({
       };
 
       return {
-        ...prevCharObj,
+        ...prev,
         pieces: updatedPieces,
       };
     });
@@ -61,9 +61,9 @@ const Piece = ({
 
   // Pass substat change to newCharObj
   const handleSubstat = (newValue, subIndex, attribute) => {
-    setNewCharObj((prevCharObj) => {
+    setNewCharObj((prev) => {
       // Create a copy of the substats array
-      const updatedPieces = [...prevCharObj.pieces];
+      const updatedPieces = [...prev.pieces];
       const updatedSubstats = [...updatedPieces[index].substats];
 
       // Update the information in the copy
@@ -77,7 +77,7 @@ const Piece = ({
       };
 
       return {
-        ...prevCharObj,
+        ...prev,
         pieces: updatedPieces,
       };
     });
@@ -103,7 +103,7 @@ const Piece = ({
         {/* Mainstat */}
         <Grid size={12}>
           <Autocomplete
-            size='small'
+            size="small"
             value={newCharObj.pieces[index].mainstat || ""}
             options={MAINSTAT_OPTIONS[index]}
             onChange={(_, newValue) => handleMainstat(newValue)}
@@ -130,7 +130,7 @@ const Piece = ({
             {/* Substat Name Dropdown */}
             <Grid size={8}>
               <Autocomplete
-                size='small'
+                size="small"
                 value={newCharObj.pieces[index].substats[subIndex].name || ""}
                 options={getFilteredSubstatOptions(subIndex)}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "name")}

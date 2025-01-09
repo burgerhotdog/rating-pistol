@@ -1,4 +1,4 @@
-import charData from './data/charData';
+import charData from "./data/charData";
 
 const getScore = ( id, char ) => {
   return "0";

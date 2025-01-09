@@ -1,8 +1,8 @@
-import React from 'react';
-import { deleteDoc, doc } from 'firebase/firestore';
-import { Box, Button, Modal, Typography } from '@mui/material';
-import { db } from '../../../firebase';
-import initCharObj from '../initCharObj';
+import React from "react";
+import { deleteDoc, doc } from "firebase/firestore";
+import { Box, Button, Modal, Typography } from "@mui/material";
+import { db } from "../../../firebase";
+import initCharObj from "../initCharObj";
 
 const Delete = ({
   uid,
@@ -18,24 +18,22 @@ const Delete = ({
   // Delete button handler
   const handleDelete = async () => {
     try {
-      // If signed in:
+      // If signed in, delete document from firestore
       if (uid) {
-        // Delete document from firestore
-        const characterDocRef = doc(db, 'users', uid, 'HonkaiStarRail', newCharId);
+        const characterDocRef = doc(db, "users", uid, "HonkaiStarRail", newCharId);
         await deleteDoc(characterDocRef);
       }
 
       // Delete object from myChars
-      setMyChars((prevChars) => {
-        const updatedChars = { ...prevChars };
+      setMyChars((prev) => {
+        const updatedChars = { ...prev };
         delete updatedChars[newCharId];
         return updatedChars;
       });
     } catch (error) {
       console.error("handleDelete: ", error);
     } finally {
-      // Reset states
-      setNewCharId('');
+      setNewCharId("");
       setNewCharObj(initCharObj());
       setIsDeleteOpen(false);
     }
@@ -43,7 +41,7 @@ const Delete = ({
 
   // Cancel button handler
   const handleCancel = () => {
-    setNewCharId('');
+    setNewCharId("");
     setNewCharObj(initCharObj());
     setIsDeleteOpen(false);
   };
@@ -52,32 +50,32 @@ const Delete = ({
     <Modal open={isDeleteOpen} onClose={handleCancel}>
       {/* Modal Styles */}
       <Box sx={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: '#1c1c1c',
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        backgroundColor: "#1c1c1c",
         padding: 4,
         borderRadius: 2,
       }}>
         {/* Text section */}
-        <Typography variant='body1'>
-          Are you sure you want to delete{' '}
+        <Typography variant="body1">
+          Are you sure you want to delete{" "}
           <strong>{myChars[newCharId]?.name ?? null}</strong>
           ?
         </Typography>
 
         {/* Buttons section */}
         <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           gap: 2,
           mt: 2,
         }}>
           <Button
-            variant='outlined'
-            color='primary'
+            variant="outlined"
+            color="primary"
             onClick={handleCancel}
             sx={{ width: 80 }}
           >
@@ -85,8 +83,8 @@ const Delete = ({
           </Button>
           
           <Button
-            variant='contained'
-            color='secondary'
+            variant="contained"
+            color="secondary"
             onClick={handleDelete}
             sx={{ width: 80 }}
           >
