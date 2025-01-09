@@ -5,6 +5,7 @@ import {
   Autocomplete,
   Box,
   Button,
+  Divider,
   Modal,
   TextField,
   Typography,
@@ -99,19 +100,13 @@ const Save = ({
       [newCharId]: newCharObj,
     }));
 
-    // Reset states
     setError("");
-    setNewCharId("");
-    setNewCharObj(initCharObj());
     setIsSaveOpen(false);
   };
 
   // Cancel button handler
   const handleCancel = () => {
-    // Reset states
     setError("");
-    setNewCharId("");
-    setNewCharObj(initCharObj());
     setIsSaveOpen(false);
   };
 
@@ -122,6 +117,7 @@ const Save = ({
       ...initCharObj(),
       name: charData[newValue]?.name || "",
     });
+    setError("");
   };
 
   // Select weapon handler
@@ -234,6 +230,9 @@ const Save = ({
             </Typography>
           )}
         </Box>
+
+        {/* Divider */}
+        {newCharId && <Divider sx={{ mt: 2 }}/>}
 
         {/* Data grid */}
         {newCharId && (

@@ -246,9 +246,6 @@ const HonkaiStarRail = ({ uid }) => {
           myChars={myChars}
           setMyChars={setMyChars}
           newCharId={newCharId}
-          setNewCharId={setNewCharId}
-          newCharObj={newCharObj}
-          setNewCharObj={setNewCharObj}
         />
       </Box>        
     </Container>

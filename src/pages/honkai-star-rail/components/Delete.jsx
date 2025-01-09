@@ -11,9 +11,6 @@ const Delete = ({
   myChars,
   setMyChars,
   newCharId,
-  setNewCharId,
-  newCharObj,
-  setNewCharObj,
 }) => {
   // Delete button handler
   const handleDelete = async () => {
@@ -33,31 +30,29 @@ const Delete = ({
     } catch (error) {
       console.error("handleDelete: ", error);
     } finally {
-      setNewCharId("");
-      setNewCharObj(initCharObj());
       setIsDeleteOpen(false);
     }
   };
 
   // Cancel button handler
   const handleCancel = () => {
-    setNewCharId("");
-    setNewCharObj(initCharObj());
     setIsDeleteOpen(false);
   };
 
   return (
     <Modal open={isDeleteOpen} onClose={handleCancel}>
       {/* Modal Styles */}
-      <Box sx={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        backgroundColor: "#1c1c1c",
-        padding: 4,
-        borderRadius: 2,
-      }}>
+      <Box
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: "#1c1c1c",
+          padding: 4,
+          borderRadius: 2,
+        }}
+      >
         {/* Text section */}
         <Typography variant="body1">
           Are you sure you want to delete{" "}
@@ -66,13 +61,15 @@ const Delete = ({
         </Typography>
 
         {/* Buttons section */}
-        <Box sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 2,
-          mt: 2,
-        }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 2,
+            mt: 2,
+          }}
+        >
           <Button
             variant="outlined"
             color="primary"
@@ -81,7 +78,6 @@ const Delete = ({
           >
             Cancel
           </Button>
-          
           <Button
             variant="contained"
             color="secondary"
