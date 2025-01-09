@@ -115,6 +115,37 @@ const Save = ({
     setIsSaveOpen(false);
   };
 
+  // Select character handler
+  const handleCharacter = (newValue) => {
+    setNewCharId(newValue || "");
+    setNewCharObj({
+      ...initCharObj(),
+      name: charData[newValue]?.name || "",
+    });
+  };
+
+  // Select weapon handler
+  const handleWeapon = (newValue) => {
+    setNewCharObj((prev) => ({
+      ...prev,
+      weapon: {
+        key: newValue || "",
+        entry: weapData[newValue] || {},
+      },
+    }));
+  };
+
+  // Select set handler
+  const handleSet = (newValue, setNumber) => {
+    setNewCharObj((prev) => ({
+      ...prev,
+      [setNumber]: {
+        key: newValue || "",
+        entry: setData[newValue] || {},
+      },
+    }));
+  };
+
   return (
     <Modal open={isSaveOpen} onClose={handleCancel}>
       <Box
@@ -155,18 +186,7 @@ const Save = ({
             size="small"
             value={newCharId}
             options={getFilteredCharIds()}
-            onChange={(_, newValue, reason) => {
-              if (newValue) {
-                setNewCharId(newValue);
-                setNewCharObj({
-                  ...initCharObj(),
-                  name: charData[newValue].name,
-                });
-              } else {
-                setNewCharId("");
-                setNewCharObj(initCharObj());
-              }
-            }}
+            onChange={(_, newValue) => handleCharacter(newValue)}
             getOptionLabel={(id) => charData[id]?.name || ""}
             isOptionEqualToValue={(option, value) => option === value}
             renderInput={(params) => (
@@ -228,15 +248,7 @@ const Save = ({
                 size="small"
                 value={newCharObj.weapon.key}
                 options={getFilteredWeapIds()}
-                onChange={(_, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    weapon: {
-                      key: newValue,
-                      entry: weapData[newValue],
-                    },
-                  }));
-                }}
+                onChange={(_, newValue) => handleWeapon(newValue)}
                 getOptionLabel={(id) => weapData[id]?.name || ""}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
@@ -246,6 +258,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
+                disableClearable={newCharObj.weapon.key === ""}
               />
             </Grid>
 
@@ -255,15 +268,7 @@ const Save = ({
                 size="small"
                 value={newCharObj.set1.key}
                 options={getFilteredSetIds("Relic")}
-                onChange={(_, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    set1: {
-                      key: newValue,
-                      entry: setData[newValue],
-                    },
-                  }));
-                }}
+                onChange={(_, newValue) => handleSet(newValue, "set1")}
                 getOptionLabel={(id) => setData[id]?.name || ""}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
@@ -273,6 +278,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
+                disableClearable={newCharObj.set1.key === ""}
               />
             </Grid>
 
@@ -282,15 +288,7 @@ const Save = ({
                 size="small"
                 value={newCharObj.set2.key}
                 options={getFilteredSetIds("Planar")}
-                onChange={(_, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    set2: {
-                      key: newValue,
-                      entry: setData[newValue],
-                    },
-                  }));
-                }}
+                onChange={(_, newValue) => handleSet(newValue, "set2")}
                 getOptionLabel={(id) => setData[id]?.name || ""}
                 isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
@@ -300,6 +298,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
+                disableClearable={newCharObj.set2.key === ""}
               />
             </Grid>
 

@@ -41,14 +41,14 @@ const Piece = ({
   setNewCharObj,
 }) => {
   // Pass mainstat change to newCharObj
-  const handleMainstat = (newValue, reason) => {
+  const handleMainstat = (newValue) => {
     setNewCharObj((prevCharObj) => {
       // Create a copy of the pieces array
       const updatedPieces = [...prevCharObj.pieces];
 
       // Update the information in the copy
       updatedPieces[index] = {
-        mainstat: reason === "clear" ? "" : newValue,
+        mainstat: newValue || "",
         substats: Array(4).fill({ name: "", value: "" }),
       };
 
@@ -60,7 +60,7 @@ const Piece = ({
   };
 
   // Pass substat change to newCharObj
-  const handleSubstat = (newValue, reason, subIndex, attribute) => {
+  const handleSubstat = (newValue, subIndex, attribute) => {
     setNewCharObj((prevCharObj) => {
       // Create a copy of the substats array
       const updatedPieces = [...prevCharObj.pieces];
@@ -69,7 +69,7 @@ const Piece = ({
       // Update the information in the copy
       updatedSubstats[subIndex] = {
         ...updatedSubstats[subIndex],
-        [attribute]: reason === "clear" ? "" : newValue,
+        [attribute]: newValue || "",
       };
       updatedPieces[index] = {
         ...updatedPieces[index],
@@ -106,9 +106,7 @@ const Piece = ({
             size='small'
             value={newCharObj.pieces[index].mainstat || ""}
             options={MAINSTAT_OPTIONS[index]}
-            onChange={(_, newValue, reason) => {
-              handleMainstat(newValue, reason);
-            }}
+            onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -135,9 +133,7 @@ const Piece = ({
                 size='small'
                 value={newCharObj.pieces[index].substats[subIndex].name || ""}
                 options={getFilteredSubstatOptions(subIndex)}
-                onChange={(_, newValue, reason) => {
-                  handleSubstat(newValue, reason, subIndex, "name");
-                }}
+                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "name")}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -157,7 +153,7 @@ const Piece = ({
                 onChange={(e) => {
                   const newValue = e.target.value;
                   if (/^\d*\.?\d{0,1}$/.test(newValue)) {
-                    handleSubstat(newValue, null, subIndex, "value")
+                    handleSubstat(newValue, subIndex, "value")
                   }
                 }}
                 fullWidth
