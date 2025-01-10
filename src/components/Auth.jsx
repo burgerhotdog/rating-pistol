@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   browserLocalPersistence,
   GoogleAuthProvider,
@@ -6,10 +6,10 @@ import {
   setPersistence,
   signInWithPopup,
   signOut,
-} from 'firebase/auth';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { Box, Button, Typography } from '@mui/material';
-import { auth, db } from '../firebase';
+} from "firebase/auth";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { Box, Button, Typography } from "@mui/material";
+import { auth, db } from "../firebase";
 
 const Auth = ({ setUid }) => {
   const [email, setEmail] = useState(null);
@@ -45,7 +45,7 @@ const Auth = ({ setUid }) => {
       await setPersistence(auth, browserLocalPersistence);
       await signInWithPopup(auth, new GoogleAuthProvider());
     } catch (error) {
-      console.error('handleSignIn: ', error);
+      console.error("handleSignIn: ", error);
       setIsLoading(false);
     }
   };
@@ -56,38 +56,38 @@ const Auth = ({ setUid }) => {
     try {
       await signOut(auth);
     } catch (error) {
-      console.error('handleSignOut: ', error);
+      console.error("handleSignOut: ", error);
       setIsLoading(false);
     }
   };
   
   return (
     <Box sx={{
-      position: 'fixed',
+      position: "fixed",
       top: 8,
       right: 8,
     }}>
       {isLoading ? (
         <Box sx= {{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}>
           <Typography>Loading...</Typography>
         </Box>
       ) : (
       <Box sx= {{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         gap: 1,
       }}>
-        <Typography variant='button'>
-          {email ? email : ''}
+        <Typography variant="button">
+          {email ? email : ""}
         </Typography>
 
         <Button onClick={email ? handleSignOut : handleSignIn}>
-          {email ? 'Sign Out' : 'Sign In'}
+          {email ? "Sign Out" : "Sign In"}
         </Button>
       </Box>
       )}

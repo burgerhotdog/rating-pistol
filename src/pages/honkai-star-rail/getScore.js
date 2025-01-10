@@ -1,6 +1,7 @@
-import charData from './data/charData';
+import charData from "./data/charData";
 
 const getScore = ( id, char ) => {
+  return "0";
   // Values for 1 roll
   const subValues = {
     "HP": 38,
