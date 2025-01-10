@@ -12,26 +12,50 @@ const PIECE_NAMES = [
 ]
 
 const MAINSTAT_OPTIONS = [
-  ["hp"],
-  ["atk"],
-  ["def"],
-  ["hp%", "atk%", "def%", "cr", "cd", "ap"],
-  ["hp%", "atk%", "def%", "pen%", "elemental dmg"],
-  ["hp%", "atk%", "def%", "am", "er", "impact"],
+  { hp: "HP" },
+  { atk: "ATK" },
+  { def: "DEF" },
+  {
+    hpp: "HP%",
+    atkp: "ATK%",
+    defp: "DEF%",
+    cr: "CRIT Rate",
+    cd: "CRIT DMG",
+    ap: "Anomaly Proficiency",
+  },
+  {
+    hpp: "HP%",
+    atkp: "ATK%",
+    defp: "DEF%",
+    penp: "PEN Ratio",
+    electric: "Electric DMG",
+    ether: "Ether DMG",
+    fire: "Fire DMG",
+    ice: "Ice DMG",
+    physical: "Physical DMG",
+  },
+  {
+    hpp: "HP%",
+    atkp: "ATK%",
+    defp: "DEF%",
+    am: "Anomaly Mastery",
+    er: "Energy Regen",
+    impact: "Impact",
+  },
 ];
 
-const SUBSTAT_OPTIONS = [
-  "hp",
-  "atk",
-  "def",
-  "hp%",
-  "atk%",
-  "def%",
-  "cr",
-  "cd",
-  "pen",
-  "ap",
-];
+const SUBSTAT_OPTIONS = {
+  hp: "HP",
+  atk: "ATK",
+  def: "DEF",
+  hpp: "HP%",
+  atkp: "ATK%",
+  defp: "DEF%",
+  cr: "CRIT Rate",
+  cd: "CRIT DMG",
+  pen: "PEN",
+  ap: "Anomaly Proficiency",
+};
 
 const Piece = ({
   newCharObj,
@@ -88,7 +112,7 @@ const Piece = ({
       .map((substat) => substat.name)
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
-    return SUBSTAT_OPTIONS.filter(
+    return Object.keys(SUBSTAT_OPTIONS).filter(
       (option) =>
         option !== selectedMainstat && // Exclude mainstat
         !selectedSubstatNames.includes(option) // Exclude already selected substats
@@ -103,7 +127,8 @@ const Piece = ({
           <Autocomplete
             size="small"
             value={newCharObj.pieces[mainIndex].mainstat || ""}
-            options={MAINSTAT_OPTIONS[mainIndex]}
+            options={Object.keys(MAINSTAT_OPTIONS[mainIndex])}
+            getOptionLabel={(id) => MAINSTAT_OPTIONS[mainIndex][id] || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
@@ -112,7 +137,7 @@ const Piece = ({
               />
             )}
             fullWidth
-            disabled={mainIndex === 0 || mainIndex === 1}
+            disabled={mainIndex === 0 || mainIndex === 1 || mainIndex === 2}
             disableClearable={newCharObj.pieces[mainIndex].mainstat === ""}
           />
         </Grid>
@@ -126,11 +151,12 @@ const Piece = ({
         {[0, 1, 2, 3].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Name Dropdown */}
-            <Grid size={8}>
+            <Grid size={9}>
               <Autocomplete
                 size="small"
                 value={newCharObj.pieces[mainIndex].substats[subIndex].name || ""}
                 options={getFilteredSubstatOptions(subIndex)}
+                getOptionLabel={(id) => SUBSTAT_OPTIONS[id] || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "name")}
                 renderInput={(params) => (
                   <TextField
@@ -144,7 +170,7 @@ const Piece = ({
             </Grid>
 
             {/* Substat Value Input */}
-            <Grid size={4}>
+            <Grid size={3}>
               <TextField
                 size="small"
                 value={newCharObj.pieces[mainIndex].substats[subIndex].value || ""}

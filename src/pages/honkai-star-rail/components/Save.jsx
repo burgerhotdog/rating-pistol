@@ -39,7 +39,7 @@ const Save = ({
   
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   // Gets filtered character ids for select character
   const getFilteredCharIds = () => {
@@ -186,14 +186,13 @@ const Save = ({
             options={getFilteredCharIds()}
             onChange={(_, newValue) => handleCharacter(newValue)}
             getOptionLabel={(id) => charData[id]?.name || ""}
-            isOptionEqualToValue={(option, value) => option === value}
             renderInput={(params) => (
               <TextField
                 {...params}
                 label="Character"
               />
             )}
-            sx={{ width: 320 }}
+            sx={{ width: { xs: 128, xl: 256 } }}
             disabled={isEditMode}
             disableClearable={newCharId === ""}
           />
@@ -236,16 +235,15 @@ const Save = ({
 
         {/* Data grid */}
         {newCharId && (
-          <Grid container spacing={2} sx={{ width: { xs: 256, md: 1280 }, mt: 2 }}>
+          <Grid container spacing={2} sx={{ width: { xs: 256, xl: 1440 }, mt: 2 }}>
             {/* Select weapon */}
-            <Grid size={{ xs: 12, md: 4 }}>
+            <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
                 value={newCharObj.weapon.key}
                 options={getFilteredWeapIds()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
                 getOptionLabel={(id) => weapData[id]?.name || ""}
-                isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -258,14 +256,13 @@ const Save = ({
             </Grid>
 
             {/* Select relic set */}
-            <Grid size={{ xs: 12, md: 4 }}>
+            <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
                 value={newCharObj.set1.key}
                 options={getFilteredSetIds("Relic")}
                 onChange={(_, newValue) => handleSet(newValue, "set1")}
                 getOptionLabel={(id) => setData[id]?.name || ""}
-                isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -278,14 +275,13 @@ const Save = ({
             </Grid>
 
             {/* Select planar set */}
-            <Grid size={{ xs: 12, md: 4 }}>
+            <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
                 value={newCharObj.set2.key}
                 options={getFilteredSetIds("Planar")}
                 onChange={(_, newValue) => handleSet(newValue, "set2")}
                 getOptionLabel={(id) => setData[id]?.name || ""}
-                isOptionEqualToValue={(option, value) => option === value}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -298,7 +294,7 @@ const Save = ({
             </Grid>
 
             {/* Weapon Image */}
-            <Grid size={{ xs: 12, md: 4 }}>
+            <Grid size={{ xs: 12, xl: 4 }}>
               {!isMobile && newCharObj.weapon.key && (
                 <img
                   src={weaponMedia[`../assets/weapon/${newCharObj.weapon.key}.webp`]?.default}
@@ -316,10 +312,10 @@ const Save = ({
             </Grid>
 
             {/* Piece grid */}
-            <Grid size={{ xs: 12, md: 8 }}>
+            <Grid size={{ xs: 12, xl: 8 }}>
               <Grid container spacing={2}>
                 {[0, 1, 2, 3, 4, 5].map((mainIndex) => (
-                  <Grid size={{ xs: 12, md: 4 }} key={mainIndex}>
+                  <Grid size={{ xs: 12, xl: 4 }} key={mainIndex}>
                     <Piece
                       newCharObj={newCharObj}
                       setNewCharObj={setNewCharObj}

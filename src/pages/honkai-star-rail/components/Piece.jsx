@@ -12,28 +12,58 @@ const PIECE_NAMES = [
 ]
 
 const MAINSTAT_OPTIONS = [
-  ["hp"],
-  ["atk"],
-  ["hp%", "atk%", "def%", "cr", "cd", "ohb", "ehr"],
-  ["hp%", "atk%", "def%", "spd"],
-  ["hp%", "atk%", "def%", "elemental dmg"],
-  ["hp%", "atk%", "def%", "be", "err"],
+  { hp: "HP" },
+  { atk: "ATK" },
+  {
+    hpp: "HP%",
+    atkp: "ATK%",
+    defp: "DEF%",
+    cr: "CRIT Rate",
+    cd: "CRIT DMG",
+    ohb: "Outgoing Healing",
+    ehr: "Effect HIT Rate",
+  },
+  {
+    hpp: "HP%",
+    atkp: "ATK%",
+    defp: "DEF%",
+    spd: "Speed",
+  },
+  {
+    hpp: "HP%",
+    atkp: "ATK%",
+    defp: "DEF%",
+    physical: "Physical DMG",
+    fire: "Fire DMG",
+    ice: "Ice DMG",
+    lightning: "Lightning DMG",
+    wind: "Wind DMG",
+    quantum: "Quantum DMG",
+    imaginary: "Imaginary DMG",
+  },
+  {
+    hpp: "HP%",
+    atkp: "ATK%",
+    defp: "DEF%",
+    be: "Break Effect",
+    err: "Energy Regen Rate"
+  },
 ];
 
-const SUBSTAT_OPTIONS = [
-  "hp",
-  "atk",
-  "def",
-  "hp%",
-  "atk%",
-  "def%",
-  "ehr",
-  "cr",
-  "cd",
-  "be",
-  "res",
-  "spd",
-];
+const SUBSTAT_OPTIONS = {
+  hp: "HP",
+  atk: "ATK",
+  def: "DEF",
+  hpp: "HP%",
+  atkp: "ATK%",
+  defp: "DEF%",
+  cr: "CRIT Rate",
+  cd: "CRIT DMG",
+  ehr: "Effect HIT Rate",
+  res: "Effect RES",
+  be: "Break Effect",
+  spd: "Speed",
+};
 
 const Piece = ({
   newCharObj,
@@ -90,7 +120,7 @@ const Piece = ({
       .map((substat) => substat.name)
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
-    return SUBSTAT_OPTIONS.filter(
+    return Object.keys(SUBSTAT_OPTIONS).filter(
       (option) =>
         option !== selectedMainstat && // Exclude mainstat
         !selectedSubstatNames.includes(option) // Exclude already selected substats
@@ -105,7 +135,8 @@ const Piece = ({
           <Autocomplete
             size="small"
             value={newCharObj.pieces[mainIndex].mainstat || ""}
-            options={MAINSTAT_OPTIONS[mainIndex]}
+            options={Object.keys(MAINSTAT_OPTIONS[mainIndex])}
+            getOptionLabel={(id) => MAINSTAT_OPTIONS[mainIndex][id] || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
@@ -128,11 +159,12 @@ const Piece = ({
         {[0, 1, 2, 3].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Name Dropdown */}
-            <Grid size={8}>
+            <Grid size={9}>
               <Autocomplete
                 size="small"
                 value={newCharObj.pieces[mainIndex].substats[subIndex].name || ""}
                 options={getFilteredSubstatOptions(subIndex)}
+                getOptionLabel={(id) => SUBSTAT_OPTIONS[id] || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "name")}
                 renderInput={(params) => (
                   <TextField
@@ -146,7 +178,7 @@ const Piece = ({
             </Grid>
 
             {/* Substat Value Input */}
-            <Grid size={4}>
+            <Grid size={3}>
               <TextField
                 size="small"
                 value={newCharObj.pieces[mainIndex].substats[subIndex].value || ""}
