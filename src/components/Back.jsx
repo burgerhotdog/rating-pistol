@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Box, Button } from '@mui/material';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Box, Button } from "@mui/material";
 
 const Back = () => (
   <Box sx={{
-    position: 'fixed',
+    position: "fixed",
     top: 8,
     left: 8,
   }}>
