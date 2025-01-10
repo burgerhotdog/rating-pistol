@@ -40,7 +40,7 @@ const GenshinImpact = ({ uid }) => {
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.only('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -91,12 +91,14 @@ const GenshinImpact = ({ uid }) => {
   return (
     <Container>
       <Back />
-      <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        mt: 4,
-      }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          mt: 4,
+        }}
+      >
         <Typography variant='h4'>Genshin Impact</Typography>
         <Typography variant="body2">Updated for version 5.3</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
@@ -116,6 +118,7 @@ const GenshinImpact = ({ uid }) => {
             {/* Table data */}
             <TableBody>
               {Object.keys(myChars).length === 0 ? (
+                // In the case that there are no saved characters
                 <TableRow>
                   <TableCell colSpan={6} align='center'>
                     No characters to display
@@ -227,9 +230,6 @@ const GenshinImpact = ({ uid }) => {
           myChars={myChars}
           setMyChars={setMyChars}
           newCharId={newCharId}
-          setNewCharId={setNewCharId}
-          newCharObj={newCharObj}
-          setNewCharObj={setNewCharObj}
         />
       </Box>        
     </Container>

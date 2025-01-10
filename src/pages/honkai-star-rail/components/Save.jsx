@@ -95,8 +95,8 @@ const Save = ({
     }
 
     // Save object to myChars
-    setMyChars((prevChars) => ({
-      ...prevChars,
+    setMyChars((prev) => ({
+      ...prev,
       [newCharId]: newCharObj,
     }));
 
@@ -236,13 +236,7 @@ const Save = ({
 
         {/* Data grid */}
         {newCharId && (
-          <Grid container
-            spacing={2}
-            sx={{
-              width: { xs: 256, md: 1280 },
-              mt: 2,
-            }}
-          >
+          <Grid container spacing={2} sx={{ width: { xs: 256, md: 1280 }, mt: 2 }}>
             {/* Select weapon */}
             <Grid size={{ xs: 12, md: 4 }}>
               <Autocomplete

@@ -2,7 +2,6 @@ import React from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { db } from "../../../firebase";
-import initCharObj from "../initCharObj";
 
 const Delete = ({
   uid,
