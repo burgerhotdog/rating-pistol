@@ -3,19 +3,19 @@ import { Autocomplete, Card, Divider, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 
 const PIECE_NAMES = [
-  "Flower",
-  "Plume",
-  "Sands",
-  "Goblet",
-  "Circlet",
+  "4-Cost",
+  "3-Cost",
+  "3-Cost",
+  "1-Cost",
+  "1-Cost",
 ]
 
 const MAINSTAT_OPTIONS = [
-  ["hp"],
-  ["atk"],
-  ["hp%", "atk%", "def%", "em", "er"],
-  ["hp%", "atk%", "def%", "em", "elemental dmg"],
-  ["hp%", "atk%", "def%", "em", "cr", "cd", "hb"],
+  ["hp%", "atk%", "def%", "cr", "cd", "hb"],
+  ["hp%", "atk%", "def%", "elemental dmg", "er"],
+  ["hp%", "atk%", "def%", "elemental dmg", "er"],
+  ["hp%", "atk%", "def%"],
+  ["hp%", "atk%", "def%"],
 ];
 
 const SUBSTAT_OPTIONS = [
@@ -25,10 +25,13 @@ const SUBSTAT_OPTIONS = [
   "hp%",
   "atk%",
   "def%",
-  "em",
-  "er",
   "cr",
   "cd",
+  "er",
+  "ba",
+  "ha",
+  "rs",
+  "rl",
 ];
 
 const Piece = ({
@@ -45,7 +48,7 @@ const Piece = ({
       // Update the data in the copy
       updatedPieces[mainIndex] = {
         mainstat: newValue || "",
-        substats: Array(4).fill({ name: "", value: "" }),
+        substats: Array(5).fill({ name: "", value: "" }),
       };
 
       return {
@@ -81,14 +84,12 @@ const Piece = ({
 
   const getFilteredSubstatOptions = (subIndex) => {
     // Get the selected mainstat and substat names
-    const selectedMainstat = newCharObj.pieces[mainIndex].mainstat;
     const selectedSubstatNames = newCharObj.pieces[mainIndex].substats
       .map((substat) => substat.name)
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
     return SUBSTAT_OPTIONS.filter(
       (option) =>
-        option !== selectedMainstat && // Exclude mainstat
         !selectedSubstatNames.includes(option) // Exclude already selected substats
     );
   };
@@ -110,7 +111,6 @@ const Piece = ({
               />
             )}
             fullWidth
-            disabled={mainIndex === 0 || mainIndex === 1}
             disableClearable={newCharObj.pieces[mainIndex].mainstat === ""}
           />
         </Grid>
@@ -121,7 +121,7 @@ const Piece = ({
         </Grid>
 
         {/* Substats */}
-        {[0, 1, 2, 3].map((subIndex) => (
+        {[0, 1, 2, 3, 4].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Name Dropdown */}
             <Grid size={8}>
