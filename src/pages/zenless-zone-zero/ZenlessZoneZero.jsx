@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
-import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
+import React, { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { Edit as EditIcon, Delete as DeleteIcon } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -14,18 +14,18 @@ import {
   Typography,
   useTheme,
   useMediaQuery,
-} from '@mui/material';
-import { db } from '../../firebase';
-import Back from '../../components/Back';
-import Save from './components/Save';
-import Delete from './components/Delete';
-import initCharObj from './initCharObj';
+} from "@mui/material";
+import { db } from "../../firebase";
+import Back from "../../components/Back";
+import Save from "./components/Save";
+import Delete from "./components/Delete";
+import initCharObj from "./initCharObj";
 
-const iconMedia = import.meta.glob('./assets/icon/*.webp', { eager: true });
-const weaponMedia = import.meta.glob('./assets/weapon/*.webp', { eager: true });
-const setMedia = import.meta.glob('./assets/set/*.webp', { eager: true });
+const iconMedia = import.meta.glob("./assets/icon/*.webp", { eager: true });
+const weaponMedia = import.meta.glob("./assets/weapon/*.webp", { eager: true });
+const setMedia = import.meta.glob("./assets/set/*.webp", { eager: true });
 
-const HonkaiStarRail = ({ uid }) => {
+const ZenlessZoneZero = ({ uid }) => {
   // Modal States
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -35,19 +35,19 @@ const HonkaiStarRail = ({ uid }) => {
   const [myChars, setMyChars] = useState({});
 
   // New Character Object
-  const [newCharId, setNewCharId] = useState('');
+  const [newCharId, setNewCharId] = useState("");
   const [newCharObj, setNewCharObj] = useState(initCharObj);
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.only('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
         // Fetch character documents from firestore
-        const charDocsRef = collection(db, 'users', uid, 'ZenlessZoneZero');
+        const charDocsRef = collection(db, "users", uid, "ZenlessZoneZero");
         const charDocs = await getDocs(charDocsRef);
   
         // Convert documents to objects
@@ -68,7 +68,7 @@ const HonkaiStarRail = ({ uid }) => {
 
   // Add character button handler
   const handleAdd = () => {
-    setNewCharId('');
+    setNewCharId("");
     setNewCharObj(initCharObj());
     setIsEditMode(false);
     setIsSaveOpen(true);
@@ -91,13 +91,15 @@ const HonkaiStarRail = ({ uid }) => {
   return (
     <Container>
       <Back />
-      <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        mt: 4,
-      }}>
-        <Typography variant='h4'>Zenless Zone Zero</Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          mt: 4,
+        }}
+      >
+        <Typography variant="h4">Zenless Zone Zero</Typography>
         <Typography variant="body2">Updated for version 1.4</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
@@ -117,7 +119,7 @@ const HonkaiStarRail = ({ uid }) => {
             <TableBody>
               {Object.keys(myChars).length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={6} align='center'>
+                  <TableCell colSpan={6} align="center">
                     No characters to display
                   </TableCell>
                 </TableRow>
@@ -130,11 +132,11 @@ const HonkaiStarRail = ({ uid }) => {
                     <TableCell>
                       <img
                         src={iconMedia[`./assets/icon/${id}_Icon.webp`]?.default}
-                        alt={char.name || 'Icon'}
+                        alt={char.name || "Icon"}
                         style={{
                           width: 50,
                           height: 50,
-                          objectFit: 'contain',
+                          objectFit: "contain",
                         }}
                       />
                     </TableCell>
@@ -143,11 +145,11 @@ const HonkaiStarRail = ({ uid }) => {
                       <TableCell>
                         <img
                           src={weaponMedia[`./assets/weapon/${char.weapon.key}.webp`]?.default}
-                          alt={char.weapon.entry.name || 'Weapon'}
+                          alt={char.weapon.entry.name || "Weapon"}
                           style={{
                             width: 50,
                             height: 50,
-                            objectFit: 'contain',
+                            objectFit: "contain",
                           }}
                         />
                       </TableCell>
@@ -155,28 +157,28 @@ const HonkaiStarRail = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <Box sx={{
-                          display: 'flex',
-                          flexDirection: 'row',
-                          alignItems: 'center',
+                          display: "flex",
+                          flexDirection: "row",
+                          alignItems: "center",
                           gap: 1,
                         }}>
                           <img
                             src={setMedia[`./assets/set/${char.set1.key}.webp`]?.default}
-                            alt={char.set1.entry.name || 'Set 1'}
+                            alt={char.set1.entry.name || "Set 1"}
                             style={{
                               width: 50,
                               height: 50,
-                              objectFit: 'contain',
+                              objectFit: "contain",
                             }}
                           />
                           <Typography>+</Typography>
                           <img
                             src={setMedia[`./assets/set/${char.set2.key}.webp`]?.default}
-                            alt={char.set2.entry.name || 'Set 2'}
+                            alt={char.set2.entry.name || "Set 2"}
                             style={{
                               width: 50,
                               height: 50,
-                              objectFit: 'contain',
+                              objectFit: "contain",
                             }}
                           />
                         </Box>
@@ -186,9 +188,9 @@ const HonkaiStarRail = ({ uid }) => {
                     <TableCell>
                       {/* Edit button */}
                       <Button
-                        size='small'
-                        variant='outlined'
-                        color='primary'
+                        size="small"
+                        variant="outlined"
+                        color="primary"
                         onClick={() => handleEdit(id)}
                         sx={{ mr: 1 }}
                       >
@@ -197,9 +199,9 @@ const HonkaiStarRail = ({ uid }) => {
 
                       {/* Delete button */}
                       <Button
-                        size='small'
-                        variant='outlined'
-                        color='secondary'
+                        size="small"
+                        variant="outlined"
+                        color="secondary"
                         onClick={() => handleDelete(id)}
                       >
                         <DeleteIcon />
@@ -214,8 +216,8 @@ const HonkaiStarRail = ({ uid }) => {
 
         {/* Add character button */}
         <Button
-          variant='contained'
-          color='primary'
+          variant="contained"
+          color="primary"
           onClick={handleAdd}
           sx={{ mt: 2 }}
         >
@@ -244,13 +246,10 @@ const HonkaiStarRail = ({ uid }) => {
           myChars={myChars}
           setMyChars={setMyChars}
           newCharId={newCharId}
-          setNewCharId={setNewCharId}
-          newCharObj={newCharObj}
-          setNewCharObj={setNewCharObj}
         />
       </Box>        
     </Container>
   );
 };
 
-export default HonkaiStarRail;
+export default ZenlessZoneZero;

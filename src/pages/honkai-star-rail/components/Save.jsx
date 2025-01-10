@@ -249,7 +249,7 @@ const Save = ({
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Weapon"
+                    label="Light Cone"
                   />
                 )}
                 fullWidth

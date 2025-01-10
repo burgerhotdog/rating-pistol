@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { doc, setDoc } from 'firebase/firestore';
-import Grid from '@mui/material/Grid2';
+import React, { useState } from "react";
+import { doc, setDoc } from "firebase/firestore";
+import Grid from "@mui/material/Grid2";
 import {
   Autocomplete,
   Box,
   Button,
+  Divider,
   Modal,
   TextField,
   Typography,
   useTheme,
   useMediaQuery,
-} from '@mui/material';
-import { db } from '../../../firebase';
-import SlotCard from './SlotCard';
-import getScore from '../getScore';
-import initCharObj from '../initCharObj';
-import charData from '../data/charData';
-import weapData from '../data/weapData';
-import setData from '../data/setData';
+} from "@mui/material";
+import { db } from "../../../firebase";
+import Piece from "./Piece";
+import getScore from "../getScore";
+import initCharObj from "../initCharObj";
+import charData from "../data/charData";
+import weapData from "../data/weapData";
+import setData from "../data/setData";
 
-const images = import.meta.glob('../assets/splash/*.webp', { eager: true });
+const iconMedia = import.meta.glob("../assets/icon/*.webp", { eager: true });
+const weaponMedia = import.meta.glob("../assets/weapon/*.webp", { eager: true });
 
 const Save = ({
   uid,
@@ -33,86 +35,50 @@ const Save = ({
   newCharObj,
   setNewCharObj,
 }) => {
-  const [error, setError] = useState('');
-  const [availableCharIds, setAvailableCharIds] = useState([]);
-  const [availableWeapIds, setAvailableWeapIds] = useState([]);
-  const [availableSet1Ids, setAvailableSet1Ids] = useState([]);
-  const [availableSet2Ids, setAvailableSet2Ids] = useState([]);
+  const [error, setError] = useState("");
   
-  // Theme and breakpoint
+  // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.only('xs'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // Update availableCharIds after saving or deleting a character
-  useEffect(() => {
-    // Sort alphabetically
-    const allCharIds = Object.keys(charData).sort();
+  // Gets filtered character ids for select character
+  const getFilteredCharIds = () => {
+    return Object.keys(charData)
+      .filter(id => !Object.keys(myChars).includes(id))
+      .sort();
+  };
 
-    // Only include unused character ids
-    const filteredCharIds = allCharIds.filter(
-      (id) => !Object.keys(myChars).includes(id)
-    );
+  // Gets filtered weapon ids for select weapon
+  const getFilteredWeapIds = () => {
+    return Object.keys(weapData)
+      .filter(id => weapData[id].type === charData[newCharId].weapon)
+      .sort();
+  };
 
-    // Update state
-    setAvailableCharIds(filteredCharIds);
-  }, [myChars]);
-
-  // Update availableWeapIds after selecting a character
-  useEffect(() => {
-    if (charData[newCharId]) {
-      // Sort alphabetically
-      const allWeapIds = Object.keys(weapData).sort();
-
-      // Only include correct type weapon ids
-      const filteredWeapIds = allWeapIds.filter(
-        (id) => weapData[id].type === charData[newCharId].weapon
-      );
-
-      // Update state
-      setAvailableWeapIds(filteredWeapIds);
-    }
-  }, [newCharId]);
-
-  // Update availableSet1Ids after selecting a character
-  useEffect(() => {
-    if (charData[newCharId]) {
-      // Sort alphabetically
-      const allSetIds = Object.keys(setData).sort();
-
-      // Update state
-      setAvailableSet1Ids(allSetIds);
-    }
-  }, [newCharId]);
-
-  // Update availableSet2Ids after selecting a character or set1
-  useEffect(() => {
-    if (charData[newCharId]) {
-      // Sort alphabetically
-      const allSetIds = Object.keys(setData).sort();
-
-      // Remove set1 key from array
-      const index = allSetIds.indexOf(newCharObj.set1.key);
-      if (index > -1) allSetIds.splice(index, 1);
-
-      // Update state
-      setAvailableSet2Ids(allSetIds);
-    }
-  }, [newCharId, newCharObj.set1.key]);
+  // Gets filtered set ids for select set
+  const getFilteredSetIds = (setNumber) => {
+    if (setNumber === "set1")
+      return Object.keys(setData).sort();
+    else
+      return Object.keys(setData)
+        .filter(id => id !== newCharObj.set1.key)
+        .sort();
+  };
 
   // Validation before saving
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon.key) errors.push('Select W-Engine');
-    if (!newCharObj.set1.key) errors.push('Select 4P drive set');
-    if (!newCharObj.set2.key) errors.push('Select 2P drive set');
+    if (!newCharObj.weapon.key) errors.push("Select W-Engine");
+    if (!newCharObj.set1.key) errors.push("Select 4P drive set");
+    if (!newCharObj.set2.key) errors.push("Select 2P drive set");
 
     // Display error message
     if (errors.length) {
-      setError(errors.join(', '));
+      setError(errors.join(", "));
       return false;
     } else {
-      setError('');
+      setError("");
       return true;
     }
   };
@@ -127,7 +93,7 @@ const Save = ({
 
     // Save document to Firestore
     if (uid) {
-      const charDocRef = doc(db, 'users', uid, 'ZenlessZoneZero', newCharId);
+      const charDocRef = doc(db, "users", uid, "ZenlessZoneZero", newCharId);
       await setDoc(charDocRef, newCharObj, { merge: true });
     }
 
@@ -137,213 +103,130 @@ const Save = ({
       [newCharId]: newCharObj,
     }));
 
-    // Reset states
-    setError('');
-    setNewCharId('');
-    setNewCharObj(initCharObj());
+    setError("");
     setIsSaveOpen(false);
   };
 
   // Cancel button handler
   const handleCancel = () => {
-    // Reset states
-    setError('');
-    setNewCharId('');
-    setNewCharObj(initCharObj());
+    setError("");
     setIsSaveOpen(false);
+  };
+
+  // Select character handler
+  const handleCharacter = (newValue) => {
+    setNewCharId(newValue || "");
+    setNewCharObj({
+      ...initCharObj(),
+      name: charData[newValue]?.name || "",
+    });
+    setError("");
+  };
+
+  // Select weapon handler
+  const handleWeapon = (newValue) => {
+    setNewCharObj((prev) => ({
+      ...prev,
+      weapon: {
+        key: newValue || "",
+        entry: weapData[newValue] || {},
+      },
+    }));
+  };
+
+  // Select set handler
+  const handleSet = (newValue, setNumber) => {
+    if (setNumber === "set1") {
+      setNewCharObj((prev) => ({
+        ...prev,
+        set1: {
+          key: newValue || "",
+          entry: setData[newValue] || {},
+        },
+        set2: prev.set2.key === newValue
+          ? { key: "", entry: {} }
+          : prev.set2,
+      }));
+    } else {
+      setNewCharObj((prev) => ({
+        ...prev,
+        set2: {
+          key: newValue || "",
+          entry: setData[newValue] || {},
+        },
+      }));
+    }
   };
 
   return (
     <Modal open={isSaveOpen} onClose={handleCancel}>
-      <Box sx={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: '#1c1c1c',
-        padding: 4,
-        borderRadius: 2,
-        ...(newCharId && {
-          maxHeight: '80vh',
-          overflowY: 'auto',
-        }),
-      }}>        
-        {/* Data grid */}
-        {newCharId ? (
-          <Grid container spacing={2} sx={{ width: { xs: 256, sm: 1024 } }}>
-            {/* Select character */}
-            <Grid size={{ xs: 12, sm: 3 }}>
-              <Autocomplete
-                disablePortal
-                size='small'
-                value={newCharId}
-                options={availableCharIds}
-                onChange={(event, newValue) => {
-                  if (newValue) {
-                    setNewCharId(newValue);
-                    setNewCharObj({
-                      ...initCharObj(),
-                      name: charData[newValue].name,
-                    });
-                  } else {
-                    setNewCharId('');
-                    setNewCharObj(initCharObj());
-                  }
-                }}
-                getOptionLabel={(id) => charData[id]?.name}
-                isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="Character" />}
-                fullWidth
-                disabled={isEditMode}
-              />
-            </Grid>
-
-            {/* Select weapon */}
-            <Grid size={{ xs: 12, sm: 3 }}>
-              <Autocomplete
-                disablePortal
-                size='small'
-                value={newCharObj.weapon.key}
-                options={availableWeapIds}
-                onChange={(event, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    weapon: {
-                      key: newValue,
-                      entry: weapData[newValue],
-                    },
-                  }));
-                }}
-                getOptionLabel={(id) => weapData[id]?.name || ''}
-                isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="W-Engine" />}
-                fullWidth
-              />
-            </Grid>
-
-            {/* Select 4P drive set */}
-            <Grid size={{ xs: 12, sm: 3 }}>
-              <Autocomplete
-                disablePortal
-                size='small'
-                value={newCharObj.set1.key}
-                options={availableSet1Ids}
-                onChange={(event, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    set1: {
-                      key: newValue,
-                      entry: setData[newValue],
-                    },
-                    set2: prev.set2.key === newValue
-                      ? { key: "", entry: {} }
-                      : prev.set2,
-                  }));
-                }}
-                getOptionLabel={(id) => setData[id]?.name || ''}
-                isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="4P Drive Set" />}
-                fullWidth
-              />
-            </Grid>
-
-            {/* Select 2P drive set */}
-            <Grid size={{ xs: 12, sm: 3 }}>
-              <Autocomplete
-                disablePortal
-                size='small'
-                value={newCharObj.set2.key}
-                options={availableSet2Ids}
-                onChange={(event, newValue) => {
-                  setNewCharObj((prev) => ({
-                    ...prev,
-                    set2: {
-                      key: newValue,
-                      entry: setData[newValue],
-                    },
-                  }));
-                }}
-                getOptionLabel={(id) => setData[id]?.name || ''}
-                isOptionEqualToValue={(option, value) => option === value}
-                renderInput={(params) => <TextField {...params} label="2P Drive Set" />}
-                fullWidth
-              />
-            </Grid>
-
-            {/* Image */}
-            <Grid size={{ xs: 12, sm: 6 }}>
-              {!isMobile && (
-                <img
-                  src={images[`../assets/splash/${newCharId}.webp`]?.default}
-                  alt={newCharObj.name || 'Character Splash'}
-                  style={{
-                    width: '100%',
-                    height: 500,
-                    objectFit: 'contain',
-                  }}
-                />
-              )}
-            </Grid>
-
-            {/* Disk grid */}
-            <Grid size={{ xs: 12, sm: 6 }}>
-              <Grid container spacing={2}>
-                {['Disk 1', 'Disk 2', 'Disk 3', 'Disk 4', 'Disk 5', 'Disk 6'].map(
-                  (slotName, index) => (
-                    <Grid size={{ xs: 12, sm: 6 }} key={slotName}>
-                      <SlotCard
-                        slotName={slotName}
-                        slotIndex={index}
-                        newCharId={newCharId}
-                        newCharObj={newCharObj}
-                        setNewCharObj={setNewCharObj}
-                      />
-                    </Grid>
-                  )
-                )}
-              </Grid>
-            </Grid>
-          </Grid>
-        ) : (
-          <Autocomplete
-            disablePortal
-            size='small'
-            value={newCharId}
-            options={availableCharIds}
-            onChange={(event, newValue) => {
-              if (newValue) {
-                setNewCharId(newValue);
-                setNewCharObj({
-                  ...initCharObj(),
-                  name: charData[newValue].name,
-                });
-              } else {
-                setNewCharId('');
-                setNewCharObj(initCharObj());
-              }
-            }}
-            getOptionLabel={(id) => charData[id]?.name || ''}
-            isOptionEqualToValue={(option, value) => option === value}
-            renderInput={(params) => <TextField {...params} label="Select" />}
-            sx={{ width: 240 }}
-          />
-        )}
-
-        {/* Error section */}
-        {error && (
-          <Typography variant="body2" color="error" sx={{ mt: 2, textAlign: 'center' }}>
-            {error}
-          </Typography>
-        )}
-
+      <Box
+        sx={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: "#1c1c1c",
+          padding: 4,
+          borderRadius: 2,
+          maxHeight: "90vh",
+          overflowY: "auto",
+        }}
+      >
         {/* Buttons section */}
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: 2,
-          mt: 2,
-        }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 2,
+          }}
+        >
+          {/* Icon */}
+          {newCharId && (
+            <img
+              src={iconMedia[`../assets/icon/${newCharId}_Icon.webp`]?.default}
+              alt={newCharObj.name || "Icon"}
+              style={{
+                width: 50,
+                height: 50,
+                objectFit: "contain",
+              }}
+            />
+          )}
+
+          {/* Select Character */}
+          <Autocomplete
+            size="small"
+            value={newCharId}
+            options={getFilteredCharIds()}
+            onChange={(_, newValue) => handleCharacter(newValue)}
+            getOptionLabel={(id) => charData[id]?.name || ""}
+            isOptionEqualToValue={(option, value) => option === value}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Character"
+              />
+            )}
+            sx={{ width: 320 }}
+            disabled={isEditMode}
+            disableClearable={newCharId === ""}
+          />
+
+          {/* Save button */}
+          {newCharId && (
+            <Button 
+              variant="contained"
+              color="primary"
+              onClick={handleSave}
+              sx={{ width: 80 }}
+            >
+              Save
+            </Button>
+          )}
+
+          {/* Cancel button */}
           <Button
             variant="outlined"
             color="secondary"
@@ -352,17 +235,118 @@ const Save = ({
           >
             Cancel
           </Button>
-
-          <Button 
-            variant="contained"
-            color="primary"
-            onClick={handleSave}
-            sx={{ width: 80 }}
-            disabled={!newCharId}
-          >
-            Save
-          </Button>
+          
+          {/* Error section */}
+          {error && (
+            <Typography
+              variant="body2"
+              color="error"
+            >
+              {error}
+            </Typography>
+          )}
         </Box>
+
+        {/* Divider */}
+        {newCharId && <Divider sx={{ mt: 2 }}/>}
+
+        {/* Data grid */}
+        {newCharId && (
+          <Grid container spacing={2} sx={{ width: { xs: 256, sm: 1280 }, mt: 2 }}>
+            {/* Select weapon */}
+            <Grid size={{ xs: 12, sm: 4 }}>
+              <Autocomplete
+                size="small"
+                value={newCharObj.weapon.key}
+                options={getFilteredWeapIds()}
+                onChange={(_, newValue) => handleWeapon(newValue)}
+                getOptionLabel={(id) => weapData[id]?.name || ""}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="W-Engine"
+                  />
+                )}
+                fullWidth
+                disableClearable={newCharObj.weapon.key === ""}
+              />
+            </Grid>
+
+            {/* Select 4P drive set */}
+            <Grid size={{ xs: 12, sm: 4 }}>
+              <Autocomplete
+                size="small"
+                value={newCharObj.set1.key}
+                options={getFilteredSetIds("set1")}
+                onChange={(_, newValue) => handleSet(newValue, "set1")}
+                getOptionLabel={(id) => setData[id]?.name || ""}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="4P Drive Set"
+                  />
+                )}
+                fullWidth
+                disableClearable={newCharObj.set1.key === ""}
+              />
+            </Grid>
+
+            {/* Select 2P drive set */}
+            <Grid size={{ xs: 12, sm: 4 }}>
+              <Autocomplete
+                size="small"
+                value={newCharObj.set2.key}
+                options={getFilteredSetIds("set2")}
+                onChange={(_, newValue) => handleSet(newValue, "set2")}
+                getOptionLabel={(id) => setData[id]?.name || ""}
+                isOptionEqualToValue={(option, value) => option === value}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="2P Drive Set"
+                  />
+                )}
+                fullWidth
+                disableClearable={newCharObj.set2.key === ""}
+              />
+            </Grid>
+
+            {/* Weapon Image */}
+            <Grid size={{ xs: 12, md: 4 }}>
+              {!isMobile && newCharObj.weapon.key && (
+                <img
+                  src={weaponMedia[`../assets/weapon/${newCharObj.weapon.key}.webp`]?.default}
+                  alt={newCharObj.weapon.entry.name || "Weapon"}
+                  style={{
+                    width: "100%",
+                    height: 500,
+                    objectFit: "contain",
+                  }}
+                />
+              )}
+              {!isMobile && !newCharObj.weapon.key && (
+                <Typography textAlign="center">No weapon selected</Typography>
+              )}
+            </Grid>
+
+            {/* Piece grid */}
+            <Grid size={{ xs: 12, md: 8 }}>
+              <Grid container spacing={2}>
+                {[0, 1, 2, 3, 4, 5].map((mainIndex) => (
+                  <Grid size={{ xs: 12, md: 4 }} key={mainIndex}>
+                    <Piece
+                      newCharObj={newCharObj}
+                      setNewCharObj={setNewCharObj}
+                      mainIndex={mainIndex}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </Grid>
+          </Grid>
+        )}
       </Box>      
     </Modal>
   );
