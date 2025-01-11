@@ -595,8 +595,19 @@ const charData = {
     rarity: "5 Star",
     weapon: "Sword",
     element: "Geo",
-    mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate / DMG"],
-    substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
+    basestats: {
+      hp: 13226,
+      atk: 251,
+      def: 876,
+    },
+    ascensionstat: { geo: 28.8 },
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+      geo: 1,
+      defp: 0.6,
+    },
   },
   Ganyu: {
     name: "Ganyu",

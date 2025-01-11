@@ -1,88 +1,95 @@
-import scoreData from "./data/scoreData";
+import charData from "./data/charData";
 
-const AVERAGE_ROLLS = {
-  hp: 254,
-  atk: 16.5,
-  def: 19.5,
-  hpp: 5,
-  atkp: 5,
-  defp: 6,
-  em: 19.5,
-  cr: 3.3,
-  cd: 6.6,
-  er: 5.5,
+const MAINSTAT_VALUES = {
+  hpp: 46.6,
+  atkp: 46.6,
+  defp: 58.3,
+  em: 186.5,
+  er: 51.8,
+  anemo: 46.6,
+  geo: 46.6,
+  electro: 46.6,
+  dendro: 46.6,
+  hydro: 46.6,
+  pyro: 46.6,
+  cryo: 46.6,
+  physical: 58.3,
+  cr: 31.1,
+  cd: 62.2,
+  hb: 35.9,
 }
 
-const getScore = ( id, char ) => {
-  // Sum up all the substat values
-  const substatTotals = {
-    hp: 0,
-    atk: 0,
-    def: 0,
-    hpp: 0,
-    atkp: 0,
-    defp: 0,
-    em: 0,
-    cr: 0,
-    cd: 0,
-    er: 0,
-  }
-  for (let i = 0; i < 5; i++) {
-    for (let j = 0; j < 4; j++) {
-      const subRef = char.pieces[i].substats[j];
-      if (subRef.name === "") continue;
-      substatTotals[subRef.name] += Number(subRef.value);
-    }
-  }
-  console.log("substatTotals", substatTotals);
+function percentage(value, total) {
+  return (value / total) * 100;
+}
 
-  // Divide substat totals by average roll value
-  const substatRollValues = {};
-  for (const key in substatTotals) {
-    substatRollValues[key] = substatTotals[key] / AVERAGE_ROLLS[key];
+const getScore = (id, char) => {
+  // get base stat values
+  const basestats = charData[id].basestats;
+  basestats.atk += Number(char.weapon.entry.baseatk || 0);
+
+  // sum up all the mainstats to a single object
+  const mainstatTotals = char.pieces
+    .flatMap(piece => piece.mainstat) // consolidate mainstats to 1 array
+    .filter(main => main) // filter out blank mainstats
+    .slice(2) // dont include first 2 pieces
+    .reduce((totals, main) => { // combine same mainstat values
+      totals[main] = (totals[main] || 0) + MAINSTAT_VALUES[main];
+      return totals;
+    }, {});
+
+  // sum up all the substats to a single object
+  const substatTotals = char.pieces
+    .flatMap(piece => piece.substats) // consolidate all pieces to 1 piece
+    .filter(sub => sub.name) // filter out blank substats
+    .reduce((totals, sub) => { // combine same substat values
+      if (basestats[sub.name]) { // convert flat stats to percentage stats
+        totals[sub.name + "p"] = (totals[sub.name + "p"] || 0) + percentage(Number(sub.value), basestats[sub.name]);
+      } else {
+        totals[sub.name] = (totals[sub.name] || 0) + Number(sub.value);
+      }
+      return totals;
+    }, {});
+
+  // combine substats with mainstats
+  const combinedTotals = { ...substatTotals }; // Start with a copy of substatTotals
+  Object.entries(mainstatTotals).forEach(([key, value]) => {
+    // Add mainstat values to combinedTotals, summing if the key exists in substatTotals
+    combinedTotals[key] = (combinedTotals[key] || 0) + value;
+  });
+  
+  // exclude cr over 100
+  const externalCr = 5 +
+    Number(char.weapon.entry.stat?.cr || 0) +
+    Number(charData[id].ascensionstat?.cr || 0) +
+    Number(char.set.entry.stat?.cr || 0);
+  
+  if (externalCr + (combinedTotals.cr || 0) >= 100) {
+    combinedTotals.cr = 100 - externalCr;
   }
-  console.log("substatRollValues:",substatRollValues);
 
-  // Weights
-  const weightedRollValues = {};
-  for (const key in substatRollValues) {
-    if (scoreData[id].weights[key] !== undefined) {
-      weightedRollValues[key] = substatRollValues[key] * scoreData[id].weights[key];
-    } else {
-      weightedRollValues[key] = 0;
-    }
+  // exclude er over energyReq, penalize not enough er
+  const externalEr = 100 +
+    Number(char.weapon.entry.stat?.er || 0) +
+    Number(charData[id].ascensionstat?.er || 0) +
+    Number(char.set.entry.stat?.er || 0);
+  
+  const currentEr = (combinedTotals.er || 0) + externalEr;
+  if (currentEr >= charData[id].energyReq) {
+    combinedTotals.er = charData[id].energyReq - externalEr;
+  } else {
+    combinedTotals.er = (combinedTotals.er || 0) - (charData[id].energyReq - currentEr);
   }
-  console.log("weighted:", weightedRollValues);
 
-  // Sum up all the weighted values
-  let score = Object.values(weightedRollValues).reduce((sum, value) => sum + value, 0);
-  console.log("score:", score);
+  // calculate score
+  let score = 0;
+  Object.entries(combinedTotals).forEach(([key, value]) => {
+    const weight = charData[id]?.weights[key] || 0;
+    const normalize = 10 / MAINSTAT_VALUES[key];
+    score += weight * normalize * value;
+  });
 
-  // Penalties
-  // Overcapped crit rate
-  // Unmet energy requirements
-
-  // Return as percentage of the ideal substat spread
-  let initRollCount = 40;
-  const idealRolls = {
-    hp: 0,
-    atk: 0,
-    def: 0,
-    hpp: 0,
-    atkp: 0,
-    defp: 0,
-    em: 0,
-    cr: 0,
-    cd: 0,
-    er: 0,
-  }
-  for (const key in idealRolls) {
-    idealRolls[key] += 2;
-    initRollCount -= 2;
-  }
-  // work in progress
-
-  return Math.round((score * 100) / 25);
+  return Math.round(percentage(score, 50));
 };
 
 export default getScore;
