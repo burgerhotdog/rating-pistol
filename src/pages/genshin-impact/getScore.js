@@ -1,46 +1,88 @@
-import charData from "./data/charData";
+import scoreData from "./data/scoreData";
+
+const AVERAGE_ROLLS = {
+  hp: 254,
+  atk: 16.5,
+  def: 19.5,
+  hpp: 5,
+  atkp: 5,
+  defp: 6,
+  em: 19.5,
+  cr: 3.3,
+  cd: 6.6,
+  er: 5.5,
+}
 
 const getScore = ( id, char ) => {
-  return "0";
-  // Values for 1 roll
-  const subValues = {
-    "HP": 254,
-    "ATK": 16.5,
-    "DEF": 19.5,
-    "HP%": 5,
-    "ATK%": 5,
-    "DEF%": 6,
-    "EM": 19.5,
-    "CRIT Rate": 3.3,
-    "CRIT DMG": 6.6,
-    "ER%": 5.5,
+  // Sum up all the substat values
+  const substatTotals = {
+    hp: 0,
+    atk: 0,
+    def: 0,
+    hpp: 0,
+    atkp: 0,
+    defp: 0,
+    em: 0,
+    cr: 0,
+    cd: 0,
+    er: 0,
   }
-
-  let total = 0;
-
-  // Calculate total sum of rolls
-  // First and second substats count as 1 roll
-  // Third substat counts as 0.5 roll
-  for (let slot = 0; slot < 5; slot++) {
-    total += Number(char[slot][0] ?? 0) / subValues[charData[id].substats[0]];
-    total += Number(char[slot][1] ?? 0) / subValues[charData[id].substats[1]];
-    total += (Number(char[slot][2] ?? 0) / subValues[charData[id].substats[2]]) / 2;
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 4; j++) {
+      const subRef = char.pieces[i].substats[j];
+      if (subRef.name === "") continue;
+      substatTotals[subRef.name] += Number(subRef.value);
+    }
   }
+  console.log("substatTotals", substatTotals);
 
-  console.log(total);
+  // Divide substat totals by average roll value
+  const substatRollValues = {};
+  for (const key in substatTotals) {
+    substatRollValues[key] = substatTotals[key] / AVERAGE_ROLLS[key];
+  }
+  console.log("substatRollValues:",substatRollValues);
 
-  // Return it as a percentage of 25
-  // 25 represents an ideal amount of substat rolls
-  
-  /* This is calculated using Prydwen's algorithm.
-  There are 40 total substats possible (5 slots * 8 substats per slot).
-  20 rolls are evenly distributed between all 10 different substats (2 rolls each).
-  The remaining 20 rolls are assigned to the best substats for each character.
-  Only restriction is that substats can't be allocated more than 10 rolls.
-  This comes out to: 10 + 10 + 0.
-  Add this to the original 20 distributed rolls: 12 + 12 + 2.
-  After taking into account the weights, our final sum is 25. */
-  return Math.round((total / 25) * 100);
+  // Weights
+  const weightedRollValues = {};
+  for (const key in substatRollValues) {
+    if (scoreData[id].weights[key] !== undefined) {
+      weightedRollValues[key] = substatRollValues[key] * scoreData[id].weights[key];
+    } else {
+      weightedRollValues[key] = 0;
+    }
+  }
+  console.log("weighted:", weightedRollValues);
+
+  // Sum up all the weighted values
+  let score = Object.values(weightedRollValues).reduce((sum, value) => sum + value, 0);
+  console.log("score:", score);
+
+  // Penalties
+  // Overcapped crit rate
+  // Unmet energy requirements
+
+  // Return as percentage of the ideal substat spread
+  let initRollCount = 40;
+  const idealRolls = {
+    hp: 0,
+    atk: 0,
+    def: 0,
+    hpp: 0,
+    atkp: 0,
+    defp: 0,
+    em: 0,
+    cr: 0,
+    cd: 0,
+    er: 0,
+  }
+  for (const key in idealRolls) {
+    idealRolls[key] += 2;
+    initRollCount -= 2;
+  }
+  // work in progress
+
+  return Math.round((score * 100) / 25);
 };
 
 export default getScore;
