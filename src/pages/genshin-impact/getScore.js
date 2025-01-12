@@ -61,7 +61,7 @@ const getScore = (id, char) => {
   // exclude cr over 100
   const externalCr = 5 +
     Number(char.weapon.entry.stat?.cr || 0) +
-    Number(charData[id].ascensionstat?.cr || 0) +
+    Number(charData[id].ascension?.cr || 0) +
     Number(char.set.entry.stat?.cr || 0);
   
   if (externalCr + (combinedTotals.cr || 0) >= 100) {
@@ -71,7 +71,7 @@ const getScore = (id, char) => {
   // exclude er over energyReq, penalize not enough er
   const externalEr = 100 +
     Number(char.weapon.entry.stat?.er || 0) +
-    Number(charData[id].ascensionstat?.er || 0) +
+    Number(charData[id].ascension?.er || 0) +
     Number(char.set.entry.stat?.er || 0);
   
   const currentEr = (combinedTotals.er || 0) + externalEr;

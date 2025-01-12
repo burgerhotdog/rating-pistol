@@ -8,7 +8,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Glacio DMG", "Glacio DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
-
+  
   // Version 1.4
   Camellya: {
     name: "Camellya",
@@ -18,6 +18,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Havoc DMG", "Havoc DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Lumi: {
     name: "Lumi",
     rarity: "4 Star",
@@ -26,7 +27,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
-
+  
   // Version 1.3
   Shorekeeper: {
     name: "Shorekeeper",
@@ -36,6 +37,7 @@ const charData = {
     mainstats: ["CRIT DMG", "Spectro DMG", "Spectro DMG", "HP%", "HP%"],
     substats: ["CRIT DMG", "ER", "HP%"],
   },
+  
   Youhu: {
     name: "Youhu",
     rarity: "4 Star",
@@ -44,7 +46,7 @@ const charData = {
     mainstats: ["Healing Bonus", "ER", "ER", "ATK%", "ATK%"],
     substats: ["ER", "ATK%", "ATK"],
   },
-
+  
   // Version 1.2
   XiangliYao: {
     name: "Xiangli Yao",
@@ -54,6 +56,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Zhezhi: {
     name: "Zhezhi",
     rarity: "5 Star",
@@ -72,6 +75,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Fusion DMG", "Fusion DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Jinhsi: {
     name: "Jinhsi",
     rarity: "5 Star",
@@ -80,7 +84,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Spectro DMG", "Spectro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
-
+  
   // Version 1.0
   Aalto: {
     name: "Aalto",
@@ -90,6 +94,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Aero DMG", "Aero DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Baizhi: {
     name: "Baizhi",
     rarity: "4 Star",
@@ -98,6 +103,7 @@ const charData = {
     mainstats: ["Healing Bonus", "ER", "ER", "HP%", "HP%"],
     substats: ["ER", "HP%", "HP"],
   },
+  
   Calcharo: {
     name: "Calcharo",
     rarity: "5 Star",
@@ -106,6 +112,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Chixia: {
     name: "Chixia",
     rarity: "4 Star",
@@ -114,6 +121,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Fusion DMG", "Fusion DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Danjin: {
     name: "Danjin",
     rarity: "4 Star",
@@ -122,6 +130,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Havoc DMG", "Havoc DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Encore: {
     name: "Encore",
     rarity: "5 Star",
@@ -130,6 +139,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Fusion DMG", "Fusion DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Jianxin: {
     name: "Jianxin",
     rarity: "5 Star",
@@ -138,6 +148,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Aero DMG", "Aero DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Jiyan: {
     name: "Jiyan",
     rarity: "5 Star",
@@ -146,6 +157,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Aero DMG", "Aero DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Lingyang: {
     name: "Lingyang",
     rarity: "5 Star",
@@ -154,6 +166,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Glacio DMG", "Glacio DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Mortefi: {
     name: "Mortefi",
     rarity: "4 Star",
@@ -162,6 +175,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Fusion DMG", "Fusion DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Sanhua: {
     name: "Sanhua",
     rarity: "4 Star",
@@ -170,6 +184,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Glacio DMG", "Glacio DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Taoqi: {
     name: "Taoqi",
     rarity: "4 Star",
@@ -178,6 +193,7 @@ const charData = {
     mainstats: ["DEF%", "ER", "ER", "DEF%", "DEF%"],
     substats: ["ER", "DEF%", "DEF"],
   },
+  
   Verina: {
     name: "Verina",
     rarity: "5 Star",
@@ -186,6 +202,7 @@ const charData = {
     mainstats: ["Healing Bonus", "ER", "ER", "ATK%", "ATK%"],
     substats: ["ER", "ATK%", "ATK"],
   },
+  
   Yangyang: {
     name: "Yangyang",
     rarity: "4 Star",
@@ -194,6 +211,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Aero DMG", "Aero DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Yinlin: {
     name: "Yinlin",
     rarity: "5 Star",
@@ -202,6 +220,7 @@ const charData = {
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
   },
+  
   Yuanwu: {
     name: "Yuanwu",
     rarity: "4 Star",
