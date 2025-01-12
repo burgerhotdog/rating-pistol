@@ -9,6 +9,7 @@ const setData = {
   ObsidianCodex: {
     name: "Obsidian Codex",
   },
+  
   ScrollOfTheHeroOfCinderCity: {
     name: "Scroll of the Hero of Cinder City",
   },
@@ -21,6 +22,7 @@ const setData = {
   FragmentOfHarmonicWhimsy: {
     name: "Fragment of Harmonic Whimsy",
   },
+
   UnfinishedReverie: {
     name: "Unfinished Reverie",
   },
@@ -33,6 +35,7 @@ const setData = {
   NighttimeWhispersInTheEchoingWoods: {
     name: "Nighttime Whispers in the Echoing Woods",
   },
+
   SongOfDaysPast: {
     name: "Song of Days Past",
   },
@@ -45,6 +48,7 @@ const setData = {
   GoldenTroupe: {
     name: "Golden Troupe",
   },
+
   MarechausseeHunter: {
     name: "Marechaussee Hunter",
   },
@@ -57,6 +61,7 @@ const setData = {
   NymphsDream: {
     name: "Nymph's Dream",
   },
+
   VourukashasGlow: {
     name: "Vourukasha's Glow",
   },
@@ -69,6 +74,7 @@ const setData = {
   DesertPavilionChronicle: {
     name: "Desert Pavilion Chronicle",
   },
+
   FlowerOfParadiseLost: {
     name: "Flower of Paradise Lost",
   },
@@ -81,6 +87,7 @@ const setData = {
   DeepwoodMemories: {
     name: "Deepwood Memories",
   },
+
   GildedDreams: {
     name: "Gilded Dreams",
   },
@@ -93,6 +100,7 @@ const setData = {
   EchoesOfAnOffering: {
     name: "Echoes of an Offering",
   },
+
   VermillionHereafter: {
     name: "Vermillion Hereafter",
   },
@@ -105,6 +113,7 @@ const setData = {
   HuskOfOpulentDreams: {
     name: "Husk of Opulent Dreams",
   },
+
   OceanHuedClam: {
     name: "Ocean-Hued Clam",
   },
@@ -117,6 +126,7 @@ const setData = {
   EmblemOfSeveredFate: {
     name: "Emblem of Severed Fate",
   },
+
   ShimenawasReminiscence: {
     name: "Shimenawa's Reminiscence",
   },
@@ -127,6 +137,7 @@ const setData = {
   PaleFlame: {
     name: "Pale Flame",
   },
+
   TenacityOfTheMillelith: {
     name: "Tenacity of the Millelith",
   },
@@ -139,6 +150,7 @@ const setData = {
   BlizzardStrayer: {
     name: "Blizzard Strayer",
   },
+
   HeartOfDepth: {
     name: "Heart of Depth",
   },
@@ -149,36 +161,47 @@ const setData = {
   ArchaicPetra: {
     name: "Archaic Petra",
   },
+
   BloodstainedChivalry: {
     name: "Bloodstained Chivalry",
   },
+
   CrimsonWitchOfFlames: {
     name: "Crimson Witch of Flames",
   },
+
   GladiatorsFinale: {
     name: "Gladiator's Finale",
   },
+
   Lavawalker: {
     name: "Lavawalker",
   },
+
   MaidenBeloved: {
     name: "Maiden Beloved",
   },
+
   NoblesseOblige: {
     name: "Noblesse Oblige",
   },
+
   RetracingBolide: {
     name: "Retracing Bolide",
   },
+
   ThunderingFury: {
     name: "Thundering Fury",
   },
+
   Thundersoother: {
     name: "Thundersoother",
   },
+
   ViridescentVenerer: {
     name: "Viridescent Venerer",
   },
+
   WanderersTroupe: {
     name: "Wanderer's Troupe",
   },
