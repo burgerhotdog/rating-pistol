@@ -39,7 +39,7 @@ const getScore = (id, char) => {
   });
 
   // sum up all the mainstats to a single object
-  const mainstatValuesMap = char.pieces
+  const mainstatValues = char.pieces
     .flatMap(piece => piece.mainstat) // consolidate mainstats to 1 array
     .filter(main => main) // filter out blank mainstats
     .slice(2) // dont include first 2 pieces
@@ -49,7 +49,7 @@ const getScore = (id, char) => {
     }, {});
   
   // sum up all the substats to a single object
-  const substatValuesMap = char.pieces
+  const substatValues = char.pieces
     .flatMap(piece => piece.substats) // consolidate all pieces to 1 piece
     .filter(sub => sub.name) // filter out blank substats
     .reduce((totals, sub) => { // combine same substat values
@@ -62,47 +62,47 @@ const getScore = (id, char) => {
     }, {});
   
   // combine substats with mainstats
-  const combinedValuesMap = { ...substatValuesMap }; // Start with a copy of substatTotals
-  Object.entries(mainstatValuesMap).forEach(([key, value]) => {
-    // Add mainstat values to combinedTotals, summing if the key exists in substatTotals
-    combinedTotals[key] = (combinedTotals[key] || 0) + value;
+  const combinedValues = { ...substatValues }; // Start with a copy of substatTotals
+  Object.entries(mainstatValues).forEach(([key, value]) => {
+    // Add mainstat values to combinedValues, summing if the key exists in substatTotals
+    combinedValues[key] = (combinedValues[key] || 0) + value;
   });
 
   // exclude er over energyReq, penalize not having enough er
   const externalEr = 100 +
     (charRef.ascension.er || 0) +
     (charRef.passivestats.er || 0) +
-    (weaponRef.stat.er || 0) +
-    (setRef.stat.er || 0);
+    (weaponRef.stats.er || 0) +
+    (setRef.stats.er || 0);
   
-  const totalEr = externalEr + (combinedValuesMap.er || 0);
+  const totalEr = externalEr + (combinedValues.er || 0);
   if (totalEr > charRef.energyReq) { // too much er
-    combinedValuesMap.er = Math.max(charRef.energyReq - externalEr, 0);
+    combinedValues.er = Math.max(charRef.energyReq - externalEr, 0);
   } else { // not enough er
-    combinedValuesMap.er = (combinedValuesMap.er || 0) - (charRef.energyReq - totalEr);
+    combinedValues.er = (combinedValues.er || 0) - (charRef.energyReq - totalEr);
   }
   
   // exclude cr over 100
   const externalCr = 5 +
     (charRef.ascension.cr || 0) +
     (charRef.passivestats.cr || 0) +
-    (weaponRef.stat.cr || 0) +
-    (setRef.stat.cr || 0);
+    (weaponRef.stats.cr || 0) +
+    (setRef.stats.cr || 0);
   
-  const totalCr = externalCr + (combinedValuesMap.cr || 0);
+  const totalCr = externalCr + (combinedValues.cr || 0);
   if (totalCr > 100) {
-    combinedValuesMap.cr = 100 - externalCr;
+    combinedValues.cr = 100 - externalCr;
   }
 
   // calculate score
   let score = 0;
-  Object.entries(combinedValuesMap).forEach(([key, value]) => {
+  Object.entries(combinedValues).forEach(([key, value]) => {
     const weight = key === "er" ? 1 : (weightsRef[key] || 0);
     const normalize = 10 / MAINSTAT_VALUES[key];
     score += weight * normalize * value;
   });
 
-  return Math.round(percentage(score, 50));
+  return Math.max(Math.round(percentage(score, 50)), 0);
 };
 
 export default getScore;
