@@ -85,7 +85,7 @@ const Piece = ({
       // Update the data in the copy
       updatedPieces[mainIndex] = {
         mainstat: newValue || "",
-        substats: Array(5).fill({ name: "", value: "" }),
+        substats: Array(5).fill({ key: "", value: "" }),
       };
 
       return {
@@ -121,13 +121,13 @@ const Piece = ({
 
   const getFilteredSubstatOptions = (subIndex) => {
     // Get the selected mainstat and substat names
-    const selectedSubstatNames = newCharObj.pieces[mainIndex].substats
-      .map((substat) => substat.name)
+    const selectedSubstatKeys = newCharObj.pieces[mainIndex].substats
+      .map((substat) => substat.key)
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
     return Object.keys(SUBSTAT_OPTIONS).filter(
       (option) =>
-        !selectedSubstatNames.includes(option) // Exclude already selected substats
+        !selectedSubstatKeys.includes(option) // Exclude already selected substats
     );
   };
 
@@ -165,10 +165,10 @@ const Piece = ({
             <Grid size={9}>
               <Autocomplete
                 size="small"
-                value={newCharObj.pieces[mainIndex].substats[subIndex].name || ""}
+                value={newCharObj.pieces[mainIndex].substats[subIndex].key || ""}
                 options={getFilteredSubstatOptions(subIndex)}
                 getOptionLabel={(id) => SUBSTAT_OPTIONS[id] || ""}
-                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "name")}
+                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -176,7 +176,7 @@ const Piece = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.pieces[mainIndex].substats[subIndex].name === ""}
+                disableClearable={newCharObj.pieces[mainIndex].substats[subIndex].key === ""}
               />
             </Grid>
 

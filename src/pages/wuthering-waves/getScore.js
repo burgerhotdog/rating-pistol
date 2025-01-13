@@ -50,12 +50,12 @@ const getScore = (id, char) => {
   // sum up all the substats to a single object
   const substatValues = char.pieces
     .flatMap(piece => piece.substats) // consolidate all pieces to 1 piece
-    .filter(sub => sub.name) // filter out blank substats
+    .filter(sub => sub.key) // filter out blank substats
     .reduce((totals, sub) => { // combine same substat values
-      if (basestats[sub.name]) { // convert flat stats to percentage stats
-        totals[sub.name + "p"] = (totals[sub.name + "p"] || 0) + percentage(Number(sub.value), basestats[sub.name]);
+      if (basestats[sub.key]) { // convert flat stats to percentage stats
+        totals[sub.key + "p"] = (totals[sub.key + "p"] || 0) + percentage(Number(sub.value), basestats[sub.key]);
       } else {
-        totals[sub.name] = (totals[sub.name] || 0) + Number(sub.value);
+        totals[sub.key] = (totals[sub.key] || 0) + Number(sub.value);
       }
       return totals;
     }, {});
