@@ -7,6 +7,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ER%", "EM", "EM"],
     substats: ["ER%", "EM", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Mavuika: {
@@ -16,6 +24,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 5.2
@@ -26,6 +42,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "ATK%", "ATK%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Ororon: {
@@ -35,6 +59,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "ATK% / ER%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 5.1
@@ -45,6 +77,14 @@ const charData = {
     element: "Geo",
     mainstats: ["HP", "ATK", "ER%", "DEF%", "Healing Bonus"],
     substats: ["ER%", "DEF%", "DEF"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 5.0
@@ -55,6 +95,14 @@ const charData = {
     element: "Geo",
     mainstats: ["HP", "ATK", "ER%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Kinich: {
@@ -64,6 +112,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Mualani: {
@@ -73,6 +129,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.8
@@ -83,6 +147,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "ATK%", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.7
@@ -93,6 +165,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Sethos: {
@@ -102,6 +182,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "EM", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Sigewinne: {
@@ -111,6 +199,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.6
@@ -121,6 +217,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.5
@@ -131,6 +235,14 @@ const charData = {
     element: "Geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.4
@@ -141,6 +253,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Xianyun: {
@@ -150,6 +270,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "ATK% / ER%", "ATK%", "ATK%"],
     substats: ["ER%", "ATK%", "ATK"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.3
@@ -160,6 +288,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Navia: {
@@ -169,6 +305,14 @@ const charData = {
     element: "Geo",
     mainstats: ["HP", "ATK", "ATK%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.2
@@ -179,6 +323,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ER%", "ATK%", "Healing Bonus"],
     substats: ["ER%", "ATK%", "ATK"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Furina: {
@@ -188,6 +340,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "HP% / ER%", "Hydro DMG / HP%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.1
@@ -198,6 +358,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Wriothesley: {
@@ -207,6 +375,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 4.0
@@ -217,6 +393,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Lynette: {
@@ -226,6 +410,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "ATK% / ER%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Lyney: {
@@ -235,6 +427,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 3.8
@@ -247,6 +447,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 3.6
@@ -257,6 +465,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Kaveh: {
@@ -266,6 +482,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "EM / ER%", "EM", "EM"],
     substats: ["ER%", "EM", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 3.5
@@ -276,6 +500,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "ATK% / ER%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Mika: {
@@ -285,6 +517,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ER%", "HP%", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 3.4
@@ -295,6 +535,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "EM", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yaoyao: {
@@ -304,6 +552,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "ER%", "HP%", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 3.3
@@ -314,6 +570,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "ER%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ER%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Wanderer: {
@@ -323,6 +587,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 3.2
@@ -333,6 +605,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Nahida: {
@@ -342,6 +622,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "EM", "Dendro DMG / EM", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 3.1
@@ -352,6 +640,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Cyno: {
@@ -361,6 +657,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "EM", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Nilou: {
@@ -370,6 +674,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 3.0
@@ -380,6 +692,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "ER%", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ER%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Dori: {
@@ -389,6 +709,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "ER%", "HP%", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Tighnari: {
@@ -398,6 +726,14 @@ const charData = {
     element: "Dendro",
     mainstats: ["HP", "ATK", "EM", "Dendro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "EM"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.8
@@ -408,6 +744,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.7
@@ -418,6 +762,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "EM", "EM", "EM"],
     substats: ["ER%", "EM", "HP%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yelan: {
@@ -427,6 +779,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "HP% / ER%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.6
@@ -437,6 +797,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.5
@@ -447,6 +815,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "ATK%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.4
@@ -457,6 +833,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ATK% / ER%", "ATK%", "ATK%"],
     substats: ["ER%", "ATK%", "ATK"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   YunJin: {
@@ -466,6 +850,14 @@ const charData = {
     element: "Geo",
     mainstats: ["HP", "ATK", "DEF% / ER%", "DEF%", "DEF%"],
     substats: ["ER%", "DEF%", "DEF"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.3
@@ -476,6 +868,14 @@ const charData = {
     element: "Geo",
     mainstats: ["HP", "ATK", "DEF%", "Geo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Gorou: {
@@ -485,6 +885,14 @@ const charData = {
     element: "Geo",
     mainstats: ["HP", "ATK", "ER%", "DEF%", "Healing Bonus"],
     substats: ["ER%", "DEF%", "DEF"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.2
@@ -495,6 +903,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "HP% / ER%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.1
@@ -505,6 +921,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   KujouSara: {
@@ -514,6 +938,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "ER%", "Electro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ER%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   RaidenShogun: {
@@ -523,6 +955,14 @@ const charData = {
     element: "Electro",
     mainstats: ["HP", "ATK", "ER%", "Electro DMG / ATK%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ER%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   SangonomiyaKokomi: {
@@ -532,6 +972,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "HP%", "Hydro DMG", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.0
@@ -542,6 +990,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Sayu: {
@@ -551,6 +1007,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "ER%", "ATK%", "Healing Bonus"],
     substats: ["ER%", "ATK%", "ATK"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yoimiya: {
@@ -560,6 +1024,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.6
@@ -570,6 +1042,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "EM / ER%", "EM", "EM"],
     substats: ["ER%", "EM", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.5
@@ -580,6 +1060,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ATK%", "Physical DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yanfei: {
@@ -589,6 +1077,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "ATK%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.4
@@ -599,6 +1095,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ATK% / ER%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.3
@@ -609,6 +1113,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "HP%", "Pyro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Xiao: {
@@ -618,6 +1130,14 @@ const charData = {
     element: "Anemo",
     mainstats: ["HP", "ATK", "ATK%", "Anemo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.2
@@ -628,6 +1148,7 @@ const charData = {
     element: "Geo",
     basestats: { hp: 13226, atk: 251, def: 876 },
     ascension: { geo: 28.8 },
+    passivestats: {},
     energyReq: 100,
     weights: {
       cr: 1,
@@ -644,6 +1165,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ATK%", "Cryo DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.1
@@ -654,6 +1183,14 @@ const charData = {
     element: "Cryo",
     mainstats: ["HP", "ATK", "ER%", "HP%", "Healing Bonus"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Tartaglia: {
@@ -663,6 +1200,14 @@ const charData = {
     element: "Hydro",
     mainstats: ["HP", "ATK", "ATK%", "Hydro DMG", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Xinyan: {
@@ -672,6 +1217,14 @@ const charData = {
     element: "Pyro",
     mainstats: ["HP", "ATK", "ATK% / ER%", "Physical DMG%", "CRIT Rate / DMG"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Zhongli: {
@@ -681,6 +1234,14 @@ const charData = {
     element: "Geo",
     mainstats: ["HP", "ATK", "HP%", "HP%", "HP%"],
     substats: ["ER%", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    ascension: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.0
@@ -691,12 +1252,12 @@ const charData = {
     element: "Pyro",
     basestats: { hp: 9461, atk: 223, def: 601 },
     ascension: { atkp: 24 },
+    passivestats: {},
     energyReq: 120,
     weights: {
       cr: 1,
       cd: 1,
       pyro: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },
@@ -708,10 +1269,10 @@ const charData = {
     element: "Hydro",
     basestats: { hp: 9787, atk: 159, def: 669 },
     ascension: { hpp: 24 },
+    passivestats: {},
     energyReq: 120,
     weights: {
       hb: 1,
-      er: 1,
       hpp: 1,
     },
   },
@@ -723,12 +1284,12 @@ const charData = {
     element: "Electro",
     basestats: { hp: 13050, atk: 225, def: 648 },
     ascension: { electro: 24 },
+    passivestats: {},
     energyReq: 180,
     weights: {
       cr: 1,
       cd: 1,
       electro: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },
@@ -740,10 +1301,10 @@ const charData = {
     element: "Pyro",
     basestats: { hp: 12397, atk: 191, def: 771 },
     ascension: { er: 26.7 },
+    passivestats: {},
     energyReq: 220,
     weights: {
       hb: 1,
-      er: 1,
       hpp: 1,
     },
   },
@@ -755,12 +1316,12 @@ const charData = {
     element: "Cryo",
     basestats: { hp: 10984, atk: 223, def: 648 },
     ascension: { atkp: 24 },
+    passivestats: {},
     energyReq: 180,
     weights: {
       cryo: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },
@@ -772,12 +1333,12 @@ const charData = {
     element: "Pyro",
     basestats: { hp: 12981, atk: 335, def: 784 },
     ascension: { cr: 19.2 },
+    passivestats: {},
     energyReq: 120,
     weights: {
       pyro: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
       em: 0.6,
     },
@@ -790,12 +1351,12 @@ const charData = {
     element: "Electro",
     basestats: { hp: 9189, atk: 244, def: 594 },
     ascension: { atkp: 24 },
+    passivestats: {},
     energyReq: 120,
     weights: {
       electro: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
       em: 0.6,
     },
@@ -808,10 +1369,10 @@ const charData = {
     element: "Anemo",
     basestats: { hp: 14695, atk: 239, def: 769 },
     ascension: { hb: 22.1 },
+    passivestats: {},
     energyReq: 180,
     weights: {
       hb: 1,
-      er: 1,
       atkp: 1,
     },
   },
@@ -823,12 +1384,12 @@ const charData = {
     element: "Cryo",
     basestats: { hp: 11636, atk: 223, def: 792 },
     ascension: { er: 26.7 },
+    passivestats: {},
     energyReq: 180,
     weights: {
       cryo: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },
@@ -840,12 +1401,12 @@ const charData = {
     element: "Electro",
     basestats: { hp: 13103, atk: 323, def: 799 },
     ascension: { cd: 38.4 },
+    passivestats: {},
     energyReq: 120,
     weights: {
       electro: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
       em: 0.6,
     },
@@ -858,12 +1419,12 @@ const charData = {
     element: "Pyro",
     basestats: { hp: 10287, atk: 311, def: 615 },
     ascension: { pyro: 28.8 },
+    passivestats: {},
     energyReq: 120,
     weights: {
       pyro: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },
@@ -875,12 +1436,12 @@ const charData = {
     element: "Electro",
     basestats: { hp: 9570, atk: 232, def: 573 },
     ascension: { em: 96 },
+    passivestats: {},
     energyReq: 180,
     weights: {
       electro: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
       em: 0.6,
     },
@@ -893,12 +1454,12 @@ const charData = {
     element: "Hydro",
     basestats: { hp: 10409, atk: 287, def: 653 },
     ascension: { er: 32 },
+    passivestats: {},
     energyReq: 180,
     weights: {
       hydro: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },
@@ -910,12 +1471,12 @@ const charData = {
     element: "Geo",
     basestats: { hp: 9787, atk: 212, def: 573 },
     ascension: { geo: 24 },
+    passivestats: {},
     energyReq: 120,
     weights: {
       geo: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },
@@ -927,12 +1488,12 @@ const charData = {
     element: "Geo",
     basestats: { hp: 12071, atk: 191, def: 799 },
     ascension: { def: 30 },
+    passivestats: {},
     energyReq: 140,
     weights: {
       geo: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       defp: 0.6,
     },
   },
@@ -944,10 +1505,10 @@ const charData = {
     element: "Cryo",
     basestats: { hp: 12368, atk: 287, def: 922 },
     ascension: { hb: 22.1 },
+    passivestats: {},
     energyReq: 180,
     weights: {
       hb: 1,
-      er: 1,
       atkp: 1,
     },
   },
@@ -959,12 +1520,12 @@ const charData = {
     element: "Electro",
     basestats: { hp: 11962, atk: 234, def: 751 },
     ascension: { physical: 30 },
+    passivestats: {},
     energyReq: 140,
     weights: {
       physical: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },
@@ -976,10 +1537,10 @@ const charData = {
     element: "Anemo",
     basestats: { hp: 9244, atk: 174, def: 703 },
     ascension: { anemo: 24 },
+    passivestats: {},
     energyReq: 140,
     weights: {
       em: 1,
-      er: 1,
     },
   },
   
@@ -990,10 +1551,10 @@ const charData = {
     element: "Anemo",
     basestats: { hp: 10531, atk: 263, def: 669 },
     ascension: { er: 32 },
+    passivestats: {},
     energyReq: 160,
     weights: {
       em: 1,
-      er: 1,
     },
   },
   
@@ -1004,12 +1565,12 @@ const charData = {
     element: "Pyro",
     basestats: { hp: 10875, atk: 225, def: 669 },
     ascension: { em: 96 },
+    passivestats: {},
     energyReq: 200,
     weights: {
       pyro: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
       em: 0.6,
     },
@@ -1022,12 +1583,12 @@ const charData = {
     element: "Hydro",
     basestats: { hp: 10222, atk: 202, def: 758 },
     ascension: { atkp: 24 },
+    passivestats: {},
     energyReq: 200,
     weights: {
       hydro: 1,
       cr: 1,
       cd: 1,
-      er: 0.6,
       atkp: 0.6,
     },
   },

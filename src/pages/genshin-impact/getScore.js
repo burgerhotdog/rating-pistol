@@ -1,4 +1,6 @@
 import charData from "./data/charData";
+import weapData from "./data/weapData";
+import setData from "./data/setData";
 
 const MAINSTAT_VALUES = {
   hpp: 46.6,
@@ -24,12 +26,20 @@ function percentage(value, total) {
 }
 
 const getScore = (id, char) => {
-  // get base stat values
-  const basestats = charData[id].basestats;
-  basestats.atk += Number(char.weapon.entry.baseatk || 0);
+  // create refs for readability
+  const charRef = charData[id];
+  const weaponRef = weapData[char.weapon];
+  const setRef = setData[char.set];
+  const weightsRef = charData[id].weights;
+
+  // get basestat values (character + weapon)
+  const basestats = { ...charRef.basestats };
+  Object.entries(weaponRef.basestats).forEach(([key, value]) => {
+    basestats[key] += value;
+  });
 
   // sum up all the mainstats to a single object
-  const mainstatTotals = char.pieces
+  const mainstatValuesMap = char.pieces
     .flatMap(piece => piece.mainstat) // consolidate mainstats to 1 array
     .filter(main => main) // filter out blank mainstats
     .slice(2) // dont include first 2 pieces
@@ -37,9 +47,9 @@ const getScore = (id, char) => {
       totals[main] = (totals[main] || 0) + MAINSTAT_VALUES[main];
       return totals;
     }, {});
-
+  
   // sum up all the substats to a single object
-  const substatTotals = char.pieces
+  const substatValuesMap = char.pieces
     .flatMap(piece => piece.substats) // consolidate all pieces to 1 piece
     .filter(sub => sub.name) // filter out blank substats
     .reduce((totals, sub) => { // combine same substat values
@@ -50,41 +60,44 @@ const getScore = (id, char) => {
       }
       return totals;
     }, {});
-
+  
   // combine substats with mainstats
-  const combinedTotals = { ...substatTotals }; // Start with a copy of substatTotals
-  Object.entries(mainstatTotals).forEach(([key, value]) => {
+  const combinedValuesMap = { ...substatValuesMap }; // Start with a copy of substatTotals
+  Object.entries(mainstatValuesMap).forEach(([key, value]) => {
     // Add mainstat values to combinedTotals, summing if the key exists in substatTotals
     combinedTotals[key] = (combinedTotals[key] || 0) + value;
   });
+
+  // exclude er over energyReq, penalize not having enough er
+  const externalEr = 100 +
+    (charRef.ascension.er || 0) +
+    (charRef.passivestats.er || 0) +
+    (weaponRef.stat.er || 0) +
+    (setRef.stat.er || 0);
+  
+  const totalEr = externalEr + (combinedValuesMap.er || 0);
+  if (totalEr > charRef.energyReq) { // too much er
+    combinedValuesMap.er = Math.max(charRef.energyReq - externalEr, 0);
+  } else { // not enough er
+    combinedValuesMap.er = (combinedValuesMap.er || 0) - (charRef.energyReq - totalEr);
+  }
   
   // exclude cr over 100
   const externalCr = 5 +
-    Number(char.weapon.entry.stat?.cr || 0) +
-    Number(charData[id].ascension?.cr || 0) +
-    Number(char.set.entry.stat?.cr || 0);
+    (charRef.ascension.cr || 0) +
+    (charRef.passivestats.cr || 0) +
+    (weaponRef.stat.cr || 0) +
+    (setRef.stat.cr || 0);
   
-  if (externalCr + (combinedTotals.cr || 0) >= 100) {
-    combinedTotals.cr = 100 - externalCr;
-  }
-
-  // exclude er over energyReq, penalize not enough er
-  const externalEr = 100 +
-    Number(char.weapon.entry.stat?.er || 0) +
-    Number(charData[id].ascension?.er || 0) +
-    Number(char.set.entry.stat?.er || 0);
-  
-  const currentEr = (combinedTotals.er || 0) + externalEr;
-  if (currentEr >= charData[id].energyReq) {
-    combinedTotals.er = charData[id].energyReq - externalEr;
-  } else {
-    combinedTotals.er = (combinedTotals.er || 0) - (charData[id].energyReq - currentEr);
+  const totalCr = externalCr + (combinedValuesMap.cr || 0);
+  if (totalCr > 100) {
+    combinedValuesMap.cr = 100 - externalCr;
   }
 
   // calculate score
   let score = 0;
-  Object.entries(combinedTotals).forEach(([key, value]) => {
-    const weight = charData[id]?.weights[key] || 0;
+  Object.entries(combinedValuesMap).forEach(([key, value]) => {
+    const weight = key === "er" ? 1 : (weightsRef[key] || 0);
     const normalize = 10 / MAINSTAT_VALUES[key];
     score += weight * normalize * value;
   });

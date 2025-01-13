@@ -5,7 +5,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -14,7 +14,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -24,7 +24,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -33,7 +33,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -42,7 +42,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -51,7 +51,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -61,7 +61,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -70,7 +70,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -79,7 +79,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -88,7 +88,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -98,7 +98,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -107,7 +107,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -116,7 +116,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -125,7 +125,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -134,7 +134,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -143,7 +143,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -152,7 +152,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -161,7 +161,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -171,7 +171,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -181,7 +181,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -190,7 +190,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -199,7 +199,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -209,7 +209,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -219,7 +219,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -228,7 +228,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -238,7 +238,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -248,7 +248,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -257,7 +257,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -267,7 +267,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -276,7 +276,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -286,7 +286,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -295,7 +295,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -304,7 +304,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -313,7 +313,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -322,7 +322,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -331,7 +331,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -340,7 +340,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -350,7 +350,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -359,7 +359,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -368,7 +368,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -377,7 +377,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -386,7 +386,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -395,7 +395,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -404,7 +404,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -413,7 +413,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -422,7 +422,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -431,7 +431,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -440,7 +440,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -449,7 +449,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -462,7 +462,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -472,7 +472,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -482,7 +482,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -491,7 +491,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -501,7 +501,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -511,7 +511,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -520,7 +520,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -530,7 +530,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -540,7 +540,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -549,7 +549,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -558,7 +558,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -567,7 +567,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -576,7 +576,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -585,7 +585,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -595,7 +595,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -604,7 +604,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -613,7 +613,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -622,7 +622,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -631,7 +631,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -640,7 +640,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -649,7 +649,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -659,7 +659,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -669,7 +669,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -678,7 +678,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -688,7 +688,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -698,7 +698,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -707,7 +707,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -717,7 +717,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -727,7 +727,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -736,7 +736,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -746,7 +746,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -755,7 +755,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -764,7 +764,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -773,7 +773,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -783,7 +783,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -792,7 +792,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -801,7 +801,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -810,7 +810,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -819,7 +819,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -829,7 +829,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -838,7 +838,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -847,7 +847,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -856,7 +856,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -865,7 +865,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -874,7 +874,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -883,7 +883,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -893,7 +893,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -902,7 +902,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -911,7 +911,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -921,7 +921,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -931,7 +931,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -940,7 +940,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -949,7 +949,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -958,7 +958,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -967,7 +967,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -977,7 +977,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -986,7 +986,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -995,7 +995,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1004,7 +1004,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1014,7 +1014,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1023,7 +1023,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1032,7 +1032,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1041,7 +1041,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1050,7 +1050,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1060,7 +1060,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1069,7 +1069,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1078,7 +1078,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1087,7 +1087,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 0,
+    basestats: { atk: 0 },
     stats: {},
   },
   
@@ -1097,7 +1097,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 608,
+    basestats: { atk: 608 },
     stats: { atkp: 49.6 },
   },
   
@@ -1106,7 +1106,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 674,
+    basestats: { atk: 674 },
     stats: { physical: 41.3 },
   },
   
@@ -1115,7 +1115,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 354,
+    basestats: { atk: 354 },
     stats: { hp: 46.9 },
   },
   
@@ -1124,7 +1124,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { cd: 55.1 },
   },
   
@@ -1133,7 +1133,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { cd: 36.8 },
   },
   
@@ -1142,7 +1142,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { cd: 55.1 },
   },
   
@@ -1151,7 +1151,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { cd: 55.1 },
   },
   
@@ -1160,7 +1160,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { cd: 36.8 },
   },
   
@@ -1169,7 +1169,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 354,
+    basestats: { atk: 354 },
     stats: { em: 187 },
   },
   
@@ -1178,7 +1178,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { physical: 69 },
   },
   
@@ -1187,7 +1187,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Sword",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { atkp: 35.2 },
   },
   
@@ -1196,7 +1196,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { physical: 34.5 },
   },
   
@@ -1205,7 +1205,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Sword",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { em: 141 },
   },
   
@@ -1214,7 +1214,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { cr: 36.8 },
   },
   
@@ -1223,7 +1223,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { atkp: 35.2 },
   },
   
@@ -1232,7 +1232,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { em: 221 },
   },
   
@@ -1241,7 +1241,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 448,
+    basestats: { atk: 448 },
     stats: { em: 94 },
   },
   
@@ -1250,7 +1250,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { atkp: 55.1 },
   },
   
@@ -1259,7 +1259,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { er: 45.9 },
   },
   
@@ -1268,7 +1268,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { er: 61.3 },
   },
   
@@ -1277,7 +1277,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { er: 30.6 },
   },
   
@@ -1286,7 +1286,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { er: 61.3 },
   },
   
@@ -1295,7 +1295,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { er: 61.3 },
   },
   
@@ -1304,7 +1304,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { hpp: 35.2 },
   },
   
@@ -1313,7 +1313,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Sword",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { atkp: 35.2 },
   },
   
@@ -1322,7 +1322,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 448,
+    basestats: { atk: 448 },
     stats: { atkp: 23.5 },
   },
   
@@ -1331,7 +1331,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Sword",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { cd: 46.9 },
   },
   
@@ -1340,7 +1340,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { em: 165 },
   },
   
@@ -1349,7 +1349,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { atkp: 41.3 },
   },
   
@@ -1358,7 +1358,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 608,
+    basestats: { atk: 608 },
     stats: { cr: 33.1 },
   },
   
@@ -1367,7 +1367,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 354,
+    basestats: { atk: 354 },
     stats: { em: 187 },
   },
   
@@ -1376,7 +1376,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { em: 110 },
   },
   
@@ -1385,7 +1385,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Bow",
     desc: "",
-    baseatk: 448,
+    basestats: { atk: 448 },
     stats: { cr: 31.2 },
   },
   
@@ -1394,7 +1394,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { er: 39 },
   },
   
@@ -1403,7 +1403,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 674,
+    basestats: { atk: 674 },
     stats: { cr: 22.1 },
   },
   
@@ -1412,7 +1412,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { hpp: 41.3 },
   },
   
@@ -1421,7 +1421,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { atkp: 27.6 },
   },
   
@@ -1430,7 +1430,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { atkp: 41.3 },
   },
   
@@ -1439,7 +1439,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { physical: 34.5 },
   },
   
@@ -1448,7 +1448,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { er: 45.9 },
   },
   
@@ -1457,7 +1457,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { em: 165 },
   },
   
@@ -1466,7 +1466,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Bow",
     desc: "",
-    baseatk: 448,
+    basestats: { atk: 448 },
     stats: { em: 94 },
   },
   
@@ -1475,7 +1475,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Bow",
     desc: "",
-    baseatk: 354,
+    basestats: { atk: 354 },
     stats: { hpp: 46.9 },
   },
   
@@ -1484,7 +1484,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { atkp: 41.3 },
   },
   
@@ -1493,7 +1493,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { atkp: 27.6 },
   },
   
@@ -1502,7 +1502,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { atkp: 27.6 },
   },
   
@@ -1511,7 +1511,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { atkp: 41.3 },
   },
   
@@ -1520,7 +1520,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { atkp: 41.3 },
   },
   
@@ -1529,7 +1529,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { er: 30.6 },
   },
   
@@ -1538,7 +1538,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { em: 221 },
   },
   
@@ -1547,7 +1547,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 565,
+    basestats: { atk: 565 },
     stats: { er: 30.6 },
   },
   
@@ -1556,7 +1556,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 454,
+    basestats: { atk: 454 },
     stats: { er: 61.3 },
   },
   
@@ -1565,7 +1565,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { cr: 27.6 },
   },
   
@@ -1574,7 +1574,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Bow",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { cd: 46.9 },
   },
   
@@ -1583,7 +1583,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { physical: 43.9 },
   },
   
@@ -1592,7 +1592,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Sword",
     desc: "",
-    baseatk: 354,
+    basestats: { atk: 354 },
     stats: { er: 52.1 },
   },
   
@@ -1601,7 +1601,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 674,
+    basestats: { atk: 674 },
     stats: { atkp: 33.1 },
   },
   
@@ -1610,7 +1610,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    baseatk: 608,
+    basestats: { atk: 608 },
     stats: { er: 55.1 },
   },
   
@@ -1619,7 +1619,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    baseatk: 674,
+    basestats: { atk: 674 },
     stats: { cr: 22.1 },
   },
   
@@ -1628,7 +1628,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 674,
+    basestats: { atk: 674 },
     stats: { er: 36.8 },
   },
   
@@ -1637,7 +1637,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 674,
+    basestats: { atk: 674 },
     stats: { er: 36.8 },
   },
   
@@ -1646,7 +1646,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Bow",
     desc: "",
-    baseatk: 354,
+    basestats: { atk: 354 },
     stats: { cr: 31.2 },
   },
   
@@ -1655,7 +1655,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { cr: 27.6 },
   },
   
@@ -1664,7 +1664,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 440,
+    basestats: { atk: 440 },
     stats: { atkp: 35.2 },
   },
   
@@ -1673,7 +1673,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { hpp: 41.3 },
   },
   
@@ -1682,7 +1682,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { cr: 27.6 },
   },
   
@@ -1691,7 +1691,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Sword",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { atkp: 41.3 },
   },
   
@@ -1700,7 +1700,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { em: 165 },
   },
   
@@ -1709,7 +1709,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Bow",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { cr: 27.6 },
   },
   
@@ -1718,7 +1718,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { cd: 55.1 },
   },
   
@@ -1727,7 +1727,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { hpp: 35.2 },
   },
   
@@ -1736,7 +1736,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Sword",
     desc: "",
-    baseatk: 448,
+    basestats: { atk: 448 },
     stats: { defp: 29.3 },
   },
   
@@ -1745,7 +1745,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Catalyst",
     desc: "",
-    baseatk: 448,
+    basestats: { atk: 448 },
     stats: { cr: 15.6 },
   },
   
@@ -1754,7 +1754,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { defp: 43.9 },
   },
   
@@ -1763,7 +1763,7 @@ const weapData = {
     rarity: "3 Star",
     type: "Polearm",
     desc: "",
-    baseatk: 401,
+    basestats: { atk: 401 },
     stats: { cr: 23.4 },
   },
   
@@ -1772,7 +1772,7 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 510,
+    basestats: { atk: 510 },
     stats: { defp: 51.7 },
   },
   
@@ -1781,7 +1781,7 @@ const weapData = {
     rarity: "5 Star",
     type: "Claymore",
     desc: "",
-    baseatk: 608,
+    basestats: { atk: 608 },
     stats: { atkp: 49.6 },
   },
 };
