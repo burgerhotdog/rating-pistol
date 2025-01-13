@@ -61,7 +61,7 @@ const Save = ({
       return Object.keys(setData).sort();
     else
       return Object.keys(setData)
-        .filter(id => id !== newCharObj.set1.key)
+        .filter(id => id !== newCharObj.set1)
         .sort();
   };
 
@@ -69,9 +69,9 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon.key) errors.push("Select W-Engine");
-    if (!newCharObj.set1.key) errors.push("Select 4P drive set");
-    if (!newCharObj.set2.key) errors.push("Select 2P drive set");
+    if (!newCharObj.weapon) errors.push("Select W-Engine");
+    if (!newCharObj.set1) errors.push("Select 4P drive set");
+    if (!newCharObj.set2) errors.push("Select 2P drive set");
 
     // Display error message
     if (errors.length) {
@@ -127,10 +127,7 @@ const Save = ({
   const handleWeapon = (newValue) => {
     setNewCharObj((prev) => ({
       ...prev,
-      weapon: {
-        key: newValue || "",
-        entry: weapData[newValue] || {},
-      },
+      weapon: newValue || "",
     }));
   };
 
@@ -139,21 +136,13 @@ const Save = ({
     if (setNumber === "set1") {
       setNewCharObj((prev) => ({
         ...prev,
-        set1: {
-          key: newValue || "",
-          entry: setData[newValue] || {},
-        },
-        set2: prev.set2.key === newValue
-          ? { key: "", entry: {} }
-          : prev.set2,
+        set1: newValue || "",
+        set2: prev.set2 === newValue ? "" : prev.set2,
       }));
     } else {
       setNewCharObj((prev) => ({
         ...prev,
-        set2: {
-          key: newValue || "",
-          entry: setData[newValue] || {},
-        },
+        set2: newValue || "",
       }));
     }
   };
@@ -256,7 +245,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.weapon.key}
+                value={newCharObj.weapon}
                 options={getFilteredWeapIds()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
                 getOptionLabel={(id) => weapData[id]?.name || ""}
@@ -267,7 +256,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.weapon.key === ""}
+                disableClearable={newCharObj.weapon === ""}
               />
             </Grid>
 
@@ -275,7 +264,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.set1.key}
+                value={newCharObj.set1}
                 options={getFilteredSetIds("set1")}
                 onChange={(_, newValue) => handleSet(newValue, "set1")}
                 getOptionLabel={(id) => setData[id]?.name || ""}
@@ -286,7 +275,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.set1.key === ""}
+                disableClearable={newCharObj.set1 === ""}
               />
             </Grid>
 
@@ -294,7 +283,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.set2.key}
+                value={newCharObj.set2}
                 options={getFilteredSetIds("set2")}
                 onChange={(_, newValue) => handleSet(newValue, "set2")}
                 getOptionLabel={(id) => setData[id]?.name || ""}
@@ -305,16 +294,16 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.set2.key === ""}
+                disableClearable={newCharObj.set2 === ""}
               />
             </Grid>
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {!isMobile && newCharObj.weapon.key && (
+              {!isMobile && newCharObj.weapon && (
                 <img
-                  src={weaponMedia[`../assets/weapon/${newCharObj.weapon.key}.webp`]?.default}
-                  alt={newCharObj.weapon.entry.name || "Weapon"}
+                  src={weaponMedia[`../assets/weapon/${newCharObj.weapon}.webp`]?.default}
+                  alt={"Weapon"}
                   style={{
                     width: "100%",
                     height: 500,
@@ -322,7 +311,7 @@ const Save = ({
                   }}
                 />
               )}
-              {!isMobile && !newCharObj.weapon.key && (
+              {!isMobile && !newCharObj.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>

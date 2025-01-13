@@ -7,6 +7,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "HP% / DEF%", "ERR"],
     substats: ["CRIT DMG", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Fugue: {
@@ -16,6 +25,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["EHR%", "BE", "SPD"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.6
@@ -26,6 +44,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "ATK%", "SPD", "ATK%", "BE"],
     substats: ["BE", "SPD", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.5
@@ -36,6 +63,15 @@ const charData = {
     element: "Wind",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Wind DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Lingsha: {
@@ -45,6 +81,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "OHB", "SPD", "ATK%", "ERR"],
     substats: ["BE", "SPD", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Moze: {
@@ -54,6 +99,15 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Lightning DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.4
@@ -64,6 +118,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "Fire DMG", "ERR"],
     substats: ["EHR%", "SPD", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   March7thTheHunt: {
@@ -73,6 +136,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Imaginary DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yunli: {
@@ -82,6 +154,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.3
@@ -92,6 +173,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "ATK%", "SPD", "ATK%", "BE"],
     substats: ["BE", "ATK%", "SPD"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Jade: {
@@ -101,6 +191,15 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Quantum DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.2
@@ -111,6 +210,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Physical DMG", "BE"],
     substats: ["BE", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Robin: {
@@ -120,6 +228,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "ATK%", "ATK%", "ATK%", "ERR"],
     substats: ["ATK%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.1
@@ -130,6 +247,15 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "CRIT Rate / DMG", "ATK%", "Lightning DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Aventurine: {
@@ -139,6 +265,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "DEF%", "DEF%"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Gallagher: {
@@ -148,6 +283,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "OHB", "SPD", "HP% / DEF%", "ERR"],
     substats: ["BE", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 2.0
@@ -158,6 +302,15 @@ const charData = {
     element: "Wind",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "Wind DMG", "ATK%"],
     substats: ["EHR%", "SPD", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Misha: {
@@ -167,6 +320,15 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Ice DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Sparkle: {
@@ -176,6 +338,15 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "HP% / DEF%", "ERR"],
     substats: ["CRIT DMG", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.6
@@ -186,6 +357,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "Imaginary DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   RuanMei: {
@@ -195,6 +375,15 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "HP% / DEF%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["BE", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Xueyi: {
@@ -204,6 +393,15 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "ATK%", "BE"],
     substats: ["CRIT Rate", "CRIT DMG", "BE"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.5
@@ -214,6 +412,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Hanya: {
@@ -223,6 +430,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "HP% / DEF%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["HP%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Huohuo: {
@@ -232,6 +448,15 @@ const charData = {
     element: "Wind",
     mainstats: ["HP", "ATK", "OHB", "SPD", "HP%", "ERR"],
     substats: ["HP%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.4
@@ -242,6 +467,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "ATK%", "SPD", "Fire DMG", "ATK%"],
     substats: ["EHR%", "SPD", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Jingliu: {
@@ -251,6 +485,15 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "Ice DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   TopazNumby: {
@@ -260,6 +503,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Fire DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.3
@@ -270,6 +522,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Imaginary DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   FuXuan: {
@@ -279,6 +540,15 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "HP%", "SPD", "HP%", "ERR"],
     substats: ["HP%", "SPD", "DEF%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Lynx: {
@@ -288,6 +558,15 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "OHB", "SPD", "HP%", "ERR"],
     substats: ["HP%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.2
@@ -298,6 +577,15 @@ const charData = {
     element: "Wind",
     mainstats: ["HP", "ATK", "CRIT Rate / DMG", "HP%", "Wind DMG", "HP%"],
     substats: ["CRIT Rate", "CRIT DMG", "HP%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Kafka: {
@@ -307,6 +595,15 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "ATK%", "ATK%", "Lightning DMG", "ATK%"],
     substats: ["ATK%", "SPD", "EHR%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Luka: {
@@ -316,6 +613,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "Physical DMG", "BE"],
     substats: ["BE", "SPD", "EHR%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.1
@@ -326,6 +632,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "OHB", "SPD", "ATK%", "ERR"],
     substats: ["ATK%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   SilverWolf: {
@@ -335,6 +650,15 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["EHR%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yukong: {
@@ -344,6 +668,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD", "Imaginary DMG", "ERR"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.0
@@ -354,6 +687,15 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Lightning DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Asta: {
@@ -363,6 +705,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "HP% / DEF%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["HP%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Bailu: {
@@ -372,6 +723,15 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "OHB", "SPD", "HP%", "ERR"],
     substats: ["HP%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Bronya: {
@@ -381,6 +741,15 @@ const charData = {
     element: "Wind",
     mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "HP% / DEF%", "ERR"],
     substats: ["CRIT DMG", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Clara: {
@@ -390,6 +759,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   DanHeng: {
@@ -399,6 +777,15 @@ const charData = {
     element: "Wind",
     mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Wind DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Gepard: {
@@ -408,6 +795,15 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "DEF%", "SPD", "DEF%", "ERR"],
     substats: ["DEF%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Herta: {
@@ -417,6 +813,15 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "CRIT Rate / DMG", "ATK%", "Ice DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Himeko: {
@@ -426,6 +831,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD / ATK%", "Fire DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Hook: {
@@ -435,6 +849,15 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Fire DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   JingYuan: {
@@ -444,6 +867,15 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Lightning DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   March7th: {
@@ -453,6 +885,15 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "DEF%", "ERR"],
     substats: ["EHR%", "SPD", "DEF%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Natasha: {
@@ -462,6 +903,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "OHB", "SPD", "HP%", "ERR"],
     substats: ["HP%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Pela: {
@@ -471,6 +921,15 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "HP% / DEF%", "ERR"],
     substats: ["EHR%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Qingque: {
@@ -480,6 +939,15 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Quantum DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Sampo: {
@@ -489,6 +957,15 @@ const charData = {
     element: "Wind",
     mainstats: ["HP", "ATK", "EHR%", "SPD", "Wind DMG", "ATK%"],
     substats: ["EHR%", "SPD", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Seele: {
@@ -498,6 +975,15 @@ const charData = {
     element: "Quantum",
     mainstats: ["HP", "ATK", "CRIT Rate", "ATK%", "Quantum DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Serval: {
@@ -507,6 +993,15 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Lightning DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Sushang: {
@@ -516,6 +1011,15 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "CRIT Rate / DMG", "SPD", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Tingyun: {
@@ -525,6 +1029,15 @@ const charData = {
     element: "Lightning",
     mainstats: ["HP", "ATK", "ATK%", "SPD", "ATK%", "ERR"],
     substats: ["ATK%", "SPD", "EFF RES%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Welt: {
@@ -534,6 +1047,15 @@ const charData = {
     element: "Imaginary",
     mainstats: ["HP", "ATK", "CRIT Rate", "SPD / ATK%", "Imaginary DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "EHR%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yanqing: {
@@ -543,6 +1065,15 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "CRIT DMG", "SPD", "Ice DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0, spd: 100 },
+    minorTraces: {},
+    passivestats: {},
+    spdReq: 100,
+    ehrReq: 0,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
 };
 

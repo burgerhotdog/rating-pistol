@@ -40,7 +40,7 @@ const GenshinImpact = ({ uid }) => {
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {

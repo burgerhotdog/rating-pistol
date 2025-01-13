@@ -64,8 +64,8 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon.key) errors.push("Select weapon");
-    if (!newCharObj.set.key) errors.push("Select echo set");
+    if (!newCharObj.weapon) errors.push("Select weapon");
+    if (!newCharObj.set) errors.push("Select echo set");
 
     // Display error message
     if (errors.length) {
@@ -121,10 +121,7 @@ const Save = ({
   const handleWeapon = (newValue) => {
     setNewCharObj((prev) => ({
       ...prev,
-      weapon: {
-        key: newValue || "",
-        entry: weapData[newValue] || {},
-      },
+      weapon: newValue || "",
     }));
   };
 
@@ -132,10 +129,7 @@ const Save = ({
   const handleSet = (newValue) => {
     setNewCharObj((prev) => ({
       ...prev,
-      set: {
-        key: newValue || "",
-        entry: setData[newValue] || {},
-      },
+      set: newValue || "",
     }));
   };
 
@@ -237,7 +231,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.weapon.key}
+                value={newCharObj.weapon}
                 options={getFilteredWeapIds()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
                 getOptionLabel={(id) => weapData[id]?.name || ""}
@@ -248,7 +242,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.weapon.key === ""}
+                disableClearable={newCharObj.weapon === ""}
               />
             </Grid>
 
@@ -256,7 +250,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 8 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.set.key}
+                value={newCharObj.set}
                 options={getFilteredSetIds()}
                 onChange={(_, newValue) => handleSet(newValue)}
                 getOptionLabel={(id) => setData[id]?.name || ""}
@@ -267,16 +261,16 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.set.key === ""}
+                disableClearable={newCharObj.set === ""}
               />
             </Grid>
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {!isMobile && newCharObj.weapon.key && (
+              {!isMobile && newCharObj.weapon && (
                 <img
-                  src={weaponMedia[`../assets/weapon/${newCharObj.weapon.key}.webp`]?.default}
-                  alt={newCharObj.weapon.entry.name || "Weapon"}
+                  src={weaponMedia[`../assets/weapon/${newCharObj.weapon}.webp`]?.default}
+                  alt={"Weapon"}
                   style={{
                     width: "100%",
                     height: 500,
@@ -284,7 +278,7 @@ const Save = ({
                   }}
                 />
               )}
-              {!isMobile && !newCharObj.weapon.key && (
+              {!isMobile && !newCharObj.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>

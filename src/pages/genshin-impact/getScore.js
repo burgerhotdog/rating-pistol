@@ -102,7 +102,7 @@ const getScore = (id, char) => {
     score += weight * normalize * value;
   });
 
-  return Math.max(Math.round(percentage(score, 50)), 0);
+  return Math.max(0, Math.round(percentage(score, 50)));
 };
 
 export default getScore;

@@ -40,7 +40,7 @@ const HonkaiStarRail = ({ uid }) => {
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -145,8 +145,8 @@ const HonkaiStarRail = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={weaponMedia[`./assets/weapon/${char.weapon.key}.webp`]?.default}
-                          alt={char.weapon.entry.name || "Weapon"}
+                          src={weaponMedia[`./assets/weapon/${char.weapon}.webp`]?.default}
+                          alt={"Weapon"}
                           style={{
                             width: 50,
                             height: 50,
@@ -164,8 +164,8 @@ const HonkaiStarRail = ({ uid }) => {
                           gap: 1,
                         }}>
                           <img
-                            src={setMedia[`./assets/set/${char.set1.key}.webp`]?.default}
-                            alt={char.set1.entry.name || "Set 1"}
+                            src={setMedia[`./assets/set/${char.set1}.webp`]?.default}
+                            alt={"Set 1"}
                             style={{
                               width: 50,
                               height: 50,
@@ -174,8 +174,8 @@ const HonkaiStarRail = ({ uid }) => {
                           />
                           <Typography>+</Typography>
                           <img
-                            src={setMedia[`./assets/set/${char.set2.key}.webp`]?.default}
-                            alt={char.set2.entry.name || "Set 2"}
+                            src={setMedia[`./assets/set/${char.set2}.webp`]?.default}
+                            alt={"Set 2"}
                             style={{
                               width: 50,
                               height: 50,

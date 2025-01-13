@@ -7,6 +7,13 @@ const charData = {
     element: "Electric",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Electric DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Miyabi: {
@@ -16,6 +23,13 @@ const charData = {
     element: "Frost",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Ice DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.3
@@ -26,6 +40,13 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Fire DMG", "Impact"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yanagi: {
@@ -35,6 +56,13 @@ const charData = {
     element: "Electric",
     mainstats: ["HP", "ATK", "DEF", "AP", "Electric DMG", "AM"],
     substats: ["AP", "ATK%", "PEN"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.2
@@ -45,6 +73,13 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "DEF", "AP", "Fire DMG", "AM"],
     substats: ["AP", "ATK%", "PEN"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Caesar: {
@@ -54,6 +89,13 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Physical DMG", "Impact"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.1
@@ -64,6 +106,13 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "DEF", "AP", "Physical DMG", "AM"],
     substats: ["AP", "ATK%", "PEN"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Seth: {
@@ -73,6 +122,13 @@ const charData = {
     element: "Electric",
     mainstats: ["HP", "ATK", "DEF", "ATK%", "ATK%", "ER"],
     substats: ["AP", "ATK%", "PEN"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Qingyi: {
@@ -82,6 +138,13 @@ const charData = {
     element: "Electric",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Electric DMG", "Impact"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.0
@@ -92,6 +155,13 @@ const charData = {
     element: "Electric",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate", "Electric DMG", "Impact"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Anton: {
@@ -101,6 +171,13 @@ const charData = {
     element: "Electric",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate", "Electric DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Ben: {
@@ -110,6 +187,13 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "DEF", "CRIT DMG", "Fire DMG", "DEF%"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Billy: {
@@ -119,6 +203,13 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Corin: {
@@ -128,6 +219,13 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Ellen: {
@@ -137,6 +235,13 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Ice DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Grace: {
@@ -146,6 +251,13 @@ const charData = {
     element: "Electric",
     mainstats: ["HP", "ATK", "DEF", "AP", "Electric DMG", "AM"],
     substats: ["AP", "ATK%", "PEN"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Koleda: {
@@ -155,6 +267,13 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Fire DMG", "Impact"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Lucy: {
@@ -164,6 +283,13 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate", "Fire DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Lycaon: {
@@ -173,6 +299,13 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Ice DMG", "Impact"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Nekomata: {
@@ -182,6 +315,13 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Physical DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Nicole: {
@@ -191,6 +331,13 @@ const charData = {
     element: "Ether",
     mainstats: ["HP", "ATK", "DEF", "AP", "Ether DMG", "AM"],
     substats: ["AP", "ATK%", "PEN"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Piper: {
@@ -200,6 +347,13 @@ const charData = {
     element: "Physical",
     mainstats: ["HP", "ATK", "DEF", "AP", "Physical DMG", "AM"],
     substats: ["AP", "ATK%", "PEN"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Rina: {
@@ -209,6 +363,13 @@ const charData = {
     element: "Electric",
     mainstats: ["HP", "ATK", "DEF", "AP", "PEN Ratio", "ER"],
     substats: ["AP", "ATK%", "PEN"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Soldier11: {
@@ -218,6 +379,13 @@ const charData = {
     element: "Fire",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Fire DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Soukaku: {
@@ -227,6 +395,13 @@ const charData = {
     element: "Ice",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate", "ATK%", "ER"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   ZhuYuan: {
@@ -236,6 +411,13 @@ const charData = {
     element: "Ether",
     mainstats: ["HP", "ATK", "DEF", "CRIT Rate / DMG", "Ether DMG", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    corepassivebonuses: {},
+    passivestats: {},
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
 };
 

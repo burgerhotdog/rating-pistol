@@ -7,6 +7,14 @@ const charData = {
     element: "Glacio",
     mainstats: ["CRIT Rate / DMG", "Glacio DMG", "Glacio DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.4
@@ -17,6 +25,14 @@ const charData = {
     element: "Havoc",
     mainstats: ["CRIT Rate / DMG", "Havoc DMG", "Havoc DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Lumi: {
@@ -26,6 +42,14 @@ const charData = {
     element: "Electro",
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.3
@@ -36,6 +60,14 @@ const charData = {
     element: "Spectro",
     mainstats: ["CRIT DMG", "Spectro DMG", "Spectro DMG", "HP%", "HP%"],
     substats: ["CRIT DMG", "ER", "HP%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Youhu: {
@@ -45,6 +77,14 @@ const charData = {
     element: "Glacio",
     mainstats: ["Healing Bonus", "ER", "ER", "ATK%", "ATK%"],
     substats: ["ER", "ATK%", "ATK"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.2
@@ -55,6 +95,14 @@ const charData = {
     element: "Electro",
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Zhezhi: {
@@ -64,6 +112,14 @@ const charData = {
     element: "Glacio",
     mainstats: ["CRIT Rate / DMG", "Glacio DMG", "Glacio DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.1
@@ -74,6 +130,14 @@ const charData = {
     element: "Fusion",
     mainstats: ["CRIT Rate / DMG", "Fusion DMG", "Fusion DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Jinhsi: {
@@ -83,6 +147,14 @@ const charData = {
     element: "Spectro",
     mainstats: ["CRIT Rate / DMG", "Spectro DMG", "Spectro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   // Version 1.0
@@ -93,6 +165,14 @@ const charData = {
     element: "Aero",
     mainstats: ["CRIT Rate / DMG", "Aero DMG", "Aero DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Baizhi: {
@@ -102,6 +182,14 @@ const charData = {
     element: "Glacio",
     mainstats: ["Healing Bonus", "ER", "ER", "HP%", "HP%"],
     substats: ["ER", "HP%", "HP"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Calcharo: {
@@ -111,6 +199,14 @@ const charData = {
     element: "Electro",
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Chixia: {
@@ -120,6 +216,14 @@ const charData = {
     element: "Fusion",
     mainstats: ["CRIT Rate / DMG", "Fusion DMG", "Fusion DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Danjin: {
@@ -129,6 +233,14 @@ const charData = {
     element: "Havoc",
     mainstats: ["CRIT Rate / DMG", "Havoc DMG", "Havoc DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Encore: {
@@ -138,6 +250,14 @@ const charData = {
     element: "Fusion",
     mainstats: ["CRIT Rate / DMG", "Fusion DMG", "Fusion DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Jianxin: {
@@ -147,6 +267,14 @@ const charData = {
     element: "Aero",
     mainstats: ["CRIT Rate / DMG", "Aero DMG", "Aero DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Jiyan: {
@@ -156,6 +284,14 @@ const charData = {
     element: "Aero",
     mainstats: ["CRIT Rate / DMG", "Aero DMG", "Aero DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Lingyang: {
@@ -165,6 +301,14 @@ const charData = {
     element: "Glacio",
     mainstats: ["CRIT Rate / DMG", "Glacio DMG", "Glacio DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Mortefi: {
@@ -174,6 +318,14 @@ const charData = {
     element: "Fusion",
     mainstats: ["CRIT Rate / DMG", "Fusion DMG", "Fusion DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Sanhua: {
@@ -183,6 +335,14 @@ const charData = {
     element: "Glacio",
     mainstats: ["CRIT Rate / DMG", "Glacio DMG", "Glacio DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Taoqi: {
@@ -192,6 +352,14 @@ const charData = {
     element: "Havoc",
     mainstats: ["DEF%", "ER", "ER", "DEF%", "DEF%"],
     substats: ["ER", "DEF%", "DEF"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Verina: {
@@ -201,6 +369,14 @@ const charData = {
     element: "Spectro",
     mainstats: ["Healing Bonus", "ER", "ER", "ATK%", "ATK%"],
     substats: ["ER", "ATK%", "ATK"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yangyang: {
@@ -210,6 +386,14 @@ const charData = {
     element: "Aero",
     mainstats: ["CRIT Rate / DMG", "Aero DMG", "Aero DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yinlin: {
@@ -219,6 +403,14 @@ const charData = {
     element: "Electro",
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "ATK%", "ATK%"],
     substats: ["CRIT Rate", "CRIT DMG", "ATK%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
   
   Yuanwu: {
@@ -228,6 +420,14 @@ const charData = {
     element: "Electro",
     mainstats: ["CRIT Rate / DMG", "Electro DMG", "Electro DMG", "DEF%", "DEF%"],
     substats: ["CRIT Rate", "CRIT DMG", "DEF%"],
+    basestats: { hp: 0, atk: 0, def: 0 },
+    minorfortes: {},
+    passivestats: {},
+    energyReq: 100,
+    weights: {
+      cr: 1,
+      cd: 1,
+    },
   },
 };
 
