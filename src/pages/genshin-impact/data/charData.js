@@ -458,7 +458,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 190,
+    energyReq: 160,
     weights: {
       hpp: 1,
       defp: 0.3,
@@ -490,7 +490,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 180,
+    energyReq: 160,
     weights: {
       pyro: 1,
       cr: 1,
@@ -711,7 +711,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 100,
+    energyReq: 120,
     weights: {
       dendro: 1,
       cr: 1,
@@ -764,7 +764,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 170,
+    energyReq: 180,
     weights: {
       hydro: 1,
       cr: 1,
@@ -800,7 +800,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 130,
+    energyReq: 140,
     weights: {
       electro: 1,
       cr: 1,
@@ -849,7 +849,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 130,
+    energyReq: 140,
     weights: {
       geo: 1,
       cr: 1,
@@ -933,7 +933,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 275,
+    energyReq: 270,
     weights: {
       electro: 1,
       cr: 1,
@@ -968,7 +968,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 120,
+    energyReq: 140,
     weights: {
       cryo: 1,
       cr: 1,
@@ -985,7 +985,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 160,
+    energyReq: 140,
     weights: {
       hb: 1,
       atkp: 0.75,
@@ -1003,7 +1003,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 110,
+    energyReq: 120,
     weights: {
       pyro: 1,
       cr: 1,
@@ -1038,7 +1038,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 130,
+    energyReq: 140,
     weights: {
       physical: 1,
       cr: 1,
@@ -1055,7 +1055,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 110,
+    energyReq: 120,
     weights: {
       pyro: 1,
       cr: 1,
@@ -1074,7 +1074,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 180,
+    energyReq: 160,
     weights: {
       cryo: 1,
       cr: 1,
@@ -1095,7 +1095,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 110,
+    energyReq: 120,
     weights: {
       pyro: 1,
       cr: 1,
@@ -1148,7 +1148,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 100,
+    energyReq: 120,
     weights: {
       cryo: 1,
       cr: 1,
@@ -1166,7 +1166,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 160,
+    energyReq: 180,
     weights: {
       hb: 1,
       hpp: 0.75,
@@ -1182,7 +1182,7 @@ const charData = {
     basestats: { hp: 0, atk: 0, def: 0 },
     ascension: {},
     passivestats: {},
-    energyReq: 100,
+    energyReq: 120,
     weights: {
       hydro: 1,
       cr: 1,
@@ -1249,7 +1249,7 @@ const charData = {
     basestats: { hp: 9787, atk: 159, def: 669 },
     ascension: { hpp: 24 },
     passivestats: {},
-    energyReq: 120,
+    energyReq: 140,
     weights: {
       hb: 1,
       hpp: 0.75,
@@ -1298,7 +1298,7 @@ const charData = {
     basestats: { hp: 10984, atk: 223, def: 648 },
     ascension: { atkp: 24 },
     passivestats: {},
-    energyReq: 180,
+    energyReq: 140,
     weights: {
       cryo: 1,
       cr: 1,
@@ -1455,7 +1455,7 @@ const charData = {
     basestats: { hp: 9787, atk: 212, def: 573 },
     ascension: { geo: 24 },
     passivestats: {},
-    energyReq: 120,
+    energyReq: 140,
     weights: {
       geo: 1,
       cr: 1,
@@ -1523,7 +1523,7 @@ const charData = {
     basestats: { hp: 9244, atk: 174, def: 703 },
     ascension: { anemo: 24 },
     passivestats: {},
-    energyReq: 140,
+    energyReq: 160,
     weights: {
       em: 1,
       hpp: 0.3,
@@ -1539,7 +1539,7 @@ const charData = {
     basestats: { hp: 10531, atk: 263, def: 669 },
     ascension: { er: 32 },
     passivestats: {},
-    energyReq: 160,
+    energyReq: 170,
     weights: {
       em: 1,
       hpp: 0.3,
@@ -1555,7 +1555,7 @@ const charData = {
     basestats: { hp: 10875, atk: 225, def: 669 },
     ascension: { em: 96 },
     passivestats: {},
-    energyReq: 200,
+    energyReq: 220,
     weights: {
       pyro: 1,
       cr: 1,
