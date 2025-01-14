@@ -4,18 +4,20 @@ const weapData = {
     name: "A Thousand Blazing Suns",
     rarity: "5 Star",
     type: "Claymore",
-    desc: "",
-    basestats: { atk: 0 },
-    stats: {},
+    desc: `Gain the "Scorching Brilliance" effect when using an Elemental Skill or Burst: CRIT DMG increased by 20% and ATK increased by 28% for 6s. This effect can trigger once every 10s.
+      While a "Scorching Brilliance" instance is active, its duration is increased by 2s after Normal or Charged attacks deal Elemental DMG. This effect can trigger once every second, and the max duration increase is 6s.
+      Additionally, when the equipping character is in the Nightsoul's Blessing state, "Scorching Brilliance" effects are increased by 75%, and its duration will not count down when the equipping character is off-field.`,
+    basestats: { atk: 741 },
+    stats: { cr: 11 },
   },
   
   StarcallersWatch: {
     name: "Starcaller's Watch",
     rarity: "5 Star",
     type: "Catalyst",
-    desc: "",
-    basestats: { atk: 0 },
-    stats: {},
+    desc: `Increases Elemental Mastery by 100. Gain the "Mirror of Night" effect within 15s after the equipping character creates a shield: The current active party member deals 28% increased DMG to nearby opponents. You can gain the "Mirror of Night" effect once every 14s.`,
+    basestats: { atk: 542 },
+    stats: { em: 265 },
   },
   
   // Version 5.2
@@ -24,8 +26,8 @@ const weapData = {
     rarity: "5 Star",
     type: "Bow",
     desc: "",
-    basestats: { atk: 0 },
-    stats: {},
+    basestats: { atk: 608 },
+    stats: { cd: 66.2 },
   },
   
   CalamityOfEshu: {
