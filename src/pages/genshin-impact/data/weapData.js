@@ -63,8 +63,8 @@ const weapData = {
     rarity: "4 Star",
     type: "Claymore",
     desc: "",
-    basestats: { atk: 0 },
-    stats: {},
+    basestats: { atk: 565 },
+    stats: { atkp: 27.6 },
   },
   
   MountainBracingBolt: {
@@ -72,8 +72,8 @@ const weapData = {
     rarity: "4 Star",
     type: "Polearm",
     desc: "",
-    basestats: { atk: 0 },
-    stats: {},
+    basestats: { atk: 565 },
+    stats: { er: 30.6 },
   },
   
   PeakPatrolSong: {
@@ -81,8 +81,8 @@ const weapData = {
     rarity: "5 Star",
     type: "Sword",
     desc: "",
-    basestats: { atk: 0 },
-    stats: {},
+    basestats: { atk: 542 },
+    stats: { defp: 82.7 },
   },
   
   SturdyBone: {
