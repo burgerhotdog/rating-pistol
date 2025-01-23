@@ -1,62 +1,10 @@
 import React from "react";
 import { Autocomplete, Card, Divider, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import MAINSTATS from "../data/MAINSTATS";
+import SUBSTATS from "../data/SUBSTATS";
 
-const PIECE_NAMES = [
-  "Flower",
-  "Plume",
-  "Sands",
-  "Goblet",
-  "Circlet",
-]
-
-const MAINSTAT_OPTIONS = [
-  { hp: "HP" },
-  { atk: "ATK" },
-  {
-    hpp: "HP%",
-    atkp: "ATK%",
-    defp: "DEF%",
-    em: "Elemental Mastery",
-    er: "Energy Recharge",
-  },
-  {
-    hpp: "HP%",
-    atkp: "ATK%",
-    defp: "DEF%",
-    em: "Elemental Mastery",
-    pyro: "Pyro DMG",
-    electro: "Electro DMG",
-    cryo: "Cryo DMG",
-    hydro: "Hydro DMG",
-    dendro: "Dendro DMG",
-    anemo: "Anemo DMG",
-    geo: "Geo DMG",
-    physical: "Physical DMG",
-  },
-  {
-    hpp: "HP%",
-    atkp: "ATK%",
-    defp: "DEF%",
-    em: "Elemental Mastery",
-    cr: "CRIT Rate",
-    cd: "CRIT DMG",
-    hb: "Healing Bonus",
-  },
-];
-
-const SUBSTAT_OPTIONS = {
-  hp: "HP",
-  atk: "ATK",
-  def: "DEF",
-  hpp: "HP%",
-  atkp: "ATK%",
-  defp: "DEF%",
-  em: "Elemental Mastery",
-  er: "Energy Recharge",
-  cr: "CRIT Rate",
-  cd: "CRIT DMG",
-};
+const PIECE_NAMES = ["Flower", "Plume", "Sands", "Goblet", "Circlet"];
 
 const Piece = ({
   newCharObj,
@@ -114,7 +62,7 @@ const Piece = ({
       .map((substat) => substat.key)
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
-    return Object.keys(SUBSTAT_OPTIONS).filter(
+    return Object.keys(SUBSTATS).filter(
       (option) =>
         option !== selectedMainstat && // Exclude mainstat
         !selectedSubstatKeys.includes(option) // Exclude already selected substats
@@ -129,8 +77,7 @@ const Piece = ({
           <Autocomplete
             size="small"
             value={newCharObj.pieces[mainIndex].mainstat || ""}
-            options={Object.keys(MAINSTAT_OPTIONS[mainIndex])}
-            getOptionLabel={(id) => MAINSTAT_OPTIONS[mainIndex][id] || ""}
+            options={Object.keys(MAINSTATS[mainIndex])}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
@@ -158,7 +105,6 @@ const Piece = ({
                 size="small"
                 value={newCharObj.pieces[mainIndex].substats[subIndex].key || ""}
                 options={getFilteredSubstatOptions(subIndex)}
-                getOptionLabel={(id) => SUBSTAT_OPTIONS[id] || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
                 renderInput={(params) => (
                   <TextField

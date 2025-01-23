@@ -2,24 +2,46 @@ import charData from "./data/charData";
 import weapData from "./data/weapData";
 import setData from "./data/setData";
 
-const MAINSTAT_VALUES = {
-  hpp: 46.6,
-  atkp: 46.6,
-  defp: 58.3,
-  em: 186.5,
-  er: 51.8,
-  anemo: 46.6,
-  geo: 46.6,
-  electro: 46.6,
-  dendro: 46.6,
-  hydro: 46.6,
-  pyro: 46.6,
-  cryo: 46.6,
-  physical: 58.3,
-  cr: 31.1,
-  cd: 62.2,
-  hb: 35.9,
-}
+const MAINSTAT_VALUES = [
+  { // 4 Cost
+    hpp: 33,
+    atkp: 33,
+    defp: 41.5,
+    cr: 22,
+    cd: 44,
+    hb: 26,
+  },
+  { // 3 Cost
+    hpp: 30,
+    atkp: 30,
+    defp: 38,
+    aero: 30,
+    glacio: 30,
+    fusion: 30,
+    electro: 30,
+    havoc: 30,
+    spectro: 30,
+    er: 32,
+  },
+  { // 1 Cost
+    hpp: 22.8,
+    atkp: 18,
+    defp: 18,
+  },
+];
+
+const SUBSTAT_VALUES = {
+  hpp: 11.6,
+  atkp: 11.6,
+  defp: 14.7,
+  cr: 10.5,
+  cd: 21,
+  er: 12.4,
+  ba: 11.6,
+  ha: 11.6,
+  rs: 11.6,
+  rl: 11.6,
+};
 
 function percentage(value, total) {
   return (value / total) * 100;

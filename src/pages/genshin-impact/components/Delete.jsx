@@ -7,7 +7,6 @@ const Delete = ({
   uid,
   isDeleteOpen,
   setIsDeleteOpen,
-  myChars,
   setMyChars,
   newCharId,
 }) => {
@@ -55,7 +54,7 @@ const Delete = ({
         {/* Text section */}
         <Typography variant="body1">
           Are you sure you want to delete{" "}
-          <strong>{myChars[newCharId]?.name ?? null}</strong>
+          <strong>{newCharId}</strong>
           ?
         </Typography>
 

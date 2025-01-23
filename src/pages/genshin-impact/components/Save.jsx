@@ -16,13 +16,20 @@ import { db } from "../../../firebase";
 import Piece from "./Piece";
 import getScore from "../getScore";
 import initCharObj from "../initCharObj";
-import charData from "../data/charData";
-import weapData from "../data/weapData";
-import setData from "../data/setData";
+import CHARACTERS from "../data/CHARACTERS";
+import WEAPONS from "../data/WEAPONS";
+import SETS from "../data/SETS";
 
 const iconMedia = import.meta.glob("../assets/icon/*.webp", { eager: true });
 const weaponMedia = import.meta.glob("../assets/weapon/*.webp", { eager: true });
 
+function toPascalCase(str) {
+  return str
+    .replace(/'s\b/gi, "s")
+    .match(/[a-z]+/gi)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('');
+}
 
 const Save = ({
   uid,
@@ -44,21 +51,21 @@ const Save = ({
 
   // Gets filtered character ids for select character
   const getFilteredCharIds = () => {
-    return Object.keys(charData)
+    return Object.keys(CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort();
   };
 
   // Gets filtered weapon ids for select weapon
   const getFilteredWeapIds = () => {
-    return Object.keys(weapData)
-      .filter(id => weapData[id].type === charData[newCharId].weapon)
+    return Object.keys(WEAPONS)
+      .filter(id => WEAPONS[id].type === CHARACTERS[newCharId].weapon)
       .sort();
   };
 
   // Gets filtered set ids for select set
   const getFilteredSetIds = () => {
-    return Object.keys(setData)
+    return Object.keys(SETS)
       .sort();
   };
 
@@ -112,10 +119,7 @@ const Save = ({
   // Select character handler
   const handleCharacter = (newValue) => {
     setNewCharId(newValue || "");
-    setNewCharObj({
-      ...initCharObj(),
-      name: charData[newValue]?.name || "",
-    });
+    setNewCharObj(initCharObj());
     setError("");
   };
 
@@ -162,8 +166,8 @@ const Save = ({
           {/* Icon */}
           {newCharId && (
             <img
-              src={iconMedia[`../assets/icon/${newCharId}_Icon.webp`]?.default}
-              alt={newCharObj.name || "Icon"}
+              src={iconMedia[`../assets/icon/${toPascalCase(newCharId)}_Icon.webp`]?.default}
+              alt={"Icon"}
               style={{
                 width: 50,
                 height: 50,
@@ -178,7 +182,6 @@ const Save = ({
             value={newCharId}
             options={getFilteredCharIds()}
             onChange={(_, newValue) => handleCharacter(newValue)}
-            getOptionLabel={(id) => charData[id]?.name || ""}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -236,7 +239,6 @@ const Save = ({
                 value={newCharObj.weapon}
                 options={getFilteredWeapIds()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
-                getOptionLabel={(id) => weapData[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -255,7 +257,6 @@ const Save = ({
                 value={newCharObj.set}
                 options={getFilteredSetIds()}
                 onChange={(_, newValue) => handleSet(newValue)}
-                getOptionLabel={(id) => setData[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -271,7 +272,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               {!isMobile && newCharObj.weapon && (
                 <img
-                  src={weaponMedia[`../assets/weapon/${newCharObj.weapon}.webp`]?.default}
+                  src={weaponMedia[`../assets/weapon/${toPascalCase(newCharObj.weapon)}.webp`]?.default}
                   alt={"Weapon"}
                   style={{
                     width: "100%",

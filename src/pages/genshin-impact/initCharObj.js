@@ -1,11 +1,10 @@
 const initCharObj = () => ({
-  name: "",
   weapon: "",
   set: "",
   score: 0,
   pieces: [
     {
-      mainstat: "hp",
+      mainstat: "HP",
       substats: [
         { key: "", value: "" },
         { key: "", value: "" },
@@ -14,7 +13,7 @@ const initCharObj = () => ({
       ],
     },
     {
-      mainstat: "atk",
+      mainstat: "ATK",
       substats: [
         { key: "", value: "" },
         { key: "", value: "" },

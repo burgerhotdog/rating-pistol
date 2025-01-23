@@ -27,7 +27,7 @@ const MAINSTAT_OPTIONS = [
     hpp: "HP%",
     atkp: "ATK%",
     defp: "DEF%",
-    penp: "PEN Ratio",
+    pr: "PEN Ratio",
     electric: "Electric DMG",
     ether: "Ether DMG",
     fire: "Fire DMG",

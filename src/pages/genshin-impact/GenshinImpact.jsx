@@ -25,6 +25,14 @@ const iconMedia = import.meta.glob("./assets/icon/*.webp", { eager: true });
 const weaponMedia = import.meta.glob("./assets/weapon/*.webp", { eager: true });
 const setMedia = import.meta.glob("./assets/set/*.webp", { eager: true });
 
+function toPascalCase(str) {
+  return str
+    .replace(/'s\b/gi, "s")
+    .match(/[a-z]+/gi)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('');
+}
+
 const GenshinImpact = ({ uid }) => {
   // Modal States
   const [isSaveOpen, setIsSaveOpen] = useState(false);
@@ -132,8 +140,8 @@ const GenshinImpact = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={iconMedia[`./assets/icon/${id}_Icon.webp`]?.default}
-                        alt={char.name || "Icon"}
+                        src={iconMedia[`./assets/icon/${toPascalCase(id)}_Icon.webp`]?.default}
+                        alt={"Icon"}
                         style={{
                           width: 50,
                           height: 50,
@@ -141,11 +149,11 @@ const GenshinImpact = ({ uid }) => {
                         }}
                       />
                     </TableCell>
-                    <TableCell>{char.name}</TableCell>
+                    <TableCell>{id}</TableCell>
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={weaponMedia[`./assets/weapon/${char.weapon}.webp`]?.default}
+                          src={weaponMedia[`./assets/weapon/${toPascalCase(char.weapon)}.webp`]?.default}
                           alt={"Weapon"}
                           style={{
                             width: 50,
@@ -158,7 +166,7 @@ const GenshinImpact = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={setMedia[`./assets/set/${char.set}.webp`]?.default}
+                          src={setMedia[`./assets/set/${toPascalCase(char.set)}.webp`]?.default}
                           alt={"Set"}
                           style={{
                             width: 50,
@@ -227,7 +235,6 @@ const GenshinImpact = ({ uid }) => {
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
-          myChars={myChars}
           setMyChars={setMyChars}
           newCharId={newCharId}
         />
