@@ -20,7 +20,7 @@ import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
 
-const iconMedia = import.meta.glob("../assets/icon/*.webp", { eager: true });
+const characterMedia = import.meta.glob("../assets/character/*.webp", { eager: true });
 const weaponMedia = import.meta.glob("../assets/weapon/*.webp", { eager: true });
 
 function toPascalCase(str) {
@@ -166,8 +166,8 @@ const Save = ({
           {/* Icon */}
           {newCharId && (
             <img
-              src={iconMedia[`../assets/icon/${toPascalCase(newCharId)}.webp`]?.default}
-              alt={"Icon"}
+              src={characterMedia[`../assets/character/${toPascalCase(newCharId)}.webp`]?.default}
+              alt={"Character"}
               style={{
                 width: 50,
                 height: 50,

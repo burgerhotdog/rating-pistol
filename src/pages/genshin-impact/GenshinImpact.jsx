@@ -21,7 +21,7 @@ import Save from "./components/Save";
 import Delete from "./components/Delete";
 import initCharObj from "./initCharObj";
 
-const iconMedia = import.meta.glob("./assets/icon/*.webp", { eager: true });
+const characterMedia = import.meta.glob("./assets/character/*.webp", { eager: true });
 const weaponMedia = import.meta.glob("./assets/weapon/*.webp", { eager: true });
 const setMedia = import.meta.glob("./assets/set/*.webp", { eager: true });
 
@@ -140,8 +140,8 @@ const GenshinImpact = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={iconMedia[`./assets/icon/${toPascalCase(id)}.webp`]?.default}
-                        alt={"Icon"}
+                        src={characterMedia[`./assets/character/${toPascalCase(id)}.webp`]?.default}
+                        alt={"Character"}
                         style={{
                           width: 50,
                           height: 50,
