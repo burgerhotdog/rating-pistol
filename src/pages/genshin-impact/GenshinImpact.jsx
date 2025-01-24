@@ -176,7 +176,7 @@ const GenshinImpact = ({ uid }) => {
                         />
                       </TableCell>
                     )}
-                    <TableCell>{char.score}</TableCell>
+                    <TableCell>{char.score.toString()}</TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button

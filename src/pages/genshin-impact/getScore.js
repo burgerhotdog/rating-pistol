@@ -16,6 +16,7 @@ const getScore = (id, char) => {
   const weightsRef = CHARACTERS[id].weights;
 
   // sum up all the mainstats to a single object
+  // BROKEN
   const mainstatValues = char.pieces
     .flatMap((piece, index) => 
       piece.mainstat ? { main: piece.mainstat, index } : null
@@ -26,6 +27,8 @@ const getScore = (id, char) => {
       totals[main] = (totals[main] || 0) + MAINSTATS[index][main];
       return totals;
     }, {});
+
+  console.log(mainstatValues);
   
   // sum up all the substats to a single object
   const substatValues = char.pieces
@@ -46,7 +49,7 @@ const getScore = (id, char) => {
   // exclude er over energyReq, penalize not having enough er
   const externalEr = 100 +
     (charRef.ascension["Energy Recharge"] || 0) +
-    (charRef.passivestats["Energy Recharge"] || 0) +
+    (charRef.passive["Energy Recharge"] || 0) +
     (weaponRef.stats["Energy Recharge"] || 0) +
     (setRef.stats["Energy Recharge"] || 0);
   
@@ -60,7 +63,7 @@ const getScore = (id, char) => {
   // exclude cr over 100
   const externalCr = 5 +
     (charRef.ascension["CRIT Rate"] || 0) +
-    (charRef.passivestats["CRIT Rate"] || 0) +
+    (charRef.passive["CRIT Rate"] || 0) +
     (weaponRef.stats["CRIT Rate"] || 0) +
     (setRef.stats["CRIT Rate"] || 0);
   
