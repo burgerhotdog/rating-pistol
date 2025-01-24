@@ -1,408 +1,259 @@
 const WEAPONS = {
   // Version 5.3
-  AThousandBlazingSuns: {
-    name: "A Thousand Blazing Suns",
-    rarity: "5 Star",
+  "A Thousand Blazing Suns": {
     type: "Claymore",
-    desc: `Gain the "Scorching Brilliance" effect when using an Elemental Skill or Burst: CRIT DMG increased by 20% and ATK increased by 28% for 6s. This effect can trigger once every 10s.
-      While a "Scorching Brilliance" instance is active, its duration is increased by 2s after Normal or Charged attacks deal Elemental DMG. This effect can trigger once every second, and the max duration increase is 6s.
-      Additionally, when the equipping character is in the Nightsoul's Blessing state, "Scorching Brilliance" effects are increased by 75%, and its duration will not count down when the equipping character is off-field.`,
-    stats: { cr: 11 },
+    stats: { "CRIT Rate": 11 },
   },
   
-  StarcallersWatch: {
-    name: "Starcaller's Watch",
-    rarity: "5 Star",
+  "Starcaller's Watch": {
     type: "Catalyst",
-    desc: `Increases Elemental Mastery by 100. Gain the "Mirror of Night" effect within 15s after the equipping character creates a shield: The current active party member deals 28% increased DMG to nearby opponents. You can gain the "Mirror of Night" effect once every 14s.`,
-    stats: { em: 265 },
+    stats: { "Elemental Mastery": 265 },
   },
   
   // Version 5.2
-  AstralVulturesCrimsonPlumage: {
-    name: "Astral Vulture's Crimson Plumage",
-    rarity: "5 Star",
+  "Astral Vulture's Crimson Plumage": {
     type: "Bow",
-    desc: "",
-    stats: { cd: 66.2 },
+    stats: { "CRIT DMG": 66.2 },
   },
   
-  CalamityOfEshu: {
-    name: "Calamity of Eshu",
-    rarity: "4 Star",
+  "Calamity of Eshu": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  FlowerWreathedFeathers: {
-    name: "Flower-Wreathed Feathers",
-    rarity: "4 Star",
+  "Flower-Wreathed Feathers": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  WaveridingWhirl: {
-    name: "Waveriding Whirl",
-    rarity: "4 Star",
+  "Waveriding Whirl": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 5.1
-  FruitfulHook: {
-    name: "Fruitful Hook",
-    rarity: "4 Star",
+  "Fruitful Hook": {
     type: "Claymore",
-    desc: "",
-    stats: { atkp: 27.6 },
+    stats: { "ATK%": 27.6 },
   },
   
-  MountainBracingBolt: {
-    name: "Mountain-Bracing Bolt",
-    rarity: "4 Star",
+  "Mountain-Bracing Bolt": {
     type: "Polearm",
-    desc: "",
-    stats: { er: 30.6 },
+    stats: { "Energy Recharge": 30.6 },
   },
   
-  PeakPatrolSong: {
-    name: "Peak Patrol Song",
-    rarity: "5 Star",
+  "Peak Patrol Song": {
     type: "Sword",
-    desc: "",
-    stats: { defp: 82.7 },
+    stats: { "DEF%": 82.7 },
   },
   
-  SturdyBone: {
-    name: "Sturdy Bone",
-    rarity: "4 Star",
+  "Sturdy Bone": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 5.0
-  AshGravenDrinkingHorn: {
-    name: "Ash-Graven Drinking Horn",
-    rarity: "4 Star",
+  "Ash-Graven Drinking Horn": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  ChainBreaker: {
-    name: "Chain Breaker",
-    rarity: "4 Star",
+  "Chain Breaker": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  EarthShaker: {
-    name: "Earth Shaker",
-    rarity: "4 Star",
+  "Earth Shaker": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  FangOfTheMountainKing: {
-    name: "Fang of the Mountain King",
-    rarity: "5 Star",
+  "Fang of the Mountain King": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  FluteOfEzpitzal: {
-    name: "Flute of Ezpitzal",
-    rarity: "4 Star",
+  "Flute of Ezpitzal": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  FootprintOfTheRainbow: {
-    name: "Footprint of the Rainbow",
-    rarity: "4 Star",
+  "Footprint of the Rainbow": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  RingOfYaxche: {
-    name: "Ring of Yaxche",
-    rarity: "4 Star",
+  "Ring of Yaxche": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  SurfsUp: {
-    name: "Surf's Up",
-    rarity: "5 Star",
+  "Surf's Up": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 4.8
-  LumidouceElegy: {
-    name: "Lumidouce Elegy",
-    rarity: "5 Star",
+  "Lumidouce Elegy": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
   // Version 4.7
-  Absolution: {
-    name: "Absolution",
-    rarity: "5 Star",
+  "Absolution": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  Cloudforged: {
-    name: "Cloudforged",
-    rarity: "4 Star",
+  "Cloudforged": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  SilvershowerHeartstrings: {
-    name: "Silvershower Heartstrings",
-    rarity: "5 Star",
+  "Silvershower Heartstrings": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
   // Version 4.6
-  CrimsonMoonsSemblance: {
-    name: "Crimson Moon's Semblance",
-    rarity: "5 Star",
+  "Crimson Moon's Semblance": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
   // Version 4.5
-  DialoguesOfTheDesertSages: {
-    name: "Dialogues of the Desert Sages",
-    rarity: "4 Star",
+  "Dialogues of the Desert Sages": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  UrakuMisugiri: {
-    name: "Uraku Misugiri",
-    rarity: "5 Star",
+  "Uraku Misugiri": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 4.4
-  CranesEchoingCall: {
-    name: "Crane's Echoing Call",
-    rarity: "5 Star",
+  "Crane's Echoing Call": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 4.3
-  UltimateOverlordsMegaMagicSword: {
-    name: "Ultimate Overlord's Mega Magic Sword",
-    rarity: "4 Star",
+  "Ultimate Overlord's Mega Magic Sword": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  Verdict: {
-    name: "Verdict",
-    rarity: "5 Star",
+  "Verdict": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
   // Version 4.2
-  SplendorOfTranquilWaters: {
-    name: "Splendor of Tranquil Waters",
-    rarity: "5 Star",
+  "Splendor of Tranquil Waters": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  SwordOfNarzissenkreuz: {
-    name: "Sword of Narzissenkreuz",
-    rarity: "4 Star",
+  "Sword of Narzissenkreuz": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 4.1
-  BalladOfTheBoundlessBlue: {
-    name: "Ballad of the Boundless Blue",
-    rarity: "4 Star",
+  "Ballad of the Boundless Blue": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  CashflowSupervision: {
-    name: "Cashflow Supervision",
-    rarity: "5 Star",
+  "Cashflow Supervision": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  PortablePowerSaw: {
-    name: "Portable Power Saw",
-    rarity: "4 Star",
+  "Portable Power Saw": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  ProspectorsDrill: {
-    name: "Prospector's Drill",
-    rarity: "4 Star",
+  "Prospector's Drill": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  RangeGauge: {
-    name: "Range Gauge",
-    rarity: "4 Star",
+  "Range Gauge": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  TheDockhandsAssistant: {
-    name: "The Dockhand's Assistant",
-    rarity: "4 Star",
+  "The Dockhand's Assistant": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  TomeOfTheEternalFlow: {
-    name: "Tome of the Eternal Flow",
-    rarity: "5 Star",
+  "Tome of the Eternal Flow": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 4.0
-  BalladOfTheFjords: {
-    name: "Ballad of the Fjords",
-    rarity: "4 Star",
+  "Ballad of the Fjords": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  FinaleOfTheDeep: {
-    name: "Finale of the Deep",
-    rarity: "4 Star",
+  "Finale of the Deep": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  FleuveCendreFerryman: {
-    name: "Fleuve Cendre Ferryman",
-    rarity: "4 Star",
+  "Fleuve Cendre Ferryman": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  FlowingPurity: {
-    name: "Flowing Purity",
-    rarity: "4 Star",
+  "Flowing Purity": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  RightfulReward: {
-    name: "Rightful Reward",
-    rarity: "4 Star",
+  "Rightful Reward": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  SacrificialJade: {
-    name: "Sacrificial Jade",
-    rarity: "4 Star",
+  "Sacrificial Jade": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  ScionOfTheBlazingSun: {
-    name: "Scion of the Blazing Sun",
-    rarity: "4 Star",
+  "Scion of the Blazing Sun": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  SongOfStillness: {
-    name: "Song of Stillness",
-    rarity: "4 Star",
+  "Song of Stillness": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  TalkingStick: {
-    name: "Talking Stick",
-    rarity: "4 Star",
+  "Talking Stick": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  TheFirstGreatMagic: {
-    name: "The First Great Magic",
-    rarity: "5 Star",
+  "The First Great Magic": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  TidalShadow: {
-    name: "Tidal Shadow",
-    rarity: "4 Star",
+  "Tidal Shadow": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  WolfFang: {
-    name: "Wolf-Fang",
-    rarity: "4 Star",
+  "Wolf-Fang": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
@@ -410,1256 +261,821 @@ const WEAPONS = {
   // Version 3.8
   
   // Version 3.7
-  IbisPiercer: {
-    name: "Ibis Piercer",
-    rarity: "4 Star",
+  "Ibis Piercer": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
   // Version 3.6
-  JadefallsSplendor: {
-    name: "Jadefall's Splendor",
-    rarity: "5 Star",
+  "Jadefall's Splendor": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 3.5
-  BeaconOfTheReedSea: {
-    name: "Beacon of the Reed Sea",
-    rarity: "5 Star",
+  "Beacon of the Reed Sea": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  MailedFlower: {
-    name: "Mailed Flower",
-    rarity: "4 Star",
+  "Mailed Flower": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
   // Version 3.4
-  LightOfFoliarIncision: {
-    name: "Light of Foliar Incision",
-    rarity: "5 Star",
+  "Light of Foliar Incision": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 3.3
-  ToukabouShigure: {
-    name: "Toukabou Shigure",
-    rarity: "4 Star",
+  "Toukabou Shigure": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  TulaytullahsRemembrance: {
-    name: "Tulaytullah's Remembrance",
-    rarity: "5 Star",
+  "Tulaytullah's Remembrance": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 3.2
-  AThousandFloatingDreams: {
-    name: "A Thousand Floating Dreams",
-    rarity: "5 Star",
+  "A Thousand Floating Dreams": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 3.1
-  KeyOfKhajNisut: {
-    name: "Key of Khaj-Nisut",
-    rarity: "5 Star",
+  "Key of Khaj-Nisut": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  MakhairaAquamarine: {
-    name: "Makhaira Aquamarine",
-    rarity: "4 Star",
+  "Makhaira Aquamarine": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  MissiveWindspear: {
-    name: "Missive Windspear",
-    rarity: "4 Star",
+  "Missive Windspear": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  StaffOfTheScarletSands: {
-    name: "Staff of the Scarlet Sands",
-    rarity: "5 Star",
+  "Staff of the Scarlet Sands": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  WanderingEvenstar: {
-    name: "Wandering Evenstar",
-    rarity: "4 Star",
+  "Wandering Evenstar": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  XiphosMoonlight: {
-    name: "Xiphos' Moonlight",
-    rarity: "4 Star",
+  "Xiphos' Moonlight": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 3.0
-  EndOfTheLine: {
-    name: "End of the Line",
-    rarity: "4 Star",
+  "End of the Line": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  ForestRegalia: {
-    name: "Forest Regalia",
-    rarity: "4 Star",
+  "Forest Regalia": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  FruitOfFulfillment: {
-    name: "Fruit of Fulfillment",
-    rarity: "4 Star",
+  "Fruit of Fulfillment": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  HuntersPath: {
-    name: "Hunter's Path",
-    rarity: "5 Star",
+  "Hunter's Path": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  KingsSquire: {
-    name: "King's Squire",
-    rarity: "4 Star",
+  "King's Squire": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  Moonpiercer: {
-    name: "Moonpiercer",
-    rarity: "4 Star",
+  "Moonpiercer": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  SapwoodBlade: {
-    name: "Sapwood Blade",
-    rarity: "4 Star",
+  "Sapwood Blade": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 2.8
-  KagotsurubeIsshin: {
-    name: "Kagotsurube Isshin",
-    rarity: "4 Star",
+  "Kagotsurube Isshin": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 2.7
-  AquaSimulacra: {
-    name: "Aqua Simulacra",
-    rarity: "5 Star",
+  "Aqua Simulacra": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  FadingTwilight: {
-    name: "Fading Twilight",
-    rarity: "4 Star",
+  "Fading Twilight": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
   // Version 2.6
-  HaranGeppakuFutsu: {
-    name: "Haran Geppaku Futsu",
-    rarity: "5 Star",
+  "Haran Geppaku Futsu": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 2.5
-  KagurasVerity: {
-    name: "Kagura's Verity",
-    rarity: "5 Star",
+  "Kagura's Verity": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  OathswornEye: {
-    name: "Oathsworn Eye",
-    rarity: "4 Star",
+  "Oathsworn Eye": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 2.4
-  CalamityQueller: {
-    name: "Calamity Queller",
-    rarity: "5 Star",
+  "Calamity Queller": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
   // Version 2.3
-  CinnabarSpindle: {
-    name: "Cinnabar Spindle",
-    rarity: "4 Star",
+  "Cinnabar Spindle": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  RedhornStonethresher: {
-    name: "Redhorn Stonethresher",
-    rarity: "5 Star",
+  "Redhorn Stonethresher": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
   // Version 2.2
-  Akuoumaru: {
-    name: "Akuoumaru",
-    rarity: "4 Star",
+  "Akuoumaru": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  MouunsMoon: {
-    name: "Mouun's Moon",
-    rarity: "4 Star",
+  "Mouun's Moon": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  PolarStar: {
-    name: "Polar Star",
-    rarity: "5 Star",
+  "Polar Star": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  WavebreakersFin: {
-    name: "Wavebreaker's Fin",
-    rarity: "4 Star",
+  "Wavebreaker's Fin": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
   // Version 2.1
-  EngulfingLightning: {
-    name: "Engulfing Lightning",
-    rarity: "5 Star",
+  "Engulfing Lightning": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  EverlastingMoonglow: {
-    name: "Everlasting Moonglow",
-    rarity: "5 Star",
+  "Everlasting Moonglow": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  LuxuriousSeaLord: {
-    name: "Luxurious Sea-Lord",
-    rarity: "4 Star",
+  "Luxurious Sea-Lord": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  Predator: {
-    name: "Predator",
-    rarity: "4 Star",
+  "Predator": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  TheCatch: {
-    name: "The Catch",
-    rarity: "4 Star",
+  "The Catch": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
   // Version 2.0
-  AmenomaKageuchi: {
-    name: "Amenoma Kageuchi",
-    rarity: "4 Star",
+  "Amenoma Kageuchi": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  HakushinRing: {
-    name: "Hakushin Ring",
-    rarity: "4 Star",
+  "Hakushin Ring": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  Hamayumi: {
-    name: "Hamayumi",
-    rarity: "4 Star",
+  "Hamayumi": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  KatsuragikiriNagamasa: {
-    name: "Katsuragikiri Nagamasa",
-    rarity: "4 Star",
+  "Katsuragikiri Nagamasa": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  KitainCrossSpear: {
-    name: "Kitain Cross Spear",
-    rarity: "4 Star",
+  "Kitain Cross Spear": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  MistsplitterReforged: {
-    name: "Mistsplitter Reforged",
-    rarity: "5 Star",
+  "Mistsplitter Reforged": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  ThunderingPulse: {
-    name: "Thundering Pulse",
-    rarity: "5 Star",
+  "Thundering Pulse": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
   // Version 1.6
-  DodocoTales: {
-    name: "Dodoco Tales",
-    rarity: "4 Star",
+  "Dodoco Tales": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  FreedomSworn: {
-    name: "Freedom-Sworn",
-    rarity: "5 Star",
+  "Freedom-Sworn": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  MitternachtsWaltz: {
-    name: "Mitternachts Waltz",
-    rarity: "4 Star",
+  "Mitternachts Waltz": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
   // Version 1.5
-  SongOfBrokenPines: {
-    name: "Song of Broken Pines",
-    rarity: "5 Star",
+  "Song of Broken Pines": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
   // Version 1.4
-  AlleyHunter: {
-    name: "Alley Hunter",
-    rarity: "4 Star",
+  "Alley Hunter": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  ElegyForTheEnd: {
-    name: "Elegy for the End",
-    rarity: "5 Star",
+  "Elegy for the End": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  TheAlleyFlash: {
-    name: "The Alley Flash",
-    rarity: "4 Star",
+  "The Alley Flash": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  WindblumeOde: {
-    name: "Windblume Ode",
-    rarity: "4 Star",
+  "Windblume Ode": {
     type: "Bow",
-    desc: "",
     stats: {},
   },
   
-  WineAndSong: {
-    name: "Wine and Song",
-    rarity: "4 Star",
+  "Wine and Song": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
   // Version 1.3
-  LithicBlade: {
-    name: "Lithic Blade",
-    rarity: "4 Star",
+  "Lithic Blade": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  LithicSpear: {
-    name: "Lithic Spear",
-    rarity: "4 Star",
+  "Lithic Spear": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  PrimordialJadeCutter: {
-    name: "Primordial Jade Cutter",
-    rarity: "5 Star",
+  "Primordial Jade Cutter": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  StaffOfHoma: {
-    name: "Staff of Homa",
-    rarity: "5 Star",
+  "Staff of Homa": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
   // Version 1.2
-  DragonspineSpear: {
-    name: "Dragonspine Spear",
-    rarity: "4 Star",
+  "Dragonspine Spear": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  FesteringDesire: {
-    name: "Festering Desire",
-    rarity: "4 Star",
+  "Festering Desire": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
-  Frostbearer: {
-    name: "Frostbearer",
-    rarity: "4 Star",
+  "Frostbearer": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  SnowTombedStarsilver: {
-    name: "Snow-Tombed Starsilver",
-    rarity: "4 Star",
+  "Snow-Tombed Starsilver": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  SummitShaper: {
-    name: "Summit Shaper",
-    rarity: "5 Star",
+  "Summit Shaper": {
     type: "Sword",
-    desc: "",
     stats: {},
   },
   
   // Version 1.1
-  MemoryOfDust: {
-    name: "Memory of Dust",
-    rarity: "5 Star",
+  "Memory of Dust": {
     type: "Catalyst",
-    desc: "",
     stats: {},
   },
   
-  RoyalSpear: {
-    name: "Royal Spear",
-    rarity: "4 Star",
+  "Royal Spear": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
-  TheUnforged: {
-    name: "The Unforged",
-    rarity: "5 Star",
+  "The Unforged": {
     type: "Claymore",
-    desc: "",
     stats: {},
   },
   
-  VortexVanquisher: {
-    name: "Vortex Vanquisher",
-    rarity: "5 Star",
+  "Vortex Vanquisher": {
     type: "Polearm",
-    desc: "",
     stats: {},
   },
   
   // Version 1.0
-  AmosBow: {
-    name: "Amos' Bow",
-    rarity: "5 Star",
+  "Amos' Bow": {
     type: "Bow",
-    desc: "",
-    stats: { atkp: 49.6 },
+    stats: { "ATK%": 49.6 },
   },
   
-  AquilaFavonia: {
-    name: "Aquila Favonia",
-    rarity: "5 Star",
+  "Aquila Favonia": {
     type: "Sword",
-    desc: "",
-    stats: { physical: 41.3 },
+    stats: { "Physical DMG": 41.3 },
   },
   
-  BlackTassel: {
-    name: "Black Tassel",
-    rarity: "3 Star",
+  "Black Tassel": {
     type: "Polearm",
-    desc: "",
     stats: { hp: 46.9 },
   },
   
-  BlackcliffAgate: {
-    name: "Blackcliff Agate",
-    rarity: "4 Star",
+  "Blackcliff Agate": {
     type: "Catalyst",
-    desc: "",
-    stats: { cd: 55.1 },
+    stats: { "CRIT DMG": 55.1 },
   },
   
-  BlackcliffLongsword: {
-    name: "Blackcliff Longsword",
-    rarity: "4 Star",
+  "Blackcliff Longsword": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { cd: 36.8 },
+    stats: { "CRIT DMG": 36.8 },
   },
   
-  BlackcliffPole: {
-    name: "Blackcliff Pole",
-    rarity: "4 Star",
+  "Blackcliff Pole": {
     type: "Polearm",
-    desc: "",
-    stats: { cd: 55.1 },
+    stats: { "CRIT DMG": 55.1 },
   },
   
-  BlackcliffSlasher: {
-    name: "Blackcliff Slasher",
-    rarity: "4 Star",
+  "Blackcliff Slasher": {
     type: "Claymore",
-    desc: "",
-    stats: { cd: 55.1 },
+    stats: { "CRIT DMG": 55.1 },
   },
   
-  BlackcliffWarbow: {
-    name: "Blackcliff Warbow",
-    rarity: "4 Star",
+  "Blackcliff Warbow": {
     type: "Bow",
-    desc: "",
-    stats: { cd: 36.8 },
+    stats: { "CRIT DMG": 36.8 },
   },
   
-  BloodtainedGreatsword: {
-    name: "Bloodtainted Greatsword",
-    rarity: "3 Star",
+  "Bloodtainted Greatsword": {
     type: "Claymore",
-    desc: "",
-    stats: { em: 187 },
+    stats: { "Elemental Mastery": 187 },
   },
   
-  CompoundBow: {
-    name: "Compound Bow",
-    rarity: "4 Star",
+  "Compound Bow": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { physical: 69 },
+    stats: { "Physical DMG": 69 },
   },
   
-  CoolSteel: {
-    name: "Cool Steel",
-    rarity: "3 Star",
+  "Cool Steel": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { atkp: 35.2 },
+    stats: { "ATK%": 35.2 },
   },
   
-  CrescentPike: {
-    name: "Crescent Pike",
-    rarity: "4 Star",
+  "Crescent Pike": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { physical: 34.5 },
+    stats: { "Physical DMG": 34.5 },
   },
   
-  DarkIronSword: {
-    name: "Dark Iron Sword",
-    rarity: "3 Star",
+  "Dark Iron Sword": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { em: 141 },
+    stats: { "Elemental Mastery": 141 },
   },
   
-  Deathmatch: {
-    name: "Deathmatch",
-    rarity: "4 Star",
+  "Deathmatch": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { cr: 36.8 },
+    stats: { "CRIT Rate": 36.8 },
   },
   
-  DebateClub: {
-    name: "Debate Club",
-    rarity: "3 Star",
+  "Debate Club": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { atkp: 35.2 },
+    stats: { "ATK%": 35.2 },
   },
   
-  DragonsBane: {
-    name: "Dragon's Bane",
-    rarity: "4 Star",
+  "Dragon's Bane": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { em: 221 },
+    stats: { "Elemental Mastery": 221 },
   },
   
-  EmeraldOrb: {
-    name: "Emerald Orb",
-    rarity: "3 Star",
+  "Emerald Orb": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 448 },
-    stats: { em: 94 },
+    stats: { "Elemental Mastery": 94 },
   },
   
-  EyeOfPerception: {
-    name: "Eye of Perception",
-    rarity: "4 Star",
+  "Eye of Perception": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { atkp: 55.1 },
+    stats: { "ATK%": 55.1 },
   },
   
-  FavoniusCodex: {
-    name: "Favonius Codex",
-    rarity: "4 Star",
+  "Favonius Codex": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { er: 45.9 },
+    stats: { "Energy Recharge": 45.9 },
   },
   
-  FavoniusGreatsword: {
-    name: "Favonius Greatsword",
-    rarity: "4 Star",
+  "Favonius Greatsword": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { er: 61.3 },
+    stats: { "Energy Recharge": 61.3 },
   },
   
-  FavoniusLance: {
-    name: "Favonius Lance",
-    rarity: "4 Star",
+  "Favonius Lance": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { er: 30.6 },
+    stats: { "Energy Recharge": 30.6 },
   },
   
-  FavoniusSword: {
-    name: "Favonius Sword",
-    rarity: "4 Star",
+  "Favonius Sword": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { er: 61.3 },
+    stats: { "Energy Recharge": 61.3 },
   },
   
-  FavoniusWarbow: {
-    name: "Favonius Warbow",
-    rarity: "4 Star",
+  "Favonius Warbow": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { er: 61.3 },
+    stats: { "Energy Recharge": 61.3 },
   },
   
-  FerrousShadow: {
-    name: "Ferrous Shadow",
-    rarity: "3 Star",
+  "Ferrous Shadow": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { hpp: 35.2 },
+    stats: { "HP%": 35.2 },
   },
   
-  FilletBlade: {
-    name: "Fillet Blade",
-    rarity: "3 Star",
+  "Fillet Blade": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { atkp: 35.2 },
+    stats: { "ATK%": 35.2 },
   },
   
-  Halberd: {
-    name: "Halberd",
-    rarity: "3 Star",
+  "Halberd": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 448 },
-    stats: { atkp: 23.5 },
+    stats: { "ATK%": 23.5 },
   },
   
-  HarbingerOfDawn: {
-    name: "Harbinger of Dawn",
-    rarity: "3 Star",
+  "Harbinger of Dawn": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { cd: 46.9 },
+    stats: { "CRIT DMG": 46.9 },
   },
   
-  IronSting: {
-    name: "Iron Sting",
-    rarity: "4 Star",
+  "Iron Sting": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { em: 165 },
+    stats: { "Elemental Mastery": 165 },
   },
   
-  LionsRoar: {
-    name: "Lion's Roar",
-    rarity: "4 Star",
+  "Lion's Roar": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { atkp: 41.3 },
+    stats: { "ATK%": 41.3 },
   },
   
-  LostPrayerToTheSacredWinds: {
-    name: "Lost Prayer to the Sacred Winds",
-    rarity: "5 Star",
+  "Lost Prayer to the Sacred Winds": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 608 },
-    stats: { cr: 33.1 },
+    stats: { "CRIT Rate": 33.1 },
   },
   
-  MagicGuide: {
-    name: "Magic Guide",
-    rarity: "3 Star",
+  "Magic Guide": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 354 },
-    stats: { em: 187 },
+    stats: { "Elemental Mastery": 187 },
   },
   
-  MappaMare: {
-    name: "Mappa Mare",
-    rarity: "4 Star",
+  "Mappa Mare": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { em: 110 },
+    stats: { "Elemental Mastery": 110 },
   },
   
-  Messenger: {
-    name: "Messenger",
-    rarity: "3 Star",
+  "Messenger": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 448 },
-    stats: { cr: 31.2 },
+    stats: { "CRIT Rate": 31.2 },
   },
   
-  OtherworldlyStory: {
-    name: "Otherworldly Story",
-    rarity: "3 Star",
+  "Otherworldly Story": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { er: 39 },
+    stats: { "Energy Recharge": 39 },
   },
   
-  PrimordialJadeWingedSpear: {
-    name: "Primordial Jade Winged-Spear",
-    rarity: "5 Star",
+  "Primordial Jade Winged-Spear": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 674 },
-    stats: { cr: 22.1 },
+    stats: { "CRIT Rate": 22.1 },
   },
   
-  PrototypeAmber: {
-    name: "Prototype Amber",
-    rarity: "4 Star",
+  "Prototype Amber": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { hpp: 41.3 },
+    stats: { "HP%": 41.3 },
   },
   
-  PrototypeArchaic: {
-    name: "Prototype Archaic",
-    rarity: "4 Star",
+  "Prototype Archaic": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { atkp: 27.6 },
+    stats: { "ATK%": 27.6 },
   },
   
-  PrototypeCrescent: {
-    name: "Prototype Crescent",
-    rarity: "4 Star",
+  "Prototype Crescent": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { atkp: 41.3 },
+    stats: { "ATK%": 41.3 },
   },
   
-  PrototypeRancour: {
-    name: "Prototype Rancour",
-    rarity: "4 Star",
+  "Prototype Rancour": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { physical: 34.5 },
+    stats: { "Physical DMG": 34.5 },
   },
   
-  PrototypeStarglitter: {
-    name: "Prototype Starglitter",
-    rarity: "4 Star",
+  "Prototype Starglitter": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { er: 45.9 },
+    stats: { "Energy Recharge": 45.9 },
   },
   
-  Rainslasher: {
-    name: "Rainslasher",
-    rarity: "4 Star",
+  "Rainslasher": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { em: 165 },
+    stats: { "Elemental Mastery": 165 },
   },
   
-  RavenBow: {
-    name: "Raven Bow",
-    rarity: "3 Star",
+  "Raven Bow": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 448 },
-    stats: { em: 94 },
+    stats: { "Elemental Mastery": 94 },
   },
   
-  RecurveBow: {
-    name: "Recurve Bow",
-    rarity: "3 Star",
+  "Recurve Bow": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 354 },
-    stats: { hpp: 46.9 },
+    stats: { "HP%": 46.9 },
   },
   
-  RoyalBow: {
-    name: "Royal Bow",
-    rarity: "4 Star",
+  "Royal Bow": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { atkp: 41.3 },
+    stats: { "ATK%": 41.3 },
   },
   
-  RoyalGreatsword: {
-    name: "Royal Greatsword",
-    rarity: "4 Star",
+  "Royal Greatsword": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { atkp: 27.6 },
+    stats: { "ATK%": 27.6 },
   },
   
-  RoyalGrimoire: {
-    name: "Royal Grimoire",
-    rarity: "4 Star",
+  "Royal Grimoire": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { atkp: 27.6 },
+    stats: { "ATK%": 27.6 },
   },
   
-  RoyalLongsword: {
-    name: "Royal Longsword",
-    rarity: "4 Star",
+  "Royal Longsword": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { atkp: 41.3 },
+    stats: { "ATK%": 41.3 },
   },
   
-  Rust: {
-    name: "Rust",
-    rarity: "4 Star",
+  "Rust": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { atkp: 41.3 },
+    stats: { "ATK%": 41.3 },
   },
   
-  SacrificialBow: {
-    name: "Sacrificial Bow",
-    rarity: "4 Star",
+  "Sacrificial Bow": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { er: 30.6 },
+    stats: { "Energy Recharge": 30.6 },
   },
   
-  SacrificialFragments: {
-    name: "Sacrificial Fragments",
-    rarity: "4 Star",
+  "Sacrificial Fragments": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { em: 221 },
+    stats: { "Elemental Mastery": 221 },
   },
   
-  SacrificialGreatsword: {
-    name: "Sacrificial Greatsword",
-    rarity: "4 Star",
+  "Sacrificial Greatsword": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 565 },
-    stats: { er: 30.6 },
+    stats: { "Energy Recharge": 30.6 },
   },
   
-  SacrificialSword: {
-    name: "Sacrificial Sword",
-    rarity: "4 Star",
+  "Sacrificial Sword": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 454 },
-    stats: { er: 61.3 },
+    stats: { "Energy Recharge": 61.3 },
   },
   
-  SerpentSpine: {
-    name: "Serpent Spine",
-    rarity: "4 Star",
+  "Serpent Spine": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { cr: 27.6 },
+    stats: { "CRIT Rate": 27.6 },
   },
   
-  SharpshootersOath: {
-    name: "Sharpshooter's Oath",
-    rarity: "3 Star",
+  "Sharpshooter's Oath": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { cd: 46.9 },
+    stats: { "CRIT DMG": 46.9 },
   },
   
-  SkyriderGreatsword: {
-    name: "Skyrider Greatsword",
-    rarity: "3 Star",
+  "Skyrider Greatsword": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { physical: 43.9 },
+    stats: { "Physical DMG": 43.9 },
   },
   
-  SkyriderSword: {
-    name: "Skyrider Sword",
-    rarity: "3 Star",
+  "Skyrider Sword": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 354 },
-    stats: { er: 52.1 },
+    stats: { "Energy Recharge": 52.1 },
   },
   
-  SkywardAtlas: {
-    name: "Skyward Atlas",
-    rarity: "5 Star",
+  "Skyward Atlas": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 674 },
-    stats: { atkp: 33.1 },
+    stats: { "ATK%": 33.1 },
   },
   
-  SkywardBlade: {
-    name: "Skyward Blade",
-    rarity: "5 Star",
+  "Skyward Blade": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 608 },
-    stats: { er: 55.1 },
+    stats: { "Energy Recharge": 55.1 },
   },
   
-  SkywardHarp: {
-    name: "Skyward Harp",
-    rarity: "5 Star",
+  "Skyward Harp": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 674 },
-    stats: { cr: 22.1 },
+    stats: { "CRIT Rate": 22.1 },
   },
   
-  SkywardPride: {
-    name: "Skyward Pride",
-    rarity: "5 Star",
+  "Skyward Pride": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 674 },
-    stats: { er: 36.8 },
+    stats: { "Energy Recharge": 36.8 },
   },
   
-  SkywardSpine: {
-    name: "Skyward Spine",
-    rarity: "5 Star",
+  "Skyward Spine": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 674 },
-    stats: { er: 36.8 },
+    stats: { "Energy Recharge": 36.8 },
   },
   
-  Slingshot: {
-    name: "Slingshot",
-    rarity: "3 Star",
+  "Slingshot": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 354 },
-    stats: { cr: 31.2 },
+    stats: { "CRIT Rate": 31.2 },
   },
   
-  SolarPearl: {
-    name: "Solar Pearl",
-    rarity: "4 Star",
+  "Solar Pearl": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { cr: 27.6 },
+    stats: { "CRIT Rate": 27.6 },
   },
   
-  SwordOfDescension: {
-    name: "Sword of Descension",
-    rarity: "4 Star",
+  "Sword of Descension": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 440 },
-    stats: { atkp: 35.2 },
+    stats: { "ATK%": 35.2 },
   },
   
-  TheBell: {
-    name: "The Bell",
-    rarity: "4 Star",
+  "The Bell": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { hpp: 41.3 },
+    stats: { "HP%": 41.3 },
   },
   
-  TheBlackSword: {
-    name: "The Black Sword",
-    rarity: "4 Star",
+  "The Black Sword": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { cr: 27.6 },
+    stats: { "CRIT Rate": 27.6 },
   },
   
-  TheFlute: {
-    name: "The Flute",
-    rarity: "4 Star",
+  "The Flute": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { atkp: 41.3 },
+    stats: { "ATK%": 41.3 },
   },
   
-  TheStringless: {
-    name: "The Stringless",
-    rarity: "4 Star",
+  "The Stringless": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { em: 165 },
+    stats: { "Elemental Mastery": 165 },
   },
   
-  TheViridescentHunt: {
-    name: "The Viridescent Hunt",
-    rarity: "4 Star",
+  "The Viridescent Hunt": {
     type: "Bow",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { cr: 27.6 },
+    stats: { "CRIT Rate": 27.6 },
   },
   
-  TheWidsith: {
-    name: "The Widsith",
-    rarity: "4 Star",
+  "The Widsith": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { cd: 55.1 },
+    stats: { "CRIT DMG": 55.1 },
   },
   
-  ThrillingTalesOfDragonSlayers: {
-    name: "Thrilling Tales of Dragon Slayers",
-    rarity: "3 Star",
+  "Thrilling Tales of Dragon Slayers": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { hpp: 35.2 },
+    stats: { "HP%": 35.2 },
   },
   
-  TravelersHandySword: {
-    name: "Traveler's Handy Sword",
-    rarity: "3 Star",
+  "Traveler's Handy Sword": {
     type: "Sword",
-    desc: "",
     basestats: { atk: 448 },
-    stats: { defp: 29.3 },
+    stats: { "DEF%": 29.3 },
   },
   
-  TwinNephrite: {
-    name: "Twin Nephrite",
-    rarity: "3 Star",
+  "Twin Nephrite": {
     type: "Catalyst",
-    desc: "",
     basestats: { atk: 448 },
-    stats: { cr: 15.6 },
+    stats: { "CRIT Rate": 15.6 },
   },
   
-  WhiteIronGreatsword: {
-    name: "White Iron Greatsword",
-    rarity: "3 Star",
+  "White Iron Greatsword": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { defp: 43.9 },
+    stats: { "DEF%": 43.9 },
   },
   
-  WhiteTassel: {
-    name: "White Tassel",
-    rarity: "3 Star",
+  "White Tassel": {
     type: "Polearm",
-    desc: "",
     basestats: { atk: 401 },
-    stats: { cr: 23.4 },
+    stats: { "CRIT Rate": 23.4 },
   },
   
-  Whiteblind: {
-    name: "Whiteblind",
-    rarity: "4 Star",
+  "Whiteblind": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 510 },
-    stats: { defp: 51.7 },
+    stats: { "DEF%": 51.7 },
   },
   
-  WolfsGravestone: {
-    name: "Wolf's Gravestone",
-    rarity: "5 Star",
+  "Wolf's Gravestone": {
     type: "Claymore",
-    desc: "",
     basestats: { atk: 608 },
-    stats: { atkp: 49.6 },
+    stats: { "ATK%": 49.6 },
   },
 };
 
