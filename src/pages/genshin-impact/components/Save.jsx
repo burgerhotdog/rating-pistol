@@ -166,7 +166,7 @@ const Save = ({
           {/* Icon */}
           {newCharId && (
             <img
-              src={iconMedia[`../assets/icon/${toPascalCase(newCharId)}_Icon.webp`]?.default}
+              src={iconMedia[`../assets/icon/${toPascalCase(newCharId)}.webp`]?.default}
               alt={"Icon"}
               style={{
                 width: 50,

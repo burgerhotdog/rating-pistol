@@ -140,7 +140,7 @@ const GenshinImpact = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={iconMedia[`./assets/icon/${toPascalCase(id)}_Icon.webp`]?.default}
+                        src={iconMedia[`./assets/icon/${toPascalCase(id)}.webp`]?.default}
                         alt={"Icon"}
                         style={{
                           width: 50,
