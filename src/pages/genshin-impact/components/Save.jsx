@@ -59,7 +59,7 @@ const Save = ({
   // Gets filtered weapon ids for select weapon
   const getFilteredWeapIds = () => {
     return Object.keys(WEAPONS)
-      .filter(id => WEAPONS[id].type === CHARACTERS[newCharId].weapon)
+      .filter(id => WEAPONS[id].type === CHARACTERS[newCharId].type)
       .sort();
   };
 

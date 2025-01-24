@@ -1,307 +1,336 @@
 const CHARACTERS = {
   // Version 5.3
   "Citlali": {
-    weapon: "Catalyst",
-    ascension: { "Elemental Mastery": 115 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Elemental Mastery": 115 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
-      "Elemental Mastery": 1,
+      "Elemental Mastery": 0.8,
     },
   },
 
   "Lan Yan": {
-    weapon: "Catalyst",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: {},
     weights: {
-      "ATK%": 1,
-      "Elemental Mastery": 0.6,
+      "ATK%": 0.8,
+      "Elemental Mastery": 0.5,
     },
   },
   
   "Mavuika": {
-    weapon: "Claymore",
-    ascension: { "CRIT Rate": 38.4 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 38.4 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 5.2
   "Chasca": {
-    weapon: "Bow",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Ororon": {
-    weapon: "Bow",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 5.1
   "Xilonen": {
-    weapon: "Sword",
-    ascension: { "DEF%": 36 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "DEF%": 36 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
-      "DEF%": 0.75,
+      "DEF%": 0.8,
     },
   },
   
   // Version 5.0
   "Kachina": {
-    weapon: "Polearm",
-    ascension: {},
-    passive: { "Geo DMG": 24 },
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Geo DMG": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "DEF%": 0.75,
+      "DEF%": 0.5,
     },
   },
   
   "Kinich": {
-    weapon: "Claymore",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Mualani": {
-    weapon: "Catalyst",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "HP%": 0.75,
+      "HP%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   // Version 4.8
   "Emilie": {
-    weapon: "Polearm",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 4.7
   "Clorinde": {
-    weapon: "Sword",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Sethos": {
-    weapon: "Bow",
-    ascension: { "Elemental Mastery": 96 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Elemental Mastery": 96 },
+    requirements: {},
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.75,
+      "Elemental Mastery": 0.5,
     },
   },
   
   "Sigewinne": {
-    weapon: "Bow",
-    ascension: { "HP%": 28.8 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 28.8 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
-      "HP%": 1,
+      "HP%": 0.8,
     },
   },
   
   // Version 4.6
   "Arlecchino": {
-    weapon: "Polearm",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 4.5
   "Chiori": {
-    weapon: "Sword",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "DEF%": 0.75,
+      "DEF%": 0.5,
     },
   },
   
   // Version 4.4
   "Gaming": {
-    weapon: "Claymore",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Xianyun": {
-    weapon: "Catalyst",
-    ascension: { "ATK%": 28.8 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 28.8 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
-      "ATK%": 1,
+      "ATK%": 0.8,
     },
   },
   
   // Version 4.3
   "Chevreuse": {
-    weapon: "Polearm",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: {},
     weights: {
-      "HP%": 1,
+      "HP%": 0.8,
     },
   },
   
   "Navia": {
-    weapon: "Claymore",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 4.2
   "Charlotte": {
-    weapon: "Catalyst",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 250 },
     weights: {
       "Healing Bonus": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.8,
     },
   },
   
   "Furina": {
-    weapon: "Sword",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Hydro DMG": 0.75,
-      "HP%": 0.75,
+      "Hydro DMG": 0.5,
+      "HP%": 0.5,
     },
   },
   
   // Version 4.1
   "Neuvillette": {
-    weapon: "Catalyst",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "HP%": 0.75,
+      "HP%": 0.5,
     },
   },
   
   "Wriothesley": {
-    weapon: "Catalyst",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   // Version 4.0
   "Freminet": {
-    weapon: "Claymore",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: {},
     weights: {
       "Physical DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Lynette": {
-    weapon: "Sword",
-    ascension: { "Anemo DMG": 24 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Anemo DMG": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Lyney": {
-    weapon: "Bow",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
@@ -309,772 +338,859 @@ const CHARACTERS = {
   
   // Version 3.7
   "Kirara": {
-    weapon: "Sword",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: {},
     weights: {
-      "HP%": 1,
+      "HP%": 0.8,
     },
   },
   
   // Version 3.6
   "Baizhu": {
-    weapon: "Catalyst",
-    ascension: { "HP%": 28.8 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 28.8 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
-      "HP%": 1,
+      "HP%": 0.8,
     },
   },
   
   "Kaveh": {
-    weapon: "Claymore",
-    ascension: { "Elemental Mastery": 96 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Elemental Mastery": 96 },
+    requirements: {},
     weights: {
-      "Elemental Mastery": 1,
+      "Elemental Mastery": 0.8,
     },
   },
   
   // Version 3.5
   "Dehya": {
-    weapon: "Claymore",
-    ascension: { "HP%": 28.8 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 28.8 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "HP%": 0.75,
+      "HP%": 0.5,
     },
   },
   
   "Mika": {
-    weapon: "Polearm",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   // Version 3.4
   "Alhaitham": {
-    weapon: "Sword",
-    ascension: { "Dendro DMG": 28.8 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Dendro DMG": 28.8 },
+    requirements: {},
     weights: {
       "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.75,
+      "Elemental Mastery": 0.5,
     },
   },
   
   "Yaoyao": {
-    weapon: "Polearm",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   // Version 3.3
   "Faruzan": {
-    weapon: "Bow",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 250 },
     weights: {
-      "Energy Recharge": 1,
+      "Anemo DMG": 0.5,
+      "CRIT Rate": 0.5,
+      "CRIT DMG": 0.5,
+      "ATK%": 0.25
     },
   },
   
   "Wanderer": {
-    weapon: "Catalyst",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 3.2
   "Layla": {
-    weapon: "Sword",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: {},
     weights: {
-      "HP%": 1,
+      "HP%": 0.8,
     },
   },
   
   "Nahida": {
-    weapon: "Catalyst",
-    ascension: { "Elemental Mastery": 115 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Elemental Mastery": 115 },
+    requirements: {},
     weights: {
-      "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.75,
+      "Dendro DMG": 0.5,
+      "Elemental Mastery": 0.5,
     },
   },
   
   // Version 3.1
   "Candace": {
-    weapon: "Polearm",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   "Cyno": {
-    weapon: "Polearm",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.75,
+      "Elemental Mastery": 0.4,
+      "ATK%": 0.3,
     },
   },
   
   "Nilou": {
-    weapon: "Sword",
-    ascension: { "HP%": 28.8 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 28.8 },
+    requirements: {},
     weights: {
-      "HP%": 1,
+      "HP%": 0.8,
     },
   },
   
   // Version 3.0
   "Collei": {
-    weapon: "Bow",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.75,
+      "Elemental Mastery": 0.4,
+      "ATK%": 0.3,
     },
   },
   
   "Dori": {
-    weapon: "Claymore",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Healing Bonus": 1,
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   "Tighnari": {
-    weapon: "Bow",
-    ascension: { "Dendro DMG": 28.8 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Dendro DMG": 28.8 },
+    requirements: {},
     weights: {
       "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.75,
+      "Elemental Mastery": 0.4,
+      "ATK%": 0.3,
     },
   },
   
   // Version 2.8
   "Shikanoin Heizou": {
-    weapon: "Catalyst",
-    ascension: { "Anemo DMG": 24 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Anemo DMG": 24 },
+    requirements: {},
     weights: {
       "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 2.7
   "Kuki Shinobu": {
-    weapon: "Sword",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: {},
     weights: {
-      "Elemental Mastery": 1,
-      "HP%": 0.75,
+      "Elemental Mastery": 0.8,
+      "HP%": 0.5,
     },
   },
   
   "Yelan": {
-    weapon: "Bow",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "HP%": 0.75,
+      "HP%": 0.5,
     },
   },
   
   // Version 2.6
   "Kamisato Ayato": {
-    weapon: "Sword",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 2.5
   "Yae Miko": {
-    weapon: "Catalyst",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
-      "Elemental Mastery": 0.75,
+      "Elemental Mastery": 0.4,
+      "ATK%": 0.3,
     },
   },
   
   // Version 2.4
   "Shenhe": {
-    weapon: "Polearm",
-    ascension: { "ATK%": 28.8 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 28.8 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
-      "ATK%": 1,
+      "ATK%": 0.8,
     },
   },
   
   "Yun Jin": {
-    weapon: "Polearm",
-    ascension: { "Energy Recharge": 26.7 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Energy Recharge": 26.7 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
-      "DEF%": 1,
+      "DEF%": 0.8,
     },
   },
   
   // Version 2.3
   "Arataki Itto": {
-    weapon: "Claymore",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "DEF%": 0.75,
+      "DEF%": 0.5,
     },
   },
   
   "Gorou": {
-    weapon: "Bow",
-    ascension: { "Geo DMG": 24 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Geo DMG": 24 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Healing Bonus": 1,
-      "DEF%": 0.75,
+      "DEF%": 0.8,
     },
   },
   
   // Version 2.2
   "Thoma": {
-    weapon: "Polearm",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   // Version 2.1
   "Aloy": {
-    weapon: "Bow",
-    ascension: { "Cryo DMG": 28.8 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Cryo DMG": 28.8 },
+    requirements: {},
     weights: {
       "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Kujou Sara": {
-    weapon: "Bow",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Raiden Shogun": {
-    weapon: "Polearm",
-    ascension: { "Energy Recharge": 32 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Energy Recharge": 32 },
+    requirements: { "Energy Recharge": 250 },
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Sangonomiya Kokomi": {
-    weapon: "Catalyst",
-    ascension: { "Hydro DMG": 28.8 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Hydro DMG": 28.8 },
+    requirements: {},
     weights: {
       "Healing Bonus": 1,
       "Hydro DMG": 1,
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   // Version 2.0
   "Kamisato Ayaka": {
-    weapon: "Sword",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Sayu": {
-    weapon: "Claymore",
-    ascension: { "Elemental Mastery": 96 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Elemental Mastery": 96 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
-      "ATK%": 0.75,
-      "Elemental Mastery": 0.75,
+      "Elemental Mastery": 0.8,
+      "ATK%": 0.5,
     },
   },
   
   "Yoimiya": {
-    weapon: "Bow",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   // Version 1.6
   "Kaedehara Kazuha": {
-    weapon: "Sword",
-    ascension: { "Elemental Mastery": 115 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Elemental Mastery": 115 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
-      "Elemental Mastery": 1,
+      "Elemental Mastery": 0.8,
     },
   },
   
   // Version 1.5
   "Eula": {
-    weapon: "Claymore",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Physical DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Yanfei": {
-    weapon: "Catalyst",
-    ascension: { "Pyro DMG": 24 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Pyro DMG": 24 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
-      "Elemental Mastery": 0.6,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   // Version 1.4
   "Rosaria": {
-    weapon: "Polearm",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   // Version 1.3
   "Hu Tao": {
-    weapon: "Polearm",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "HP%": 0.75,
-      "Elemental Mastery": 0.6,
+      "HP%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Xiao": {
-    weapon: "Polearm",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   // Version 1.2
   "Albedo": {
-    weapon: "Sword",
-    ascension: { "Geo DMG": 28.8 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Geo DMG": 28.8 },
+    requirements: {},
     weights: {
       "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "DEF%": 0.75,
+      "DEF%": 0.5,
     },
   },
   
   "Ganyu": {
-    weapon: "Bow",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   // Version 1.1
   "Diona": {
-    weapon: "Bow",
-    ascension: { "Cryo DMG": 24 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Cryo DMG": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   "Tartaglia": {
-    weapon: "Bow",
-    ascension: { "Hydro DMG": 28.8 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Hydro DMG": 28.8 },
+    requirements: {},
     weights: {
       "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Xinyan": {
-    weapon: "Claymore",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: {},
     weights: {
       "Physical DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Zhongli": {
-    weapon: "Polearm",
-    ascension: { "Geo DMG": 28.8 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Geo DMG": 28.8 },
+    requirements: {},
     weights: {
-      "HP%": 0.75,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "HP%": 0.5,
+      "ATK%": 0.2,
     },
   },
   
   // Version 1.0
   "Amber": {
-    weapon: "Bow",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Barbara": {
-    weapon: "Catalyst",
-    ascension: { "HP%": 24 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "HP%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   "Beidou": {
-    weapon: "Claymore",
-    ascension: { "Electro DMG": 24 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Electro DMG": 24 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Bennett": {
-    weapon: "Sword",
-    ascension: { "Energy Recharge": 26.7 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Energy Recharge": 26.7 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Healing Bonus": 1,
-      "HP%": 0.75,
+      "HP%": 0.8,
     },
   },
   
   "Chongyun": {
-    weapon: "Claymore",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: {},
     weights: {
       "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Diluc": {
-    weapon: "Claymore",
-    ascension: { "CRIT Rate": 19.2 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT Rate": 19.2 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Fischl": {
-    weapon: "Bow",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: {},
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.4,
+      "Elemental Mastery": 0.3,
     },
   },
   
   "Jean": {
-    weapon: "Sword",
-    ascension: { "Healing Bonus": 22.1 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Healing Bonus": 22.1 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.8,
     },
   },
   
   "Kaeya": {
-    weapon: "Sword",
-    ascension: { "Energy Recharge": 26.7 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Energy Recharge": 26.7 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Keqing": {
-    weapon: "Sword",
-    ascension: { "CRIT DMG": 38.4 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "CRIT DMG": 38.4 },
+    requirements: {},
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.4,
+      "Elemental Mastery": 0.3,
     },
   },
   
   "Klee": {
-    weapon: "Catalyst",
-    ascension: { "Pyro DMG": 28.8 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Pyro DMG": 28.8 },
+    requirements: {},
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Lisa": {
-    weapon: "Catalyst",
-    ascension: { "Elemental Mastery": 96 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Elemental Mastery": 96 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
-      "Elemental Mastery": 0.6,
+      "ATK%": 0.4,
+      "Elemental Mastery": 0.3,
     },
   },
   
   "Mona": {
-    weapon: "Catalyst",
-    ascension: { "Energy Recharge": 32 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Energy Recharge": 32 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Ningguang": {
-    weapon: "Catalyst",
-    ascension: { "Geo DMG": 24 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Geo DMG": 24 },
+    requirements: {},
     weights: {
       "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Noelle": {
-    weapon: "Claymore",
-    ascension: { "DEF%": 30 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "DEF%": 30 },
+    requirements: {},
     weights: {
       "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "DEF%": 0.75,
+      "DEF%": 0.5,
     },
   },
   
   "Qiqi": {
-    weapon: "Sword",
-    ascension: { "Healing Bonus": 22.1 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Healing Bonus": 22.1 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
-      "ATK%": 0.75,
-      "HP%": 0.3,
-      "DEF%": 0.3,
+      "ATK%": 0.8,
     },
   },
   
   "Razor": {
-    weapon: "Claymore",
-    ascension: { "Physical DMG": 30 },
-    passive: {},
+    type: "Claymore",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Physical DMG": 30 },
+    requirements: {},
     weights: {
       "Physical DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
   
   "Sucrose": {
-    weapon: "Catalyst",
-    ascension: { "Anemo DMG": 24 },
-    passive: {},
+    type: "Catalyst",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Anemo DMG": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
-      "Elemental Mastery": 1,
+      "Elemental Mastery": 0.8,
     },
   },
   
   "Venti": {
-    weapon: "Bow",
-    ascension: { "Energy Recharge": 32 },
-    passive: {},
+    type: "Bow",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Energy Recharge": 32 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
-      "Elemental Mastery": 1,
+      "Elemental Mastery": 0.8,
     },
   },
   
   "Xiangling": {
-    weapon: "Polearm",
-    ascension: { "Elemental Mastery": 96 },
-    passive: {},
+    type: "Polearm",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "Elemental Mastery": 96 },
+    requirements: { "Energy Recharge": 200 },
     weights: {
       "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
-      "Elemental Mastery": 0.6,
+      "ATK%": 0.5,
+      "Elemental Mastery": 0.2,
     },
   },
   
   "Xingqiu": {
-    weapon: "Sword",
-    ascension: { "ATK%": 24 },
-    passive: {},
+    type: "Sword",
+    base: { HP: 0, ATK: 0, DEF: 0 },
+    bonus: { "ATK%": 24 },
+    requirements: { "Energy Recharge": 150 },
     weights: {
       "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.75,
+      "ATK%": 0.5,
     },
   },
 };

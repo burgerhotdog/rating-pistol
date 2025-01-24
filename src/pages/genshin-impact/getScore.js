@@ -9,6 +9,7 @@ function percentage(value, total) {
 }
 
 const getScore = (id, char) => {
+  return "0";
   // create refs for readability
   const charRef = CHARACTERS[id];
   const weaponRef = WEAPONS[char.weapon];
@@ -80,7 +81,7 @@ const getScore = (id, char) => {
     score += (value / normalize) * weight;
   });
 
-  return Math.max(0, Math.round(percentage(score, 50)));
+  return Math.max(0, Math.round(percentage(score, 50))).toString;
 };
 
 export default getScore;
