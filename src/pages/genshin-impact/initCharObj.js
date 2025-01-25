@@ -1,7 +1,7 @@
 const initCharObj = () => ({
   weapon: "",
   set: "",
-  score: 0,
+  score: "",
   pieces: [
     {
       mainstat: "HP",

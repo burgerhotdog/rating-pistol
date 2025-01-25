@@ -3,7 +3,7 @@ const CHARACTERS = {
   "Citlali": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Elemental Mastery": 115 },
+    stats: { "Elemental Mastery": 115 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Elemental Mastery": 0.8,
@@ -13,7 +13,7 @@ const CHARACTERS = {
   "Lan Yan": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: {},
     weights: {
       "ATK%": 0.8,
@@ -24,7 +24,7 @@ const CHARACTERS = {
   "Mavuika": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 38.4 },
+    stats: { "CRIT Rate": 38.4 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -38,7 +38,7 @@ const CHARACTERS = {
   "Chasca": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "CRIT Rate": 1,
@@ -50,7 +50,7 @@ const CHARACTERS = {
   "Ororon": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Electro DMG": 1,
@@ -64,7 +64,7 @@ const CHARACTERS = {
   "Xilonen": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "DEF%": 36 },
+    stats: { "DEF%": 36 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
@@ -76,7 +76,7 @@ const CHARACTERS = {
   "Kachina": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Geo DMG": 24 },
+    stats: { "Geo DMG": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Geo DMG": 1,
@@ -89,7 +89,7 @@ const CHARACTERS = {
   "Kinich": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Dendro DMG": 1,
@@ -102,7 +102,7 @@ const CHARACTERS = {
   "Mualani": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Hydro DMG": 1,
@@ -117,7 +117,7 @@ const CHARACTERS = {
   "Emilie": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Dendro DMG": 1,
@@ -131,7 +131,7 @@ const CHARACTERS = {
   "Clorinde": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Electro DMG": 1,
@@ -144,7 +144,7 @@ const CHARACTERS = {
   "Sethos": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Elemental Mastery": 96 },
+    stats: { "Elemental Mastery": 96 },
     requirements: {},
     weights: {
       "Electro DMG": 1,
@@ -157,7 +157,7 @@ const CHARACTERS = {
   "Sigewinne": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 28.8 },
+    stats: { "HP%": 28.8 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "HP%": 0.8,
@@ -168,7 +168,7 @@ const CHARACTERS = {
   "Arlecchino": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -182,7 +182,7 @@ const CHARACTERS = {
   "Chiori": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Geo DMG": 1,
@@ -196,7 +196,7 @@ const CHARACTERS = {
   "Gaming": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -210,7 +210,7 @@ const CHARACTERS = {
   "Xianyun": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 28.8 },
+    stats: { "ATK%": 28.8 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "ATK%": 0.8,
@@ -221,7 +221,7 @@ const CHARACTERS = {
   "Chevreuse": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: {},
     weights: {
       "HP%": 0.8,
@@ -231,7 +231,7 @@ const CHARACTERS = {
   "Navia": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Geo DMG": 1,
@@ -245,7 +245,7 @@ const CHARACTERS = {
   "Charlotte": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 250 },
     weights: {
       "Healing Bonus": 1,
@@ -256,7 +256,7 @@ const CHARACTERS = {
   "Furina": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "CRIT Rate": 1,
@@ -270,7 +270,7 @@ const CHARACTERS = {
   "Neuvillette": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Hydro DMG": 1,
@@ -283,7 +283,7 @@ const CHARACTERS = {
   "Wriothesley": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Cryo DMG": 1,
@@ -298,7 +298,7 @@ const CHARACTERS = {
   "Freminet": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: {},
     weights: {
       "Physical DMG": 1,
@@ -311,7 +311,7 @@ const CHARACTERS = {
   "Lynette": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Anemo DMG": 24 },
+    stats: { "Anemo DMG": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Anemo DMG": 1,
@@ -324,7 +324,7 @@ const CHARACTERS = {
   "Lyney": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -340,7 +340,7 @@ const CHARACTERS = {
   "Kirara": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: {},
     weights: {
       "HP%": 0.8,
@@ -351,7 +351,7 @@ const CHARACTERS = {
   "Baizhu": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 28.8 },
+    stats: { "HP%": 28.8 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "HP%": 0.8,
@@ -361,7 +361,7 @@ const CHARACTERS = {
   "Kaveh": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Elemental Mastery": 96 },
+    stats: { "Elemental Mastery": 96 },
     requirements: {},
     weights: {
       "Elemental Mastery": 0.8,
@@ -372,7 +372,7 @@ const CHARACTERS = {
   "Dehya": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 28.8 },
+    stats: { "HP%": 28.8 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Pyro DMG": 1,
@@ -385,7 +385,7 @@ const CHARACTERS = {
   "Mika": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
@@ -397,7 +397,7 @@ const CHARACTERS = {
   "Alhaitham": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Dendro DMG": 28.8 },
+    stats: { "Dendro DMG": 28.8 },
     requirements: {},
     weights: {
       "Dendro DMG": 1,
@@ -410,7 +410,7 @@ const CHARACTERS = {
   "Yaoyao": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
@@ -422,7 +422,7 @@ const CHARACTERS = {
   "Faruzan": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 250 },
     weights: {
       "Anemo DMG": 0.5,
@@ -435,7 +435,7 @@ const CHARACTERS = {
   "Wanderer": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Anemo DMG": 1,
@@ -449,7 +449,7 @@ const CHARACTERS = {
   "Layla": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: {},
     weights: {
       "HP%": 0.8,
@@ -459,7 +459,7 @@ const CHARACTERS = {
   "Nahida": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Elemental Mastery": 115 },
+    stats: { "Elemental Mastery": 115 },
     requirements: {},
     weights: {
       "CRIT Rate": 1,
@@ -473,7 +473,7 @@ const CHARACTERS = {
   "Candace": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "HP%": 0.8,
@@ -483,7 +483,7 @@ const CHARACTERS = {
   "Cyno": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Electro DMG": 1,
@@ -497,7 +497,7 @@ const CHARACTERS = {
   "Nilou": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 28.8 },
+    stats: { "HP%": 28.8 },
     requirements: {},
     weights: {
       "HP%": 0.8,
@@ -508,7 +508,7 @@ const CHARACTERS = {
   "Collei": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Dendro DMG": 1,
@@ -522,7 +522,7 @@ const CHARACTERS = {
   "Dori": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Healing Bonus": 1,
@@ -533,7 +533,7 @@ const CHARACTERS = {
   "Tighnari": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Dendro DMG": 28.8 },
+    stats: { "Dendro DMG": 28.8 },
     requirements: {},
     weights: {
       "Dendro DMG": 1,
@@ -548,7 +548,7 @@ const CHARACTERS = {
   "Shikanoin Heizou": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Anemo DMG": 24 },
+    stats: { "Anemo DMG": 24 },
     requirements: {},
     weights: {
       "Anemo DMG": 1,
@@ -562,7 +562,7 @@ const CHARACTERS = {
   "Kuki Shinobu": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: {},
     weights: {
       "Elemental Mastery": 0.8,
@@ -573,7 +573,7 @@ const CHARACTERS = {
   "Yelan": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Hydro DMG": 1,
@@ -587,7 +587,7 @@ const CHARACTERS = {
   "Kamisato Ayato": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Hydro DMG": 1,
@@ -601,7 +601,7 @@ const CHARACTERS = {
   "Yae Miko": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Electro DMG": 1,
@@ -616,7 +616,7 @@ const CHARACTERS = {
   "Shenhe": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 28.8 },
+    stats: { "ATK%": 28.8 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "ATK%": 0.8,
@@ -626,7 +626,7 @@ const CHARACTERS = {
   "Yun Jin": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Energy Recharge": 26.7 },
+    stats: { "Energy Recharge": 26.7 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "DEF%": 0.8,
@@ -637,7 +637,7 @@ const CHARACTERS = {
   "Arataki Itto": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Geo DMG": 1,
@@ -650,7 +650,7 @@ const CHARACTERS = {
   "Gorou": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Geo DMG": 24 },
+    stats: { "Geo DMG": 24 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Healing Bonus": 1,
@@ -662,7 +662,7 @@ const CHARACTERS = {
   "Thoma": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "HP%": 0.8,
@@ -673,7 +673,7 @@ const CHARACTERS = {
   "Aloy": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Cryo DMG": 28.8 },
+    stats: { "Cryo DMG": 28.8 },
     requirements: {},
     weights: {
       "Cryo DMG": 1,
@@ -686,7 +686,7 @@ const CHARACTERS = {
   "Kujou Sara": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Electro DMG": 1,
@@ -699,7 +699,7 @@ const CHARACTERS = {
   "Raiden Shogun": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Energy Recharge": 32 },
+    stats: { "Energy Recharge": 32 },
     requirements: { "Energy Recharge": 250 },
     weights: {
       "Electro DMG": 1,
@@ -712,7 +712,7 @@ const CHARACTERS = {
   "Sangonomiya Kokomi": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Hydro DMG": 28.8 },
+    stats: { "Hydro DMG": 28.8 },
     requirements: {},
     weights: {
       "Healing Bonus": 1,
@@ -725,7 +725,7 @@ const CHARACTERS = {
   "Kamisato Ayaka": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Cryo DMG": 1,
@@ -738,7 +738,7 @@ const CHARACTERS = {
   "Sayu": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Elemental Mastery": 96 },
+    stats: { "Elemental Mastery": 96 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
@@ -750,7 +750,7 @@ const CHARACTERS = {
   "Yoimiya": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -765,7 +765,7 @@ const CHARACTERS = {
   "Kaedehara Kazuha": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Elemental Mastery": 115 },
+    stats: { "Elemental Mastery": 115 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Elemental Mastery": 0.8,
@@ -776,7 +776,7 @@ const CHARACTERS = {
   "Eula": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Physical DMG": 1,
@@ -789,7 +789,7 @@ const CHARACTERS = {
   "Yanfei": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Pyro DMG": 24 },
+    stats: { "Pyro DMG": 24 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -804,7 +804,7 @@ const CHARACTERS = {
   "Rosaria": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Cryo DMG": 1,
@@ -819,7 +819,7 @@ const CHARACTERS = {
   "Hu Tao": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -833,7 +833,7 @@ const CHARACTERS = {
   "Xiao": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Anemo DMG": 1,
@@ -847,7 +847,7 @@ const CHARACTERS = {
   "Albedo": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Geo DMG": 28.8 },
+    stats: { "Geo DMG": 28.8 },
     requirements: {},
     weights: {
       "Geo DMG": 1,
@@ -860,7 +860,7 @@ const CHARACTERS = {
   "Ganyu": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Cryo DMG": 1,
@@ -875,7 +875,7 @@ const CHARACTERS = {
   "Diona": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Cryo DMG": 24 },
+    stats: { "Cryo DMG": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
@@ -886,7 +886,7 @@ const CHARACTERS = {
   "Tartaglia": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Hydro DMG": 28.8 },
+    stats: { "Hydro DMG": 28.8 },
     requirements: {},
     weights: {
       "Hydro DMG": 1,
@@ -900,7 +900,7 @@ const CHARACTERS = {
   "Xinyan": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: {},
     weights: {
       "Physical DMG": 1,
@@ -913,7 +913,7 @@ const CHARACTERS = {
   "Zhongli": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Geo DMG": 28.8 },
+    stats: { "Geo DMG": 28.8 },
     requirements: {},
     weights: {
       "CRIT Rate": 1,
@@ -927,7 +927,7 @@ const CHARACTERS = {
   "Amber": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Pyro DMG": 1,
@@ -941,7 +941,7 @@ const CHARACTERS = {
   "Barbara": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "HP%": 24 },
+    stats: { "HP%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
@@ -952,7 +952,7 @@ const CHARACTERS = {
   "Beidou": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Electro DMG": 24 },
+    stats: { "Electro DMG": 24 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Electro DMG": 1,
@@ -966,7 +966,7 @@ const CHARACTERS = {
   "Bennett": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Energy Recharge": 26.7 },
+    stats: { "Energy Recharge": 26.7 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Healing Bonus": 1,
@@ -977,7 +977,7 @@ const CHARACTERS = {
   "Chongyun": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: {},
     weights: {
       "Cryo DMG": 1,
@@ -991,7 +991,7 @@ const CHARACTERS = {
   "Diluc": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT Rate": 19.2 },
+    stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -1005,7 +1005,7 @@ const CHARACTERS = {
   "Fischl": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: {},
     weights: {
       "Electro DMG": 1,
@@ -1019,7 +1019,7 @@ const CHARACTERS = {
   "Jean": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Healing Bonus": 22.1 },
+    stats: { "Healing Bonus": 22.1 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
@@ -1030,7 +1030,7 @@ const CHARACTERS = {
   "Kaeya": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Energy Recharge": 26.7 },
+    stats: { "Energy Recharge": 26.7 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Cryo DMG": 1,
@@ -1044,7 +1044,7 @@ const CHARACTERS = {
   "Keqing": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "CRIT DMG": 38.4 },
+    stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
       "Electro DMG": 1,
@@ -1058,7 +1058,7 @@ const CHARACTERS = {
   "Klee": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Pyro DMG": 28.8 },
+    stats: { "Pyro DMG": 28.8 },
     requirements: {},
     weights: {
       "Pyro DMG": 1,
@@ -1072,7 +1072,7 @@ const CHARACTERS = {
   "Lisa": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Elemental Mastery": 96 },
+    stats: { "Elemental Mastery": 96 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Electro DMG": 1,
@@ -1086,7 +1086,7 @@ const CHARACTERS = {
   "Mona": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Energy Recharge": 32 },
+    stats: { "Energy Recharge": 32 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Hydro DMG": 1,
@@ -1100,7 +1100,7 @@ const CHARACTERS = {
   "Ningguang": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Geo DMG": 24 },
+    stats: { "Geo DMG": 24 },
     requirements: {},
     weights: {
       "Geo DMG": 1,
@@ -1113,7 +1113,7 @@ const CHARACTERS = {
   "Noelle": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "DEF%": 30 },
+    stats: { "DEF%": 30 },
     requirements: {},
     weights: {
       "Geo DMG": 1,
@@ -1126,7 +1126,7 @@ const CHARACTERS = {
   "Qiqi": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Healing Bonus": 22.1 },
+    stats: { "Healing Bonus": 22.1 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Healing Bonus": 1,
@@ -1137,7 +1137,7 @@ const CHARACTERS = {
   "Razor": {
     type: "Claymore",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Physical DMG": 30 },
+    stats: { "Physical DMG": 30 },
     requirements: {},
     weights: {
       "Physical DMG": 1,
@@ -1150,7 +1150,7 @@ const CHARACTERS = {
   "Sucrose": {
     type: "Catalyst",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Anemo DMG": 24 },
+    stats: { "Anemo DMG": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Elemental Mastery": 0.8,
@@ -1160,7 +1160,7 @@ const CHARACTERS = {
   "Venti": {
     type: "Bow",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Energy Recharge": 32 },
+    stats: { "Energy Recharge": 32 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Elemental Mastery": 0.8,
@@ -1170,7 +1170,7 @@ const CHARACTERS = {
   "Xiangling": {
     type: "Polearm",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "Elemental Mastery": 96 },
+    stats: { "Elemental Mastery": 96 },
     requirements: { "Energy Recharge": 200 },
     weights: {
       "Pyro DMG": 1,
@@ -1184,7 +1184,7 @@ const CHARACTERS = {
   "Xingqiu": {
     type: "Sword",
     base: { HP: 0, ATK: 0, DEF: 0 },
-    bonus: { "ATK%": 24 },
+    stats: { "ATK%": 24 },
     requirements: { "Energy Recharge": 150 },
     weights: {
       "Hydro DMG": 1,

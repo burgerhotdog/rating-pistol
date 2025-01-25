@@ -8,74 +8,64 @@ function percentage(value, total) {
   return (value / total) * 100;
 }
 
-const getScore = (id, char) => {
-  return "0";
+const getScore = (id, data) => {
   // create refs for readability
   const charRef = CHARACTERS[id];
-  const weaponRef = WEAPONS[char.weapon];
-  const setRef = SETS[char.set];
-  const weightsRef = CHARACTERS[id].weights;
+  const weapRef = WEAPONS[data.weapon];
+  const setRef = SETS[data.set];
 
-  // sum up all the mainstats to a single object
-  // BROKEN
-  const mainstatValues = char.pieces
-    .flatMap((piece, index) => 
-      piece.mainstat ? { main: piece.mainstat, index } : null
-    )
-    .filter(main => main) // filter out blank mainstats
-    .slice(2) // dont include first 2 pieces
-    .reduce((totals, main) => { // combine same mainstat values
-      totals[main] = (totals[main] || 0) + MAINSTATS[index][main];
-      return totals;
-    }, {});
+  // sum up all the mainstats and substats
+  const pieceStats = {};
+  for (let i = 0; i < 5; i++) {
+    // mainstat
+    let mainKey = data.pieces[i].mainstat;
+    let mainVal = MAINSTATS[i][mainKey];
+    if (mainKey && mainVal) {
+      pieceStats[mainKey] = (pieceStats[mainKey] || 0) + mainVal;
+    }
 
-  console.log(mainstatValues);
-  
-  // sum up all the substats to a single object
-  const substatValues = char.pieces
-    .flatMap(piece => piece.substats) // consolidate all pieces to 1 piece
-    .filter(sub => sub.key) // filter out blank substats
-    .reduce((totals, sub) => { // combine same substat values
-      totals[sub.key] = (totals[sub.key] || 0) + Number(sub.value);
-      return totals;
-    }, {});
-  
-  // combine substats with mainstats
-  const combinedValues = { ...substatValues }; // Start with a copy of substatTotals
-  Object.entries(mainstatValues).forEach(([key, value]) => {
-    // Add mainstat values to combinedValues, summing if the key exists in substatTotals
-    combinedValues[key] = (combinedValues[key] || 0) + value;
-  });
+    // substats
+    for (let j = 0; j < 4; j++) {
+      let subKey = data.pieces[i].substats[j].key;
+      let subVal = Number(data.pieces[i].substats[j].value);
+      if (subKey && subVal) {
+        pieceStats[subKey] = (pieceStats[subKey] || 0) + subVal;
+      }
+    }
+  }
+  console.log(pieceStats);
+  return "0";
 
   // exclude er over energyReq, penalize not having enough er
-  const externalEr = 100 +
-    (charRef.ascension["Energy Recharge"] || 0) +
-    (charRef.passive["Energy Recharge"] || 0) +
-    (weaponRef.stats["Energy Recharge"] || 0) +
+  const startingER = 100 +
+    (charRef.stats["Energy Recharge"] || 0) +
+    (weapRef.stats["Energy Recharge"] || 0) +
     (setRef.stats["Energy Recharge"] || 0);
+
+  const piecesER = (pieceStats["Energy Recharge"] || 0);
   
-  const totalEr = externalEr + (combinedValues["Energy Recharge"] || 0);
-  if (totalEr > charRef.energyReq) { // too much er
-    combinedValues["Energy Recharge"] = Math.max(charRef.energyReq - externalEr, 0);
+  const totalER = startingER + piecesER;
+  if (totalER > charRef.requirements["Energy Recharge"]) { // too much er
+    pieceStats["Energy Recharge"] = Math.max(charRef.energyReq - startingER, 0);
   } else { // not enough er
-    combinedValues["Energy Recharge"] = (combinedValues["Energy Recharge"] || 0) - (charRef.energyReq - totalEr);
+    pieceStats["Energy Recharge"] = (pieceStats["Energy Recharge"] || 0) - (charRef.energyReq - totalER);
   }
   
-  // exclude cr over 100
-  const externalCr = 5 +
-    (charRef.ascension["CRIT Rate"] || 0) +
-    (charRef.passive["CRIT Rate"] || 0) +
-    (weaponRef.stats["CRIT Rate"] || 0) +
+  // remove crit rate over 100
+  const startingCR = 5 +
+    (charRef.stats["CRIT Rate"] || 0) +
+    (weapRef.stats["CRIT Rate"] || 0) +
     (setRef.stats["CRIT Rate"] || 0);
   
-  const totalCr = externalCr + (combinedValues["CRIT Rate"] || 0);
-  if (totalCr > 100) {
-    combinedValues["CRIT Rate"] = 100 - externalCr;
+  const piecesCR = (pieceStats["CRIT Rate"] || 0);
+  
+  if (startingCR + piecesCR > 100) {
+    pieceStats["CRIT Rate"] = 100 - startingCR;
   }
 
   // calculate score
   let score = 0;
-  Object.entries(combinedValues).forEach(([key, value]) => {
+  Object.entries(pieceStats).forEach(([key, value]) => {
     const weight = key === "Energy Recharge" ? 1 : (weightsRef[key] || 0);
     const normalize = SUBSTATS[key];
     score += (value / normalize) * weight;
