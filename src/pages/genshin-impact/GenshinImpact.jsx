@@ -19,11 +19,11 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
-import initCharObj from "./initCharObj";
+import blankCdata from "./blankCdata";
 
-const characterMedia = import.meta.glob("./assets/character/*.webp", { eager: true });
-const weaponMedia = import.meta.glob("./assets/weapon/*.webp", { eager: true });
-const setMedia = import.meta.glob("./assets/set/*.webp", { eager: true });
+const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
+const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
+const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
 
 function toPascalCase(str) {
   return str
@@ -43,8 +43,8 @@ const GenshinImpact = ({ uid }) => {
   const [myChars, setMyChars] = useState({});
 
   // New Character Object
-  const [newCharId, setNewCharId] = useState("");
-  const [newCharObj, setNewCharObj] = useState(initCharObj);
+  const [newCid, setNewCid] = useState("");
+  const [newCdata, setNewCdata] = useState(blankCdata);
 
   // Mobile layout breakpoint
   const theme = useTheme();
@@ -76,23 +76,23 @@ const GenshinImpact = ({ uid }) => {
 
   // Add character button handler
   const handleAdd = () => {
-    setNewCharId("");
-    setNewCharObj(initCharObj());
+    setNewCid("");
+    setNewCdata(blankCdata());
     setIsEditMode(false);
     setIsSaveOpen(true);
   };
 
   // Edit button handler
   const handleEdit = (id) => {
-    setNewCharId(id);
-    setNewCharObj(myChars[id]);
+    setNewCid(id);
+    setNewCdata(myChars[id]);
     setIsEditMode(true);
     setIsSaveOpen(true);
   };
 
   // Delete button handler
   const handleDelete = (id) => {
-    setNewCharId(id);
+    setNewCid(id);
     setIsDeleteOpen(true);
   };
 
@@ -140,8 +140,8 @@ const GenshinImpact = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={characterMedia[`./assets/character/${toPascalCase(id)}.webp`]?.default}
-                        alt={"Character"}
+                        src={cImgs[`./assets/char/${toPascalCase(id)}.webp`]?.default}
+                        alt={"char"}
                         style={{
                           width: 50,
                           height: 50,
@@ -153,8 +153,8 @@ const GenshinImpact = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={weaponMedia[`./assets/weapon/${toPascalCase(char.weapon)}.webp`]?.default}
-                          alt={"Weapon"}
+                          src={wImgs[`./assets/weap/${toPascalCase(char.weapon)}.webp`]?.default}
+                          alt={"weap"}
                           style={{
                             width: 50,
                             height: 50,
@@ -166,8 +166,8 @@ const GenshinImpact = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={setMedia[`./assets/set/${toPascalCase(char.set)}.webp`]?.default}
-                          alt={"Set"}
+                          src={sImgs[`./assets/set/${toPascalCase(char.set)}.webp`]?.default}
+                          alt={"set"}
                           style={{
                             width: 50,
                             height: 50,
@@ -224,10 +224,10 @@ const GenshinImpact = ({ uid }) => {
           isEditMode={isEditMode}
           myChars={myChars}
           setMyChars={setMyChars}
-          newCharId={newCharId}
-          setNewCharId={setNewCharId}
-          newCharObj={newCharObj}
-          setNewCharObj={setNewCharObj}
+          newCid={newCid}
+          setNewCid={setNewCid}
+          newCdata={newCdata}
+          setNewCdata={setNewCdata}
         />
 
         {/* Delete modal */}
@@ -236,7 +236,7 @@ const GenshinImpact = ({ uid }) => {
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
           setMyChars={setMyChars}
-          newCharId={newCharId}
+          newCid={newCid}
         />
       </Box>        
     </Container>

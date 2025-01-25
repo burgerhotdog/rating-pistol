@@ -15,13 +15,13 @@ import {
 import { db } from "../../../firebase";
 import Piece from "./Piece";
 import getScore from "../getScore";
-import initCharObj from "../initCharObj";
+import blankCdata from "../blankCdata";
 import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
 
-const characterMedia = import.meta.glob("../assets/character/*.webp", { eager: true });
-const weaponMedia = import.meta.glob("../assets/weapon/*.webp", { eager: true });
+const cImgs = import.meta.glob("../assets/char/*.webp", { eager: true });
+const wImgs = import.meta.glob("../assets/weap/*.webp", { eager: true });
 
 function toPascalCase(str) {
   return str
@@ -38,10 +38,10 @@ const Save = ({
   isEditMode,
   myChars,
   setMyChars,
-  newCharId,
-  setNewCharId,
-  newCharObj,
-  setNewCharObj,
+  newCid,
+  setNewCid,
+  newCdata,
+  setNewCdata,
 }) => {
   const [error, setError] = useState("");
   
@@ -59,7 +59,7 @@ const Save = ({
   // Gets filtered weapon ids for select weapon
   const getFilteredWeapIds = () => {
     return Object.keys(WEAPONS)
-      .filter(id => WEAPONS[id].type === CHARACTERS[newCharId].type)
+      .filter(id => WEAPONS[id].type === CHARACTERS[newCid].type)
       .sort();
   };
 
@@ -73,8 +73,8 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon) errors.push("Select weapon");
-    if (!newCharObj.set) errors.push("Select artifact set");
+    if (!newCdata.weapon) errors.push("Select weapon");
+    if (!newCdata.set) errors.push("Select artifact set");
 
     // Display error message
     if (errors.length) {
@@ -92,18 +92,18 @@ const Save = ({
     if (!validate()) return;
 
     // Calcuate and set score
-    newCharObj.score = getScore(newCharId, newCharObj);
+    newCdata.score = getScore(newCid, newCdata);
 
     // Save document to Firestore
     if (uid) {
-      const charDocRef = doc(db, "users", uid, "GenshinImpact", newCharId);
-      await setDoc(charDocRef, newCharObj, { merge: true });
+      const charDocRef = doc(db, "users", uid, "GenshinImpact", newCid);
+      await setDoc(charDocRef, newCdata, { merge: true });
     }
 
     // Save object to myChars
     setMyChars((prev) => ({
       ...prev,
-      [newCharId]: newCharObj,
+      [newCid]: newCdata,
     }));
 
     setError("");
@@ -118,14 +118,14 @@ const Save = ({
 
   // Select character handler
   const handleCharacter = (newValue) => {
-    setNewCharId(newValue || "");
-    setNewCharObj(initCharObj());
+    setNewCid(newValue || "");
+    setNewCdata(blankCdata());
     setError("");
   };
 
   // Select weapon handler
   const handleWeapon = (newValue) => {
-    setNewCharObj((prev) => ({
+    setNewCdata((prev) => ({
       ...prev,
       weapon: newValue || "",
     }));
@@ -133,7 +133,7 @@ const Save = ({
 
   // Select set handler
   const handleSet = (newValue) => {
-    setNewCharObj((prev) => ({
+    setNewCdata((prev) => ({
       ...prev,
       set: newValue || "",
     }));
@@ -164,10 +164,10 @@ const Save = ({
           }}
         >
           {/* Icon */}
-          {newCharId && (
+          {newCid && (
             <img
-              src={characterMedia[`../assets/character/${toPascalCase(newCharId)}.webp`]?.default}
-              alt={"Character"}
+              src={cImgs[`../assets/char/${toPascalCase(newCid)}.webp`]?.default}
+              alt={"char"}
               style={{
                 width: 50,
                 height: 50,
@@ -179,7 +179,7 @@ const Save = ({
           {/* Select Character */}
           <Autocomplete
             size="small"
-            value={newCharId}
+            value={newCid}
             options={getFilteredCharIds()}
             onChange={(_, newValue) => handleCharacter(newValue)}
             renderInput={(params) => (
@@ -190,11 +190,11 @@ const Save = ({
             )}
             sx={{ width: { xs: 128, xl: 256 } }}
             disabled={isEditMode}
-            disableClearable={newCharId === ""}
+            disableClearable={newCid === ""}
           />
 
           {/* Save button */}
-          {newCharId && (
+          {newCid && (
             <Button 
               variant="contained"
               color="primary"
@@ -227,16 +227,16 @@ const Save = ({
         </Box>
 
         {/* Divider */}
-        {newCharId && <Divider sx={{ mt: 2 }}/>}
+        {newCid && <Divider sx={{ mt: 2 }}/>}
 
         {/* Data grid */}
-        {newCharId && (
+        {newCid && (
           <Grid container spacing={2} sx={{ width: { xs: 256, xl: 1440 }, mt: 2 }}>
             {/* Select weapon */}
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.weapon}
+                value={newCdata.weapon}
                 options={getFilteredWeapIds()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
                 renderInput={(params) => (
@@ -246,7 +246,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.weapon === ""}
+                disableClearable={newCdata.weapon === ""}
               />
             </Grid>
 
@@ -254,7 +254,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 8 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.set}
+                value={newCdata.set}
                 options={getFilteredSetIds()}
                 onChange={(_, newValue) => handleSet(newValue)}
                 renderInput={(params) => (
@@ -264,16 +264,16 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.set === ""}
+                disableClearable={newCdata.set === ""}
               />
             </Grid>
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {!isMobile && newCharObj.weapon && (
+              {!isMobile && newCdata.weapon && (
                 <img
-                  src={weaponMedia[`../assets/weapon/${toPascalCase(newCharObj.weapon)}.webp`]?.default}
-                  alt={"Weapon"}
+                  src={wImgs[`../assets/weap/${toPascalCase(newCdata.weapon)}.webp`]?.default}
+                  alt={"weap"}
                   style={{
                     width: "100%",
                     height: 500,
@@ -281,7 +281,7 @@ const Save = ({
                   }}
                 />
               )}
-              {!isMobile && !newCharObj.weapon && (
+              {!isMobile && !newCdata.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>
@@ -292,8 +292,8 @@ const Save = ({
                 {[0, 1, 2, 3, 4].map((mainIndex) => (
                   <Grid size={{ xs: 12, xl: 4 }} key={mainIndex}>
                     <Piece
-                      newCharObj={newCharObj}
-                      setNewCharObj={setNewCharObj}
+                      newCdata={newCdata}
+                      setNewCdata={setNewCdata}
                       mainIndex={mainIndex}
                     />
                   </Grid>

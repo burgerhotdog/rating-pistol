@@ -8,21 +8,21 @@ const Delete = ({
   isDeleteOpen,
   setIsDeleteOpen,
   setMyChars,
-  newCharId,
+  newCid,
 }) => {
   // Delete button handler
   const handleDelete = async () => {
     try {
       // If signed in, delete document from firestore
       if (uid) {
-        const characterDocRef = doc(db, "users", uid, "GenshinImpact", newCharId);
+        const characterDocRef = doc(db, "users", uid, "GenshinImpact", newCid);
         await deleteDoc(characterDocRef);
       }
 
       // Delete object from myChars
       setMyChars((prevChars) => {
         const updatedChars = { ...prevChars };
-        delete updatedChars[newCharId];
+        delete updatedChars[newCid];
         return updatedChars;
       });
     } catch (error) {
@@ -54,7 +54,7 @@ const Delete = ({
         {/* Text section */}
         <Typography variant="body1">
           Are you sure you want to delete{" "}
-          <strong>{newCharId}</strong>
+          <strong>{newCid}</strong>
           ?
         </Typography>
 

@@ -1,4 +1,4 @@
-const initCharObj = () => ({
+const blankCdata = () => ({
   weapon: "",
   set: "",
   score: "",
@@ -51,4 +51,4 @@ const initCharObj = () => ({
   ],
 });
   
-export default initCharObj;
+export default blankCdata;
