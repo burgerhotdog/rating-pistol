@@ -50,21 +50,21 @@ const Save = ({
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   // Gets filtered character ids for select character
-  const getFilteredCharIds = () => {
+  const charOptions = () => {
     return Object.keys(CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort();
   };
 
   // Gets filtered weapon ids for select weapon
-  const getFilteredWeapIds = () => {
+  const weapOptions = () => {
     return Object.keys(WEAPONS)
       .filter(id => WEAPONS[id].type === CHARACTERS[newCid].type)
       .sort();
   };
 
   // Gets filtered set ids for select set
-  const getFilteredSetIds = () => {
+  const setOptions = () => {
     return Object.keys(SETS)
       .sort();
   };
@@ -180,7 +180,7 @@ const Save = ({
           <Autocomplete
             size="small"
             value={newCid}
-            options={getFilteredCharIds()}
+            options={charOptions()}
             onChange={(_, newValue) => handleCharacter(newValue)}
             renderInput={(params) => (
               <TextField
@@ -237,7 +237,7 @@ const Save = ({
               <Autocomplete
                 size="small"
                 value={newCdata.weapon}
-                options={getFilteredWeapIds()}
+                options={weapOptions()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
                 renderInput={(params) => (
                   <TextField
@@ -255,7 +255,7 @@ const Save = ({
               <Autocomplete
                 size="small"
                 value={newCdata.set}
-                options={getFilteredSetIds()}
+                options={setOptions()}
                 onChange={(_, newValue) => handleSet(newValue)}
                 renderInput={(params) => (
                   <TextField

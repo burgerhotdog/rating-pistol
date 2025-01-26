@@ -55,7 +55,7 @@ const Piece = ({
     });
   };
 
-  const getFilteredSubstatOptions = (subIndex) => {
+  const substatOptions = (subIndex) => {
     // Get the selected mainstat and substat names
     const selectedMainstat = newCdata.pieces[mainIndex].mainstat;
     const selectedSubstatKeys = newCdata.pieces[mainIndex].substats
@@ -104,7 +104,7 @@ const Piece = ({
               <Autocomplete
                 size="small"
                 value={newCdata.pieces[mainIndex].substats[subIndex].key || ""}
-                options={getFilteredSubstatOptions(subIndex)}
+                options={substatOptions(subIndex)}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
                 renderInput={(params) => (
                   <TextField
