@@ -65,8 +65,7 @@ const Save = ({
 
   // Gets filtered set ids for select set
   const setOptions = () => {
-    return Object.keys(SETS)
-      .sort();
+    return Object.keys(SETS).sort();
   };
 
   // Validation before saving

@@ -5,10 +5,6 @@ import MAINSTATS from "./data/MAINSTATS";
 import SUBSTATS from "./data/SUBSTATS";
 import NORMALIZE from "./data/NORMALIZE";
 
-function percentage(value, total) {
-  return (value / total) * 100;
-}
-
 const getScore = (cid, cdata) => {
   console.log("ID + DATA: ", cid, cdata);
   // create refs for readability

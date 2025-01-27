@@ -25,6 +25,13 @@ const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
 const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
 
+function toPascalCase(str) {
+  return str
+    .replace(/'s\b/gi, "s")
+    .match(/[a-z]+/gi)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('');
+}
 const WutheringWaves = ({ uid }) => {
   // Modal States
   const [isSaveOpen, setIsSaveOpen] = useState(false);
@@ -35,8 +42,8 @@ const WutheringWaves = ({ uid }) => {
   const [myChars, setMyChars] = useState({});
 
   // New Character Object
-  const [newCharId, setNewCharId] = useState("");
-  const [newCharObj, setNewCharObj] = useState(blankCdata);
+  const [newCid, setNewCid] = useState("");
+  const [newCdata, setNewCdata] = useState(blankCdata);
 
   // Mobile layout breakpoint
   const theme = useTheme();
@@ -68,23 +75,23 @@ const WutheringWaves = ({ uid }) => {
 
   // Add character button handler
   const handleAdd = () => {
-    setNewCharId("");
-    setNewCharObj(blankCdata());
+    setNewCid("");
+    setNewCdata(blankCdata());
     setIsEditMode(false);
     setIsSaveOpen(true);
   };
 
   // Edit button handler
   const handleEdit = (id) => {
-    setNewCharId(id);
-    setNewCharObj(myChars[id]);
+    setNewCid(id);
+    setNewCdata(myChars[id]);
     setIsEditMode(true);
     setIsSaveOpen(true);
   };
 
   // Delete button handler
   const handleDelete = (id) => {
-    setNewCharId(id);
+    setNewCid(id);
     setIsDeleteOpen(true);
   };
 
@@ -128,11 +135,11 @@ const WutheringWaves = ({ uid }) => {
                 // Order characters in table by score
                 Object.entries(myChars)
                 .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
-                .map(([id, char]) => (
-                  <TableRow key={id}>
+                .map(([cid, cdata]) => (
+                  <TableRow key={cid}>
                     <TableCell>
                       <img
-                        src={cImgs[`./assets/char/${id}.webp`]?.default}
+                        src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
                         style={{
                           width: 50,
@@ -141,11 +148,11 @@ const WutheringWaves = ({ uid }) => {
                         }}
                       />
                     </TableCell>
-                    <TableCell>{char.name}</TableCell>
+                    <TableCell>{cid}</TableCell>
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={wImgs[`./assets/weap/${char.weapon}.webp`]?.default}
+                          src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
                           alt={"weap"}
                           style={{
                             width: 50,
@@ -158,7 +165,7 @@ const WutheringWaves = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={sImgs[`./assets/set/${char.set}.webp`]?.default}
+                          src={sImgs[`./assets/set/${toPascalCase(cdata.set)}.webp`]?.default}
                           alt={"set"}
                           style={{
                             width: 50,
@@ -168,7 +175,7 @@ const WutheringWaves = ({ uid }) => {
                         />
                       </TableCell>
                     )}
-                    <TableCell>{char.score}</TableCell>
+                    <TableCell>{cdata.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button
@@ -216,10 +223,10 @@ const WutheringWaves = ({ uid }) => {
           isEditMode={isEditMode}
           myChars={myChars}
           setMyChars={setMyChars}
-          newCharId={newCharId}
-          setNewCharId={setNewCharId}
-          newCharObj={newCharObj}
-          setNewCharObj={setNewCharObj}
+          newCid={newCid}
+          setNewCid={setNewCid}
+          newCdata={newCdata}
+          setNewCdata={setNewCdata}
         />
 
         {/* Delete modal */}
@@ -229,7 +236,7 @@ const WutheringWaves = ({ uid }) => {
           setIsDeleteOpen={setIsDeleteOpen}
           myChars={myChars}
           setMyChars={setMyChars}
-          newCharId={newCharId}
+          newCid={newCid}
         />
       </Box>        
     </Container>

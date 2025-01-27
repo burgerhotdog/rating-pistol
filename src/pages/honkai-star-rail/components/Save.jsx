@@ -23,6 +23,14 @@ import SETS from "../data/SETS";
 const cImgs = import.meta.glob("../assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/*.webp", { eager: true });
 
+function toPascalCase(str) {
+  return str
+    .replace(/'s\b/gi, "s")
+    .match(/[a-z]+/gi)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join('');
+}
+
 const Save = ({
   uid,
   isSaveOpen,
@@ -30,10 +38,10 @@ const Save = ({
   isEditMode,
   myChars,
   setMyChars,
-  newCharId,
-  setNewCharId,
-  newCharObj,
-  setNewCharObj,
+  newCid,
+  setNewCid,
+  newCdata,
+  setNewCdata,
 }) => {
   const [error, setError] = useState("");
   
@@ -42,21 +50,21 @@ const Save = ({
   const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   // Gets filtered character ids for select character
-  const getFilteredCharIds = () => {
+  const charOptions = () => {
     return Object.keys(CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort();
   };
 
   // Gets filtered weapon ids for select weapon
-  const getFilteredWeapIds = () => {
+  const weapOptions = () => {
     return Object.keys(WEAPONS)
-      .filter(id => WEAPONS[id].type === CHARACTERS[newCharId].weapon)
+      .filter(id => WEAPONS[id].type === CHARACTERS[newCid].type)
       .sort();
   };
 
   // Gets filtered set ids for select set
-  const getFilteredSetIds = (setType) => {
+  const setOptions = (setType) => {
     return Object.keys(SETS)
       .filter(id => SETS[id].type === setType)
       .sort();
@@ -66,9 +74,9 @@ const Save = ({
   const validate = () => {
     const errors = [];
     // Types of errors
-    if (!newCharObj.weapon) errors.push("Select light cone");
-    if (!newCharObj.set1) errors.push("Select relic set");
-    if (!newCharObj.set2) errors.push("Select planar set");
+    if (!newCdata.weapon) errors.push("Select light cone");
+    if (!newCdata.set1) errors.push("Select relic set");
+    if (!newCdata.set2) errors.push("Select planar set");
 
     // Display error message
     if (errors.length) {
@@ -86,18 +94,18 @@ const Save = ({
     if (!validate()) return;
 
     // Calcuate and set score
-    newCharObj.score = getScore(newCharId, newCharObj);
+    newCdata.score = getScore(newCid, newCdata);
 
     // Save document to Firestore
     if (uid) {
-      const charDocRef = doc(db, "users", uid, "HonkaiStarRail", newCharId);
-      await setDoc(charDocRef, newCharObj, { merge: true });
+      const charDocRef = doc(db, "users", uid, "HonkaiStarRail", newCid);
+      await setDoc(charDocRef, newCdata, { merge: true });
     }
 
     // Save object to myChars
     setMyChars((prev) => ({
       ...prev,
-      [newCharId]: newCharObj,
+      [newCid]: newCdata,
     }));
 
     setError("");
@@ -112,17 +120,14 @@ const Save = ({
 
   // Select character handler
   const handleCharacter = (newValue) => {
-    setNewCharId(newValue || "");
-    setNewCharObj({
-      ...blankCdata(),
-      name: CHARACTERS[newValue]?.name || "",
-    });
+    setNewCid(newValue || "");
+    setNewCdata(blankCdata());
     setError("");
   };
 
   // Select weapon handler
   const handleWeapon = (newValue) => {
-    setNewCharObj((prev) => ({
+    setNewCdata((prev) => ({
       ...prev,
       weapon: newValue || "",
     }));
@@ -130,7 +135,7 @@ const Save = ({
 
   // Select set handler
   const handleSet = (newValue, setNumber) => {
-    setNewCharObj((prev) => ({
+    setNewCdata((prev) => ({
       ...prev,
       [setNumber]: newValue || "",
     }));
@@ -161,9 +166,9 @@ const Save = ({
           }}
         >
           {/* Icon */}
-          {newCharId && (
+          {newCid && (
             <img
-              src={cImgs[`../assets/char/${newCharId}.webp`]?.default}
+              src={cImgs[`../assets/char/${toPascalCase(newCid)}.webp`]?.default}
               alt={"char"}
               style={{
                 width: 50,
@@ -176,10 +181,9 @@ const Save = ({
           {/* Select Character */}
           <Autocomplete
             size="small"
-            value={newCharId}
-            options={getFilteredCharIds()}
+            value={newCid}
+            options={charOptions()}
             onChange={(_, newValue) => handleCharacter(newValue)}
-            getOptionLabel={(id) => CHARACTERS[id]?.name || ""}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -188,11 +192,11 @@ const Save = ({
             )}
             sx={{ width: { xs: 128, xl: 256 } }}
             disabled={isEditMode}
-            disableClearable={newCharId === ""}
+            disableClearable={newCid === ""}
           />
 
           {/* Save button */}
-          {newCharId && (
+          {newCid && (
             <Button 
               variant="contained"
               color="primary"
@@ -225,19 +229,18 @@ const Save = ({
         </Box>
 
         {/* Divider */}
-        {newCharId && <Divider sx={{ mt: 2 }}/>}
+        {newCid && <Divider sx={{ mt: 2 }}/>}
 
         {/* Data grid */}
-        {newCharId && (
+        {newCid && (
           <Grid container spacing={2} sx={{ width: { xs: 256, xl: 1440 }, mt: 2 }}>
             {/* Select weapon */}
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.weapon}
-                options={getFilteredWeapIds()}
+                value={newCdata.weapon}
+                options={weapOptions()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
-                getOptionLabel={(id) => WEAPONS[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -245,7 +248,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.weapon === ""}
+                disableClearable={newCdata.weapon === ""}
               />
             </Grid>
 
@@ -253,10 +256,9 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.set1}
-                options={getFilteredSetIds("Relic")}
+                value={newCdata.set1}
+                options={setOptions("Relic")}
                 onChange={(_, newValue) => handleSet(newValue, "set1")}
-                getOptionLabel={(id) => SETS[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -264,7 +266,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.set1 === ""}
+                disableClearable={newCdata.set1 === ""}
               />
             </Grid>
 
@@ -272,10 +274,9 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCharObj.set2}
-                options={getFilteredSetIds("Planar")}
+                value={newCdata.set2}
+                options={setOptions("Planar")}
                 onChange={(_, newValue) => handleSet(newValue, "set2")}
-                getOptionLabel={(id) => SETS[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -283,15 +284,15 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.set2 === ""}
+                disableClearable={newCdata.set2 === ""}
               />
             </Grid>
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {!isMobile && newCharObj.weapon && (
+              {!isMobile && newCdata.weapon && (
                 <img
-                  src={wImgs[`../assets/weap/${newCharObj.weapon}.webp`]?.default}
+                  src={wImgs[`../assets/weap/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
                   style={{
                     width: "100%",
@@ -300,7 +301,7 @@ const Save = ({
                   }}
                 />
               )}
-              {!isMobile && !newCharObj.weapon && (
+              {!isMobile && !newCdata.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>
@@ -311,8 +312,8 @@ const Save = ({
                 {[0, 1, 2, 3, 4, 5].map((mainIndex) => (
                   <Grid size={{ xs: 12, xl: 4 }} key={mainIndex}>
                     <Piece
-                      newCharObj={newCharObj}
-                      setNewCharObj={setNewCharObj}
+                      newCdata={newCdata}
+                      setNewCdata={setNewCdata}
                       mainIndex={mainIndex}
                     />
                   </Grid>

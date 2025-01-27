@@ -22,10 +22,6 @@ const EXTRA_VALUES = [
   },
 ];
 
-function percentage(value, total) {
-  return (value / total) * 100;
-}
-
 const getScore = (cid, cdata) => {
   return "0";
   // create refs for readability

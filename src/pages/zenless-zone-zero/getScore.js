@@ -4,10 +4,6 @@ import SETS from "./data/SETS";
 import MAINSTATS from "./data/MAINSTATS";
 import SUBSTATS from "./data/SUBSTATS";
 
-function percentage(value, total) {
-  return (value / total) * 100;
-}
-
 const getScore = (cid, cdata) => {
   return "0";
   // create refs for readability

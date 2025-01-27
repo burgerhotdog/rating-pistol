@@ -1,59 +1,19 @@
+const blankPiece = (mainstat = "") => ({
+  mainstat,
+  substats: Array(4).fill({ key: "", value: "" }),
+});
+
 const blankCdata = () => ({
   weapon: "",
   set: "",
   score: "",
   pieces: [
-    {
-      mainstat: "",
-      substats: [
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-      ],
-    },
-    {
-      mainstat: "",
-      substats: [
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-      ],
-    },
-    {
-      mainstat: "",
-      substats: [
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-      ],
-    },
-    {
-      mainstat: "",
-      substats: [
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-      ],
-    },
-    {
-      mainstat: "",
-      substats: [
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-      ],
-    },
+    blankPiece(),
+    blankPiece(),
+    blankPiece(),
+    blankPiece(),
+    blankPiece(),
   ],
-});
-  
+});        
+
 export default blankCdata;

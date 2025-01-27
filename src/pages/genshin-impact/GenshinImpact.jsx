@@ -136,11 +136,11 @@ const GenshinImpact = ({ uid }) => {
                 // Order characters in table by score
                 Object.entries(myChars)
                 .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
-                .map(([id, char]) => (
-                  <TableRow key={id}>
+                .map(([cid, cdata]) => (
+                  <TableRow key={cid}>
                     <TableCell>
                       <img
-                        src={cImgs[`./assets/char/${toPascalCase(id)}.webp`]?.default}
+                        src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
                         style={{
                           width: 50,
@@ -149,11 +149,11 @@ const GenshinImpact = ({ uid }) => {
                         }}
                       />
                     </TableCell>
-                    <TableCell>{id}</TableCell>
+                    <TableCell>{cid}</TableCell>
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={wImgs[`./assets/weap/${toPascalCase(char.weapon)}.webp`]?.default}
+                          src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
                           alt={"weap"}
                           style={{
                             width: 50,
@@ -166,7 +166,7 @@ const GenshinImpact = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={sImgs[`./assets/set/${toPascalCase(char.set)}.webp`]?.default}
+                          src={sImgs[`./assets/set/${toPascalCase(cdata.set)}.webp`]?.default}
                           alt={"set"}
                           style={{
                             width: 50,
@@ -176,7 +176,7 @@ const GenshinImpact = ({ uid }) => {
                         />
                       </TableCell>
                     )}
-                    <TableCell>{char.score}</TableCell>
+                    <TableCell>{cdata.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button

@@ -20,8 +20,8 @@ const Delete = ({
       }
 
       // Delete object from myChars
-      setMyChars((prevChars) => {
-        const updatedChars = { ...prevChars };
+      setMyChars((prev) => {
+        const updatedChars = { ...prev };
         delete updatedChars[newCid];
         return updatedChars;
       });
