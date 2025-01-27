@@ -3,6 +3,7 @@ import WEAPONS from "./data/WEAPONS";
 import SETS from "./data/SETS";
 import MAINSTATS from "./data/MAINSTATS";
 import SUBSTATS from "./data/SUBSTATS";
+import NORMALIZE from "./data/NORMALIZE";
 
 const getScore = (cid, cdata) => {
   return "0";

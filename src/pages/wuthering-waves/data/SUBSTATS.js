@@ -1,9 +1,9 @@
 const SUBSTATS = {
-  "ATK": 60,
   "HP": 580,
+  "ATK": 60,
   "DEF": 70,
-  "ATK%": 11.6,
   "HP%": 11.6,
+  "ATK%": 11.6,
   "DEF%": 14.7,
   "Energy Regen": 12.4,
   "CRIT Rate": 10.5,
