@@ -1,52 +1,15 @@
-import charData from "./data/charData";
-import weapData from "./data/weapData";
-import setData from "./data/setData";
-
-const MAINSTAT_VALUES = [
-  { // Disk 4
-    hpp: 30,
-    atkp: 30,
-    defp: 48,
-    ap: 92,
-    cr: 24,
-    cd: 48,
-  },
-  { // Disk 5
-    hpp: 30,
-    atkp: 30,
-    defp: 48,
-    pr: 24,
-    ether: 30,
-    electric: 30,
-    fire: 30,
-    ice: 30,
-    physical: 30,
-  },
-  { // Disk 6
-    hpp: 30,
-    atkp: 30,
-    defp: 48,
-    am: 30,
-    er: 60,
-    impact: 18,
-  },
-];
-
-const SUBSTAT_VALUES = {
-  hpp: 3,
-  atkp: 3,
-  defp: 4.8,
-  cr: 2.4,
-  cd: 4.8,
-  pen: 9,
-  ap: 9,
-};
+import CHARACTERS from "./data/CHARACTERS";
+import WEAPONS from "./data/WEAPONS";
+import SETS from "./data/SETS";
+import MAINSTATS from "./data/MAINSTATS";
+import SUBSTATS from "./data/SUBSTATS";
 
 function percentage(value, total) {
   return (value / total) * 100;
 }
 
-const getScore = (id, char) => {
+const getScore = (cid, cdata) => {
+  return "0";
   // create refs for readability
   const charRef = charData[id];
   const weaponRef = weapData[char.weapon];

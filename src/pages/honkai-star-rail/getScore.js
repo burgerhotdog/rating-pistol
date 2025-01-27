@@ -1,61 +1,15 @@
-import charData from "./data/charData";
-import weapData from "./data/weapData";
-import setData from "./data/setData";
-
-const MAINSTAT_VALUES = [
-  { // chest
-    hpp: 43.2,
-    atkp: 43.2,
-    defp: 54,
-    cr: 32.4,
-    cd: 64.8,
-    ohb: 34.5,
-    ehr: 43.2,
-  },
-  { // boots
-    hpp: 43.2,
-    atkp: 43.2,
-    defp: 54,
-    spd: 25,
-  },
-  { // orb
-    hpp: 43.2,
-    atkp: 43.2,
-    defp: 54,
-    fire: 38.8,
-    ice: 38.8,
-    imaginary: 38.8,
-    lightning: 38.8,
-    physical: 38.8,
-    quantum: 38.8,
-    wind: 38.8,
-  },
-  { // rope
-    hpp: 43.2,
-    atkp: 43.2,
-    defp: 54,
-    be: 64.8,
-    err: 19.4,
-  },
-];
-
-const SUBSTAT_VALUES = {
-  hpp: 4.4,
-  atkp: 4.4,
-  defp: 5.4,
-  cr: 3.2,
-  cd: 6.5,
-  ehr: 4.3,
-  res: 4.3,
-  be: 6.5,
-  spd: 2.6,
-};
+import CHARACTERS from "./data/CHARACTERS";
+import WEAPONS from "./data/WEAPONS";
+import SETS from "./data/SETS";
+import MAINSTATS from "./data/MAINSTATS";
+import SUBSTATS from "./data/SUBSTATS";
 
 function percentage(value, total) {
   return (value / total) * 100;
 }
 
-const getScore = (id, char) => {
+const getScore = (cid, cdata) => {
+  return "0";
   // create refs for readability
   const charRef = charData[id];
   const weaponRef = weapData[char.weapon];

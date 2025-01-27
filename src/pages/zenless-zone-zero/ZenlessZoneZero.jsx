@@ -19,11 +19,11 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
-import initCharObj from "./initCharObj";
+import blankCdata from "./blankCdata";
 
-const iconMedia = import.meta.glob("./assets/icon/*.webp", { eager: true });
-const weaponMedia = import.meta.glob("./assets/weapon/*.webp", { eager: true });
-const setMedia = import.meta.glob("./assets/set/*.webp", { eager: true });
+const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
+const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
+const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
 
 const ZenlessZoneZero = ({ uid }) => {
   // Modal States
@@ -36,7 +36,7 @@ const ZenlessZoneZero = ({ uid }) => {
 
   // New Character Object
   const [newCharId, setNewCharId] = useState("");
-  const [newCharObj, setNewCharObj] = useState(initCharObj);
+  const [newCharObj, setNewCharObj] = useState(blankCdata);
 
   // Mobile layout breakpoint
   const theme = useTheme();
@@ -69,7 +69,7 @@ const ZenlessZoneZero = ({ uid }) => {
   // Add character button handler
   const handleAdd = () => {
     setNewCharId("");
-    setNewCharObj(initCharObj());
+    setNewCharObj(blankCdata());
     setIsEditMode(false);
     setIsSaveOpen(true);
   };
@@ -131,8 +131,8 @@ const ZenlessZoneZero = ({ uid }) => {
                   <TableRow key={id}>
                     <TableCell>
                       <img
-                        src={iconMedia[`./assets/icon/${id}_Icon.webp`]?.default}
-                        alt={char.name || "Icon"}
+                        src={cImgs[`./assets/char/${id}.webp`]?.default}
+                        alt={"char"}
                         style={{
                           width: 50,
                           height: 50,
@@ -144,8 +144,8 @@ const ZenlessZoneZero = ({ uid }) => {
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={weaponMedia[`./assets/weapon/${char.weapon}.webp`]?.default}
-                          alt={"Weapon"}
+                          src={wImgs[`./assets/weap/${char.weapon}.webp`]?.default}
+                          alt={"weap"}
                           style={{
                             width: 50,
                             height: 50,
@@ -163,8 +163,8 @@ const ZenlessZoneZero = ({ uid }) => {
                           gap: 1,
                         }}>
                           <img
-                            src={setMedia[`./assets/set/${char.set1}.webp`]?.default}
-                            alt={"Set 1"}
+                            src={sImgs[`./assets/set/${char.set1}.webp`]?.default}
+                            alt={"set1"}
                             style={{
                               width: 50,
                               height: 50,
@@ -173,8 +173,8 @@ const ZenlessZoneZero = ({ uid }) => {
                           />
                           <Typography>+</Typography>
                           <img
-                            src={setMedia[`./assets/set/${char.set2}.webp`]?.default}
-                            alt={"Set 2"}
+                            src={sImgs[`./assets/set/${char.set2}.webp`]?.default}
+                            alt={"set2"}
                             style={{
                               width: 50,
                               height: 50,

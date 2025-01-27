@@ -1,18 +1,18 @@
 const MAINSTATS = [
-  { // Feather
+  { // 0
     "HP": 4780,
   },
-  { // Flower
+  { // 1
     "ATK": 311,
   },
-  { // Sands
+  { // 2
     "HP%": 46.6,
     "ATK%": 46.6,
     "DEF%": 58.3,
     "Elemental Mastery": 186.5,
     "Energy Recharge": 51.8,
   },
-  { // Goblet
+  { // 3
     "HP%": 46.6,
     "ATK%": 46.6,
     "DEF%": 58.3,
@@ -26,7 +26,7 @@ const MAINSTATS = [
     "Pyro DMG": 46.6,
     "Physical DMG": 58.3,
   },
-  { // Circlet
+  { // 4
     "HP%": 46.6,
     "ATK%": 46.6,
     "DEF%": 58.3,

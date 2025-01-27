@@ -15,13 +15,13 @@ import {
 import { db } from "../../../firebase";
 import Piece from "./Piece";
 import getScore from "../getScore";
-import initCharObj from "../initCharObj";
-import charData from "../data/charData";
-import weapData from "../data/weapData";
-import setData from "../data/setData";
+import blankCdata from "../blankCdata";
+import CHARACTERS from "../data/CHARACTERS";
+import WEAPONS from "../data/WEAPONS";
+import SETS from "../data/SETS";
 
-const iconMedia = import.meta.glob("../assets/icon/*.webp", { eager: true });
-const weaponMedia = import.meta.glob("../assets/weapon/*.webp", { eager: true });
+const cImgs = import.meta.glob("../assets/char/*.webp", { eager: true });
+const wImgs = import.meta.glob("../assets/weap/*.webp", { eager: true });
 
 const Save = ({
   uid,
@@ -43,21 +43,21 @@ const Save = ({
 
   // Gets filtered character ids for select character
   const getFilteredCharIds = () => {
-    return Object.keys(charData)
+    return Object.keys(CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort();
   };
 
   // Gets filtered weapon ids for select weapon
   const getFilteredWeapIds = () => {
-    return Object.keys(weapData)
-      .filter(id => weapData[id].type === charData[newCharId].weapon)
+    return Object.keys(WEAPONS)
+      .filter(id => WEAPONS[id].type === CHARACTERS[newCharId].weapon)
       .sort();
   };
 
   // Gets filtered set ids for select set
   const getFilteredSetIds = () => {
-    return Object.keys(setData).sort();
+    return Object.keys(SETS).sort();
   };
 
   // Validation before saving
@@ -111,8 +111,8 @@ const Save = ({
   const handleCharacter = (newValue) => {
     setNewCharId(newValue || "");
     setNewCharObj({
-      ...initCharObj(),
-      name: charData[newValue]?.name || "",
+      ...blankCdata(),
+      name: CHARACTERS[newValue]?.name || "",
     });
     setError("");
   };
@@ -160,8 +160,8 @@ const Save = ({
           {/* Icon */}
           {newCharId && (
             <img
-              src={iconMedia[`../assets/icon/${newCharId}_Icon.webp`]?.default}
-              alt={newCharObj.name || "Icon"}
+              src={cImgs[`../assets/icon/${newCharId}.webp`]?.default}
+              alt={"char"}
               style={{
                 width: 50,
                 height: 50,
@@ -176,7 +176,7 @@ const Save = ({
             value={newCharId}
             options={getFilteredCharIds()}
             onChange={(_, newValue) => handleCharacter(newValue)}
-            getOptionLabel={(id) => charData[id]?.name || ""}
+            getOptionLabel={(id) => CHARACTERS[id]?.name || ""}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -234,7 +234,7 @@ const Save = ({
                 value={newCharObj.weapon}
                 options={getFilteredWeapIds()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
-                getOptionLabel={(id) => weapData[id]?.name || ""}
+                getOptionLabel={(id) => WEAPONS[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -253,7 +253,7 @@ const Save = ({
                 value={newCharObj.set}
                 options={getFilteredSetIds()}
                 onChange={(_, newValue) => handleSet(newValue)}
-                getOptionLabel={(id) => setData[id]?.name || ""}
+                getOptionLabel={(id) => SETS[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -269,8 +269,8 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               {!isMobile && newCharObj.weapon && (
                 <img
-                  src={weaponMedia[`../assets/weapon/${newCharObj.weapon}.webp`]?.default}
-                  alt={"Weapon"}
+                  src={wImgs[`../assets/weap/${newCharObj.weapon}.webp`]?.default}
+                  alt={"weap"}
                   style={{
                     width: "100%",
                     height: 500,
