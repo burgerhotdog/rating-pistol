@@ -169,7 +169,7 @@ const Save = ({
           {/* Icon */}
           {newCid && (
             <img
-              src={cImgs[`../assets/icon/${toPascalCase(newCid)}.webp`]?.default}
+              src={cImgs[`../assets/char/${toPascalCase(newCid)}.webp`]?.default}
               alt={"char"}
               style={{
                 width: 50,

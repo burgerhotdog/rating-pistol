@@ -1,7 +1,7 @@
 const CHARACTERS = {
   // Version 2.0
   "Carlotta": {
-    weapon: "Pistols",
+    type: "Pistols",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -13,7 +13,7 @@ const CHARACTERS = {
   
   // Version 1.4
   "Camellya": {
-    weapon: "Sword",
+    type: "Sword",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -24,7 +24,7 @@ const CHARACTERS = {
   },
   
   "Lumi": {
-    weapon: "Broadblade",
+    type: "Broadblade",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -36,7 +36,7 @@ const CHARACTERS = {
   
   // Version 1.3
   "Shorekeeper": {
-    weapon: "Rectifier",
+    type: "Rectifier",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -47,7 +47,7 @@ const CHARACTERS = {
   },
   
   "Youhu": {
-    weapon: "Gauntlets",
+    type: "Gauntlets",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -59,7 +59,7 @@ const CHARACTERS = {
   
   // Version 1.2
   "Xiangli Yao": {
-    weapon: "Gauntlets",
+    type: "Gauntlets",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -70,7 +70,7 @@ const CHARACTERS = {
   },
   
   "Zhezhi": {
-    weapon: "Rectifier",
+    type: "Rectifier",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -82,7 +82,7 @@ const CHARACTERS = {
   
   // Version 1.1
   "Changli": {
-    weapon: "Sword",
+    type: "Sword",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -93,7 +93,7 @@ const CHARACTERS = {
   },
   
   "Jinhsi": {
-    weapon: "Broadblade",
+    type: "Broadblade",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -105,7 +105,7 @@ const CHARACTERS = {
   
   // Version 1.0
   "Aalto": {
-    weapon: "Pistols",
+    type: "Pistols",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -116,7 +116,7 @@ const CHARACTERS = {
   },
   
   "Baizhi": {
-    weapon: "Rectifier",
+    type: "Rectifier",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -127,7 +127,7 @@ const CHARACTERS = {
   },
   
   "Calcharo": {
-    weapon: "Broadblade",
+    type: "Broadblade",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -138,7 +138,7 @@ const CHARACTERS = {
   },
   
   "Chixia": {
-    weapon: "Pistols",
+    type: "Pistols",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -149,7 +149,7 @@ const CHARACTERS = {
   },
   
   "Danjin": {
-    weapon: "Sword",
+    type: "Sword",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -160,7 +160,7 @@ const CHARACTERS = {
   },
   
   "Encore": {
-    weapon: "Rectifier",
+    type: "Rectifier",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -171,7 +171,7 @@ const CHARACTERS = {
   },
   
   "Jianxin": {
-    weapon: "Gauntlets",
+    type: "Gauntlets",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -182,7 +182,7 @@ const CHARACTERS = {
   },
   
   "Jiyan": {
-    weapon: "Broadblade",
+    type: "Broadblade",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -193,7 +193,7 @@ const CHARACTERS = {
   },
   
   "Lingyang": {
-    weapon: "Gauntlets",
+    type: "Gauntlets",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -204,7 +204,7 @@ const CHARACTERS = {
   },
   
   "Mortefi": {
-    weapon: "Pistols",
+    type: "Pistols",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -215,7 +215,7 @@ const CHARACTERS = {
   },
   
   "Sanhua": {
-    weapon: "Sword",
+    type: "Sword",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -226,7 +226,7 @@ const CHARACTERS = {
   },
   
   "Taoqi": {
-    weapon: "Broadblade",
+    type: "Broadblade",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -237,7 +237,7 @@ const CHARACTERS = {
   },
   
   "Verina": {
-    weapon: "Rectifier",
+    type: "Rectifier",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -248,7 +248,7 @@ const CHARACTERS = {
   },
   
   "Yangyang": {
-    weapon: "Sword",
+    type: "Sword",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -259,7 +259,7 @@ const CHARACTERS = {
   },
   
   "Yinlin": {
-    weapon: "Rectifier",
+    type: "Rectifier",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},
@@ -270,7 +270,7 @@ const CHARACTERS = {
   },
   
   "Yuanwu": {
-    weapon: "Gauntlets",
+    type: "Gauntlets",
     base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
     requirements: {},

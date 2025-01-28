@@ -203,7 +203,7 @@ const ZenlessZoneZero = ({ uid }) => {
                         size="small"
                         variant="outlined"
                         color="primary"
-                        onClick={() => handleEdit(id)}
+                        onClick={() => handleEdit(cid)}
                         sx={{ mr: 1 }}
                       >
                         <EditIcon />
@@ -214,7 +214,7 @@ const ZenlessZoneZero = ({ uid }) => {
                         size="small"
                         variant="outlined"
                         color="secondary"
-                        onClick={() => handleDelete(id)}
+                        onClick={() => handleDelete(cid)}
                       >
                         <DeleteIcon />
                       </Button>

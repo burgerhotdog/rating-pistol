@@ -1,6 +1,6 @@
 const blankPiece = (mainstat = "") => ({
   mainstat,
-  substats: Array(4).fill({ key: "", value: "" }),
+  substats: Array(5).fill({ key: "", value: "" }),
 });
 
 const blankCdata = () => ({
