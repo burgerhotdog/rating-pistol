@@ -50,7 +50,7 @@ const WEAPONS = {
   IVentureForthToHunt: {
     name: "I Venture Forth to Hunt",
     rarity: "5 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -68,7 +68,7 @@ const WEAPONS = {
   ShadowedByNight: {
     name: "Shadowed by Night",
     rarity: "4 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -170,7 +170,7 @@ const WEAPONS = {
   SailingTowardsASecondLife: {
     name: "Sailing Towards A Second Life",
     rarity: "5 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -235,7 +235,7 @@ const WEAPONS = {
   FinalVictor: {
     name: "Final Victor",
     rarity: "4 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -299,7 +299,7 @@ const WEAPONS = {
   BaptismOfPureThought: {
     name: "Baptism of Pure Thought",
     rarity: "5 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -355,7 +355,7 @@ const WEAPONS = {
   WorrisomeBlissful: {
     name: "Worrisome, Blissful",
     rarity: "5 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -440,7 +440,7 @@ const WEAPONS = {
   Adversarial: {
     name: "Adversarial",
     rarity: "3 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -458,7 +458,7 @@ const WEAPONS = {
   Arrows: {
     name: "Arrows",
     rarity: "3 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -530,7 +530,7 @@ const WEAPONS = {
   CruisingInTheStellarSea: {
     name: "Cruising in the Stellar Sea",
     rarity: "5 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -548,7 +548,7 @@ const WEAPONS = {
   DartingArrow: {
     name: "Darting Arrow",
     rarity: "3 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -647,7 +647,7 @@ const WEAPONS = {
   InTheNight: {
     name: "In the Night",
     rarity: "5 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -755,7 +755,7 @@ const WEAPONS = {
   OnlySilenceRemains: {
     name: "Only Silence Remains",
     rarity: "4 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -845,7 +845,7 @@ const WEAPONS = {
   ReturnToDarkness: {
     name: "Return to Darkness",
     rarity: "4 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -854,7 +854,7 @@ const WEAPONS = {
   RiverFlowsInSpring: {
     name: "River Flows in Spring",
     rarity: "4 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -890,7 +890,7 @@ const WEAPONS = {
   SleepLikeTheDead: {
     name: "Sleep Like the Dead",
     rarity: "5 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -908,7 +908,7 @@ const WEAPONS = {
   SubscribeForMore: {
     name: "Subscribe for More!",
     rarity: "4 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},
@@ -917,7 +917,7 @@ const WEAPONS = {
   Swordplay: {
     name: "Swordplay",
     rarity: "4 Star",
-    type: "Hunt",
+    type: "The Hunt",
     desc: "",
     basestats: { hp: 0, atk: 0, def: 0 },
     stats: {},

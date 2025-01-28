@@ -1,104 +1,88 @@
 const SETS = {
   // Version 1.4
-  AstralVoice: {
-    name: "Astral Voice",
-    desc: "",
+  "Astral Voice": {
+    requirements: {},
     stats: {},
   },
   
-  BranchBladeSong: {
-    name: "Branch & Blade Song",
-    desc: "",
+  "Branch & Blade Song": {
+    requirements: {},
     stats: {},
   },
   
   // Version 1.3
   
   // Version 1.2
-  ChaosJazz: {
-    name: "Chaos Jazz",
-    desc: "",
+  "Chaos Jazz": {
+    requirements: {},
     stats: {},
   },
   
-  ProtoPunk: {
-    name: "Proto Punk",
-    desc: "",
+  "Proto Punk": {
+    requirements: {},
     stats: {},
   },
   
   // Version 1.1
   
   // Version 1.0
-  ChaoticMetal: {
-    name: "Chaotic Metal",
-    desc: "",
+  "Chaotic Metal": {
+    requirements: {},
     stats: {},
   },
   
-  FangedMetal: {
-    name: "Fanged Metal",
-    desc: "",
+  "Fanged Metal": {
+    requirements: {},
     stats: {},
   },
   
-  FreedomBlues: {
-    name: "Freedom Blues",
-    desc: "",
+  "Freedom Blues": {
+    requirements: {},
     stats: {},
   },
   
-  HormonePunk: {
-    name: "Hormone Punk",
-    desc: "",
+  "Hormone Punk": {
+    requirements: {},
     stats: {},
   },
   
-  InfernoMetal: {
-    name: "Inferno Metal",
-    desc: "",
+  "Inferno Metal": {
+    requirements: {},
     stats: {},
   },
   
-  PolarMetal: {
-    name: "Polar Metal",
-    desc: "",
+  "Polar Metal": {
+    requirements: {},
     stats: {},
   },
   
-  PufferElectro: {
-    name: "Puffer Electro",
-    desc: "",
+  "Puffer Electro": {
+    requirements: {},
     stats: {},
   },
   
-  ShockstarDisco: {
-    name: "Shockstar Disco",
-    desc: "",
+  "Shockstar Disco": {
+    requirements: {},
     stats: {},
   },
   
-  SoulRock: {
-    name: "Soul Rock",
-    desc: "",
+  "Soul Rock": {
+    requirements: {},
     stats: {},
   },
   
-  SwingJazz: {
-    name: "Swing Jazz",
-    desc: "",
+  "Swing Jazz": {
+    requirements: {},
     stats: {},
   },
   
-  ThunderMetal: {
-    name: "Thunder Metal",
-    desc: "",
+  "Thunder Metal": {
+    requirements: {},
     stats: {},
   },
   
-  WoodpeckerElectro: {
-    name: "Woodpecker Electro",
-    desc: "",
+  "Woodpecker Electro": {
+    requirements: {},
     stats: {},
   },
 };

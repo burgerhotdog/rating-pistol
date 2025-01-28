@@ -27,11 +27,16 @@ const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
 
 function toPascalCase(str) {
   return str
-    .replace(/'s\b/gi, "s")
-    .match(/[a-z]+/gi)
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .replace(/'s\b/gi, "s") // Step 1: Replace possessive "'s" with "s"
+    .match(/[a-z0-9]+/gi) // Step 2: Match alphabetic and numeric substrings
+    .map(word =>
+      /^[0-9]/.test(word) // Check if the word starts with a number
+        ? word // Leave it as is if it starts with a number
+        : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // PascalCase for alphabetic substrings
+    )
     .join('');
 }
+
 const ZenlessZoneZero = ({ uid }) => {
   // Modal States
   const [isSaveOpen, setIsSaveOpen] = useState(false);

@@ -2,126 +2,110 @@ const SETS = {
   // Version 2.7
   
   // Version 2.6
-  SacerdosRelivedOrdeal: {
-    name: "Sacerdos' Relived Ordeal",
+  "Sacerdos' Relived Ordeal": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  ScholarLostInErudition: {
-    name: "Scholar Lost in Erudition",
+  "Scholar Lost in Erudition": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
   // Version 2.5
-  LushakaTheSunkenSeas: {
-    name: "Lushaka, the Sunken Seas",
+  "Lushaka, the Sunken Seas": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  TheWondrousBananAmusementPark: {
-    name: "The Wondrous BananAmusement Park",
+  "The Wondrous BananAmusement Park": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
   // Version 2.4
   
   // Version 2.3
-  DuranDynastyOfRunningWolves: {
-    name: "Duran, Dynasty of Running Wolves",
+  "Duran, Dynasty of Running Wolves": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  ForgeOfTheKalpagniLantern: {
-    name: "Forge of the Kalpagni Lantern",
+  "Forge of the Kalpagni Lantern": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  IronCavalryAgainstTheScourge: {
-    name: "Iron Cavalry Against the Scourge",
+  "Iron Cavalry Against the Scourge": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  TheWindSoaringValorous: {
-    name: "The Wind-Soaring Valorous",
+  "The Wind-Soaring Valorous": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
   // Version 2.2
   
   // Version 2.1
-  IzumoGenseiAndTakamaDivineRealm: {
-    name: "Izumo Gensei and Takama Divine Realm",
+  "Izumo Gensei and Takama Divine Realm": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  SigoniaTheUnclaimedDesolation: {
-    name: "Sigonia, the Unclaimed Desolation",
+  "Sigonia, the Unclaimed Desolation": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
   // Version 2.0
-  PioneerDiverOfDeadWaters: {
-    name: "Pioneer Diver of Dead Waters",
+  "Pioneer Diver of Dead Waters": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  WatchmakerMasterOfDreamMachinations: {
-    name: "Watchmaker, Master of Dream Machinations",
+  "Watchmaker, Master of Dream Machinations": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
   // Version 1.6
   
   // Version 1.5
-  FirmamentFrontlineGlamoth: {
-    name: "Firmament Frontline: Glamoth",
+  "Firmament Frontline: Glamoth": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  PenaconyLandOfTheDreams: {
-    name: "Penacony, Land of the Dreams",
+  "Penacony, Land of the Dreams": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  PrisonerInDeepConfinement: {
-    name: "Prisoner in Deep Confinement",
+  "Prisoner in Deep Confinement": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  TheAshblazingGrandDuke: {
-    name: "The Ashblazing Grand Duke",
+  "The Ashblazing Grand Duke": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
@@ -130,174 +114,150 @@ const SETS = {
   // Version 1.3
   
   // Version 1.2
-  BrokenKeel: {
-    name: "Broken Keel",
+  "Broken Keel": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  LongevousDisciple: {
-    name: "Longevous Disciple",
+  "Longevous Disciple": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  MessengerTraversingHackerspace: {
-    name: "Messenger Traversing Hackerspace",
+  "Messenger Traversing Hackerspace": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  RutilantArena: {
-    name: "Rutilant Arena",
+  "Rutilant Arena": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
   // Version 1.1
   
   // Version 1.0
-  BandOfSizzlingThunder: {
-    name: "Band of Sizzling Thunder",
+  "Band of Sizzling Thunder": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  BelobogOfTheArchitects: {
-    name: "Belobog of the Architects",
+  "Belobog of the Architects": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  CelestialDifferentiator: {
-    name: "Celestial Differentiator",
+  "Celestial Differentiator": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  ChampionOfStreetwiseBoxing: {
-    name: "Champion of Streetwise Boxing",
+  "Champion of Streetwise Boxing": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  EagleOfTwilightLine: {
-    name: "Eagle of Twilight Line",
+  "Eagle of Twilight Line": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  FiresmithOfLavaForging: {
-    name: "Firesmith of Lava-Forging",
+  "Firesmith of Lava-Forging": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  FleetOfTheAgeless: {
-    name: "Fleet of the Ageless",
+  "Fleet of the Ageless": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  GeniusOfBrilliantStars: {
-    name: "Genius of Brilliant Stars",
+  "Genius of Brilliant Stars": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  GuardOfWutheringSnow: {
-    name: "Guard of Wuthering Snow",
+  "Guard of Wuthering Snow": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  HunterOfGlacialForest: {
-    name: "Hunter of Glacial Forest",
+  "Hunter of Glacial Forest": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  InertSalsotto: {
-    name: "Inert Salsotto",
+  "Inert Salsotto": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  KnightOfPurityPalace: {
-    name: "Knight of Purity Palace",
+  "Knight of Purity Palace": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  MusketeerOfWildWheat: {
-    name: "Musketeer of Wild Wheat",
+  "Musketeer of Wild Wheat": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  PanCosmicCommercialEnterprise: {
-    name: "Pan-Cosmic Commercial Enterprise",
+  "Pan-Cosmic Commercial Enterprise": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  PasserbyOfWanderingCloud: {
-    name: "Passerby of Wandering Cloud",
+  "Passerby of Wandering Cloud": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  SpaceSealingStation: {
-    name: "Space Sealing Station",
+  "Space Sealing Station": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  SprightlyVonwacq: {
-    name: "Sprightly Vonwacq",
+  "Sprightly Vonwacq": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  TaliaKingdomOfBanditry: {
-    name: "Talia: Kingdom of Banditry",
+  "Talia: Kingdom of Banditry": {
     type: "Planar",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  ThiefOfShootingMeteor: {
-    name: "Thief of Shooting Meteor",
+  "Thief of Shooting Meteor": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
   
-  WastelanderOfBanditryDesert: {
-    name: "Wastelander of Banditry Desert",
+  "Wastelander of Banditry Desert": {
     type: "Relic",
-    desc: "",
+    requirements: {},
     stats: {},
   },
 }

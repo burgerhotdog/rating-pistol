@@ -1,32 +1,27 @@
 const SETS = {
   // Version 2.0
-  EmpyreanAnthem: {
-    name: "Empyrean Anthem",
-    desc: "",
+  "Empyrean Anthem": {
+    requirements: {},
     stats: {},
   },
   
-  EternalRadiance: {
-    name: "Eternal Radiance",
-    desc: "",
+  "Eternal Radiance": {
+    requirements: {},
     stats: {},
   },
   
-  FrostyResolve: {
-    name: "Frosty Resolve",
-    desc: "",
+  "Frosty Resolve": {
+    requirements: {},
     stats: {},
   },
   
-  MidnightVeil: {
-    name: "Midnight Veil",
-    desc: "",
+  "Midnight Veil": {
+    requirements: {},
     stats: {},
   },
   
-  TidebreakingCourage: {
-    name: "Tidebreaking Courage",
-    desc: "",
+  "Tidebreaking Courage": {
+    requirements: {},
     stats: {},
   },
   
@@ -39,57 +34,48 @@ const SETS = {
   // Version 1.1
   
   // Version 1.0
-  CelestialLight: {
-    name: "Celestial Light",
-    desc: "",
+  "Celestial Light": {
+    requirements: {},
     stats: {},
   },
   
-  FreezingFrost: {
-    name: "Freezing Frost",
-    desc: "",
+  "Freezing Frost": {
+    requirements: {},
     stats: {},
   },
   
-  LingeringTunes: {
-    name: "Lingering Tunes",
-    desc: "",
+  "Lingering Tunes": {
+    requirements: {},
     stats: {},
   },
   
-  MoltenRift: {
-    name: "Molten Rift",
-    desc: "",
+  "Molten Rift": {
+    requirements: {},
     stats: {},
   },
   
-  MoonlitClouds: {
-    name: "Moonlit Clouds",
-    desc: "",
+  "Moonlit Clouds": {
+    requirements: {},
     stats: {},
   },
   
-  RejuvenatingGlow: {
-    name: "Rejuvenating Glow",
-    desc: "",
+  "Rejuvenating Glow": {
+    requirements: {},
     stats: {},
   },
   
-  SierraGale: {
-    name: "Sierra Gale",
-    desc: "",
+  "Sierra Gale": {
+    requirements: {},
     stats: {},
   },
   
-  SunSinkingEclipse: {
-    name: "Sun-sinking Eclipse",
-    desc: "",
+  "Havoc Eclipse": {
+    requirements: {},
     stats: {},
   },
   
-  VoidThunder: {
-    name: "Void Thunder",
-    desc: "",
+  "Void Thunder": {
+    requirements: {},
     stats: {},
   },
 };
