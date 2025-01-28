@@ -2,7 +2,13 @@ const CHARACTERS = {
   // Version 1.5
   "Astra": {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8609,
+      ATK: 715,
+      DEF: 600,
+      "Impact": 83,
+      "Anomaly Mastery": 93,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -13,7 +19,13 @@ const CHARACTERS = {
 
   "Evelyn": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7788,
+      ATK: 929,
+      DEF: 612,
+      "Impact": 93,
+      "Anomaly Mastery": 92,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -25,7 +37,13 @@ const CHARACTERS = {
   // Version 1.4
   "Harumasa": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7405,
+      ATK: 915,
+      DEF: 600,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -36,7 +54,13 @@ const CHARACTERS = {
   
   "Miyabi": {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7673,
+      ATK: 880,
+      DEF: 606,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -48,7 +72,13 @@ const CHARACTERS = {
   // Version 1.3
   "Lighter": {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8253,
+      ATK: 797,
+      DEF: 612,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -59,7 +89,13 @@ const CHARACTERS = {
   
   "Yanagi": {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7789,
+      ATK: 873,
+      DEF: 613,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -71,7 +107,13 @@ const CHARACTERS = {
   // Version 1.2
   "Burnice": {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7368,
+      ATK: 863,
+      DEF: 601,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -82,7 +124,13 @@ const CHARACTERS = {
   
   "Caesar": {
     type: "Defense",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 9526,
+      ATK: 712,
+      DEF: 754,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -94,7 +142,13 @@ const CHARACTERS = {
   // Version 1.1
   "Jane": {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7789,
+      ATK: 881,
+      DEF: 607,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -105,7 +159,13 @@ const CHARACTERS = {
   
   "Seth": {
     type: "Defense",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8701,
+      ATK: 643,
+      DEF: 746,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -116,7 +176,13 @@ const CHARACTERS = {
   
   "Qingyi": {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8251,
+      ATK: 758,
+      DEF: 613,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -128,7 +194,13 @@ const CHARACTERS = {
   // Version 1.0
   "Anby": {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7501,
+      ATK: 659,
+      DEF: 613,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -139,7 +211,13 @@ const CHARACTERS = {
   
   "Anton": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7219,
+      ATK: 792,
+      DEF: 623,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -150,7 +228,13 @@ const CHARACTERS = {
   
   "Ben": {
     type: "Defense",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8578,
+      ATK: 653,
+      DEF: 724,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -161,7 +245,13 @@ const CHARACTERS = {
   
   "Billy": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 6907,
+      ATK: 787,
+      DEF: 607,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -172,7 +262,13 @@ const CHARACTERS = {
   
   "Corin": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 6977,
+      ATK: 807,
+      DEF: 605,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -183,7 +279,13 @@ const CHARACTERS = {
   
   "Ellen": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7674,
+      ATK: 938,
+      DEF: 607,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -194,7 +296,13 @@ const CHARACTERS = {
   
   "Grace": {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7483,
+      ATK: 826,
+      DEF: 601,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -205,7 +313,13 @@ const CHARACTERS = {
   
   "Koleda": {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8127,
+      ATK: 736,
+      DEF: 595,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -216,7 +330,13 @@ const CHARACTERS = {
   
   "Lucy": {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8026,
+      ATK: 659,
+      DEF: 613,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -227,7 +347,13 @@ const CHARACTERS = {
   
   "Lycaon": {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8416,
+      ATK: 729,
+      DEF: 607,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -238,7 +364,13 @@ const CHARACTERS = {
   
   "Nekomata": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7560,
+      ATK: 911,
+      DEF: 588,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -249,7 +381,13 @@ const CHARACTERS = {
   
   "Nicole": {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8146,
+      ATK: 649,
+      DEF: 623,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -260,7 +398,13 @@ const CHARACTERS = {
   
   "Piper": {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 6977,
+      ATK: 758,
+      DEF: 613,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -271,7 +415,13 @@ const CHARACTERS = {
   
   "Rina": {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8609,
+      ATK: 717,
+      DEF: 601,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -282,7 +432,13 @@ const CHARACTERS = {
   
   "Soldier 11": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7674,
+      ATK: 889,
+      DEF: 613,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -293,7 +449,13 @@ const CHARACTERS = {
   
   "Soukaku": {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 8026,
+      ATK: 666,
+      DEF: 598,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {
@@ -304,7 +466,13 @@ const CHARACTERS = {
   
   "Zhu Yuan": {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
+    base: {
+      HP: 7483,
+      ATK: 919,
+      DEF: 601,
+      "Impact": 100,
+      "Anomaly Mastery": 100,
+    },
     stats: {},
     requirements: {},
     weights: {

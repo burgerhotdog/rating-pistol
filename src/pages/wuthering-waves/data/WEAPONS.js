@@ -1,7 +1,49 @@
 const WEAPONS = {
   // Version 2.0
+  "Call of the Abyss": {
+    type: "Rectifier",
+    base: { ATK: 100 },
+    stats: {},
+  },
+  
+  "Fables of Wisdom": {
+    type: "Sword",
+    base: { ATK: 100 },
+    stats: {},
+  },
+
+  "Legend of Drunken Hero": {
+    type: "Gauntlets",
+    base: { ATK: 100 },
+    stats: {},
+  },
+
+  "Meditations on Mercy": {
+    type: "Broadblade",
+    base: { ATK: 100 },
+    stats: {},
+  },
+  
+  "Romance in Farewell": {
+    type: "Pistols",
+    base: { ATK: 100 },
+    stats: {},
+  },
+
   "The Last Dance": {
     type: "Pistols",
+    base: { ATK: 100 },
+    stats: {},
+  },
+
+  "Tragicomedy": {
+    type: "Gauntlets",
+    base: { ATK: 100 },
+    stats: {},
+  },
+  
+  "Waltz in Masquerade": {
+    type: "Rectifier",
     base: { ATK: 100 },
     stats: {},
   },
