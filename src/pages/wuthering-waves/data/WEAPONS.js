@@ -1,601 +1,403 @@
 const WEAPONS = {
   // Version 2.0
-  TheLastDance: {
-    name: "The Last Dance",
-    rarity: "5 Star",
+  "The Last Dance": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.4
-  RedSpring: {
-    name: "Red Spring",
-    rarity: "5 Star",
+  "Red Spring": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.3
-  CelestialSpiral: {
-    name: "Celestial Spiral",
-    rarity: "4 Star",
+  "Celestial Spiral": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  EndlessCollapse: {
-    name: "Endless Collapse",
-    rarity: "4 Star",
+  "Endless Collapse": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  FusionAccretion: {
-    name: "Fusion Accretion",
-    rarity: "4 Star",
+  "Fusion Accretion": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  RelativisticJet: {
-    name: "Relativistic Jet",
-    rarity: "4 Star",
+  "Relativistic Jet": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  StellarSymphony: {
-    name: "Stellar Symphony",
-    rarity: "5 Star",
+  "Stellar Symphony": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  WaningRedshift: {
-    name: "Waning Redshift",
-    rarity: "4 Star",
+  "Waning Redshift": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.2
-  RimeDrapedSprouts: {
-    name: "Rime-Draped Sprouts",
-    rarity: "5 Star",
+  "Rime-Draped Sprouts": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  VeritysHandle: {
-    name: "Verity's Handle",
-    rarity: "5 Star",
+  "Verity's Handle": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.1
-  BeguilingMelody: {
-    name: "Beguiling Melody",
-    rarity: "3 Star",
+  "Beguiling Melody": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  BlazingBrilliance: {
-    name: "Blazing Brilliance",
-    rarity: "5 Star",
+  "Blazing Brilliance": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  AgesOfHarvest: {
-    name: "Ages of Harvest",
-    rarity: "5 Star",
+  "Ages of Harvest": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.0
-  AbyssSurges: {
-    name: "Abyss Surges",
-    rarity: "5 Star",
+  "Abyss Surges": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  AmityAccord: {
-    name: "Amity Accord",
-    rarity: "4 Star",
+  "Amity Accord": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Augment: {
-    name: "Augment",
-    rarity: "4 Star",
+  "Augment": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Autumntrace: {
-    name: "Autumntrace",
-    rarity: "4 Star",
+  "Autumntrace": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Broadblade41: {
-    name: "Broadblade#41",
-    rarity: "4 Star",
+  "Broadblade#41": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  BroadbladeOfNight: {
-    name: "Broadblade of Night",
-    rarity: "3 Star",
+  "Broadblade of Night": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  BroadbladeOfVoyager: {
-    name: "Broadblade of Voyager",
-    rarity: "3 Star",
+  "Broadblade of Voyager": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Cadenza: {
-    name: "Cadenza",
-    rarity: "4 Star",
+  "Cadenza": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  CometFlare: {
-    name: "Comet Flare",
-    rarity: "4 Star",
+  "Comet Flare": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  CommandoOfConviction: {
-    name: "Commando of Conviction",
-    rarity: "4 Star",
+  "Commando of Conviction": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  CosmicRipples: {
-    name: "Cosmic Ripples",
-    rarity: "5 Star",
+  "Cosmic Ripples": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  DauntlessEvernight: {
-    name: "Dauntless Evernight",
-    rarity: "4 Star",
+  "Dauntless Evernight": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Discord: {
-    name: "Discord",
-    rarity: "4 Star",
+  "Discord": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  EmeraldOfGenesis: {
-    name: "Emerald of Genesis",
-    rarity: "5 Star",
+  "Emerald of Genesis": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Gauntlets21D: {
-    name: "Gauntlets#21D",
-    rarity: "4 Star",
+  "Gauntlets#21D": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  GauntletsOfNight: {
-    name: "Gauntlets of Night",
-    rarity: "3 Star",
+  "Gauntlets of Night": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  GauntletsOfVoyager: {
-    name: "Gauntlets of Voyager",
-    rarity: "3 Star",
+  "Gauntlets of Voyager": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  GuardianBroadblade: {
-    name: "Guardian Broadblade",
-    rarity: "3 Star",
+  "Guardian Broadblade": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  GuardianGauntlets: {
-    name: "Guardian Gauntlets",
-    rarity: "3 Star",
+  "Guardian Gauntlets": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  GuardianPistols: {
-    name: "Guardian Pistols",
-    rarity: "3 Star",
+  "Guardian Pistols": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  GuardianRectifier: {
-    name: "Guardian Rectifier",
-    rarity: "3 Star",
+  "Guardian Rectifier": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  GuardianSword: {
-    name: "Guardian Sword",
-    rarity: "3 Star",
+  "Guardian Sword": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  HeliosCleaver: {
-    name: "Helios Cleaver",
-    rarity: "4 Star",
+  "Helios Cleaver": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  HollowMirage: {
-    name: "Hollow Mirage",
-    rarity: "4 Star",
+  "Hollow Mirage": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  JinzhouKeeper: {
-    name: "Jinzhou Keeper",
-    rarity: "4 Star",
+  "Jinzhou Keeper": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Lumingloss: {
-    name: "Lumingloss",
-    rarity: "4 Star",
+  "Lumingloss": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  LunarCutter: {
-    name: "Lunar Cutter",
-    rarity: "4 Star",
+  "Lunar Cutter": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  LustrousRazor: {
-    name: "Lustrous Razor",
-    rarity: "5 Star",
+  "Lustrous Razor": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Marcato: {
-    name: "Marcato",
-    rarity: "4 Star",
+  "Marcato": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Novaburst: {
-    name: "Novaburst",
-    rarity: "4 Star",
+  "Novaburst": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  OriginiteTypeI: {
-    name: "Originite: Type I",
-    rarity: "3 Star",
+  "Originite: Type I": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  OriginiteTypeII: {
-    name: "Originite: Type II",
-    rarity: "3 Star",
+  "Originite: Type II": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  OriginiteTypeIII: {
-    name: "Originite: Type III",
-    rarity: "3 Star",
+  "Originite: Type III": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  OriginiteTypeIV: {
-    name: "Originite: Type IV",
-    rarity: "3 Star",
+  "Originite: Type IV": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  OriginiteTypeV: {
-    name: "Originite: Type V",
-    rarity: "3 Star",
+  "Originite: Type V": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Overture: {
-    name: "Overture",
-    rarity: "4 Star",
+  "Overture": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Pistols26: {
-    name: "Pistols#26",
-    rarity: "4 Star",
+  "Pistols#26": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  PistolsOfNight: {
-    name: "Pistols of Night",
-    rarity: "3 Star",
+  "Pistols of Night": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  PistolsOfVoyager: {
-    name: "Pistols of Voyager",
-    rarity: "3 Star",
+  "Pistols of Voyager": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Rectifier25: {
-    name: "Rectifier#25",
-    rarity: "4 Star",
+  "Rectifier#25": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  RectifierOfNight: {
-    name: "Rectifier of Night",
-    rarity: "3 Star",
+  "Rectifier of Night": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  RectifierOfVoyager: {
-    name: "Rectifier of Voyager",
-    rarity: "3 Star",
+  "Rectifier of Voyager": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SomnoireAnchor: {
-    name: "Somnoire Anchor",
-    rarity: "4 Star",
+  "Somnoire Anchor": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  StaticMist: {
-    name: "Static Mist",
-    rarity: "5 Star",
+  "Static Mist": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Stonard: {
-    name: "Stonard",
-    rarity: "4 Star",
+  "Stonard": {
     type: "Gauntlets",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Stringmaster: {
-    name: "Stringmaster",
-    rarity: "5 Star",
+  "Stringmaster": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Sword18: {
-    name: "Sword#18",
-    rarity: "4 Star",
+  "Sword#18": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SwordOfNight: {
-    name: "Sword of Night",
-    rarity: "3 Star",
+  "Sword of Night": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SwordOfVoyager: {
-    name: "Sword of Voyager",
-    rarity: "3 Star",
+  "Sword of Voyager": {
     type: "Sword",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Thunderbolt: {
-    name: "Thunderbolt",
-    rarity: "4 Star",
+  "Thunderbolt": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  UndyingFlame: {
-    name: "Undying Flame",
-    rarity: "4 Star",
+  "Undying Flame": {
     type: "Pistols",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Variation: {
-    name: "Variation",
-    rarity: "4 Star",
+  "Variation": {
     type: "Rectifier",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  VerdantSummit: {
-    name: "Verdant Summit",
-    rarity: "5 Star",
+  "Verdant Summit": {
     type: "Broadblade",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
 };

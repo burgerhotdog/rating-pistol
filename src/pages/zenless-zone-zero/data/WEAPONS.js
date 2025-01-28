@@ -1,510 +1,342 @@
 const WEAPONS = {
   // Version 1.4
-  HailstormShrine: {
-    name: "Hailstorm Shrine",
-    rarity: "5 Star",
+  "Hailstorm Shrine": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  MarcatoDesire: {
-    name: "Marcato Desire",
-    rarity: "4 Star",
+  "Marcato Desire": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  ZanshinHerbCase: {
-    name: "Zanshin Herb Case",
-    rarity: "5 Star",
+  "Zanshin Herb Case": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.3
-  BlazingLaurel: {
-    name: "Blazing Laurel",
-    rarity: "5 Star",
+  "Blazing Laurel": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Timeweaver: {
-    name: "Timeweaver",
-    rarity: "5 Star",
+  "Timeweaver": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.2
-  FlamemakerShaker: {
-    name: "Flamemaker Shaker",
-    rarity: "5 Star",
+  "Flamemaker Shaker": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  TusksOfFury: {
-    name: "Tusks of Fury",
-    rarity: "5 Star",
+  "Tusks of Fury": {
     type: "Defense",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.1
-  GildedBlossom: {
-    name: "Gilded Blossom",
-    rarity: "4 Star",
+  "Gilded Blossom": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  IceJadeTeapot: {
-    name: "Ice-Jade Teapot",
-    rarity: "5 Star",
+  "Ice-Jade Teapot": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  PeacekeeperSpecialized: {
-    name: "Peacekeeper - Specialized",
-    rarity: "4 Star",
+  "Peacekeeper - Specialized": {
     type: "Defense",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SharpenedStinger: {
-    name: "Sharpened Stinger",
-    rarity: "5 Star",
+  "Sharpened Stinger": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
   // Version 1.0
-  BashfulDemon: {
-    name: "Bashful Demon",
-    rarity: "4 Star",
+  "Bashful Demon": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  BigCylinder: {
-    name: "Big Cylinder",
-    rarity: "4 Star",
+  "Big Cylinder": {
     type: "Defense",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  BunnyBand: {
-    name: "Bunny Band",
-    rarity: "4 Star",
+  "Bunny Band": {
     type: "Defense",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  CannonRotor: {
-    name: "Cannon Rotor",
-    rarity: "4 Star",
+  "Cannon Rotor": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  DeepSeaVisitor: {
-    name: "Deep Sea Visitor",
-    rarity: "5 Star",
+  "Deep Sea Visitor": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  DemaraBatteryMarkII: {
-    name: "Demara Battery Mark II",
-    rarity: "4 Star",
+  "Demara Battery Mark II": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  DrillRigRedAxis: {
-    name: "Drill Rig - Red Axis",
-    rarity: "4 Star",
+  "Drill Rig - Red Axis": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  ElectroLipGloss: {
-    name: "Electro-Lip Gloss",
-    rarity: "4 Star",
+  "Electro-Lip Gloss": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  FusionCompiler: {
-    name: "Fusion Compiler",
-    rarity: "5 Star",
+  "Fusion Compiler": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  HellfireGears: {
-    name: "Hellfire Gears",
-    rarity: "5 Star",
+  "Hellfire Gears": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  Housekeeper: {
-    name: "Housekeeper",
-    rarity: "4 Star",
+  "Housekeeper": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  IdentityBase: {
-    name: "[Identity] Base",
-    rarity: "3 Star",
+  "[Identity] Base": {
     type: "Defense",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  IdentityInflection: {
-    name: "[Identity] Inflection",
-    rarity: "3 Star",
+  "[Identity] Inflection": {
     type: "Defense",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  KaboomTheCannon: {
-    name: "Kaboom the Cannon",
-    rarity: "4 Star",
+  "Kaboom the Cannon": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  LunarDecrescent: {
-    name: "[Lunar] Decrescent",
-    rarity: "3 Star",
+  "[Lunar] Decrescent": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  LunarNoviluna: {
-    name: "[Lunar] Noviluna",
-    rarity: "3 Star",
+  "[Lunar] Noviluna": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  LunarPleniluna: {
-    name: "[Lunar] Pleniluna",
-    rarity: "3 Star",
+  "[Lunar] Pleniluna": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  MagneticStormAlpha: {
-    name: "[Magnetic Storm] Alpha",
-    rarity: "3 Star",
+  "[Magnetic Storm] Alpha": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  MagneticStormBravo: {
-    name: "[Magnetic Storm] Bravo",
-    rarity: "3 Star",
+  "[Magnetic Storm] Bravo": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  MagneticStormCharlie: {
-    name: "[Magnetic Storm] Charlie",
-    rarity: "3 Star",
+  "[Magnetic Storm] Charlie": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  OriginalTransmorpher: {
-    name: "Original Transmorpher",
-    rarity: "4 Star",
+  "Original Transmorpher": {
     type: "Defense",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  PreciousFossilizedCore: {
-    name: "Precious Fossilized Core",
-    rarity: "4 Star",
+  "Precious Fossilized Core": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  RainforestGourmet: {
-    name: "Rainforest Gourmet",
-    rarity: "4 Star",
+  "Rainforest Gourmet": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  ReverbMarkI: {
-    name: "[Reverb] Mark I",
-    rarity: "3 Star",
+  "[Reverb] Mark I": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  ReverbMarkII: {
-    name: "[Reverb] Mark II",
-    rarity: "3 Star",
+  "[Reverb] Mark II": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  ReverbMarkIII: {
-    name: "[Reverb] Mark III",
-    rarity: "3 Star",
+  "[Reverb] Mark III": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  RiotSuppressorMarkVI: {
-    name: "Riot Suppressor Mark VI",
-    rarity: "5 Star",
+  "Riot Suppressor Mark VI": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  RoaringRide: {
-    name: "Roaring Ride",
-    rarity: "4 Star",
+  "Roaring Ride": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SixShooter: {
-    name: "Six Shooter",
-    rarity: "4 Star",
+  "Six Shooter": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SliceOfTime: {
-    name: "Slice of Time",
-    rarity: "4 Star",
+  "Slice of Time": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SpringEmbrace: {
-    name: "Spring Embrace",
-    rarity: "4 Star",
+  "Spring Embrace": {
     type: "Defense",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  StarlightEngine: {
-    name: "Starlight Engine",
-    rarity: "4 Star",
+  "Starlight Engine": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  StarlightEngineReplica: {
-    name: "Starlight Engine Replica",
-    rarity: "4 Star",
+  "Starlight Engine Replica": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SteamOven: {
-    name: "Steam Oven",
-    rarity: "4 Star",
+  "Steam Oven": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  SteelCushion: {
-    name: "Steel Cushion",
-    rarity: "5 Star",
+  "Steel Cushion": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  StreetSuperstar: {
-    name: "Street Superstar",
-    rarity: "4 Star",
+  "Street Superstar": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  TheBrimstone: {
-    name: "The Brimstone",
-    rarity: "5 Star",
+  "The Brimstone": {
     type: "Attack",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  TheRestrained: {
-    name: "The Restrained",
-    rarity: "5 Star",
+  "The Restrained": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  TheVault: {
-    name: "The Vault",
-    rarity: "4 Star",
+  "The Vault": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  UnfetteredGameBall: {
-    name: "Unfettered Game Ball",
-    rarity: "4 Star",
+  "Unfettered Game Ball": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  VortexArrow: {
-    name: "[Vortex] Arrow",
-    rarity: "3 Star",
+  "[Vortex] Arrow": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  VortexHatchet: {
-    name: "[Vortex] Hatchet",
-    rarity: "3 Star",
+  "[Vortex] Hatchet": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  VortexRevolver: {
-    name: "[Vortex] Revolver",
-    rarity: "3 Star",
+  "[Vortex] Revolver": {
     type: "Stun",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  WeepingCradle: {
-    name: "Weeping Cradle",
-    rarity: "5 Star",
+  "Weeping Cradle": {
     type: "Support",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
   
-  WeepingGemini: {
-    name: "Weeping Gemini",
-    rarity: "4 Star",
+  "Weeping Gemini": {
     type: "Anomaly",
-    desc: "",
-    basestats: { atk: 0 },
+    base: { ATK: 100 },
     stats: {},
   },
 };

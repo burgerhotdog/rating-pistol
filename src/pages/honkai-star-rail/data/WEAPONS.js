@@ -1,1051 +1,706 @@
 const WEAPONS = {
   // Version 2.7
-  AGroundedAscent: {
-    name: "A Grounded Ascent",
-    rarity: "5 Star",
+  "A Grounded Ascent": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  LongRoadLeadsHome: {
-    name: "Long Road Leads Home",
-    rarity: "5 Star",
+  "Long Road Leads Home": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 2.6
-  DreamsMontage: {
-    name: "Dream's Montage",
-    rarity: "4 Star",
+  "Dream's Montage": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  NinjaRecordSoundHunt: {
-    name: "Ninja Record: Sound Hunt",
-    rarity: "4 Star",
+  "Ninja Record: Sound Hunt": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  NinjutsuInscriptionDazzlingEvilbreaker: {
-    name: "Ninjutsu Inscription: Dazzling Evilbreaker",
-    rarity: "5 Star",
+  "Ninjutsu Inscription: Dazzling Evilbreaker": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 2.5
-  IVentureForthToHunt: {
-    name: "I Venture Forth to Hunt",
-    rarity: "5 Star",
+  "I Venture Forth to Hunt": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ScentAloneStaysTrue: {
-    name: "Scent Alone Stays True",
-    rarity: "5 Star",
+  "Scent Alone Stays True": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ShadowedByNight: {
-    name: "Shadowed by Night",
-    rarity: "4 Star",
+  "Shadowed by Night": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 2.4
-  DanceAtSunset: {
-    name: "Dance at Sunset",
-    rarity: "5 Star",
+  "Dance at Sunset": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  PoisedToBloom: {
-    name: "Poised to Bloom",
-    rarity: "4 Star",
+  "Poised to Bloom": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ThoseManySprings: {
-    name: "Those Many Springs",
-    rarity: "5 Star",
+  "Those Many Springs": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 2.3
-  AfterTheCharmonyFall: {
-    name: "After the Charmony Fall",
-    rarity: "4 Star",
+  "After the Charmony Fall": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  EternalCalculus: {
-    name: "Eternal Calculus",
-    rarity: "5 Star",
+  "Eternal Calculus": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  WhereaboutsShouldDreamsRest: {
-    name: "Whereabouts Should Dreams Rest",
-    rarity: "5 Star",
+  "Whereabouts Should Dreams Rest": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  YetHopeIsPriceless: {
-    name: "Yet Hope Is Priceless",
-    rarity: "5 Star",
+  "Yet Hope Is Priceless": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 2.2
-  BoundlessChoreo: {
-    name: "Boundless Choreo",
-    rarity: "4 Star",
+  "Boundless Choreo": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  FlowingNightglow: {
-    name: "Flowing Nightglow",
-    rarity: "5 Star",
+  "Flowing Nightglow": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ForTomorrowsJourney: {
-    name: "For Tomorrow's Journey",
-    rarity: "4 Star",
+  "For Tomorrow's Journey": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  SailingTowardsASecondLife: {
-    name: "Sailing Towards A Second Life",
-    rarity: "5 Star",
+  "Sailing Towards A Second Life": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 2.1
-  AlongThePassingShore: {
-    name: "Along the Passing Shore",
-    rarity: "5 Star",
+  "Along the Passing Shore": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ConcertForTwo: {
-    name: "Concert for Two",
-    rarity: "4 Star",
+  "Concert for Two": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  InherentlyUnjustDestiny: {
-    name: "Inherently Unjust Destiny",
-    rarity: "5 Star",
+  "Inherently Unjust Destiny": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 2.0
-  DestinysThreadsForewoven: {
-    name: "Destiny's Threads Forewoven",
-    rarity: "4 Star",
+  "Destiny's Threads Forewoven": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  DreamvilleAdventure: {
-    name: "Dreamville Adventure",
-    rarity: "4 Star",
+  "Dreamville Adventure": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  EarthlyEscapade: {
-    name: "Earthly Escapade",
-    rarity: "5 Star",
+  "Earthly Escapade": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  FinalVictor: {
-    name: "Final Victor",
-    rarity: "4 Star",
+  "Final Victor": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  FlamesAfar: {
-    name: "Flames Afar",
-    rarity: "4 Star",
+  "Flames Afar": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  IndeliblePromise: {
-    name: "Indelible Promise",
-    rarity: "4 Star",
+  "Indelible Promise": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ItsShowtime: {
-    name: "It's Showtime",
-    rarity: "4 Star",
+  "It's Showtime": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ReforgedRemembrance: {
-    name: "Reforged Remembrance",
-    rarity: "5 Star",
+  "Reforged Remembrance": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TheDayTheCosmosFell: {
-    name: "The Day The Cosmos Fell",
-    rarity: "4 Star",
+  "The Day The Cosmos Fell": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  WhatIsReal: {
-    name: "What Is Real?",
-    rarity: "4 Star",
+  "What Is Real?": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 1.6
-  BaptismOfPureThought: {
-    name: "Baptism of Pure Thought",
-    rarity: "5 Star",
+  "Baptism of Pure Thought": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  PastSelfInMirror: {
-    name: "Past Self in Mirror",
-    rarity: "5 Star",
+  "Past Self in Mirror": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 1.5
-  AnInstantBeforeAGaze: {
-    name: "An Instant Before A Gaze",
-    rarity: "5 Star",
+  "An Instant Before A Gaze": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  HeyOverHere: {
-    name: "Hey, Over Here",
-    rarity: "4 Star",
+  "Hey, Over Here": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  NightOfFright: {
-    name: "Night of Fright",
-    rarity: "5 Star",
+  "Night of Fright": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 1.4
-  IShallBeMyOwnSword: {
-    name: "I Shall Be My Own Sword",
-    rarity: "5 Star",
+  "I Shall Be My Own Sword": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  WorrisomeBlissful: {
-    name: "Worrisome, Blissful",
-    rarity: "5 Star",
+  "Worrisome, Blissful": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 1.3
-  BrighterThanTheSun: {
-    name: "Brighter Than the Sun",
-    rarity: "5 Star",
+  "Brighter Than the Sun": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  SheAlreadyShutHerEyes: {
-    name: "She Already Shut Her Eyes",
-    rarity: "5 Star",
+  "She Already Shut Her Eyes": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  SolitaryHealing: {
-    name: "Solitary Healing",
-    rarity: "5 Star",
+  "Solitary Healing": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 1.2
-  PatienceIsAllYouNeed: {
-    name: "Patience Is All You Need",
-    rarity: "5 Star",
+  "Patience Is All You Need": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TheUnreachableSide: {
-    name: "The Unreachable Side",
-    rarity: "5 Star",
+  "The Unreachable Side": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 1.1
-  BeforeTheTutorialMissionStarts: {
-    name: "Before the Tutorial Mission Starts",
-    rarity: "4 Star",
+  "Before the Tutorial Mission Starts": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  EchoesOfTheCoffin: {
-    name: "Echoes of the Coffin",
-    rarity: "5 Star",
+  "Echoes of the Coffin": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  IncessantRain: {
-    name: "Incessant Rain",
-    rarity: "5 Star",
+  "Incessant Rain": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
   // Version 1.0
-  Adversarial: {
-    name: "Adversarial",
-    rarity: "3 Star",
+  "Adversarial": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Amber: {
-    name: "Amber",
-    rarity: "3 Star",
+  "Amber": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Arrows: {
-    name: "Arrows",
-    rarity: "3 Star",
+  "Arrows": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ASecretVow: {
-    name: "A Secret Vow",
-    rarity: "4 Star",
+  "A Secret Vow": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  BeforeDawn: {
-    name: "Before Dawn",
-    rarity: "5 Star",
+  "Before Dawn": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ButTheBattleIsntOver: {
-    name: "But the Battle Isn't Over",
-    rarity: "5 Star",
+  "But the Battle Isn't Over": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  CarveTheMoonWeaveTheClouds: {
-    name: "Carve the Moon, Weave the Clouds",
-    rarity: "4 Star",
+  "Carve the Moon, Weave the Clouds": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Chorus: {
-    name: "Chorus",
-    rarity: "3 Star",
+  "Chorus": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  CollapsingSky: {
-    name: "Collapsing Sky",
-    rarity: "3 Star",
+  "Collapsing Sky": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Cornucopia: {
-    name: "Cornucopia",
-    rarity: "3 Star",
+  "Cornucopia": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  CruisingInTheStellarSea: {
-    name: "Cruising in the Stellar Sea",
-    rarity: "5 Star",
+  "Cruising in the Stellar Sea": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  DanceDanceDance: {
-    name: "Dance! Dance! Dance!",
-    rarity: "4 Star",
+  "Dance! Dance! Dance!": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  DartingArrow: {
-    name: "Darting Arrow",
-    rarity: "3 Star",
+  "Darting Arrow": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  DataBank: {
-    name: "Data Bank",
-    rarity: "3 Star",
+  "Data Bank": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  DayOneOfMyNewLife: {
-    name: "Day One of My New Life",
-    rarity: "4 Star",
+  "Day One of My New Life": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Defense: {
-    name: "Defense",
-    rarity: "3 Star",
+  "Defense": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  EyesOfThePrey: {
-    name: "Eyes of the Prey",
-    rarity: "4 Star",
+  "Eyes of the Prey": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Fermata: {
-    name: "Fermata",
-    rarity: "4 Star",
+  "Fermata": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  FineFruit: {
-    name: "Fine Fruit",
-    rarity: "3 Star",
+  "Fine Fruit": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  GeniusesRepose: {
-    name: "Geniuses' Repose",
-    rarity: "4 Star",
+  "Geniuses' Repose": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  GoodNightAndSleepWell: {
-    name: "Good Night and Sleep Well",
-    rarity: "4 Star",
+  "Good Night and Sleep Well": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  HiddenShadow: {
-    name: "Hidden Shadow",
-    rarity: "3 Star",
+  "Hidden Shadow": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  InTheNameOfTheWorld: {
-    name: "In the Name of the World",
-    rarity: "5 Star",
+  "In the Name of the World": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  InTheNight: {
-    name: "In the Night",
-    rarity: "5 Star",
+  "In the Night": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  LandausChoice: {
-    name: "Landau's Choice",
-    rarity: "4 Star",
+  "Landau's Choice": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Loop: {
-    name: "Loop",
-    rarity: "3 Star",
+  "Loop": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  MakeTheWorldClamor: {
-    name: "Make the World Clamor",
-    rarity: "4 Star",
+  "Make the World Clamor": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Mediation: {
-    name: "Mediation",
-    rarity: "3 Star",
+  "Mediation": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  MemoriesOfThePast: {
-    name: "Memories of the Past",
-    rarity: "4 Star",
+  "Memories of the Past": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  MeshingCogs: {
-    name: "Meshing Cogs",
-    rarity: "3 Star",
+  "Meshing Cogs": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  MomentOfVictory: {
-    name: "Moment of Victory",
-    rarity: "5 Star",
+  "Moment of Victory": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Multiplication: {
-    name: "Multiplication",
-    rarity: "3 Star",
+  "Multiplication": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  MutualDemise: {
-    name: "Mutual Demise",
-    rarity: "3 Star",
+  "Mutual Demise": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  NightOnTheMilkyWay: {
-    name: "Night on the Milky Way",
-    rarity: "5 Star",
+  "Night on the Milky Way": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  NowhereToRun: {
-    name: "Nowhere to Run",
-    rarity: "4 Star",
+  "Nowhere to Run": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  OnlySilenceRemains: {
-    name: "Only Silence Remains",
-    rarity: "4 Star",
+  "Only Silence Remains": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  OnTheFallOfAnAeon: {
-    name: "On the Fall of an Aeon",
-    rarity: "5 Star",
+  "On the Fall of an Aeon": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Passkey: {
-    name: "Passkey",
-    rarity: "3 Star",
+  "Passkey": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  PastAndFuture: {
-    name: "Past and Future",
-    rarity: "4 Star",
+  "Past and Future": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  PerfectTiming: {
-    name: "Perfect Timing",
-    rarity: "4 Star",
+  "Perfect Timing": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Pioneering: {
-    name: "Pioneering",
-    rarity: "3 Star",
+  "Pioneering": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  PlanetaryRendezvous: {
-    name: "Planetary Rendezvous",
-    rarity: "4 Star",
+  "Planetary Rendezvous": {
     type: "Harmony",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  PostOpConversation: {
-    name: "Post-Op Conversation",
-    rarity: "4 Star",
+  "Post-Op Conversation": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  QuidProQuo: {
-    name: "Quid Pro Quo",
-    rarity: "4 Star",
+  "Quid Pro Quo": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ResolutionShinesAsPearlsOfSweat: {
-    name: "Resolution Shines As Pearls of Sweat",
-    rarity: "4 Star",
+  "Resolution Shines As Pearls of Sweat": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ReturnToDarkness: {
-    name: "Return to Darkness",
-    rarity: "4 Star",
+  "Return to Darkness": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  RiverFlowsInSpring: {
-    name: "River Flows in Spring",
-    rarity: "4 Star",
+  "River Flows in Spring": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Sagacity: {
-    name: "Sagacity",
-    rarity: "3 Star",
+  "Sagacity": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  SharedFeeling: {
-    name: "Shared Feeling",
-    rarity: "4 Star",
+  "Shared Feeling": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ShatteredHome: {
-    name: "Shattered Home",
-    rarity: "3 Star",
+  "Shattered Home": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  SleepLikeTheDead: {
-    name: "Sleep Like the Dead",
-    rarity: "5 Star",
+  "Sleep Like the Dead": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  SomethingIrreplaceable: {
-    name: "Something Irreplaceable",
-    rarity: "5 Star",
+  "Something Irreplaceable": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  SubscribeForMore: {
-    name: "Subscribe for More!",
-    rarity: "4 Star",
+  "Subscribe for More!": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Swordplay: {
-    name: "Swordplay",
-    rarity: "4 Star",
+  "Swordplay": {
     type: "The Hunt",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TextureOfMemories: {
-    name: "Texture of Memories",
-    rarity: "5 Star",
+  "Texture of Memories": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TheBirthOfTheSelf: {
-    name: "The Birth of the Self",
-    rarity: "4 Star",
+  "The Birth of the Self": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TheMolesWelcomeYou: {
-    name: "The Moles Welcome You",
-    rarity: "4 Star",
+  "The Moles Welcome You": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TheSeriousnessOfBreakfast: {
-    name: "The Seriousness of Breakfast",
-    rarity: "4 Star",
+  "The Seriousness of Breakfast": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  ThisIsMe: {
-    name: "This Is Me!",
-    rarity: "4 Star",
+  "This Is Me!": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TimeWaitsForNoOne: {
-    name: "Time Waits for No One",
-    rarity: "5 Star",
+  "Time Waits for No One": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TodayIsAnotherPeacefulDay: {
-    name: "Today Is Another Peaceful Day",
-    rarity: "4 Star",
+  "Today Is Another Peaceful Day": {
     type: "Erudition",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  TrendOfTheUniversalMarket: {
-    name: "Trend of the Universal Market",
-    rarity: "4 Star",
+  "Trend of the Universal Market": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  UnderTheBlueSky: {
-    name: "Under the Blue Sky",
-    rarity: "4 Star",
+  "Under the Blue Sky": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  Void: {
-    name: "Void",
-    rarity: "3 Star",
+  "Void": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  WarmthShortensColdNights: {
-    name: "Warmth Shortens Cold Nights",
-    rarity: "4 Star",
+  "Warmth Shortens Cold Nights": {
     type: "Abundance",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  WeAreWildfire: {
-    name: "We Are Wildfire",
-    rarity: "4 Star",
+  "We Are Wildfire": {
     type: "Preservation",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  WeWillMeetAgain: {
-    name: "We Will Meet Again",
-    rarity: "4 Star",
+  "We Will Meet Again": {
     type: "Nihility",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
   
-  WoofWalkTime: {
-    name: "Woof! Walk Time!",
-    rarity: "4 Star",
+  "Woof! Walk Time!": {
     type: "Destruction",
-    desc: "",
-    basestats: { hp: 0, atk: 0, def: 0 },
+    base: { HP: 100, ATK: 100, DEF: 100 },
     stats: {},
   },
 };
