@@ -1,4 +1,38 @@
 const CHARACTERS = {
+  // Version 3.0
+  "Aglaea": {
+    type: "Remembrance",
+    base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+
+  "The Herta": {
+    type: "Erudition",
+    base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+
+  "Trailblazer (Remembrance)": {
+    type: "Remembrance",
+    base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+
   // Version 2.7
   "Sunday": {
     type: "Harmony",
@@ -138,6 +172,17 @@ const CHARACTERS = {
   },
   
   "Robin": {
+    type: "Harmony",
+    base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+
+  "Trailblazer (Harmony)": {
     type: "Harmony",
     base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
     stats: {},
@@ -320,7 +365,7 @@ const CHARACTERS = {
   },
   
   // Version 1.3
-  "Dan Heng Imbibitor Lunae": {
+  "Dan Heng • Imbibitor Lunae": {
     type: "Destruction",
     base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
     stats: {},
@@ -543,7 +588,7 @@ const CHARACTERS = {
     },
   },
   
-  "March 7th": {
+  "March 7th (Preservation)": {
     type: "Preservation",
     base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
     stats: {},
@@ -633,6 +678,28 @@ const CHARACTERS = {
   
   "Tingyun": {
     type: "Harmony",
+    base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+
+  "Trailblazer (Destruction)": {
+    type: "Destruction",
+    base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+
+  "Trailblazer (Preservation)": {
+    type: "Preservation",
     base: { HP: 100, ATK: 100, DEF: 100, SPD: 100 },
     stats: {},
     requirements: {},

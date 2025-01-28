@@ -1,4 +1,47 @@
 const WEAPONS = {
+  // Version 3.0
+  "Geniuses' Greetings": {
+    type: "Remembrance",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+  },
+
+  "Into the Unreachable Veil": {
+    type: "Erudition",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+  },
+
+  "Reminiscence": {
+    type: "Remembrance",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+  },
+
+  "Shadowburn": {
+    type: "Remembrance",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+  },
+
+  "Sweat Now, Cry Less": {
+    type: "Remembrance",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+  },
+
+  "Time Woven Into Gold": {
+    type: "Remembrance",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+  },
+
+  "Victory In a Blink": {
+    type: "Remembrance",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+  },
+
   // Version 2.7
   "A Grounded Ascent": {
     type: "Harmony",

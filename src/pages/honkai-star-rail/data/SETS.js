@@ -1,4 +1,17 @@
 const SETS = {
+  // Version 3.0
+  "Hero of Triumphant Song": {
+    type: "Relic",
+    requirements: {},
+    stats: {},
+  },
+
+  "Poet of Mourning Collapse": {
+    type: "Relic",
+    requirements: {},
+    stats: {},
+  },
+
   // Version 2.7
   
   // Version 2.6

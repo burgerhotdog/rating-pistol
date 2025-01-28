@@ -112,7 +112,7 @@ const ZenlessZoneZero = ({ uid }) => {
         }}
       >
         <Typography variant="h4">Zenless Zone Zero</Typography>
-        <Typography variant="body2">Updated for version 1.4</Typography>
+        <Typography variant="body2">Updated for version 1.5</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}

@@ -1,4 +1,17 @@
 const WEAPONS = {
+  // Version 1.5
+  "Elegant Vanity": {
+    type: "Support",
+    base: { ATK: 100 },
+    stats: {},
+  },
+
+  "Heartstring Nocturne": {
+    type: "Attack",
+    base: { ATK: 100 },
+    stats: {},
+  },
+
   // Version 1.4
   "Hailstorm Shrine": {
     type: "Anomaly",

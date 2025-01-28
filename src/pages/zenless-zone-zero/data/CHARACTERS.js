@@ -1,4 +1,27 @@
 const CHARACTERS = {
+  // Version 1.5
+  "Astra": {
+    type: "Support",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+
+  "Evelyn": {
+    type: "Attack",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+
   // Version 1.4
   "Harumasa": {
     type: "Attack",

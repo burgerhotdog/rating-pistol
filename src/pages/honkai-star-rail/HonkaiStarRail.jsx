@@ -112,7 +112,7 @@ const HonkaiStarRail = ({ uid }) => {
         }}
       >
         <Typography variant="h4">Honkai Star Rail</Typography>
-        <Typography variant="body2">Updated for version 2.7</Typography>
+        <Typography variant="body2">Updated for version 3.0</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}
@@ -144,7 +144,7 @@ const HonkaiStarRail = ({ uid }) => {
                   <TableRow key={cid}>
                     <TableCell>
                       <img
-                        src={cImgs[`./assets/char/${cid}.webp`]?.default}
+                        src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
                         style={{
                           width: 50,
