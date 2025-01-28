@@ -33,6 +33,19 @@ const CHARACTERS = {
       "ATK%": 0.5,
     },
   },
+
+  "Traveler (Pyro)": {
+    type: "Sword",
+    base: { HP: 10875, ATK: 212, DEF: 683 },
+    stats: { "ATK%": 24 },
+    requirements: {},
+    weights: {
+      "Pyro DMG": 1,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "ATK%": 0.5,
+    },
+  },
   
   // Version 5.2
   "Chasca": {
@@ -333,6 +346,19 @@ const CHARACTERS = {
       "ATK%": 0.5,
     },
   },
+
+  "Traveler (Hydro)": {
+    type: "Sword",
+    base: { HP: 10875, ATK: 212, DEF: 683 },
+    stats: { "ATK%": 24 },
+    requirements: {},
+    weights: {
+      "Hydro DMG": 1,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "ATK%": 0.5,
+    },
+  },
   
   // Version 3.8
   
@@ -543,6 +569,19 @@ const CHARACTERS = {
       "ATK%": 0.3,
     },
   },
+
+  "Traveler (Dendro)": {
+    type: "Sword",
+    base: { HP: 10875, ATK: 212, DEF: 683 },
+    stats: { "ATK%": 24 },
+    requirements: {},
+    weights: {
+      "Dendro DMG": 1,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "ATK%": 0.5,
+    },
+  },
   
   // Version 2.8
   "Shikanoin Heizou": {
@@ -743,6 +782,19 @@ const CHARACTERS = {
     weights: {
       "Healing Bonus": 1,
       "Elemental Mastery": 0.8,
+      "ATK%": 0.5,
+    },
+  },
+
+  "Traveler (Electro)": {
+    type: "Sword",
+    base: { HP: 10875, ATK: 212, DEF: 683 },
+    stats: { "ATK%": 24 },
+    requirements: {},
+    weights: {
+      "Electro DMG": 1,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
       "ATK%": 0.5,
     },
   },
@@ -1154,6 +1206,32 @@ const CHARACTERS = {
     requirements: {},
     weights: {
       "Elemental Mastery": 0.8,
+    },
+  },
+
+  "Traveler (Anemo)": {
+    type: "Sword",
+    base: { HP: 10875, ATK: 212, DEF: 683 },
+    stats: { "ATK%": 24 },
+    requirements: {},
+    weights: {
+      "Anemo DMG": 1,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "ATK%": 0.5,
+    },
+  },
+
+  "Traveler (Geo)": {
+    type: "Sword",
+    base: { HP: 10875, ATK: 212, DEF: 683 },
+    stats: { "ATK%": 24 },
+    requirements: {},
+    weights: {
+      "Geo DMG": 1,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "ATK%": 0.5,
     },
   },
   

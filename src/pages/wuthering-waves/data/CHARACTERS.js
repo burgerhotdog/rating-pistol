@@ -214,6 +214,28 @@ const CHARACTERS = {
     },
   },
   
+  "Rover (Havoc)": {
+    type: "Sword",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+  
+  "Rover (Spectro)": {
+    type: "Sword",
+    base: { HP: 100, ATK: 100, DEF: 100 },
+    stats: {},
+    requirements: {},
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+    },
+  },
+  
   "Sanhua": {
     type: "Sword",
     base: { HP: 100, ATK: 100, DEF: 100 },
