@@ -1,55 +1,26 @@
 import React from "react";
 import { Autocomplete, Card, Divider, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import MAINSTATS from "../data/MAINSTATS";
+import SUBSTATS from "../data/SUBSTATS";
 
-const PIECE_NAMES = [
-  "Head",
-  "Hands",
-  "Body",
-  "Feet",
-  "Orb",
-  "Rope",
-]
-
-const MAINSTAT_OPTIONS = [
-  ["hp"],
-  ["atk"],
-  ["hp%", "atk%", "def%", "cr", "cd", "ohb", "ehr"],
-  ["hp%", "atk%", "def%", "spd"],
-  ["hp%", "atk%", "def%", "elemental dmg"],
-  ["hp%", "atk%", "def%", "be", "err"],
-];
-
-const SUBSTAT_OPTIONS = [
-  "hp",
-  "atk",
-  "def",
-  "hp%",
-  "atk%",
-  "def%",
-  "ehr",
-  "cr",
-  "cd",
-  "be",
-  "res",
-  "spd",
-];
+const PIECE_NAMES = ["Head", "Hands", "Body", "Feet", "Orb", "Rope"];
 
 const Piece = ({
-  newCharObj,
-  setNewCharObj,
+  newCdata,
+  setNewCdata,
   mainIndex,
 }) => {
-  // Pass mainstat data to newCharObj
+  // Pass mainstat data to newCdata
   const handleMainstat = (newValue) => {
-    setNewCharObj((prev) => {
+    setNewCdata((prev) => {
       // Create a copy of the pieces array
       const updatedPieces = [...prev.pieces];
 
       // Update the data in the copy
       updatedPieces[mainIndex] = {
         mainstat: newValue || "",
-        substats: Array(4).fill({ name: "", value: "" }),
+        substats: Array(4).fill({ key: "", value: "" }),
       };
 
       return {
@@ -59,9 +30,9 @@ const Piece = ({
     });
   };
 
-  // Pass substat data to newCharObj
+  // Pass substat data to newCdata
   const handleSubstat = (newValue, subIndex, attribute) => {
-    setNewCharObj((prev) => {
+    setNewCdata((prev) => {
       // Create a copy of the substats array
       const updatedPieces = [...prev.pieces];
       const updatedSubstats = [...updatedPieces[mainIndex].substats];
@@ -71,6 +42,7 @@ const Piece = ({
         ...updatedSubstats[subIndex],
         [attribute]: newValue || "",
       };
+
       updatedPieces[mainIndex] = {
         ...updatedPieces[mainIndex],
         substats: updatedSubstats,
@@ -83,17 +55,17 @@ const Piece = ({
     });
   };
 
-  const getFilteredSubstatOptions = (subIndex) => {
+  const substatOptions = (subIndex) => {
     // Get the selected mainstat and substat names
-    const selectedMainstat = newCharObj.pieces[mainIndex].mainstat;
-    const selectedSubstatNames = newCharObj.pieces[mainIndex].substats
-      .map((substat) => substat.name)
+    const selectedMainstat = newCdata.pieces[mainIndex].mainstat;
+    const selectedSubstatKeys = newCdata.pieces[mainIndex].substats
+      .map((substat) => substat.key)
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
-    return SUBSTAT_OPTIONS.filter(
+    return Object.keys(SUBSTATS).filter(
       (option) =>
         option !== selectedMainstat && // Exclude mainstat
-        !selectedSubstatNames.includes(option) // Exclude already selected substats
+        !selectedSubstatKeys.includes(option) // Exclude already selected substats
     );
   };
 
@@ -104,8 +76,8 @@ const Piece = ({
         <Grid size={12}>
           <Autocomplete
             size="small"
-            value={newCharObj.pieces[mainIndex].mainstat || ""}
-            options={MAINSTAT_OPTIONS[mainIndex]}
+            value={newCdata.pieces[mainIndex].mainstat || ""}
+            options={Object.keys(MAINSTATS[mainIndex])}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
@@ -115,7 +87,7 @@ const Piece = ({
             )}
             fullWidth
             disabled={mainIndex === 0 || mainIndex === 1}
-            disableClearable={newCharObj.pieces[mainIndex].mainstat === ""}
+            disableClearable={newCdata.pieces[mainIndex].mainstat === ""}
           />
         </Grid>
 
@@ -128,12 +100,12 @@ const Piece = ({
         {[0, 1, 2, 3].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Name Dropdown */}
-            <Grid size={8}>
+            <Grid size={9}>
               <Autocomplete
                 size="small"
-                value={newCharObj.pieces[mainIndex].substats[subIndex].name || ""}
-                options={getFilteredSubstatOptions(subIndex)}
-                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "name")}
+                value={newCdata.pieces[mainIndex].substats[subIndex].key || ""}
+                options={substatOptions(subIndex)}
+                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -141,15 +113,15 @@ const Piece = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCharObj.pieces[mainIndex].substats[subIndex].name === ""}
+                disableClearable={newCdata.pieces[mainIndex].substats[subIndex].key === ""}
               />
             </Grid>
 
             {/* Substat Value Input */}
-            <Grid size={4}>
+            <Grid size={3}>
               <TextField
                 size="small"
-                value={newCharObj.pieces[mainIndex].substats[subIndex].value || ""}
+                value={newCdata.pieces[mainIndex].substats[subIndex].value || ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   if (/^\d*\.?\d{0,1}$/.test(newValue)) {

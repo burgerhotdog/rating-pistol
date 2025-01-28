@@ -1,49 +1,106 @@
-import charData from "./data/charData";
+import CHARACTERS from "./data/CHARACTERS";
+import WEAPONS from "./data/WEAPONS";
+import SETS from "./data/SETS";
+import MAINSTATS from "./data/MAINSTATS";
+import SUBSTATS from "./data/SUBSTATS";
+import { NORMALIZE_4, NORMALIZE_3, NORMALIZE_1 } from "./data/NORMALIZE";
 
-const getScore = ( id, char ) => {
+const EXTRA_VALUES = [
+  { // 0
+    "ATK": 150,
+  },
+  { // 1
+    "ATK": 100,
+  },
+  { // 2
+    "ATK": 100,
+  },
+  { // 3
+    "HP": 2280,
+  },
+  { // 4
+    "HP": 2280,
+  },
+];
+
+const getScore = (cid, cdata) => {
   return "0";
-  // Values for 1 roll
-  const subValues = {
-    "ATK": 50,
-    "HP": 450,
-    "DEF": 50,
-    "ATK%": 9,
-    "HP%": 9,
-    "DEF%": 11.4,
-    "ER": 10.3,
-    "CRIT Rate": 8.4,
-    "CRIT DMG": 16.8,
-    "Basic DMG": 9,
-    "Heavy DMG": 9,
-    "Skill DMG": 9,
-    "Lib. DMG": 9,
-  }
+  // create refs for readability
+  const charRef = charData[id];
+  const weaponRef = weapData[char.weapon];
+  const setRef = setData[char.set];
+  const weightsRef = charData[id].weights;
 
-  let total = 0;
+  // get basestat values (character + weapon)
+  const basestats = { ...charRef.basestats };
+  Object.entries(weaponRef.basestats).forEach(([key, value]) => {
+    basestats[key] += value;
+  });
 
-  // Calculate total sum of rolls
-  // First and second substats count as 1 roll
-  // Third substat counts as 0.5 roll
-  for (let slot = 0; slot < 5; slot++) {
-    total += Number(char[slot][0] ?? 0) / subValues[charData[id].substats[0]];
-    total += Number(char[slot][1] ?? 0) / subValues[charData[id].substats[1]];
-    total += (Number(char[slot][2] ?? 0) / subValues[charData[id].substats[2]]) / 2;
-  }
-
-  console.log(total);
-
-  // Return it as a percentage of 12.5
-  // 12.5 represents an ideal amount of substat rolls
+  // sum up all the mainstats to a single object
+  const mainstatValues = char.pieces
+    .flatMap(piece => piece.mainstat) // consolidate mainstats to 1 array
+    .filter(main => main) // filter out blank mainstats
+    .reduce((totals, main) => { // combine same mainstat values
+      totals[main] = (totals[main] || 0) + MAINSTAT_VALUES[main];
+      return totals;
+    }, {});
   
-  /* This is calculated using Prydwen's algorithm.
-  There are 25 total substats possible (5 slots * 5 substats per slot).
-  13 rolls are evenly distributed between all 13 different substats (1 roll each).
-  The remaining 12 rolls are assigned to the best substats for each character.
-  Only restriction is that substats can't be allocated more than 4 rolls.
-  This comes out to: 4 + 4 + 4.
-  Add this to the original 20 distributed rolls: 5 + 5 + 5.
-  After taking into account the weights, our final sum is 12.5 */
-  return Math.round((total / 12.5) * 100);
+  // sum up all the substats to a single object
+  const substatValues = char.pieces
+    .flatMap(piece => piece.substats) // consolidate all pieces to 1 piece
+    .filter(sub => sub.key) // filter out blank substats
+    .reduce((totals, sub) => { // combine same substat values
+      if (basestats[sub.key]) { // convert flat stats to percentage stats
+        totals[sub.key + "p"] = (totals[sub.key + "p"] || 0) + percentage(Number(sub.value), basestats[sub.key]);
+      } else {
+        totals[sub.key] = (totals[sub.key] || 0) + Number(sub.value);
+      }
+      return totals;
+    }, {});
+  
+  // combine substats with mainstats
+  const combinedValues = { ...substatValues }; // Start with a copy of substatTotals
+  Object.entries(mainstatValues).forEach(([key, value]) => {
+    // Add mainstat values to combinedValues, summing if the key exists in substatTotals
+    combinedValues[key] = (combinedValues[key] || 0) + value;
+  });
+
+  // exclude er over energyReq, penalize not having enough er
+  const externalEr = 100 +
+    (charRef.minorfortes.er || 0) +
+    (charRef.passivestats.er || 0) +
+    (weaponRef.stats.er || 0) +
+    (setRef.stats.er || 0);
+  
+  const totalEr = externalEr + (combinedValues.er || 0);
+  if (totalEr > charRef.energyReq) { // too much er
+    combinedValues.er = Math.max(charRef.energyReq - externalEr, 0);
+  } else { // not enough er
+    combinedValues.er = (combinedValues.er || 0) - (charRef.energyReq - totalEr);
+  }
+  
+  // exclude cr over 100
+  const externalCr = 5 +
+    (charRef.minorfortes.cr || 0) +
+    (charRef.passivestats.cr || 0) +
+    (weaponRef.stats.cr || 0) +
+    (setRef.stats.cr || 0);
+  
+  const totalCr = externalCr + (combinedValues.cr || 0);
+  if (totalCr > 100) {
+    combinedValues.cr = 100 - externalCr;
+  }
+
+  // calculate score
+  let score = 0;
+  Object.entries(combinedValues).forEach(([key, value]) => {
+    const weight = key === "er" ? 1 : (weightsRef[key] || 0);
+    const normalize = 10 / MAINSTAT_VALUES[key];
+    score += weight * normalize * value;
+  });
+
+  return Math.max(0, Math.round(percentage(score, 67)));
 };
 
 export default getScore;

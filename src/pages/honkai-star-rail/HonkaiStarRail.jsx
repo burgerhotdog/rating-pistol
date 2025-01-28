@@ -19,11 +19,23 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
-import initCharObj from "./initCharObj";
+import blankCdata from "./blankCdata";
 
-const iconMedia = import.meta.glob("./assets/icon/*.webp", { eager: true });
-const weaponMedia = import.meta.glob("./assets/weapon/*.webp", { eager: true });
-const setMedia = import.meta.glob("./assets/set/*.webp", { eager: true });
+const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
+const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
+const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
+
+function toPascalCase(str) {
+  return str
+    .replace(/'s\b/gi, "s") // Step 1: Replace possessive "'s" with "s"
+    .match(/[a-z0-9]+/gi) // Step 2: Match alphabetic and numeric substrings
+    .map(word =>
+      /^[0-9]/.test(word) // Check if the word starts with a number
+        ? word // Leave it as is if it starts with a number
+        : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // PascalCase for alphabetic substrings
+    )
+    .join('');
+}
 
 const HonkaiStarRail = ({ uid }) => {
   // Modal States
@@ -35,12 +47,12 @@ const HonkaiStarRail = ({ uid }) => {
   const [myChars, setMyChars] = useState({});
 
   // New Character Object
-  const [newCharId, setNewCharId] = useState("");
-  const [newCharObj, setNewCharObj] = useState(initCharObj);
+  const [newCid, setNewCid] = useState("");
+  const [newCdata, setNewCdata] = useState(blankCdata);
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -68,23 +80,23 @@ const HonkaiStarRail = ({ uid }) => {
 
   // Add character button handler
   const handleAdd = () => {
-    setNewCharId("");
-    setNewCharObj(initCharObj());
+    setNewCid("");
+    setNewCdata(blankCdata());
     setIsEditMode(false);
     setIsSaveOpen(true);
   };
 
   // Edit button handler
   const handleEdit = (id) => {
-    setNewCharId(id);
-    setNewCharObj(myChars[id]);
+    setNewCid(id);
+    setNewCdata(myChars[id]);
     setIsEditMode(true);
     setIsSaveOpen(true);
   };
 
   // Delete button handler
   const handleDelete = (id) => {
-    setNewCharId(id);
+    setNewCid(id);
     setIsDeleteOpen(true);
   };
 
@@ -100,7 +112,7 @@ const HonkaiStarRail = ({ uid }) => {
         }}
       >
         <Typography variant="h4">Honkai Star Rail</Typography>
-        <Typography variant="body2">Updated for version 2.7</Typography>
+        <Typography variant="body2">Updated for version 3.0</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}
@@ -128,12 +140,12 @@ const HonkaiStarRail = ({ uid }) => {
                 // Order characters in table by score
                 Object.entries(myChars)
                 .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
-                .map(([id, char]) => (
-                  <TableRow key={id}>
+                .map(([cid, cdata]) => (
+                  <TableRow key={cid}>
                     <TableCell>
                       <img
-                        src={iconMedia[`./assets/icon/${id}_Icon.webp`]?.default}
-                        alt={char.name || "Icon"}
+                        src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
+                        alt={"char"}
                         style={{
                           width: 50,
                           height: 50,
@@ -141,12 +153,12 @@ const HonkaiStarRail = ({ uid }) => {
                         }}
                       />
                     </TableCell>
-                    <TableCell>{char.name}</TableCell>
+                    <TableCell>{cid}</TableCell>
                     {!isMobile && (
                       <TableCell>
                         <img
-                          src={weaponMedia[`./assets/weapon/${char.weapon.key}.webp`]?.default}
-                          alt={char.weapon.entry.name || "Weapon"}
+                          src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                          alt={"weap"}
                           style={{
                             width: 50,
                             height: 50,
@@ -164,8 +176,8 @@ const HonkaiStarRail = ({ uid }) => {
                           gap: 1,
                         }}>
                           <img
-                            src={setMedia[`./assets/set/${char.set1.key}.webp`]?.default}
-                            alt={char.set1.entry.name || "Set 1"}
+                            src={sImgs[`./assets/set/${toPascalCase(cdata.set1)}.webp`]?.default}
+                            alt={"set1"}
                             style={{
                               width: 50,
                               height: 50,
@@ -174,8 +186,8 @@ const HonkaiStarRail = ({ uid }) => {
                           />
                           <Typography>+</Typography>
                           <img
-                            src={setMedia[`./assets/set/${char.set2.key}.webp`]?.default}
-                            alt={char.set2.entry.name || "Set 2"}
+                            src={sImgs[`./assets/set/${toPascalCase(cdata.set2)}.webp`]?.default}
+                            alt={"set2"}
                             style={{
                               width: 50,
                               height: 50,
@@ -185,14 +197,14 @@ const HonkaiStarRail = ({ uid }) => {
                         </Box>
                       </TableCell>
                     )}
-                    <TableCell>{char.score}</TableCell>
+                    <TableCell>{cdata.score}</TableCell>
                     <TableCell>
                       {/* Edit button */}
                       <Button
                         size="small"
                         variant="outlined"
                         color="primary"
-                        onClick={() => handleEdit(id)}
+                        onClick={() => handleEdit(cid)}
                         sx={{ mr: 1 }}
                       >
                         <EditIcon />
@@ -203,7 +215,7 @@ const HonkaiStarRail = ({ uid }) => {
                         size="small"
                         variant="outlined"
                         color="secondary"
-                        onClick={() => handleDelete(id)}
+                        onClick={() => handleDelete(cid)}
                       >
                         <DeleteIcon />
                       </Button>
@@ -233,10 +245,10 @@ const HonkaiStarRail = ({ uid }) => {
           isEditMode={isEditMode}
           myChars={myChars}
           setMyChars={setMyChars}
-          newCharId={newCharId}
-          setNewCharId={setNewCharId}
-          newCharObj={newCharObj}
-          setNewCharObj={setNewCharObj}
+          newCid={newCid}
+          setNewCid={setNewCid}
+          newCdata={newCdata}
+          setNewCdata={setNewCdata}
         />
 
         {/* Delete modal */}
@@ -246,7 +258,7 @@ const HonkaiStarRail = ({ uid }) => {
           setIsDeleteOpen={setIsDeleteOpen}
           myChars={myChars}
           setMyChars={setMyChars}
-          newCharId={newCharId}
+          newCid={newCid}
         />
       </Box>        
     </Container>
