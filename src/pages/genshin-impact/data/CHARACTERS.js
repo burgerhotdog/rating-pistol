@@ -902,7 +902,6 @@ const CHARACTERS = {
     stats: { "Geo DMG": 28.8 },
     requirements: {},
     weights: {
-      "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "DEF%": 0.5,
@@ -915,7 +914,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,

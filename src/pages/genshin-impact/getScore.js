@@ -6,7 +6,8 @@ import SUBSTATS from "./data/SUBSTATS";
 import NORMALIZE from "./data/NORMALIZE";
 
 const getScore = (cid, cdata) => {
-  console.log("ID + DATA: ", cid, cdata);
+  console.log("Running getScore for: ", cid);
+
   // create refs for readability
   const charRef = CHARACTERS[cid];
   const weapRef = WEAPONS[cdata.weapon];
@@ -18,229 +19,214 @@ const getScore = (cid, cdata) => {
     baseStats[key] = value + (weapRef.base[key] || 0);
   });
 
-  // sum up all the mainstats and substats
-  const pieceStats = {};
+  console.log("baseStats: ", baseStats);
+
+  // sum up mainstats and substats
+  const mainstatSums = {};
+  const substatSums = {};
   for (let i = 0; i < 5; i++) {
-    // mainstat
-    let mainKey = cdata.pieces[i].mainstat;
-    let mainVal = MAINSTATS[i][mainKey];
-    if (mainKey && mainVal) {
-      pieceStats[mainKey] = (pieceStats[mainKey] || 0) + mainVal;
+    // mainstats
+    let mainKey = cdata.mainstats[i];
+    let mainValue = MAINSTATS[i][mainKey];
+    if (mainKey && mainValue) {
+      mainstatSums[mainKey] = (mainstatSums[mainKey] || 0) + mainValue;
     }
 
     // substats
     for (let j = 0; j < 4; j++) {
-      let subKey = cdata.pieces[i].substats[j].key;
-      let subVal = Number(cdata.pieces[i].substats[j].value);
-      if (subKey && subVal) {
-        pieceStats[subKey] = (pieceStats[subKey] || 0) + subVal;
+      let subKey = cdata.substats[i][j].key;
+      let subValue = Number(cdata.substats[i][j].value);
+      if (subKey && subValue) {
+        substatSums[subKey] = (substatSums[subKey] || 0) + subValue;
       }
     }
   }
   
-  // remove crit rate over 100
-  const startingCrit = 5 +
+  // trim off excess crit rate from substatSums
+  const otherCrit = 5 +
     (charRef.stats["CRIT Rate"] || 0) +
     (weapRef.stats["CRIT Rate"] || 0) +
-    (setRef.stats["CRIT Rate"] || 0);
+    (setRef.stats["CRIT Rate"] || 0) + 
+    (mainstatSums["CRIT Rate"] || 0);
   
-  const pieceCrit = (pieceStats["CRIT Rate"] || 0);
+  const subCrit = substatSums["CRIT Rate"] || 0;
   
-  if (startingCrit + pieceCrit > 100) {
-    pieceStats["CRIT Rate"] = 100 - startingCrit;
+  if (otherCrit + subCrit > 100) {
+    substatSums["CRIT Rate"] = Math.max(100 - otherCrit, 0);
+    console.log("Removed excess CRIT Rate, CRIT Rate set to: ", Math.max(100 - otherCrit, 0));
   }
 
-  // calculate score
-  // loop thru pieceStats
+  console.log("mainstatSums: ", mainstatSums);
+  console.log("substatSums: ", substatSums);
+
+  // calculate score of substatSums
+  console.log("Begin score calculation");
   let score = 0;
-  Object.entries(pieceStats).forEach(([key, value]) => {
+  Object.entries(substatSums).forEach(([key, value]) => {
     if (charRef.weights[key]) { // if stat is in weights
       const weight = charRef.weights[key];
-      const normalize = NORMALIZE[key];
+      const normalize = SUBSTATS[key];
+      console.log("Scoring stat: ", key, value);
+      console.log("Normalize, Weight: ", normalize, weight);
       score += (value / normalize) * weight;
-      console.log("in score", value, normalize, weight);
+      console.log("Added amount to score: ", (value / normalize) * weight);
     } else if (baseStats[key] && charRef.weights[key + "%"]) { // base stats
       // convert to %
       const valuePercent = (value / baseStats[key]) * 100;
       const weight = charRef.weights[key + "%"];
-      const normalize = NORMALIZE[key + "%"];
+      const normalize = SUBSTATS[key + "%"];
+      console.log("Scoring base stat: ", key, value);
+      console.log("valuePercent, Normalize, Weight: ", valuePercentnormalize, weight);
       score += (valuePercent / normalize) * weight;
-      console.log("in score", value, valuePercent, normalize, weight);
+      console.log("Added amount to score: ", (valuePercent / normalize) * weight);
     }
   });
 
-  console.log("baseStats: ", baseStats);
-  console.log("pieceStats: ", pieceStats);
   console.log("score: ", score);
 
   // simulate perfect substat distribution
-  const simStats = { "HP": 4780, "ATK": 311 };
+  const simSubstatSums = {};
 
-  // extract energy recharge from pieces
-  console.log("Matching energy: ");
-  const pieceEnergy = pieceStats["Energy Recharge"] || 0;
-  console.log("user build has this much energy: ", pieceEnergy);
+  // match energy recharge and calculate that in rolls
+  simSubstatSums["Energy Recharge"] = substatSums["Energy Recharge"] || 0;
+  const simEnergyRolls = Math.ceil(simSubstatSums["Energy Recharge"] / SUBSTATS["Energy Recharge"]);
 
-  // match simulated build to energy recharge
-  let simEnergyRolls = 0;
-  let energyLeft = pieceEnergy;
-  let useErMainstat = false;
-  if (energyLeft >= MAINSTATS[2]["Energy Recharge"]) {
-    simStats["Energy Recharge"] = MAINSTATS[2]["Energy Recharge"];
-    energyLeft -= MAINSTATS[2]["Energy Recharge"];
-    useErMainstat = true;
-  } else {
-    simStats["Energy Recharge"] = 0;
-  }
+  console.log("Energy recharge: ", simSubstatSums["Energy Recharge"], "Rolls: ", simEnergyRolls);
 
-  while (energyLeft > 0) {
-    simStats["Energy Recharge"] += SUBSTATS["Energy Recharge"];
-    energyLeft -= SUBSTATS["Energy Recharge"];
-    simEnergyRolls++;
-  }
-
-  console.log("must match this many energy rolls: ", simEnergyRolls);
-  // allocate mainstats
-  console.log("Allocating Mainstats:");
-  const getLargestKey = (obj1, obj2) => {
-    const keysToCheck = Object.keys(obj2);
-    if (keysToCheck.length === 0) return null; // Handle case when obj2 has no keys
-  
-    return keysToCheck.reduce((maxKey, key) => {
-      if (!obj1[key]) return maxKey; // Skip keys not in obj1
-      return obj1[key] > (obj1[maxKey] || 0) ? key : maxKey;
-    }, null);
+  const getLargestKey = (obj) => {
+    const entries = Object.entries(obj);
+    if (entries.length === 0) {
+      return ""; // Handle empty object case
+    }
+    return entries.reduce((maxKey, [key, value]) =>
+      value > obj[maxKey] ? key : maxKey
+    , Object.keys(obj)[0]); // Initialize with the first key
   };
-  
-  let p3main = "";
-  if (!useErMainstat) {
-    p3main = getLargestKey(charRef.weights, MAINSTATS[2])
-    simStats[p3main] = (simStats[p3main] || 0) + MAINSTATS[2][p3main];
-  } else {
-    p3main = "Energy Recharge";
-  }
-  console.log("p3main: ", p3main, simStats[p3main]);
-
-  const p4main = getLargestKey(charRef.weights, MAINSTATS[3])
-  simStats[p4main] = (simStats[p4main] || 0) + MAINSTATS[3][p4main];
-  console.log("p4main: ", p4main, simStats[p4main]);
-
-  const p5main = getLargestKey(charRef.weights, MAINSTATS[4])
-  simStats[p5main] = (simStats[p5main] || 0) + MAINSTATS[4][p5main];
-  console.log("p5main: ", p5main, simStats[p5main]);
 
   // allocate substats
-  console.log("Allocating Substats: ");
-  let substatsLeft = Math.max(40 - simEnergyRolls, 0);
-  const unusedWeights = {...SUBSTATS};
-  console.log("unusedWeights", unusedWeights);
-  let leftin1 = 8;
-  let leftin2 = 8;
-  let leftin3 = 8;
-  let leftin4 = 8;
-  let leftin5 = 8;
-  while (substatsLeft > 0) {
-    console.log("Subs left to allocate: ", substatsLeft);
-    let biggestWeightStat = getLargestKey(charRef.weights, unusedWeights);
-    if (!biggestWeightStat) break;
+  let rollsLeft = Math.max(40 - simEnergyRolls, 0);
+  const availableWeights = { ...charRef.weights };
+  let rollCount0 = 0;
+  let rollCount1 = 0;
+  let rollCount2 = 0;
+  let rollCount3 = 0;
+  let rollCount4 = 0;
+  while (rollsLeft > 0) {
+    console.log("Rolls left to allocate: ", rollsLeft);
+    let biggestWeightStat = getLargestKey(availableWeights);
+    if (!biggestWeightStat) {
+      console.log("No more available weights");
+      break;
+    }
+
     console.log("Allocating this weight: ", biggestWeightStat);
-    let numTimesMainstat = 0;
-    let using1 = leftin1 > 0 ? true : false;
-    let using2 = leftin2 > 0 ? true : false;
-    let using3 = leftin3 > 0 ? true : false;
-    let using4 = leftin4 > 0 ? true : false;
-    let using5 = leftin5 > 0 ? true : false;
-    if (biggestWeightStat === p3main) {
-      numTimesMainstat++;
+
+    let using0 = rollCount0 < 8 ? true : false;
+    let using1 = rollCount1 < 8 ? true : false;
+    let using2 = rollCount2 < 8 ? true : false;
+    let using3 = rollCount3 < 8 ? true : false;
+    let using4 = rollCount4 < 8 ? true : false;
+
+    if (biggestWeightStat === cdata.mainstats[2]) {
+      using2 = false;
+    }
+    if (biggestWeightStat === cdata.mainstats[3]) {
       using3 = false;
     }
-    if (biggestWeightStat === p4main) {
-      numTimesMainstat++;
+    if (biggestWeightStat === cdata.mainstats[4]) {
       using4 = false;
     }
-    if (biggestWeightStat === p5main) {
-      numTimesMainstat++;
-      using5 = false;
-    }
+
     let maxTimesToRoll = 0 +
-      (using1 ? ((leftin1 === 8) ? 5 : 1) : 0) +
-      (using2 ? ((leftin2 === 8) ? 5 : 1) : 0) +
-      (using3 ? ((leftin3 === 8) ? 5 : 1) : 0) +
-      (using4 ? ((leftin4 === 8) ? 5 : 1) : 0) +
-      (using5 ? ((leftin5 === 8) ? 5 : 1) : 0);
+      (using0 ? ((rollCount0 === 0) ? 5 : 1) : 0) +
+      (using1 ? ((rollCount1 === 0) ? 5 : 1) : 0) +
+      (using2 ? ((rollCount2 === 0) ? 5 : 1) : 0) +
+      (using3 ? ((rollCount3 === 0) ? 5 : 1) : 0) +
+      (using4 ? ((rollCount4 === 0) ? 5 : 1) : 0);
     
+    if (using0) {
+      if (rollCount0 === 0) {
+        rollCount0 = 5;
+      } else {
+        rollCount0++;
+      }
+    }
+
     if (using1) {
-      if (leftin1 === 8) {
-        leftin1 = 3;
+      if (rollCount1 === 0) {
+        rollCount1 = 5;
       } else {
-        leftin1--;
+        rollCount1++;
       }
     }
+
     if (using2) {
-      if (leftin2 === 8) {
-        leftin2 = 3;
+      if (rollCount2 === 0) {
+        rollCount2 = 5;
       } else {
-        leftin2--;
+        rollCount2++;
       }
     }
+
     if (using3) {
-      if (leftin3 === 8) {
-        leftin3 = 3;
+      if (rollCount3 === 0) {
+        rollCount3 = 5;
       } else {
-        leftin3--;
+        rollCount3++;
       }
     }
+
     if (using4) {
-      if (leftin4 === 8) {
-        leftin4 = 3;
+      if (rollCount4 === 0) {
+        rollCount4 = 5;
       } else {
-        leftin4--;
-      }
-    }
-    if (using5) {
-      if (leftin5 === 8) {
-        leftin5 = 3;
-      } else {
-        leftin5--;
+        rollCount4++;
       }
     }
 
-    if (substatsLeft < maxTimesToRoll) {
-      maxTimesToRoll = substatsLeft;
+    if (rollsLeft < maxTimesToRoll) {
+      maxTimesToRoll = rollsLeft;
     }
 
-    simStats[biggestWeightStat] = (simStats[biggestWeightStat] || 0) + (maxTimesToRoll * SUBSTATS[biggestWeightStat]);
+    simSubstatSums[biggestWeightStat] = (simSubstatSums[biggestWeightStat] || 0) + (maxTimesToRoll * SUBSTATS[biggestWeightStat]);
     console.log("Adding this many rolls: ", maxTimesToRoll);
     console.log("Value of 1 roll: ", SUBSTATS[biggestWeightStat]);
-    console.log("Total amount in simStats: ", simStats[biggestWeightStat]);
+    console.log("Total amount in simSubstatSums: ", simSubstatSums[biggestWeightStat]);
 
-    substatsLeft -= maxTimesToRoll;
-    delete unusedWeights[biggestWeightStat];
+    delete availableWeights[biggestWeightStat];
+    rollsLeft -= maxTimesToRoll;
   }
 
-  console.log("simStats: ", simStats);
-  // calculate score again
+  console.log("Substat allocation complete");
+  console.log("simSubstatSums: ", simSubstatSums);
+
+  // calculate score for sim stats
+  console.log("Begin score2 calculation");
   let score2 = 0;
-  Object.entries(simStats).forEach(([key, value]) => {
+  Object.entries(simSubstatSums).forEach(([key, value]) => {
     if (charRef.weights[key]) { // if stat is in weights
       const weight = charRef.weights[key];
-      const normalize = NORMALIZE[key];
+      const normalize = SUBSTATS[key];
+      console.log("Scoring stat: ", key, value);
+      console.log("Normalize, Weight: ", normalize, weight);
       score2 += (value / normalize) * weight;
-      console.log("in score2", value, normalize, weight);
+      console.log("Added amount to score: ", (value / normalize) * weight);
     } else if (baseStats[key] && charRef.weights[key + "%"]) { // base stats
       // convert to %
       const valuePercent = (value / baseStats[key]) * 100;
       const weight = charRef.weights[key + "%"];
-      const normalize = NORMALIZE[key + "%"];
+      const normalize = SUBSTATS[key + "%"];
+      console.log("Scoring base stat: ", key, value);
+      console.log("valuePercent, Normalize, Weight: ", valuePercentnormalize, weight);
       score2 += (valuePercent / normalize) * weight;
-      console.log("in score2", value, valuePercent, normalize, weight);
+      console.log("Added amount to score: ", (valuePercent / normalize) * weight);
     }
   });
 
   console.log("score2: ", score2)
 
-
-  return "0";
+  const finalscore = Math.round((score / score2) * 100);
+  return finalscore.toString();
 };
 
 export default getScore;
