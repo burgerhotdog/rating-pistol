@@ -1,8 +1,7 @@
 import React from "react";
 import { Autocomplete, Card, Divider, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import MAINSTATS from "../data/MAINSTATS";
-import SUBSTATS from "../data/SUBSTATS";
+import { MAINSTATS, SUBSTATS } from "../data/STATS";
 
 const PIECE_NAMES = ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"];
 

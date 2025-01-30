@@ -1,8 +1,7 @@
 import React from "react";
 import { Autocomplete, Card, Divider, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import MAINSTATS from "../data/MAINSTATS";
-import SUBSTATS from "../data/SUBSTATS";
+import { MAINSTATS, SUBSTATS } from "../data/STATS";
 
 const PIECE_NAMES = ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"];
 

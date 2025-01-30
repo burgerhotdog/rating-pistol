@@ -27,7 +27,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 38.4 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -40,7 +39,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -66,7 +64,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -80,7 +77,6 @@ const CHARACTERS = {
     stats: { "DEF%": 36 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "DEF%": 0.8,
     },
   },
@@ -92,7 +88,6 @@ const CHARACTERS = {
     stats: { "Geo DMG": 24 },
     requirements: {},
     weights: {
-      "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "DEF%": 0.5,
@@ -105,7 +100,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -118,7 +112,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.5,
@@ -133,7 +126,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -147,7 +139,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -160,7 +151,6 @@ const CHARACTERS = {
     stats: { "Elemental Mastery": 96 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "Elemental Mastery": 0.5,
@@ -184,7 +174,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -198,7 +187,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "DEF%": 0.5,
@@ -212,7 +200,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -247,7 +234,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -261,7 +247,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "ATK%": 0.8,
     },
   },
@@ -286,7 +271,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.5,
@@ -299,7 +283,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -314,7 +297,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Physical DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -327,7 +309,6 @@ const CHARACTERS = {
     stats: { "Anemo DMG": 24 },
     requirements: {},
     weights: {
-      "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -340,7 +321,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -353,7 +333,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -401,7 +380,6 @@ const CHARACTERS = {
     stats: { "HP%": 28.8 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.5,
@@ -414,7 +392,6 @@ const CHARACTERS = {
     stats: { "HP%": 24 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "HP%": 0.8,
     },
   },
@@ -426,7 +403,6 @@ const CHARACTERS = {
     stats: { "Dendro DMG": 28.8 },
     requirements: {},
     weights: {
-      "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "Elemental Mastery": 0.5,
@@ -439,7 +415,6 @@ const CHARACTERS = {
     stats: { "HP%": 24 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "HP%": 0.8,
     },
   },
@@ -464,7 +439,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -512,7 +486,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "Elemental Mastery": 0.4,
@@ -537,7 +510,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "Elemental Mastery": 0.4,
@@ -551,7 +523,6 @@ const CHARACTERS = {
     stats: { "HP%": 24 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "HP%": 0.8,
     },
   },
@@ -562,7 +533,6 @@ const CHARACTERS = {
     stats: { "Dendro DMG": 28.8 },
     requirements: {},
     weights: {
-      "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "Elemental Mastery": 0.4,
@@ -576,7 +546,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Dendro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -590,7 +559,6 @@ const CHARACTERS = {
     stats: { "Anemo DMG": 24 },
     requirements: {},
     weights: {
-      "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -615,7 +583,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.5,
@@ -629,7 +596,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -643,7 +609,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "Elemental Mastery": 0.4,
@@ -679,7 +644,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "DEF%": 0.5,
@@ -692,7 +656,6 @@ const CHARACTERS = {
     stats: { "Geo DMG": 24 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "DEF%": 0.8,
     },
   },
@@ -715,7 +678,6 @@ const CHARACTERS = {
     stats: { "Cryo DMG": 28.8 },
     requirements: {},
     weights: {
-      "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -728,7 +690,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -741,7 +702,6 @@ const CHARACTERS = {
     stats: { "Energy Recharge": 32 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -754,8 +714,6 @@ const CHARACTERS = {
     stats: { "Hydro DMG": 28.8 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
-      "Hydro DMG": 1,
       "HP%": 0.8,
     },
   },
@@ -767,7 +725,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -780,7 +737,6 @@ const CHARACTERS = {
     stats: { "Elemental Mastery": 96 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "Elemental Mastery": 0.8,
       "ATK%": 0.5,
     },
@@ -792,7 +748,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -805,7 +760,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -831,7 +785,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Physical DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -844,7 +797,6 @@ const CHARACTERS = {
     stats: { "Pyro DMG": 24 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -859,7 +811,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -874,7 +825,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.5,
@@ -888,7 +838,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -928,7 +877,6 @@ const CHARACTERS = {
     stats: { "Cryo DMG": 24 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "HP%": 0.8,
     },
   },
@@ -939,7 +887,6 @@ const CHARACTERS = {
     stats: { "Hydro DMG": 28.8 },
     requirements: {},
     weights: {
-      "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -953,7 +900,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Physical DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -980,7 +926,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -994,7 +939,6 @@ const CHARACTERS = {
     stats: { "HP%": 24 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "HP%": 0.8,
     },
   },
@@ -1005,7 +949,6 @@ const CHARACTERS = {
     stats: { "Electro DMG": 24 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1019,7 +962,6 @@ const CHARACTERS = {
     stats: { "Energy Recharge": 26.7 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "HP%": 0.8,
     },
   },
@@ -1030,7 +972,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1044,7 +985,6 @@ const CHARACTERS = {
     stats: { "CRIT Rate": 19.2 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1058,7 +998,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.4,
@@ -1072,7 +1011,6 @@ const CHARACTERS = {
     stats: { "Healing Bonus": 22.1 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "ATK%": 0.8,
     },
   },
@@ -1083,7 +1021,6 @@ const CHARACTERS = {
     stats: { "Energy Recharge": 26.7 },
     requirements: {},
     weights: {
-      "Cryo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1097,7 +1034,6 @@ const CHARACTERS = {
     stats: { "CRIT DMG": 38.4 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.4,
@@ -1111,7 +1047,6 @@ const CHARACTERS = {
     stats: { "Pyro DMG": 28.8 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1125,7 +1060,6 @@ const CHARACTERS = {
     stats: { "Elemental Mastery": 96 },
     requirements: {},
     weights: {
-      "Electro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.4,
@@ -1139,7 +1073,6 @@ const CHARACTERS = {
     stats: { "Energy Recharge": 32 },
     requirements: {},
     weights: {
-      "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1153,7 +1086,6 @@ const CHARACTERS = {
     stats: { "Geo DMG": 24 },
     requirements: {},
     weights: {
-      "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1166,7 +1098,6 @@ const CHARACTERS = {
     stats: { "DEF%": 30 },
     requirements: {},
     weights: {
-      "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "DEF%": 0.5,
@@ -1179,7 +1110,6 @@ const CHARACTERS = {
     stats: { "Healing Bonus": 22.1 },
     requirements: {},
     weights: {
-      "Healing Bonus": 1,
       "ATK%": 0.8,
     },
   },
@@ -1190,7 +1120,6 @@ const CHARACTERS = {
     stats: { "Physical DMG": 30 },
     requirements: {},
     weights: {
-      "Physical DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1213,7 +1142,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Anemo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1226,7 +1154,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Geo DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1249,7 +1176,6 @@ const CHARACTERS = {
     stats: { "Elemental Mastery": 96 },
     requirements: {},
     weights: {
-      "Pyro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,
@@ -1263,7 +1189,6 @@ const CHARACTERS = {
     stats: { "ATK%": 24 },
     requirements: {},
     weights: {
-      "Hydro DMG": 1,
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.5,

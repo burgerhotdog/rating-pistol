@@ -1,9 +1,7 @@
 import CHARACTERS from "./data/CHARACTERS";
 import WEAPONS from "./data/WEAPONS";
 import SETS from "./data/SETS";
-import MAINSTATS from "./data/MAINSTATS";
-import SUBSTATS from "./data/SUBSTATS";
-import { NORMALIZE_4, NORMALIZE_3, NORMALIZE_1 } from "./data/NORMALIZE";
+import { MAINSTATS, SUBSTATS } from "./data/STATS";
 
 const EXTRA_VALUES = [
   { // 0
