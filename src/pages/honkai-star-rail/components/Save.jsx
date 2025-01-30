@@ -14,8 +14,8 @@ import {
 } from "@mui/material";
 import { db } from "../../../firebase";
 import Piece from "./Piece";
-import getScore from "../getScore";
-import blankCdata from "../blankCdata";
+import getScore from "./getScore";
+import blankCdata from "./blankCdata";
 import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";

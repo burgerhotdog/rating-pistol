@@ -1,15 +1,32 @@
-import CHARACTERS from "./data/CHARACTERS";
-import WEAPONS from "./data/WEAPONS";
-import SETS from "./data/SETS";
-import { MAINSTATS, SUBSTATS } from "./data/STATS";
+import CHARACTERS from "../data/CHARACTERS";
+import WEAPONS from "../data/WEAPONS";
+import SETS from "../data/SETS";
+import { MAINSTATS, SUBSTATS } from "../data/STATS";
+
+const EXTRA_VALUES = [
+  { // 0
+    "ATK": 150,
+  },
+  { // 1
+    "ATK": 100,
+  },
+  { // 2
+    "ATK": 100,
+  },
+  { // 3
+    "HP": 2280,
+  },
+  { // 4
+    "HP": 2280,
+  },
+];
 
 const getScore = (cid, cdata) => {
   return "0";
   // create refs for readability
   const charRef = charData[id];
   const weaponRef = weapData[char.weapon];
-  const set1Ref = setData[char.set1];
-  const set2Ref = setData[char.set2];
+  const setRef = setData[char.set];
   const weightsRef = charData[id].weights;
 
   // get basestat values (character + weapon)
@@ -22,7 +39,6 @@ const getScore = (cid, cdata) => {
   const mainstatValues = char.pieces
     .flatMap(piece => piece.mainstat) // consolidate mainstats to 1 array
     .filter(main => main) // filter out blank mainstats
-    .slice(3) // dont include first 2 pieces
     .reduce((totals, main) => { // combine same mainstat values
       totals[main] = (totals[main] || 0) + MAINSTAT_VALUES[main];
       return totals;
@@ -47,14 +63,27 @@ const getScore = (cid, cdata) => {
     // Add mainstat values to combinedValues, summing if the key exists in substatTotals
     combinedValues[key] = (combinedValues[key] || 0) + value;
   });
+
+  // exclude er over energyReq, penalize not having enough er
+  const externalEr = 100 +
+    (charRef.minorfortes.er || 0) +
+    (charRef.passivestats.er || 0) +
+    (weaponRef.stats.er || 0) +
+    (setRef.stats.er || 0);
+  
+  const totalEr = externalEr + (combinedValues.er || 0);
+  if (totalEr > charRef.energyReq) { // too much er
+    combinedValues.er = Math.max(charRef.energyReq - externalEr, 0);
+  } else { // not enough er
+    combinedValues.er = (combinedValues.er || 0) - (charRef.energyReq - totalEr);
+  }
   
   // exclude cr over 100
   const externalCr = 5 +
-    (charRef.corepassivebonuses.cr || 0) +
+    (charRef.minorfortes.cr || 0) +
     (charRef.passivestats.cr || 0) +
     (weaponRef.stats.cr || 0) +
-    (set1Ref.stats.cr || 0) +
-    (set2Ref.stats.cr || 0);
+    (setRef.stats.cr || 0);
   
   const totalCr = externalCr + (combinedValues.cr || 0);
   if (totalCr > 100) {
@@ -64,12 +93,12 @@ const getScore = (cid, cdata) => {
   // calculate score
   let score = 0;
   Object.entries(combinedValues).forEach(([key, value]) => {
-    const weight = weightsRef[key] || 0;
+    const weight = key === "er" ? 1 : (weightsRef[key] || 0);
     const normalize = 10 / MAINSTAT_VALUES[key];
     score += weight * normalize * value;
   });
 
-  return Math.max(0, Math.round(percentage(score, 55)));
+  return Math.max(0, Math.round(percentage(score, 67)));
 };
 
 export default getScore;

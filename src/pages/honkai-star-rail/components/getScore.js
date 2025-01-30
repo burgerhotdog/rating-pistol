@@ -1,7 +1,7 @@
-import CHARACTERS from "./data/CHARACTERS";
-import WEAPONS from "./data/WEAPONS";
-import SETS from "./data/SETS";
-import { MAINSTATS, SUBSTATS } from "./data/STATS";
+import CHARACTERS from "../data/CHARACTERS";
+import WEAPONS from "../data/WEAPONS";
+import SETS from "../data/SETS";
+import { MAINSTATS, SUBSTATS } from "../data/STATS";
 
 const getScore = (cid, cdata) => {
   return "0";
