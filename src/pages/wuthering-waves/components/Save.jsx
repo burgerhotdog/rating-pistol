@@ -160,7 +160,7 @@ const Save = ({
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          backgroundColor: "#1c1c1c",
+          backgroundColor: "background.paper",
           padding: 4,
           borderRadius: 2,
           maxHeight: "90vh",

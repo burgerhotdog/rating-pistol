@@ -15,13 +15,23 @@ const Piece = ({
     setNewCdata((prev) => {
       // Create a copy of the mainstats array
       const updatedMainstats = [...prev.mainstats];
+      const updatedSubstats = [...prev.substats];
 
       // Update the data in the copy
       updatedMainstats[mainIndex] = newValue || "";
 
+      // Clear the substats for the updated mainstat
+      updatedSubstats[mainIndex] = [
+        { key: "", value: "" },
+        { key: "", value: "" },
+        { key: "", value: "" },
+        { key: "", value: "" },
+      ];
+
       return {
         ...prev,
         mainstats: updatedMainstats,
+        substats: updatedSubstats,
       };
     });
   };
@@ -38,6 +48,7 @@ const Piece = ({
       updatedSubstats[mainIndex][subIndex] = {
         ...updatedSubstats[mainIndex][subIndex],
         [attribute]: newValue || "",
+        ...(attribute === "key" && { value: "" }),
       };
   
       return {
@@ -101,10 +112,11 @@ const Piece = ({
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label={"substat"}
+                    label={"Substat"}
                   />
                 )}
                 fullWidth
+                disabled={newCdata.mainstats[mainIndex] === ""}
                 disableClearable={newCdata.substats[mainIndex][subIndex].key === ""}
               />
             </Grid>
@@ -121,6 +133,7 @@ const Piece = ({
                   }
                 }}
                 fullWidth
+                disabled={newCdata.substats[mainIndex][subIndex].key === ""}
               />
             </Grid>
           </React.Fragment>

@@ -3,15 +3,6 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   palette: {
     mode: "dark",
-    text: {
-      primary: "rgba(255, 255, 255, 0.87)",
-      secondary: "rgba(255, 255, 255, 0.7)",
-      disabled: "rgba(255, 255, 255, 0.5)",
-    },
-    background: {
-      default: "#121212",
-      paper: "#1D1D1D",
-    }
   },
   components: {
     MuiButton: {
@@ -28,20 +19,6 @@ const theme = createTheme({
               opacity: 0.8,
             },
           },
-        },
-      },
-    },
-    MuiMenu: {
-      styleOverrides: {
-        paper: {
-          backgroundColor: "#333333",
-        },
-      },
-    },
-    MuiSelect: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "#3b3b3b",
         },
       },
     },
