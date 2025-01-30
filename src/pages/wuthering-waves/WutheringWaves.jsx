@@ -19,7 +19,6 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
-import blankCdata from "./blankCdata";
 
 const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
@@ -40,15 +39,10 @@ function toPascalCase(str) {
 const WutheringWaves = ({ uid }) => {
   // Modal States
   const [isSaveOpen, setIsSaveOpen] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
 
   // Local Character Objects
   const [myChars, setMyChars] = useState({});
-
-  // New Character Object
-  const [newCid, setNewCid] = useState("");
-  const [newCdata, setNewCdata] = useState(blankCdata);
 
   // Mobile layout breakpoint
   const theme = useTheme();
@@ -77,28 +71,6 @@ const WutheringWaves = ({ uid }) => {
     };
     fetchDB();
   }, [uid]);
-
-  // Add character button handler
-  const handleAdd = () => {
-    setNewCid("");
-    setNewCdata(blankCdata());
-    setIsEditMode(false);
-    setIsSaveOpen(true);
-  };
-
-  // Edit button handler
-  const handleEdit = (id) => {
-    setNewCid(id);
-    setNewCdata(myChars[id]);
-    setIsEditMode(true);
-    setIsSaveOpen(true);
-  };
-
-  // Delete button handler
-  const handleDelete = (id) => {
-    setNewCid(id);
-    setIsDeleteOpen(true);
-  };
 
   return (
     <Container>
@@ -187,7 +159,7 @@ const WutheringWaves = ({ uid }) => {
                         size="small"
                         variant="outlined"
                         color="primary"
-                        onClick={() => handleEdit(cid)}
+                        onClick={() => setIsSaveOpen(cid)}
                         sx={{ mr: 1 }}
                       >
                         <EditIcon />
@@ -198,7 +170,7 @@ const WutheringWaves = ({ uid }) => {
                         size="small"
                         variant="outlined"
                         color="secondary"
-                        onClick={() => handleDelete(cid)}
+                        onClick={() => setIsDeleteOpen(cid)}
                       >
                         <DeleteIcon />
                       </Button>
@@ -214,7 +186,7 @@ const WutheringWaves = ({ uid }) => {
         <Button
           variant="contained"
           color="primary"
-          onClick={handleAdd}
+          onClick={() => setIsSaveOpen(true)}
           sx={{ mt: 2 }}
         >
           Add character
@@ -225,13 +197,8 @@ const WutheringWaves = ({ uid }) => {
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
-          isEditMode={isEditMode}
           myChars={myChars}
           setMyChars={setMyChars}
-          newCid={newCid}
-          setNewCid={setNewCid}
-          newCdata={newCdata}
-          setNewCdata={setNewCdata}
         />
 
         {/* Delete modal */}
@@ -239,9 +206,7 @@ const WutheringWaves = ({ uid }) => {
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
-          myChars={myChars}
           setMyChars={setMyChars}
-          newCid={newCid}
         />
       </Box>        
     </Container>

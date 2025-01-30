@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import Grid from "@mui/material/Grid2";
 import {
@@ -39,15 +39,25 @@ const Save = ({
   uid,
   isSaveOpen,
   setIsSaveOpen,
-  isEditMode,
   myChars,
   setMyChars,
-  newCid,
-  setNewCid,
-  newCdata,
-  setNewCdata,
 }) => {
   const [error, setError] = useState("");
+  const [newCid, setNewCid] = useState("");
+  const [newCdata, setNewCdata] = useState(blankCdata);
+
+  // When modal opens, reset newCid and newCdata
+  useEffect(() => {
+    if (isSaveOpen) {
+      if (isSaveOpen === true) {
+        setNewCid("");
+        setNewCdata(blankCdata());
+      } else {
+        setNewCid(isSaveOpen);
+        setNewCdata(myChars[isSaveOpen]);
+      }
+    }
+  }, [isSaveOpen, myChars]);
   
   // Mobile layout breakpoint
   const theme = useTheme();
@@ -157,7 +167,7 @@ const Save = ({
   };
 
   return (
-    <Modal open={isSaveOpen} onClose={handleCancel}>
+    <Modal open={Boolean(isSaveOpen)} onClose={handleCancel}>
       <Box
         sx={{
           position: "absolute",
@@ -206,7 +216,7 @@ const Save = ({
               />
             )}
             sx={{ width: { xs: 128, xl: 256 } }}
-            disabled={isEditMode}
+            disabled={isSaveOpen && isSaveOpen !== true}
             disableClearable={newCid === ""}
           />
 

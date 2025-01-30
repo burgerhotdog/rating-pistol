@@ -2,7 +2,7 @@ const blankCdata = () => ({
   weapon: "",
   set: "",
   mainstats: ["", "", "", "", ""],
-  pieces: [
+  substats: [
     [
       { key: "", value: "" },
       { key: "", value: "" },

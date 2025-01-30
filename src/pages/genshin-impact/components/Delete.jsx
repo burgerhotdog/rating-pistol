@@ -8,21 +8,20 @@ const Delete = ({
   isDeleteOpen,
   setIsDeleteOpen,
   setMyChars,
-  newCid,
 }) => {
   // Delete button handler
   const handleDelete = async () => {
     try {
       // If signed in, delete document from firestore
       if (uid) {
-        const characterDocRef = doc(db, "users", uid, "GenshinImpact", newCid);
+        const characterDocRef = doc(db, "users", uid, "GenshinImpact", isDeleteOpen);
         await deleteDoc(characterDocRef);
       }
 
       // Delete object from myChars
       setMyChars((prev) => {
         const updatedChars = { ...prev };
-        delete updatedChars[newCid];
+        delete updatedChars[isDeleteOpen];
         return updatedChars;
       });
     } catch (error) {
@@ -38,7 +37,7 @@ const Delete = ({
   };
 
   return (
-    <Modal open={isDeleteOpen} onClose={handleCancel}>
+    <Modal open={Boolean(isDeleteOpen)} onClose={handleCancel}>
       {/* Modal Styles */}
       <Box
         sx={{
@@ -54,7 +53,7 @@ const Delete = ({
         {/* Text section */}
         <Typography variant="body1">
           Are you sure you want to delete{" "}
-          <strong>{newCid}</strong>
+          <strong>{isDeleteOpen}</strong>
           ?
         </Typography>
 

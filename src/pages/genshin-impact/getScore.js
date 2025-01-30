@@ -74,7 +74,7 @@ const getScore = (cid, cdata) => {
       const weight = charRef.weights[key + "%"];
       const normalize = SUBSTATS[key + "%"];
       console.log("Scoring base stat: ", key, value);
-      console.log("valuePercent, Normalize, Weight: ", valuePercentnormalize, weight);
+      console.log("valuePercent, Normalize, Weight: ", valuePercent, normalize, weight);
       score += (valuePercent / normalize) * weight;
       console.log("Added amount to score: ", (valuePercent / normalize) * weight);
     }
@@ -215,7 +215,7 @@ const getScore = (cid, cdata) => {
       const weight = charRef.weights[key + "%"];
       const normalize = SUBSTATS[key + "%"];
       console.log("Scoring base stat: ", key, value);
-      console.log("valuePercent, Normalize, Weight: ", valuePercentnormalize, weight);
+      console.log("valuePercent, Normalize, Weight: ", valuePercent, normalize, weight);
       score2 += (valuePercent / normalize) * weight;
       console.log("Added amount to score: ", (valuePercent / normalize) * weight);
     }
