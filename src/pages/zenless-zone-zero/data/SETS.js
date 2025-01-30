@@ -3,12 +3,12 @@ const SETS = {
   
   // Version 1.4
   "Astral Voice": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Branch & Blade Song": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
@@ -16,12 +16,12 @@ const SETS = {
   
   // Version 1.2
   "Chaos Jazz": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Proto Punk": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
@@ -29,62 +29,62 @@ const SETS = {
   
   // Version 1.0
   "Chaotic Metal": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Fanged Metal": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Freedom Blues": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Hormone Punk": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Inferno Metal": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Polar Metal": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Puffer Electro": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Shockstar Disco": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Soul Rock": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Swing Jazz": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Thunder Metal": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Woodpecker Electro": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
 };

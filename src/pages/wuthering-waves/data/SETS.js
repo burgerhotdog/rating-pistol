@@ -1,27 +1,27 @@
 const SETS = {
   // Version 2.0
   "Empyrean Anthem": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Eternal Radiance": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Frosty Resolve": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Midnight Veil": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Tidebreaking Courage": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
@@ -35,47 +35,47 @@ const SETS = {
   
   // Version 1.0
   "Celestial Light": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Freezing Frost": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Lingering Tunes": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Molten Rift": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Moonlit Clouds": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Rejuvenating Glow": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Sierra Gale": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Havoc Eclipse": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Void Thunder": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
 };

@@ -7,12 +7,12 @@ const SETS = {
 
   // Version 5.0
   "Obsidian Codex": {
-    requirements: {},
+    conditions: {},
     stats: { "CRIT Rate": 40 },
   },
   
   "Scroll of the Hero of Cinder City": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
@@ -22,12 +22,12 @@ const SETS = {
   
   // Version 4.6
   "Fragment of Harmonic Whimsy": {
-    requirements: {},
+    conditions: {},
     stats: { "ATK%": 18 },
   },
   
   "Unfinished Reverie": {
-    requirements: {},
+    conditions: {},
     stats: { "ATK%": 18 },
   },
   
@@ -37,12 +37,12 @@ const SETS = {
   
   // Version 4.3
   "Nighttime Whispers in the Echoing Woods": {
-    requirements: {},
+    conditions: {},
     stats: { "ATK%": 18 },
   },
   
   "Song of Days Past": {
-    requirements: {},
+    conditions: {},
     stats: { "Healing Bonus": 15 },
   },
   
@@ -52,12 +52,12 @@ const SETS = {
   
   // Version 4.0
   "Golden Troupe": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Marechaussee Hunter": {
-    requirements: {},
+    conditions: {},
     stats: { "CRIT Rate": 36 },
   },
   
@@ -67,12 +67,12 @@ const SETS = {
   
   // Version 3.6
   "Nymph's Dream": {
-    requirements: {},
+    conditions: {},
     stats: { "Hydro DMG": 15 },
   },
   
   "Vourukasha's Glow": {
-    requirements: {},
+    conditions: {},
     stats: { "HP%": 20 },
   },
   
@@ -82,12 +82,12 @@ const SETS = {
   
   // Version 3.3
   "Desert Pavilion Chronicle": {
-    requirements: {},
+    conditions: {},
     stats: { "Anemo DMG": 15 },
   },
   
   "Flower of Paradise Lost": {
-    requirements: {},
+    conditions: {},
     stats: { "Elemental Mastery": 80 },
   },
   
@@ -97,12 +97,12 @@ const SETS = {
   
   // Version 3.0
   "Deepwood Memories": {
-    requirements: {},
+    conditions: {},
     stats: { "Dendro DMG": 15 },
   },
   
   "Gilded Dreams": {
-    requirements: {},
+    conditions: {},
     stats: { "Elemental Mastery": 80 },
   },
   
@@ -112,12 +112,12 @@ const SETS = {
   
   // Version 2.6
   "Echoes of an Offering": {
-    requirements: {},
+    conditions: {},
     stats: { "ATK%": 18 },
   },
   
   "Vermillion Hereafter": {
-    requirements: {},
+    conditions: {},
     stats: { "ATK%": 66 },
   },
   
@@ -127,12 +127,12 @@ const SETS = {
   
   // Version 2.3
   "Husk of Opulent Dreams": {
-    requirements: {},
+    conditions: {},
     stats: { "DEF%": 54, "Geo DMG": 24 },
   },
   
   "Ocean-Hued Clam": {
-    requirements: {},
+    conditions: {},
     stats: { "Healing Bonus": 15 },
   },
   
@@ -142,12 +142,12 @@ const SETS = {
   
   // Version 2.0
   "Emblem of Severed Fate": {
-    requirements: {},
+    conditions: {},
     stats: { "Energy Recharge": 20 },
   },
   
   "Shimenawa's Reminiscence": {
-    requirements: {},
+    conditions: {},
     stats: { "ATK%": 18 },
   },
   
@@ -155,12 +155,12 @@ const SETS = {
   
   // Version 1.5
   "Pale Flame": {
-    requirements: {},
+    conditions: {},
     stats: { "Physical DMG": 25 },
   },
   
   "Tenacity of the Millelith": {
-    requirements: {},
+    conditions: {},
     stats: { "HP%": 20, "ATK%": 20 },
   },
   
@@ -170,12 +170,12 @@ const SETS = {
   
   // Version 1.2
   "Blizzard Strayer": {
-    requirements: {},
+    conditions: {},
     stats: { "Cryo DMG": 15, "CRIT Rate": 40 },
   },
   
   "Heart of Depth": {
-    requirements: {},
+    conditions: {},
     stats: { "Hydro DMG": 15 },
   },
   
@@ -183,62 +183,62 @@ const SETS = {
   
   // Version 1.0
   "Archaic Petra": {
-    requirements: {},
+    conditions: {},
     stats: { "Geo DMG": 15 },
   },
   
   "Bloodstained Chivalry": {
-    requirements: {},
+    conditions: {},
     stats: { "Physical DMG": 25 },
   },
   
   "Crimson Witch of Flames": {
-    requirements: {},
+    conditions: {},
     stats: { "Pyro DMG": 15 },
   },
   
   "Gladiator's Finale": {
-    requirements: {},
+    conditions: {},
     stats: { "ATK%": 18 },
   },
   
   "Lavawalker": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Maiden Beloved": {
-    requirements: {},
+    conditions: {},
     stats: { "Healing Bonus": 15 },
   },
   
   "Noblesse Oblige": {
-    requirements: {},
+    conditions: {},
     stats: { "ATK%": 20 },
   },
   
   "Retracing Bolide": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Thundering Fury": {
-    requirements: {},
+    conditions: {},
     stats: { "Electro DMG": 15 },
   },
   
   "Thundersoother": {
-    requirements: {},
+    conditions: {},
     stats: {},
   },
   
   "Viridescent Venerer": {
-    requirements: {},
+    conditions: {},
     stats: { "Anemo DMG": 15 },
   },
   
   "Wanderer's Troupe": {
-    requirements: {},
+    conditions: {},
     stats: { "Elemental Mastery": 80 },
   },
 };
