@@ -3,34 +3,60 @@ import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
 import { MAINSTATS, SUBSTATS } from "../data/STATS";
 
+const calculateBaseStats = (charRef, weapRef) => {
+  return Object.entries(charRef.base).reduce((baseStats, [key, value]) => {
+    baseStats[key] = value + (weapRef.base[key] || 0);
+    return baseStats;
+  }, {});
+};
+
+const calculateStatScore = (key, value, charRef, baseStats) => {
+  if (charRef.weights[key]) {
+    const weight = charRef.weights[key];
+    const normalize = SUBSTATS[key];
+    return (value / normalize) * weight;
+  } else if (baseStats[key] && charRef.weights[key + "%"]) {
+    const valuePercent = (value / baseStats[key]) * 100;
+    const weight = charRef.weights[key + "%"];
+    const normalize = SUBSTATS[key + "%"];
+    return (valuePercent / normalize) * weight;
+  }
+  return 0;
+};
+
+const getLargestKey = (obj) => {
+  const entries = Object.entries(obj);
+  if (entries.length === 0) {
+    return ""; // Handle empty object case
+  }
+  return entries.reduce((maxKey, [key, value]) =>
+    value > obj[maxKey] ? key : maxKey
+  , Object.keys(obj)[0]); // Initialize with the first key
+};
+
 const getScore = (cid, cdata) => {
   console.log("Running getScore for: ", cid);
 
-  // create refs for readability
   const charRef = CHARACTERS[cid];
   const weapRef = WEAPONS[cdata.weapon];
   const setRef = SETS[cdata.set];
 
-  // sum character and weapon base stats
-  const baseStats = {};
-  Object.entries(charRef.base).forEach(([key, value]) => {
-    baseStats[key] = value + (weapRef.base[key] || 0);
-  });
-
+  const baseStats = calculateBaseStats(charRef, weapRef);
   console.log("baseStats: ", baseStats);
 
-  // sum up mainstats and substats
   const mainstatSums = {};
   const substatSums = {};
+
+  // Sum mainstats and substats
   for (let i = 0; i < 5; i++) {
-    // mainstats
+    // Mainstats
     let mainKey = cdata.mainstats[i];
     let mainValue = MAINSTATS[i][mainKey];
     if (mainKey && mainValue) {
       mainstatSums[mainKey] = (mainstatSums[mainKey] || 0) + mainValue;
     }
 
-    // substats
+    // Substats
     for (let j = 0; j < 4; j++) {
       let subKey = cdata.substats[i][j].key;
       let subValue = Number(cdata.substats[i][j].value);
@@ -40,7 +66,7 @@ const getScore = (cid, cdata) => {
     }
   }
   
-  // trim off excess crit rate from substatSums
+  // Remove CRIT Rate exceeding 100
   const otherCrit = 5 +
     (charRef.stats["CRIT Rate"] || 0) +
     (weapRef.stats["CRIT Rate"] || 0) +
@@ -51,58 +77,26 @@ const getScore = (cid, cdata) => {
   
   if (otherCrit + subCrit > 100) {
     substatSums["CRIT Rate"] = Math.max(100 - otherCrit, 0);
-    console.log("Removed excess CRIT Rate, CRIT Rate set to: ", Math.max(100 - otherCrit, 0));
   }
 
   console.log("mainstatSums: ", mainstatSums);
   console.log("substatSums: ", substatSums);
 
-  // calculate score of substatSums
-  console.log("Begin score calculation");
+  // Calculate score for substatSums
   let score = 0;
   Object.entries(substatSums).forEach(([key, value]) => {
-    if (charRef.weights[key]) { // if stat is in weights
-      const weight = charRef.weights[key];
-      const normalize = SUBSTATS[key];
-      console.log("Scoring stat: ", key, value);
-      console.log("Normalize, Weight: ", normalize, weight);
-      score += (value / normalize) * weight;
-      console.log("Added amount to score: ", (value / normalize) * weight);
-    } else if (baseStats[key] && charRef.weights[key + "%"]) { // base stats
-      // convert to %
-      const valuePercent = (value / baseStats[key]) * 100;
-      const weight = charRef.weights[key + "%"];
-      const normalize = SUBSTATS[key + "%"];
-      console.log("Scoring base stat: ", key, value);
-      console.log("valuePercent, Normalize, Weight: ", valuePercent, normalize, weight);
-      score += (valuePercent / normalize) * weight;
-      console.log("Added amount to score: ", (valuePercent / normalize) * weight);
-    }
+    score += calculateStatScore(key, value, charRef, baseStats);
   });
 
   console.log("score: ", score);
 
-  // simulate perfect substat distribution
-  const simSubstatSums = {};
-
-  // match energy recharge and calculate that in rolls
-  simSubstatSums["Energy Recharge"] = substatSums["Energy Recharge"] || 0;
+  // Simulate perfect substat distribution
+  // Match energy recharge and calculate that in rolls
+  const simSubstatSums = { "Energy Recharge": substatSums["Energy Recharge"] || 0};
   const simEnergyRolls = Math.ceil(simSubstatSums["Energy Recharge"] / SUBSTATS["Energy Recharge"]);
-
-  console.log("Energy recharge: ", simSubstatSums["Energy Recharge"], "Rolls: ", simEnergyRolls);
-
-  const getLargestKey = (obj) => {
-    const entries = Object.entries(obj);
-    if (entries.length === 0) {
-      return ""; // Handle empty object case
-    }
-    return entries.reduce((maxKey, [key, value]) =>
-      value > obj[maxKey] ? key : maxKey
-    , Object.keys(obj)[0]); // Initialize with the first key
-  };
+  let rollsLeft = Math.max(40 - simEnergyRolls, 0);
 
   // allocate substats
-  let rollsLeft = Math.max(40 - simEnergyRolls, 0);
   const availableWeights = { ...charRef.weights };
   let rollCount0 = 0;
   let rollCount1 = 0;
@@ -110,14 +104,10 @@ const getScore = (cid, cdata) => {
   let rollCount3 = 0;
   let rollCount4 = 0;
   while (rollsLeft > 0) {
-    console.log("Rolls left to allocate: ", rollsLeft);
     let biggestWeightStat = getLargestKey(availableWeights);
     if (!biggestWeightStat) {
-      console.log("No more available weights");
       break;
     }
-
-    console.log("Allocating this weight: ", biggestWeightStat);
 
     let using0 = rollCount0 < 8 ? true : false;
     let using1 = rollCount1 < 8 ? true : false;
@@ -128,9 +118,11 @@ const getScore = (cid, cdata) => {
     if (biggestWeightStat === cdata.mainstats[2]) {
       using2 = false;
     }
+
     if (biggestWeightStat === cdata.mainstats[3]) {
       using3 = false;
     }
+    
     if (biggestWeightStat === cdata.mainstats[4]) {
       using4 = false;
     }
@@ -187,40 +179,19 @@ const getScore = (cid, cdata) => {
     }
 
     simSubstatSums[biggestWeightStat] = (simSubstatSums[biggestWeightStat] || 0) + (maxTimesToRoll * SUBSTATS[biggestWeightStat]);
-    console.log("Adding this many rolls: ", maxTimesToRoll);
-    console.log("Value of 1 roll: ", SUBSTATS[biggestWeightStat]);
-    console.log("Total amount in simSubstatSums: ", simSubstatSums[biggestWeightStat]);
 
     delete availableWeights[biggestWeightStat];
     rollsLeft -= maxTimesToRoll;
   }
 
-  console.log("Substat allocation complete");
   console.log("simSubstatSums: ", simSubstatSums);
 
-  // calculate score for sim stats
-  console.log("Begin score2 calculation");
+  // Calculate score for simulated substat distribution
   let score2 = 0;
   Object.entries(simSubstatSums).forEach(([key, value]) => {
-    if (charRef.weights[key]) { // if stat is in weights
-      const weight = charRef.weights[key];
-      const normalize = SUBSTATS[key];
-      console.log("Scoring stat: ", key, value);
-      console.log("Normalize, Weight: ", normalize, weight);
-      score2 += (value / normalize) * weight;
-      console.log("Added amount to score: ", (value / normalize) * weight);
-    } else if (baseStats[key] && charRef.weights[key + "%"]) { // base stats
-      // convert to %
-      const valuePercent = (value / baseStats[key]) * 100;
-      const weight = charRef.weights[key + "%"];
-      const normalize = SUBSTATS[key + "%"];
-      console.log("Scoring base stat: ", key, value);
-      console.log("valuePercent, Normalize, Weight: ", valuePercent, normalize, weight);
-      score2 += (valuePercent / normalize) * weight;
-      console.log("Added amount to score: ", (valuePercent / normalize) * weight);
-    }
+    score2 += calculateStatScore(key, value, charRef, baseStats);
   });
-
+  
   console.log("score2: ", score2)
 
   const finalscore = Math.round((score / score2) * 100);

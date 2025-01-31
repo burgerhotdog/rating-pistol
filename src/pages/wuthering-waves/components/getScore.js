@@ -3,102 +3,179 @@ import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
 import { MAINSTATS, SUBSTATS } from "../data/STATS";
 
-const EXTRA_VALUES = [
-  { // 0
-    "ATK": 150,
-  },
-  { // 1
-    "ATK": 100,
-  },
-  { // 2
-    "ATK": 100,
-  },
-  { // 3
-    "HP": 2280,
-  },
-  { // 4
-    "HP": 2280,
-  },
-];
+const calculateBaseStats = (charRef, weapRef) => {
+  return Object.entries(charRef.base).reduce((baseStats, [key, value]) => {
+    baseStats[key] = value + (weapRef.base[key] || 0);
+    return baseStats;
+  }, {});
+};
+
+const calculateStatScore = (key, value, charRef, baseStats) => {
+  if (charRef.weights[key]) {
+    const weight = charRef.weights[key];
+    const normalize = SUBSTATS[key];
+    return (value / normalize) * weight;
+  } else if (baseStats[key] && charRef.weights[key + "%"]) {
+    const valuePercent = (value / baseStats[key]) * 100;
+    const weight = charRef.weights[key + "%"];
+    const normalize = SUBSTATS[key + "%"];
+    return (valuePercent / normalize) * weight;
+  }
+  return 0;
+};
+
+const getLargestKey = (obj) => {
+  const entries = Object.entries(obj);
+  if (entries.length === 0) {
+    return ""; // Handle empty object case
+  }
+  return entries.reduce((maxKey, [key, value]) =>
+    value > obj[maxKey] ? key : maxKey
+  , Object.keys(obj)[0]); // Initialize with the first key
+};
 
 const getScore = (cid, cdata) => {
-  return "0";
-  // create refs for readability
-  const charRef = charData[id];
-  const weaponRef = weapData[char.weapon];
-  const setRef = setData[char.set];
-  const weightsRef = charData[id].weights;
+  console.log("Running getScore for: ", cid);
 
-  // get basestat values (character + weapon)
-  const basestats = { ...charRef.basestats };
-  Object.entries(weaponRef.basestats).forEach(([key, value]) => {
-    basestats[key] += value;
-  });
+  const charRef = CHARACTERS[cid];
+  const weapRef = WEAPONS[cdata.weapon];
+  const setRef = SETS[cdata.set];
 
-  // sum up all the mainstats to a single object
-  const mainstatValues = char.pieces
-    .flatMap(piece => piece.mainstat) // consolidate mainstats to 1 array
-    .filter(main => main) // filter out blank mainstats
-    .reduce((totals, main) => { // combine same mainstat values
-      totals[main] = (totals[main] || 0) + MAINSTAT_VALUES[main];
-      return totals;
-    }, {});
-  
-  // sum up all the substats to a single object
-  const substatValues = char.pieces
-    .flatMap(piece => piece.substats) // consolidate all pieces to 1 piece
-    .filter(sub => sub.key) // filter out blank substats
-    .reduce((totals, sub) => { // combine same substat values
-      if (basestats[sub.key]) { // convert flat stats to percentage stats
-        totals[sub.key + "p"] = (totals[sub.key + "p"] || 0) + percentage(Number(sub.value), basestats[sub.key]);
-      } else {
-        totals[sub.key] = (totals[sub.key] || 0) + Number(sub.value);
+  const baseStats = calculateBaseStats(charRef, weapRef);
+  console.log("baseStats: ", baseStats);
+
+  const mainstatSums = {};
+  const substatSums = {};
+
+  // Sum mainstats and substats
+  for (let i = 0; i < 5; i++) {
+    // Mainstats
+    let mainKey = cdata.mainstats[i];
+    let mainValue = MAINSTATS[i][mainKey];
+    if (mainKey && mainValue) {
+      mainstatSums[mainKey] = (mainstatSums[mainKey] || 0) + mainValue;
+    }
+
+    // Substats
+    for (let j = 0; j < 5; j++) {
+      let subKey = cdata.substats[i][j].key;
+      let subValue = Number(cdata.substats[i][j].value);
+      if (subKey && subValue) {
+        substatSums[subKey] = (substatSums[subKey] || 0) + subValue;
       }
-      return totals;
-    }, {});
-  
-  // combine substats with mainstats
-  const combinedValues = { ...substatValues }; // Start with a copy of substatTotals
-  Object.entries(mainstatValues).forEach(([key, value]) => {
-    // Add mainstat values to combinedValues, summing if the key exists in substatTotals
-    combinedValues[key] = (combinedValues[key] || 0) + value;
-  });
-
-  // exclude er over energyReq, penalize not having enough er
-  const externalEr = 100 +
-    (charRef.minorfortes.er || 0) +
-    (charRef.passivestats.er || 0) +
-    (weaponRef.stats.er || 0) +
-    (setRef.stats.er || 0);
-  
-  const totalEr = externalEr + (combinedValues.er || 0);
-  if (totalEr > charRef.energyReq) { // too much er
-    combinedValues.er = Math.max(charRef.energyReq - externalEr, 0);
-  } else { // not enough er
-    combinedValues.er = (combinedValues.er || 0) - (charRef.energyReq - totalEr);
-  }
-  
-  // exclude cr over 100
-  const externalCr = 5 +
-    (charRef.minorfortes.cr || 0) +
-    (charRef.passivestats.cr || 0) +
-    (weaponRef.stats.cr || 0) +
-    (setRef.stats.cr || 0);
-  
-  const totalCr = externalCr + (combinedValues.cr || 0);
-  if (totalCr > 100) {
-    combinedValues.cr = 100 - externalCr;
+    }
   }
 
-  // calculate score
+  // Remove CRIT Rate exceeding 100
+  const otherCrit = 5 +
+  (charRef.stats["CRIT Rate"] || 0) +
+  (weapRef.stats["CRIT Rate"] || 0) +
+  (setRef.stats["CRIT Rate"] || 0) + 
+  (mainstatSums["CRIT Rate"] || 0);
+
+  const subCrit = substatSums["CRIT Rate"] || 0;
+
+  if (otherCrit + subCrit > 100) {
+    substatSums["CRIT Rate"] = Math.max(100 - otherCrit, 0);
+  }
+
+  console.log("mainstatSums: ", mainstatSums);
+  console.log("substatSums: ", substatSums);
+
+  // Calculate score for substatSums
   let score = 0;
-  Object.entries(combinedValues).forEach(([key, value]) => {
-    const weight = key === "er" ? 1 : (weightsRef[key] || 0);
-    const normalize = 10 / MAINSTAT_VALUES[key];
-    score += weight * normalize * value;
+  Object.entries(substatSums).forEach(([key, value]) => {
+    score += calculateStatScore(key, value, charRef, baseStats);
   });
 
-  return Math.max(0, Math.round(percentage(score, 67)));
+  console.log("score: ", score);
+
+  // Simulate perfect substat distribution
+  // Match energy and calculate that in rolls
+  const simSubstatSums = { "Energy Regen": substatSums["Energy Regen"] || 0};
+  const simEnergyRolls = Math.ceil(simSubstatSums["Energy Regen"] / SUBSTATS["Energy Regen"]);
+  let rollsLeft = Math.max(25 - simEnergyRolls, 0);
+
+  // allocate substats
+  const availableWeights = { ...charRef.weights };
+  let rollCount0 = 0;
+  let rollCount1 = 0;
+  let rollCount2 = 0;
+  let rollCount3 = 0;
+  let rollCount4 = 0;
+  while (rollsLeft > 0) {
+    let biggestWeightStat = getLargestKey(availableWeights);
+    if (!biggestWeightStat) {
+      break;
+    }
+
+    let using0 = rollCount0 < 5 ? true : false;
+    let using1 = rollCount1 < 5 ? true : false;
+    let using2 = rollCount2 < 5 ? true : false;
+    let using3 = rollCount3 < 5 ? true : false;
+    let using4 = rollCount4 < 5 ? true : false;
+
+    if (biggestWeightStat === cdata.mainstats[2]) {
+      using2 = false;
+    }
+
+    if (biggestWeightStat === cdata.mainstats[3]) {
+      using3 = false;
+    }
+
+    if (biggestWeightStat === cdata.mainstats[4]) {
+      using4 = false;
+    }
+
+    let maxTimesToRoll = 0 +
+      (using0 ? 1 : 0) +
+      (using1 ? 1 : 0) +
+      (using2 ? 1 : 0) +
+      (using3 ? 1 : 0) +
+      (using4 ? 1 : 0);
+    
+    if (using0) {
+      rollCount0++;
+    }
+
+    if (using1) {
+      rollCount1++;
+    }
+
+    if (using2) {
+      rollCount2++;
+    }
+
+    if (using3) {
+      rollCount3++;
+    }
+
+    if (using4) {
+      rollCount4++;
+    }
+
+    if (rollsLeft < maxTimesToRoll) {
+      maxTimesToRoll = rollsLeft;
+    }
+
+    simSubstatSums[biggestWeightStat] = (simSubstatSums[biggestWeightStat] || 0) + (maxTimesToRoll * SUBSTATS[biggestWeightStat]);
+
+    delete availableWeights[biggestWeightStat];
+    rollsLeft -= maxTimesToRoll;
+  }
+
+  console.log("simSubstatSums: ", simSubstatSums);
+
+  // Calculate score for simulated substat distribution
+  let score2 = 0;
+  Object.entries(simSubstatSums).forEach(([key, value]) => {
+    score2 += calculateStatScore(key, value, charRef, baseStats);
+  });
+  
+  console.log("score2: ", score2)
+
+  const finalscore = Math.round((score / score2) * 100);
+  return finalscore.toString();
 };
 
 export default getScore;
