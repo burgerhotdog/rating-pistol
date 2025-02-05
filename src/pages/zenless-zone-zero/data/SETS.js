@@ -3,89 +3,105 @@ const SETS = {
   
   // Version 1.4
   "Astral Voice": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Branch & Blade Song": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   // Version 1.3
   
   // Version 1.2
   "Chaos Jazz": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Proto Punk": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   // Version 1.1
   
   // Version 1.0
   "Chaotic Metal": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Fanged Metal": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Freedom Blues": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Hormone Punk": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Inferno Metal": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Polar Metal": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Puffer Electro": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Shockstar Disco": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Soul Rock": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Swing Jazz": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Thunder Metal": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Woodpecker Electro": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
 };
 

@@ -1,28 +1,33 @@
 const SETS = {
   // Version 2.0
   "Empyrean Anthem": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Eternal Radiance": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Frosty Resolve": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Midnight Veil": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Tidebreaking Courage": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   // Version 1.4
@@ -35,48 +40,57 @@ const SETS = {
   
   // Version 1.0
   "Celestial Light": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Freezing Frost": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Lingering Tunes": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Molten Rift": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Moonlit Clouds": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Rejuvenating Glow": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Sierra Gale": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Havoc Eclipse": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Void Thunder": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
 };
 

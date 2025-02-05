@@ -133,20 +133,18 @@ const getScore = (cid, cdata) => {
   console.log("simSubstatSums: ", simSubstatSums);
 
   // POINTS CALCULATION
-  // Calculate points for substatSums
+  // Calculate points for substatSums and simSubstatSums
   let statPoints = 0;
   Object.entries(substatSums).forEach(([key, value]) => {
     statPoints += calculatePoints(key, value, charRef, baseStats);
   });
 
-  console.log("statPoints: ", statPoints);
-
-  // Calculate points for simulated substat distribution
   let simPoints = 0;
   Object.entries(simSubstatSums).forEach(([key, value]) => {
     simPoints += calculatePoints(key, value, charRef, baseStats);
   });
   
+  console.log("statPoints: ", statPoints);
   console.log("simPoints: ", simPoints)
 
   // Calculate final score

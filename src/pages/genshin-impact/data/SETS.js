@@ -7,13 +7,15 @@ const SETS = {
 
   // Version 5.0
   "Obsidian Codex": {
-    conditions: {},
     stats: { "CRIT Rate": 40 },
+    thresholds: {},
+    limits: {},
   },
   
   "Scroll of the Hero of Cinder City": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   // Version 4.8
@@ -22,13 +24,15 @@ const SETS = {
   
   // Version 4.6
   "Fragment of Harmonic Whimsy": {
-    conditions: {},
     stats: { "ATK%": 18 },
+    thresholds: {},
+    limits: {},
   },
   
   "Unfinished Reverie": {
-    conditions: {},
     stats: { "ATK%": 18 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 4.5
@@ -37,13 +41,15 @@ const SETS = {
   
   // Version 4.3
   "Nighttime Whispers in the Echoing Woods": {
-    conditions: {},
     stats: { "ATK%": 18 },
+    thresholds: {},
+    limits: {},
   },
   
   "Song of Days Past": {
-    conditions: {},
     stats: { "Healing Bonus": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 4.2
@@ -52,13 +58,15 @@ const SETS = {
   
   // Version 4.0
   "Golden Troupe": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Marechaussee Hunter": {
-    conditions: {},
     stats: { "CRIT Rate": 36 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 3.8
@@ -67,13 +75,15 @@ const SETS = {
   
   // Version 3.6
   "Nymph's Dream": {
-    conditions: {},
     stats: { "Hydro DMG": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   "Vourukasha's Glow": {
-    conditions: {},
     stats: { "HP%": 20 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 3.5
@@ -82,13 +92,15 @@ const SETS = {
   
   // Version 3.3
   "Desert Pavilion Chronicle": {
-    conditions: {},
     stats: { "Anemo DMG": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   "Flower of Paradise Lost": {
-    conditions: {},
     stats: { "Elemental Mastery": 80 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 3.2
@@ -97,13 +109,15 @@ const SETS = {
   
   // Version 3.0
   "Deepwood Memories": {
-    conditions: {},
     stats: { "Dendro DMG": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   "Gilded Dreams": {
-    conditions: {},
     stats: { "Elemental Mastery": 80 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 2.8
@@ -112,13 +126,15 @@ const SETS = {
   
   // Version 2.6
   "Echoes of an Offering": {
-    conditions: {},
     stats: { "ATK%": 18 },
+    thresholds: {},
+    limits: {},
   },
   
   "Vermillion Hereafter": {
-    conditions: {},
     stats: { "ATK%": 66 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 2.5
@@ -127,13 +143,15 @@ const SETS = {
   
   // Version 2.3
   "Husk of Opulent Dreams": {
-    conditions: {},
     stats: { "DEF%": 54, "Geo DMG": 24 },
+    thresholds: {},
+    limits: {},
   },
   
   "Ocean-Hued Clam": {
-    conditions: {},
     stats: { "Healing Bonus": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 2.2
@@ -142,26 +160,30 @@ const SETS = {
   
   // Version 2.0
   "Emblem of Severed Fate": {
-    conditions: {},
     stats: { "Energy Recharge": 20 },
+    thresholds: {},
+    limits: {},
   },
   
   "Shimenawa's Reminiscence": {
-    conditions: {},
     stats: { "ATK%": 18 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 1.6
   
   // Version 1.5
   "Pale Flame": {
-    conditions: {},
     stats: { "Physical DMG": 25 },
+    thresholds: {},
+    limits: {},
   },
   
   "Tenacity of the Millelith": {
-    conditions: {},
     stats: { "HP%": 20, "ATK%": 20 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 1.4
@@ -170,76 +192,90 @@ const SETS = {
   
   // Version 1.2
   "Blizzard Strayer": {
-    conditions: {},
     stats: { "Cryo DMG": 15, "CRIT Rate": 40 },
+    thresholds: {},
+    limits: {},
   },
   
   "Heart of Depth": {
-    conditions: {},
     stats: { "Hydro DMG": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   // Version 1.1
   
   // Version 1.0
   "Archaic Petra": {
-    conditions: {},
     stats: { "Geo DMG": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   "Bloodstained Chivalry": {
-    conditions: {},
     stats: { "Physical DMG": 25 },
+    thresholds: {},
+    limits: {},
   },
   
   "Crimson Witch of Flames": {
-    conditions: {},
     stats: { "Pyro DMG": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   "Gladiator's Finale": {
-    conditions: {},
     stats: { "ATK%": 18 },
+    thresholds: {},
+    limits: {},
   },
   
   "Lavawalker": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Maiden Beloved": {
-    conditions: {},
     stats: { "Healing Bonus": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   "Noblesse Oblige": {
-    conditions: {},
     stats: { "ATK%": 20 },
+    thresholds: {},
+    limits: {},
   },
   
   "Retracing Bolide": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Thundering Fury": {
-    conditions: {},
     stats: { "Electro DMG": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   "Thundersoother": {
-    conditions: {},
     stats: {},
+    thresholds: {},
+    limits: {},
   },
   
   "Viridescent Venerer": {
-    conditions: {},
     stats: { "Anemo DMG": 15 },
+    thresholds: {},
+    limits: {},
   },
   
   "Wanderer's Troupe": {
-    conditions: {},
     stats: { "Elemental Mastery": 80 },
+    thresholds: {},
+    limits: {},
   },
 };
 
