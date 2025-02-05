@@ -3,14 +3,14 @@ import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
 import { MAINSTATS, SUBSTATS } from "../data/STATS";
 
-const calculateBaseStats = (charRef, weapRef) => {
+const calculateBase = (charRef, weapRef) => {
   return Object.entries(charRef.base).reduce((baseStats, [key, value]) => {
     baseStats[key] = value + (weapRef.base[key] || 0);
     return baseStats;
   }, {});
 };
 
-const calculateStatScore = (key, value, charRef, baseStats) => {
+const calculatePoints = (key, value, charRef, baseStats) => {
   if (charRef.weights[key]) {
     const weight = charRef.weights[key];
     const normalize = SUBSTATS[key];
@@ -35,19 +35,18 @@ const getLargestKey = (obj) => {
 };
 
 const getScore = (cid, cdata) => {
-  console.log("Running getScore for: ", cid);
-
   const charRef = CHARACTERS[cid];
   const weapRef = WEAPONS[cdata.weapon];
   const setRef = SETS[cdata.set];
 
-  const baseStats = calculateBaseStats(charRef, weapRef);
+  // Calculate base stats (char + weap)
+  const baseStats = calculateBase(charRef, weapRef);
   console.log("baseStats: ", baseStats);
 
+  // SUM UP STATS
+  // Sum mainstats and substats
   const mainstatSums = {};
   const substatSums = {};
-
-  // Sum mainstats and substats
   for (let i = 0; i < 5; i++) {
     // Mainstats
     let mainKey = cdata.mainstats[i];
@@ -82,15 +81,7 @@ const getScore = (cid, cdata) => {
   console.log("mainstatSums: ", mainstatSums);
   console.log("substatSums: ", substatSums);
 
-  // Calculate score for substatSums
-  let score = 0;
-  Object.entries(substatSums).forEach(([key, value]) => {
-    score += calculateStatScore(key, value, charRef, baseStats);
-  });
-
-  console.log("score: ", score);
-
-  // Simulate perfect substat distribution
+  // SIMULATE PERFECT SUBSTAT DISTRIBUTION
   // Match energy recharge and calculate that in rolls
   const simSubstatSums = { "Energy Recharge": substatSums["Energy Recharge"] || 0};
   const simEnergyRolls = Math.ceil(simSubstatSums["Energy Recharge"] / SUBSTATS["Energy Recharge"]);
@@ -98,104 +89,77 @@ const getScore = (cid, cdata) => {
 
   // allocate substats
   const availableWeights = { ...charRef.weights };
-  let rollCount0 = 0;
-  let rollCount1 = 0;
-  let rollCount2 = 0;
-  let rollCount3 = 0;
-  let rollCount4 = 0;
+  const rollCount = [0, 0, 0, 0, 0];
   while (rollsLeft > 0) {
-    let biggestWeightStat = getLargestKey(availableWeights);
-    if (!biggestWeightStat) {
-      break;
+    // get stat to roll
+    const biggestWeightStat = getLargestKey(availableWeights);
+    if (!biggestWeightStat) break;
+
+    // figure out which pieces are given rolls
+    const usingPiece = [false, false, false, false, false];
+    for (let i = 0; i < 5; i++) {
+      usingPiece[i] = rollCount[i] < 8 ? true : false;
+      if (i < 2) continue;
+      if (biggestWeightStat === cdata.mainstats[i]) {
+        usingPiece[i] = false;
+      }
     }
 
-    let using0 = rollCount0 < 8 ? true : false;
-    let using1 = rollCount1 < 8 ? true : false;
-    let using2 = rollCount2 < 8 ? true : false;
-    let using3 = rollCount3 < 8 ? true : false;
-    let using4 = rollCount4 < 8 ? true : false;
-
-    if (biggestWeightStat === cdata.mainstats[2]) {
-      using2 = false;
-    }
-
-    if (biggestWeightStat === cdata.mainstats[3]) {
-      using3 = false;
-    }
-    
-    if (biggestWeightStat === cdata.mainstats[4]) {
-      using4 = false;
-    }
-
+    // figure out how many rolls are given
     let maxTimesToRoll = 0 +
-      (using0 ? ((rollCount0 === 0) ? 5 : 1) : 0) +
-      (using1 ? ((rollCount1 === 0) ? 5 : 1) : 0) +
-      (using2 ? ((rollCount2 === 0) ? 5 : 1) : 0) +
-      (using3 ? ((rollCount3 === 0) ? 5 : 1) : 0) +
-      (using4 ? ((rollCount4 === 0) ? 5 : 1) : 0);
-    
-    if (using0) {
-      if (rollCount0 === 0) {
-        rollCount0 = 5;
-      } else {
-        rollCount0++;
-      }
-    }
-
-    if (using1) {
-      if (rollCount1 === 0) {
-        rollCount1 = 5;
-      } else {
-        rollCount1++;
-      }
-    }
-
-    if (using2) {
-      if (rollCount2 === 0) {
-        rollCount2 = 5;
-      } else {
-        rollCount2++;
-      }
-    }
-
-    if (using3) {
-      if (rollCount3 === 0) {
-        rollCount3 = 5;
-      } else {
-        rollCount3++;
-      }
-    }
-
-    if (using4) {
-      if (rollCount4 === 0) {
-        rollCount4 = 5;
-      } else {
-        rollCount4++;
-      }
-    }
+      (usingPiece[0] ? ((rollCount[0] === 0) ? 5 : 1) : 0) +
+      (usingPiece[1] ? ((rollCount[1] === 0) ? 5 : 1) : 0) +
+      (usingPiece[2] ? ((rollCount[2] === 0) ? 5 : 1) : 0) +
+      (usingPiece[3] ? ((rollCount[3] === 0) ? 5 : 1) : 0) +
+      (usingPiece[4] ? ((rollCount[4] === 0) ? 5 : 1) : 0);
 
     if (rollsLeft < maxTimesToRoll) {
       maxTimesToRoll = rollsLeft;
     }
 
+    // add rolls to sum
     simSubstatSums[biggestWeightStat] = (simSubstatSums[biggestWeightStat] || 0) + (maxTimesToRoll * SUBSTATS[biggestWeightStat]);
 
+    // cleanup
+    // increment individual roll counts
+    for (let i = 0; i < 5; i++) {
+      if (!usingPiece[i]) continue;
+      if (rollCount[i] === 0) {
+        rollCount[i] = 5;
+      } else {
+        rollCount[i]++;
+      }
+    }
+
+    // remove stat from available weights
     delete availableWeights[biggestWeightStat];
+
+    // decrement amount of rolls left
     rollsLeft -= maxTimesToRoll;
   }
 
   console.log("simSubstatSums: ", simSubstatSums);
 
-  // Calculate score for simulated substat distribution
-  let score2 = 0;
+  // POINTS CALCULATION
+  // Calculate points for substatSums
+  let statPoints = 0;
+  Object.entries(substatSums).forEach(([key, value]) => {
+    statPoints += calculatePoints(key, value, charRef, baseStats);
+  });
+
+  console.log("statPoints: ", statPoints);
+
+  // Calculate points for simulated substat distribution
+  let simPoints = 0;
   Object.entries(simSubstatSums).forEach(([key, value]) => {
-    score2 += calculateStatScore(key, value, charRef, baseStats);
+    simPoints += calculatePoints(key, value, charRef, baseStats);
   });
   
-  console.log("score2: ", score2)
+  console.log("simPoints: ", simPoints);
 
-  const finalscore = Math.round((score / score2) * 100);
-  return finalscore.toString();
+  // Calculate final score
+  const finalScore = Math.round((statPoints / simPoints) * 100);
+  return finalScore.toString();
 };
 
 export default getScore;

@@ -3,14 +3,14 @@ import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
 import { MAINSTATS, SUBSTATS } from "../data/STATS";
 
-const calculateBaseStats = (charRef, weapRef) => {
+const calculateBase = (charRef, weapRef) => {
   return Object.entries(charRef.base).reduce((baseStats, [key, value]) => {
     baseStats[key] = value + (weapRef.base[key] || 0);
     return baseStats;
   }, {});
 };
 
-const calculateStatScore = (key, value, charRef, baseStats) => {
+const calculatePoints = (key, value, charRef, baseStats) => {
   if (charRef.weights[key]) {
     const weight = charRef.weights[key];
     const normalize = SUBSTATS[key];
@@ -35,19 +35,18 @@ const getLargestKey = (obj) => {
 };
 
 const getScore = (cid, cdata) => {
-  console.log("Running getScore for: ", cid);
-
   const charRef = CHARACTERS[cid];
   const weapRef = WEAPONS[cdata.weapon];
   const setRef = SETS[cdata.set];
 
-  const baseStats = calculateBaseStats(charRef, weapRef);
+  // Calculate base stats (char + weap)
+  const baseStats = calculateBase(charRef, weapRef);
   console.log("baseStats: ", baseStats);
 
+  // SUM UP STATS
+  // Sum mainstats and substats
   const mainstatSums = {};
   const substatSums = {};
-
-  // Sum mainstats and substats
   for (let i = 0; i < 5; i++) {
     // Mainstats
     let mainKey = cdata.mainstats[i];
@@ -82,15 +81,7 @@ const getScore = (cid, cdata) => {
   console.log("mainstatSums: ", mainstatSums);
   console.log("substatSums: ", substatSums);
 
-  // Calculate score for substatSums
-  let score = 0;
-  Object.entries(substatSums).forEach(([key, value]) => {
-    score += calculateStatScore(key, value, charRef, baseStats);
-  });
-
-  console.log("score: ", score);
-
-  // Simulate perfect substat distribution
+  // SIMULATE PERFECT SUBSTAT DISTRIBUTION
   // Match energy and calculate that in rolls
   const simSubstatSums = { "Energy Regen": substatSums["Energy Regen"] || 0};
   const simEnergyRolls = Math.ceil(simSubstatSums["Energy Regen"] / SUBSTATS["Energy Regen"]);
@@ -98,84 +89,69 @@ const getScore = (cid, cdata) => {
 
   // allocate substats
   const availableWeights = { ...charRef.weights };
-  let rollCount0 = 0;
-  let rollCount1 = 0;
-  let rollCount2 = 0;
-  let rollCount3 = 0;
-  let rollCount4 = 0;
+  const rollCount = [0, 0, 0, 0, 0];
   while (rollsLeft > 0) {
+    // get stat to roll
     let biggestWeightStat = getLargestKey(availableWeights);
-    if (!biggestWeightStat) {
-      break;
+    if (!biggestWeightStat) break;
+
+    // figure out which pieces are given rolls
+    const usingPiece = [false, false, false, false, false];
+    for (let i = 0; i < 5; i++) {
+      usingPiece[i] = rollCount[i] < 5 ? true : false;
     }
 
-    let using0 = rollCount0 < 5 ? true : false;
-    let using1 = rollCount1 < 5 ? true : false;
-    let using2 = rollCount2 < 5 ? true : false;
-    let using3 = rollCount3 < 5 ? true : false;
-    let using4 = rollCount4 < 5 ? true : false;
-
-    if (biggestWeightStat === cdata.mainstats[2]) {
-      using2 = false;
-    }
-
-    if (biggestWeightStat === cdata.mainstats[3]) {
-      using3 = false;
-    }
-
-    if (biggestWeightStat === cdata.mainstats[4]) {
-      using4 = false;
-    }
-
+    // figure out how many rolls are given
     let maxTimesToRoll = 0 +
-      (using0 ? 1 : 0) +
-      (using1 ? 1 : 0) +
-      (using2 ? 1 : 0) +
-      (using3 ? 1 : 0) +
-      (using4 ? 1 : 0);
+      (usingPiece[0] ? 1 : 0) +
+      (usingPiece[1] ? 1 : 0) +
+      (usingPiece[2] ? 1 : 0) +
+      (usingPiece[3] ? 1 : 0) +
+      (usingPiece[4] ? 1 : 0);
     
-    if (using0) {
-      rollCount0++;
-    }
-
-    if (using1) {
-      rollCount1++;
-    }
-
-    if (using2) {
-      rollCount2++;
-    }
-
-    if (using3) {
-      rollCount3++;
-    }
-
-    if (using4) {
-      rollCount4++;
-    }
-
     if (rollsLeft < maxTimesToRoll) {
       maxTimesToRoll = rollsLeft;
     }
 
+    // add rolls to sum
     simSubstatSums[biggestWeightStat] = (simSubstatSums[biggestWeightStat] || 0) + (maxTimesToRoll * SUBSTATS[biggestWeightStat]);
 
+    // cleanup
+    // increment individual roll counts
+    for (let i = 0; i < 5; i++) {
+      if (!usingPiece[i]) continue;
+      rollCount[i]++;
+    }
+
+    // remove stat from available weights
     delete availableWeights[biggestWeightStat];
+
+    // decrement amount of rolls left
     rollsLeft -= maxTimesToRoll;
   }
 
   console.log("simSubstatSums: ", simSubstatSums);
 
-  // Calculate score for simulated substat distribution
-  let score2 = 0;
+  // POINTS CALCULATION
+  // Calculate points for substatSums
+  let statPoints = 0;
+  Object.entries(substatSums).forEach(([key, value]) => {
+    statPoints += calculatePoints(key, value, charRef, baseStats);
+  });
+
+  console.log("statPoints: ", statPoints);
+
+  // Calculate points for simulated substat distribution
+  let simPoints = 0;
   Object.entries(simSubstatSums).forEach(([key, value]) => {
-    score2 += calculateStatScore(key, value, charRef, baseStats);
+    simPoints += calculatePoints(key, value, charRef, baseStats);
   });
   
-  console.log("score2: ", score2)
+  console.log("simPoints: ", simPoints)
 
-  const finalscore = Math.round((score / score2) * 100);
-  return finalscore.toString();
+  // Calculate final score
+  const finalScore = Math.round((statPoints / simPoints) * 100);
+  return finalScore.toString();
 };
 
 export default getScore;
