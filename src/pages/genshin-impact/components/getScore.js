@@ -1,7 +1,6 @@
 import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
-import SETS from "../data/SETS";
-import { MAINSTATS, SUBSTATS } from "../data/STATS";
+import { SUBSTATS } from "../data/STATS";
 
 const combine_basestats = (charBase, weapBase) => {
   return Object.entries(charBase).reduce((basestats, [key, value]) => {
@@ -10,18 +9,7 @@ const combine_basestats = (charBase, weapBase) => {
   }, {});
 };
 
-const combine_mainstats = (mainstatsArr) => {
-  const mainstats = {};
-  for (let i = 0; i < 5; i++) {
-    const key = mainstatsArr[i];
-    if (!key) continue;
-    const value = MAINSTATS[i][key];
-    mainstats[key] = (mainstats[key] || 0) + value;
-  }
-  return mainstats;
-};
-
-const combine_substats = (substatsArr, charRef, weapRef, setRef, mainstats) => {
+const combine_substats = (substatsArr) => {
   const substats = {};
   for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 4; j++) {
@@ -31,19 +19,6 @@ const combine_substats = (substatsArr, charRef, weapRef, setRef, mainstats) => {
       substats[key] = (substats[key] || 0) + value;
     }
   }
-
-  // Prune CRIT Rate over 100
-  const innerCrit = substats["CRIT Rate"] || 0;
-  const outerCrit = 5 +
-    (charRef.stats["CRIT Rate"] || 0) +
-    (weapRef.stats["CRIT Rate"] || 0) +
-    (setRef.stats["CRIT Rate"] || 0) + 
-    (mainstats["CRIT Rate"] || 0);
-  
-  if (outerCrit + innerCrit > 100) {
-    substats["CRIT Rate"] = Math.max(100 - outerCrit, 0);
-  }
-
   return substats;
 };
 
@@ -135,16 +110,13 @@ const calculatePoints = (statsObj, charRef, basestats) => {
 const getScore = (cid, cdata) => {
   const charRef = CHARACTERS[cid];
   const weapRef = WEAPONS[cdata.weapon];
-  const setRef = SETS[cdata.set];
 
-  // Combine basestats and mainstats
+  // Combine basestats
   const basestats = combine_basestats(charRef.base, weapRef.base);
-  const mainstats = combine_mainstats(cdata.mainstats)
   console.log("basestats: ", basestats);
-  console.log("mainstats: ", mainstats);
 
   // Combine substats
-  const substats = combine_substats(cdata.substats, charRef, weapRef, setRef, mainstats);
+  const substats = combine_substats(cdata.substats);
   console.log("substats: ", substats);
 
   // Simulate perfect substats

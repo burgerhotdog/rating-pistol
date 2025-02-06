@@ -4,7 +4,7 @@ const blankCdata = () => ({
   mainstats: ["HP", "ATK", "", "", ""],
   substats: [
     [
-      { key: "", value: "" },
+      ["",""],
       { key: "", value: "" },
       { key: "", value: "" },
       { key: "", value: "" },
