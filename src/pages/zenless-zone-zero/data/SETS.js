@@ -33,25 +33,25 @@ const SETS = {
   
   // Version 1.0
   "Chaotic Metal": {
-    stats: {},
+    stats: { "Ether DMG": 10, "CRIT DMG": 53 },
     thresholds: {},
     limits: {},
   },
   
   "Fanged Metal": {
-    stats: {},
+    stats: { "Physical DMG": 10 },
     thresholds: {},
     limits: {},
   },
   
   "Freedom Blues": {
-    stats: {},
+    stats: { "Anomaly Proficiency": 30 },
     thresholds: {},
     limits: {},
   },
   
   "Hormone Punk": {
-    stats: {},
+    stats: { "ATK%": 10 },
     thresholds: {},
     limits: {},
   },

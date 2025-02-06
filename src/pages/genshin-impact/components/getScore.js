@@ -3,25 +3,48 @@ import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
 import { MAINSTATS, SUBSTATS } from "../data/STATS";
 
-const calculateBase = (charRef, weapRef) => {
-  return Object.entries(charRef.base).reduce((baseStats, [key, value]) => {
-    baseStats[key] = value + (weapRef.base[key] || 0);
-    return baseStats;
+const combine_basestats = (charBase, weapBase) => {
+  return Object.entries(charBase).reduce((basestats, [key, value]) => {
+    basestats[key] = value + (weapBase[key] || 0);
+    return basestats;
   }, {});
 };
 
-const calculatePoints = (key, value, charRef, baseStats) => {
-  if (charRef.weights[key]) {
-    const weight = charRef.weights[key];
-    const normalize = SUBSTATS[key];
-    return (value / normalize) * weight;
-  } else if (baseStats[key] && charRef.weights[key + "%"]) {
-    const valuePercent = (value / baseStats[key]) * 100;
-    const weight = charRef.weights[key + "%"];
-    const normalize = SUBSTATS[key + "%"];
-    return (valuePercent / normalize) * weight;
+const combine_mainstats = (mainstatsArr) => {
+  const mainstats = {};
+  for (let i = 0; i < 5; i++) {
+    const key = mainstatsArr[i];
+    if (!key) continue;
+    const value = MAINSTATS[i][key];
+    mainstats[key] = (mainstats[key] || 0) + value;
   }
-  return 0;
+  return mainstats;
+};
+
+const combine_substats = (substatsArr, charRef, weapRef, setRef, mainstats) => {
+  const substats = {};
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 4; j++) {
+      const key = substatsArr[i][j].key;
+      const value = Number(substatsArr[i][j].value);
+      if (!key || !value) continue;
+      substats[key] = (substats[key] || 0) + value;
+    }
+  }
+
+  // Prune CRIT Rate over 100
+  const innerCrit = substats["CRIT Rate"] || 0;
+  const outerCrit = 5 +
+    (charRef.stats["CRIT Rate"] || 0) +
+    (weapRef.stats["CRIT Rate"] || 0) +
+    (setRef.stats["CRIT Rate"] || 0) + 
+    (mainstats["CRIT Rate"] || 0);
+  
+  if (outerCrit + innerCrit > 100) {
+    substats["CRIT Rate"] = Math.max(100 - outerCrit, 0);
+  }
+
+  return substats;
 };
 
 const getLargestKey = (obj) => {
@@ -34,57 +57,10 @@ const getLargestKey = (obj) => {
   , Object.keys(obj)[0]); // Initialize with the first key
 };
 
-const getScore = (cid, cdata) => {
-  const charRef = CHARACTERS[cid];
-  const weapRef = WEAPONS[cdata.weapon];
-  const setRef = SETS[cdata.set];
-
-  // Calculate base stats (char + weap)
-  const baseStats = calculateBase(charRef, weapRef);
-  console.log("baseStats: ", baseStats);
-
-  // SUM UP STATS
-  // Sum mainstats and substats
-  const mainstatSums = {};
-  const substatSums = {};
-  for (let i = 0; i < 5; i++) {
-    // Mainstats
-    let mainKey = cdata.mainstats[i];
-    let mainValue = MAINSTATS[i][mainKey];
-    if (mainKey && mainValue) {
-      mainstatSums[mainKey] = (mainstatSums[mainKey] || 0) + mainValue;
-    }
-
-    // Substats
-    for (let j = 0; j < 4; j++) {
-      let subKey = cdata.substats[i][j].key;
-      let subValue = Number(cdata.substats[i][j].value);
-      if (subKey && subValue) {
-        substatSums[subKey] = (substatSums[subKey] || 0) + subValue;
-      }
-    }
-  }
-  
-  // Remove CRIT Rate exceeding 100
-  const otherCrit = 5 +
-    (charRef.stats["CRIT Rate"] || 0) +
-    (weapRef.stats["CRIT Rate"] || 0) +
-    (setRef.stats["CRIT Rate"] || 0) + 
-    (mainstatSums["CRIT Rate"] || 0);
-  
-  const subCrit = substatSums["CRIT Rate"] || 0;
-  
-  if (otherCrit + subCrit > 100) {
-    substatSums["CRIT Rate"] = Math.max(100 - otherCrit, 0);
-  }
-
-  console.log("mainstatSums: ", mainstatSums);
-  console.log("substatSums: ", substatSums);
-
-  // SIMULATE PERFECT SUBSTAT DISTRIBUTION
+const simulate_substats = (substats, charRef, cdata) => {
   // Match energy recharge and calculate that in rolls
-  const simSubstatSums = { "Energy Recharge": substatSums["Energy Recharge"] || 0};
-  const simEnergyRolls = Math.ceil(simSubstatSums["Energy Recharge"] / SUBSTATS["Energy Recharge"]);
+  const sim_substats = { "Energy Recharge": substats["Energy Recharge"] || 0};
+  const simEnergyRolls = Math.ceil(sim_substats["Energy Recharge"] / SUBSTATS["Energy Recharge"]);
   let rollsLeft = Math.max(40 - simEnergyRolls, 0);
 
   // allocate substats
@@ -118,7 +94,7 @@ const getScore = (cid, cdata) => {
     }
 
     // add rolls to sum
-    simSubstatSums[biggestWeightStat] = (simSubstatSums[biggestWeightStat] || 0) + (maxTimesToRoll * SUBSTATS[biggestWeightStat]);
+    sim_substats[biggestWeightStat] = (sim_substats[biggestWeightStat] || 0) + (maxTimesToRoll * SUBSTATS[biggestWeightStat]);
 
     // cleanup
     // increment individual roll counts
@@ -133,31 +109,57 @@ const getScore = (cid, cdata) => {
 
     // remove stat from available weights
     delete availableWeights[biggestWeightStat];
-
-    // decrement amount of rolls left
     rollsLeft -= maxTimesToRoll;
   }
 
-  console.log("simSubstatSums: ", simSubstatSums);
+  return sim_substats;
+};
 
-  // POINTS CALCULATION
-  // Calculate points for substatSums and simSubstatSums
-  let statPoints = 0;
-  Object.entries(substatSums).forEach(([key, value]) => {
-    statPoints += calculatePoints(key, value, charRef, baseStats);
+const calculatePoints = (statsObj, charRef, basestats) => {
+  let points = 0;
+  Object.entries(statsObj).forEach(([key, value]) => {
+    if (charRef.weights[key]) {
+      const weight = charRef.weights[key];
+      const normalize = SUBSTATS[key];
+      points += (value / normalize) * weight;
+    } else if (basestats[key] && charRef.weights[key + "%"]) {
+      const valuePercent = (value / basestats[key]) * 100;
+      const weight = charRef.weights[key + "%"];
+      const normalize = SUBSTATS[key + "%"];
+      points += (valuePercent / normalize) * weight;
+    }
   });
+  return points;
+};
 
-  let simPoints = 0;
-  Object.entries(simSubstatSums).forEach(([key, value]) => {
-    simPoints += calculatePoints(key, value, charRef, baseStats);
-  });
-  
-  console.log("statPoints: ", statPoints);
-  console.log("simPoints: ", simPoints);
+const getScore = (cid, cdata) => {
+  const charRef = CHARACTERS[cid];
+  const weapRef = WEAPONS[cdata.weapon];
+  const setRef = SETS[cdata.set];
 
-  // Calculate final score
-  const finalScore = Math.round((statPoints / simPoints) * 100);
-  return finalScore.toString();
+  // Combine basestats and mainstats
+  const basestats = combine_basestats(charRef.base, weapRef.base);
+  const mainstats = combine_mainstats(cdata.mainstats)
+  console.log("basestats: ", basestats);
+  console.log("mainstats: ", mainstats);
+
+  // Combine substats
+  const substats = combine_substats(cdata.substats, charRef, weapRef, setRef, mainstats);
+  console.log("substats: ", substats);
+
+  // Simulate perfect substats
+  const sim_substats = simulate_substats(substats, charRef, cdata);
+  console.log("sim_substats: ", sim_substats);
+
+  // Calculate points
+  const points = calculatePoints(substats, charRef, basestats);
+  const sim_points = calculatePoints(sim_substats, charRef, basestats);
+  console.log("points: ", points);
+  console.log("sim_points: ", sim_points);
+
+  // Calculate score
+  const score = Math.round((points / sim_points) * 100);
+  return score.toString();
 };
 
 export default getScore;

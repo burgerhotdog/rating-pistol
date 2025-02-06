@@ -2,7 +2,7 @@ const SETS = {
   // Version 3.0
   "Hero of Triumphant Song": {
     type: "Relic",
-    stats: { "ATK%": 12, "SPD%": 6 },
+    stats: { "ATK%": 12, "SPD%": 6, "CRIT DMG": 30 },
     thresholds: {},
     limits: {},
   },
@@ -181,7 +181,7 @@ const SETS = {
   // Version 1.0
   "Band of Sizzling Thunder": {
     type: "Relic",
-    stats: { "Lightning DMG": 10 },
+    stats: { "Lightning DMG": 10, "ATK%": 20 },
     thresholds: {},
     limits: {},
   },
@@ -247,7 +247,7 @@ const SETS = {
   
   "Hunter of Glacial Forest": {
     type: "Relic",
-    stats: { "Ice DMG": 10 },
+    stats: { "Ice DMG": 10, "CRIT DMG": 25 },
     thresholds: {},
     limits: {},
   },

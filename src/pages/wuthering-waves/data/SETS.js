@@ -1,31 +1,31 @@
 const SETS = {
   // Version 2.0
   "Empyrean Anthem": {
-    stats: {},
+    stats: { "Energy Regen": 10 },
     thresholds: {},
     limits: {},
   },
   
   "Eternal Radiance": {
-    stats: {},
+    stats: { "Spectro DMG": 25, "CRIT Rate": 20 },
     thresholds: {},
     limits: {},
   },
   
   "Frosty Resolve": {
-    stats: {},
+    stats: { "Resonance Skill DMG": 48, "Glacio DMG": 45 },
     thresholds: {},
     limits: {},
   },
   
   "Midnight Veil": {
-    stats: {},
+    stats: { "Havoc DMG": 10 },
     thresholds: {},
     limits: {},
   },
   
   "Tidebreaking Courage": {
-    stats: {},
+    stats: { "Energy Regen": 10, "ATK%": 15 },
     thresholds: {},
     limits: {},
   },
@@ -40,55 +40,55 @@ const SETS = {
   
   // Version 1.0
   "Celestial Light": {
-    stats: {},
+    stats: { "Spectro DMG": 40 },
     thresholds: {},
     limits: {},
   },
   
   "Freezing Frost": {
-    stats: {},
+    stats: { "Glacio DMG": 40 },
     thresholds: {},
     limits: {},
   },
   
   "Lingering Tunes": {
-    stats: {},
+    stats: { "ATK%": 30 },
     thresholds: {},
     limits: {},
   },
   
   "Molten Rift": {
-    stats: {},
+    stats: { "Fusion DMG": 40 },
     thresholds: {},
     limits: {},
   },
   
   "Moonlit Clouds": {
-    stats: {},
+    stats: { "Energy Regen": 10 },
     thresholds: {},
     limits: {},
   },
   
   "Rejuvenating Glow": {
-    stats: {},
+    stats: { "Healing Bonus": 10, "ATK%": 15 },
     thresholds: {},
     limits: {},
   },
   
   "Sierra Gale": {
-    stats: {},
+    stats: { "Aero DMG": 40 },
     thresholds: {},
     limits: {},
   },
   
   "Havoc Eclipse": {
-    stats: {},
+    stats: { "Havoc DMG": 40 },
     thresholds: {},
     limits: {},
   },
   
   "Void Thunder": {
-    stats: {},
+    stats: { "Electro DMG": 40 },
     thresholds: {},
     limits: {},
   },
