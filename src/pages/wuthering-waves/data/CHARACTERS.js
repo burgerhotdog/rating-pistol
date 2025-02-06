@@ -36,6 +36,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Skill DMG": 0.5,
     },
   },
 
@@ -47,6 +48,9 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "Heavy Attack DMG": 0.35,
+      "Resonance Skill DMG": 0.09,
     },
   },
   
@@ -60,6 +64,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Basic Attack DMG": 0.4,
+      "Resonance Liberation DMG": 0.1,
     },
   },
   
@@ -72,6 +78,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Basic Attack DMG": 0.22,
+      "Resonance Liberation DMG": 0.18,
+      "Resonance Skill DMG": 0.16,
     },
   },
   
@@ -82,8 +91,7 @@ const CHARACTERS = {
     stats: {},
     includeEnergy: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 0.6,
     },
   },
   
@@ -93,8 +101,7 @@ const CHARACTERS = {
     stats: {},
     includeEnergy: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
@@ -108,6 +115,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Liberation DMG": 0.34,
+      "Resonance Skill DMG": 0.1,
+      "Basic Attack DMG": 0.06,
     },
   },
   
@@ -120,6 +130,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Basic Attack DMG": 0.47,
     },
   },
   
@@ -133,6 +144,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Skill DMG": 0.37,
+      "Resonance Liberation DMG": 0.14,
     },
   },
   
@@ -145,6 +158,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Skill DMG": 0.45,
+      "Resonance Liberation DMG": 0.11,
     },
   },
   
@@ -158,6 +173,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Basic Attack DMG": 0.26,
+      "Resonance Skill DMG": 0.16,
+      "Resonance Liberation DMG": 0.08,
     },
   },
   
@@ -167,8 +185,7 @@ const CHARACTERS = {
     stats: {},
     includeEnergy: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 0.6,
     },
   },
   
@@ -181,6 +198,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Liberation DMG": 0.33,
+      "Basic Attack DMG": 0.15,
     },
   },
   
@@ -193,6 +212,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Skill DMG": 0.29,
+      "Resonance Liberation DMG": 0.2,
     },
   },
   
@@ -205,6 +226,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Liberation DMG": 0.18,
+      "Resonance Skill DMG": 0.15,
+      "Heavy Attack DMG": 0.15,
     },
   },
   
@@ -217,6 +241,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Basic Attack DMG": 0.28,
+      "Resonance Skill DMG": 0.09,
+      "Resonance Liberation DMG": 0.09,
     },
   },
   
@@ -229,6 +256,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Liberation DMG": 0.22,
+      "Basic Attack DMG": 0.19,
+      "Heavy Attack DMG": 0.07,
     },
   },
   
@@ -241,6 +271,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Heavy Attack DMG": 0.41,
+      "Resonance Skill DMG": 0.09,
     },
   },
   
@@ -253,6 +285,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Basic Attack DMG": 0.22,
+      "Resonance Skill DMG": 0.17,
     },
   },
   
@@ -265,6 +299,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Resonance Liberation DMG": 0.4,
+      "Resonance Skill DMG": 0.11,
     },
   },
   
@@ -277,6 +313,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Basic Attack DMG": 0.19,
+      "Resonance Liberation DMG": 0.16,
+      "Resonance Skill DMG": 0.11,
     },
   },
   
@@ -301,6 +340,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Heavy Attack DMG": 0.21,
+      "Resonance Liberation DMG": 0.17,
+      "Resonance Skill DMG": 0.16,
     },
   },
   
@@ -310,8 +352,7 @@ const CHARACTERS = {
     stats: {},
     includeEnergy: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "DEF%": 0.6,
     },
   },
   
@@ -321,8 +362,7 @@ const CHARACTERS = {
     stats: {},
     includeEnergy: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
@@ -335,8 +375,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
-      "Resonance Liberation": 0.24,
-      "Basic Attack DMG": 0.18,
+      "Resonance Liberation DMG": 0.25,
+      "Basic Attack DMG": 0.19,
+      "Resonance Skill DMG": 0.08,
     },
   },
   
@@ -349,7 +390,9 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
-      "Resonance Skill DMG": 0.3,
+      "Resonance Skill DMG": 0.33,
+      "Resonance Liberation DMG": 0.12,
+      "Heavy Attack DMG": 0.05,
     },
   },
   
@@ -362,7 +405,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "DEF%": 0.6,
-      "Resonance Skill DMG": 0.3,
+      "Resonance Skill DMG": 0.29,
       "Resonance Liberation DMG": 0.24,
     },
   },

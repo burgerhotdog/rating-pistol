@@ -11,8 +11,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 10,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -29,8 +27,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 10,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -47,8 +43,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 10,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -67,8 +61,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 93,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -85,8 +77,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 92,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -104,8 +94,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -122,8 +110,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -141,8 +127,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -159,8 +143,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -178,8 +160,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -196,8 +176,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -215,8 +193,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -233,8 +209,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -251,8 +225,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -270,8 +242,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -288,8 +258,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -306,8 +274,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -324,8 +290,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -342,8 +306,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -360,8 +322,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -378,8 +338,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -396,8 +354,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -414,8 +370,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -432,8 +386,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -450,8 +402,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -468,8 +418,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -486,8 +434,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -504,8 +450,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -522,8 +466,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -540,8 +482,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -558,8 +498,6 @@ const CHARACTERS = {
       "Anomaly Mastery": 100,
     },
     stats: {},
-    thresholds: {},
-    limits: {},
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,

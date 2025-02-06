@@ -4,8 +4,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1000, ATK: 100, DEF: 100, SPD: 100 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -18,8 +16,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 1000, ATK: 100, DEF: 100, SPD: 100 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -33,8 +29,6 @@ const CHARACTERS = {
     type: "Remembrance",
     base: { HP: 1242, ATK: 699, DEF: 485, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -47,8 +41,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 1164, ATK: 679, DEF: 485, SPD: 99 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -61,8 +53,6 @@ const CHARACTERS = {
     type: "Remembrance",
     base: { HP: 1047, ATK: 543, DEF: 630, SPD: 103 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -76,8 +66,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 1241, ATK: 640, DEF: 533, SPD: 96 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -89,8 +77,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1125, ATK: 582, DEF: 557, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -103,8 +89,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 1086, ATK: 717, DEF: 460, SPD: 96 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -117,8 +101,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 1047, ATK: 601, DEF: 388, SPD: 112 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -131,8 +113,6 @@ const CHARACTERS = {
     type: "Abundance",
     base: { HP: 1358, ATK: 679, DEF: 436, SPD: 98 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -144,8 +124,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 811, ATK: 599, DEF: 352, SPD: 111 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -159,8 +137,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1358, ATK: 601, DEF: 509, SPD: 98 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -172,8 +148,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 1058, ATK: 564, DEF: 441, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -186,8 +160,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1358, ATK: 679, DEF: 460, SPD: 94 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -201,8 +173,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 814, ATK: 523, DEF: 776, SPD: 104 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -214,8 +184,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 1086, ATK: 659, DEF: 509, SPD: 103 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -229,8 +197,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 1203, ATK: 620, DEF: 436, SPD: 107 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -242,8 +208,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 1280, ATK: 640, DEF: 485, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -255,8 +219,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 1086, ATK: 446, DEF: 679, SPD: 105 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -269,8 +231,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1125, ATK: 698, DEF: 436, SPD: 101 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -283,8 +243,6 @@ const CHARACTERS = {
     type: "Preservation",
     base: { HP: 1203, ATK: 446, DEF: 654, SPD: 106 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -296,8 +254,6 @@ const CHARACTERS = {
     type: "Abundance",
     base: { HP: 1305, ATK: 529, DEF: 441, SPD: 98 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -310,8 +266,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1086, ATK: 659, DEF: 485, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -323,8 +277,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1270, ATK: 599, DEF: 396, SPD: 96 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -337,8 +289,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 1397, ATK: 523, DEF: 485, SPD: 101 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -351,8 +301,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 1047, ATK: 776, DEF: 460, SPD: 103 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -365,8 +313,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 1086, ATK: 659, DEF: 485, SPD: 104 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -378,8 +324,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1058, ATK: 599, DEF: 396, SPD: 103 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -393,8 +337,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 1047, ATK: 737, DEF: 363, SPD: 103 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -407,8 +349,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 917, ATK: 564, DEF: 352, SPD: 110 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -421,8 +361,6 @@ const CHARACTERS = {
     type: "Abundance",
     base: { HP: 1358, ATK: 601, DEF: 509, SPD: 98 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -435,8 +373,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 882, ATK: 582, DEF: 441, SPD: 106 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -448,8 +384,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1435, ATK: 679, DEF: 485, SPD: 96 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -462,8 +396,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 931, ATK: 620, DEF: 412, SPD: 110 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -477,8 +409,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1241, ATK: 698, DEF: 363, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -491,8 +421,6 @@ const CHARACTERS = {
     type: "Preservation",
     base: { HP: 1474, ATK: 465, DEF: 606, SPD: 100 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -504,8 +432,6 @@ const CHARACTERS = {
     type: "Abundance",
     base: { HP: 1058, ATK: 493, DEF: 551, SPD: 100 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -518,8 +444,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1358, ATK: 543, DEF: 485, SPD: 97 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -532,8 +456,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1086, ATK: 679, DEF: 485, SPD: 100 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -545,8 +467,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 917, ATK: 582, DEF: 485, SPD: 103 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -559,8 +479,6 @@ const CHARACTERS = {
     type: "Abundance",
     base: { HP: 1280, ATK: 756, DEF: 363, SPD: 101 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -572,8 +490,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1047, ATK: 640, DEF: 460, SPD: 107 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -585,8 +501,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 917, ATK: 599, DEF: 374, SPD: 107 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -599,8 +513,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1199, ATK: 599, DEF: 330, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -612,8 +524,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 1023, ATK: 511, DEF: 463, SPD: 106 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -625,8 +535,6 @@ const CHARACTERS = {
     type: "Abundance",
     base: { HP: 1319, ATK: 562, DEF: 485, SPD: 98 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -638,8 +546,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 1241, ATK: 582, DEF: 533, SPD: 99 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -651,8 +557,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1241, ATK: 737, DEF: 485, SPD: 90 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -665,8 +569,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 882, ATK: 546, DEF: 396, SPD: 110 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -679,8 +581,6 @@ const CHARACTERS = {
     type: "Preservation",
     base: { HP: 1397, ATK: 543, DEF: 654, SPD: 92 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -692,8 +592,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 952, ATK: 582, DEF: 396, SPD: 100 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -706,8 +604,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 1047, ATK: 756, DEF: 436, SPD: 96 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -720,8 +616,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1340, ATK: 617, DEF: 352, SPD: 94 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -734,8 +628,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 1164, ATK: 698, DEF: 485, SPD: 99 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -748,8 +640,6 @@ const CHARACTERS = {
     type: "Preservation",
     base: { HP: 1058, ATK: 511, DEF: 573, SPD: 101 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -761,8 +651,6 @@ const CHARACTERS = {
     type: "Abundance",
     base: { HP: 1164, ATK: 476, DEF: 507, SPD: 98 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -774,8 +662,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 987, ATK: 546, DEF: 463, SPD: 105 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -787,8 +673,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 1023, ATK: 652, DEF: 441, SPD: 98 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: false,
     weights: {
       "CRIT Rate": 1,
@@ -801,8 +685,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1023, ATK: 617, DEF: 396, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -814,8 +696,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 931, ATK: 640, DEF: 363, SPD: 115 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -828,8 +708,6 @@ const CHARACTERS = {
     type: "Erudition",
     base: { HP: 917, ATK: 652, DEF: 374, SPD: 104 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -842,8 +720,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 917, ATK: 564, DEF: 418, SPD: 107 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -856,8 +732,6 @@ const CHARACTERS = {
     type: "Harmony",
     base: { HP: 846, ATK: 529, DEF: 396, SPD: 112 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -869,8 +743,6 @@ const CHARACTERS = {
     type: "Destruction",
     base: { HP: 1203, ATK: 620, DEF: 460, SPD: 100 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -883,8 +755,6 @@ const CHARACTERS = {
     type: "Preservation",
     base: { HP: 1241, ATK: 601, DEF: 606, SPD: 95 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -896,8 +766,6 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1125, ATK: 620, DEF: 509, SPD: 102 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
@@ -910,8 +778,6 @@ const CHARACTERS = {
     type: "The Hunt",
     base: { HP: 892, ATK: 679, DEF: 412, SPD: 109 },
     stats: {},
-    thresholds: {},
-    limits: {},
     includeSPD: true,
     weights: {
       "CRIT Rate": 1,
