@@ -127,7 +127,9 @@ const Piece = ({
                 value={newCdata.substats[mainIndex][subIndex][1] || ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
-                  if (/^\d*\.?\d{0,1}$/.test(newValue)) {
+                  const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
+                  const isLessThanMax = Number(newValue) <= (SUBSTATS[newCdata.substats[mainIndex][subIndex][0]] * 6)
+                  if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, 1)
                   }
                 }}
