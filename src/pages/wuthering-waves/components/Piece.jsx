@@ -22,11 +22,11 @@ const Piece = ({
 
       // Clear the substats for the updated mainstat
       updatedSubstats[mainIndex] = [
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
-        { key: "", value: "" },
+        ["",""],
+        ["",""],
+        ["",""],
+        ["",""],
+        ["",""],
       ];
 
       return {
@@ -38,20 +38,21 @@ const Piece = ({
   };
 
   // Pass substat data to newCdata
-  const handleSubstat = (newValue, subIndex, attribute) => {
+  const handleSubstat = (newValue, subIndex, attrIndex) => {
     setNewCdata((prev) => {
       // Create a deep copy of the substats array
       const updatedSubstats = prev.substats.map((subArray) =>
-        subArray.map((stat) => ({ ...stat }))
+        subArray.map((pair) => [...pair])
       );
   
       // Update the specific substat object
-      updatedSubstats[mainIndex][subIndex] = {
-        ...updatedSubstats[mainIndex][subIndex],
-        [attribute]: newValue || "",
-        ...(attribute === "key" && { value: "" }),
-      };
-  
+      updatedSubstats[mainIndex][subIndex][attrIndex] = newValue || "";
+
+      // If updating the key (index 0), reset the value (index 1) to an empty string
+      if (attrIndex === 0) {
+        updatedSubstats[mainIndex][subIndex][1] = "";
+      }
+      
       return {
         ...prev,
         substats: updatedSubstats,
@@ -62,7 +63,7 @@ const Piece = ({
   const substatOptions = (subIndex) => {
     // Get the selected mainstat and substat names
     const selectedSubstatKeys = newCdata.substats[mainIndex]
-      .map((substat) => substat.key)
+      .map((substat) => substat[0])
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
     return Object.keys(SUBSTATS).filter(
@@ -104,9 +105,9 @@ const Piece = ({
             <Grid size={9}>
               <Autocomplete
                 size="small"
-                value={newCdata.substats[mainIndex][subIndex].key || ""}
+                value={newCdata.substats[mainIndex][subIndex][0] || ""}
                 options={substatOptions(subIndex)}
-                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
+                onChange={(_, newValue) => handleSubstat(newValue, subIndex, 0)}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -115,7 +116,7 @@ const Piece = ({
                 )}
                 fullWidth
                 disabled={newCdata.mainstats[mainIndex] === ""}
-                disableClearable={newCdata.substats[mainIndex][subIndex].key === ""}
+                disableClearable={newCdata.substats[mainIndex][subIndex][0] === ""}
               />
             </Grid>
 
@@ -123,15 +124,15 @@ const Piece = ({
             <Grid size={3}>
               <TextField
                 size="small"
-                value={newCdata.substats[mainIndex][subIndex].value || ""}
+                value={newCdata.substats[mainIndex][subIndex][1] || ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   if (/^\d*\.?\d{0,1}$/.test(newValue)) {
-                    handleSubstat(newValue, subIndex, "value")
+                    handleSubstat(newValue, subIndex, 1)
                   }
                 }}
                 fullWidth
-                disabled={newCdata.substats[mainIndex][subIndex].key === ""}
+                disabled={newCdata.substats[mainIndex][subIndex][0] === ""}
               />
             </Grid>
           </React.Fragment>

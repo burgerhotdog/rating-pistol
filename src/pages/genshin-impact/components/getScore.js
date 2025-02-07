@@ -13,8 +13,8 @@ const combine_substats = (substatsArr) => {
   const substats = {};
   for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 4; j++) {
-      const key = substatsArr[i][j].key;
-      const value = Number(substatsArr[i][j].value);
+      const key = substatsArr[i][j][0];
+      const value = Number(substatsArr[i][j][1]);
       if (!key || !value) continue;
       substats[key] = (substats[key] || 0) + value;
     }
