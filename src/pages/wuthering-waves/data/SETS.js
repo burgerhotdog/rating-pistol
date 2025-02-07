@@ -1,23 +1,38 @@
 const SETS = {
   // Version 2.0
   "Empyrean Anthem": {
-    stats: { "Energy Regen": 10 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Eternal Radiance": {
-    stats: { "Spectro DMG": 25, "CRIT Rate": 20 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Frosty Resolve": {
-    stats: { "Resonance Skill DMG": 48, "Glacio DMG": 45 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Midnight Veil": {
-    stats: { "Havoc DMG": 10 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Tidebreaking Courage": {
-    stats: { "Energy Regen": 10, "ATK%": 15 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   // Version 1.4
@@ -30,39 +45,66 @@ const SETS = {
   
   // Version 1.0
   "Celestial Light": {
-    stats: { "Spectro DMG": 40 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Freezing Frost": {
-    stats: { "Glacio DMG": 40 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Lingering Tunes": {
-    stats: { "ATK%": 30 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Molten Rift": {
-    stats: { "Fusion DMG": 40 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Moonlit Clouds": {
-    stats: { "Energy Regen": 10 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Rejuvenating Glow": {
-    stats: { "Healing Bonus": 10, "ATK%": 15 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Sierra Gale": {
-    stats: { "Aero DMG": 40 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Havoc Eclipse": {
-    stats: { "Havoc DMG": 40 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Void Thunder": {
-    stats: { "Electro DMG": 40 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
 };
 

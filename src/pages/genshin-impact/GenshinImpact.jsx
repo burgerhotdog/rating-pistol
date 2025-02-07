@@ -19,6 +19,9 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
+import Tooltip from "@mui/material/Tooltip";
+import WEAPONS from "./data/WEAPONS";
+import SETS from "./data/SETS";
 
 const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
@@ -128,28 +131,66 @@ const GenshinImpact = ({ uid }) => {
                     <TableCell>{cid}</TableCell>
                     {!isMobile && (
                       <TableCell>
-                        <img
-                          src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
-                          alt={"weap"}
-                          style={{
-                            width: 50,
-                            height: 50,
-                            objectFit: "contain",
-                          }}
-                        />
+                        <Tooltip
+                          title={
+                            <React.Fragment>
+                              <Typography variant="subtitle1" fontWeight="bold">
+                                {cdata.weapon}
+                              </Typography>
+                              <Typography variant="body2">
+                                {"Base ATK: " + WEAPONS[cdata.weapon].base.ATK} <br />
+                                {Object.keys(WEAPONS[cdata.weapon].stat)[0] + ": " + 
+                                Object.values(WEAPONS[cdata.weapon].stat)[0]}
+                              </Typography>
+                              <Typography variant="subtitle2" sx={{ mt: 1 }}>
+                                {WEAPONS[cdata.weapon].subtitle}
+                              </Typography>
+                              <Typography variant="body2">
+                                {WEAPONS[cdata.weapon].desc}
+                              </Typography>
+                            </React.Fragment>
+                          }
+                          arrow
+                        >
+                          <img
+                            src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                            alt={"weap"}
+                            style={{
+                              width: 50,
+                              height: 50,
+                              objectFit: "contain",
+                              cursor: "pointer",
+                            }}
+                          />
+                        </Tooltip>
                       </TableCell>
                     )}
                     {!isMobile && (
                       <TableCell>
-                        <img
-                          src={sImgs[`./assets/set/${toPascalCase(cdata.set)}.webp`]?.default}
-                          alt={"set"}
-                          style={{
-                            width: 50,
-                            height: 50,
-                            objectFit: "contain",
-                          }}
-                        />
+                        <Tooltip
+                          title={
+                            <React.Fragment>
+                              <Typography variant="subtitle1" fontWeight="bold">
+                                {cdata.set}
+                              </Typography>
+                              <Typography variant="body2">
+                                {SETS[cdata.set].desc[0]} <br />
+                                {SETS[cdata.set].desc[1]}
+                              </Typography>
+                            </React.Fragment>
+                          }
+                          arrow
+                        >
+                          <img
+                            src={sImgs[`./assets/set/${toPascalCase(cdata.set)}.webp`]?.default}
+                            alt={"set"}
+                            style={{
+                              width: 50,
+                              height: 50,
+                              objectFit: "contain",
+                            }}
+                          />
+                        </Tooltip>
                       </TableCell>
                     )}
                     <TableCell>{cdata.score}</TableCell>

@@ -103,6 +103,9 @@ const WEAPONS = {
   "Absolution": {
     type: "Sword",
     base: { ATK: 674 },
+    stat: { "CRIT DMG": 44.1 },
+    subtitle: "Deathly Pact",
+    desc: `CRIT DMG increased by 20%. Increasing the value of a Bond of Life increases the DMG the equipping character deals by 16% for 6s. Max 3 stacks.`,
   },
   
   "Cloudforged": {

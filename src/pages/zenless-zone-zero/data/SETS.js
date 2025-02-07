@@ -3,73 +3,121 @@ const SETS = {
   
   // Version 1.4
   "Astral Voice": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Branch & Blade Song": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   // Version 1.3
   
   // Version 1.2
   "Chaos Jazz": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Proto Punk": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   // Version 1.1
   
   // Version 1.0
   "Chaotic Metal": {
-    stats: { "Ether DMG": 10, "CRIT DMG": 53 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Fanged Metal": {
-    stats: { "Physical DMG": 10 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Freedom Blues": {
-    stats: { "Anomaly Proficiency": 30 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Hormone Punk": {
-    stats: { "ATK%": 10 },
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Inferno Metal": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Polar Metal": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Puffer Electro": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Shockstar Disco": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Soul Rock": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Swing Jazz": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Thunder Metal": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
   
   "Woodpecker Electro": {
-    stats: {},
+    desc: [
+      ``,
+      ``,
+    ],
   },
 };
 

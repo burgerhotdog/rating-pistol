@@ -19,6 +19,9 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
+import Tooltip from "@mui/material/Tooltip";
+import WEAPONS from "./data/WEAPONS";
+import SETS from "./data/SETS";
 
 const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
@@ -147,25 +150,55 @@ const HonkaiStarRail = ({ uid }) => {
                           alignItems: "center",
                           gap: 1,
                         }}>
-                          <img
-                            src={sImgs[`./assets/set/${toPascalCase(cdata.set1)}.webp`]?.default}
-                            alt={"set1"}
-                            style={{
-                              width: 50,
-                              height: 50,
-                              objectFit: "contain",
-                            }}
-                          />
+                          <Tooltip
+                            title={
+                              <React.Fragment>
+                                <Typography variant="subtitle1" fontWeight="bold">
+                                  {cdata.set1}
+                                </Typography>
+                                <Typography variant="body2">
+                                  {SETS[cdata.set1].desc[0]} <br />
+                                  {SETS[cdata.set1].desc[1]}
+                                </Typography>
+                              </React.Fragment>
+                            }
+                            arrow
+                          >
+                            <img
+                              src={sImgs[`./assets/set/${toPascalCase(cdata.set1)}.webp`]?.default}
+                              alt={"set1"}
+                              style={{
+                                width: 50,
+                                height: 50,
+                                objectFit: "contain",
+                              }}
+                            />
+                          </Tooltip>
                           <Typography>+</Typography>
-                          <img
-                            src={sImgs[`./assets/set/${toPascalCase(cdata.set2)}.webp`]?.default}
-                            alt={"set2"}
-                            style={{
-                              width: 50,
-                              height: 50,
-                              objectFit: "contain",
-                            }}
-                          />
+                          <Tooltip
+                            title={
+                              <React.Fragment>
+                                <Typography variant="subtitle1" fontWeight="bold">
+                                  {cdata.set2}
+                                </Typography>
+                                <Typography variant="body2">
+                                  {SETS[cdata.set2].desc[0]} <br />
+                                  {SETS[cdata.set2].desc[1]}
+                                </Typography>
+                              </React.Fragment>
+                            }
+                            arrow
+                          >
+                            <img
+                              src={sImgs[`./assets/set/${toPascalCase(cdata.set2)}.webp`]?.default}
+                              alt={"set2"}
+                              style={{
+                                width: 50,
+                                height: 50,
+                                objectFit: "contain",
+                              }}
+                            />
+                          </Tooltip>
                         </Box>
                       </TableCell>
                     )}

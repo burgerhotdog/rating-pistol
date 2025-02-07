@@ -19,6 +19,9 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
+import Tooltip from "@mui/material/Tooltip";
+import WEAPONS from "./data/WEAPONS";
+import SETS from "./data/SETS";
 
 const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
@@ -141,15 +144,30 @@ const WutheringWaves = ({ uid }) => {
                     )}
                     {!isMobile && (
                       <TableCell>
-                        <img
-                          src={sImgs[`./assets/set/${toPascalCase(cdata.set)}.webp`]?.default}
-                          alt={"set"}
-                          style={{
-                            width: 50,
-                            height: 50,
-                            objectFit: "contain",
-                          }}
-                        />
+                        <Tooltip
+                          title={
+                            <React.Fragment>
+                              <Typography variant="subtitle1" fontWeight="bold">
+                                {cdata.set}
+                              </Typography>
+                              <Typography variant="body2">
+                                {SETS[cdata.set].desc[0]} <br />
+                                {SETS[cdata.set].desc[1]}
+                              </Typography>
+                            </React.Fragment>
+                          }
+                          arrow
+                        >
+                          <img
+                            src={sImgs[`./assets/set/${toPascalCase(cdata.set)}.webp`]?.default}
+                            alt={"set"}
+                            style={{
+                              width: 50,
+                              height: 50,
+                              objectFit: "contain",
+                            }}
+                          />
+                        </Tooltip>
                       </TableCell>
                     )}
                     <TableCell>{cdata.score}</TableCell>
