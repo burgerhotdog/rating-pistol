@@ -3,7 +3,8 @@ const CHARACTERS = {
   "Mydei": {
     type: "Destruction",
     base: { HP: 1000, ATK: 100, DEF: 100 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -14,7 +15,8 @@ const CHARACTERS = {
   "Tribbie": {
     type: "Harmony",
     base: { HP: 1000, ATK: 100, DEF: 100 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -26,7 +28,8 @@ const CHARACTERS = {
   "Aglaea": {
     type: "Remembrance",
     base: { HP: 1242, ATK: 699, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -37,7 +40,8 @@ const CHARACTERS = {
   "The Herta": {
     type: "Erudition",
     base: { HP: 1164, ATK: 679, DEF: 485 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -48,7 +52,8 @@ const CHARACTERS = {
   "Trailblazer (Remembrance)": {
     type: "Remembrance",
     base: { HP: 1047, ATK: 543, DEF: 630 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -60,7 +65,8 @@ const CHARACTERS = {
   "Sunday": {
     type: "Harmony",
     base: { HP: 1241, ATK: 640, DEF: 533 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -70,7 +76,8 @@ const CHARACTERS = {
   "Fugue": {
     type: "Nihility",
     base: { HP: 1125, ATK: 582, DEF: 557 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -81,7 +88,8 @@ const CHARACTERS = {
   "Rappa": {
     type: "Erudition",
     base: { HP: 1086, ATK: 717, DEF: 460 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -92,7 +100,8 @@ const CHARACTERS = {
   "Feixiao": {
     type: "The Hunt",
     base: { HP: 1047, ATK: 601, DEF: 388 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -103,7 +112,8 @@ const CHARACTERS = {
   "Lingsha": {
     type: "Abundance",
     base: { HP: 1358, ATK: 679, DEF: 436 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -113,7 +123,8 @@ const CHARACTERS = {
   "Moze": {
     type: "The Hunt",
     base: { HP: 811, ATK: 599, DEF: 352 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -125,7 +136,8 @@ const CHARACTERS = {
   "Jiaoqiu": {
     type: "Nihility",
     base: { HP: 1358, ATK: 601, DEF: 509 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -135,7 +147,8 @@ const CHARACTERS = {
   "March 7th (The Hunt)": {
     type: "The Hunt",
     base: { HP: 1058, ATK: 564, DEF: 441 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -146,7 +159,8 @@ const CHARACTERS = {
   "Yunli": {
     type: "Destruction",
     base: { HP: 1358, ATK: 679, DEF: 460 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -158,7 +172,8 @@ const CHARACTERS = {
   "Firefly": {
     type: "Destruction",
     base: { HP: 814, ATK: 523, DEF: 776 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -168,7 +183,8 @@ const CHARACTERS = {
   "Jade": {
     type: "Erudition",
     base: { HP: 1086, ATK: 659, DEF: 509 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -180,7 +196,8 @@ const CHARACTERS = {
   "Boothill": {
     type: "The Hunt",
     base: { HP: 1203, ATK: 620, DEF: 436 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -190,7 +207,8 @@ const CHARACTERS = {
   "Robin": {
     type: "Harmony",
     base: { HP: 1280, ATK: 640, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -200,7 +218,8 @@ const CHARACTERS = {
   "Trailblazer (Harmony)": {
     type: "Harmony",
     base: { HP: 1086, ATK: 446, DEF: 679 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -211,7 +230,8 @@ const CHARACTERS = {
   "Acheron": {
     type: "Nihility",
     base: { HP: 1125, ATK: 698, DEF: 436 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -222,7 +242,8 @@ const CHARACTERS = {
   "Aventurine": {
     type: "Preservation",
     base: { HP: 1203, ATK: 446, DEF: 654 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -232,7 +253,8 @@ const CHARACTERS = {
   "Gallagher": {
     type: "Abundance",
     base: { HP: 1305, ATK: 529, DEF: 441 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -243,7 +265,8 @@ const CHARACTERS = {
   "Black Swan": {
     type: "Nihility",
     base: { HP: 1086, ATK: 659, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -253,7 +276,8 @@ const CHARACTERS = {
   "Misha": {
     type: "Destruction",
     base: { HP: 1270, ATK: 599, DEF: 396 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -264,7 +288,8 @@ const CHARACTERS = {
   "Sparkle": {
     type: "Harmony",
     base: { HP: 1397, ATK: 523, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -275,7 +300,8 @@ const CHARACTERS = {
   "Dr. Ratio": {
     type: "The Hunt",
     base: { HP: 1047, ATK: 776, DEF: 460 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -286,7 +312,8 @@ const CHARACTERS = {
   "Ruan Mei": {
     type: "Harmony",
     base: { HP: 1086, ATK: 659, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -296,7 +323,8 @@ const CHARACTERS = {
   "Xueyi": {
     type: "Destruction",
     base: { HP: 1058, ATK: 599, DEF: 396 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -308,7 +336,8 @@ const CHARACTERS = {
   "Argenti": {
     type: "Erudition",
     base: { HP: 1047, ATK: 737, DEF: 363 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -319,7 +348,8 @@ const CHARACTERS = {
   "Hanya": {
     type: "Harmony",
     base: { HP: 917, ATK: 564, DEF: 352 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -330,7 +360,8 @@ const CHARACTERS = {
     name: "Huohuo",
     type: "Abundance",
     base: { HP: 1358, ATK: 601, DEF: 509 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -341,7 +372,8 @@ const CHARACTERS = {
   "Guinaifen": {
     type: "Nihility",
     base: { HP: 882, ATK: 582, DEF: 441 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -351,7 +383,8 @@ const CHARACTERS = {
   "Jingliu": {
     type: "Destruction",
     base: { HP: 1435, ATK: 679, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -362,7 +395,8 @@ const CHARACTERS = {
   "Topaz & Numby": {
     type: "The Hunt",
     base: { HP: 931, ATK: 620, DEF: 412 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -374,7 +408,8 @@ const CHARACTERS = {
   "Dan Heng • Imbibitor Lunae": {
     type: "Destruction",
     base: { HP: 1241, ATK: 698, DEF: 363 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -385,7 +420,8 @@ const CHARACTERS = {
   "Fu Xuan": {
     type: "Preservation",
     base: { HP: 1474, ATK: 465, DEF: 606 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -395,7 +431,8 @@ const CHARACTERS = {
   "Lynx": {
     type: "Abundance",
     base: { HP: 1058, ATK: 493, DEF: 551 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -406,7 +443,8 @@ const CHARACTERS = {
   "Blade": {
     type: "Destruction",
     base: { HP: 1358, ATK: 543, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -417,7 +455,8 @@ const CHARACTERS = {
   "Kafka": {
     type: "Nihility",
     base: { HP: 1086, ATK: 679, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -427,7 +466,8 @@ const CHARACTERS = {
   "Luka": {
     type: "Nihility",
     base: { HP: 917, ATK: 582, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -438,7 +478,8 @@ const CHARACTERS = {
   "Luocha": {
     type: "Abundance",
     base: { HP: 1280, ATK: 756, DEF: 363 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -448,7 +489,8 @@ const CHARACTERS = {
   "Silver Wolf": {
     type: "Nihility",
     base: { HP: 1047, ATK: 640, DEF: 460 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -458,7 +500,8 @@ const CHARACTERS = {
   "Yukong": {
     type: "Harmony",
     base: { HP: 917, ATK: 599, DEF: 374 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -469,7 +512,8 @@ const CHARACTERS = {
   "Arlan": {
     type: "Destruction",
     base: { HP: 1199, ATK: 599, DEF: 330 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -479,7 +523,8 @@ const CHARACTERS = {
   "Asta": {
     type: "Harmony",
     base: { HP: 1023, ATK: 511, DEF: 463 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -489,7 +534,8 @@ const CHARACTERS = {
   "Bailu": {
     type: "Abundance",
     base: { HP: 1319, ATK: 562, DEF: 485 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -499,7 +545,8 @@ const CHARACTERS = {
   "Bronya": {
     type: "Harmony",
     base: { HP: 1241, ATK: 582, DEF: 533 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -509,7 +556,8 @@ const CHARACTERS = {
   "Clara": {
     type: "Destruction",
     base: { HP: 1241, ATK: 737, DEF: 485 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -520,7 +568,8 @@ const CHARACTERS = {
   "Dan Heng": {
     type: "The Hunt",
     base: { HP: 882, ATK: 546, DEF: 396 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -531,7 +580,8 @@ const CHARACTERS = {
   "Gepard": {
     type: "Preservation",
     base: { HP: 1397, ATK: 543, DEF: 654 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -541,7 +591,8 @@ const CHARACTERS = {
   "Herta": {
     type: "Erudition",
     base: { HP: 952, ATK: 582, DEF: 396 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -552,7 +603,8 @@ const CHARACTERS = {
   "Himeko": {
     type: "Erudition",
     base: { HP: 1047, ATK: 756, DEF: 436 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -563,7 +615,8 @@ const CHARACTERS = {
   "Hook": {
     type: "Destruction",
     base: { HP: 1340, ATK: 617, DEF: 352 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -574,7 +627,8 @@ const CHARACTERS = {
   "Jing Yuan": {
     type: "Erudition",
     base: { HP: 1164, ATK: 698, DEF: 485 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -585,7 +639,8 @@ const CHARACTERS = {
   "March 7th (Preservation)": {
     type: "Preservation",
     base: { HP: 1058, ATK: 511, DEF: 573 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -595,7 +650,8 @@ const CHARACTERS = {
   "Natasha": {
     type: "Abundance",
     base: { HP: 1164, ATK: 476, DEF: 507 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -605,7 +661,8 @@ const CHARACTERS = {
   "Pela": {
     type: "Nihility",
     base: { HP: 987, ATK: 546, DEF: 463 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -615,7 +672,8 @@ const CHARACTERS = {
   "Qingque": {
     type: "Erudition",
     base: { HP: 1023, ATK: 652, DEF: 441 },
-    includeSpeed: false,
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -626,17 +684,18 @@ const CHARACTERS = {
   "Sampo": {
     type: "Nihility",
     base: { HP: 1023, ATK: 617, DEF: 396 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
     },
   },
   
   "Seele": {
     type: "The Hunt",
     base: { HP: 931, ATK: 640, DEF: 363 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -647,7 +706,8 @@ const CHARACTERS = {
   "Serval": {
     type: "Erudition",
     base: { HP: 917, ATK: 652, DEF: 374 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -658,7 +718,8 @@ const CHARACTERS = {
   "Sushang": {
     type: "The Hunt",
     base: { HP: 917, ATK: 564, DEF: 418 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -669,17 +730,18 @@ const CHARACTERS = {
   "Tingyun": {
     type: "Harmony",
     base: { HP: 846, ATK: 529, DEF: 396 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
     },
   },
 
   "Trailblazer (Destruction)": {
     type: "Destruction",
     base: { HP: 1203, ATK: 620, DEF: 460 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -690,17 +752,20 @@ const CHARACTERS = {
   "Trailblazer (Preservation)": {
     type: "Preservation",
     base: { HP: 1241, ATK: 601, DEF: 606 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
   "Welt": {
     type: "Nihility",
     base: { HP: 1125, ATK: 620, DEF: 509 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -711,7 +776,8 @@ const CHARACTERS = {
   "Yanqing": {
     type: "The Hunt",
     base: { HP: 892, ATK: 679, DEF: 412 },
-    includeSpeed: true,
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,

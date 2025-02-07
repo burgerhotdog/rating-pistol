@@ -83,10 +83,10 @@ const simulate_substats = (substats, weights, mainstatsArr) => {
   return sim_substats;
 };
 
-const calculatePoints = (statsObj, weights, basestats, includeEnergy) => {
+const calculatePoints = (statsObj, weights, basestats, includeEr) => {
   let points = 0;
   Object.entries(statsObj).forEach(([key, value]) => {
-    if (weights[key] || (key === "Energy Recharge" && includeEnergy)) {
+    if (weights[key] || (key === "Energy Recharge" && includeEr)) {
       const weight = key === "Energy Recharge" ? 1 : weights[key];
       const normalize = SUBSTATS[key];
       points += (value / normalize) * weight;
@@ -114,8 +114,8 @@ const getScore = (cid, cdata) => {
   console.log("sim_substats: ", sim_substats);
 
   // Calculate points
-  const points = calculatePoints(substats, CHARACTERS[cid].weights, basestats, CHARACTERS[cid].includeEnergy);
-  const sim_points = calculatePoints(sim_substats, CHARACTERS[cid].weights, basestats, CHARACTERS[cid].includeEnergy);
+  const points = calculatePoints(substats, CHARACTERS[cid].weights, basestats, CHARACTERS[cid].includeEr);
+  const sim_points = calculatePoints(sim_substats, CHARACTERS[cid].weights, basestats, CHARACTERS[cid].includeEr);
   console.log("points: ", points);
   console.log("sim_points: ", sim_points);
 
