@@ -83,11 +83,11 @@ const simulate_substats = (substats, weights, mainstatsArr) => {
   return sim_substats;
 };
 
-const calculatePoints = (statsObj, weights, basestats, includeSpd) => {
+const calculatePoints = (statsObj, weights, basestats, includeSpd, includeEhr) => {
   let points = 0;
   Object.entries(statsObj).forEach(([key, value]) => {
-    if (weights[key] || (key === "SPD" && includeSpd)) {
-      const weight = key === "SPD" ? 1 : weights[key];
+    if (weights[key] || (key === "SPD" && includeSpd) || (key === "Effect Hit Rate" && includeEhr)) {
+      const weight = (key === "SPD" || key === "Effect Hit Rate") ? 1 : weights[key];
       const normalize = SUBSTATS[key];
       points += (value / normalize) * weight;
     } else if (basestats[key] && weights[key + "%"]) {
@@ -114,8 +114,8 @@ const getScore = (cid, cdata) => {
   console.log("sim_substats: ", sim_substats);
 
   // Calculate points
-  const points = calculatePoints(substats, CHARACTERS[cid].weights, basestats, CHARACTERS[cid].includeSpd);
-  const sim_points = calculatePoints(sim_substats, CHARACTERS[cid].weights, basestats, CHARACTERS[cid].includeSpd);
+  const points = calculatePoints(substats, CHARACTERS[cid].weights, basestats, CHARACTERS[cid].includeSpd, CHARACTERS[cid].includeEhr);
+  const sim_points = calculatePoints(sim_substats, CHARACTERS[cid].weights, basestats, CHARACTERS[cid].includeSpd, CHARACTERS[cid].includeEhr);
   console.log("points: ", points);
   console.log("sim_points: ", sim_points);
 

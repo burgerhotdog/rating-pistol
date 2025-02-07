@@ -77,7 +77,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1125, ATK: 582, DEF: 557 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -137,7 +137,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1358, ATK: 601, DEF: 509 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -266,7 +266,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1086, ATK: 659, DEF: 485 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -373,7 +373,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 882, ATK: 582, DEF: 441 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -456,7 +456,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1086, ATK: 679, DEF: 485 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -467,7 +467,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 917, ATK: 582, DEF: 485 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -490,7 +490,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1047, ATK: 640, DEF: 460 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -640,7 +640,7 @@ const CHARACTERS = {
     type: "Preservation",
     base: { HP: 1058, ATK: 511, DEF: 573 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -662,7 +662,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 987, ATK: 546, DEF: 463 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
@@ -685,7 +685,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1023, ATK: 617, DEF: 396 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "ATK%": 1,
     },
@@ -765,7 +765,7 @@ const CHARACTERS = {
     type: "Nihility",
     base: { HP: 1125, ATK: 620, DEF: 509 },
     includeSpd: true,
-    includeEhr: false,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
