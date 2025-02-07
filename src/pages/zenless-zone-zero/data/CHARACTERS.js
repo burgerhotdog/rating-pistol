@@ -41,8 +41,8 @@ const CHARACTERS = {
     base: { HP: 8609, ATK: 715, DEF: 600 },
     weights: {
       "ATK%": 1,
-      "Anomaly Proficiency": 0.6,
-      "PEN": 0.24,
+      "Anomaly Proficiency": 0.5,
+      "PEN": 0.12,
     },
   },
 
@@ -74,7 +74,7 @@ const CHARACTERS = {
     base: { HP: 7673, ATK: 880, DEF: 606 },
     weights: {
       "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
       "ATK%": 0.6,
       "Anomaly Proficiency": 0.24,
       "PEN": 0.24,
@@ -250,9 +250,9 @@ const CHARACTERS = {
     base: { HP: 8026, ATK: 659, DEF: 613 },
     weights: {
       "ATK%": 1,
-      "CRIT Rate": 0.6,
-      "CRIT DMG": 0.6,
-      "PEN": 0.24,
+      "CRIT Rate": 0.5,
+      "CRIT DMG": 0.5,
+      "PEN": 0.12,
     },
   },
   
@@ -324,9 +324,9 @@ const CHARACTERS = {
     base: { HP: 8026, ATK: 666, DEF: 598 },
     weights: {
       "ATK%": 1,
-      "CRIT Rate": 0.6,
-      "CRIT DMG": 0.6,
-      "PEN": 0.24,
+      "CRIT Rate": 0.5,
+      "CRIT DMG": 0.5,
+      "PEN": 0.12,
     },
   },
   

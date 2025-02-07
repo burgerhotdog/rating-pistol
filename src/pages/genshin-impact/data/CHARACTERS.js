@@ -6,7 +6,7 @@ const CHARACTERS = {
     base: { HP: 10000, ATK: 100, DEF: 100 },
     includeEr: true,
     weights: {
-      "Elemental Mastery": 0.8,
+      "Elemental Mastery": 1,
     },
   },
   */
@@ -17,7 +17,7 @@ const CHARACTERS = {
     base: { HP: 11633, ATK: 126, DEF: 763 },
     includeEr: true,
     weights: {
-      "Elemental Mastery": 0.8,
+      "Elemental Mastery": 1,
     },
   },
 
@@ -26,8 +26,8 @@ const CHARACTERS = {
     base: { HP: 9243, ATK: 250, DEF: 580 },
     includeEr: true,
     weights: {
-      "ATK%": 0.8,
-      "Elemental Mastery": 0.5,
+      "ATK%": 1,
+      "Elemental Mastery": 0.6,
     },
   },
   
@@ -39,6 +39,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
 
@@ -50,6 +51,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -62,6 +64,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -73,6 +76,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -82,7 +86,7 @@ const CHARACTERS = {
     base: { HP: 12405, ATK: 275, DEF: 929 },
     includeEr: true,
     weights: {
-      "DEF%": 0.8,
+      "DEF%": 0.6,
     },
   },
   
@@ -106,6 +110,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -117,6 +122,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -129,6 +135,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -141,6 +148,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -151,7 +159,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.6,
+      "Elemental Mastery": 0.48,
+      "ATK%": 0.36,
     },
   },
   
@@ -160,7 +169,7 @@ const CHARACTERS = {
     base: { HP: 13348, ATK: 192, DEF: 499 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -173,6 +182,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -185,6 +195,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "DEF%": 0.6,
+      "ATK%": 0.12,
     },
   },
   
@@ -197,6 +208,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -205,7 +217,7 @@ const CHARACTERS = {
     base: { HP: 10409, ATK: 334, DEF: 572 },
     includeEr: true,
     weights: {
-      "ATK%": 0.8,
+      "ATK%": 1,
     },
   },
   
@@ -215,7 +227,7 @@ const CHARACTERS = {
     base: { HP: 11962, ATK: 193, DEF: 604 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -236,7 +248,7 @@ const CHARACTERS = {
     base: { HP: 10766, ATK: 173, DEF: 546 },
     includeEr: true,
     weights: {
-      "ATK%": 0.8,
+      "ATK%": 0.6,
     },
   },
   
@@ -248,6 +260,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -260,6 +273,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -271,6 +285,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -327,7 +342,7 @@ const CHARACTERS = {
     base: { HP: 12179, ATK: 223, DEF: 546 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -337,7 +352,7 @@ const CHARACTERS = {
     base: { HP: 13348, ATK: 192, DEF: 499 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -346,7 +361,7 @@ const CHARACTERS = {
     base: { HP: 11962, ATK: 233, DEF: 750 },
     includeEr: true,
     weights: {
-      "Elemental Mastery": 0.8,
+      "Elemental Mastery": 1,
     },
   },
   
@@ -358,7 +373,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "HP%": 0.6,
+      "HP%": 0.48,
+      "ATK%": 0.36,
     },
   },
   
@@ -367,7 +383,7 @@ const CHARACTERS = {
     base: { HP: 12506, ATK: 223, DEF: 713 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -380,6 +396,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "Elemental Mastery": 0.6,
+      "ATK%": 0.24,
     },
   },
   
@@ -388,7 +405,7 @@ const CHARACTERS = {
     base: { HP: 12288, ATK: 212, DEF: 750 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -400,7 +417,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 0.5,
       "CRIT DMG": 0.5,
-      "ATK%": 0.3
+      "ATK%": 0.3,
+      "Elemental Mastery": 0.12,
     },
   },
   
@@ -421,7 +439,7 @@ const CHARACTERS = {
     base: { HP: 11092, ATK: 216, DEF: 655 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -433,6 +451,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "Elemental Mastery": 0.6,
+      "ATK%": 0.24,
     },
   },
   
@@ -442,7 +461,7 @@ const CHARACTERS = {
     base: { HP: 10874, ATK: 212, DEF: 682 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -453,8 +472,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.4,
-      "ATK%": 0.2,
+      "Elemental Mastery": 0.48,
+      "ATK%": 0.36,
     },
   },
   
@@ -463,7 +482,8 @@ const CHARACTERS = {
     base: { HP: 15184, ATK: 229, DEF: 728 },
     includeEr: false,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -473,10 +493,10 @@ const CHARACTERS = {
     base: { HP: 9787, ATK: 199, DEF: 600 },
     includeEr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "Elemental Mastery": 0.4,
-      "ATK%": 0.2,
+      "CRIT Rate": 0.5,
+      "CRIT DMG": 0.5,
+      "Elemental Mastery": 0.24,
+      "ATK%": 0.18,
     },
   },
   
@@ -485,7 +505,7 @@ const CHARACTERS = {
     base: { HP: 12397, ATK: 223, DEF: 723 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -496,8 +516,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.4,
-      "ATK%": 0.2,
+      "Elemental Mastery": 0.48,
+      "ATK%": 0.36,
     },
   },
 
@@ -506,10 +526,10 @@ const CHARACTERS = {
     base: { HP: 10875, ATK: 212, DEF: 683 },
     includeEr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "Elemental Mastery": 0.4,
-      "ATK%": 0.2,
+      "CRIT Rate": 0.5,
+      "CRIT DMG": 0.5,
+      "Elemental Mastery": 0.24,
+      "ATK%": 0.18,
     },
   },
   
@@ -544,6 +564,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -556,6 +577,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -567,8 +589,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "Elemental Mastery": 0.4,
-      "ATK%": 0.2,
+      "Elemental Mastery": 0.48,
+      "ATK%": 0.36,
     },
   },
   
@@ -578,7 +600,7 @@ const CHARACTERS = {
     base: { HP: 12992, ATK: 303, DEF: 830 },
     includeEr: true,
     weights: {
-      "ATK%": 0.8,
+      "ATK%": 1,
     },
   },
   
@@ -587,7 +609,7 @@ const CHARACTERS = {
     base: { HP: 10657, ATK: 191, DEF: 734 },
     includeEr: true,
     weights: {
-      "DEF%": 0.8,
+      "DEF%": 1,
     },
   },
   
@@ -600,6 +622,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "DEF%": 0.6,
+      "ATK%": 0.12,
     },
   },
   
@@ -608,7 +631,7 @@ const CHARACTERS = {
     base: { HP: 9569, ATK: 182, DEF: 648 },
     includeEr: true,
     weights: {
-      "DEF%": 0.8,
+      "DEF%": 0.6,
     },
   },
   
@@ -618,7 +641,7 @@ const CHARACTERS = {
     base: { HP: 10331, ATK: 201, DEF: 750 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -631,6 +654,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -639,9 +663,9 @@ const CHARACTERS = {
     base: { HP: 9569, ATK: 195, DEF: 627 },
     includeEr: true,
     weights: {
-      "CRIT Rate": 0.8,
-      "CRIT DMG": 0.8,
-      "ATK%": 0.6,
+      "CRIT Rate": 0.5,
+      "CRIT DMG": 0.5,
+      "ATK%": 0.3,
     },
   },
   
@@ -661,7 +685,7 @@ const CHARACTERS = {
     base: { HP: 13470, ATK: 234, DEF: 657 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -682,8 +706,8 @@ const CHARACTERS = {
     base: { HP: 11853, ATK: 244, DEF: 744 },
     includeEr: true,
     weights: {
-      "Elemental Mastery": 0.8,
-      "ATK%": 0.5,
+      "Elemental Mastery": 1,
+      "ATK%": 0.6,
     },
   },
 
@@ -695,6 +719,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -706,6 +731,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -715,7 +741,7 @@ const CHARACTERS = {
     base: { HP: 13348, ATK: 296, DEF: 806 },
     includeEr: true,
     weights: {
-      "Elemental Mastery": 0.8,
+      "Elemental Mastery": 1,
     },
   },
   
@@ -739,6 +765,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -751,6 +778,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -763,6 +791,8 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "HP%": 0.6,
+      "Elemental Mastery": 0.24,
+      "ATK%": 0.12,
     },
   },
   
@@ -797,6 +827,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -806,7 +837,7 @@ const CHARACTERS = {
     base: { HP: 9569, ATK: 212, DEF: 600 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 1,
     },
   },
   
@@ -818,6 +849,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -826,9 +858,10 @@ const CHARACTERS = {
     base: { HP: 11201, ATK: 248, DEF: 798 },
     includeEr: false,
     weights: {
-      "DEF%": 0.8,
-      "CRIT Rate": 0.5,
-      "CRIT DMG": 0.5,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "DEF%": 0.24,
     },
   },
   
@@ -837,9 +870,9 @@ const CHARACTERS = {
     base: { HP: 14695, ATK: 251, DEF: 737 },
     includeEr: false,
     weights: {
-      "HP%": 0.8,
-      "CRIT Rate": 0.5,
-      "CRIT DMG": 0.5,
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "HP%": 0.9,
     },
   },
   
@@ -852,6 +885,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -860,7 +894,7 @@ const CHARACTERS = {
     base: { HP: 9787, ATK: 159, DEF: 668 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 0.6,
     },
   },
   
@@ -872,6 +906,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -880,7 +915,7 @@ const CHARACTERS = {
     base: { HP: 12397, ATK: 191, DEF: 771 },
     includeEr: true,
     weights: {
-      "HP%": 0.8,
+      "HP%": 0.6,
     },
   },
   
@@ -892,6 +927,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -903,6 +939,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -913,8 +950,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.4,
-      "Elemental Mastery": 0.2,
+      "ATK%": 0.48,
+      "Elemental Mastery": 0.36,
     },
   },
   
@@ -923,7 +960,7 @@ const CHARACTERS = {
     base: { HP: 14695, ATK: 239, DEF: 768 },
     includeEr: true,
     weights: {
-      "ATK%": 0.8,
+      "ATK%": 0.6,
     },
   },
   
@@ -935,6 +972,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -945,8 +983,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.4,
-      "Elemental Mastery": 0.2,
+      "ATK%": 0.48,
+      "Elemental Mastery": 0.36,
     },
   },
   
@@ -958,6 +996,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -968,8 +1007,8 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
-      "ATK%": 0.4,
-      "Elemental Mastery": 0.2,
+      "ATK%": 0.48,
+      "Elemental Mastery": 0.36,
     },
   },
   
@@ -981,6 +1020,7 @@ const CHARACTERS = {
       "CRIT Rate": 0.5,
       "CRIT DMG": 0.5,
       "ATK%": 0.3,
+      "Elemental Mastery": 0.12,
     },
   },
   
@@ -1011,7 +1051,7 @@ const CHARACTERS = {
     base: { HP: 12368, ATK: 287, DEF: 922 },
     includeEr: true,
     weights: {
-      "ATK%": 0.8,
+      "ATK%": 1,
     },
   },
   
@@ -1031,7 +1071,7 @@ const CHARACTERS = {
     base: { HP: 9243, ATK: 169, DEF: 702 },
     includeEr: true,
     weights: {
-      "Elemental Mastery": 0.8,
+      "Elemental Mastery": 1,
     },
   },
 
@@ -1043,6 +1083,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
 
@@ -1062,7 +1103,7 @@ const CHARACTERS = {
     base: { HP: 10531, ATK: 263, DEF: 668 },
     includeEr: true,
     weights: {
-      "Elemental Mastery": .8,
+      "Elemental Mastery": 1,
     },
   },
   
@@ -1074,7 +1115,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
-      "Elemental Mastery": 0.2,
+      "Elemental Mastery": 0.24,
     },
   },
   
@@ -1086,6 +1127,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Elemental Mastery": 0.24,
     },
   },
 };

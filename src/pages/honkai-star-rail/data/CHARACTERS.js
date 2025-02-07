@@ -55,9 +55,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "CRIT DMG": 0.6,
+      "ATK%": 0.24,
     },
   },
 
@@ -68,8 +67,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
@@ -79,8 +78,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -91,8 +90,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "ATK%": 0.6,
     },
   },
   
@@ -115,8 +114,9 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "ATK%": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
@@ -139,8 +139,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
@@ -175,8 +174,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "ATK%": 0.6,
     },
   },
   
@@ -199,8 +198,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
     },
   },
   
@@ -210,8 +208,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "Effect RES": 0.24,
     },
   },
 
@@ -221,8 +219,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -247,6 +245,7 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "DEF%": 0.6,
     },
   },
   
@@ -256,8 +255,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 0.9,
+      "Effect RES": 0.24,
     },
   },
   
@@ -268,8 +267,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
     },
   },
   
@@ -291,8 +289,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
@@ -306,6 +304,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Effect Hit Rate": 0.24,
     },
   },
   
@@ -315,8 +314,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -328,6 +327,7 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "Break Effect": 0.9,
       "ATK%": 0.6,
     },
   },
@@ -351,8 +351,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -363,8 +362,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -375,8 +374,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -423,8 +422,9 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "DEF%": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
@@ -434,8 +434,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -458,8 +458,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
     },
   },
   
@@ -469,8 +468,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "ATK%": 0.6,
     },
   },
   
@@ -481,8 +480,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -492,8 +491,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -503,8 +501,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -517,6 +514,7 @@ const CHARACTERS = {
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
@@ -526,8 +524,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -537,8 +534,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -548,8 +545,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
@@ -583,8 +580,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "DEF%": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -642,8 +639,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "DEF%": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -653,8 +650,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -664,8 +661,7 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
@@ -724,6 +720,7 @@ const CHARACTERS = {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
       "ATK%": 0.6,
+      "Break Effect": 0.24,
     },
   },
   
@@ -734,6 +731,7 @@ const CHARACTERS = {
     includeEhr: false,
     weights: {
       "ATK%": 1,
+      "Effect RES": 0.24,
     },
   },
 
@@ -755,9 +753,8 @@ const CHARACTERS = {
     includeSpd: true,
     includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "DEF%": 1,
+      "Effect RES": 0.24,
     },
   },
   
