@@ -21,7 +21,7 @@ import Save from "./components/Save";
 import Delete from "./components/Delete";
 import Tooltip from "@mui/material/Tooltip";
 import WEAPONS from "./data/WEAPONS";
-import SETS from "./data/SETS";
+import { SETS_RELIC, SETS_PLANAR } from "./data/SETS";
 
 const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
@@ -49,7 +49,7 @@ const HonkaiStarRail = ({ uid }) => {
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -95,8 +95,8 @@ const HonkaiStarRail = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {!isMobile && <TableCell>Light Cone</TableCell>}
-                {!isMobile && <TableCell>Relics</TableCell>}
+                {isNotMobile && <TableCell>Light Cone</TableCell>}
+                {isNotMobile && <TableCell>Relics</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -129,7 +129,7 @@ const HonkaiStarRail = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{cid}</TableCell>
-                    {!isMobile && (
+                    {isNotMobile && (
                       <TableCell>
                         <img
                           src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
@@ -142,7 +142,7 @@ const HonkaiStarRail = ({ uid }) => {
                         />
                       </TableCell>
                     )}
-                    {!isMobile && (
+                    {isNotMobile && (
                       <TableCell>
                         <Box sx={{
                           display: "flex",
@@ -157,8 +157,8 @@ const HonkaiStarRail = ({ uid }) => {
                                   {cdata.set1}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {SETS[cdata.set1].desc[0]} <br />
-                                  {SETS[cdata.set1].desc[1]}
+                                  {SETS_RELIC[cdata.set1].desc[0]} <br />
+                                  {SETS_RELIC[cdata.set1].desc[1]}
                                 </Typography>
                               </React.Fragment>
                             }
@@ -182,8 +182,7 @@ const HonkaiStarRail = ({ uid }) => {
                                   {cdata.set2}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {SETS[cdata.set2].desc[0]} <br />
-                                  {SETS[cdata.set2].desc[1]}
+                                  {SETS_PLANAR[cdata.set2].desc[0]}
                                 </Typography>
                               </React.Fragment>
                             }

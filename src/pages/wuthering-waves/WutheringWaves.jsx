@@ -49,7 +49,7 @@ const WutheringWaves = ({ uid }) => {
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -95,8 +95,8 @@ const WutheringWaves = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {!isMobile && <TableCell>Weapon</TableCell>}
-                {!isMobile && <TableCell>Echoes</TableCell>}
+                {isNotMobile && <TableCell>Weapon</TableCell>}
+                {isNotMobile && <TableCell>Echoes</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -129,7 +129,7 @@ const WutheringWaves = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{cid}</TableCell>
-                    {!isMobile && (
+                    {isNotMobile && (
                       <TableCell>
                         <img
                           src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
@@ -142,7 +142,7 @@ const WutheringWaves = ({ uid }) => {
                         />
                       </TableCell>
                     )}
-                    {!isMobile && (
+                    {isNotMobile && (
                       <TableCell>
                         <Tooltip
                           title={

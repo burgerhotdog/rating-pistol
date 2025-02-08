@@ -49,7 +49,7 @@ const GenshinImpact = ({ uid }) => {
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -95,8 +95,8 @@ const GenshinImpact = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {!isMobile && <TableCell>Weapon</TableCell>}
-                {!isMobile && <TableCell>Artifacts</TableCell>}
+                {isNotMobile && <TableCell>Weapon</TableCell>}
+                {isNotMobile && <TableCell>Artifacts</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -129,7 +129,7 @@ const GenshinImpact = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{cid}</TableCell>
-                    {!isMobile && (
+                    {isNotMobile && (
                       <TableCell>
                         <Tooltip
                           title={
@@ -165,7 +165,7 @@ const GenshinImpact = ({ uid }) => {
                         </Tooltip>
                       </TableCell>
                     )}
-                    {!isMobile && (
+                    {isNotMobile && (
                       <TableCell>
                         <Tooltip
                           title={

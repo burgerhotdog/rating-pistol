@@ -61,7 +61,7 @@ const Save = ({
   
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Gets filtered character ids for select character
   const charOptions = () => {
@@ -283,7 +283,7 @@ const Save = ({
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {!isMobile && newCdata.weapon && (
+              {isNotMobile && newCdata.weapon && (
                 <img
                   src={wImgs[`../assets/weap/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
@@ -294,7 +294,7 @@ const Save = ({
                   }}
                 />
               )}
-              {!isMobile && !newCdata.weapon && (
+              {isNotMobile && !newCdata.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>

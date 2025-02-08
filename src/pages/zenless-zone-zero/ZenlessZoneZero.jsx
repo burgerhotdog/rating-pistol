@@ -49,7 +49,7 @@ const ZenlessZoneZero = ({ uid }) => {
 
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -95,8 +95,8 @@ const ZenlessZoneZero = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {!isMobile && <TableCell>W-Engine</TableCell>}
-                {!isMobile && <TableCell>Drive Disks</TableCell>}
+                {isNotMobile && <TableCell>W-Engine</TableCell>}
+                {isNotMobile && <TableCell>Drive Disks</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -128,7 +128,7 @@ const ZenlessZoneZero = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{cid}</TableCell>
-                    {!isMobile && (
+                    {isNotMobile && (
                       <TableCell>
                         <img
                           src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
@@ -141,7 +141,7 @@ const ZenlessZoneZero = ({ uid }) => {
                         />
                       </TableCell>
                     )}
-                    {!isMobile && (
+                    {isNotMobile && (
                       <TableCell>
                         <Box
                           sx={{

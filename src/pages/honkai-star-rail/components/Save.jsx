@@ -18,7 +18,7 @@ import getScore from "./getScore";
 import blankCdata from "./blankCdata";
 import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
-import SETS from "../data/SETS";
+import { SETS_RELIC, SETS_PLANAR } from "../data/SETS";
 
 const cImgs = import.meta.glob("../assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/*.webp", { eager: true });
@@ -61,7 +61,7 @@ const Save = ({
   
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Gets filtered character ids for select character
   const charOptions = () => {
@@ -77,10 +77,13 @@ const Save = ({
       .sort();
   };
 
-  // Gets filtered set ids for select set
-  const setOptions = (setType) => {
-    return Object.keys(SETS)
-      .filter(id => SETS[id].type === setType)
+  const set1Options = () => {
+    return Object.keys(SETS_RELIC)
+      .sort();
+  };
+
+  const set2Options = () => {
+    return Object.keys(SETS_PLANAR)
       .sort();
   };
 
@@ -271,7 +274,7 @@ const Save = ({
               <Autocomplete
                 size="small"
                 value={newCdata.set1}
-                options={setOptions("Relic")}
+                options={set1Options()}
                 onChange={(_, newValue) => handleSet(newValue, "set1")}
                 renderInput={(params) => (
                   <TextField
@@ -289,7 +292,7 @@ const Save = ({
               <Autocomplete
                 size="small"
                 value={newCdata.set2}
-                options={setOptions("Planar")}
+                options={set2Options()}
                 onChange={(_, newValue) => handleSet(newValue, "set2")}
                 renderInput={(params) => (
                   <TextField
@@ -304,7 +307,7 @@ const Save = ({
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {!isMobile && newCdata.weapon && (
+              {isNotMobile && newCdata.weapon && (
                 <img
                   src={wImgs[`../assets/weap/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
@@ -315,7 +318,7 @@ const Save = ({
                   }}
                 />
               )}
-              {!isMobile && !newCdata.weapon && (
+              {isNotMobile && !newCdata.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>
