@@ -47,9 +47,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "ATK%: 41.3",
-    subtitle: ``,
+    subtitle: `Inflorescence Unattainable`,
     desc: [
-      ``,
+      `Decreases Gliding Stamina consumption by 15%. When using Aimed Shots, the DMG dealt by Charged Attacks increases by 6% every 0.5s. This effect can stack up to 6 times and will be removed 10s after leaving Aiming Mode.`,
     ],
   },
   
@@ -119,9 +119,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "ATK%%: 27.6",
-    subtitle: ``,
+    subtitle: `Flower-Feather Song`,
     desc: [
-      ``,
+      `For every party member from Natlan or who has a different Elemental Type from the equipping character, the equipping character gains 4.8% increased ATK. When there are no less than 3 of the aforementioned characters, the equipping character gains 24 Elemental Mastery.`,
     ],
   },
   
@@ -211,9 +211,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "Elemental Mastery: 165",
-    subtitle: ``,
+    subtitle: `Crag-Chiseled Forge`,
     desc: [
-      ``,
+      `After Elemental Energy is decreased, the equipping character's Elemental Mastery will increase by 40 for 18s. Max 2 stacks.`,
     ],
   },
   
@@ -357,9 +357,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "ATK%: 27.6",
-    subtitle: ``,
+    subtitle: `Masons' Ditty`,
     desc: [
-      ``,
+      `When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain 3% ATK and 7% All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.`,
     ],
   },
   
@@ -448,9 +448,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "CRIT Rate: 18.4",
-    subtitle: ``,
+    subtitle: `The Way of Sunfire`,
     desc: [
-      ``,
+      `After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing 60% ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take 28% more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s.`,
     ],
   },
   
@@ -458,9 +458,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "ATK%: 41.3",
-    subtitle: ``,
+    subtitle: `Benthic Pulse`,
     desc: [
-      ``,
+      `After the wielder is healed, they will deal 16% more DMG for 8s. This can be triggered even when the character is not on the field.`,
     ],
   },
   
@@ -512,9 +512,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "ATK%: 27.6",
-    subtitle: ``,
+    subtitle: `Secret Wisdom's Favor`,
     desc: [
-      ``,
+      `The character's Elemental Mastery will increase by 40 within 6s after Charged Attacks hit opponents. Max 2 stacks. This effect can be triggered once every 0.5s.`,
     ],
   },
   
@@ -659,9 +659,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "Energy Recharge: 45.9",
-    subtitle: ``,
+    subtitle: `Net Snapper`,
     desc: [
-      ``,
+      `Triggers the Flowrider effect after using an Elemental Skill, dealing 80% ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s.`,
     ],
   },
   
@@ -699,9 +699,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 454 },
     substat: "ATK%: 55.1",
-    subtitle: ``,
+    subtitle: `Labyrinth Lord's Instruction`,
     desc: [
-      ``,
+      `Obtain the Teachings of the Forest effect when unleashing Elemental Skills and Bursts, increasing Elemental Mastery by 60 for 12s. This effect will be removed when switching characters. When the Teachings of the Forest effect ends or is removed, it will deal 100% of ATK as DMG to 1 nearby opponent. The Teachings of the Forest effect can be triggered once every 20s.`,
     ],
   },
   
@@ -751,9 +751,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "Energy Recharge: 30.6",
-    subtitle: ``,
+    subtitle: `Radiance of the Deeps`,
     desc: [
-      ``,
+      `Has three states, Evengleam, Afterglow, and Dawnblaze, which increase DMG dealt by 6%/10%/14% respectively. When attacks hit opponents, this weapon will switch to the next state. This weapon can change states once every 7s. The character equipping this weapon can still trigger the state switch while not on the field.`,
     ],
   },
   
@@ -836,9 +836,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "ATK%: 27.6",
-    subtitle: ``,
+    subtitle: `Watatsumi Wavewalker`,
     desc: [
-      ``,
+      `For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by 0.12%. A maximum of 40% increased Elemental Burst DMG can be achieved this way.`,
     ],
   },
   
@@ -897,9 +897,11 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "ATK%: 41.3",
-    subtitle: ``,
+    subtitle: `Strong Strike`,
     desc: [
-      ``,
+      `Effective only on the following platform:`,
+      `"PlayStation Network"`,
+      `Dealing Cryo DMG to opponents increases this character's Normal and Charged Attack DMG by 10% for 6s. This effect can have a maximum of 2 stacks. Additionally, when Aloy equips Predator, ATK is increased by 66.`,
     ],
   },
   
@@ -938,9 +940,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 454 },
     substat: "ATK%: 55.1",
-    subtitle: ``,
+    subtitle: `Full Draw`,
     desc: [
-      ``,
+      `Increases Normal Attack DMG by 16% and Charged Attack DMG by 12%. When the equipping character's Energy reaches 100%, this effect is increased by 100%.`,
     ],
   },
   
@@ -1009,9 +1011,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "Physical DMG: 51.7",
-    subtitle: ``,
+    subtitle: `Evernight Duet`,
     desc: [
-      ``,
+      `Normal Attack hits on opponents increase Elemental Skill DMG by 20% for 5s. Elemental Skill hits on opponents increase Normal Attack DMG by 20% for 5s.`,
     ],
   },
   
@@ -1031,9 +1033,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "ATK%: 27.6",
-    subtitle: ``,
+    subtitle: `Oppidan Ambush`,
     desc: [
-      ``,
+      `While the character equipped with this weapon is in the party but not on the field, their DMG increases by 2% every second up to a max of 20%. When the character is on the field for more than 4s, the aforementioned DMG buff decreases by 4% per second until it reaches 0%.`,
     ],
   },
   
@@ -1061,9 +1063,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "Elemental Mastery: 165",
-    subtitle: ``,
+    subtitle: `Windblume Wish`,
     desc: [
-      ``,
+      `After using an Elemental Skill, receive a boon from the ancient wish of the Windblume, increasing ATK by 16% for 6s.`,
     ],
   },
   
@@ -1235,9 +1237,9 @@ const WEAPONS = {
     type: "Polearm",
     base: { ATK: 354 },
     substat: "HP%: 46.9",
-    subtitle: ``,
+    subtitle: `Bane of the Soft`,
     desc: [
-      ``,
+      `Increases DMG against slimes by 40%.`,
     ],
   },
   
@@ -1285,9 +1287,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "CRIT DMG: 36.8",
-    subtitle: ``,
+    subtitle: `Press the Advantage`,
     desc: [
-      ``,
+      `After defeating an enemy, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.`,
     ],
   },
   
@@ -1295,9 +1297,9 @@ const WEAPONS = {
     type: "Claymore",
     base: { ATK: 354 },
     substat: "Elemental Mastery: 187",
-    subtitle: ``,
+    subtitle: `Bane of Fire and Thunder`,
     desc: [
-      ``,
+      `Increases DMG dealt against opponents affected by Pyro or Electro by 12%.`,
     ],
   },
   
@@ -1305,9 +1307,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 454 },
     substat: "Physical DMG: 69",
-    subtitle: ``,
+    subtitle: `Infusion Arrow`,
     desc: [
-      ``,
+      `Normal Attack and Charged Attack hits increase ATK by 4% and Normal ATK SPD by 1.2% for 6s. Max 4 stacks. Can only occur once every 0.3s.`,
     ],
   },
   
@@ -1315,9 +1317,9 @@ const WEAPONS = {
     type: "Sword",
     base: { ATK: 401 },
     substat: "ATK%: 35.2",
-    subtitle: ``,
+    subtitle: `Bane of Water and Ice`,
     desc: [
-      ``,
+      `Increases DMG against opponents affected by Hydro or Cryo by 12%.`,
     ],
   },
   
@@ -1335,9 +1337,9 @@ const WEAPONS = {
     type: "Sword",
     base: { ATK: 401 },
     substat: "Elemental Mastery: 141",
-    subtitle: ``,
+    subtitle: `Overloaded`,
     desc: [
-      ``,
+      `Upon causing an Overloaded, Superconduct, Electro-Charged, Quicken, Aggravate, Hyperbloom, or Electro-infused Swirl reaction, ATK is increased by 20% for 12s.`,
     ],
   },
   
@@ -1355,9 +1357,9 @@ const WEAPONS = {
     type: "Claymore",
     base: { ATK: 401 },
     substat: "ATK%: 35.2",
-    subtitle: ``,
+    subtitle: `Blunt Conclusion`,
     desc: [
-      ``,
+      `After using an Elemental Skill, on hit, Normal and Charged Attacks deal additional DMG equal to 60% of ATK in a small AoE. Effect lasts 15s. DMG can only occur once every 3s.`,
     ],
   },
   
@@ -1375,9 +1377,9 @@ const WEAPONS = {
     type: "Catalyst",
     base: { ATK: 448 },
     substat: "Elemental Mastery: 94",
-    subtitle: ``,
+    subtitle: `Rapids`,
     desc: [
-      ``,
+      `Upon causing a Vaporize, Electro-Charged, Frozen, Bloom, or a Hydro-infused Swirl reaction, increases ATK by 20% for 12s.`,
     ],
   },
   
@@ -1435,9 +1437,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 454 },
     substat: "Energy Recharge: 61.3",
-    subtitle: ``,
+    subtitle: `Windfall`,
     desc: [
-      ``,
+      `CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.`,
     ],
   },
   
@@ -1445,9 +1447,9 @@ const WEAPONS = {
     type: "Claymore",
     base: { ATK: 401 },
     substat: "HP%: 35.2",
-    subtitle: ``,
+    subtitle: `Unbending`,
     desc: [
-      ``,
+      `When HP falls below 70%, increases Charged Attack DMG by 30% and Charged Attacks become harder to interrupt.`,
     ],
   },
   
@@ -1455,9 +1457,9 @@ const WEAPONS = {
     type: "Sword",
     base: { ATK: 401 },
     substat: "ATK%: 35.2",
-    subtitle: ``,
+    subtitle: `Gash`,
     desc: [
-      ``,
+      `On hit, has a 50% chance to deal 240% ATK DMG to a single opponent. Can only occur once every 15s.`,
     ],
   },
   
@@ -1465,9 +1467,9 @@ const WEAPONS = {
     type: "Polearm",
     base: { ATK: 448 },
     substat: "ATK%: 23.5",
-    subtitle: ``,
+    subtitle: `Heavy`,
     desc: [
-      ``,
+      `Normal Attacks deal an additional 160% ATK as DMG. Can only occur once every 10s.`,
     ],
   },
   
@@ -1475,9 +1477,9 @@ const WEAPONS = {
     type: "Sword",
     base: { ATK: 401 },
     substat: "CRIT DMG: 46.9",
-    subtitle: ``,
+    subtitle: `Vigorous`,
     desc: [
-      ``,
+      `When HP is above 90%, increases CRIT Rate by 14%.`,
     ],
   },
   
@@ -1515,9 +1517,9 @@ const WEAPONS = {
     type: "Catalyst",
     base: { ATK: 354 },
     substat: "Elemental Mastery: 187",
-    subtitle: ``,
+    subtitle: `Bane of Storm and Tide`,
     desc: [
-      ``,
+      `Increases DMG against opponents affected by Hydro or Electro by 12%.`,
     ],
   },
   
@@ -1535,9 +1537,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 448 },
     substat: "CRIT Rate: 31.2",
-    subtitle: ``,
+    subtitle: `Archer's Message`,
     desc: [
-      ``,
+      `Charged Attack hits on weak points deal an additional 100% ATK DMG as CRIT DMG. Can only occur once every 10s.`,
     ],
   },
   
@@ -1545,9 +1547,9 @@ const WEAPONS = {
     type: "Catalyst",
     base: { ATK: 401 },
     substat: "Energy Recharge: 39",
-    subtitle: ``,
+    subtitle: `Energy Shower`,
     desc: [
-      ``,
+      `Picking up an Elemental Energy Orb/Particle recovers 1% HP.`,
     ],
   },
   
@@ -1585,9 +1587,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "ATK%: 41.3",
-    subtitle: ``,
+    subtitle: `Unreturning`,
     desc: [
-      ``,
+      `Charged Attack hits on weak points increase Movement SPD by 10% and ATK by 36% for 10s.`,
     ],
   },
   
@@ -1625,9 +1627,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 448 },
     substat: "Elemental Mastery: 94",
-    subtitle: ``,
+    subtitle: `Bane of Flame and Water`,
     desc: [
-      ``,
+      `Increases DMG against opponents affected by Hydro or Pyro by 12%.`,
     ],
   },
   
@@ -1635,9 +1637,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 354 },
     substat: "HP%: 46.9",
-    subtitle: ``,
+    subtitle: `Cull the Weak`,
     desc: [
-      ``,
+      `Defeating an opponent restores 8% HP.`,
     ],
   },
   
@@ -1645,9 +1647,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "ATK%: 41.3",
-    subtitle: ``,
+    subtitle: `Focus`,
     desc: [
-      ``,
+      `Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.`,
     ],
   },
   
@@ -1685,9 +1687,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "ATK%: 41.3",
-    subtitle: ``,
+    subtitle: `Rapid Firing`,
     desc: [
-      ``,
+      `Increases Normal Attack DMG by 40% but decreases Charged Attack DMG by 10%.`,
     ],
   },
   
@@ -1695,9 +1697,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 565 },
     substat: "Energy Recharge: 30.6",
-    subtitle: ``,
+    subtitle: `Composed`,
     desc: [
-      ``,
+      `After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.`,
     ],
   },
   
@@ -1745,9 +1747,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 401 },
     substat: "CRIT DMG: 46.9",
-    subtitle: ``,
+    subtitle: `Precise`,
     desc: [
-      ``,
+      `Increases DMG against weak spots by 24%.`,
     ],
   },
   
@@ -1755,9 +1757,9 @@ const WEAPONS = {
     type: "Claymore",
     base: { ATK: 401 },
     substat: "Physical DMG: 43.9",
-    subtitle: ``,
+    subtitle: `Courage`,
     desc: [
-      ``,
+      `On hit, Normal or Charged Attacks increase ATK by 6% for 6s. Max 4 stacks. Can occur once every 0.5s.`,
     ],
   },
   
@@ -1765,9 +1767,9 @@ const WEAPONS = {
     type: "Sword",
     base: { ATK: 354 },
     substat: "Energy Recharge: 52.1",
-    subtitle: ``,
+    subtitle: `Determination`,
     desc: [
-      ``,
+      `Using an Elemental Burst grants a 12% increase in ATK and Movement SPD for 15s.`,
     ],
   },
   
@@ -1825,9 +1827,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 354 },
     substat: "CRIT Rate: 31.2",
-    subtitle: ``,
+    subtitle: `Slingshot`,
     desc: [
-      ``,
+      `If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by 36%. Otherwise, decreases DMG by 10%.`,
     ],
   },
   
@@ -1887,9 +1889,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "Elemental Mastery: 165",
-    subtitle: ``,
+    subtitle: `Arrowless Song`,
     desc: [
-      ``,
+      `Increases Elemental Skill and Elemental Burst DMG by 24%.`,
     ],
   },
   
@@ -1897,9 +1899,9 @@ const WEAPONS = {
     type: "Bow",
     base: { ATK: 510 },
     substat: "CRIT Rate: 27.6",
-    subtitle: ``,
+    subtitle: `Verdant Wind`,
     desc: [
-      ``,
+      `Upon hit, Normal and Charged Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing 40% of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every 14s.`,
     ],
   },
   
@@ -1917,9 +1919,9 @@ const WEAPONS = {
     type: "Catalyst",
     base: { ATK: 401 },
     substat: "HP%: 35.2",
-    subtitle: ``,
+    subtitle: `Heritage`,
     desc: [
-      ``,
+      `When switching characters, the new character taking the field has their ATK increased by 24% for 10s. This effect can only occur once every 20s.`,
     ],
   },
   
@@ -1927,9 +1929,9 @@ const WEAPONS = {
     type: "Sword",
     base: { ATK: 448 },
     substat: "DEF%: 29.3",
-    subtitle: ``,
+    subtitle: `Journey`,
     desc: [
-      ``,
+      `Each Elemental Orb or Particle collected restores 1% HP.`,
     ],
   },
   
@@ -1937,9 +1939,9 @@ const WEAPONS = {
     type: "Catalyst",
     base: { ATK: 448 },
     substat: "CRIT Rate: 15.6",
-    subtitle: ``,
+    subtitle: `Guerilla Tactics`,
     desc: [
-      ``,
+      `Defeating an opponent increases Movement SPD and ATK by 12% for 15s.`,
     ],
   },
   
@@ -1947,9 +1949,9 @@ const WEAPONS = {
     type: "Claymore",
     base: { ATK: 401 },
     substat: "DEF%: 43.9",
-    subtitle: ``,
+    subtitle: `Cull the Weak`,
     desc: [
-      ``,
+      `Defeating an opponent restores 8% HP.`,
     ],
   },
   
@@ -1957,9 +1959,9 @@ const WEAPONS = {
     type: "Polearm",
     base: { ATK: 401 },
     substat: "CRIT Rate: 23.4",
-    subtitle: ``,
+    subtitle: `Sharp`,
     desc: [
-      ``,
+      `Increases Normal Attack DMG by 24%.`,
     ],
   },
   
