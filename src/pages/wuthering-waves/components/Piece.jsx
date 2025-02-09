@@ -126,9 +126,9 @@ const Piece = ({
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (SUBSTATS[newCdata.substats[mainIndex][subIndex][0]] * 6)
+                  const isLessThanMax = Number(newValue) <= SUBSTATS[newCdata.substats[mainIndex][subIndex][0]];
                   if (isValidNumber && isLessThanMax) {
-                    handleSubstat(newValue, subIndex, 1)
+                    handleSubstat(newValue, subIndex, 1);
                   }
                 }}
                 fullWidth
