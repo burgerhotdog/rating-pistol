@@ -21,12 +21,12 @@ const Piece = ({
       updatedMainstats[mainIndex] = newValue || "";
 
       // Clear the substats for the updated mainstat
-      updatedSubstats[mainIndex] = [
-        ["",""],
-        ["",""],
-        ["",""],
-        ["",""],
-      ];
+      updatedSubstats[mainIndex] = {
+        0: ["",""],
+        1: ["",""],
+        2: ["",""],
+        3: ["",""],
+      };
 
       return {
         ...prev,
@@ -40,9 +40,7 @@ const Piece = ({
   const handleSubstat = (newValue, subIndex, attrIndex) => {
     setNewCdata((prev) => {
       // Create a deep copy of the substats array
-      const updatedSubstats = prev.substats.map((subArray) =>
-        subArray.map((pair) => [...pair])
-      );
+      const updatedSubstats = JSON.parse(JSON.stringify(prev.substats));
   
       // Update the specific substat object
       updatedSubstats[mainIndex][subIndex][attrIndex] = newValue || "";
@@ -62,7 +60,7 @@ const Piece = ({
   const substatOptions = (subIndex) => {
     // Get the selected mainstat and substat names
     const selectedMainstat = newCdata.mainstats[mainIndex];
-    const selectedSubstatKeys = newCdata.substats[mainIndex]
+    const selectedSubstatKeys = Object.values(newCdata.substats[mainIndex])
       .map((substat) => substat[0])
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   

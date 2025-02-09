@@ -16,7 +16,7 @@ const combine_basestats = (charBase, weapBase) => {
 const combine_substats = (substatsArr) => {
   const substats = {};
   for (let i = 0; i < substatsArr.length; i++) {
-    for (let j = 0; j < substatsArr[i].length; j++) {
+    for (let j = 0; j < Object.keys(substatsArr[i]).length; j++) {
       const key = substatsArr[i][j][0];
       const value = Number(substatsArr[i][j][1]);
       if (!key || !value) continue;
