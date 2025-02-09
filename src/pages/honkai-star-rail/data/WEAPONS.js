@@ -1,628 +1,1116 @@
 const WEAPONS = {
   // Version 3.0
-  "Geniuses' Greetings": {
+  [`Geniuses' Greetings`]: {
     type: "Remembrance",
     base: { HP: 953, ATK: 476, DEF: 331 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
 
-  "Into the Unreachable Veil": {
+  [`Into the Unreachable Veil`]: {
     type: "Erudition",
     base: { HP: 952, ATK: 635, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
 
-  "Reminiscence": {
+  [`Reminiscence`]: {
     type: "Remembrance",
     base: { HP: 635, ATK: 423, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
 
-  "Shadowburn": {
+  [`Shadowburn`]: {
     type: "Remembrance",
     base: { HP: 846, ATK: 317, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
 
-  "Sweat Now, Cry Less": {
+  [`Sweat Now, Cry Less`]: {
     type: "Remembrance",
     base: { HP: 1058, ATK: 529, DEF: 198 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
 
-  "Time Woven Into Gold": {
+  [`Time Woven Into Gold`]: {
     type: "Remembrance",
     base: { HP: 1058, ATK: 635, DEF: 397 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
 
-  "Victory In a Blink": {
+  [`Victory In a Blink`]: {
     type: "Remembrance",
     base: { HP: 952, ATK: 476, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
 
   // Version 2.7
-  "A Grounded Ascent": {
+  [`A Grounded Ascent`]: {
     type: "Harmony",
     base: { HP: 1164, ATK: 476, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Long Road Leads Home": {
+  [`Long Road Leads Home`]: {
     type: "Nihility",
     base: { HP: 952, ATK: 476, DEF: 661 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 2.6
-  "Dream's Montage": {
+  [`Dream's Montage`]: {
     type: "Abundance",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Ninja Record: Sound Hunt": {
+  [`Ninja Record: Sound Hunt`]: {
     type: "Destruction",
     base: { HP: 1058, ATK: 476, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Ninjutsu Inscription: Dazzling Evilbreaker": {
+  [`Ninjutsu Inscription: Dazzling Evilbreaker`]: {
     type: "Erudition",
     base: { HP: 952, ATK: 582, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 2.5
-  "I Venture Forth to Hunt": {
+  [`I Venture Forth to Hunt`]: {
     type: "The Hunt",
     base: { HP: 952, ATK: 635, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Scent Alone Stays True": {
+  [`Scent Alone Stays True`]: {
     type: "Abundance",
     base: { HP: 1058, ATK: 529, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Shadowed by Night": {
+  [`Shadowed by Night`]: {
     type: "The Hunt",
     base: { HP: 846, ATK: 476, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 2.4
-  "Dance at Sunset": {
+  [`Dance at Sunset`]: {
     type: "Destruction",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Poised to Bloom": {
+  [`Poised to Bloom`]: {
     type: "Harmony",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Those Many Springs": {
+  [`Those Many Springs`]: {
     type: "Nihility",
     base: { HP: 952, ATK: 582, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 2.3
-  "After the Charmony Fall": {
+  [`After the Charmony Fall`]: {
     type: "Erudition",
     base: { HP: 846, ATK: 476, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Eternal Calculus": {
+  [`Eternal Calculus`]: {
     type: "Erudition",
     base: { HP: 1058, ATK: 529, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Whereabouts Should Dreams Rest": {
+  [`Whereabouts Should Dreams Rest`]: {
     type: "Destruction",
     base: { HP: 1164, ATK: 476, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Yet Hope Is Priceless": {
+  [`Yet Hope Is Priceless`]: {
     type: "Erudition",
     base: { HP: 952, ATK: 582, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 2.2
-  "Boundless Choreo": {
+  [`Boundless Choreo`]: {
     type: "Nihility",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Flowing Nightglow": {
+  [`Flowing Nightglow`]: {
     type: "Harmony",
     base: { HP: 952, ATK: 635, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "For Tomorrow's Journey": {
+  [`For Tomorrow's Journey`]: {
     type: "Harmony",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Sailing Towards A Second Life": {
+  [`Sailing Towards A Second Life`]: {
     type: "The Hunt",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 2.1
-  "Along the Passing Shore": {
+  [`Along the Passing Shore`]: {
     type: "Nihility",
     base: { HP: 1058, ATK: 635, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Concert for Two": {
+  [`Concert for Two`]: {
     type: "Preservation",
     base: { HP: 952, ATK: 370, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Inherently Unjust Destiny": {
+  [`Inherently Unjust Destiny`]: {
     type: "Preservation",
     base: { HP: 1058, ATK: 423, DEF: 661 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 2.0
-  "Destiny's Threads Forewoven": {
+  [`Destiny's Threads Forewoven`]: {
     type: "Preservation",
     base: { HP: 952, ATK: 370, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Dreamville Adventure": {
+  [`Dreamville Adventure`]: {
     type: "Harmony",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Earthly Escapade": {
+  [`Earthly Escapade`]: {
     type: "Harmony",
     base: { HP: 1164, ATK: 529, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Final Victor": {
+  [`Final Victor`]: {
     type: "The Hunt",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Flames Afar": {
+  [`Flames Afar`]: {
     type: "Destruction",
     base: { HP: 1058, ATK: 476, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Indelible Promise": {
+  [`Indelible Promise`]: {
     type: "Destruction",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "It's Showtime": {
+  [`It's Showtime`]: {
     type: "Nihility",
     base: { HP: 1058, ATK: 476, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Reforged Remembrance": {
+  [`Reforged Remembrance`]: {
     type: "Nihility",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "The Day The Cosmos Fell": {
+  [`The Day The Cosmos Fell`]: {
     type: "Erudition",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "What Is Real?": {
+  [`What Is Real?`]: {
     type: "Abundance",
     base: { HP: 1058, ATK: 423, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 1.6
-  "Baptism of Pure Thought": {
+  [`Baptism of Pure Thought`]: {
     type: "The Hunt",
     base: { HP: 952, ATK: 582, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Past Self in Mirror": {
+  [`Past Self in Mirror`]: {
     type: "Harmony",
     base: { HP: 1058, ATK: 529, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 1.5
-  "An Instant Before A Gaze": {
+  [`An Instant Before A Gaze`]: {
     type: "Erudition",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Hey, Over Here": {
+  [`Hey, Over Here`]: {
     type: "Abundance",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Night of Fright": {
+  [`Night of Fright`]: {
     type: "Abundance",
     base: { HP: 1164, ATK: 476, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 1.4
-  "I Shall Be My Own Sword": {
+  [`I Shall Be My Own Sword`]: {
     type: "Destruction",
     base: { HP: 1164, ATK: 582, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Worrisome, Blissful": {
+  [`Worrisome, Blissful`]: {
     type: "The Hunt",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 1.3
-  "Brighter Than the Sun": {
+  [`Brighter Than the Sun`]: {
     type: "Destruction",
     base: { HP: 1058, ATK: 635, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "She Already Shut Her Eyes": {
+  [`She Already Shut Her Eyes`]: {
     type: "Preservation",
     base: { HP: 1270, ATK: 423, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Solitary Healing": {
+  [`Solitary Healing`]: {
     type: "Nihility",
     base: { HP: 1058, ATK: 529, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 1.2
-  "Patience Is All You Need": {
+  [`Patience Is All You Need`]: {
     type: "Nihility",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "The Unreachable Side": {
+  [`The Unreachable Side`]: {
     type: "Destruction",
     base: { HP: 1270, ATK: 582, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 1.1
-  "Before the Tutorial Mission Starts": {
+  [`Before the Tutorial Mission Starts`]: {
     type: "Nihility",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Echoes of the Coffin": {
+  [`Echoes of the Coffin`]: {
     type: "Abundance",
     base: { HP: 1164, ATK: 582, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Incessant Rain": {
+  [`Incessant Rain`]: {
     type: "Nihility",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
   // Version 1.0
-  "Adversarial": {
+  [`Adversarial`]: {
     type: "The Hunt",
     base: { HP: 740, ATK: 370, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Amber": {
+  [`Amber`]: {
     type: "Preservation",
     base: { HP: 846, ATK: 264, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Arrows": {
+  [`Arrows`]: {
     type: "The Hunt",
     base: { HP: 846, ATK: 317, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "A Secret Vow": {
+  [`A Secret Vow`]: {
     type: "Destruction",
     base: { HP: 1058, ATK: 476, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Before Dawn": {
+  [`Before Dawn`]: {
     type: "Erudition",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "But the Battle Isn't Over": {
+  [`But the Battle Isn't Over`]: {
     type: "Harmony",
     base: { HP: 1164, ATK: 529, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Carve the Moon, Weave the Clouds": {
+  [`Carve the Moon, Weave the Clouds`]: {
     type: "Harmony",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Chorus": {
+  [`Chorus`]: {
     type: "Harmony",
     base: { HP: 846, ATK: 317, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Collapsing Sky": {
+  [`Collapsing Sky`]: {
     type: "Destruction",
     base: { HP: 846, ATK: 370, DEF: 198 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Cornucopia": {
+  [`Cornucopia`]: {
     type: "Abundance",
     base: { HP: 952, ATK: 264, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Cruising in the Stellar Sea": {
+  [`Cruising in the Stellar Sea`]: {
     type: "The Hunt",
     base: { HP: 952, ATK: 529, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Dance! Dance! Dance!": {
+  [`Dance! Dance! Dance!`]: {
     type: "Harmony",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Darting Arrow": {
+  [`Darting Arrow`]: {
     type: "The Hunt",
     base: { HP: 740, ATK: 370, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Data Bank": {
+  [`Data Bank`]: {
     type: "Erudition",
     base: { HP: 740, ATK: 370, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Day One of My New Life": {
+  [`Day One of My New Life`]: {
     type: "Preservation",
     base: { HP: 952, ATK: 370, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Defense": {
+  [`Defense`]: {
     type: "Preservation",
     base: { HP: 952, ATK: 264, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Eyes of the Prey": {
+  [`Eyes of the Prey`]: {
     type: "Nihility",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Fermata": {
+  [`Fermata`]: {
     type: "Nihility",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Fine Fruit": {
+  [`Fine Fruit`]: {
     type: "Abundance",
     base: { HP: 952, ATK: 317, DEF: 198 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Geniuses' Repose": {
+  [`Geniuses' Repose`]: {
     type: "Erudition",
     base: { HP: 846, ATK: 476, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Good Night and Sleep Well": {
+  [`Good Night and Sleep Well`]: {
     type: "Nihility",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Hidden Shadow": {
+  [`Hidden Shadow`]: {
     type: "Nihility",
     base: { HP: 846, ATK: 317, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "In the Name of the World": {
+  [`In the Name of the World`]: {
     type: "Nihility",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "In the Night": {
+  [`In the Night`]: {
     type: "The Hunt",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Landau's Choice": {
+  [`Landau's Choice`]: {
     type: "Preservation",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Loop": {
+  [`Loop`]: {
     type: "Nihility",
     base: { HP: 846, ATK: 317, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Make the World Clamor": {
+  [`Make the World Clamor`]: {
     type: "Erudition",
     base: { HP: 846, ATK: 476, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Mediation": {
+  [`Mediation`]: {
     type: "Harmony",
     base: { HP: 846, ATK: 317, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Memories of the Past": {
+  [`Memories of the Past`]: {
     type: "Harmony",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Meshing Cogs": {
+  [`Meshing Cogs`]: {
     type: "Harmony",
     base: { HP: 846, ATK: 317, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Moment of Victory": {
+  [`Moment of Victory`]: {
     type: "Preservation",
     base: { HP: 1058, ATK: 476, DEF: 595 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Multiplication": {
+  [`Multiplication`]: {
     type: "Abundance",
     base: { HP: 952, ATK: 317, DEF: 198 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Mutual Demise": {
+  [`Mutual Demise`]: {
     type: "Destruction",
     base: { HP: 846, ATK: 370, DEF: 198 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Night on the Milky Way": {
+  [`Night on the Milky Way`]: {
     type: "Erudition",
     base: { HP: 1164, ATK: 582, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Nowhere to Run": {
+  [`Nowhere to Run`]: {
     type: "Destruction",
     base: { HP: 952, ATK: 529, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Only Silence Remains": {
+  [`Only Silence Remains`]: {
     type: "The Hunt",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "On the Fall of an Aeon": {
+  [`On the Fall of an Aeon`]: {
     type: "Destruction",
     base: { HP: 1058, ATK: 529, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Passkey": {
+  [`Passkey`]: {
     type: "Erudition",
     base: { HP: 740, ATK: 370, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Past and Future": {
+  [`Past and Future`]: {
     type: "Harmony",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Perfect Timing": {
+  [`Perfect Timing`]: {
     type: "Abundance",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Pioneering": {
+  [`Pioneering`]: {
     type: "Preservation",
     base: { HP: 952, ATK: 264, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Planetary Rendezvous": {
+  [`Planetary Rendezvous`]: {
     type: "Harmony",
     base: { HP: 1058, ATK: 423, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Post-Op Conversation": {
+  [`Post-Op Conversation`]: {
     type: "Abundance",
     base: { HP: 1058, ATK: 423, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Quid Pro Quo": {
+  [`Quid Pro Quo`]: {
     type: "Abundance",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Resolution Shines As Pearls of Sweat": {
+  [`Resolution Shines As Pearls of Sweat`]: {
     type: "Nihility",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Return to Darkness": {
+  [`Return to Darkness`]: {
     type: "The Hunt",
     base: { HP: 846, ATK: 529, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "River Flows in Spring": {
+  [`River Flows in Spring`]: {
     type: "The Hunt",
     base: { HP: 846, ATK: 476, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Sagacity": {
+  [`Sagacity`]: {
     type: "Erudition",
     base: { HP: 740, ATK: 370, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Shared Feeling": {
+  [`Shared Feeling`]: {
     type: "Abundance",
     base: { HP: 952, ATK: 423, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Shattered Home": {
+  [`Shattered Home`]: {
     type: "Destruction",
     base: { HP: 846, ATK: 370, DEF: 198 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Sleep Like the Dead": {
+  [`Sleep Like the Dead`]: {
     type: "The Hunt",
     base: { HP: 1058, ATK: 582, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Something Irreplaceable": {
+  [`Something Irreplaceable`]: {
     type: "Destruction",
     base: { HP: 1164, ATK: 582, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Subscribe for More!": {
+  [`Subscribe for More!`]: {
     type: "The Hunt",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Swordplay": {
+  [`Swordplay`]: {
     type: "The Hunt",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Texture of Memories": {
+  [`Texture of Memories`]: {
     type: "Preservation",
     base: { HP: 1058, ATK: 423, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "The Birth of the Self": {
+  [`The Birth of the Self`]: {
     type: "Erudition",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "The Moles Welcome You": {
+  [`The Moles Welcome You`]: {
     type: "Destruction",
     base: { HP: 1058, ATK: 476, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "The Seriousness of Breakfast": {
+  [`The Seriousness of Breakfast`]: {
     type: "Erudition",
     base: { HP: 846, ATK: 476, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "This Is Me!": {
+  [`This Is Me!`]: {
     type: "Preservation",
     base: { HP: 846, ATK: 370, DEF: 529 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Time Waits for No One": {
+  [`Time Waits for No One`]: {
     type: "Abundance",
     base: { HP: 1270, ATK: 476, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Today Is Another Peaceful Day": {
+  [`Today Is Another Peaceful Day`]: {
     type: "Erudition",
     base: { HP: 846, ATK: 529, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Trend of the Universal Market": {
+  [`Trend of the Universal Market`]: {
     type: "Preservation",
     base: { HP: 1058, ATK: 370, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Under the Blue Sky": {
+  [`Under the Blue Sky`]: {
     type: "Destruction",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Void": {
+  [`Void`]: {
     type: "Nihility",
     base: { HP: 846, ATK: 317, DEF: 264 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Warmth Shortens Cold Nights": {
+  [`Warmth Shortens Cold Nights`]: {
     type: "Abundance",
     base: { HP: 1058, ATK: 370, DEF: 396 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "We Are Wildfire": {
+  [`We Are Wildfire`]: {
     type: "Preservation",
     base: { HP: 740, ATK: 476, DEF: 463 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "We Will Meet Again": {
+  [`We Will Meet Again`]: {
     type: "Nihility",
     base: { HP: 846, ATK: 529, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
   
-  "Woof! Walk Time!": {
+  [`Woof! Walk Time!`]: {
     type: "Destruction",
     base: { HP: 952, ATK: 476, DEF: 330 },
+    subtitle: ``,
+    desc: [
+      ``,
+    ],
   },
 };
 

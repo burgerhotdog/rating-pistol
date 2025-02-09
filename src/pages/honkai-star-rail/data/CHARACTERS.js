@@ -1,6 +1,6 @@
 const CHARACTERS = {
   /*// Version 3.1
-  "Mydei": {
+  [`Mydei`]: {
     type: "Destruction",
     base: { HP: 1000, ATK: 100, DEF: 100 },
     includeSpd: true,
@@ -12,7 +12,7 @@ const CHARACTERS = {
     },
   },
 
-  "Tribbie": {
+  [`Tribbie`]: {
     type: "Harmony",
     base: { HP: 1000, ATK: 100, DEF: 100 },
     includeSpd: false,
@@ -25,7 +25,7 @@ const CHARACTERS = {
   },*/
 
   // Version 3.0
-  "Aglaea": {
+  [`Aglaea`]: {
     type: "Remembrance",
     base: { HP: 1242, ATK: 699, DEF: 485 },
     includeSpd: true,
@@ -37,7 +37,7 @@ const CHARACTERS = {
     },
   },
 
-  "The Herta": {
+  [`The Herta`]: {
     type: "Erudition",
     base: { HP: 1164, ATK: 679, DEF: 485 },
     includeSpd: false,
@@ -49,7 +49,7 @@ const CHARACTERS = {
     },
   },
 
-  "Trailblazer (Remembrance)": {
+  [`Trailblazer (Remembrance)`]: {
     type: "Remembrance",
     base: { HP: 1047, ATK: 543, DEF: 630 },
     includeSpd: true,
@@ -61,7 +61,7 @@ const CHARACTERS = {
   },
 
   // Version 2.7
-  "Sunday": {
+  [`Sunday`]: {
     type: "Harmony",
     base: { HP: 1241, ATK: 640, DEF: 533 },
     includeSpd: true,
@@ -72,7 +72,7 @@ const CHARACTERS = {
     },
   },
   
-  "Fugue": {
+  [`Fugue`]: {
     type: "Nihility",
     base: { HP: 1125, ATK: 582, DEF: 557 },
     includeSpd: true,
@@ -84,7 +84,7 @@ const CHARACTERS = {
   },
   
   // Version 2.6
-  "Rappa": {
+  [`Rappa`]: {
     type: "Erudition",
     base: { HP: 1086, ATK: 717, DEF: 460 },
     includeSpd: true,
@@ -96,7 +96,7 @@ const CHARACTERS = {
   },
   
   // Version 2.5
-  "Feixiao": {
+  [`Feixiao`]: {
     type: "The Hunt",
     base: { HP: 1047, ATK: 601, DEF: 388 },
     includeSpd: true,
@@ -108,7 +108,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lingsha": {
+  [`Lingsha`]: {
     type: "Abundance",
     base: { HP: 1358, ATK: 679, DEF: 436 },
     includeSpd: true,
@@ -120,7 +120,7 @@ const CHARACTERS = {
     },
   },
   
-  "Moze": {
+  [`Moze`]: {
     type: "The Hunt",
     base: { HP: 811, ATK: 599, DEF: 352 },
     includeSpd: false,
@@ -133,7 +133,7 @@ const CHARACTERS = {
   },
   
   // Version 2.4
-  "Jiaoqiu": {
+  [`Jiaoqiu`]: {
     type: "Nihility",
     base: { HP: 1358, ATK: 601, DEF: 509 },
     includeSpd: true,
@@ -143,7 +143,7 @@ const CHARACTERS = {
     },
   },
   
-  "March 7th (The Hunt)": {
+  [`March 7th (The Hunt)`]: {
     type: "The Hunt",
     base: { HP: 1058, ATK: 564, DEF: 441 },
     includeSpd: true,
@@ -155,7 +155,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yunli": {
+  [`Yunli`]: {
     type: "Destruction",
     base: { HP: 1358, ATK: 679, DEF: 460 },
     includeSpd: true,
@@ -168,7 +168,7 @@ const CHARACTERS = {
   },
   
   // Version 2.3
-  "Firefly": {
+  [`Firefly`]: {
     type: "Destruction",
     base: { HP: 814, ATK: 523, DEF: 776 },
     includeSpd: true,
@@ -179,7 +179,7 @@ const CHARACTERS = {
     },
   },
   
-  "Jade": {
+  [`Jade`]: {
     type: "Erudition",
     base: { HP: 1086, ATK: 659, DEF: 509 },
     includeSpd: false,
@@ -192,7 +192,7 @@ const CHARACTERS = {
   },
   
   // Version 2.2
-  "Boothill": {
+  [`Boothill`]: {
     type: "The Hunt",
     base: { HP: 1203, ATK: 620, DEF: 436 },
     includeSpd: true,
@@ -202,7 +202,7 @@ const CHARACTERS = {
     },
   },
   
-  "Robin": {
+  [`Robin`]: {
     type: "Harmony",
     base: { HP: 1280, ATK: 640, DEF: 485 },
     includeSpd: true,
@@ -213,7 +213,7 @@ const CHARACTERS = {
     },
   },
 
-  "Trailblazer (Harmony)": {
+  [`Trailblazer (Harmony)`]: {
     type: "Harmony",
     base: { HP: 1086, ATK: 446, DEF: 679 },
     includeSpd: true,
@@ -225,7 +225,7 @@ const CHARACTERS = {
   },
   
   // Version 2.1
-  "Acheron": {
+  [`Acheron`]: {
     type: "Nihility",
     base: { HP: 1125, ATK: 698, DEF: 436 },
     includeSpd: false,
@@ -237,7 +237,7 @@ const CHARACTERS = {
     },
   },
   
-  "Aventurine": {
+  [`Aventurine`]: {
     type: "Preservation",
     base: { HP: 1203, ATK: 446, DEF: 654 },
     includeSpd: true,
@@ -249,7 +249,7 @@ const CHARACTERS = {
     },
   },
   
-  "Gallagher": {
+  [`Gallagher`]: {
     type: "Abundance",
     base: { HP: 1305, ATK: 529, DEF: 441 },
     includeSpd: true,
@@ -261,7 +261,7 @@ const CHARACTERS = {
   },
   
   // Version 2.0
-  "Black Swan": {
+  [`Black Swan`]: {
     type: "Nihility",
     base: { HP: 1086, ATK: 659, DEF: 485 },
     includeSpd: true,
@@ -271,7 +271,7 @@ const CHARACTERS = {
     },
   },
   
-  "Misha": {
+  [`Misha`]: {
     type: "Destruction",
     base: { HP: 1270, ATK: 599, DEF: 396 },
     includeSpd: true,
@@ -283,7 +283,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sparkle": {
+  [`Sparkle`]: {
     type: "Harmony",
     base: { HP: 1397, ATK: 523, DEF: 485 },
     includeSpd: true,
@@ -295,7 +295,7 @@ const CHARACTERS = {
   },
   
   // Version 1.6
-  "Dr. Ratio": {
+  [`Dr. Ratio`]: {
     type: "The Hunt",
     base: { HP: 1047, ATK: 776, DEF: 460 },
     includeSpd: true,
@@ -308,7 +308,7 @@ const CHARACTERS = {
     },
   },
   
-  "Ruan Mei": {
+  [`Ruan Mei`]: {
     type: "Harmony",
     base: { HP: 1086, ATK: 659, DEF: 485 },
     includeSpd: true,
@@ -319,7 +319,7 @@ const CHARACTERS = {
     },
   },
   
-  "Xueyi": {
+  [`Xueyi`]: {
     type: "Destruction",
     base: { HP: 1058, ATK: 599, DEF: 396 },
     includeSpd: true,
@@ -333,7 +333,7 @@ const CHARACTERS = {
   },
   
   // Version 1.5
-  "Argenti": {
+  [`Argenti`]: {
     type: "Erudition",
     base: { HP: 1047, ATK: 737, DEF: 363 },
     includeSpd: true,
@@ -345,7 +345,7 @@ const CHARACTERS = {
     },
   },
   
-  "Hanya": {
+  [`Hanya`]: {
     type: "Harmony",
     base: { HP: 917, ATK: 564, DEF: 352 },
     includeSpd: true,
@@ -355,8 +355,7 @@ const CHARACTERS = {
     },
   },
   
-  "Huohuo": {
-    name: "Huohuo",
+  [`Huohuo`]: {
     type: "Abundance",
     base: { HP: 1358, ATK: 601, DEF: 509 },
     includeSpd: true,
@@ -368,7 +367,7 @@ const CHARACTERS = {
   },
   
   // Version 1.4
-  "Guinaifen": {
+  [`Guinaifen`]: {
     type: "Nihility",
     base: { HP: 882, ATK: 582, DEF: 441 },
     includeSpd: true,
@@ -379,7 +378,7 @@ const CHARACTERS = {
     },
   },
   
-  "Jingliu": {
+  [`Jingliu`]: {
     type: "Destruction",
     base: { HP: 1435, ATK: 679, DEF: 485 },
     includeSpd: true,
@@ -391,7 +390,7 @@ const CHARACTERS = {
     },
   },
   
-  "Topaz & Numby": {
+  [`Topaz & Numby`]: {
     type: "The Hunt",
     base: { HP: 931, ATK: 620, DEF: 412 },
     includeSpd: true,
@@ -404,7 +403,7 @@ const CHARACTERS = {
   },
   
   // Version 1.3
-  "Dan Heng • Imbibitor Lunae": {
+  [`Dan Heng • Imbibitor Lunae`]: {
     type: "Destruction",
     base: { HP: 1241, ATK: 698, DEF: 363 },
     includeSpd: false,
@@ -416,7 +415,7 @@ const CHARACTERS = {
     },
   },
   
-  "Fu Xuan": {
+  [`Fu Xuan`]: {
     type: "Preservation",
     base: { HP: 1474, ATK: 465, DEF: 606 },
     includeSpd: true,
@@ -428,7 +427,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lynx": {
+  [`Lynx`]: {
     type: "Abundance",
     base: { HP: 1058, ATK: 493, DEF: 551 },
     includeSpd: true,
@@ -440,7 +439,7 @@ const CHARACTERS = {
   },
   
   // Version 1.2
-  "Blade": {
+  [`Blade`]: {
     type: "Destruction",
     base: { HP: 1358, ATK: 543, DEF: 485 },
     includeSpd: true,
@@ -452,7 +451,7 @@ const CHARACTERS = {
     },
   },
   
-  "Kafka": {
+  [`Kafka`]: {
     type: "Nihility",
     base: { HP: 1086, ATK: 679, DEF: 485 },
     includeSpd: true,
@@ -462,7 +461,7 @@ const CHARACTERS = {
     },
   },
   
-  "Luka": {
+  [`Luka`]: {
     type: "Nihility",
     base: { HP: 917, ATK: 582, DEF: 485 },
     includeSpd: true,
@@ -474,7 +473,7 @@ const CHARACTERS = {
   },
   
   // Version 1.1
-  "Luocha": {
+  [`Luocha`]: {
     type: "Abundance",
     base: { HP: 1280, ATK: 756, DEF: 363 },
     includeSpd: true,
@@ -485,7 +484,7 @@ const CHARACTERS = {
     },
   },
   
-  "Silver Wolf": {
+  [`Silver Wolf`]: {
     type: "Nihility",
     base: { HP: 1047, ATK: 640, DEF: 460 },
     includeSpd: true,
@@ -495,7 +494,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yukong": {
+  [`Yukong`]: {
     type: "Harmony",
     base: { HP: 917, ATK: 599, DEF: 374 },
     includeSpd: true,
@@ -506,7 +505,7 @@ const CHARACTERS = {
   },
   
   // Version 1.0
-  "Arlan": {
+  [`Arlan`]: {
     type: "Destruction",
     base: { HP: 1199, ATK: 599, DEF: 330 },
     includeSpd: true,
@@ -518,7 +517,7 @@ const CHARACTERS = {
     },
   },
   
-  "Asta": {
+  [`Asta`]: {
     type: "Harmony",
     base: { HP: 1023, ATK: 511, DEF: 463 },
     includeSpd: true,
@@ -528,7 +527,7 @@ const CHARACTERS = {
     },
   },
   
-  "Bailu": {
+  [`Bailu`]: {
     type: "Abundance",
     base: { HP: 1319, ATK: 562, DEF: 485 },
     includeSpd: true,
@@ -539,7 +538,7 @@ const CHARACTERS = {
     },
   },
   
-  "Bronya": {
+  [`Bronya`]: {
     type: "Harmony",
     base: { HP: 1241, ATK: 582, DEF: 533 },
     includeSpd: true,
@@ -550,7 +549,7 @@ const CHARACTERS = {
     },
   },
   
-  "Clara": {
+  [`Clara`]: {
     type: "Destruction",
     base: { HP: 1241, ATK: 737, DEF: 485 },
     includeSpd: false,
@@ -562,7 +561,7 @@ const CHARACTERS = {
     },
   },
   
-  "Dan Heng": {
+  [`Dan Heng`]: {
     type: "The Hunt",
     base: { HP: 882, ATK: 546, DEF: 396 },
     includeSpd: true,
@@ -574,7 +573,7 @@ const CHARACTERS = {
     },
   },
   
-  "Gepard": {
+  [`Gepard`]: {
     type: "Preservation",
     base: { HP: 1397, ATK: 543, DEF: 654 },
     includeSpd: true,
@@ -585,7 +584,7 @@ const CHARACTERS = {
     },
   },
   
-  "Herta": {
+  [`Herta`]: {
     type: "Erudition",
     base: { HP: 952, ATK: 582, DEF: 396 },
     includeSpd: false,
@@ -597,7 +596,7 @@ const CHARACTERS = {
     },
   },
   
-  "Himeko": {
+  [`Himeko`]: {
     type: "Erudition",
     base: { HP: 1047, ATK: 756, DEF: 436 },
     includeSpd: false,
@@ -609,7 +608,7 @@ const CHARACTERS = {
     },
   },
   
-  "Hook": {
+  [`Hook`]: {
     type: "Destruction",
     base: { HP: 1340, ATK: 617, DEF: 352 },
     includeSpd: true,
@@ -621,7 +620,7 @@ const CHARACTERS = {
     },
   },
   
-  "Jing Yuan": {
+  [`Jing Yuan`]: {
     type: "Erudition",
     base: { HP: 1164, ATK: 698, DEF: 485 },
     includeSpd: false,
@@ -633,7 +632,7 @@ const CHARACTERS = {
     },
   },
   
-  "March 7th (Preservation)": {
+  [`March 7th (Preservation)`]: {
     type: "Preservation",
     base: { HP: 1058, ATK: 511, DEF: 573 },
     includeSpd: true,
@@ -644,7 +643,7 @@ const CHARACTERS = {
     },
   },
   
-  "Natasha": {
+  [`Natasha`]: {
     type: "Abundance",
     base: { HP: 1164, ATK: 476, DEF: 507 },
     includeSpd: true,
@@ -655,7 +654,7 @@ const CHARACTERS = {
     },
   },
   
-  "Pela": {
+  [`Pela`]: {
     type: "Nihility",
     base: { HP: 987, ATK: 546, DEF: 463 },
     includeSpd: true,
@@ -665,7 +664,7 @@ const CHARACTERS = {
     },
   },
   
-  "Qingque": {
+  [`Qingque`]: {
     type: "Erudition",
     base: { HP: 1023, ATK: 652, DEF: 441 },
     includeSpd: false,
@@ -677,7 +676,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sampo": {
+  [`Sampo`]: {
     type: "Nihility",
     base: { HP: 1023, ATK: 617, DEF: 396 },
     includeSpd: true,
@@ -687,7 +686,7 @@ const CHARACTERS = {
     },
   },
   
-  "Seele": {
+  [`Seele`]: {
     type: "The Hunt",
     base: { HP: 931, ATK: 640, DEF: 363 },
     includeSpd: true,
@@ -699,7 +698,7 @@ const CHARACTERS = {
     },
   },
   
-  "Serval": {
+  [`Serval`]: {
     type: "Erudition",
     base: { HP: 917, ATK: 652, DEF: 374 },
     includeSpd: true,
@@ -711,7 +710,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sushang": {
+  [`Sushang`]: {
     type: "The Hunt",
     base: { HP: 917, ATK: 564, DEF: 418 },
     includeSpd: true,
@@ -724,7 +723,7 @@ const CHARACTERS = {
     },
   },
   
-  "Tingyun": {
+  [`Tingyun`]: {
     type: "Harmony",
     base: { HP: 846, ATK: 529, DEF: 396 },
     includeSpd: true,
@@ -735,7 +734,7 @@ const CHARACTERS = {
     },
   },
 
-  "Trailblazer (Destruction)": {
+  [`Trailblazer (Destruction)`]: {
     type: "Destruction",
     base: { HP: 1203, ATK: 620, DEF: 460 },
     includeSpd: true,
@@ -747,7 +746,7 @@ const CHARACTERS = {
     },
   },
 
-  "Trailblazer (Preservation)": {
+  [`Trailblazer (Preservation)`]: {
     type: "Preservation",
     base: { HP: 1241, ATK: 601, DEF: 606 },
     includeSpd: true,
@@ -758,7 +757,7 @@ const CHARACTERS = {
     },
   },
   
-  "Welt": {
+  [`Welt`]: {
     type: "Nihility",
     base: { HP: 1125, ATK: 620, DEF: 509 },
     includeSpd: true,
@@ -770,7 +769,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yanqing": {
+  [`Yanqing`]: {
     type: "The Hunt",
     base: { HP: 892, ATK: 679, DEF: 412 },
     includeSpd: true,

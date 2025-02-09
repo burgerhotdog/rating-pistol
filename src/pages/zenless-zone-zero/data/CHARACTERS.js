@@ -1,7 +1,7 @@
 const CHARACTERS = {
   // Version 1.6
   /*
-  "Pulchra": {
+  [`Pulchra`]: {
     type: "Stun",
     base: { HP: 1000, ATK: 100, DEF: 100 },
     weights: {
@@ -12,7 +12,7 @@ const CHARACTERS = {
     },
   },
 
-  "Silver Soldier Anby": {
+  [`Silver Soldier Anby`]: {
     type: "Attack",
     base: { HP: 1000, ATK: 100, DEF: 100 },
     weights: {
@@ -23,7 +23,7 @@ const CHARACTERS = {
     },
   },
 
-  "Trigger": {
+  [`Trigger`]: {
     type: "Stun",
     base: { HP: 1000, ATK: 100, DEF: 100 },
     weights: {
@@ -36,7 +36,7 @@ const CHARACTERS = {
   */
 
   // Version 1.5
-  "Astra": {
+  [`Astra`]: {
     type: "Support",
     base: { HP: 8609, ATK: 715, DEF: 600 },
     weights: {
@@ -46,7 +46,7 @@ const CHARACTERS = {
     },
   },
 
-  "Evelyn": {
+  [`Evelyn`]: {
     type: "Attack",
     base: { HP: 7788, ATK: 929, DEF: 612 },
     weights: {
@@ -58,7 +58,7 @@ const CHARACTERS = {
   },
 
   // Version 1.4
-  "Harumasa": {
+  [`Harumasa`]: {
     type: "Attack",
     base: { HP: 7405, ATK: 915, DEF: 600 },
     weights: {
@@ -69,7 +69,7 @@ const CHARACTERS = {
     },
   },
   
-  "Miyabi": {
+  [`Miyabi`]: {
     type: "Anomaly",
     base: { HP: 7673, ATK: 880, DEF: 606 },
     weights: {
@@ -82,7 +82,7 @@ const CHARACTERS = {
   },
   
   // Version 1.3
-  "Lighter": {
+  [`Lighter`]: {
     type: "Stun",
     base: { HP: 8253, ATK: 797, DEF: 612 },
     weights: {
@@ -93,7 +93,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yanagi": {
+  [`Yanagi`]: {
     type: "Anomaly",
     base: { HP: 7789, ATK: 873, DEF: 613 },
     weights: {
@@ -104,7 +104,7 @@ const CHARACTERS = {
   },
   
   // Version 1.2
-  "Burnice": {
+  [`Burnice`]: {
     type: "Anomaly",
     base: { HP: 7368, ATK: 863, DEF: 601 },
     weights: {
@@ -114,7 +114,7 @@ const CHARACTERS = {
     },
   },
   
-  "Caesar": {
+  [`Caesar`]: {
     type: "Defense",
     base: { HP: 9526, ATK: 712, DEF: 754 },
     weights: {
@@ -126,7 +126,7 @@ const CHARACTERS = {
   },
   
   // Version 1.1
-  "Jane": {
+  [`Jane`]: {
     type: "Anomaly",
     base: { HP: 7789, ATK: 881, DEF: 607 },
     weights: {
@@ -136,7 +136,7 @@ const CHARACTERS = {
     },
   },
   
-  "Seth": {
+  [`Seth`]: {
     type: "Defense",
     base: { HP: 8701, ATK: 643, DEF: 746 },
     weights: {
@@ -146,7 +146,7 @@ const CHARACTERS = {
     },
   },
   
-  "Qingyi": {
+  [`Qingyi`]: {
     type: "Stun",
     base: { HP: 8251, ATK: 758, DEF: 613 },
     weights: {
@@ -158,7 +158,7 @@ const CHARACTERS = {
   },
   
   // Version 1.0
-  "Anby": {
+  [`Anby`]: {
     type: "Stun",
     base: { HP: 7501, ATK: 659, DEF: 613 },
     weights: {
@@ -169,7 +169,7 @@ const CHARACTERS = {
     },
   },
   
-  "Anton": {
+  [`Anton`]: {
     type: "Attack",
     base: { HP: 7219, ATK: 792, DEF: 623 },
     weights: {
@@ -180,7 +180,7 @@ const CHARACTERS = {
     },
   },
   
-  "Ben": {
+  [`Ben`]: {
     type: "Defense",
     base: { HP: 8578, ATK: 653, DEF: 724 },
     weights: {
@@ -191,7 +191,7 @@ const CHARACTERS = {
     },
   },
   
-  "Billy": {
+  [`Billy`]: {
     type: "Attack",
     base: { HP: 6907, ATK: 787, DEF: 607 },
     weights: {
@@ -202,7 +202,7 @@ const CHARACTERS = {
     },
   },
   
-  "Corin": {
+  [`Corin`]: {
     type: "Attack",
     base: { HP: 6977, ATK: 807, DEF: 605 },
     weights: {
@@ -213,7 +213,7 @@ const CHARACTERS = {
     },
   },
   
-  "Ellen": {
+  [`Ellen`]: {
     type: "Attack",
     base: { HP: 7674, ATK: 938, DEF: 607 },
     weights: {
@@ -224,7 +224,7 @@ const CHARACTERS = {
     },
   },
   
-  "Grace": {
+  [`Grace`]: {
     type: "Anomaly",
     base: { HP: 7483, ATK: 826, DEF: 601 },
     weights: {
@@ -234,7 +234,7 @@ const CHARACTERS = {
     },
   },
   
-  "Koleda": {
+  [`Koleda`]: {
     type: "Stun",
     base: { HP: 8127, ATK: 736, DEF: 595 },
     weights: {
@@ -245,7 +245,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lucy": {
+  [`Lucy`]: {
     type: "Support",
     base: { HP: 8026, ATK: 659, DEF: 613 },
     weights: {
@@ -256,7 +256,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lycaon": {
+  [`Lycaon`]: {
     type: "Stun",
     base: { HP: 8416, ATK: 729, DEF: 607 },
     weights: {
@@ -267,7 +267,7 @@ const CHARACTERS = {
     },
   },
   
-  "Nekomata": {
+  [`Nekomata`]: {
     type: "Attack",
     base: { HP: 7560, ATK: 911, DEF: 588 },
     weights: {
@@ -278,7 +278,7 @@ const CHARACTERS = {
     },
   },
   
-  "Nicole": {
+  [`Nicole`]: {
     type: "Support",
     base: { HP: 8146, ATK: 649, DEF: 623 },
     weights: {
@@ -288,7 +288,7 @@ const CHARACTERS = {
     },
   },
   
-  "Piper": {
+  [`Piper`]: {
     type: "Anomaly",
     base: { HP: 6977, ATK: 758, DEF: 613 },
     weights: {
@@ -298,7 +298,7 @@ const CHARACTERS = {
     },
   },
   
-  "Rina": {
+  [`Rina`]: {
     type: "Support",
     base: { HP: 8609, ATK: 717, DEF: 601 },
     weights: {
@@ -308,7 +308,7 @@ const CHARACTERS = {
     },
   },
   
-  "Soldier 11": {
+  [`Soldier 11`]: {
     type: "Attack",
     base: { HP: 7674, ATK: 889, DEF: 613 },
     weights: {
@@ -319,7 +319,7 @@ const CHARACTERS = {
     },
   },
   
-  "Soukaku": {
+  [`Soukaku`]: {
     type: "Support",
     base: { HP: 8026, ATK: 666, DEF: 598 },
     weights: {
@@ -330,7 +330,7 @@ const CHARACTERS = {
     },
   },
   
-  "Zhu Yuan": {
+  [`Zhu Yuan`]: {
     type: "Attack",
     base: { HP: 7483, ATK: 919, DEF: 601 },
     weights: {

@@ -131,15 +131,42 @@ const HonkaiStarRail = ({ uid }) => {
                     <TableCell>{cid}</TableCell>
                     {isNotMobile && (
                       <TableCell>
-                        <img
-                          src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
-                          alt={"weap"}
-                          style={{
-                            width: 50,
-                            height: 50,
-                            objectFit: "contain",
-                          }}
-                        />
+                        <Tooltip
+                          title={
+                            <React.Fragment>
+                              <Typography variant="subtitle1" fontWeight="bold">
+                                {cdata.weapon}
+                              </Typography>
+                              <Typography variant="body2">
+                                {"Base HP: " + WEAPONS[cdata.weapon].base.HP} <br />
+                                {"Base ATK: " + WEAPONS[cdata.weapon].base.ATK} <br />
+                                {"Base DEF: " + WEAPONS[cdata.weapon].base.DEF}
+                              </Typography>
+                              <Typography variant="subtitle2" sx={{ mt: 1 }}>
+                                {WEAPONS[cdata.weapon].subtitle}
+                              </Typography>
+                              <Typography variant="body2">
+                                {WEAPONS[cdata.weapon].desc.map((line, index) => (
+                                  <React.Fragment key={index}>
+                                    {line}
+                                    {index < WEAPONS[cdata.weapon].desc.length - 1 && <br />}
+                                  </React.Fragment>
+                                ))}
+                              </Typography>
+                            </React.Fragment>
+                          }
+                          arrow
+                        >
+                          <img
+                            src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                            alt={"weap"}
+                            style={{
+                              width: 50,
+                              height: 50,
+                              objectFit: "contain",
+                            }}
+                          />
+                        </Tooltip>
                       </TableCell>
                     )}
                     {isNotMobile && (

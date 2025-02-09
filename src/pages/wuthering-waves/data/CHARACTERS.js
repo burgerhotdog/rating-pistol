@@ -1,7 +1,7 @@
 const CHARACTERS = {
   // Version 2.1
   /*
-  "Brant": {
+  [`Brant`]: {
     type: "Sword",
     base: { HP: 1000, ATK: 100, DEF: 1000 },
     includeEr: true,
@@ -12,7 +12,7 @@ const CHARACTERS = {
     },
   },
 
-  "Phoebe": {
+  [`Phoebe`]: {
     type: "Rectifier",
     base: { HP: 10000, ATK: 100, DEF: 1000 },
     includeEr: true,
@@ -25,7 +25,7 @@ const CHARACTERS = {
   */
 
   // Version 2.0
-  "Carlotta": {
+  [`Carlotta`]: {
     type: "Pistols",
     base: { HP: 12450, ATK: 463, DEF: 1198 },
     includeEr: true,
@@ -37,7 +37,7 @@ const CHARACTERS = {
     },
   },
 
-  "Roccia": {
+  [`Roccia`]: {
     type: "Gauntlets",
     base: { HP: 12250, ATK: 375, DEF: 1198 },
     includeEr: true,
@@ -50,7 +50,7 @@ const CHARACTERS = {
   },
   
   // Version 1.4
-  "Camellya": {
+  [`Camellya`]: {
     type: "Sword",
     base: { HP: 10325, ATK: 450, DEF: 1161 },
     includeEr: true,
@@ -63,7 +63,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lumi": {
+  [`Lumi`]: {
     type: "Broadblade",
     base: { HP: 8500, ATK: 338, DEF: 880 },
     includeEr: true,
@@ -78,7 +78,7 @@ const CHARACTERS = {
   },
   
   // Version 1.3
-  "The Shorekeeper": {
+  [`The Shorekeeper`]: {
     type: "Rectifier",
     base: { HP: 16713, ATK: 288, DEF: 1100 },
     includeEr: true,
@@ -89,7 +89,7 @@ const CHARACTERS = {
     },
   },
   
-  "Youhu": {
+  [`Youhu`]: {
     type: "Gauntlets",
     base: { HP: 9975, ATK: 263, DEF: 1051 },
     includeEr: true,
@@ -101,7 +101,7 @@ const CHARACTERS = {
   },
   
   // Version 1.2
-  "Xiangli Yao": {
+  [`Xiangli Yao`]: {
     type: "Gauntlets",
     base: { HP: 10625, ATK: 425, DEF: 1222 },
     includeEr: true,
@@ -114,7 +114,7 @@ const CHARACTERS = {
     },
   },
   
-  "Zhezhi": {
+  [`Zhezhi`]: {
     type: "Rectifier",
     base: { HP: 12250, ATK: 375, DEF: 1198 },
     includeEr: true,
@@ -127,7 +127,7 @@ const CHARACTERS = {
   },
   
   // Version 1.1
-  "Changli": {
+  [`Changli`]: {
     type: "Sword",
     base: { HP: 10388, ATK: 463, DEF: 1100 },
     includeEr: true,
@@ -140,7 +140,7 @@ const CHARACTERS = {
     },
   },
   
-  "Jinhsi": {
+  [`Jinhsi`]: {
     type: "Broadblade",
     base: { HP: 10825, ATK: 413, DEF: 1259 },
     includeEr: true,
@@ -154,7 +154,7 @@ const CHARACTERS = {
   },
   
   // Version 1.0
-  "Aalto": {
+  [`Aalto`]: {
     type: "Pistols",
     base: { HP: 9850, ATK: 263, DEF: 1075 },
     includeEr: true,
@@ -167,7 +167,7 @@ const CHARACTERS = {
     },
   },
   
-  "Baizhi": {
+  [`Baizhi`]: {
     type: "Rectifier",
     base: { HP: 12813, ATK: 213, DEF: 1002 },
     includeEr: true,
@@ -176,7 +176,7 @@ const CHARACTERS = {
     },
   },
   
-  "Calcharo": {
+  [`Calcharo`]: {
     type: "Broadblade",
     base: { HP: 10500, ATK: 438, DEF: 1185 },
     includeEr: true,
@@ -189,7 +189,7 @@ const CHARACTERS = {
     },
   },
   
-  "Chixia": {
+  [`Chixia`]: {
     type: "Pistols",
     base: { HP: 9088, ATK: 300, DEF: 953 },
     includeEr: true,
@@ -202,7 +202,7 @@ const CHARACTERS = {
     },
   },
   
-  "Danjin": {
+  [`Danjin`]: {
     type: "Sword",
     base: { HP: 9438, ATK: 263, DEF: 1149 },
     includeEr: true,
@@ -216,7 +216,7 @@ const CHARACTERS = {
     },
   },
   
-  "Encore": {
+  [`Encore`]: {
     type: "Rectifier",
     base: { HP: 10513, ATK: 425, DEF: 1246 },
     includeEr: true,
@@ -228,7 +228,7 @@ const CHARACTERS = {
     },
   },
   
-  "Jianxin": {
+  [`Jianxin`]: {
     type: "Gauntlets",
     base: { HP: 14113, ATK: 338, DEF: 1124 },
     includeEr: true,
@@ -241,7 +241,7 @@ const CHARACTERS = {
     },
   },
   
-  "Jiyan": {
+  [`Jiyan`]: {
     type: "Broadblade",
     base: { HP: 10488, ATK: 438, DEF: 1185 },
     includeEr: true,
@@ -253,7 +253,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lingyang": {
+  [`Lingyang`]: {
     type: "Gauntlets",
     base: { HP: 10388, ATK: 438, DEF: 1210 },
     includeEr: true,
@@ -266,7 +266,7 @@ const CHARACTERS = {
     },
   },
   
-  "Mortefi": {
+  [`Mortefi`]: {
     type: "Pistols",
     base: { HP: 10025, ATK: 250, DEF: 1136 },
     includeEr: true,
@@ -279,7 +279,7 @@ const CHARACTERS = {
     },
   },
   
-  "Rover (Havoc)": {
+  [`Rover (Havoc)`]: {
     type: "Sword",
     base: { HP: 10825, ATK: 413, DEF: 1259 },
     includeEr: true,
@@ -293,7 +293,7 @@ const CHARACTERS = {
     },
   },
   
-  "Rover (Spectro)": {
+  [`Rover (Spectro)`]: {
     type: "Sword",
     base: { HP: 11400, ATK: 375, DEF: 1369 },
     includeEr: true,
@@ -304,7 +304,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sanhua": {
+  [`Sanhua`]: {
     type: "Sword",
     base: { HP: 10063, ATK: 275, DEF: 941 },
     includeEr: true,
@@ -318,7 +318,7 @@ const CHARACTERS = {
     },
   },
   
-  "Taoqi": {
+  [`Taoqi`]: {
     type: "Broadblade",
     base: { HP: 8950, ATK: 225, DEF: 1564 },
     includeEr: true,
@@ -329,7 +329,7 @@ const CHARACTERS = {
     },
   },
   
-  "Verina": {
+  [`Verina`]: {
     type: "Rectifier",
     base: { HP: 14238, ATK: 338, DEF: 1100 },
     includeEr: true,
@@ -338,7 +338,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yangyang": {
+  [`Yangyang`]: {
     type: "Sword",
     base: { HP: 10200, ATK: 250, DEF: 1100 },
     includeEr: true,
@@ -351,7 +351,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yinlin": {
+  [`Yinlin`]: {
     type: "Rectifier",
     base: { HP: 11000, ATK: 400, DEF: 1283 },
     includeEr: true,
@@ -364,7 +364,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yuanwu": {
+  [`Yuanwu`]: {
     type: "Gauntlets",
     base: { HP: 8525, ATK: 225, DEF: 1637 },
     includeEr: true,

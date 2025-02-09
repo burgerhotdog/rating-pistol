@@ -139,14 +139,18 @@ const GenshinImpact = ({ uid }) => {
                               </Typography>
                               <Typography variant="body2">
                                 {"Base ATK: " + WEAPONS[cdata.weapon].base.ATK} <br />
-                                {Object.keys(WEAPONS[cdata.weapon].stat)[0] + ": " + 
-                                Object.values(WEAPONS[cdata.weapon].stat)[0]}
+                                {WEAPONS[cdata.weapon].substat}
                               </Typography>
                               <Typography variant="subtitle2" sx={{ mt: 1 }}>
                                 {WEAPONS[cdata.weapon].subtitle}
                               </Typography>
                               <Typography variant="body2">
-                                {WEAPONS[cdata.weapon].desc}
+                                {WEAPONS[cdata.weapon].desc.map((line, index) => (
+                                  <React.Fragment key={index}>
+                                    {line}
+                                    {index < WEAPONS[cdata.weapon].desc.length - 1 && <br />}
+                                  </React.Fragment>
+                                ))}
                               </Typography>
                             </React.Fragment>
                           }

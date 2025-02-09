@@ -1,7 +1,7 @@
 const CHARACTERS = {
   // Verison 5.4
   /*
-  "Mizuki": {
+  [`Mizuki`]: {
     type: "Catalyst",
     base: { HP: 10000, ATK: 100, DEF: 100 },
     includeEr: true,
@@ -12,7 +12,7 @@ const CHARACTERS = {
   */
 
   // Version 5.3
-  "Citlali": {
+  [`Citlali`]: {
     type: "Catalyst",
     base: { HP: 11633, ATK: 126, DEF: 763 },
     includeEr: true,
@@ -21,7 +21,7 @@ const CHARACTERS = {
     },
   },
 
-  "Lan Yan": {
+  [`Lan Yan`]: {
     type: "Catalyst",
     base: { HP: 9243, ATK: 250, DEF: 580 },
     includeEr: true,
@@ -31,7 +31,7 @@ const CHARACTERS = {
     },
   },
   
-  "Mavuika": {
+  [`Mavuika`]: {
     type: "Claymore",
     base: { HP: 12552, ATK: 358, DEF: 791 },
     includeEr: false,
@@ -43,7 +43,7 @@ const CHARACTERS = {
     },
   },
 
-  "Traveler (Pyro)": {
+  [`Traveler (Pyro)`]: {
     type: "Sword",
     base: { HP: 10875, ATK: 212, DEF: 683 },
     includeEr: true,
@@ -56,7 +56,7 @@ const CHARACTERS = {
   },
   
   // Version 5.2
-  "Chasca": {
+  [`Chasca`]: {
     type: "Bow",
     base: { HP: 9796, ATK: 346, DEF: 614 },
     includeEr: true,
@@ -68,7 +68,7 @@ const CHARACTERS = {
     },
   },
   
-  "Ororon": {
+  [`Ororon`]: {
     type: "Bow",
     base: { HP: 9243, ATK: 244, DEF: 586 },
     includeEr: true,
@@ -81,7 +81,7 @@ const CHARACTERS = {
   },
   
   // Version 5.1
-  "Xilonen": {
+  [`Xilonen`]: {
     type: "Sword",
     base: { HP: 12405, ATK: 275, DEF: 929 },
     includeEr: true,
@@ -91,7 +91,7 @@ const CHARACTERS = {
   },
   
   // Version 5.0
-  "Kachina": {
+  [`Kachina`]: {
     type: "Polearm",
     base: { HP: 11799, ATK: 216, DEF: 792 },
     includeEr: true,
@@ -102,7 +102,7 @@ const CHARACTERS = {
     },
   },
   
-  "Kinich": {
+  [`Kinich`]: {
     type: "Claymore",
     base: { HP: 12858, ATK: 332, DEF: 801 },
     includeEr: true,
@@ -114,7 +114,7 @@ const CHARACTERS = {
     },
   },
   
-  "Mualani": {
+  [`Mualani`]: {
     type: "Catalyst",
     base: { HP: 15184, ATK: 181, DEF: 570 },
     includeEr: true,
@@ -127,7 +127,7 @@ const CHARACTERS = {
   },
   
   // Version 4.8
-  "Emilie": {
+  [`Emilie`]: {
     type: "Polearm",
     base: { HP: 13568, ATK: 334, DEF: 730 },
     includeEr: true,
@@ -140,7 +140,7 @@ const CHARACTERS = {
   },
   
   // Version 4.7
-  "Clorinde": {
+  [`Clorinde`]: {
     type: "Sword",
     base: { HP: 12956, ATK: 337, DEF: 783 },
     includeEr: true,
@@ -152,7 +152,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sethos": {
+  [`Sethos`]: {
     type: "Bow",
     base: { HP: 9787, ATK: 227, DEF: 559 },
     includeEr: true,
@@ -164,7 +164,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sigewinne": {
+  [`Sigewinne`]: {
     type: "Bow",
     base: { HP: 13348, ATK: 192, DEF: 499 },
     includeEr: true,
@@ -174,7 +174,7 @@ const CHARACTERS = {
   },
   
   // Version 4.6
-  "Arlecchino": {
+  [`Arlecchino`]: {
     type: "Polearm",
     base: { HP: 13103, ATK: 342, DEF: 764 },
     includeEr: true,
@@ -187,7 +187,7 @@ const CHARACTERS = {
   },
   
   // Version 4.5
-  "Chiori": {
+  [`Chiori`]: {
     type: "Sword",
     base: { HP: 11437, ATK: 322, DEF: 953 },
     includeEr: false,
@@ -200,7 +200,7 @@ const CHARACTERS = {
   },
   
   // Version 4.4
-  "Gaming": {
+  [`Gaming`]: {
     type: "Claymore",
     base: { HP: 11418, ATK: 301, DEF: 702 },
     includeEr: true,
@@ -212,7 +212,7 @@ const CHARACTERS = {
     },
   },
   
-  "Xianyun": {
+  [`Xianyun`]: {
     type: "Catalyst",
     base: { HP: 10409, ATK: 334, DEF: 572 },
     includeEr: true,
@@ -222,7 +222,7 @@ const CHARACTERS = {
   },
   
   // Version 4.3
-  "Chevreuse": {
+  [`Chevreuse`]: {
     type: "Polearm",
     base: { HP: 11962, ATK: 193, DEF: 604 },
     includeEr: true,
@@ -231,7 +231,7 @@ const CHARACTERS = {
     },
   },
   
-  "Navia": {
+  [`Navia`]: {
     type: "Claymore",
     base: { HP: 12650, ATK: 351, DEF: 793 },
     includeEr: true,
@@ -243,7 +243,7 @@ const CHARACTERS = {
   },
   
   // Version 4.2
-  "Charlotte": {
+  [`Charlotte`]: {
     type: "Catalyst",
     base: { HP: 10766, ATK: 173, DEF: 546 },
     includeEr: true,
@@ -252,7 +252,7 @@ const CHARACTERS = {
     },
   },
   
-  "Furina": {
+  [`Furina`]: {
     type: "Sword",
     base: { HP: 15307, ATK: 243, DEF: 695 },
     includeEr: true,
@@ -265,7 +265,7 @@ const CHARACTERS = {
   },
   
   // Version 4.1
-  "Neuvillette": {
+  [`Neuvillette`]: {
     type: "Catalyst",
     base: { HP: 14695, ATK: 208, DEF: 576 },
     includeEr: false,
@@ -277,7 +277,7 @@ const CHARACTERS = {
     },
   },
   
-  "Wriothesley": {
+  [`Wriothesley`]: {
     type: "Catalyst",
     base: { HP: 13592, ATK: 310, DEF: 763 },
     includeEr: false,
@@ -290,7 +290,7 @@ const CHARACTERS = {
   },
   
   // Version 4.0
-  "Freminet": {
+  [`Freminet`]: {
     type: "Claymore",
     base: { HP: 12071, ATK: 254, DEF: 708 },
     includeEr: true,
@@ -301,7 +301,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lynette": {
+  [`Lynette`]: {
     type: "Sword",
     base: { HP: 12397, ATK: 231, DEF: 711 },
     includeEr: true,
@@ -312,7 +312,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lyney": {
+  [`Lyney`]: {
     type: "Bow",
     base: { HP: 11021, ATK: 231, DEF: 537 },
     includeEr: true,
@@ -323,7 +323,7 @@ const CHARACTERS = {
     },
   },
 
-  "Traveler (Hydro)": {
+  [`Traveler (Hydro)`]: {
     type: "Sword",
     base: { HP: 10875, ATK: 212, DEF: 683 },
     includeEr: true,
@@ -337,7 +337,7 @@ const CHARACTERS = {
   // Version 3.8
   
   // Version 3.7
-  "Kirara": {
+  [`Kirara`]: {
     type: "Sword",
     base: { HP: 12179, ATK: 223, DEF: 546 },
     includeEr: true,
@@ -347,7 +347,7 @@ const CHARACTERS = {
   },
   
   // Version 3.6
-  "Baizhu": {
+  [`Baizhu`]: {
     type: "Catalyst",
     base: { HP: 13348, ATK: 192, DEF: 499 },
     includeEr: true,
@@ -356,7 +356,7 @@ const CHARACTERS = {
     },
   },
   
-  "Kaveh": {
+  [`Kaveh`]: {
     type: "Claymore",
     base: { HP: 11962, ATK: 233, DEF: 750 },
     includeEr: true,
@@ -366,7 +366,7 @@ const CHARACTERS = {
   },
   
   // Version 3.5
-  "Dehya": {
+  [`Dehya`]: {
     type: "Claymore",
     base: { HP: 15674, ATK: 265, DEF: 627 },
     includeEr: true,
@@ -378,7 +378,7 @@ const CHARACTERS = {
     },
   },
   
-  "Mika": {
+  [`Mika`]: {
     type: "Polearm",
     base: { HP: 12506, ATK: 223, DEF: 713 },
     includeEr: true,
@@ -388,7 +388,7 @@ const CHARACTERS = {
   },
   
   // Version 3.4
-  "Alhaitham": {
+  [`Alhaitham`]: {
     type: "Sword",
     base: { HP: 13348, ATK: 313, DEF: 781 },
     includeEr: true,
@@ -400,7 +400,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yaoyao": {
+  [`Yaoyao`]: {
     type: "Polearm",
     base: { HP: 12288, ATK: 212, DEF: 750 },
     includeEr: true,
@@ -410,7 +410,7 @@ const CHARACTERS = {
   },
   
   // Version 3.3
-  "Faruzan": {
+  [`Faruzan`]: {
     type: "Bow",
     base: { HP: 9569, ATK: 196, DEF: 627 },
     includeEr: true,
@@ -422,7 +422,7 @@ const CHARACTERS = {
     },
   },
   
-  "Wanderer": {
+  [`Wanderer`]: {
     type: "Catalyst",
     base: { HP: 10164, ATK: 327, DEF: 607 },
     includeEr: false,
@@ -434,7 +434,7 @@ const CHARACTERS = {
   },
   
   // Version 3.2
-  "Layla": {
+  [`Layla`]: {
     type: "Sword",
     base: { HP: 11092, ATK: 216, DEF: 655 },
     includeEr: true,
@@ -443,7 +443,7 @@ const CHARACTERS = {
     },
   },
   
-  "Nahida": {
+  [`Nahida`]: {
     type: "Catalyst",
     base: { HP: 10360, ATK: 298, DEF: 630 },
     includeEr: false,
@@ -456,7 +456,7 @@ const CHARACTERS = {
   },
   
   // Version 3.1
-  "Candace": {
+  [`Candace`]: {
     type: "Polearm",
     base: { HP: 10874, ATK: 212, DEF: 682 },
     includeEr: true,
@@ -465,7 +465,7 @@ const CHARACTERS = {
     },
   },
   
-  "Cyno": {
+  [`Cyno`]: {
     type: "Polearm",
     base: { HP: 12490, ATK: 318, DEF: 859 },
     includeEr: true,
@@ -477,7 +477,7 @@ const CHARACTERS = {
     },
   },
   
-  "Nilou": {
+  [`Nilou`]: {
     type: "Sword",
     base: { HP: 15184, ATK: 229, DEF: 728 },
     includeEr: false,
@@ -488,7 +488,7 @@ const CHARACTERS = {
   },
   
   // Version 3.0
-  "Collei": {
+  [`Collei`]: {
     type: "Bow",
     base: { HP: 9787, ATK: 199, DEF: 600 },
     includeEr: true,
@@ -500,7 +500,7 @@ const CHARACTERS = {
     },
   },
   
-  "Dori": {
+  [`Dori`]: {
     type: "Claymore",
     base: { HP: 12397, ATK: 223, DEF: 723 },
     includeEr: true,
@@ -509,7 +509,7 @@ const CHARACTERS = {
     },
   },
   
-  "Tighnari": {
+  [`Tighnari`]: {
     type: "Bow",
     base: { HP: 10849, ATK: 267, DEF: 630 },
     includeEr: true,
@@ -521,7 +521,7 @@ const CHARACTERS = {
     },
   },
 
-  "Traveler (Dendro)": {
+  [`Traveler (Dendro)`]: {
     type: "Sword",
     base: { HP: 10875, ATK: 212, DEF: 683 },
     includeEr: true,
@@ -534,7 +534,7 @@ const CHARACTERS = {
   },
   
   // Version 2.8
-  "Shikanoin Heizou": {
+  [`Shikanoin Heizou`]: {
     type: "Catalyst",
     base: { HP: 10657, ATK: 225, DEF: 683 },
     includeEr: false,
@@ -546,7 +546,7 @@ const CHARACTERS = {
   },
   
   // Version 2.7
-  "Kuki Shinobu": {
+  [`Kuki Shinobu`]: {
     type: "Sword",
     base: { HP: 12288, ATK: 212, DEF: 750 },
     includeEr: false,
@@ -556,7 +556,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yelan": {
+  [`Yelan`]: {
     type: "Bow",
     base: { HP: 14450, ATK: 243, DEF: 547 },
     includeEr: true,
@@ -569,7 +569,7 @@ const CHARACTERS = {
   },
   
   // Version 2.6
-  "Kamisato Ayato": {
+  [`Kamisato Ayato`]: {
     type: "Sword",
     base: { HP: 13715, ATK: 298, DEF: 768 },
     includeEr: false,
@@ -582,7 +582,7 @@ const CHARACTERS = {
   },
   
   // Version 2.5
-  "Yae Miko": {
+  [`Yae Miko`]: {
     type: "Catalyst",
     base: { HP: 10372, ATK: 339, DEF: 568 },
     includeEr: true,
@@ -595,7 +595,7 @@ const CHARACTERS = {
   },
   
   // Version 2.4
-  "Shenhe": {
+  [`Shenhe`]: {
     type: "Polearm",
     base: { HP: 12992, ATK: 303, DEF: 830 },
     includeEr: true,
@@ -604,7 +604,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yun Jin": {
+  [`Yun Jin`]: {
     type: "Polearm",
     base: { HP: 10657, ATK: 191, DEF: 734 },
     includeEr: true,
@@ -614,7 +614,7 @@ const CHARACTERS = {
   },
   
   // Version 2.3
-  "Arataki Itto": {
+  [`Arataki Itto`]: {
     type: "Claymore",
     base: { HP: 12858, ATK: 227, DEF: 959 },
     includeEr: true,
@@ -626,7 +626,7 @@ const CHARACTERS = {
     },
   },
   
-  "Gorou": {
+  [`Gorou`]: {
     type: "Bow",
     base: { HP: 9569, ATK: 182, DEF: 648 },
     includeEr: true,
@@ -636,7 +636,7 @@ const CHARACTERS = {
   },
   
   // Version 2.2
-  "Thoma": {
+  [`Thoma`]: {
     type: "Polearm",
     base: { HP: 10331, ATK: 201, DEF: 750 },
     includeEr: true,
@@ -646,7 +646,7 @@ const CHARACTERS = {
   },
   
   // Version 2.1
-  "Aloy": {
+  [`Aloy`]: {
     type: "Bow",
     base: { HP: 10898, ATK: 233, DEF: 676 },
     includeEr: false,
@@ -658,7 +658,7 @@ const CHARACTERS = {
     },
   },
   
-  "Kujou Sara": {
+  [`Kujou Sara`]: {
     type: "Bow",
     base: { HP: 9569, ATK: 195, DEF: 627 },
     includeEr: true,
@@ -669,7 +669,7 @@ const CHARACTERS = {
     },
   },
   
-  "Raiden Shogun": {
+  [`Raiden Shogun`]: {
     type: "Polearm",
     base: { HP: 12907, ATK: 337, DEF: 789 },
     includeEr: true,
@@ -680,7 +680,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sangonomiya Kokomi": {
+  [`Sangonomiya Kokomi`]: {
     type: "Catalyst",
     base: { HP: 13470, ATK: 234, DEF: 657 },
     includeEr: true,
@@ -690,7 +690,7 @@ const CHARACTERS = {
   },
   
   // Version 2.0
-  "Kamisato Ayaka": {
+  [`Kamisato Ayaka`]: {
     type: "Sword",
     base: { HP: 12858, ATK: 342, DEF: 783 },
     includeEr: true,
@@ -701,7 +701,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sayu": {
+  [`Sayu`]: {
     type: "Claymore",
     base: { HP: 11853, ATK: 244, DEF: 744 },
     includeEr: true,
@@ -711,7 +711,7 @@ const CHARACTERS = {
     },
   },
 
-  "Traveler (Electro)": {
+  [`Traveler (Electro)`]: {
     type: "Sword",
     base: { HP: 10875, ATK: 212, DEF: 683 },
     includeEr: true,
@@ -723,7 +723,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yoimiya": {
+  [`Yoimiya`]: {
     type: "Bow",
     base: { HP: 10164, ATK: 322, DEF: 614 },
     includeEr: false,
@@ -736,7 +736,7 @@ const CHARACTERS = {
   },
   
   // Version 1.6
-  "Kaedehara Kazuha": {
+  [`Kaedehara Kazuha`]: {
     type: "Sword",
     base: { HP: 13348, ATK: 296, DEF: 806 },
     includeEr: true,
@@ -746,7 +746,7 @@ const CHARACTERS = {
   },
   
   // Version 1.5
-  "Eula": {
+  [`Eula`]: {
     type: "Claymore",
     base: { HP: 13225, ATK: 342, DEF: 750 },
     includeEr: true,
@@ -757,7 +757,7 @@ const CHARACTERS = {
     },
   },
   
-  "Yanfei": {
+  [`Yanfei`]: {
     type: "Catalyst",
     base: { HP: 9352, ATK: 240, DEF: 586 },
     includeEr: false,
@@ -770,7 +770,7 @@ const CHARACTERS = {
   },
   
   // Version 1.4
-  "Rosaria": {
+  [`Rosaria`]: {
     type: "Polearm",
     base: { HP: 12288, ATK: 240, DEF: 709 },
     includeEr: true,
@@ -783,7 +783,7 @@ const CHARACTERS = {
   },
   
   // Version 1.3
-  "Hu Tao": {
+  [`Hu Tao`]: {
     type: "Polearm",
     base: { HP: 15522, ATK: 106, DEF: 876 },
     includeEr: false,
@@ -796,7 +796,7 @@ const CHARACTERS = {
     },
   },
   
-  "Xiao": {
+  [`Xiao`]: {
     type: "Polearm",
     base: { HP: 12735, ATK: 349, DEF: 799 },
     includeEr: false,
@@ -808,7 +808,7 @@ const CHARACTERS = {
   },
   
   // Version 1.2
-  "Albedo": {
+  [`Albedo`]: {
     type: "Sword",
     base: { HP: 13225, ATK: 251, DEF: 876 },
     includeEr: false,
@@ -819,7 +819,7 @@ const CHARACTERS = {
     },
   },
   
-  "Ganyu": {
+  [`Ganyu`]: {
     type: "Bow",
     base: { HP: 9796, ATK: 334, DEF: 630 },
     includeEr: false,
@@ -832,7 +832,7 @@ const CHARACTERS = {
   },
   
   // Version 1.1
-  "Diona": {
+  [`Diona`]: {
     type: "Bow",
     base: { HP: 9569, ATK: 212, DEF: 600 },
     includeEr: true,
@@ -841,7 +841,7 @@ const CHARACTERS = {
     },
   },
   
-  "Tartaglia": {
+  [`Tartaglia`]: {
     type: "Bow",
     base: { HP: 13103, ATK: 301, DEF: 814 },
     includeEr: false,
@@ -853,7 +853,7 @@ const CHARACTERS = {
     },
   },
   
-  "Xinyan": {
+  [`Xinyan`]: {
     type: "Claymore",
     base: { HP: 11201, ATK: 248, DEF: 798 },
     includeEr: false,
@@ -865,7 +865,7 @@ const CHARACTERS = {
     },
   },
   
-  "Zhongli": {
+  [`Zhongli`]: {
     type: "Polearm",
     base: { HP: 14695, ATK: 251, DEF: 737 },
     includeEr: false,
@@ -877,7 +877,7 @@ const CHARACTERS = {
   },
   
   // Version 1.0
-  "Amber": {
+  [`Amber`]: {
     type: "Bow",
     base: { HP: 9461, ATK: 223, DEF: 600 },
     includeEr: true,
@@ -889,7 +889,7 @@ const CHARACTERS = {
     },
   },
   
-  "Barbara": {
+  [`Barbara`]: {
     type: "Catalyst",
     base: { HP: 9787, ATK: 159, DEF: 668 },
     includeEr: true,
@@ -898,7 +898,7 @@ const CHARACTERS = {
     },
   },
   
-  "Beidou": {
+  [`Beidou`]: {
     type: "Claymore",
     base: { HP: 13049, ATK: 225, DEF: 648 },
     includeEr: true,
@@ -910,7 +910,7 @@ const CHARACTERS = {
     },
   },
   
-  "Bennett": {
+  [`Bennett`]: {
     type: "Sword",
     base: { HP: 12397, ATK: 191, DEF: 771 },
     includeEr: true,
@@ -919,7 +919,7 @@ const CHARACTERS = {
     },
   },
   
-  "Chongyun": {
+  [`Chongyun`]: {
     type: "Claymore",
     base: { HP: 10983, ATK: 223, DEF: 648 },
     includeEr: false,
@@ -931,7 +931,7 @@ const CHARACTERS = {
     },
   },
   
-  "Diluc": {
+  [`Diluc`]: {
     type: "Claymore",
     base: { HP: 12980, ATK: 334, DEF: 783 },
     includeEr: false,
@@ -943,7 +943,7 @@ const CHARACTERS = {
     },
   },
   
-  "Fischl": {
+  [`Fischl`]: {
     type: "Bow",
     base: { HP: 9189, ATK: 244, DEF: 593 },
     includeEr: false,
@@ -955,7 +955,7 @@ const CHARACTERS = {
     },
   },
   
-  "Jean": {
+  [`Jean`]: {
     type: "Sword",
     base: { HP: 14695, ATK: 239, DEF: 768 },
     includeEr: true,
@@ -964,7 +964,7 @@ const CHARACTERS = {
     },
   },
   
-  "Kaeya": {
+  [`Kaeya`]: {
     type: "Sword",
     base: { HP: 11636, ATK: 223, DEF: 791 },
     includeEr: true,
@@ -976,7 +976,7 @@ const CHARACTERS = {
     },
   },
   
-  "Keqing": {
+  [`Keqing`]: {
     type: "Sword",
     base: { HP: 13103, ATK: 322, DEF: 799 },
     includeEr: false,
@@ -988,7 +988,7 @@ const CHARACTERS = {
     },
   },
   
-  "Klee": {
+  [`Klee`]: {
     type: "Catalyst",
     base: { HP: 10286, ATK: 310, DEF: 614 },
     includeEr: false,
@@ -1000,7 +1000,7 @@ const CHARACTERS = {
     },
   },
   
-  "Lisa": {
+  [`Lisa`]: {
     type: "Catalyst",
     base: { HP: 9569, ATK: 231, DEF: 573 },
     includeEr: true,
@@ -1012,7 +1012,7 @@ const CHARACTERS = {
     },
   },
   
-  "Mona": {
+  [`Mona`]: {
     type: "Catalyst",
     base: { HP: 10409, ATK: 287, DEF: 653 },
     includeEr: true,
@@ -1024,7 +1024,7 @@ const CHARACTERS = {
     },
   },
   
-  "Ningguang": {
+  [`Ningguang`]: {
     type: "Catalyst",
     base: { HP: 9787, ATK: 212, DEF: 573 },
     includeEr: false,
@@ -1035,7 +1035,7 @@ const CHARACTERS = {
     },
   },
   
-  "Noelle": {
+  [`Noelle`]: {
     type: "Claymore",
     base: { HP: 12071, ATK: 191, DEF: 798 },
     includeEr: true,
@@ -1046,7 +1046,7 @@ const CHARACTERS = {
     },
   },
   
-  "Qiqi": {
+  [`Qiqi`]: {
     type: "Sword",
     base: { HP: 12368, ATK: 287, DEF: 922 },
     includeEr: true,
@@ -1055,7 +1055,7 @@ const CHARACTERS = {
     },
   },
   
-  "Razor": {
+  [`Razor`]: {
     type: "Claymore",
     base: { HP: 11962, ATK: 233, DEF: 750 },
     includeEr: true,
@@ -1066,7 +1066,7 @@ const CHARACTERS = {
     },
   },
   
-  "Sucrose": {
+  [`Sucrose`]: {
     type: "Catalyst",
     base: { HP: 9243, ATK: 169, DEF: 702 },
     includeEr: true,
@@ -1075,7 +1075,7 @@ const CHARACTERS = {
     },
   },
 
-  "Traveler (Anemo)": {
+  [`Traveler (Anemo)`]: {
     type: "Sword",
     base: { HP: 10875, ATK: 212, DEF: 683 },
     includeEr: true,
@@ -1087,7 +1087,7 @@ const CHARACTERS = {
     },
   },
 
-  "Traveler (Geo)": {
+  [`Traveler (Geo)`]: {
     type: "Sword",
     base: { HP: 10875, ATK: 212, DEF: 683 },
     includeEr: true,
@@ -1098,7 +1098,7 @@ const CHARACTERS = {
     },
   },
   
-  "Venti": {
+  [`Venti`]: {
     type: "Bow",
     base: { HP: 10531, ATK: 263, DEF: 668 },
     includeEr: true,
@@ -1107,7 +1107,7 @@ const CHARACTERS = {
     },
   },
   
-  "Xiangling": {
+  [`Xiangling`]: {
     type: "Polearm",
     base: { HP: 10874, ATK: 225, DEF: 668 },
     includeEr: true,
@@ -1119,7 +1119,7 @@ const CHARACTERS = {
     },
   },
   
-  "Xingqiu": {
+  [`Xingqiu`]: {
     type: "Sword",
     base: { HP: 10222, ATK: 201, DEF: 757 },
     includeEr: true,
