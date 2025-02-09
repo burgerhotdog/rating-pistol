@@ -1,5 +1,5 @@
 const MAINSTATS = [
-  { // 0
+  { // 4-cost
     "HP%": 33,
     "ATK%": 33,
     "DEF%": 41.5,
@@ -7,7 +7,7 @@ const MAINSTATS = [
     "CRIT DMG": 44,
     "Healing Bonus": 26,
   },
-  { // 1
+  { // 3-cost
     "HP%": 30,
     "ATK%": 30,
     "DEF%": 38,
@@ -19,7 +19,7 @@ const MAINSTATS = [
     "Spectro DMG": 30,
     "Energy Regen": 32,
   },
-  { // 2
+  { // 3-cost
     "HP%": 30,
     "ATK%": 30,
     "DEF%": 38,
@@ -31,16 +31,32 @@ const MAINSTATS = [
     "Spectro DMG": 30,
     "Energy Regen": 32,
   },
-  { // 3
+  { // 1-cost
     "HP%": 22.8,
     "ATK%": 18,
     "DEF%": 18,
   },
-  { // 4
+  { // 1-cost
     "HP%": 22.8,
     "ATK%": 18,
     "DEF%": 18,
   },
 ];
 
-export default MAINSTATS;
+const SUBSTATS = {
+  "HP": 580,
+  "ATK": 60,
+  "DEF": 70,
+  "HP%": 11.6,
+  "ATK%": 11.6,
+  "DEF%": 14.7,
+  "Energy Regen": 12.4,
+  "CRIT Rate": 10.5,
+  "CRIT DMG": 21,
+  "Basic Attack DMG": 11.6,
+  "Heavy Attack DMG": 11.6,
+  "Resonance Skill DMG": 11.6,
+  "Resonance Liberation DMG": 11.6,
+};
+
+export { MAINSTATS, SUBSTATS };

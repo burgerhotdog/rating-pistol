@@ -1,315 +1,343 @@
 const CHARACTERS = {
-  // Version 1.5
-  "Astra": {
-    type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+  // Version 1.6
+  /*
+  [`Pulchra`]: {
+    type: "Stun",
+    base: { HP: 1000, ATK: 100, DEF: 100 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
 
-  "Evelyn": {
+  [`Silver Soldier Anby`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1000, ATK: 100, DEF: 100 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
+    },
+  },
+
+  [`Trigger`]: {
+    type: "Stun",
+    base: { HP: 1000, ATK: 100, DEF: 100 },
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
+    },
+  },
+  */
+
+  // Version 1.5
+  [`Astra`]: {
+    type: "Support",
+    base: { HP: 8609, ATK: 715, DEF: 600 },
+    weights: {
+      "ATK%": 1,
+      "Anomaly Proficiency": 0.5,
+      "PEN": 0.12,
+    },
+  },
+
+  [`Evelyn`]: {
+    type: "Attack",
+    base: { HP: 7788, ATK: 929, DEF: 612 },
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
 
   // Version 1.4
-  "Harumasa": {
+  [`Harumasa`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7405, ATK: 915, DEF: 600 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Miyabi": {
+  [`Miyabi`]: {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7673, ATK: 880, DEF: 606 },
     weights: {
       "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
+      "ATK%": 0.6,
+      "Anomaly Proficiency": 0.24,
+      "PEN": 0.24,
     },
   },
   
   // Version 1.3
-  "Lighter": {
+  [`Lighter`]: {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8253, ATK: 797, DEF: 612 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Yanagi": {
+  [`Yanagi`]: {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7789, ATK: 873, DEF: 613 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Anomaly Proficiency": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
   // Version 1.2
-  "Burnice": {
+  [`Burnice`]: {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7368, ATK: 863, DEF: 601 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Anomaly Proficiency": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Caesar": {
+  [`Caesar`]: {
     type: "Defense",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 9526, ATK: 712, DEF: 754 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
   // Version 1.1
-  "Jane": {
+  [`Jane`]: {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7789, ATK: 881, DEF: 607 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Anomaly Proficiency": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Seth": {
+  [`Seth`]: {
     type: "Defense",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8701, ATK: 643, DEF: 746 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "Anomaly Proficiency": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Qingyi": {
+  [`Qingyi`]: {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8251, ATK: 758, DEF: 613 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
   // Version 1.0
-  "Anby": {
+  [`Anby`]: {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7501, ATK: 659, DEF: 613 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Anton": {
+  [`Anton`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7219, ATK: 792, DEF: 623 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Ben": {
+  [`Ben`]: {
     type: "Defense",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8578, ATK: 653, DEF: 724 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "DEF%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Billy": {
+  [`Billy`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 6907, ATK: 787, DEF: 607 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Corin": {
+  [`Corin`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 6977, ATK: 807, DEF: 605 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Ellen": {
+  [`Ellen`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7674, ATK: 938, DEF: 607 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Grace": {
+  [`Grace`]: {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7483, ATK: 826, DEF: 601 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Anomaly Proficiency": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Koleda": {
+  [`Koleda`]: {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8127, ATK: 736, DEF: 595 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Lucy": {
+  [`Lucy`]: {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8026, ATK: 659, DEF: 613 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "CRIT Rate": 0.5,
+      "CRIT DMG": 0.5,
+      "PEN": 0.12,
     },
   },
   
-  "Lycaon": {
+  [`Lycaon`]: {
     type: "Stun",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8416, ATK: 729, DEF: 607 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Nekomata": {
+  [`Nekomata`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7560, ATK: 911, DEF: 588 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Nicole": {
+  [`Nicole`]: {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8146, ATK: 649, DEF: 623 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Anomaly Proficiency": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Piper": {
+  [`Piper`]: {
     type: "Anomaly",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 6977, ATK: 758, DEF: 613 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Anomaly Proficiency": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Rina": {
+  [`Rina`]: {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8609, ATK: 717, DEF: 601 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Anomaly Proficiency": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Soldier 11": {
+  [`Soldier 11`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7674, ATK: 889, DEF: 613 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
   
-  "Soukaku": {
+  [`Soukaku`]: {
     type: "Support",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 8026, ATK: 666, DEF: 598 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "CRIT Rate": 0.5,
+      "CRIT DMG": 0.5,
+      "PEN": 0.12,
     },
   },
   
-  "Zhu Yuan": {
+  [`Zhu Yuan`]: {
     type: "Attack",
-    base: { HP: 100, ATK: 100, DEF: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 7483, ATK: 919, DEF: 601 },
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "PEN": 0.24,
     },
   },
 };

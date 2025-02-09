@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import Grid from "@mui/material/Grid2";
 import {
@@ -14,8 +14,8 @@ import {
 } from "@mui/material";
 import { db } from "../../../firebase";
 import Piece from "./Piece";
-import getScore from "../getScore";
-import blankCdata from "../blankCdata";
+import getScore from "./getScore";
+import blankCdata from "./blankCdata";
 import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
@@ -39,19 +39,29 @@ const Save = ({
   uid,
   isSaveOpen,
   setIsSaveOpen,
-  isEditMode,
   myChars,
   setMyChars,
-  newCid,
-  setNewCid,
-  newCdata,
-  setNewCdata,
 }) => {
   const [error, setError] = useState("");
+  const [newCid, setNewCid] = useState("");
+  const [newCdata, setNewCdata] = useState(blankCdata);
+
+  // When modal opens, reset newCid and newCdata
+  useEffect(() => {
+    if (isSaveOpen) {
+      if (isSaveOpen === true) {
+        setNewCid("");
+        setNewCdata(blankCdata());
+      } else {
+        setNewCid(isSaveOpen);
+        setNewCdata(myChars[isSaveOpen]);
+      }
+    }
+  }, [isSaveOpen, myChars]);
   
   // Mobile layout breakpoint
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("lg"));
+  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Gets filtered character ids for select character
   const charOptions = () => {
@@ -143,14 +153,14 @@ const Save = ({
   };
 
   return (
-    <Modal open={isSaveOpen} onClose={handleCancel}>
+    <Modal open={Boolean(isSaveOpen)} onClose={handleCancel}>
       <Box
         sx={{
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          backgroundColor: "#1c1c1c",
+          backgroundColor: "background.paper",
           padding: 4,
           borderRadius: 2,
           maxHeight: "90vh",
@@ -192,7 +202,7 @@ const Save = ({
               />
             )}
             sx={{ width: { xs: 128, xl: 256 } }}
-            disabled={isEditMode}
+            disabled={isSaveOpen && isSaveOpen !== true}
             disableClearable={newCid === ""}
           />
 
@@ -273,7 +283,7 @@ const Save = ({
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {!isMobile && newCdata.weapon && (
+              {isNotMobile && newCdata.weapon && (
                 <img
                   src={wImgs[`../assets/weap/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
@@ -284,7 +294,7 @@ const Save = ({
                   }}
                 />
               )}
-              {!isMobile && !newCdata.weapon && (
+              {isNotMobile && !newCdata.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>

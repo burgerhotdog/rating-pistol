@@ -1,733 +1,783 @@
 const CHARACTERS = {
+  /*// Version 3.1
+  [`Mydei`]: {
+    type: "Destruction",
+    base: { HP: 1000, ATK: 100, DEF: 100 },
+    includeSpd: true,
+    includeEhr: false,
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "HP%": 0.6,
+    },
+  },
+
+  [`Tribbie`]: {
+    type: "Harmony",
+    base: { HP: 1000, ATK: 100, DEF: 100 },
+    includeSpd: false,
+    includeEhr: false,
+    weights: {
+      "CRIT Rate": 1,
+      "CRIT DMG": 1,
+      "HP%": 0.6,
+    },
+  },*/
+
   // Version 3.0
-  "Aglaea": {
+  [`Aglaea`]: {
     type: "Remembrance",
-    base: { HP: 1242, ATK: 699, DEF: 485, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1242, ATK: 699, DEF: 485 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
 
-  "The Herta": {
+  [`The Herta`]: {
     type: "Erudition",
-    base: { HP: 1164, ATK: 679, DEF: 485, SPD: 99 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1164, ATK: 679, DEF: 485 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
 
-  "Trailblazer (Remembrance)": {
+  [`Trailblazer (Remembrance)`]: {
     type: "Remembrance",
-    base: { HP: 1047, ATK: 543, DEF: 630, SPD: 103 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1047, ATK: 543, DEF: 630 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
+      "ATK%": 0.24,
     },
   },
 
   // Version 2.7
-  "Sunday": {
+  [`Sunday`]: {
     type: "Harmony",
-    base: { HP: 1241, ATK: 640, DEF: 533, SPD: 96 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1241, ATK: 640, DEF: 533 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
-  "Fugue": {
+  [`Fugue`]: {
     type: "Nihility",
-    base: { HP: 1125, ATK: 582, DEF: 557, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1125, ATK: 582, DEF: 557 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "Effect RES": 0.24,
     },
   },
   
   // Version 2.6
-  "Rappa": {
+  [`Rappa`]: {
     type: "Erudition",
-    base: { HP: 1086, ATK: 717, DEF: 460, SPD: 96 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1086, ATK: 717, DEF: 460 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "ATK%": 0.6,
     },
   },
   
   // Version 2.5
-  "Feixiao": {
+  [`Feixiao`]: {
     type: "The Hunt",
-    base: { HP: 1047, ATK: 601, DEF: 388, SPD: 112 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1047, ATK: 601, DEF: 388 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Lingsha": {
+  [`Lingsha`]: {
     type: "Abundance",
-    base: { HP: 1358, ATK: 679, DEF: 436, SPD: 98 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1358, ATK: 679, DEF: 436 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "ATK%": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
-  "Moze": {
+  [`Moze`]: {
     type: "The Hunt",
-    base: { HP: 811, ATK: 599, DEF: 352, SPD: 111 },
-    stats: {},
-    requirements: {},
+    base: { HP: 811, ATK: 599, DEF: 352 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
   // Version 2.4
-  "Jiaoqiu": {
+  [`Jiaoqiu`]: {
     type: "Nihility",
-    base: { HP: 1358, ATK: 601, DEF: 509, SPD: 98 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1358, ATK: 601, DEF: 509 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "March 7th (The Hunt)": {
+  [`March 7th (The Hunt)`]: {
     type: "The Hunt",
-    base: { HP: 1058, ATK: 564, DEF: 441, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1058, ATK: 564, DEF: 441 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Yunli": {
+  [`Yunli`]: {
     type: "Destruction",
-    base: { HP: 1358, ATK: 679, DEF: 460, SPD: 94 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1358, ATK: 679, DEF: 460 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
   // Version 2.3
-  "Firefly": {
+  [`Firefly`]: {
     type: "Destruction",
-    base: { HP: 814, ATK: 523, DEF: 776, SPD: 104 },
-    stats: {},
-    requirements: {},
+    base: { HP: 814, ATK: 523, DEF: 776 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Jade": {
+  [`Jade`]: {
     type: "Erudition",
-    base: { HP: 1086, ATK: 659, DEF: 509, SPD: 103 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1086, ATK: 659, DEF: 509 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
   // Version 2.2
-  "Boothill": {
+  [`Boothill`]: {
     type: "The Hunt",
-    base: { HP: 1203, ATK: 620, DEF: 436, SPD: 107 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1203, ATK: 620, DEF: 436 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
     },
   },
   
-  "Robin": {
+  [`Robin`]: {
     type: "Harmony",
-    base: { HP: 1280, ATK: 640, DEF: 485, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1280, ATK: 640, DEF: 485 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "Effect RES": 0.24,
     },
   },
 
-  "Trailblazer (Harmony)": {
+  [`Trailblazer (Harmony)`]: {
     type: "Harmony",
-    base: { HP: 1086, ATK: 446, DEF: 679, SPD: 105 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1086, ATK: 446, DEF: 679 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "Effect RES": 0.24,
     },
   },
   
   // Version 2.1
-  "Acheron": {
+  [`Acheron`]: {
     type: "Nihility",
-    base: { HP: 1125, ATK: 698, DEF: 436, SPD: 101 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1125, ATK: 698, DEF: 436 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Aventurine": {
+  [`Aventurine`]: {
     type: "Preservation",
-    base: { HP: 1203, ATK: 446, DEF: 654, SPD: 106 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1203, ATK: 446, DEF: 654 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "DEF%": 0.6,
     },
   },
   
-  "Gallagher": {
+  [`Gallagher`]: {
     type: "Abundance",
-    base: { HP: 1305, ATK: 529, DEF: 441, SPD: 98 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1305, ATK: 529, DEF: 441 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 0.9,
+      "Effect RES": 0.24,
     },
   },
   
   // Version 2.0
-  "Black Swan": {
+  [`Black Swan`]: {
     type: "Nihility",
-    base: { HP: 1086, ATK: 659, DEF: 485, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1086, ATK: 659, DEF: 485 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
     },
   },
   
-  "Misha": {
+  [`Misha`]: {
     type: "Destruction",
-    base: { HP: 1270, ATK: 599, DEF: 396, SPD: 96 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1270, ATK: 599, DEF: 396 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Sparkle": {
+  [`Sparkle`]: {
     type: "Harmony",
-    base: { HP: 1397, ATK: 523, DEF: 485, SPD: 101 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1397, ATK: 523, DEF: 485 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
   // Version 1.6
-  "Dr. Ratio": {
+  [`Dr. Ratio`]: {
     type: "The Hunt",
-    base: { HP: 1047, ATK: 776, DEF: 460, SPD: 103 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1047, ATK: 776, DEF: 460 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "Effect Hit Rate": 0.24,
     },
   },
   
-  "Ruan Mei": {
+  [`Ruan Mei`]: {
     type: "Harmony",
-    base: { HP: 1086, ATK: 659, DEF: 485, SPD: 104 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1086, ATK: 659, DEF: 485 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Xueyi": {
+  [`Xueyi`]: {
     type: "Destruction",
-    base: { HP: 1058, ATK: 599, DEF: 396, SPD: 103 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1058, ATK: 599, DEF: 396 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "Break Effect": 0.9,
+      "ATK%": 0.6,
     },
   },
   
   // Version 1.5
-  "Argenti": {
+  [`Argenti`]: {
     type: "Erudition",
-    base: { HP: 1047, ATK: 737, DEF: 363, SPD: 103 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1047, ATK: 737, DEF: 363 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Hanya": {
+  [`Hanya`]: {
     type: "Harmony",
-    base: { HP: 917, ATK: 564, DEF: 352, SPD: 110 },
-    stats: {},
-    requirements: {},
+    base: { HP: 917, ATK: 564, DEF: 352 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Huohuo": {
-    name: "Huohuo",
+  [`Huohuo`]: {
     type: "Abundance",
-    base: { HP: 1358, ATK: 601, DEF: 509, SPD: 98 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1358, ATK: 601, DEF: 509 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "Effect RES": 0.24,
     },
   },
   
   // Version 1.4
-  "Guinaifen": {
+  [`Guinaifen`]: {
     type: "Nihility",
-    base: { HP: 882, ATK: 582, DEF: 441, SPD: 106 },
-    stats: {},
-    requirements: {},
+    base: { HP: 882, ATK: 582, DEF: 441 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Jingliu": {
+  [`Jingliu`]: {
     type: "Destruction",
-    base: { HP: 1435, ATK: 679, DEF: 485, SPD: 96 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1435, ATK: 679, DEF: 485 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Topaz & Numby": {
+  [`Topaz & Numby`]: {
     type: "The Hunt",
-    base: { HP: 931, ATK: 620, DEF: 412, SPD: 110 },
-    stats: {},
-    requirements: {},
+    base: { HP: 931, ATK: 620, DEF: 412 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
   // Version 1.3
-  "Dan Heng • Imbibitor Lunae": {
+  [`Dan Heng • Imbibitor Lunae`]: {
     type: "Destruction",
-    base: { HP: 1241, ATK: 698, DEF: 363, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1241, ATK: 698, DEF: 363 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Fu Xuan": {
+  [`Fu Xuan`]: {
     type: "Preservation",
-    base: { HP: 1474, ATK: 465, DEF: 606, SPD: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1474, ATK: 465, DEF: 606 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "DEF%": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
-  "Lynx": {
+  [`Lynx`]: {
     type: "Abundance",
-    base: { HP: 1058, ATK: 493, DEF: 551, SPD: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1058, ATK: 493, DEF: 551 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "Effect RES": 0.24,
     },
   },
   
   // Version 1.2
-  "Blade": {
+  [`Blade`]: {
     type: "Destruction",
-    base: { HP: 1358, ATK: 543, DEF: 485, SPD: 97 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1358, ATK: 543, DEF: 485 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "HP%": 0.6,
     },
   },
   
-  "Kafka": {
+  [`Kafka`]: {
     type: "Nihility",
-    base: { HP: 1086, ATK: 679, DEF: 485, SPD: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1086, ATK: 679, DEF: 485 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
     },
   },
   
-  "Luka": {
+  [`Luka`]: {
     type: "Nihility",
-    base: { HP: 917, ATK: 582, DEF: 485, SPD: 103 },
-    stats: {},
-    requirements: {},
+    base: { HP: 917, ATK: 582, DEF: 485 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Break Effect": 1,
+      "ATK%": 0.6,
     },
   },
   
   // Version 1.1
-  "Luocha": {
+  [`Luocha`]: {
     type: "Abundance",
-    base: { HP: 1280, ATK: 756, DEF: 363, SPD: 101 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1280, ATK: 756, DEF: 363 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Silver Wolf": {
+  [`Silver Wolf`]: {
     type: "Nihility",
-    base: { HP: 1047, ATK: 640, DEF: 460, SPD: 107 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1047, ATK: 640, DEF: 460 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Yukong": {
+  [`Yukong`]: {
     type: "Harmony",
-    base: { HP: 917, ATK: 599, DEF: 374, SPD: 107 },
-    stats: {},
-    requirements: {},
+    base: { HP: 917, ATK: 599, DEF: 374 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
   // Version 1.0
-  "Arlan": {
+  [`Arlan`]: {
     type: "Destruction",
-    base: { HP: 1199, ATK: 599, DEF: 330, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1199, ATK: 599, DEF: 330 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Asta": {
+  [`Asta`]: {
     type: "Harmony",
-    base: { HP: 1023, ATK: 511, DEF: 463, SPD: 106 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1023, ATK: 511, DEF: 463 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Bailu": {
+  [`Bailu`]: {
     type: "Abundance",
-    base: { HP: 1319, ATK: 562, DEF: 485, SPD: 98 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1319, ATK: 562, DEF: 485 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Bronya": {
+  [`Bronya`]: {
     type: "Harmony",
-    base: { HP: 1241, ATK: 582, DEF: 533, SPD: 99 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1241, ATK: 582, DEF: 533 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "CRIT DMG": 0.6,
+      "Effect RES": 0.24,
     },
   },
   
-  "Clara": {
+  [`Clara`]: {
     type: "Destruction",
-    base: { HP: 1241, ATK: 737, DEF: 485, SPD: 90 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1241, ATK: 737, DEF: 485 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Dan Heng": {
+  [`Dan Heng`]: {
     type: "The Hunt",
-    base: { HP: 882, ATK: 546, DEF: 396, SPD: 110 },
-    stats: {},
-    requirements: {},
+    base: { HP: 882, ATK: 546, DEF: 396 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Gepard": {
+  [`Gepard`]: {
     type: "Preservation",
-    base: { HP: 1397, ATK: 543, DEF: 654, SPD: 92 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1397, ATK: 543, DEF: 654 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "DEF%": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Herta": {
+  [`Herta`]: {
     type: "Erudition",
-    base: { HP: 952, ATK: 582, DEF: 396, SPD: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 952, ATK: 582, DEF: 396 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Himeko": {
+  [`Himeko`]: {
     type: "Erudition",
-    base: { HP: 1047, ATK: 756, DEF: 436, SPD: 96 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1047, ATK: 756, DEF: 436 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Hook": {
+  [`Hook`]: {
     type: "Destruction",
-    base: { HP: 1340, ATK: 617, DEF: 352, SPD: 94 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1340, ATK: 617, DEF: 352 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Jing Yuan": {
+  [`Jing Yuan`]: {
     type: "Erudition",
-    base: { HP: 1164, ATK: 698, DEF: 485, SPD: 99 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1164, ATK: 698, DEF: 485 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "March 7th (Preservation)": {
+  [`March 7th (Preservation)`]: {
     type: "Preservation",
-    base: { HP: 1058, ATK: 511, DEF: 573, SPD: 101 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1058, ATK: 511, DEF: 573 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "DEF%": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Natasha": {
+  [`Natasha`]: {
     type: "Abundance",
-    base: { HP: 1164, ATK: 476, DEF: 507, SPD: 98 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1164, ATK: 476, DEF: 507 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "HP%": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Pela": {
+  [`Pela`]: {
     type: "Nihility",
-    base: { HP: 987, ATK: 546, DEF: 463, SPD: 105 },
-    stats: {},
-    requirements: {},
+    base: { HP: 987, ATK: 546, DEF: 463 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Qingque": {
+  [`Qingque`]: {
     type: "Erudition",
-    base: { HP: 1023, ATK: 652, DEF: 441, SPD: 98 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1023, ATK: 652, DEF: 441 },
+    includeSpd: false,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Sampo": {
+  [`Sampo`]: {
     type: "Nihility",
-    base: { HP: 1023, ATK: 617, DEF: 396, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1023, ATK: 617, DEF: 396 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
     },
   },
   
-  "Seele": {
+  [`Seele`]: {
     type: "The Hunt",
-    base: { HP: 931, ATK: 640, DEF: 363, SPD: 115 },
-    stats: {},
-    requirements: {},
+    base: { HP: 931, ATK: 640, DEF: 363 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Serval": {
+  [`Serval`]: {
     type: "Erudition",
-    base: { HP: 917, ATK: 652, DEF: 374, SPD: 104 },
-    stats: {},
-    requirements: {},
+    base: { HP: 917, ATK: 652, DEF: 374 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Sushang": {
+  [`Sushang`]: {
     type: "The Hunt",
-    base: { HP: 917, ATK: 564, DEF: 418, SPD: 107 },
-    stats: {},
-    requirements: {},
+    base: { HP: 917, ATK: 564, DEF: 418 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
+      "Break Effect": 0.24,
     },
   },
   
-  "Tingyun": {
+  [`Tingyun`]: {
     type: "Harmony",
-    base: { HP: 846, ATK: 529, DEF: 396, SPD: 112 },
-    stats: {},
-    requirements: {},
+    base: { HP: 846, ATK: 529, DEF: 396 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "ATK%": 1,
+      "Effect RES": 0.24,
     },
   },
 
-  "Trailblazer (Destruction)": {
+  [`Trailblazer (Destruction)`]: {
     type: "Destruction",
-    base: { HP: 1203, ATK: 620, DEF: 460, SPD: 100 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1203, ATK: 620, DEF: 460 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
 
-  "Trailblazer (Preservation)": {
+  [`Trailblazer (Preservation)`]: {
     type: "Preservation",
-    base: { HP: 1241, ATK: 601, DEF: 606, SPD: 95 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1241, ATK: 601, DEF: 606 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
+      "DEF%": 1,
+      "Effect RES": 0.24,
     },
   },
   
-  "Welt": {
+  [`Welt`]: {
     type: "Nihility",
-    base: { HP: 1125, ATK: 620, DEF: 509, SPD: 102 },
-    stats: {},
-    requirements: {},
+    base: { HP: 1125, ATK: 620, DEF: 509 },
+    includeSpd: true,
+    includeEhr: true,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
   
-  "Yanqing": {
+  [`Yanqing`]: {
     type: "The Hunt",
-    base: { HP: 892, ATK: 679, DEF: 412, SPD: 109 },
-    stats: {},
-    requirements: {},
+    base: { HP: 892, ATK: 679, DEF: 412 },
+    includeSpd: true,
+    includeEhr: false,
     weights: {
       "CRIT Rate": 1,
       "CRIT DMG": 1,
+      "ATK%": 0.6,
     },
   },
 };
