@@ -161,11 +161,7 @@ const Save = ({
             <img
               src={cImgs[`../assets/char/${toPascalCase(newCid)}.webp`]?.default}
               alt={"char"}
-              style={{
-                width: 50,
-                height: 50,
-                objectFit: "contain",
-              }}
+              style={{ width: 50, height: 50, objectFit: "contain" }}
             />
           )}
 
@@ -267,11 +263,7 @@ const Save = ({
                 <img
                   src={wImgs[`../assets/weap/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
-                  style={{
-                    width: "100%",
-                    height: 500,
-                    objectFit: "contain",
-                  }}
+                  style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
               )}
               {isNotMobile && !newCdata.weapon && (

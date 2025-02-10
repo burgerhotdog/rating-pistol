@@ -110,11 +110,7 @@ const WutheringWaves = ({ uid }) => {
                       <img
                         src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
-                        style={{
-                          width: 50,
-                          height: 50,
-                          objectFit: "contain",
-                        }}
+                        style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
                     <TableCell>{cid}</TableCell>
@@ -148,11 +144,7 @@ const WutheringWaves = ({ uid }) => {
                           <img
                             src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
                             alt={"weap"}
-                            style={{
-                              width: 50,
-                              height: 50,
-                              objectFit: "contain",
-                            }}
+                            style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
                         </Tooltip>
                       </TableCell>
@@ -176,11 +168,7 @@ const WutheringWaves = ({ uid }) => {
                           <img
                             src={sImgs[`./assets/set/${toPascalCase(cdata.set)}.webp`]?.default}
                             alt={"set"}
-                            style={{
-                              width: 50,
-                              height: 50,
-                              objectFit: "contain",
-                            }}
+                            style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
                         </Tooltip>
                       </TableCell>

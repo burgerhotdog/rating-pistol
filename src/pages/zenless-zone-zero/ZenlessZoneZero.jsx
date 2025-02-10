@@ -109,11 +109,7 @@ const ZenlessZoneZero = ({ uid }) => {
                       <img
                         src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
-                        style={{
-                          width: 50,
-                          height: 50,
-                          objectFit: "contain",
-                        }}
+                        style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
                     <TableCell>{cid}</TableCell>
@@ -147,11 +143,7 @@ const ZenlessZoneZero = ({ uid }) => {
                           <img
                             src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
                             alt={"weap"}
-                            style={{
-                              width: 50,
-                              height: 50,
-                              objectFit: "contain",
-                            }}
+                            style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
                         </Tooltip>
                       </TableCell>
@@ -183,11 +175,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             <img
                               src={sImgs[`./assets/set/${toPascalCase(cdata.set1)}.webp`]?.default}
                               alt={"set1"}
-                              style={{
-                                width: 50,
-                                height: 50,
-                                objectFit: "contain",
-                              }}
+                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                           <Typography>+</Typography>
@@ -208,11 +196,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             <img
                               src={sImgs[`./assets/set/${toPascalCase(cdata.set2)}.webp`]?.default}
                               alt={"set2"}
-                              style={{
-                                width: 50,
-                                height: 50,
-                                objectFit: "contain",
-                              }}
+                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                         </Box>
