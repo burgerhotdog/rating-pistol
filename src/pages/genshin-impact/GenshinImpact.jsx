@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
+import Tooltip from "@mui/material/Tooltip";
 import { Edit as EditIcon, Delete as DeleteIcon } from "@mui/icons-material";
 import {
   Box,
@@ -19,7 +20,6 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
-import Tooltip from "@mui/material/Tooltip";
 import WEAPONS from "./data/WEAPONS";
 import SETS from "./data/SETS";
 import toPascalCase from "../../components/toPascalCase";

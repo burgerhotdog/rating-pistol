@@ -48,25 +48,21 @@ const Save = ({
     }
   }, [isSaveOpen, myChars]);
   
-  // Mobile layout breakpoint
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
-  // Gets filtered character ids for select character
   const charOptions = () => {
     return Object.keys(CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort();
   };
 
-  // Gets filtered weapon ids for select weapon
   const weapOptions = () => {
     return Object.keys(WEAPONS)
       .filter(id => WEAPONS[id].type === CHARACTERS[newCid].type)
       .sort();
   };
 
-  // Gets filtered set ids for select set
   const setOptions = (setNumber) => {
     if (setNumber === "set1")
       return Object.keys(SETS).sort();
@@ -94,7 +90,6 @@ const Save = ({
     }
   };
 
-  // Save button handler
   const handleSave = async () => {
     // Perform validation checks
     if (!validate()) return;
@@ -118,20 +113,17 @@ const Save = ({
     setIsSaveOpen(false);
   };
 
-  // Cancel button handler
   const handleCancel = () => {
     setError("");
     setIsSaveOpen(false);
   };
 
-  // Select character handler
   const handleCharacter = (newValue) => {
     setNewCid(newValue || "");
     setNewCdata(blankCdata());
     setError("");
   };
 
-  // Select weapon handler
   const handleWeapon = (newValue) => {
     setNewCdata((prev) => ({
       ...prev,
@@ -139,7 +131,6 @@ const Save = ({
     }));
   };
 
-  // Select set handler
   const handleSet = (newValue, setNumber) => {
     if (setNumber === "set1") {
       setNewCdata((prev) => ({
