@@ -22,22 +22,11 @@ import Delete from "./components/Delete";
 import Tooltip from "@mui/material/Tooltip";
 import WEAPONS from "./data/WEAPONS";
 import SETS from "./data/SETS";
+import toPascalCase from "../../components/toPascalCase";
 
 const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
 const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
-
-function toPascalCase(str) {
-  return str
-    .replace(/'s\b/gi, "s") // Step 1: Replace possessive "'s" with "s"
-    .match(/[a-z0-9]+/gi) // Step 2: Match alphabetic and numeric substrings
-    .map(word =>
-      /^[0-9]/.test(word) // Check if the word starts with a number
-        ? word // Leave it as is if it starts with a number
-        : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // PascalCase for alphabetic substrings
-    )
-    .join('');
-}
 
 const GenshinImpact = ({ uid }) => {
   // Modal States
