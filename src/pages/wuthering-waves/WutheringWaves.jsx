@@ -29,14 +29,11 @@ const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
 const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
 
 const WutheringWaves = ({ uid }) => {
-  // Modal States
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-
-  // Local Character Objects
+  const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
 
-  // Mobile layout breakpoint
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
@@ -54,10 +51,8 @@ const WutheringWaves = ({ uid }) => {
           docsToObjs[charDoc.id] = charDoc.data();
         });
   
-        // Store objects in myChars
         setMyChars(docsToObjs);
       } else {
-        // Clear myChars
         setMyChars({});
       }
     };
@@ -105,7 +100,11 @@ const WutheringWaves = ({ uid }) => {
                 Object.entries(myChars)
                 .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
                 .map(([cid, cdata]) => (
-                  <TableRow key={cid}>
+                  <TableRow
+                    key={cid}
+                    onMouseEnter={() => setHoveredRow(cid)}
+                    onMouseLeave={() => setHoveredRow(null)}
+                  >
                     <TableCell>
                       <img
                         src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
@@ -175,26 +174,33 @@ const WutheringWaves = ({ uid }) => {
                     )}
                     <TableCell>{cdata.score}</TableCell>
                     <TableCell>
-                      {/* Edit button */}
-                      <Button
-                        size="small"
-                        variant="outlined"
-                        color="primary"
-                        onClick={() => setIsSaveOpen(cid)}
-                        sx={{ mr: 1 }}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          gap: 1,
+                          visibility: hoveredRow === cid ? "visible" : "hidden",
+                        }}
                       >
-                        <EditIcon />
-                      </Button>
+                        {/* Edit button */}
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          color="primary"
+                          onClick={() => setIsSaveOpen(cid)}
+                        >
+                          <EditIcon />
+                        </Button>
 
-                      {/* Delete button */}
-                      <Button
-                        size="small"
-                        variant="outlined"
-                        color="secondary"
-                        onClick={() => setIsDeleteOpen(cid)}
-                      >
-                        <DeleteIcon />
-                      </Button>
+                        {/* Delete button */}
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          color="secondary"
+                          onClick={() => setIsDeleteOpen(cid)}
+                        >
+                          <DeleteIcon />
+                        </Button>
+                      </Box>
                     </TableCell>
                   </TableRow>
                 ))
