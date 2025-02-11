@@ -19,21 +19,10 @@ import blankCdata from "./blankCdata";
 import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
 import SETS from "../data/SETS";
+import toPascalCase from "../../../components/toPascalCase";
 
 const cImgs = import.meta.glob("../assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/*.webp", { eager: true });
-
-function toPascalCase(str) {
-  return str
-    .replace(/'s\b/gi, "s") // Step 1: Replace possessive "'s" with "s"
-    .match(/[a-z0-9]+/gi) // Step 2: Match alphabetic and numeric substrings
-    .map(word =>
-      /^[0-9]/.test(word) // Check if the word starts with a number
-        ? word // Leave it as is if it starts with a number
-        : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // PascalCase for alphabetic substrings
-    )
-    .join('');
-}
 
 const Save = ({
   uid,
@@ -63,21 +52,18 @@ const Save = ({
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
-  // Gets filtered character ids for select character
   const charOptions = () => {
     return Object.keys(CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort();
   };
 
-  // Gets filtered weapon ids for select weapon
   const weapOptions = () => {
     return Object.keys(WEAPONS)
       .filter(id => WEAPONS[id].type === CHARACTERS[newCid].type)
       .sort();
   };
 
-  // Gets filtered set ids for select set
   const setOptions = () => {
     return Object.keys(SETS).sort();
   };
@@ -99,7 +85,6 @@ const Save = ({
     }
   };
 
-  // Save button handler
   const handleSave = async () => {
     // Perform validation checks
     if (!validate()) return;
@@ -123,20 +108,17 @@ const Save = ({
     setIsSaveOpen(false);
   };
 
-  // Cancel button handler
   const handleCancel = () => {
     setError("");
     setIsSaveOpen(false);
   };
 
-  // Select character handler
   const handleCharacter = (newValue) => {
     setNewCid(newValue || "");
     setNewCdata(blankCdata());
     setError("");
   };
 
-  // Select weapon handler
   const handleWeapon = (newValue) => {
     setNewCdata((prev) => ({
       ...prev,
@@ -144,7 +126,6 @@ const Save = ({
     }));
   };
 
-  // Select set handler
   const handleSet = (newValue) => {
     setNewCdata((prev) => ({
       ...prev,
@@ -181,11 +162,7 @@ const Save = ({
             <img
               src={cImgs[`../assets/char/${toPascalCase(newCid)}.webp`]?.default}
               alt={"char"}
-              style={{
-                width: 50,
-                height: 50,
-                objectFit: "contain",
-              }}
+              style={{ width: 50, height: 50, objectFit: "contain" }}
             />
           )}
 
@@ -287,11 +264,7 @@ const Save = ({
                 <img
                   src={wImgs[`../assets/weap/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
-                  style={{
-                    width: "100%",
-                    height: 500,
-                    objectFit: "contain",
-                  }}
+                  style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
               )}
               {isNotMobile && !newCdata.weapon && (

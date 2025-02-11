@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
+import Tooltip from "@mui/material/Tooltip";
 import { Edit as EditIcon, Delete as DeleteIcon } from "@mui/icons-material";
 import {
   Box,
@@ -19,35 +20,20 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "./components/Delete";
-import Tooltip from "@mui/material/Tooltip";
 import WEAPONS from "./data/WEAPONS";
 import { SETS_RELIC, SETS_PLANAR } from "./data/SETS";
+import toPascalCase from "../../components/toPascalCase";
 
 const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
 const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
 
-function toPascalCase(str) {
-  return str
-    .replace(/'s\b/gi, "s") // Step 1: Replace possessive "'s" with "s"
-    .match(/[a-z0-9]+/gi) // Step 2: Match alphabetic and numeric substrings
-    .map(word =>
-      /^[0-9]/.test(word) // Check if the word starts with a number
-        ? word // Leave it as is if it starts with a number
-        : word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() // PascalCase for alphabetic substrings
-    )
-    .join('');
-}
-
 const HonkaiStarRail = ({ uid }) => {
-  // Modal States
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-
-  // Local Character Objects
+  const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
 
-  // Mobile layout breakpoint
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
@@ -65,10 +51,8 @@ const HonkaiStarRail = ({ uid }) => {
           docsToObjs[charDoc.id] = charDoc.data();
         });
   
-        // Store objects in myChars
         setMyChars(docsToObjs);
       } else {
-        // Clear myChars
         setMyChars({});
       }
     };
@@ -116,16 +100,16 @@ const HonkaiStarRail = ({ uid }) => {
                 Object.entries(myChars)
                 .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
                 .map(([cid, cdata]) => (
-                  <TableRow key={cid}>
+                  <TableRow
+                    key={cid}
+                    onMouseEnter={() => setHoveredRow(cid)}
+                    onMouseLeave={() => setHoveredRow(null)}
+                  >
                     <TableCell>
                       <img
                         src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
-                        style={{
-                          width: 50,
-                          height: 50,
-                          objectFit: "contain",
-                        }}
+                        style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
                     <TableCell>{cid}</TableCell>
@@ -160,11 +144,7 @@ const HonkaiStarRail = ({ uid }) => {
                           <img
                             src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
                             alt={"weap"}
-                            style={{
-                              width: 50,
-                              height: 50,
-                              objectFit: "contain",
-                            }}
+                            style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
                         </Tooltip>
                       </TableCell>
@@ -194,11 +174,7 @@ const HonkaiStarRail = ({ uid }) => {
                             <img
                               src={sImgs[`./assets/set/${toPascalCase(cdata.set1)}.webp`]?.default}
                               alt={"set1"}
-                              style={{
-                                width: 50,
-                                height: 50,
-                                objectFit: "contain",
-                              }}
+                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                           <Typography>+</Typography>
@@ -218,11 +194,7 @@ const HonkaiStarRail = ({ uid }) => {
                             <img
                               src={sImgs[`./assets/set/${toPascalCase(cdata.set2)}.webp`]?.default}
                               alt={"set2"}
-                              style={{
-                                width: 50,
-                                height: 50,
-                                objectFit: "contain",
-                              }}
+                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                         </Box>
@@ -230,26 +202,33 @@ const HonkaiStarRail = ({ uid }) => {
                     )}
                     <TableCell>{cdata.score}</TableCell>
                     <TableCell>
-                      {/* Edit button */}
-                      <Button
-                        size="small"
-                        variant="outlined"
-                        color="primary"
-                        onClick={() => setIsSaveOpen(cid)}
-                        sx={{ mr: 1 }}
+                      <Box
+                        sx={{
+                          display: "flex",
+                          gap: 1,
+                          visibility: hoveredRow === cid ? "visible" : "hidden",
+                        }}
                       >
-                        <EditIcon />
-                      </Button>
+                        {/* Edit button */}
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          color="primary"
+                          onClick={() => setIsSaveOpen(cid)}
+                        >
+                          <EditIcon />
+                        </Button>
 
-                      {/* Delete button */}
-                      <Button
-                        size="small"
-                        variant="outlined"
-                        color="secondary"
-                        onClick={() => setIsDeleteOpen(cid)}
-                      >
-                        <DeleteIcon />
-                      </Button>
+                        {/* Delete button */}
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          color="secondary"
+                          onClick={() => setIsDeleteOpen(cid)}
+                        >
+                          <DeleteIcon />
+                        </Button>
+                      </Box>
                     </TableCell>
                   </TableRow>
                 ))

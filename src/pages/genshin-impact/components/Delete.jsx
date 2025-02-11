@@ -9,7 +9,6 @@ const Delete = ({
   setIsDeleteOpen,
   setMyChars,
 }) => {
-  // Delete button handler
   const handleDelete = async () => {
     try {
       // If signed in, delete document from firestore
@@ -31,7 +30,6 @@ const Delete = ({
     }
   };
 
-  // Cancel button handler
   const handleCancel = () => {
     setIsDeleteOpen(false);
   };
