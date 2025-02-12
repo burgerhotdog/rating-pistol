@@ -23,6 +23,7 @@ import Delete from "./components/Delete";
 import WEAPONS from "./data/WEAPONS";
 import SETS from "./data/SETS";
 import toPascalCase from "../../components/toPascalCase";
+import Enka from "./components/Enka";
 
 const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
 const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
@@ -218,6 +219,9 @@ const GenshinImpact = ({ uid }) => {
         >
           Add character
         </Button>
+
+        {/* Enka test */}
+        <Enka />
 
         {/* Save modal */}
         <Save
