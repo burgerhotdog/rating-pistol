@@ -32,6 +32,7 @@ const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
 const GenshinImpact = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isEnkaOpen, setIsEnkaOpen] = useState(false);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
 
@@ -220,8 +221,15 @@ const GenshinImpact = ({ uid }) => {
           Add character
         </Button>
 
-        {/* Enka test */}
-        <Enka />
+        {/* Enka button */}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setIsEnkaOpen(true)}
+          sx={{ mt: 2 }}
+        >
+          Load from uid
+        </Button>
 
         {/* Save modal */}
         <Save
@@ -237,6 +245,15 @@ const GenshinImpact = ({ uid }) => {
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
+          setMyChars={setMyChars}
+        />
+
+        {/* Enka modal */}
+        <Enka
+          uid={uid}
+          isEnkaOpen={isEnkaOpen}
+          setIsEnkaOpen={setIsEnkaOpen}
+          myChars={myChars}
           setMyChars={setMyChars}
         />
       </Box>        

@@ -31,7 +31,7 @@ const Save = ({
   myChars,
   setMyChars,
 }) => {
-  const [error, setError] = useState("");
+  const [error, setError] = useState({});
   const [newCid, setNewCid] = useState("");
   const [newCdata, setNewCdata] = useState(blankCdata);
 
@@ -70,19 +70,12 @@ const Save = ({
 
   // Validation before saving
   const validate = () => {
-    const errors = [];
-    // Types of errors
-    if (!newCdata.weapon) errors.push("Select weapon");
-    if (!newCdata.set) errors.push("Select artifact set");
-
-    // Display error message
-    if (errors.length) {
-      setError(errors.join(", "));
-      return false;
-    } else {
-      setError("");
-      return true;
-    }
+    const errors = { weapon: false, set: false };
+    if (!newCdata.weapon) errors.weapon = true;
+    if (!newCdata.set) errors.set = true;
+  
+    setError(errors);
+    return !errors.weapon && !errors.set;
   };
 
   const handleSave = async () => {
@@ -104,19 +97,19 @@ const Save = ({
       [newCid]: newCdata,
     }));
 
-    setError("");
+    setError({});
     setIsSaveOpen(false);
   };
 
   const handleCancel = () => {
-    setError("");
+    setError({});
     setIsSaveOpen(false);
   };
 
   const handleCharacter = (newValue) => {
     setNewCid(newValue || "");
     setNewCdata(blankCdata());
-    setError("");
+    setError({});
   };
 
   const handleWeapon = (newValue) => {
@@ -204,16 +197,6 @@ const Save = ({
           >
             Cancel
           </Button>
-          
-          {/* Error section */}
-          {error && (
-            <Typography
-              variant="body2"
-              color="error"
-            >
-              {error}
-            </Typography>
-          )}
         </Box>
 
         {/* Divider */}
@@ -233,6 +216,8 @@ const Save = ({
                   <TextField
                     {...params}
                     label="Weapon"
+                    error={error.weapon}
+                    helperText={error.weapon ? "No weapon selected" : ""}
                   />
                 )}
                 fullWidth
@@ -251,6 +236,8 @@ const Save = ({
                   <TextField
                     {...params}
                     label="Artifact Set"
+                    error={error.set}
+                    helperText={error.set ? "No set selected" : ""}
                   />
                 )}
                 fullWidth
