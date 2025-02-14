@@ -101,6 +101,7 @@ const calculatePoints = (statsObj, weights, basestats, includeEr) => {
 };
 
 const getScore = (cid, cdata) => {
+  if (!cdata.weapon) return "N/A";
   // Combine basestats
   const basestats = combine_basestats(CHARACTERS[cid].base, WEAPONS[cdata.weapon].base);
   console.log("basestats: ", basestats);

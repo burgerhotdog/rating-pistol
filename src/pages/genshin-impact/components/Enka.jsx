@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
 import {
   Box,
   Button,
@@ -8,6 +10,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import blankCdata from "./blankCdata";
+import { enkaConvertChar, enkaConvertWeap, enkaConvertSet, enkaConvertStats } from "./enkaConvert";
+import getScore from "./getScore";
 
 const Enka = ({
   uid,
@@ -30,21 +35,24 @@ const Enka = ({
   const tempGameUid = "618285856";
   const fetchPlayerData = async () => {
     try {
-      const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix+tempGameUid}/`);
+      const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix+gameUid}/`);
       const data = await response.json();
       setAvatarList(JSON.parse(JSON.stringify(data.avatarInfoList)));
       setError("");
     } catch (error) {
-      console.error("Failed to fetch player data:", error);
-      setError("Error loading uid");
+      console.error("Error fetching player data", error);
+      setError("Error fetching player data");
       setNextButtonDisabled(false);
     }
   };
 
   const handleNext = async () => {
-    console.log(gameUid);
-    setNextButtonDisabled(true);
-    await fetchPlayerData();
+    if (/^\d{9,10}$/.test(gameUid)) {
+      setNextButtonDisabled(true);
+      await fetchPlayerData();
+    } else {
+      setError("Invalid uid");
+    }
   };
 
   const handleCancel = () => {
@@ -56,18 +64,59 @@ const Enka = ({
     setIsEnkaOpen(false);
   };
 
-  const handleSave = () => {
-    console.log("Selected avatars:", selectedAvatars);
-    // for each avatar in selected avatars
-    // create a cid and cdata,
-    // copy the data from avatarlist to cid and cdata
-    // start with name, weapon, set
-    // then do the artifacts
-    // if user is logged in, check if the character exists
-    // delete it if it does,
-    // add the new cid and cdata to documents
-    // add the new cid and cdata to the local characters
-    // repeat
+  const handleSave = async () => {
+    for (const selectedAvatar of selectedAvatars) {
+      const cid = enkaConvertChar[avatarList[selectedAvatar].avatarId];
+      const cdata = blankCdata();
+
+      cdata.weapon = enkaConvertWeap[avatarList[selectedAvatar].equipList[5].itemId] || "";
+      const setCounts = {};
+      // artifacts
+      for (let i = 0; i < 5; i++) {
+        cdata.mainstats[i] = enkaConvertStats[avatarList[selectedAvatar].equipList[i].flat.reliquaryMainstat.mainPropId] || "";
+        const currSet = (avatarList[selectedAvatar].equipList[i].flat.icon).substring(13, 18);
+        console.log(currSet);
+        setCounts[currSet] = (setCounts[currSet] || 0) + 1;
+        for (let j = 0; j < 4; j++) {
+          cdata.substats[i][j][0] = enkaConvertStats[avatarList[selectedAvatar].equipList[i].flat.reliquarySubstats[j].appendPropId] || "";
+          cdata.substats[i][j][1] = avatarList[selectedAvatar].equipList[i].flat.reliquarySubstats[j].statValue || "";
+        }
+      }
+      // set
+      for (const set in setCounts) {
+        if (setCounts[set] >= 4) {
+          cdata.set = enkaConvertSet[set];
+        }
+      }
+
+      // score
+      cdata.score = getScore(cid, cdata);
+
+      console.log(cid);
+      console.log(cdata);
+
+      if (myChars[cid]) {
+        if (uid) {
+          const characterDocRef = doc(db, "users", uid, "GenshinImpact", cid);
+          await deleteDoc(characterDocRef);
+        }
+        setMyChars((prev) => {
+          const updatedChars = { ...prev };
+          delete updatedChars[cid];
+          return updatedChars;
+        });
+      }
+
+      if (uid) {
+        const charDocRef = doc(db, "users", uid, "GenshinImpact", cid);
+        await setDoc(charDocRef, cdata, { merge: true });
+      }
+      setMyChars((prev) => ({
+        ...prev,
+        [cid]: cdata,
+      }));
+    };
+
     //cleanup
     setError("");
     setGameUid("");
@@ -75,14 +124,14 @@ const Enka = ({
     setSelectedAvatars([]);
     setNextButtonDisabled(false);
     setIsEnkaOpen(false);
-  }
+  };
 
-  const handleCheckboxChange = (event, avatarId) => {
+  const handleCheckboxChange = (event, index) => {
     setSelectedAvatars((prevSelectedAvatars) => {
       if (event.target.checked) {
-        return [...prevSelectedAvatars, avatarId];
+        return [...prevSelectedAvatars, index];
       } else {
-        return prevSelectedAvatars.filter((id) => id !== avatarId);
+        return prevSelectedAvatars.filter((id) => id !== index);
       }
     });
   };
@@ -110,7 +159,7 @@ const Enka = ({
               value={gameUid}
               onChange={(e) => {
                 const newValue = e.target.value;
-                const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
+                const isValidNumber = /^\d*$/.test(newValue);
                 if (isValidNumber) setGameUid(newValue);
               }}
               sx={{ mt: 1 }}
@@ -135,11 +184,11 @@ const Enka = ({
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={selectedAvatars.includes(avatar.avatarId)}
-                      onChange={(e) => handleCheckboxChange(e, avatar.avatarId)}
+                      checked={selectedAvatars.includes(index)}
+                      onChange={(e) => handleCheckboxChange(e, index)}
                     />
                   }
-                  label={avatar.avatarId}
+                  label={enkaConvertChar[avatar.avatarId || "error"]}
                 />
               </Box>
             ))}

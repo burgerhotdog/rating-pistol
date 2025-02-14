@@ -117,7 +117,7 @@ const GenshinImpact = ({ uid }) => {
                     <TableCell>{cid}</TableCell>
                     {isNotMobile && (
                       <TableCell>
-                        <Tooltip
+                        {cdata.weapon && (<Tooltip
                           title={
                             <React.Fragment>
                               <Typography variant="subtitle1" fontWeight="bold">
@@ -147,12 +147,12 @@ const GenshinImpact = ({ uid }) => {
                             alt={"weap"}
                             style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
-                        </Tooltip>
+                        </Tooltip>)}
                       </TableCell>
                     )}
                     {isNotMobile && (
                       <TableCell>
-                        <Tooltip
+                        {cdata.set && (<Tooltip
                           title={
                             <React.Fragment>
                               <Typography variant="subtitle1" fontWeight="bold">
@@ -171,7 +171,7 @@ const GenshinImpact = ({ uid }) => {
                             alt={"set"}
                             style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
-                        </Tooltip>
+                        </Tooltip>)}
                       </TableCell>
                     )}
                     <TableCell>{cdata.score}</TableCell>
