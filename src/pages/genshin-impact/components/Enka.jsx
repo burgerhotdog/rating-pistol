@@ -58,6 +58,17 @@ const Enka = ({
 
   const handleSave = () => {
     console.log("Selected avatars:", selectedAvatars);
+    // for each avatar in selected avatars
+    // create a cid and cdata,
+    // copy the data from avatarlist to cid and cdata
+    // start with name, weapon, set
+    // then do the artifacts
+    // if user is logged in, check if the character exists
+    // delete it if it does,
+    // add the new cid and cdata to documents
+    // add the new cid and cdata to the local characters
+    // repeat
+    //cleanup
     setError("");
     setGameUid("");
     setAvatarList([]);
