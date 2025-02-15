@@ -1,4 +1,25 @@
 const WEAPONS = {
+  // Version 5.4
+  [`Sunny Morning Sleep-In`] : {
+    type: "Catalyst",
+    base: { ATK: 542 },
+    substat: "Elemental Mastery: 265",
+    subtitle: `Bathhouses, Hawks, and Narukami`,
+    desc: [
+      `Elemental Mastery increases by 120 for 6s after triggering Swirl. Elemental Mastery increases by 96 for 9s after the wielder's Elemental Skill hits an opponent. Elemental Mastery increases by 32 for 30s after the wielder's Elemental Burst hits an opponent.`,
+    ]
+  },
+
+  [`Tamayuratei no Ohanashi`] : {
+    type: "Catalyst",
+    base: { ATK: 565 },
+    substat: "Energy Recharge: 30.6%",
+    subtitle: `Busybody's Running Light`,
+    desc: [
+      `Increase ATK by 20% and Movement SPD by 10% for 10s when using an Elemental Skill.`,
+    ]
+  },
+
   // Version 5.3
   [`A Thousand Blazing Suns`]: {
     type: "Claymore",

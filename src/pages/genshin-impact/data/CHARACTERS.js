@@ -1,15 +1,14 @@
 const CHARACTERS = {
   // Verison 5.4
-  /*
-  [`Mizuki`]: {
+  [`Yumemizuki Mizuki`]: {
     type: "Catalyst",
-    base: { HP: 10000, ATK: 100, DEF: 100 },
+    base: { HP: 12736, ATK: 215, DEF: 757 },
     includeEr: true,
     weights: {
       "Elemental Mastery": 1,
     },
   },
-  */
+  
 
   // Version 5.3
   [`Citlali`]: {
