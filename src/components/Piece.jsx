@@ -1,15 +1,23 @@
 import React from "react";
 import { Autocomplete, Card, Divider, TextField } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import { MAINSTATS, SUBSTATS } from "../data/STATS";
-
-const PIECE_NAMES = ["Head", "Hands", "Body", "Feet", "Orb", "Rope"];
+import GAME_DATA from "./gameData";
 
 const Piece = ({
+  gameType,
   newCdata,
   setNewCdata,
   mainIndex,
 }) => {
+  const PIECE_NAMES =
+    gameType === "HSR"
+      ? ["Head", "Hands", "Body", "Feet", "Orb", "Rope"]
+      : gameType === "ZZZ"
+        ? ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"]
+        : gameType === "WW"
+          ? ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"]
+          : ["Flower", "Plume", "Sands", "Goblet", "Circlet"];
+
   // Pass mainstat data to newCdata
   const handleMainstat = (newValue) => {
     setNewCdata((prev) => {
@@ -26,6 +34,7 @@ const Piece = ({
         1: ["",""],
         2: ["",""],
         3: ["",""],
+        ...(gameType === "WW" ? { 4: ["",""] } : {}),
       };
 
       return {
@@ -64,10 +73,11 @@ const Piece = ({
       .map((substat) => substat[0])
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
-    return Object.keys(SUBSTATS).filter(
+    return Object.keys(GAME_DATA[gameType].SUBSTATS).filter(
       (option) =>
-        option !== selectedMainstat && // Exclude mainstat
-        !selectedSubstatKeys.includes(option) // Exclude already selected substats
+        GAME_DATA[gameType].SUBSTATS
+          ? !selectedSubstatKeys.includes(option)
+          : option !== selectedMainstat && !selectedSubstatKeys.includes(option)
     );
   };
 
@@ -79,7 +89,7 @@ const Piece = ({
           <Autocomplete
             size="small"
             value={newCdata.mainstats[mainIndex] || ""}
-            options={Object.keys(MAINSTATS[mainIndex])}
+            options={Object.keys(GAME_DATA[gameType].MAINSTATS[mainIndex])}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
@@ -99,9 +109,9 @@ const Piece = ({
         </Grid>
 
         {/* Substats */}
-        {[0, 1, 2, 3].map((subIndex) => (
+        {[0, 1, 2, 3, ...(gameType === "WW" ? [4] : [])].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
-            {/* Substat Name Dropdown */}
+            {/* Substat Key Dropdown */}
             <Grid size={9}>
               <Autocomplete
                 size="small"
@@ -128,7 +138,7 @@ const Piece = ({
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (SUBSTATS[newCdata.substats[mainIndex][subIndex][0]] * 6);
+                  const isLessThanMax = Number(newValue) <= (GAME_DATA[gameType].SUBSTATS[newCdata.substats[mainIndex][subIndex][0]] * (gameType === "WW" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, 1);
                   }

@@ -13,7 +13,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { db } from "../../../firebase";
-import Piece from "./Piece";
+import Piece from "../../../components/Piece";
 import getScore from "../../../components/getScore";
 import blankCdata from "../../../components/blankCdata";
 import CHARACTERS from "../data/CHARACTERS";
@@ -277,6 +277,7 @@ const Save = ({
                 {[0, 1, 2, 3, 4].map((mainIndex) => (
                   <Grid size={{ xs: 12, xl: 4 }} key={mainIndex}>
                     <Piece
+                      gameType={"WW"}
                       newCdata={newCdata}
                       setNewCdata={setNewCdata}
                       mainIndex={mainIndex}

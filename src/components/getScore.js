@@ -1,4 +1,4 @@
-import GAME_DATA from "./gameData.js";
+import GAME_DATA from "./gameData";
 
 const combine_basestats = (charBase, weapBase) => {
   return Object.entries(charBase).reduce((basestats, [key, value]) => {
