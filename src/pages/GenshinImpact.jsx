@@ -121,7 +121,7 @@ const GenshinImpact = ({ uid }) => {
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {cdata.weapon}
+                                  {GAME_DATA["GI"].WEAPONS[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
                                   {"Base ATK: " + GAME_DATA["GI"].WEAPONS[cdata.weapon].base.ATK} <br />
@@ -130,20 +130,15 @@ const GenshinImpact = ({ uid }) => {
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
                                   {GAME_DATA["GI"].WEAPONS[cdata.weapon].subtitle}
                                 </Typography>
-                                <Typography variant="body2">
-                                  {GAME_DATA["GI"].WEAPONS[cdata.weapon].desc.map((line, index) => (
-                                    <React.Fragment key={index}>
-                                      {line}
-                                      {index < GAME_DATA["GI"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
-                                    </React.Fragment>
-                                  ))}
+                                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                                  {GAME_DATA["GI"].WEAPONS[cdata.weapon].desc}
                                 </Typography>
                               </React.Fragment>
                             }
                             arrow
                           >
                             <img
-                              src={wImgs[`../assets/weap/GI/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                              src={wImgs[`../assets/weap/GI/${cdata.weapon}.webp`]?.default}
                               alt={"weap"}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />

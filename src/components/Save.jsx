@@ -76,7 +76,9 @@ const Save = ({
   const weapOptions = () => {
     return Object.keys(GAME_DATA[gameType].WEAPONS)
       .filter(id => GAME_DATA[gameType].WEAPONS[id].type === GAME_DATA[gameType].CHARACTERS[newCid].type)
-      .sort();
+      .sort((a, b) => 
+        GAME_DATA[gameType].WEAPONS[a].name.localeCompare(GAME_DATA[gameType].WEAPONS[b].name)
+      );
   };
 
   const setOptions = (setNumber) => {
@@ -248,6 +250,7 @@ const Save = ({
                 value={newCdata.weapon}
                 options={weapOptions()}
                 onChange={(_, newValue) => handleWeapon(newValue)}
+                getOptionLabel={(id) => GAME_DATA[gameType].WEAPONS[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -300,7 +303,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               {isNotMobile && newCdata.weapon && (
                 <img
-                  src={wImgs[`../assets/weap/${gameType}/${toPascalCase(newCdata.weapon)}.webp`]?.default}
+                  src={wImgs[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
                   alt={"weap"}
                   style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
