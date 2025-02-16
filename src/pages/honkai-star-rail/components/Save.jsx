@@ -15,7 +15,7 @@ import {
 import { db } from "../../../firebase";
 import Piece from "./Piece";
 import getScore from "../../../components/getScore";
-import blankCdata from "./blankCdata";
+import blankCdata from "../../../components/blankCdata";
 import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
 import { SETS_RELIC, SETS_PLANAR } from "../data/SETS";
@@ -33,14 +33,14 @@ const Save = ({
 }) => {
   const [error, setError] = useState("");
   const [newCid, setNewCid] = useState("");
-  const [newCdata, setNewCdata] = useState(blankCdata);
+  const [newCdata, setNewCdata] = useState(() => blankCdata("HSR"));
 
   // When modal opens, reset newCid and newCdata
   useEffect(() => {
     if (isSaveOpen) {
       if (isSaveOpen === true) {
         setNewCid("");
-        setNewCdata(blankCdata());
+        setNewCdata(blankCdata("HSR"));
       } else {
         setNewCid(isSaveOpen);
         setNewCdata(myChars[isSaveOpen]);
@@ -121,7 +121,7 @@ const Save = ({
 
   const handleCharacter = (newValue) => {
     setNewCid(newValue || "");
-    setNewCdata(blankCdata());
+    setNewCdata(blankCdata("HSR"));
     setError("");
   };
 

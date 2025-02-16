@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import blankCdata from "./blankCdata";
+import blankCdata from "../../../components/blankCdata";
 import { enkaConvertChar, enkaConvertWeap, enkaConvertSet, enkaConvertStats } from "./enkaConvert";
 import getScore from "../../../components/getScore";
 
@@ -67,7 +67,7 @@ const Enka = ({
   const handleSave = async () => {
     for (const selectedAvatar of selectedAvatars) {
       const cid = enkaConvertChar[avatarList[selectedAvatar].avatarId];
-      const cdata = blankCdata();
+      const cdata = blankCdata("GI");
 
       cdata.weapon = enkaConvertWeap[avatarList[selectedAvatar].equipList[5].itemId] || "";
       const setCounts = {};
