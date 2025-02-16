@@ -24,9 +24,9 @@ import WEAPONS from "./data/WEAPONS";
 import { SETS_RELIC, SETS_PLANAR } from "./data/SETS";
 import toPascalCase from "../../components/toPascalCase";
 
-const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
-const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
-const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
+const cImgs = import.meta.glob("../../assets/char/hsr/*.webp", { eager: true });
+const wImgs = import.meta.glob("../../assets/weap/hsr/*.webp", { eager: true });
+const sImgs = import.meta.glob("../../assets/set/hsr/*.webp", { eager: true });
 
 const HonkaiStarRail = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
@@ -107,7 +107,7 @@ const HonkaiStarRail = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../../assets/char/hsr/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
@@ -142,7 +142,7 @@ const HonkaiStarRail = ({ uid }) => {
                           arrow
                         >
                           <img
-                            src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                            src={wImgs[`../../assets/weap/hsr/${toPascalCase(cdata.weapon)}.webp`]?.default}
                             alt={"weap"}
                             style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
@@ -172,7 +172,7 @@ const HonkaiStarRail = ({ uid }) => {
                             arrow
                           >
                             <img
-                              src={sImgs[`./assets/set/${toPascalCase(cdata.set1)}.webp`]?.default}
+                              src={sImgs[`../../assets/set/hsr/${toPascalCase(cdata.set1)}.webp`]?.default}
                               alt={"set1"}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
@@ -192,7 +192,7 @@ const HonkaiStarRail = ({ uid }) => {
                             arrow
                           >
                             <img
-                              src={sImgs[`./assets/set/${toPascalCase(cdata.set2)}.webp`]?.default}
+                              src={sImgs[`../../assets/set/hsr/${toPascalCase(cdata.set2)}.webp`]?.default}
                               alt={"set2"}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />

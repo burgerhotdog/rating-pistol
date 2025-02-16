@@ -21,8 +21,8 @@ import WEAPONS from "../data/WEAPONS";
 import { SETS_RELIC, SETS_PLANAR } from "../data/SETS";
 import toPascalCase from "../../../components/toPascalCase";
 
-const cImgs = import.meta.glob("../assets/char/*.webp", { eager: true });
-const wImgs = import.meta.glob("../assets/weap/*.webp", { eager: true });
+const cImgs = import.meta.glob("../../../assets/char/hsr/*.webp", { eager: true });
+const wImgs = import.meta.glob("../../../assets/weap/hsr/*.webp", { eager: true });
 
 const Save = ({
   uid,
@@ -166,7 +166,7 @@ const Save = ({
           {/* Icon */}
           {newCid && (
             <img
-              src={cImgs[`../assets/char/${toPascalCase(newCid)}.webp`]?.default}
+              src={cImgs[`../../../assets/char/hsr/${toPascalCase(newCid)}.webp`]?.default}
               alt={"char"}
               style={{ width: 50, height: 50, objectFit: "contain" }}
             />
@@ -286,7 +286,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               {isNotMobile && newCdata.weapon && (
                 <img
-                  src={wImgs[`../assets/weap/${toPascalCase(newCdata.weapon)}.webp`]?.default}
+                  src={wImgs[`../../../assets/weap/hsr/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
                   style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />

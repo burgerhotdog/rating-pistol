@@ -25,9 +25,9 @@ import SETS from "./data/SETS";
 import toPascalCase from "../../components/toPascalCase";
 import Enka from "./components/Enka";
 
-const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
-const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
-const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
+const cImgs = import.meta.glob("../../assets/char/gi/*.webp", { eager: true });
+const wImgs = import.meta.glob("../../assets/weap/gi/*.webp", { eager: true });
+const sImgs = import.meta.glob("../../assets/set/gi/*.webp", { eager: true });
 
 const GenshinImpact = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
@@ -109,7 +109,7 @@ const GenshinImpact = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../../assets/char/gi/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
@@ -143,7 +143,7 @@ const GenshinImpact = ({ uid }) => {
                           arrow
                         >
                           <img
-                            src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                            src={wImgs[`../../assets/weap/gi/${toPascalCase(cdata.weapon)}.webp`]?.default}
                             alt={"weap"}
                             style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
@@ -167,7 +167,7 @@ const GenshinImpact = ({ uid }) => {
                           arrow
                         >
                           <img
-                            src={sImgs[`./assets/set/${toPascalCase(cdata.set)}.webp`]?.default}
+                            src={sImgs[`../../assets/set/gi/${toPascalCase(cdata.set)}.webp`]?.default}
                             alt={"set"}
                             style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />

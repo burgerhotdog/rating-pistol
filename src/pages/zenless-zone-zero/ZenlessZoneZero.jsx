@@ -24,9 +24,9 @@ import WEAPONS from "./data/WEAPONS";
 import SETS from "./data/SETS";
 import toPascalCase from "../../components/toPascalCase";
 
-const cImgs = import.meta.glob("./assets/char/*.webp", { eager: true });
-const wImgs = import.meta.glob("./assets/weap/*.webp", { eager: true });
-const sImgs = import.meta.glob("./assets/set/*.webp", { eager: true });
+const cImgs = import.meta.glob("../../assets/char/zzz/*.webp", { eager: true });
+const wImgs = import.meta.glob("../../assets/weap/zzz/*.webp", { eager: true });
+const sImgs = import.meta.glob("../../assets/set/zzz/*.webp", { eager: true });
 
 const ZenlessZoneZero = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
@@ -106,7 +106,7 @@ const ZenlessZoneZero = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`./assets/char/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../../assets/char/zzz/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
@@ -140,7 +140,7 @@ const ZenlessZoneZero = ({ uid }) => {
                           arrow
                         >
                           <img
-                            src={wImgs[`./assets/weap/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                            src={wImgs[`../../assets/weap/zzz/${toPascalCase(cdata.weapon)}.webp`]?.default}
                             alt={"weap"}
                             style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
@@ -172,7 +172,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             arrow
                           >
                             <img
-                              src={sImgs[`./assets/set/${toPascalCase(cdata.set1)}.webp`]?.default}
+                              src={sImgs[`../../assets/set/zzz/${toPascalCase(cdata.set1)}.webp`]?.default}
                               alt={"set1"}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
@@ -193,7 +193,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             arrow
                           >
                             <img
-                              src={sImgs[`./assets/set/${toPascalCase(cdata.set2)}.webp`]?.default}
+                              src={sImgs[`../../assets/set/zzz/${toPascalCase(cdata.set2)}.webp`]?.default}
                               alt={"set2"}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
