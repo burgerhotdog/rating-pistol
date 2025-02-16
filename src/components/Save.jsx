@@ -265,11 +265,11 @@ const Save = ({
                 size="small"
                 value={(gameType === "HSR" || gameType === "ZZZ") ? newCdata.set1 : newCdata.set}
                 options={gameType === "HSR" ? set1Options() : setOptions(gameType === "ZZZ" ? "set1" : "")}
-                onChange={(_, newValue) => handleSet(newValue)}
+                onChange={(_, newValue) => handleSet(newValue, gameType === "ZZZ" ? "set1" : "")}
                 renderInput={(params) => (
                   <TextField
                     {...params}
-                    label="Artifact Set"
+                    label="Set 1"
                   />
                 )}
                 fullWidth
@@ -287,7 +287,7 @@ const Save = ({
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="2P Planar Ornaments"
+                      label="Set 2"
                     />
                   )}
                   fullWidth

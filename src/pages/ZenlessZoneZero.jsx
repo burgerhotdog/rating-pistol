@@ -16,18 +16,18 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { db } from "../../firebase";
-import Back from "../../components/Back";
-import Save from "../../components/Save";
-import Delete from "../../components/Delete";
-import GAME_DATA from "../../components/gameData";
-import toPascalCase from "../../components/toPascalCase";
+import { db } from "../firebase";
+import Back from "../components/Back";
+import Save from "../components/Save";
+import Delete from "../components/Delete";
+import GAME_DATA from "../components/gameData";
+import toPascalCase from "../components/toPascalCase";
 
-const cImgs = import.meta.glob("../../assets/char/hsr/*.webp", { eager: true });
-const wImgs = import.meta.glob("../../assets/weap/hsr/*.webp", { eager: true });
-const sImgs = import.meta.glob("../../assets/set/hsr/*.webp", { eager: true });
+const cImgs = import.meta.glob("../assets/char/ZZZ/*.webp", { eager: true });
+const wImgs = import.meta.glob("../assets/weap/ZZZ/*.webp", { eager: true });
+const sImgs = import.meta.glob("../assets/set/ZZZ/*.webp", { eager: true });
 
-const HonkaiStarRail = ({ uid }) => {
+const ZenlessZoneZero = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [hoveredRow, setHoveredRow] = useState(null);
@@ -41,7 +41,7 @@ const HonkaiStarRail = ({ uid }) => {
     const fetchDB = async () => {
       if (uid) {
         // Fetch character documents from firestore
-        const charDocsRef = collection(db, "users", uid, "HonkaiStarRail");
+        const charDocsRef = collection(db, "users", uid, "ZZZ");
         const charDocs = await getDocs(charDocsRef);
   
         // Convert documents to objects
@@ -69,8 +69,8 @@ const HonkaiStarRail = ({ uid }) => {
           mt: 4,
         }}
       >
-        <Typography variant="h4">Honkai Star Rail</Typography>
-        <Typography variant="body2">Updated for version 3.0</Typography>
+        <Typography variant="h4">Zenless Zone Zero</Typography>
+        <Typography variant="body2">Updated for version 1.5</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}
@@ -78,8 +78,8 @@ const HonkaiStarRail = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {isNotMobile && <TableCell>Light Cone</TableCell>}
-                {isNotMobile && <TableCell>Relics</TableCell>}
+                {isNotMobile && <TableCell>W-Engine</TableCell>}
+                {isNotMobile && <TableCell>Drive Disks</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -88,7 +88,6 @@ const HonkaiStarRail = ({ uid }) => {
             {/* Table data */}
             <TableBody>
               {Object.keys(myChars).length === 0 ? (
-                // In the case that there are no saved characters
                 <TableRow>
                   <TableCell colSpan={6} align="center">
                     No characters to display
@@ -106,7 +105,7 @@ const HonkaiStarRail = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`../../assets/char/hsr/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../assets/char/ZZZ/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
@@ -114,88 +113,96 @@ const HonkaiStarRail = ({ uid }) => {
                     <TableCell>{cid}</TableCell>
                     {isNotMobile && (
                       <TableCell>
-                        <Tooltip
-                          title={
-                            <React.Fragment>
-                              <Typography variant="subtitle1" fontWeight="bold">
-                                {cdata.weapon}
-                              </Typography>
-                              <Typography variant="body2">
-                                {"Base HP: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.HP} <br />
-                                {"Base ATK: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.ATK} <br />
-                                {"Base DEF: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.DEF}
-                              </Typography>
-                              <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                {GAME_DATA["HSR"].WEAPONS[cdata.weapon].subtitle}
-                              </Typography>
-                              <Typography variant="body2">
-                                {GAME_DATA["HSR"].WEAPONS[cdata.weapon].desc.map((line, index) => (
-                                  <React.Fragment key={index}>
-                                    {line}
-                                    {index < GAME_DATA["HSR"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
-                                  </React.Fragment>
-                                ))}
-                              </Typography>
-                            </React.Fragment>
-                          }
-                          arrow
-                        >
-                          <img
-                            src={wImgs[`../../assets/weap/hsr/${toPascalCase(cdata.weapon)}.webp`]?.default}
-                            alt={"weap"}
-                            style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                          />
-                        </Tooltip>
+                        {cdata.weapon && (
+                          <Tooltip
+                            title={
+                              <React.Fragment>
+                                <Typography variant="subtitle1" fontWeight="bold">
+                                  {cdata.weapon}
+                                </Typography>
+                                <Typography variant="body2">
+                                  {"Base ATK: " + GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].base.ATK} <br />
+                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].substat}
+                                </Typography>
+                                <Typography variant="subtitle2" sx={{ mt: 1 }}>
+                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].subtitle}
+                                </Typography>
+                                <Typography variant="body2">
+                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].desc.map((line, index) => (
+                                    <React.Fragment key={index}>
+                                      {line}
+                                      {index < GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
+                                    </React.Fragment>
+                                  ))}
+                                </Typography>
+                              </React.Fragment>
+                            }
+                            arrow
+                          >
+                            <img
+                              src={wImgs[`../assets/weap/ZZZ/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                              alt={"weap"}
+                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                            />
+                          </Tooltip>
+                        )}
                       </TableCell>
                     )}
                     {isNotMobile && (
                       <TableCell>
-                        <Box sx={{
-                          display: "flex",
-                          flexDirection: "row",
-                          alignItems: "center",
-                          gap: 1,
-                        }}>
-                          <Tooltip
-                            title={
-                              <React.Fragment>
-                                <Typography variant="subtitle1" fontWeight="bold">
-                                  {cdata.set1}
-                                </Typography>
-                                <Typography variant="body2">
-                                  {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].desc[0]} <br />
-                                  {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].desc[1]}
-                                </Typography>
-                              </React.Fragment>
-                            }
-                            arrow
-                          >
-                            <img
-                              src={sImgs[`../../assets/set/hsr/${toPascalCase(cdata.set1)}.webp`]?.default}
-                              alt={"set1"}
-                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                            />
-                          </Tooltip>
-                          <Typography>+</Typography>
-                          <Tooltip
-                            title={
-                              <React.Fragment>
-                                <Typography variant="subtitle1" fontWeight="bold">
-                                  {cdata.set2}
-                                </Typography>
-                                <Typography variant="body2">
-                                  {GAME_DATA["HSR"].SETS_PLANAR[cdata.set2].desc[0]}
-                                </Typography>
-                              </React.Fragment>
-                            }
-                            arrow
-                          >
-                            <img
-                              src={sImgs[`../../assets/set/hsr/${toPascalCase(cdata.set2)}.webp`]?.default}
-                              alt={"set2"}
-                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                            />
-                          </Tooltip>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            gap: 1,
+                          }}
+                        >
+                          {cdata.set1 && (
+                            <Tooltip
+                              title={
+                                <React.Fragment>
+                                  <Typography variant="subtitle1" fontWeight="bold">
+                                    {cdata.set1}
+                                  </Typography>
+                                  <Typography variant="body2">
+                                    {GAME_DATA["ZZZ"].SETS[cdata.set1].desc[0]} <br />
+                                    {GAME_DATA["ZZZ"].SETS[cdata.set1].desc[1]}
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                              arrow
+                            >
+                              <img
+                                src={sImgs[`../assets/set/ZZZ/${toPascalCase(cdata.set1)}.webp`]?.default}
+                                alt={"set1"}
+                                style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                              />
+                            </Tooltip>
+                          )}
+                          {(cdata.set1 && cdata.set2) && (<Typography>+</Typography>)}
+                          {cdata.set2 && (
+                            <Tooltip
+                              title={
+                                <React.Fragment>
+                                  <Typography variant="subtitle1" fontWeight="bold">
+                                    {cdata.set2}
+                                  </Typography>
+                                  <Typography variant="body2">
+                                    {GAME_DATA["ZZZ"].SETS[cdata.set2].desc[0]} <br />
+                                    {GAME_DATA["ZZZ"].SETS[cdata.set2].desc[1]}
+                                  </Typography>
+                                </React.Fragment>
+                              }
+                              arrow
+                            >
+                              <img
+                                src={sImgs[`../assets/set/ZZZ/${toPascalCase(cdata.set2)}.webp`]?.default}
+                                alt={"set2"}
+                                style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                              />
+                            </Tooltip>
+                          )}
                         </Box>
                       </TableCell>
                     )}
@@ -248,7 +255,7 @@ const HonkaiStarRail = ({ uid }) => {
 
         {/* Save modal */}
         <Save
-          gameType={"HSR"}
+          gameType={"ZZZ"}
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
@@ -258,7 +265,7 @@ const HonkaiStarRail = ({ uid }) => {
 
         {/* Delete modal */}
         <Delete
-          gameType={"HSR"}
+          gameType={"ZZZ"}
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
@@ -269,4 +276,4 @@ const HonkaiStarRail = ({ uid }) => {
   );
 };
 
-export default HonkaiStarRail;
+export default ZenlessZoneZero;

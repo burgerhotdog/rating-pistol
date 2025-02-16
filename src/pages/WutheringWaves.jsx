@@ -16,22 +16,20 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { db } from "../../firebase";
-import Back from "../../components/Back";
-import Save from "../../components/Save";
-import Delete from "../../components/Delete";
-import GAME_DATA from "../../components/gameData";
-import toPascalCase from "../../components/toPascalCase";
-import Enka from "./components/Enka";
+import { db } from "../firebase";
+import Back from "../components/Back";
+import Save from "../components/Save";
+import Delete from "../components/Delete";
+import GAME_DATA from "../components/gameData";
+import toPascalCase from "../components/toPascalCase";
 
-const cImgs = import.meta.glob("../../assets/char/gi/*.webp", { eager: true });
-const wImgs = import.meta.glob("../../assets/weap/gi/*.webp", { eager: true });
-const sImgs = import.meta.glob("../../assets/set/gi/*.webp", { eager: true });
+const cImgs = import.meta.glob("../assets/char/WW/*.webp", { eager: true });
+const wImgs = import.meta.glob("../assets/weap/WW/*.webp", { eager: true });
+const sImgs = import.meta.glob("../assets/set/WW/*.webp", { eager: true });
 
-const GenshinImpact = ({ uid }) => {
+const WutheringWaves = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
-  const [isEnkaOpen, setIsEnkaOpen] = useState(false);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
 
@@ -43,7 +41,7 @@ const GenshinImpact = ({ uid }) => {
     const fetchDB = async () => {
       if (uid) {
         // Fetch character documents from firestore
-        const charDocsRef = collection(db, "users", uid, "GenshinImpact");
+        const charDocsRef = collection(db, "users", uid, "WW");
         const charDocs = await getDocs(charDocsRef);
   
         // Convert documents to objects
@@ -71,8 +69,8 @@ const GenshinImpact = ({ uid }) => {
           mt: 4,
         }}
       >
-        <Typography variant="h4">Genshin Impact</Typography>
-        <Typography variant="body2">Updated for version 5.4</Typography>
+        <Typography variant="h4">Wuthering Waves</Typography>
+        <Typography variant="body2">Updated for version 2.0</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}
@@ -81,7 +79,7 @@ const GenshinImpact = ({ uid }) => {
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
                 {isNotMobile && <TableCell>Weapon</TableCell>}
-                {isNotMobile && <TableCell>Artifacts</TableCell>}
+                {isNotMobile && <TableCell>Echoes</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -108,7 +106,7 @@ const GenshinImpact = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`../../assets/char/gi/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../assets/char/WW/${toPascalCase(cid)}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
@@ -116,61 +114,65 @@ const GenshinImpact = ({ uid }) => {
                     <TableCell>{cid}</TableCell>
                     {isNotMobile && (
                       <TableCell>
-                        {cdata.weapon && (<Tooltip
-                          title={
-                            <React.Fragment>
-                              <Typography variant="subtitle1" fontWeight="bold">
-                                {cdata.weapon}
-                              </Typography>
-                              <Typography variant="body2">
-                                {"Base ATK: " + GAME_DATA["GI"].WEAPONS[cdata.weapon].base.ATK} <br />
-                                {GAME_DATA["GI"].WEAPONS[cdata.weapon].substat}
-                              </Typography>
-                              <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                {GAME_DATA["GI"].WEAPONS[cdata.weapon].subtitle}
-                              </Typography>
-                              <Typography variant="body2">
-                                {GAME_DATA["GI"].WEAPONS[cdata.weapon].desc.map((line, index) => (
-                                  <React.Fragment key={index}>
-                                    {line}
-                                    {index < GAME_DATA["GI"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
-                                  </React.Fragment>
-                                ))}
-                              </Typography>
-                            </React.Fragment>
-                          }
-                          arrow
-                        >
-                          <img
-                            src={wImgs[`../../assets/weap/gi/${toPascalCase(cdata.weapon)}.webp`]?.default}
-                            alt={"weap"}
-                            style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                          />
-                        </Tooltip>)}
+                        {cdata.weapon && (
+                          <Tooltip
+                            title={
+                              <React.Fragment>
+                                <Typography variant="subtitle1" fontWeight="bold">
+                                  {cdata.weapon}
+                                </Typography>
+                                <Typography variant="body2">
+                                  {"Base ATK: " + GAME_DATA["WW"].WEAPONS[cdata.weapon].base.ATK} <br />
+                                  {GAME_DATA["WW"].WEAPONS[cdata.weapon].substat}
+                                </Typography>
+                                <Typography variant="subtitle2" sx={{ mt: 1 }}>
+                                  {GAME_DATA["WW"].WEAPONS[cdata.weapon].subtitle}
+                                </Typography>
+                                <Typography variant="body2">
+                                  {GAME_DATA["WW"].WEAPONS[cdata.weapon].desc.map((line, index) => (
+                                    <React.Fragment key={index}>
+                                      {line}
+                                      {index < GAME_DATA["WW"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
+                                    </React.Fragment>
+                                  ))}
+                                </Typography>
+                              </React.Fragment>
+                            }
+                            arrow
+                          >
+                            <img
+                              src={wImgs[`../assets/weap/WW/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                              alt={"weap"}
+                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                            />
+                          </Tooltip>
+                        )}
                       </TableCell>
                     )}
                     {isNotMobile && (
                       <TableCell>
-                        {cdata.set && (<Tooltip
-                          title={
-                            <React.Fragment>
-                              <Typography variant="subtitle1" fontWeight="bold">
-                                {cdata.set}
-                              </Typography>
-                              <Typography variant="body2">
-                                {GAME_DATA["GI"].SETS[cdata.set].desc[0]} <br />
-                                {GAME_DATA["GI"].SETS[cdata.set].desc[1]}
-                              </Typography>
-                            </React.Fragment>
-                          }
-                          arrow
-                        >
-                          <img
-                            src={sImgs[`../../assets/set/gi/${toPascalCase(cdata.set)}.webp`]?.default}
-                            alt={"set"}
-                            style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                          />
-                        </Tooltip>)}
+                        {cdata.set && (
+                          <Tooltip
+                            title={
+                              <React.Fragment>
+                                <Typography variant="subtitle1" fontWeight="bold">
+                                  {cdata.set}
+                                </Typography>
+                                <Typography variant="body2">
+                                  {GAME_DATA["WW"].SETS[cdata.set].desc[0]} <br />
+                                  {GAME_DATA["WW"].SETS[cdata.set].desc[1]}
+                                </Typography>
+                              </React.Fragment>
+                            }
+                            arrow
+                          >
+                            <img
+                              src={sImgs[`../assets/set/WW/${toPascalCase(cdata.set)}.webp`]?.default}
+                              alt={"set"}
+                              style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                            />
+                          </Tooltip>
+                        )}
                       </TableCell>
                     )}
                     <TableCell>{cdata.score}</TableCell>
@@ -220,19 +222,9 @@ const GenshinImpact = ({ uid }) => {
           Add character
         </Button>
 
-        {/* Enka button */}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setIsEnkaOpen(true)}
-          sx={{ mt: 2 }}
-        >
-          Load from uid
-        </Button>
-
         {/* Save modal */}
         <Save
-          gameType={"GI"}
+          gameType={"WW"}
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
@@ -242,19 +234,10 @@ const GenshinImpact = ({ uid }) => {
 
         {/* Delete modal */}
         <Delete
-          gameType={"GI"}
+          gameType={"WW"}
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
-          setMyChars={setMyChars}
-        />
-
-        {/* Enka modal */}
-        <Enka
-          uid={uid}
-          isEnkaOpen={isEnkaOpen}
-          setIsEnkaOpen={setIsEnkaOpen}
-          myChars={myChars}
           setMyChars={setMyChars}
         />
       </Box>        
@@ -262,4 +245,4 @@ const GenshinImpact = ({ uid }) => {
   );
 };
 
-export default GenshinImpact;
+export default WutheringWaves;
