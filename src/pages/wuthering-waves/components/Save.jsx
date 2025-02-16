@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import { db } from "../../../firebase";
 import Piece from "./Piece";
-import getScore from "./getScore";
+import getScore from "../../../components/getScore";
 import blankCdata from "./blankCdata";
 import CHARACTERS from "../data/CHARACTERS";
 import WEAPONS from "../data/WEAPONS";
@@ -89,7 +89,7 @@ const Save = ({
     if (!validate()) return;
 
     // Calcuate and set score
-    newCdata.score = getScore(newCid, newCdata);
+    newCdata.score = getScore("WW", newCid, newCdata);
 
     // Save document to Firestore
     if (uid) {

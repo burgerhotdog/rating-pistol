@@ -19,7 +19,7 @@ import {
 import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
-import Delete from "./components/Delete";
+import Delete from "../../components/Delete";
 import WEAPONS from "./data/WEAPONS";
 import { SETS_RELIC, SETS_PLANAR } from "./data/SETS";
 import toPascalCase from "../../components/toPascalCase";
@@ -259,6 +259,7 @@ const HonkaiStarRail = ({ uid }) => {
         {/* Delete modal */}
         <Delete
           uid={uid}
+          gameType={"HonkaiStarRail"}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
           setMyChars={setMyChars}

@@ -1,10 +1,11 @@
 import React from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { Box, Button, Modal, Typography } from "@mui/material";
-import { db } from "../../../firebase";
+import { db } from "../firebase";
 
 const Delete = ({
   uid,
+  gamePage,
   isDeleteOpen,
   setIsDeleteOpen,
   setMyChars,
@@ -13,7 +14,7 @@ const Delete = ({
     try {
       // If signed in, delete document from firestore
       if (uid) {
-        const characterDocRef = doc(db, "users", uid, "GenshinImpact", isDeleteOpen);
+        const characterDocRef = doc(db, "users", uid, gamePage, isDeleteOpen);
         await deleteDoc(characterDocRef);
       }
 
@@ -36,14 +37,13 @@ const Delete = ({
 
   return (
     <Modal open={Boolean(isDeleteOpen)} onClose={handleCancel}>
-      {/* Modal Styles */}
       <Box
         sx={{
           position: "absolute",
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          backgroundColor: "#1c1c1c",
+          backgroundColor: "background.paper",
           padding: 4,
           borderRadius: 2,
         }}

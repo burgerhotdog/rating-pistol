@@ -19,7 +19,7 @@ import {
 import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
-import Delete from "./components/Delete";
+import Delete from "../../components/Delete";
 import WEAPONS from "./data/WEAPONS";
 import SETS from "./data/SETS";
 import toPascalCase from "../../components/toPascalCase";
@@ -260,6 +260,7 @@ const ZenlessZoneZero = ({ uid }) => {
         {/* Delete modal */}
         <Delete
           uid={uid}
+          gameType={"ZenlessZoneZero"}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
           setMyChars={setMyChars}

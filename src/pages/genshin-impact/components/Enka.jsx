@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import blankCdata from "./blankCdata";
 import { enkaConvertChar, enkaConvertWeap, enkaConvertSet, enkaConvertStats } from "./enkaConvert";
-import getScore from "./getScore";
+import getScore from "../../../components/getScore";
 
 const Enka = ({
   uid,
@@ -90,7 +90,7 @@ const Enka = ({
       }
 
       // score
-      cdata.score = getScore(cid, cdata);
+      cdata.score = getScore("GI", cid, cdata);
 
       console.log(cid);
       console.log(cdata);
