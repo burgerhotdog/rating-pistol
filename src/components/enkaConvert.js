@@ -128,4 +128,4 @@ const enkaConvertStats = {
   FIGHT_PROP_FIRE_ADD_HURT: "Pyro DMG",
 };
 
-export { enkaConvertChar, enkaConvertWeap, enkaConvertSet, enkaConvertStats };
+export { enkaConvertChar, enkaConvertSet, enkaConvertStats };
