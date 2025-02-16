@@ -12,33 +12,50 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { db } from "../../../firebase";
-import Piece from "../../../components/Piece";
-import getScore from "../../../components/getScore";
-import blankCdata from "../../../components/blankCdata";
-import GAME_DATA from "../../../components/gameData";
-import toPascalCase from "../../../components/toPascalCase";
+import { db } from "../firebase";
+import Piece from "./Piece";
+import getScore from "./getScore";
+import blankCdata from "./blankCdata";
+import GAME_DATA from "./gameData";
+import toPascalCase from "./toPascalCase";
 
 const Save = ({
+  gameType,
   uid,
   isSaveOpen,
   setIsSaveOpen,
   myChars,
   setMyChars,
 }) => {
-  const cImgs = import.meta.glob("../../../assets/char/gi/*.webp", { eager: true });
-  const wImgs = import.meta.glob("../../../assets/weap/gi/*.webp", { eager: true });
+  let cImgs, wImgs;
+  switch (gameType) {
+    case "GI":
+      cImgs = import.meta.glob(`../assets/char/GI/*.webp`, { eager: true });
+      wImgs = import.meta.glob(`../assets/weap/GI/*.webp`, { eager: true });
+      break;
+    case "HSR":
+      cImgs = import.meta.glob(`../assets/char/HSR/*.webp`, { eager: true });
+      wImgs = import.meta.glob(`../assets/weap/HSR/*.webp`, { eager: true });
+      break;
+    case "ZZZ":
+      cImgs = import.meta.glob(`../assets/char/ZZZ/*.webp`, { eager: true });
+      wImgs = import.meta.glob(`../assets/weap/ZZZ/*.webp`, { eager: true });
+      break;
+    case "WW":
+      cImgs = import.meta.glob(`../assets/char/WW/*.webp`, { eager: true });
+      wImgs = import.meta.glob(`../assets/weap/WW/*.webp`, { eager: true });
+      break;
+  }
   
-  const [error, setError] = useState({});
   const [newCid, setNewCid] = useState("");
-  const [newCdata, setNewCdata] = useState(() => blankCdata("GI"));
+  const [newCdata, setNewCdata] = useState(() => blankCdata(gameType));
 
   // When modal opens, reset newCid and newCdata
   useEffect(() => {
     if (isSaveOpen) {
       if (isSaveOpen === true) {
         setNewCid("");
-        setNewCdata(blankCdata("GI"));
+        setNewCdata(blankCdata(gameType));
       } else {
         setNewCid(isSaveOpen);
         setNewCdata(myChars[isSaveOpen]);
@@ -51,41 +68,44 @@ const Save = ({
   const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   const charOptions = () => {
-    return Object.keys(GAME_DATA["GI"].CHARACTERS)
+    return Object.keys(GAME_DATA[gameType].CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort();
   };
 
   const weapOptions = () => {
-    return Object.keys(GAME_DATA["GI"].WEAPONS)
-      .filter(id => GAME_DATA["GI"].WEAPONS[id].type === GAME_DATA["GI"].CHARACTERS[newCid].type)
+    return Object.keys(GAME_DATA[gameType].WEAPONS)
+      .filter(id => GAME_DATA[gameType].WEAPONS[id].type === GAME_DATA[gameType].CHARACTERS[newCid].type)
       .sort();
   };
 
-  const setOptions = () => {
-    return Object.keys(GAME_DATA["GI"].SETS).sort();
+  const setOptions = (setNumber) => {
+    if (gameType !== "ZZZ" || setNumber === "set1") {
+      return Object.keys(GAME_DATA[gameType].SETS).sort();
+    } else if (setNumber === "set2") {
+      return Object.keys(GAME_DATA[gameType].SETS)
+        .filter(id => id !== newCdata.set1)
+        .sort();
+    }
   };
 
-  // Validation before saving
-  const validate = () => {
-    const errors = { weapon: false, set: false };
-    if (!newCdata.weapon) errors.weapon = true;
-    if (!newCdata.set) errors.set = true;
-  
-    setError(errors);
-    return !errors.weapon && !errors.set;
+  const set1Options = () => {
+    return Object.keys(GAME_DATA["HSR"].SETS_RELIC)
+      .sort();
+  };
+
+  const set2Options = () => {
+    return Object.keys(GAME_DATA["HSR"].SETS_PLANAR)
+      .sort();
   };
 
   const handleSave = async () => {
-    // Perform validation checks
-    if (!validate()) return;
-
     // Calcuate and set score
-    newCdata.score = getScore("GI", newCid, newCdata);
+    newCdata.score = getScore(gameType, newCid, newCdata);
 
     // Save document to Firestore
     if (uid) {
-      const charDocRef = doc(db, "users", uid, "GenshinImpact", newCid);
+      const charDocRef = doc(db, "users", uid, gameType, newCid);
       await setDoc(charDocRef, newCdata, { merge: true });
     }
 
@@ -95,19 +115,16 @@ const Save = ({
       [newCid]: newCdata,
     }));
 
-    setError({});
     setIsSaveOpen(false);
   };
 
   const handleCancel = () => {
-    setError({});
     setIsSaveOpen(false);
   };
 
   const handleCharacter = (newValue) => {
     setNewCid(newValue || "");
-    setNewCdata(blankCdata("GI"));
-    setError({});
+    setNewCdata(blankCdata(gameType));
   };
 
   const handleWeapon = (newValue) => {
@@ -117,11 +134,32 @@ const Save = ({
     }));
   };
 
-  const handleSet = (newValue) => {
-    setNewCdata((prev) => ({
-      ...prev,
-      set: newValue || "",
-    }));
+  const handleSet = (newValue, setNumber) => {
+    if (gameType === "HSR") {
+      setNewCdata((prev) => ({
+        ...prev,
+        [setNumber]: newValue || "", // Dynamically set based on the setNumber
+      }));
+    } else if (gameType === "ZZZ") {
+      if (setNumber === "set1") {
+        setNewCdata((prev) => ({
+          ...prev,
+          set1: newValue || "",
+          set2: prev.set2 === newValue ? "" : prev.set2, // Clear set2 if it's the same as set1
+        }));
+      } else {
+        setNewCdata((prev) => ({
+          ...prev,
+          set2: newValue || "", // Handle set2 separately
+        }));
+      }
+    } else {
+      // For GI and WW, behave the same way
+      setNewCdata((prev) => ({
+        ...prev,
+        set: newValue || "", // Directly set "set" field
+      }));
+    }
   };
 
   return (
@@ -151,7 +189,7 @@ const Save = ({
           {/* Icon */}
           {newCid && (
             <img
-              src={cImgs[`../../../assets/char/gi/${toPascalCase(newCid)}.webp`]?.default}
+              src={cImgs[`../../../assets/char/${gameType}/${toPascalCase(newCid)}.webp`]?.default}
               alt={"char"}
               style={{ width: 50, height: 50, objectFit: "contain" }}
             />
@@ -214,8 +252,6 @@ const Save = ({
                   <TextField
                     {...params}
                     label="Weapon"
-                    error={error.weapon}
-                    helperText={error.weapon ? "No weapon selected" : ""}
                   />
                 )}
                 fullWidth
@@ -227,27 +263,44 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 8 }}>
               <Autocomplete
                 size="small"
-                value={newCdata.set}
-                options={setOptions()}
+                value={(gameType === "HSR" || gameType === "ZZZ") ? newCdata.set1 : newCdata.set}
+                options={gameType === "HSR" ? set1Options() : setOptions(gameType === "ZZZ" ? "set1" : "")}
                 onChange={(_, newValue) => handleSet(newValue)}
                 renderInput={(params) => (
                   <TextField
                     {...params}
                     label="Artifact Set"
-                    error={error.set}
-                    helperText={error.set ? "No set selected" : ""}
                   />
                 )}
                 fullWidth
-                disableClearable={newCdata.set === ""}
+                disableClearable={((gameType === "HSR" || gameType === "ZZZ") ? newCdata.set1 : newCdata.set) === ""}
               />
             </Grid>
+
+            {(gameType === "HSR" || gameType === "ZZZ") && (
+              <Grid size={{ xs: 12, xl: 4 }}>
+                <Autocomplete
+                  size="small"
+                  value={newCdata.set2}
+                  options={gameType === "HSR" ? set2Options() : setOptions("set2")}
+                  onChange={(_, newValue) => handleSet(newValue, "set2")}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      label="2P Planar Ornaments"
+                    />
+                  )}
+                  fullWidth
+                  disableClearable={newCdata.set2 === ""}
+                />
+              </Grid>
+            )}
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
               {isNotMobile && newCdata.weapon && (
                 <img
-                  src={wImgs[`../../../assets/weap/gi/${toPascalCase(newCdata.weapon)}.webp`]?.default}
+                  src={wImgs[`../../../assets/weap/${gameType}/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
                   style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
@@ -260,10 +313,10 @@ const Save = ({
             {/* Piece grid */}
             <Grid size={{ xs: 12, xl: 8 }}>
               <Grid container spacing={2}>
-                {[0, 1, 2, 3, 4].map((mainIndex) => (
+                {[0, 1, 2, 3, 4, ...(gameType === "HSR" || gameType === "ZZZ" ? [5] : [])].map((mainIndex) => (
                   <Grid size={{ xs: 12, xl: 4 }} key={mainIndex}>
                     <Piece
-                      gameType={"GI"}
+                      gameType={gameType}
                       newCdata={newCdata}
                       setNewCdata={setNewCdata}
                       mainIndex={mainIndex}

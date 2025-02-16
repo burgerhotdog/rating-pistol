@@ -4,8 +4,8 @@ import { Box, Button, Modal, Typography } from "@mui/material";
 import { db } from "../firebase";
 
 const Delete = ({
+  gameType,
   uid,
-  gamePage,
   isDeleteOpen,
   setIsDeleteOpen,
   setMyChars,
@@ -14,7 +14,7 @@ const Delete = ({
     try {
       // If signed in, delete document from firestore
       if (uid) {
-        const characterDocRef = doc(db, "users", uid, gamePage, isDeleteOpen);
+        const characterDocRef = doc(db, "users", uid, gameType, isDeleteOpen);
         await deleteDoc(characterDocRef);
       }
 

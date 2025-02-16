@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { db } from "../../firebase";
 import Back from "../../components/Back";
-import Save from "./components/Save";
+import Save from "../../components/Save";
 import Delete from "../../components/Delete";
 import GAME_DATA from "../../components/gameData";
 import toPascalCase from "../../components/toPascalCase";
@@ -249,6 +249,7 @@ const ZenlessZoneZero = ({ uid }) => {
 
         {/* Save modal */}
         <Save
+          gameType={"ZZZ"}
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
@@ -258,8 +259,8 @@ const ZenlessZoneZero = ({ uid }) => {
 
         {/* Delete modal */}
         <Delete
+          gameType={"ZZZ"}
           uid={uid}
-          gameType={"ZenlessZoneZero"}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
           setMyChars={setMyChars}

@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { db } from "../../firebase";
 import Back from "../../components/Back";
-import Save from "./components/Save";
+import Save from "../../components/Save";
 import Delete from "../../components/Delete";
 import GAME_DATA from "../../components/gameData";
 import toPascalCase from "../../components/toPascalCase";
@@ -220,6 +220,7 @@ const WutheringWaves = ({ uid }) => {
 
         {/* Save modal */}
         <Save
+          gameType={"WW"}
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
@@ -229,8 +230,8 @@ const WutheringWaves = ({ uid }) => {
 
         {/* Delete modal */}
         <Delete
+          gameType={"WW"}
           uid={uid}
-          gameType={"WutheringWaves"}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
           setMyChars={setMyChars}

@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { db } from "../../firebase";
 import Back from "../../components/Back";
-import Save from "./components/Save";
+import Save from "../../components/Save";
 import Delete from "../../components/Delete";
 import GAME_DATA from "../../components/gameData";
 import toPascalCase from "../../components/toPascalCase";
@@ -232,6 +232,7 @@ const GenshinImpact = ({ uid }) => {
 
         {/* Save modal */}
         <Save
+          gameType={"GI"}
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
@@ -241,8 +242,8 @@ const GenshinImpact = ({ uid }) => {
 
         {/* Delete modal */}
         <Delete
+          gameType={"GI"}
           uid={uid}
-          gamePage={"GenshinImpact"}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
           setMyChars={setMyChars}

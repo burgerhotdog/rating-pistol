@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { db } from "../../firebase";
 import Back from "../../components/Back";
-import Save from "./components/Save";
+import Save from "../../components/Save";
 import Delete from "../../components/Delete";
 import GAME_DATA from "../../components/gameData";
 import toPascalCase from "../../components/toPascalCase";
@@ -248,6 +248,7 @@ const HonkaiStarRail = ({ uid }) => {
 
         {/* Save modal */}
         <Save
+          gameType={"HSR"}
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
@@ -257,8 +258,8 @@ const HonkaiStarRail = ({ uid }) => {
 
         {/* Delete modal */}
         <Delete
+          gameType={"HSR"}
           uid={uid}
-          gameType={"HonkaiStarRail"}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
           setMyChars={setMyChars}
