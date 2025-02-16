@@ -189,7 +189,7 @@ const Save = ({
           {/* Icon */}
           {newCid && (
             <img
-              src={cImgs[`../../../assets/char/${gameType}/${toPascalCase(newCid)}.webp`]?.default}
+              src={cImgs[`../assets/char/${gameType}/${toPascalCase(newCid)}.webp`]?.default}
               alt={"char"}
               style={{ width: 50, height: 50, objectFit: "contain" }}
             />
@@ -260,7 +260,7 @@ const Save = ({
             </Grid>
 
             {/* Select set */}
-            <Grid size={{ xs: 12, xl: 8 }}>
+            <Grid size={{ xs: 12, xl: ((gameType === "HSR" || gameType === "ZZZ") ? 4 : 8) }}>
               <Autocomplete
                 size="small"
                 value={(gameType === "HSR" || gameType === "ZZZ") ? newCdata.set1 : newCdata.set}
@@ -300,7 +300,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               {isNotMobile && newCdata.weapon && (
                 <img
-                  src={wImgs[`../../../assets/weap/${gameType}/${toPascalCase(newCdata.weapon)}.webp`]?.default}
+                  src={wImgs[`../assets/weap/${gameType}/${toPascalCase(newCdata.weapon)}.webp`]?.default}
                   alt={"weap"}
                   style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
