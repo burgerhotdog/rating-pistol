@@ -118,7 +118,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {cdata.weapon}
+                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
                                   {"Base ATK: " + GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].base.ATK} <br />
@@ -128,19 +128,14 @@ const ZenlessZoneZero = ({ uid }) => {
                                   {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].subtitle}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].desc.map((line, index) => (
-                                    <React.Fragment key={index}>
-                                      {line}
-                                      {index < GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
-                                    </React.Fragment>
-                                  ))}
+                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].desc}
                                 </Typography>
                               </React.Fragment>
                             }
                             arrow
                           >
                             <img
-                              src={wImgs[`../assets/weap/ZZZ/${toPascalCase(cdata.weapon)}.webp`]?.default}
+                              src={wImgs[`../assets/weap/ZZZ/${cdata.weapon}.webp`]?.default}
                               alt={"weap"}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />

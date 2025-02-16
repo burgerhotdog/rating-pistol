@@ -73,7 +73,7 @@ const Enka = ({
       const cid = enkaConvertChar[avatarList[selectedAvatar].avatarId];
       const cdata = blankCdata(gameType);
 
-      cdata.weapon = enkaConvertWeap[avatarList[selectedAvatar].equipList[5].itemId] || "";
+      cdata.weapon = avatarList[selectedAvatar].equipList[5].itemId || "";
       const setCounts = {};
       // artifacts
       for (let i = 0; i < 5; i++) {
