@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import blankCdata from "./blankCdata";
-import { enkaConvertChar, enkaConvertWeap, enkaConvertSet, enkaConvertStats } from "./enkaConvert";
+import { enkaConvertChar, enkaConvertSet, enkaConvertStats } from "./enkaConvert";
 import getScore from "./getScore";
 
 const Enka = ({
