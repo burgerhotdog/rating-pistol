@@ -22,7 +22,7 @@ import Save from "../components/Save";
 import Delete from "../components/Delete";
 import GAME_DATA from "../components/gameData";
 import toPascalCase from "../components/toPascalCase";
-import Enka from "./genshin-impact/components/Enka";
+import Enka from "../components/Enka";
 
 const cImgs = import.meta.glob("../assets/char/GI/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/GI/*.webp", { eager: true });
@@ -255,6 +255,7 @@ const GenshinImpact = ({ uid }) => {
 
         {/* Enka modal */}
         <Enka
+          gameType={"GI"}
           uid={uid}
           isEnkaOpen={isEnkaOpen}
           setIsEnkaOpen={setIsEnkaOpen}

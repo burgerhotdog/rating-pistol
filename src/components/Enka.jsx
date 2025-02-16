@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../../firebase";
+import { db } from "../firebase";
 import {
   Box,
   Button,
@@ -10,11 +10,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import blankCdata from "../../../components/blankCdata";
+import blankCdata from "./blankCdata";
 import { enkaConvertChar, enkaConvertWeap, enkaConvertSet, enkaConvertStats } from "./enkaConvert";
-import getScore from "../../../components/getScore";
+import getScore from "./getScore";
 
 const Enka = ({
+  gameType,
   uid,
   isEnkaOpen,
   setIsEnkaOpen,
@@ -27,11 +28,14 @@ const Enka = ({
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
-  // suffix
-  // gi: uid/
-  // hsr: hsr/uid/
-  // zzz: zzz/uid/
-  const suffix = "uid/";
+  const suffix = 
+    gameType === "GI"
+      ? "uid/"
+      : gameType === "HSR"
+        ? "hsr/uid/"
+        : gameType === "ZZZ"
+          ? "zzz/uid/"
+          : "";
   const tempGameUid = "618285856";
   const fetchPlayerData = async () => {
     try {
@@ -67,7 +71,7 @@ const Enka = ({
   const handleSave = async () => {
     for (const selectedAvatar of selectedAvatars) {
       const cid = enkaConvertChar[avatarList[selectedAvatar].avatarId];
-      const cdata = blankCdata("GI");
+      const cdata = blankCdata(gameType);
 
       cdata.weapon = enkaConvertWeap[avatarList[selectedAvatar].equipList[5].itemId] || "";
       const setCounts = {};
@@ -90,14 +94,14 @@ const Enka = ({
       }
 
       // score
-      cdata.score = getScore("GI", cid, cdata);
+      cdata.score = getScore(gameType, cid, cdata);
 
       console.log(cid);
       console.log(cdata);
 
       if (myChars[cid]) {
         if (uid) {
-          const characterDocRef = doc(db, "users", uid, "GenshinImpact", cid);
+          const characterDocRef = doc(db, "users", uid, gameType, cid);
           await deleteDoc(characterDocRef);
         }
         setMyChars((prev) => {
@@ -108,7 +112,7 @@ const Enka = ({
       }
 
       if (uid) {
-        const charDocRef = doc(db, "users", uid, "GenshinImpact", cid);
+        const charDocRef = doc(db, "users", uid, gameType, cid);
         await setDoc(charDocRef, cdata, { merge: true });
       }
       setMyChars((prev) => ({
