@@ -20,8 +20,7 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "../../components/Delete";
-import WEAPONS from "./data/WEAPONS";
-import SETS from "./data/SETS";
+import GAME_DATA from "../../components/gameData";
 import toPascalCase from "../../components/toPascalCase";
 
 const cImgs = import.meta.glob("../../assets/char/zzz/*.webp", { eager: true });
@@ -121,17 +120,17 @@ const ZenlessZoneZero = ({ uid }) => {
                                 {cdata.weapon}
                               </Typography>
                               <Typography variant="body2">
-                                {"Base ATK: " + WEAPONS[cdata.weapon].base.ATK} <br />
-                                {WEAPONS[cdata.weapon].substat}
+                                {"Base ATK: " + GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].base.ATK} <br />
+                                {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].substat}
                               </Typography>
                               <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                {WEAPONS[cdata.weapon].subtitle}
+                                {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].subtitle}
                               </Typography>
                               <Typography variant="body2">
-                                {WEAPONS[cdata.weapon].desc.map((line, index) => (
+                                {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].desc.map((line, index) => (
                                   <React.Fragment key={index}>
                                     {line}
-                                    {index < WEAPONS[cdata.weapon].desc.length - 1 && <br />}
+                                    {index < GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
                                   </React.Fragment>
                                 ))}
                               </Typography>
@@ -164,8 +163,8 @@ const ZenlessZoneZero = ({ uid }) => {
                                   {cdata.set1}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {SETS[cdata.set1].desc[0]} <br />
-                                  {SETS[cdata.set1].desc[1]}
+                                  {GAME_DATA["ZZZ"].SETS[cdata.set1].desc[0]} <br />
+                                  {GAME_DATA["ZZZ"].SETS[cdata.set1].desc[1]}
                                 </Typography>
                               </React.Fragment>
                             }
@@ -185,8 +184,8 @@ const ZenlessZoneZero = ({ uid }) => {
                                   {cdata.set2}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {SETS[cdata.set2].desc[0]} <br />
-                                  {SETS[cdata.set2].desc[1]}
+                                  {GAME_DATA["ZZZ"].SETS[cdata.set2].desc[0]} <br />
+                                  {GAME_DATA["ZZZ"].SETS[cdata.set2].desc[1]}
                                 </Typography>
                               </React.Fragment>
                             }

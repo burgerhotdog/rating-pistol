@@ -20,8 +20,7 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "../../components/Delete";
-import WEAPONS from "./data/WEAPONS";
-import SETS from "./data/SETS";
+import GAME_DATA from "../../components/gameData";
 import toPascalCase from "../../components/toPascalCase";
 
 const cImgs = import.meta.glob("../../assets/char/ww/*.webp", { eager: true });
@@ -122,17 +121,17 @@ const WutheringWaves = ({ uid }) => {
                                 {cdata.weapon}
                               </Typography>
                               <Typography variant="body2">
-                                {"Base ATK: " + WEAPONS[cdata.weapon].base.ATK} <br />
-                                {WEAPONS[cdata.weapon].substat}
+                                {"Base ATK: " + GAME_DATA["WW"].WEAPONS[cdata.weapon].base.ATK} <br />
+                                {GAME_DATA["WW"].WEAPONS[cdata.weapon].substat}
                               </Typography>
                               <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                {WEAPONS[cdata.weapon].subtitle}
+                                {GAME_DATA["WW"].WEAPONS[cdata.weapon].subtitle}
                               </Typography>
                               <Typography variant="body2">
-                                {WEAPONS[cdata.weapon].desc.map((line, index) => (
+                                {GAME_DATA["WW"].WEAPONS[cdata.weapon].desc.map((line, index) => (
                                   <React.Fragment key={index}>
                                     {line}
-                                    {index < WEAPONS[cdata.weapon].desc.length - 1 && <br />}
+                                    {index < GAME_DATA["WW"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
                                   </React.Fragment>
                                 ))}
                               </Typography>
@@ -157,8 +156,8 @@ const WutheringWaves = ({ uid }) => {
                                 {cdata.set}
                               </Typography>
                               <Typography variant="body2">
-                                {SETS[cdata.set].desc[0]} <br />
-                                {SETS[cdata.set].desc[1]}
+                                {GAME_DATA["WW"].SETS[cdata.set].desc[0]} <br />
+                                {GAME_DATA["WW"].SETS[cdata.set].desc[1]}
                               </Typography>
                             </React.Fragment>
                           }

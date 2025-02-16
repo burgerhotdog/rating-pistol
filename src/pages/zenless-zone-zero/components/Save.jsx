@@ -16,9 +16,7 @@ import { db } from "../../../firebase";
 import Piece from "../../../components/Piece";
 import getScore from "../../../components/getScore";
 import blankCdata from "../../../components/blankCdata";
-import CHARACTERS from "../data/CHARACTERS";
-import WEAPONS from "../data/WEAPONS";
-import SETS from "../data/SETS";
+import GAME_DATA from "../../../components/gameData";
 import toPascalCase from "../../../components/toPascalCase";
 
 const cImgs = import.meta.glob("../../../assets/char/zzz/*.webp", { eager: true });
@@ -52,22 +50,22 @@ const Save = ({
   const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
 
   const charOptions = () => {
-    return Object.keys(CHARACTERS)
+    return Object.keys(GAME_DATA["ZZZ"].CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort();
   };
 
   const weapOptions = () => {
-    return Object.keys(WEAPONS)
-      .filter(id => WEAPONS[id].type === CHARACTERS[newCid].type)
+    return Object.keys(GAME_DATA["ZZZ"].WEAPONS)
+      .filter(id => GAME_DATA["ZZZ"].WEAPONS[id].type === GAME_DATA["ZZZ"].CHARACTERS[newCid].type)
       .sort();
   };
 
   const setOptions = (setNumber) => {
     if (setNumber === "set1")
-      return Object.keys(SETS).sort();
+      return Object.keys(GAME_DATA["ZZZ"].SETS).sort();
     else
-      return Object.keys(SETS)
+      return Object.keys(GAME_DATA["ZZZ"].SETS)
         .filter(id => id !== newCdata.set1)
         .sort();
   };

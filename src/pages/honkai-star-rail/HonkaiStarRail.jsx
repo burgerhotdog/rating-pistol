@@ -20,8 +20,7 @@ import { db } from "../../firebase";
 import Back from "../../components/Back";
 import Save from "./components/Save";
 import Delete from "../../components/Delete";
-import WEAPONS from "./data/WEAPONS";
-import { SETS_RELIC, SETS_PLANAR } from "./data/SETS";
+import GAME_DATA from "../../components/gameData";
 import toPascalCase from "../../components/toPascalCase";
 
 const cImgs = import.meta.glob("../../assets/char/hsr/*.webp", { eager: true });
@@ -122,18 +121,18 @@ const HonkaiStarRail = ({ uid }) => {
                                 {cdata.weapon}
                               </Typography>
                               <Typography variant="body2">
-                                {"Base HP: " + WEAPONS[cdata.weapon].base.HP} <br />
-                                {"Base ATK: " + WEAPONS[cdata.weapon].base.ATK} <br />
-                                {"Base DEF: " + WEAPONS[cdata.weapon].base.DEF}
+                                {"Base HP: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.HP} <br />
+                                {"Base ATK: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.ATK} <br />
+                                {"Base DEF: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.DEF}
                               </Typography>
                               <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                {WEAPONS[cdata.weapon].subtitle}
+                                {GAME_DATA["HSR"].WEAPONS[cdata.weapon].subtitle}
                               </Typography>
                               <Typography variant="body2">
-                                {WEAPONS[cdata.weapon].desc.map((line, index) => (
+                                {GAME_DATA["HSR"].WEAPONS[cdata.weapon].desc.map((line, index) => (
                                   <React.Fragment key={index}>
                                     {line}
-                                    {index < WEAPONS[cdata.weapon].desc.length - 1 && <br />}
+                                    {index < GAME_DATA["HSR"].WEAPONS[cdata.weapon].desc.length - 1 && <br />}
                                   </React.Fragment>
                                 ))}
                               </Typography>
@@ -164,8 +163,8 @@ const HonkaiStarRail = ({ uid }) => {
                                   {cdata.set1}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {SETS_RELIC[cdata.set1].desc[0]} <br />
-                                  {SETS_RELIC[cdata.set1].desc[1]}
+                                  {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].desc[0]} <br />
+                                  {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].desc[1]}
                                 </Typography>
                               </React.Fragment>
                             }
@@ -185,7 +184,7 @@ const HonkaiStarRail = ({ uid }) => {
                                   {cdata.set2}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {SETS_PLANAR[cdata.set2].desc[0]}
+                                  {GAME_DATA["HSR"].SETS_PLANAR[cdata.set2].desc[0]}
                                 </Typography>
                               </React.Fragment>
                             }
