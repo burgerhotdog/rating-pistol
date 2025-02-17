@@ -1,6 +1,7 @@
 const HSR_CHARACTERS = {
   /*// Version 3.1
-  [`Mydei`]: {
+  "": {
+    name: "Mydei",
     type: "Destruction",
     base: { HPDelta: 1000, AttackDelta: 100, DefenceDelta: 100 },
     weights: {
@@ -10,8 +11,8 @@ const HSR_CHARACTERS = {
       "HPAddedRatio": 0.6,
     },
   },
-
-  [`Tribbie`]: {
+  "": {
+    name: "Tribbie",
     type: "Harmony",
     base: { HPDelta: 1000, AttackDelta: 100, DefenceDelta: 100 },
     weights: {
@@ -20,9 +21,10 @@ const HSR_CHARACTERS = {
       "HPAddedRatio": 0.6,
     },
   },*/
-
+  
   // Version 3.0
-  [`Aglaea`]: {
+  "1402": {
+    name: "Aglaea",
     type: "Remembrance",
     base: { HPDelta: 1242, AttackDelta: 699, DefenceDelta: 485 },
     weights: {
@@ -32,8 +34,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-
-  [`The Herta`]: {
+  "1401": {
+    name: "The Herta",
     type: "Erudition",
     base: { HPDelta: 1164, AttackDelta: 679, DefenceDelta: 485 },
     weights: {
@@ -42,8 +44,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-
-  [`Trailblazer (Remembrance)`]: {
+  "8008": {
+    name: "Trailblazer (Remembrance)",
     type: "Remembrance",
     base: { HPDelta: 1047, AttackDelta: 543, DefenceDelta: 630 },
     weights: {
@@ -52,9 +54,10 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.24,
     },
   },
-
+  
   // Version 2.7
-  [`Sunday`]: {
+  "1313": {
+    name: "Sunday",
     type: "Harmony",
     base: { HPDelta: 1241, AttackDelta: 640, DefenceDelta: 533 },
     weights: {
@@ -63,8 +66,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Fugue`]: {
+  "1225": {
+    name: "Fugue",
     type: "Nihility",
     base: { HPDelta: 1125, AttackDelta: 582, DefenceDelta: 557 },
     weights: {
@@ -76,7 +79,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 2.6
-  [`Rappa`]: {
+  "1317": {
+    name: "Rappa",
     type: "Erudition",
     base: { HPDelta: 1086, AttackDelta: 717, DefenceDelta: 460 },
     weights: {
@@ -87,7 +91,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 2.5
-  [`Feixiao`]: {
+  "1220": {
+    name: "Feixiao",
     type: "The Hunt",
     base: { HPDelta: 1047, AttackDelta: 601, DefenceDelta: 388 },
     weights: {
@@ -97,8 +102,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Lingsha`]: {
+  "1222": {
+    name: "Lingsha",
     type: "Abundance",
     base: { HPDelta: 1358, AttackDelta: 679, DefenceDelta: 436 },
     weights: {
@@ -108,8 +113,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Moze`]: {
+  "1223": {
+    name: "Moze",
     type: "The Hunt",
     base: { HPDelta: 811, AttackDelta: 599, DefenceDelta: 352 },
     weights: {
@@ -120,7 +125,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 2.4
-  [`Jiaoqiu`]: {
+  "1218": {
+    name: "Jiaoqiu",
     type: "Nihility",
     base: { HPDelta: 1358, AttackDelta: 601, DefenceDelta: 509 },
     weights: {
@@ -129,8 +135,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`March 7th (The Hunt)`]: {
+  "1224": {
+    name: "March 7th (The Hunt)",
     type: "The Hunt",
     base: { HPDelta: 1058, AttackDelta: 564, DefenceDelta: 441 },
     weights: {
@@ -140,8 +146,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Yunli`]: {
+  "1221": {
+    name: "Yunli",
     type: "Destruction",
     base: { HPDelta: 1358, AttackDelta: 679, DefenceDelta: 460 },
     weights: {
@@ -153,7 +159,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 2.3
-  [`Firefly`]: {
+  "1310": {
+    name: "Firefly",
     type: "Destruction",
     base: { HPDelta: 814, AttackDelta: 523, DefenceDelta: 776 },
     weights: {
@@ -162,8 +169,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Jade`]: {
+  "1314": {
+    name: "Jade",
     type: "Erudition",
     base: { HPDelta: 1086, AttackDelta: 659, DefenceDelta: 509 },
     weights: {
@@ -174,7 +181,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 2.2
-  [`Boothill`]: {
+  "1315": {
+    name: "Boothill",
     type: "The Hunt",
     base: { HPDelta: 1203, AttackDelta: 620, DefenceDelta: 436 },
     weights: {
@@ -182,8 +190,8 @@ const HSR_CHARACTERS = {
       "BreakDamageAddedRatio": 1,
     },
   },
-  
-  [`Robin`]: {
+  "1309": {
+    name: "Robin",
     type: "Harmony",
     base: { HPDelta: 1280, AttackDelta: 640, DefenceDelta: 485 },
     weights: {
@@ -192,8 +200,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-
-  [`Trailblazer (Harmony)`]: {
+  "8006": {
+    name: "Trailblazer (Harmony)",
     type: "Harmony",
     base: { HPDelta: 1086, AttackDelta: 446, DefenceDelta: 679 },
     weights: {
@@ -204,7 +212,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 2.1
-  [`Acheron`]: {
+  "1308": {
+    name: "Acheron",
     type: "Nihility",
     base: { HPDelta: 1125, AttackDelta: 698, DefenceDelta: 436 },
     weights: {
@@ -213,8 +222,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Aventurine`]: {
+  "1304": {
+    name: "Aventurine",
     type: "Preservation",
     base: { HPDelta: 1203, AttackDelta: 446, DefenceDelta: 654 },
     weights: {
@@ -224,8 +233,8 @@ const HSR_CHARACTERS = {
       "DefenceAddedRatio": 0.6,
     },
   },
-  
-  [`Gallagher`]: {
+  "1301": {
+    name: "Gallagher",
     type: "Abundance",
     base: { HPDelta: 1305, AttackDelta: 529, DefenceDelta: 441 },
     weights: {
@@ -236,7 +245,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 2.0
-  [`Black Swan`]: {
+  "1307": {
+    name: "Black Swan",
     type: "Nihility",
     base: { HPDelta: 1086, AttackDelta: 659, DefenceDelta: 485 },
     weights: {
@@ -245,8 +255,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 1,
     },
   },
-  
-  [`Misha`]: {
+  "1312": {
+    name: "Misha",
     type: "Destruction",
     base: { HPDelta: 1270, AttackDelta: 599, DefenceDelta: 396 },
     weights: {
@@ -256,8 +266,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Sparkle`]: {
+  "1306": {
+    name: "Sparkle",
     type: "Harmony",
     base: { HPDelta: 1397, AttackDelta: 523, DefenceDelta: 485 },
     weights: {
@@ -268,7 +278,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 1.6
-  [`Dr. Ratio`]: {
+  "1305": {
+    name: "Dr. Ratio",
     type: "The Hunt",
     base: { HPDelta: 1047, AttackDelta: 776, DefenceDelta: 460 },
     weights: {
@@ -279,8 +290,8 @@ const HSR_CHARACTERS = {
       "StatusProbability": 0.24,
     },
   },
-  
-  [`Ruan Mei`]: {
+  "1303": {
+    name: "Ruan Mei",
     type: "Harmony",
     base: { HPDelta: 1086, AttackDelta: 659, DefenceDelta: 485 },
     weights: {
@@ -289,8 +300,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Xueyi`]: {
+  "1214": {
+    name: "Xueyi",
     type: "Destruction",
     base: { HPDelta: 1058, AttackDelta: 599, DefenceDelta: 396 },
     weights: {
@@ -303,7 +314,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 1.5
-  [`Argenti`]: {
+  "1302": {
+    name: "Argenti",
     type: "Erudition",
     base: { HPDelta: 1047, AttackDelta: 737, DefenceDelta: 363 },
     weights: {
@@ -313,8 +325,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Hanya`]: {
+  "1215": {
+    name: "Hanya",
     type: "Harmony",
     base: { HPDelta: 917, AttackDelta: 564, DefenceDelta: 352 },
     weights: {
@@ -322,8 +334,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Huohuo`]: {
+  "1217": {
+    name: "Huohuo",
     type: "Abundance",
     base: { HPDelta: 1358, AttackDelta: 601, DefenceDelta: 509 },
     weights: {
@@ -334,7 +346,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 1.4
-  [`Guinaifen`]: {
+  "1210": {
+    name: "Guinaifen",
     type: "Nihility",
     base: { HPDelta: 882, AttackDelta: 582, DefenceDelta: 441 },
     weights: {
@@ -344,8 +357,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Jingliu`]: {
+  "1212": {
+    name: "Jingliu",
     type: "Destruction",
     base: { HPDelta: 1435, AttackDelta: 679, DefenceDelta: 485 },
     weights: {
@@ -355,8 +368,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Topaz & Numby`]: {
+  "1112": {
+    name: "Topaz & Numby",
     type: "The Hunt",
     base: { HPDelta: 931, AttackDelta: 620, DefenceDelta: 412 },
     weights: {
@@ -368,7 +381,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 1.3
-  [`Dan Heng • Imbibitor Lunae`]: {
+  "1213": {
+    name: "Dan Heng • Imbibitor Lunae",
     type: "Destruction",
     base: { HPDelta: 1241, AttackDelta: 698, DefenceDelta: 363 },
     weights: {
@@ -377,8 +391,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Fu Xuan`]: {
+  "1208": {
+    name: "Fu Xuan",
     type: "Preservation",
     base: { HPDelta: 1474, AttackDelta: 465, DefenceDelta: 606 },
     weights: {
@@ -388,8 +402,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Lynx`]: {
+  "1110": {
+    name: "Lynx",
     type: "Abundance",
     base: { HPDelta: 1058, AttackDelta: 493, DefenceDelta: 551 },
     weights: {
@@ -400,7 +414,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 1.2
-  [`Blade`]: {
+  "1205": {
+    name: "Blade",
     type: "Destruction",
     base: { HPDelta: 1358, AttackDelta: 543, DefenceDelta: 485 },
     weights: {
@@ -410,8 +425,8 @@ const HSR_CHARACTERS = {
       "HPAddedRatio": 0.6,
     },
   },
-  
-  [`Kafka`]: {
+  "1005": {
+    name: "Kafka",
     type: "Nihility",
     base: { HPDelta: 1086, AttackDelta: 679, DefenceDelta: 485 },
     weights: {
@@ -420,8 +435,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 1,
     },
   },
-  
-  [`Luka`]: {
+  "1111": {
+    name: "Luka",
     type: "Nihility",
     base: { HPDelta: 917, AttackDelta: 582, DefenceDelta: 485 },
     weights: {
@@ -433,7 +448,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 1.1
-  [`Luocha`]: {
+  "1203": {
+    name: "Luocha",
     type: "Abundance",
     base: { HPDelta: 1280, AttackDelta: 756, DefenceDelta: 363 },
     weights: {
@@ -442,8 +458,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Silver Wolf`]: {
+  "1006": {
+    name: "Silver Wolf",
     type: "Nihility",
     base: { HPDelta: 1047, AttackDelta: 640, DefenceDelta: 460 },
     weights: {
@@ -452,8 +468,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Yukong`]: {
+  "1207": {
+    name: "Yukong",
     type: "Harmony",
     base: { HPDelta: 917, AttackDelta: 599, DefenceDelta: 374 },
     weights: {
@@ -463,7 +479,8 @@ const HSR_CHARACTERS = {
   },
   
   // Version 1.0
-  [`Arlan`]: {
+  "1008": {
+    name: "Arlan",
     type: "Destruction",
     base: { HPDelta: 1199, AttackDelta: 599, DefenceDelta: 330 },
     weights: {
@@ -473,8 +490,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Asta`]: {
+  "1009": {
+    name: "Asta",
     type: "Harmony",
     base: { HPDelta: 1023, AttackDelta: 511, DefenceDelta: 463 },
     weights: {
@@ -482,8 +499,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Bailu`]: {
+  "1211": {
+    name: "Bailu",
     type: "Abundance",
     base: { HPDelta: 1319, AttackDelta: 562, DefenceDelta: 485 },
     weights: {
@@ -492,8 +509,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Bronya`]: {
+  "1101": {
+    name: "Bronya",
     type: "Harmony",
     base: { HPDelta: 1241, AttackDelta: 582, DefenceDelta: 533 },
     weights: {
@@ -502,8 +519,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Clara`]: {
+  "1107": {
+    name: "Clara",
     type: "Destruction",
     base: { HPDelta: 1241, AttackDelta: 737, DefenceDelta: 485 },
     weights: {
@@ -512,8 +529,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Dan Heng`]: {
+  "1002": {
+    name: "Dan Heng",
     type: "The Hunt",
     base: { HPDelta: 882, AttackDelta: 546, DefenceDelta: 396 },
     weights: {
@@ -523,8 +540,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Gepard`]: {
+  "1104": {
+    name: "Gepard",
     type: "Preservation",
     base: { HPDelta: 1397, AttackDelta: 543, DefenceDelta: 654 },
     weights: {
@@ -533,8 +550,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Herta`]: {
+  "1013": {
+    name: "Herta",
     type: "Erudition",
     base: { HPDelta: 952, AttackDelta: 582, DefenceDelta: 396 },
     weights: {
@@ -543,8 +560,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Himeko`]: {
+  "1003": {
+    name: "Himeko",
     type: "Erudition",
     base: { HPDelta: 1047, AttackDelta: 756, DefenceDelta: 436 },
     weights: {
@@ -553,8 +570,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Hook`]: {
+  "1109": {
+    name: "Hook",
     type: "Destruction",
     base: { HPDelta: 1340, AttackDelta: 617, DefenceDelta: 352 },
     weights: {
@@ -564,8 +581,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Jing Yuan`]: {
+  "1204": {
+    name: "Jing Yuan",
     type: "Erudition",
     base: { HPDelta: 1164, AttackDelta: 698, DefenceDelta: 485 },
     weights: {
@@ -574,8 +591,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`March 7th (Preservation)`]: {
+  "1001": {
+    name: "March 7th (Preservation)",
     type: "Preservation",
     base: { HPDelta: 1058, AttackDelta: 511, DefenceDelta: 573 },
     weights: {
@@ -585,8 +602,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Natasha`]: {
+  "1105": {
+    name: "Natasha",
     type: "Abundance",
     base: { HPDelta: 1164, AttackDelta: 476, DefenceDelta: 507 },
     weights: {
@@ -595,8 +612,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Pela`]: {
+  "1106": {
+    name: "Pela",
     type: "Nihility",
     base: { HPDelta: 987, AttackDelta: 546, DefenceDelta: 463 },
     weights: {
@@ -605,8 +622,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Qingque`]: {
+  "1201": {
+    name: "Qingque",
     type: "Erudition",
     base: { HPDelta: 1023, AttackDelta: 652, DefenceDelta: 441 },
     weights: {
@@ -615,8 +632,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Sampo`]: {
+  "1108": {
+    name: "Sampo",
     type: "Nihility",
     base: { HPDelta: 1023, AttackDelta: 617, DefenceDelta: 396 },
     weights: {
@@ -625,8 +642,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 1,
     },
   },
-  
-  [`Seele`]: {
+  "1102": {
+    name: "Seele",
     type: "The Hunt",
     base: { HPDelta: 931, AttackDelta: 640, DefenceDelta: 363 },
     weights: {
@@ -636,8 +653,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Serval`]: {
+  "1103": {
+    name: "Serval",
     type: "Erudition",
     base: { HPDelta: 917, AttackDelta: 652, DefenceDelta: 374 },
     weights: {
@@ -647,8 +664,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Sushang`]: {
+  "1206": {
+    name: "Sushang",
     type: "The Hunt",
     base: { HPDelta: 917, AttackDelta: 564, DefenceDelta: 418 },
     weights: {
@@ -659,8 +676,8 @@ const HSR_CHARACTERS = {
       "BreakDamageAddedRatio": 0.24,
     },
   },
-  
-  [`Tingyun`]: {
+  "1202": {
+    name: "Tingyun",
     type: "Harmony",
     base: { HPDelta: 846, AttackDelta: 529, DefenceDelta: 396 },
     weights: {
@@ -669,8 +686,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-
-  [`Trailblazer (Destruction)`]: {
+  "8002": {
+    name: "Trailblazer (Destruction)",
     type: "Destruction",
     base: { HPDelta: 1203, AttackDelta: 620, DefenceDelta: 460 },
     weights: {
@@ -680,8 +697,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-
-  [`Trailblazer (Preservation)`]: {
+  "8004": {
+    name: "Trailblazer (Preservation)",
     type: "Preservation",
     base: { HPDelta: 1241, AttackDelta: 601, DefenceDelta: 606 },
     weights: {
@@ -690,8 +707,8 @@ const HSR_CHARACTERS = {
       "StatusResistance": 0.24,
     },
   },
-  
-  [`Welt`]: {
+  "1004": {
+    name: "Welt",
     type: "Nihility",
     base: { HPDelta: 1125, AttackDelta: 620, DefenceDelta: 509 },
     weights: {
@@ -702,8 +719,8 @@ const HSR_CHARACTERS = {
       "AttackAddedRatio": 0.6,
     },
   },
-  
-  [`Yanqing`]: {
+  "1209": {
+    name: "Yanqing",
     type: "The Hunt",
     base: { HPDelta: 892, AttackDelta: 679, DefenceDelta: 412 },
     weights: {

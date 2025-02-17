@@ -70,7 +70,9 @@ const Save = ({
   const charOptions = () => {
     return Object.keys(GAME_DATA[gameType].CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
-      .sort();
+      .sort((a, b) => 
+        GAME_DATA[gameType].CHARACTERS[a].name.localeCompare(GAME_DATA[gameType].CHARACTERS[b].name)
+      );
   };
 
   const weapOptions = () => {
@@ -211,6 +213,7 @@ const Save = ({
             size="small"
             value={newCid}
             options={charOptions()}
+            getOptionLabel={(id) => GAME_DATA[gameType].CHARACTERS[id]?.name || ""}
             onChange={(_, newValue) => handleCharacter(newValue)}
             renderInput={(params) => (
               <TextField

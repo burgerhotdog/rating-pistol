@@ -8,7 +8,6 @@ const GI_WEAPONS = {
     subtitle: "Bathhouses, Hawks, and Narukami",
     desc: "Elemental Mastery increases by 120 for 6s after triggering Swirl. Elemental Mastery increases by 96 for 9s after the wielder's Elemental Skill hits an opponent. Elemental Mastery increases by 32 for 30s after the wielder's Elemental Burst hits an opponent.",
   },
-
   "13432": {
     name: "Tamayuratei no Ohanashi",
     type: "Catalyst",
@@ -17,7 +16,7 @@ const GI_WEAPONS = {
     subtitle: "Busybody's Running Light",
     desc: "Increase ATK by 20% and Movement SPD by 10% for 10s when using an Elemental Skill.",
   },
-
+  
   // Version 5.3
   "12514": {
     name: "A Thousand Blazing Suns",
@@ -27,7 +26,6 @@ const GI_WEAPONS = {
     subtitle: "Sunset Reignites the Dawn",
     desc: "Gain the \"Scorching Brilliance\" effect when using an Elemental Skill or Burst: CRIT DMG increased by 20% and ATK increased by 28% for 6s. This effect can trigger once every 10s.\nWhile a \"Scorching Brilliance\" instance is active, its duration is increased by 2s after Normal or Charged attacks deal Elemental DMG. This effect can trigger once every second, and the max duration increase is 6s.\nAdditionally, when the equipping character is in the Nightsoul's Blessing state, \"Scorching Brilliance\" effects are increased by 75%, and its duration will not count down when the equipping character is off-field.",
   },
-  
   "14517": {
     name: "Starcaller's Watch",
     type: "Catalyst",
@@ -46,7 +44,6 @@ const GI_WEAPONS = {
     subtitle: "The Moonring Sighted",
     desc: "For 12s after triggering a Swirl reaction, ATK increases by 24%. In addition, when 1/2 or more characters in the party are of a different Elemental Type from the equipping character, the DMG dealt by the equipping character's Charged Attacks is increased by 20%/48% and Elemental Burst DMG dealt is increased by 10%/24%.",
   },
-  
   "11432": {
     name: "Calamity of Eshu",
     type: "Sword",
@@ -55,7 +52,6 @@ const GI_WEAPONS = {
     subtitle: "Diffusing Boundary",
     desc: "While characters are protected by a Shield, DMG dealt by Normal and Charged Attacks is increased by 20%, and Normal and Charged Attack CRIT Rate is increased by 8%.",
   },
-  
   "15430": {
     name: "Flower-Wreathed Feathers",
     type: "Bow",
@@ -64,7 +60,6 @@ const GI_WEAPONS = {
     subtitle: "Inflorescence Unattainable",
     desc: "Decreases Gliding Stamina consumption by 15%. When using Aimed Shots, the DMG dealt by Charged Attacks increases by 6% every 0.5s. This effect can stack up to 6 times and will be removed 10s after leaving Aiming Mode.",
   },
-  
   "14430": {
     name: "Waveriding Whirl",
     type: "Catalyst",
@@ -83,7 +78,6 @@ const GI_WEAPONS = {
     subtitle: "The Weight of Falling Branches",
     desc: "Increase Plunging Attack CRIT Rate by 16%; After a Plunging Attack hits an opponent, Normal, Charged, and Plunging Attack DMG increased by 16% for 10s.",
   },
-  
   "13430": {
     name: "Mountain-Bracing Bolt",
     type: "Polearm",
@@ -92,7 +86,6 @@ const GI_WEAPONS = {
     subtitle: "Hope Beyond the Peaks",
     desc: "Decreases Climbing Stamina Consumption by 15% and increases Elemental Skill DMG by 12%. Also, after other nearby party members use Elemental Skills, the equipping character's Elemental Skill DMG will also increase by 12% for 8s.",
   },
-  
   "11516": {
     name: "Peak Patrol Song",
     type: "Sword",
@@ -101,7 +94,6 @@ const GI_WEAPONS = {
     subtitle: "Halcyon Years Unending",
     desc: "Gain \"Ode to Flowers\" after Normal or Plunging Attacks hit an opponent: DEF increases by 8% and gain a 10% All Elemental DMG Bonus for 6s. Max 2 stacks. Can trigger once per 0.1s. When this effect reaches 2 stacks or the 2nd stack's duration is refreshed, increase all nearby party members' All Elemental DMG Bonus by 8% for every 1,000 DEF the equipping character has, up to a maximum of 25.6%, for 15s.",
   },
-  
   "11430": {
     name: "Sturdy Bone",
     type: "Sword",
@@ -120,7 +112,6 @@ const GI_WEAPONS = {
     subtitle: "Tupac's Grip",
     desc: "When an attack hits an opponent, deal AoE DMG equal to 40% of Max HP at the target location. This effect can be triggered once every 15s.",
   },
-  
   "15431": {
     name: "Chain Breaker",
     type: "Bow",
@@ -129,7 +120,6 @@ const GI_WEAPONS = {
     subtitle: "Flower-Feather Song",
     desc: "For every party member from Natlan or who has a different Elemental Type from the equipping character, the equipping character gains 4.8% increased ATK. When there are no less than 3 of the aforementioned characters, the equipping character gains 24 Elemental Mastery.",
   },
-  
   "12431": {
     name: "Earth Shaker",
     type: "Claymore",
@@ -138,7 +128,6 @@ const GI_WEAPONS = {
     subtitle: "Oath of Qhapaq Nan",
     desc: "After a party member triggers a Pyro-related reaction, the equipping character's Elemental Skill DMG is increased by 16% for 8s. This effect can be triggered even when the triggering party member is not on the field.",
   },
-  
   "12513": {
     name: "Fang of the Mountain King",
     type: "Claymore",
@@ -147,7 +136,6 @@ const GI_WEAPONS = {
     subtitle: "Turquoise Hunt",
     desc: "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by 10% for 6s. Max 6 stacks. Each stack is counted independently.",
   },
-  
   "11431": {
     name: "Flute of Ezpitzal",
     type: "Sword",
@@ -156,7 +144,6 @@ const GI_WEAPONS = {
     subtitle: "Smoke-and-Mirror Mystery",
     desc: "Using an Elemental Skill increases DEF by 16% for 15s.",
   },
-  
   "13431": {
     name: "Footprint of the Rainbow",
     type: "Polearm",
@@ -165,7 +152,6 @@ const GI_WEAPONS = {
     subtitle: "Pact of Flowing Springs",
     desc: "Using an Elemental Skill increases DEF by 16% for 15s.",
   },
-  
   "14431": {
     name: "Ring of Yaxche",
     type: "Catalyst",
@@ -174,7 +160,6 @@ const GI_WEAPONS = {
     subtitle: "Echoes of the Plentiful Land",
     desc: "Using an Elemental Skill grants the Jade-Forged Crown effect: Every 1,000 Max HP will increase the Normal Attack DMG dealt by the equipping character by 0.6% for 10s. Normal Attack DMG can be increased this way by a maximum of 16%.",
   },
-  
   "14516": {
     name: "Surf's Up",
     type: "Catalyst",
@@ -203,7 +188,6 @@ const GI_WEAPONS = {
     subtitle: "Deathly Pact",
     desc: "CRIT DMG increased by 20%. Increasing the value of a Bond of Life increases the DMG the equipping character deals by 16% for 6s. Max 3 stacks.",
   },
-  
   "15426": {
     name: "Cloudforged",
     type: "Bow",
@@ -212,7 +196,6 @@ const GI_WEAPONS = {
     subtitle: "Crag-Chiseled Forge",
     desc: "After Elemental Energy is decreased, the equipping character's Elemental Mastery will increase by 40 for 18s. Max 2 stacks.",
   },
-  
   "15513": {
     name: "Silvershower Heartstrings",
     type: "Bow",
@@ -241,7 +224,6 @@ const GI_WEAPONS = {
     subtitle: "Principle of Equilibrium",
     desc: "When the wielder performs healing, restore 8 Energy. This effect can be triggered once every 10s and can occur even when the character is not on the field.",
   },
-  
   "11514": {
     name: "Uraku Misugiri",
     type: "Sword",
@@ -270,7 +252,6 @@ const GI_WEAPONS = {
     subtitle: "Melussistance!",
     desc: "ATK increased by 12%. That's not all! The support from all Melusines you've helped in Merusea Village fills you with strength! Based on the number of them you've helped, your ATK is increased by up to an additional 12%.",
   },
-  
   "12512": {
     name: "Verdict",
     type: "Claymore",
@@ -289,7 +270,6 @@ const GI_WEAPONS = {
     subtitle: "Dawn and Dusk by the Lake",
     desc: "When the equipping character's current HP increases or decreases, Elemental Skill DMG dealt will be increased by 8% for 6s. Max 3 stacks. This effect can be triggered once every 0.2s. When other party members' current HP increases or decreases, the equipping character's Max HP will be increased by 14% for 6s. Max 2 stacks. This effect can be triggered once every 0.2s. The aforementioned effects can be triggered even if the wielder is off-field.",
   },
-  
   "11428": {
     name: "Sword of Narzissenkreuz",
     type: "Sword",
@@ -308,7 +288,6 @@ const GI_WEAPONS = {
     subtitle: "Azure Skies",
     desc: "Within 6s after Normal or Charged Attacks hit an opponent, Normal Attack DMG will be increased by 8% and Charged Attack DMG will be increased by 6%. Max 3 stacks. This effect can be triggered once every 0.3s.",
   },
-  
   "14513": {
     name: "Cashflow Supervision",
     type: "Catalyst",
@@ -317,7 +296,6 @@ const GI_WEAPONS = {
     subtitle: "Golden Blood-Tide",
     desc: "ATK is increased by 16%. When current HP increases or decreases, Normal Attack DMG will be increased by 16% and Charged Attack DMG will be increased by 14% for 4s. Max 3 stacks. This effect can be triggered once every 0.3s. When the wielder has 3 stacks, ATK SPD will be increased by 8%.",
   },
-  
   "12427": {
     name: "Portable Power Saw",
     type: "Claymore",
@@ -326,7 +304,6 @@ const GI_WEAPONS = {
     subtitle: "Sea Shanty",
     desc: "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain 40 Elemental Mastery, and 2s after the effect occurs, 2 Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
   },
-  
   "13427": {
     name: "Prospector's Drill",
     type: "Polearm",
@@ -335,7 +312,6 @@ const GI_WEAPONS = {
     subtitle: "Masons' Ditty",
     desc: "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain 3% ATK and 7% All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
   },
-  
   "15427": {
     name: "Range Gauge",
     type: "Bow",
@@ -344,7 +320,6 @@ const GI_WEAPONS = {
     subtitle: "Masons' Ditty",
     desc: "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain 3% ATK and 7% All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
   },
-  
   "11427": {
     name: "The Dockhand's Assistant",
     type: "Sword",
@@ -353,7 +328,6 @@ const GI_WEAPONS = {
     subtitle: "Sea Shanty",
     desc: "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain 40 Elemental Mastery, and 2s after the effect occurs, 2 Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
   },
-  
   "14514": {
     name: "Tome of the Eternal Flow",
     type: "Catalyst",
@@ -372,7 +346,6 @@ const GI_WEAPONS = {
     subtitle: "Tales of the Tundra",
     desc: "When there are at least 3 different Elemental Types in your party, Elemental Mastery will be increased by 120.",
   },
-  
   "11425": {
     name: "Finale of the Deep",
     type: "Sword",
@@ -381,7 +354,6 @@ const GI_WEAPONS = {
     subtitle: "An End Sublime",
     desc: "When using an Elemental Skill, ATK will be increased by 12% for 15s, and a Bond of Life worth 25% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond of Life is cleared, a maximum of 150 ATK will be gained based on 2.4% of the total amount of the Life Bond cleared, lasting for 15s.",
   },
-  
   "11426": {
     name: "Fleuve Cendre Ferryman",
     type: "Sword",
@@ -390,7 +362,6 @@ const GI_WEAPONS = {
     subtitle: "Ironbone",
     desc: "Increases Elemental Skill CRIT Rate by 8%. Additionally, increases Energy Recharge by 16% for 5s after using an Elemental Skill.",
   },
-  
   "14425": {
     name: "Flowing Purity",
     type: "Catalyst",
@@ -399,7 +370,6 @@ const GI_WEAPONS = {
     subtitle: "Unfinished Masterpiece",
     desc: "When using an Elemental Skill, All Elemental DMG Bonus will be increased by 8% for 15s, and a Bond of Life worth 24% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond of Life is cleared, every 1,000 HP cleared in the process will provide 2% All Elemental DMG Bonus, up to a maximum of 12%. This effect lasts 15s.",
   },
-  
   "13425": {
     name: "Rightful Reward",
     type: "Polearm",
@@ -408,7 +378,6 @@ const GI_WEAPONS = {
     subtitle: "Tip of the Spear",
     desc: "When the wielder is healed, restore 8 Energy. This effect can be triggered once every 10s, and can occur even when the character is not on the field.",
   },
-  
   "14424": {
     name: "Sacrificial Jade",
     type: "Catalyst",
@@ -417,7 +386,6 @@ const GI_WEAPONS = {
     subtitle: "Jade Circulation",
     desc: "When not on the field for more than 5s, Max HP will be increased by 32% and Elemental Mastery will be increased by 40. These effects will be canceled after the wielder has been on the field for 10s.",
   },
-  
   "15424": {
     name: "Scion of the Blazing Sun",
     type: "Bow",
@@ -426,7 +394,6 @@ const GI_WEAPONS = {
     subtitle: "The Way of Sunfire",
     desc: "After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing 60% ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take 28% more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s.",
   },
-  
   "15425": {
     name: "Song of Stillness",
     type: "Bow",
@@ -435,7 +402,6 @@ const GI_WEAPONS = {
     subtitle: "Benthic Pulse",
     desc: "After the wielder is healed, they will deal 16% more DMG for 8s. This can be triggered even when the character is not on the field.",
   },
-  
   "12424": {
     name: "Talking Stick",
     type: "Claymore",
@@ -444,7 +410,6 @@ const GI_WEAPONS = {
     subtitle: "\"The Silver Tongue\"",
     desc: "ATK will be increased by 16% for 15s after being affected by Pyro. This effect can be triggered once every 12s. All Elemental DMG Bonus will be increased by 12% for 15s after being affected by Hydro, Cryo, Electro, or Dendro. This effect can be triggered once every 12s.",
   },
-  
   "15512": {
     name: "The First Great Magic",
     type: "Bow",
@@ -453,7 +418,6 @@ const GI_WEAPONS = {
     subtitle: "Parsifal the Great",
     desc: "DMG dealt by Charged Attacks increased by 16%. For every party member with the same Elemental Type as the wielder (including the wielder themselves), gain 1 Gimmick stack. For every party member with a different Elemental Type from the wielder, gain 1 Theatrics stack. When the wielder has 1/2/3 or more Gimmick stacks, ATK will be increased by 16%/32%/48%. When the wielder has 1/2/3 or more Theatrics stacks, Movement SPD will be increased by 4%/7%/10%.",
   },
-  
   "12425": {
     name: "Tidal Shadow",
     type: "Claymore",
@@ -462,7 +426,6 @@ const GI_WEAPONS = {
     subtitle: "White Cruising Wave",
     desc: "After the wielder is healed, ATK will be increased by 24% for 8s. This can be triggered even when the character is not on the field.",
   },
-  
   "11424": {
     name: "Wolf-Fang",
     type: "Sword",
@@ -504,7 +467,6 @@ const GI_WEAPONS = {
     subtitle: "Desert Watch",
     desc: "After the character's Elemental Skill hits an opponent, their ATK will be increased by 20% for 8s. After the character takes DMG, their ATK will be increased by 20% for 8s. The 2 aforementioned effects can be triggered even when the character is not on the field. Additionally, when not protected by a shield, the character's Max HP will be increased by 32%.",
   },
-  
   "12418": {
     name: "Mailed Flower",
     type: "Claymore",
@@ -533,7 +495,6 @@ const GI_WEAPONS = {
     subtitle: "Kaidan: Rainfall Earthbinder",
     desc: "After an attack hits opponents, it will inflict an instance of Cursed Parasol upon one of them for 10s. This effect can be triggered once every 15s. If this opponent is defeated during Cursed Parasol's duration, Cursed Parasol's CD will be refreshed immediately. The character wielding this weapon will deal 16% more DMG to the opponent affected by Cursed Parasol.",
   },
-  
   "14512": {
     name: "Tulaytullah's Remembrance",
     type: "Catalyst",
@@ -562,7 +523,6 @@ const GI_WEAPONS = {
     subtitle: "Sunken Song of the Sands",
     desc: "HP increased by 20%. When an Elemental Skill hits opponents, you gain the Grand Hymn effect for 20s. This effect increases the equipping character's Elemental Mastery by 0.12% of their Max HP. This effect can trigger once every 0.3s. Max 3 stacks. When this effect gains 3 stacks, or when the third stack's duration is refreshed, the Elemental Mastery of all nearby party members will be increased by 0.2% of the equipping character's max HP for 20s.",
   },
-  
   "12415": {
     name: "Makhaira Aquamarine",
     type: "Claymore",
@@ -571,7 +531,6 @@ const GI_WEAPONS = {
     subtitle: "Desert Pavilion",
     desc: "The following effect will trigger every 10s: The equipping character will gain 24% of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
   },
-  
   "13419": {
     name: "Missive Windspear",
     type: "Polearm",
@@ -580,7 +539,6 @@ const GI_WEAPONS = {
     subtitle: "The Wind Unattained",
     desc: "Within 10s after an Elemental Reaction is triggered, ATK is increased by 12% and Elemental Mastery is increased by 48.",
   },
-  
   "13511": {
     name: "Staff of the Scarlet Sands",
     type: "Polearm",
@@ -589,7 +547,6 @@ const GI_WEAPONS = {
     subtitle: "Heat Haze at Horizon's End",
     desc: "The equipping character gains 52% of their Elemental Mastery as bonus ATK. When an Elemental Skill hits opponents, the Dream of the Scarlet Sands effect will be gained for 10s: The equipping character will gain 28% of their Elemental Mastery as bonus ATK. Max 3 stacks.",
   },
-  
   "14416": {
     name: "Wandering Evenstar",
     type: "Catalyst",
@@ -598,7 +555,6 @@ const GI_WEAPONS = {
     subtitle: "Wildling Nightstar",
     desc: "The following effect will trigger every 10s: The equipping character will gain 24% of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
   },
-  
   "11418": {
     name: "Xiphos' Moonlight",
     type: "Sword",
@@ -617,7 +573,6 @@ const GI_WEAPONS = {
     subtitle: "Net Snapper",
     desc: "Triggers the Flowrider effect after using an Elemental Skill, dealing 80% ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s.",
   },
-  
   "12417": {
     name: "Forest Regalia",
     type: "Claymore",
@@ -626,7 +581,6 @@ const GI_WEAPONS = {
     subtitle: "Forest Sanctuary",
     desc: "After triggering Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon, a Leaf of Consciousness will be created around the character for a maximum of 10s. When picked up, the Leaf will grant the character 60 Elemental Mastery for 12s. Only 1 Leaf can be generated this way every 20s. This effect can still be triggered if the character is not on the field. The Leaf of Consciousness' effect cannot stack.",
   },
-  
   "14417": {
     name: "Fruit of Fulfillment",
     type: "Catalyst",
@@ -635,7 +589,6 @@ const GI_WEAPONS = {
     subtitle: "Full Circle",
     desc: "Obtain the \"Wax and Wane\" effect after an Elemental Reaction is triggered, gaining 24 Elemental Mastery while losing 5% ATK. For every 0.3s, 1 stack of Wax and Wane can be gained. Max 5 stacks. For every 6s that go by without an Elemental Reaction being triggered, 1 stack will be lost. This effect can be triggered even when the character is off-field.",
   },
-  
   "15511": {
     name: "Hunter's Path",
     type: "Bow",
@@ -644,7 +597,6 @@ const GI_WEAPONS = {
     subtitle: "At the End of the Beast-Paths",
     desc: "Gain 12% All Elemental DMG Bonus. Obtain the Tireless Hunt effect after hitting an opponent with a Charged Attack. This effect increases Charged Attack DMG by 160% of Elemental Mastery. This effect will be removed after 12 Charged Attacks or 10s. Only 1 instance of Tireless Hunt can be gained every 12s.",
   },
-  
   "15417": {
     name: "King's Squire",
     type: "Bow",
@@ -653,7 +605,6 @@ const GI_WEAPONS = {
     subtitle: "Labyrinth Lord's Instruction",
     desc: "Obtain the Teachings of the Forest effect when unleashing Elemental Skills and Bursts, increasing Elemental Mastery by 60 for 12s. This effect will be removed when switching characters. When the Teachings of the Forest effect ends or is removed, it will deal 100% of ATK as DMG to 1 nearby opponent. The Teachings of the Forest effect can be triggered once every 20s.",
   },
-  
   "13417": {
     name: "Moonpiercer",
     type: "Polearm",
@@ -662,7 +613,6 @@ const GI_WEAPONS = {
     subtitle: "Stillwood Moonshadow",
     desc: "After triggering Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon, a Leaf of Revival will be created around the character for a maximum of 10s. When picked up, the Leaf will grant the character 16% ATK for 12s. Only 1 Leaf can be generated this way every 20s. This effect can still be triggered if the character is not on the field.",
   },
-  
   "11417": {
     name: "Sapwood Blade",
     type: "Sword",
@@ -691,7 +641,6 @@ const GI_WEAPONS = {
     subtitle: "The Cleansing Form",
     desc: "HP is increased by 16%. When there are opponents nearby, the DMG dealt by the wielder of this weapon is increased by 20%. This will take effect whether the character is on-field or not.",
   },
-  
   "15411": {
     name: "Fading Twilight",
     type: "Bow",
@@ -720,7 +669,6 @@ const GI_WEAPONS = {
     subtitle: "Kagura Dance of the Sacred Sakura",
     desc: "Gains the Kagura Dance effect when using an Elemental Skill, causing the Elemental Skill DMG of the character wielding this weapon to increase by 12% for 16s. Max 3 stacks. This character will gain 12% All Elemental DMG Bonus when they possess 3 stacks.",
   },
-  
   "14415": {
     name: "Oathsworn Eye",
     type: "Catalyst",
@@ -749,7 +697,6 @@ const GI_WEAPONS = {
     subtitle: "Spotless Heart",
     desc: "Elemental Skill DMG is increased by 40% of DEF. The effect will be triggered no more than once every 1.5s and will be cleared 0.1s after the Elemental Skill deals DMG.",
   },
-  
   "12510": {
     name: "Redhorn Stonethresher",
     type: "Claymore",
@@ -768,7 +715,6 @@ const GI_WEAPONS = {
     subtitle: "Watatsumi Wavewalker",
     desc: "For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by 0.12%. A maximum of 40% increased Elemental Burst DMG can be achieved this way.",
   },
-  
   "15416": {
     name: "Mouun's Moon",
     type: "Bow",
@@ -777,7 +723,6 @@ const GI_WEAPONS = {
     subtitle: "Watatsumi Wavewalker",
     desc: "For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by 0.12%. A maximum of 40% increased Elemental Burst DMG can be achieved this way.",
   },
-  
   "15507": {
     name: "Polar Star",
     type: "Bow",
@@ -786,7 +731,6 @@ const GI_WEAPONS = {
     subtitle: "Daylight's Augury",
     desc: "Elemental Skill and Elemental Burst DMG increased by 12%. After a Normal Attack, Charged Attack, Elemental Skill or Elemental Burst hits an opponent, 1 stack of Ashen Nightstar will be gained for 12s. When 1/2/3/4 stacks of Ashen Nightstar are present, ATK is increased by 10/20/30/48%. The stack of Ashen Nightstar created by the Normal Attack, Charged Attack, Elemental Skill or Elemental Burst will be counted independently of the others.",
   },
-  
   "13416": {
     name: "Wavebreaker's Fin",
     type: "Polearm",
@@ -805,7 +749,6 @@ const GI_WEAPONS = {
     subtitle: "Timeless Dream: Eternal Stove",
     desc: "ATK increased by 28% of Energy Recharge over the base 100%. You can gain a maximum bonus of 80% ATK. Gain 30% Energy Recharge for 12s after using an Elemental Burst.",
   },
-  
   "14506": {
     name: "Everlasting Moonglow",
     type: "Catalyst",
@@ -814,7 +757,6 @@ const GI_WEAPONS = {
     subtitle: "Byakuya Kougetsu",
     desc: "Healing Bonus increased by 10%, Normal Attack DMG is increased by 1% of the Max HP of the character equipping this weapon. For 12s after using an Elemental Burst, Normal Attacks that hit opponents will restore 0.6 Energy. Energy can be restored this way once every 0.1s.",
   },
-  
   "12412": {
     name: "Luxurious Sea-Lord",
     type: "Claymore",
@@ -823,7 +765,6 @@ const GI_WEAPONS = {
     subtitle: "Oceanic Victory",
     desc: "Increases Elemental Burst DMG by 12%. When Elemental Burst hits opponents, there is a 100% chance of summoning a huge onrush of tuna that deals 100% ATK as AoE DMG. This effect can occur once every 15s.",
   },
-  
   "15415": {
     name: "Predator",
     type: "Bow",
@@ -832,7 +773,6 @@ const GI_WEAPONS = {
     subtitle: "Strong Strike",
     desc: "Effective only on the following platform:\n\"PlayStation Network\"\nDealing Cryo DMG to opponents increases this character's Normal and Charged Attack DMG by 10% for 6s. This effect can have a maximum of 2 stacks. Additionally, when Aloy equips Predator, ATK is increased by 66.",
   },
-  
   "13415": {
     name: "\"The Catch\"",
     type: "Polearm",
@@ -851,7 +791,6 @@ const GI_WEAPONS = {
     subtitle: "Iwakura Succession",
     desc: "After casting an Elemental Skill, gain 1 Succession Seed. This effect can be triggered once every 5s. The Succession Seed lasts for 30s. Up to 3 Succession Seeds may exist simultaneously. After using an Elemental Burst, all Succession Seeds are consumed and after 2s, the character regenerates 6 Energy for each seed consumed.",
   },
-  
   "14414": {
     name: "Hakushin Ring",
     type: "Catalyst",
@@ -860,7 +799,6 @@ const GI_WEAPONS = {
     subtitle: "Sakura Saiguu",
     desc: "After the character equipped with this weapon triggers an Electro elemental reaction, nearby party members of an Elemental Type involved in the elemental reaction receive a 10% Elemental DMG Bonus for their element, lasting 6s. Elemental Bonuses gained in this way cannot be stacked.",
   },
-  
   "15414": {
     name: "Hamayumi",
     type: "Bow",
@@ -869,7 +807,6 @@ const GI_WEAPONS = {
     subtitle: "Full Draw",
     desc: "Increases Normal Attack DMG by 16% and Charged Attack DMG by 12%. When the equipping character's Energy reaches 100%, this effect is increased by 100%.",
   },
-  
   "12414": {
     name: "Katsuragikiri Nagamasa",
     type: "Claymore",
@@ -878,7 +815,6 @@ const GI_WEAPONS = {
     subtitle: "Samurai Conduct",
     desc: "Increases Elemental Skill DMG by 6%. After Elemental Skill hits an opponent, the character loses 3 Energy but regenerates 3 Energy every 2s for the next 6s. This effect can occur once every 10s. Can be triggered even when the character is not on the field.",
   },
-  
   "13414": {
     name: "Kitain Cross Spear",
     type: "Polearm",
@@ -887,7 +823,6 @@ const GI_WEAPONS = {
     subtitle: "Samurai Conduct",
     desc: "Increases Elemental Skill DMG by 6%. After Elemental Skill hits an opponent, the character loses 3 Energy but regenerates 3 Energy every 2s for the next 6s. This effect can occur once every 10s. Can be triggered even when the character is not on the field.",
   },
-  
   "11509": {
     name: "Mistsplitter Reforged",
     type: "Sword",
@@ -896,7 +831,6 @@ const GI_WEAPONS = {
     subtitle: "Mistsplitter's Edge",
     desc: "Gain a 12% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, the Mistsplitter's Emblem provides a 8/16/28% Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
   },
-  
   "15509": {
     name: "Thundering Pulse",
     type: "Bow",
@@ -915,7 +849,6 @@ const GI_WEAPONS = {
     subtitle: "Dodoventure!",
     desc: "Normal Attack hits on opponents increase Charged Attack DMG by 16% for 6s. Charged Attack hits on opponents increase ATK by 8% for 6s.",
   },
-  
   "11503": {
     name: "Freedom-Sworn",
     type: "Sword",
@@ -924,7 +857,6 @@ const GI_WEAPONS = {
     subtitle: "Revolutionary Chorale",
     desc: "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases DMG by 10%. When the character wielding this weapon triggers Elemental Reactions, they gain a Sigil of Rebellion. This effect can be triggered once every 0.5s and can be triggered even if said character is not on the field. When you possess 2 Sigils of Rebellion, all of them will be consumed and all nearby party members will obtain \"Millennial Movement: Song of Resistance\" for 12s. \"Millennial Movement: Song of Resistance\" increases Normal, Charged and Plunging Attack DMG by 16% and increases ATK by 20%. Once this effect is triggered, you will not gain Sigils of Rebellion for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
   },
-  
   "15412": {
     name: "Mitternachts Waltz",
     type: "Bow",
@@ -953,7 +885,6 @@ const GI_WEAPONS = {
     subtitle: "Oppidan Ambush",
     desc: "While the character equipped with this weapon is in the party but not on the field, their DMG increases by 2% every second up to a max of 20%. When the character is on the field for more than 4s, the aforementioned DMG buff decreases by 4% per second until it reaches 0%.",
   },
-  
   "15503": {
     name: "Elegy for the End",
     type: "Bow",
@@ -962,7 +893,6 @@ const GI_WEAPONS = {
     subtitle: "The Parting Refrain",
     desc: "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases Elemental Mastery by 60. When the Elemental Skills or Elemental Bursts of the character wielding this weapon hit opponents, that character gains a Sigil of Remembrance. This effect can be triggered once every 0.2s and can be triggered even if said character is not on the field. When you possess 4 Sigils of Remembrance, all of them will be consumed and all nearby party members will obtain the \"Millennial Movement: Farewell Song\" effect for 12s. \"Millennial Movement: Farewell Song\" increases Elemental Mastery by 100 and increases ATK by 20%. Once this effect is triggered, you will not gain Sigils of Remembrance for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
   },
-  
   "11410": {
     name: "The Alley Flash",
     type: "Sword",
@@ -971,7 +901,6 @@ const GI_WEAPONS = {
     subtitle: "Itinerant Hero",
     desc: "Increases DMG dealt by the character equipping this weapon by 12%. Taking DMG disables this effect for 5s.",
   },
-  
   "15413": {
     name: "Windblume Ode",
     type: "Bow",
@@ -980,7 +909,6 @@ const GI_WEAPONS = {
     subtitle: "Windblume Wish",
     desc: "After using an Elemental Skill, receive a boon from the ancient wish of the Windblume, increasing ATK by 16% for 6s.",
   },
-  
   "14410": {
     name: "Wine and Song",
     type: "Catalyst",
@@ -999,7 +927,6 @@ const GI_WEAPONS = {
     subtitle: "Lithic Axiom: Unity",
     desc: "For every character in the party who hails from Liyue, the character who equips this weapon gains a 7% ATK increase and a 3% CRIT Rate increase. This effect stacks up to 4 times.",
   },
-  
   "13406": {
     name: "Lithic Spear",
     type: "Polearm",
@@ -1008,7 +935,6 @@ const GI_WEAPONS = {
     subtitle: "Lithic Axiom: Unity",
     desc: "For every character in the party who hails from Liyue, the character who equips this weapon gains a 7% ATK increase and a 3% CRIT Rate increase. This effect stacks up to 4 times.",
   },
-  
   "11505": {
     name: "Primordial Jade Cutter",
     type: "Sword",
@@ -1017,7 +943,6 @@ const GI_WEAPONS = {
     subtitle: "Protector's Virtue",
     desc: "HP increased by 20%. Additionally, provides an ATK Bonus based on 1.2% of the wielder's Max HP.",
   },
-  
   "13501": {
     name: "Staff of Homa",
     type: "Polearm",
@@ -1036,7 +961,6 @@ const GI_WEAPONS = {
     subtitle: "Frost Burial",
     desc: "Hitting an opponent with Normal and Charged Attacks has a 60% chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to 80% of ATK. Opponents affected by Cryo are instead dealt DMG equal to 200% of ATK. Can only occur once every 10s.",
   },
-  
   "11413": {
     name: "Festering Desire",
     type: "Sword",
@@ -1045,7 +969,6 @@ const GI_WEAPONS = {
     subtitle: "Undying Admiration",
     desc: "Increases Elemental Skill DMG by 16% and Elemental Skill CRIT Rate by 6%.",
   },
-  
   "14412": {
     name: "Frostbearer",
     type: "Catalyst",
@@ -1054,7 +977,6 @@ const GI_WEAPONS = {
     subtitle: "Frost Burial",
     desc: "Hitting an opponent with Normal and Charged Attacks has a 60% chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to 80% of ATK. Opponents affected by Cryo are instead dealt DMG equal to 200% of ATK. Can only occur once every 10s.",
   },
-  
   "12411": {
     name: "Snow-Tombed Starsilver",
     type: "Claymore",
@@ -1063,7 +985,6 @@ const GI_WEAPONS = {
     subtitle: "Frost Burial",
     desc: "Hitting an opponent with Normal and Charged Attacks has a 60% chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to 80% of ATK. Opponents affected by Cryo are instead dealt DMG equal to 200% of ATK. Can only occur once every 10s.",
   },
-  
   "11504": {
     name: "Summit Shaper",
     type: "Sword",
@@ -1082,7 +1003,6 @@ const GI_WEAPONS = {
     subtitle: "Golden Majesty",
     desc: "Increases Shield Strength by 20%. Scoring hits on opponents increases ATK by 4% for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
   },
-  
   "13408": {
     name: "Royal Spear",
     type: "Polearm",
@@ -1091,7 +1011,6 @@ const GI_WEAPONS = {
     subtitle: "Focus",
     desc: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
   },
-  
   "12504": {
     name: "The Unforged",
     type: "Claymore",
@@ -1100,7 +1019,6 @@ const GI_WEAPONS = {
     subtitle: "Golden Majesty",
     desc: "Increases Shield Strength by 20%. Scoring hits on opponents increases ATK by 4% for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
   },
-  
   "13504": {
     name: "Vortex Vanquisher",
     type: "Polearm",
@@ -1119,7 +1037,6 @@ const GI_WEAPONS = {
     subtitle: "Strong-Willed",
     desc: "Increases Normal and Charged Attack DMG by 12%. After a Normal or Charged Attack is fired, DMG dealt increases by a further 8% every 0.1s the arrow is in the air for up to 5 times.",
   },
-  
   "11501": {
     name: "Aquila Favonia",
     type: "Sword",
@@ -1128,7 +1045,6 @@ const GI_WEAPONS = {
     subtitle: "Falcon's Defiance",
     desc: "ATK is increased by 20%. Triggers on taking DMG: the soul of the Falcon of the West awakens, holding the banner of resistance aloft, regenerating HP equal to 100% of ATK and dealing 200% of ATK as DMG to surrounding opponents. This effect can only occur once every 15s.",
   },
-  
   "13303": {
     name: "Black Tassel",
     type: "Polearm",
@@ -1137,7 +1053,6 @@ const GI_WEAPONS = {
     subtitle: "Bane of the Soft",
     desc: "Increases DMG against slimes by 40%.",
   },
-  
   "14408": {
     name: "Blackcliff Agate",
     type: "Catalyst",
@@ -1146,7 +1061,6 @@ const GI_WEAPONS = {
     subtitle: "Press the Advantage",
     desc: "After defeating an enemy, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
   },
-  
   "11408": {
     name: "Blackcliff Longsword",
     type: "Sword",
@@ -1155,7 +1069,6 @@ const GI_WEAPONS = {
     subtitle: "Press the Advantage",
     desc: "After defeating an opponent, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
   },
-  
   "13404": {
     name: "Blackcliff Pole",
     type: "Polearm",
@@ -1164,7 +1077,6 @@ const GI_WEAPONS = {
     subtitle: "Press the Advantage",
     desc: "After defeating an enemy, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
   },
-  
   "12408": {
     name: "Blackcliff Slasher",
     type: "Claymore",
@@ -1173,7 +1085,6 @@ const GI_WEAPONS = {
     subtitle: "Press the Advantage",
     desc: "After defeating an opponent, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
   },
-  
   "15408": {
     name: "Blackcliff Warbow",
     type: "Bow",
@@ -1182,7 +1093,6 @@ const GI_WEAPONS = {
     subtitle: "Press the Advantage",
     desc: "After defeating an enemy, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
   },
-  
   "12302": {
     name: "Bloodtainted Greatsword",
     type: "Claymore",
@@ -1191,7 +1101,6 @@ const GI_WEAPONS = {
     subtitle: "Bane of Fire and Thunder",
     desc: "Increases DMG dealt against opponents affected by Pyro or Electro by 12%.",
   },
-  
   "15407": {
     name: "Compound Bow",
     type: "Bow",
@@ -1200,7 +1109,6 @@ const GI_WEAPONS = {
     subtitle: "Infusion Arrow",
     desc: "Normal Attack and Charged Attack hits increase ATK by 4% and Normal ATK SPD by 1.2% for 6s. Max 4 stacks. Can only occur once every 0.3s.",
   },
-  
   "11301": {
     name: "Cool Steel",
     type: "Sword",
@@ -1209,7 +1117,6 @@ const GI_WEAPONS = {
     subtitle: "Bane of Water and Ice",
     desc: "Increases DMG against opponents affected by Hydro or Cryo by 12%.",
   },
-  
   "13403": {
     name: "Crescent Pike",
     type: "Polearm",
@@ -1218,7 +1125,6 @@ const GI_WEAPONS = {
     subtitle: "Infusion Needle",
     desc: "After picking up an Elemental Orb/Particle, Normal and Charged Attacks deal additional DMG equal to 20% of ATK for 5s.",
   },
-  
   "11304": {
     name: "Dark Iron Sword",
     type: "Sword",
@@ -1227,7 +1133,6 @@ const GI_WEAPONS = {
     subtitle: "Overloaded",
     desc: "Upon causing an Overloaded, Superconduct, Electro-Charged, Quicken, Aggravate, Hyperbloom, or Electro-infused Swirl reaction, ATK is increased by 20% for 12s.",
   },
-  
   "13405": {
     name: "Deathmatch",
     type: "Polearm",
@@ -1236,7 +1141,6 @@ const GI_WEAPONS = {
     subtitle: "Gladiator",
     desc: "If there are at least 2 opponents nearby, ATK is increased by 16% and DEF is increased by 16%. If there are fewer than 2 opponents nearby, ATK is increased by 24%.",
   },
-  
   "12305": {
     name: "Debate Club",
     type: "Claymore",
@@ -1245,7 +1149,6 @@ const GI_WEAPONS = {
     subtitle: "Blunt Conclusion",
     desc: "After using an Elemental Skill, on hit, Normal and Charged Attacks deal additional DMG equal to 60% of ATK in a small AoE. Effect lasts 15s. DMG can only occur once every 3s.",
   },
-  
   "13401": {
     name: "Dragon's Bane",
     type: "Polearm",
@@ -1254,7 +1157,6 @@ const GI_WEAPONS = {
     subtitle: "Bane of Flame and Water",
     desc: "Increases DMG against opponents affected by Hydro or Pyro by 20%.",
   },
-  
   "14304": {
     name: "Emerald Orb",
     type: "Catalyst",
@@ -1263,7 +1165,6 @@ const GI_WEAPONS = {
     subtitle: "Rapids",
     desc: "Upon causing a Vaporize, Electro-Charged, Frozen, Bloom, or a Hydro-infused Swirl reaction, increases ATK by 20% for 12s.",
   },
-  
   "14409": {
     name: "Eye of Perception",
     type: "Catalyst",
@@ -1272,7 +1173,6 @@ const GI_WEAPONS = {
     subtitle: "Echo",
     desc: "Normal and Charged Attacks have a 50% chance to fire a Bolt of Perception, dealing 240% ATK as DMG. This bolt can bounce between opponents a maximum of 4 times. This effect can occur once every 12s.",
   },
-  
   "14401": {
     name: "Favonius Codex",
     type: "Catalyst",
@@ -1281,7 +1181,6 @@ const GI_WEAPONS = {
     subtitle: "Windfall",
     desc: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
   },
-  
   "12401": {
     name: "Favonius Greatsword",
     type: "Claymore",
@@ -1290,7 +1189,6 @@ const GI_WEAPONS = {
     subtitle: "Windfall",
     desc: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
   },
-  
   "13407": {
     name: "Favonius Lance",
     type: "Polearm",
@@ -1299,7 +1197,6 @@ const GI_WEAPONS = {
     subtitle: "Windfall",
     desc: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
   },
-  
   "11401": {
     name: "Favonius Sword",
     type: "Sword",
@@ -1308,7 +1205,6 @@ const GI_WEAPONS = {
     subtitle: "Windfall",
     desc: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
   },
-  
   "15401": {
     name: "Favonius Warbow",
     type: "Bow",
@@ -1317,7 +1213,6 @@ const GI_WEAPONS = {
     subtitle: "Windfall",
     desc: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
   },
-  
   "12301": {
     name: "Ferrous Shadow",
     type: "Claymore",
@@ -1326,7 +1221,6 @@ const GI_WEAPONS = {
     subtitle: "Unbending",
     desc: "When HP falls below 70%, increases Charged Attack DMG by 30% and Charged Attacks become harder to interrupt.",
   },
-  
   "11305": {
     name: "Fillet Blade",
     type: "Sword",
@@ -1335,7 +1229,6 @@ const GI_WEAPONS = {
     subtitle: "Gash",
     desc: "On hit, has a 50% chance to deal 240% ATK DMG to a single opponent. Can only occur once every 15s.",
   },
-  
   "13302": {
     name: "Halberd",
     type: "Polearm",
@@ -1344,7 +1237,6 @@ const GI_WEAPONS = {
     subtitle: "Heavy",
     desc: "Normal Attacks deal an additional 160% ATK as DMG. Can only occur once every 10s.",
   },
-  
   "11302": {
     name: "Harbinger of Dawn",
     type: "Sword",
@@ -1353,7 +1245,6 @@ const GI_WEAPONS = {
     subtitle: "Vigorous",
     desc: "When HP is above 90%, increases CRIT Rate by 14%.",
   },
-  
   "11407": {
     name: "Iron Sting",
     type: "Sword",
@@ -1362,7 +1253,6 @@ const GI_WEAPONS = {
     subtitle: "Infusion Stinger",
     desc: "Dealing Elemental DMG increases all DMG by 6% for 6s. Max 2 stacks. Can occur once every 1s.",
   },
-  
   "11405": {
     name: "Lion's Roar",
     type: "Sword",
@@ -1371,7 +1261,6 @@ const GI_WEAPONS = {
     subtitle: "Bane of Fire and Thunder",
     desc: "Increases DMG against opponents affected by Pyro or Electro by 20%.",
   },
-  
   "14502": {
     name: "Lost Prayer to the Sacred Winds",
     type: "Catalyst",
@@ -1380,7 +1269,6 @@ const GI_WEAPONS = {
     subtitle: "Boundless Blessing",
     desc: "Increases Movement SPD by 10%. When in battle, gain an 8% Elemental DMG Bonus every 4s. Max 4 stacks. Lasts until the character falls or leaves combat.",
   },
-  
   "14301": {
     name: "Magic Guide",
     type: "Catalyst",
@@ -1389,7 +1277,6 @@ const GI_WEAPONS = {
     subtitle: "Bane of Storm and Tide",
     desc: "Increases DMG against opponents affected by Hydro or Electro by 12%.",
   },
-  
   "14407": {
     name: "Mappa Mare",
     type: "Catalyst",
@@ -1398,7 +1285,6 @@ const GI_WEAPONS = {
     subtitle: "Infusion Scroll",
     desc: "Triggering an Elemental reaction grants a 8% Elemental DMG Bonus for 10s. Max 2 stacks.",
   },
-  
   "15305": {
     name: "Messenger",
     type: "Bow",
@@ -1407,7 +1293,6 @@ const GI_WEAPONS = {
     subtitle: "Archer's Message",
     desc: "Charged Attack hits on weak points deal an additional 100% ATK DMG as CRIT DMG. Can only occur once every 10s.",
   },
-  
   "14303": {
     name: "Otherworldly Story",
     type: "Catalyst",
@@ -1416,7 +1301,6 @@ const GI_WEAPONS = {
     subtitle: "Energy Shower",
     desc: "Picking up an Elemental Energy Orb/Particle recovers 1% HP.",
   },
-  
   "13505": {
     name: "Primordial Jade Winged-Spear",
     type: "Polearm",
@@ -1425,7 +1309,6 @@ const GI_WEAPONS = {
     subtitle: "Eagle Spear of Justice",
     desc: "On hit, increases ATK by 3.2% for 6s. Max 7 stacks. This effect can only occur once every 0.3s. While in possession of the maximum possible stacks, DMG dealt is increased by 12%.",
   },
-  
   "14406": {
     name: "Prototype Amber",
     type: "Catalyst",
@@ -1434,7 +1317,6 @@ const GI_WEAPONS = {
     subtitle: "Gilding",
     desc: "Using an Elemental Burst regenerates 4 Energy every 2s for 6s. All party members will regenerate 4% HP every 2s for this duration.",
   },
-  
   "12406": {
     name: "Prototype Archaic",
     type: "Claymore",
@@ -1443,7 +1325,6 @@ const GI_WEAPONS = {
     subtitle: "Crush",
     desc: "On hit, Normal or Charged Attacks have a 50% chance to deal an additional 240% ATK DMG to opponents within a small AoE. Can only occur once every 15s.",
   },
-  
   "15406": {
     name: "Prototype Crescent",
     type: "Bow",
@@ -1452,7 +1333,6 @@ const GI_WEAPONS = {
     subtitle: "Unreturning",
     desc: "Charged Attack hits on weak points increase Movement SPD by 10% and ATK by 36% for 10s.",
   },
-  
   "11406": {
     name: "Prototype Rancour",
     type: "Sword",
@@ -1461,7 +1341,6 @@ const GI_WEAPONS = {
     subtitle: "Smashed Stone",
     desc: "On hit, Normal or Charged Attacks increase ATK and DEF by 4% for 6s. Max 4 stacks. This effect can only occur once every 0.3s.",
   },
-  
   "13402": {
     name: "Prototype Starglitter",
     type: "Polearm",
@@ -1470,7 +1349,6 @@ const GI_WEAPONS = {
     subtitle: "Magic Affinity",
     desc: "After using an Elemental Skill, increases Normal and Charged Attack DMG by 8% for 12s. Max 2 stacks.",
   },
-  
   "12405": {
     name: "Rainslasher",
     type: "Claymore",
@@ -1479,7 +1357,6 @@ const GI_WEAPONS = {
     subtitle: "Bane of Storm and Tide",
     desc: "Increases DMG against opponents affected by Hydro or Electro by 20%.",
   },
-  
   "15301": {
     name: "Raven Bow",
     type: "Bow",
@@ -1488,7 +1365,6 @@ const GI_WEAPONS = {
     subtitle: "Bane of Flame and Water",
     desc: "Increases DMG against opponents affected by Hydro or Pyro by 12%.",
   },
-  
   "15303": {
     name: "Recurve Bow",
     type: "Bow",
@@ -1497,7 +1373,6 @@ const GI_WEAPONS = {
     subtitle: "Cull the Weak",
     desc: "Defeating an opponent restores 8% HP.",
   },
-  
   "15404": {
     name: "Royal Bow",
     type: "Bow",
@@ -1506,7 +1381,6 @@ const GI_WEAPONS = {
     subtitle: "Focus",
     desc: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
   },
-  
   "12404": {
     name: "Royal Greatsword",
     type: "Claymore",
@@ -1515,7 +1389,6 @@ const GI_WEAPONS = {
     subtitle: "Focus",
     desc: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
   },
-  
   "14404": {
     name: "Royal Grimoire",
     type: "Catalyst",
@@ -1524,7 +1397,6 @@ const GI_WEAPONS = {
     subtitle: "Focus",
     desc: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
   },
-  
   "11404": {
     name: "Royal Longsword",
     type: "Sword",
@@ -1533,7 +1405,6 @@ const GI_WEAPONS = {
     subtitle: "Focus",
     desc: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
   },
-  
   "15405": {
     name: "Rust",
     type: "Bow",
@@ -1542,7 +1413,6 @@ const GI_WEAPONS = {
     subtitle: "Rapid Firing",
     desc: "Increases Normal Attack DMG by 40% but decreases Charged Attack DMG by 10%.",
   },
-  
   "15403": {
     name: "Sacrificial Bow",
     type: "Bow",
@@ -1551,7 +1421,6 @@ const GI_WEAPONS = {
     subtitle: "Composed",
     desc: "After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.",
   },
-  
   "14403": {
     name: "Sacrificial Fragments",
     type: "Catalyst",
@@ -1560,7 +1429,6 @@ const GI_WEAPONS = {
     subtitle: "Composed",
     desc: "After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.",
   },
-  
   "12403": {
     name: "Sacrificial Greatsword",
     type: "Claymore",
@@ -1569,7 +1437,6 @@ const GI_WEAPONS = {
     subtitle: "Composed",
     desc: "After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.",
   },
-  
   "11403": {
     name: "Sacrificial Sword",
     type: "Sword",
@@ -1578,7 +1445,6 @@ const GI_WEAPONS = {
     subtitle: "Composed",
     desc: "After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.",
   },
-  
   "12409": {
     name: "Serpent Spine",
     type: "Claymore",
@@ -1587,7 +1453,6 @@ const GI_WEAPONS = {
     subtitle: "Wavesplitter",
     desc: "Every 4s a character is on the field, they will deal 6% more DMG and take 3% more DMG. This effect has a maximum of 5 stacks and will not be reset if the character leaves the field, but will be reduced by 1 stack when the character takes DMG.",
   },
-  
   "15302": {
     name: "Sharpshooter's Oath",
     type: "Bow",
@@ -1596,7 +1461,6 @@ const GI_WEAPONS = {
     subtitle: "Precise",
     desc: "Increases DMG against weak spots by 24%.",
   },
-  
   "12306": {
     name: "Skyrider Greatsword",
     type: "Claymore",
@@ -1605,7 +1469,6 @@ const GI_WEAPONS = {
     subtitle: "Courage",
     desc: "On hit, Normal or Charged Attacks increase ATK by 6% for 6s. Max 4 stacks. Can occur once every 0.5s.",
   },
-  
   "11306": {
     name: "Skyrider Sword",
     type: "Sword",
@@ -1614,7 +1477,6 @@ const GI_WEAPONS = {
     subtitle: "Determination",
     desc: "Using an Elemental Burst grants a 12% increase in ATK and Movement SPD for 15s.",
   },
-  
   "14501": {
     name: "Skyward Atlas",
     type: "Catalyst",
@@ -1623,7 +1485,6 @@ const GI_WEAPONS = {
     subtitle: "Wandering Clouds",
     desc: "Increases Elemental DMG Bonus by 12%. Normal Attack hits have a 50% chance to earn the favor of the clouds, which actively seek out nearby opponents to attack for 15s, dealing 160% ATK DMG. Can only occur once every 30s.",
   },
-  
   "11502": {
     name: "Skyward Blade",
     type: "Sword",
@@ -1632,7 +1493,6 @@ const GI_WEAPONS = {
     subtitle: "Sky-Piercing Fang",
     desc: "CRIT Rate increased by 4%. Gains Skypiercing Might upon using an Elemental Burst: Increases Movement SPD by 10%, increases ATK SPD by 10%, and Normal and Charged hits deal additional DMG equal to 20% of ATK. Skypiercing Might lasts for 12s.",
   },
-  
   "15501": {
     name: "Skyward Harp",
     type: "Bow",
@@ -1641,7 +1501,6 @@ const GI_WEAPONS = {
     subtitle: "Echoing Ballad",
     desc: "Increases CRIT DMG by 20%. Hits have a 60% chance to inflict a small AoE attack, dealing 125% Physical ATK DMG. Can only occur once every 4s.",
   },
-  
   "12501": {
     name: "Skyward Pride",
     type: "Claymore",
@@ -1650,7 +1509,6 @@ const GI_WEAPONS = {
     subtitle: "Sky-ripping Dragon Spine",
     desc: "Increases all DMG by 8%. After using an Elemental Burst, a vacuum blade that does 80% of ATK as DMG to opponents along its path will be created when Normal or Charged Attacks hit. Lasts for 20s or 8 vacuum blades.",
   },
-  
   "13502": {
     name: "Skyward Spine",
     type: "Polearm",
@@ -1659,7 +1517,6 @@ const GI_WEAPONS = {
     subtitle: "Black Wing",
     desc: "Increases CRIT Rate by 8% and increases Normal ATK SPD by 12%. Additionally, Normal and Charged Attacks hits on opponents have a 50% chance to trigger a vacuum blade that deals 40% of ATK as DMG in a small AoE. This effect can occur no more than once every 2s.",
   },
-  
   "15304": {
     name: "Slingshot",
     type: "Bow",
@@ -1668,7 +1525,6 @@ const GI_WEAPONS = {
     subtitle: "Slingshot",
     desc: "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by 36%. Otherwise, decreases DMG by 10%.",
   },
-  
   "14405": {
     name: "Solar Pearl",
     type: "Catalyst",
@@ -1677,7 +1533,6 @@ const GI_WEAPONS = {
     subtitle: "Solar Shine",
     desc: "Normal Attack hits increase Elemental Skill and Elemental Burst DMG by 20% for 6s. Likewise, Elemental Skill or Elemental Burst hits increase Normal Attack DMG by 20% for 6s.",
   },
-  
   "11412": {
     name: "Sword of Descension",
     type: "Sword",
@@ -1686,7 +1541,6 @@ const GI_WEAPONS = {
     subtitle: "Descension",
     desc: "Effective only on the following platform:\n\"PlayStation Network\"\nHitting opponents with Normal and Charged Attacks grants a 50% chance to deal 200% ATK as DMG in a small AoE. This effect can only occur once every 10s. Additionally, if the Traveler equips the Sword of Descension, their ATK is increased by 66.",
   },
-  
   "12402": {
     name: "The Bell",
     type: "Claymore",
@@ -1695,7 +1549,6 @@ const GI_WEAPONS = {
     subtitle: "Rebellious Guardian",
     desc: "Taking DMG generates a shield which absorbs DMG up to 20% of Max HP. This shield lasts for 10s or until broken, and can only be triggered once every 45s. While protected by a shield, the character gains 12% increased DMG.",
   },
-  
   "11409": {
     name: "The Black Sword",
     type: "Sword",
@@ -1704,7 +1557,6 @@ const GI_WEAPONS = {
     subtitle: "Justice",
     desc: "Increases DMG dealt by Normal and Charged Attacks by 20%. Additionally, regenerates 60% of ATK as HP when Normal and Charged Attacks score a CRIT Hit. This effect can occur once every 5s.",
   },
-  
   "11402": {
     name: "The Flute",
     type: "Sword",
@@ -1713,7 +1565,6 @@ const GI_WEAPONS = {
     subtitle: "Chord",
     desc: "Normal or Charged Attacks grant a Harmonic on hits. Gaining 5 Harmonics triggers the power of music and deals 100% ATK DMG to surrounding opponents. Harmonics last up to 30s, and a maximum of 1 can be gained every 0.5s.",
   },
-  
   "15402": {
     name: "The Stringless",
     type: "Bow",
@@ -1722,7 +1573,6 @@ const GI_WEAPONS = {
     subtitle: "Arrowless Song",
     desc: "Increases Elemental Skill and Elemental Burst DMG by 24%.",
   },
-  
   "15409": {
     name: "The Viridescent Hunt",
     type: "Bow",
@@ -1731,7 +1581,6 @@ const GI_WEAPONS = {
     subtitle: "Verdant Wind",
     desc: "Upon hit, Normal and Charged Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing 40% of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every 14s.",
   },
-  
   "14402": {
     name: "The Widsith",
     type: "Catalyst",
@@ -1740,7 +1589,6 @@ const GI_WEAPONS = {
     subtitle: "Debut",
     desc: "When the character takes the field, they will gain a random theme song for 10s. This can only occur once every 30s. Recitative: ATK is increased by 60%. Aria: Increases all Elemental DMG by 48%. Interlude: Elemental Mastery is increased by 240.",
   },
-  
   "14302": {
     name: "Thrilling Tales of Dragon Slayers",
     type: "Catalyst",
@@ -1749,7 +1597,6 @@ const GI_WEAPONS = {
     subtitle: "Heritage",
     desc: "When switching characters, the new character taking the field has their ATK increased by 24% for 10s. This effect can only occur once every 20s.",
   },
-  
   "11303": {
     name: "Traveler's Handy Sword",
     type: "Sword",
@@ -1758,7 +1605,6 @@ const GI_WEAPONS = {
     subtitle: "Journey",
     desc: "Each Elemental Orb or Particle collected restores 1% HP.",
   },
-  
   "14305": {
     name: "Twin Nephrite",
     type: "Catalyst",
@@ -1767,7 +1613,6 @@ const GI_WEAPONS = {
     subtitle: "Guerilla Tactics",
     desc: "Defeating an opponent increases Movement SPD and ATK by 12% for 15s.",
   },
-  
   "12303": {
     name: "White Iron Greatsword",
     type: "Claymore",
@@ -1776,7 +1621,6 @@ const GI_WEAPONS = {
     subtitle: "Cull the Weak",
     desc: "Defeating an opponent restores 8% HP.",
   },
-  
   "13301": {
     name: "White Tassel",
     type: "Polearm",
@@ -1785,7 +1629,6 @@ const GI_WEAPONS = {
     subtitle: "Sharp",
     desc: "Increases Normal Attack DMG by 24%.",
   },
-  
   "12407": {
     name: "Whiteblind",
     type: "Claymore",
@@ -1794,7 +1637,6 @@ const GI_WEAPONS = {
     subtitle: "Infusion Blade",
     desc: "On hit, Normal or Charged Attacks increase ATK and DEF by 6% for 6s. Max 4 stacks. This effect can only occur once every 0.5s.",
   },
-  
   "12502": {
     name: "Wolf's Gravestone",
     type: "Claymore",

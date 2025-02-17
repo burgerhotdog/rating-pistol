@@ -108,12 +108,12 @@ const GenshinImpact = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`../assets/char/GI/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../assets/char/GI/${cid}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{cid}</TableCell>
+                    <TableCell>{GAME_DATA["GI"].CHARACTERS[cid].name}</TableCell>
                     {isNotMobile && (
                       <TableCell>
                         {cdata.weapon && (
@@ -124,7 +124,7 @@ const GenshinImpact = ({ uid }) => {
                                   {GAME_DATA["GI"].WEAPONS[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base ATK: " + GAME_DATA["GI"].WEAPONS[cdata.weapon].base.ATK} <br />
+                                  {"Base ATK: " + GAME_DATA["GI"].WEAPONS[cdata.weapon].base.FIGHT_PROP_ATTACK} <br />
                                   {GAME_DATA["GI"].WEAPONS[cdata.weapon].substat}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>

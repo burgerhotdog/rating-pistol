@@ -11,8 +11,8 @@ import {
   Typography,
 } from "@mui/material";
 import blankCdata from "./blankCdata";
-import { enkaConvertChar } from "./enkaConvert";
 import getScore from "./getScore";
+import GAME_DATA from "./gameData";
 
 const Enka = ({
   gameType,
@@ -36,12 +36,51 @@ const Enka = ({
         : gameType === "ZZZ"
           ? "zzz/uid/"
           : "";
-  const tempGameUid = "618285856";
+  // test uids
+  // gi 618285856
   // hsr 602849613
   const fetchPlayerData = async () => {
     try {
       const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix+gameUid}/`);
       const data = await response.json();
+      
+      switch (gameType) {
+        case "GI": {
+          const maleToFemale = {
+            "10000005-2": "10000007-2", // pyro
+            "10000005-3": "10000007-3", // hydro
+            "10000005-8": "10000007-8", // dendro
+            "10000005-7": "10000007-7", // electro
+            "10000005-6": "10000007-6", // geo
+            "10000005-4": "10000007-4", // anemo
+          };
+          for (const avatar of data.avatarInfoList ) {
+            if (maleToFemale[avatar.avatarId]) {
+              avatar.avatarId = maleToFemale[avatar.avatarId];
+            }
+          }
+        } break;
+        case "HSR": {
+          const maleToFemale = {
+            "8007": "8008", // remembrance
+            "8005": "8006", // harmony
+            "8003": "8004", // preservation
+            "8001": "8002", // destruction
+          };
+          for (const avatar of data.detailInfo.avatarDetailList ) {
+            if (maleToFemale[avatar.avatarId]) {
+              avatar.avatarId = maleToFemale[avatar.avatarId];
+            }
+          }
+        } break;
+        case "WW": {
+          const maleToFemale = {
+            "1605": "1604", // havoc
+            "1501": "1502", // spectro
+          };
+        } break;
+      }
+
       setEnkaData(JSON.parse(JSON.stringify(data)));
       setError("");
     } catch (error) {
@@ -71,7 +110,7 @@ const Enka = ({
 
   const handleSave = async () => {
     for (const selectedAvatar of selectedAvatars) {
-      const cid = enkaConvertChar[enkaData.avatarInfoList[selectedAvatar].avatarId];
+      const cid = enkaData.avatarInfoList[selectedAvatar].avatarId;
       const cdata = blankCdata(gameType);
 
       cdata.weapon = enkaData.avatarInfoList[selectedAvatar].equipList[5].itemId || "";
@@ -193,7 +232,7 @@ const Enka = ({
                       onChange={(e) => handleCheckboxChange(e, index)}
                     />
                   }
-                  label={enkaConvertChar[avatar.avatarId || "error"]}
+                  label={GAME_DATA[gameType].CHARACTERS[avatar.avatarId]?.name || "error"}
                 />
               </Box>
             ))}

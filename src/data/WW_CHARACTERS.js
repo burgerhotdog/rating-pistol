@@ -1,7 +1,7 @@
 const WW_CHARACTERS = {
-  // Version 2.1
-  /*
-  [`Brant`]: {
+  /*// Version 2.1
+  "": {
+    name: "Brant",
     type: "Sword",
     base: { HP: 1000, ATK: 100, DEF: 1000 },
     weights: {
@@ -11,8 +11,8 @@ const WW_CHARACTERS = {
       "ATK_PERCENT": 0.6,
     },
   },
-
-  [`Phoebe`]: {
+  "": {
+    name: "Phoebe",
     type: "Rectifier",
     base: { HP: 10000, ATK: 100, DEF: 1000 },
     weights: {
@@ -21,11 +21,11 @@ const WW_CHARACTERS = {
       "CD": 1,
       "ATK_PERCENT": 0.6,
     },
-  },
-  */
-
+  },*/
+  
   // Version 2.0
-  [`Carlotta`]: {
+  "1107": {
+    name: "Carlotta",
     type: "Pistols",
     base: { HP: 12450, ATK: 463, DEF: 1198 },
     weights: {
@@ -36,8 +36,8 @@ const WW_CHARACTERS = {
       "RSDB": 0.5,
     },
   },
-
-  [`Roccia`]: {
+  "1606": {
+    name: "Roccia",
     type: "Gauntlets",
     base: { HP: 12250, ATK: 375, DEF: 1198 },
     weights: {
@@ -50,7 +50,8 @@ const WW_CHARACTERS = {
   },
   
   // Version 1.4
-  [`Camellya`]: {
+  "1603": {
+    name: "Camellya",
     type: "Sword",
     base: { HP: 10325, ATK: 450, DEF: 1161 },
     weights: {
@@ -62,8 +63,8 @@ const WW_CHARACTERS = {
       "RLDB": 0.1,
     },
   },
-  
-  [`Lumi`]: {
+  "1504": {
+    name: "Lumi",
     type: "Broadblade",
     base: { HP: 8500, ATK: 338, DEF: 880 },
     weights: {
@@ -78,7 +79,8 @@ const WW_CHARACTERS = {
   },
   
   // Version 1.3
-  [`The Shorekeeper`]: {
+  "1505": {
+    name: "The Shorekeeper",
     type: "Rectifier",
     base: { HP: 16713, ATK: 288, DEF: 1100 },
     weights: {
@@ -88,8 +90,8 @@ const WW_CHARACTERS = {
       "RLDB": 0.25,
     },
   },
-  
-  [`Youhu`]: {
+  "1106": {
+    name: "Youhu",
     type: "Gauntlets",
     base: { HP: 9975, ATK: 263, DEF: 1051 },
     weights: {
@@ -101,7 +103,8 @@ const WW_CHARACTERS = {
   },
   
   // Version 1.2
-  [`Xiangli Yao`]: {
+  "1305": {
+    name: "Xiangli Yao",
     type: "Gauntlets",
     base: { HP: 10625, ATK: 425, DEF: 1222 },
     weights: {
@@ -113,8 +116,8 @@ const WW_CHARACTERS = {
       "RSDB": 0.1,
     },
   },
-  
-  [`Zhezhi`]: {
+  "1105": {
+    name: "Zhezhi",
     type: "Rectifier",
     base: { HP: 12250, ATK: 375, DEF: 1198 },
     weights: {
@@ -127,7 +130,8 @@ const WW_CHARACTERS = {
   },
   
   // Version 1.1
-  [`Changli`]: {
+  "1205": {
+    name: "Changli",
     type: "Sword",
     base: { HP: 10388, ATK: 463, DEF: 1100 },
     weights: {
@@ -139,8 +143,8 @@ const WW_CHARACTERS = {
       "RLDB": 0.14,
     },
   },
-  
-  [`Jinhsi`]: {
+  "1304": {
+    name: "Jinhsi",
     type: "Broadblade",
     base: { HP: 10825, ATK: 413, DEF: 1259 },
     weights: {
@@ -154,7 +158,8 @@ const WW_CHARACTERS = {
   },
   
   // Version 1.0
-  [`Aalto`]: {
+  "1403": {
+    name: "Aalto",
     type: "Pistols",
     base: { HP: 9850, ATK: 263, DEF: 1075 },
     weights: {
@@ -166,8 +171,8 @@ const WW_CHARACTERS = {
       "RSDB": 0.16,
     },
   },
-  
-  [`Baizhi`]: {
+  "1103": {
+    name: "Baizhi",
     type: "Rectifier",
     base: { HP: 12813, ATK: 213, DEF: 1002 },
     weights: {
@@ -175,8 +180,8 @@ const WW_CHARACTERS = {
       "HP_PERCENT": 0.6,
     },
   },
-  
-  [`Calcharo`]: {
+  "1301": {
+    name: "Calcharo",
     type: "Broadblade",
     base: { HP: 10500, ATK: 438, DEF: 1185 },
     weights: {
@@ -188,8 +193,8 @@ const WW_CHARACTERS = {
       "BADB": 0.15,
     },
   },
-  
-  [`Chixia`]: {
+  "1202": {
+    name: "Chixia",
     type: "Pistols",
     base: { HP: 9088, ATK: 300, DEF: 953 },
     weights: {
@@ -201,8 +206,8 @@ const WW_CHARACTERS = {
       "RLDB": 0.2,
     },
   },
-  
-  [`Danjin`]: {
+  "1602": {
+    name: "Danjin",
     type: "Sword",
     base: { HP: 9438, ATK: 263, DEF: 1149 },
     weights: {
@@ -215,8 +220,8 @@ const WW_CHARACTERS = {
       "HADB": 0.15,
     },
   },
-  
-  [`Encore`]: {
+  "1203": {
+    name: "Encore",
     type: "Rectifier",
     base: { HP: 10513, ATK: 425, DEF: 1246 },
     weights: {
@@ -227,8 +232,8 @@ const WW_CHARACTERS = {
       "BADB": 0.28,
     },
   },
-  
-  [`Jianxin`]: {
+  "1405": {
+    name: "Jianxin",
     type: "Gauntlets",
     base: { HP: 14113, ATK: 338, DEF: 1124 },
     weights: {
@@ -240,8 +245,8 @@ const WW_CHARACTERS = {
       "BADB": 0.19,
     },
   },
-  
-  [`Jiyan`]: {
+  "1404": {
+    name: "Jiyan",
     type: "Broadblade",
     base: { HP: 10488, ATK: 438, DEF: 1185 },
     weights: {
@@ -252,8 +257,8 @@ const WW_CHARACTERS = {
       "HADB": 0.41,
     },
   },
-  
-  [`Lingyang`]: {
+  "1104": {
+    name: "Lingyang",
     type: "Gauntlets",
     base: { HP: 10388, ATK: 438, DEF: 1210 },
     weights: {
@@ -265,8 +270,8 @@ const WW_CHARACTERS = {
       "RSDB": 0.17,
     },
   },
-  
-  [`Mortefi`]: {
+  "1204": {
+    name: "Mortefi",
     type: "Pistols",
     base: { HP: 10025, ATK: 250, DEF: 1136 },
     weights: {
@@ -278,8 +283,8 @@ const WW_CHARACTERS = {
       "RSDB": 0.11,
     },
   },
-  
-  [`Rover (Havoc)`]: {
+  "1604": {
+    name: "Rover (Havoc)",
     type: "Sword",
     base: { HP: 10825, ATK: 413, DEF: 1259 },
     weights: {
@@ -292,8 +297,8 @@ const WW_CHARACTERS = {
       "RSDB": 0.11,
     },
   },
-  
-  [`Rover (Spectro)`]: {
+  "1502": {
+    name: "Rover (Spectro)",
     type: "Sword",
     base: { HP: 11400, ATK: 375, DEF: 1369 },
     weights: {
@@ -303,8 +308,8 @@ const WW_CHARACTERS = {
       "ATK_PERCENT": 0.6,
     },
   },
-  
-  [`Sanhua`]: {
+  "1102": {
+    name: "Sanhua",
     type: "Sword",
     base: { HP: 10063, ATK: 275, DEF: 941 },
     weights: {
@@ -317,8 +322,8 @@ const WW_CHARACTERS = {
       "RSDB": 0.16,
     },
   },
-  
-  [`Taoqi`]: {
+  "1601": {
+    name: "Taoqi",
     type: "Broadblade",
     base: { HP: 8950, ATK: 225, DEF: 1564 },
     weights: {
@@ -328,8 +333,8 @@ const WW_CHARACTERS = {
       "CD": 0.5,
     },
   },
-  
-  [`Verina`]: {
+  "1503": {
+    name: "Verina",
     type: "Rectifier",
     base: { HP: 14238, ATK: 338, DEF: 1100 },
     weights: {
@@ -337,8 +342,8 @@ const WW_CHARACTERS = {
       "ATK_PERCENT": 0.6,
     },
   },
-  
-  [`Yangyang`]: {
+  "1402": {
+    name: "Yangyang",
     type: "Sword",
     base: { HP: 10200, ATK: 250, DEF: 1100 },
     weights: {
@@ -350,8 +355,8 @@ const WW_CHARACTERS = {
       "BADB": 0.19,
     },
   },
-  
-  [`Yinlin`]: {
+  "1302": {
+    name: "Yinlin",
     type: "Rectifier",
     base: { HP: 11000, ATK: 400, DEF: 1283 },
     weights: {
@@ -363,8 +368,8 @@ const WW_CHARACTERS = {
       "RLDB": 0.12,
     },
   },
-  
-  [`Yuanwu`]: {
+  "1303": {
+    name: "Yuanwu",
     type: "Gauntlets",
     base: { HP: 8525, ATK: 225, DEF: 1637 },
     weights: {

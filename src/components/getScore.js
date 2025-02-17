@@ -38,15 +38,15 @@ const simulate_substats = (substats, weights, mainstatsArr, SUBSTATS, gameType) 
   let FIXED_STAT_UNTIL_WHEN = 3;
   let INITIAL_ROLL_INCREMENT = 5;
   if (gameType === "GI") {
-    matchStat = "Energy Recharge";
+    matchStat = "FIGHT_PROP_CHARGE_EFFICIENCY";
     TOTAL_ROLLS = 40;
     FIXED_STAT_UNTIL_WHEN = 2;
   } else if (gameType === "HSR") {
-    matchStat = "SPD";
-    matchStat2 = "Effect Hit Rate"
+    matchStat = "SpeedDelta";
+    matchStat2 = "StatusProbability"
     FIXED_STAT_UNTIL_WHEN = 2;
   } else if (gameType === "WW") {
-    matchStat = "Energy Regen";
+    matchStat = "ENERGY_REGEN";
     TOTAL_ROLLS = 25;
     MAX_ROLLS_PER_PIECE = 5;
     FIXED_STAT_UNTIL_WHEN = 0;
@@ -109,27 +109,27 @@ const simulate_substats = (substats, weights, mainstatsArr, SUBSTATS, gameType) 
 };
 
 const calculatePoints = (statsObj, weights, basestats, SUBSTATS, gameType) => {
-  const baseConversion = {};
+  const flatToPercent = {};
   switch (gameType) {
     case "GI":
-      baseConversion.FIGHT_PROP_HP = "FIGHT_PROP_HP_PERCENT";
-      baseConversion.FIGHT_PROP_ATTACK = "FIGHT_PROP_ATTACK_PERCENT";
-      baseConversion.FIGHT_PROP_DEFENSE = "FIGHT_PROP_DEFENSE_PERCENT";
+      flatToPercent.FIGHT_PROP_HP = "FIGHT_PROP_HP_PERCENT";
+      flatToPercent.FIGHT_PROP_ATTACK = "FIGHT_PROP_ATTACK_PERCENT";
+      flatToPercent.FIGHT_PROP_DEFENSE = "FIGHT_PROP_DEFENSE_PERCENT";
       break;
     case "HSR":
-      baseConversion.HPDelta = "HPAddedRatio";
-      baseConversion.AttackDelta = "AttackAddedRatio";
-      baseConversion.DefenceDelta = "DefenceAddedRatio";
+      flatToPercent.HPDelta = "HPAddedRatio";
+      flatToPercent.AttackDelta = "AttackAddedRatio";
+      flatToPercent.DefenceDelta = "DefenceAddedRatio";
       break;
     case "ZZZ":
-      baseConversion.HP = "HP_PERCENT";
-      baseConversion.ATK = "ATK_PERCENT";
-      baseConversion.DEF = "DEF_PERCENT";
+      flatToPercent.HP = "HP_PERCENT";
+      flatToPercent.ATK = "ATK_PERCENT";
+      flatToPercent.DEF = "DEF_PERCENT";
       break;
     case "WW":
-      baseConversion.HP = "HP_PERCENT";
-      baseConversion.ATK = "ATK_PERCENT";
-      baseConversion.DEF = "DEF_PERCENT";
+      flatToPercent.HP = "HP_PERCENT";
+      flatToPercent.ATK = "ATK_PERCENT";
+      flatToPercent.DEF = "DEF_PERCENT";
       break;
   }
   let points = 0;
@@ -138,10 +138,10 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS, gameType) => {
       const weight = weights[key];
       const normalize = SUBSTATS[key]?.value;
       points += (value / normalize) * weight;
-    } else if (basestats[key] && weights[baseConversion[key]]) {
+    } else if (basestats[key] && weights[flatToPercent[key]]) {
       const valuePercent = (value / basestats[key]) * 100;
-      const weight = weights[baseConversion[key]];
-      const normalize = SUBSTATS[baseConversion[key]]?.value;
+      const weight = weights[flatToPercent[key]];
+      const normalize = SUBSTATS[flatToPercent[key]]?.value;
       points += (valuePercent / normalize) * weight;
     }
   });

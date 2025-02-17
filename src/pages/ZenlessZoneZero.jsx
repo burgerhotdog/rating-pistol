@@ -105,12 +105,12 @@ const ZenlessZoneZero = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`../assets/char/ZZZ/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../assets/char/ZZZ/${cid}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{cid}</TableCell>
+                    <TableCell>{GAME_DATA["ZZZ"].CHARACTERS[cid].name}</TableCell>
                     {isNotMobile && (
                       <TableCell>
                         {cdata.weapon && (

@@ -106,12 +106,12 @@ const WutheringWaves = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`../assets/char/WW/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../assets/char/WW/${cid}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{cid}</TableCell>
+                    <TableCell>{GAME_DATA["WW"].CHARACTERS[cid].name}</TableCell>
                     {isNotMobile && (
                       <TableCell>
                         {cdata.weapon && (

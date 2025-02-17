@@ -106,12 +106,12 @@ const HonkaiStarRail = ({ uid }) => {
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`../assets/char/HSR/${toPascalCase(cid)}.webp`]?.default}
+                        src={cImgs[`../assets/char/HSR/${cid}.webp`]?.default}
                         alt={"char"}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{cid}</TableCell>
+                    <TableCell>{GAME_DATA["HSR"].CHARACTERS[cid].name}</TableCell>
                     {isNotMobile && (
                       <TableCell>
                         {cdata.weapon && (
@@ -122,9 +122,9 @@ const HonkaiStarRail = ({ uid }) => {
                                   {GAME_DATA["HSR"].WEAPONS[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base HP: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.HP} <br />
-                                  {"Base ATK: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.ATK} <br />
-                                  {"Base DEF: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.DEF}
+                                  {"Base HP: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.HPDelta} <br />
+                                  {"Base ATK: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.AttackDelta} <br />
+                                  {"Base DEF: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.DefenceDelta}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
                                   {GAME_DATA["HSR"].WEAPONS[cdata.weapon].subtitle}
