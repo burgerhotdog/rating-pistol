@@ -160,18 +160,17 @@ const HonkaiStarRail = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {cdata.set1}
+                                    {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].name}
                                   </Typography>
-                                  <Typography variant="body2">
-                                    {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].desc[0]} <br />
-                                    {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].desc[1]}
+                                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                                    {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
                               arrow
                             >
                               <img
-                                src={sImgs[`../assets/set/HSR/${toPascalCase(cdata.set1)}.webp`]?.default}
+                                src={sImgs[`../assets/set/HSR/${cdata.set1}.webp`]?.default}
                                 alt={"set1"}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
@@ -183,17 +182,17 @@ const HonkaiStarRail = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {cdata.set2}
+                                    {GAME_DATA["HSR"].SETS_PLANAR[cdata.set2].name}
                                   </Typography>
-                                  <Typography variant="body2">
-                                    {GAME_DATA["HSR"].SETS_PLANAR[cdata.set2].desc[0]}
+                                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                                    {GAME_DATA["HSR"].SETS_PLANAR[cdata.set2].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
                               arrow
                             >
                               <img
-                                src={sImgs[`../assets/set/HSR/${toPascalCase(cdata.set2)}.webp`]?.default}
+                                src={sImgs[`../assets/set/HSR/${cdata.set2}.webp`]?.default}
                                 alt={"set2"}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />

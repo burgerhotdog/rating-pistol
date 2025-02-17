@@ -153,18 +153,17 @@ const GenshinImpact = ({ uid }) => {
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {cdata.set}
+                                  {GAME_DATA["GI"].SETS[cdata.set].name}
                                 </Typography>
-                                <Typography variant="body2">
-                                  {GAME_DATA["GI"].SETS[cdata.set].desc[0]} <br />
-                                  {GAME_DATA["GI"].SETS[cdata.set].desc[1]}
+                                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                                  {GAME_DATA["GI"].SETS[cdata.set].desc}
                                 </Typography>
                               </React.Fragment>
                             }
                             arrow
                           >
                             <img
-                              src={sImgs[`../assets/set/GI/${toPascalCase(cdata.set)}.webp`]?.default}
+                              src={sImgs[`../assets/set/GI/${cdata.set}.webp`]?.default}
                               alt={"set"}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />

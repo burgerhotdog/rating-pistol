@@ -151,18 +151,17 @@ const WutheringWaves = ({ uid }) => {
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {cdata.set}
+                                  {GAME_DATA["WW"].SETS[cdata.set].name}
                                 </Typography>
-                                <Typography variant="body2">
-                                  {GAME_DATA["WW"].SETS[cdata.set].desc[0]} <br />
-                                  {GAME_DATA["WW"].SETS[cdata.set].desc[1]}
+                                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                                  {GAME_DATA["WW"].SETS[cdata.set].desc}
                                 </Typography>
                               </React.Fragment>
                             }
                             arrow
                           >
                             <img
-                              src={sImgs[`../assets/set/WW/${toPascalCase(cdata.set)}.webp`]?.default}
+                              src={sImgs[`../assets/set/WW/${cdata.set}.webp`]?.default}
                               alt={"set"}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />

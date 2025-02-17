@@ -83,22 +83,31 @@ const Save = ({
 
   const setOptions = (setNumber) => {
     if (gameType !== "ZZZ" || setNumber === "set1") {
-      return Object.keys(GAME_DATA[gameType].SETS).sort();
+      return Object.keys(GAME_DATA[gameType].SETS)
+        .sort((a, b) => 
+          GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name)
+        );
     } else if (setNumber === "set2") {
       return Object.keys(GAME_DATA[gameType].SETS)
         .filter(id => id !== newCdata.set1)
-        .sort();
+        .sort((a, b) => 
+          GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name)
+        );
     }
   };
 
   const set1Options = () => {
     return Object.keys(GAME_DATA["HSR"].SETS_RELIC)
-      .sort();
+      .sort((a, b) => 
+        GAME_DATA["HSR"].SETS_RELIC[a].name.localeCompare(GAME_DATA["HSR"].SETS_RELIC[b].name)
+      );
   };
 
   const set2Options = () => {
     return Object.keys(GAME_DATA["HSR"].SETS_PLANAR)
-      .sort();
+    .sort((a, b) => 
+      GAME_DATA["HSR"].SETS_PLANAR[a].name.localeCompare(GAME_DATA["HSR"].SETS_PLANAR[b].name)
+    );
   };
 
   const handleSave = async () => {
@@ -268,7 +277,8 @@ const Save = ({
                 size="small"
                 value={(gameType === "HSR" || gameType === "ZZZ") ? newCdata.set1 : newCdata.set}
                 options={gameType === "HSR" ? set1Options() : setOptions(gameType === "ZZZ" ? "set1" : "")}
-                onChange={(_, newValue) => handleSet(newValue, gameType === "ZZZ" ? "set1" : "")}
+                onChange={(_, newValue) => handleSet(newValue, (gameType === "ZZZ" || gameType === "HSR" ) ? "set1" : "")}
+                getOptionLabel={(id) => (gameType === "HSR" ? GAME_DATA["HSR"].SETS_RELIC[id]?.name : GAME_DATA[gameType].SETS[id]?.name) || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -286,6 +296,7 @@ const Save = ({
                   size="small"
                   value={newCdata.set2}
                   options={gameType === "HSR" ? set2Options() : setOptions("set2")}
+                  getOptionLabel={(id) => (gameType === "HSR" ? GAME_DATA["HSR"].SETS_PLANAR[id]?.name : GAME_DATA["ZZZ"].SETS[id]?.name) || ""}
                   onChange={(_, newValue) => handleSet(newValue, "set2")}
                   renderInput={(params) => (
                     <TextField

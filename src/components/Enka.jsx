@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import blankCdata from "./blankCdata";
-import { enkaConvertChar, enkaConvertSet, enkaConvertStats } from "./enkaConvert";
+import { enkaConvertChar, enkaConvertStats } from "./enkaConvert";
 import getScore from "./getScore";
 
 const Enka = ({
@@ -89,7 +89,7 @@ const Enka = ({
       // set
       for (const set in setCounts) {
         if (setCounts[set] >= 4) {
-          cdata.set = enkaConvertSet[set];
+          cdata.set = set;
         }
       }
 

@@ -106,45 +106,6 @@ const enkaConvertChar = {
   10000025: `Xingqiu`,
 };
 
-const enkaConvertSet = {
-  15038: `Obsidian Codex`,
-  15037: `Scroll of the Hero of Cinder City`,
-  15035: `Fragment of Harmonic Whimsy`,
-  15036: `Unfinished Reverie`,
-  15034: `Nighttime Whispers in the Echoing Woods`,
-  15033: `Song of Days Past`,
-  15032: `Golden Troupe`,
-  15031: `Marechaussee Hunter`,
-  15029: `Nymph's Dream`,
-  15030: `Vourukasha's Glow`,
-  15027: `Desert Pavilion Chronicle`,
-  15028: `Flower of Paradise Lost`,
-  15025: `Deepwood Memories`,
-  15026: `Gilded Dreams`,
-  15024: `Echoes of an Offering`,
-  15023: `Vermillion Hereafter`,
-  15021: `Husk of Opulent Dreams`,
-  15022: `Ocean-Hued Clam`,
-  15020: `Emblem of Severed Fate`,
-  15019: `Shimenawa's Reminiscence`,
-  15018: `Pale Flame`,
-  15017: `Tenacity of the Millelith`,
-  14001: `Blizzard Strayer`,
-  15016: `Heart of Depth`,
-  15014: `Archaic Petra`,
-  15008: `Bloodstained Chivalry`,
-  15006: `Crimson Witch of Flames`,
-  15001: `Gladiator's Finale`,
-  14003: `Lavawalker`,
-  14004: `Maiden Beloved`,
-  15007: `Noblesse Oblige`,
-  15015: `Retracing Bolide`,
-  15005: `Thundering Fury`,
-  14002: `Thundersoother`,
-  15002: `Viridescent Venerer`,
-  15003: `Wanderer's Troupe`,
-};
-
 const enkaConvertStats = {
   FIGHT_PROP_HP: "HP",
   FIGHT_PROP_ATTACK: "ATK",
@@ -167,4 +128,4 @@ const enkaConvertStats = {
   FIGHT_PROP_FIRE_ADD_HURT: "Pyro DMG",
 };
 
-export { enkaConvertChar, enkaConvertSet, enkaConvertStats };
+export { enkaConvertChar, enkaConvertStats };
