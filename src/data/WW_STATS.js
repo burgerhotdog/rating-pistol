@@ -1,62 +1,197 @@
 const WW_MAINSTATS = [
   { // 4-cost
-    "HP%": 33,
-    "ATK%": 33,
-    "DEF%": 41.5,
-    "CRIT Rate": 22,
-    "CRIT DMG": 44,
-    "Healing Bonus": 26,
+    "HP_PERCENT": {
+      name: "HP%",
+      value: 33,
+    },
+    "ATK_PERCENT": {
+      name: "ATK%",
+      value: 33,
+    },
+    "DEF_PERCENT": {
+      name: "DEF%",
+      value: 41.5,
+    },
+    "CR": {
+      name: "CRIT Rate",
+      value: 22,
+    },
+    "CD": {
+      name: "CRIT DMG",
+      value: 44,
+    },
+    "HB": {
+      name: "Healing Bonus",
+      value: 26,
+    },
   },
   { // 3-cost
-    "HP%": 30,
-    "ATK%": 30,
-    "DEF%": 38,
-    "Aero DMG": 30,
-    "Electro DMG": 30,
-    "Fusion DMG": 30,
-    "Glacio DMG": 30,
-    "Havoc DMG": 30,
-    "Spectro DMG": 30,
-    "Energy Regen": 32,
+    "HP_PERCENT": {
+      name: "HP%",
+      value: 30,
+    },
+    "ATK_PERCENT": {
+      name: "ATK%",
+      value: 30,
+    },
+    "DEF_PERCENT": {
+      name: "DEF%",
+      value: 38,
+    },
+    "AERO_DMG": {
+      name: "Aero DMG Bonus",
+      value: 30,
+    },
+    "ELECTRO_DMG": {
+      name: "Electro DMG Bonus",
+      value: 30,
+    },
+    "FUSION_DMG": {
+      name: "Fusion DMG Bonus",
+      value: 30,
+    },
+    "GLACIO_DMG": {
+      name: "Glacio DMG Bonus",
+      value: 30,
+    },
+    "HAVOC_DMG": {
+      name: "Havoc DMG Bonus",
+      value: 30,
+    },
+    "SPECTRO_DMG": {
+      name: "Spectro DMG Bonus",
+      value: 30,
+    },
+    "ENERGY_REGEN": {
+      name: "Energy Regen",
+      value: 32,
+    },
   },
   { // 3-cost
-    "HP%": 30,
-    "ATK%": 30,
-    "DEF%": 38,
-    "Aero DMG": 30,
-    "Electro DMG": 30,
-    "Fusion DMG": 30,
-    "Glacio DMG": 30,
-    "Havoc DMG": 30,
-    "Spectro DMG": 30,
-    "Energy Regen": 32,
+    "HP_PERCENT": {
+      name: "HP%",
+      value: 30,
+    },
+    "ATK_PERCENT": {
+      name: "ATK%",
+      value: 30,
+    },
+    "DEF_PERCENT": {
+      name: "DEF%",
+      value: 38,
+    },
+    "AERO_DMG": {
+      name: "Aero DMG Bonus",
+      value: 30,
+    },
+    "ELECTRO_DMG": {
+      name: "Electro DMG Bonus",
+      value: 30,
+    },
+    "FUSION_DMG": {
+      name: "Fusion DMG Bonus",
+      value: 30,
+    },
+    "GLACIO_DMG": {
+      name: "Glacio DMG Bonus",
+      value: 30,
+    },
+    "HAVOC_DMG": {
+      name: "Havoc DMG Bonus",
+      value: 30,
+    },
+    "SPECTRO_DMG": {
+      name: "Spectro DMG Bonus",
+      value: 30,
+    },
+    "ENERGY_REGEN": {
+      name: "Energy Regen",
+      value: 32,
+    },
   },
   { // 1-cost
-    "HP%": 22.8,
-    "ATK%": 18,
-    "DEF%": 18,
+    "HP_PERCENT": {
+      name: "HP%",
+      value: 22.8,
+    },
+    "ATK_PERCENT": {
+      name: "ATK%",
+      value: 18,
+    },
+    "DEF_PERCENT": {
+      name: "DEF%",
+      value: 18,
+    },
   },
   { // 1-cost
-    "HP%": 22.8,
-    "ATK%": 18,
-    "DEF%": 18,
+    "HP_PERCENT": {
+      name: "HP%",
+      value: 22.8,
+    },
+    "ATK_PERCENT": {
+      name: "ATK%",
+      value: 18,
+    },
+    "DEF_PERCENT": {
+      name: "DEF%",
+      value: 18,
+    },
   },
 ];
 
 const WW_SUBSTATS = {
-  "HP": 580,
-  "ATK": 60,
-  "DEF": 70,
-  "HP%": 11.6,
-  "ATK%": 11.6,
-  "DEF%": 14.7,
-  "Energy Regen": 12.4,
-  "CRIT Rate": 10.5,
-  "CRIT DMG": 21,
-  "Basic Attack DMG": 11.6,
-  "Heavy Attack DMG": 11.6,
-  "Resonance Skill DMG": 11.6,
-  "Resonance Liberation DMG": 11.6,
+  "HP": {
+    name: "HP",
+    value: 580,
+  },
+  "ATK": {
+    name: "ATK",
+    value: 60,
+  },
+  "DEF": {
+    name: "DEF",
+    value: 70,
+  },
+  "HP_PERCENT": {
+    name: "HP%",
+    value: 11.6,
+  },
+  "ATK_PERCENT": {
+    name: "ATK%",
+    value: 11.6,
+  },
+  "DEF_PERCENT": {
+    name: "DEF%",
+    value: 14.7,
+  },
+  "ENERGY_REGEN": {
+    name: "Energy Regen",
+    value: 12.4,
+  },
+  "CR": {
+    name: "CRIT Rate",
+    value: 10.5,
+  },
+  "CD": {
+    name: "CRIT DMG",
+    value: 21,
+  },
+  "BADB": {
+    name: "Basic Attack DMG Bonus",
+    value: 11.6,
+  },
+  "HADB": {
+    name: "Heavy Attack DMG Bonus",
+    value: 11.6,
+  },
+  "RSDB": {
+    name: "Resonance Skill DMG Bonus",
+    value: 11.6,
+  },
+  "RLDB": {
+    name: "Resonance Liberation DMG Bonus",
+    value: 11.6,
+  },
 };
 
 export { WW_MAINSTATS, WW_SUBSTATS };

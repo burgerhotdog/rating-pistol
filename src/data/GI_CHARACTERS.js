@@ -2,329 +2,329 @@ const GI_CHARACTERS = {
   // Verison 5.4
   [`Yumemizuki Mizuki`]: {
     type: "Catalyst",
-    base: { HP: 12736, ATK: 215, DEF: 757 },
+    base: { FIGHT_PROP_HP: 12736, FIGHT_PROP_ATTACK: 215, FIGHT_PROP_DEFENSE: 757 },
     weights: {
-      "Energy Recharge": 1,
-      "Elemental Mastery": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 1,
     },
   },
 
   // Version 5.3
   [`Citlali`]: {
     type: "Catalyst",
-    base: { HP: 11633, ATK: 126, DEF: 763 },
+    base: { FIGHT_PROP_HP: 11633, FIGHT_PROP_ATTACK: 126, FIGHT_PROP_DEFENSE: 763 },
     weights: {
-      "Energy Recharge": 1,
-      "Elemental Mastery": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 1,
     },
   },
 
   [`Lan Yan`]: {
     type: "Catalyst",
-    base: { HP: 9243, ATK: 250, DEF: 580 },
+    base: { FIGHT_PROP_HP: 9243, FIGHT_PROP_ATTACK: 250, FIGHT_PROP_DEFENSE: 580 },
     weights: {
-      "Energy Recharge": 1,
-      "ATK%": 1,
-      "Elemental Mastery": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.6,
     },
   },
   
   [`Mavuika`]: {
     type: "Claymore",
-    base: { HP: 12552, ATK: 358, DEF: 791 },
+    base: { FIGHT_PROP_HP: 12552, FIGHT_PROP_ATTACK: 358, FIGHT_PROP_DEFENSE: 791 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
 
   [`Traveler (Pyro)`]: {
     type: "Sword",
-    base: { HP: 10875, ATK: 212, DEF: 683 },
+    base: { FIGHT_PROP_HP: 10875, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 683 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 5.2
   [`Chasca`]: {
     type: "Bow",
-    base: { HP: 9796, ATK: 346, DEF: 614 },
+    base: { FIGHT_PROP_HP: 9796, FIGHT_PROP_ATTACK: 346, FIGHT_PROP_DEFENSE: 614 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Ororon`]: {
     type: "Bow",
-    base: { HP: 9243, ATK: 244, DEF: 586 },
+    base: { FIGHT_PROP_HP: 9243, FIGHT_PROP_ATTACK: 244, FIGHT_PROP_DEFENSE: 586 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 5.1
   [`Xilonen`]: {
     type: "Sword",
-    base: { HP: 12405, ATK: 275, DEF: 929 },
+    base: { FIGHT_PROP_HP: 12405, FIGHT_PROP_ATTACK: 275, FIGHT_PROP_DEFENSE: 929 },
     weights: {
-      "Energy Recharge": 1,
-      "DEF%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_DEFENSE_PERCENT": 0.6,
     },
   },
   
   // Version 5.0
   [`Kachina`]: {
     type: "Polearm",
-    base: { HP: 11799, ATK: 216, DEF: 792 },
+    base: { FIGHT_PROP_HP: 11799, FIGHT_PROP_ATTACK: 216, FIGHT_PROP_DEFENSE: 792 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "DEF%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_DEFENSE_PERCENT": 0.6,
     },
   },
   
   [`Kinich`]: {
     type: "Claymore",
-    base: { HP: 12858, ATK: 332, DEF: 801 },
+    base: { FIGHT_PROP_HP: 12858, FIGHT_PROP_ATTACK: 332, FIGHT_PROP_DEFENSE: 801 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Mualani`]: {
     type: "Catalyst",
-    base: { HP: 15184, ATK: 181, DEF: 570 },
+    base: { FIGHT_PROP_HP: 15184, FIGHT_PROP_ATTACK: 181, FIGHT_PROP_DEFENSE: 570 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "HP%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 4.8
   [`Emilie`]: {
     type: "Polearm",
-    base: { HP: 13568, ATK: 334, DEF: 730 },
+    base: { FIGHT_PROP_HP: 13568, FIGHT_PROP_ATTACK: 334, FIGHT_PROP_DEFENSE: 730 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 4.7
   [`Clorinde`]: {
     type: "Sword",
-    base: { HP: 12956, ATK: 337, DEF: 783 },
+    base: { FIGHT_PROP_HP: 12956, FIGHT_PROP_ATTACK: 337, FIGHT_PROP_DEFENSE: 783 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Sethos`]: {
     type: "Bow",
-    base: { HP: 9787, ATK: 227, DEF: 559 },
+    base: { FIGHT_PROP_HP: 9787, FIGHT_PROP_ATTACK: 227, FIGHT_PROP_DEFENSE: 559 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "Elemental Mastery": 0.48,
-      "ATK%": 0.36,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.48,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.36,
     },
   },
   
   [`Sigewinne`]: {
     type: "Bow",
-    base: { HP: 13348, ATK: 192, DEF: 499 },
+    base: { FIGHT_PROP_HP: 13348, FIGHT_PROP_ATTACK: 192, FIGHT_PROP_DEFENSE: 499 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   // Version 4.6
   [`Arlecchino`]: {
     type: "Polearm",
-    base: { HP: 13103, ATK: 342, DEF: 764 },
+    base: { FIGHT_PROP_HP: 13103, FIGHT_PROP_ATTACK: 342, FIGHT_PROP_DEFENSE: 764 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 4.5
   [`Chiori`]: {
     type: "Sword",
-    base: { HP: 11437, ATK: 322, DEF: 953 },
+    base: { FIGHT_PROP_HP: 11437, FIGHT_PROP_ATTACK: 322, FIGHT_PROP_DEFENSE: 953 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "DEF%": 0.6,
-      "ATK%": 0.12,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_DEFENSE_PERCENT": 0.6,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.12,
     },
   },
   
   // Version 4.4
   [`Gaming`]: {
     type: "Claymore",
-    base: { HP: 11418, ATK: 301, DEF: 702 },
+    base: { FIGHT_PROP_HP: 11418, FIGHT_PROP_ATTACK: 301, FIGHT_PROP_DEFENSE: 702 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Xianyun`]: {
     type: "Catalyst",
-    base: { HP: 10409, ATK: 334, DEF: 572 },
+    base: { FIGHT_PROP_HP: 10409, FIGHT_PROP_ATTACK: 334, FIGHT_PROP_DEFENSE: 572 },
     weights: {
-      "Energy Recharge": 1,
-      "ATK%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 1,
     },
   },
   
   // Version 4.3
   [`Chevreuse`]: {
     type: "Polearm",
-    base: { HP: 11962, ATK: 193, DEF: 604 },
+    base: { FIGHT_PROP_HP: 11962, FIGHT_PROP_ATTACK: 193, FIGHT_PROP_DEFENSE: 604 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   [`Navia`]: {
     type: "Claymore",
-    base: { HP: 12650, ATK: 351, DEF: 793 },
+    base: { FIGHT_PROP_HP: 12650, FIGHT_PROP_ATTACK: 351, FIGHT_PROP_DEFENSE: 793 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   // Version 4.2
   [`Charlotte`]: {
     type: "Catalyst",
-    base: { HP: 10766, ATK: 173, DEF: 546 },
+    base: { FIGHT_PROP_HP: 10766, FIGHT_PROP_ATTACK: 173, FIGHT_PROP_DEFENSE: 546 },
     weights: {
-      "Energy Recharge": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Furina`]: {
     type: "Sword",
-    base: { HP: 15307, ATK: 243, DEF: 695 },
+    base: { FIGHT_PROP_HP: 15307, FIGHT_PROP_ATTACK: 243, FIGHT_PROP_DEFENSE: 695 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "HP%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 4.1
   [`Neuvillette`]: {
     type: "Catalyst",
-    base: { HP: 14695, ATK: 208, DEF: 576 },
+    base: { FIGHT_PROP_HP: 14695, FIGHT_PROP_ATTACK: 208, FIGHT_PROP_DEFENSE: 576 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "HP%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Wriothesley`]: {
     type: "Catalyst",
-    base: { HP: 13592, ATK: 310, DEF: 763 },
+    base: { FIGHT_PROP_HP: 13592, FIGHT_PROP_ATTACK: 310, FIGHT_PROP_DEFENSE: 763 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 4.0
   [`Freminet`]: {
     type: "Claymore",
-    base: { HP: 12071, ATK: 254, DEF: 708 },
+    base: { FIGHT_PROP_HP: 12071, FIGHT_PROP_ATTACK: 254, FIGHT_PROP_DEFENSE: 708 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Lynette`]: {
     type: "Sword",
-    base: { HP: 12397, ATK: 231, DEF: 711 },
+    base: { FIGHT_PROP_HP: 12397, FIGHT_PROP_ATTACK: 231, FIGHT_PROP_DEFENSE: 711 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Lyney`]: {
     type: "Bow",
-    base: { HP: 11021, ATK: 231, DEF: 537 },
+    base: { FIGHT_PROP_HP: 11021, FIGHT_PROP_ATTACK: 231, FIGHT_PROP_DEFENSE: 537 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
 
   [`Traveler (Hydro)`]: {
     type: "Sword",
-    base: { HP: 10875, ATK: 212, DEF: 683 },
+    base: { FIGHT_PROP_HP: 10875, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 683 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
@@ -333,773 +333,773 @@ const GI_CHARACTERS = {
   // Version 3.7
   [`Kirara`]: {
     type: "Sword",
-    base: { HP: 12179, ATK: 223, DEF: 546 },
+    base: { FIGHT_PROP_HP: 12179, FIGHT_PROP_ATTACK: 223, FIGHT_PROP_DEFENSE: 546 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   // Version 3.6
   [`Baizhu`]: {
     type: "Catalyst",
-    base: { HP: 13348, ATK: 192, DEF: 499 },
+    base: { FIGHT_PROP_HP: 13348, FIGHT_PROP_ATTACK: 192, FIGHT_PROP_DEFENSE: 499 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   [`Kaveh`]: {
     type: "Claymore",
-    base: { HP: 11962, ATK: 233, DEF: 750 },
+    base: { FIGHT_PROP_HP: 11962, FIGHT_PROP_ATTACK: 233, FIGHT_PROP_DEFENSE: 750 },
     weights: {
-      "Energy Recharge": 1,
-      "Elemental Mastery": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 1,
     },
   },
   
   // Version 3.5
   [`Dehya`]: {
     type: "Claymore",
-    base: { HP: 15674, ATK: 265, DEF: 627 },
+    base: { FIGHT_PROP_HP: 15674, FIGHT_PROP_ATTACK: 265, FIGHT_PROP_DEFENSE: 627 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "HP%": 0.48,
-      "ATK%": 0.36,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.48,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.36,
     },
   },
   
   [`Mika`]: {
     type: "Polearm",
-    base: { HP: 12506, ATK: 223, DEF: 713 },
+    base: { FIGHT_PROP_HP: 12506, FIGHT_PROP_ATTACK: 223, FIGHT_PROP_DEFENSE: 713 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   // Version 3.4
   [`Alhaitham`]: {
     type: "Sword",
-    base: { HP: 13348, ATK: 313, DEF: 781 },
+    base: { FIGHT_PROP_HP: 13348, FIGHT_PROP_ATTACK: 313, FIGHT_PROP_DEFENSE: 781 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "Elemental Mastery": 0.6,
-      "ATK%": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.6,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.24,
     },
   },
   
   [`Yaoyao`]: {
     type: "Polearm",
-    base: { HP: 12288, ATK: 212, DEF: 750 },
+    base: { FIGHT_PROP_HP: 12288, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 750 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   // Version 3.3
   [`Faruzan`]: {
     type: "Bow",
-    base: { HP: 9569, ATK: 196, DEF: 627 },
+    base: { FIGHT_PROP_HP: 9569, FIGHT_PROP_ATTACK: 196, FIGHT_PROP_DEFENSE: 627 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 0.5,
-      "CRIT DMG": 0.5,
-      "ATK%": 0.3,
-      "Elemental Mastery": 0.12,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 0.5,
+      "FIGHT_PROP_CRITICAL_HURT": 0.5,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.3,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.12,
     },
   },
   
   [`Wanderer`]: {
     type: "Catalyst",
-    base: { HP: 10164, ATK: 327, DEF: 607 },
+    base: { FIGHT_PROP_HP: 10164, FIGHT_PROP_ATTACK: 327, FIGHT_PROP_DEFENSE: 607 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   // Version 3.2
   [`Layla`]: {
     type: "Sword",
-    base: { HP: 11092, ATK: 216, DEF: 655 },
+    base: { FIGHT_PROP_HP: 11092, FIGHT_PROP_ATTACK: 216, FIGHT_PROP_DEFENSE: 655 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   [`Nahida`]: {
     type: "Catalyst",
-    base: { HP: 10360, ATK: 298, DEF: 630 },
+    base: { FIGHT_PROP_HP: 10360, FIGHT_PROP_ATTACK: 298, FIGHT_PROP_DEFENSE: 630 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "Elemental Mastery": 0.6,
-      "ATK%": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.6,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.24,
     },
   },
   
   // Version 3.1
   [`Candace`]: {
     type: "Polearm",
-    base: { HP: 10874, ATK: 212, DEF: 682 },
+    base: { FIGHT_PROP_HP: 10874, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 682 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   [`Cyno`]: {
     type: "Polearm",
-    base: { HP: 12490, ATK: 318, DEF: 859 },
+    base: { FIGHT_PROP_HP: 12490, FIGHT_PROP_ATTACK: 318, FIGHT_PROP_DEFENSE: 859 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "Elemental Mastery": 0.48,
-      "ATK%": 0.36,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.48,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.36,
     },
   },
   
   [`Nilou`]: {
     type: "Sword",
-    base: { HP: 15184, ATK: 229, DEF: 728 },
+    base: { FIGHT_PROP_HP: 15184, FIGHT_PROP_ATTACK: 229, FIGHT_PROP_DEFENSE: 728 },
     weights: {
-      "HP%": 1,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_HP_PERCENT": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 3.0
   [`Collei`]: {
     type: "Bow",
-    base: { HP: 9787, ATK: 199, DEF: 600 },
+    base: { FIGHT_PROP_HP: 9787, FIGHT_PROP_ATTACK: 199, FIGHT_PROP_DEFENSE: 600 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 0.5,
-      "CRIT DMG": 0.5,
-      "Elemental Mastery": 0.24,
-      "ATK%": 0.18,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 0.5,
+      "FIGHT_PROP_CRITICAL_HURT": 0.5,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.18,
     },
   },
   
   [`Dori`]: {
     type: "Claymore",
-    base: { HP: 12397, ATK: 223, DEF: 723 },
+    base: { FIGHT_PROP_HP: 12397, FIGHT_PROP_ATTACK: 223, FIGHT_PROP_DEFENSE: 723 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   [`Tighnari`]: {
     type: "Bow",
-    base: { HP: 10849, ATK: 267, DEF: 630 },
+    base: { FIGHT_PROP_HP: 10849, FIGHT_PROP_ATTACK: 267, FIGHT_PROP_DEFENSE: 630 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "Elemental Mastery": 0.48,
-      "ATK%": 0.36,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.48,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.36,
     },
   },
 
   [`Traveler (Dendro)`]: {
     type: "Sword",
-    base: { HP: 10875, ATK: 212, DEF: 683 },
+    base: { FIGHT_PROP_HP: 10875, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 683 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 0.5,
-      "CRIT DMG": 0.5,
-      "Elemental Mastery": 0.24,
-      "ATK%": 0.18,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 0.5,
+      "FIGHT_PROP_CRITICAL_HURT": 0.5,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.18,
     },
   },
   
   // Version 2.8
   [`Shikanoin Heizou`]: {
     type: "Catalyst",
-    base: { HP: 10657, ATK: 225, DEF: 683 },
+    base: { FIGHT_PROP_HP: 10657, FIGHT_PROP_ATTACK: 225, FIGHT_PROP_DEFENSE: 683 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   // Version 2.7
   [`Kuki Shinobu`]: {
     type: "Sword",
-    base: { HP: 12288, ATK: 212, DEF: 750 },
+    base: { FIGHT_PROP_HP: 12288, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 750 },
     weights: {
-      "Elemental Mastery": 1,
-      "HP%": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.6,
     },
   },
   
   [`Yelan`]: {
     type: "Bow",
-    base: { HP: 14450, ATK: 243, DEF: 547 },
+    base: { FIGHT_PROP_HP: 14450, FIGHT_PROP_ATTACK: 243, FIGHT_PROP_DEFENSE: 547 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "HP%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 2.6
   [`Kamisato Ayato`]: {
     type: "Sword",
-    base: { HP: 13715, ATK: 298, DEF: 768 },
+    base: { FIGHT_PROP_HP: 13715, FIGHT_PROP_ATTACK: 298, FIGHT_PROP_DEFENSE: 768 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 2.5
   [`Yae Miko`]: {
     type: "Catalyst",
-    base: { HP: 10372, ATK: 339, DEF: 568 },
+    base: { FIGHT_PROP_HP: 10372, FIGHT_PROP_ATTACK: 339, FIGHT_PROP_DEFENSE: 568 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "Elemental Mastery": 0.48,
-      "ATK%": 0.36,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.48,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.36,
     },
   },
   
   // Version 2.4
   [`Shenhe`]: {
     type: "Polearm",
-    base: { HP: 12992, ATK: 303, DEF: 830 },
+    base: { FIGHT_PROP_HP: 12992, FIGHT_PROP_ATTACK: 303, FIGHT_PROP_DEFENSE: 830 },
     weights: {
-      "Energy Recharge": 1,
-      "ATK%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 1,
     },
   },
   
   [`Yun Jin`]: {
     type: "Polearm",
-    base: { HP: 10657, ATK: 191, DEF: 734 },
+    base: { FIGHT_PROP_HP: 10657, FIGHT_PROP_ATTACK: 191, FIGHT_PROP_DEFENSE: 734 },
     weights: {
-      "Energy Recharge": 1,
-      "DEF%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_DEFENSE_PERCENT": 1,
     },
   },
   
   // Version 2.3
   [`Arataki Itto`]: {
     type: "Claymore",
-    base: { HP: 12858, ATK: 227, DEF: 959 },
+    base: { FIGHT_PROP_HP: 12858, FIGHT_PROP_ATTACK: 227, FIGHT_PROP_DEFENSE: 959 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "DEF%": 0.6,
-      "ATK%": 0.12,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_DEFENSE_PERCENT": 0.6,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.12,
     },
   },
   
   [`Gorou`]: {
     type: "Bow",
-    base: { HP: 9569, ATK: 182, DEF: 648 },
+    base: { FIGHT_PROP_HP: 9569, FIGHT_PROP_ATTACK: 182, FIGHT_PROP_DEFENSE: 648 },
     weights: {
-      "Energy Recharge": 1,
-      "DEF%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_DEFENSE_PERCENT": 0.6,
     },
   },
   
   // Version 2.2
   [`Thoma`]: {
     type: "Polearm",
-    base: { HP: 10331, ATK: 201, DEF: 750 },
+    base: { FIGHT_PROP_HP: 10331, FIGHT_PROP_ATTACK: 201, FIGHT_PROP_DEFENSE: 750 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   // Version 2.1
   [`Aloy`]: {
     type: "Bow",
-    base: { HP: 10898, ATK: 233, DEF: 676 },
+    base: { FIGHT_PROP_HP: 10898, FIGHT_PROP_ATTACK: 233, FIGHT_PROP_DEFENSE: 676 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Kujou Sara`]: {
     type: "Bow",
-    base: { HP: 9569, ATK: 195, DEF: 627 },
+    base: { FIGHT_PROP_HP: 9569, FIGHT_PROP_ATTACK: 195, FIGHT_PROP_DEFENSE: 627 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 0.5,
-      "CRIT DMG": 0.5,
-      "ATK%": 0.3,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 0.5,
+      "FIGHT_PROP_CRITICAL_HURT": 0.5,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.3,
     },
   },
   
   [`Raiden Shogun`]: {
     type: "Polearm",
-    base: { HP: 12907, ATK: 337, DEF: 789 },
+    base: { FIGHT_PROP_HP: 12907, FIGHT_PROP_ATTACK: 337, FIGHT_PROP_DEFENSE: 789 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Sangonomiya Kokomi`]: {
     type: "Catalyst",
-    base: { HP: 13470, ATK: 234, DEF: 657 },
+    base: { FIGHT_PROP_HP: 13470, FIGHT_PROP_ATTACK: 234, FIGHT_PROP_DEFENSE: 657 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   // Version 2.0
   [`Kamisato Ayaka`]: {
     type: "Sword",
-    base: { HP: 12858, ATK: 342, DEF: 783 },
+    base: { FIGHT_PROP_HP: 12858, FIGHT_PROP_ATTACK: 342, FIGHT_PROP_DEFENSE: 783 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Sayu`]: {
     type: "Claymore",
-    base: { HP: 11853, ATK: 244, DEF: 744 },
+    base: { FIGHT_PROP_HP: 11853, FIGHT_PROP_ATTACK: 244, FIGHT_PROP_DEFENSE: 744 },
     weights: {
-      "Energy Recharge": 1,
-      "Elemental Mastery": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
 
   [`Traveler (Electro)`]: {
     type: "Sword",
-    base: { HP: 10875, ATK: 212, DEF: 683 },
+    base: { FIGHT_PROP_HP: 10875, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 683 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Yoimiya`]: {
     type: "Bow",
-    base: { HP: 10164, ATK: 322, DEF: 614 },
+    base: { FIGHT_PROP_HP: 10164, FIGHT_PROP_ATTACK: 322, FIGHT_PROP_DEFENSE: 614 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 1.6
   [`Kaedehara Kazuha`]: {
     type: "Sword",
-    base: { HP: 13348, ATK: 296, DEF: 806 },
+    base: { FIGHT_PROP_HP: 13348, FIGHT_PROP_ATTACK: 296, FIGHT_PROP_DEFENSE: 806 },
     weights: {
-      "Energy Recharge": 1,
-      "Elemental Mastery": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 1,
     },
   },
   
   // Version 1.5
   [`Eula`]: {
     type: "Claymore",
-    base: { HP: 13225, ATK: 342, DEF: 750 },
+    base: { FIGHT_PROP_HP: 13225, FIGHT_PROP_ATTACK: 342, FIGHT_PROP_DEFENSE: 750 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Yanfei`]: {
     type: "Catalyst",
-    base: { HP: 9352, ATK: 240, DEF: 586 },
+    base: { FIGHT_PROP_HP: 9352, FIGHT_PROP_ATTACK: 240, FIGHT_PROP_DEFENSE: 586 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 1.4
   [`Rosaria`]: {
     type: "Polearm",
-    base: { HP: 12288, ATK: 240, DEF: 709 },
+    base: { FIGHT_PROP_HP: 12288, FIGHT_PROP_ATTACK: 240, FIGHT_PROP_DEFENSE: 709 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 1.3
   [`Hu Tao`]: {
     type: "Polearm",
-    base: { HP: 15522, ATK: 106, DEF: 876 },
+    base: { FIGHT_PROP_HP: 15522, FIGHT_PROP_ATTACK: 106, FIGHT_PROP_DEFENSE: 876 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "HP%": 0.6,
-      "Elemental Mastery": 0.24,
-      "ATK%": 0.12,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.12,
     },
   },
   
   [`Xiao`]: {
     type: "Polearm",
-    base: { HP: 12735, ATK: 349, DEF: 799 },
+    base: { FIGHT_PROP_HP: 12735, FIGHT_PROP_ATTACK: 349, FIGHT_PROP_DEFENSE: 799 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   // Version 1.2
   [`Albedo`]: {
     type: "Sword",
-    base: { HP: 13225, ATK: 251, DEF: 876 },
+    base: { FIGHT_PROP_HP: 13225, FIGHT_PROP_ATTACK: 251, FIGHT_PROP_DEFENSE: 876 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "DEF%": 0.6,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_DEFENSE_PERCENT": 0.6,
     },
   },
   
   [`Ganyu`]: {
     type: "Bow",
-    base: { HP: 9796, ATK: 334, DEF: 630 },
+    base: { FIGHT_PROP_HP: 9796, FIGHT_PROP_ATTACK: 334, FIGHT_PROP_DEFENSE: 630 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   // Version 1.1
   [`Diona`]: {
     type: "Bow",
-    base: { HP: 9569, ATK: 212, DEF: 600 },
+    base: { FIGHT_PROP_HP: 9569, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 600 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 1,
     },
   },
   
   [`Tartaglia`]: {
     type: "Bow",
-    base: { HP: 13103, ATK: 301, DEF: 814 },
+    base: { FIGHT_PROP_HP: 13103, FIGHT_PROP_ATTACK: 301, FIGHT_PROP_DEFENSE: 814 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Xinyan`]: {
     type: "Claymore",
-    base: { HP: 11201, ATK: 248, DEF: 798 },
+    base: { FIGHT_PROP_HP: 11201, FIGHT_PROP_ATTACK: 248, FIGHT_PROP_DEFENSE: 798 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "DEF%": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_DEFENSE_PERCENT": 0.24,
     },
   },
   
   [`Zhongli`]: {
     type: "Polearm",
-    base: { HP: 14695, ATK: 251, DEF: 737 },
+    base: { FIGHT_PROP_HP: 14695, FIGHT_PROP_ATTACK: 251, FIGHT_PROP_DEFENSE: 737 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "HP%": 0.9,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.9,
     },
   },
   
   // Version 1.0
   [`Amber`]: {
     type: "Bow",
-    base: { HP: 9461, ATK: 223, DEF: 600 },
+    base: { FIGHT_PROP_HP: 9461, FIGHT_PROP_ATTACK: 223, FIGHT_PROP_DEFENSE: 600 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Barbara`]: {
     type: "Catalyst",
-    base: { HP: 9787, ATK: 159, DEF: 668 },
+    base: { FIGHT_PROP_HP: 9787, FIGHT_PROP_ATTACK: 159, FIGHT_PROP_DEFENSE: 668 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.6,
     },
   },
   
   [`Beidou`]: {
     type: "Claymore",
-    base: { HP: 13049, ATK: 225, DEF: 648 },
+    base: { FIGHT_PROP_HP: 13049, FIGHT_PROP_ATTACK: 225, FIGHT_PROP_DEFENSE: 648 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Bennett`]: {
     type: "Sword",
-    base: { HP: 12397, ATK: 191, DEF: 771 },
+    base: { FIGHT_PROP_HP: 12397, FIGHT_PROP_ATTACK: 191, FIGHT_PROP_DEFENSE: 771 },
     weights: {
-      "Energy Recharge": 1,
-      "HP%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_HP_PERCENT": 0.6,
     },
   },
   
   [`Chongyun`]: {
     type: "Claymore",
-    base: { HP: 10983, ATK: 223, DEF: 648 },
+    base: { FIGHT_PROP_HP: 10983, FIGHT_PROP_ATTACK: 223, FIGHT_PROP_DEFENSE: 648 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Diluc`]: {
     type: "Claymore",
-    base: { HP: 12980, ATK: 334, DEF: 783 },
+    base: { FIGHT_PROP_HP: 12980, FIGHT_PROP_ATTACK: 334, FIGHT_PROP_DEFENSE: 783 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Fischl`]: {
     type: "Bow",
-    base: { HP: 9189, ATK: 244, DEF: 593 },
+    base: { FIGHT_PROP_HP: 9189, FIGHT_PROP_ATTACK: 244, FIGHT_PROP_DEFENSE: 593 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.48,
-      "Elemental Mastery": 0.36,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.48,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.36,
     },
   },
   
   [`Jean`]: {
     type: "Sword",
-    base: { HP: 14695, ATK: 239, DEF: 768 },
+    base: { FIGHT_PROP_HP: 14695, FIGHT_PROP_ATTACK: 239, FIGHT_PROP_DEFENSE: 768 },
     weights: {
-      "Energy Recharge": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Kaeya`]: {
     type: "Sword",
-    base: { HP: 11636, ATK: 223, DEF: 791 },
+    base: { FIGHT_PROP_HP: 11636, FIGHT_PROP_ATTACK: 223, FIGHT_PROP_DEFENSE: 791 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Keqing`]: {
     type: "Sword",
-    base: { HP: 13103, ATK: 322, DEF: 799 },
+    base: { FIGHT_PROP_HP: 13103, FIGHT_PROP_ATTACK: 322, FIGHT_PROP_DEFENSE: 799 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.48,
-      "Elemental Mastery": 0.36,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.48,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.36,
     },
   },
   
   [`Klee`]: {
     type: "Catalyst",
-    base: { HP: 10286, ATK: 310, DEF: 614 },
+    base: { FIGHT_PROP_HP: 10286, FIGHT_PROP_ATTACK: 310, FIGHT_PROP_DEFENSE: 614 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Lisa`]: {
     type: "Catalyst",
-    base: { HP: 9569, ATK: 231, DEF: 573 },
+    base: { FIGHT_PROP_HP: 9569, FIGHT_PROP_ATTACK: 231, FIGHT_PROP_DEFENSE: 573 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.48,
-      "Elemental Mastery": 0.36,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.48,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.36,
     },
   },
   
   [`Mona`]: {
     type: "Catalyst",
-    base: { HP: 10409, ATK: 287, DEF: 653 },
+    base: { FIGHT_PROP_HP: 10409, FIGHT_PROP_ATTACK: 287, FIGHT_PROP_DEFENSE: 653 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 0.5,
-      "CRIT DMG": 0.5,
-      "ATK%": 0.3,
-      "Elemental Mastery": 0.12,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 0.5,
+      "FIGHT_PROP_CRITICAL_HURT": 0.5,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.3,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.12,
     },
   },
   
   [`Ningguang`]: {
     type: "Catalyst",
-    base: { HP: 9787, ATK: 212, DEF: 573 },
+    base: { FIGHT_PROP_HP: 9787, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 573 },
     weights: {
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Noelle`]: {
     type: "Claymore",
-    base: { HP: 12071, ATK: 191, DEF: 798 },
+    base: { FIGHT_PROP_HP: 12071, FIGHT_PROP_ATTACK: 191, FIGHT_PROP_DEFENSE: 798 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "DEF%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_DEFENSE_PERCENT": 0.6,
     },
   },
   
   [`Qiqi`]: {
     type: "Sword",
-    base: { HP: 12368, ATK: 287, DEF: 922 },
+    base: { FIGHT_PROP_HP: 12368, FIGHT_PROP_ATTACK: 287, FIGHT_PROP_DEFENSE: 922 },
     weights: {
-      "Energy Recharge": 1,
-      "ATK%": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 1,
     },
   },
   
   [`Razor`]: {
     type: "Claymore",
-    base: { HP: 11962, ATK: 233, DEF: 750 },
+    base: { FIGHT_PROP_HP: 11962, FIGHT_PROP_ATTACK: 233, FIGHT_PROP_DEFENSE: 750 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Sucrose`]: {
     type: "Catalyst",
-    base: { HP: 9243, ATK: 169, DEF: 702 },
+    base: { FIGHT_PROP_HP: 9243, FIGHT_PROP_ATTACK: 169, FIGHT_PROP_DEFENSE: 702 },
     weights: {
-      "Energy Recharge": 1,
-      "Elemental Mastery": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 1,
     },
   },
 
   [`Traveler (Anemo)`]: {
     type: "Sword",
-    base: { HP: 10875, ATK: 212, DEF: 683 },
+    base: { FIGHT_PROP_HP: 10875, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 683 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
 
   [`Traveler (Geo)`]: {
     type: "Sword",
-    base: { HP: 10875, ATK: 212, DEF: 683 },
+    base: { FIGHT_PROP_HP: 10875, FIGHT_PROP_ATTACK: 212, FIGHT_PROP_DEFENSE: 683 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
     },
   },
   
   [`Venti`]: {
     type: "Bow",
-    base: { HP: 10531, ATK: 263, DEF: 668 },
+    base: { FIGHT_PROP_HP: 10531, FIGHT_PROP_ATTACK: 263, FIGHT_PROP_DEFENSE: 668 },
     weights: {
-      "Energy Recharge": 1,
-      "Elemental Mastery": 1,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_ELEMENT_MASTERY": 1,
     },
   },
   
   [`Xiangling`]: {
     type: "Polearm",
-    base: { HP: 10874, ATK: 225, DEF: 668 },
+    base: { FIGHT_PROP_HP: 10874, FIGHT_PROP_ATTACK: 225, FIGHT_PROP_DEFENSE: 668 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
   
   [`Xingqiu`]: {
     type: "Sword",
-    base: { HP: 10222, ATK: 201, DEF: 757 },
+    base: { FIGHT_PROP_HP: 10222, FIGHT_PROP_ATTACK: 201, FIGHT_PROP_DEFENSE: 757 },
     weights: {
-      "Energy Recharge": 1,
-      "CRIT Rate": 1,
-      "CRIT DMG": 1,
-      "ATK%": 0.6,
-      "Elemental Mastery": 0.24,
+      "FIGHT_PROP_CHARGE_EFFICIENCY": 1,
+      "FIGHT_PROP_CRITICAL": 1,
+      "FIGHT_PROP_CRITICAL_HURT": 1,
+      "FIGHT_PROP_ATTACK_PERCENT": 0.6,
+      "FIGHT_PROP_ELEMENT_MASTERY": 0.24,
     },
   },
 };

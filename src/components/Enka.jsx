@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import blankCdata from "./blankCdata";
-import { enkaConvertChar, enkaConvertStats } from "./enkaConvert";
+import { enkaConvertChar } from "./enkaConvert";
 import getScore from "./getScore";
 
 const Enka = ({
@@ -24,7 +24,7 @@ const Enka = ({
 }) => {
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
-  const [avatarList, setAvatarList] = useState([]);
+  const [enkaData, setEnkaData] = useState({});
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
@@ -37,11 +37,12 @@ const Enka = ({
           ? "zzz/uid/"
           : "";
   const tempGameUid = "618285856";
+  // hsr 602849613
   const fetchPlayerData = async () => {
     try {
       const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix+gameUid}/`);
       const data = await response.json();
-      setAvatarList(JSON.parse(JSON.stringify(data.avatarInfoList)));
+      setEnkaData(JSON.parse(JSON.stringify(data)));
       setError("");
     } catch (error) {
       console.error("Error fetching player data", error);
@@ -62,7 +63,7 @@ const Enka = ({
   const handleCancel = () => {
     setError("");
     setGameUid("");
-    setAvatarList([]);
+    setEnkaData({});
     setSelectedAvatars([]);
     setNextButtonDisabled(false);
     setIsEnkaOpen(false);
@@ -70,20 +71,20 @@ const Enka = ({
 
   const handleSave = async () => {
     for (const selectedAvatar of selectedAvatars) {
-      const cid = enkaConvertChar[avatarList[selectedAvatar].avatarId];
+      const cid = enkaConvertChar[enkaData.avatarInfoList[selectedAvatar].avatarId];
       const cdata = blankCdata(gameType);
 
-      cdata.weapon = avatarList[selectedAvatar].equipList[5].itemId || "";
+      cdata.weapon = enkaData.avatarInfoList[selectedAvatar].equipList[5].itemId || "";
       const setCounts = {};
       // artifacts
       for (let i = 0; i < 5; i++) {
-        cdata.mainstats[i] = enkaConvertStats[avatarList[selectedAvatar].equipList[i].flat.reliquaryMainstat.mainPropId] || "";
-        const currSet = (avatarList[selectedAvatar].equipList[i].flat.icon).substring(13, 18);
+        cdata.mainstats[i] = enkaData.avatarInfoList[selectedAvatar].equipList[i].flat.reliquaryMainstat.mainPropId || "";
+        const currSet = (enkaData.avatarInfoList[selectedAvatar].equipList[i].flat.icon).substring(13, 18);
         console.log(currSet);
         setCounts[currSet] = (setCounts[currSet] || 0) + 1;
         for (let j = 0; j < 4; j++) {
-          cdata.substats[i][j][0] = enkaConvertStats[avatarList[selectedAvatar].equipList[i].flat.reliquarySubstats[j].appendPropId] || "";
-          cdata.substats[i][j][1] = avatarList[selectedAvatar].equipList[i].flat.reliquarySubstats[j].statValue || "";
+          cdata.substats[i][j][0] = enkaData.avatarInfoList[selectedAvatar].equipList[i].flat.reliquarySubstats[j].appendPropId || "";
+          cdata.substats[i][j][1] = enkaData.avatarInfoList[selectedAvatar].equipList[i].flat.reliquarySubstats[j].statValue || "";
         }
       }
       // set
@@ -124,7 +125,7 @@ const Enka = ({
     //cleanup
     setError("");
     setGameUid("");
-    setAvatarList([]);
+    setEnkaData({});
     setSelectedAvatars([]);
     setNextButtonDisabled(false);
     setIsEnkaOpen(false);
@@ -155,7 +156,7 @@ const Enka = ({
           overflowY: "auto",
         }}
       >
-        {!avatarList.length ? (
+        {!enkaData.avatarInfoList?.length ? (
           <React.Fragment>
             <Typography>Enter uid</Typography>
             <TextField
@@ -183,7 +184,7 @@ const Enka = ({
         ) : (
           <React.Fragment>
             <Typography>Select which characters to add</Typography>
-            {avatarList.map((avatar, index) => (
+            {enkaData.avatarInfoList.map((avatar, index) => (
               <Box key={index} sx={{ display: "flex", alignItems: "center" }}>
                 <FormControlLabel
                   control={

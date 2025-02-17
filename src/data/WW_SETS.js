@@ -25,14 +25,6 @@ const WW_SETS = {
     desc: "2-Pc: Energy Regen +10%\n5-Pc: Increase the Resonator's ATK by 15%. Reaching 250% Energy Regen increases all Attribute DMG by 30% for the Resonator.",
   },
   
-  // Version 1.4
-  
-  // Version 1.3
-  
-  // Version 1.2
-  
-  // Version 1.1
-  
   // Version 1.0
   "005": {
     name: "Celestial Light",

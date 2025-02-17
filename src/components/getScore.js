@@ -55,12 +55,12 @@ const simulate_substats = (substats, weights, mainstatsArr, SUBSTATS, gameType) 
   const availableWeights = { ...weights };
   if (matchStat) {
     sim_substats[matchStat] = substats[matchStat] || 0;
-    simMatchRolls += Math.ceil(sim_substats[matchStat] / SUBSTATS[matchStat]);
+    simMatchRolls += Math.ceil(sim_substats[matchStat] / SUBSTATS[matchStat]?.value);
     delete availableWeights[matchStat];
   }
   if (matchStat2) {
     sim_substats[matchStat2] = substats[matchStat2] || 0;
-    simMatchRolls += Math.ceil(sim_substats[matchStat2] / SUBSTATS[matchStat2]);
+    simMatchRolls += Math.ceil(sim_substats[matchStat2] / SUBSTATS[matchStat2]?.value);
     delete availableWeights[matchStat2];
   }
   let rollsLeft = Math.max(TOTAL_ROLLS - simMatchRolls, 0);
@@ -98,7 +98,7 @@ const simulate_substats = (substats, weights, mainstatsArr, SUBSTATS, gameType) 
     }
 
     // add rolls to sim_substats
-    sim_substats[largestWeight] = (sim_substats[largestWeight] || 0) + (timesToRoll * SUBSTATS[largestWeight]);
+    sim_substats[largestWeight] = (sim_substats[largestWeight] || 0) + (timesToRoll * SUBSTATS[largestWeight]?.value);
 
     // remove stat from available weights
     delete availableWeights[largestWeight];
@@ -108,17 +108,40 @@ const simulate_substats = (substats, weights, mainstatsArr, SUBSTATS, gameType) 
   return sim_substats;
 };
 
-const calculatePoints = (statsObj, weights, basestats, SUBSTATS) => {
+const calculatePoints = (statsObj, weights, basestats, SUBSTATS, gameType) => {
+  const baseConversion = {};
+  switch (gameType) {
+    case "GI":
+      baseConversion.FIGHT_PROP_HP = "FIGHT_PROP_HP_PERCENT";
+      baseConversion.FIGHT_PROP_ATTACK = "FIGHT_PROP_ATTACK_PERCENT";
+      baseConversion.FIGHT_PROP_DEFENSE = "FIGHT_PROP_DEFENSE_PERCENT";
+      break;
+    case "HSR":
+      baseConversion.HPDelta = "HPAddedRatio";
+      baseConversion.AttackDelta = "AttackAddedRatio";
+      baseConversion.DefenceDelta = "DefenceAddedRatio";
+      break;
+    case "ZZZ":
+      baseConversion.HP = "HP_PERCENT";
+      baseConversion.ATK = "ATK_PERCENT";
+      baseConversion.DEF = "DEF_PERCENT";
+      break;
+    case "WW":
+      baseConversion.HP = "HP_PERCENT";
+      baseConversion.ATK = "ATK_PERCENT";
+      baseConversion.DEF = "DEF_PERCENT";
+      break;
+  }
   let points = 0;
   Object.entries(statsObj).forEach(([key, value]) => {
     if (weights[key]) {
       const weight = weights[key];
-      const normalize = SUBSTATS[key];
+      const normalize = SUBSTATS[key]?.value;
       points += (value / normalize) * weight;
-    } else if (basestats[key] && weights[key + "%"]) {
+    } else if (basestats[key] && weights[baseConversion[key]]) {
       const valuePercent = (value / basestats[key]) * 100;
-      const weight = weights[key + "%"];
-      const normalize = SUBSTATS[key + "%"];
+      const weight = weights[baseConversion[key]];
+      const normalize = SUBSTATS[baseConversion[key]]?.value;
       points += (valuePercent / normalize) * weight;
     }
   });
@@ -142,8 +165,8 @@ const getScore = (gameType, cid, cdata) => {
   console.log("sim_substats: ", sim_substats);
 
   // Calculate points
-  const points = calculatePoints(substats, CHARACTERS[cid].weights, basestats, SUBSTATS);
-  const sim_points = calculatePoints(sim_substats, CHARACTERS[cid].weights, basestats, SUBSTATS);
+  const points = calculatePoints(substats, CHARACTERS[cid].weights, basestats, SUBSTATS, gameType);
+  const sim_points = calculatePoints(sim_substats, CHARACTERS[cid].weights, basestats, SUBSTATS, gameType);
   console.log("points: ", points);
   console.log("sim_points: ", sim_points);
 

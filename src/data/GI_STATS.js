@@ -1,53 +1,161 @@
 const GI_MAINSTATS = [
   { // 0
-    "HP": 4780,
+    "FIGHT_PROP_HP": {
+      name: "HP",
+      value: 4780,
+    },
   },
   { // 1
-    "ATK": 311,
+    "FIGHT_PROP_ATTACK": {
+      name: "ATK",
+      value: 311,
+    },
   },
   { // 2
-    "HP%": 46.6,
-    "ATK%": 46.6,
-    "DEF%": 58.3,
-    "Elemental Mastery": 186.5,
-    "Energy Recharge": 51.8,
+    "FIGHT_PROP_HP_PERCENT": {
+      name: "HP%",
+      value: 46.6,
+    },
+    "FIGHT_PROP_ATTACK_PERCENT": {
+      name: "ATK%",
+      value: 46.6,
+    },
+    "FIGHT_PROP_DEFENSE_PERCENT": {
+      name: "DEF%",
+      value: 58.3,
+    },
+    "FIGHT_PROP_ELEMENT_MASTERY": {
+      name: "Elemental Mastery",
+      value: 186.5,
+    },
+    "FIGHT_PROP_CHARGE_EFFICIENCY": {
+      name: "Energy Recharge",
+      value: 51.8,
+    },
   },
   { // 3
-    "HP%": 46.6,
-    "ATK%": 46.6,
-    "DEF%": 58.3,
-    "Elemental Mastery": 186.5,
-    "Anemo DMG": 46.6,
-    "Cryo DMG": 46.6,
-    "Dendro DMG": 46.6,
-    "Electro DMG": 46.6,
-    "Geo DMG": 46.6,
-    "Hydro DMG": 46.6,
-    "Pyro DMG": 46.6,
-    "Physical DMG": 58.3,
+    "FIGHT_PROP_HP_PERCENT": {
+      name: "HP%",
+      value: 46.6,
+    },
+    "FIGHT_PROP_ATTACK_PERCENT": {
+      name: "ATK%",
+      value: 46.6,
+    },
+    "FIGHT_PROP_DEFENSE_PERCENT": {
+      name: "DEF%",
+      value: 58.3,
+    },
+    "FIGHT_PROP_ELEMENT_MASTERY": {
+      name: "Elemental Mastery",
+      value: 186.5,
+    },
+    "FIGHT_PROP_WIND_ADD_HURT": {
+      name: "Anemo DMG Bonus",
+      value: 46.6,
+    },
+    "FIGHT_PROP_ICE_ADD_HURT": {
+      name: "Cryo DMG Bonus",
+      value: 46.6,
+    },
+    "FIGHT_PROP_GRASS_ADD_HURT": {
+      name: "Dendro DMG Bonus",
+      value: 46.6,
+    },
+    "FIGHT_PROP_ELEC_ADD_HURT": {
+      name: "Electro DMG Bonus",
+      value: 46.6,
+    },
+    "FIGHT_PROP_ROCK_ADD_HURT": {
+      name: "Geo DMG Bonus",
+      value: 46.6,
+    },
+    "FIGHT_PROP_WATER_ADD_HURT": {
+      name: "Hydro DMG Bonus",
+      value: 46.6,
+    },
+    "FIGHT_PROP_FIRE_ADD_HURT": {
+      name: "Pyro DMG Bonus",
+      value: 46.6,
+    },
+    "FIGHT_PROP_PHYSICAL_ADD_HURT": {
+      name: "Physical DMG Bonus",
+      value: 58.3,
+    },
   },
   { // 4
-    "HP%": 46.6,
-    "ATK%": 46.6,
-    "DEF%": 58.3,
-    "Elemental Mastery": 186.5,
-    "CRIT Rate": 31.1,
-    "CRIT DMG": 62.2,
-    "Healing Bonus": 35.9,
+    "FIGHT_PROP_HP_PERCENT": {
+      name: "HP%",
+      value: 46.6,
+    },
+    "FIGHT_PROP_ATTACK_PERCENT": {
+      name: "ATK%",
+      value: 46.6,
+    },
+    "FIGHT_PROP_DEFENSE_PERCENT": {
+      name: "DEF%",
+      value: 58.3,
+    },
+    "FIGHT_PROP_ELEMENT_MASTERY": {
+      name: "Elemental Mastery",
+      value: 186.5,
+    },
+    "FIGHT_PROP_CRITICAL": {
+      name: "CRIT Rate",
+      value: 31.1,
+    },
+    "FIGHT_PROP_CRITICAL_HURT": {
+      name: "CRIT DMG",
+      value: 62.2,
+    },
+    "FIGHT_PROP_HEAL_ADD": {
+      name: "Healing Bonus",
+      value: 35.9,
+    },
   },
 ];
 
 const GI_SUBSTATS = {
-  "HP": 298.75,
-  "ATK": 19.45,
-  "DEF": 23.15,
-  "HP%": 5.83,
-  "ATK%": 5.83,
-  "DEF%": 7.29,
-  "Elemental Mastery": 23.31,
-  "Energy Recharge": 6.48,
-  "CRIT Rate": 3.89,
-  "CRIT DMG": 7.77,
+  "FIGHT_PROP_HP": {
+    name: "HP",
+    value: 298.75,
+  },
+  "FIGHT_PROP_ATTACK": {
+    name: "ATK",
+    value: 19.45,
+  },
+  "FIGHT_PROP_DEFENSE": {
+    name: "DEF",
+    value: 23.15,
+  },
+  "FIGHT_PROP_HP_PERCENT": {
+    name: "HP%",
+    value: 5.83,
+  },
+  "FIGHT_PROP_ATTACK_PERCENT": {
+    name: "ATK%",
+    value: 5.83,
+  },
+  "FIGHT_PROP_DEFENSE_PERCENT": {
+    name: "DEF%",
+    value: 7.29,
+  },
+  "FIGHT_PROP_ELEMENT_MASTERY": {
+    name: "Elemental Mastery",
+    value: 23.31,
+  },
+  "FIGHT_PROP_CHARGE_EFFICIENCY": {
+    name: "Energy Recharge",
+    value: 6.48,
+  },
+  "FIGHT_PROP_CRITICAL": {
+    name: "CRIT Rate",
+    value: 3.89,
+  },
+  "FIGHT_PROP_CRITICAL_HURT": {
+    name: "CRIT DMG",
+    value: 7.77,
+  },
 };
 
 export { GI_MAINSTATS, GI_SUBSTATS };
