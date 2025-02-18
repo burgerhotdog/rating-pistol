@@ -1,4 +1,30 @@
 const WW_WEAPONS = {
+  // Version 2.1
+  "21050046": {
+    name: "Luminous Hymn",
+    type: "Rectifier",
+    base: { ATK: 500 },
+    substat: "CRIT Rate: 36%",
+    subtitle: "Homebuilder's Anthem",
+    desc: "Increase ATK by 12%. Dealing DMG to targets with Spectro Frazzle grants the wielder 14% Basic Attack DMG Bonus and 14% Heavy Attack DMG Bonus, stacking up to 3 times for 6s. Casting Outro Skill Amplifies the Spectro Frazzle DMG on targets around the active Resonator by 30% for 30s. Effects of the same name cannot be stacked.",
+  },
+  "21020036": {
+    name: "Unflickering Valor",
+    type: "Sword",
+    base: { ATK: 413 },
+    substat: "Energy Regen: 77%",
+    subtitle: "Laughter Prevails",
+    desc: "Increase CRIT Rate by 8%. Casting Resonance Liberation gives 24% Basic Attack DMG Bonus for 10s. Dealing Basic Attack DMG gives 24% Basic Attack DMG Bonus for 4s.",
+  },
+  "21050027": {
+    name: "Ocean's Gift",
+    type: "Sword",
+    base: { ATK: 463 },
+    substat: "ATK: 18.2%",
+    subtitle: "Fish Catch",
+    desc: "Dealing DMG to enemies with Spectro Frazzle increases the wielder's Spectro DMG by 6%, gaining 1 stack per second for 6s, stacking up to 4 times.",
+  },
+  
   // Version 2.0
   "21050017": {
     name: "Call of the Abyss",
