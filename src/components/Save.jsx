@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Piece from "./Piece";
-import getScore from "./getScore";
 import blankCdata from "./blankCdata";
 import GAME_DATA from "./gameData";
 
@@ -113,16 +112,10 @@ const Save = ({
 
   const handleSave = async () => {
     // Save document to Firestore
-    if (newCdata.score) {
-      delete newCdata.score;
-    }
     if (uid) {
       const charDocRef = doc(db, "users", uid, gameType, newCid);
       await setDoc(charDocRef, newCdata, { merge: true });
     }
-
-    // Calcuate and set score
-    newCdata.score = getScore(gameType, newCid, newCdata);
 
     // Save object to myChars
     setMyChars((prev) => ({
@@ -130,10 +123,14 @@ const Save = ({
       [newCid]: newCdata,
     }));
 
+    setNewCid("");
+    setNewCdata(() => blankCdata(gameType));
     setIsSaveOpen(false);
   };
 
   const handleCancel = () => {
+    setNewCid("");
+    setNewCdata(() => blankCdata(gameType));
     setIsSaveOpen(false);
   };
 

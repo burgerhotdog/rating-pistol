@@ -11,7 +11,6 @@ import {
   Typography,
 } from "@mui/material";
 import blankCdata from "./blankCdata";
-import getScore from "./getScore";
 import GAME_DATA from "./gameData";
 
 const Enka = ({
@@ -133,7 +132,6 @@ const Enka = ({
         }
       }
 
-
       console.log(cid);
       console.log(cdata);
 
@@ -155,9 +153,6 @@ const Enka = ({
         const charDocRef = doc(db, "users", uid, gameType, cid);
         await setDoc(charDocRef, cdata, { merge: true });
       }
-
-      // score
-      cdata.score = getScore(gameType, cid, cdata);
 
       // local state
       setMyChars((prev) => ({

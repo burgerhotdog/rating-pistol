@@ -21,10 +21,13 @@ import Back from "../components/Back";
 import Save from "../components/Save";
 import Delete from "../components/Delete";
 import GAME_DATA from "../components/gameData";
-
+import getScore from "../components/getScore";
 const cImgs = import.meta.glob("../assets/char/HSR/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/HSR/*.webp", { eager: true });
 const sImgs = import.meta.glob("../assets/set/HSR/*.webp", { eager: true });
+
+const GAME_TYPE = "HSR";
+const VERSION_NUMBER = "3.0";
 
 const HonkaiStarRail = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
@@ -40,7 +43,7 @@ const HonkaiStarRail = ({ uid }) => {
     const fetchDB = async () => {
       if (uid) {
         // Fetch character documents from firestore
-        const charDocsRef = collection(db, "users", uid, "HSR");
+        const charDocsRef = collection(db, "users", uid, GAME_TYPE);
         const charDocs = await getDocs(charDocsRef);
   
         // Convert documents to objects
@@ -69,7 +72,7 @@ const HonkaiStarRail = ({ uid }) => {
         }}
       >
         <Typography variant="h4">Honkai Star Rail</Typography>
-        <Typography variant="body2">Updated for version 3.0</Typography>
+        <Typography variant="body2">Updated for version {VERSION_NUMBER}</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}
@@ -96,8 +99,13 @@ const HonkaiStarRail = ({ uid }) => {
               ) : (
                 // Order characters in table by score
                 Object.entries(myChars)
-                .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
-                .map(([cid, cdata]) => (
+                .map(([cid, cdata]) => ({
+                  cid,
+                  cdata,
+                  score: getScore("GI", cid, cdata),
+                }))
+                .sort((a, b) => Number(b.score) - Number(a.score))
+                .map(({ cid, cdata, score }) => (
                   <TableRow
                     key={cid}
                     onMouseEnter={() => setHoveredRow(cid)}
@@ -110,7 +118,7 @@ const HonkaiStarRail = ({ uid }) => {
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{GAME_DATA["HSR"].CHARACTERS[cid].name}</TableCell>
+                    <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
                     {isNotMobile && (
                       <TableCell>
                         {cdata.weapon && (
@@ -118,18 +126,18 @@ const HonkaiStarRail = ({ uid }) => {
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {GAME_DATA["HSR"].WEAPONS[cdata.weapon].name}
+                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base HP: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.HPDelta} <br />
-                                  {"Base ATK: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.AttackDelta} <br />
-                                  {"Base DEF: " + GAME_DATA["HSR"].WEAPONS[cdata.weapon].base.DefenceDelta}
+                                  {"Base HP: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.HPDelta} <br />
+                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.AttackDelta} <br />
+                                  {"Base DEF: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.DefenceDelta}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                  {GAME_DATA["HSR"].WEAPONS[cdata.weapon].subtitle}
+                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].subtitle}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {GAME_DATA["HSR"].WEAPONS[cdata.weapon].desc}
+                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].desc}
                                 </Typography>
                               </React.Fragment>
                             }
@@ -159,10 +167,10 @@ const HonkaiStarRail = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].name}
+                                    {GAME_DATA[GAME_TYPE].SETS_RELIC[cdata.set1].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {GAME_DATA["HSR"].SETS_RELIC[cdata.set1].desc}
+                                    {GAME_DATA[GAME_TYPE].SETS_RELIC[cdata.set1].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
@@ -181,10 +189,10 @@ const HonkaiStarRail = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {GAME_DATA["HSR"].SETS_PLANAR[cdata.set2].name}
+                                    {GAME_DATA[GAME_TYPE].SETS_PLANAR[cdata.set2].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {GAME_DATA["HSR"].SETS_PLANAR[cdata.set2].desc}
+                                    {GAME_DATA[GAME_TYPE].SETS_PLANAR[cdata.set2].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
@@ -200,7 +208,7 @@ const HonkaiStarRail = ({ uid }) => {
                         </Box>
                       </TableCell>
                     )}
-                    <TableCell>{cdata.score}</TableCell>
+                    <TableCell>{score}</TableCell>
                     <TableCell>
                       <Box
                         sx={{
@@ -249,7 +257,7 @@ const HonkaiStarRail = ({ uid }) => {
 
         {/* Save modal */}
         <Save
-          gameType={"HSR"}
+          gameType={GAME_TYPE}
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
@@ -259,7 +267,7 @@ const HonkaiStarRail = ({ uid }) => {
 
         {/* Delete modal */}
         <Delete
-          gameType={"HSR"}
+          gameType={GAME_TYPE}
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}

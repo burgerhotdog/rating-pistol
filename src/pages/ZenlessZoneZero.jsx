@@ -21,10 +21,13 @@ import Back from "../components/Back";
 import Save from "../components/Save";
 import Delete from "../components/Delete";
 import GAME_DATA from "../components/gameData";
-
+import getScore from "../components/getScore";
 const cImgs = import.meta.glob("../assets/char/ZZZ/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/ZZZ/*.webp", { eager: true });
 const sImgs = import.meta.glob("../assets/set/ZZZ/*.webp", { eager: true });
+
+const GAME_TYPE = "ZZZ";
+const VERSION_NUMBER = "1.5";
 
 const ZenlessZoneZero = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
@@ -40,7 +43,7 @@ const ZenlessZoneZero = ({ uid }) => {
     const fetchDB = async () => {
       if (uid) {
         // Fetch character documents from firestore
-        const charDocsRef = collection(db, "users", uid, "ZZZ");
+        const charDocsRef = collection(db, "users", uid, GAME_TYPE);
         const charDocs = await getDocs(charDocsRef);
   
         // Convert documents to objects
@@ -69,7 +72,7 @@ const ZenlessZoneZero = ({ uid }) => {
         }}
       >
         <Typography variant="h4">Zenless Zone Zero</Typography>
-        <Typography variant="body2">Updated for version 1.5</Typography>
+        <Typography variant="body2">Updated for version {VERSION_NUMBER}</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             {/* Table headers */}
@@ -95,8 +98,13 @@ const ZenlessZoneZero = ({ uid }) => {
               ) : (
                 // Order characters in table by score
                 Object.entries(myChars)
-                .sort(([, a], [, b]) => Number(b.score) - Number(a.score))
-                .map(([cid, cdata]) => (
+                .map(([cid, cdata]) => ({
+                  cid,
+                  cdata,
+                  score: getScore(GAME_TYPE, cid, cdata),
+                }))
+                .sort((a, b) => Number(b.score) - Number(a.score))
+                .map(({ cid, cdata, score }) => (
                   <TableRow
                     key={cid}
                     onMouseEnter={() => setHoveredRow(cid)}
@@ -109,7 +117,7 @@ const ZenlessZoneZero = ({ uid }) => {
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{GAME_DATA["ZZZ"].CHARACTERS[cid].name}</TableCell>
+                    <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
                     {isNotMobile && (
                       <TableCell>
                         {cdata.weapon && (
@@ -117,17 +125,17 @@ const ZenlessZoneZero = ({ uid }) => {
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].name}
+                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base ATK: " + GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].base.ATK} <br />
-                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].substat}
+                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.ATK} <br />
+                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].substat}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].subtitle}
+                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].subtitle}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {GAME_DATA["ZZZ"].WEAPONS[cdata.weapon].desc}
+                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].desc}
                                 </Typography>
                               </React.Fragment>
                             }
@@ -157,10 +165,10 @@ const ZenlessZoneZero = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {GAME_DATA["ZZZ"].SETS[cdata.set1].name}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set1].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {GAME_DATA["ZZZ"].SETS[cdata.set1].desc}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set1].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
@@ -179,10 +187,10 @@ const ZenlessZoneZero = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {GAME_DATA["ZZZ"].SETS[cdata.set2].name}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set2].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {GAME_DATA["ZZZ"].SETS[cdata.set2].desc}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set2].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
@@ -198,7 +206,7 @@ const ZenlessZoneZero = ({ uid }) => {
                         </Box>
                       </TableCell>
                     )}
-                    <TableCell>{cdata.score}</TableCell>
+                    <TableCell>{score}</TableCell>
                     <TableCell>
                       <Box
                         sx={{
@@ -247,7 +255,7 @@ const ZenlessZoneZero = ({ uid }) => {
 
         {/* Save modal */}
         <Save
-          gameType={"ZZZ"}
+          gameType={GAME_TYPE}
           uid={uid}
           isSaveOpen={isSaveOpen}
           setIsSaveOpen={setIsSaveOpen}
@@ -257,7 +265,7 @@ const ZenlessZoneZero = ({ uid }) => {
 
         {/* Delete modal */}
         <Delete
-          gameType={"ZZZ"}
+          gameType={GAME_TYPE}
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
