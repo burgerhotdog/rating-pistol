@@ -133,12 +133,11 @@ const Enka = ({
         }
       }
 
-      // score
-      cdata.score = getScore(gameType, cid, cdata);
 
       console.log(cid);
       console.log(cdata);
 
+      // remove previous data if exists
       if (myChars[cid]) {
         if (uid) {
           const characterDocRef = doc(db, "users", uid, gameType, cid);
@@ -151,10 +150,16 @@ const Enka = ({
         });
       }
 
+      // firestore
       if (uid) {
         const charDocRef = doc(db, "users", uid, gameType, cid);
         await setDoc(charDocRef, cdata, { merge: true });
       }
+
+      // score
+      cdata.score = getScore(gameType, cid, cdata);
+
+      // local state
       setMyChars((prev) => ({
         ...prev,
         [cid]: cdata,

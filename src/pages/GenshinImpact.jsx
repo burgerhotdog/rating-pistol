@@ -49,6 +49,7 @@ const GenshinImpact = ({ uid }) => {
         const docsToObjs = {};
         charDocs.docs.forEach((charDoc) => {
           docsToObjs[charDoc.id] = charDoc.data();
+          docsToObjs[charDoc.id].score = getScore("GI", charDoc.id, docsToObjs[charDoc.id]);
         });
   
         setMyChars(docsToObjs);

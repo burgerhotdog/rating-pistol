@@ -112,14 +112,17 @@ const Save = ({
   };
 
   const handleSave = async () => {
-    // Calcuate and set score
-    newCdata.score = getScore(gameType, newCid, newCdata);
-
     // Save document to Firestore
+    if (newCdata.score) {
+      delete newCdata.score;
+    }
     if (uid) {
       const charDocRef = doc(db, "users", uid, gameType, newCid);
       await setDoc(charDocRef, newCdata, { merge: true });
     }
+
+    // Calcuate and set score
+    newCdata.score = getScore(gameType, newCid, newCdata);
 
     // Save object to myChars
     setMyChars((prev) => ({
