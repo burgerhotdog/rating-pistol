@@ -21,7 +21,6 @@ import Back from "../components/Back";
 import Save from "../components/Save";
 import Delete from "../components/Delete";
 import GAME_DATA from "../components/gameData";
-import toPascalCase from "../components/toPascalCase";
 
 const cImgs = import.meta.glob("../assets/char/ZZZ/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/ZZZ/*.webp", { eager: true });

@@ -17,7 +17,6 @@ import Piece from "./Piece";
 import getScore from "./getScore";
 import blankCdata from "./blankCdata";
 import GAME_DATA from "./gameData";
-import toPascalCase from "./toPascalCase";
 
 const Save = ({
   gameType,
@@ -202,7 +201,7 @@ const Save = ({
           {/* Icon */}
           {newCid && (
             <img
-              src={cImgs[`../assets/char/${gameType}/${toPascalCase(newCid)}.webp`]?.default}
+              src={cImgs[`../assets/char/${gameType}/${newCid}.webp`]?.default}
               alt={"char"}
               style={{ width: 50, height: 50, objectFit: "contain" }}
             />

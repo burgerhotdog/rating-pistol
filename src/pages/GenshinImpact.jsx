@@ -21,7 +21,6 @@ import Back from "../components/Back";
 import Save from "../components/Save";
 import Delete from "../components/Delete";
 import GAME_DATA from "../components/gameData";
-import toPascalCase from "../components/toPascalCase";
 import Enka from "../components/Enka";
 
 const cImgs = import.meta.glob("../assets/char/GI/*.webp", { eager: true });
