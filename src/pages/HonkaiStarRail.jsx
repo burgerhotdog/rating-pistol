@@ -34,6 +34,7 @@ const HonkaiStarRail = ({ uid }) => {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
+  const [myCharsWithScores, setMyCharsWithScores] = useState([]);
 
   const theme = useTheme();
   const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
@@ -59,6 +60,19 @@ const HonkaiStarRail = ({ uid }) => {
     };
     fetchDB();
   }, [uid]);
+
+  useEffect(() => {
+    const scoredChars = Object.entries(myChars).map(([cid, cdata]) => ({
+      cid,
+      cdata,
+      score: getScore(GAME_TYPE, cid, cdata),
+    }));
+  
+    // Sort once when computed
+    scoredChars.sort((a, b) => b.score - a.score);
+  
+    setMyCharsWithScores(scoredChars);
+  }, [myChars]); // Runs only when myChars changes
 
   return (
     <Container>
@@ -98,14 +112,7 @@ const HonkaiStarRail = ({ uid }) => {
                 </TableRow>
               ) : (
                 // Order characters in table by score
-                Object.entries(myChars)
-                .map(([cid, cdata]) => ({
-                  cid,
-                  cdata,
-                  score: getScore("GI", cid, cdata),
-                }))
-                .sort((a, b) => Number(b.score) - Number(a.score))
-                .map(({ cid, cdata, score }) => (
+                myCharsWithScores.map(({ cid, cdata, score }) => (
                   <TableRow
                     key={cid}
                     onMouseEnter={() => setHoveredRow(cid)}

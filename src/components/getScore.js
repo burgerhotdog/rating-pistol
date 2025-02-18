@@ -171,8 +171,7 @@ const getScore = (gameType, cid, cdata) => {
   console.log("sim_points: ", sim_points);
 
   // Calculate score
-  const score = Math.round((points / sim_points) * 100);
-  return score.toString();
+  return Math.round((points / sim_points) * 100);
 };
 
 export default getScore;
