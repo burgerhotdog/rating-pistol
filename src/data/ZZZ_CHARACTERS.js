@@ -1,39 +1,4 @@
 const ZZZ_CHARACTERS = {
-  /*// Version 1.6
-  "": {
-    name: "Pulchra",
-    type: "Stun",
-    base: { HP: 1000, ATK: 100, DEF: 100 },
-    weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK_PERCENT": 0.6,
-      "PEN": 0.24,
-    },
-  },
-  "": {
-    name: "Silver Soldier Anby",
-    type: "Attack",
-    base: { HP: 1000, ATK: 100, DEF: 100 },
-    weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK_PERCENT": 0.6,
-      "PEN": 0.24,
-    },
-  },
-  "": {
-    name: "Trigger",
-    type: "Stun",
-    base: { HP: 1000, ATK: 100, DEF: 100 },
-    weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK_PERCENT": 0.6,
-      "PEN": 0.24,
-    },
-  },*/
-  
   // Version 1.5
   "1311": {
     name: "Astra",

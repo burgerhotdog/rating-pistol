@@ -1,9 +1,9 @@
 const WW_CHARACTERS = {
-  /*// Version 2.1
-  "": {
+  // Version 2.1
+  "1206": {
     name: "Brant",
     type: "Sword",
-    base: { HP: 1000, ATK: 100, DEF: 1000 },
+    base: { HP: 11675, ATK: 375, DEF: 1308 },
     weights: {
       "ENERGY_REGEN": 1,
       "CR": 1,
@@ -11,17 +11,17 @@ const WW_CHARACTERS = {
       "ATK_PERCENT": 0.6,
     },
   },
-  "": {
+  "1506": {
     name: "Phoebe",
     type: "Rectifier",
-    base: { HP: 10000, ATK: 100, DEF: 1000 },
+    base: { HP: 10825, ATK: 413, DEF: 1259 },
     weights: {
       "ENERGY_REGEN": 1,
       "CR": 1,
       "CD": 1,
       "ATK_PERCENT": 0.6,
     },
-  },*/
+  },
   
   // Version 2.0
   "1107": {

@@ -1,27 +1,4 @@
 const HSR_CHARACTERS = {
-  /*// Version 3.1
-  "": {
-    name: "Mydei",
-    type: "Destruction",
-    base: { HPDelta: 1000, AttackDelta: 100, DefenceDelta: 100 },
-    weights: {
-      "SpeedDelta": 1,
-      "CriticalChance": 1,
-      "CriticalDamage": 1,
-      "HPAddedRatio": 0.6,
-    },
-  },
-  "": {
-    name: "Tribbie",
-    type: "Harmony",
-    base: { HPDelta: 1000, AttackDelta: 100, DefenceDelta: 100 },
-    weights: {
-      "CriticalChance": 1,
-      "CriticalDamage": 1,
-      "HPAddedRatio": 0.6,
-    },
-  },*/
-  
   // Version 3.0
   "1402": {
     name: "Aglaea",
