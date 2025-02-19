@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Button, Container } from "@mui/material";
-import GENSHIN_IMPACT from "../assets/genshin-impact.webp"
-import HONKAI_STAR_RAIL from "../assets/honkai-star-rail.webp"
-import ZENLESS_ZONE_ZERO from "../assets/zenless-zone-zero.webp"
-import WUTHERING_WAVES from "../assets/wuthering-waves.webp"
+import GENSHIN_IMPACT from "../assets/banner/genshin-impact.webp"
+import HONKAI_STAR_RAIL from "../assets/banner/honkai-star-rail.webp"
+import ZENLESS_ZONE_ZERO from "../assets/banner/zenless-zone-zero.webp"
+import WUTHERING_WAVES from "../assets/banner/wuthering-waves.webp"
 
 const tint = "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))";
 

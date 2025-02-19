@@ -1,0 +1,50 @@
+import GI_CHARACTERS from "../data/GI_CHARACTERS";
+import GI_WEAPONS from "../data/GI_WEAPONS";
+import GI_SETS from "../data/GI_SETS"
+import { GI_MAINSTATS, GI_SUBSTATS } from "../data/GI_STATS";
+import HSR_CHARACTERS from "../data/HSR_CHARACTERS";
+import HSR_WEAPONS from "../data/HSR_WEAPONS";
+import { HSR_SETS_RELIC, HSR_SETS_PLANAR } from "../data/HSR_SETS"
+import { HSR_MAINSTATS, HSR_SUBSTATS } from "../data/HSR_STATS";
+import ZZZ_CHARACTERS from "../data/ZZZ_CHARACTERS";
+import ZZZ_WEAPONS from "../data/ZZZ_WEAPONS";
+import ZZZ_SETS from "../data/ZZZ_SETS"
+import { ZZZ_MAINSTATS, ZZZ_SUBSTATS } from "../data/ZZZ_STATS";
+import WW_CHARACTERS from "../data/WW_CHARACTERS";
+import WW_WEAPONS from "../data/WW_WEAPONS";
+import WW_SETS from "../data/WW_SETS"
+import { WW_MAINSTATS, WW_SUBSTATS } from "../data/WW_STATS";
+
+const GAME_DATA = {
+  GI: {
+    CHARACTERS: GI_CHARACTERS,
+    WEAPONS: GI_WEAPONS,
+    SETS: GI_SETS,
+    MAINSTATS: GI_MAINSTATS,
+    SUBSTATS: GI_SUBSTATS,
+  },
+  HSR: {
+    CHARACTERS: HSR_CHARACTERS,
+    WEAPONS: HSR_WEAPONS,
+    SETS_RELIC: HSR_SETS_RELIC,
+    SETS_PLANAR: HSR_SETS_PLANAR,
+    MAINSTATS: HSR_MAINSTATS,
+    SUBSTATS: HSR_SUBSTATS,
+  },
+  ZZZ: {
+    CHARACTERS: ZZZ_CHARACTERS,
+    WEAPONS: ZZZ_WEAPONS,
+    SETS: ZZZ_SETS,
+    MAINSTATS: ZZZ_MAINSTATS,
+    SUBSTATS: ZZZ_SUBSTATS,
+  },
+  WW: {
+    CHARACTERS: WW_CHARACTERS,
+    WEAPONS: WW_WEAPONS,
+    SETS: WW_SETS,
+    MAINSTATS: WW_MAINSTATS,
+    SUBSTATS: WW_SUBSTATS,
+  },
+};
+
+export default GAME_DATA;
