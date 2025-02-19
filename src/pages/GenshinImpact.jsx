@@ -242,7 +242,7 @@ const GenshinImpact = ({ uid }) => {
           Load from uid
         </Button>
 
-        {/* Save modal */}
+        {/* Modals */}
         <Save
           gameType={GAME_TYPE}
           uid={uid}
@@ -252,7 +252,6 @@ const GenshinImpact = ({ uid }) => {
           setMyChars={setMyChars}
         />
 
-        {/* Delete modal */}
         <Delete
           gameType={GAME_TYPE}
           uid={uid}
@@ -261,13 +260,11 @@ const GenshinImpact = ({ uid }) => {
           setMyChars={setMyChars}
         />
 
-        {/* Enka modal */}
         <Enka
           gameType={GAME_TYPE}
           uid={uid}
           isEnkaOpen={isEnkaOpen}
           setIsEnkaOpen={setIsEnkaOpen}
-          myChars={myChars}
           setMyChars={setMyChars}
         />
       </Box>        

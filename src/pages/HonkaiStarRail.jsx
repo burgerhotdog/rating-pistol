@@ -21,6 +21,7 @@ import Back from "../components/Back";
 import Save from "../components/Save";
 import Delete from "../components/Delete";
 import GAME_DATA from "../components/gameData";
+import Enka from "../components/Enka";
 import getScore from "../components/getScore";
 const cImgs = import.meta.glob("../assets/char/HSR/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/HSR/*.webp", { eager: true });
@@ -32,6 +33,7 @@ const VERSION_NUMBER = "3.0";
 const HonkaiStarRail = ({ uid }) => {
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [isEnkaOpen, setIsEnkaOpen] = useState(false);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
   const [myCharsWithScores, setMyCharsWithScores] = useState([]);
@@ -262,7 +264,16 @@ const HonkaiStarRail = ({ uid }) => {
           Add character
         </Button>
 
-        {/* Save modal */}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setIsEnkaOpen(true)}
+          sx={{ mt: 2 }}
+        >
+          Load from uid
+        </Button>
+
+        {/* Modals */}
         <Save
           gameType={GAME_TYPE}
           uid={uid}
@@ -272,12 +283,19 @@ const HonkaiStarRail = ({ uid }) => {
           setMyChars={setMyChars}
         />
 
-        {/* Delete modal */}
         <Delete
           gameType={GAME_TYPE}
           uid={uid}
           isDeleteOpen={isDeleteOpen}
           setIsDeleteOpen={setIsDeleteOpen}
+          setMyChars={setMyChars}
+        />
+
+        <Enka
+          gameType={GAME_TYPE}
+          uid={uid}
+          isEnkaOpen={isEnkaOpen}
+          setIsEnkaOpen={setIsEnkaOpen}
           setMyChars={setMyChars}
         />
       </Box>        

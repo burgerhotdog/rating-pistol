@@ -18,12 +18,11 @@ const Enka = ({
   uid,
   isEnkaOpen,
   setIsEnkaOpen,
-  myChars,
   setMyChars,
 }) => {
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
-  const [enkaData, setEnkaData] = useState({});
+  const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
 
@@ -53,12 +52,16 @@ const Enka = ({
             "10000005-6": "10000007-6", // geo
             "10000005-4": "10000007-4", // anemo
           };
+
           for (const avatar of data.avatarInfoList ) {
             if (maleToFemale[avatar.avatarId]) {
               avatar.avatarId = maleToFemale[avatar.avatarId];
             }
           }
+
+          setEnkaList(data.avatarInfoList);
         } break;
+
         case "HSR": {
           const maleToFemale = {
             "8007": "8008", // remembrance
@@ -66,21 +69,30 @@ const Enka = ({
             "8003": "8004", // preservation
             "8001": "8002", // destruction
           };
+
           for (const avatar of data.detailInfo.avatarDetailList ) {
             if (maleToFemale[avatar.avatarId]) {
               avatar.avatarId = maleToFemale[avatar.avatarId];
             }
           }
+
+          setEnkaList(data.detailInfo.avatarDetailList);
         } break;
+
+        case "ZZZ": {
+          // setEnkaList(data);
+        } break;
+
         case "WW": {
           const maleToFemale = {
             "1605": "1604", // havoc
             "1501": "1502", // spectro
           };
+
+          // setEnkaList(data);
         } break;
       }
 
-      setEnkaData(JSON.parse(JSON.stringify(data)));
       setError("");
     } catch (error) {
       console.error("Error fetching player data", error);
@@ -101,72 +113,114 @@ const Enka = ({
   const handleCancel = () => {
     setError("");
     setGameUid("");
-    setEnkaData({});
+    setEnkaList([]);
     setSelectedAvatars([]);
     setNextButtonDisabled(false);
     setIsEnkaOpen(false);
   };
 
   const handleSave = async () => {
-    for (const selectedAvatar of selectedAvatars) {
-      const cid = enkaData.avatarInfoList[selectedAvatar].avatarId;
-      const cdata = blankCdata(gameType);
-
-      cdata.weapon = enkaData.avatarInfoList[selectedAvatar].equipList[5].itemId || "";
-      const setCounts = {};
-      // artifacts
-      for (let i = 0; i < 5; i++) {
-        cdata.mainstats[i] = enkaData.avatarInfoList[selectedAvatar].equipList[i].flat.reliquaryMainstat.mainPropId || "";
-        const currSet = (enkaData.avatarInfoList[selectedAvatar].equipList[i].flat.icon).substring(13, 18);
-        console.log(currSet);
-        setCounts[currSet] = (setCounts[currSet] || 0) + 1;
-        for (let j = 0; j < 4; j++) {
-          cdata.substats[i][j][0] = enkaData.avatarInfoList[selectedAvatar].equipList[i].flat.reliquarySubstats[j].appendPropId || "";
-          cdata.substats[i][j][1] = enkaData.avatarInfoList[selectedAvatar].equipList[i].flat.reliquarySubstats[j].statValue || "";
-        }
-      }
-      // set
-      for (const set in setCounts) {
-        if (setCounts[set] >= 4) {
-          cdata.set = set;
-        }
-      }
-
-      console.log(cid);
-      console.log(cdata);
-
-      // remove previous data if exists
-      if (myChars[cid]) {
-        if (uid) {
-          const characterDocRef = doc(db, "users", uid, gameType, cid);
-          await deleteDoc(characterDocRef);
-        }
-        setMyChars((prev) => {
-          const updatedChars = { ...prev };
-          delete updatedChars[cid];
-          return updatedChars;
+    let charBuffer = [];
+    switch (gameType) {
+      case "GI":
+        charBuffer = selectedAvatars.map((selectedAvatar) => {
+          const cid = enkaList[selectedAvatar].avatarId;
+          const cdata = blankCdata("GI");
+    
+          cdata.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
+          const setCounts = {};
+    
+          // pieces
+          for (let i = 0; i < 5; i++) {
+            const currPiece = enkaList[selectedAvatar].equipList[i];
+            if (!currPiece) continue;
+    
+            const currSet = currPiece.flat.icon.substring(13, 18) || "";
+            setCounts[currSet] = (setCounts[currSet] || 0) + 1;
+    
+            cdata.mainstats[i] = currPiece.flat.reliquaryMainstat.mainPropId || "";
+            for (let j = 0; j < 4; j++) {
+              cdata.substats[i][j][0] = currPiece.flat.reliquarySubstats[j]?.appendPropId || "";
+              cdata.substats[i][j][1] = currPiece.flat.reliquarySubstats[j]?.statValue.toString() || "";
+            }
+          }
+    
+          // set
+          for (const set in setCounts) {
+            if (setCounts[set] >= 4) {
+              cdata.set = set;
+              break;
+            }
+          }
+    
+          return { cid, cdata };
         });
-      }
+        break;
 
+      case "HSR":
+        charBuffer = selectedAvatars.map((selectedAvatar) => {
+          const cid = enkaList[selectedAvatar].avatarId;
+          const cdata = blankCdata("HSR");
+  
+          cdata.weapon = enkaList[selectedAvatar].equipment?.tid || "";
+          const setCounts = {};
+  
+          // pieces
+          for (let i = 0; i < 6; i++) {
+            const currPiece = enkaList[selectedAvatar].relicList[i];
+            if (!currPiece) continue;
+  
+            const currSet = currPiece._flat.setID.toString() || "";
+            setCounts[currSet] = (setCounts[currSet] || 0) + 1;
+            console.log(currSet);
+  
+            cdata.mainstats[i] = currPiece._flat.props[0].type || "";
+            for (let j = 0; j < 4; j++) {
+              cdata.substats[i][j][0] = currPiece._flat.props[j + 1]?.type || "";
+              const ratio = currPiece._flat.props[j + 1]?.type.slice(-5) === "Delta" ? 1 : 100;
+              cdata.substats[i][j][1] = (currPiece._flat.props[j + 1]?.value * ratio).toString() || "";
+            }
+          }
+  
+          // set
+          for (const set in setCounts) {
+            if (setCounts[set] >= 4) {
+              cdata.set1 = set;
+            } else if (setCounts[set] == 2) {
+              cdata.set2 = set;
+            }
+          }
+          console.log(cid, cdata);
+  
+          return { cid, cdata };
+        });
+        break;
+        
+      default:
+        return;
+    }
+
+    // update states
+    for (const char of charBuffer) {
       // firestore
       if (uid) {
-        const charDocRef = doc(db, "users", uid, gameType, cid);
-        await setDoc(charDocRef, cdata, { merge: true });
+        const charDocRef = doc(db, "users", uid, gameType, char[cid]);
+        await setDoc(charDocRef, char[cdata], { merge: false });
       }
 
       // local state
       setMyChars((prev) => ({
         ...prev,
-        [cid]: cdata,
+        [char.cid]: char.cdata,
       }));
-    };
+    }
 
-    //cleanup
+    // cleanup
     setError("");
-    setGameUid("");
-    setEnkaData({});
     setSelectedAvatars([]);
+    setEnkaList([]);
     setNextButtonDisabled(false);
+    setGameUid("");
     setIsEnkaOpen(false);
   };
 
@@ -195,7 +249,7 @@ const Enka = ({
           overflowY: "auto",
         }}
       >
-        {!enkaData.avatarInfoList?.length ? (
+        {!enkaList.length ? (
           <React.Fragment>
             <Typography>Enter uid</Typography>
             <TextField
@@ -223,7 +277,7 @@ const Enka = ({
         ) : (
           <React.Fragment>
             <Typography>Select which characters to add</Typography>
-            {enkaData.avatarInfoList.map((avatar, index) => (
+            {enkaList.map((avatar, index) => (
               <Box key={index} sx={{ display: "flex", alignItems: "center" }}>
                 <FormControlLabel
                   control={

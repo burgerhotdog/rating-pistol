@@ -19,7 +19,6 @@ const blankCdata = (gameType) => {
     ...(multiSet ? { set1: "", set2: "" } : { set: "" }),
     mainstats,
     substats,
-    score: "",
   };
 };
 
