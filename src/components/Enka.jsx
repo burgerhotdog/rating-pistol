@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import blankCdata from "./blankCdata";
 import GAME_DATA from "./gameData";
+import enkaStatKey from "./enkaStatKey";
 
 const Enka = ({
   gameType,
@@ -25,6 +26,7 @@ const Enka = ({
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
+  const statKey = enkaStatKey[gameType];
 
   const suffix = 
     gameType === "GI"
@@ -124,7 +126,7 @@ const Enka = ({
     switch (gameType) {
       case "GI":
         charBuffer = selectedAvatars.map((selectedAvatar) => {
-          const cid = enkaList[selectedAvatar].avatarId;
+          const cid = enkaList[selectedAvatar].avatarId.toString();
           const cdata = blankCdata("GI");
     
           cdata.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
@@ -138,9 +140,9 @@ const Enka = ({
             const currSet = currPiece.flat.icon.substring(13, 18) || "";
             setCounts[currSet] = (setCounts[currSet] || 0) + 1;
     
-            cdata.mainstats[i] = currPiece.flat.reliquaryMainstat.mainPropId || "";
+            cdata.mainstats[i] = statKey.MAIN[currPiece.flat.reliquaryMainstat.mainPropId] || "";
             for (let j = 0; j < 4; j++) {
-              cdata.substats[i][j][0] = currPiece.flat.reliquarySubstats[j]?.appendPropId || "";
+              cdata.substats[i][j][0] = statKey.SUB[currPiece.flat.reliquarySubstats[j]?.appendPropId] || "";
               cdata.substats[i][j][1] = currPiece.flat.reliquarySubstats[j]?.statValue.toString() || "";
             }
           }
@@ -159,7 +161,7 @@ const Enka = ({
 
       case "HSR":
         charBuffer = selectedAvatars.map((selectedAvatar) => {
-          const cid = enkaList[selectedAvatar].avatarId;
+          const cid = enkaList[selectedAvatar].avatarId.toString();
           const cdata = blankCdata("HSR");
   
           cdata.weapon = enkaList[selectedAvatar].equipment?.tid || "";
@@ -172,11 +174,10 @@ const Enka = ({
   
             const currSet = currPiece._flat.setID.toString() || "";
             setCounts[currSet] = (setCounts[currSet] || 0) + 1;
-            console.log(currSet);
   
-            cdata.mainstats[i] = currPiece._flat.props[0].type || "";
+            cdata.mainstats[i] = statKey.MAIN[currPiece._flat.props[0].type] || "";
             for (let j = 0; j < 4; j++) {
-              cdata.substats[i][j][0] = currPiece._flat.props[j + 1]?.type || "";
+              cdata.substats[i][j][0] = statKey.SUB[currPiece._flat.props[j + 1]?.type] || "";
               const ratio = currPiece._flat.props[j + 1]?.type.slice(-5) === "Delta" ? 1 : 100;
               cdata.substats[i][j][1] = (currPiece._flat.props[j + 1]?.value * ratio).toString() || "";
             }
@@ -190,25 +191,27 @@ const Enka = ({
               cdata.set2 = set;
             }
           }
-          console.log(cid, cdata);
-  
+
           return { cid, cdata };
         });
         break;
         
-      default:
-        return;
+      case "ZZZ":
+        break;
+      
+      case "WW":
+        break;
     }
 
     // update states
     for (const char of charBuffer) {
       // firestore
       if (uid) {
-        const charDocRef = doc(db, "users", uid, gameType, char[cid]);
-        await setDoc(charDocRef, char[cdata], { merge: false });
+        const charDocRef = doc(db, "users", uid, gameType, char.cid);
+        await setDoc(charDocRef, char.cdata, { merge: false });
       }
 
-      // local state
+      // local
       setMyChars((prev) => ({
         ...prev,
         [char.cid]: char.cdata,

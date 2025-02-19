@@ -138,9 +138,9 @@ const HonkaiStarRail = ({ uid }) => {
                                   {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base HP: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.HPDelta} <br />
-                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.AttackDelta} <br />
-                                  {"Base DEF: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.DefenceDelta}
+                                  {"Base HP: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_HP} <br />
+                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_ATK} <br />
+                                  {"Base DEF: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_DEF}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
                                   {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].subtitle}
@@ -217,7 +217,7 @@ const HonkaiStarRail = ({ uid }) => {
                         </Box>
                       </TableCell>
                     )}
-                    <TableCell>{score}</TableCell>
+                    <TableCell>{score.toString()}</TableCell>
                     <TableCell>
                       <Box
                         sx={{

@@ -1,124 +1,124 @@
 const HSR_MAINSTATS = [
-  { // 0
-    "HPDelta": {
+  {
+    "FLAT_HP": {
       name: "HP",
       value: 705.6,
     },
   },
-  { // 1
-    "AttackDelta": {
+  {
+    "FLAT_ATK": {
       name: "ATK",
       value: 352.8,
     },
   },
-  { // 2
-    "HPAddedRatio": {
+  {
+    "HP": {
       name: "HP%",
       value: 43.2,
     },
-    "AttackAddedRatio": {
+    "ATK": {
       name: "ATK%",
       value: 43.2,
     },
-    "DefenceAddedRatio": {
+    "DEF": {
       name: "DEF%",
       value: 54,
     },
-    "StatusProbabilityBase": {
-      name: "Effect Hit Rate",
-      value: 43.2,
-    },
-    "HealRatioBase": {
-      name: "Outgoing Healing Boost",
-      value: 34.5606,
-    },
-    "CriticalChanceBase": {
+    "CRIT_RATE": {
       name: "CRIT Rate",
       value: 32.4,
     },
-    "CriticalDamageBase": {
+    "CRIT_DMG": {
       name: "CRIT DMG",
       value: 64.8,
     },
+    "OUTGOING_HEALING_BOOST": {
+      name: "Outgoing Healing Boost",
+      value: 34.5606,
+    },
+    "EFFECT_HIT_RATE": {
+      name: "Effect Hit Rate",
+      value: 43.2,
+    },
   },
-  { // 3
-    "HPAddedRatio": {
+  {
+    "HP": {
       name: "HP%",
       value: 43.2,
     },
-    "AttackAddedRatio": {
+    "ATK": {
       name: "ATK",
       value: 43.2,
     },
-    "DefenceAddedRatio": {
+    "DEF": {
       name: "DEF%",
       value: 54,
     },
-    "SpeedDelta": {
+    "SPD": {
       name: "SPD",
       value: 25.032,
     },
   },
-  { // 4
-    "HPAddedRatio": {
+  {
+    "HP": {
       name: "HP%",
       value: 43.2,
     },
-    "AttackAddedRatio": {
+    "ATK": {
       name: "ATK",
       value: 43.2,
     },
-    "DefenceAddedRatio": {
+    "DEF": {
       name: "DEF%",
       value: 54,
     },
-    "FireAddedRatio": {
+    "FIRE_DMG_BONUS": {
       name: "Fire DMG Bonus",
       value: 38.8803,
     },
-    "IceAddedRatio": {
+    "ICE_DMG_BONUS": {
       name: "Ice DMG Bonus",
       value: 38.8803,
     },
-    "ImaginaryAddedRatio": {
+    "IMAGINARY_DMG_BONUS": {
       name: "Imaginary DMG Bonus",
       value: 38.8803,
     },
-    "ThunderAddedRatio": {
+    "LIGHTNING_DMG_BONUS": {
       name: "Lightning DMG Bonus",
       value: 38.8803,
     },
-    "PhysicalAddedRatio": {
+    "PHYSICAL_DMG_BONUS": {
       name: "Physical DMG Bonus",
       value: 38.8803,
     },
-    "QuantumAddedRatio": {
+    "QUANTUM_DMG_BONUS": {
       name: "Quantum DMG Bonus",
       value: 38.8803,
     },
-    "WindAddedRatio": {
+    "WIND_DMG_BONUS": {
       name: "Wind DMG Bonus",
       value: 38.8803,
     },
   },
-  { // 5
-    "HPAddedRatio": {
+  {
+    "HP": {
       name: "HP%",
       value: 43.2,
     },
-    "AttackAddedRatio": {
+    "ATK": {
       name: "ATK",
       value: 43.2,
     },
-    "DefenceAddedRatio": {
+    "DEF": {
       name: "DEF%",
       value: 54,
     },
-    "BreakDamageAddedRatioBase": {
+    "BREAK_EFFECT": {
       name: "Break Effect",
       value: 64.8,
     },
-    "SPRatioBase": {
+    "ENERGY_REGENERATION_RATE": {
       name: "Energy Regeneration Rate",
       value: 19.4394,
     },
@@ -126,51 +126,51 @@ const HSR_MAINSTATS = [
 ];
 
 const HSR_SUBSTATS = {
-  "SpeedDelta": {
-    name: "SPD",
-    value: 2.6,
-  },
-  "HPDelta": {
+  "FLAT_HP": {
     name: "HP",
     value: 42.34,
   },
-  "AttackDelta": {
+  "FLAT_ATK": {
     name: "ATK",
     value: 21.17,
   },
-  "DefenceDelta": {
+  "FLAT_DEF": {
     name: "DEF",
     value: 21.17,
   },
-  "HPAddedRatio": {
+  "HP": {
     name: "HP%",
     value: 4.32,
   },
-  "AttackAddedRatio": {
+  "ATK": {
     name: "ATK%",
     value: 4.32,
   },
-  "DefenceAddedRatio": {
+  "DEF": {
     name: "DEF%",
     value: 5.4,
   },
-  "BreakDamageAddedRatio": {
+  "SPD": {
+    name: "SPD",
+    value: 2.6,
+  },
+  "BREAK_EFFECT": {
     name: "Break Effect",
     value: 6.48,
   },
-  "StatusProbability": {
+  "EFFECT_HIT_RATE": {
     name: "Effect Hit Rate",
     value: 4.32,
   },
-  "StatusResistance": {
+  "EFFECT_RES": {
     name: "Effect RES",
     value: 4.32,
   },
-  "CriticalChance": {
+  "CRIT_RATE": {
     name: "CRIT Rate",
     value: 3.24,
   },
-  "CriticalDamage": {
+  "CRIT_DMG": {
     name: "CRIT DMG",
     value: 6.48,
   },
