@@ -1,64 +1,64 @@
 const WW_MAINSTATS = [
   { // 4-cost
-    "HP_PERCENT": {
+    "HP": {
       name: "HP%",
       value: 33,
     },
-    "ATK_PERCENT": {
+    "ATK": {
       name: "ATK%",
       value: 33,
     },
-    "DEF_PERCENT": {
+    "DEF": {
       name: "DEF%",
       value: 41.5,
     },
-    "CR": {
+    "CRIT_RATE": {
       name: "CRIT Rate",
       value: 22,
     },
-    "CD": {
+    "CRIT_DMG": {
       name: "CRIT DMG",
       value: 44,
     },
-    "HB": {
+    "HEALING_BONUS": {
       name: "Healing Bonus",
       value: 26,
     },
   },
   { // 3-cost
-    "HP_PERCENT": {
+    "HP": {
       name: "HP%",
       value: 30,
     },
-    "ATK_PERCENT": {
+    "ATK": {
       name: "ATK%",
       value: 30,
     },
-    "DEF_PERCENT": {
+    "DEF": {
       name: "DEF%",
       value: 38,
     },
-    "AERO_DMG": {
+    "AERO_DMG_BONUS": {
       name: "Aero DMG Bonus",
       value: 30,
     },
-    "ELECTRO_DMG": {
+    "ELECTRO_DMG_BONUS": {
       name: "Electro DMG Bonus",
       value: 30,
     },
-    "FUSION_DMG": {
+    "FUSION_DMG_BONUS": {
       name: "Fusion DMG Bonus",
       value: 30,
     },
-    "GLACIO_DMG": {
+    "GLACIO_DMG_BONUS": {
       name: "Glacio DMG Bonus",
       value: 30,
     },
-    "HAVOC_DMG": {
+    "HAVOC_DMG_BONUS": {
       name: "Havoc DMG Bonus",
       value: 30,
     },
-    "SPECTRO_DMG": {
+    "SPECTRO_DMG_BONUS": {
       name: "Spectro DMG Bonus",
       value: 30,
     },
@@ -68,39 +68,39 @@ const WW_MAINSTATS = [
     },
   },
   { // 3-cost
-    "HP_PERCENT": {
+    "HP": {
       name: "HP%",
       value: 30,
     },
-    "ATK_PERCENT": {
+    "ATK": {
       name: "ATK%",
       value: 30,
     },
-    "DEF_PERCENT": {
+    "DEF": {
       name: "DEF%",
       value: 38,
     },
-    "AERO_DMG": {
+    "AERO_DMG_BONUS": {
       name: "Aero DMG Bonus",
       value: 30,
     },
-    "ELECTRO_DMG": {
+    "ELECTRO_DMG_BONUS": {
       name: "Electro DMG Bonus",
       value: 30,
     },
-    "FUSION_DMG": {
+    "FUSION_DMG_BONUS": {
       name: "Fusion DMG Bonus",
       value: 30,
     },
-    "GLACIO_DMG": {
+    "GLACIO_DMG_BONUS": {
       name: "Glacio DMG Bonus",
       value: 30,
     },
-    "HAVOC_DMG": {
+    "HAVOC_DMG_BONUS": {
       name: "Havoc DMG Bonus",
       value: 30,
     },
-    "SPECTRO_DMG": {
+    "SPECTRO_DMG_BONUS": {
       name: "Spectro DMG Bonus",
       value: 30,
     },
@@ -110,29 +110,29 @@ const WW_MAINSTATS = [
     },
   },
   { // 1-cost
-    "HP_PERCENT": {
+    "HP": {
       name: "HP%",
       value: 22.8,
     },
-    "ATK_PERCENT": {
+    "ATK": {
       name: "ATK%",
       value: 18,
     },
-    "DEF_PERCENT": {
+    "DEF": {
       name: "DEF%",
       value: 18,
     },
   },
   { // 1-cost
-    "HP_PERCENT": {
+    "HP": {
       name: "HP%",
       value: 22.8,
     },
-    "ATK_PERCENT": {
+    "ATK": {
       name: "ATK%",
       value: 18,
     },
-    "DEF_PERCENT": {
+    "DEF": {
       name: "DEF%",
       value: 18,
     },

@@ -1,58 +1,58 @@
 const ZZZ_MAINSTATS = [
   { // 0
-    "HP": {
+    "FLAT_HP": {
       name: "HP",
       value: 2200,
     },
   },
   { // 1
-    "ATK": {
+    "FLAT_ATK": {
       name: "ATK",
       value: 316,
     },
   },
   { // 2
-    "DEF": {
+    "FLAT_DEF": {
       name: "DEF",
       value: 184,
     },
   },
   { // 3
-    "HP_PERCENT": {
+    "HP": {
       name: "HP%",
       value: 30,
     },
-    "ATK_PERCENT": {
+    "ATK": {
       name: "ATK%",
       value: 30,
     },
-    "DEF_PERCENT": {
+    "DEF": {
       name: "DEF%",
       value: 48,
     },
-    "CR": {
+    "CRIT_RATE": {
       name: "CRIT Rate",
       value: 24,
     },
-    "CD": {
+    "CRIT_DMG": {
       name: "CRIT DMG",
       value: 48,
     },
-    "AP": {
+    "ANOMALY_PROFICIENCY": {
       name: "Anomaly Proficiency",
       value: 92,
     },
   },
   { // 4
-    "HP_PERCENT": {
+    "HP": {
       name: "HP%",
       value: 30,
     },
-    "ATK_PERCENT": {
+    "ATK": {
       name: "ATK%",
       value: 30,
     },
-    "DEF_PERCENT": {
+    "DEF": {
       name: "DEF%",
       value: 48,
     },
@@ -60,49 +60,49 @@ const ZZZ_MAINSTATS = [
       name: "PEN Ratio",
       value: 24,
     },
-    "ETHER_DMG": {
+    "ETHER_DMG_BONUS": {
       name: "Ether DMG Bonus",
       value: 30,
     },
-    "ELECTRIC_DMG": {
+    "ELECTRIC_DMG_BONUS": {
       name: "Electric DMG Bonus",
       value: 30,
     },
-    "FIRE_DMG": {
+    "FIRE_DMG_BONUS": {
       name: "Fire DMG Bonus",
       value: 30,
     },
-    "ICE_DMG": {
+    "ICE_DMG_BONUS": {
       name: "Ice DMG Bonus",
       value: 30,
     },
-    "PHYSICAL_DMG": {
+    "PHYSICAL_DMG_BONUS": {
       name: "Physical DMG Bonus",
       value: 30,
     },
   },
   { // 5
-    "HP_PERCENT": {
+    "HP": {
       name: "HP%",
       value: 30,
     },
-    "ATK_PERCENT": {
+    "ATK": {
       name: "ATK%",
       value: 30,
     },
-    "DEF_PERCENT": {
+    "DEF": {
       name: "DEF%",
       value: 48,
     },
-    "AM": {
+    "ANOMALY_MASTERY": {
       name: "Anomaly Mastery",
       value: 30,
     },
-    "IMPACT_PERCENT": {
+    "IMPACT": {
       name: "Impact%",
       value: 18,
     },
-    "ER": {
+    "ENERGY_REGEN": {
       name: "Energy Regen%",
       value: 60,
     },
@@ -110,27 +110,27 @@ const ZZZ_MAINSTATS = [
 ];
 
 const ZZZ_SUBSTATS = {
-  "HP": {
+  "FLAT_HP": {
     name: "HP",
     value: 112,
   },
-  "ATK": {
+  "FLAT_ATK": {
     name: "ATK",
     value: 19,
   },
-  "DEF": {
+  "FLAT_DEF": {
     name: "DEF",
     value: 15,
   },
-  "HP_PERCENT": {
+  "HP": {
     name: "HP%",
     value: 3,
   },
-  "ATK_PERCENT": {
+  "ATK": {
     name: "ATK%",
     value: 3,
   },
-  "DEF_PERCENT": {
+  "DEF": {
     name: "DEF%",
     value: 4.8,
   },
@@ -138,15 +138,15 @@ const ZZZ_SUBSTATS = {
     name: "PEN",
     value: 9,
   },
-  "CR": {
+  "CRIT_RATE": {
     name: "CRIT Rate",
     value: 2.4,
   },
-  "CD": {
+  "CRIT_DMG": {
     name: "CRIT DMG",
     value: 4.8,
   },
-  "AP": {
+  "ANOMALY_PROFICIENCY": {
     name: "Anomaly Proficiency",
     value: 9,
   },

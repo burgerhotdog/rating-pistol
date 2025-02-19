@@ -138,7 +138,7 @@ const GenshinImpact = ({ uid }) => {
                                   {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FIGHT_PROP_ATTACK} <br />
+                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_ATK} <br />
                                   {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].substat}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>

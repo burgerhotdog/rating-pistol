@@ -38,12 +38,12 @@ const simulate_substats = (substats, weights, mainstatsArr, SUBSTATS, gameType) 
   let FIXED_STAT_UNTIL_WHEN = 3;
   let INITIAL_ROLL_INCREMENT = 5;
   if (gameType === "GI") {
-    matchStat = "FIGHT_PROP_CHARGE_EFFICIENCY";
+    matchStat = "ENERGY_RECHARGE";
     TOTAL_ROLLS = 40;
     FIXED_STAT_UNTIL_WHEN = 2;
   } else if (gameType === "HSR") {
-    matchStat = "SpeedDelta";
-    matchStat2 = "StatusProbability"
+    matchStat = "SPD";
+    matchStat2 = "EFFECT_HIT_RATE"
     FIXED_STAT_UNTIL_WHEN = 2;
   } else if (gameType === "WW") {
     matchStat = "ENERGY_REGEN";
@@ -109,39 +109,16 @@ const simulate_substats = (substats, weights, mainstatsArr, SUBSTATS, gameType) 
 };
 
 const calculatePoints = (statsObj, weights, basestats, SUBSTATS, gameType) => {
-  const flatToPercent = {};
-  switch (gameType) {
-    case "GI":
-      flatToPercent.FIGHT_PROP_HP = "FIGHT_PROP_HP_PERCENT";
-      flatToPercent.FIGHT_PROP_ATTACK = "FIGHT_PROP_ATTACK_PERCENT";
-      flatToPercent.FIGHT_PROP_DEFENSE = "FIGHT_PROP_DEFENSE_PERCENT";
-      break;
-    case "HSR":
-      flatToPercent.HPDelta = "HPAddedRatio";
-      flatToPercent.AttackDelta = "AttackAddedRatio";
-      flatToPercent.DefenceDelta = "DefenceAddedRatio";
-      break;
-    case "ZZZ":
-      flatToPercent.HP = "HP_PERCENT";
-      flatToPercent.ATK = "ATK_PERCENT";
-      flatToPercent.DEF = "DEF_PERCENT";
-      break;
-    case "WW":
-      flatToPercent.HP = "HP_PERCENT";
-      flatToPercent.ATK = "ATK_PERCENT";
-      flatToPercent.DEF = "DEF_PERCENT";
-      break;
-  }
   let points = 0;
   Object.entries(statsObj).forEach(([key, value]) => {
     if (weights[key]) {
       const weight = weights[key];
       const normalize = SUBSTATS[key]?.value;
       points += (value / normalize) * weight;
-    } else if (basestats[key] && weights[flatToPercent[key]]) {
+    } else if (basestats[key] && weights[key.substring(5)]) {
       const valuePercent = (value / basestats[key]) * 100;
-      const weight = weights[flatToPercent[key]];
-      const normalize = SUBSTATS[flatToPercent[key]]?.value;
+      const weight = weights[key.substring(5)];
+      const normalize = SUBSTATS[key.substring(5)]?.value;
       points += (valuePercent / normalize) * weight;
     }
   });
