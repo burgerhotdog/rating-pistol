@@ -217,7 +217,7 @@ const HonkaiStarRail = ({ uid }) => {
                         </Box>
                       </TableCell>
                     )}
-                    <TableCell>{score}</TableCell>
+                    <TableCell>{score.toString()}</TableCell>
                     <TableCell>
                       <Box
                         sx={{

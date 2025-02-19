@@ -124,7 +124,7 @@ const Enka = ({
     switch (gameType) {
       case "GI":
         charBuffer = selectedAvatars.map((selectedAvatar) => {
-          const cid = enkaList[selectedAvatar].avatarId;
+          const cid = enkaList[selectedAvatar].avatarId.toString();
           const cdata = blankCdata("GI");
     
           cdata.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
@@ -159,7 +159,7 @@ const Enka = ({
 
       case "HSR":
         charBuffer = selectedAvatars.map((selectedAvatar) => {
-          const cid = enkaList[selectedAvatar].avatarId;
+          const cid = enkaList[selectedAvatar].avatarId.toString();
           const cdata = blankCdata("HSR");
   
           cdata.weapon = enkaList[selectedAvatar].equipment?.tid || "";
@@ -172,7 +172,6 @@ const Enka = ({
   
             const currSet = currPiece._flat.setID.toString() || "";
             setCounts[currSet] = (setCounts[currSet] || 0) + 1;
-            console.log(currSet);
   
             cdata.mainstats[i] = currPiece._flat.props[0].type || "";
             for (let j = 0; j < 4; j++) {
@@ -204,8 +203,8 @@ const Enka = ({
     for (const char of charBuffer) {
       // firestore
       if (uid) {
-        const charDocRef = doc(db, "users", uid, gameType, char[cid]);
-        await setDoc(charDocRef, char[cdata], { merge: false });
+        const charDocRef = doc(db, "users", uid, gameType, char.cid);
+        await setDoc(charDocRef, char.cdata, { merge: false });
       }
 
       // local state
