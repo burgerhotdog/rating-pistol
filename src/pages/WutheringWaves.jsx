@@ -230,7 +230,7 @@ const WutheringWaves = ({ uid }) => {
           Add character
         </Button>
 
-        {/* Save modal */}
+        {/* Modals */}
         <Save
           gameType={GAME_TYPE}
           uid={uid}
@@ -240,7 +240,6 @@ const WutheringWaves = ({ uid }) => {
           setMyChars={setMyChars}
         />
 
-        {/* Delete modal */}
         <Delete
           gameType={GAME_TYPE}
           uid={uid}

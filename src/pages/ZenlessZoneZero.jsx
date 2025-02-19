@@ -260,7 +260,7 @@ const ZenlessZoneZero = ({ uid }) => {
           Add character
         </Button>
 
-        {/* Save modal */}
+        {/* Modals */}
         <Save
           gameType={GAME_TYPE}
           uid={uid}
@@ -270,7 +270,6 @@ const ZenlessZoneZero = ({ uid }) => {
           setMyChars={setMyChars}
         />
 
-        {/* Delete modal */}
         <Delete
           gameType={GAME_TYPE}
           uid={uid}
