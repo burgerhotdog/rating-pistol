@@ -37,7 +37,7 @@ const Enka = ({
           ? "zzz/uid/"
           : "";
   // test uids
-  // gi 618285856
+  // gi 618285856, 604379917
   // hsr 602849613
   const fetchPlayerData = async () => {
     try {
