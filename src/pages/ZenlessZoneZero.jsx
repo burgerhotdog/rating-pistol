@@ -120,7 +120,7 @@ const ZenlessZoneZero = ({ uid }) => {
                     <TableCell>
                       <img
                         src={cImgs[`../assets/char/ZZZ/${cid}.webp`]?.default}
-                        alt={"char"}
+                        alt={cid}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
@@ -150,7 +150,7 @@ const ZenlessZoneZero = ({ uid }) => {
                           >
                             <img
                               src={wImgs[`../assets/weap/ZZZ/${cdata.weapon}.webp`]?.default}
-                              alt={"weap"}
+                              alt={cdata.weapon}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
@@ -183,7 +183,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             >
                               <img
                                 src={sImgs[`../assets/set/ZZZ/${cdata.set1}.webp`]?.default}
-                                alt={"set1"}
+                                alt={cdata.set1}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
                             </Tooltip>
@@ -205,7 +205,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             >
                               <img
                                 src={sImgs[`../assets/set/ZZZ/${cdata.set2}.webp`]?.default}
-                                alt={"set2"}
+                                alt={cdata.set2}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
                             </Tooltip>

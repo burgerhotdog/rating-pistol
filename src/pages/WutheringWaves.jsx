@@ -121,7 +121,7 @@ const WutheringWaves = ({ uid }) => {
                     <TableCell>
                       <img
                         src={cImgs[`../assets/char/WW/${cid}.webp`]?.default}
-                        alt={"char"}
+                        alt={cid}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
@@ -151,7 +151,7 @@ const WutheringWaves = ({ uid }) => {
                           >
                             <img
                               src={wImgs[`../assets/weap/WW/${cdata.weapon}.webp`]?.default}
-                              alt={"weap"}
+                              alt={cdata.weapon}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
@@ -160,23 +160,23 @@ const WutheringWaves = ({ uid }) => {
                     )}
                     {isNotMobile && (
                       <TableCell>
-                        {cdata.set && (
+                        {cdata.set1 && (
                           <Tooltip
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set].name}
+                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set1].name}
                                 </Typography>
                                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set].desc}
+                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set1].desc}
                                 </Typography>
                               </React.Fragment>
                             }
                             arrow
                           >
                             <img
-                              src={sImgs[`../assets/set/WW/${cdata.set}.webp`]?.default}
-                              alt={"set"}
+                              src={sImgs[`../assets/set/WW/${cdata.set1}.webp`]?.default}
+                              alt={cdata.set1}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>

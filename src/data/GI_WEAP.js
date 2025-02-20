@@ -2,6 +2,7 @@ const GI_WEAP = {
   // Version 5.4
   "14158": {
     name: "Sunny Morning Sleep-In",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 542 },
     substat: "Elemental Mastery: 265",
@@ -10,7 +11,8 @@ const GI_WEAP = {
   },
   "13432": {
     name: "Tamayuratei no Ohanashi",
-    type: "Catalyst",
+    rarity: 4,
+    type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
     subtitle: "Busybody's Running Light",
@@ -20,6 +22,7 @@ const GI_WEAP = {
   // Version 5.3
   "12514": {
     name: "A Thousand Blazing Suns",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 741 },
     substat: "CRIT Rate: 11%",
@@ -28,6 +31,7 @@ const GI_WEAP = {
   },
   "14517": {
     name: "Starcaller's Watch",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 542 },
     substat: "Elemental Mastery: 265",
@@ -38,6 +42,7 @@ const GI_WEAP = {
   // Version 5.2
   "15514": {
     name: "Astral Vulture's Crimson Plumage",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 608 },
     substat: "CRIT DMG: 66.2%",
@@ -46,6 +51,7 @@ const GI_WEAP = {
   },
   "11432": {
     name: "Calamity of Eshu",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -54,6 +60,7 @@ const GI_WEAP = {
   },
   "15430": {
     name: "Flower-Wreathed Feathers",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -62,6 +69,7 @@ const GI_WEAP = {
   },
   "14430": {
     name: "Waveriding Whirl",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 454 },
     substat: "Energy Recharge: 61.3%",
@@ -72,6 +80,7 @@ const GI_WEAP = {
   // Version 5.1
   "12430": {
     name: "Fruitful Hook",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -80,6 +89,7 @@ const GI_WEAP = {
   },
   "13430": {
     name: "Mountain-Bracing Bolt",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -88,6 +98,7 @@ const GI_WEAP = {
   },
   "11516": {
     name: "Peak Patrol Song",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 542 },
     substat: "DEF: 82.7%",
@@ -96,6 +107,7 @@ const GI_WEAP = {
   },
   "11430": {
     name: "Sturdy Bone",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -106,6 +118,7 @@ const GI_WEAP = {
   // Version 5.0
   "14427": {
     name: "Ash-Graven Drinking Horn",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "HP: 41.3%",
@@ -114,6 +127,7 @@ const GI_WEAP = {
   },
   "15431": {
     name: "Chain Breaker",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -122,6 +136,7 @@ const GI_WEAP = {
   },
   "12431": {
     name: "Earth Shaker",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -130,6 +145,7 @@ const GI_WEAP = {
   },
   "12513": {
     name: "Fang of the Mountain King",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 741 },
     substat: "CRIT Rate: 11%",
@@ -138,6 +154,7 @@ const GI_WEAP = {
   },
   "11431": {
     name: "Flute of Ezpitzal",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 454 },
     substat: "DEF: 69%",
@@ -146,6 +163,7 @@ const GI_WEAP = {
   },
   "13431": {
     name: "Footprint of the Rainbow",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 510 },
     substat: "DEF: 51.7%",
@@ -154,6 +172,7 @@ const GI_WEAP = {
   },
   "14431": {
     name: "Ring of Yaxche",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "HP: 41.3%",
@@ -162,6 +181,7 @@ const GI_WEAP = {
   },
   "14516": {
     name: "Surf's Up",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 542 },
     substat: "CRIT DMG: 88.2%",
@@ -172,6 +192,7 @@ const GI_WEAP = {
   // Version 4.8
   "13513": {
     name: "Lumidouce Elegy",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 608 },
     substat: "CRIT Rate: 33.1%",
@@ -182,6 +203,7 @@ const GI_WEAP = {
   // Version 4.7
   "11515": {
     name: "Absolution",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 674 },
     substat: "CRIT DMG: 44.1%",
@@ -190,6 +212,7 @@ const GI_WEAP = {
   },
   "15426": {
     name: "Cloudforged",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -198,6 +221,7 @@ const GI_WEAP = {
   },
   "15513": {
     name: "Silvershower Heartstrings",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 542 },
     substat: "HP: 66.2%",
@@ -208,6 +232,7 @@ const GI_WEAP = {
   // Version 4.6
   "13512": {
     name: "Crimson Moon's Semblance",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 674 },
     substat: "CRIT Rate: 22.1%",
@@ -218,6 +243,7 @@ const GI_WEAP = {
   // Version 4.5
   "13426": {
     name: "Dialogues of the Desert Sages",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 510 },
     substat: "HP: 41.3%",
@@ -226,6 +252,7 @@ const GI_WEAP = {
   },
   "11514": {
     name: "Uraku Misugiri",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 542 },
     substat: "CRIT DMG: 88.2%",
@@ -236,6 +263,7 @@ const GI_WEAP = {
   // Version 4.4
   "14515": {
     name: "Crane's Echoing Call",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 741 },
     substat: "ATK: 16.5%",
@@ -246,6 +274,7 @@ const GI_WEAP = {
   // Version 4.3
   "12426": {
     name: "\"Ultimate Overlord's Mega Magic Sword\"",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -254,6 +283,7 @@ const GI_WEAP = {
   },
   "12512": {
     name: "Verdict",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 674 },
     substat: "CRIT Rate: 22.1%",
@@ -264,6 +294,7 @@ const GI_WEAP = {
   // Version 4.2
   "11513": {
     name: "Splendor of Tranquil Waters",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 542 },
     substat: "CRIT DMG: 88.2%",
@@ -272,6 +303,7 @@ const GI_WEAP = {
   },
   "11428": {
     name: "Sword of Narzissenkreuz",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -282,6 +314,7 @@ const GI_WEAP = {
   // Version 4.1
   "14426": {
     name: "Ballad of the Boundless Blue",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -290,6 +323,7 @@ const GI_WEAP = {
   },
   "14513": {
     name: "Cashflow Supervision",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 674 },
     substat: "CRIT Rate: 22.1%",
@@ -298,6 +332,7 @@ const GI_WEAP = {
   },
   "12427": {
     name: "Portable Power Saw",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 454 },
     substat: "HP: 55.1%",
@@ -306,6 +341,7 @@ const GI_WEAP = {
   },
   "13427": {
     name: "Prospector's Drill",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -314,6 +350,7 @@ const GI_WEAP = {
   },
   "15427": {
     name: "Range Gauge",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -322,6 +359,7 @@ const GI_WEAP = {
   },
   "11427": {
     name: "The Dockhand's Assistant",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "HP: 41.3%",
@@ -330,6 +368,7 @@ const GI_WEAP = {
   },
   "14514": {
     name: "Tome of the Eternal Flow",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 542 },
     substat: "CRIT DMG: 88.2%",
@@ -340,6 +379,7 @@ const GI_WEAP = {
   // Version 4.0
   "13424": {
     name: "Ballad of the Fjords",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 510 },
     substat: "CRIT Rate: 27.6%",
@@ -348,6 +388,7 @@ const GI_WEAP = {
   },
   "11425": {
     name: "Finale of the Deep",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -356,6 +397,7 @@ const GI_WEAP = {
   },
   "11426": {
     name: "Fleuve Cendre Ferryman",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "Energy Recharge: 45.9%",
@@ -364,6 +406,7 @@ const GI_WEAP = {
   },
   "14425": {
     name: "Flowing Purity",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -372,6 +415,7 @@ const GI_WEAP = {
   },
   "13425": {
     name: "Rightful Reward",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "HP: 27.6%",
@@ -380,6 +424,7 @@ const GI_WEAP = {
   },
   "14424": {
     name: "Sacrificial Jade",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 454 },
     substat: "CRIT Rate: 36.8%",
@@ -388,6 +433,7 @@ const GI_WEAP = {
   },
   "15424": {
     name: "Scion of the Blazing Sun",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "CRIT Rate: 18.4%",
@@ -396,6 +442,7 @@ const GI_WEAP = {
   },
   "15425": {
     name: "Song of Stillness",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -404,6 +451,7 @@ const GI_WEAP = {
   },
   "12424": {
     name: "Talking Stick",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "CRIT Rate: 18.4%",
@@ -412,6 +460,7 @@ const GI_WEAP = {
   },
   "15512": {
     name: "The First Great Magic",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 608 },
     substat: "CRIT DMG: 66.2%",
@@ -420,6 +469,7 @@ const GI_WEAP = {
   },
   "12425": {
     name: "Tidal Shadow",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -428,6 +478,7 @@ const GI_WEAP = {
   },
   "11424": {
     name: "Wolf-Fang",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "CRIT Rate: 27.6%",
@@ -438,6 +489,7 @@ const GI_WEAP = {
   // Version 3.7
   "15419": {
     name: "Ibis Piercer",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -448,6 +500,7 @@ const GI_WEAP = {
   // Version 3.6
   "14505": {
     name: "Jadefall's Splendor",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 608 },
     substat: "HP: 49.6%",
@@ -458,6 +511,7 @@ const GI_WEAP = {
   // Version 3.5
   "12511": {
     name: "Beacon of the Reed Sea",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 608 },
     substat: "CRIT Rate: 33.1%",
@@ -466,6 +520,7 @@ const GI_WEAP = {
   },
   "12418": {
     name: "Mailed Flower",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "Elemental Mastery: 110",
@@ -476,6 +531,7 @@ const GI_WEAP = {
   // Version 3.4
   "11512": {
     name: "Light of Foliar Incision",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 542 },
     substat: "CRIT DMG: 88.2%",
@@ -486,6 +542,7 @@ const GI_WEAP = {
   // Version 3.3
   "11422": {
     name: "Toukabou Shigure",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -494,6 +551,7 @@ const GI_WEAP = {
   },
   "14512": {
     name: "Tulaytullah's Remembrance",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 674 },
     substat: "CRIT DMG: 44.1%",
@@ -504,6 +562,7 @@ const GI_WEAP = {
   // Version 3.2
   "14511": {
     name: "A Thousand Floating Dreams",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 542 },
     substat: "Elemental Mastery: 265",
@@ -514,6 +573,7 @@ const GI_WEAP = {
   // Version 3.1
   "11511": {
     name: "Key of Khaj-Nisut",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 542 },
     substat: "HP: 66.2%",
@@ -522,6 +582,7 @@ const GI_WEAP = {
   },
   "12415": {
     name: "Makhaira Aquamarine",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -530,6 +591,7 @@ const GI_WEAP = {
   },
   "13419": {
     name: "Missive Windspear",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -538,6 +600,7 @@ const GI_WEAP = {
   },
   "13511": {
     name: "Staff of the Scarlet Sands",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 542 },
     substat: "CRIT Rate: 44.1%",
@@ -546,6 +609,7 @@ const GI_WEAP = {
   },
   "14416": {
     name: "Wandering Evenstar",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -554,6 +618,7 @@ const GI_WEAP = {
   },
   "11418": {
     name: "Xiphos' Moonlight",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -564,6 +629,7 @@ const GI_WEAP = {
   // Version 3.0
   "15418": {
     name: "End of the Line",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "Energy Recharge: 45.9%",
@@ -572,6 +638,7 @@ const GI_WEAP = {
   },
   "12417": {
     name: "Forest Regalia",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -580,6 +647,7 @@ const GI_WEAP = {
   },
   "14417": {
     name: "Fruit of Fulfillment",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "Energy Recharge: 45.9%",
@@ -588,6 +656,7 @@ const GI_WEAP = {
   },
   "15511": {
     name: "Hunter's Path",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 542 },
     substat: "CRIT Rate: 44.1%",
@@ -596,6 +665,7 @@ const GI_WEAP = {
   },
   "15417": {
     name: "King's Squire",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 454 },
     substat: "ATK: 55.1%",
@@ -604,6 +674,7 @@ const GI_WEAP = {
   },
   "13417": {
     name: "Moonpiercer",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "Elemental Mastery: 110",
@@ -612,6 +683,7 @@ const GI_WEAP = {
   },
   "11417": {
     name: "Sapwood Blade",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -622,6 +694,7 @@ const GI_WEAP = {
   // Version 2.8
   "11416": {
     name: "Kagotsurube Isshin",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -632,6 +705,7 @@ const GI_WEAP = {
   // Version 2.7
   "15508": {
     name: "Aqua Simulacra",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 542 },
     substat: "CRIT DMG: 88.2%",
@@ -640,6 +714,7 @@ const GI_WEAP = {
   },
   "15411": {
     name: "Fading Twilight",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -650,6 +725,7 @@ const GI_WEAP = {
   // Version 2.6
   "11510": {
     name: "Haran Geppaku Futsu",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 608 },
     substat: "CRIT Rate: 33.1%",
@@ -660,6 +736,7 @@ const GI_WEAP = {
   // Version 2.5
   "14509": {
     name: "Kagura's Verity",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 608 },
     substat: "CRIT DMG: 66.2%",
@@ -668,6 +745,7 @@ const GI_WEAP = {
   },
   "14415": {
     name: "Oathsworn Eye",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -678,6 +756,7 @@ const GI_WEAP = {
   // Version 2.4
   "13507": {
     name: "Calamity Queller",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 741 },
     substat: "ATK: 16.5%",
@@ -688,6 +767,7 @@ const GI_WEAP = {
   // Version 2.3
   "11415": {
     name: "Cinnabar Spindle",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 454 },
     substat: "DEF: 69%",
@@ -696,6 +776,7 @@ const GI_WEAP = {
   },
   "12510": {
     name: "Redhorn Stonethresher",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 542 },
     substat: "CRIT DMG: 88.2%",
@@ -706,6 +787,7 @@ const GI_WEAP = {
   // Version 2.2
   "12416": {
     name: "Akuoumaru",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -714,6 +796,7 @@ const GI_WEAP = {
   },
   "15416": {
     name: "Mouun's Moon",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -722,6 +805,7 @@ const GI_WEAP = {
   },
   "15507": {
     name: "Polar Star",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 608 },
     substat: "CRIT Rate: 33.1%",
@@ -730,6 +814,7 @@ const GI_WEAP = {
   },
   "13416": {
     name: "Wavebreaker's Fin",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 620 },
     substat: "ATK: 13.8%",
@@ -740,6 +825,7 @@ const GI_WEAP = {
   // Version 2.1
   "13509": {
     name: "Engulfing Lightning",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 608 },
     substat: "Energy Recharge: 55.1%",
@@ -748,6 +834,7 @@ const GI_WEAP = {
   },
   "14506": {
     name: "Everlasting Moonglow",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 608 },
     substat: "HP: 49.6%",
@@ -756,6 +843,7 @@ const GI_WEAP = {
   },
   "12412": {
     name: "Luxurious Sea-Lord",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 454 },
     substat: "ATK: 55.1%",
@@ -764,6 +852,7 @@ const GI_WEAP = {
   },
   "15415": {
     name: "Predator",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -772,6 +861,7 @@ const GI_WEAP = {
   },
   "13415": {
     name: "\"The Catch\"",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 510 },
     substat: "Energy Recharge: 45.9%",
@@ -782,6 +872,7 @@ const GI_WEAP = {
   // Version 2.0
   "11414": {
     name: "Amenoma Kageuchi",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 454 },
     substat: "ATK: 55.1%",
@@ -790,6 +881,7 @@ const GI_WEAP = {
   },
   "14414": {
     name: "Hakushin Ring",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -798,6 +890,7 @@ const GI_WEAP = {
   },
   "15414": {
     name: "Hamayumi",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 454 },
     substat: "ATK: 55.1%",
@@ -806,6 +899,7 @@ const GI_WEAP = {
   },
   "12414": {
     name: "Katsuragikiri Nagamasa",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "Energy Recharge: 45.9%",
@@ -814,6 +908,7 @@ const GI_WEAP = {
   },
   "13414": {
     name: "Kitain Cross Spear",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "Elemental Mastery: 110",
@@ -822,6 +917,7 @@ const GI_WEAP = {
   },
   "11509": {
     name: "Mistsplitter Reforged",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 674 },
     substat: "CRIT DMG: 44.1%",
@@ -830,6 +926,7 @@ const GI_WEAP = {
   },
   "15509": {
     name: "Thundering Pulse",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 608 },
     substat: "CRIT DMG: 66.2%",
@@ -840,6 +937,7 @@ const GI_WEAP = {
   // Version 1.6
   "14413": {
     name: "Dodoco Tales",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 454 },
     substat: "ATK: 55.1%",
@@ -848,6 +946,7 @@ const GI_WEAP = {
   },
   "11503": {
     name: "Freedom-Sworn",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 608 },
     substat: "Elemental Mastery: 198",
@@ -856,6 +955,7 @@ const GI_WEAP = {
   },
   "15412": {
     name: "Mitternachts Waltz",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "Physical DMG Bonus: 51.7%",
@@ -866,6 +966,7 @@ const GI_WEAP = {
   // Version 1.5
   "12503": {
     name: "Song of Broken Pines",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 741 },
     substat: "Physical DMG Bonus: 20.7%",
@@ -876,6 +977,7 @@ const GI_WEAP = {
   // Version 1.4
   "15410": {
     name: "Alley Hunter",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -884,6 +986,7 @@ const GI_WEAP = {
   },
   "15503": {
     name: "Elegy for the End",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 608 },
     substat: "Energy Recharge: 55.1%",
@@ -892,6 +995,7 @@ const GI_WEAP = {
   },
   "11410": {
     name: "The Alley Flash",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 620 },
     substat: "Elemental Mastery: 55",
@@ -900,6 +1004,7 @@ const GI_WEAP = {
   },
   "15413": {
     name: "Windblume Ode",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -908,6 +1013,7 @@ const GI_WEAP = {
   },
   "14410": {
     name: "Wine and Song",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -918,6 +1024,7 @@ const GI_WEAP = {
   // Version 1.3
   "12410": {
     name: "Lithic Blade",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -926,6 +1033,7 @@ const GI_WEAP = {
   },
   "13406": {
     name: "Lithic Spear",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -934,6 +1042,7 @@ const GI_WEAP = {
   },
   "11505": {
     name: "Primordial Jade Cutter",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 542 },
     substat: "CRIT Rate: 44.1%",
@@ -942,6 +1051,7 @@ const GI_WEAP = {
   },
   "13501": {
     name: "Staff of Homa",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 608 },
     substat: "CRIT DMG: 66.2%",
@@ -952,6 +1062,7 @@ const GI_WEAP = {
   // Version 1.2
   "13409": {
     name: "Dragonspine Spear",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 454 },
     substat: "Physical DMG Bonus: 69%",
@@ -960,6 +1071,7 @@ const GI_WEAP = {
   },
   "11413": {
     name: "Festering Desire",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "Energy Recharge: 45.9%",
@@ -968,6 +1080,7 @@ const GI_WEAP = {
   },
   "14412": {
     name: "Frostbearer",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -976,6 +1089,7 @@ const GI_WEAP = {
   },
   "12411": {
     name: "Snow-Tombed Starsilver",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "Physical DMG Bonus: 34.5%",
@@ -984,6 +1098,7 @@ const GI_WEAP = {
   },
   "11504": {
     name: "Summit Shaper",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 608 },
     substat: "ATK: 49.6%",
@@ -994,6 +1109,7 @@ const GI_WEAP = {
   // Version 1.1
   "14504": {
     name: "Memory of Dust",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 608 },
     substat: "ATK: 49.6%",
@@ -1002,6 +1118,7 @@ const GI_WEAP = {
   },
   "13408": {
     name: "Royal Spear",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -1010,6 +1127,7 @@ const GI_WEAP = {
   },
   "12504": {
     name: "The Unforged",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 608 },
     substat: "ATK: 49.6%",
@@ -1018,6 +1136,7 @@ const GI_WEAP = {
   },
   "13504": {
     name: "Vortex Vanquisher",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 608 },
     substat: "ATK: 49.6%",
@@ -1028,6 +1147,7 @@ const GI_WEAP = {
   // Version 1.0
   "15502": {
     name: "Amos' Bow",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 608 },
     substat: "ATK: 49.6%",
@@ -1036,6 +1156,7 @@ const GI_WEAP = {
   },
   "11501": {
     name: "Aquila Favonia",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 674 },
     substat: "Physical DMG Bonus: 41.3%",
@@ -1044,6 +1165,7 @@ const GI_WEAP = {
   },
   "13303": {
     name: "Black Tassel",
+    rarity: 3,
     type: "Polearm",
     base: { FLAT_ATK: 354 },
     substat: "HP: 46.9%",
@@ -1052,6 +1174,7 @@ const GI_WEAP = {
   },
   "14408": {
     name: "Blackcliff Agate",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "CRIT DMG: 55.1%",
@@ -1060,6 +1183,7 @@ const GI_WEAP = {
   },
   "11408": {
     name: "Blackcliff Longsword",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 565 },
     substat: "CRIT DMG: 36.8%",
@@ -1068,6 +1192,7 @@ const GI_WEAP = {
   },
   "13404": {
     name: "Blackcliff Pole",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 510 },
     substat: "CRIT DMG: 55.1%",
@@ -1076,6 +1201,7 @@ const GI_WEAP = {
   },
   "12408": {
     name: "Blackcliff Slasher",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "CRIT DMG: 55.1%",
@@ -1084,6 +1210,7 @@ const GI_WEAP = {
   },
   "15408": {
     name: "Blackcliff Warbow",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "CRIT DMG: 36.8%",
@@ -1092,6 +1219,7 @@ const GI_WEAP = {
   },
   "12302": {
     name: "Bloodtainted Greatsword",
+    rarity: 3,
     type: "Claymore",
     base: { FLAT_ATK: 354 },
     substat: "Elemental Mastery: 187",
@@ -1100,6 +1228,7 @@ const GI_WEAP = {
   },
   "15407": {
     name: "Compound Bow",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 454 },
     substat: "Physical DMG Bonus: 69%",
@@ -1108,6 +1237,7 @@ const GI_WEAP = {
   },
   "11301": {
     name: "Cool Steel",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 401 },
     substat: "ATK: 35.2%",
@@ -1116,6 +1246,7 @@ const GI_WEAP = {
   },
   "13403": {
     name: "Crescent Pike",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "Physical DMG Bonus: 34.5%",
@@ -1124,6 +1255,7 @@ const GI_WEAP = {
   },
   "11304": {
     name: "Dark Iron Sword",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 401 },
     substat: "Elemental Mastery: 141",
@@ -1132,6 +1264,7 @@ const GI_WEAP = {
   },
   "13405": {
     name: "Deathmatch",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 454 },
     substat: "CRIT Rate: 36.8%",
@@ -1140,6 +1273,7 @@ const GI_WEAP = {
   },
   "12305": {
     name: "Debate Club",
+    rarity: 3,
     type: "Claymore",
     base: { FLAT_ATK: 401 },
     substat: "ATK: 35.2%",
@@ -1148,6 +1282,7 @@ const GI_WEAP = {
   },
   "13401": {
     name: "Dragon's Bane",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 454 },
     substat: "Elemental Mastery: 221",
@@ -1156,6 +1291,7 @@ const GI_WEAP = {
   },
   "14304": {
     name: "Emerald Orb",
+    rarity: 3,
     type: "Catalyst",
     base: { FLAT_ATK: 448 },
     substat: "Elemental Mastery: 94",
@@ -1164,6 +1300,7 @@ const GI_WEAP = {
   },
   "14409": {
     name: "Eye of Perception",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 454 },
     substat: "ATK: 55.1%",
@@ -1172,6 +1309,7 @@ const GI_WEAP = {
   },
   "14401": {
     name: "Favonius Codex",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "Energy Recharge: 45.9%",
@@ -1180,6 +1318,7 @@ const GI_WEAP = {
   },
   "12401": {
     name: "Favonius Greatsword",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 454 },
     substat: "Energy Recharge: 61.3%",
@@ -1188,6 +1327,7 @@ const GI_WEAP = {
   },
   "13407": {
     name: "Favonius Lance",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -1196,6 +1336,7 @@ const GI_WEAP = {
   },
   "11401": {
     name: "Favonius Sword",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 454 },
     substat: "Energy Recharge: 61.3%",
@@ -1204,6 +1345,7 @@ const GI_WEAP = {
   },
   "15401": {
     name: "Favonius Warbow",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 454 },
     substat: "Energy Recharge: 61.3%",
@@ -1212,6 +1354,7 @@ const GI_WEAP = {
   },
   "12301": {
     name: "Ferrous Shadow",
+    rarity: 3,
     type: "Claymore",
     base: { FLAT_ATK: 401 },
     substat: "HP: 35.2%",
@@ -1220,6 +1363,7 @@ const GI_WEAP = {
   },
   "11305": {
     name: "Fillet Blade",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 401 },
     substat: "ATK: 35.2%",
@@ -1228,6 +1372,7 @@ const GI_WEAP = {
   },
   "13302": {
     name: "Halberd",
+    rarity: 3,
     type: "Polearm",
     base: { FLAT_ATK: 448 },
     substat: "ATK: 23.5%",
@@ -1236,6 +1381,7 @@ const GI_WEAP = {
   },
   "11302": {
     name: "Harbinger of Dawn",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 401 },
     substat: "CRIT DMG: 46.9%",
@@ -1244,6 +1390,7 @@ const GI_WEAP = {
   },
   "11407": {
     name: "Iron Sting",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -1252,6 +1399,7 @@ const GI_WEAP = {
   },
   "11405": {
     name: "Lion's Roar",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -1260,6 +1408,7 @@ const GI_WEAP = {
   },
   "14502": {
     name: "Lost Prayer to the Sacred Winds",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 608 },
     substat: "CRIT Rate: 33.1%",
@@ -1268,6 +1417,7 @@ const GI_WEAP = {
   },
   "14301": {
     name: "Magic Guide",
+    rarity: 3,
     type: "Catalyst",
     base: { FLAT_ATK: 354 },
     substat: "Elemental Mastery: 187",
@@ -1276,6 +1426,7 @@ const GI_WEAP = {
   },
   "14407": {
     name: "Mappa Mare",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 565 },
     substat: "Elemental Mastery: 110",
@@ -1284,6 +1435,7 @@ const GI_WEAP = {
   },
   "15305": {
     name: "Messenger",
+    rarity: 3,
     type: "Bow",
     base: { FLAT_ATK: 448 },
     substat: "CRIT Rate: 31.2%",
@@ -1292,6 +1444,7 @@ const GI_WEAP = {
   },
   "14303": {
     name: "Otherworldly Story",
+    rarity: 3,
     type: "Catalyst",
     base: { FLAT_ATK: 401 },
     substat: "Energy Recharge: 39%",
@@ -1300,6 +1453,7 @@ const GI_WEAP = {
   },
   "13505": {
     name: "Primordial Jade Winged-Spear",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 674 },
     substat: "CRIT Rate: 22.1%",
@@ -1308,6 +1462,7 @@ const GI_WEAP = {
   },
   "14406": {
     name: "Prototype Amber",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "HP: 41.3%",
@@ -1316,6 +1471,7 @@ const GI_WEAP = {
   },
   "12406": {
     name: "Prototype Archaic",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -1324,6 +1480,7 @@ const GI_WEAP = {
   },
   "15406": {
     name: "Prototype Crescent",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -1332,6 +1489,7 @@ const GI_WEAP = {
   },
   "11406": {
     name: "Prototype Rancour",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 565 },
     substat: "Physical DMG Bonus: 34.5%",
@@ -1340,6 +1498,7 @@ const GI_WEAP = {
   },
   "13402": {
     name: "Prototype Starglitter",
+    rarity: 4,
     type: "Polearm",
     base: { FLAT_ATK: 510 },
     substat: "Energy Recharge: 45.9%",
@@ -1348,6 +1507,7 @@ const GI_WEAP = {
   },
   "12405": {
     name: "Rainslasher",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -1356,6 +1516,7 @@ const GI_WEAP = {
   },
   "15301": {
     name: "Raven Bow",
+    rarity: 3,
     type: "Bow",
     base: { FLAT_ATK: 448 },
     substat: "Elemental Mastery: 94",
@@ -1364,6 +1525,7 @@ const GI_WEAP = {
   },
   "15303": {
     name: "Recurve Bow",
+    rarity: 3,
     type: "Bow",
     base: { FLAT_ATK: 354 },
     substat: "HP: 46.9%",
@@ -1372,6 +1534,7 @@ const GI_WEAP = {
   },
   "15404": {
     name: "Royal Bow",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -1380,6 +1543,7 @@ const GI_WEAP = {
   },
   "12404": {
     name: "Royal Greatsword",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -1388,6 +1552,7 @@ const GI_WEAP = {
   },
   "14404": {
     name: "Royal Grimoire",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 565 },
     substat: "ATK: 27.6%",
@@ -1396,6 +1561,7 @@ const GI_WEAP = {
   },
   "11404": {
     name: "Royal Longsword",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -1404,6 +1570,7 @@ const GI_WEAP = {
   },
   "15405": {
     name: "Rust",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -1412,6 +1579,7 @@ const GI_WEAP = {
   },
   "15403": {
     name: "Sacrificial Bow",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -1420,6 +1588,7 @@ const GI_WEAP = {
   },
   "14403": {
     name: "Sacrificial Fragments",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 454 },
     substat: "Elemental Mastery: 221",
@@ -1428,6 +1597,7 @@ const GI_WEAP = {
   },
   "12403": {
     name: "Sacrificial Greatsword",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 565 },
     substat: "Energy Recharge: 30.6%",
@@ -1436,6 +1606,7 @@ const GI_WEAP = {
   },
   "11403": {
     name: "Sacrificial Sword",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 454 },
     substat: "Energy Recharge: 61.3%",
@@ -1444,6 +1615,7 @@ const GI_WEAP = {
   },
   "12409": {
     name: "Serpent Spine",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "CRIT Rate: 27.6%",
@@ -1452,6 +1624,7 @@ const GI_WEAP = {
   },
   "15302": {
     name: "Sharpshooter's Oath",
+    rarity: 3,
     type: "Bow",
     base: { FLAT_ATK: 401 },
     substat: "CRIT DMG: 46.9%",
@@ -1460,6 +1633,7 @@ const GI_WEAP = {
   },
   "12306": {
     name: "Skyrider Greatsword",
+    rarity: 3,
     type: "Claymore",
     base: { FLAT_ATK: 401 },
     substat: "Physical DMG Bonus: 43.9%",
@@ -1468,6 +1642,7 @@ const GI_WEAP = {
   },
   "11306": {
     name: "Skyrider Sword",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 354 },
     substat: "Energy Recharge: 52.1%",
@@ -1476,6 +1651,7 @@ const GI_WEAP = {
   },
   "14501": {
     name: "Skyward Atlas",
+    rarity: 5,
     type: "Catalyst",
     base: { FLAT_ATK: 674 },
     substat: "ATK: 33.1%",
@@ -1484,6 +1660,7 @@ const GI_WEAP = {
   },
   "11502": {
     name: "Skyward Blade",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 608 },
     substat: "Energy Recharge: 55.1%",
@@ -1492,6 +1669,7 @@ const GI_WEAP = {
   },
   "15501": {
     name: "Skyward Harp",
+    rarity: 5,
     type: "Bow",
     base: { FLAT_ATK: 674 },
     substat: "CRIT Rate: 22.1%",
@@ -1500,6 +1678,7 @@ const GI_WEAP = {
   },
   "12501": {
     name: "Skyward Pride",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 674 },
     substat: "Energy Recharge: 36.8%",
@@ -1508,6 +1687,7 @@ const GI_WEAP = {
   },
   "13502": {
     name: "Skyward Spine",
+    rarity: 5,
     type: "Polearm",
     base: { FLAT_ATK: 674 },
     substat: "Energy Recharge: 36.8%",
@@ -1516,6 +1696,7 @@ const GI_WEAP = {
   },
   "15304": {
     name: "Slingshot",
+    rarity: 3,
     type: "Bow",
     base: { FLAT_ATK: 354 },
     substat: "CRIT Rate: 31.2%",
@@ -1524,6 +1705,7 @@ const GI_WEAP = {
   },
   "14405": {
     name: "Solar Pearl",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "CRIT Rate: 27.6%",
@@ -1532,6 +1714,7 @@ const GI_WEAP = {
   },
   "11412": {
     name: "Sword of Descension",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 440 },
     substat: "ATK: 35.2%",
@@ -1540,6 +1723,7 @@ const GI_WEAP = {
   },
   "12402": {
     name: "The Bell",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "HP: 41.3%",
@@ -1548,6 +1732,7 @@ const GI_WEAP = {
   },
   "11409": {
     name: "The Black Sword",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "CRIT Rate: 27.6%",
@@ -1556,6 +1741,7 @@ const GI_WEAP = {
   },
   "11402": {
     name: "The Flute",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 510 },
     substat: "ATK: 41.3%",
@@ -1564,6 +1750,7 @@ const GI_WEAP = {
   },
   "15402": {
     name: "The Stringless",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "Elemental Mastery: 165",
@@ -1572,6 +1759,7 @@ const GI_WEAP = {
   },
   "15409": {
     name: "The Viridescent Hunt",
+    rarity: 4,
     type: "Bow",
     base: { FLAT_ATK: 510 },
     substat: "CRIT Rate: 27.6%",
@@ -1580,6 +1768,7 @@ const GI_WEAP = {
   },
   "14402": {
     name: "The Widsith",
+    rarity: 4,
     type: "Catalyst",
     base: { FLAT_ATK: 510 },
     substat: "CRIT DMG: 55.1%",
@@ -1588,6 +1777,7 @@ const GI_WEAP = {
   },
   "14302": {
     name: "Thrilling Tales of Dragon Slayers",
+    rarity: 3,
     type: "Catalyst",
     base: { FLAT_ATK: 401 },
     substat: "HP: 35.2%",
@@ -1596,6 +1786,7 @@ const GI_WEAP = {
   },
   "11303": {
     name: "Traveler's Handy Sword",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 448 },
     substat: "DEF: 29.3%",
@@ -1604,6 +1795,7 @@ const GI_WEAP = {
   },
   "14305": {
     name: "Twin Nephrite",
+    rarity: 3,
     type: "Catalyst",
     base: { FLAT_ATK: 448 },
     substat: "CRIT Rate: 15.6%",
@@ -1612,6 +1804,7 @@ const GI_WEAP = {
   },
   "12303": {
     name: "White Iron Greatsword",
+    rarity: 3,
     type: "Claymore",
     base: { FLAT_ATK: 401 },
     substat: "DEF: 43.9%",
@@ -1620,6 +1813,7 @@ const GI_WEAP = {
   },
   "13301": {
     name: "White Tassel",
+    rarity: 3,
     type: "Polearm",
     base: { FLAT_ATK: 401 },
     substat: "CRIT Rate: 23.4%",
@@ -1628,6 +1822,7 @@ const GI_WEAP = {
   },
   "12407": {
     name: "Whiteblind",
+    rarity: 4,
     type: "Claymore",
     base: { FLAT_ATK: 510 },
     substat: "DEF: 51.7%",
@@ -1636,6 +1831,7 @@ const GI_WEAP = {
   },
   "12502": {
     name: "Wolf's Gravestone",
+    rarity: 5,
     type: "Claymore",
     base: { FLAT_ATK: 608 },
     substat: "ATK: 49.6%",
@@ -1644,6 +1840,7 @@ const GI_WEAP = {
   },
   "11201": {
     name: "Silver Sword",
+    rarity: 2,
     type: "Sword",
     base: { FLAT_ATK: 243 },
     substat: "",
@@ -1652,6 +1849,7 @@ const GI_WEAP = {
   },
   "12201": {
     name: "Old Merc's Pal",
+    rarity: 2,
     type: "Claymore",
     base: { FLAT_ATK: 243 },
     substat: "",
@@ -1660,6 +1858,7 @@ const GI_WEAP = {
   },
   "13201": {
     name: "Iron Point",
+    rarity: 2,
     type: "Polearm",
     base: { FLAT_ATK: 243 },
     substat: "",
@@ -1668,6 +1867,7 @@ const GI_WEAP = {
   },
   "14201": {
     name: "Pocket Grimoire",
+    rarity: 2,
     type: "Catalyst",
     base: { FLAT_ATK: 243 },
     substat: "",
@@ -1676,6 +1876,7 @@ const GI_WEAP = {
   },
   "15201": {
     name: "Seasoned Hunter's Bow",
+    rarity: 2,
     type: "Bow",
     base: { FLAT_ATK: 243 },
     substat: "",
@@ -1684,6 +1885,7 @@ const GI_WEAP = {
   },
   "11101": {
     name: "Dull Blade",
+    rarity: 1,
     type: "Sword",
     base: { FLAT_ATK: 185 },
     substat: "",
@@ -1692,6 +1894,7 @@ const GI_WEAP = {
   },
   "12101": {
     name: "Waster Greatsword",
+    rarity: 1,
     type: "Claymore",
     base: { FLAT_ATK: 185 },
     substat: "",
@@ -1700,6 +1903,7 @@ const GI_WEAP = {
   },
   "13101": {
     name: "Beginner's Protector",
+    rarity: 1,
     type: "Polearm",
     base: { FLAT_ATK: 185 },
     substat: "",
@@ -1708,6 +1912,7 @@ const GI_WEAP = {
   },
   "14101": {
     name: "Apprentice's Notes",
+    rarity: 1,
     type: "Catalyst",
     base: { FLAT_ATK: 185 },
     substat: "",
@@ -1716,6 +1921,7 @@ const GI_WEAP = {
   },
   "15101": {
     name: "Hunter's Bow",
+    rarity: 1,
     type: "Bow",
     base: { FLAT_ATK: 185 },
     substat: "",

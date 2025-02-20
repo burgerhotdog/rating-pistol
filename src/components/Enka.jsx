@@ -28,15 +28,13 @@ const Enka = ({
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
   const statKey = enkaStatKey[gameType];
 
-  const suffix = 
-    gameType === "GI"
-      ? "uid/"
-      : gameType === "HSR"
-        ? "hsr/uid/"
-        : gameType === "ZZZ"
-          ? "zzz/uid/"
-          : "";
-  // test uids
+  const suffix = (
+    gameType === "GI" ? "uid/" :
+    gameType === "HSR" ? "hsr/uid/" :
+    gameType === "ZZZ" ? "zzz/uid/" : 
+    ""
+  );
+  
   // gi 618285856, 604379917
   // hsr 602849613
   const fetchPlayerData = async () => {

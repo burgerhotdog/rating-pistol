@@ -6,6 +6,7 @@ import {
   Box,
   Button,
   Divider,
+  InputAdornment,
   Modal,
   TextField,
   Typography,
@@ -25,28 +26,39 @@ const Save = ({
   myChars,
   setMyChars,
 }) => {
-  let cImgs, wImgs;
+  let cImgs, wImgs, sImgs;
   switch (gameType) {
     case "GI":
       cImgs = import.meta.glob(`../assets/char/GI/*.webp`, { eager: true });
       wImgs = import.meta.glob(`../assets/weap/GI/*.webp`, { eager: true });
+      sImgs = import.meta.glob(`../assets/set/GI/*.webp`, { eager: true });
       break;
     case "HSR":
       cImgs = import.meta.glob(`../assets/char/HSR/*.webp`, { eager: true });
       wImgs = import.meta.glob(`../assets/weap/HSR/*.webp`, { eager: true });
+      sImgs = import.meta.glob(`../assets/set/HSR/*.webp`, { eager: true });
       break;
     case "ZZZ":
       cImgs = import.meta.glob(`../assets/char/ZZZ/*.webp`, { eager: true });
       wImgs = import.meta.glob(`../assets/weap/ZZZ/*.webp`, { eager: true });
+      sImgs = import.meta.glob(`../assets/set/ZZZ/*.webp`, { eager: true });
       break;
     case "WW":
       cImgs = import.meta.glob(`../assets/char/WW/*.webp`, { eager: true });
       wImgs = import.meta.glob(`../assets/weap/WW/*.webp`, { eager: true });
+      sImgs = import.meta.glob(`../assets/set/WW/*.webp`, { eager: true });
       break;
   }
   
   const [newCid, setNewCid] = useState("");
   const [newCdata, setNewCdata] = useState(() => blankCdata(gameType));
+  const textColor = {
+    5: "goldenrod",
+    4: "orchid",
+    3: "cornflowerblue",
+    2: "darkseagreen",
+    1: "slategrey",
+  };
 
   // When modal opens, reset newCid and newCdata
   useEffect(() => {
@@ -82,33 +94,25 @@ const Save = ({
   };
 
   const setOptions = (setNumber) => {
-    if (gameType !== "ZZZ" || setNumber === "set1") {
-      return Object.keys(GAME_DATA[gameType].SETS)
-        .sort((a, b) => 
-          GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name)
-        );
-    } else if (setNumber === "set2") {
-      return Object.keys(GAME_DATA[gameType].SETS)
-        .filter(id => id !== newCdata.set1)
-        .sort((a, b) => 
-          GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name)
-        );
-    }
-  };
-
-  const set1Options = () => {
-    return Object.keys(GAME_DATA["HSR"].SETS)
-      .filter(id => id.substring(0, 1) === "1")
+    return Object.keys(GAME_DATA[gameType].SETS)
+      .filter(id => {
+        switch (setNumber) {
+          case "set1":
+            if (gameType === "HSR") {
+              return id.substring(0, 1) === "1";
+            } else {
+              return true;
+            }
+          case "set2":
+            if (gameType === "HSR") {
+              return id.substring(0, 1) === "3";
+            } else {
+              return id !== newCdata.set1;
+            }
+        }
+      })
       .sort((a, b) => 
-        GAME_DATA["HSR"].SETS[a].name.localeCompare(GAME_DATA["HSR"].SETS[b].name)
-      );
-  };
-
-  const set2Options = () => {
-    return Object.keys(GAME_DATA["HSR"].SETS)
-      .filter(id => id.substring(0, 1) === "3")
-      .sort((a, b) => 
-        GAME_DATA["HSR"].SETS[a].name.localeCompare(GAME_DATA["HSR"].SETS[b].name)
+        GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name)
       );
   };
 
@@ -149,31 +153,12 @@ const Save = ({
   };
 
   const handleSet = (newValue, setNumber) => {
-    if (gameType === "HSR") {
-      setNewCdata((prev) => ({
-        ...prev,
-        [setNumber]: newValue || "", // Dynamically set based on the setNumber
-      }));
-    } else if (gameType === "ZZZ") {
-      if (setNumber === "set1") {
-        setNewCdata((prev) => ({
-          ...prev,
-          set1: newValue || "",
-          set2: prev.set2 === newValue ? "" : prev.set2, // Clear set2 if it's the same as set1
-        }));
-      } else {
-        setNewCdata((prev) => ({
-          ...prev,
-          set2: newValue || "", // Handle set2 separately
-        }));
-      }
-    } else {
-      // For GI and WW, behave the same way
-      setNewCdata((prev) => ({
-        ...prev,
-        set: newValue || "", // Directly set "set" field
-      }));
-    }
+    const clearSet2 = gameType === "ZZZ" && setNumber === "set1";
+    setNewCdata((prev) => ({
+      ...prev,
+      [setNumber]: newValue || "",
+      ...(clearSet2 && prev.set2 === newValue ? { set2: "" } : {}),
+    }));
   };
 
   return (
@@ -200,15 +185,6 @@ const Save = ({
             gap: 2,
           }}
         >
-          {/* Icon */}
-          {newCid && (
-            <img
-              src={cImgs[`../assets/char/${gameType}/${newCid}.webp`]?.default}
-              alt={"char"}
-              style={{ width: 50, height: 50, objectFit: "contain" }}
-            />
-          )}
-
           {/* Select Character */}
           <Autocomplete
             size="small"
@@ -216,10 +192,52 @@ const Save = ({
             options={charOptions()}
             getOptionLabel={(id) => GAME_DATA[gameType].CHARACTERS[id]?.name || ""}
             onChange={(_, newValue) => handleCharacter(newValue)}
+            renderOption={(props, option) => {
+              const { key, ...optionProps } = props;
+              const rarity = GAME_DATA[gameType].CHARACTERS[option]?.rarity;
+              return (
+                <Box
+                  key={key}
+                  component="li"
+                  sx={{
+                    "& > img": { mr: 2, flexShrink: 0 },
+                    color: textColor[rarity],
+                  }}
+                  {...optionProps}
+                >
+                  <img
+                    loading="lazy"
+                    src={cImgs[`../assets/char/${gameType}/${option}.webp`]?.default}
+                    alt={""}
+                    style={{ width: 24, height: 24, objectFit: "contain" }}
+                  />
+                  {GAME_DATA[gameType].CHARACTERS[option]?.name || ""}
+                </Box>
+              );
+            }}
             renderInput={(params) => (
               <TextField
                 {...params}
                 label="Character"
+                sx={{
+                  "& .MuiInputBase-root": {
+                    color: textColor[GAME_DATA[gameType].CHARACTERS[newCid]?.rarity] || "inherit",
+                  }
+                }}
+                slotProps={{
+                  input: {
+                    ...params.InputProps,
+                    startAdornment: newCid && (
+                      <InputAdornment position="start">
+                        <img
+                          src={cImgs[`../assets/char/${gameType}/${newCid}.webp`]?.default}
+                          alt=""
+                          style={{ width: 24, height: 24, objectFit: "contain" }}
+                        />
+                      </InputAdornment>
+                    ),
+                  },
+                }}
               />
             )}
             sx={{ width: { xs: 128, xl: 256 } }}
@@ -262,12 +280,54 @@ const Save = ({
                 size="small"
                 value={newCdata.weapon}
                 options={weapOptions()}
-                onChange={(_, newValue) => handleWeapon(newValue)}
                 getOptionLabel={(id) => GAME_DATA[gameType].WEAPONS[id]?.name || ""}
+                onChange={(_, newValue) => handleWeapon(newValue)}
+                renderOption={(props, option) => {
+                  const { key, ...optionProps } = props;
+                  const rarity = GAME_DATA[gameType].WEAPONS[option]?.rarity;
+                  return (
+                    <Box
+                      key={key}
+                      component="li"
+                      sx={{
+                        "& > img": { mr: 2, flexShrink: 0 },
+                        color: textColor[rarity],
+                      }}
+                      {...optionProps}
+                    >
+                      <img
+                        loading="lazy"
+                        src={wImgs[`../assets/weap/${gameType}/${option}.webp`]?.default}
+                        alt={""}
+                        style={{ width: 24, height: 24, objectFit: "contain" }}
+                      />
+                      {GAME_DATA[gameType].WEAPONS[option]?.name || ""}
+                    </Box>
+                  );
+                }}
                 renderInput={(params) => (
                   <TextField
                     {...params}
                     label="Weapon"
+                    sx={{
+                      "& .MuiInputBase-root": {
+                        color: textColor[GAME_DATA[gameType].WEAPONS[newCdata.weapon]?.rarity] || "inherit",
+                      }
+                    }}
+                    slotProps={{
+                      input: {
+                        ...params.InputProps,
+                        startAdornment: newCdata.weapon && (
+                          <InputAdornment position="start">
+                            <img
+                              src={wImgs[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
+                              alt=""
+                              style={{ width: 24, height: 24, objectFit: "contain" }}
+                            />
+                          </InputAdornment>
+                        ),
+                      },
+                    }}
                   />
                 )}
                 fullWidth
@@ -276,21 +336,63 @@ const Save = ({
             </Grid>
 
             {/* Select set */}
-            <Grid size={{ xs: 12, xl: ((gameType === "HSR" || gameType === "ZZZ") ? 4 : 8) }}>
+            <Grid size={{ xs: 12, xl: (gameType === "HSR" || gameType === "ZZZ" ? 4 : 8) }}>
               <Autocomplete
                 size="small"
-                value={(gameType === "HSR" || gameType === "ZZZ") ? newCdata.set1 : newCdata.set}
-                options={gameType === "HSR" ? set1Options() : setOptions(gameType === "ZZZ" ? "set1" : "")}
-                onChange={(_, newValue) => handleSet(newValue, (gameType === "ZZZ" || gameType === "HSR" ) ? "set1" : "")}
+                value={newCdata.set1}
+                options={setOptions("set1")}
                 getOptionLabel={(id) => GAME_DATA[gameType].SETS[id]?.name || ""}
+                onChange={(_, newValue) => handleSet(newValue, "set1")}
+                renderOption={(props, option) => {
+                  const { key, ...optionProps } = props;
+                  const rarity = GAME_DATA[gameType].SETS[option]?.rarity;
+                  return (
+                    <Box
+                      key={key}
+                      component="li"
+                      sx={{
+                        "& > img": { mr: 2, flexShrink: 0 },
+                        color: textColor[rarity],
+                      }}
+                      {...optionProps}
+                    >
+                      <img
+                        loading="lazy"
+                        src={sImgs[`../assets/set/${gameType}/${option}.webp`]?.default}
+                        alt={""}
+                        style={{ width: 24, height: 24, objectFit: "contain" }}
+                      />
+                      {GAME_DATA[gameType].SETS[option]?.name || ""}
+                    </Box>
+                  );
+                }}
                 renderInput={(params) => (
                   <TextField
                     {...params}
                     label="Set 1"
+                    sx={{
+                      "& .MuiInputBase-root": {
+                        color: textColor[GAME_DATA[gameType].SETS[newCdata.set1]?.rarity] || "inherit",
+                      }
+                    }}
+                    slotProps={{
+                      input: {
+                        ...params.InputProps,
+                        startAdornment: newCdata.set1 && (
+                          <InputAdornment position="start">
+                            <img
+                              src={sImgs[`../assets/set/${gameType}/${newCdata.set1}.webp`]?.default}
+                              alt=""
+                              style={{ width: 24, height: 24, objectFit: "contain" }}
+                            />
+                          </InputAdornment>
+                        ),
+                      },
+                    }}
                   />
                 )}
                 fullWidth
-                disableClearable={((gameType === "HSR" || gameType === "ZZZ") ? newCdata.set1 : newCdata.set) === ""}
+                disableClearable={newCdata.set1 === ""}
               />
             </Grid>
 
@@ -299,13 +401,55 @@ const Save = ({
                 <Autocomplete
                   size="small"
                   value={newCdata.set2}
-                  options={gameType === "HSR" ? set2Options() : setOptions("set2")}
+                  options={setOptions("set2")}
                   getOptionLabel={(id) => GAME_DATA[gameType].SETS[id]?.name || ""}
                   onChange={(_, newValue) => handleSet(newValue, "set2")}
+                  renderOption={(props, option) => {
+                    const { key, ...optionProps } = props;
+                    const rarity = GAME_DATA[gameType].SETS[option]?.rarity;
+                    return (
+                      <Box
+                        key={key}
+                        component="li"
+                        sx={{
+                          "& > img": { mr: 2, flexShrink: 0 },
+                          color: textColor[rarity],
+                        }}
+                        {...optionProps}
+                      >
+                        <img
+                          loading="lazy"
+                          src={sImgs[`../assets/set/${gameType}/${option}.webp`]?.default}
+                          alt={""}
+                          style={{ width: 24, height: 24, objectFit: "contain" }}
+                        />
+                        {GAME_DATA[gameType].SETS[option]?.name || ""}
+                      </Box>
+                    );
+                  }}
                   renderInput={(params) => (
                     <TextField
                       {...params}
                       label="Set 2"
+                      sx={{
+                        "& .MuiInputBase-root": {
+                          color: textColor[GAME_DATA[gameType].SETS[newCdata.set2]?.rarity] || "inherit",
+                        }
+                      }}
+                      slotProps={{
+                        input: {
+                          ...params.InputProps,
+                          startAdornment: newCdata.set2 && (
+                            <InputAdornment position="start">
+                              <img
+                                src={sImgs[`../assets/char/${gameType}/${newCdata.set2}.webp`]?.default}
+                                alt=""
+                                style={{ width: 24, height: 24, objectFit: "contain" }}
+                              />
+                            </InputAdornment>
+                          ),
+                        },
+                      }}
                     />
                   )}
                   fullWidth
@@ -319,7 +463,7 @@ const Save = ({
               {isNotMobile && newCdata.weapon && (
                 <img
                   src={wImgs[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
-                  alt={"weap"}
+                  alt={newCdata.weapon}
                   style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
               )}

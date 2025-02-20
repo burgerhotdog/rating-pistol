@@ -2,6 +2,7 @@ const WW_WEAP = {
   // Version 2.1
   "21050046": {
     name: "Luminous Hymn",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_ATK: 500 },
     substat: "CRIT Rate: 36%",
@@ -10,6 +11,7 @@ const WW_WEAP = {
   },
   "21020036": {
     name: "Unflickering Valor",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 413 },
     substat: "Energy Regen: 77%",
@@ -18,6 +20,7 @@ const WW_WEAP = {
   },
   "21050027": {
     name: "Ocean's Gift",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 463 },
     substat: "ATK: 18.2%",
@@ -28,6 +31,7 @@ const WW_WEAP = {
   // Version 2.0
   "21050017": {
     name: "Call of the Abyss",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_ATK: 338 },
     substat: "Energy Regen: 51.8%",
@@ -36,6 +40,7 @@ const WW_WEAP = {
   },
   "21020094": {
     name: "Fables of Wisdom",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -44,6 +49,7 @@ const WW_WEAP = {
   },
   "21040094": {
     name: "Legend of Drunken Hero",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -52,6 +58,7 @@ const WW_WEAP = {
   },
   "21010094": {
     name: "Meditations on Mercy",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -60,6 +67,7 @@ const WW_WEAP = {
   },
   "21030094": {
     name: "Romance in Farewell",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -68,6 +76,7 @@ const WW_WEAP = {
   },
   "21030016": {
     name: "The Last Dance",
+    rarity: 5,
     type: "Pistols",
     base: { FLAT_ATK: 500 },
     substat: "CRIT DMG: 72%",
@@ -76,6 +85,7 @@ const WW_WEAP = {
   },
   "21040026": {
     name: "Tragicomedy",
+    rarity: 5,
     type: "Gauntlets",
     base: { FLAT_ATK: 587 },
     substat: "CRIT Rate: 24.3%",
@@ -84,6 +94,7 @@ const WW_WEAP = {
   },
   "21050094": {
     name: "Waltz in Masquerade",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -94,6 +105,7 @@ const WW_WEAP = {
   // Version 1.4
   "21020026": {
     name: "Red Spring",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 587 },
     substat: "CRIT Rate: 24.3%",
@@ -102,6 +114,7 @@ const WW_WEAP = {
   },
   "21020017": {
     name: "Somnoire Anchor",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -112,6 +125,7 @@ const WW_WEAP = {
   // Version 1.3
   "21040084": {
     name: "Celestial Spiral",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -120,6 +134,7 @@ const WW_WEAP = {
   },
   "21020084": {
     name: "Endless Collapse",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -128,6 +143,7 @@ const WW_WEAP = {
   },
   "21050084": {
     name: "Fusion Accretion",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -136,6 +152,7 @@ const WW_WEAP = {
   },
   "21030084": {
     name: "Relativistic Jet",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -144,6 +161,7 @@ const WW_WEAP = {
   },
   "21050036": {
     name: "Stellar Symphony",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_ATK: 412 },
     substat: "Energy Regen: 77%",
@@ -152,6 +170,7 @@ const WW_WEAP = {
   },
   "21010084": {
     name: "Waning Redshift",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_ATK: 462 },
     substat: "ATK: 18.2%",
@@ -162,6 +181,7 @@ const WW_WEAP = {
   // Version 1.2
   "21050026": {
     name: "Rime-Draped Sprouts",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_ATK: 500 },
     substat: "CRIT DMG: 72%",
@@ -170,6 +190,7 @@ const WW_WEAP = {
   },
   "21040016": {
     name: "Verity's Handle",
+    rarity: 5,
     type: "Gauntlets",
     base: { FLAT_ATK: 587 },
     substat: "CRIT Rate: 24.3%",
@@ -180,6 +201,7 @@ const WW_WEAP = {
   // Version 1.1
   "21010063": {
     name: "Beguiling Melody",
+    rarity: 3,
     type: "Broadblade",
     base: { FLAT_ATK: 300 },
     substat: "ATK: 30.4%",
@@ -188,6 +210,7 @@ const WW_WEAP = {
   },
   "21020016": {
     name: "Blazing Brilliance",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 587 },
     substat: "CRIT DMG: 48.6%",
@@ -196,6 +219,7 @@ const WW_WEAP = {
   },
   "21010026": {
     name: "Ages of Harvest",
+    rarity: 5,
     type: "Broadblade",
     base: { FLAT_ATK: 587 },
     substat: "CRIT Rate: 24.3%",
@@ -206,6 +230,7 @@ const WW_WEAP = {
   // Version 1.0
   "21040015": {
     name: "Abyss Surges",
+    rarity: 5,
     type: "Gauntlets",
     base: { FLAT_ATK: 587 },
     substat: "ATK: 36.4%",
@@ -214,6 +239,7 @@ const WW_WEAP = {
   },
   "21040044": {
     name: "Amity Accord",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_ATK: 337 },
     substat: "DEF: 61.5%",
@@ -222,6 +248,7 @@ const WW_WEAP = {
   },
   "21050074": {
     name: "Augment",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_ATK: 412 },
     substat: "CRIT Rate: 20.2%",
@@ -230,6 +257,7 @@ const WW_WEAP = {
   },
   "21010074": {
     name: "Autumntrace",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_ATK: 412 },
     substat: "CRIT Rate: 20.2%",
@@ -238,6 +266,7 @@ const WW_WEAP = {
   },
   "21010034": {
     name: "Broadblade#41",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_ATK: 412 },
     substat: "Energy Regen: 32.3%",
@@ -246,6 +275,7 @@ const WW_WEAP = {
   },
   "21010013": {
     name: "Broadblade of Night",
+    rarity: 3,
     type: "Broadblade",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -254,6 +284,7 @@ const WW_WEAP = {
   },
   "21010043": {
     name: "Broadblade of Voyager",
+    rarity: 3,
     type: "Broadblade",
     base: { FLAT_ATK: 300 },
     substat: "Energy Regen: 32.3%",
@@ -262,6 +293,7 @@ const WW_WEAP = {
   },
   "21030024": {
     name: "Cadenza",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_ATK: 337 },
     substat: "Energy Regen: 51.8%",
@@ -270,6 +302,7 @@ const WW_WEAP = {
   },
   "21050064": {
     name: "Comet Flare",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_ATK: 412 },
     substat: "HP: 30.3%",
@@ -278,6 +311,7 @@ const WW_WEAP = {
   },
   "21020044": {
     name: "Commando of Conviction",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 412 },
     substat: "ATK: 30.3%",
@@ -286,6 +320,7 @@ const WW_WEAP = {
   },
   "21050015": {
     name: "Cosmic Ripples",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_ATK: 500 },
     substat: "ATK: 54%",
@@ -294,6 +329,7 @@ const WW_WEAP = {
   },
   "21010044": {
     name: "Dauntless Evernight",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_ATK: 337 },
     substat: "DEF: 61.5%",
@@ -302,6 +338,7 @@ const WW_WEAP = {
   },
   "21010024": {
     name: "Discord",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_ATK: 337 },
     substat: "Energy Regen: 51.8%",
@@ -310,6 +347,7 @@ const WW_WEAP = {
   },
   "21020015": {
     name: "Emerald of Genesis",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_ATK: 587 },
     substat: "CRIT Rate: 24.3%",
@@ -318,6 +356,7 @@ const WW_WEAP = {
   },
   "21040034": {
     name: "Gauntlets#21D",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_ATK: 387 },
     substat: "Energy Regen: 38.8%",
@@ -326,6 +365,7 @@ const WW_WEAP = {
   },
   "21040013": {
     name: "Gauntlets of Night",
+    rarity: 3,
     type: "Gauntlets",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -334,6 +374,7 @@ const WW_WEAP = {
   },
   "21040043": {
     name: "Gauntlets of Voyager",
+    rarity: 3,
     type: "Gauntlets",
     base: { FLAT_ATK: 325 },
     substat: "Energy Regen: 30.7%",
@@ -342,6 +383,7 @@ const WW_WEAP = {
   },
   "21010053": {
     name: "Guardian Broadblade",
+    rarity: 3,
     type: "Broadblade",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -350,6 +392,7 @@ const WW_WEAP = {
   },
   "21040053": {
     name: "Guardian Gauntlets",
+    rarity: 3,
     type: "Gauntlets",
     base: { FLAT_ATK: 300 },
     substat: "DEF: 38.4%",
@@ -358,6 +401,7 @@ const WW_WEAP = {
   },
   "21030053": {
     name: "Guardian Pistols",
+    rarity: 3,
     type: "Pistols",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -366,6 +410,7 @@ const WW_WEAP = {
   },
   "21050053": {
     name: "Guardian Rectifier",
+    rarity: 3,
     type: "Rectifier",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -374,6 +419,7 @@ const WW_WEAP = {
   },
   "21020053": {
     name: "Guardian Sword",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 300 },
     substat: "ATK: 30.3%",
@@ -382,6 +428,7 @@ const WW_WEAP = {
   },
   "21010064": {
     name: "Helios Cleaver",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_ATK: 412 },
     substat: "ATK: 30.3%",
@@ -390,6 +437,7 @@ const WW_WEAP = {
   },
   "21040064": {
     name: "Hollow Mirage",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_ATK: 412 },
     substat: "ATK: 30.3%",
@@ -398,6 +446,7 @@ const WW_WEAP = {
   },
   "21050044": {
     name: "Jinzhou Keeper",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_ATK: 387 },
     substat: "ATK: 36.4%",
@@ -406,6 +455,7 @@ const WW_WEAP = {
   },
   "21020074": {
     name: "Lumingloss",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 387 },
     substat: "ATK: 36.4%",
@@ -414,6 +464,7 @@ const WW_WEAP = {
   },
   "21020064": {
     name: "Lunar Cutter",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 412 },
     substat: "ATK: 30.3%",
@@ -422,6 +473,7 @@ const WW_WEAP = {
   },
   "21010015": {
     name: "Lustrous Razor",
+    rarity: 5,
     type: "Broadblade",
     base: { FLAT_ATK: 587 },
     substat: "ATK: 36.4%",
@@ -430,6 +482,7 @@ const WW_WEAP = {
   },
   "21040024": {
     name: "Marcato",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_ATK: 337 },
     substat: "Energy Regen: 51.8%",
@@ -438,6 +491,7 @@ const WW_WEAP = {
   },
   "21030064": {
     name: "Novaburst",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_ATK: 412 },
     substat: "ATK: 30.3%",
@@ -446,6 +500,7 @@ const WW_WEAP = {
   },
   "21010023": {
     name: "Originite: Type I",
+    rarity: 3,
     type: "Broadblade",
     base: { FLAT_ATK: 300 },
     substat: "DEF: 38.4%",
@@ -454,6 +509,7 @@ const WW_WEAP = {
   },
   "21020023": {
     name: "Originite: Type II",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -462,6 +518,7 @@ const WW_WEAP = {
   },
   "21030023": {
     name: "Originite: Type III",
+    rarity: 3,
     type: "Pistols",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -470,6 +527,7 @@ const WW_WEAP = {
   },
   "21040023": {
     name: "Originite: Type IV",
+    rarity: 3,
     type: "Gauntlets",
     base: { FLAT_ATK: 300 },
     substat: "CRIT DMG: 40.5%",
@@ -478,6 +536,7 @@ const WW_WEAP = {
   },
   "21050023": {
     name: "Originite: Type V",
+    rarity: 3,
     type: "Rectifier",
     base: { FLAT_ATK: 300 },
     substat: "ATK: 30.3%",
@@ -486,6 +545,7 @@ const WW_WEAP = {
   },
   "21020024": {
     name: "Overture",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 337 },
     substat: "Energy Regen: 51.8%",
@@ -494,6 +554,7 @@ const WW_WEAP = {
   },
   "21030034": {
     name: "Pistols#26",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_ATK: 387 },
     substat: "ATK: 36.4%",
@@ -502,6 +563,7 @@ const WW_WEAP = {
   },
   "21030013": {
     name: "Pistols of Night",
+    rarity: 3,
     type: "Pistols",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -510,6 +572,7 @@ const WW_WEAP = {
   },
   "21030043": {
     name: "Pistols of Voyager",
+    rarity: 3,
     type: "Pistols",
     base: { FLAT_ATK: 300 },
     substat: "ATK: 30.3%",
@@ -518,6 +581,7 @@ const WW_WEAP = {
   },
   "21050034": {
     name: "Rectifier#25",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_ATK: 337 },
     substat: "Energy Regen: 51.8%",
@@ -526,6 +590,7 @@ const WW_WEAP = {
   },
   "21050013": {
     name: "Rectifier of Night",
+    rarity: 3,
     type: "Rectifier",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -534,6 +599,7 @@ const WW_WEAP = {
   },
   "21050043": {
     name: "Rectifier of Voyager",
+    rarity: 3,
     type: "Rectifier",
     base: { FLAT_ATK: 300 },
     substat: "Energy Regen: 32.3%",
@@ -542,6 +608,7 @@ const WW_WEAP = {
   },
   "21030015": {
     name: "Static Mist",
+    rarity: 5,
     type: "Pistols",
     base: { FLAT_ATK: 587 },
     substat: "CRIT Rate: 24.3%",
@@ -550,6 +617,7 @@ const WW_WEAP = {
   },
   "21040074": {
     name: "Stonard",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_ATK: 412 },
     substat: "CRIT Rate: 20.2%",
@@ -558,6 +626,7 @@ const WW_WEAP = {
   },
   "21050016": {
     name: "Stringmaster",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_ATK: 500 },
     substat: "CRIT Rate: 36%",
@@ -566,6 +635,7 @@ const WW_WEAP = {
   },
   "21020034": {
     name: "Sword#18",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_ATK: 387 },
     substat: "ATK: 36.4%",
@@ -574,6 +644,7 @@ const WW_WEAP = {
   },
   "21020013": {
     name: "Sword of Night",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 325 },
     substat: "ATK: 24.3%",
@@ -582,6 +653,7 @@ const WW_WEAP = {
   },
   "21020043": {
     name: "Sword of Voyager",
+    rarity: 3,
     type: "Sword",
     base: { FLAT_ATK: 300 },
     substat: "Energy Regen: 32.3%",
@@ -590,6 +662,7 @@ const WW_WEAP = {
   },
   "21030074": {
     name: "Thunderbolt",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_ATK: 387 },
     substat: "ATK: 36.4%",
@@ -598,6 +671,7 @@ const WW_WEAP = {
   },
   "21030044": {
     name: "Undying Flame",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_ATK: 412 },
     substat: "ATK: 30.3%",
@@ -606,6 +680,7 @@ const WW_WEAP = {
   },
   "21050024": {
     name: "Variation",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_ATK: 337 },
     substat: "Energy Regen: 51.8%",
@@ -614,6 +689,7 @@ const WW_WEAP = {
   },
   "21010016": {
     name: "Verdant Summit",
+    rarity: 5,
     type: "Broadblade",
     base: { FLAT_ATK: 587 },
     substat: "CRIT DMG: 48.6%",
@@ -622,6 +698,7 @@ const WW_WEAP = {
   },
   "21010012": {
     name: "Tyro Broadblade",
+    rarity: 2,
     type: "Broadblade",
     base: { FLAT_ATK: 275 },
     substat: "ATK: 14.8%",
@@ -630,6 +707,7 @@ const WW_WEAP = {
   },
   "21020012": {
     name: "Tyro Sword",
+    rarity: 2,
     type: "Sword",
     base: { FLAT_ATK: 275 },
     substat: "ATK: 14.8%",
@@ -638,6 +716,7 @@ const WW_WEAP = {
   },
   "21030012": {
     name: "Tyro Pistols",
+    rarity: 2,
     type: "Pistols",
     base: { FLAT_ATK: 275 },
     substat: "ATK: 14.8%",
@@ -646,6 +725,7 @@ const WW_WEAP = {
   },
   "21040012": {
     name: "Tyro Gauntlets",
+    rarity: 2,
     type: "Gauntlets",
     base: { FLAT_ATK: 275 },
     substat: "ATK: 14.8%",
@@ -654,6 +734,7 @@ const WW_WEAP = {
   },
   "21050012": {
     name: "Tyro Rectifier",
+    rarity: 2,
     type: "Rectifier",
     base: { FLAT_ATK: 275 },
     substat: "ATK: 14.8%",
@@ -662,6 +743,7 @@ const WW_WEAP = {
   },
   "21010011": {
     name: "Training Broadblade",
+    rarity: 1,
     type: "Broadblade",
     base: { FLAT_ATK: 250 },
     substat: "ATK: 11.5%",
@@ -670,6 +752,7 @@ const WW_WEAP = {
   },
   "21020011": {
     name: "Training Sword",
+    rarity: 1,
     type: "Sword",
     base: { FLAT_ATK: 250 },
     substat: "ATK: 11.5%",
@@ -678,6 +761,7 @@ const WW_WEAP = {
   },
   "21030011": {
     name: "Training Pistols",
+    rarity: 1,
     type: "Pistols",
     base: { FLAT_ATK: 250 },
     substat: "ATK: 11.5%",
@@ -686,6 +770,7 @@ const WW_WEAP = {
   },
   "21040011": {
     name: "Training Gauntlets",
+    rarity: 1,
     type: "Gauntlets",
     base: { FLAT_ATK: 250 },
     substat: "ATK: 11.5%",
@@ -694,6 +779,7 @@ const WW_WEAP = {
   },
   "21050011": {
     name: "Training Rectifier",
+    rarity: 1,
     type: "Rectifier",
     base: { FLAT_ATK: 250 },
     substat: "ATK: 11.5%",

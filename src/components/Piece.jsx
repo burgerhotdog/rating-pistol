@@ -9,14 +9,12 @@ const Piece = ({
   setNewCdata,
   mainIndex,
 }) => {
-  const PIECE_NAMES =
-    gameType === "HSR"
-      ? ["Head", "Hands", "Body", "Feet", "Orb", "Rope"]
-      : gameType === "ZZZ"
-        ? ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"]
-        : gameType === "WW"
-          ? ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"]
-          : ["Flower", "Plume", "Sands", "Goblet", "Circlet"];
+  const PIECE_NAMES = (
+    gameType === "HSR" ? ["Head", "Hands", "Body", "Feet", "Orb", "Rope"] :
+    gameType === "ZZZ" ? ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"] : 
+    gameType === "WW"  ? ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"] :
+    ["Flower", "Plume", "Sands", "Goblet", "Circlet"]
+  );
 
   // Pass mainstat data to newCdata
   const handleMainstat = (newValue) => {
