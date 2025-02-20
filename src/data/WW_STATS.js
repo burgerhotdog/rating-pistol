@@ -140,27 +140,27 @@ const WW_MAINSTATS = [
 ];
 
 const WW_SUBSTATS = {
-  "HP": {
+  "FLAT_HP": {
     name: "HP",
     value: 580,
   },
-  "ATK": {
+  "FLAT_ATK": {
     name: "ATK",
     value: 60,
   },
-  "DEF": {
+  "FLAT_DEF": {
     name: "DEF",
     value: 70,
   },
-  "HP_PERCENT": {
+  "HP": {
     name: "HP%",
     value: 11.6,
   },
-  "ATK_PERCENT": {
+  "ATK": {
     name: "ATK%",
     value: 11.6,
   },
-  "DEF_PERCENT": {
+  "DEF": {
     name: "DEF%",
     value: 14.7,
   },
@@ -168,27 +168,27 @@ const WW_SUBSTATS = {
     name: "Energy Regen",
     value: 12.4,
   },
-  "CR": {
+  "CRIT_RATE": {
     name: "CRIT Rate",
     value: 10.5,
   },
-  "CD": {
+  "CRIT_DMG": {
     name: "CRIT DMG",
     value: 21,
   },
-  "BADB": {
+  "BASIC_ATTACK_DMG_BONUS": {
     name: "Basic Attack DMG Bonus",
     value: 11.6,
   },
-  "HADB": {
+  "HEAVY_ATTACK_DMG_BONUS": {
     name: "Heavy Attack DMG Bonus",
     value: 11.6,
   },
-  "RSDB": {
+  "RESONANCE_SKILL_DMG_BONUS": {
     name: "Resonance Skill DMG Bonus",
     value: 11.6,
   },
-  "RLDB": {
+  "RESONANCE_LIBERATION_DMG_BONUS": {
     name: "Resonance Liberation DMG Bonus",
     value: 11.6,
   },
