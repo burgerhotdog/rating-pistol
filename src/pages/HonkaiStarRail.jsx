@@ -176,10 +176,10 @@ const HonkaiStarRail = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {GAME_DATA[GAME_TYPE].SETS_RELIC[cdata.set1].name}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set1].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {GAME_DATA[GAME_TYPE].SETS_RELIC[cdata.set1].desc}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set1].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
@@ -198,10 +198,10 @@ const HonkaiStarRail = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {GAME_DATA[GAME_TYPE].SETS_PLANAR[cdata.set2].name}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set2].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {GAME_DATA[GAME_TYPE].SETS_PLANAR[cdata.set2].desc}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set2].desc}
                                   </Typography>
                                 </React.Fragment>
                               }

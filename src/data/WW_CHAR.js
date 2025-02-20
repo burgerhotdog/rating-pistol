@@ -1,4 +1,4 @@
-const WW_CHARACTERS = {
+const WW_CHAR = {
   // Version 2.1
   "1206": {
     name: "Brant",
@@ -383,4 +383,4 @@ const WW_CHARACTERS = {
   },
 };
 
-export default WW_CHARACTERS;
+export default WW_CHAR;

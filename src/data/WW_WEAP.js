@@ -1,4 +1,4 @@
-const WW_WEAPONS = {
+const WW_WEAP = {
   // Version 2.1
   "21050046": {
     name: "Luminous Hymn",
@@ -702,4 +702,4 @@ const WW_WEAPONS = {
   },
 };
 
-export default WW_WEAPONS;
+export default WW_WEAP;

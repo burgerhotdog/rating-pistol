@@ -1,4 +1,4 @@
-const GI_CHARACTERS = {
+const GI_CHAR = {
   // Version 5.4
   "10000109": {
     name: `Yumemizuki Mizuki`,
@@ -1140,4 +1140,4 @@ const GI_CHARACTERS = {
   },
 };
 
-export default GI_CHARACTERS;
+export default GI_CHAR;

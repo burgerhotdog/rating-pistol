@@ -1,4 +1,4 @@
-const ZZZ_WEAPONS = {
+const ZZZ_WEAP = {
   // Version 1.5
   "14131": {
     name: "Elegant Vanity",
@@ -476,4 +476,4 @@ const ZZZ_WEAPONS = {
   },
 };
 
-export default ZZZ_WEAPONS;
+export default ZZZ_WEAP;

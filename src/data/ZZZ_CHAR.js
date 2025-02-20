@@ -1,4 +1,4 @@
-const ZZZ_CHARACTERS = {
+const ZZZ_CHAR = {
   // Version 1.5
   "1311": {
     name: "Astra",
@@ -312,4 +312,4 @@ const ZZZ_CHARACTERS = {
   },
 };
 
-export default ZZZ_CHARACTERS;
+export default ZZZ_CHAR;

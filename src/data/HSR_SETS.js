@@ -1,4 +1,4 @@
-const HSR_SETS_RELIC = {
+const HSR_SETS = {
   // Version 3.0
   "123": {
     name: "Hero of Triumphant Song",
@@ -108,9 +108,8 @@ const HSR_SETS_RELIC = {
     name: "Wastelander of Banditry Desert",
     desc: "2-Pc: Increases Imaginary DMG by 10%.\n4-Pc: When dealing DMG to debuffed enemy targets, the wearer has their CRIT Rate increased by 10%. And when they deal DMG to Imprisoned enemy targets, their CRIT DMG increases by 20%.",
   },
-}
 
-const HSR_SETS_PLANAR = {
+
   // Version 2.5
   "317": {
     name: "Lushaka, the Sunken Seas",
@@ -196,4 +195,4 @@ const HSR_SETS_PLANAR = {
   },
 }
 
-export { HSR_SETS_RELIC, HSR_SETS_PLANAR };
+export default HSR_SETS;

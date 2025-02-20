@@ -1,4 +1,4 @@
-const HSR_CHARACTERS = {
+const HSR_CHAR = {
   // Version 3.0
   "1402": {
     name: "Aglaea",
@@ -709,4 +709,4 @@ const HSR_CHARACTERS = {
   },
 };
 
-export default HSR_CHARACTERS;
+export default HSR_CHAR;

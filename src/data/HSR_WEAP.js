@@ -1,4 +1,4 @@
-const HSR_WEAPONS = {
+const HSR_WEAP = {
   // Version 3.0
   "21051": {
     name: "Geniuses' Greetings",
@@ -886,4 +886,4 @@ const HSR_WEAPONS = {
   },
 };
 
-export default HSR_WEAPONS;
+export default HSR_WEAP;

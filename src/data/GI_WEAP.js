@@ -1,4 +1,4 @@
-const GI_WEAPONS = {
+const GI_WEAP = {
   // Version 5.4
   "14158": {
     name: "Sunny Morning Sleep-In",
@@ -1724,4 +1724,4 @@ const GI_WEAPONS = {
   },
 };
 
-export default GI_WEAPONS;
+export default GI_WEAP;

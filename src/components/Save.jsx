@@ -97,17 +97,19 @@ const Save = ({
   };
 
   const set1Options = () => {
-    return Object.keys(GAME_DATA["HSR"].SETS_RELIC)
+    return Object.keys(GAME_DATA["HSR"].SETS)
+      .filter(id => id.substring(0, 1) === "1")
       .sort((a, b) => 
-        GAME_DATA["HSR"].SETS_RELIC[a].name.localeCompare(GAME_DATA["HSR"].SETS_RELIC[b].name)
+        GAME_DATA["HSR"].SETS[a].name.localeCompare(GAME_DATA["HSR"].SETS[b].name)
       );
   };
 
   const set2Options = () => {
-    return Object.keys(GAME_DATA["HSR"].SETS_PLANAR)
-    .sort((a, b) => 
-      GAME_DATA["HSR"].SETS_PLANAR[a].name.localeCompare(GAME_DATA["HSR"].SETS_PLANAR[b].name)
-    );
+    return Object.keys(GAME_DATA["HSR"].SETS)
+      .filter(id => id.substring(0, 1) === "3")
+      .sort((a, b) => 
+        GAME_DATA["HSR"].SETS[a].name.localeCompare(GAME_DATA["HSR"].SETS[b].name)
+      );
   };
 
   const handleSave = async () => {
@@ -280,7 +282,7 @@ const Save = ({
                 value={(gameType === "HSR" || gameType === "ZZZ") ? newCdata.set1 : newCdata.set}
                 options={gameType === "HSR" ? set1Options() : setOptions(gameType === "ZZZ" ? "set1" : "")}
                 onChange={(_, newValue) => handleSet(newValue, (gameType === "ZZZ" || gameType === "HSR" ) ? "set1" : "")}
-                getOptionLabel={(id) => (gameType === "HSR" ? GAME_DATA["HSR"].SETS_RELIC[id]?.name : GAME_DATA[gameType].SETS[id]?.name) || ""}
+                getOptionLabel={(id) => GAME_DATA[gameType].SETS[id]?.name || ""}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -298,7 +300,7 @@ const Save = ({
                   size="small"
                   value={newCdata.set2}
                   options={gameType === "HSR" ? set2Options() : setOptions("set2")}
-                  getOptionLabel={(id) => (gameType === "HSR" ? GAME_DATA["HSR"].SETS_PLANAR[id]?.name : GAME_DATA["ZZZ"].SETS[id]?.name) || ""}
+                  getOptionLabel={(id) => GAME_DATA[gameType].SETS[id]?.name || ""}
                   onChange={(_, newValue) => handleSet(newValue, "set2")}
                   renderInput={(params) => (
                     <TextField
