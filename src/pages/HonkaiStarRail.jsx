@@ -25,7 +25,7 @@ import Enka from "../components/Enka";
 import getScore from "../components/getScore";
 const cImgs = import.meta.glob("../assets/char/HSR/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/HSR/*.webp", { eager: true });
-const sImgs = import.meta.glob("../assets/set/HSR/*.webp", { eager: true });
+const sImgs = import.meta.glob("../assets/sets/HSR/*.webp", { eager: true });
 
 const GAME_TYPE = "HSR";
 const VERSION_NUMBER = "3.0";
@@ -127,7 +127,7 @@ const HonkaiStarRail = ({ uid }) => {
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
+                    <TableCell>{GAME_DATA[GAME_TYPE].CHAR[cid].name}</TableCell>
                     {isDesktop && (
                       <TableCell>
                         {cdata.weapon && (
@@ -135,18 +135,18 @@ const HonkaiStarRail = ({ uid }) => {
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].name}
+                                  {GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base HP: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_HP} <br />
-                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_ATK} <br />
-                                  {"Base DEF: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_DEF}
+                                  {"Base HP: " + GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].base.FLAT_HP} <br />
+                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].base.FLAT_ATK} <br />
+                                  {"Base DEF: " + GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].base.FLAT_DEF}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].subtitle}
+                                  {GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].subtitle}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].desc}
+                                  {GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].desc}
                                 </Typography>
                               </React.Fragment>
                             }
@@ -186,7 +186,7 @@ const HonkaiStarRail = ({ uid }) => {
                               arrow
                             >
                               <img
-                                src={sImgs[`../assets/set/HSR/${cdata.set1}.webp`]?.default}
+                                src={sImgs[`../assets/sets/HSR/${cdata.set1}.webp`]?.default}
                                 alt={cdata.set1}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
@@ -208,7 +208,7 @@ const HonkaiStarRail = ({ uid }) => {
                               arrow
                             >
                               <img
-                                src={sImgs[`../assets/set/HSR/${cdata.set2}.webp`]?.default}
+                                src={sImgs[`../assets/sets/HSR/${cdata.set2}.webp`]?.default}
                                 alt={cdata.set2}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />

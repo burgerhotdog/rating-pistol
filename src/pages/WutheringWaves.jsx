@@ -24,7 +24,7 @@ import GAME_DATA from "../components/gameData";
 import getScore from "../components/getScore";
 const cImgs = import.meta.glob("../assets/char/WW/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/WW/*.webp", { eager: true });
-const sImgs = import.meta.glob("../assets/set/WW/*.webp", { eager: true });
+const sImgs = import.meta.glob("../assets/sets/WW/*.webp", { eager: true });
 
 const GAME_TYPE = "WW";
 const VERSION_NUMBER = "2.1";
@@ -125,7 +125,7 @@ const WutheringWaves = ({ uid }) => {
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
+                    <TableCell>{GAME_DATA[GAME_TYPE].CHAR[cid].name}</TableCell>
                     {isDesktop && (
                       <TableCell>
                         {cdata.weapon && (
@@ -133,17 +133,17 @@ const WutheringWaves = ({ uid }) => {
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].name}
+                                  {GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_ATK} <br />
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].substat}
+                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].base.FLAT_ATK} <br />
+                                  {GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].substat}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].subtitle}
+                                  {GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].subtitle}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].desc}
+                                  {GAME_DATA[GAME_TYPE].WEAP[cdata.weapon].desc}
                                 </Typography>
                               </React.Fragment>
                             }
@@ -175,7 +175,7 @@ const WutheringWaves = ({ uid }) => {
                             arrow
                           >
                             <img
-                              src={sImgs[`../assets/set/WW/${cdata.set1}.webp`]?.default}
+                              src={sImgs[`../assets/sets/WW/${cdata.set1}.webp`]?.default}
                               alt={cdata.set1}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />

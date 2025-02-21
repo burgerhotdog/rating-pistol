@@ -287,7 +287,7 @@ const Enka = ({
                       onChange={(e) => handleCheckboxChange(e, index)}
                     />
                   }
-                  label={GAME_DATA[gameType].CHARACTERS[avatar.avatarId]?.name || "error"}
+                  label={GAME_DATA[gameType].CHAR[avatar.avatarId]?.name || "error"}
                 />
               </Box>
             ))}

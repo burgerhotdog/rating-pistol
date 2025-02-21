@@ -52,7 +52,7 @@ const Delete = ({
         {/* Text section */}
         <Typography variant="body1">
           Are you sure you want to delete{" "}
-          <strong>{GAME_DATA[gameType].CHARACTERS[isDeleteOpen]?.name}</strong>
+          <strong>{GAME_DATA[gameType].CHAR[isDeleteOpen]?.name}</strong>
           ?
         </Typography>
 
