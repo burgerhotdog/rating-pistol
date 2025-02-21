@@ -13,8 +13,8 @@ import WW_SETS from "../data/WW_SETS"
 
 const GAME_DATA = {
   GI: {
-    CHARACTERS: GI_CHAR,
-    WEAPONS: GI_WEAP,
+    CHAR: GI_CHAR,
+    WEAP: GI_WEAP,
     SETS: GI_SETS,
     MAINSTATS: [
       {
@@ -212,8 +212,8 @@ const GAME_DATA = {
     },
   },
   HSR: {
-    CHARACTERS: HSR_CHAR,
-    WEAPONS: HSR_WEAP,
+    CHAR: HSR_CHAR,
+    WEAP: HSR_WEAP,
     SETS: HSR_SETS,
     MAINSTATS: [
       {
@@ -433,8 +433,8 @@ const GAME_DATA = {
     },
   },
   ZZZ: {
-    CHARACTERS: ZZZ_CHAR,
-    WEAPONS: ZZZ_WEAP,
+    CHAR: ZZZ_CHAR,
+    WEAP: ZZZ_WEAP,
     SETS: ZZZ_SETS,
     MAINSTATS: [
       {
@@ -624,8 +624,8 @@ const GAME_DATA = {
     },
   },
   WW: {
-    CHARACTERS: WW_CHAR,
-    WEAPONS: WW_WEAP,
+    CHAR: WW_CHAR,
+    WEAP: WW_WEAP,
     SETS: WW_SETS,
     MAINSTATS: [
       {
