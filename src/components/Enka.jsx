@@ -162,7 +162,7 @@ const Enka = ({
           const cid = enkaList[selectedAvatar].avatarId.toString();
           const cdata = blankCdata("HSR");
   
-          cdata.weapon = enkaList[selectedAvatar].equipment?.tid || "";
+          cdata.weapon = enkaList[selectedAvatar].equipment?.tid.toString() || "";
           const setCounts = {};
   
           // pieces
