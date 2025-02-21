@@ -37,7 +37,7 @@ const WutheringWaves = ({ uid }) => {
   const [myCharsWithScores, setMyCharsWithScores] = useState([]);
 
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -94,8 +94,8 @@ const WutheringWaves = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {isNotMobile && <TableCell>Weapon</TableCell>}
-                {isNotMobile && <TableCell>Echoes</TableCell>}
+                {isDesktop && <TableCell>Weapon</TableCell>}
+                {isDesktop && <TableCell>Echoes</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -126,7 +126,7 @@ const WutheringWaves = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         {cdata.weapon && (
                           <Tooltip
@@ -158,7 +158,7 @@ const WutheringWaves = ({ uid }) => {
                         )}
                       </TableCell>
                     )}
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         {cdata.set1 && (
                           <Tooltip

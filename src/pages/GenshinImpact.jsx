@@ -39,7 +39,7 @@ const GenshinImpact = ({ uid }) => {
   const [myCharsWithScores, setMyCharsWithScores] = useState([]);
 
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -96,8 +96,8 @@ const GenshinImpact = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {isNotMobile && <TableCell>Weapon</TableCell>}
-                {isNotMobile && <TableCell>Artifacts</TableCell>}
+                {isDesktop && <TableCell>Weapon</TableCell>}
+                {isDesktop && <TableCell>Artifacts</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -128,7 +128,7 @@ const GenshinImpact = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         {cdata.weapon && (
                           <Tooltip
@@ -160,7 +160,7 @@ const GenshinImpact = ({ uid }) => {
                         )}
                       </TableCell>
                     )}
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         {cdata.set1 && (
                           <Tooltip

@@ -56,7 +56,7 @@ const Save = ({
     5: "goldenrod",
     4: "orchid",
     3: "cornflowerblue",
-    2: "darkseagreen",
+    2: "green",
     1: "slategrey",
   };
 
@@ -73,24 +73,29 @@ const Save = ({
     }
   }, [isSaveOpen, myChars]);
   
-  // Mobile layout breakpoint
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   const charOptions = () => {
     return Object.keys(GAME_DATA[gameType].CHARACTERS)
       .filter(id => !Object.keys(myChars).includes(id))
-      .sort((a, b) => 
-        GAME_DATA[gameType].CHARACTERS[a].name.localeCompare(GAME_DATA[gameType].CHARACTERS[b].name)
-      );
+      .sort((a, b) => {
+        const rarityA = GAME_DATA[gameType].CHARACTERS[a].rarity;
+        const rarityB = GAME_DATA[gameType].CHARACTERS[b].rarity;
+        if (rarityA !== rarityB) return rarityB - rarityA;
+        return GAME_DATA[gameType].CHARACTERS[a].name.localeCompare(GAME_DATA[gameType].CHARACTERS[b].name);
+      });
   };
 
   const weapOptions = () => {
     return Object.keys(GAME_DATA[gameType].WEAPONS)
       .filter(id => GAME_DATA[gameType].WEAPONS[id].type === GAME_DATA[gameType].CHARACTERS[newCid].type)
-      .sort((a, b) => 
-        GAME_DATA[gameType].WEAPONS[a].name.localeCompare(GAME_DATA[gameType].WEAPONS[b].name)
-      );
+      .sort((a, b) => {
+        const rarityA = GAME_DATA[gameType].WEAPONS[a].rarity;
+        const rarityB = GAME_DATA[gameType].WEAPONS[b].rarity;
+        if (rarityA !== rarityB) return rarityB - rarityA;
+        return GAME_DATA[gameType].WEAPONS[a].name.localeCompare(GAME_DATA[gameType].WEAPONS[b].name);
+      });
   };
 
   const setOptions = (setNumber) => {
@@ -111,9 +116,12 @@ const Save = ({
             }
         }
       })
-      .sort((a, b) => 
-        GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name)
-      );
+      .sort((a, b) => {
+        const rarityA = GAME_DATA[gameType].SETS[a].rarity;
+        const rarityB = GAME_DATA[gameType].SETS[b].rarity;
+        if (rarityA !== rarityB) return rarityB - rarityA;
+        return GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name);
+      });
   };
 
   const handleSave = async () => {
@@ -460,14 +468,14 @@ const Save = ({
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {isNotMobile && newCdata.weapon && (
+              {isDesktop && newCdata.weapon && (
                 <img
                   src={wImgs[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
                   alt={newCdata.weapon}
                   style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
               )}
-              {isNotMobile && !newCdata.weapon && (
+              {isDesktop && !newCdata.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>

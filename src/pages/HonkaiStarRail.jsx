@@ -39,7 +39,7 @@ const HonkaiStarRail = ({ uid }) => {
   const [myCharsWithScores, setMyCharsWithScores] = useState([]);
 
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -96,8 +96,8 @@ const HonkaiStarRail = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {isNotMobile && <TableCell>Light Cone</TableCell>}
-                {isNotMobile && <TableCell>Relics</TableCell>}
+                {isDesktop && <TableCell>Light Cone</TableCell>}
+                {isDesktop && <TableCell>Relics</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -128,7 +128,7 @@ const HonkaiStarRail = ({ uid }) => {
                       />
                     </TableCell>
                     <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         {cdata.weapon && (
                           <Tooltip
@@ -161,7 +161,7 @@ const HonkaiStarRail = ({ uid }) => {
                         )}
                       </TableCell>
                     )}
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         <Box
                           sx={{
