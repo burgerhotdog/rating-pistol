@@ -1,7 +1,8 @@
-const WW_CHARACTERS = {
+const WW_CHAR = {
   // Version 2.1
   "1206": {
     name: "Brant",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_HP: 11675, FLAT_ATK: 375, FLAT_DEF: 1308 },
     weights: {
@@ -13,6 +14,7 @@ const WW_CHARACTERS = {
   },
   "1506": {
     name: "Phoebe",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_HP: 10825, FLAT_ATK: 413, FLAT_DEF: 1259 },
     weights: {
@@ -26,6 +28,7 @@ const WW_CHARACTERS = {
   // Version 2.0
   "1107": {
     name: "Carlotta",
+    rarity: 5,
     type: "Pistols",
     base: { FLAT_HP: 12450, FLAT_ATK: 463, FLAT_DEF: 1198 },
     weights: {
@@ -38,6 +41,7 @@ const WW_CHARACTERS = {
   },
   "1606": {
     name: "Roccia",
+    rarity: 5,
     type: "Gauntlets",
     base: { FLAT_HP: 12250, FLAT_ATK: 375, FLAT_DEF: 1198 },
     weights: {
@@ -52,6 +56,7 @@ const WW_CHARACTERS = {
   // Version 1.4
   "1603": {
     name: "Camellya",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_HP: 10325, FLAT_ATK: 450, FLAT_DEF: 1161 },
     weights: {
@@ -65,6 +70,7 @@ const WW_CHARACTERS = {
   },
   "1504": {
     name: "Lumi",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_HP: 8500, FLAT_ATK: 338, FLAT_DEF: 880 },
     weights: {
@@ -81,6 +87,7 @@ const WW_CHARACTERS = {
   // Version 1.3
   "1505": {
     name: "The Shorekeeper",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_HP: 16713, FLAT_ATK: 288, FLAT_DEF: 1100 },
     weights: {
@@ -92,6 +99,7 @@ const WW_CHARACTERS = {
   },
   "1106": {
     name: "Youhu",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_HP: 9975, FLAT_ATK: 263, FLAT_DEF: 1051 },
     weights: {
@@ -105,6 +113,7 @@ const WW_CHARACTERS = {
   // Version 1.2
   "1305": {
     name: "Xiangli Yao",
+    rarity: 5,
     type: "Gauntlets",
     base: { FLAT_HP: 10625, FLAT_ATK: 425, FLAT_DEF: 1222 },
     weights: {
@@ -118,6 +127,7 @@ const WW_CHARACTERS = {
   },
   "1105": {
     name: "Zhezhi",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_HP: 12250, FLAT_ATK: 375, FLAT_DEF: 1198 },
     weights: {
@@ -132,6 +142,7 @@ const WW_CHARACTERS = {
   // Version 1.1
   "1205": {
     name: "Changli",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_HP: 10388, FLAT_ATK: 463, FLAT_DEF: 1100 },
     weights: {
@@ -145,6 +156,7 @@ const WW_CHARACTERS = {
   },
   "1304": {
     name: "Jinhsi",
+    rarity: 5,
     type: "Broadblade",
     base: { FLAT_HP: 10825, FLAT_ATK: 413, FLAT_DEF: 1259 },
     weights: {
@@ -160,6 +172,7 @@ const WW_CHARACTERS = {
   // Version 1.0
   "1403": {
     name: "Aalto",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_HP: 9850, FLAT_ATK: 263, FLAT_DEF: 1075 },
     weights: {
@@ -173,6 +186,7 @@ const WW_CHARACTERS = {
   },
   "1103": {
     name: "Baizhi",
+    rarity: 4,
     type: "Rectifier",
     base: { FLAT_HP: 12813, FLAT_ATK: 213, FLAT_DEF: 1002 },
     weights: {
@@ -182,6 +196,7 @@ const WW_CHARACTERS = {
   },
   "1301": {
     name: "Calcharo",
+    rarity: 5,
     type: "Broadblade",
     base: { FLAT_HP: 10500, FLAT_ATK: 438, FLAT_DEF: 1185 },
     weights: {
@@ -195,6 +210,7 @@ const WW_CHARACTERS = {
   },
   "1202": {
     name: "Chixia",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_HP: 9088, FLAT_ATK: 300, FLAT_DEF: 953 },
     weights: {
@@ -208,6 +224,7 @@ const WW_CHARACTERS = {
   },
   "1602": {
     name: "Danjin",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_HP: 9438, FLAT_ATK: 263, FLAT_DEF: 1149 },
     weights: {
@@ -222,6 +239,7 @@ const WW_CHARACTERS = {
   },
   "1203": {
     name: "Encore",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_HP: 10513, FLAT_ATK: 425, FLAT_DEF: 1246 },
     weights: {
@@ -234,6 +252,7 @@ const WW_CHARACTERS = {
   },
   "1405": {
     name: "Jianxin",
+    rarity: 5,
     type: "Gauntlets",
     base: { FLAT_HP: 14113, FLAT_ATK: 338, FLAT_DEF: 1124 },
     weights: {
@@ -247,6 +266,7 @@ const WW_CHARACTERS = {
   },
   "1404": {
     name: "Jiyan",
+    rarity: 5,
     type: "Broadblade",
     base: { FLAT_HP: 10488, FLAT_ATK: 438, FLAT_DEF: 1185 },
     weights: {
@@ -259,6 +279,7 @@ const WW_CHARACTERS = {
   },
   "1104": {
     name: "Lingyang",
+    rarity: 5,
     type: "Gauntlets",
     base: { FLAT_HP: 10388, FLAT_ATK: 438, FLAT_DEF: 1210 },
     weights: {
@@ -272,6 +293,7 @@ const WW_CHARACTERS = {
   },
   "1204": {
     name: "Mortefi",
+    rarity: 4,
     type: "Pistols",
     base: { FLAT_HP: 10025, FLAT_ATK: 250, FLAT_DEF: 1136 },
     weights: {
@@ -285,6 +307,7 @@ const WW_CHARACTERS = {
   },
   "1604": {
     name: "Rover (Havoc)",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_HP: 10825, FLAT_ATK: 413, FLAT_DEF: 1259 },
     weights: {
@@ -299,6 +322,7 @@ const WW_CHARACTERS = {
   },
   "1502": {
     name: "Rover (Spectro)",
+    rarity: 5,
     type: "Sword",
     base: { FLAT_HP: 11400, FLAT_ATK: 375, FLAT_DEF: 1369 },
     weights: {
@@ -310,6 +334,7 @@ const WW_CHARACTERS = {
   },
   "1102": {
     name: "Sanhua",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_HP: 10063, FLAT_ATK: 275, FLAT_DEF: 941 },
     weights: {
@@ -324,6 +349,7 @@ const WW_CHARACTERS = {
   },
   "1601": {
     name: "Taoqi",
+    rarity: 4,
     type: "Broadblade",
     base: { FLAT_HP: 8950, FLAT_ATK: 225, FLAT_DEF: 1564 },
     weights: {
@@ -335,6 +361,7 @@ const WW_CHARACTERS = {
   },
   "1503": {
     name: "Verina",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_HP: 14238, FLAT_ATK: 338, FLAT_DEF: 1100 },
     weights: {
@@ -344,6 +371,7 @@ const WW_CHARACTERS = {
   },
   "1402": {
     name: "Yangyang",
+    rarity: 4,
     type: "Sword",
     base: { FLAT_HP: 10200, FLAT_ATK: 250, FLAT_DEF: 1100 },
     weights: {
@@ -357,6 +385,7 @@ const WW_CHARACTERS = {
   },
   "1302": {
     name: "Yinlin",
+    rarity: 5,
     type: "Rectifier",
     base: { FLAT_HP: 11000, FLAT_ATK: 400, FLAT_DEF: 1283 },
     weights: {
@@ -370,6 +399,7 @@ const WW_CHARACTERS = {
   },
   "1303": {
     name: "Yuanwu",
+    rarity: 4,
     type: "Gauntlets",
     base: { FLAT_HP: 8525, FLAT_ATK: 225, FLAT_DEF: 1637 },
     weights: {
@@ -383,4 +413,4 @@ const WW_CHARACTERS = {
   },
 };
 
-export default WW_CHARACTERS;
+export default WW_CHAR;

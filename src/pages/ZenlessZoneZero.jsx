@@ -37,7 +37,7 @@ const ZenlessZoneZero = ({ uid }) => {
   const [myCharsWithScores, setMyCharsWithScores] = useState([]);
 
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -94,8 +94,8 @@ const ZenlessZoneZero = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {isNotMobile && <TableCell>W-Engine</TableCell>}
-                {isNotMobile && <TableCell>Drive Disks</TableCell>}
+                {isDesktop && <TableCell>W-Engine</TableCell>}
+                {isDesktop && <TableCell>Drive Disks</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -120,12 +120,12 @@ const ZenlessZoneZero = ({ uid }) => {
                     <TableCell>
                       <img
                         src={cImgs[`../assets/char/ZZZ/${cid}.webp`]?.default}
-                        alt={"char"}
+                        alt={cid}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
                     <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         {cdata.weapon && (
                           <Tooltip
@@ -150,14 +150,14 @@ const ZenlessZoneZero = ({ uid }) => {
                           >
                             <img
                               src={wImgs[`../assets/weap/ZZZ/${cdata.weapon}.webp`]?.default}
-                              alt={"weap"}
+                              alt={cdata.weapon}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                         )}
                       </TableCell>
                     )}
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         <Box
                           sx={{
@@ -183,7 +183,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             >
                               <img
                                 src={sImgs[`../assets/set/ZZZ/${cdata.set1}.webp`]?.default}
-                                alt={"set1"}
+                                alt={cdata.set1}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
                             </Tooltip>
@@ -205,7 +205,7 @@ const ZenlessZoneZero = ({ uid }) => {
                             >
                               <img
                                 src={sImgs[`../assets/set/ZZZ/${cdata.set2}.webp`]?.default}
-                                alt={"set2"}
+                                alt={cdata.set2}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
                             </Tooltip>

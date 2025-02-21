@@ -1,5 +1,11 @@
 import React from "react";
-import { Autocomplete, Card, Divider, TextField } from "@mui/material";
+import {
+  Autocomplete,
+  Card,
+  Divider,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import GAME_DATA from "./gameData";
 
@@ -9,14 +15,12 @@ const Piece = ({
   setNewCdata,
   mainIndex,
 }) => {
-  const PIECE_NAMES =
-    gameType === "HSR"
-      ? ["Head", "Hands", "Body", "Feet", "Orb", "Rope"]
-      : gameType === "ZZZ"
-        ? ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"]
-        : gameType === "WW"
-          ? ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"]
-          : ["Flower", "Plume", "Sands", "Goblet", "Circlet"];
+  const PIECE_NAMES = (
+    gameType === "HSR" ? ["Head", "Hands", "Body", "Feet", "Orb", "Rope"] :
+    gameType === "ZZZ" ? ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"] : 
+    gameType === "WW"  ? ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"] :
+    ["Flower", "Plume", "Sands", "Goblet", "Circlet"]
+  );
 
   // Pass mainstat data to newCdata
   const handleMainstat = (newValue) => {
@@ -113,7 +117,7 @@ const Piece = ({
         {[0, 1, 2, 3, ...(gameType === "WW" ? [4] : [])].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Key Dropdown */}
-            <Grid size={9}>
+            <Grid size={8}>
               <Autocomplete
                 size="small"
                 value={newCdata.substats[mainIndex][subIndex][0] || ""}
@@ -133,7 +137,7 @@ const Piece = ({
             </Grid>
 
             {/* Substat Value Input */}
-            <Grid size={3}>
+            <Grid size={4}>
               <TextField
                 size="small"
                 value={newCdata.substats[mainIndex][subIndex][1] || ""}
@@ -147,6 +151,13 @@ const Piece = ({
                 }}
                 fullWidth
                 disabled={newCdata.substats[mainIndex][subIndex][0] === ""}
+                slotProps={{
+                  input: {
+                    endAdornment: GAME_DATA[gameType].SUBSTATS[newCdata.substats[mainIndex][subIndex][0]]?.percent && (
+                      <InputAdornment position="end">%</InputAdornment>
+                    ),
+                  },
+                }}
               />
             </Grid>
           </React.Fragment>

@@ -1,7 +1,8 @@
-const ZZZ_WEAPONS = {
+const ZZZ_WEAP = {
   // Version 1.5
   "14131": {
     name: "Elegant Vanity",
+    rarity: 5,
     type: "Support",
     base: { FLAT_ATK: 713 },
     substat: "ATK: 30%",
@@ -10,6 +11,7 @@ const ZZZ_WEAPONS = {
   },
   "14132": {
     name: "Heartstring Nocturne",
+    rarity: 5,
     type: "Attack",
     base: { FLAT_ATK: 713 },
     substat: "CRIT Rate: 24%",
@@ -20,6 +22,7 @@ const ZZZ_WEAPONS = {
   // Version 1.4
   "14109": {
     name: "Hailstorm Shrine",
+    rarity: 5,
     type: "Anomaly",
     base: { FLAT_ATK: 743 },
     substat: "CRIT Rate: 24%",
@@ -28,6 +31,7 @@ const ZZZ_WEAPONS = {
   },
   "13015": {
     name: "Marcato Desire",
+    rarity: 4,
     type: "Attack",
     base: { FLAT_ATK: 594 },
     substat: "CRIT Rate: 20%",
@@ -36,6 +40,7 @@ const ZZZ_WEAPONS = {
   },
   "14120": {
     name: "Zanshin Herb Case",
+    rarity: 5,
     type: "Attack",
     base: { FLAT_ATK: 713 },
     substat: "CRIT DMG: 48%",
@@ -46,6 +51,7 @@ const ZZZ_WEAPONS = {
   // Version 1.3
   "14116": {
     name: "Blazing Laurel",
+    rarity: 5,
     type: "Stun",
     base: { FLAT_ATK: 713 },
     substat: "Impact: 18%",
@@ -54,6 +60,7 @@ const ZZZ_WEAPONS = {
   },
   "14122": {
     name: "Timeweaver",
+    rarity: 5,
     type: "Anomaly",
     base: { FLAT_ATK: 713 },
     substat: "ATK: 30%",
@@ -64,6 +71,7 @@ const ZZZ_WEAPONS = {
   // Version 1.2
   "14117": {
     name: "Flamemaker Shaker",
+    rarity: 5,
     type: "Anomaly",
     base: { FLAT_ATK: 713 },
     substat: "ATK: 30%",
@@ -72,6 +80,7 @@ const ZZZ_WEAPONS = {
   },
   "14107": {
     name: "Tusks of Fury",
+    rarity: 5,
     type: "Defense",
     base: { FLAT_ATK: 713 },
     substat: "Impact: 18%",
@@ -82,6 +91,7 @@ const ZZZ_WEAPONS = {
   // Version 1.1
   "13013": {
     name: "Gilded Blossom",
+    rarity: 4,
     type: "Attack",
     base: { FLAT_ATK: 594 },
     substat: "ATK: 25%",
@@ -90,6 +100,7 @@ const ZZZ_WEAPONS = {
   },
   "14125": {
     name: "Ice-Jade Teapot",
+    rarity: 5,
     type: "Stun",
     base: { FLAT_ATK: 713 },
     substat: "Impact: 18%",
@@ -98,6 +109,7 @@ const ZZZ_WEAPONS = {
   },
   "13127": {
     name: "Peacekeeper - Specialized",
+    rarity: 4,
     type: "Defense",
     base: { FLAT_ATK: 624 },
     substat: "ATK: 25%",
@@ -106,6 +118,7 @@ const ZZZ_WEAPONS = {
   },
   "14126": {
     name: "Sharpened Stinger",
+    rarity: 5,
     type: "Anomaly",
     base: { FLAT_ATK: 713 },
     substat: "Anomaly Proficiency: 90",
@@ -116,6 +129,7 @@ const ZZZ_WEAPONS = {
   // Version 1.0
   "13113": {
     name: "Bashful Demon",
+    rarity: 4,
     type: "Support",
     base: { FLAT_ATK: 624 },
     substat: "ATK: 25%",
@@ -124,6 +138,7 @@ const ZZZ_WEAPONS = {
   },
   "13112": {
     name: "Big Cylinder",
+    rarity: 4,
     type: "Defense",
     base: { FLAT_ATK: 624 },
     substat: "DEF: 40%",
@@ -132,6 +147,7 @@ const ZZZ_WEAPONS = {
   },
   "13010": {
     name: "Bunny Band",
+    rarity: 4,
     type: "Defense",
     base: { FLAT_ATK: 594 },
     substat: "DEF: 40%",
@@ -140,6 +156,7 @@ const ZZZ_WEAPONS = {
   },
   "14001": {
     name: "Cannon Rotor",
+    rarity: 4,
     type: "Attack",
     base: { FLAT_ATK: 594 },
     substat: "CRIT Rate: 20%",
@@ -148,6 +165,7 @@ const ZZZ_WEAPONS = {
   },
   "14119": {
     name: "Deep Sea Visitor",
+    rarity: 5,
     type: "Attack",
     base: { FLAT_ATK: 713 },
     substat: "CRIT Rate: 24%",
@@ -156,6 +174,7 @@ const ZZZ_WEAPONS = {
   },
   "13101": {
     name: "Demara Battery Mark II",
+    rarity: 4,
     type: "Stun",
     base: { FLAT_ATK: 624 },
     substat: "Impact: 15%",
@@ -164,6 +183,7 @@ const ZZZ_WEAPONS = {
   },
   "13111": {
     name: "Drill Rig - Red Axis",
+    rarity: 4,
     type: "Attack",
     base: { FLAT_ATK: 624 },
     substat: "Energy Regen: 50%",
@@ -172,6 +192,7 @@ const ZZZ_WEAPONS = {
   },
   "13009": {
     name: "Electro-Lip Gloss",
+    rarity: 4,
     type: "Anomaly",
     base: { FLAT_ATK: 594 },
     substat: "Anomaly Proficiency: 75",
@@ -180,6 +201,7 @@ const ZZZ_WEAPONS = {
   },
   "14118": {
     name: "Fusion Compiler",
+    rarity: 5,
     type: "Anomaly",
     base: { FLAT_ATK: 684 },
     substat: "PEN Ratio: 24%",
@@ -188,6 +210,7 @@ const ZZZ_WEAPONS = {
   },
   "14110": {
     name: "Hellfire Gears",
+    rarity: 5,
     type: "Stun",
     base: { FLAT_ATK: 684 },
     substat: "Impact: 18%",
@@ -196,6 +219,7 @@ const ZZZ_WEAPONS = {
   },
   "13106": {
     name: "Housekeeper",
+    rarity: 4,
     type: "Attack",
     base: { FLAT_ATK: 624 },
     substat: "ATK: 25%",
@@ -204,6 +228,7 @@ const ZZZ_WEAPONS = {
   },
   "12013": {
     name: "[Identity] Base",
+    rarity: 3,
     type: "Defense",
     base: { FLAT_ATK: 475 },
     substat: "DEF: 32%",
@@ -212,6 +237,7 @@ const ZZZ_WEAPONS = {
   },
   "12014": {
     name: "[Identity] Inflection",
+    rarity: 3,
     type: "Defense",
     base: { FLAT_ATK: 475 },
     substat: "DEF: 32%",
@@ -220,6 +246,7 @@ const ZZZ_WEAPONS = {
   },
   "13115": {
     name: "Kaboom the Cannon",
+    rarity: 4,
     type: "Support",
     base: { FLAT_ATK: 624 },
     substat: "Energy Regen: 50%",
@@ -228,6 +255,7 @@ const ZZZ_WEAPONS = {
   },
   "12002": {
     name: "[Lunar] Decrescent",
+    rarity: 3,
     type: "Attack",
     base: { FLAT_ATK: 475 },
     substat: "ATK: 20%",
@@ -236,6 +264,7 @@ const ZZZ_WEAPONS = {
   },
   "12003": {
     name: "[Lunar] Noviluna",
+    rarity: 3,
     type: "Attack",
     base: { FLAT_ATK: 475 },
     substat: "CRIT Rate: 16%",
@@ -244,6 +273,7 @@ const ZZZ_WEAPONS = {
   },
   "12001": {
     name: "[Lunar] Pleniluna",
+    rarity: 3,
     type: "Attack",
     base: { FLAT_ATK: 475 },
     substat: "ATK: 20%",
@@ -252,6 +282,7 @@ const ZZZ_WEAPONS = {
   },
   "12010": {
     name: "[Magnetic Storm] Alpha",
+    rarity: 3,
     type: "Anomaly",
     base: { FLAT_ATK: 475 },
     substat: "ATK: 20%",
@@ -260,6 +291,7 @@ const ZZZ_WEAPONS = {
   },
   "12011": {
     name: "[Magnetic Storm] Bravo",
+    rarity: 3,
     type: "Anomaly",
     base: { FLAT_ATK: 475 },
     substat: "Anomaly Proficiency: 60",
@@ -268,6 +300,7 @@ const ZZZ_WEAPONS = {
   },
   "12012": {
     name: "[Magnetic Storm] Charlie",
+    rarity: 3,
     type: "Anomaly",
     base: { FLAT_ATK: 475 },
     substat: "PEN Ratio: 16%",
@@ -276,6 +309,7 @@ const ZZZ_WEAPONS = {
   },
   "13007": {
     name: "Original Transmorpher",
+    rarity: 4,
     type: "Defense",
     base: { FLAT_ATK: 594 },
     substat: "HP: 25%",
@@ -284,6 +318,7 @@ const ZZZ_WEAPONS = {
   },
   "13006": {
     name: "Precious Fossilized Core",
+    rarity: 4,
     type: "Stun",
     base: { FLAT_ATK: 594 },
     substat: "Impact: 15%",
@@ -292,6 +327,7 @@ const ZZZ_WEAPONS = {
   },
   "13003": {
     name: "Rainforest Gourmet",
+    rarity: 4,
     type: "Anomaly",
     base: { FLAT_ATK: 594 },
     substat: "Anomaly Proficiency: 75",
@@ -300,6 +336,7 @@ const ZZZ_WEAPONS = {
   },
   "12004": {
     name: "[Reverb] Mark I",
+    rarity: 3,
     type: "Support",
     base: { FLAT_ATK: 475 },
     substat: "ATK: 20%",
@@ -308,6 +345,7 @@ const ZZZ_WEAPONS = {
   },
   "12005": {
     name: "[Reverb] Mark II",
+    rarity: 3,
     type: "Support",
     base: { FLAT_ATK: 475 },
     substat: "Energy Regen: 40%",
@@ -316,6 +354,7 @@ const ZZZ_WEAPONS = {
   },
   "12006": {
     name: "[Reverb] Mark III",
+    rarity: 3,
     type: "Support",
     base: { FLAT_ATK: 475 },
     substat: "HP: 20%",
@@ -324,6 +363,7 @@ const ZZZ_WEAPONS = {
   },
   "14124": {
     name: "Riot Suppressor Mark VI",
+    rarity: 5,
     type: "Attack",
     base: { FLAT_ATK: 713 },
     substat: "CRIT DMG: 48%",
@@ -332,6 +372,7 @@ const ZZZ_WEAPONS = {
   },
   "13128": {
     name: "Roaring Ride",
+    rarity: 4,
     type: "Anomaly",
     base: { FLAT_ATK: 624 },
     substat: "ATK: 25%",
@@ -340,6 +381,7 @@ const ZZZ_WEAPONS = {
   },
   "14003": {
     name: "Six Shooter",
+    rarity: 4,
     type: "Stun",
     base: { FLAT_ATK: 594 },
     substat: "Impact: 15%",
@@ -348,6 +390,7 @@ const ZZZ_WEAPONS = {
   },
   "13002": {
     name: "Slice of Time",
+    rarity: 4,
     type: "Support",
     base: { FLAT_ATK: 594 },
     substat: "PEN Ratio: 20%",
@@ -356,6 +399,7 @@ const ZZZ_WEAPONS = {
   },
   "13011": {
     name: "Spring Embrace",
+    rarity: 4,
     type: "Defense",
     base: { FLAT_ATK: 594 },
     substat: "ATK: 25%",
@@ -364,6 +408,7 @@ const ZZZ_WEAPONS = {
   },
   "13004": {
     name: "Starlight Engine",
+    rarity: 4,
     type: "Attack",
     base: { FLAT_ATK: 594 },
     substat: "ATK: 25%",
@@ -372,6 +417,7 @@ const ZZZ_WEAPONS = {
   },
   "13108": {
     name: "Starlight Engine Replica",
+    rarity: 4,
     type: "Attack",
     base: { FLAT_ATK: 624 },
     substat: "ATK: 25%",
@@ -380,6 +426,7 @@ const ZZZ_WEAPONS = {
   },
   "13005": {
     name: "Steam Oven",
+    rarity: 4,
     type: "Stun",
     base: { FLAT_ATK: 594 },
     substat: "Energy Regen: 50%",
@@ -388,6 +435,7 @@ const ZZZ_WEAPONS = {
   },
   "14102": {
     name: "Steel Cushion",
+    rarity: 5,
     type: "Attack",
     base: { FLAT_ATK: 684 },
     substat: "CRIT Rate: 24%",
@@ -396,6 +444,7 @@ const ZZZ_WEAPONS = {
   },
   "13001": {
     name: "Street Superstar",
+    rarity: 4,
     type: "Attack",
     base: { FLAT_ATK: 594 },
     substat: "ATK: 25%",
@@ -404,6 +453,7 @@ const ZZZ_WEAPONS = {
   },
   "14104": {
     name: "The Brimstone",
+    rarity: 5,
     type: "Attack",
     base: { FLAT_ATK: 684 },
     substat: "ATK: 30%",
@@ -412,6 +462,7 @@ const ZZZ_WEAPONS = {
   },
   "14114": {
     name: "The Restrained",
+    rarity: 5,
     type: "Stun",
     base: { FLAT_ATK: 684 },
     substat: "Impact: 18%",
@@ -420,6 +471,7 @@ const ZZZ_WEAPONS = {
   },
   "13103": {
     name: "The Vault",
+    rarity: 4,
     type: "Support",
     base: { FLAT_ATK: 624 },
     substat: "Energy Regen: 50%",
@@ -428,6 +480,7 @@ const ZZZ_WEAPONS = {
   },
   "14002": {
     name: "Unfettered Game Ball",
+    rarity: 4,
     type: "Support",
     base: { FLAT_ATK: 594 },
     substat: "Energy Regen: 50%",
@@ -436,6 +489,7 @@ const ZZZ_WEAPONS = {
   },
   "12008": {
     name: "[Vortex] Arrow",
+    rarity: 3,
     type: "Stun",
     base: { FLAT_ATK: 475 },
     substat: "Impact: 12%",
@@ -444,6 +498,7 @@ const ZZZ_WEAPONS = {
   },
   "12009": {
     name: "[Vortex] Hatchet",
+    rarity: 3,
     type: "Stun",
     base: { FLAT_ATK: 475 },
     substat: "Energy Regen: 40%",
@@ -452,6 +507,7 @@ const ZZZ_WEAPONS = {
   },
   "12007": {
     name: "[Vortex] Revolver",
+    rarity: 3,
     type: "Stun",
     base: { FLAT_ATK: 475 },
     substat: "ATK: 20%",
@@ -460,6 +516,7 @@ const ZZZ_WEAPONS = {
   },
   "14121": {
     name: "Weeping Cradle",
+    rarity: 5,
     type: "Support",
     base: { FLAT_ATK: 684 },
     substat: "PEN Ratio: 24%",
@@ -468,6 +525,7 @@ const ZZZ_WEAPONS = {
   },
   "13008": {
     name: "Weeping Gemini",
+    rarity: 4,
     type: "Anomaly",
     base: { FLAT_ATK: 594 },
     substat: "ATK: 25%",
@@ -476,4 +534,4 @@ const ZZZ_WEAPONS = {
   },
 };
 
-export default ZZZ_WEAPONS;
+export default ZZZ_WEAP;

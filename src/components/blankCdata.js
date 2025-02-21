@@ -1,8 +1,8 @@
 const blankCdata = (gameType) => {
   const config = {
-    GI: { substatsLength: 5, substatsEntries: 4, prefill: ["FIGHT_PROP_HP", "FIGHT_PROP_ATTACK"], multiSet: false },
-    HSR: { substatsLength: 6, substatsEntries: 4, prefill: ["HPDelta", "AttackDelta"], multiSet: true },
-    ZZZ: { substatsLength: 6, substatsEntries: 4, prefill: ["HP", "ATK", "DEF"], multiSet: true },
+    GI: { substatsLength: 5, substatsEntries: 4, prefill: ["FLAT_HP", "FLAT_ATK"], multiSet: false },
+    HSR: { substatsLength: 6, substatsEntries: 4, prefill: ["FLAT_HP", "FLAT_ATK"], multiSet: true },
+    ZZZ: { substatsLength: 6, substatsEntries: 4, prefill: ["FLAT_HP", "FLAT_ATK", "FLAT_DEF"], multiSet: true },
     WW: { substatsLength: 5, substatsEntries: 5, prefill: [], multiSet: false },
   };
 
@@ -16,7 +16,8 @@ const blankCdata = (gameType) => {
 
   return {
     weapon: "",
-    ...(multiSet ? { set1: "", set2: "" } : { set: "" }),
+    set1: "",
+    ...(multiSet ? { set2: "" } : {}),
     mainstats,
     substats,
   };

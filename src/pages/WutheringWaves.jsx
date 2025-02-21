@@ -37,7 +37,7 @@ const WutheringWaves = ({ uid }) => {
   const [myCharsWithScores, setMyCharsWithScores] = useState([]);
 
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -94,8 +94,8 @@ const WutheringWaves = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {isNotMobile && <TableCell>Weapon</TableCell>}
-                {isNotMobile && <TableCell>Echoes</TableCell>}
+                {isDesktop && <TableCell>Weapon</TableCell>}
+                {isDesktop && <TableCell>Echoes</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -121,12 +121,12 @@ const WutheringWaves = ({ uid }) => {
                     <TableCell>
                       <img
                         src={cImgs[`../assets/char/WW/${cid}.webp`]?.default}
-                        alt={"char"}
+                        alt={cid}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
                     <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         {cdata.weapon && (
                           <Tooltip
@@ -151,32 +151,32 @@ const WutheringWaves = ({ uid }) => {
                           >
                             <img
                               src={wImgs[`../assets/weap/WW/${cdata.weapon}.webp`]?.default}
-                              alt={"weap"}
+                              alt={cdata.weapon}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                         )}
                       </TableCell>
                     )}
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
-                        {cdata.set && (
+                        {cdata.set1 && (
                           <Tooltip
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set].name}
+                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set1].name}
                                 </Typography>
                                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set].desc}
+                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set1].desc}
                                 </Typography>
                               </React.Fragment>
                             }
                             arrow
                           >
                             <img
-                              src={sImgs[`../assets/set/WW/${cdata.set}.webp`]?.default}
-                              alt={"set"}
+                              src={sImgs[`../assets/set/WW/${cdata.set1}.webp`]?.default}
+                              alt={cdata.set1}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>

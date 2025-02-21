@@ -39,7 +39,7 @@ const HonkaiStarRail = ({ uid }) => {
   const [myCharsWithScores, setMyCharsWithScores] = useState([]);
 
   const theme = useTheme();
-  const isNotMobile = useMediaQuery(theme.breakpoints.up("xl"));
+  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   // Populate myChars when user signs in/out
   useEffect(() => {
@@ -96,8 +96,8 @@ const HonkaiStarRail = ({ uid }) => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                {isNotMobile && <TableCell>Light Cone</TableCell>}
-                {isNotMobile && <TableCell>Relics</TableCell>}
+                {isDesktop && <TableCell>Light Cone</TableCell>}
+                {isDesktop && <TableCell>Relics</TableCell>}
                 <TableCell>Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
@@ -123,12 +123,12 @@ const HonkaiStarRail = ({ uid }) => {
                     <TableCell>
                       <img
                         src={cImgs[`../assets/char/HSR/${cid}.webp`]?.default}
-                        alt={"char"}
+                        alt={cid}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
                     <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         {cdata.weapon && (
                           <Tooltip
@@ -154,14 +154,14 @@ const HonkaiStarRail = ({ uid }) => {
                           >
                             <img
                               src={wImgs[`../assets/weap/HSR/${cdata.weapon}.webp`]?.default}
-                              alt={"weap"}
+                              alt={cdata.weapon}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                         )}
                       </TableCell>
                     )}
-                    {isNotMobile && (
+                    {isDesktop && (
                       <TableCell>
                         <Box
                           sx={{
@@ -176,10 +176,10 @@ const HonkaiStarRail = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {GAME_DATA[GAME_TYPE].SETS_RELIC[cdata.set1].name}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set1].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {GAME_DATA[GAME_TYPE].SETS_RELIC[cdata.set1].desc}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set1].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
@@ -187,7 +187,7 @@ const HonkaiStarRail = ({ uid }) => {
                             >
                               <img
                                 src={sImgs[`../assets/set/HSR/${cdata.set1}.webp`]?.default}
-                                alt={"set1"}
+                                alt={cdata.set1}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
                             </Tooltip>
@@ -198,10 +198,10 @@ const HonkaiStarRail = ({ uid }) => {
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {GAME_DATA[GAME_TYPE].SETS_PLANAR[cdata.set2].name}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set2].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {GAME_DATA[GAME_TYPE].SETS_PLANAR[cdata.set2].desc}
+                                    {GAME_DATA[GAME_TYPE].SETS[cdata.set2].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
@@ -209,7 +209,7 @@ const HonkaiStarRail = ({ uid }) => {
                             >
                               <img
                                 src={sImgs[`../assets/set/HSR/${cdata.set2}.webp`]?.default}
-                                alt={"set2"}
+                                alt={cdata.set2}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
                             </Tooltip>

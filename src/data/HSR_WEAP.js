@@ -1,7 +1,8 @@
-const HSR_WEAPONS = {
+const HSR_WEAP = {
   // Version 3.0
   "21051": {
     name: "Geniuses' Greetings",
+    rarity: 4,
     type: "Remembrance",
     base: { FLAT_HP: 953, FLAT_ATK: 476, FLAT_DEF: 331 },
     subtitle: "Congratulations",
@@ -9,6 +10,7 @@ const HSR_WEAPONS = {
   },
   "23037": {
     name: "Into the Unreachable Veil",
+    rarity: 5,
     type: "Erudition",
     base: { FLAT_HP: 952, FLAT_ATK: 635, FLAT_DEF: 463 },
     subtitle: "Mind Game",
@@ -16,6 +18,7 @@ const HSR_WEAPONS = {
   },
   "20022": {
     name: "Reminiscence",
+    rarity: 3,
     type: "Remembrance",
     base: { FLAT_HP: 635, FLAT_ATK: 423, FLAT_DEF: 264 },
     subtitle: "Going to Sleep",
@@ -23,6 +26,7 @@ const HSR_WEAPONS = {
   },
   "20021": {
     name: "Shadowburn",
+    rarity: 3,
     type: "Remembrance",
     base: { FLAT_HP: 846, FLAT_ATK: 317, FLAT_DEF: 264 },
     subtitle: "Beautify",
@@ -30,6 +34,7 @@ const HSR_WEAPONS = {
   },
   "21052": {
     name: "Sweat Now, Cry Less",
+    rarity: 4,
     type: "Remembrance",
     base: { FLAT_HP: 1058, FLAT_ATK: 529, FLAT_DEF: 198 },
     subtitle: "Come Train!",
@@ -37,6 +42,7 @@ const HSR_WEAPONS = {
   },
   "23036": {
     name: "Time Woven Into Gold",
+    rarity: 5,
     type: "Remembrance",
     base: { FLAT_HP: 1058, FLAT_ATK: 635, FLAT_DEF: 397 },
     subtitle: "Establishment",
@@ -44,6 +50,7 @@ const HSR_WEAPONS = {
   },
   "21050": {
     name: "Victory In a Blink",
+    rarity: 4,
     type: "Remembrance",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 396 },
     subtitle: "Final Hit",
@@ -53,6 +60,7 @@ const HSR_WEAPONS = {
   // Version 2.7
   "23034": {
     name: "A Grounded Ascent",
+    rarity: 5,
     type: "Harmony",
     base: { FLAT_HP: 1164, FLAT_ATK: 476, FLAT_DEF: 529 },
     subtitle: "Departing Anew",
@@ -60,6 +68,7 @@ const HSR_WEAPONS = {
   },
   "23035": {
     name: "Long Road Leads Home",
+    rarity: 5,
     type: "Nihility",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 661 },
     subtitle: "Rebirth",
@@ -69,6 +78,7 @@ const HSR_WEAPONS = {
   // Version 2.6
   "21048": {
     name: "Dream's Montage",
+    rarity: 4,
     type: "Abundance",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Academy-Style Edit",
@@ -76,6 +86,7 @@ const HSR_WEAPONS = {
   },
   "22003": {
     name: "Ninja Record: Sound Hunt",
+    rarity: 4,
     type: "Destruction",
     base: { FLAT_HP: 1058, FLAT_ATK: 476, FLAT_DEF: 264 },
     subtitle: "Curtains Up!",
@@ -83,6 +94,7 @@ const HSR_WEAPONS = {
   },
   "23033": {
     name: "Ninjutsu Inscription: Dazzling Evilbreaker",
+    rarity: 5,
     type: "Erudition",
     base: { FLAT_HP: 952, FLAT_ATK: 582, FLAT_DEF: 529 },
     subtitle: "Exorcism",
@@ -92,6 +104,7 @@ const HSR_WEAPONS = {
   // Version 2.5
   "23031": {
     name: "I Venture Forth to Hunt",
+    rarity: 5,
     type: "The Hunt",
     base: { FLAT_HP: 952, FLAT_ATK: 635, FLAT_DEF: 463 },
     subtitle: "Intimidation",
@@ -99,6 +112,7 @@ const HSR_WEAPONS = {
   },
   "23032": {
     name: "Scent Alone Stays True",
+    rarity: 5,
     type: "Abundance",
     base: { FLAT_HP: 1058, FLAT_ATK: 529, FLAT_DEF: 529 },
     subtitle: "Contentment",
@@ -106,6 +120,7 @@ const HSR_WEAPONS = {
   },
   "21047": {
     name: "Shadowed by Night",
+    rarity: 4,
     type: "The Hunt",
     base: { FLAT_HP: 846, FLAT_ATK: 476, FLAT_DEF: 396 },
     subtitle: "Concealment",
@@ -115,6 +130,7 @@ const HSR_WEAPONS = {
   // Version 2.4
   "23030": {
     name: "Dance at Sunset",
+    rarity: 5,
     type: "Destruction",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Deeply Engrossed",
@@ -122,6 +138,7 @@ const HSR_WEAPONS = {
   },
   "21046": {
     name: "Poised to Bloom",
+    rarity: 4,
     type: "Harmony",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Lose Not, Forget Not",
@@ -129,6 +146,7 @@ const HSR_WEAPONS = {
   },
   "23029": {
     name: "Those Many Springs",
+    rarity: 5,
     type: "Nihility",
     base: { FLAT_HP: 952, FLAT_ATK: 582, FLAT_DEF: 529 },
     subtitle: "Worldly Affairs Leave No Mark",
@@ -138,6 +156,7 @@ const HSR_WEAPONS = {
   // Version 2.3
   "21045": {
     name: "After the Charmony Fall",
+    rarity: 4,
     type: "Erudition",
     base: { FLAT_HP: 846, FLAT_ATK: 476, FLAT_DEF: 396 },
     subtitle: "Quiescence",
@@ -145,6 +164,7 @@ const HSR_WEAPONS = {
   },
   "24004": {
     name: "Eternal Calculus",
+    rarity: 5,
     type: "Erudition",
     base: { FLAT_HP: 1058, FLAT_ATK: 529, FLAT_DEF: 396 },
     subtitle: "Boundless Thought",
@@ -152,6 +172,7 @@ const HSR_WEAPONS = {
   },
   "23025": {
     name: "Whereabouts Should Dreams Rest",
+    rarity: 5,
     type: "Destruction",
     base: { FLAT_HP: 1164, FLAT_ATK: 476, FLAT_DEF: 529 },
     subtitle: "Metamorphosis",
@@ -159,6 +180,7 @@ const HSR_WEAPONS = {
   },
   "23028": {
     name: "Yet Hope Is Priceless",
+    rarity: 5,
     type: "Erudition",
     base: { FLAT_HP: 952, FLAT_ATK: 582, FLAT_DEF: 529 },
     subtitle: "Promise",
@@ -168,6 +190,7 @@ const HSR_WEAPONS = {
   // Version 2.2
   "21044": {
     name: "Boundless Choreo",
+    rarity: 4,
     type: "Nihility",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Scrutinize",
@@ -175,6 +198,7 @@ const HSR_WEAPONS = {
   },
   "23026": {
     name: "Flowing Nightglow",
+    rarity: 5,
     type: "Harmony",
     base: { FLAT_HP: 952, FLAT_ATK: 635, FLAT_DEF: 463 },
     subtitle: "Pacify",
@@ -182,6 +206,7 @@ const HSR_WEAPONS = {
   },
   "22002": {
     name: "For Tomorrow's Journey",
+    rarity: 4,
     type: "Harmony",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Bonds",
@@ -189,6 +214,7 @@ const HSR_WEAPONS = {
   },
   "23027": {
     name: "Sailing Towards A Second Life",
+    rarity: 5,
     type: "The Hunt",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Rough Water",
@@ -198,6 +224,7 @@ const HSR_WEAPONS = {
   // Version 2.1
   "23024": {
     name: "Along the Passing Shore",
+    rarity: 5,
     type: "Nihility",
     base: { FLAT_HP: 1058, FLAT_ATK: 635, FLAT_DEF: 396 },
     subtitle: "Steerer",
@@ -205,6 +232,7 @@ const HSR_WEAPONS = {
   },
   "21043": {
     name: "Concert for Two",
+    rarity: 4,
     type: "Preservation",
     base: { FLAT_HP: 952, FLAT_ATK: 370, FLAT_DEF: 463 },
     subtitle: "Inspire",
@@ -212,6 +240,7 @@ const HSR_WEAPONS = {
   },
   "23023": {
     name: "Inherently Unjust Destiny",
+    rarity: 5,
     type: "Preservation",
     base: { FLAT_HP: 1058, FLAT_ATK: 423, FLAT_DEF: 661 },
     subtitle: "All-In",
@@ -221,6 +250,7 @@ const HSR_WEAPONS = {
   // Version 2.0
   "21039": {
     name: "Destiny's Threads Forewoven",
+    rarity: 4,
     type: "Preservation",
     base: { FLAT_HP: 952, FLAT_ATK: 370, FLAT_DEF: 463 },
     subtitle: "Insight",
@@ -228,6 +258,7 @@ const HSR_WEAPONS = {
   },
   "21036": {
     name: "Dreamville Adventure",
+    rarity: 4,
     type: "Harmony",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Solidarity",
@@ -235,6 +266,7 @@ const HSR_WEAPONS = {
   },
   "23021": {
     name: "Earthly Escapade",
+    rarity: 5,
     type: "Harmony",
     base: { FLAT_HP: 1164, FLAT_ATK: 529, FLAT_DEF: 463 },
     subtitle: "Capriciousness",
@@ -242,6 +274,7 @@ const HSR_WEAPONS = {
   },
   "21037": {
     name: "Final Victor",
+    rarity: 4,
     type: "The Hunt",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Wager",
@@ -249,6 +282,7 @@ const HSR_WEAPONS = {
   },
   "21038": {
     name: "Flames Afar",
+    rarity: 4,
     type: "Destruction",
     base: { FLAT_HP: 1058, FLAT_ATK: 476, FLAT_DEF: 264 },
     subtitle: "Deflagration",
@@ -256,6 +290,7 @@ const HSR_WEAPONS = {
   },
   "21042": {
     name: "Indelible Promise",
+    rarity: 4,
     type: "Destruction",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Inheritance",
@@ -263,6 +298,7 @@ const HSR_WEAPONS = {
   },
   "21041": {
     name: "It's Showtime",
+    rarity: 4,
     type: "Nihility",
     base: { FLAT_HP: 1058, FLAT_ATK: 476, FLAT_DEF: 264 },
     subtitle: "Self-Amusement",
@@ -270,6 +306,7 @@ const HSR_WEAPONS = {
   },
   "23022": {
     name: "Reforged Remembrance",
+    rarity: 5,
     type: "Nihility",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Crystallize",
@@ -277,6 +314,7 @@ const HSR_WEAPONS = {
   },
   "21040": {
     name: "The Day The Cosmos Fell",
+    rarity: 4,
     type: "Erudition",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Stratagem",
@@ -284,6 +322,7 @@ const HSR_WEAPONS = {
   },
   "21035": {
     name: "What Is Real?",
+    rarity: 4,
     type: "Abundance",
     base: { FLAT_HP: 1058, FLAT_ATK: 423, FLAT_DEF: 330 },
     subtitle: "Hypothesis",
@@ -293,6 +332,7 @@ const HSR_WEAPONS = {
   // Version 1.6
   "23020": {
     name: "Baptism of Pure Thought",
+    rarity: 5,
     type: "The Hunt",
     base: { FLAT_HP: 952, FLAT_ATK: 582, FLAT_DEF: 529 },
     subtitle: "Mental Training",
@@ -300,6 +340,7 @@ const HSR_WEAPONS = {
   },
   "23019": {
     name: "Past Self in Mirror",
+    rarity: 5,
     type: "Harmony",
     base: { FLAT_HP: 1058, FLAT_ATK: 529, FLAT_DEF: 529 },
     subtitle: "The Plum Fragrance In My Bones",
@@ -309,6 +350,7 @@ const HSR_WEAPONS = {
   // Version 1.5
   "23018": {
     name: "An Instant Before A Gaze",
+    rarity: 5,
     type: "Erudition",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "A Knight's Pilgrimage",
@@ -316,6 +358,7 @@ const HSR_WEAPONS = {
   },
   "22001": {
     name: "Hey, Over Here",
+    rarity: 4,
     type: "Abundance",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "I'm Not Afraid!",
@@ -323,6 +366,7 @@ const HSR_WEAPONS = {
   },
   "23017": {
     name: "Night of Fright",
+    rarity: 5,
     type: "Abundance",
     base: { FLAT_HP: 1164, FLAT_ATK: 476, FLAT_DEF: 529 },
     subtitle: "Deep, Deep Breaths",
@@ -332,6 +376,7 @@ const HSR_WEAPONS = {
   // Version 1.4
   "23014": {
     name: "I Shall Be My Own Sword",
+    rarity: 5,
     type: "Destruction",
     base: { FLAT_HP: 1164, FLAT_ATK: 582, FLAT_DEF: 396 },
     subtitle: "With This Evening Jade",
@@ -339,6 +384,7 @@ const HSR_WEAPONS = {
   },
   "23016": {
     name: "Worrisome, Blissful",
+    rarity: 5,
     type: "The Hunt",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "One At A Time",
@@ -348,6 +394,7 @@ const HSR_WEAPONS = {
   // Version 1.3
   "23015": {
     name: "Brighter Than the Sun",
+    rarity: 5,
     type: "Destruction",
     base: { FLAT_HP: 1058, FLAT_ATK: 635, FLAT_DEF: 396 },
     subtitle: "Defiant Till Death",
@@ -355,6 +402,7 @@ const HSR_WEAPONS = {
   },
   "23011": {
     name: "She Already Shut Her Eyes",
+    rarity: 5,
     type: "Preservation",
     base: { FLAT_HP: 1270, FLAT_ATK: 423, FLAT_DEF: 529 },
     subtitle: "Visioscape",
@@ -362,6 +410,7 @@ const HSR_WEAPONS = {
   },
   "24003": {
     name: "Solitary Healing",
+    rarity: 5,
     type: "Nihility",
     base: { FLAT_HP: 1058, FLAT_ATK: 529, FLAT_DEF: 396 },
     subtitle: "Chaos Elixir",
@@ -371,6 +420,7 @@ const HSR_WEAPONS = {
   // Version 1.2
   "23006": {
     name: "Patience Is All You Need",
+    rarity: 5,
     type: "Nihility",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Spider Web",
@@ -378,6 +428,7 @@ const HSR_WEAPONS = {
   },
   "23009": {
     name: "The Unreachable Side",
+    rarity: 5,
     type: "Destruction",
     base: { FLAT_HP: 1270, FLAT_ATK: 582, FLAT_DEF: 330 },
     subtitle: "Unfulfilled Yearning",
@@ -387,6 +438,7 @@ const HSR_WEAPONS = {
   // Version 1.1
   "22000": {
     name: "Before the Tutorial Mission Starts",
+    rarity: 4,
     type: "Nihility",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Quick on the Draw",
@@ -394,6 +446,7 @@ const HSR_WEAPONS = {
   },
   "23008": {
     name: "Echoes of the Coffin",
+    rarity: 5,
     type: "Abundance",
     base: { FLAT_HP: 1164, FLAT_ATK: 582, FLAT_DEF: 396 },
     subtitle: "Thorns",
@@ -401,6 +454,7 @@ const HSR_WEAPONS = {
   },
   "23007": {
     name: "Incessant Rain",
+    rarity: 5,
     type: "Nihility",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Mirage of Reality",
@@ -410,6 +464,7 @@ const HSR_WEAPONS = {
   // Version 1.0
   "20014": {
     name: "Adversarial",
+    rarity: 3,
     type: "The Hunt",
     base: { FLAT_HP: 740, FLAT_ATK: 370, FLAT_DEF: 264 },
     subtitle: "Alliance",
@@ -417,6 +472,7 @@ const HSR_WEAPONS = {
   },
   "20003": {
     name: "Amber",
+    rarity: 3,
     type: "Preservation",
     base: { FLAT_HP: 846, FLAT_ATK: 264, FLAT_DEF: 330 },
     subtitle: "Stasis",
@@ -424,6 +480,7 @@ const HSR_WEAPONS = {
   },
   "20000": {
     name: "Arrows",
+    rarity: 3,
     type: "The Hunt",
     base: { FLAT_HP: 846, FLAT_ATK: 317, FLAT_DEF: 264 },
     subtitle: "Crisis",
@@ -431,6 +488,7 @@ const HSR_WEAPONS = {
   },
   "21012": {
     name: "A Secret Vow",
+    rarity: 4,
     type: "Destruction",
     base: { FLAT_HP: 1058, FLAT_ATK: 476, FLAT_DEF: 264 },
     subtitle: "Spare No Effort",
@@ -438,6 +496,7 @@ const HSR_WEAPONS = {
   },
   "23010": {
     name: "Before Dawn",
+    rarity: 5,
     type: "Erudition",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Long Night",
@@ -445,6 +504,7 @@ const HSR_WEAPONS = {
   },
   "23003": {
     name: "But the Battle Isn't Over",
+    rarity: 5,
     type: "Harmony",
     base: { FLAT_HP: 1164, FLAT_ATK: 529, FLAT_DEF: 463 },
     subtitle: "Heir",
@@ -452,6 +512,7 @@ const HSR_WEAPONS = {
   },
   "21032": {
     name: "Carve the Moon, Weave the Clouds",
+    rarity: 4,
     type: "Harmony",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Secret",
@@ -459,6 +520,7 @@ const HSR_WEAPONS = {
   },
   "20005": {
     name: "Chorus",
+    rarity: 3,
     type: "Harmony",
     base: { FLAT_HP: 846, FLAT_ATK: 317, FLAT_DEF: 264 },
     subtitle: "Concerted",
@@ -466,6 +528,7 @@ const HSR_WEAPONS = {
   },
   "20002": {
     name: "Collapsing Sky",
+    rarity: 3,
     type: "Destruction",
     base: { FLAT_HP: 846, FLAT_ATK: 370, FLAT_DEF: 198 },
     subtitle: "Havoc",
@@ -473,6 +536,7 @@ const HSR_WEAPONS = {
   },
   "20001": {
     name: "Cornucopia",
+    rarity: 3,
     type: "Abundance",
     base: { FLAT_HP: 952, FLAT_ATK: 264, FLAT_DEF: 264 },
     subtitle: "Prosperity",
@@ -480,6 +544,7 @@ const HSR_WEAPONS = {
   },
   "24001": {
     name: "Cruising in the Stellar Sea",
+    rarity: 5,
     type: "The Hunt",
     base: { FLAT_HP: 952, FLAT_ATK: 529, FLAT_DEF: 463 },
     subtitle: "Chase",
@@ -487,6 +552,7 @@ const HSR_WEAPONS = {
   },
   "21018": {
     name: "Dance! Dance! Dance!",
+    rarity: 4,
     type: "Harmony",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Cannot Stop It!",
@@ -494,6 +560,7 @@ const HSR_WEAPONS = {
   },
   "20007": {
     name: "Darting Arrow",
+    rarity: 3,
     type: "The Hunt",
     base: { FLAT_HP: 740, FLAT_ATK: 370, FLAT_DEF: 264 },
     subtitle: "War Cry",
@@ -501,6 +568,7 @@ const HSR_WEAPONS = {
   },
   "20006": {
     name: "Data Bank",
+    rarity: 3,
     type: "Erudition",
     base: { FLAT_HP: 740, FLAT_ATK: 370, FLAT_DEF: 264 },
     subtitle: "Learned",
@@ -508,6 +576,7 @@ const HSR_WEAPONS = {
   },
   "21002": {
     name: "Day One of My New Life",
+    rarity: 4,
     type: "Preservation",
     base: { FLAT_HP: 952, FLAT_ATK: 370, FLAT_DEF: 463 },
     subtitle: "At This Very Moment",
@@ -515,6 +584,7 @@ const HSR_WEAPONS = {
   },
   "20010": {
     name: "Defense",
+    rarity: 3,
     type: "Preservation",
     base: { FLAT_HP: 952, FLAT_ATK: 264, FLAT_DEF: 264 },
     subtitle: "Revitalization",
@@ -522,6 +592,7 @@ const HSR_WEAPONS = {
   },
   "21008": {
     name: "Eyes of the Prey",
+    rarity: 4,
     type: "Nihility",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Self-Confidence",
@@ -529,6 +600,7 @@ const HSR_WEAPONS = {
   },
   "21022": {
     name: "Fermata",
+    rarity: 4,
     type: "Nihility",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Semibreve Rest",
@@ -536,6 +608,7 @@ const HSR_WEAPONS = {
   },
   "20008": {
     name: "Fine Fruit",
+    rarity: 3,
     type: "Abundance",
     base: { FLAT_HP: 952, FLAT_ATK: 317, FLAT_DEF: 198 },
     subtitle: "Savor",
@@ -543,6 +616,7 @@ const HSR_WEAPONS = {
   },
   "21020": {
     name: "Geniuses' Repose",
+    rarity: 4,
     type: "Erudition",
     base: { FLAT_HP: 846, FLAT_ATK: 476, FLAT_DEF: 396 },
     subtitle: "Each Now Has a Role to Play",
@@ -550,6 +624,7 @@ const HSR_WEAPONS = {
   },
   "21001": {
     name: "Good Night and Sleep Well",
+    rarity: 4,
     type: "Nihility",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Toiler",
@@ -557,6 +632,7 @@ const HSR_WEAPONS = {
   },
   "20018": {
     name: "Hidden Shadow",
+    rarity: 3,
     type: "Nihility",
     base: { FLAT_HP: 846, FLAT_ATK: 317, FLAT_DEF: 264 },
     subtitle: "Mechanism",
@@ -564,6 +640,7 @@ const HSR_WEAPONS = {
   },
   "23004": {
     name: "In the Name of the World",
+    rarity: 5,
     type: "Nihility",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Inheritor",
@@ -571,6 +648,7 @@ const HSR_WEAPONS = {
   },
   "23001": {
     name: "In the Night",
+    rarity: 5,
     type: "The Hunt",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Flowers and Butterflies",
@@ -578,6 +656,7 @@ const HSR_WEAPONS = {
   },
   "21009": {
     name: "Landau's Choice",
+    rarity: 4,
     type: "Preservation",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Time Fleets Away",
@@ -585,6 +664,7 @@ const HSR_WEAPONS = {
   },
   "20011": {
     name: "Loop",
+    rarity: 3,
     type: "Nihility",
     base: { FLAT_HP: 846, FLAT_ATK: 317, FLAT_DEF: 264 },
     subtitle: "Pursuit",
@@ -592,6 +672,7 @@ const HSR_WEAPONS = {
   },
   "21013": {
     name: "Make the World Clamor",
+    rarity: 4,
     type: "Erudition",
     base: { FLAT_HP: 846, FLAT_ATK: 476, FLAT_DEF: 396 },
     subtitle: "The Power of Sound",
@@ -599,6 +680,7 @@ const HSR_WEAPONS = {
   },
   "20019": {
     name: "Mediation",
+    rarity: 3,
     type: "Harmony",
     base: { FLAT_HP: 846, FLAT_ATK: 317, FLAT_DEF: 264 },
     subtitle: "Family",
@@ -606,6 +688,7 @@ const HSR_WEAPONS = {
   },
   "21004": {
     name: "Memories of the Past",
+    rarity: 4,
     type: "Harmony",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Old Photo",
@@ -613,6 +696,7 @@ const HSR_WEAPONS = {
   },
   "20012": {
     name: "Meshing Cogs",
+    rarity: 3,
     type: "Harmony",
     base: { FLAT_HP: 846, FLAT_ATK: 317, FLAT_DEF: 264 },
     subtitle: "Fleet Triumph",
@@ -620,6 +704,7 @@ const HSR_WEAPONS = {
   },
   "23005": {
     name: "Moment of Victory",
+    rarity: 5,
     type: "Preservation",
     base: { FLAT_HP: 1058, FLAT_ATK: 476, FLAT_DEF: 595 },
     subtitle: "Verdict",
@@ -627,6 +712,7 @@ const HSR_WEAPONS = {
   },
   "20015": {
     name: "Multiplication",
+    rarity: 3,
     type: "Abundance",
     base: { FLAT_HP: 952, FLAT_ATK: 317, FLAT_DEF: 198 },
     subtitle: "Denizens of Abundance",
@@ -634,6 +720,7 @@ const HSR_WEAPONS = {
   },
   "20016": {
     name: "Mutual Demise",
+    rarity: 3,
     type: "Destruction",
     base: { FLAT_HP: 846, FLAT_ATK: 370, FLAT_DEF: 198 },
     subtitle: "Legion",
@@ -641,6 +728,7 @@ const HSR_WEAPONS = {
   },
   "23000": {
     name: "Night on the Milky Way",
+    rarity: 5,
     type: "Erudition",
     base: { FLAT_HP: 1164, FLAT_ATK: 582, FLAT_DEF: 396 },
     subtitle: "Meteor Swarm",
@@ -648,6 +736,7 @@ const HSR_WEAPONS = {
   },
   "21033": {
     name: "Nowhere to Run",
+    rarity: 4,
     type: "Destruction",
     base: { FLAT_HP: 952, FLAT_ATK: 529, FLAT_DEF: 264 },
     subtitle: "Desperate Times",
@@ -655,6 +744,7 @@ const HSR_WEAPONS = {
   },
   "21003": {
     name: "Only Silence Remains",
+    rarity: 4,
     type: "The Hunt",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Record",
@@ -662,6 +752,7 @@ const HSR_WEAPONS = {
   },
   "24000": {
     name: "On the Fall of an Aeon",
+    rarity: 5,
     type: "Destruction",
     base: { FLAT_HP: 1058, FLAT_ATK: 529, FLAT_DEF: 396 },
     subtitle: "Moth to Flames",
@@ -669,6 +760,7 @@ const HSR_WEAPONS = {
   },
   "20013": {
     name: "Passkey",
+    rarity: 3,
     type: "Erudition",
     base: { FLAT_HP: 740, FLAT_ATK: 370, FLAT_DEF: 264 },
     subtitle: "Epiphany",
@@ -676,6 +768,7 @@ const HSR_WEAPONS = {
   },
   "21025": {
     name: "Past and Future",
+    rarity: 4,
     type: "Harmony",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Kites From the Past",
@@ -683,6 +776,7 @@ const HSR_WEAPONS = {
   },
   "21014": {
     name: "Perfect Timing",
+    rarity: 4,
     type: "Abundance",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Refraction of Sightline",
@@ -690,6 +784,7 @@ const HSR_WEAPONS = {
   },
   "20017": {
     name: "Pioneering",
+    rarity: 3,
     type: "Preservation",
     base: { FLAT_HP: 952, FLAT_ATK: 264, FLAT_DEF: 264 },
     subtitle: "IPC",
@@ -697,6 +792,7 @@ const HSR_WEAPONS = {
   },
   "21011": {
     name: "Planetary Rendezvous",
+    rarity: 4,
     type: "Harmony",
     base: { FLAT_HP: 1058, FLAT_ATK: 423, FLAT_DEF: 330 },
     subtitle: "Departure",
@@ -704,6 +800,7 @@ const HSR_WEAPONS = {
   },
   "21000": {
     name: "Post-Op Conversation",
+    rarity: 4,
     type: "Abundance",
     base: { FLAT_HP: 1058, FLAT_ATK: 423, FLAT_DEF: 330 },
     subtitle: "Mutual Healing",
@@ -711,6 +808,7 @@ const HSR_WEAPONS = {
   },
   "21021": {
     name: "Quid Pro Quo",
+    rarity: 4,
     type: "Abundance",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Enjoy With Rapture",
@@ -718,6 +816,7 @@ const HSR_WEAPONS = {
   },
   "21015": {
     name: "Resolution Shines As Pearls of Sweat",
+    rarity: 4,
     type: "Nihility",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Glance Back",
@@ -725,6 +824,7 @@ const HSR_WEAPONS = {
   },
   "21031": {
     name: "Return to Darkness",
+    rarity: 4,
     type: "The Hunt",
     base: { FLAT_HP: 846, FLAT_ATK: 529, FLAT_DEF: 330 },
     subtitle: "Raging Waves",
@@ -732,6 +832,7 @@ const HSR_WEAPONS = {
   },
   "21024": {
     name: "River Flows in Spring",
+    rarity: 4,
     type: "The Hunt",
     base: { FLAT_HP: 846, FLAT_ATK: 476, FLAT_DEF: 396 },
     subtitle: "Stave Off the Lingering Cold",
@@ -739,6 +840,7 @@ const HSR_WEAPONS = {
   },
   "20020": {
     name: "Sagacity",
+    rarity: 3,
     type: "Erudition",
     base: { FLAT_HP: 740, FLAT_ATK: 370, FLAT_DEF: 264 },
     subtitle: "Genius",
@@ -746,6 +848,7 @@ const HSR_WEAPONS = {
   },
   "21007": {
     name: "Shared Feeling",
+    rarity: 4,
     type: "Abundance",
     base: { FLAT_HP: 952, FLAT_ATK: 423, FLAT_DEF: 396 },
     subtitle: "Cure and Repair",
@@ -753,6 +856,7 @@ const HSR_WEAPONS = {
   },
   "20009": {
     name: "Shattered Home",
+    rarity: 3,
     type: "Destruction",
     base: { FLAT_HP: 846, FLAT_ATK: 370, FLAT_DEF: 198 },
     subtitle: "Eradication",
@@ -760,6 +864,7 @@ const HSR_WEAPONS = {
   },
   "23012": {
     name: "Sleep Like the Dead",
+    rarity: 5,
     type: "The Hunt",
     base: { FLAT_HP: 1058, FLAT_ATK: 582, FLAT_DEF: 463 },
     subtitle: "Sweet Dreams",
@@ -767,6 +872,7 @@ const HSR_WEAPONS = {
   },
   "23002": {
     name: "Something Irreplaceable",
+    rarity: 5,
     type: "Destruction",
     base: { FLAT_HP: 1164, FLAT_ATK: 582, FLAT_DEF: 396 },
     subtitle: "Kinship",
@@ -774,6 +880,7 @@ const HSR_WEAPONS = {
   },
   "21017": {
     name: "Subscribe for More!",
+    rarity: 4,
     type: "The Hunt",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Like Before You Leave!",
@@ -781,6 +888,7 @@ const HSR_WEAPONS = {
   },
   "21010": {
     name: "Swordplay",
+    rarity: 4,
     type: "The Hunt",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Answers of Their Own",
@@ -788,6 +896,7 @@ const HSR_WEAPONS = {
   },
   "24002": {
     name: "Texture of Memories",
+    rarity: 5,
     type: "Preservation",
     base: { FLAT_HP: 1058, FLAT_ATK: 423, FLAT_DEF: 529 },
     subtitle: "Treasure",
@@ -795,6 +904,7 @@ const HSR_WEAPONS = {
   },
   "21006": {
     name: "The Birth of the Self",
+    rarity: 4,
     type: "Erudition",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "The Maiden in the Painting",
@@ -802,6 +912,7 @@ const HSR_WEAPONS = {
   },
   "21005": {
     name: "The Moles Welcome You",
+    rarity: 4,
     type: "Destruction",
     base: { FLAT_HP: 1058, FLAT_ATK: 476, FLAT_DEF: 264 },
     subtitle: "Fantastic Adventure",
@@ -809,6 +920,7 @@ const HSR_WEAPONS = {
   },
   "21027": {
     name: "The Seriousness of Breakfast",
+    rarity: 4,
     type: "Erudition",
     base: { FLAT_HP: 846, FLAT_ATK: 476, FLAT_DEF: 396 },
     subtitle: "Get Ready",
@@ -816,6 +928,7 @@ const HSR_WEAPONS = {
   },
   "21030": {
     name: "This Is Me!",
+    rarity: 4,
     type: "Preservation",
     base: { FLAT_HP: 846, FLAT_ATK: 370, FLAT_DEF: 529 },
     subtitle: "New Chapter",
@@ -823,6 +936,7 @@ const HSR_WEAPONS = {
   },
   "23013": {
     name: "Time Waits for No One",
+    rarity: 5,
     type: "Abundance",
     base: { FLAT_HP: 1270, FLAT_ATK: 476, FLAT_DEF: 463 },
     subtitle: "Morn, Noon, Dusk, and Night",
@@ -830,6 +944,7 @@ const HSR_WEAPONS = {
   },
   "21034": {
     name: "Today Is Another Peaceful Day",
+    rarity: 4,
     type: "Erudition",
     base: { FLAT_HP: 846, FLAT_ATK: 529, FLAT_DEF: 330 },
     subtitle: "A Storm Is Coming",
@@ -837,6 +952,7 @@ const HSR_WEAPONS = {
   },
   "21016": {
     name: "Trend of the Universal Market",
+    rarity: 4,
     type: "Preservation",
     base: { FLAT_HP: 1058, FLAT_ATK: 370, FLAT_DEF: 396 },
     subtitle: "A New Round of Shuffling",
@@ -844,6 +960,7 @@ const HSR_WEAPONS = {
   },
   "21019": {
     name: "Under the Blue Sky",
+    rarity: 4,
     type: "Destruction",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Rye Under the Sun",
@@ -851,6 +968,7 @@ const HSR_WEAPONS = {
   },
   "20004": {
     name: "Void",
+    rarity: 3,
     type: "Nihility",
     base: { FLAT_HP: 846, FLAT_ATK: 317, FLAT_DEF: 264 },
     subtitle: "Fallen",
@@ -858,6 +976,7 @@ const HSR_WEAPONS = {
   },
   "21028": {
     name: "Warmth Shortens Cold Nights",
+    rarity: 4,
     type: "Abundance",
     base: { FLAT_HP: 1058, FLAT_ATK: 370, FLAT_DEF: 396 },
     subtitle: "Tiny Light",
@@ -865,6 +984,7 @@ const HSR_WEAPONS = {
   },
   "21023": {
     name: "We Are Wildfire",
+    rarity: 4,
     type: "Preservation",
     base: { FLAT_HP: 740, FLAT_ATK: 476, FLAT_DEF: 463 },
     subtitle: "Teary-Eyed",
@@ -872,6 +992,7 @@ const HSR_WEAPONS = {
   },
   "21029": {
     name: "We Will Meet Again",
+    rarity: 4,
     type: "Nihility",
     base: { FLAT_HP: 846, FLAT_ATK: 529, FLAT_DEF: 330 },
     subtitle: "A Discourse in Arms",
@@ -879,6 +1000,7 @@ const HSR_WEAPONS = {
   },
   "21026": {
     name: "Woof! Walk Time!",
+    rarity: 4,
     type: "Destruction",
     base: { FLAT_HP: 952, FLAT_ATK: 476, FLAT_DEF: 330 },
     subtitle: "Run!",
@@ -886,4 +1008,4 @@ const HSR_WEAPONS = {
   },
 };
 
-export default HSR_WEAPONS;
+export default HSR_WEAP;
