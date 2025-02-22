@@ -64,10 +64,10 @@ const ZenlessZoneZero = ({ uid }) => {
   }, [uid]);
 
   useEffect(() => {
-    const scoredChars = Object.entries(myChars).map(([cid, cdata]) => ({
-      cid,
-      cdata,
-      score: getScore(GAME_TYPE, cid, cdata),
+    const scoredChars = Object.entries(myChars).map(([id, data]) => ({
+      id,
+      data,
+      score: getScore(GAME_TYPE, id, data),
     }));
   
     scoredChars.sort((a, b) => b.score - a.score);
