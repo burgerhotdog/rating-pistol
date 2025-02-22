@@ -252,7 +252,7 @@ const Enka = ({
       >
         {!enkaList.length ? (
           <React.Fragment>
-            <Typography>Enter uid</Typography>
+            <Typography>Enter UID</Typography>
             <TextField
               size="small"
               value={gameUid}
