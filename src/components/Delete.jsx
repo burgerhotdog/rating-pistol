@@ -2,11 +2,11 @@ import React from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { db } from "../firebase";
-import GAME_DATA from "./gameData";
 
 const Delete = ({
-  gameType,
   uid,
+  gameType,
+  gameData,
   isDeleteOpen,
   setIsDeleteOpen,
   setMyChars,
@@ -52,7 +52,7 @@ const Delete = ({
         {/* Text section */}
         <Typography variant="body1">
           Are you sure you want to delete{" "}
-          <strong>{GAME_DATA[gameType].CHAR[isDeleteOpen]?.name}</strong>
+          <strong>{gameData.CHAR[isDeleteOpen]?.name}</strong>
           ?
         </Typography>
 

@@ -11,12 +11,12 @@ import {
   Typography,
 } from "@mui/material";
 import blankCdata from "./blankCdata";
-import GAME_DATA from "./gameData";
 import enkaStatKey from "./enkaStatKey";
 
 const Enka = ({
-  gameType,
   uid,
+  gameType,
+  gameData,
   isEnkaOpen,
   setIsEnkaOpen,
   setMyChars,
@@ -323,7 +323,7 @@ const Enka = ({
                       onChange={(e) => handleCheckboxChange(e, index)}
                     />
                   }
-                  label={GAME_DATA[gameType].CHAR[avatar.avatarId]?.name || "error"}
+                  label={gameData.CHAR[avatar.avatarId]?.name || "error"}
                 />
               </Box>
             ))}

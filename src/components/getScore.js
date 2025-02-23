@@ -1,5 +1,3 @@
-import GAME_DATA from "./gameData";
-
 const combine_basestats = (charBase, weapBase) => {
   return Object.entries(charBase).reduce((basestats, [key, value]) => {
     basestats[key] = value + (weapBase[key] || 0);
@@ -108,7 +106,7 @@ const simulate_substats = (substats, weights, mainstatsArr, SUBSTATS, gameType) 
   return sim_substats;
 };
 
-const calculatePoints = (statsObj, weights, basestats, SUBSTATS, gameType) => {
+const calculatePoints = (statsObj, weights, basestats, SUBSTATS) => {
   let points = 0;
   Object.entries(statsObj).forEach(([key, value]) => {
     if (weights[key]) {
@@ -125,8 +123,9 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS, gameType) => {
   return points;
 };
 
-const getScore = (gameType, cid, cdata) => {
-  const { CHAR, WEAP, SUBSTATS } = GAME_DATA[gameType];
+const getScore = (gameType, gameData, cid, cdata) => {
+  const { CHAR, WEAP } = gameData;
+  const SUBSTATS = gameData.INFO.SUBSTATS;
   if (!cdata.weapon) return "N/A";
 
   // Combine basestats
@@ -142,8 +141,8 @@ const getScore = (gameType, cid, cdata) => {
   console.log("sim_substats: ", sim_substats);
 
   // Calculate points
-  const points = calculatePoints(substats, CHAR[cid].weights, basestats, SUBSTATS, gameType);
-  const sim_points = calculatePoints(sim_substats, CHAR[cid].weights, basestats, SUBSTATS, gameType);
+  const points = calculatePoints(substats, CHAR[cid].weights, basestats, SUBSTATS);
+  const sim_points = calculatePoints(sim_substats, CHAR[cid].weights, basestats, SUBSTATS);
   console.log("points: ", points);
   console.log("sim_points: ", sim_points);
 

@@ -7,10 +7,10 @@ import {
   TextField,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import GAME_DATA from "./gameData";
 
 const Piece = ({
   gameType,
+  gameData,
   newCdata,
   setNewCdata,
   mainIndex,
@@ -77,11 +77,11 @@ const Piece = ({
       .map((substat) => substat[0])
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
-    return Object.keys(GAME_DATA[gameType].SUBSTATS).filter(
+    return Object.keys(gameData.INFO.SUBSTATS).filter(
       (option) =>
         gameType === "WW"
           ? !selectedSubstatKeys.includes(option)
-          : GAME_DATA[gameType].SUBSTATS[option].name !== GAME_DATA[gameType].MAINSTATS[mainIndex][selectedMainstat]?.name && !selectedSubstatKeys.includes(option)
+          : gameData.INFO.SUBSTATS[option].name !== gameData.INFO.MAINSTATS[mainIndex][selectedMainstat]?.name && !selectedSubstatKeys.includes(option)
     );
   };
 
@@ -93,8 +93,8 @@ const Piece = ({
           <Autocomplete
             size="small"
             value={newCdata.mainstats[mainIndex] || ""}
-            options={Object.keys(GAME_DATA[gameType].MAINSTATS[mainIndex])}
-            getOptionLabel={(id) => GAME_DATA[gameType].MAINSTATS[mainIndex][id]?.name || ""}
+            options={Object.keys(gameData.INFO.MAINSTATS[mainIndex])}
+            getOptionLabel={(id) => gameData.INFO.MAINSTATS[mainIndex][id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
@@ -103,7 +103,6 @@ const Piece = ({
               />
             )}
             fullWidth
-            disabled={mainIndex === 0 || mainIndex === 1}
             disableClearable={newCdata.mainstats[mainIndex] === ""}
           />
         </Grid>
@@ -122,7 +121,7 @@ const Piece = ({
                 size="small"
                 value={newCdata.substats[mainIndex][subIndex][0] || ""}
                 options={substatOptions(subIndex)}
-                getOptionLabel={(id) => GAME_DATA[gameType].SUBSTATS[id]?.name || ""}
+                getOptionLabel={(id) => gameData.INFO.SUBSTATS[id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, 0)}
                 renderInput={(params) => (
                   <TextField
@@ -144,7 +143,7 @@ const Piece = ({
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (GAME_DATA[gameType].SUBSTATS[newCdata.substats[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (gameData.INFO.SUBSTATS[newCdata.substats[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, 1);
                   }
@@ -153,7 +152,7 @@ const Piece = ({
                 disabled={newCdata.substats[mainIndex][subIndex][0] === ""}
                 slotProps={{
                   input: {
-                    endAdornment: GAME_DATA[gameType].SUBSTATS[newCdata.substats[mainIndex][subIndex][0]]?.percent && (
+                    endAdornment: gameData.INFO.SUBSTATS[newCdata.substats[mainIndex][subIndex][0]]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },

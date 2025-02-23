@@ -1,25 +1,21 @@
 const blankCdata = (gameType) => {
   const config = {
-    GI: { substatsLength: 5, substatsEntries: 4, prefill: ["FLAT_HP", "FLAT_ATK"], multiSet: false },
-    HSR: { substatsLength: 6, substatsEntries: 4, prefill: ["FLAT_HP", "FLAT_ATK"], multiSet: true },
-    ZZZ: { substatsLength: 6, substatsEntries: 4, prefill: ["FLAT_HP", "FLAT_ATK", "FLAT_DEF"], multiSet: true },
-    WW: { substatsLength: 5, substatsEntries: 5, prefill: [], multiSet: false },
+    GI: { numOfMainstats: 5, numOfSubstats: 4, multiSet: false },
+    HSR: { numOfMainstats: 6, numOfSubstats: 4, multiSet: true },
+    WW: { numOfMainstats: 5, numOfSubstats: 5, multiSet: false },
+    ZZZ: { numOfMainstats: 6, numOfSubstats: 4, multiSet: true },
   };
 
-  const { substatsLength, substatsEntries, prefill, multiSet } = config[gameType] || config.GI;
-
-  const mainstats = Array(substatsLength).fill("").map((_, i) => prefill[i] || "");
-
-  const substats = Array.from({ length: substatsLength }, () =>
-    Object.fromEntries([...Array(substatsEntries)].map((_, i) => [i, ["", ""]]))
-  );
+  const { numOfMainstats, numOfSubstats, multiSet } = config[gameType] || config.GI;
 
   return {
     weapon: "",
     set1: "",
     ...(multiSet ? { set2: "" } : {}),
-    mainstats,
-    substats,
+    mainstats: Array(numOfMainstats).fill(""),
+    substats: Array.from({ length: numOfMainstats }, () =>
+      Object.fromEntries(Array.from({ length: numOfSubstats }, (_, i) => [i, ["", ""]]))
+    ),
   };
 };
 

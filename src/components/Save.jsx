@@ -16,40 +16,19 @@ import {
 import { db } from "../firebase";
 import Piece from "./Piece";
 import blankCdata from "./blankCdata";
-import GAME_DATA from "./gameData";
 
 const Save = ({
-  gameType,
   uid,
+  gameType,
+  gameData,
+  charIcons,
+  weapIcons,
+  setsIcons,
   isSaveOpen,
   setIsSaveOpen,
   myChars,
   setMyChars,
-}) => {
-  let cImgs, wImgs, sImgs;
-  switch (gameType) {
-    case "GI":
-      cImgs = import.meta.glob(`../assets/char/GI/*.webp`, { eager: true });
-      wImgs = import.meta.glob(`../assets/weap/GI/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/sets/GI/*.webp`, { eager: true });
-      break;
-    case "HSR":
-      cImgs = import.meta.glob(`../assets/char/HSR/*.webp`, { eager: true });
-      wImgs = import.meta.glob(`../assets/weap/HSR/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/sets/HSR/*.webp`, { eager: true });
-      break;
-    case "ZZZ":
-      cImgs = import.meta.glob(`../assets/char/ZZZ/*.webp`, { eager: true });
-      wImgs = import.meta.glob(`../assets/weap/ZZZ/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/sets/ZZZ/*.webp`, { eager: true });
-      break;
-    case "WW":
-      cImgs = import.meta.glob(`../assets/char/WW/*.webp`, { eager: true });
-      wImgs = import.meta.glob(`../assets/weap/WW/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/sets/WW/*.webp`, { eager: true });
-      break;
-  }
-  
+}) => {  
   const [newCid, setNewCid] = useState("");
   const [newCdata, setNewCdata] = useState(() => blankCdata(gameType));
   const textColor = {
@@ -77,29 +56,29 @@ const Save = ({
   const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   const charOptions = () => {
-    return Object.keys(GAME_DATA[gameType].CHAR)
+    return Object.keys(gameData.CHAR)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort((a, b) => {
-        const rarityA = GAME_DATA[gameType].CHAR[a].rarity;
-        const rarityB = GAME_DATA[gameType].CHAR[b].rarity;
+        const rarityA = gameData.CHAR[a].rarity;
+        const rarityB = gameData.CHAR[b].rarity;
         if (rarityA !== rarityB) return rarityB - rarityA;
-        return GAME_DATA[gameType].CHAR[a].name.localeCompare(GAME_DATA[gameType].CHAR[b].name);
+        return gameData.CHAR[a].name.localeCompare(gameData.CHAR[b].name);
       });
   };
 
   const weapOptions = () => {
-    return Object.keys(GAME_DATA[gameType].WEAP)
-      .filter(id => GAME_DATA[gameType].WEAP[id].type === GAME_DATA[gameType].CHAR[newCid].type)
+    return Object.keys(gameData.WEAP)
+      .filter(id => gameData.WEAP[id].type === gameData.CHAR[newCid].type)
       .sort((a, b) => {
-        const rarityA = GAME_DATA[gameType].WEAP[a].rarity;
-        const rarityB = GAME_DATA[gameType].WEAP[b].rarity;
+        const rarityA = gameData.WEAP[a].rarity;
+        const rarityB = gameData.WEAP[b].rarity;
         if (rarityA !== rarityB) return rarityB - rarityA;
-        return GAME_DATA[gameType].WEAP[a].name.localeCompare(GAME_DATA[gameType].WEAP[b].name);
+        return gameData.WEAP[a].name.localeCompare(gameData.WEAP[b].name);
       });
   };
 
   const setOptions = (setNumber) => {
-    return Object.keys(GAME_DATA[gameType].SETS)
+    return Object.keys(gameData.SETS)
       .filter(id => {
         switch (setNumber) {
           case "set1":
@@ -117,10 +96,10 @@ const Save = ({
         }
       })
       .sort((a, b) => {
-        const rarityA = GAME_DATA[gameType].SETS[a].rarity;
-        const rarityB = GAME_DATA[gameType].SETS[b].rarity;
+        const rarityA = gameData.SETS[a].rarity;
+        const rarityB = gameData.SETS[b].rarity;
         if (rarityA !== rarityB) return rarityB - rarityA;
-        return GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name);
+        return gameData.SETS[a].name.localeCompare(gameData.SETS[b].name);
       });
   };
 
@@ -198,11 +177,11 @@ const Save = ({
             size="small"
             value={newCid}
             options={charOptions()}
-            getOptionLabel={(id) => GAME_DATA[gameType].CHAR[id]?.name || ""}
+            getOptionLabel={(id) => gameData.CHAR[id]?.name || ""}
             onChange={(_, newValue) => handleCharacter(newValue)}
             renderOption={(props, option) => {
               const { key, ...optionProps } = props;
-              const rarity = GAME_DATA[gameType].CHAR[option]?.rarity;
+              const rarity = gameData.CHAR[option]?.rarity;
               return (
                 <Box
                   key={key}
@@ -215,11 +194,11 @@ const Save = ({
                 >
                   <img
                     loading="lazy"
-                    src={cImgs[`../assets/char/${gameType}/${option}.webp`]?.default}
+                    src={charIcons[`../assets/char/${gameType}/${option}.webp`]?.default}
                     alt={""}
                     style={{ width: 24, height: 24, objectFit: "contain" }}
                   />
-                  {GAME_DATA[gameType].CHAR[option]?.name || ""}
+                  {gameData.CHAR[option]?.name || ""}
                 </Box>
               );
             }}
@@ -229,7 +208,7 @@ const Save = ({
                 label="Character"
                 sx={{
                   "& .MuiInputBase-root": {
-                    color: textColor[GAME_DATA[gameType].CHAR[newCid]?.rarity] || "inherit",
+                    color: textColor[gameData.CHAR[newCid]?.rarity] || "inherit",
                   }
                 }}
                 slotProps={{
@@ -238,7 +217,7 @@ const Save = ({
                     startAdornment: newCid && (
                       <InputAdornment position="start">
                         <img
-                          src={cImgs[`../assets/char/${gameType}/${newCid}.webp`]?.default}
+                          src={charIcons[`../assets/char/${gameType}/${newCid}.webp`]?.default}
                           alt=""
                           style={{ width: 24, height: 24, objectFit: "contain" }}
                         />
@@ -288,11 +267,11 @@ const Save = ({
                 size="small"
                 value={newCdata.weapon}
                 options={weapOptions()}
-                getOptionLabel={(id) => GAME_DATA[gameType].WEAP[id]?.name || ""}
+                getOptionLabel={(id) => gameData.WEAP[id]?.name || ""}
                 onChange={(_, newValue) => handleWeapon(newValue)}
                 renderOption={(props, option) => {
                   const { key, ...optionProps } = props;
-                  const rarity = GAME_DATA[gameType].WEAP[option]?.rarity;
+                  const rarity = gameData.WEAP[option]?.rarity;
                   return (
                     <Box
                       key={key}
@@ -305,11 +284,11 @@ const Save = ({
                     >
                       <img
                         loading="lazy"
-                        src={wImgs[`../assets/weap/${gameType}/${option}.webp`]?.default}
+                        src={weapIcons[`../assets/weap/${gameType}/${option}.webp`]?.default}
                         alt={""}
                         style={{ width: 24, height: 24, objectFit: "contain" }}
                       />
-                      {GAME_DATA[gameType].WEAP[option]?.name || ""}
+                      {gameData.WEAP[option]?.name || ""}
                     </Box>
                   );
                 }}
@@ -319,7 +298,7 @@ const Save = ({
                     label="Weapon"
                     sx={{
                       "& .MuiInputBase-root": {
-                        color: textColor[GAME_DATA[gameType].WEAP[newCdata.weapon]?.rarity] || "inherit",
+                        color: textColor[gameData.WEAP[newCdata.weapon]?.rarity] || "inherit",
                       }
                     }}
                     slotProps={{
@@ -328,7 +307,7 @@ const Save = ({
                         startAdornment: newCdata.weapon && (
                           <InputAdornment position="start">
                             <img
-                              src={wImgs[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
+                              src={weapIcons[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
                               alt=""
                               style={{ width: 24, height: 24, objectFit: "contain" }}
                             />
@@ -349,11 +328,11 @@ const Save = ({
                 size="small"
                 value={newCdata.set1}
                 options={setOptions("set1")}
-                getOptionLabel={(id) => GAME_DATA[gameType].SETS[id]?.name || ""}
+                getOptionLabel={(id) => gameData.SETS[id]?.name || ""}
                 onChange={(_, newValue) => handleSet(newValue, "set1")}
                 renderOption={(props, option) => {
                   const { key, ...optionProps } = props;
-                  const rarity = GAME_DATA[gameType].SETS[option]?.rarity;
+                  const rarity = gameData.SETS[option]?.rarity;
                   return (
                     <Box
                       key={key}
@@ -366,11 +345,11 @@ const Save = ({
                     >
                       <img
                         loading="lazy"
-                        src={sImgs[`../assets/sets/${gameType}/${option}.webp`]?.default}
+                        src={setsIcons[`../assets/sets/${gameType}/${option}.webp`]?.default}
                         alt={""}
                         style={{ width: 24, height: 24, objectFit: "contain" }}
                       />
-                      {GAME_DATA[gameType].SETS[option]?.name || ""}
+                      {gameData.SETS[option]?.name || ""}
                     </Box>
                   );
                 }}
@@ -380,7 +359,7 @@ const Save = ({
                     label="Set 1"
                     sx={{
                       "& .MuiInputBase-root": {
-                        color: textColor[GAME_DATA[gameType].SETS[newCdata.set1]?.rarity] || "inherit",
+                        color: textColor[gameData.SETS[newCdata.set1]?.rarity] || "inherit",
                       }
                     }}
                     slotProps={{
@@ -389,7 +368,7 @@ const Save = ({
                         startAdornment: newCdata.set1 && (
                           <InputAdornment position="start">
                             <img
-                              src={sImgs[`../assets/sets/${gameType}/${newCdata.set1}.webp`]?.default}
+                              src={setsIcons[`../assets/sets/${gameType}/${newCdata.set1}.webp`]?.default}
                               alt=""
                               style={{ width: 24, height: 24, objectFit: "contain" }}
                             />
@@ -410,11 +389,11 @@ const Save = ({
                   size="small"
                   value={newCdata.set2}
                   options={setOptions("set2")}
-                  getOptionLabel={(id) => GAME_DATA[gameType].SETS[id]?.name || ""}
+                  getOptionLabel={(id) => gameData.SETS[id]?.name || ""}
                   onChange={(_, newValue) => handleSet(newValue, "set2")}
                   renderOption={(props, option) => {
                     const { key, ...optionProps } = props;
-                    const rarity = GAME_DATA[gameType].SETS[option]?.rarity;
+                    const rarity = gameData.SETS[option]?.rarity;
                     return (
                       <Box
                         key={key}
@@ -427,11 +406,11 @@ const Save = ({
                       >
                         <img
                           loading="lazy"
-                          src={sImgs[`../assets/sets/${gameType}/${option}.webp`]?.default}
+                          src={setsIcons[`../assets/sets/${gameType}/${option}.webp`]?.default}
                           alt={""}
                           style={{ width: 24, height: 24, objectFit: "contain" }}
                         />
-                        {GAME_DATA[gameType].SETS[option]?.name || ""}
+                        {gameData.SETS[option]?.name || ""}
                       </Box>
                     );
                   }}
@@ -441,7 +420,7 @@ const Save = ({
                       label="Set 2"
                       sx={{
                         "& .MuiInputBase-root": {
-                          color: textColor[GAME_DATA[gameType].SETS[newCdata.set2]?.rarity] || "inherit",
+                          color: textColor[gameData.SETS[newCdata.set2]?.rarity] || "inherit",
                         }
                       }}
                       slotProps={{
@@ -450,7 +429,7 @@ const Save = ({
                           startAdornment: newCdata.set2 && (
                             <InputAdornment position="start">
                               <img
-                                src={sImgs[`../assets/sets/${gameType}/${newCdata.set2}.webp`]?.default}
+                                src={setsIcons[`../assets/sets/${gameType}/${newCdata.set2}.webp`]?.default}
                                 alt=""
                                 style={{ width: 24, height: 24, objectFit: "contain" }}
                               />
@@ -470,7 +449,7 @@ const Save = ({
             <Grid size={{ xs: 12, xl: 4 }}>
               {isDesktop && newCdata.weapon && (
                 <img
-                  src={wImgs[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
+                  src={weapIcons[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
                   alt={newCdata.weapon}
                   style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
@@ -487,6 +466,7 @@ const Save = ({
                   <Grid size={{ xs: 12, xl: 4 }} key={mainIndex}>
                     <Piece
                       gameType={gameType}
+                      gameData={gameData}
                       newCdata={newCdata}
                       setNewCdata={setNewCdata}
                       mainIndex={mainIndex}
