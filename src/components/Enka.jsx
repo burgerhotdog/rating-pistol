@@ -203,7 +203,8 @@ const Enka = ({
             for (let j = 0; j < 4; j++) {
               cdata.substats[i][j][0] = statKey.SUB[currPiece._flat.props[j + 1]?.type] || "";
               const ratio = currPiece._flat.props[j + 1]?.type.slice(-5) === "Delta" ? 1 : 100;
-              cdata.substats[i][j][1] = (currPiece._flat.props[j + 1]?.value * ratio).toString() || "";
+              const roundAmount = ratio === 1 ? 1 : 10;
+              cdata.substats[i][j][1] = (Math.round((currPiece._flat.props[j + 1]?.value * ratio) * roundAmount) / roundAmount).toString() || "";
             }
           }
   

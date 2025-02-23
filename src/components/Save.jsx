@@ -450,7 +450,7 @@ const Save = ({
                           startAdornment: newCdata.set2 && (
                             <InputAdornment position="start">
                               <img
-                                src={sImgs[`../assets/char/${gameType}/${newCdata.set2}.webp`]?.default}
+                                src={sImgs[`../assets/sets/${gameType}/${newCdata.set2}.webp`]?.default}
                                 alt=""
                                 style={{ width: 24, height: 24, objectFit: "contain" }}
                               />
