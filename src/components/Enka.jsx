@@ -129,7 +129,7 @@ const Enka = ({
       await fetchPlayerData();
 
       const userDocRef = doc(db, "users", uid);
-      await setDoc(userDocRef, { [`${gameType}_UID`]: rememberUid ? gameUid : "" }, { merge: false });
+      await setDoc(userDocRef, { [`${gameType}_UID`]: rememberUid ? gameUid : "" }, { merge: true });
     } else {
       setError("Invalid uid");
     }
@@ -296,7 +296,7 @@ const Enka = ({
               control={
                 <Checkbox
                   checked={rememberUid}
-                  onChange={() => setRememberUid(true)}
+                  onChange={() => setRememberUid(!rememberUid)}
                 />
               }
               label={<Typography variant="body2">Save this UID (Sign-in required)</Typography>}
