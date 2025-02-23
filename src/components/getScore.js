@@ -126,11 +126,11 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS, gameType) => {
 };
 
 const getScore = (gameType, cid, cdata) => {
-  const { CHARACTERS, WEAPONS, SUBSTATS } = GAME_DATA[gameType];
+  const { CHAR, WEAP, SUBSTATS } = GAME_DATA[gameType];
   if (!cdata.weapon) return "N/A";
 
   // Combine basestats
-  const basestats = combine_basestats(CHARACTERS[cid].base, WEAPONS[cdata.weapon].base);
+  const basestats = combine_basestats(CHAR[cid].base, WEAP[cdata.weapon].base);
   console.log("basestats: ", basestats);
 
   // Combine substats
@@ -138,12 +138,12 @@ const getScore = (gameType, cid, cdata) => {
   console.log("substats: ", substats);
 
   // Simulate perfect substats
-  const sim_substats = simulate_substats(substats, CHARACTERS[cid].weights, cdata.mainstats, SUBSTATS, gameType);
+  const sim_substats = simulate_substats(substats, CHAR[cid].weights, cdata.mainstats, SUBSTATS, gameType);
   console.log("sim_substats: ", sim_substats);
 
   // Calculate points
-  const points = calculatePoints(substats, CHARACTERS[cid].weights, basestats, SUBSTATS, gameType);
-  const sim_points = calculatePoints(sim_substats, CHARACTERS[cid].weights, basestats, SUBSTATS, gameType);
+  const points = calculatePoints(substats, CHAR[cid].weights, basestats, SUBSTATS, gameType);
+  const sim_points = calculatePoints(sim_substats, CHAR[cid].weights, basestats, SUBSTATS, gameType);
   console.log("points: ", points);
   console.log("sim_points: ", sim_points);
 

@@ -31,22 +31,22 @@ const Save = ({
     case "GI":
       cImgs = import.meta.glob(`../assets/char/GI/*.webp`, { eager: true });
       wImgs = import.meta.glob(`../assets/weap/GI/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/set/GI/*.webp`, { eager: true });
+      sImgs = import.meta.glob(`../assets/sets/GI/*.webp`, { eager: true });
       break;
     case "HSR":
       cImgs = import.meta.glob(`../assets/char/HSR/*.webp`, { eager: true });
       wImgs = import.meta.glob(`../assets/weap/HSR/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/set/HSR/*.webp`, { eager: true });
+      sImgs = import.meta.glob(`../assets/sets/HSR/*.webp`, { eager: true });
       break;
     case "ZZZ":
       cImgs = import.meta.glob(`../assets/char/ZZZ/*.webp`, { eager: true });
       wImgs = import.meta.glob(`../assets/weap/ZZZ/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/set/ZZZ/*.webp`, { eager: true });
+      sImgs = import.meta.glob(`../assets/sets/ZZZ/*.webp`, { eager: true });
       break;
     case "WW":
       cImgs = import.meta.glob(`../assets/char/WW/*.webp`, { eager: true });
       wImgs = import.meta.glob(`../assets/weap/WW/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/set/WW/*.webp`, { eager: true });
+      sImgs = import.meta.glob(`../assets/sets/WW/*.webp`, { eager: true });
       break;
   }
   
@@ -77,24 +77,24 @@ const Save = ({
   const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   const charOptions = () => {
-    return Object.keys(GAME_DATA[gameType].CHARACTERS)
+    return Object.keys(GAME_DATA[gameType].CHAR)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort((a, b) => {
-        const rarityA = GAME_DATA[gameType].CHARACTERS[a].rarity;
-        const rarityB = GAME_DATA[gameType].CHARACTERS[b].rarity;
+        const rarityA = GAME_DATA[gameType].CHAR[a].rarity;
+        const rarityB = GAME_DATA[gameType].CHAR[b].rarity;
         if (rarityA !== rarityB) return rarityB - rarityA;
-        return GAME_DATA[gameType].CHARACTERS[a].name.localeCompare(GAME_DATA[gameType].CHARACTERS[b].name);
+        return GAME_DATA[gameType].CHAR[a].name.localeCompare(GAME_DATA[gameType].CHAR[b].name);
       });
   };
 
   const weapOptions = () => {
-    return Object.keys(GAME_DATA[gameType].WEAPONS)
-      .filter(id => GAME_DATA[gameType].WEAPONS[id].type === GAME_DATA[gameType].CHARACTERS[newCid].type)
+    return Object.keys(GAME_DATA[gameType].WEAP)
+      .filter(id => GAME_DATA[gameType].WEAP[id].type === GAME_DATA[gameType].CHAR[newCid].type)
       .sort((a, b) => {
-        const rarityA = GAME_DATA[gameType].WEAPONS[a].rarity;
-        const rarityB = GAME_DATA[gameType].WEAPONS[b].rarity;
+        const rarityA = GAME_DATA[gameType].WEAP[a].rarity;
+        const rarityB = GAME_DATA[gameType].WEAP[b].rarity;
         if (rarityA !== rarityB) return rarityB - rarityA;
-        return GAME_DATA[gameType].WEAPONS[a].name.localeCompare(GAME_DATA[gameType].WEAPONS[b].name);
+        return GAME_DATA[gameType].WEAP[a].name.localeCompare(GAME_DATA[gameType].WEAP[b].name);
       });
   };
 
@@ -198,11 +198,11 @@ const Save = ({
             size="small"
             value={newCid}
             options={charOptions()}
-            getOptionLabel={(id) => GAME_DATA[gameType].CHARACTERS[id]?.name || ""}
+            getOptionLabel={(id) => GAME_DATA[gameType].CHAR[id]?.name || ""}
             onChange={(_, newValue) => handleCharacter(newValue)}
             renderOption={(props, option) => {
               const { key, ...optionProps } = props;
-              const rarity = GAME_DATA[gameType].CHARACTERS[option]?.rarity;
+              const rarity = GAME_DATA[gameType].CHAR[option]?.rarity;
               return (
                 <Box
                   key={key}
@@ -219,7 +219,7 @@ const Save = ({
                     alt={""}
                     style={{ width: 24, height: 24, objectFit: "contain" }}
                   />
-                  {GAME_DATA[gameType].CHARACTERS[option]?.name || ""}
+                  {GAME_DATA[gameType].CHAR[option]?.name || ""}
                 </Box>
               );
             }}
@@ -229,7 +229,7 @@ const Save = ({
                 label="Character"
                 sx={{
                   "& .MuiInputBase-root": {
-                    color: textColor[GAME_DATA[gameType].CHARACTERS[newCid]?.rarity] || "inherit",
+                    color: textColor[GAME_DATA[gameType].CHAR[newCid]?.rarity] || "inherit",
                   }
                 }}
                 slotProps={{
@@ -288,11 +288,11 @@ const Save = ({
                 size="small"
                 value={newCdata.weapon}
                 options={weapOptions()}
-                getOptionLabel={(id) => GAME_DATA[gameType].WEAPONS[id]?.name || ""}
+                getOptionLabel={(id) => GAME_DATA[gameType].WEAP[id]?.name || ""}
                 onChange={(_, newValue) => handleWeapon(newValue)}
                 renderOption={(props, option) => {
                   const { key, ...optionProps } = props;
-                  const rarity = GAME_DATA[gameType].WEAPONS[option]?.rarity;
+                  const rarity = GAME_DATA[gameType].WEAP[option]?.rarity;
                   return (
                     <Box
                       key={key}
@@ -309,7 +309,7 @@ const Save = ({
                         alt={""}
                         style={{ width: 24, height: 24, objectFit: "contain" }}
                       />
-                      {GAME_DATA[gameType].WEAPONS[option]?.name || ""}
+                      {GAME_DATA[gameType].WEAP[option]?.name || ""}
                     </Box>
                   );
                 }}
@@ -319,7 +319,7 @@ const Save = ({
                     label="Weapon"
                     sx={{
                       "& .MuiInputBase-root": {
-                        color: textColor[GAME_DATA[gameType].WEAPONS[newCdata.weapon]?.rarity] || "inherit",
+                        color: textColor[GAME_DATA[gameType].WEAP[newCdata.weapon]?.rarity] || "inherit",
                       }
                     }}
                     slotProps={{
@@ -366,7 +366,7 @@ const Save = ({
                     >
                       <img
                         loading="lazy"
-                        src={sImgs[`../assets/set/${gameType}/${option}.webp`]?.default}
+                        src={sImgs[`../assets/sets/${gameType}/${option}.webp`]?.default}
                         alt={""}
                         style={{ width: 24, height: 24, objectFit: "contain" }}
                       />
@@ -389,7 +389,7 @@ const Save = ({
                         startAdornment: newCdata.set1 && (
                           <InputAdornment position="start">
                             <img
-                              src={sImgs[`../assets/set/${gameType}/${newCdata.set1}.webp`]?.default}
+                              src={sImgs[`../assets/sets/${gameType}/${newCdata.set1}.webp`]?.default}
                               alt=""
                               style={{ width: 24, height: 24, objectFit: "contain" }}
                             />
@@ -427,7 +427,7 @@ const Save = ({
                       >
                         <img
                           loading="lazy"
-                          src={sImgs[`../assets/set/${gameType}/${option}.webp`]?.default}
+                          src={sImgs[`../assets/sets/${gameType}/${option}.webp`]?.default}
                           alt={""}
                           style={{ width: 24, height: 24, objectFit: "contain" }}
                         />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import Tooltip from "@mui/material/Tooltip";
 import { Edit as EditIcon, Delete as DeleteIcon } from "@mui/icons-material";
 import {
   Box,
@@ -12,6 +11,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  Tooltip,
   Typography,
   useTheme,
   useMediaQuery,
@@ -20,12 +20,12 @@ import { db } from "../firebase";
 import Back from "../components/Back";
 import Save from "../components/Save";
 import Delete from "../components/Delete";
-import GAME_DATA from "../components/gameData";
 import Enka from "../components/Enka";
 import getScore from "../components/getScore";
+import GAME_DATA from "../components/gameData";
 const cImgs = import.meta.glob("../assets/char/GI/*.webp", { eager: true });
 const wImgs = import.meta.glob("../assets/weap/GI/*.webp", { eager: true });
-const sImgs = import.meta.glob("../assets/set/GI/*.webp", { eager: true });
+const sImgs = import.meta.glob("../assets/sets/GI/*.webp", { eager: true });
 
 const GAME_TYPE = "GI";
 const VERSION_NUMBER = "5.4";
@@ -64,17 +64,16 @@ const GenshinImpact = ({ uid }) => {
   }, [uid]);
 
   useEffect(() => {
-    const scoredChars = Object.entries(myChars).map(([cid, cdata]) => ({
-      cid,
-      cdata,
-      score: getScore(GAME_TYPE, cid, cdata),
+    const scoredChars = Object.entries(myChars).map(([id, data]) => ({
+      id,
+      data,
+      score: getScore(GAME_TYPE, id, data),
     }));
   
-    // Sort once when computed
     scoredChars.sort((a, b) => b.score - a.score);
   
     setMyCharsWithScores(scoredChars);
-  }, [myChars]); // Runs only when myChars changes
+  }, [myChars]);
 
   return (
     <Container>
@@ -91,7 +90,6 @@ const GenshinImpact = ({ uid }) => {
         <Typography variant="body2">Updated for version {VERSION_NUMBER}</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
-            {/* Table headers */}
             <TableHead>
               <TableRow>
                 <TableCell></TableCell>
@@ -102,8 +100,6 @@ const GenshinImpact = ({ uid }) => {
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
-
-            {/* Table data */}
             <TableBody>
               {Object.keys(myChars).length === 0 ? (
                 // In the case that there are no saved characters
@@ -114,46 +110,46 @@ const GenshinImpact = ({ uid }) => {
                 </TableRow>
               ) : (
                 // Order characters in table by score
-                myCharsWithScores.map(({ cid, cdata, score }) => (
+                myCharsWithScores.map(({ id, data, score }) => (
                   <TableRow
-                    key={cid}
-                    onMouseEnter={() => setHoveredRow(cid)}
+                    key={id}
+                    onMouseEnter={() => setHoveredRow(id)}
                     onMouseLeave={() => setHoveredRow(null)}
                   >
                     <TableCell>
                       <img
-                        src={cImgs[`../assets/char/GI/${cid}.webp`]?.default}
-                        alt={cid}
+                        src={cImgs[`../assets/char/GI/${id}.webp`]?.default}
+                        alt={id}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{GAME_DATA[GAME_TYPE].CHARACTERS[cid].name}</TableCell>
+                    <TableCell>{GAME_DATA[GAME_TYPE].CHAR[id].name}</TableCell>
                     {isDesktop && (
                       <TableCell>
-                        {cdata.weapon && (
+                        {data.weapon && (
                           <Tooltip
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].name}
+                                  {GAME_DATA[GAME_TYPE].WEAP[data.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].base.FLAT_ATK} <br />
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].substat}
+                                  {"Base ATK: " + GAME_DATA[GAME_TYPE].WEAP[data.weapon].base.FLAT_ATK} <br />
+                                  {GAME_DATA[GAME_TYPE].WEAP[data.weapon].substat}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].subtitle}
+                                  {GAME_DATA[GAME_TYPE].WEAP[data.weapon].subtitle}
                                 </Typography>
                                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {GAME_DATA[GAME_TYPE].WEAPONS[cdata.weapon].desc}
+                                  {GAME_DATA[GAME_TYPE].WEAP[data.weapon].desc}
                                 </Typography>
                               </React.Fragment>
                             }
                             arrow
                           >
                             <img
-                              src={wImgs[`../assets/weap/GI/${cdata.weapon}.webp`]?.default}
-                              alt={cdata.weapon}
+                              src={wImgs[`../assets/weap/GI/${data.weapon}.webp`]?.default}
+                              alt={data.weapon}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
@@ -162,54 +158,52 @@ const GenshinImpact = ({ uid }) => {
                     )}
                     {isDesktop && (
                       <TableCell>
-                        {cdata.set1 && (
+                        {data.set1 && (
                           <Tooltip
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set1].name}
+                                  {GAME_DATA[GAME_TYPE].SETS[data.set1].name}
                                 </Typography>
                                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {GAME_DATA[GAME_TYPE].SETS[cdata.set1].desc}
+                                  {GAME_DATA[GAME_TYPE].SETS[data.set1].desc}
                                 </Typography>
                               </React.Fragment>
                             }
                             arrow
                           >
                             <img
-                              src={sImgs[`../assets/set/GI/${cdata.set1}.webp`]?.default}
-                              alt={cdata.set1}
+                              src={sImgs[`../assets/sets/GI/${data.set1}.webp`]?.default}
+                              alt={data.set1}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                         )}
                       </TableCell>
                     )}
-                    <TableCell>{score}</TableCell>
+                    <TableCell>{score.toString()}</TableCell>
                     <TableCell>
                       <Box
                         sx={{
                           display: "flex",
                           gap: 1,
-                          visibility: hoveredRow === cid ? "visible" : "hidden",
+                          visibility: hoveredRow === id ? "visible" : "hidden",
                         }}
                       >
-                        {/* Edit button */}
                         <Button
                           size="small"
                           variant="outlined"
                           color="primary"
-                          onClick={() => setIsSaveOpen(cid)}
+                          onClick={() => setIsSaveOpen(id)}
                         >
                           <EditIcon />
                         </Button>
 
-                        {/* Delete button */}
                         <Button
                           size="small"
                           variant="outlined"
                           color="secondary"
-                          onClick={() => setIsDeleteOpen(cid)}
+                          onClick={() => setIsDeleteOpen(id)}
                         >
                           <DeleteIcon />
                         </Button>
@@ -222,25 +216,23 @@ const GenshinImpact = ({ uid }) => {
           </Table>
         </TableContainer>
 
-        {/* Add character button */}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setIsSaveOpen(true)}
-          sx={{ mt: 2 }}
-        >
-          Add character
-        </Button>
+        <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setIsSaveOpen(true)}
+          >
+            Add character
+          </Button>
 
-        {/* Enka button */}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => setIsEnkaOpen(true)}
-          sx={{ mt: 2 }}
-        >
-          Load from uid
-        </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setIsEnkaOpen(true)}
+          >
+            Load from UID
+          </Button>
+        </Box>
 
         {/* Modals */}
         <Save

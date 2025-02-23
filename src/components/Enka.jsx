@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { doc, setDoc } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import {
   Box,
@@ -25,7 +25,8 @@ const Enka = ({
   const [gameUid, setGameUid] = useState("");
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
-  const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [rememberUid, setRememberUid] = useState(false);
   const statKey = enkaStatKey[gameType];
 
   const suffix = (
@@ -34,8 +35,29 @@ const Enka = ({
     gameType === "ZZZ" ? "zzz/uid/" : 
     ""
   );
+
+  useEffect(() => {
+    const fetchUserUid = async () => {
+      if (!uid) return;
   
-  // gi 618285856, 604379917
+      const userDocRef = doc(db, "users", uid);
+      const userDoc = await getDoc(userDocRef);
+  
+      if (userDoc.exists()) {
+        const storedUid = userDoc.data()?.[`${gameType}_UID`];
+        if (storedUid) {
+          setGameUid(storedUid);
+          setRememberUid(true);
+        }
+      }
+    };
+  
+    if (isEnkaOpen) {
+      fetchUserUid();
+    }
+  }, [isEnkaOpen]);
+  
+  // gi 604379917
   // hsr 602849613
   const fetchPlayerData = async () => {
     try {
@@ -97,14 +119,17 @@ const Enka = ({
     } catch (error) {
       console.error("Error fetching player data", error);
       setError("Error fetching player data");
-      setNextButtonDisabled(false);
+      setIsLoading(false);
     }
   };
 
   const handleNext = async () => {
     if (/^\d{9,10}$/.test(gameUid)) {
-      setNextButtonDisabled(true);
+      setIsLoading(true);
       await fetchPlayerData();
+
+      const userDocRef = doc(db, "users", uid);
+      await setDoc(userDocRef, { [`${gameType}_UID`]: rememberUid ? gameUid : "" }, { merge: true });
     } else {
       setError("Invalid uid");
     }
@@ -115,7 +140,8 @@ const Enka = ({
     setGameUid("");
     setEnkaList([]);
     setSelectedAvatars([]);
-    setNextButtonDisabled(false);
+    setIsLoading(false);
+    setRememberUid(false);
     setIsEnkaOpen(false);
   };
 
@@ -148,7 +174,7 @@ const Enka = ({
           // set
           for (const set in setCounts) {
             if (setCounts[set] >= 4) {
-              cdata.set = set;
+              cdata.set1 = set;
               break;
             }
           }
@@ -220,8 +246,9 @@ const Enka = ({
     setError("");
     setSelectedAvatars([]);
     setEnkaList([]);
-    setNextButtonDisabled(false);
+    setIsLoading(false);
     setGameUid("");
+    setRememberUid(false);
     setIsEnkaOpen(false);
   };
 
@@ -251,8 +278,8 @@ const Enka = ({
         }}
       >
         {!enkaList.length ? (
-          <React.Fragment>
-            <Typography>Enter uid</Typography>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+            <Typography>Enter UID</Typography>
             <TextField
               size="small"
               value={gameUid}
@@ -261,20 +288,28 @@ const Enka = ({
                 const isValidNumber = /^\d*$/.test(newValue);
                 if (isValidNumber) setGameUid(newValue);
               }}
-              sx={{ mt: 1 }}
-              error={Boolean(error)} 
+              error={Boolean(error)}
               helperText={error}
               fullWidth
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={rememberUid}
+                  onChange={() => setRememberUid(!rememberUid)}
+                />
+              }
+              label={<Typography variant="body2">Save this UID (Sign-in required)</Typography>}
             />
             <Button
               variant="contained"
               onClick={handleNext}
-              sx={{ mt: 2 }}
-              disabled={nextButtonDisabled}
+              sx={{ alignSelf: "start" }}
+              disabled={isLoading}
             >
-              Next
+              {isLoading ? "Loading..." : "Next"}
             </Button>
-          </React.Fragment>
+          </Box>
         ) : (
           <React.Fragment>
             <Typography>Select which characters to add</Typography>
@@ -287,7 +322,7 @@ const Enka = ({
                       onChange={(e) => handleCheckboxChange(e, index)}
                     />
                   }
-                  label={GAME_DATA[gameType].CHARACTERS[avatar.avatarId]?.name || "error"}
+                  label={GAME_DATA[gameType].CHAR[avatar.avatarId]?.name || "error"}
                 />
               </Box>
             ))}
