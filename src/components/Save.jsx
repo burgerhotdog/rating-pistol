@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Piece from "./Piece";
-import blankCdata from "./blankCdata";
+import dataTemplate from "./dataTemplate";
 
 const Save = ({
   uid,
@@ -30,7 +30,7 @@ const Save = ({
   setMyChars,
 }) => {  
   const [newCid, setNewCid] = useState("");
-  const [newCdata, setNewCdata] = useState(() => blankCdata(gameType));
+  const [newCdata, setNewCdata] = useState(() => dataTemplate(gameType));
   const textColor = {
     5: "goldenrod",
     4: "orchid",
@@ -44,7 +44,7 @@ const Save = ({
     if (isSaveOpen) {
       if (isSaveOpen === true) {
         setNewCid("");
-        setNewCdata(blankCdata(gameType));
+        setNewCdata(dataTemplate(gameType));
       } else {
         setNewCid(isSaveOpen);
         setNewCdata(myChars[isSaveOpen]);
@@ -117,19 +117,19 @@ const Save = ({
     }));
 
     setNewCid("");
-    setNewCdata(() => blankCdata(gameType));
+    setNewCdata(() => dataTemplate(gameType));
     setIsSaveOpen(false);
   };
 
   const handleCancel = () => {
     setNewCid("");
-    setNewCdata(() => blankCdata(gameType));
+    setNewCdata(() => dataTemplate(gameType));
     setIsSaveOpen(false);
   };
 
   const handleCharacter = (newValue) => {
     setNewCid(newValue || "");
-    setNewCdata(blankCdata(gameType));
+    setNewCdata(dataTemplate(gameType));
   };
 
   const handleWeapon = (newValue) => {

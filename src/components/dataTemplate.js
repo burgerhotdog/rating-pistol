@@ -1,4 +1,4 @@
-const blankCdata = (gameType) => {
+const dataTemplate = (gameType) => {
   const config = {
     GI: { numOfMainstats: 5, numOfSubstats: 4, multiSet: false },
     HSR: { numOfMainstats: 6, numOfSubstats: 4, multiSet: true },
@@ -19,4 +19,4 @@ const blankCdata = (gameType) => {
   };
 };
 
-export default blankCdata;
+export default dataTemplate;

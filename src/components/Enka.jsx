@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import blankCdata from "./blankCdata";
+import dataTemplate from "./dataTemplate";
 import enkaStatKey from "./enkaStatKey";
 
 const Enka = ({
@@ -151,7 +151,7 @@ const Enka = ({
       case "GI":
         charBuffer = selectedAvatars.map((selectedAvatar) => {
           const cid = enkaList[selectedAvatar].avatarId.toString();
-          const cdata = blankCdata("GI");
+          const cdata = dataTemplate("GI");
     
           cdata.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
           const setCounts = {};
@@ -186,7 +186,7 @@ const Enka = ({
       case "HSR":
         charBuffer = selectedAvatars.map((selectedAvatar) => {
           const cid = enkaList[selectedAvatar].avatarId.toString();
-          const cdata = blankCdata("HSR");
+          const cdata = dataTemplate("HSR");
   
           cdata.weapon = enkaList[selectedAvatar].equipment?.tid.toString() || "";
           const setCounts = {};
