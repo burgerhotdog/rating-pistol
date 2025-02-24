@@ -172,7 +172,7 @@ const Enka = ({
             }
           }
     
-          // set
+          // set // fix
           for (const set in setCounts) {
             if (setCounts[set] >= 4) {
               cdata.set1 = set;
