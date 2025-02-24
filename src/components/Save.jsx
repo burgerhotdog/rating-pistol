@@ -15,91 +15,70 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Piece from "./Piece";
-import blankCdata from "./blankCdata";
-import GAME_DATA from "./gameData";
+import dataTemplate from "./dataTemplate";
 
 const Save = ({
-  gameType,
   uid,
+  gameType,
+  gameData,
+  charIcons,
+  weapIcons,
+  setsIcons,
   isSaveOpen,
   setIsSaveOpen,
   myChars,
   setMyChars,
 }) => {
-  let cImgs, wImgs, sImgs;
-  switch (gameType) {
-    case "GI":
-      cImgs = import.meta.glob(`../assets/char/GI/*.webp`, { eager: true });
-      wImgs = import.meta.glob(`../assets/weap/GI/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/sets/GI/*.webp`, { eager: true });
-      break;
-    case "HSR":
-      cImgs = import.meta.glob(`../assets/char/HSR/*.webp`, { eager: true });
-      wImgs = import.meta.glob(`../assets/weap/HSR/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/sets/HSR/*.webp`, { eager: true });
-      break;
-    case "ZZZ":
-      cImgs = import.meta.glob(`../assets/char/ZZZ/*.webp`, { eager: true });
-      wImgs = import.meta.glob(`../assets/weap/ZZZ/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/sets/ZZZ/*.webp`, { eager: true });
-      break;
-    case "WW":
-      cImgs = import.meta.glob(`../assets/char/WW/*.webp`, { eager: true });
-      wImgs = import.meta.glob(`../assets/weap/WW/*.webp`, { eager: true });
-      sImgs = import.meta.glob(`../assets/sets/WW/*.webp`, { eager: true });
-      break;
-  }
-  
-  const [newCid, setNewCid] = useState("");
-  const [newCdata, setNewCdata] = useState(() => blankCdata(gameType));
-  const textColor = {
+  const { CHAR, WEAP, SETS } = gameData;
+  const [newId, setNewId] = useState("");
+  const [newData, setNewData] = useState(() => dataTemplate(gameType));
+  const rarityColor = {
     5: "goldenrod",
     4: "orchid",
     3: "cornflowerblue",
     2: "green",
     1: "slategrey",
   };
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
-  // When modal opens, reset newCid and newCdata
+  // When modal opens, reset newId and newData
   useEffect(() => {
     if (isSaveOpen) {
       if (isSaveOpen === true) {
-        setNewCid("");
-        setNewCdata(blankCdata(gameType));
+        setNewId("");
+        setNewData(dataTemplate(gameType));
       } else {
-        setNewCid(isSaveOpen);
-        setNewCdata(myChars[isSaveOpen]);
+        setNewId(isSaveOpen);
+        setNewData(myChars[isSaveOpen]);
       }
     }
   }, [isSaveOpen, myChars]);
   
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
-
   const charOptions = () => {
-    return Object.keys(GAME_DATA[gameType].CHAR)
+    return Object.keys(CHAR)
       .filter(id => !Object.keys(myChars).includes(id))
       .sort((a, b) => {
-        const rarityA = GAME_DATA[gameType].CHAR[a].rarity;
-        const rarityB = GAME_DATA[gameType].CHAR[b].rarity;
+        const rarityA = CHAR[a].rarity;
+        const rarityB = CHAR[b].rarity;
         if (rarityA !== rarityB) return rarityB - rarityA;
-        return GAME_DATA[gameType].CHAR[a].name.localeCompare(GAME_DATA[gameType].CHAR[b].name);
+        return CHAR[a].name.localeCompare(CHAR[b].name);
       });
   };
 
   const weapOptions = () => {
-    return Object.keys(GAME_DATA[gameType].WEAP)
-      .filter(id => GAME_DATA[gameType].WEAP[id].type === GAME_DATA[gameType].CHAR[newCid].type)
+    return Object.keys(WEAP)
+      .filter(id => WEAP[id].type === CHAR[newId].type)
       .sort((a, b) => {
-        const rarityA = GAME_DATA[gameType].WEAP[a].rarity;
-        const rarityB = GAME_DATA[gameType].WEAP[b].rarity;
+        const rarityA = WEAP[a].rarity;
+        const rarityB = WEAP[b].rarity;
         if (rarityA !== rarityB) return rarityB - rarityA;
-        return GAME_DATA[gameType].WEAP[a].name.localeCompare(GAME_DATA[gameType].WEAP[b].name);
+        return WEAP[a].name.localeCompare(WEAP[b].name);
       });
   };
 
   const setOptions = (setNumber) => {
-    return Object.keys(GAME_DATA[gameType].SETS)
+    return Object.keys(SETS)
       .filter(id => {
         switch (setNumber) {
           case "set1":
@@ -112,49 +91,49 @@ const Save = ({
             if (gameType === "HSR") {
               return id.substring(0, 1) === "3";
             } else {
-              return id !== newCdata.set1;
+              return id !== newData.set1;
             }
         }
       })
       .sort((a, b) => {
-        const rarityA = GAME_DATA[gameType].SETS[a].rarity;
-        const rarityB = GAME_DATA[gameType].SETS[b].rarity;
+        const rarityA = SETS[a].rarity;
+        const rarityB = SETS[b].rarity;
         if (rarityA !== rarityB) return rarityB - rarityA;
-        return GAME_DATA[gameType].SETS[a].name.localeCompare(GAME_DATA[gameType].SETS[b].name);
+        return SETS[a].name.localeCompare(SETS[b].name);
       });
   };
 
   const handleSave = async () => {
-    // Save document to Firestore
+    // Firestore
     if (uid) {
-      const charDocRef = doc(db, "users", uid, gameType, newCid);
-      await setDoc(charDocRef, newCdata, { merge: true });
+      const charDocRef = doc(db, "users", uid, gameType, newId);
+      await setDoc(charDocRef, newData, { merge: true });
     }
 
-    // Save object to myChars
+    // Local
     setMyChars((prev) => ({
       ...prev,
-      [newCid]: newCdata,
+      [newId]: newData,
     }));
 
-    setNewCid("");
-    setNewCdata(() => blankCdata(gameType));
+    setNewId("");
+    setNewData(() => dataTemplate(gameType));
     setIsSaveOpen(false);
   };
 
   const handleCancel = () => {
-    setNewCid("");
-    setNewCdata(() => blankCdata(gameType));
+    setNewId("");
+    setNewData(() => dataTemplate(gameType));
     setIsSaveOpen(false);
   };
 
   const handleCharacter = (newValue) => {
-    setNewCid(newValue || "");
-    setNewCdata(blankCdata(gameType));
+    setNewId(newValue || "");
+    setNewData(dataTemplate(gameType));
   };
 
   const handleWeapon = (newValue) => {
-    setNewCdata((prev) => ({
+    setNewData((prev) => ({
       ...prev,
       weapon: newValue || "",
     }));
@@ -162,7 +141,7 @@ const Save = ({
 
   const handleSet = (newValue, setNumber) => {
     const clearSet2 = gameType === "ZZZ" && setNumber === "set1";
-    setNewCdata((prev) => ({
+    setNewData((prev) => ({
       ...prev,
       [setNumber]: newValue || "",
       ...(clearSet2 && prev.set2 === newValue ? { set2: "" } : {}),
@@ -184,7 +163,6 @@ const Save = ({
           overflowY: "auto",
         }}
       >
-        {/* Buttons section */}
         <Box
           sx={{
             display: "flex",
@@ -196,30 +174,30 @@ const Save = ({
           {/* Select Character */}
           <Autocomplete
             size="small"
-            value={newCid}
+            value={newId}
             options={charOptions()}
-            getOptionLabel={(id) => GAME_DATA[gameType].CHAR[id]?.name || ""}
+            getOptionLabel={(id) => CHAR[id]?.name || ""}
             onChange={(_, newValue) => handleCharacter(newValue)}
             renderOption={(props, option) => {
               const { key, ...optionProps } = props;
-              const rarity = GAME_DATA[gameType].CHAR[option]?.rarity;
+              const rarity = CHAR[option]?.rarity;
               return (
                 <Box
                   key={key}
                   component="li"
                   sx={{
                     "& > img": { mr: 2, flexShrink: 0 },
-                    color: textColor[rarity],
+                    color: rarityColor[rarity],
                   }}
                   {...optionProps}
                 >
                   <img
                     loading="lazy"
-                    src={cImgs[`../assets/char/${gameType}/${option}.webp`]?.default}
+                    src={charIcons[`../assets/char/${gameType}/${option}.webp`]?.default}
                     alt={""}
                     style={{ width: 24, height: 24, objectFit: "contain" }}
                   />
-                  {GAME_DATA[gameType].CHAR[option]?.name || ""}
+                  {CHAR[option]?.name || ""}
                 </Box>
               );
             }}
@@ -229,16 +207,16 @@ const Save = ({
                 label="Character"
                 sx={{
                   "& .MuiInputBase-root": {
-                    color: textColor[GAME_DATA[gameType].CHAR[newCid]?.rarity] || "inherit",
+                    color: rarityColor[CHAR[newId]?.rarity] || "inherit",
                   }
                 }}
                 slotProps={{
                   input: {
                     ...params.InputProps,
-                    startAdornment: newCid && (
+                    startAdornment: newId && (
                       <InputAdornment position="start">
                         <img
-                          src={cImgs[`../assets/char/${gameType}/${newCid}.webp`]?.default}
+                          src={charIcons[`../assets/char/${gameType}/${newId}.webp`]?.default}
                           alt=""
                           style={{ width: 24, height: 24, objectFit: "contain" }}
                         />
@@ -249,12 +227,12 @@ const Save = ({
               />
             )}
             sx={{ width: { xs: 128, xl: 256 } }}
-            disabled={isSaveOpen && isSaveOpen !== true}
-            disableClearable={newCid === ""}
+            disabled={isSaveOpen && (isSaveOpen !== true)}
+            disableClearable={newId === ""}
           />
 
           {/* Save button */}
-          {newCid && (
+          {newId && (
             <Button 
               variant="contained"
               color="primary"
@@ -277,39 +255,39 @@ const Save = ({
         </Box>
 
         {/* Divider */}
-        {newCid && <Divider sx={{ mt: 2 }}/>}
+        {newId && <Divider sx={{ mt: 2 }}/>}
 
         {/* Data grid */}
-        {newCid && (
+        {newId && (
           <Grid container spacing={2} sx={{ width: { xs: 256, xl: 1440 }, mt: 2 }}>
             {/* Select weapon */}
             <Grid size={{ xs: 12, xl: 4 }}>
               <Autocomplete
                 size="small"
-                value={newCdata.weapon}
+                value={newData.weapon}
                 options={weapOptions()}
-                getOptionLabel={(id) => GAME_DATA[gameType].WEAP[id]?.name || ""}
+                getOptionLabel={(id) => WEAP[id]?.name || ""}
                 onChange={(_, newValue) => handleWeapon(newValue)}
                 renderOption={(props, option) => {
                   const { key, ...optionProps } = props;
-                  const rarity = GAME_DATA[gameType].WEAP[option]?.rarity;
+                  const rarity = WEAP[option]?.rarity;
                   return (
                     <Box
                       key={key}
                       component="li"
                       sx={{
                         "& > img": { mr: 2, flexShrink: 0 },
-                        color: textColor[rarity],
+                        color: rarityColor[rarity],
                       }}
                       {...optionProps}
                     >
                       <img
                         loading="lazy"
-                        src={wImgs[`../assets/weap/${gameType}/${option}.webp`]?.default}
+                        src={weapIcons[`../assets/weap/${gameType}/${option}.webp`]?.default}
                         alt={""}
                         style={{ width: 24, height: 24, objectFit: "contain" }}
                       />
-                      {GAME_DATA[gameType].WEAP[option]?.name || ""}
+                      {WEAP[option]?.name || ""}
                     </Box>
                   );
                 }}
@@ -319,16 +297,16 @@ const Save = ({
                     label="Weapon"
                     sx={{
                       "& .MuiInputBase-root": {
-                        color: textColor[GAME_DATA[gameType].WEAP[newCdata.weapon]?.rarity] || "inherit",
+                        color: rarityColor[WEAP[newData.weapon]?.rarity] || "inherit",
                       }
                     }}
                     slotProps={{
                       input: {
                         ...params.InputProps,
-                        startAdornment: newCdata.weapon && (
+                        startAdornment: newData.weapon && (
                           <InputAdornment position="start">
                             <img
-                              src={wImgs[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
+                              src={weapIcons[`../assets/weap/${gameType}/${newData.weapon}.webp`]?.default}
                               alt=""
                               style={{ width: 24, height: 24, objectFit: "contain" }}
                             />
@@ -339,7 +317,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCdata.weapon === ""}
+                disableClearable={newData.weapon === ""}
               />
             </Grid>
 
@@ -347,30 +325,30 @@ const Save = ({
             <Grid size={{ xs: 12, xl: (gameType === "HSR" || gameType === "ZZZ" ? 4 : 8) }}>
               <Autocomplete
                 size="small"
-                value={newCdata.set1}
+                value={newData.set1}
                 options={setOptions("set1")}
-                getOptionLabel={(id) => GAME_DATA[gameType].SETS[id]?.name || ""}
+                getOptionLabel={(id) => SETS[id]?.name || ""}
                 onChange={(_, newValue) => handleSet(newValue, "set1")}
                 renderOption={(props, option) => {
                   const { key, ...optionProps } = props;
-                  const rarity = GAME_DATA[gameType].SETS[option]?.rarity;
+                  const rarity = SETS[option]?.rarity;
                   return (
                     <Box
                       key={key}
                       component="li"
                       sx={{
                         "& > img": { mr: 2, flexShrink: 0 },
-                        color: textColor[rarity],
+                        color: rarityColor[rarity],
                       }}
                       {...optionProps}
                     >
                       <img
                         loading="lazy"
-                        src={sImgs[`../assets/sets/${gameType}/${option}.webp`]?.default}
+                        src={setsIcons[`../assets/sets/${gameType}/${option}.webp`]?.default}
                         alt={""}
                         style={{ width: 24, height: 24, objectFit: "contain" }}
                       />
-                      {GAME_DATA[gameType].SETS[option]?.name || ""}
+                      {SETS[option]?.name || ""}
                     </Box>
                   );
                 }}
@@ -380,16 +358,16 @@ const Save = ({
                     label="Set 1"
                     sx={{
                       "& .MuiInputBase-root": {
-                        color: textColor[GAME_DATA[gameType].SETS[newCdata.set1]?.rarity] || "inherit",
+                        color: rarityColor[SETS[newData.set1]?.rarity] || "inherit",
                       }
                     }}
                     slotProps={{
                       input: {
                         ...params.InputProps,
-                        startAdornment: newCdata.set1 && (
+                        startAdornment: newData.set1 && (
                           <InputAdornment position="start">
                             <img
-                              src={sImgs[`../assets/sets/${gameType}/${newCdata.set1}.webp`]?.default}
+                              src={setsIcons[`../assets/sets/${gameType}/${newData.set1}.webp`]?.default}
                               alt=""
                               style={{ width: 24, height: 24, objectFit: "contain" }}
                             />
@@ -400,7 +378,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newCdata.set1 === ""}
+                disableClearable={newData.set1 === ""}
               />
             </Grid>
 
@@ -408,30 +386,30 @@ const Save = ({
               <Grid size={{ xs: 12, xl: 4 }}>
                 <Autocomplete
                   size="small"
-                  value={newCdata.set2}
+                  value={newData.set2}
                   options={setOptions("set2")}
-                  getOptionLabel={(id) => GAME_DATA[gameType].SETS[id]?.name || ""}
+                  getOptionLabel={(id) => SETS[id]?.name || ""}
                   onChange={(_, newValue) => handleSet(newValue, "set2")}
                   renderOption={(props, option) => {
                     const { key, ...optionProps } = props;
-                    const rarity = GAME_DATA[gameType].SETS[option]?.rarity;
+                    const rarity = SETS[option]?.rarity;
                     return (
                       <Box
                         key={key}
                         component="li"
                         sx={{
                           "& > img": { mr: 2, flexShrink: 0 },
-                          color: textColor[rarity],
+                          color: rarityColor[rarity],
                         }}
                         {...optionProps}
                       >
                         <img
                           loading="lazy"
-                          src={sImgs[`../assets/sets/${gameType}/${option}.webp`]?.default}
+                          src={setsIcons[`../assets/sets/${gameType}/${option}.webp`]?.default}
                           alt={""}
                           style={{ width: 24, height: 24, objectFit: "contain" }}
                         />
-                        {GAME_DATA[gameType].SETS[option]?.name || ""}
+                        {SETS[option]?.name || ""}
                       </Box>
                     );
                   }}
@@ -441,16 +419,16 @@ const Save = ({
                       label="Set 2"
                       sx={{
                         "& .MuiInputBase-root": {
-                          color: textColor[GAME_DATA[gameType].SETS[newCdata.set2]?.rarity] || "inherit",
+                          color: rarityColor[SETS[newData.set2]?.rarity] || "inherit",
                         }
                       }}
                       slotProps={{
                         input: {
                           ...params.InputProps,
-                          startAdornment: newCdata.set2 && (
+                          startAdornment: newData.set2 && (
                             <InputAdornment position="start">
                               <img
-                                src={sImgs[`../assets/sets/${gameType}/${newCdata.set2}.webp`]?.default}
+                                src={setsIcons[`../assets/sets/${gameType}/${newData.set2}.webp`]?.default}
                                 alt=""
                                 style={{ width: 24, height: 24, objectFit: "contain" }}
                               />
@@ -461,21 +439,21 @@ const Save = ({
                     />
                   )}
                   fullWidth
-                  disableClearable={newCdata.set2 === ""}
+                  disableClearable={newData.set2 === ""}
                 />
               </Grid>
             )}
 
             {/* Weapon Image */}
             <Grid size={{ xs: 12, xl: 4 }}>
-              {isDesktop && newCdata.weapon && (
+              {isDesktop && newData.weapon && (
                 <img
-                  src={wImgs[`../assets/weap/${gameType}/${newCdata.weapon}.webp`]?.default}
-                  alt={newCdata.weapon}
+                  src={weapIcons[`../assets/weap/${gameType}/${newData.weapon}.webp`]?.default}
+                  alt={newData.weapon}
                   style={{ width: "100%", height: 500, objectFit: "contain" }}
                 />
               )}
-              {isDesktop && !newCdata.weapon && (
+              {isDesktop && !newData.weapon && (
                 <Typography textAlign="center">No weapon selected</Typography>
               )}
             </Grid>
@@ -487,8 +465,9 @@ const Save = ({
                   <Grid size={{ xs: 12, xl: 4 }} key={mainIndex}>
                     <Piece
                       gameType={gameType}
-                      newCdata={newCdata}
-                      setNewCdata={setNewCdata}
+                      gameData={gameData}
+                      newData={newData}
+                      setNewData={setNewData}
                       mainIndex={mainIndex}
                     />
                   </Grid>

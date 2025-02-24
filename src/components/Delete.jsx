@@ -2,24 +2,26 @@ import React from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { db } from "../firebase";
-import GAME_DATA from "./gameData";
 
 const Delete = ({
-  gameType,
   uid,
+  gameType,
+  gameData,
   isDeleteOpen,
   setIsDeleteOpen,
   setMyChars,
 }) => {
+  const { CHAR } = gameData;
+  
   const handleDelete = async () => {
     try {
-      // If signed in, delete document from firestore
+      // Firestore
       if (uid) {
         const characterDocRef = doc(db, "users", uid, gameType, isDeleteOpen);
         await deleteDoc(characterDocRef);
       }
 
-      // Delete object from myChars
+      // Local
       setMyChars((prev) => {
         const updatedChars = { ...prev };
         delete updatedChars[isDeleteOpen];
@@ -49,14 +51,13 @@ const Delete = ({
           borderRadius: 2,
         }}
       >
-        {/* Text section */}
         <Typography variant="body1">
           Are you sure you want to delete{" "}
-          <strong>{GAME_DATA[gameType].CHAR[isDeleteOpen]?.name}</strong>
+          <strong>{CHAR[isDeleteOpen]?.name}</strong>
           ?
         </Typography>
 
-        {/* Buttons section */}
+        {/* Buttons */}
         <Box
           sx={{
             display: "flex",

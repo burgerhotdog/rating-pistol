@@ -10,17 +10,18 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import blankCdata from "./blankCdata";
-import GAME_DATA from "./gameData";
+import dataTemplate from "./dataTemplate";
 import enkaStatKey from "./enkaStatKey";
 
 const Enka = ({
-  gameType,
   uid,
+  gameType,
+  gameData,
   isEnkaOpen,
   setIsEnkaOpen,
   setMyChars,
 }) => {
+  const { CHAR } = gameData;
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
   const [enkaList, setEnkaList] = useState([]);
@@ -151,7 +152,7 @@ const Enka = ({
       case "GI":
         charBuffer = selectedAvatars.map((selectedAvatar) => {
           const cid = enkaList[selectedAvatar].avatarId.toString();
-          const cdata = blankCdata("GI");
+          const cdata = dataTemplate("GI");
     
           cdata.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
           const setCounts = {};
@@ -186,7 +187,7 @@ const Enka = ({
       case "HSR":
         charBuffer = selectedAvatars.map((selectedAvatar) => {
           const cid = enkaList[selectedAvatar].avatarId.toString();
-          const cdata = blankCdata("HSR");
+          const cdata = dataTemplate("HSR");
   
           cdata.weapon = enkaList[selectedAvatar].equipment?.tid.toString() || "";
           const setCounts = {};
@@ -323,7 +324,7 @@ const Enka = ({
                       onChange={(e) => handleCheckboxChange(e, index)}
                     />
                   }
-                  label={GAME_DATA[gameType].CHAR[avatar.avatarId]?.name || "error"}
+                  label={CHAR[avatar.avatarId]?.name || "error"}
                 />
               </Box>
             ))}
