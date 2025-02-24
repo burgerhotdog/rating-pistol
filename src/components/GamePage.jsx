@@ -234,6 +234,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
             variant="contained"
             color="primary"
             onClick={() => setIsEnkaOpen(true)}
+            disabled={gameType === "WW" || gameType === "ZZZ"}
           >
             Load from UID
           </Button>
