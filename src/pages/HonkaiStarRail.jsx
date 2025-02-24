@@ -1,4 +1,4 @@
-import GamePage from "../components/GamePage";
+import GamePage from "../components/G1amePage";
 import GAME_DATA from "../components/gameData";
 
 const charIcons = import.meta.glob("../assets/char/HSR/*.webp", { eager: true });
