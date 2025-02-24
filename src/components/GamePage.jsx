@@ -24,12 +24,13 @@ import Enka from "./Enka";
 import getScore from "./getScore";
 
 const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) => {
+  const { INFO, CHAR, WEAP, SETS } = gameData;
   const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [isEnkaOpen, setIsEnkaOpen] = useState(false);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
-  const [myCharsWithScores, setMyCharsWithScores] = useState([]);
+  const [myCharsScored, setMyCharsScored] = useState([]);
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
@@ -54,7 +55,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
     fetchDB();
   }, [uid]);
 
-  // Load myCharsWithScores from myChars
+  // Load myCharsScored from myChars
   useEffect(() => {
     const scoredChars = Object.entries(myChars).map(([id, data]) => ({
       id,
@@ -64,15 +65,15 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
 
     scoredChars.sort((a, b) => b.score - a.score);
 
-    setMyCharsWithScores(scoredChars);
+    setMyCharsScored(scoredChars);
   }, [myChars]);
 
   return (
     <Container>
       <Back />
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mt: 4 }}>
-        <Typography variant="h4">{gameData.INFO.TITLE}</Typography>
-        <Typography variant="body2">Updated for version {gameData.INFO.VERSION}</Typography>
+        <Typography variant="h4">{INFO.TITLE}</Typography>
+        <Typography variant="body2">Updated for version {INFO.VERSION}</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table>
             <TableHead>
@@ -91,7 +92,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                   <TableCell colSpan={6} align="center">No characters to display</TableCell>
                 </TableRow>
               ) : (
-                myCharsWithScores.map(({ id, data, score }) => (
+                myCharsScored.map(({ id, data, score }) => (
                   <TableRow
                     key={id}
                     onMouseEnter={() => setHoveredRow(id)}
@@ -104,7 +105,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{gameData.CHAR[id].name}</TableCell>
+                    <TableCell>{CHAR[id].name}</TableCell>
                     {isDesktop && (
                       <TableCell>
                         {data.weapon && (
@@ -112,26 +113,26 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                             title={
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {gameData.WEAP[data.weapon].name}
+                                  {WEAP[data.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
-                                  {"Base ATK: " + gameData.WEAP[data.weapon].base.FLAT_ATK}
+                                  {"Base ATK: " + WEAP[data.weapon].base.FLAT_ATK}
                                   <br />
                                   {gameType === "HSR" ? (
                                     <React.Fragment>
-                                      {"Base ATK: " + gameData.WEAP[data.weapon].base.FLAT_ATK}
+                                      {"Base ATK: " + WEAP[data.weapon].base.FLAT_ATK}
                                       <br />
-                                      {"Base DEF: " + gameData.WEAP[data.weapon].base.FLAT_DEF}
+                                      {"Base DEF: " + WEAP[data.weapon].base.FLAT_DEF}
                                     </React.Fragment>
                                   ) : (
-                                    gameData.WEAP[data.weapon].substat
+                                    WEAP[data.weapon].substat
                                   )}
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                                  {gameData.WEAP[data.weapon].subtitle}
+                                  {WEAP[data.weapon].subtitle}
                                 </Typography>
                                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {gameData.WEAP[data.weapon].desc}
+                                  {WEAP[data.weapon].desc}
                                 </Typography>
                               </React.Fragment>
                             }
@@ -161,10 +162,10 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {gameData.SETS[data.set1].name}
+                                    {SETS[data.set1].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {gameData.SETS[data.set1].desc}
+                                    {SETS[data.set1].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
@@ -183,10 +184,10 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {gameData.SETS[data.set2].name}
+                                    {SETS[data.set2].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {gameData.SETS[data.set2].desc}
+                                    {SETS[data.set2].desc}
                                   </Typography>
                                 </React.Fragment>
                               }

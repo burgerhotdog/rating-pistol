@@ -1,6 +1,14 @@
 const HSR_INFO = {
   TITLE: "Honkai Star Rail",
   VERSION: "3.0",
+  PIECE_NAMES: [
+    "Head",
+    "Hands",
+    "Body",
+    "Feet",
+    "Orb",
+    "Rope",
+  ],
   MAINSTATS: [
     {
       "FLAT_HP": {

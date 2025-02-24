@@ -21,6 +21,7 @@ const Enka = ({
   setIsEnkaOpen,
   setMyChars,
 }) => {
+  const { CHAR } = gameData;
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
   const [enkaList, setEnkaList] = useState([]);
@@ -323,7 +324,7 @@ const Enka = ({
                       onChange={(e) => handleCheckboxChange(e, index)}
                     />
                   }
-                  label={gameData.CHAR[avatar.avatarId]?.name || "error"}
+                  label={CHAR[avatar.avatarId]?.name || "error"}
                 />
               </Box>
             ))}

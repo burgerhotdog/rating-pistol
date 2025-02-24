@@ -11,28 +11,19 @@ import Grid from "@mui/material/Grid2";
 const Piece = ({
   gameType,
   gameData,
-  newCdata,
-  setNewCdata,
+  newData,
+  setNewData,
   mainIndex,
 }) => {
-  const PIECE_NAMES = (
-    gameType === "HSR" ? ["Head", "Hands", "Body", "Feet", "Orb", "Rope"] :
-    gameType === "ZZZ" ? ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"] : 
-    gameType === "WW"  ? ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"] :
-    ["Flower", "Plume", "Sands", "Goblet", "Circlet"]
-  );
+  const { PIECE_NAMES, MAINSTATS, SUBSTATS } = gameData.INFO;
 
-  // Pass mainstat data to newCdata
   const handleMainstat = (newValue) => {
-    setNewCdata((prev) => {
-      // Create a copy of the mainstats array
+    setNewData((prev) => {
       const updatedMainstats = [...prev.mainstats];
       const updatedSubstats = [...prev.substats];
 
-      // Update the data in the copy
+      // update mainstat & clear substats
       updatedMainstats[mainIndex] = newValue || "";
-
-      // Clear the substats for the updated mainstat
       updatedSubstats[mainIndex] = {
         0: ["",""],
         1: ["",""],
@@ -49,16 +40,12 @@ const Piece = ({
     });
   };
 
-  // Pass substat data to newCdata
   const handleSubstat = (newValue, subIndex, attrIndex) => {
-    setNewCdata((prev) => {
-      // Create a deep copy of the substats array
+    setNewData((prev) => {
       const updatedSubstats = JSON.parse(JSON.stringify(prev.substats));
   
-      // Update the specific substat object
+      // update substat & clear value if updating key
       updatedSubstats[mainIndex][subIndex][attrIndex] = newValue || "";
-
-      // If updating the key (index 0), reset the value (index 1) to an empty string
       if (attrIndex === 0) {
         updatedSubstats[mainIndex][subIndex][1] = "";
       }
@@ -71,17 +58,15 @@ const Piece = ({
   };
 
   const substatOptions = (subIndex) => {
-    // Get the selected mainstat and substat names
-    const selectedMainstat = newCdata.mainstats[mainIndex];
-    const selectedSubstatKeys = Object.values(newCdata.substats[mainIndex])
+    const selectedMainstat = newData.mainstats[mainIndex];
+    const selectedSubstatKeys = Object.values(newData.substats[mainIndex])
       .map((substat) => substat[0])
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
-    return Object.keys(gameData.INFO.SUBSTATS).filter(
-      (option) =>
-        gameType === "WW"
-          ? !selectedSubstatKeys.includes(option)
-          : gameData.INFO.SUBSTATS[option].name !== gameData.INFO.MAINSTATS[mainIndex][selectedMainstat]?.name && !selectedSubstatKeys.includes(option)
+    return Object.keys(SUBSTATS).filter(
+      (option) => gameType === "WW" ?
+        !selectedSubstatKeys.includes(option) :
+        !selectedSubstatKeys.includes(option) && SUBSTATS[option] !== selectedMainstat
     );
   };
 
@@ -92,9 +77,9 @@ const Piece = ({
         <Grid size={12}>
           <Autocomplete
             size="small"
-            value={newCdata.mainstats[mainIndex] || ""}
-            options={Object.keys(gameData.INFO.MAINSTATS[mainIndex])}
-            getOptionLabel={(id) => gameData.INFO.MAINSTATS[mainIndex][id]?.name || ""}
+            value={newData.mainstats[mainIndex] || ""}
+            options={Object.keys(MAINSTATS[mainIndex])}
+            getOptionLabel={(id) => MAINSTATS[mainIndex][id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
@@ -103,7 +88,7 @@ const Piece = ({
               />
             )}
             fullWidth
-            disableClearable={newCdata.mainstats[mainIndex] === ""}
+            disableClearable={newData.mainstats[mainIndex] === ""}
           />
         </Grid>
 
@@ -119,9 +104,9 @@ const Piece = ({
             <Grid size={8}>
               <Autocomplete
                 size="small"
-                value={newCdata.substats[mainIndex][subIndex][0] || ""}
+                value={newData.substats[mainIndex][subIndex][0] || ""}
                 options={substatOptions(subIndex)}
-                getOptionLabel={(id) => gameData.INFO.SUBSTATS[id]?.name || ""}
+                getOptionLabel={(id) => SUBSTATS[id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, 0)}
                 renderInput={(params) => (
                   <TextField
@@ -130,8 +115,8 @@ const Piece = ({
                   />
                 )}
                 fullWidth
-                disabled={newCdata.mainstats[mainIndex] === ""}
-                disableClearable={newCdata.substats[mainIndex][subIndex][0] === ""}
+                disabled={newData.mainstats[mainIndex] === ""}
+                disableClearable={newData.substats[mainIndex][subIndex][0] === ""}
               />
             </Grid>
 
@@ -139,20 +124,20 @@ const Piece = ({
             <Grid size={4}>
               <TextField
                 size="small"
-                value={newCdata.substats[mainIndex][subIndex][1] || ""}
+                value={newData.substats[mainIndex][subIndex][1] || ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (gameData.INFO.SUBSTATS[newCdata.substats[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (SUBSTATS[newData.substats[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, 1);
                   }
                 }}
                 fullWidth
-                disabled={newCdata.substats[mainIndex][subIndex][0] === ""}
+                disabled={newData.substats[mainIndex][subIndex][0] === ""}
                 slotProps={{
                   input: {
-                    endAdornment: gameData.INFO.SUBSTATS[newCdata.substats[mainIndex][subIndex][0]]?.percent && (
+                    endAdornment: SUBSTATS[newData.substats[mainIndex][subIndex][0]]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },

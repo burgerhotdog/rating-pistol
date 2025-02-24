@@ -1,6 +1,14 @@
 const ZZZ_INFO = {
   TITLE: "Zenless Zone Zero",
   VERSION: "1.5",
+  PIECE_NAMES: [
+    "Disk 1",
+    "Disk 2",
+    "Disk 3",
+    "Disk 4",
+    "Disk 5",
+    "Disk 6",
+  ],
   MAINSTATS: [
     {
       "FLAT_HP": {

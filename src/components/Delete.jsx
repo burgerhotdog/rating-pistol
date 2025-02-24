@@ -11,15 +11,17 @@ const Delete = ({
   setIsDeleteOpen,
   setMyChars,
 }) => {
+  const { CHAR } = gameData;
+  
   const handleDelete = async () => {
     try {
-      // If signed in, delete document from firestore
+      // Firestore
       if (uid) {
         const characterDocRef = doc(db, "users", uid, gameType, isDeleteOpen);
         await deleteDoc(characterDocRef);
       }
 
-      // Delete object from myChars
+      // Local
       setMyChars((prev) => {
         const updatedChars = { ...prev };
         delete updatedChars[isDeleteOpen];
@@ -49,14 +51,13 @@ const Delete = ({
           borderRadius: 2,
         }}
       >
-        {/* Text section */}
         <Typography variant="body1">
           Are you sure you want to delete{" "}
-          <strong>{gameData.CHAR[isDeleteOpen]?.name}</strong>
+          <strong>{CHAR[isDeleteOpen]?.name}</strong>
           ?
         </Typography>
 
-        {/* Buttons section */}
+        {/* Buttons */}
         <Box
           sx={{
             display: "flex",

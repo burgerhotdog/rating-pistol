@@ -1,6 +1,13 @@
 const WW_INFO = {
   TITLE: "Wuthering Waves",
   VERSION: "2.1",
+  PIECE_NAMES: [
+    "4-Cost",
+    "3-Cost",
+    "3-Cost",
+    "1-Cost",
+    "1-Cost",
+  ],
   MAINSTATS: [
     {
       "HP": {

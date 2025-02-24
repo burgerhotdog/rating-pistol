@@ -1,6 +1,13 @@
 const GI_INFO = {
   TITLE: "Genshin Impact",
   VERSION: "5.4",
+  PIECE_NAMES: [
+    "Flower",
+    "Plume",
+    "Sands",
+    "Goblet",
+    "Circlet",
+  ],
   MAINSTATS: [
     {
       "FLAT_HP": {
