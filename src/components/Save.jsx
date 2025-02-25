@@ -21,19 +21,14 @@ const Save = ({
   gameType,
   gameData,
   charIcons,
-  weapIcons,
-  setsIcons,
-  isSaveOpen,
-  setIsSaveOpen,
   myChars,
   setMyChars,
   addMode,
   setAddMode,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [addId, setAddId] = useState("");
   const { CHAR } = gameData;
-  const [newId, setNewId] = useState("");
-  const [newData, setNewData] = useState(() => dataTemplate(gameType));
   const rarityColor = {
     5: "goldenrod",
     4: "orchid",
@@ -41,19 +36,14 @@ const Save = ({
     2: "green",
     1: "slategrey",
   };
-
-  // When modal opens, reset newId and newData
+  
   useEffect(() => {
-    if (isSaveOpen) {
-      if (isSaveOpen === true) {
-        setNewId("");
-        setNewData(dataTemplate(gameType));
-      } else {
-        setNewId(isSaveOpen);
-        setNewData(myChars[isSaveOpen]);
-      }
-    }
-  }, [isSaveOpen, myChars]);
+    setIsModalOpen(!!addMode);
+  }, [addMode]);
+
+  useEffect(() => {
+    setAddId("");
+  }, [isModalOpen]);
   
   const charOptions = () => {
     return Object.keys(CHAR)
@@ -69,34 +59,29 @@ const Save = ({
   const handleSave = async () => {
     // Firestore
     if (uid) {
-      const charDocRef = doc(db, "users", uid, gameType, newId);
-      await setDoc(charDocRef, newData, { merge: true });
+      const charDocRef = doc(db, "users", uid, gameType, addId);
+      await setDoc(charDocRef, dataTemplate(gameType), { merge: true });
     }
 
     // Local
     setMyChars((prev) => ({
       ...prev,
-      [newId]: newData,
+      [addId]: dataTemplate(gameType),
     }));
 
-    setNewId("");
-    setNewData(() => dataTemplate(gameType));
-    setIsSaveOpen(false);
+    setAddMode("");
   };
 
   const handleCancel = () => {
-    setNewId("");
-    setNewData(() => dataTemplate(gameType));
-    setIsSaveOpen(false);
+    setAddMode("");
   };
 
   const handleCharacter = (newValue) => {
-    setNewId(newValue || "");
-    setNewData(dataTemplate(gameType));
+    setAddId(newValue || "");
   };
 
   return (
-    <Modal open={Boolean(isSaveOpen)} onClose={handleCancel}>
+    <Modal open={isModalOpen} onClose={handleCancel}>
       <Box
         sx={{
           position: "absolute",
@@ -106,7 +91,7 @@ const Save = ({
           backgroundColor: "background.paper",
           padding: 4,
           borderRadius: 2,
-          maxHeight: "90vh",
+          maxHeight: "80vh",
           overflowY: "auto",
         }}
       >
@@ -121,7 +106,7 @@ const Save = ({
           {/* Select Character */}
           <Autocomplete
             size="small"
-            value={newId}
+            value={addId}
             options={charOptions()}
             getOptionLabel={(id) => CHAR[id]?.name || ""}
             onChange={(_, newValue) => handleCharacter(newValue)}
@@ -154,16 +139,16 @@ const Save = ({
                 label="Character"
                 sx={{
                   "& .MuiInputBase-root": {
-                    color: rarityColor[CHAR[newId]?.rarity] || "inherit",
+                    color: rarityColor[CHAR[addId]?.rarity] || "inherit",
                   }
                 }}
                 slotProps={{
                   input: {
                     ...params.InputProps,
-                    startAdornment: newId && (
+                    startAdornment: addId && (
                       <InputAdornment position="start">
                         <img
-                          src={charIcons[`../assets/char/${gameType}/${newId}.webp`]?.default}
+                          src={charIcons[`../assets/char/${gameType}/${addId}.webp`]?.default}
                           alt=""
                           style={{ width: 24, height: 24, objectFit: "contain" }}
                         />
@@ -174,30 +159,18 @@ const Save = ({
               />
             )}
             sx={{ width: { xs: 128, xl: 256 } }}
-            disabled={isSaveOpen && (isSaveOpen !== true)}
-            disableClearable={newId === ""}
+            disableClearable={addId === ""}
           />
 
           {/* Save button */}
-          {newId && (
-            <Button 
-              variant="contained"
-              color="primary"
-              onClick={handleSave}
-              sx={{ width: 80 }}
-            >
-              Save
-            </Button>
-          )}
-
-          {/* Cancel button */}
-          <Button
-            variant="outlined"
-            color="secondary"
-            onClick={handleCancel}
+          <Button 
+            variant="contained"
+            color="primary"
+            onClick={handleSave}
             sx={{ width: 80 }}
+            disabled={!addId}
           >
-            Cancel
+            Save
           </Button>
         </Box>
       </Box>      

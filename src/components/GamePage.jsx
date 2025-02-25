@@ -26,7 +26,6 @@ import getScore from "./getScore";
 
 const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) => {
   const { INFO, CHAR, WEAP, SETS } = gameData;
-  const [isSaveOpen, setIsSaveOpen] = useState(false);
   const [isEnkaOpen, setIsEnkaOpen] = useState(false);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
@@ -70,6 +69,10 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
 
     setMyCharsScored(scoredChars);
   }, [myChars]);
+
+  const handleAdd = () => {
+    setAddMode("select");
+  };
 
   const handleEdit = (id) => {
     setEditEntry({ id, data: myChars[id] });
@@ -253,7 +256,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
           <Button
             variant="contained"
             color="primary"
-            onClick={() => setIsSaveOpen(true)}
+            onClick={handleAdd}
           >
             Add character
           </Button>
@@ -272,11 +275,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
           uid={uid}
           gameType={gameType}
           gameData={gameData}
-          isSaveOpen={isSaveOpen}
           charIcons={charIcons}
-          weapIcons={weapIcons}
-          setsIcons={setsIcons}
-          setIsSaveOpen={setIsSaveOpen}
           myChars={myChars}
           setMyChars={setMyChars}
           addMode={addMode}
