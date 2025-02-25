@@ -157,28 +157,28 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                             gap: 1,
                           }}
                         >
-                          {data.set1 && (
+                          {data.set1[0] && (
                             <Tooltip
                               title={
                                 <React.Fragment>
                                   <Typography variant="subtitle1" fontWeight="bold">
-                                    {SETS[data.set1].name}
+                                    {SETS[data.set1[0]].name}
                                   </Typography>
                                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {SETS[data.set1].desc}
+                                    {SETS[data.set1[0]].desc}
                                   </Typography>
                                 </React.Fragment>
                               }
                               arrow
                             >
                               <img
-                                src={setsIcons[`../assets/sets/${gameType}/${data.set1}.webp`]?.default}
-                                alt={data.set1}
+                                src={setsIcons[`../assets/sets/${gameType}/${data.set1[0]}.webp`]?.default}
+                                alt={data.set1[0]}
                                 style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                               />
                             </Tooltip>
                           )}
-                          {(data.set1 && data.set2) && (<Typography>+</Typography>)}
+                          {(data.set1[0] && data.set2) && (<Typography>+</Typography>)}
                           {data.set2 && (
                             <Tooltip
                               title={

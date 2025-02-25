@@ -10,7 +10,7 @@ const dataTemplate = (gameType) => {
 
   return {
     weapon: "",
-    set1: "",
+    set1: [""],
     ...(multiSet ? { set2: "" } : {}),
     mainstats: Array(numOfMainstats).fill(""),
     substats: Array.from({ length: numOfMainstats }, () =>

@@ -91,7 +91,7 @@ const Save = ({
             if (gameType === "HSR") {
               return id.substring(0, 1) === "3";
             } else {
-              return id !== newData.set1;
+              return id !== newData.set1[0];
             }
         }
       })
@@ -139,12 +139,19 @@ const Save = ({
     }));
   };
 
-  const handleSet = (newValue, setNumber) => {
-    const clearSet2 = gameType === "ZZZ" && setNumber === "set1";
+  const handleSet1 = (newValue) => {
+    const newSet1 = [newValue || ""];
     setNewData((prev) => ({
       ...prev,
-      [setNumber]: newValue || "",
-      ...(clearSet2 && prev.set2 === newValue ? { set2: "" } : {}),
+      set1: newSet1,
+      ...(prev.set2 === newValue ? { set2: "" } : {}),
+    }));
+  };
+
+  const handleSet2 = (newValue) => {
+    setNewData((prev) => ({
+      ...prev,
+      set2: newValue || "",
     }));
   };
 
@@ -325,10 +332,10 @@ const Save = ({
             <Grid size={{ xs: 12, xl: (gameType === "HSR" || gameType === "ZZZ" ? 4 : 8) }}>
               <Autocomplete
                 size="small"
-                value={newData.set1}
+                value={newData.set1[0]}
                 options={setOptions("set1")}
                 getOptionLabel={(id) => SETS[id]?.name || ""}
-                onChange={(_, newValue) => handleSet(newValue, "set1")}
+                onChange={(_, newValue) => handleSet1(newValue)}
                 renderOption={(props, option) => {
                   const { key, ...optionProps } = props;
                   const rarity = SETS[option]?.rarity;
@@ -358,16 +365,16 @@ const Save = ({
                     label="Set 1"
                     sx={{
                       "& .MuiInputBase-root": {
-                        color: rarityColor[SETS[newData.set1]?.rarity] || "inherit",
+                        color: rarityColor[SETS[newData.set1[0]]?.rarity] || "inherit",
                       }
                     }}
                     slotProps={{
                       input: {
                         ...params.InputProps,
-                        startAdornment: newData.set1 && (
+                        startAdornment: newData.set1[0] && (
                           <InputAdornment position="start">
                             <img
-                              src={setsIcons[`../assets/sets/${gameType}/${newData.set1}.webp`]?.default}
+                              src={setsIcons[`../assets/sets/${gameType}/${newData.set1[0]}.webp`]?.default}
                               alt=""
                               style={{ width: 24, height: 24, objectFit: "contain" }}
                             />
@@ -378,7 +385,7 @@ const Save = ({
                   />
                 )}
                 fullWidth
-                disableClearable={newData.set1 === ""}
+                disableClearable={newData.set1[0] === ""}
               />
             </Grid>
 
@@ -389,7 +396,7 @@ const Save = ({
                   value={newData.set2}
                   options={setOptions("set2")}
                   getOptionLabel={(id) => SETS[id]?.name || ""}
-                  onChange={(_, newValue) => handleSet(newValue, "set2")}
+                  onChange={(_, newValue) => handleSet2(newValue)}
                   renderOption={(props, option) => {
                     const { key, ...optionProps } = props;
                     const rarity = SETS[option]?.rarity;
