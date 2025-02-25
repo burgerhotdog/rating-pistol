@@ -19,6 +19,7 @@ import {
 import { db } from "../firebase";
 import Back from "./Back";
 import Save from "./Save";
+import Edit from "./Edit";
 import Delete from "./Delete";
 import Enka from "./Enka";
 import getScore from "./getScore";
@@ -31,6 +32,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
   const [myCharsScored, setMyCharsScored] = useState([]);
+  const [editEntry, setEditEntry] = useState({});
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
@@ -67,6 +69,10 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
 
     setMyCharsScored(scoredChars);
   }, [myChars]);
+
+  const handleEdit = (id) => {
+    setEditEntry({ id, data: myChars[id] });
+  };
 
   return (
     <Container>
@@ -205,11 +211,27 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                     )}
                     <TableCell>{score.toString()}</TableCell>
                     <TableCell>
-                      <Box sx={{ display: "flex", gap: 1, visibility: hoveredRow === id ? "visible" : "hidden" }}>
-                        <Button size="small" variant="outlined" color="primary" onClick={() => setIsSaveOpen(id)}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          gap: 1,
+                          visibility: hoveredRow === id ? "visible" : "hidden"
+                        }}
+                      >
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          color="primary"
+                          onClick={() => handleEdit(id)}
+                        >
                           <EditIcon />
                         </Button>
-                        <Button size="small" variant="outlined" color="secondary" onClick={() => setIsDeleteOpen(id)}>
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          color="secondary"
+                          onClick={() => setIsDeleteOpen(id)}
+                        >
                           <DeleteIcon />
                         </Button>
                       </Box>
@@ -252,6 +274,18 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
           setIsSaveOpen={setIsSaveOpen}
           myChars={myChars}
           setMyChars={setMyChars}
+        />
+        <Edit
+          uid={uid}
+          gameType={gameType}
+          gameData={gameData}
+          charIcons={charIcons}
+          weapIcons={weapIcons}
+          setsIcons={setsIcons}
+          myChars={myChars}
+          setMyChars={setMyChars}
+          editEntry={editEntry}
+          setEditEntry={setEditEntry}
         />
         <Delete
           uid={uid}
