@@ -27,6 +27,8 @@ const Save = ({
   setIsSaveOpen,
   myChars,
   setMyChars,
+  addMode,
+  setAddMode,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { CHAR } = gameData;

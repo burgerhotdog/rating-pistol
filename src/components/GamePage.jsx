@@ -31,6 +31,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
   const [myCharsScored, setMyCharsScored] = useState([]);
+  const [addMode, setAddMode] = useState("");
   const [editEntry, setEditEntry] = useState({});
   const [deleteEntry, setDeleteEntry] = useState({});
 
@@ -278,6 +279,8 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
           setIsSaveOpen={setIsSaveOpen}
           myChars={myChars}
           setMyChars={setMyChars}
+          addMode={addMode}
+          setAddMode={setAddMode}
         />
         <Edit
           uid={uid}
