@@ -27,12 +27,12 @@ import getScore from "./getScore";
 const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) => {
   const { INFO, CHAR, WEAP, SETS } = gameData;
   const [isSaveOpen, setIsSaveOpen] = useState(false);
-  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [isEnkaOpen, setIsEnkaOpen] = useState(false);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [myChars, setMyChars] = useState({});
   const [myCharsScored, setMyCharsScored] = useState([]);
   const [editEntry, setEditEntry] = useState({});
+  const [deleteEntry, setDeleteEntry] = useState({});
 
   const theme = useTheme();
   const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
@@ -72,6 +72,10 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
 
   const handleEdit = (id) => {
     setEditEntry({ id, data: myChars[id] });
+  };
+
+  const handleDelete = (id) => {
+    setDeleteEntry({ id, data: myChars[id] });
   };
 
   return (
@@ -230,7 +234,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                           size="small"
                           variant="outlined"
                           color="secondary"
-                          onClick={() => setIsDeleteOpen(id)}
+                          onClick={() => handleDelete(id)}
                         >
                           <DeleteIcon />
                         </Button>
@@ -291,8 +295,8 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
           uid={uid}
           gameType={gameType}
           gameData={gameData}
-          isDeleteOpen={isDeleteOpen}
-          setIsDeleteOpen={setIsDeleteOpen}
+          deleteEntry={deleteEntry}
+          setDeleteEntry={setDeleteEntry}
           setMyChars={setMyChars}
         />
         {(gameType === "GI" || gameType === "HSR") && (

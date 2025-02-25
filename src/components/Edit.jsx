@@ -29,8 +29,8 @@ const Edit = ({
   editEntry,
   setEditEntry,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { CHAR, WEAP, SETS } = gameData;
-  const [isEditOpen, setIsEditOpen] = useState(false);
   const rarityColor = {
     5: "goldenrod",
     4: "orchid",
@@ -42,12 +42,7 @@ const Edit = ({
   const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
 
   useEffect(() => {
-    if (editEntry.id) {
-      console.log(editEntry);
-      setIsEditOpen(true);
-    } else {
-      setIsEditOpen(false);
-    }
+    setIsModalOpen(!!editEntry.id);
   }, [editEntry]);
 
   const weapOptions = () => {
@@ -130,7 +125,7 @@ const Edit = ({
   };
 
   return (
-    <Modal open={isEditOpen} onClose={handleCancel}>
+    <Modal open={isModalOpen} onClose={handleCancel}>
       <Box
         sx={{
           position: "absolute",

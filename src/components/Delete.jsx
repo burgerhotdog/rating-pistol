@@ -1,45 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { deleteDoc, doc } from "firebase/firestore";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import { db } from "../firebase";
+import dataTemplate from "./dataTemplate";
 
 const Delete = ({
   uid,
   gameType,
   gameData,
-  isDeleteOpen,
-  setIsDeleteOpen,
+  deleteEntry,
+  setDeleteEntry,
   setMyChars,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { CHAR } = gameData;
+
+  useEffect(() => {
+    setIsModalOpen(!!deleteEntry.id);
+  }, [deleteEntry]);
   
   const handleDelete = async () => {
     try {
       // Firestore
       if (uid) {
-        const characterDocRef = doc(db, "users", uid, gameType, isDeleteOpen);
-        await deleteDoc(characterDocRef);
+        const docRef = doc(db, "users", uid, gameType, deleteEntry.id);
+        await deleteDoc(docRef);
       }
 
       // Local
       setMyChars((prev) => {
         const updatedChars = { ...prev };
-        delete updatedChars[isDeleteOpen];
+        delete updatedChars[deleteEntry.id];
         return updatedChars;
       });
     } catch (error) {
-      console.error("handleDelete: ", error);
+      console.error(error);
     } finally {
-      setIsDeleteOpen(false);
+      setDeleteEntry({ id: "", data: dataTemplate(gameType) });
     }
   };
 
   const handleCancel = () => {
-    setIsDeleteOpen(false);
+    setDeleteEntry({ id: "", data: dataTemplate(gameType) });
   };
 
   return (
-    <Modal open={Boolean(isDeleteOpen)} onClose={handleCancel}>
+    <Modal open={isModalOpen} onClose={handleCancel}>
       <Box
         sx={{
           position: "absolute",
@@ -53,7 +59,7 @@ const Delete = ({
       >
         <Typography variant="body1">
           Are you sure you want to delete{" "}
-          <strong>{CHAR[isDeleteOpen]?.name}</strong>
+          <strong>{CHAR[deleteEntry.id]?.name}</strong>
           ?
         </Typography>
 
