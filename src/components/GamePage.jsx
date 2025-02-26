@@ -122,7 +122,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                     <TableCell>{CHAR[id].name}</TableCell>
                     {isDesktop && (
                       <TableCell>
-                        {data.weapon && (
+                        {data.weapon ? (
                           <Tooltip
                             title={
                               <React.Fragment>
@@ -158,6 +158,8 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
+                        ) : (
+                          <Typography>+</Typography>
                         )}
                       </TableCell>
                     )}

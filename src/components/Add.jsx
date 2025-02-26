@@ -1,20 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
-import Grid from "@mui/material/Grid2";
 import {
   Autocomplete,
   Box,
   Button,
-  Card,
-  Checkbox,
-  Divider,
-  FormControlLabel,
   InputAdornment,
   Modal,
   TextField,
-  Typography,
-  useTheme,
-  useMediaQuery,
 } from "@mui/material";
 import { db } from "../firebase";
 import dataTemplate from "./dataTemplate";
@@ -30,8 +22,7 @@ const Add = ({
   setAddMode,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [rememberUid, setRememberUid] = useState(false);
-  const [manualId, setManualId] = useState("");
+  const [addId, setAddId] = useState("");
   const { CHAR } = gameData;
   const rarityColor = {
     5: "goldenrod",
@@ -42,12 +33,9 @@ const Add = ({
   };
   
   useEffect(() => {
+    setAddId("");
     setIsModalOpen(!!addMode);
   }, [addMode]);
-
-  useEffect(() => {
-    setManualId("");
-  }, [isModalOpen]);
   
   const charOptions = () => {
     return Object.keys(CHAR)
@@ -60,21 +48,21 @@ const Add = ({
       });
   };
 
-  const handleAutoNext = () => {
-    setAddMode("");
+  const handleSelect = (newValue) => {
+    setAddId(newValue || "");
   };
 
-  const handleManualNext = async () => {
+  const handleAdd = async () => {
     // Firestore
     if (uid) {
-      const charDocRef = doc(db, "users", uid, gameType, manualId);
+      const charDocRef = doc(db, "users", uid, gameType, addId);
       await setDoc(charDocRef, dataTemplate(gameType), { merge: true });
     }
 
     // Local
     setMyChars((prev) => ({
       ...prev,
-      [manualId]: dataTemplate(gameType),
+      [addId]: dataTemplate(gameType),
     }));
 
     setAddMode("");
@@ -82,10 +70,6 @@ const Add = ({
 
   const handleCancel = () => {
     setAddMode("");
-  };
-
-  const handleCharacter = (newValue) => {
-    setManualId(newValue || "");
   };
 
   return (
@@ -103,91 +87,81 @@ const Add = ({
           overflowY: "auto",
         }}
       >
-        {addMode === "select" ? (
-          <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
-            <Card sx={{ p: 2 }}>
-              <Box
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: 2,
+          }}
+        >
+          <Autocomplete
+            size="small"
+            value={addId}
+            options={charOptions()}
+            getOptionLabel={(id) => CHAR[id]?.name || ""}
+            onChange={(_, newValue) => handleSelect(newValue)}
+            renderOption={(props, option) => {
+              const { key, ...optionProps } = props;
+              const rarity = CHAR[option]?.rarity;
+              return (
+                <Box
+                  key={key}
+                  component="li"
+                  sx={{
+                    "& > img": { mr: 2, flexShrink: 0 },
+                    color: rarityColor[rarity],
+                  }}
+                  {...optionProps}
+                >
+                  <img
+                    loading="lazy"
+                    src={charIcons[`../assets/char/${gameType}/${option}.webp`]?.default}
+                    alt={""}
+                    style={{ width: 24, height: 24, objectFit: "contain" }}
+                  />
+                  {CHAR[option]?.name || ""}
+                </Box>
+              );
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Character"
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  gap: 2,
+                  "& .MuiInputBase-root": {
+                    color: rarityColor[CHAR[addId]?.rarity] || "inherit",
+                  }
                 }}
-              >
-                <Autocomplete
-                  size="small"
-                  value={manualId}
-                  options={charOptions()}
-                  getOptionLabel={(id) => CHAR[id]?.name || ""}
-                  onChange={(_, newValue) => handleCharacter(newValue)}
-                  renderOption={(props, option) => {
-                    const { key, ...optionProps } = props;
-                    const rarity = CHAR[option]?.rarity;
-                    return (
-                      <Box
-                        key={key}
-                        component="li"
-                        sx={{
-                          "& > img": { mr: 2, flexShrink: 0 },
-                          color: rarityColor[rarity],
-                        }}
-                        {...optionProps}
-                      >
+                slotProps={{
+                  input: {
+                    ...params.InputProps,
+                    startAdornment: addId && (
+                      <InputAdornment position="start">
                         <img
-                          loading="lazy"
-                          src={charIcons[`../assets/char/${gameType}/${option}.webp`]?.default}
-                          alt={""}
+                          src={charIcons[`../assets/char/${gameType}/${addId}.webp`]?.default}
+                          alt=""
                           style={{ width: 24, height: 24, objectFit: "contain" }}
                         />
-                        {CHAR[option]?.name || ""}
-                      </Box>
-                    );
-                  }}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="Character"
-                      sx={{
-                        "& .MuiInputBase-root": {
-                          color: rarityColor[CHAR[manualId]?.rarity] || "inherit",
-                        }
-                      }}
-                      slotProps={{
-                        input: {
-                          ...params.InputProps,
-                          startAdornment: manualId && (
-                            <InputAdornment position="start">
-                              <img
-                                src={charIcons[`../assets/char/${gameType}/${manualId}.webp`]?.default}
-                                alt=""
-                                style={{ width: 24, height: 24, objectFit: "contain" }}
-                              />
-                            </InputAdornment>
-                          ),
-                        },
-                      }}
-                    />
-                  )}
-                  sx={{ width: { xs: 128, xl: 256 } }}
-                  disableClearable={manualId === ""}
-                />
-
-                <Button 
-                  variant="contained"
-                  color="primary"
-                  onClick={handleManualNext}
-                  sx={{ width: 80 }}
-                  disabled={!manualId}
-                >
-                  Next
-                </Button>
-              </Box>
-            </Card>
-          </Box>
-        ) : (
-          <>
-          </>
-        )}
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+              />
+            )}
+            sx={{ width: { xs: 128, xl: 256 } }}
+            disableClearable={addId === ""}
+          />
+          <Button 
+            variant="contained"
+            color="primary"
+            onClick={handleAdd}
+            sx={{ width: 80 }}
+            disabled={!addId}
+          >
+            Add
+          </Button>
+        </Box>
       </Box>      
     </Modal>
   );
