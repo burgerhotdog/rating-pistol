@@ -14,7 +14,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { db } from "../firebase";
-import Piece from "./Piece2";
+import Piece from "./Piece";
 import dataTemplate from "./dataTemplate";
 
 const Edit = ({

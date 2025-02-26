@@ -18,7 +18,7 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import Save from "./Save";
+import Add from "./Add";
 import Edit from "./Edit";
 import Delete from "./Delete";
 import Enka from "./Enka";
@@ -271,7 +271,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
         </Box>
 
         {/* Modals */}
-        <Save
+        <Add
           uid={uid}
           gameType={gameType}
           gameData={gameData}
