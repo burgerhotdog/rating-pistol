@@ -1,4 +1,16 @@
 const HSR_SETS = {
+  // Version 3.1
+  "319": {
+    name: "Bone Collection's Serene Demesne",
+    rarity: 5,
+    desc: "2-Pc: Increases the wearer's Max HP by 12%. When the wearer's Max HP is 5000 or higher, increases the wearer's and their memosprite's CRIT DMG by 28%.",
+  },
+  "320": {
+    name: "Giant Tree of Rapt Brooding",
+    rarity: 5,
+    desc: "2-Pc: Increases the wearer's SPD by 6%. When the wearer's SPD is 135/180 or higher, the wearer and their memosprite's Outgoing Healing increases by 12%/20%.",
+  },
+  
   // Version 3.0
   "123": {
     name: "Hero of Triumphant Song",

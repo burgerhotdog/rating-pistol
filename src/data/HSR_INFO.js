@@ -1,6 +1,6 @@
 const HSR_INFO = {
   TITLE: "Honkai Star Rail",
-  VERSION: "3.0",
+  VERSION: "3.1",
   PIECE_NAMES: [
     "Head",
     "Hands",

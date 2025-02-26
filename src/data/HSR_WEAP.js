@@ -1,4 +1,30 @@
 const HSR_WEAP = {
+  // Version 3.1
+  "23038": {
+    name: "If Time Were a Flower",
+    rarity: 5,
+    type: "Harmony",
+    base: { FLAT_HP: 1270, FLAT_ATK: 529, FLAT_DEF: 397 },
+    subtitle: "Aspiration",
+    desc: "Increases the wearer's CRIT DMG by 36%. After the wearer launches Follow-up ATK, additionally regenerates 12 Energy and gains \"Presage,\" lasting for 2 turn(s). While the wearer has \"Presage,\" all ally targets' CRIT DMG increases by 48%. When entering battle, the wearer regenerates 21 Energy and gains \"Presage,\" lasting for 2 turn(s).",
+  },
+  "23039": {
+    name: "Flame of Blood, Blaze My Path",
+    rarity: 5,
+    type: "Destruction",
+    base: { FLAT_HP: 1376, FLAT_ATK: 476, FLAT_DEF: 397 },
+    subtitle: "Vista",
+    desc: "Increases the wearer's Max HP by 18% and Incoming Healing by 20%. When using Skill or Ultimate, consumes HP equal to 6% of the wearer's Max HP and increases the DMG dealt by this attack by 30%. If this effect's consumed HP is greater than 500, the DMG additionally increases by 30%.\nIf the current HP is not sufficient, this effect reduces the wearer's current HP down to 1.",
+  },
+  "24005": {
+    name: "Memory's Curtain Never Falls",
+    rarity: 5,
+    type: "Remembrance",
+    base: { FLAT_HP: 1058, FLAT_ATK: 529, FLAT_DEF: 397 },
+    subtitle: "Reception",
+    desc: "Increases the wearer's SPD by 6%. After the wearer uses Skill, increases the DMG dealt by all allies by 8%, lasting for 3 turn(s).",
+  },
+  
   // Version 3.0
   "21051": {
     name: "Geniuses' Greetings",

@@ -1,4 +1,29 @@
 const HSR_CHAR = {
+  // Version 3.1
+  "1403": {
+    name: "Tribbie",
+    rarity: 5,
+    type: "Harmony",
+    base: { FLAT_HP: 1048, FLAT_ATK: 524, FLAT_DEF: 728 },
+    weights: {
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "HP": 0.6,
+    },
+  },
+  "1404": {
+    name: "Mydei",
+    rarity: 5,
+    type: "Destruction",
+    base: { FLAT_HP: 1552, FLAT_ATK: 427, FLAT_DEF: 194 },
+    weights: {
+      "SPD": 1,
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "HP": 0.6,
+    },
+  },
+  
   // Version 3.0
   "1402": {
     name: "Aglaea",
