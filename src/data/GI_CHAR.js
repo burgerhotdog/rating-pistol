@@ -12,6 +12,16 @@ const GI_CHAR = {
   },
   
   // Version 5.3
+  "10000107": {
+    name: "Citlali",
+    rarity: 5,
+    type: "Catalyst",
+    base: { FLAT_HP: 11633, FLAT_ATK: 126, FLAT_DEF: 763 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "ELEMENTAL_MASTERY": 1,
+    },
+  },
   "10000106": {
     name: "Mavuika",
     rarity: 5,
@@ -22,16 +32,6 @@ const GI_CHAR = {
       "CRIT_DMG": 1,
       "ATK": 0.6,
       "ELEMENTAL_MASTERY": 0.24,
-    },
-  },
-  "10000107": {
-    name: "Citlali",
-    rarity: 5,
-    type: "Catalyst",
-    base: { FLAT_HP: 11633, FLAT_ATK: 126, FLAT_DEF: 763 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "ELEMENTAL_MASTERY": 1,
     },
   },
   "10000007-2": {
@@ -100,19 +100,6 @@ const GI_CHAR = {
   },
   
   // Version 5.0
-  "10000101": {
-    name: "Kinich",
-    rarity: 5,
-    type: "Claymore",
-    base: { FLAT_HP: 12858, FLAT_ATK: 332, FLAT_DEF: 801 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.6,
-      "ELEMENTAL_MASTERY": 0.24,
-    },
-  },
   "10000102": {
     name: "Mualani",
     rarity: 5,
@@ -123,6 +110,19 @@ const GI_CHAR = {
       "CRIT_RATE": 1,
       "CRIT_DMG": 1,
       "HP": 0.6,
+      "ELEMENTAL_MASTERY": 0.24,
+    },
+  },
+  "10000101": {
+    name: "Kinich",
+    rarity: 5,
+    type: "Claymore",
+    base: { FLAT_HP: 12858, FLAT_ATK: 332, FLAT_DEF: 801 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
       "ELEMENTAL_MASTERY": 0.24,
     },
   },
@@ -155,16 +155,6 @@ const GI_CHAR = {
   },
   
   // Version 4.7
-  "10000095": {
-    name: "Sigewinne",
-    rarity: 5,
-    type: "Bow",
-    base: { FLAT_HP: 13348, FLAT_ATK: 192, FLAT_DEF: 499 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "HP": 1,
-    },
-  },
   "10000098": {
     name: "Clorinde",
     rarity: 5,
@@ -176,6 +166,16 @@ const GI_CHAR = {
       "CRIT_DMG": 1,
       "ATK": 0.6,
       "ELEMENTAL_MASTERY": 0.24,
+    },
+  },
+  "10000095": {
+    name: "Sigewinne",
+    rarity: 5,
+    type: "Bow",
+    base: { FLAT_HP: 13348, FLAT_ATK: 192, FLAT_DEF: 499 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "HP": 1,
     },
   },
   "10000097": {
@@ -296,18 +296,6 @@ const GI_CHAR = {
   },
   
   // Version 4.1
-  "10000086": {
-    name: "Wriothesley",
-    rarity: 5,
-    type: "Catalyst",
-    base: { FLAT_HP: 13592, FLAT_ATK: 310, FLAT_DEF: 763 },
-    weights: {
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.6,
-      "ELEMENTAL_MASTERY": 0.24,
-    },
-  },
   "10000087": {
     name: "Neuvillette",
     rarity: 5,
@@ -317,6 +305,18 @@ const GI_CHAR = {
       "CRIT_RATE": 1,
       "CRIT_DMG": 1,
       "HP": 0.6,
+      "ELEMENTAL_MASTERY": 0.24,
+    },
+  },
+  "10000086": {
+    name: "Wriothesley",
+    rarity: 5,
+    type: "Catalyst",
+    base: { FLAT_HP: 13592, FLAT_ATK: 310, FLAT_DEF: 763 },
+    weights: {
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
       "ELEMENTAL_MASTERY": 0.24,
     },
   },
@@ -346,11 +346,11 @@ const GI_CHAR = {
       "ATK": 0.6,
     },
   },
-  "10000083": {
-    name: "Lynette",
+  "10000085": {
+    name: "Freminet",
     rarity: 4,
-    type: "Sword",
-    base: { FLAT_HP: 12397, FLAT_ATK: 231, FLAT_DEF: 711 },
+    type: "Claymore",
+    base: { FLAT_HP: 12071, FLAT_ATK: 254, FLAT_DEF: 708 },
     weights: {
       "ENERGY_RECHARGE": 1,
       "CRIT_RATE": 1,
@@ -358,11 +358,11 @@ const GI_CHAR = {
       "ATK": 0.6,
     },
   },
-  "10000085": {
-    name: "Freminet",
+  "10000083": {
+    name: "Lynette",
     rarity: 4,
-    type: "Claymore",
-    base: { FLAT_HP: 12071, FLAT_ATK: 254, FLAT_DEF: 708 },
+    type: "Sword",
+    base: { FLAT_HP: 12397, FLAT_ATK: 231, FLAT_DEF: 711 },
     weights: {
       "ENERGY_RECHARGE": 1,
       "CRIT_RATE": 1,
@@ -506,16 +506,6 @@ const GI_CHAR = {
   },
   
   // Version 3.1
-  "10000070": {
-    name: "Nilou",
-    rarity: 5,
-    type: "Sword",
-    base: { FLAT_HP: 15184, FLAT_ATK: 229, FLAT_DEF: 728 },
-    weights: {
-      "HP": 1,
-      "ELEMENTAL_MASTERY": 0.24,
-    },
-  },
   "10000071": {
     name: "Cyno",
     rarity: 5,
@@ -527,6 +517,16 @@ const GI_CHAR = {
       "CRIT_DMG": 1,
       "ELEMENTAL_MASTERY": 0.48,
       "ATK": 0.36,
+    },
+  },
+  "10000070": {
+    name: "Nilou",
+    rarity: 5,
+    type: "Sword",
+    base: { FLAT_HP: 15184, FLAT_ATK: 229, FLAT_DEF: 728 },
+    weights: {
+      "HP": 1,
+      "ELEMENTAL_MASTERY": 0.24,
     },
   },
   "10000072": {
@@ -567,6 +567,16 @@ const GI_CHAR = {
       "ATK": 0.18,
     },
   },
+  "10000068": {
+    name: "Dori",
+    rarity: 4,
+    type: "Claymore",
+    base: { FLAT_HP: 12397, FLAT_ATK: 223, FLAT_DEF: 723 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "HP": 1,
+    },
+  },
   "10000067": {
     name: "Collei",
     rarity: 4,
@@ -578,16 +588,6 @@ const GI_CHAR = {
       "CRIT_DMG": 0.5,
       "ELEMENTAL_MASTERY": 0.24,
       "ATK": 0.18,
-    },
-  },
-  "10000068": {
-    name: "Dori",
-    rarity: 4,
-    type: "Claymore",
-    base: { FLAT_HP: 12397, FLAT_ATK: 223, FLAT_DEF: 723 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "HP": 1,
     },
   },
   
@@ -718,6 +718,16 @@ const GI_CHAR = {
   },
   
   // Version 2.1
+  "10000054": {
+    name: "Sangonomiya Kokomi",
+    rarity: 5,
+    type: "Catalyst",
+    base: { FLAT_HP: 13470, FLAT_ATK: 234, FLAT_DEF: 657 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "HP": 1,
+    },
+  },
   "10000052": {
     name: "Raiden Shogun",
     rarity: 5,
@@ -728,16 +738,6 @@ const GI_CHAR = {
       "CRIT_RATE": 1,
       "CRIT_DMG": 1,
       "ATK": 0.6,
-    },
-  },
-  "10000054": {
-    name: "Sangonomiya Kokomi",
-    rarity: 5,
-    type: "Catalyst",
-    base: { FLAT_HP: 13470, FLAT_ATK: 234, FLAT_DEF: 657 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "HP": 1,
     },
   },
   "10000062": {
@@ -766,18 +766,6 @@ const GI_CHAR = {
   },
   
   // Version 2.0
-  "10000002": {
-    name: "Kamisato Ayaka",
-    rarity: 5,
-    type: "Sword",
-    base: { FLAT_HP: 12858, FLAT_ATK: 342, FLAT_DEF: 783 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.6,
-    },
-  },
   "10000049": {
     name: "Yoimiya",
     rarity: 5,
@@ -788,6 +776,18 @@ const GI_CHAR = {
       "CRIT_DMG": 1,
       "ATK": 0.6,
       "ELEMENTAL_MASTERY": 0.24,
+    },
+  },
+  "10000002": {
+    name: "Kamisato Ayaka",
+    rarity: 5,
+    type: "Sword",
+    base: { FLAT_HP: 12858, FLAT_ATK: 342, FLAT_DEF: 783 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
     },
   },
   "10000007-7": {
@@ -869,17 +869,6 @@ const GI_CHAR = {
   },
   
   // Version 1.3
-  "10000026": {
-    name: "Xiao",
-    rarity: 5,
-    type: "Polearm",
-    base: { FLAT_HP: 12735, FLAT_ATK: 349, FLAT_DEF: 799 },
-    weights: {
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.6,
-    },
-  },
   "10000046": {
     name: "Hu Tao",
     rarity: 5,
@@ -893,8 +882,30 @@ const GI_CHAR = {
       "ATK": 0.12,
     },
   },
+  "10000026": {
+    name: "Xiao",
+    rarity: 5,
+    type: "Polearm",
+    base: { FLAT_HP: 12735, FLAT_ATK: 349, FLAT_DEF: 799 },
+    weights: {
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
+    },
+  },
   
   // Version 1.2
+  "10000038": {
+    name: "Albedo",
+    rarity: 5,
+    type: "Sword",
+    base: { FLAT_HP: 13225, FLAT_ATK: 251, FLAT_DEF: 876 },
+    weights: {
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "DEF": 0.6,
+    },
+  },
   "10000037": {
     name: "Ganyu",
     rarity: 5,
@@ -907,30 +918,8 @@ const GI_CHAR = {
       "ELEMENTAL_MASTERY": 0.24,
     },
   },
-  "10000038": {
-    name: "Albedo",
-    rarity: 5,
-    type: "Sword",
-    base: { FLAT_HP: 13225, FLAT_ATK: 251, FLAT_DEF: 876 },
-    weights: {
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "DEF": 0.6,
-    },
-  },
   
   // Version 1.1
-  "10000030": {
-    name: "Zhongli",
-    rarity: 5,
-    type: "Polearm",
-    base: { FLAT_HP: 14695, FLAT_ATK: 251, FLAT_DEF: 737 },
-    weights: {
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "HP": 0.9,
-    },
-  },
   "10000033": {
     name: "Tartaglia",
     rarity: 5,
@@ -943,14 +932,15 @@ const GI_CHAR = {
       "ELEMENTAL_MASTERY": 0.24,
     },
   },
-  "10000039": {
-    name: "Diona",
-    rarity: 4,
-    type: "Bow",
-    base: { FLAT_HP: 9569, FLAT_ATK: 212, FLAT_DEF: 600 },
+  "10000030": {
+    name: "Zhongli",
+    rarity: 5,
+    type: "Polearm",
+    base: { FLAT_HP: 14695, FLAT_ATK: 251, FLAT_DEF: 737 },
     weights: {
-      "ENERGY_RECHARGE": 1,
-      "HP": 1,
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "HP": 0.9,
     },
   },
   "10000044": {
@@ -965,8 +955,30 @@ const GI_CHAR = {
       "DEF": 0.24,
     },
   },
+  "10000039": {
+    name: "Diona",
+    rarity: 4,
+    type: "Bow",
+    base: { FLAT_HP: 9569, FLAT_ATK: 212, FLAT_DEF: 600 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "HP": 1,
+    },
+  },
   
   // Version 1.0
+  "10000029": {
+    name: "Klee",
+    rarity: 5,
+    type: "Catalyst",
+    base: { FLAT_HP: 10286, FLAT_ATK: 310, FLAT_DEF: 614 },
+    weights: {
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
+      "ELEMENTAL_MASTERY": 0.24,
+    },
+  },
   "10000022": {
     name: "Venti",
     rarity: 5,
@@ -977,11 +989,46 @@ const GI_CHAR = {
       "ELEMENTAL_MASTERY": 1,
     },
   },
-  "10000029": {
-    name: "Klee",
+  "10000042": {
+    name: "Keqing",
+    rarity: 5,
+    type: "Sword",
+    base: { FLAT_HP: 13103, FLAT_ATK: 322, FLAT_DEF: 799 },
+    weights: {
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.48,
+      "ELEMENTAL_MASTERY": 0.36,
+    },
+  },
+  "10000041": {
+    name: "Mona",
     rarity: 5,
     type: "Catalyst",
-    base: { FLAT_HP: 10286, FLAT_ATK: 310, FLAT_DEF: 614 },
+    base: { FLAT_HP: 10409, FLAT_ATK: 287, FLAT_DEF: 653 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "CRIT_RATE": 0.5,
+      "CRIT_DMG": 0.5,
+      "ATK": 0.3,
+      "ELEMENTAL_MASTERY": 0.12,
+    },
+  },
+  "10000035": {
+    name: "Qiqi",
+    rarity: 5,
+    type: "Sword",
+    base: { FLAT_HP: 12368, FLAT_ATK: 287, FLAT_DEF: 922 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "ATK": 1,
+    },
+  },
+  "10000016": {
+    name: "Diluc",
+    rarity: 5,
+    type: "Claymore",
+    base: { FLAT_HP: 12980, FLAT_ATK: 334, FLAT_DEF: 783 },
     weights: {
       "CRIT_RATE": 1,
       "CRIT_DMG": 1,
@@ -999,51 +1046,16 @@ const GI_CHAR = {
       "ATK": 0.6,
     },
   },
-  "10000016": {
-    name: "Diluc",
+  "10000007-6": {
+    name: "Traveler (Geo)",
     rarity: 5,
-    type: "Claymore",
-    base: { FLAT_HP: 12980, FLAT_ATK: 334, FLAT_DEF: 783 },
+    type: "Sword",
+    base: { FLAT_HP: 10875, FLAT_ATK: 212, FLAT_DEF: 683 },
     weights: {
+      "ENERGY_RECHARGE": 1,
       "CRIT_RATE": 1,
       "CRIT_DMG": 1,
       "ATK": 0.6,
-      "ELEMENTAL_MASTERY": 0.24,
-    },
-  },
-  "10000035": {
-    name: "Qiqi",
-    rarity: 5,
-    type: "Sword",
-    base: { FLAT_HP: 12368, FLAT_ATK: 287, FLAT_DEF: 922 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "ATK": 1,
-    },
-  },
-  "10000041": {
-    name: "Mona",
-    rarity: 5,
-    type: "Catalyst",
-    base: { FLAT_HP: 10409, FLAT_ATK: 287, FLAT_DEF: 653 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "CRIT_RATE": 0.5,
-      "CRIT_DMG": 0.5,
-      "ATK": 0.3,
-      "ELEMENTAL_MASTERY": 0.12,
-    },
-  },
-  "10000042": {
-    name: "Keqing",
-    rarity: 5,
-    type: "Sword",
-    base: { FLAT_HP: 13103, FLAT_ATK: 322, FLAT_DEF: 799 },
-    weights: {
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.48,
-      "ELEMENTAL_MASTERY": 0.36,
     },
   },
   "10000007-4": {
@@ -1059,84 +1071,78 @@ const GI_CHAR = {
       "ELEMENTAL_MASTERY": 0.24,
     },
   },
-  "10000007-6": {
-    name: "Traveler (Geo)",
-    rarity: 5,
-    type: "Sword",
-    base: { FLAT_HP: 10875, FLAT_ATK: 212, FLAT_DEF: 683 },
+  "10000043": {
+    name: "Sucrose",
+    rarity: 4,
+    type: "Catalyst",
+    base: { FLAT_HP: 9243, FLAT_ATK: 169, FLAT_DEF: 702 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "ELEMENTAL_MASTERY": 1,
+    },
+  },
+  "10000036": {
+    name: "Chongyun",
+    rarity: 4,
+    type: "Claymore",
+    base: { FLAT_HP: 10983, FLAT_ATK: 223, FLAT_DEF: 648 },
+    weights: {
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
+      "ELEMENTAL_MASTERY": 0.24,
+    },
+  },
+  "10000034": {
+    name: "Noelle",
+    rarity: 4,
+    type: "Claymore",
+    base: { FLAT_HP: 12071, FLAT_ATK: 191, FLAT_DEF: 798 },
     weights: {
       "ENERGY_RECHARGE": 1,
       "CRIT_RATE": 1,
       "CRIT_DMG": 1,
-      "ATK": 0.6,
+      "DEF": 0.6,
     },
   },
-  "10000006": {
-    name: "Lisa",
+  "10000032": {
+    name: "Bennett",
     rarity: 4,
-    type: "Catalyst",
-    base: { FLAT_HP: 9569, FLAT_ATK: 231, FLAT_DEF: 573 },
+    type: "Sword",
+    base: { FLAT_HP: 12397, FLAT_ATK: 191, FLAT_DEF: 771 },
     weights: {
       "ENERGY_RECHARGE": 1,
+      "HP": 0.6,
+    },
+  },
+  "10000031": {
+    name: "Fischl",
+    rarity: 4,
+    type: "Bow",
+    base: { FLAT_HP: 9189, FLAT_ATK: 244, FLAT_DEF: 593 },
+    weights: {
       "CRIT_RATE": 1,
       "CRIT_DMG": 1,
       "ATK": 0.48,
       "ELEMENTAL_MASTERY": 0.36,
     },
   },
-  "10000014": {
-    name: "Barbara",
+  "10000027": {
+    name: "Ningguang",
     rarity: 4,
     type: "Catalyst",
-    base: { FLAT_HP: 9787, FLAT_ATK: 159, FLAT_DEF: 668 },
+    base: { FLAT_HP: 9787, FLAT_ATK: 212, FLAT_DEF: 573 },
     weights: {
-      "ENERGY_RECHARGE": 1,
-      "HP": 0.6,
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
     },
   },
-  "10000015": {
-    name: "Kaeya",
+  "10000025": {
+    name: "Xingqiu",
     rarity: 4,
     type: "Sword",
-    base: { FLAT_HP: 11636, FLAT_ATK: 223, FLAT_DEF: 791 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.6,
-      "ELEMENTAL_MASTERY": 0.24,
-    },
-  },
-  "10000020": {
-    name: "Razor",
-    rarity: 4,
-    type: "Claymore",
-    base: { FLAT_HP: 11962, FLAT_ATK: 233, FLAT_DEF: 750 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.6,
-    },
-  },
-  "10000021": {
-    name: "Amber",
-    rarity: 4,
-    type: "Bow",
-    base: { FLAT_HP: 9461, FLAT_ATK: 223, FLAT_DEF: 600 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.6,
-      "ELEMENTAL_MASTERY": 0.24,
-    },
-  },
-  "10000023": {
-    name: "Xiangling",
-    rarity: 4,
-    type: "Polearm",
-    base: { FLAT_HP: 10874, FLAT_ATK: 225, FLAT_DEF: 668 },
+    base: { FLAT_HP: 10222, FLAT_ATK: 201, FLAT_DEF: 757 },
     weights: {
       "ENERGY_RECHARGE": 1,
       "CRIT_RATE": 1,
@@ -1158,11 +1164,11 @@ const GI_CHAR = {
       "ELEMENTAL_MASTERY": 0.24,
     },
   },
-  "10000025": {
-    name: "Xingqiu",
+  "10000023": {
+    name: "Xiangling",
     rarity: 4,
-    type: "Sword",
-    base: { FLAT_HP: 10222, FLAT_ATK: 201, FLAT_DEF: 757 },
+    type: "Polearm",
+    base: { FLAT_HP: 10874, FLAT_ATK: 225, FLAT_DEF: 668 },
     weights: {
       "ENERGY_RECHARGE": 1,
       "CRIT_RATE": 1,
@@ -1171,71 +1177,65 @@ const GI_CHAR = {
       "ELEMENTAL_MASTERY": 0.24,
     },
   },
-  "10000027": {
-    name: "Ningguang",
+  "10000021": {
+    name: "Amber",
     rarity: 4,
-    type: "Catalyst",
-    base: { FLAT_HP: 9787, FLAT_ATK: 212, FLAT_DEF: 573 },
+    type: "Bow",
+    base: { FLAT_HP: 9461, FLAT_ATK: 223, FLAT_DEF: 600 },
     weights: {
+      "ENERGY_RECHARGE": 1,
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
+      "ELEMENTAL_MASTERY": 0.24,
+    },
+  },
+  "10000020": {
+    name: "Razor",
+    rarity: 4,
+    type: "Claymore",
+    base: { FLAT_HP: 11962, FLAT_ATK: 233, FLAT_DEF: 750 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
       "CRIT_RATE": 1,
       "CRIT_DMG": 1,
       "ATK": 0.6,
     },
   },
-  "10000031": {
-    name: "Fischl",
-    rarity: 4,
-    type: "Bow",
-    base: { FLAT_HP: 9189, FLAT_ATK: 244, FLAT_DEF: 593 },
-    weights: {
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.48,
-      "ELEMENTAL_MASTERY": 0.36,
-    },
-  },
-  "10000032": {
-    name: "Bennett",
+  "10000015": {
+    name: "Kaeya",
     rarity: 4,
     type: "Sword",
-    base: { FLAT_HP: 12397, FLAT_ATK: 191, FLAT_DEF: 771 },
+    base: { FLAT_HP: 11636, FLAT_ATK: 223, FLAT_DEF: 791 },
+    weights: {
+      "ENERGY_RECHARGE": 1,
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.6,
+      "ELEMENTAL_MASTERY": 0.24,
+    },
+  },
+  "10000014": {
+    name: "Barbara",
+    rarity: 4,
+    type: "Catalyst",
+    base: { FLAT_HP: 9787, FLAT_ATK: 159, FLAT_DEF: 668 },
     weights: {
       "ENERGY_RECHARGE": 1,
       "HP": 0.6,
     },
   },
-  "10000034": {
-    name: "Noelle",
-    rarity: 4,
-    type: "Claymore",
-    base: { FLAT_HP: 12071, FLAT_ATK: 191, FLAT_DEF: 798 },
-    weights: {
-      "ENERGY_RECHARGE": 1,
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "DEF": 0.6,
-    },
-  },
-  "10000036": {
-    name: "Chongyun",
-    rarity: 4,
-    type: "Claymore",
-    base: { FLAT_HP: 10983, FLAT_ATK: 223, FLAT_DEF: 648 },
-    weights: {
-      "CRIT_RATE": 1,
-      "CRIT_DMG": 1,
-      "ATK": 0.6,
-      "ELEMENTAL_MASTERY": 0.24,
-    },
-  },
-  "10000043": {
-    name: "Sucrose",
+  "10000006": {
+    name: "Lisa",
     rarity: 4,
     type: "Catalyst",
-    base: { FLAT_HP: 9243, FLAT_ATK: 169, FLAT_DEF: 702 },
+    base: { FLAT_HP: 9569, FLAT_ATK: 231, FLAT_DEF: 573 },
     weights: {
       "ENERGY_RECHARGE": 1,
-      "ELEMENTAL_MASTERY": 1,
+      "CRIT_RATE": 1,
+      "CRIT_DMG": 1,
+      "ATK": 0.48,
+      "ELEMENTAL_MASTERY": 0.36,
     },
   },
 };
