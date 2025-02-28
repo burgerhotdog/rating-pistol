@@ -8,6 +8,7 @@ import {
   FormControlLabel,
   Modal,
   TextField,
+  useTheme,
   Typography,
 } from "@mui/material";
 import dataTemplate from "./dataTemplate";
@@ -17,10 +18,11 @@ const Enka = ({
   uid,
   gameType,
   gameData,
-  isEnkaOpen,
-  setIsEnkaOpen,
   setMyChars,
+  action,
+  setAction,
 }) => {
+  const theme = useTheme();
   const { CHAR } = gameData;
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
@@ -53,10 +55,10 @@ const Enka = ({
       }
     };
   
-    if (isEnkaOpen) {
+    if (action?.e === "load") {
       fetchUserUid();
     }
-  }, [isEnkaOpen]);
+  }, [action]);
   
   // gi 604379917
   // hsr 602849613
@@ -134,16 +136,6 @@ const Enka = ({
     } else {
       setError("Invalid uid");
     }
-  };
-
-  const handleCancel = () => {
-    setError("");
-    setGameUid("");
-    setEnkaList([]);
-    setSelectedAvatars([]);
-    setIsLoading(false);
-    setRememberUid(false);
-    setIsEnkaOpen(false);
   };
 
   const handleSave = async () => {
@@ -264,21 +256,19 @@ const Enka = ({
     });
   };
 
+  const handleCancel = () => {
+    setError("");
+    setGameUid("");
+    setEnkaList([]);
+    setSelectedAvatars([]);
+    setIsLoading(false);
+    setRememberUid(false);
+    setAction({});
+  };
+
   return (
-    <Modal open={Boolean(isEnkaOpen)} onClose={handleCancel}>
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: "background.paper",
-          padding: 4,
-          borderRadius: 2,
-          maxHeight: "90vh",
-          overflowY: "auto",
-        }}
-      >
+    <Modal open={action?.e === "load"} onClose={handleCancel}>
+      <Box sx={theme.customStyles.modal}>
         {!enkaList.length ? (
           <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
             <Typography>Enter UID</Typography>
@@ -307,9 +297,9 @@ const Enka = ({
               variant="contained"
               onClick={handleNext}
               sx={{ alignSelf: "start" }}
-              disabled={isLoading}
+              loading={isLoading}
             >
-              {isLoading ? "Loading..." : "Next"}
+              Next
             </Button>
           </Box>
         ) : (

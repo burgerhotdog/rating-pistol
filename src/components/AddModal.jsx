@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { doc, setDoc } from "firebase/firestore";
 import {
   Autocomplete,
@@ -6,24 +6,26 @@ import {
   Button,
   InputAdornment,
   Modal,
+  Stack,
   TextField,
+  useTheme,
 } from "@mui/material";
 import { db } from "../firebase";
 import dataTemplate from "./dataTemplate";
 
-const Add = ({
+const AddModal = ({
   uid,
   gameType,
   gameData,
-  charIcons,
+  gameIcons,
   myChars,
   setMyChars,
-  addMode,
-  setAddMode,
+  action,
+  setAction,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [addId, setAddId] = useState("");
+  const theme = useTheme();
   const { CHAR } = gameData;
+  const { charIcons } = gameIcons;
   const rarityColor = {
     5: "goldenrod",
     4: "orchid",
@@ -31,11 +33,6 @@ const Add = ({
     2: "green",
     1: "slategrey",
   };
-  
-  useEffect(() => {
-    setAddId("");
-    setIsModalOpen(!!addMode);
-  }, [addMode]);
   
   const charOptions = () => {
     return Object.keys(CHAR)
@@ -49,55 +46,37 @@ const Add = ({
   };
 
   const handleSelect = (newValue) => {
-    setAddId(newValue || "");
+    setAction((prev) => ({
+      ...prev,
+      id: newValue || "",
+    }));
   };
 
   const handleAdd = async () => {
-    // Firestore
     if (uid) {
-      const charDocRef = doc(db, "users", uid, gameType, addId);
+      const charDocRef = doc(db, "users", uid, gameType, action.id);
       await setDoc(charDocRef, dataTemplate(gameType), { merge: true });
     }
 
-    // Local
     setMyChars((prev) => ({
       ...prev,
-      [addId]: dataTemplate(gameType),
+      [action.id]: dataTemplate(gameType),
     }));
 
-    setAddMode("");
+    setAction({});
   };
 
   const handleCancel = () => {
-    setAddMode("");
+    setAction({});
   };
 
   return (
-    <Modal open={isModalOpen} onClose={handleCancel}>
-      <Box
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: "background.paper",
-          padding: 4,
-          borderRadius: 2,
-          maxHeight: "80vh",
-          overflowY: "auto",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 2,
-          }}
-        >
+    <Modal open={action?.e === "add"} onClose={handleCancel}>
+      <Box sx={theme.customStyles.modal}>
+        <Stack gap={2}>
           <Autocomplete
             size="small"
-            value={addId}
+            value={action?.id}
             options={charOptions()}
             getOptionLabel={(id) => CHAR[id]?.name || ""}
             onChange={(_, newValue) => handleSelect(newValue)}
@@ -130,16 +109,16 @@ const Add = ({
                 label="Character"
                 sx={{
                   "& .MuiInputBase-root": {
-                    color: rarityColor[CHAR[addId]?.rarity] || "inherit",
+                    color: rarityColor[CHAR[action?.id]?.rarity] || "inherit",
                   }
                 }}
                 slotProps={{
                   input: {
                     ...params.InputProps,
-                    startAdornment: addId && (
+                    startAdornment: action?.id && (
                       <InputAdornment position="start">
                         <img
-                          src={charIcons[`../assets/char/${gameType}/${addId}.webp`]?.default}
+                          src={charIcons[`../assets/char/${gameType}/${action.id}.webp`]?.default}
                           alt=""
                           style={{ width: 24, height: 24, objectFit: "contain" }}
                         />
@@ -149,22 +128,23 @@ const Add = ({
                 }}
               />
             )}
-            sx={{ width: { xs: 128, xl: 256 } }}
-            disableClearable={addId === ""}
+            sx={{ width: 256 }}
+            disableClearable={action?.id === ""}
           />
-          <Button 
+
+          <Button
             variant="contained"
             color="primary"
             onClick={handleAdd}
             sx={{ width: 80 }}
-            disabled={!addId}
+            disabled={!action?.id}
           >
             Add
           </Button>
-        </Box>
+        </Stack>
       </Box>      
     </Modal>
   );
 };
 
-export default Add;
+export default AddModal;

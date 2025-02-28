@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { Edit as EditIcon, Delete as DeleteIcon } from "@mui/icons-material";
+import { Add, Edit as EditIcon, Delete as DeleteIcon, KeyboardArrowRight } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -14,28 +14,24 @@ import {
   Tooltip,
   Typography,
   useTheme,
-  useMediaQuery,
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import Add from "./Add";
-import Edit from "./Edit";
-import Delete from "./Delete";
+import AddModal from "./AddModal";
+import DeleteModal from "./DeleteModal";
+import EditWeap from "./EditWeap";
+import EditSets from "./EditSets";
 import Enka from "./Enka";
 import getScore from "./getScore";
 
-const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) => {
+const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const { INFO, CHAR, WEAP, SETS } = gameData;
-  const [isEnkaOpen, setIsEnkaOpen] = useState(false);
-  const [hoveredRow, setHoveredRow] = useState(null);
+  const { charIcons, weapIcons, setsIcons } = gameIcons;
+  const theme = useTheme();
   const [myChars, setMyChars] = useState({});
   const [myCharsScored, setMyCharsScored] = useState([]);
-  const [addMode, setAddMode] = useState("");
-  const [editEntry, setEditEntry] = useState({});
-  const [deleteEntry, setDeleteEntry] = useState({});
-
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up("xl"));
+  const [hoveredRow, setHoveredRow] = useState(null);
+  const [action, setAction] = useState({});
 
   // Load myChars from Firestore
   useEffect(() => {
@@ -71,15 +67,27 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
   }, [myChars]);
 
   const handleAdd = () => {
-    setAddMode("select");
+    setAction({ e: "add", id: "" });
+  };
+
+  const handleLoad = () => {
+    setAction({ e: "load" });
+  };
+
+  const handleWeap = (id) => {
+    setAction({ e: "weap", id, data: myChars[id] });
+  };
+
+  const handleSets = (id) => {
+    setAction({ e: "sets", id, data: myChars[id] });
   };
 
   const handleEdit = (id) => {
-    setEditEntry({ id, data: myChars[id] });
+    setAction({ e: "edit", id, data: myChars[id] });
   };
 
   const handleDelete = (id) => {
-    setDeleteEntry({ id, data: myChars[id] });
+    setAction({ e: "delete", id, data: myChars[id] });
   };
 
   return (
@@ -93,10 +101,10 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
             <TableHead>
               <TableRow>
                 <TableCell></TableCell>
-                <TableCell>Name</TableCell>
-                {isDesktop && <TableCell>Weapon</TableCell>}
-                {isDesktop && <TableCell>Artifacts</TableCell>}
-                <TableCell>Score</TableCell>
+                <TableCell align="center">Name</TableCell>
+                <TableCell align="center">Weapon</TableCell>
+                <TableCell align="center">Artifacts</TableCell>
+                <TableCell align="center">Score</TableCell>
                 <TableCell></TableCell>
               </TableRow>
             </TableHead>
@@ -112,32 +120,34 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                     onMouseEnter={() => setHoveredRow(id)}
                     onMouseLeave={() => setHoveredRow(null)}
                   >
-                    <TableCell>
+                    <TableCell align="center">
                       <img
                         src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
                         alt={id}
                         style={{ width: 50, height: 50, objectFit: "contain" }}
                       />
                     </TableCell>
-                    <TableCell>{CHAR[id].name}</TableCell>
-                    {isDesktop && (
-                      <TableCell>
-                        {data.weapon ? (
-                          <Tooltip
-                            title={
+                    <TableCell align="center">{CHAR[id].name}</TableCell>
+                    <TableCell align="center">
+                      {data.weapon ? (
+                        <Tooltip
+                          title={
+                            !action?.e && (
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
                                   {WEAP[data.weapon].name}
                                 </Typography>
                                 <Typography variant="body2">
+                                  {gameType === "HSR" && (
+                                    <>
+                                      {"Base HP: " + WEAP[data.weapon].base.FLAT_HP}
+                                      <br />
+                                    </>
+                                  )}
                                   {"Base ATK: " + WEAP[data.weapon].base.FLAT_ATK}
                                   <br />
                                   {gameType === "HSR" ? (
-                                    <React.Fragment>
-                                      {"Base ATK: " + WEAP[data.weapon].base.FLAT_ATK}
-                                      <br />
-                                      {"Base DEF: " + WEAP[data.weapon].base.FLAT_DEF}
-                                    </React.Fragment>
+                                    "Base DEF: " + WEAP[data.weapon].base.FLAT_DEF
                                   ) : (
                                     WEAP[data.weapon].substat
                                   )}
@@ -149,77 +159,94 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                                   {WEAP[data.weapon].desc}
                                 </Typography>
                               </React.Fragment>
-                            }
-                            arrow
-                          >
+                            )
+                          }
+                          arrow
+                        >
+                          <div onClick={() => handleWeap(id)} style={{ display: "inline-block" }}>
                             <img
                               src={weapIcons[`../assets/weap/${gameType}/${data.weapon}.webp`]?.default}
                               alt={data.weapon}
                               style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
-                          </Tooltip>
-                        ) : (
-                          <Typography>+</Typography>
-                        )}
-                      </TableCell>
-                    )}
-                    {isDesktop && (
-                      <TableCell>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            gap: 1,
-                          }}
+                          </div>
+                        </Tooltip>
+                      ) : (
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          onClick={() => handleWeap(id)}
                         >
+                          <Add />
+                        </Button>
+                      )}
+                    </TableCell>
+                    <TableCell align="center">
+                      {(data.set1 || data.set2) ? (
+                        <Box sx={(theme) => theme.customStyles.row}>
                           {data.set1 && (
                             <Tooltip
                               title={
-                                <React.Fragment>
-                                  <Typography variant="subtitle1" fontWeight="bold">
-                                    {SETS[data.set1].name}
-                                  </Typography>
-                                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {SETS[data.set1].desc}
-                                  </Typography>
-                                </React.Fragment>
+                                !action?.e && (
+                                  <React.Fragment>
+                                    <Typography variant="subtitle1" fontWeight="bold">
+                                      {SETS[data.set1].name}
+                                    </Typography>
+                                    <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                                      {SETS[data.set1].desc}
+                                    </Typography>
+                                  </React.Fragment>
+                                )
                               }
                               arrow
                             >
-                              <img
-                                src={setsIcons[`../assets/sets/${gameType}/${data.set1}.webp`]?.default}
-                                alt={data.set1}
-                                style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                              />
+                              <div onClick={() => handleSets(id)} style={{ display: "inline-block" }}>
+                                <img
+                                  src={setsIcons[`../assets/sets/${gameType}/${data.set1}.webp`]?.default}
+                                  alt={data.set1}
+                                  style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                                />
+                              </div>
                             </Tooltip>
                           )}
                           {(data.set1 && data.set2) && (<Typography>+</Typography>)}
                           {data.set2 && (
                             <Tooltip
                               title={
-                                <React.Fragment>
-                                  <Typography variant="subtitle1" fontWeight="bold">
-                                    {SETS[data.set2].name}
-                                  </Typography>
-                                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                    {SETS[data.set2].desc}
-                                  </Typography>
-                                </React.Fragment>
+                                !action?.e && (
+                                  <React.Fragment>
+                                    <Typography variant="subtitle1" fontWeight="bold">
+                                      {SETS[data.set2].name}
+                                    </Typography>
+                                    <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                                      {SETS[data.set2].desc}
+                                    </Typography>
+                                  </React.Fragment>
+                                )
                               }
                               arrow
                             >
-                              <img
-                                src={setsIcons[`../assets/sets/${gameType}/${data.set2}.webp`]?.default}
-                                alt={data.set2}
-                                style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                              />
+                              <div onClick={() => handleSets(id)} style={{ display: "inline-block" }}>
+                                <img
+                                  src={setsIcons[`../assets/sets/${gameType}/${data.set2}.webp`]?.default}
+                                  alt={data.set2}
+                                  style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                                />
+                              </div>
                             </Tooltip>
                           )}
                         </Box>
-                      </TableCell>
-                    )}
-                    <TableCell>{score.toString()}</TableCell>
+                      ) : (
+                        <Button
+                          size="small"
+                          variant="outlined"
+                          onClick={() => handleSets(id)}
+                        >
+                          <Add />
+                        </Button>
+                      )}
+                    </TableCell>
+                    <TableCell align="center">{score.toString()}</TableCell>
                     <TableCell>
                       <Box
                         sx={{
@@ -228,14 +255,6 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
                           visibility: hoveredRow === id ? "visible" : "hidden"
                         }}
                       >
-                        <Button
-                          size="small"
-                          variant="outlined"
-                          color="primary"
-                          onClick={() => handleEdit(id)}
-                        >
-                          <EditIcon />
-                        </Button>
                         <Button
                           size="small"
                           variant="outlined"
@@ -258,6 +277,7 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
           <Button
             variant="contained"
             color="primary"
+            startIcon={<Add />}
             onClick={handleAdd}
           >
             Add character
@@ -265,7 +285,8 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
           <Button
             variant="contained"
             color="primary"
-            onClick={() => setIsEnkaOpen(true)}
+            endIcon={<KeyboardArrowRight />}
+            onClick={handleLoad}
             disabled={gameType === "WW" || gameType === "ZZZ"}
           >
             Load from UID
@@ -273,44 +294,52 @@ const GamePage = ({ uid, gameType, gameData, charIcons, weapIcons, setsIcons }) 
         </Box>
 
         {/* Modals */}
-        <Add
+        <AddModal
           uid={uid}
           gameType={gameType}
           gameData={gameData}
-          charIcons={charIcons}
+          gameIcons={gameIcons}
           myChars={myChars}
           setMyChars={setMyChars}
-          addMode={addMode}
-          setAddMode={setAddMode}
+          action={action}
+          setAction={setAction}
         />
-        <Edit
+        <EditWeap
           uid={uid}
           gameType={gameType}
           gameData={gameData}
-          charIcons={charIcons}
-          weapIcons={weapIcons}
-          setsIcons={setsIcons}
+          gameIcons={gameIcons}
           myChars={myChars}
           setMyChars={setMyChars}
-          editEntry={editEntry}
-          setEditEntry={setEditEntry}
+          action={action}
+          setAction={setAction}
         />
-        <Delete
+        <EditSets
           uid={uid}
           gameType={gameType}
           gameData={gameData}
-          deleteEntry={deleteEntry}
-          setDeleteEntry={setDeleteEntry}
+          gameIcons={gameIcons}
+          myChars={myChars}
           setMyChars={setMyChars}
+          action={action}
+          setAction={setAction}
+        />
+        <DeleteModal
+          uid={uid}
+          gameType={gameType}
+          gameData={gameData}
+          setMyChars={setMyChars}
+          action={action}
+          setAction={setAction}
         />
         {(gameType === "GI" || gameType === "HSR") && (
           <Enka
             uid={uid}
             gameType={gameType}
             gameData={gameData}
-            isEnkaOpen={isEnkaOpen}
-            setIsEnkaOpen={setIsEnkaOpen}
             setMyChars={setMyChars}
+            action={action}
+            setAction={setAction}
           />
         )}
       </Box>

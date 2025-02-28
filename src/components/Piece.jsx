@@ -11,14 +11,14 @@ import Grid from "@mui/material/Grid2";
 const Piece = ({
   gameType,
   gameData,
-  editEntry,
-  setEditEntry,
+  action,
+  setAction,
   mainIndex,
 }) => {
   const { PIECE_NAMES, MAINSTATS, SUBSTATS } = gameData.INFO;
 
   const handleMainstat = (newValue) => {
-    setEditEntry((prev) => ({
+    setAction((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -40,7 +40,7 @@ const Piece = ({
   };
 
   const handleSubstat = (newValue, subIndex, attrIndex) => {
-    setEditEntry((prev) => ({
+    setAction((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -60,8 +60,8 @@ const Piece = ({
   };
 
   const substatOptions = (subIndex) => {
-    const selectedMainstat = editEntry.data.mainstats[mainIndex];
-    const selectedSubstatKeys = Object.values(editEntry.data.substats[mainIndex])
+    const selectedMainstat = action.data.mainstats[mainIndex];
+    const selectedSubstatKeys = Object.values(action.data.substats[mainIndex])
       .map((substat) => substat[0])
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
@@ -79,7 +79,7 @@ const Piece = ({
         <Grid size={12}>
           <Autocomplete
             size="small"
-            value={editEntry.data.mainstats[mainIndex] || ""}
+            value={action.data.mainstats[mainIndex] || ""}
             options={Object.keys(MAINSTATS[mainIndex])}
             getOptionLabel={(id) => MAINSTATS[mainIndex][id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
@@ -90,7 +90,7 @@ const Piece = ({
               />
             )}
             fullWidth
-            disableClearable={editEntry.data.mainstats[mainIndex] === ""}
+            disableClearable={action.data.mainstats[mainIndex] === ""}
           />
         </Grid>
 
@@ -106,7 +106,7 @@ const Piece = ({
             <Grid size={8}>
               <Autocomplete
                 size="small"
-                value={editEntry.data.substats[mainIndex][subIndex][0] || ""}
+                value={action.data.substats[mainIndex][subIndex][0] || ""}
                 options={substatOptions(subIndex)}
                 getOptionLabel={(id) => SUBSTATS[id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, 0)}
@@ -117,8 +117,8 @@ const Piece = ({
                   />
                 )}
                 fullWidth
-                disabled={editEntry.data.mainstats[mainIndex] === ""}
-                disableClearable={editEntry.data.substats[mainIndex][subIndex][0] === ""}
+                disabled={action.data.mainstats[mainIndex] === ""}
+                disableClearable={action.data.substats[mainIndex][subIndex][0] === ""}
               />
             </Grid>
 
@@ -126,20 +126,20 @@ const Piece = ({
             <Grid size={4}>
               <TextField
                 size="small"
-                value={editEntry.data.substats[mainIndex][subIndex][1] || ""}
+                value={action.data.substats[mainIndex][subIndex][1] || ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (SUBSTATS[editEntry.data.substats[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (SUBSTATS[action.data.substats[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, 1);
                   }
                 }}
                 fullWidth
-                disabled={editEntry.data.substats[mainIndex][subIndex][0] === ""}
+                disabled={action.data.substats[mainIndex][subIndex][0] === ""}
                 slotProps={{
                   input: {
-                    endAdornment: SUBSTATS[editEntry.data.substats[mainIndex][subIndex][0]]?.percent && (
+                    endAdornment: SUBSTATS[action.data.substats[mainIndex][subIndex][0]]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },
