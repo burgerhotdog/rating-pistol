@@ -23,7 +23,9 @@ const Piece = ({
       data: {
         ...prev.data,
         mainstats: prev.data.mainstats.map((stat, index) =>
-          index === mainIndex ? newValue || "" : stat
+          index === mainIndex ?
+            newValue || "" :
+            stat
         ),
         substats: {
           ...prev.data.substats,
@@ -61,14 +63,14 @@ const Piece = ({
 
   const substatOptions = (subIndex) => {
     const selectedMainstat = action.data.mainstats[mainIndex];
-    const selectedSubstatKeys = Object.values(action.data.substats[mainIndex])
+    const selectedSubstats = Object.values(action.data.substats[mainIndex])
       .map((substat) => substat[0])
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
   
     return Object.keys(SUBSTATS).filter(
       (option) => gameType === "WW" ?
-        !selectedSubstatKeys.includes(option) :
-        !selectedSubstatKeys.includes(option) && SUBSTATS[option] !== selectedMainstat
+        !selectedSubstats.includes(option) :
+        !selectedSubstats.includes(option) && SUBSTATS[option] !== selectedMainstat
     );
   };
 

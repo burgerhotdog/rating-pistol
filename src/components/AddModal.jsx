@@ -71,7 +71,7 @@ const AddModal = ({
   };
 
   return (
-    <Modal open={action?.e === "add"} onClose={handleCancel}>
+    <Modal open={action?.type === "add"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
         <Stack gap={2}>
           <Autocomplete

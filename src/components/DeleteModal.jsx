@@ -41,7 +41,7 @@ const DeleteModal = ({
   };
 
   return (
-    <Modal open={action?.e === "delete"} onClose={handleCancel}>
+    <Modal open={action?.type === "delete"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
         <Stack gap={2}>
           <Typography variant="body1">

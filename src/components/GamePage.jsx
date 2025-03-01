@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { Add, Edit as EditIcon, Delete as DeleteIcon, KeyboardArrowRight } from "@mui/icons-material";
+import { Add, Star, StarBorder, KeyboardArrowRight } from "@mui/icons-material";
 import {
   Box,
   Button,
   Container,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -19,8 +20,7 @@ import { db } from "../firebase";
 import Back from "./Back";
 import AddModal from "./AddModal";
 import DeleteModal from "./DeleteModal";
-import EditWeap from "./EditWeap";
-import EditSets from "./EditSets";
+import EditModal from "./EditModal";
 import LoadModal from "./LoadModal";
 import getScore from "./getScore";
 
@@ -66,28 +66,36 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     setMyCharsScored(scoredChars);
   }, [myChars]);
 
+  const isModalClosed = () => !Boolean(Object.keys(action).length);
+
   const handleAdd = () => {
-    setAction({ e: "add", id: "" });
-  };
-
-  const handleLoad = () => {
-    setAction({ e: "load" });
-  };
-
-  const handleWeap = (id) => {
-    setAction({ e: "weap", id, data: myChars[id] });
-  };
-
-  const handleSets = (id) => {
-    setAction({ e: "sets", id, data: myChars[id] });
-  };
-
-  const handleEdit = (id) => {
-    setAction({ e: "edit", id, data: myChars[id] });
+    setAction({
+      type: "add",
+      id: ""
+    });
   };
 
   const handleDelete = (id) => {
-    setAction({ e: "delete", id, data: myChars[id] });
+    setAction({
+      type: "delete",
+      id,
+      data: myChars[id]
+    });
+  };
+
+  const handleLoad = () => {
+    setAction({
+      type: "load"
+    });
+  };
+
+  const handleEdit = (item, id) => {
+    setAction({
+      type: "edit",
+      item,
+      id,
+      data: myChars[id]
+    });
   };
 
   return (
@@ -97,15 +105,19 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
         <Typography variant="h4">{INFO.TITLE}</Typography>
         <Typography variant="body2">Updated for version {INFO.VERSION}</Typography>
         <TableContainer sx={{ maxWidth: 900 }}>
-          <Table>
+          <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
               <TableRow>
-                <TableCell></TableCell>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Weapon</TableCell>
-                <TableCell align="center">Artifacts</TableCell>
-                <TableCell align="center">Score</TableCell>
-                <TableCell></TableCell>
+                <TableCell align="center" sx={{ width: 60 }}>
+                  <Stack alignItems="center">
+                    <StarBorder sx={{ fontSize: 16 }} />
+                  </Stack>
+                </TableCell>
+                <TableCell align="left" sx={{ width: 180 }}>Character</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>Weapon</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>Gear</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>Skills</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -120,19 +132,22 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     onMouseEnter={() => setHoveredRow(id)}
                     onMouseLeave={() => setHoveredRow(null)}
                   >
+                    <TableCell></TableCell>
                     <TableCell align="center">
-                      <img
-                        src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
-                        alt={id}
-                        style={{ width: 50, height: 50, objectFit: "contain" }}
-                      />
+                      <Stack flexDirection="row" alignItems="center" gap={2}>
+                        <img
+                          src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
+                          alt={id}
+                          style={{ width: 50, height: 50, objectFit: "contain" }}
+                        />
+                        <Typography variant="body2">{CHAR[id].name}</Typography>
+                      </Stack>
                     </TableCell>
-                    <TableCell align="center">{CHAR[id].name}</TableCell>
                     <TableCell align="center">
                       {data.weapon ? (
                         <Tooltip
                           title={
-                            !action?.e && (
+                            isModalClosed() && (
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
                                   {WEAP[data.weapon].name}
@@ -163,7 +178,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                           }
                           arrow
                         >
-                          <div onClick={() => handleWeap(id)} style={{ display: "inline-block" }}>
+                          <div onClick={() => handleEdit("weapon", id)} style={{ display: "inline-block" }}>
                             <img
                               src={weapIcons[`../assets/weap/${gameType}/${data.weapon}.webp`]?.default}
                               alt={data.weapon}
@@ -175,7 +190,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                         <Button
                           size="small"
                           variant="outlined"
-                          onClick={() => handleWeap(id)}
+                          onClick={() => handleEdit("weapon", id)}
                         >
                           <Add />
                         </Button>
@@ -187,7 +202,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                           {data.set1 && (
                             <Tooltip
                               title={
-                                !action?.e && (
+                                isModalClosed() && (
                                   <React.Fragment>
                                     <Typography variant="subtitle1" fontWeight="bold">
                                       {SETS[data.set1].name}
@@ -200,7 +215,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                               }
                               arrow
                             >
-                              <div onClick={() => handleSets(id)} style={{ display: "inline-block" }}>
+                              <div onClick={() => handleEdit("gear", id)} style={{ display: "inline-block" }}>
                                 <img
                                   src={setsIcons[`../assets/sets/${gameType}/${data.set1}.webp`]?.default}
                                   alt={data.set1}
@@ -213,7 +228,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                           {data.set2 && (
                             <Tooltip
                               title={
-                                !action?.e && (
+                                isModalClosed() && (
                                   <React.Fragment>
                                     <Typography variant="subtitle1" fontWeight="bold">
                                       {SETS[data.set2].name}
@@ -226,7 +241,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                               }
                               arrow
                             >
-                              <div onClick={() => handleSets(id)} style={{ display: "inline-block" }}>
+                              <div onClick={() => handleEdit("gear", id)} style={{ display: "inline-block" }}>
                                 <img
                                   src={setsIcons[`../assets/sets/${gameType}/${data.set2}.webp`]?.default}
                                   alt={data.set2}
@@ -240,31 +255,14 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                         <Button
                           size="small"
                           variant="outlined"
-                          onClick={() => handleSets(id)}
+                          onClick={() => handleEdit("gear", id)}
                         >
                           <Add />
                         </Button>
                       )}
                     </TableCell>
+                    <TableCell></TableCell>
                     <TableCell align="center">{score.toString()}</TableCell>
-                    <TableCell>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          gap: 1,
-                          visibility: hoveredRow === id ? "visible" : "hidden"
-                        }}
-                      >
-                        <Button
-                          size="small"
-                          variant="outlined"
-                          color="secondary"
-                          onClick={() => handleDelete(id)}
-                        >
-                          <DeleteIcon />
-                        </Button>
-                      </Box>
-                    </TableCell>
                   </TableRow>
                 ))
               )}
@@ -304,34 +302,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           action={action}
           setAction={setAction}
         />
-        <EditWeap
-          uid={uid}
-          gameType={gameType}
-          gameData={gameData}
-          gameIcons={gameIcons}
-          myChars={myChars}
-          setMyChars={setMyChars}
-          action={action}
-          setAction={setAction}
-        />
-        <EditSets
-          uid={uid}
-          gameType={gameType}
-          gameData={gameData}
-          gameIcons={gameIcons}
-          myChars={myChars}
-          setMyChars={setMyChars}
-          action={action}
-          setAction={setAction}
-        />
-        <DeleteModal
-          uid={uid}
-          gameType={gameType}
-          gameData={gameData}
-          setMyChars={setMyChars}
-          action={action}
-          setAction={setAction}
-        />
+
         {(gameType === "GI" || gameType === "HSR") && (
           <LoadModal
             uid={uid}
@@ -342,6 +313,25 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             setAction={setAction}
           />
         )}
+
+        <DeleteModal
+          uid={uid}
+          gameType={gameType}
+          gameData={gameData}
+          setMyChars={setMyChars}
+          action={action}
+          setAction={setAction}
+        />
+
+        <EditModal
+          uid={uid}
+          gameType={gameType}
+          gameData={gameData}
+          gameIcons={gameIcons}
+          setMyChars={setMyChars}
+          action={action}
+          setAction={setAction}
+        />
       </Box>
     </Container>
   );
