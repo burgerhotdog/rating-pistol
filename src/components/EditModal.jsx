@@ -91,7 +91,7 @@ const EditModal = ({
             />*/""
           )}
 
-          <Stack flexDirection="row" justifyContent="center" gap={2}>
+          <Stack direction="row" justifyContent="center" gap={2}>
             <Button
               variant="outlined"
               color="secondary"
