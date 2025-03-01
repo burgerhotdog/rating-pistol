@@ -205,11 +205,10 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                       </Tooltip>
                     ) : (
                       <Tooltip
-                        title={isModalClosed() && "Add Weapon"}
+                        title={isModalClosed() && <><Typography>Add Weapon</Typography></>}
                         arrow
                       >
-                        <ErrorOutline
-                          color="error"
+                        <Add
                           onClick={() => handleEdit("weapon", id)}
                           cursor="pointer"
                         />
@@ -279,11 +278,10 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                       </Stack>
                     ) : (
                       <Tooltip
-                        title={isModalClosed() && "Add Gear"}
+                        title={isModalClosed() && <><Typography>Add Gear</Typography></>}
                         arrow
                       >
-                        <ErrorOutline
-                          color="error"
+                        <Add
                           onClick={() => handleEdit("gear", id)}
                           cursor="pointer"
                         />
@@ -293,10 +291,26 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                   <TableCell></TableCell>
                   <TableCell align="center">
                     {rating.final !== -1 ? (
-                      rating.final.toString()
+                      <Tooltip
+                        title={isModalClosed() && (
+                          <>
+                          <Typography variant="body2">
+                            Character score:{" "}{rating.character}
+                            Weapon score:{" "}{rating.weapon}
+                            Gear score:{" "}{rating.gear}
+                            Skills score:{" "}{rating.skills}
+                          </Typography>
+                          </>
+                        )}
+                        arrow
+                      >
+                        {rating.final.toString()}
+                      </Tooltip>
                     ) : (
                       <Tooltip
-                        title={isModalClosed() && "invalid"}
+                        title={isModalClosed() && (
+                          <><Typography>Missing Weapon</Typography></>
+                        )}
                         arrow
                       >
                         <ErrorOutline

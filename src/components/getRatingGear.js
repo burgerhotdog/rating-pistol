@@ -7,10 +7,13 @@ const combine_basestats = (charBase, weapBase) => {
 
 const combine_substats = (substatsArr) => {
   const substats = {};
+  console.log("test", substatsArr);
   for (let i = 0; i < substatsArr.length; i++) {
     for (let j = 0; j < Object.keys(substatsArr[i]).length; j++) {
       const key = substatsArr[i][j][0];
       const value = Number(substatsArr[i][j][1]);
+      console.log(key);
+      console.log(value);
       if (!key || !value) continue;
       substats[key] = (substats[key] || 0) + value;
     }
@@ -123,26 +126,26 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS) => {
   return points;
 };
 
-const getRatingGear = (gameType, gameData, cid, cdata) => {
+const getRatingGear = (gameType, gameData, id, data) => {
   const { CHAR, WEAP } = gameData;
   const SUBSTATS = gameData.INFO.SUBSTATS;
-  if (!cdata.weapon) return -1;
+  if (!data.weapon) return -1;
 
   // Combine basestats
-  const basestats = combine_basestats(CHAR[cid].base, WEAP[cdata.weapon].base);
+  const basestats = combine_basestats(CHAR[id].base, WEAP[data.weapon].base);
   console.log("basestats: ", basestats);
 
   // Combine substats
-  const substats = combine_substats(cdata.substats);
+  const substats = combine_substats(data.substats);
   console.log("substats: ", substats);
 
   // Simulate perfect substats
-  const sim_substats = simulate_substats(substats, CHAR[cid].weights, cdata.mainstats, SUBSTATS, gameType);
+  const sim_substats = simulate_substats(substats, CHAR[id].weights, data.mainstats, SUBSTATS, gameType);
   console.log("sim_substats: ", sim_substats);
 
   // Calculate points
-  const points = calculatePoints(substats, CHAR[cid].weights, basestats, SUBSTATS);
-  const sim_points = calculatePoints(sim_substats, CHAR[cid].weights, basestats, SUBSTATS);
+  const points = calculatePoints(substats, CHAR[id].weights, basestats, SUBSTATS);
+  const sim_points = calculatePoints(sim_substats, CHAR[id].weights, basestats, SUBSTATS);
   console.log("points: ", points);
   console.log("sim_points: ", sim_points);
 
