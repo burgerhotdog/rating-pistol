@@ -140,10 +140,16 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                       arrow
                     >
                       <Stack direction="row" alignItems="center" gap={2}>
-                        <img
-                          src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
+                        <Box
+                          component="img"
                           alt={id}
-                          style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                          src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
+                          sx={{
+                            height: 50,
+                            width: 50,
+                            objectFit: "contain",
+                            cursor: "pointer",
+                          }}
                         />
                         <Typography variant="body2">{CHAR[id].name}</Typography>
                       </Stack>
@@ -182,11 +188,18 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                         )}
                         arrow
                       >
-                        <Stack onClick={() => handleEdit("weapon", id)}>
-                          <img
-                            src={weapIcons[`../assets/weap/${gameType}/${data.weapon}.webp`]?.default}
+                        <Stack direction="row" justifyContent="center">
+                          <Box
+                            component="img"
                             alt={data.weapon}
-                            style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                            onClick={() => handleEdit("weapon", id)}
+                            src={weapIcons[`../assets/weap/${gameType}/${data.weapon}.webp`]?.default}
+                            sx={{
+                              height: 50,
+                              width: 50,
+                              objectFit: "contain",
+                              cursor: "pointer",
+                            }}
                           />
                         </Stack>
                       </Tooltip>
@@ -220,13 +233,18 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                             )}
                             arrow
                           >
-                            <Stack onClick={() => handleEdit("gear", id)}>
-                              <img
-                                src={setsIcons[`../assets/sets/${gameType}/${data.set1}.webp`]?.default}
-                                alt={data.set1}
-                                style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                              />
-                            </Stack>
+                            <Box
+                              component="img"
+                              alt={data.set1}
+                              onClick={() => handleEdit("gear", id)}
+                              src={setsIcons[`../assets/sets/${gameType}/${data.set1}.webp`]?.default}
+                              sx={{
+                                height: 50,
+                                width: 50,
+                                objectFit: "contain",
+                                cursor: "pointer",
+                              }}
+                            />
                           </Tooltip>
                         )}
                         {(data.set1 && data.set2) && (<Typography>+</Typography>)}
@@ -244,13 +262,18 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                             )}
                             arrow
                           >
-                            <Stack onClick={() => handleEdit("gear", id)}>
-                              <img
-                                src={setsIcons[`../assets/sets/${gameType}/${data.set2}.webp`]?.default}
-                                alt={data.set2}
-                                style={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                              />
-                            </Stack>
+                            <Box
+                              component="img"
+                              alt={data.set2}
+                              onClick={() => handleEdit("gear", id)}
+                              src={setsIcons[`../assets/sets/${gameType}/${data.set2}.webp`]?.default}
+                              sx={{
+                                height: 50,
+                                width: 50,
+                                objectFit: "contain",
+                                cursor: "pointer",
+                              }}
+                            />
                           </Tooltip>
                         )}
                       </Stack>
