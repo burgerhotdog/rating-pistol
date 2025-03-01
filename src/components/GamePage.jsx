@@ -21,7 +21,7 @@ import AddModal from "./AddModal";
 import DeleteModal from "./DeleteModal";
 import EditWeap from "./EditWeap";
 import EditSets from "./EditSets";
-import Enka from "./Enka";
+import LoadModal from "./LoadModal";
 import getScore from "./getScore";
 
 const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
@@ -333,7 +333,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           setAction={setAction}
         />
         {(gameType === "GI" || gameType === "HSR") && (
-          <Enka
+          <LoadModal
             uid={uid}
             gameType={gameType}
             gameData={gameData}

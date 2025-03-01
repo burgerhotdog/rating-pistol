@@ -106,7 +106,7 @@ const AddModal = ({
             renderInput={(params) => (
               <TextField
                 {...params}
-                label="Character"
+                label="Select"
                 sx={{
                   "& .MuiInputBase-root": {
                     color: rarityColor[CHAR[action?.id]?.rarity] || "inherit",
@@ -139,7 +139,7 @@ const AddModal = ({
             sx={{ width: 80 }}
             disabled={!action?.id}
           >
-            Add
+            Save
           </Button>
         </Stack>
       </Box>      

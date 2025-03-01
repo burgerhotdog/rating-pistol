@@ -7,14 +7,15 @@ import {
   Checkbox,
   FormControlLabel,
   Modal,
+  Stack,
   TextField,
-  useTheme,
   Typography,
+  useTheme,
 } from "@mui/material";
 import dataTemplate from "./dataTemplate";
 import enkaStatKey from "./enkaStatKey";
 
-const Enka = ({
+const LoadModal = ({
   uid,
   gameType,
   gameData,
@@ -243,7 +244,7 @@ const Enka = ({
     setIsLoading(false);
     setGameUid("");
     setRememberUid(false);
-    setIsEnkaOpen(false);
+    setAction({});
   };
 
   const handleCheckboxChange = (event, index) => {
@@ -270,9 +271,9 @@ const Enka = ({
     <Modal open={action?.e === "load"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
         {!enkaList.length ? (
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-            <Typography>Enter UID</Typography>
+          <Stack gap={2}>
             <TextField
+              label="Enter UID"
               size="small"
               value={gameUid}
               onChange={(e) => {
@@ -282,54 +283,59 @@ const Enka = ({
               }}
               error={Boolean(error)}
               helperText={error}
-              fullWidth
+              sx={{ width: 256 }}
             />
             <FormControlLabel
               control={
                 <Checkbox
+                  label="test"
+                  size="small"
                   checked={rememberUid}
                   onChange={() => setRememberUid(!rememberUid)}
+                  disabled={!uid}
                 />
               }
-              label={<Typography variant="body2">Save this UID (Sign-in required)</Typography>}
+              label={"Remember UID (requires sign-in)"}
+              sx={{ my: -1 }}
             />
             <Button
               variant="contained"
               onClick={handleNext}
-              sx={{ alignSelf: "start" }}
               loading={isLoading}
+              sx={{ width: 80 }}
             >
               Next
             </Button>
-          </Box>
+          </Stack>
         ) : (
-          <React.Fragment>
-            <Typography>Select which characters to add</Typography>
+          <Stack gap={2}>
+            <Typography>Select characters to add</Typography>
             {enkaList.map((avatar, index) => (
-              <Box key={index} sx={{ display: "flex", alignItems: "center" }}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={selectedAvatars.includes(index)}
-                      onChange={(e) => handleCheckboxChange(e, index)}
-                    />
-                  }
-                  label={CHAR[avatar.avatarId]?.name || "error"}
-                />
-              </Box>
+              <FormControlLabel
+                key={index}
+                control={
+                  <Checkbox
+                    checked={selectedAvatars.includes(index)}
+                    onChange={(e) => handleCheckboxChange(e, index)}
+                  />
+                }
+                label={CHAR[avatar.avatarId]?.name || "error"}
+                sx={{ my: -1 }}
+              />
             ))}
 
             <Button
               variant="contained"
               onClick={handleSave}
+              sx={{ width: 80 }}
             >
               Save
             </Button>
-          </React.Fragment>
+          </Stack>
         )}
       </Box>
     </Modal>
   );
 };
 
-export default Enka;
+export default LoadModal;
