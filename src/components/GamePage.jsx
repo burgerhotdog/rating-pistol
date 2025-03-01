@@ -22,14 +22,14 @@ import AddModal from "./AddModal";
 import DeleteModal from "./DeleteModal";
 import EditModal from "./EditModal";
 import LoadModal from "./LoadModal";
-import getScore from "./getScore";
+import getRating from "./getRating";
 
 const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const { INFO, CHAR, WEAP, SETS } = gameData;
   const { charIcons, weapIcons, setsIcons } = gameIcons;
   const theme = useTheme();
   const [myChars, setMyChars] = useState({});
-  const [myCharsScored, setMyCharsScored] = useState([]);
+  const [myCharsRated, setMyCharsRated] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [action, setAction] = useState({});
 
@@ -53,17 +53,17 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     fetchDB();
   }, [uid]);
 
-  // Load myCharsScored from myChars
+  // Load myCharsRated from myChars
   useEffect(() => {
-    const scoredChars = Object.entries(myChars).map(([id, data]) => ({
+    const ratedChars = Object.entries(myChars).map(([id, data]) => ({
       id,
       data,
-      score: getScore(gameType, gameData, id, data),
+      rating: getRating(gameType, gameData, id, data),
     }));
 
-    scoredChars.sort((a, b) => b.score - a.score);
+    ratedChars.sort((a, b) => b.rating.final - a.rating.final);
 
-    setMyCharsScored(scoredChars);
+    setMyCharsRated(ratedChars);
   }, [myChars]);
 
   const isModalClosed = () => !Boolean(Object.keys(action).length);
@@ -121,7 +121,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {myCharsScored.map(({ id, data, score }) => (
+              {myCharsRated.map(({ id, data, rating }) => (
                 <TableRow
                   key={id}
                   onMouseEnter={() => setHoveredRow(id)}
@@ -205,7 +205,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                       </Tooltip>
                     ) : (
                       <Tooltip
-                        title={"Add Weapon"}
+                        title={isModalClosed() && "Add Weapon"}
                         arrow
                       >
                         <ErrorOutline
@@ -279,7 +279,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                       </Stack>
                     ) : (
                       <Tooltip
-                        title={"Add Gear"}
+                        title={isModalClosed() && "Add Gear"}
                         arrow
                       >
                         <ErrorOutline
@@ -291,7 +291,21 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     )}
                   </TableCell>
                   <TableCell></TableCell>
-                  <TableCell align="center">{score.toString()}</TableCell>
+                  <TableCell align="center">
+                    {rating.final !== -1 ? (
+                      rating.final.toString()
+                    ) : (
+                      <Tooltip
+                        title={isModalClosed() && "invalid"}
+                        arrow
+                      >
+                        <ErrorOutline
+                          color="error"
+                          cursor="pointer"
+                        />
+                      </Tooltip>
+                    )}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -299,7 +313,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
         </TableContainer>
 
         {/* Add & Load Buttons */}
-        <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+        <Stack direction="row" gap={2} my={2}>
           <Button
             variant="contained"
             color="primary"
@@ -317,7 +331,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           >
             Load from UID
           </Button>
-        </Box>
+        </Stack>
 
         {/* Modals */}
         <AddModal

@@ -123,10 +123,10 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS) => {
   return points;
 };
 
-const getScore = (gameType, gameData, cid, cdata) => {
+const getRatingGear = (gameType, gameData, cid, cdata) => {
   const { CHAR, WEAP } = gameData;
   const SUBSTATS = gameData.INFO.SUBSTATS;
-  if (!cdata.weapon) return "N/A";
+  if (!cdata.weapon) return -1;
 
   // Combine basestats
   const basestats = combine_basestats(CHAR[cid].base, WEAP[cdata.weapon].base);
@@ -150,4 +150,4 @@ const getScore = (gameType, gameData, cid, cdata) => {
   return Math.round((points / sim_points) * 100);
 };
 
-export default getScore;
+export default getRatingGear;

@@ -70,12 +70,12 @@ const Piece = ({
     return Object.keys(SUBSTATS).filter(
       (option) => gameType === "WW" ?
         !selectedSubstats.includes(option) :
-        !selectedSubstats.includes(option) && SUBSTATS[option] !== selectedMainstat
+        !selectedSubstats.includes(option) && option !== selectedMainstat
     );
   };
 
   return (
-    <Card sx={{ p: 2 }}>
+    <Card sx={{ width: 250, p: 2 }}>
       <Grid container spacing={1}>
         {/* Mainstat */}
         <Grid size={12}>

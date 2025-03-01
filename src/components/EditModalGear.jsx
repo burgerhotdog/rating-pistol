@@ -122,8 +122,8 @@ const EditModalGear = ({
         disableClearable={action?.data?.set1 === ""}
       />
 
-      <Box
-        display="flex"
+      <Stack
+        direction="row"
         justifyContent="center"
         alignItems="center"
         gap={2}
@@ -138,7 +138,7 @@ const EditModalGear = ({
             mainIndex={mainIndex}
           />
         ))}
-      </Box>
+      </Stack>
     </Stack>
   );
 };
