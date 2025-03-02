@@ -7,6 +7,7 @@ import {
   TextField,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import { templateGear } from "./template"
 
 const Piece = ({
   gameType,
