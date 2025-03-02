@@ -2,7 +2,6 @@ import React from "react";
 import { doc, deleteDoc } from "firebase/firestore";
 import { Box, Button, Modal, Stack, Typography, useTheme } from "@mui/material";
 import { db } from "../firebase";
-import dataTemplate from "./dataTemplate";
 
 const DeleteModal = ({
   uid,
@@ -10,7 +9,7 @@ const DeleteModal = ({
   gameData,
   action,
   setAction,
-  setMyChars,
+  setLocalCollection,
 }) => {
   const theme = useTheme();
   const { CHAR } = gameData;
@@ -19,25 +18,26 @@ const DeleteModal = ({
     try {
       // Firestore
       if (uid) {
-        const docRef = doc(db, "users", uid, gameType, action.id);
+        const infoDocRef = doc(db, "users", uid, gameType, action.id);
+        const gearDocRef = doc(db, "users", uid, gameType, action.id, );
         await deleteDoc(docRef);
       }
 
       // Local
-      setMyChars((prev) => {
-        const updatedChars = { ...prev };
-        delete updatedChars[action.id];
-        return updatedChars;
+      setLocalCollection((prev) => {
+        const updatedCollection = { ...prev };
+        delete updatedCollection[action.id];
+        return updatedCollection;
       });
     } catch (error) {
       console.error(error);
     } finally {
-      setAction({ e: "", id: "", data: dataTemplate(gameType) });
+      setAction({});
     }
   };
 
   const handleCancel = () => {
-    setAction({ e: "", id: "", data: dataTemplate(gameType) });
+    setAction({});
   };
 
   return (
