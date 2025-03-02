@@ -1,5 +1,5 @@
 import React from "react";
-import { doc, setDoc } from "firebase/firestore";
+import { writeBatch, doc, setDoc } from "firebase/firestore";
 import {
   Autocomplete,
   Box,
@@ -18,8 +18,8 @@ const AddModal = ({
   gameType,
   gameData,
   gameIcons,
-  localCollection,
-  setLocalCollection,
+  localObjs,
+  setLocalObjs,
   action,
   setAction,
 }) => {
@@ -36,7 +36,7 @@ const AddModal = ({
   
   const charOptions = () => {
     return Object.keys(CHAR)
-      .filter(id => !Object.keys(localCollection).includes(id))
+      .filter(id => !Object.keys(localObjs).includes(id))
       .sort((a, b) => {
         const rarityA = CHAR[a].rarity;
         const rarityB = CHAR[b].rarity;
@@ -55,26 +55,25 @@ const AddModal = ({
 
   const handleAdd = async () => {
     const info = templateInfo(gameType);
-    const gear = {
-      0: templateGear(gameType),
-      1: templateGear(gameType),
-      2: templateGear(gameType),
-      3: templateGear(gameType),
-      4: templateGear(gameType),
-      ...(gameType === "HSR" ? { 5: templateGear(gameType) } : {}),
-      ...(gameType === "ZZZ" ? { 5: templateGear(gameType) } : {}),
-    };
-
-    if (uid) {
-      const infoDocRef = doc(db, "users", uid, gameType, action?.id);
-      const gearDocRef = doc(db, "users", uid, gameType, action?.id, "gear");
-      await setDoc(infoDocRef, info, { merge: true });
-      await setDoc(gearDocRef, gear, { merge: true });
+    const gearList = Array(5).fill(null).map(() => templateGear(gameType));
+    if (gameType === "HSR" || gameType === "ZZZ") {
+      gearList.push(templateGear(gameType));
     }
 
-    setLocalCollection((prev) => ({
+    if (uid) {
+      const batch = writeBatch(db);
+      const infoDocRef = doc(db, "users", uid, gameType, action.id);
+      batch.set(infoDocRef, info, { merge: true });
+      for (const [index, gearObj] of gearList.entries()) {
+        const gearDocRef = doc(db, "users", uid, gameType, action.id, "gearList", index.toString());
+        batch.set(gearDocRef, gearObj, { merge: true });
+      }
+      await batch.commit();
+    }
+
+    setLocalObjs((prev) => ({
       ...prev,
-      [action.id]: { info, gear },
+      [action.id]: { info, gearList },
     }));
 
     setAction({});

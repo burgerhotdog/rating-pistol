@@ -28,55 +28,53 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const { INFO, CHAR, WEAP, SETS } = gameData;
   const { charIcons, weapIcons, setsIcons } = gameIcons;
   const theme = useTheme();
-  const [localCollection, setLocalCollection] = useState({});
-  const [localCollectionRated, setLocalCollectionRated] = useState([]);
+  const [localObjs, setLocalObjs] = useState({});
+  const [localObjsRated, setLocalObjsRated] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [action, setAction] = useState({});
 
-  // Load localCollection from Firestore
+  // Load localObjs from Firestore
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
         const infoDocsRef = collection(db, "users", uid, gameType);
         const infoDocs = await getDocs(infoDocsRef);
-        const infoDocsCollection = {};
 
+        const dataObjs = {};
         for (const infoDoc of infoDocs.docs) {
-          const gearDocsRef = collection(db, "users", uid, gameType, infoDoc.id);
+          const gearDocsRef = collection(db, "users", uid, gameType, infoDoc.id, "gearList");
           const gearDocs = await getDocs(gearDocsRef);
-          const gearDocsCollection = {};
 
+          const gearList = [];
           for (const gearDoc of gearDocs.docs) {
-            gearDocsCollection[gearDoc.id] = gearDoc.data();
+            gearList.push(gearDoc.data());
           };
 
-          infoDocsCollection[infoDoc.id] = {
+          dataObjs[infoDoc.id] = {
             info: infoDoc.data(),
-            gear: gearDocsCollection,
+            gearList,
           };
         };
-
-        setLocalCollection(infoDocsCollection);
+        setLocalObjs(dataObjs);
       } else {
-        setLocalCollection({});
+        setLocalObjs({});
       }
     };
     fetchDB();
   }, [uid]);
 
-  // Load localCollectionRated from localCollection
+  // Load localObjsRated from localObjs
   useEffect(() => {
-    const ratedChars = Object.entries(localCollection).map(([id, data]) => ({
+    const ratedChars = Object.entries(localObjs).map(([id, data]) => ({
       id,
       info: data.info,
-      gear: data.gear,
       rating: getRating(gameType, gameData, id, data),
     }));
 
     ratedChars.sort((a, b) => b.rating.final - a.rating.final);
 
-    setLocalCollectionRated(ratedChars);
-  }, [localCollection]);
+    setLocalObjsRated(ratedChars);
+  }, [localObjs]);
 
   const isModalClosed = () => !Boolean(Object.keys(action).length);
 
@@ -98,7 +96,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
       type: "edit",
       item,
       id,
-      data: localCollection[id],
+      data: localObjs[id],
     });
   };
 
@@ -125,7 +123,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {localCollectionRated.map(({ id, info, gear, rating }) => (
+              {localObjsRated.map(({ id, info, rating }) => (
                 <TableRow
                   key={id}
                   onMouseEnter={() => setHoveredRow(id)}
@@ -325,8 +323,8 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           gameType={gameType}
           gameData={gameData}
           gameIcons={gameIcons}
-          localCollection={localCollection}
-          setLocalCollection={setLocalCollection}
+          localObjs={localObjs}
+          setLocalObjs={setLocalObjs}
           action={action}
           setAction={setAction}
         />
@@ -336,7 +334,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             uid={uid}
             gameType={gameType}
             gameData={gameData}
-            setLocalCollection={setLocalCollection}
+            setLocalObjs={setLocalObjs}
             action={action}
             setAction={setAction}
           />
@@ -346,7 +344,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           uid={uid}
           gameType={gameType}
           gameData={gameData}
-          setLocalCollection={setLocalCollection}
+          setLocalObjs={setLocalObjs}
           action={action}
           setAction={setAction}
         />
@@ -356,7 +354,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           gameType={gameType}
           gameData={gameData}
           gameIcons={gameIcons}
-          setLocalCollection={setLocalCollection}
+          setLocalObjs={setLocalObjs}
           action={action}
           setAction={setAction}
         />

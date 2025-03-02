@@ -1,5 +1,5 @@
 import React from "react";
-import { doc, deleteDoc } from "firebase/firestore";
+import { writeBatch, doc, deleteDoc } from "firebase/firestore";
 import { Box, Button, Modal, Stack, Typography, useTheme } from "@mui/material";
 import { db } from "../firebase";
 
@@ -9,22 +9,25 @@ const DeleteModal = ({
   gameData,
   action,
   setAction,
-  setLocalCollection,
+  setLocalObjs,
 }) => {
   const theme = useTheme();
   const { CHAR } = gameData;
   
   const handleDelete = async () => {
     try {
-      // Firestore
       if (uid) {
+        const batch = writeBatch(db);
+        for (const [index, gearObj] of gearList.entries()) {
+          const gearDocRef = doc(db, "users", uid, gameType, action.id, "gearList", index.toString());
+          batch.delete(gearDocRef);
+        }
         const infoDocRef = doc(db, "users", uid, gameType, action.id);
-        const gearDocRef = doc(db, "users", uid, gameType, action.id, );
-        await deleteDoc(docRef);
+        batch.delete(infoDocRef);
+        await batch.commit();
       }
 
-      // Local
-      setLocalCollection((prev) => {
+      setLocalObjs((prev) => {
         const updatedCollection = { ...prev };
         delete updatedCollection[action.id];
         return updatedCollection;

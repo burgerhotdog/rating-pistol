@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { writeBatch, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import {
   Box,
@@ -19,7 +19,7 @@ const LoadModal = ({
   uid,
   gameType,
   gameData,
-  setLocalCollection,
+  setLocalObjs,
   action,
   setAction,
 }) => {
@@ -36,8 +36,8 @@ const LoadModal = ({
   const suffix = (
     gameType === "GI" ? "uid/" :
     gameType === "HSR" ? "hsr/uid/" :
-    gameType === "ZZZ" ? "zzz/uid/" : 
-    ""
+    gameType === "WW" ? "" :
+    gameType === "ZZZ" && "zzz/uid/"
   );
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const LoadModal = ({
       }
     };
   
-    if (action?.e === "load") {
+    if (action?.type === "load") {
       fetchUserUid();
     }
   }, [action]);
@@ -145,13 +145,7 @@ const LoadModal = ({
         selectedAvatars.map((selectedAvatar) => {
           const id = enkaList[selectedAvatar].avatarId.toString();
           const info = templateInfo(gameType);
-          const gear = {
-            0: templateGear(gameType),
-            1: templateGear(gameType),
-            2: templateGear(gameType),
-            3: templateGear(gameType),
-            4: templateGear(gameType),
-          };
+          const gearList = Array(5).fill(null).map(() => templateGear(gameType));
     
           info.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
           const setCounts = {};
@@ -164,10 +158,11 @@ const LoadModal = ({
             const currSet = currPiece.flat.icon.substring(13, 18) || "";
             setCounts[currSet] = (setCounts[currSet] || 0) + 1;
     
-            gear[i].mainstat = statKey.MAIN[currPiece.flat.reliquaryMainstat.mainPropId] || "";
+            gearList[i].mainstat = statKey.MAIN[currPiece.flat.reliquaryMainstat.mainPropId] || "";
             for (let j = 0; j < 4; j++) {
-              gear[i][j][0] = statKey.SUB[currPiece.flat.reliquarySubstats[j]?.appendPropId] || "";
-              gear[i][j][1] = currPiece.flat.reliquarySubstats[j]?.statValue.toString() || "";
+              gearList[i][j][0] = statKey.SUB[currPiece.flat.reliquarySubstats[j]?.appendPropId] || "";
+              gearList[i][j][1] = currPiece.flat.reliquarySubstats[j]?.statValue.toString() || "";
+              console.log(gearList[i][j][0], gearList[i][j][1]);
             }
           }
     
@@ -179,20 +174,13 @@ const LoadModal = ({
             }
           }
     
-          return { id, data: { info, gear } };
+          return { id, info, gearList };
         }) :
       gameType === "HSR" ?
         selectedAvatars.map((selectedAvatar) => {
           const id = enkaList[selectedAvatar].avatarId.toString();
           const info = templateInfo(gameType);
-          const gear = {
-            0: templateGear(gameType),
-            1: templateGear(gameType),
-            2: templateGear(gameType),
-            3: templateGear(gameType),
-            4: templateGear(gameType),
-            5: templateGear(gameType),
-          };
+          const gearList = Array(6).fill(null).map(() => templateGear(gameType));
 
           info.weapon = enkaList[selectedAvatar].equipment?.tid.toString() || "";
           const setCounts = {};
@@ -205,12 +193,12 @@ const LoadModal = ({
             const currSet = currPiece._flat.setID.toString() || "";
             setCounts[currSet] = (setCounts[currSet] || 0) + 1;
 
-            gear[i].mainstat = statKey.MAIN[currPiece._flat.props[0].type] || "";
+            gearList[i].mainstat = statKey.MAIN[currPiece._flat.props[0].type] || "";
             for (let j = 0; j < 4; j++) {
-              gear[i][j][0] = statKey.SUB[currPiece._flat.props[j + 1]?.type] || "";
+              gearList[i][j][0] = statKey.SUB[currPiece._flat.props[j + 1]?.type] || "";
               const ratio = currPiece._flat.props[j + 1]?.type.slice(-5) === "Delta" ? 1 : 100;
               const roundAmount = ratio === 1 ? 1 : 10;
-              gear[i][j][1] = (Math.round((currPiece._flat.props[j + 1]?.value * ratio) * roundAmount) / roundAmount).toString() || "";
+              gearList[i][j][1] = (Math.round((currPiece._flat.props[j + 1]?.value * ratio) * roundAmount) / roundAmount).toString() || "";
             }
           }
 
@@ -223,7 +211,7 @@ const LoadModal = ({
             }
           }
 
-          return { id, data: { info, gear } };
+          return { id, info, gearList };
         }) :
       gameType === "WW" ?
         [] :
@@ -232,18 +220,20 @@ const LoadModal = ({
 
     // update states
     for (const char of charBuffer) {
-      // firestore
       if (uid) {
-        const infoDocRef = doc(db, "users", uid, gameType, char?.id);
-        const gearDocRef = doc(db, "users", uid, gameType, char?.id, "gear");
-        await setDoc(infoDocRef, char?.data?.info, { merge: false });
-        await setDoc(gearDocRef, char?.data?.gear, { merge: false });
+        const batch = writeBatch(db);
+        const infoDocRef = doc(db, "users", uid, gameType, char.id);
+        batch.set(infoDocRef, char.info, { merge: false });
+        for (const [index, gearObj] of char.gearList.entries()) {
+          const gearDocRef = doc(db, "users", uid, gameType, char.id, "gearList", index.toString());
+          batch.set(gearDocRef, gearObj, { merge: false });
+        }
+        await batch.commit();
       }
 
-      // local
-      setLocalCollection((prev) => ({
+      setLocalObjs((prev) => ({
         ...prev,
-        [char?.id]: char?.data,
+        [char.id]: { info: char.info, gearList: char.gearList },
       }));
     }
 
@@ -278,7 +268,7 @@ const LoadModal = ({
   };
 
   return (
-    <Modal open={action?.e === "load"} onClose={handleCancel}>
+    <Modal open={action?.type === "load"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
         {!enkaList.length ? (
           <Stack gap={2}>

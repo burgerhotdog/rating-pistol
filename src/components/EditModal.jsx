@@ -1,5 +1,5 @@
 import React from "react";
-import { doc, setDoc } from "firebase/firestore";
+import { writeBatch, doc, setDoc } from "firebase/firestore";
 import {
   Box,
   Button,
@@ -18,7 +18,7 @@ const EditModal = ({
   gameType,
   gameData,
   gameIcons,
-  setLocalCollection,
+  setLocalObjs,
   action,
   setAction,
 }) => {
@@ -35,13 +35,17 @@ const EditModal = ({
 
   const handleSave = async () => {
     if (uid) {
-      const infoDocRef = doc(db, "users", uid, gameType, action?.id);
-      const gearDocRef = doc(db, "users", uid, gameType, action?.id, "gear");
-      await setDoc(infoDocRef, action?.data?.info, { merge: true });
-      await setDoc(gearDocRef, action?.data?.gear, { merge: true });
+      const batch = writeBatch(db);
+      const infoDocRef = doc(db, "users", uid, gameType, action.id);
+      batch.set(infoDocRef, action.data.info, { merge: true });
+      for (const [index, gearObj] of action.data.gearList.entries()) {
+        const gearDocRef = doc(db, "users", uid, gameType, action.id, "gearList", index.toString());
+        batch.set(gearDocRef, gearObj, { merge: true });
+      }
+      await batch.commit();
     }
 
-    setLocalCollection((prev) => ({
+    setLocalObjs((prev) => ({
       ...prev,
       [action.id]: action.data,
     }));
