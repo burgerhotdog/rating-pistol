@@ -22,20 +22,12 @@ const Piece = ({
       ...prev,
       data: {
         ...prev.data,
-        mainstats: prev.data.mainstats.map((stat, index) =>
-          index === mainIndex ?
-            newValue || "" :
-            stat
-        ),
-        substats: {
-          ...prev.data.substats,
+        gear: {
+          ...prev.data.gear,
           [mainIndex]: {
-            0: ["", ""],
-            1: ["", ""],
-            2: ["", ""],
-            3: ["", ""],
-            ...(gameType === "WW" ? { 4: ["", ""] } : {}),
-          },
+            ...templateGear(gameType),
+            mainstat: newValue || "",
+          }
         },
       },
     }));
@@ -46,12 +38,12 @@ const Piece = ({
       ...prev,
       data: {
         ...prev.data,
-        substats: {
-          ...prev.data.substats,
+        gear: {
+          ...prev.data.gear,
           [mainIndex]: {
-            ...prev.data.substats[mainIndex],
+            ...prev.data.gear[mainIndex],
             [subIndex]: {
-              ...prev.data.substats[mainIndex]?.[subIndex],
+              ...prev.data.gear[mainIndex][subIndex],
               [attrIndex]: newValue || "",
               ...(attrIndex === 0 ? { 1: "" } : {}),
             },
@@ -62,26 +54,26 @@ const Piece = ({
   };
 
   const substatOptions = (subIndex) => {
-    const selectedMainstat = action.data.mainstats[mainIndex];
-    const selectedSubstats = Object.values(action.data.substats[mainIndex])
-      .map((substat) => substat[0])
+    const selectedMainstat = action?.data?.gear[mainIndex]?.mainstat;
+    const selectedSubstats = Object.entries(action?.data?.gear[mainIndex] || {})
+      .filter(([key]) => key !== "mainstat") // Exclude the mainstat key
+      .map(([, substatArray]) => substatArray[0]) // Extract the first string in each array
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
-  
+    
     return Object.keys(SUBSTATS).filter(
-      (option) => gameType === "WW" ?
-        !selectedSubstats.includes(option) :
-        !selectedSubstats.includes(option) && option !== selectedMainstat
+      (option) => gameType === "WW"
+        ? !selectedSubstats.includes(option)
+        : !selectedSubstats.includes(option) && option !== selectedMainstat
     );
   };
 
   return (
     <Card sx={{ width: 250, p: 2 }}>
       <Grid container spacing={1}>
-        {/* Mainstat */}
         <Grid size={12}>
           <Autocomplete
             size="small"
-            value={action.data.mainstats[mainIndex] || ""}
+            value={action?.data?.gear[mainIndex].mainstat || ""}
             options={Object.keys(MAINSTATS[mainIndex])}
             getOptionLabel={(id) => MAINSTATS[mainIndex][id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
@@ -92,23 +84,21 @@ const Piece = ({
               />
             )}
             fullWidth
-            disableClearable={action.data.mainstats[mainIndex] === ""}
+            disableClearable={action?.data?.gear[mainIndex].mainstat === ""}
           />
         </Grid>
 
-        {/* Divider */}
         <Grid size={12}>
           <Divider />
         </Grid>
 
-        {/* Substats */}
         {[0, 1, 2, 3, ...(gameType === "WW" ? [4] : [])].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Key Dropdown */}
             <Grid size={8}>
               <Autocomplete
                 size="small"
-                value={action.data.substats[mainIndex][subIndex][0] || ""}
+                value={action?.data?.gear[mainIndex][subIndex][0] || ""}
                 options={substatOptions(subIndex)}
                 getOptionLabel={(id) => SUBSTATS[id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, 0)}
@@ -119,8 +109,8 @@ const Piece = ({
                   />
                 )}
                 fullWidth
-                disabled={action.data.mainstats[mainIndex] === ""}
-                disableClearable={action.data.substats[mainIndex][subIndex][0] === ""}
+                disabled={action?.data?.gear[mainIndex].mainstat === ""}
+                disableClearable={action?.data?.gear[mainIndex][subIndex][0] === ""}
               />
             </Grid>
 
@@ -128,20 +118,20 @@ const Piece = ({
             <Grid size={4}>
               <TextField
                 size="small"
-                value={action.data.substats[mainIndex][subIndex][1] || ""}
+                value={action.data.gear[mainIndex][subIndex][1] || ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (SUBSTATS[action.data.substats[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (SUBSTATS[action.data.gear[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, 1);
                   }
                 }}
                 fullWidth
-                disabled={action.data.substats[mainIndex][subIndex][0] === ""}
+                disabled={action.data.gear[mainIndex][subIndex][0] === ""}
                 slotProps={{
                   input: {
-                    endAdornment: SUBSTATS[action.data.substats[mainIndex][subIndex][0]]?.percent && (
+                    endAdornment: SUBSTATS[action.data.gear[mainIndex][subIndex][0]]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },

@@ -30,16 +30,16 @@ const EditModalGear = ({
     1: "slategrey",
   };
 
-  const setOptions = (setNumber) => {
+  const setOptions = (setType) => {
     return Object.keys(SETS)
       .filter(id => {
-        return setNumber === "set1" ? 
+        return setType === "set" ?
           gameType === "HSR" ?
             id.substring(0, 1) === "1" :
             true :
           gameType === "HSR" ?
             id.substring(0, 1) === "3" :
-            id !== action.data.set1;
+            id !== action?.data?.info?.set[0];
       })
       .sort((a, b) => {
         const rarityA = SETS[a].rarity;
@@ -50,14 +50,21 @@ const EditModalGear = ({
       });
   };
 
-  const handleSet = (newValue, setNumber) => {
-    const clearSet2 = gameType === "ZZZ" && setNumber === "set1";
+  const handleSet = (newValue, setType) => {
+    const clearSet2 = gameType === "ZZZ" && setType === "set";
     setAction((prev) => ({
       ...prev,
       data: {
         ...prev.data,
-        [setNumber]: newValue || "",
-        ...(clearSet2 && prev.set2 === newValue ? { set2: "" } : {}),
+        info: {
+          ...prev.data.info,
+          ...(
+            setType === "set" ?
+              { set: [newValue || "", ""] } :
+              { setExtra: newValue || "" }
+          ),
+          ...(clearSet2 && prev.set2 === newValue ? { setExtra: "" } : {}),
+        },
       },
     }));
   };
@@ -66,13 +73,13 @@ const EditModalGear = ({
     <Stack gap={2}>
       <Autocomplete
         size="small"
-        value={action?.data?.set1 || ""}
-        options={setOptions("set1")}
+        value={action?.data?.info?.set[0] || ""}
+        options={setOptions("set")}
         getOptionLabel={(id) => SETS[id]?.name || ""}
-        onChange={(_, newValue) => handleSet(newValue, "set1")}
-        renderOption={(props, option) => {
-          const { key, ...optionProps } = props;
-          const rarity = SETS[option]?.rarity;
+        onChange={(_, newValue) => handleSet(newValue, "set")}
+        renderOption={(props, id) => {
+          const { key, ...idProps } = props;
+          const rarity = SETS[id]?.rarity;
           return (
             <Box
               key={key}
@@ -81,34 +88,36 @@ const EditModalGear = ({
                 "& > img": { mr: 2, flexShrink: 0 },
                 color: rarityColor[rarity],
               }}
-              {...optionProps}
+              {...idProps}
             >
-              <img
+              <Box
+                component="img"
                 loading="lazy"
-                src={setsIcons[`../assets/sets/${gameType}/${option}.webp`]?.default}
+                src={setsIcons[`../assets/sets/${gameType}/${id}.webp`]?.default}
                 alt={""}
-                style={{ width: 24, height: 24, objectFit: "contain" }}
+                sx={{ width: 24, height: 24, objectFit: "contain" }}
               />
-              {SETS[option]?.name || ""}
+              {SETS[id]?.name || ""}
             </Box>
           );
         }}
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Set 1"
+            label="Set"
             sx={{
               "& .MuiInputBase-root": {
-                color: rarityColor[SETS[action?.data?.set1]?.rarity] || "inherit",
+                color: rarityColor[SETS[action?.data?.info?.set[0]]?.rarity] || "inherit",
               }
             }}
             slotProps={{
               input: {
                 ...params.InputProps,
-                startAdornment: action?.data?.set1 && (
+                startAdornment: action?.data?.info?.set[0] && (
                   <InputAdornment position="start">
-                    <img
-                      src={setsIcons[`../assets/sets/${gameType}/${action?.data?.set1}.webp`]?.default}
+                    <Box
+                      component="img"
+                      src={setsIcons[`../assets/sets/${gameType}/${action?.data?.info?.set[0]}.webp`]?.default}
                       alt=""
                       style={{ width: 24, height: 24, objectFit: "contain" }}
                     />
@@ -119,7 +128,7 @@ const EditModalGear = ({
           />
         )}
         fullWidth
-        disableClearable={action?.data?.set1 === ""}
+        disableClearable={action?.data?.info?.set[0] === ""}
       />
 
       <Stack

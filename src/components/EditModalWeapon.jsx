@@ -47,7 +47,10 @@ const EditModalWeapon = ({
       ...prev,
       data: {
         ...prev.data,
-        weapon: newValue || "",
+        info: {
+          ...prev.data.info,
+          weapon: newValue || "",
+        }
       },
     }));
   };
@@ -56,13 +59,13 @@ const EditModalWeapon = ({
     <Stack gap={2}>
       <Autocomplete
         size="small"
-        value={action?.data?.weapon || ""}
+        value={action?.data?.info?.weapon || ""}
         options={weapOptions()}
         getOptionLabel={(id) => WEAP[id]?.name || ""}
         onChange={(_, newValue) => handleWeapon(newValue)}
-        renderOption={(props, option) => {
-          const { key, ...optionProps } = props;
-          const rarity = WEAP[option]?.rarity;
+        renderOption={(props, id) => {
+          const { key, ...idProps } = props;
+          const rarity = WEAP[id]?.rarity;
           return (
             <Box
               key={key}
@@ -71,15 +74,16 @@ const EditModalWeapon = ({
                 "& > img": { mr: 2, flexShrink: 0 },
                 color: rarityColor[rarity],
               }}
-              {...optionProps}
+              {...idProps}
             >
-              <img
+              <Box
+                component="img"
                 loading="lazy"
-                src={weapIcons[`../assets/weap/${gameType}/${option}.webp`]?.default}
+                src={weapIcons[`../assets/weap/${gameType}/${id}.webp`]?.default}
                 alt={""}
-                style={{ width: 24, height: 24, objectFit: "contain" }}
+                sx={{ width: 24, height: 24, objectFit: "contain" }}
               />
-              {WEAP[option]?.name || ""}
+              {WEAP[id]?.name || ""}
             </Box>
           );
         }}
@@ -89,7 +93,7 @@ const EditModalWeapon = ({
             label="Weapon"
             sx={{
               "& .MuiInputBase-root": {
-                color: rarityColor[WEAP[action?.data?.weapon]?.rarity] || "inherit",
+                color: rarityColor[WEAP[action?.data?.info?.weapon]?.rarity] || "inherit",
               }
             }}
             slotProps={{
@@ -97,10 +101,11 @@ const EditModalWeapon = ({
                 ...params.InputProps,
                 startAdornment: action?.data?.weapon && (
                   <InputAdornment position="start">
-                    <img
-                      src={weapIcons[`../assets/weap/${gameType}/${action?.data?.weapon}.webp`]?.default}
+                    <Box
+                      component="img"
+                      src={weapIcons[`../assets/weap/${gameType}/${action?.data?.info?.weapon}.webp`]?.default}
                       alt=""
-                      style={{ width: 24, height: 24, objectFit: "contain" }}
+                      sx={{ width: 24, height: 24, objectFit: "contain" }}
                     />
                   </InputAdornment>
                 ),
@@ -110,7 +115,7 @@ const EditModalWeapon = ({
         )}
         fullWidth
         sx={{ width: 256 }}
-        disableClearable={action?.data?.weapon === ""}
+        disableClearable={action?.data?.info?.weapon === ""}
       />
     </Stack>
   );

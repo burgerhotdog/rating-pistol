@@ -12,14 +12,14 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import dataTemplate from "./dataTemplate";
+import { templateInfo, templateGear } from "./template";
 import enkaStatKey from "./enkaStatKey";
 
 const LoadModal = ({
   uid,
   gameType,
   gameData,
-  setMyChars,
+  setLocalCollection,
   action,
   setAction,
 }) => {
@@ -140,14 +140,20 @@ const LoadModal = ({
   };
 
   const handleSave = async () => {
-    let charBuffer = [];
-    switch (gameType) {
-      case "GI":
-        charBuffer = selectedAvatars.map((selectedAvatar) => {
-          const cid = enkaList[selectedAvatar].avatarId.toString();
-          const cdata = dataTemplate("GI");
+    const charBuffer =
+      gameType === "GI" ?
+        selectedAvatars.map((selectedAvatar) => {
+          const id = enkaList[selectedAvatar].avatarId.toString();
+          const info = templateInfo(gameType);
+          const gear = {
+            0: templateGear(gameType),
+            1: templateGear(gameType),
+            2: templateGear(gameType),
+            3: templateGear(gameType),
+            4: templateGear(gameType),
+          };
     
-          cdata.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
+          info.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
           const setCounts = {};
     
           // pieces
@@ -158,82 +164,86 @@ const LoadModal = ({
             const currSet = currPiece.flat.icon.substring(13, 18) || "";
             setCounts[currSet] = (setCounts[currSet] || 0) + 1;
     
-            cdata.mainstats[i] = statKey.MAIN[currPiece.flat.reliquaryMainstat.mainPropId] || "";
+            gear[i].mainstat = statKey.MAIN[currPiece.flat.reliquaryMainstat.mainPropId] || "";
             for (let j = 0; j < 4; j++) {
-              cdata.substats[i][j][0] = statKey.SUB[currPiece.flat.reliquarySubstats[j]?.appendPropId] || "";
-              cdata.substats[i][j][1] = currPiece.flat.reliquarySubstats[j]?.statValue.toString() || "";
+              gear[i][j][0] = statKey.SUB[currPiece.flat.reliquarySubstats[j]?.appendPropId] || "";
+              gear[i][j][1] = currPiece.flat.reliquarySubstats[j]?.statValue.toString() || "";
             }
           }
     
           // set
           for (const set in setCounts) {
             if (setCounts[set] >= 4) {
-              cdata.set1 = set;
+              info.set[0] = set;
               break;
             }
           }
     
-          return { cid, cdata };
-        });
-        break;
+          return { id, data: { info, gear } };
+        }) :
+      gameType === "HSR" ?
+        selectedAvatars.map((selectedAvatar) => {
+          const id = enkaList[selectedAvatar].avatarId.toString();
+          const info = templateInfo(gameType);
+          const gear = {
+            0: templateGear(gameType),
+            1: templateGear(gameType),
+            2: templateGear(gameType),
+            3: templateGear(gameType),
+            4: templateGear(gameType),
+            5: templateGear(gameType),
+          };
 
-      case "HSR":
-        charBuffer = selectedAvatars.map((selectedAvatar) => {
-          const cid = enkaList[selectedAvatar].avatarId.toString();
-          const cdata = dataTemplate("HSR");
-  
-          cdata.weapon = enkaList[selectedAvatar].equipment?.tid.toString() || "";
+          info.weapon = enkaList[selectedAvatar].equipment?.tid.toString() || "";
           const setCounts = {};
-  
+
           // pieces
           for (let i = 0; i < 6; i++) {
             const currPiece = enkaList[selectedAvatar].relicList[i];
             if (!currPiece) continue;
-  
+
             const currSet = currPiece._flat.setID.toString() || "";
             setCounts[currSet] = (setCounts[currSet] || 0) + 1;
-  
-            cdata.mainstats[i] = statKey.MAIN[currPiece._flat.props[0].type] || "";
+
+            gear[i].mainstat = statKey.MAIN[currPiece._flat.props[0].type] || "";
             for (let j = 0; j < 4; j++) {
-              cdata.substats[i][j][0] = statKey.SUB[currPiece._flat.props[j + 1]?.type] || "";
+              gear[i][j][0] = statKey.SUB[currPiece._flat.props[j + 1]?.type] || "";
               const ratio = currPiece._flat.props[j + 1]?.type.slice(-5) === "Delta" ? 1 : 100;
               const roundAmount = ratio === 1 ? 1 : 10;
-              cdata.substats[i][j][1] = (Math.round((currPiece._flat.props[j + 1]?.value * ratio) * roundAmount) / roundAmount).toString() || "";
-            }
-          }
-  
-          // set
-          for (const set in setCounts) {
-            if (setCounts[set] >= 4) {
-              cdata.set1 = set;
-            } else if (setCounts[set] == 2) {
-              cdata.set2 = set;
+              gear[i][j][1] = (Math.round((currPiece._flat.props[j + 1]?.value * ratio) * roundAmount) / roundAmount).toString() || "";
             }
           }
 
-          return { cid, cdata };
-        });
-        break;
-        
-      case "ZZZ":
-        break;
-      
-      case "WW":
-        break;
-    }
+          // set
+          for (const set in setCounts) {
+            if (setCounts[set] >= 4) {
+              info.set[0] = set;
+            } else if (setCounts[set] == 2) {
+              info.set[0] = set;
+            }
+          }
+
+          return { id, data: { info, gear } };
+        }) :
+      gameType === "WW" ?
+        [] :
+      gameType === "ZZZ" &&
+        [];
 
     // update states
     for (const char of charBuffer) {
       // firestore
       if (uid) {
-        const charDocRef = doc(db, "users", uid, gameType, char.cid);
-        await setDoc(charDocRef, char.cdata, { merge: false });
+        const infoDocRef = doc(db, "users", uid, gameType, char?.id);
+        const gearDocRef = doc(db, "users", uid, gameType, char?.id, "gear");
+        await setDoc(infoDocRef, char?.data?.info, { merge: false });
+        await setDoc(gearDocRef, char?.data?.gear, { merge: false });
       }
 
       // local
-      setMyChars((prev) => ({
+      setLocalCollection((prev) => ({
         ...prev,
-        [char.cid]: char.cdata,
+        [char?.id]: char?.data,
       }));
     }
 

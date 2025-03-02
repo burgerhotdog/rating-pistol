@@ -28,64 +28,68 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const { INFO, CHAR, WEAP, SETS } = gameData;
   const { charIcons, weapIcons, setsIcons } = gameIcons;
   const theme = useTheme();
-  const [myChars, setMyChars] = useState({});
-  const [myCharsRated, setMyCharsRated] = useState([]);
+  const [localCollection, setLocalCollection] = useState({});
+  const [localCollectionRated, setLocalCollectionRated] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [action, setAction] = useState({});
 
-  // Load myChars from Firestore
+  // Load localCollection from Firestore
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
-        const charDocsRef = collection(db, "users", uid, gameType);
-        const charDocs = await getDocs(charDocsRef);
-        const docsToObjs = {};
+        const infoDocsRef = collection(db, "users", uid, gameType);
+        const infoDocs = await getDocs(infoDocsRef);
+        const infoDocsCollection = {};
 
-        charDocs.docs.forEach((charDoc) => {
-          docsToObjs[charDoc.id] = charDoc.data();
-        });
+        for (const infoDoc of infoDocs.docs) {
+          const gearDocsRef = collection(db, "users", uid, gameType, infoDoc.id);
+          const gearDocs = await getDocs(gearDocsRef);
+          const gearDocsCollection = {};
 
-        setMyChars(docsToObjs);
+          for (const gearDoc of gearDocs.docs) {
+            gearDocsCollection[gearDoc.id] = gearDoc.data();
+          };
+
+          infoDocsCollection[infoDoc.id] = {
+            info: infoDoc.data(),
+            gear: gearDocsCollection,
+          };
+        };
+
+        setLocalCollection(infoDocsCollection);
       } else {
-        setMyChars({});
+        setLocalCollection({});
       }
     };
     fetchDB();
   }, [uid]);
 
-  // Load myCharsRated from myChars
+  // Load localCollectionRated from localCollection
   useEffect(() => {
-    const ratedChars = Object.entries(myChars).map(([id, data]) => ({
+    const ratedChars = Object.entries(localCollection).map(([id, data]) => ({
       id,
-      data,
+      info: data.info,
+      gear: data.gear,
       rating: getRating(gameType, gameData, id, data),
     }));
 
     ratedChars.sort((a, b) => b.rating.final - a.rating.final);
 
-    setMyCharsRated(ratedChars);
-  }, [myChars]);
+    setLocalCollectionRated(ratedChars);
+  }, [localCollection]);
 
   const isModalClosed = () => !Boolean(Object.keys(action).length);
 
   const handleAdd = () => {
     setAction({
       type: "add",
-      id: ""
-    });
-  };
-
-  const handleDelete = (id) => {
-    setAction({
-      type: "delete",
-      id,
-      data: myChars[id]
+      id: "",
     });
   };
 
   const handleLoad = () => {
     setAction({
-      type: "load"
+      type: "load",
     });
   };
 
@@ -94,7 +98,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
       type: "edit",
       item,
       id,
-      data: myChars[id]
+      data: localCollection[id],
     });
   };
 
@@ -121,7 +125,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {myCharsRated.map(({ id, data, rating }) => (
+              {localCollectionRated.map(({ id, info, gear, rating }) => (
                 <TableRow
                   key={id}
                   onMouseEnter={() => setHoveredRow(id)}
@@ -129,24 +133,15 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                 >
                   <TableCell></TableCell>
                   <TableCell align="center">
-                    <Tooltip
-                      title={isModalClosed() && (
-                        <>
-                          <Typography variant="subtitle1" fontWeight="bold">
-                            {CHAR[id].name}
-                          </Typography>
-                        </>
-                      )}
-                      arrow
-                    >
+                    <Tooltip>
                       <Stack direction="row" alignItems="center" gap={2}>
                         <Box
                           component="img"
                           alt={id}
                           src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
                           sx={{
-                            height: 50,
                             width: 50,
+                            height: 50,
                             objectFit: "contain",
                             cursor: "pointer",
                           }}
@@ -156,33 +151,33 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     </Tooltip>
                   </TableCell>
                   <TableCell align="center">
-                    {data.weapon ? (
+                    {info.weapon ? (
                       <Tooltip
                         title={isModalClosed() && (
                           <>
                             <Typography variant="subtitle1" fontWeight="bold">
-                              {WEAP[data.weapon].name}
+                              {WEAP[info.weapon].name}
                             </Typography>
                             <Typography variant="body2">
                               {gameType === "HSR" && (
                                 <>
-                                  {"Base HP: " + WEAP[data.weapon].base.FLAT_HP}
+                                  {"Base HP: " + WEAP[info.weapon].base.FLAT_HP}
                                   <br />
                                 </>
                               )}
-                              {"Base ATK: " + WEAP[data.weapon].base.FLAT_ATK}
+                              {"Base ATK: " + WEAP[info.weapon].base.FLAT_ATK}
                               <br />
                               {gameType === "HSR" ? (
-                                "Base DEF: " + WEAP[data.weapon].base.FLAT_DEF
+                                "Base DEF: " + WEAP[info.weapon].base.FLAT_DEF
                               ) : (
-                                WEAP[data.weapon].substat
+                                WEAP[info.weapon].substat
                               )}
                             </Typography>
                             <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                              {WEAP[data.weapon].subtitle}
+                              {WEAP[info.weapon].subtitle}
                             </Typography>
                             <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                              {WEAP[data.weapon].desc}
+                              {WEAP[info.weapon].desc}
                             </Typography>
                           </>
                         )}
@@ -191,12 +186,12 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                         <Stack direction="row" justifyContent="center">
                           <Box
                             component="img"
-                            alt={data.weapon}
+                            alt={info.weapon}
                             onClick={() => handleEdit("weapon", id)}
-                            src={weapIcons[`../assets/weap/${gameType}/${data.weapon}.webp`]?.default}
+                            src={weapIcons[`../assets/weap/${gameType}/${info.weapon}.webp`]?.default}
                             sx={{
-                              height: 50,
                               width: 50,
+                              height: 50,
                               objectFit: "contain",
                               cursor: "pointer",
                             }}
@@ -204,10 +199,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                         </Stack>
                       </Tooltip>
                     ) : (
-                      <Tooltip
-                        title={isModalClosed() && <><Typography>Add Weapon</Typography></>}
-                        arrow
-                      >
+                      <Tooltip>
                         <Add
                           onClick={() => handleEdit("weapon", id)}
                           cursor="pointer"
@@ -216,17 +208,17 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     )}
                   </TableCell>
                   <TableCell align="center">
-                    {(data.set1 || data.set2) ? (
+                    {(info.set[0] || info.setExtra) ? (
                       <Stack direction="row" justifyContent="center" alignItems="center" gap={2}>
-                        {data.set1 && (
+                        {info.set[0] && (
                           <Tooltip
                             title={isModalClosed() && (
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {SETS[data.set1].name}
+                                  {SETS[info.set[0]].name}
                                 </Typography>
                                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {SETS[data.set1].desc}
+                                  {SETS[info.set[0]].desc}
                                 </Typography>
                               </React.Fragment>
                             )}
@@ -234,28 +226,28 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                           >
                             <Box
                               component="img"
-                              alt={data.set1}
+                              alt={info.set[0]}
                               onClick={() => handleEdit("gear", id)}
-                              src={setsIcons[`../assets/sets/${gameType}/${data.set1}.webp`]?.default}
+                              src={setsIcons[`../assets/sets/${gameType}/${info.set[0]}.webp`]?.default}
                               sx={{
-                                height: 50,
                                 width: 50,
+                                height: 50,
                                 objectFit: "contain",
                                 cursor: "pointer",
                               }}
                             />
                           </Tooltip>
                         )}
-                        {(data.set1 && data.set2) && (<Typography>+</Typography>)}
-                        {data.set2 && (
+                        {(info.set[0] && info.setExtra) && (<Typography>+</Typography>)}
+                        {info.setExtra && (
                           <Tooltip
                             title={isModalClosed() && (
                               <React.Fragment>
                                 <Typography variant="subtitle1" fontWeight="bold">
-                                  {SETS[data.set2].name}
+                                  {SETS[info.setExtra].name}
                                 </Typography>
                                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {SETS[data.set2].desc}
+                                  {SETS[info.setExtra].desc}
                                 </Typography>
                               </React.Fragment>
                             )}
@@ -263,12 +255,12 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                           >
                             <Box
                               component="img"
-                              alt={data.set2}
+                              alt={info.setExtra}
                               onClick={() => handleEdit("gear", id)}
-                              src={setsIcons[`../assets/sets/${gameType}/${data.set2}.webp`]?.default}
+                              src={setsIcons[`../assets/sets/${gameType}/${info.setExtra}.webp`]?.default}
                               sx={{
-                                height: 50,
                                 width: 50,
+                                height: 50,
                                 objectFit: "contain",
                                 cursor: "pointer",
                               }}
@@ -277,10 +269,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                         )}
                       </Stack>
                     ) : (
-                      <Tooltip
-                        title={isModalClosed() && <><Typography>Add Gear</Typography></>}
-                        arrow
-                      >
+                      <Tooltip>
                         <Add
                           onClick={() => handleEdit("gear", id)}
                           cursor="pointer"
@@ -291,28 +280,11 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                   <TableCell></TableCell>
                   <TableCell align="center">
                     {rating.final !== -1 ? (
-                      <Tooltip
-                        title={isModalClosed() && (
-                          <>
-                          <Typography variant="body2">
-                            Character score:{" "}{rating.character}
-                            Weapon score:{" "}{rating.weapon}
-                            Gear score:{" "}{rating.gear}
-                            Skills score:{" "}{rating.skills}
-                          </Typography>
-                          </>
-                        )}
-                        arrow
-                      >
-                        {rating.final.toString()}
+                      <Tooltip>
+                        <>{rating.final.toString()}</>
                       </Tooltip>
                     ) : (
-                      <Tooltip
-                        title={isModalClosed() && (
-                          <><Typography>Missing Weapon</Typography></>
-                        )}
-                        arrow
-                      >
+                      <Tooltip>
                         <ErrorOutline
                           color="error"
                           cursor="pointer"
@@ -353,8 +325,8 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           gameType={gameType}
           gameData={gameData}
           gameIcons={gameIcons}
-          myChars={myChars}
-          setMyChars={setMyChars}
+          localCollection={localCollection}
+          setLocalCollection={setLocalCollection}
           action={action}
           setAction={setAction}
         />
@@ -364,7 +336,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             uid={uid}
             gameType={gameType}
             gameData={gameData}
-            setMyChars={setMyChars}
+            setLocalCollection={setLocalCollection}
             action={action}
             setAction={setAction}
           />
@@ -374,7 +346,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           uid={uid}
           gameType={gameType}
           gameData={gameData}
-          setMyChars={setMyChars}
+          setLocalCollection={setLocalCollection}
           action={action}
           setAction={setAction}
         />
@@ -384,7 +356,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           gameType={gameType}
           gameData={gameData}
           gameIcons={gameIcons}
-          setMyChars={setMyChars}
+          setLocalCollection={setLocalCollection}
           action={action}
           setAction={setAction}
         />

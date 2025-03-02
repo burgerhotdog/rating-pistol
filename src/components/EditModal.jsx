@@ -18,7 +18,7 @@ const EditModal = ({
   gameType,
   gameData,
   gameIcons,
-  setMyChars,
+  setLocalCollection,
   action,
   setAction,
 }) => {
@@ -34,14 +34,14 @@ const EditModal = ({
   };
 
   const handleSave = async () => {
-    // Firestore
     if (uid) {
-      const charDocRef = doc(db, "users", uid, gameType, action.id);
-      await setDoc(charDocRef, action.data, { merge: true });
+      const infoDocRef = doc(db, "users", uid, gameType, action?.id);
+      const gearDocRef = doc(db, "users", uid, gameType, action?.id, "gear");
+      await setDoc(infoDocRef, action?.data?.info, { merge: true });
+      await setDoc(gearDocRef, action?.data?.gear, { merge: true });
     }
 
-    // Local
-    setMyChars((prev) => ({
+    setLocalCollection((prev) => ({
       ...prev,
       [action.id]: action.data,
     }));

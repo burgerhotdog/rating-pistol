@@ -11,15 +11,15 @@ import {
   useTheme,
 } from "@mui/material";
 import { db } from "../firebase";
-import dataTemplate from "./dataTemplate";
+import { templateInfo, templateGear } from "./template";
 
 const AddModal = ({
   uid,
   gameType,
   gameData,
   gameIcons,
-  myChars,
-  setMyChars,
+  localCollection,
+  setLocalCollection,
   action,
   setAction,
 }) => {
@@ -36,12 +36,13 @@ const AddModal = ({
   
   const charOptions = () => {
     return Object.keys(CHAR)
-      .filter(id => !Object.keys(myChars).includes(id))
+      .filter(id => !Object.keys(localCollection).includes(id))
       .sort((a, b) => {
         const rarityA = CHAR[a].rarity;
         const rarityB = CHAR[b].rarity;
-        if (rarityA !== rarityB) return rarityB - rarityA;
-        return CHAR[a].name.localeCompare(CHAR[b].name);
+        return rarityA != rarityB ?
+          rarityB - rarityA :
+          CHAR[a].name.localeCompare(CHAR[b].name)
       });
   };
 
@@ -53,14 +54,27 @@ const AddModal = ({
   };
 
   const handleAdd = async () => {
+    const info = templateInfo(gameType);
+    const gear = {
+      0: templateGear(gameType),
+      1: templateGear(gameType),
+      2: templateGear(gameType),
+      3: templateGear(gameType),
+      4: templateGear(gameType),
+      ...(gameType === "HSR" ? { 5: templateGear(gameType) } : {}),
+      ...(gameType === "ZZZ" ? { 5: templateGear(gameType) } : {}),
+    };
+
     if (uid) {
-      const charDocRef = doc(db, "users", uid, gameType, action.id);
-      await setDoc(charDocRef, dataTemplate(gameType), { merge: true });
+      const infoDocRef = doc(db, "users", uid, gameType, action?.id);
+      const gearDocRef = doc(db, "users", uid, gameType, action?.id, "gear");
+      await setDoc(infoDocRef, info, { merge: true });
+      await setDoc(gearDocRef, gear, { merge: true });
     }
 
-    setMyChars((prev) => ({
+    setLocalCollection((prev) => ({
       ...prev,
-      [action.id]: dataTemplate(gameType),
+      [action.id]: { info, gear },
     }));
 
     setAction({});
@@ -93,11 +107,12 @@ const AddModal = ({
                   }}
                   {...optionProps}
                 >
-                  <img
+                  <Box
+                    component="img"
                     loading="lazy"
                     src={charIcons[`../assets/char/${gameType}/${option}.webp`]?.default}
                     alt={""}
-                    style={{ width: 24, height: 24, objectFit: "contain" }}
+                    sx={{ width: 24, height: 24, objectFit: "contain" }}
                   />
                   {CHAR[option]?.name || ""}
                 </Box>
@@ -117,10 +132,11 @@ const AddModal = ({
                     ...params.InputProps,
                     startAdornment: action?.id && (
                       <InputAdornment position="start">
-                        <img
-                          src={charIcons[`../assets/char/${gameType}/${action.id}.webp`]?.default}
+                        <Box
+                          component="img"
+                          src={charIcons[`../assets/char/${gameType}/${action?.id}.webp`]?.default}
                           alt=""
-                          style={{ width: 24, height: 24, objectFit: "contain" }}
+                          sx={{ width: 24, height: 24, objectFit: "contain" }}
                         />
                       </InputAdornment>
                     ),
