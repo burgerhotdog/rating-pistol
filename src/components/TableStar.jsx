@@ -8,14 +8,13 @@ import { db } from "../firebase";
 const TableStar = ({
   uid,
   gameType,
-  localObjs,
   setLocalObjs,
   id,
-  info,
+  data,
   hoveredRow,
 }) => {
-  const handleStar = async () => {
-    const newValue = !Boolean(localObjs[id]?.info?.isStar);
+  const toggleStar = async () => {
+    const newValue = !Boolean(data.info.isStar);
 
     if (uid) {
       const infoDocRef = doc(db, "users", uid, gameType, id);
@@ -36,18 +35,17 @@ const TableStar = ({
 
   return (
     <TableCell align="center">
-      {info.isStar ? (
+      {data.info.isStar ? (
         <StarIcon
-          onClick={() => handleStar()}
+          onClick={toggleStar}
           sx={{ color: "gold", cursor: "pointer" }}
         />
-      ) : (
-        hoveredRow === id &&
-          <StarBorderIcon
-            onClick={() => handleStar()}
-            sx={{ color: "text.disabled", cursor: "pointer" }}
-          />
-      )}
+      ) : hoveredRow === id ? (
+        <StarBorderIcon
+          onClick={toggleStar}
+          sx={{ color: "text.disabled", cursor: "pointer" }}
+        />
+      ) : null}
     </TableCell>
   );
 };

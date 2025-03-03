@@ -24,11 +24,17 @@ import ModalEdit from "./ModalEdit";
 import ModalLoad from "./ModalLoad";
 import getRating from "./getRating";
 import TableStar from "./TableStar";
+import TableCharacter from "./TableCharacter";
+import TableWeapon from "./TableWeapon";
+import TableGear from "./TableGear";
+import TableSkills from "./TableSkills";
+import TableRating from "./TableRating";
+import TableDelete from "./TableDelete";
 
 const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
+  const theme = useTheme();
   const { INFO, CHAR, WEAP, SETS } = gameData;
   const { charIcons, weapIcons, setsIcons } = gameIcons;
-  const theme = useTheme();
   const [localObjs, setLocalObjs] = useState({});
   const [sortedObjs, setSortedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
@@ -68,14 +74,14 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   useEffect(() => {
     const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
       id,
-      info: data.info,
+      data,
       rating: getRating(gameType, gameData, id, data),
     }));
 
     ratedObjs.sort((a, b) =>
-      a.info.isStar === b.info.isStar
+      a.data.info.isStar === b.data.info.isStar
         ? b.rating.final - a.rating.final
-        : a.info.isStar ? -1 : 1
+        : a.data.info.isStar ? -1 : 1
     );
 
     setSortedObjs(ratedObjs);
@@ -138,185 +144,76 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {sortedObjs.map(({ id, info, rating }) => (
+              {sortedObjs.map(({ id, data, rating }) => (
                 <TableRow
                   key={id}
                   onMouseEnter={() => setHoveredRow(id)}
                   onMouseLeave={() => setHoveredRow(null)}
                 >
                   <TableCell sx={{ borderBottom: "none" }} />
+
                   <TableStar
                     uid={uid}
                     gameType={gameType}
-                    localObjs={localObjs}
                     setLocalObjs={setLocalObjs}
                     id={id}
-                    info={info}
+                    data={data}
                     hoveredRow={hoveredRow}
                   />
-                  <TableCell align="center">
-                    <Tooltip>
-                      <Stack direction="row" alignItems="center" gap={2}>
-                        <Box
-                          component="img"
-                          alt={id}
-                          src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
-                          sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                        />
-                        <Typography variant="body2" sx={{ textAlign: "left" }}>{CHAR[id].name}</Typography>
-                      </Stack>
-                    </Tooltip>
-                  </TableCell>
-                  <TableCell align="center">
-                    {info.weapon ? (
-                      <Tooltip
-                        title={isModalClosed() && (
-                          <>
-                            <Typography variant="subtitle1" fontWeight="bold">
-                              {WEAP[info.weapon].name}
-                            </Typography>
-                            <Typography variant="body2">
-                              {gameType === "HSR" && (
-                                <>
-                                  {"Base HP: " + WEAP[info.weapon].base.FLAT_HP}
-                                  <br />
-                                </>
-                              )}
-                              {"Base ATK: " + WEAP[info.weapon].base.FLAT_ATK}
-                              <br />
-                              {gameType === "HSR" ? (
-                                "Base DEF: " + WEAP[info.weapon].base.FLAT_DEF
-                              ) : (
-                                WEAP[info.weapon].substat
-                              )}
-                            </Typography>
-                            <Typography variant="subtitle2" sx={{ mt: 1 }}>
-                              {WEAP[info.weapon].subtitle}
-                            </Typography>
-                            <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                              {WEAP[info.weapon].desc}
-                            </Typography>
-                          </>
-                        )}
-                        arrow
-                      >
-                        <Stack direction="row" justifyContent="center">
-                          <Box
-                            component="img"
-                            alt={info.weapon}
-                            onClick={() => handleEdit(id, "weapon")}
-                            src={weapIcons[`../assets/weap/${gameType}/${info.weapon}.webp`]?.default}
-                            sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                          />
-                        </Stack>
-                      </Tooltip>
-                    ) : (
-                      <Tooltip>
-                        <Add
-                          onClick={() => handleEdit(id, "weapon")}
-                          cursor="pointer"
-                        />
-                      </Tooltip>
-                    )}
-                  </TableCell>
-                  <TableCell align="center">
-                    {(info.set[0] || info.setExtra) ? (
-                      <Stack direction="row" justifyContent="center" alignItems="center" gap={2}>
-                        {info.set[0] && (
-                          <Tooltip
-                            title={isModalClosed() && (
-                              <React.Fragment>
-                                <Typography variant="subtitle1" fontWeight="bold">
-                                  {SETS[info.set[0]].name}
-                                </Typography>
-                                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {SETS[info.set[0]].desc}
-                                </Typography>
-                              </React.Fragment>
-                            )}
-                            arrow
-                          >
-                            <Box
-                              component="img"
-                              alt={info.set[0]}
-                              onClick={() => handleEdit(id, "gear")}
-                              src={setsIcons[`../assets/sets/${gameType}/${info.set[0]}.webp`]?.default}
-                              sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                            />
-                          </Tooltip>
-                        )}
-                        {(info.set[0] && info.setExtra) && (<Typography>+</Typography>)}
-                        {info.setExtra && (
-                          <Tooltip
-                            title={isModalClosed() && (
-                              <React.Fragment>
-                                <Typography variant="subtitle1" fontWeight="bold">
-                                  {SETS[info.setExtra].name}
-                                </Typography>
-                                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                                  {SETS[info.setExtra].desc}
-                                </Typography>
-                              </React.Fragment>
-                            )}
-                            arrow
-                          >
-                            <Box
-                              component="img"
-                              alt={info.setExtra}
-                              onClick={() => handleEdit(id, "gear")}
-                              src={setsIcons[`../assets/sets/${gameType}/${info.setExtra}.webp`]?.default}
-                              sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-                            />
-                          </Tooltip>
-                        )}
-                      </Stack>
-                    ) : (
-                      <Tooltip>
-                        <Add
-                          onClick={() => handleEdit(id, "gear")}
-                          cursor="pointer"
-                        />
-                      </Tooltip>
-                    )}
-                  </TableCell>
-                  <TableCell align="center">
-                    <Tooltip
-                      arrow
-                    >
-                      <Typography
-                        onClick={() => handleEdit(id, "skills")}
-                        sx={{ cursor: "pointer" }}
-                      >
-                        {rating.skills.toString() + "%"}
-                      </Typography>
-                    </Tooltip>
-                  </TableCell>
-                  <TableCell align="center">
-                    {rating.final !== -1 ? (
-                      <Tooltip>
-                        <Typography
-                          sx={{ cursor: "pointer" }}
-                        >
-                          {rating.final.toString()}
-                        </Typography>
-                      </Tooltip>
-                    ) : (
-                      <Tooltip arrow>
-                        <ErrorOutline
-                          color="error"
-                          cursor="pointer"
-                        />
-                      </Tooltip>
-                    )}
-                  </TableCell>
-                  <TableCell align="center" sx={{ borderBottom: "none" }}>
-                    {hoveredRow === id && 
-                      <Delete
-                        onClick={() => handleDelete(id)}
-                        sx={{ cursor: "pointer", color: "error.main" }}
-                      />
-                    }
-                  </TableCell>
+
+                  <TableCharacter
+                    gameType={gameType}
+                    CHAR={CHAR}
+                    charIcons={charIcons}
+                    setAction={setAction}
+                    id={id}
+                    data={data}
+                  />
+
+                  <TableWeapon
+                    gameType={gameType}
+                    WEAP={WEAP}
+                    weapIcons={weapIcons}
+                    setAction={setAction}
+                    id={id}
+                    data={data}
+                    isModalClosed={isModalClosed}
+                  />
+
+                  <TableGear
+                    gameType={gameType}
+                    SETS={SETS}
+                    setsIcons={setsIcons}
+                    setAction={setAction}
+                    id={id}
+                    data={data}
+                    isModalClosed={isModalClosed}
+                  />
+
+                  <TableSkills
+                    gameType={gameType}
+                    setAction={setAction}
+                    id={id}
+                    data={data}
+                    rating={rating}
+                    isModalClosed={isModalClosed}
+                  />
+
+                  <TableRating
+                    gameType={gameType}
+                    setAction={setAction}
+                    id={id}
+                    data={data}
+                    rating={rating}
+                    isModalClosed={isModalClosed}
+                  />
+
+                  <TableDelete
+                    setAction={setAction}
+                    id={id}
+                    data={data}
+                    hoveredRow={hoveredRow}
+                  />
                 </TableRow>
               ))}
             </TableBody>
