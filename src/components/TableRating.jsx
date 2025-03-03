@@ -26,32 +26,21 @@ const TableRating = ({
       {rating.final !== -1 ? (
         <Tooltip
           title={isModalClosed && (
-            <Typography
-              variant="body2"
-            >
+            <Typography variant="body2">
               See details
             </Typography>
           )}
           arrow
         >
-          <Stack
-            direction="row"
-            onClick={openModal}
-          >
-            <Typography
-              sx={{ cursor: "pointer" }}
-            >
-              {rating.final.toString()}
-            </Typography>
-          </Stack>
+          <Typography onClick={openModal} sx={{ cursor: "pointer" }}>
+            {rating.final.toString()}
+          </Typography>
         </Tooltip>
       ) : (
         <Tooltip
           title={isModalClosed && (
-            <Typography
-              variant="body2"
-            >
-              See details
+            <Typography variant="body2">
+              No weapon selected
             </Typography>
           )}
           arrow

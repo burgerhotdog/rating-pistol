@@ -29,33 +29,28 @@ const TableWeapon = ({
       {data.info.weapon ? (
         <Tooltip
           title={isModalClosed() && (
-            <Stack gap={1}>
-              <Stack>
-                <Typography variant="subtitle1" fontWeight="bold">
-                  {WEAP[data.info.weapon].name}
-                </Typography>
-                <Typography variant="body2">
-                  {gameType === "HSR"
-                    ? `Base HP: ${WEAP[data.info.weapon].base.FLAT_HP}`
-                    : null}
-                </Typography>
-                <Typography variant="body2">
-                  {`Base ATK: ${WEAP[data.info.weapon].base.FLAT_ATK}`}
-                </Typography>
-                <Typography variant="body2">
-                  {gameType === "HSR"
-                    ? `Base DEF: ${WEAP[data.info.weapon].base.FLAT_DEF}`
-                    : WEAP[data.info.weapon].substat}
-                </Typography>
-              </Stack>
-              <Stack>
-                <Typography variant="subtitle2" fontWeight="bold">
-                  {WEAP[data.info.weapon].subtitle}
-                </Typography>
-                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                  {WEAP[data.info.weapon].desc}
-                </Typography>
-              </Stack>
+            <Stack>
+              <Typography variant="subtitle1" fontWeight="bold">
+                {WEAP[data.info.weapon].name}
+              </Typography>
+              <Typography variant="body2">
+                {gameType === "HSR"
+                  && `Base HP: ${WEAP[data.info.weapon].base.FLAT_HP}`}
+              </Typography>
+              <Typography variant="body2">
+                {`Base ATK: ${WEAP[data.info.weapon].base.FLAT_ATK}`}
+              </Typography>
+              <Typography variant="body2">
+                {gameType === "HSR"
+                  ? `Base DEF: ${WEAP[data.info.weapon].base.FLAT_DEF}`
+                  : WEAP[data.info.weapon].substat}
+              </Typography>
+              <Typography variant="subtitle2" fontWeight="bold" mt={1}>
+                {WEAP[data.info.weapon].subtitle}
+              </Typography>
+              <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                {WEAP[data.info.weapon].desc}
+              </Typography>
             </Stack>
           )}
           arrow

@@ -22,7 +22,7 @@ const TableDelete = ({
         <DeleteIcon
           onClick={openModal}
           color="error"
-          sx={{ cursor: "pointer" }}
+          cursor="pointer"
         />
       }
     </TableCell>

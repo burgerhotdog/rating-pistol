@@ -31,14 +31,14 @@ const TableGear = ({
           {data.info.set[0] && (
             <Tooltip
               title={isModalClosed() && (
-                <React.Fragment>
+                <Stack>
                   <Typography variant="subtitle1" fontWeight="bold">
                     {SETS[data.info.set[0]].name}
                   </Typography>
                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
                     {SETS[data.info.set[0]].desc}
                   </Typography>
-                </React.Fragment>
+                </Stack>
               )}
               arrow
             >
@@ -51,18 +51,20 @@ const TableGear = ({
               />
             </Tooltip>
           )}
-          {(data.info.set[0] && data.info.setExtra) && (<Typography>+</Typography>)}
+          {data.info.set[0] && data.info.setExtra && (
+            <Typography>+</Typography>
+          )}
           {data.info.setExtra && (
             <Tooltip
               title={isModalClosed() && (
-                <React.Fragment>
+                <Stack>
                   <Typography variant="subtitle1" fontWeight="bold">
                     {SETS[data.info.setExtra].name}
                   </Typography>
                   <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
                     {SETS[data.info.setExtra].desc}
                   </Typography>
-                </React.Fragment>
+                </Stack>
               )}
               arrow
             >
