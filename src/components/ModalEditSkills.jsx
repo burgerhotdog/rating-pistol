@@ -12,7 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 
-const EditModalSkills = ({
+const ModalEditSkills = ({
   gameType,
   gameData,
   gameIcons,
@@ -26,4 +26,4 @@ const EditModalSkills = ({
   );
 };
 
-export default EditModalSkills;
+export default ModalEditSkills;

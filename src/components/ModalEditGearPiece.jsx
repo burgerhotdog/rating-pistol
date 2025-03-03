@@ -9,7 +9,7 @@ import {
 import Grid from "@mui/material/Grid2";
 import { templateGear } from "./template"
 
-const Piece = ({
+const ModalEditGearPiece = ({
   gameType,
   gameData,
   action,
@@ -145,4 +145,4 @@ const Piece = ({
   );
 };
 
-export default Piece;
+export default ModalEditGearPiece;

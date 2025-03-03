@@ -8,19 +8,19 @@ import {
   useTheme,
 } from "@mui/material";
 import { db } from "../firebase";
-//import EditModalCharacter from "./EditModalCharacter";
-import EditModalWeapon from "./EditModalWeapon";
-import EditModalGear from "./EditModalGear";
-import EditModalSkills from "./EditModalSkills";
+//import ModalEditCharacter from "./ModalEditCharacter";
+import ModalEditWeapon from "./ModalEditWeapon";
+import ModalEditGear from "./ModalEditGear";
+import ModalEditSkills from "./ModalEditSkills";
 
-const EditModal = ({
+const ModalEdit = ({
   uid,
   gameType,
   gameData,
   gameIcons,
-  setLocalObjs,
   action,
   setAction,
+  setLocalObjs,
 }) => {
   const theme = useTheme();
   const { CHAR, WEAP, SETS } = gameData;
@@ -62,7 +62,7 @@ const EditModal = ({
       <Box sx={theme.customStyles.modal}>
         <Stack gap={2}>
           {action?.item === "character" ? (
-            /*<EditModalCharacter
+            /*<ModalEditCharacter
               gameType={gameType}
               gameData={gameData}
               gameIcons={gameIcons}
@@ -70,7 +70,7 @@ const EditModal = ({
               setAction={setAction}
             />*/""
           ) : action?.item === "weapon" ? (
-            <EditModalWeapon
+            <ModalEditWeapon
               gameType={gameType}
               gameData={gameData}
               gameIcons={gameIcons}
@@ -78,7 +78,7 @@ const EditModal = ({
               setAction={setAction}
             />
           ) : action?.item === "gear" ? (
-            <EditModalGear
+            <ModalEditGear
               gameType={gameType}
               gameData={gameData}
               gameIcons={gameIcons}
@@ -86,7 +86,7 @@ const EditModal = ({
               setAction={setAction}
             />
           ) : action?.item === "skills" && (
-            <EditModalSkills
+            <ModalEditSkills
               gameType={gameType}
               gameData={gameData}
               gameIcons={gameIcons}
@@ -119,4 +119,4 @@ const EditModal = ({
   );
 };
 
-export default EditModal;
+export default ModalEdit;

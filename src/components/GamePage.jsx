@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { Add, ErrorOutline, Star, StarBorder, KeyboardArrowRight } from "@mui/icons-material";
+import { Add, Delete, ErrorOutline, Star, StarBorder, KeyboardArrowRight } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -18,18 +18,19 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import AddModal from "./AddModal";
-import DeleteModal from "./DeleteModal";
-import EditModal from "./EditModal";
-import LoadModal from "./LoadModal";
+import ModalAdd from "./ModalAdd";
+import ModalDelete from "./ModalDelete";
+import ModalEdit from "./ModalEdit";
+import ModalLoad from "./ModalLoad";
 import getRating from "./getRating";
+import TableStar from "./TableStar";
 
 const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const { INFO, CHAR, WEAP, SETS } = gameData;
   const { charIcons, weapIcons, setsIcons } = gameIcons;
   const theme = useTheme();
   const [localObjs, setLocalObjs] = useState({});
-  const [ratedObjs, setRatedObjs] = useState([]);
+  const [sortedObjs, setSortedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [action, setAction] = useState({});
 
@@ -63,17 +64,21 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     fetchDB();
   }, [uid]);
 
-  // Load ratedObjs from localObjs
+  // Load sortedObjs from localObjs
   useEffect(() => {
-    const ratedChars = Object.entries(localObjs).map(([id, data]) => ({
+    const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
       id,
       info: data.info,
       rating: getRating(gameType, gameData, id, data),
     }));
 
-    ratedChars.sort((a, b) => b.rating.final - a.rating.final);
+    ratedObjs.sort((a, b) =>
+      a.info.isStar === b.info.isStar
+        ? b.rating.final - a.rating.final
+        : a.info.isStar ? -1 : 1
+    );
 
-    setRatedObjs(ratedChars);
+    setSortedObjs(ratedObjs);
   }, [localObjs]);
 
   const isModalClosed = () => !Boolean(Object.keys(action).length);
@@ -91,12 +96,20 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     });
   };
 
-  const handleEdit = (item, id) => {
+  const handleDelete = (id) => {
     setAction({
-      type: "edit",
-      item,
+      type: "delete",
       id,
       data: localObjs[id],
+    });
+  };
+
+  const handleEdit = (id, item) => {
+    setAction({
+      type: "edit",
+      id,
+      data: localObjs[id],
+      item,
     });
   };
 
@@ -110,6 +123,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
               <TableRow>
+                <TableCell sx={{ width: 60, borderBottom: "none" }} />
                 <TableCell align="center" sx={{ width: 60 }}>
                   <Stack alignItems="center">
                     <StarBorder sx={{ fontSize: 16 }} />
@@ -120,16 +134,26 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                 <TableCell align="center" sx={{ width: 150 }}>{INFO.HEADER_NAMES[2]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>{INFO.HEADER_NAMES[3]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
+                <TableCell sx={{ width: 60, borderBottom: "none" }} />
               </TableRow>
             </TableHead>
             <TableBody>
-              {ratedObjs.map(({ id, info, rating }) => (
+              {sortedObjs.map(({ id, info, rating }) => (
                 <TableRow
                   key={id}
                   onMouseEnter={() => setHoveredRow(id)}
                   onMouseLeave={() => setHoveredRow(null)}
                 >
-                  <TableCell></TableCell>
+                  <TableCell sx={{ borderBottom: "none" }} />
+                  <TableStar
+                    uid={uid}
+                    gameType={gameType}
+                    localObjs={localObjs}
+                    setLocalObjs={setLocalObjs}
+                    id={id}
+                    info={info}
+                    hoveredRow={hoveredRow}
+                  />
                   <TableCell align="center">
                     <Tooltip>
                       <Stack direction="row" alignItems="center" gap={2}>
@@ -137,14 +161,9 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                           component="img"
                           alt={id}
                           src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
-                          sx={{
-                            width: 50,
-                            height: 50,
-                            objectFit: "contain",
-                            cursor: "pointer",
-                          }}
+                          sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                         />
-                        <Typography variant="body2">{CHAR[id].name}</Typography>
+                        <Typography variant="body2" sx={{ textAlign: "left" }}>{CHAR[id].name}</Typography>
                       </Stack>
                     </Tooltip>
                   </TableCell>
@@ -185,21 +204,16 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                           <Box
                             component="img"
                             alt={info.weapon}
-                            onClick={() => handleEdit("weapon", id)}
+                            onClick={() => handleEdit(id, "weapon")}
                             src={weapIcons[`../assets/weap/${gameType}/${info.weapon}.webp`]?.default}
-                            sx={{
-                              width: 50,
-                              height: 50,
-                              objectFit: "contain",
-                              cursor: "pointer",
-                            }}
+                            sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                           />
                         </Stack>
                       </Tooltip>
                     ) : (
                       <Tooltip>
                         <Add
-                          onClick={() => handleEdit("weapon", id)}
+                          onClick={() => handleEdit(id, "weapon")}
                           cursor="pointer"
                         />
                       </Tooltip>
@@ -225,14 +239,9 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                             <Box
                               component="img"
                               alt={info.set[0]}
-                              onClick={() => handleEdit("gear", id)}
+                              onClick={() => handleEdit(id, "gear")}
                               src={setsIcons[`../assets/sets/${gameType}/${info.set[0]}.webp`]?.default}
-                              sx={{
-                                width: 50,
-                                height: 50,
-                                objectFit: "contain",
-                                cursor: "pointer",
-                              }}
+                              sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                         )}
@@ -254,14 +263,9 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                             <Box
                               component="img"
                               alt={info.setExtra}
-                              onClick={() => handleEdit("gear", id)}
+                              onClick={() => handleEdit(id, "gear")}
                               src={setsIcons[`../assets/sets/${gameType}/${info.setExtra}.webp`]?.default}
-                              sx={{
-                                width: 50,
-                                height: 50,
-                                objectFit: "contain",
-                                cursor: "pointer",
-                              }}
+                              sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
                             />
                           </Tooltip>
                         )}
@@ -269,7 +273,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     ) : (
                       <Tooltip>
                         <Add
-                          onClick={() => handleEdit("gear", id)}
+                          onClick={() => handleEdit(id, "gear")}
                           cursor="pointer"
                         />
                       </Tooltip>
@@ -280,7 +284,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                       arrow
                     >
                       <Typography
-                        onClick={() => handleEdit("skills", id)}
+                        onClick={() => handleEdit(id, "skills")}
                         sx={{ cursor: "pointer" }}
                       >
                         {rating.skills.toString() + "%"}
@@ -304,6 +308,14 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                         />
                       </Tooltip>
                     )}
+                  </TableCell>
+                  <TableCell align="center" sx={{ borderBottom: "none" }}>
+                    {hoveredRow === id && 
+                      <Delete
+                        onClick={() => handleDelete(id)}
+                        sx={{ cursor: "pointer", color: "error.main" }}
+                      />
+                    }
                   </TableCell>
                 </TableRow>
               ))}
@@ -333,45 +345,45 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
         </Stack>
 
         {/* Modals */}
-        <AddModal
+        <ModalAdd
           uid={uid}
           gameType={gameType}
           gameData={gameData}
           gameIcons={gameIcons}
-          localObjs={localObjs}
-          setLocalObjs={setLocalObjs}
           action={action}
           setAction={setAction}
+          localObjs={localObjs}
+          setLocalObjs={setLocalObjs}
         />
 
         {(gameType === "GI" || gameType === "HSR") && (
-          <LoadModal
+          <ModalLoad
             uid={uid}
             gameType={gameType}
             gameData={gameData}
-            setLocalObjs={setLocalObjs}
             action={action}
             setAction={setAction}
+            setLocalObjs={setLocalObjs}
           />
         )}
 
-        <DeleteModal
+        <ModalDelete
           uid={uid}
           gameType={gameType}
           gameData={gameData}
-          setLocalObjs={setLocalObjs}
           action={action}
           setAction={setAction}
+          setLocalObjs={setLocalObjs}
         />
 
-        <EditModal
+        <ModalEdit
           uid={uid}
           gameType={gameType}
           gameData={gameData}
           gameIcons={gameIcons}
-          setLocalObjs={setLocalObjs}
           action={action}
           setAction={setAction}
+          setLocalObjs={setLocalObjs}
         />
       </Stack>
     </Container>

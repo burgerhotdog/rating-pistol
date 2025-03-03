@@ -13,15 +13,15 @@ import {
 import { db } from "../firebase";
 import { templateInfo, templateGear } from "./template";
 
-const AddModal = ({
+const ModalAdd = ({
   uid,
   gameType,
   gameData,
   gameIcons,
-  localObjs,
-  setLocalObjs,
   action,
   setAction,
+  localObjs,
+  setLocalObjs,
 }) => {
   const theme = useTheme();
   const { CHAR } = gameData;
@@ -162,4 +162,4 @@ const AddModal = ({
   );
 };
 
-export default AddModal;
+export default ModalAdd;

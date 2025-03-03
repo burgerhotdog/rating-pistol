@@ -1,9 +1,9 @@
 import React from "react";
-import { writeBatch, doc, deleteDoc } from "firebase/firestore";
-import { Box, Button, Modal, Stack, Typography, useTheme } from "@mui/material";
+import { doc, writeBatch } from "firebase/firestore";
+import { Modal, Box, Stack, Button, Typography, useTheme } from "@mui/material";
 import { db } from "../firebase";
 
-const DeleteModal = ({
+const ModalDelete = ({
   uid,
   gameType,
   gameData,
@@ -15,28 +15,24 @@ const DeleteModal = ({
   const { CHAR } = gameData;
   
   const handleDelete = async () => {
-    try {
-      if (uid) {
-        const batch = writeBatch(db);
-        for (const [index, gearObj] of gearList.entries()) {
-          const gearDocRef = doc(db, "users", uid, gameType, action.id, "gearList", index.toString());
-          batch.delete(gearDocRef);
-        }
-        const infoDocRef = doc(db, "users", uid, gameType, action.id);
-        batch.delete(infoDocRef);
-        await batch.commit();
+    if (uid) {
+      const batch = writeBatch(db);
+      for (const index of action.data.gearList.keys()) {
+        const gearDocRef = doc(db, "users", uid, gameType, action.id, "gearList", index.toString());
+        batch.delete(gearDocRef);
       }
-
-      setLocalObjs((prev) => {
-        const updatedCollection = { ...prev };
-        delete updatedCollection[action.id];
-        return updatedCollection;
-      });
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setAction({});
+      const infoDocRef = doc(db, "users", uid, gameType, action.id);
+      batch.delete(infoDocRef);
+      await batch.commit();
     }
+
+    setLocalObjs((prev) => {
+      const newObjs = { ...prev };
+      delete newObjs[action.id];
+      return newObjs;
+    });
+
+    setAction({});
   };
 
   const handleCancel = () => {
@@ -53,7 +49,6 @@ const DeleteModal = ({
             ?
           </Typography>
 
-          {/* Buttons */}
           <Stack direction="row" justifyContent="center" gap={2}>
             <Button
               variant="outlined"
@@ -78,4 +73,4 @@ const DeleteModal = ({
   );
 };
 
-export default DeleteModal;
+export default ModalDelete;

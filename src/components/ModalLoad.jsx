@@ -15,13 +15,13 @@ import {
 import { templateInfo, templateGear } from "./template";
 import enkaStatKey from "./enkaStatKey";
 
-const LoadModal = ({
+const ModalLoad = ({
   uid,
   gameType,
   gameData,
-  setLocalObjs,
   action,
   setAction,
+  setLocalObjs,
 }) => {
   const theme = useTheme();
   const { CHAR } = gameData;
@@ -338,4 +338,4 @@ const LoadModal = ({
   );
 };
 
-export default LoadModal;
+export default ModalLoad;

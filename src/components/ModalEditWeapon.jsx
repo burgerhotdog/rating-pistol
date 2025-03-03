@@ -12,7 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 
-const EditModalWeapon = ({
+const ModalEditWeapon = ({
   gameType,
   gameData,
   gameIcons,
@@ -121,4 +121,4 @@ const EditModalWeapon = ({
   );
 };
 
-export default EditModalWeapon;
+export default ModalEditWeapon;

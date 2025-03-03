@@ -10,9 +10,9 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import Piece from "./Piece";
+import ModalEditGearPiece from "./ModalEditGearPiece";
 
-const EditModalGear = ({
+const ModalEditGear = ({
   gameType,
   gameData,
   gameIcons,
@@ -138,7 +138,7 @@ const EditModalGear = ({
         gap={2}
       >
         {[0, 1, 2, 3, 4, ...(gameType === "HSR" || gameType === "ZZZ" ? [5] : [])].map((mainIndex) => (
-          <Piece
+          <ModalEditGearPiece
             key={mainIndex}
             gameType={gameType}
             gameData={gameData}
@@ -152,4 +152,4 @@ const EditModalGear = ({
   );
 };
 
-export default EditModalGear;
+export default ModalEditGear;
