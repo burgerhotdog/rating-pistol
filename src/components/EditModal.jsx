@@ -11,7 +11,7 @@ import { db } from "../firebase";
 //import EditModalCharacter from "./EditModalCharacter";
 import EditModalWeapon from "./EditModalWeapon";
 import EditModalGear from "./EditModalGear";
-//import EditModalSkills from "./EditModalSkills";
+import EditModalSkills from "./EditModalSkills";
 
 const EditModal = ({
   uid,
@@ -85,14 +85,14 @@ const EditModal = ({
               action={action}
               setAction={setAction}
             />
-          ) : action?.item === "gear" && (
-            /*<EditModalSkills
+          ) : action?.item === "skills" && (
+            <EditModalSkills
               gameType={gameType}
               gameData={gameData}
               gameIcons={gameIcons}
               action={action}
               setAction={setAction}
-            />*/""
+            />
           )}
 
           <Stack direction="row" justifyContent="center" gap={2}>

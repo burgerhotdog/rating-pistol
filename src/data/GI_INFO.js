@@ -1,6 +1,12 @@
 const GI_INFO = {
   TITLE: "Genshin Impact",
   VERSION: "5.4",
+  HEADER_NAMES: [
+    "Character",
+    "Weapon",
+    "Artifacts",
+    "Talents",
+  ],
   PIECE_NAMES: [
     "Flower",
     "Plume",

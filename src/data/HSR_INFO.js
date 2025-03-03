@@ -1,6 +1,12 @@
 const HSR_INFO = {
   TITLE: "Honkai Star Rail",
   VERSION: "3.1",
+  HEADER_NAMES: [
+    "Character",
+    "Light Cone",
+    "Relics",
+    "Traces",
+  ],
   PIECE_NAMES: [
     "Head",
     "Hands",

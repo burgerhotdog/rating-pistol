@@ -29,7 +29,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const { charIcons, weapIcons, setsIcons } = gameIcons;
   const theme = useTheme();
   const [localObjs, setLocalObjs] = useState({});
-  const [localObjsRated, setLocalObjsRated] = useState([]);
+  const [ratedObjs, setRatedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [action, setAction] = useState({});
 
@@ -63,7 +63,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     fetchDB();
   }, [uid]);
 
-  // Load localObjsRated from localObjs
+  // Load ratedObjs from localObjs
   useEffect(() => {
     const ratedChars = Object.entries(localObjs).map(([id, data]) => ({
       id,
@@ -73,7 +73,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
 
     ratedChars.sort((a, b) => b.rating.final - a.rating.final);
 
-    setLocalObjsRated(ratedChars);
+    setRatedObjs(ratedChars);
   }, [localObjs]);
 
   const isModalClosed = () => !Boolean(Object.keys(action).length);
@@ -115,15 +115,15 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     <StarBorder sx={{ fontSize: 16 }} />
                   </Stack>
                 </TableCell>
-                <TableCell align="left" sx={{ width: 180 }}>Character</TableCell>
-                <TableCell align="center" sx={{ width: 90 }}>Weapon</TableCell>
-                <TableCell align="center" sx={{ width: 150 }}>Gear</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>Skills</TableCell>
+                <TableCell align="left" sx={{ width: 180 }}>{INFO.HEADER_NAMES[0]}</TableCell>
+                <TableCell align="center" sx={{ width: 90 }}>{INFO.HEADER_NAMES[1]}</TableCell>
+                <TableCell align="center" sx={{ width: 150 }}>{INFO.HEADER_NAMES[2]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{INFO.HEADER_NAMES[3]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {localObjsRated.map(({ id, info, rating }) => (
+              {ratedObjs.map(({ id, info, rating }) => (
                 <TableRow
                   key={id}
                   onMouseEnter={() => setHoveredRow(id)}
@@ -275,14 +275,29 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                       </Tooltip>
                     )}
                   </TableCell>
-                  <TableCell></TableCell>
+                  <TableCell align="center">
+                    <Tooltip
+                      arrow
+                    >
+                      <Typography
+                        onClick={() => handleEdit("skills", id)}
+                        sx={{ cursor: "pointer" }}
+                      >
+                        {rating.skills.toString() + "%"}
+                      </Typography>
+                    </Tooltip>
+                  </TableCell>
                   <TableCell align="center">
                     {rating.final !== -1 ? (
                       <Tooltip>
-                        <>{rating.final.toString()}</>
+                        <Typography
+                          sx={{ cursor: "pointer" }}
+                        >
+                          {rating.final.toString()}
+                        </Typography>
                       </Tooltip>
                     ) : (
-                      <Tooltip>
+                      <Tooltip arrow>
                         <ErrorOutline
                           color="error"
                           cursor="pointer"
