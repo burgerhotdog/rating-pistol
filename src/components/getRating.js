@@ -6,7 +6,7 @@ import getRatingSkills from "./getRatingSkills";
 const getRating = (gameType, gameData, id, data) => {
   const character = getRatingCharacter(gameType, gameData, id, data);
   const weapon = getRatingWeapon(gameType, gameData, id, data);
-  const gear = /*getRatingGear(gameType, gameData, id, data);*/ 0;
+  const gear = getRatingGear(gameType, gameData, id, data);
   const skills = getRatingSkills(gameType, gameData, id, data);
 
   const final = (
