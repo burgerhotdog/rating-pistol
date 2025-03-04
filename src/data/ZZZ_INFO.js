@@ -1,12 +1,13 @@
 const ZZZ_INFO = {
   TITLE: "Zenless Zone Zero",
   VERSION: "1.5",
-  HEADER_NAMES: [
+  SECTION_NAMES: [
     "Agent",
     "W-Engine",
     "Drive Discs",
     "Skills",
   ],
+  LEVEL_CAP: 60,
   PIECE_NAMES: [
     "Disk 1",
     "Disk 2",

@@ -20,7 +20,8 @@ const theme = createTheme({
       backgroundColor: "background.paper",
       borderRadius: 2,
       maxHeight: "80vh",
-      overflowY: "auto",
+      maxWidth: "80vw",
+      overflow: "auto",
     },
   },
   components: {

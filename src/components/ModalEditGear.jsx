@@ -1,13 +1,14 @@
 import React from "react";
 import {
-  Autocomplete,
-  Box,
-  Button,
-  Divider,
-  InputAdornment,
+  Grid2 as Grid,
   Stack,
+  Box,
+  Divider,
+  Autocomplete,
   TextField,
+  Button,
   Typography,
+  InputAdornment,
 } from "@mui/material";
 import ModalEditGearPiece from "./ModalEditGearPiece";
 
@@ -128,6 +129,19 @@ const ModalEditGear = ({
         fullWidth
         disableClearable={action?.data?.info?.set[0] === ""}
       />
+
+      <Grid container spacing={1}>
+        <Grid size={8}>
+          <Stack alignItems="center">
+            
+          </Stack>
+        </Grid>
+        <Grid size={4}>
+          <Stack>
+           
+          </Stack>
+        </Grid>
+      </Grid>
 
       <Stack
         direction="row"

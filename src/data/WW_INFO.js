@@ -1,12 +1,13 @@
 const WW_INFO = {
   TITLE: "Wuthering Waves",
   VERSION: "2.1",
-  HEADER_NAMES: [
+  SECTION_NAMES: [
     "Character",
     "Weapon",
     "Echoes",
     "Skills",
   ],
+  LEVEL_CAP: 90,
   PIECE_NAMES: [
     "4-Cost",
     "3-Cost",

@@ -3,12 +3,14 @@ import { Box, Stack, TableCell, Tooltip, Typography } from "@mui/material";
 
 const TableCharacter = ({
   gameType,
-  CHAR,
+  gameData,
   charIcons,
   setAction,
   id,
   data,
+  isModalClosed,
 }) => {
+  const { INFO, CHAR } = gameData;
   const openModal = () => {
     setAction({
       type: "edit",
@@ -21,14 +23,18 @@ const TableCharacter = ({
   return (
     <TableCell align="center">
       <Tooltip
-        title={<Typography variant="body2">Edit Character</Typography>}
+        title={isModalClosed() && (
+          <Typography variant="body2">
+            Edit {INFO.SECTION_NAMES[0]}
+          </Typography>
+        )}
         arrow
       >
         <Stack
           onClick={openModal}
           direction="row"
           alignItems="center"
-          gap={2}
+          spacing={2}
           sx={{ cursor: "pointer" }}
         >
           <Box

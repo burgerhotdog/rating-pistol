@@ -1,19 +1,16 @@
 import React from "react";
-import TableCell from "@mui/material/TableCell";
-import Tooltip from "@mui/material/Tooltip";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Add from "@mui/icons-material/Add";
+import { TableCell, Tooltip, Typography } from "@mui/material";
 
 const TableSkills = ({
   gameType,
+  gameData,
   setAction,
   id,
   data,
   rating,
   isModalClosed,
 }) => {
+  const { INFO } = gameData;
   const openModal = () => {
     setAction({
       type: "edit",
@@ -26,10 +23,16 @@ const TableSkills = ({
   return (
     <TableCell align="center">
       <Tooltip
+        title={isModalClosed() && (
+          <Typography variant="body2">
+            Edit {INFO.SECTION_NAMES[3]}
+          </Typography>
+        )}
         arrow
       >
         <Typography
           onClick={openModal}
+          variant="body1"
           sx={{ cursor: "pointer" }}
         >
           {rating.skills.toString() + "%"}

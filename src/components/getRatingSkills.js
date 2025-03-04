@@ -1,4 +1,4 @@
-const getRatingSkills = (gameType, gameData, cid, cdata) => {
+const getRatingSkills = (gameType, gameData, id, data) => {
   return 0;
 };
 

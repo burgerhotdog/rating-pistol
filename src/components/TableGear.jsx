@@ -1,20 +1,17 @@
 import React from "react";
-import TableCell from "@mui/material/TableCell";
-import Tooltip from "@mui/material/Tooltip";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Box, Stack, TableCell, Tooltip, Typography } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 
 const TableGear = ({
   gameType,
-  SETS,
+  gameData,
   setsIcons,
   setAction,
   id,
   data,
   isModalClosed,
 }) => {
+  const { SETS } = gameData;
   const openModal = () => {
     setAction({
       type: "edit",

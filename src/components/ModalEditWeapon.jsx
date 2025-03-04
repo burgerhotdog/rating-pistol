@@ -1,16 +1,15 @@
 import React from "react";
-import Grid from "@mui/material/Grid2";
 import {
-  Autocomplete,
+  Grid2 as Grid,
   Box,
-  Button,
+  Stack,
   Card,
   Divider,
-  InputAdornment,
-  Stack,
-  Slider,
+  Autocomplete,
   TextField,
+  Button,
   Typography,
+  InputAdornment,
 } from "@mui/material";
 
 const ModalEditWeapon = ({
@@ -20,7 +19,7 @@ const ModalEditWeapon = ({
   action,
   setAction,
 }) => {
-  const { CHAR, WEAP } = gameData;
+  const { INFO, CHAR, WEAP } = gameData;
   const { weapIcons } = gameIcons;
   const rarityColor = {
     5: "goldenrod",
@@ -29,11 +28,6 @@ const ModalEditWeapon = ({
     2: "green",
     1: "slategrey",
   };
-  const levelCapRegex =
-    gameType === "GI" ? /^(?:[1-9]|[1-8][0-9]|90)?$/ :
-    gameType === "HSR" ? /^(?:[1-9]|[1-7][0-9]|80)?$/ :
-    gameType === "WW" ? /^(?:[1-9]|[1-8][0-9]|90)?$/ :
-    gameType === "ZZZ" && /^(?:[1-9]|[1-5][0-9]|60)?$/;
 
   const weapOptions = () => {
     return Object.keys(WEAP)
@@ -55,8 +49,8 @@ const ModalEditWeapon = ({
         info: {
           ...prev.data.info,
           weapon: newValue || "",
-          weaponLevel: "1",
-          weaponRank: "1",
+          weaponLevel: newValue ? INFO.LEVEL_CAP.toString() : "",
+          weaponRank: newValue ? "1" : "",
         }
       },
     }));
@@ -124,11 +118,14 @@ const ModalEditWeapon = ({
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Weapon"
+              label={INFO.SECTION_NAMES[1]}
               sx={{
                 "& .MuiInputBase-root": {
                   color: rarityColor[WEAP[action?.data?.info?.weapon]?.rarity] || "inherit",
                 }
+              }}
+              slotProps={{
+                inputLabel: { shrink: true }
               }}
             />
           )}
@@ -136,35 +133,58 @@ const ModalEditWeapon = ({
           sx={{ minWidth: 350 }}
           disableClearable={action?.data?.info?.weapon === ""}
         />
-        {action?.data?.info?.weapon && (
-          <Stack direction="row" spacing={2}>
+        <Autocomplete
+          size="small"
+          value={action?.data?.info?.weaponLevel || ""}
+          options={Array.from({ length: INFO.LEVEL_CAP / 10 }, (_, i) => (INFO.LEVEL_CAP - i * 10).toString())}
+          onChange={(_, newValue) => {
+            if (newValue) handleWeaponLevel(newValue);
+          }}
+          renderInput={(params) => (
             <TextField
-              size="small"
+              {...params}
               label="Level"
-              value={action?.data?.info?.weaponLevel || ""}
-              onChange={(e) => {
-                const newValue = e.target.value;
-                const isValid = levelCapRegex.test(newValue);
-                if (isValid) handleWeaponLevel(newValue);
+              slotProps={{
+                inputLabel: { shrink: true }
               }}
-              sx={{ width: 80 }}
             />
+          )}
+          sx={{ width: 100 }}
+          disabled={!action?.data?.info?.weapon}
+          disableClearable
+        />
+        <Autocomplete
+          size="small"
+          value={action?.data?.info?.weaponRank || ""}
+          options={["1", "2", "3", "4", "5"]}
+          onChange={(_, newValue) => {
+            if (newValue) handleWeaponRank(newValue);
+          }}
+          renderInput={(params) => (
             <TextField
-              size="small"
+              {...params}
               label="Rank"
-              value={action?.data?.info?.weaponRank || ""}
-              onChange={(e) => {
-                const newValue = e.target.value;
-                const isValid = /^(?:[1-5])?$/.test(newValue);
-                if (isValid) handleWeaponRank(newValue);
+              slotProps={{
+                inputLabel: { shrink: true }
               }}
-              sx={{ width: 80 }}
             />
-          </Stack>
-        )}
+          )}
+          sx={{ width: 100 }}
+          disabled={!action?.data?.info?.weapon}
+          disableClearable
+        />
       </Stack>
-      {action?.data?.info?.weapon && (
-        <Card sx={{ width: 700, p: 2 }}>
+      <Card
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: 700,
+          minHeight: 200,
+          p: 2
+        }}
+      >
+        {action?.data?.info?.weapon ? (
           <Grid container spacing={1}>
             <Grid size={4}>
               <Stack alignItems="center">
@@ -202,8 +222,12 @@ const ModalEditWeapon = ({
               </Stack>
             </Grid>
           </Grid>
-        </Card>
-      )}
+        ) : (
+          <Typography variant="body1" color="text.disabled">
+            Select a {INFO.SECTION_NAMES[1]}
+          </Typography>
+        )}
+      </Card>
     </Stack>
   );
 };

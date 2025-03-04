@@ -4,13 +4,14 @@ import Add from "@mui/icons-material/Add";
 
 const TableWeapon = ({
   gameType,
-  INFO,
+  gameData,
   weapIcons,
   setAction,
   id,
   data,
   isModalClosed,
 }) => {
+  const { INFO } = gameData;
   const openModal = () => {
     setAction({
       type: "edit",
@@ -22,43 +23,31 @@ const TableWeapon = ({
 
   return (
     <TableCell align="center">
-      {data.info.weapon ? (
-        <Tooltip
-          title={isModalClosed() && (
-            <Typography variant="body2">
-              Edit {INFO.HEADER_NAMES[1]}
-            </Typography>
-          )}
-          arrow
+      <Tooltip
+        title={isModalClosed() && (
+          <Typography variant="body2">
+            {data.info.weapon ? "Edit" : "Add"} {INFO.SECTION_NAMES[1]}
+          </Typography>
+        )}
+        arrow
+      >
+        <Stack 
+          onClick={openModal}
+          alignItems="center"
+          sx={{ cursor: "pointer" }}
         >
-          <Stack 
-            onClick={openModal}
-            alignItems="center"
-            sx={{ cursor: "pointer" }}
-          >
+          {data.info.weapon ? (
             <Box
               component="img"
               alt={data.info.weapon}
               src={weapIcons[`../assets/weap/${gameType}/${data.info.weapon}.webp`]?.default}
               sx={{ width: 50, height: 50, objectFit: "contain" }}
             />
-          </Stack>
-        </Tooltip>
-      ) : (
-        <Tooltip
-          title={isModalClosed() && (
-            <Typography variant="body2">
-              Add {INFO.HEADER_NAMES[1]}
-            </Typography>
+          ) : (
+            <Add />
           )}
-          arrow
-        >
-          <Add
-            onClick={openModal}
-            cursor="pointer"
-          />
-        </Tooltip>
-      )}
+        </Stack>
+      </Tooltip>
     </TableCell>
   );
 };

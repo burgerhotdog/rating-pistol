@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { Add, Delete, ErrorOutline, Star, StarBorder, KeyboardArrowRight } from "@mui/icons-material";
+import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
-  Box,
-  Button,
   Container,
+  Box,
   Stack,
-  Table,
-  TableBody,
-  TableCell,
   TableContainer,
+  Table,
   TableHead,
+  TableBody,
   TableRow,
+  TableCell,
+  Button,
   Typography,
 } from "@mui/material";
 import { db } from "../firebase";
@@ -107,10 +107,10 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
               <TableRow>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
                 <TableCell align="center" sx={{ width: 60 }} />
-                <TableCell align="left" sx={{ width: 180 }}>{INFO.HEADER_NAMES[0]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.HEADER_NAMES[1]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.HEADER_NAMES[2]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.HEADER_NAMES[3]}</TableCell>
+                <TableCell align="left" sx={{ width: 180 }}>{INFO.SECTION_NAMES[0]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[1]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[2]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[3]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
               </TableRow>
@@ -135,16 +135,17 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
 
                   <TableCharacter
                     gameType={gameType}
-                    CHAR={CHAR}
+                    gameData={gameData}
                     charIcons={charIcons}
                     setAction={setAction}
                     id={id}
                     data={data}
+                    isModalClosed={isModalClosed}
                   />
 
                   <TableWeapon
                     gameType={gameType}
-                    INFO={INFO}
+                    gameData={gameData}
                     weapIcons={weapIcons}
                     setAction={setAction}
                     id={id}
@@ -154,7 +155,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
 
                   <TableGear
                     gameType={gameType}
-                    SETS={SETS}
+                    gameData={gameData}
                     setsIcons={setsIcons}
                     setAction={setAction}
                     id={id}
@@ -164,6 +165,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
 
                   <TableSkills
                     gameType={gameType}
+                    gameData={gameData}
                     setAction={setAction}
                     id={id}
                     data={data}
