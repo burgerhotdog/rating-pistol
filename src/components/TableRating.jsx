@@ -3,6 +3,7 @@ import TableCell from "@mui/material/TableCell";
 import Tooltip from "@mui/material/Tooltip";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import Typography from "@mui/material/Typography";
 
 const TableRating = ({
@@ -45,7 +46,7 @@ const TableRating = ({
           )}
           arrow
         >
-          <ErrorOutline
+          <ErrorOutlineIcon
             color="error"
             cursor="pointer"
           />

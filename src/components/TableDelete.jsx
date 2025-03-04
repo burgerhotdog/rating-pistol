@@ -18,13 +18,16 @@ const TableDelete = ({
 
   return (
     <TableCell align="center" sx={{ borderBottom: "none" }}>
-      {hoveredRow === id && 
-        <DeleteIcon
-          onClick={openModal}
-          color="error"
-          cursor="pointer"
-        />
-      }
+      <DeleteIcon
+        onClick={openModal}
+        cursor="pointer"
+        color="disabled"
+        sx={{
+          opacity: hoveredRow === id ? 1 : 0,
+          transition: "opacity 0.3s ease, color 0.3s ease",
+          "&:hover": { color: "secondary.main" },
+        }}
+      />
     </TableCell>
   );
 };

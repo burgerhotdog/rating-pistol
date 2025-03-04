@@ -9,7 +9,7 @@ const getRating = (gameType, gameData, id, data) => {
   const gear = getRatingGear(gameType, gameData, id, data);
   const skills = getRatingSkills(gameType, gameData, id, data);
 
-  const final = (
+  const final = Math.round(
     character === -1 ? -1 :
     weapon === -1 ? -1 :
     gear === -1 ? -1 :

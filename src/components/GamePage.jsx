@@ -132,7 +132,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
                 <TableCell align="center" sx={{ width: 60 }}>
                   <Stack alignItems="center">
-                    <StarBorder sx={{ fontSize: 16 }} />
                   </Stack>
                 </TableCell>
                 <TableCell align="left" sx={{ width: 180 }}>{INFO.HEADER_NAMES[0]}</TableCell>

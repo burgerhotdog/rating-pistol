@@ -38,14 +38,20 @@ const TableStar = ({
       {data.info.isStar ? (
         <StarIcon
           onClick={toggleStar}
-          sx={{ color: "gold", cursor: "pointer" }}
+          cursor="pointer"
+          color="gold"
         />
-      ) : hoveredRow === id ? (
+      ) : (
         <StarBorderIcon
           onClick={toggleStar}
-          sx={{ color: "text.disabled", cursor: "pointer" }}
+          cursor="pointer"
+          color="disabled"
+          sx={{
+            transition: "color 0.3s ease",
+            "&:hover": { color: "gold.main" },
+          }}
         />
-      ) : null}
+      )}
     </TableCell>
   );
 };

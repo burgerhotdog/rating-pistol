@@ -3,6 +3,12 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   palette: {
     mode: "dark",
+    gold: {
+      main: "#FFD700",
+      light: "#FFEC8B",
+      dark: "#B8860B",
+      contrastText: "#000",
+    },
   },
   customStyles: {
     modal: {
