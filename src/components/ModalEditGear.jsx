@@ -8,7 +8,6 @@ import {
   Stack,
   TextField,
   Typography,
-  useTheme,
 } from "@mui/material";
 import ModalEditGearPiece from "./ModalEditGearPiece";
 
@@ -19,8 +18,7 @@ const ModalEditGear = ({
   action,
   setAction,
 }) => {
-  const theme = useTheme();
-  const { CHAR, WEAP, SETS } = gameData;
+  const { SETS } = gameData;
   const { setsIcons } = gameIcons;
   const rarityColor = {
     5: "goldenrod",

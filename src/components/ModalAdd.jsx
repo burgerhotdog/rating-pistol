@@ -1,5 +1,5 @@
 import React from "react";
-import { writeBatch, doc, setDoc } from "firebase/firestore";
+import { writeBatch, doc } from "firebase/firestore";
 import {
   Autocomplete,
   Box,
@@ -143,14 +143,14 @@ const ModalAdd = ({
                 }}
               />
             )}
-            sx={{ width: 256 }}
+            sx={{ width: 250 }}
             disableClearable={action?.id === ""}
           />
 
           <Button
+            onClick={handleAdd}
             variant="contained"
             color="primary"
-            onClick={handleAdd}
             sx={{ width: 80 }}
             disabled={!action?.id}
           >

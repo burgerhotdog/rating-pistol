@@ -1,5 +1,5 @@
 import React from "react";
-import { writeBatch, doc, setDoc } from "firebase/firestore";
+import { writeBatch, doc } from "firebase/firestore";
 import {
   Box,
   Button,
@@ -8,7 +8,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { db } from "../firebase";
-//import ModalEditCharacter from "./ModalEditCharacter";
+import ModalEditCharacter from "./ModalEditCharacter";
 import ModalEditWeapon from "./ModalEditWeapon";
 import ModalEditGear from "./ModalEditGear";
 import ModalEditSkills from "./ModalEditSkills";
@@ -62,13 +62,13 @@ const ModalEdit = ({
       <Box sx={theme.customStyles.modal}>
         <Stack gap={2}>
           {action?.item === "character" ? (
-            /*<ModalEditCharacter
+            <ModalEditCharacter
               gameType={gameType}
               gameData={gameData}
               gameIcons={gameIcons}
               action={action}
               setAction={setAction}
-            />*/""
+            />
           ) : action?.item === "weapon" ? (
             <ModalEditWeapon
               gameType={gameType}
@@ -97,17 +97,17 @@ const ModalEdit = ({
 
           <Stack direction="row" justifyContent="center" gap={2}>
             <Button
+              onClick={handleCancel}
               variant="outlined"
               color="secondary"
-              onClick={handleCancel}
               sx={{ width: 80 }}
             >
               Cancel
             </Button>
-            <Button 
+            <Button
+              onClick={handleSave}
               variant="contained"
               color="primary"
-              onClick={handleSave}
               sx={{ width: 80 }}
             >
               Save

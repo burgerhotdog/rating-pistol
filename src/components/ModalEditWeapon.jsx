@@ -4,12 +4,12 @@ import {
   Autocomplete,
   Box,
   Button,
+  Card,
   Divider,
   InputAdornment,
   Stack,
   TextField,
   Typography,
-  useTheme,
 } from "@mui/material";
 
 const ModalEditWeapon = ({
@@ -19,7 +19,6 @@ const ModalEditWeapon = ({
   action,
   setAction,
 }) => {
-  const theme = useTheme();
   const { CHAR, WEAP } = gameData;
   const { weapIcons } = gameIcons;
   const rarityColor = {
@@ -96,27 +95,53 @@ const ModalEditWeapon = ({
                 color: rarityColor[WEAP[action?.data?.info?.weapon]?.rarity] || "inherit",
               }
             }}
-            slotProps={{
-              input: {
-                ...params.InputProps,
-                startAdornment: action?.data?.weapon && (
-                  <InputAdornment position="start">
-                    <Box
-                      component="img"
-                      src={weapIcons[`../assets/weap/${gameType}/${action?.data?.info?.weapon}.webp`]?.default}
-                      alt=""
-                      sx={{ width: 24, height: 24, objectFit: "contain" }}
-                    />
-                  </InputAdornment>
-                ),
-              },
-            }}
           />
         )}
         fullWidth
-        sx={{ width: 256 }}
+        sx={{ minWidth: 400 }}
         disableClearable={action?.data?.info?.weapon === ""}
       />
+      {action?.data?.info?.weapon && (
+        <Card sx={{ width: 700, p: 2 }}>
+          <Grid container spacing={1}>
+            <Grid size={4}>
+              <Stack alignItems="center">
+                <Box
+                  component="img"
+                  src={weapIcons[`../assets/weap/${gameType}/${action?.data?.info?.weapon}.webp`]?.default}
+                  alt=""
+                  sx={{ width: 200, height: 200, objectFit: "contain" }}
+                />
+              </Stack>
+            </Grid>
+            <Grid size={8}>
+              <Stack>
+                <Typography variant="subtitle1" fontWeight="bold">
+                  {WEAP[action.data.info.weapon].name}
+                </Typography>
+                <Typography variant="body2">
+                  {gameType === "HSR"
+                    && `Base HP: ${WEAP[action.data.info.weapon].base.FLAT_HP}`}
+                </Typography>
+                <Typography variant="body2">
+                  {`Base ATK: ${WEAP[action.data.info.weapon].base.FLAT_ATK}`}
+                </Typography>
+                <Typography variant="body2">
+                  {gameType === "HSR"
+                    ? `Base DEF: ${WEAP[action.data.info.weapon].base.FLAT_DEF}`
+                    : WEAP[action.data.info.weapon].substat}
+                </Typography>
+                <Typography variant="subtitle2" fontWeight="bold" mt={1}>
+                  {WEAP[action.data.info.weapon].subtitle}
+                </Typography>
+                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                  {WEAP[action.data.info.weapon].desc}
+                </Typography>
+              </Stack>
+            </Grid>
+          </Grid>
+        </Card>
+      )}
     </Stack>
   );
 };

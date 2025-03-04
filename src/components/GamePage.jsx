@@ -12,9 +12,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Tooltip,
   Typography,
-  useTheme,
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
@@ -32,7 +30,6 @@ import TableRating from "./TableRating";
 import TableDelete from "./TableDelete";
 
 const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
-  const theme = useTheme();
   const { INFO, CHAR, WEAP, SETS } = gameData;
   const { charIcons, weapIcons, setsIcons } = gameIcons;
   const [localObjs, setLocalObjs] = useState({});
@@ -46,17 +43,14 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
       if (uid) {
         const infoDocsRef = collection(db, "users", uid, gameType);
         const infoDocs = await getDocs(infoDocsRef);
-
         const dataObjs = {};
         for (const infoDoc of infoDocs.docs) {
           const gearDocsRef = collection(db, "users", uid, gameType, infoDoc.id, "gearList");
           const gearDocs = await getDocs(gearDocsRef);
-
           const gearList = [];
           for (const gearDoc of gearDocs.docs) {
             gearList.push(gearDoc.data());
           };
-
           dataObjs[infoDoc.id] = {
             info: infoDoc.data(),
             gearList,
@@ -70,7 +64,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     fetchDB();
   }, [uid]);
 
-  // Load sortedObjs from localObjs
   useEffect(() => {
     const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
       id,
@@ -102,23 +95,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     });
   };
 
-  const handleDelete = (id) => {
-    setAction({
-      type: "delete",
-      id,
-      data: localObjs[id],
-    });
-  };
-
-  const handleEdit = (id, item) => {
-    setAction({
-      type: "edit",
-      id,
-      data: localObjs[id],
-      item,
-    });
-  };
-
   return (
     <Container>
       <Back />
@@ -130,13 +106,10 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             <TableHead>
               <TableRow>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
-                <TableCell align="center" sx={{ width: 60 }}>
-                  <Stack alignItems="center">
-                  </Stack>
-                </TableCell>
+                <TableCell align="center" sx={{ width: 60 }} />
                 <TableCell align="left" sx={{ width: 180 }}>{INFO.HEADER_NAMES[0]}</TableCell>
-                <TableCell align="center" sx={{ width: 90 }}>{INFO.HEADER_NAMES[1]}</TableCell>
-                <TableCell align="center" sx={{ width: 150 }}>{INFO.HEADER_NAMES[2]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{INFO.HEADER_NAMES[1]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{INFO.HEADER_NAMES[2]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>{INFO.HEADER_NAMES[3]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />

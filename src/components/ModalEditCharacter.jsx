@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 
-const ModalEditSkills = ({
+const ModalEditCharacter = ({
   gameType,
   gameData,
   gameIcons,
@@ -25,4 +25,4 @@ const ModalEditSkills = ({
   );
 };
 
-export default ModalEditSkills;
+export default ModalEditCharacter;

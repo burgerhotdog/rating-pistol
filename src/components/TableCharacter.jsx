@@ -1,9 +1,5 @@
 import React from "react";
-import TableCell from "@mui/material/TableCell";
-import Tooltip from "@mui/material/Tooltip";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Box, Stack, TableCell, Tooltip, Typography } from "@mui/material";
 
 const TableCharacter = ({
   gameType,
@@ -25,6 +21,7 @@ const TableCharacter = ({
   return (
     <TableCell align="center">
       <Tooltip
+        title={<Typography variant="body2">Edit Character</Typography>}
         arrow
       >
         <Stack

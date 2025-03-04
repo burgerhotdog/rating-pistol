@@ -57,7 +57,6 @@ const TableWeapon = ({
         >
           <Stack 
             onClick={openModal}
-            direction="row"
             alignItems="center"
             sx={{ cursor: "pointer" }}
           >

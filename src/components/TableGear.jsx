@@ -26,7 +26,7 @@ const TableGear = ({
 
   return (
     <TableCell align="center">
-      {(data.info.set[0] || data.info.setExtra) ? (
+      {(data?.info?.set[0] || data?.info?.setExtra) ? (
         <Stack direction="row" justifyContent="center" alignItems="center" gap={2}>
           {data.info.set[0] && (
             <Tooltip
