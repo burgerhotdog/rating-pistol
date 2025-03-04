@@ -1,14 +1,10 @@
 import React from "react";
-import TableCell from "@mui/material/TableCell";
-import Tooltip from "@mui/material/Tooltip";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Box, Stack, TableCell, Tooltip, Typography } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 
 const TableWeapon = ({
   gameType,
-  WEAP,
+  INFO,
   weapIcons,
   setAction,
   id,
@@ -29,29 +25,9 @@ const TableWeapon = ({
       {data.info.weapon ? (
         <Tooltip
           title={isModalClosed() && (
-            <Stack>
-              <Typography variant="subtitle1" fontWeight="bold">
-                {WEAP[data.info.weapon].name}
-              </Typography>
-              <Typography variant="body2">
-                {gameType === "HSR"
-                  && `Base HP: ${WEAP[data.info.weapon].base.FLAT_HP}`}
-              </Typography>
-              <Typography variant="body2">
-                {`Base ATK: ${WEAP[data.info.weapon].base.FLAT_ATK}`}
-              </Typography>
-              <Typography variant="body2">
-                {gameType === "HSR"
-                  ? `Base DEF: ${WEAP[data.info.weapon].base.FLAT_DEF}`
-                  : WEAP[data.info.weapon].substat}
-              </Typography>
-              <Typography variant="subtitle2" fontWeight="bold" mt={1}>
-                {WEAP[data.info.weapon].subtitle}
-              </Typography>
-              <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                {WEAP[data.info.weapon].desc}
-              </Typography>
-            </Stack>
+            <Typography variant="body2">
+              Edit {INFO.HEADER_NAMES[1]}
+            </Typography>
           )}
           arrow
         >
@@ -70,8 +46,10 @@ const TableWeapon = ({
         </Tooltip>
       ) : (
         <Tooltip
-          title={isModalClosed && (
-            <Typography>Add Weapon</Typography>
+          title={isModalClosed() && (
+            <Typography variant="body2">
+              Add {INFO.HEADER_NAMES[1]}
+            </Typography>
           )}
           arrow
         >

@@ -8,6 +8,7 @@ import {
   Divider,
   InputAdornment,
   Stack,
+  Slider,
   TextField,
   Typography,
 } from "@mui/material";
@@ -28,6 +29,11 @@ const ModalEditWeapon = ({
     2: "green",
     1: "slategrey",
   };
+  const levelCapRegex =
+    gameType === "GI" ? /^(?:[1-9]|[1-8][0-9]|90)?$/ :
+    gameType === "HSR" ? /^(?:[1-9]|[1-7][0-9]|80)?$/ :
+    gameType === "WW" ? /^(?:[1-9]|[1-8][0-9]|90)?$/ :
+    gameType === "ZZZ" && /^(?:[1-9]|[1-5][0-9]|60)?$/;
 
   const weapOptions = () => {
     return Object.keys(WEAP)
@@ -49,58 +55,114 @@ const ModalEditWeapon = ({
         info: {
           ...prev.data.info,
           weapon: newValue || "",
+          weaponLevel: "1",
+          weaponRank: "1",
+        }
+      },
+    }));
+  };
+
+  const handleWeaponLevel = (newValue) => {
+    setAction((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        info: {
+          ...prev.data.info,
+          weaponLevel: newValue || "",
+        }
+      },
+    }));
+  };
+
+  const handleWeaponRank = (newValue) => {
+    setAction((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        info: {
+          ...prev.data.info,
+          weaponRank: newValue || "",
         }
       },
     }));
   };
 
   return (
-    <Stack gap={2}>
-      <Autocomplete
-        size="small"
-        value={action?.data?.info?.weapon || ""}
-        options={weapOptions()}
-        getOptionLabel={(id) => WEAP[id]?.name || ""}
-        onChange={(_, newValue) => handleWeapon(newValue)}
-        renderOption={(props, id) => {
-          const { key, ...idProps } = props;
-          const rarity = WEAP[id]?.rarity;
-          return (
-            <Box
-              key={key}
-              component="li"
-              sx={{
-                "& > img": { mr: 2, flexShrink: 0 },
-                color: rarityColor[rarity],
-              }}
-              {...idProps}
-            >
+    <Stack spacing={2}>
+      <Stack direction="row" spacing={2}>
+        <Autocomplete
+          size="small"
+          value={action?.data?.info?.weapon || ""}
+          options={weapOptions()}
+          getOptionLabel={(id) => WEAP[id]?.name || ""}
+          onChange={(_, newValue) => handleWeapon(newValue)}
+          renderOption={(props, id) => {
+            const { key, ...idProps } = props;
+            const rarity = WEAP[id]?.rarity;
+            return (
               <Box
-                component="img"
-                loading="lazy"
-                src={weapIcons[`../assets/weap/${gameType}/${id}.webp`]?.default}
-                alt={""}
-                sx={{ width: 24, height: 24, objectFit: "contain" }}
-              />
-              {WEAP[id]?.name || ""}
-            </Box>
-          );
-        }}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Weapon"
-            sx={{
-              "& .MuiInputBase-root": {
-                color: rarityColor[WEAP[action?.data?.info?.weapon]?.rarity] || "inherit",
-              }
-            }}
-          />
+                key={key}
+                component="li"
+                sx={{
+                  "& > img": { mr: 2, flexShrink: 0 },
+                  color: rarityColor[rarity],
+                }}
+                {...idProps}
+              >
+                <Box
+                  component="img"
+                  loading="lazy"
+                  src={weapIcons[`../assets/weap/${gameType}/${id}.webp`]?.default}
+                  alt={""}
+                  sx={{ width: 24, height: 24, objectFit: "contain" }}
+                />
+                {WEAP[id]?.name || ""}
+              </Box>
+            );
+          }}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Weapon"
+              sx={{
+                "& .MuiInputBase-root": {
+                  color: rarityColor[WEAP[action?.data?.info?.weapon]?.rarity] || "inherit",
+                }
+              }}
+            />
+          )}
+          fullWidth
+          sx={{ minWidth: 350 }}
+          disableClearable={action?.data?.info?.weapon === ""}
+        />
+        {action?.data?.info?.weapon && (
+          <Stack direction="row" spacing={2}>
+            <TextField
+              size="small"
+              label="Level"
+              value={action?.data?.info?.weaponLevel || ""}
+              onChange={(e) => {
+                const newValue = e.target.value;
+                const isValid = levelCapRegex.test(newValue);
+                if (isValid) handleWeaponLevel(newValue);
+              }}
+              sx={{ width: 80 }}
+            />
+            <TextField
+              size="small"
+              label="Rank"
+              value={action?.data?.info?.weaponRank || ""}
+              onChange={(e) => {
+                const newValue = e.target.value;
+                const isValid = /^(?:[1-5])?$/.test(newValue);
+                if (isValid) handleWeaponRank(newValue);
+              }}
+              sx={{ width: 80 }}
+            />
+          </Stack>
         )}
-        fullWidth
-        sx={{ minWidth: 400 }}
-        disableClearable={action?.data?.info?.weapon === ""}
-      />
+      </Stack>
       {action?.data?.info?.weapon && (
         <Card sx={{ width: 700, p: 2 }}>
           <Grid container spacing={1}>

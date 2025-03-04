@@ -144,7 +144,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
 
                   <TableWeapon
                     gameType={gameType}
-                    WEAP={WEAP}
+                    INFO={INFO}
                     weapIcons={weapIcons}
                     setAction={setAction}
                     id={id}
