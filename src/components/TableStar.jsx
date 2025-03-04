@@ -1,6 +1,6 @@
 import React from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { TableCell } from "@mui/material";
+import { TableCell, Stack } from "@mui/material";
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { db } from "../firebase";
@@ -35,23 +35,25 @@ const TableStar = ({
 
   return (
     <TableCell align="center">
-      {data.info.isStar ? (
-        <StarIcon
-          onClick={toggleStar}
-          cursor="pointer"
-          color="gold"
-        />
-      ) : (
-        <StarBorderIcon
-          onClick={toggleStar}
-          cursor="pointer"
-          color="disabled"
-          sx={{
-            transition: "color 0.3s ease",
-            "&:hover": { color: "gold.main" },
-          }}
-        />
-      )}
+      <Stack alignItems="center">
+        {data.info.isStar ? (
+          <StarIcon
+            onClick={toggleStar}
+            cursor="pointer"
+            color="gold"
+          />
+        ) : (
+          <StarBorderIcon
+            onClick={toggleStar}
+            cursor="pointer"
+            color="disabled"
+            sx={{
+              transition: "color 0.3s ease",
+              "&:hover": { color: "gold.main" },
+            }}
+          />
+        )}
+      </Stack>
     </TableCell>
   );
 };

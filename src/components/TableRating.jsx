@@ -46,10 +46,12 @@ const TableRating = ({
           )}
           arrow
         >
-          <ErrorOutlineIcon
-            color="error"
-            cursor="pointer"
-          />
+          <Stack alignItems="center">
+            <ErrorOutlineIcon
+              color="error"
+              cursor="pointer"
+            />
+          </Stack>
         </Tooltip>
       )}
     </TableCell>

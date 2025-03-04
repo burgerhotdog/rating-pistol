@@ -11,7 +11,7 @@ const TableGear = ({
   data,
   isModalClosed,
 }) => {
-  const { SETS } = gameData;
+  const { INFO } = gameData;
   const openModal = () => {
     setAction({
       type: "edit",
@@ -23,66 +23,44 @@ const TableGear = ({
 
   return (
     <TableCell align="center">
-      {(data?.info?.set[0] || data?.info?.setExtra) ? (
-        <Stack direction="row" justifyContent="center" alignItems="center" gap={2}>
-          {data.info.set[0] && (
-            <Tooltip
-              title={isModalClosed() && (
-                <Stack>
-                  <Typography variant="subtitle1" fontWeight="bold">
-                    {SETS[data.info.set[0]].name}
-                  </Typography>
-                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                    {SETS[data.info.set[0]].desc}
-                  </Typography>
-                </Stack>
+      <Tooltip
+        title={isModalClosed() && (
+          <Typography variant="body2">
+            {data.info.set[0] || data.info.setExtra ? "Edit" : "Add"} {INFO.SECTION_NAMES[2]}
+          </Typography>
+        )}
+        arrow
+      >
+        <Stack direction="row" justifyContent="center" alignItems="center">
+          {data.info.set[0] || data.info.setExtra ? (
+            <Stack direction="row" alignItems="center" spacing={1}>
+              {data.info.set[0] && (
+                <Box
+                  component="img"
+                  alt={data.info.set[0]}
+                  onClick={openModal}
+                  src={setsIcons[`../assets/sets/${gameType}/${data.info.set[0]}.webp`]?.default}
+                  sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                />
               )}
-              arrow
-            >
-              <Box
-                component="img"
-                alt={data.info.set[0]}
-                onClick={openModal}
-                src={setsIcons[`../assets/sets/${gameType}/${data.info.set[0]}.webp`]?.default}
-                sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-              />
-            </Tooltip>
-          )}
-          {data.info.set[0] && data.info.setExtra && (
-            <Typography>+</Typography>
-          )}
-          {data.info.setExtra && (
-            <Tooltip
-              title={isModalClosed() && (
-                <Stack>
-                  <Typography variant="subtitle1" fontWeight="bold">
-                    {SETS[data.info.setExtra].name}
-                  </Typography>
-                  <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                    {SETS[data.info.setExtra].desc}
-                  </Typography>
-                </Stack>
+              {data.info.setExtra && (
+                <Box
+                  component="img"
+                  alt={data.info.setExtra}
+                  onClick={openModal}
+                  src={setsIcons[`../assets/sets/${gameType}/${data.info.setExtra}.webp`]?.default}
+                  sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+                />
               )}
-              arrow
-            >
-              <Box
-                component="img"
-                alt={data.info.setExtra}
-                onClick={openModal}
-                src={setsIcons[`../assets/sets/${gameType}/${data.info.setExtra}.webp`]?.default}
-                sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-              />
-            </Tooltip>
+            </Stack>
+          ) : (
+            <Add
+              onClick={openModal}
+              cursor="pointer"
+            />
           )}
         </Stack>
-      ) : (
-        <Tooltip>
-          <Add
-            onClick={openModal}
-            cursor="pointer"
-          />
-        </Tooltip>
-      )}
+      </Tooltip>
     </TableCell>
   );
 };
