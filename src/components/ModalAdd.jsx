@@ -24,7 +24,7 @@ const ModalAdd = ({
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { CHAR } = gameData;
+  const { INFO, CHAR } = gameData;
   const { charIcons } = gameIcons;
   const rarityColor = {
     5: "goldenrod",
@@ -55,6 +55,12 @@ const ModalAdd = ({
 
   const handleAdd = async () => {
     const info = templateInfo(gameType);
+    info.characterLevel = INFO.LEVEL_CAP.toString();
+    info.characterRank = "0";
+    for (const skill in info.skills) {
+      info.skills[skill] = "1";
+    }
+
     const gearList = Array(5).fill(null).map(() => templateGear(gameType));
     if (gameType === "HSR" || gameType === "ZZZ") {
       gearList.push(templateGear(gameType));

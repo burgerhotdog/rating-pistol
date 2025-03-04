@@ -7,9 +7,7 @@ import {
   Divider,
   Autocomplete,
   TextField,
-  Button,
   Typography,
-  InputAdornment,
 } from "@mui/material";
 
 const ModalEditWeapon = ({
@@ -124,9 +122,6 @@ const ModalEditWeapon = ({
                   color: rarityColor[WEAP[action?.data?.info?.weapon]?.rarity] || "inherit",
                 }
               }}
-              slotProps={{
-                inputLabel: { shrink: true }
-              }}
             />
           )}
           fullWidth
@@ -144,12 +139,9 @@ const ModalEditWeapon = ({
             <TextField
               {...params}
               label="Level"
-              slotProps={{
-                inputLabel: { shrink: true }
-              }}
             />
           )}
-          sx={{ width: 100 }}
+          sx={{ width: 80 }}
           disabled={!action?.data?.info?.weapon}
           disableClearable
         />
@@ -164,12 +156,9 @@ const ModalEditWeapon = ({
             <TextField
               {...params}
               label="Rank"
-              slotProps={{
-                inputLabel: { shrink: true }
-              }}
             />
           )}
-          sx={{ width: 100 }}
+          sx={{ width: 80 }}
           disabled={!action?.data?.info?.weapon}
           disableClearable
         />
@@ -224,7 +213,7 @@ const ModalEditWeapon = ({
           </Grid>
         ) : (
           <Typography variant="body1" color="text.disabled">
-            Select a {INFO.SECTION_NAMES[1]}
+            No {INFO.SECTION_NAMES[1]} Selected
           </Typography>
         )}
       </Card>

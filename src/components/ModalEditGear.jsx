@@ -114,9 +114,6 @@ const ModalEditGear = ({
                       color: rarityColor[SETS[action?.data?.info?.set[0]]?.rarity] || "inherit",
                     }
                   }}
-                  slotProps={{
-                    inputLabel: { shrink: true }
-                  }}
                 />
               )}
               fullWidth
@@ -203,9 +200,6 @@ const ModalEditGear = ({
                       "& .MuiInputBase-root": {
                         color: rarityColor[SETS[action?.data?.info?.setExtra]?.rarity] || "inherit",
                       }
-                    }}
-                    slotProps={{
-                      inputLabel: { shrink: true }
                     }}
                   />
                 )}

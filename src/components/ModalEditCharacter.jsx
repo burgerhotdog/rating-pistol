@@ -18,9 +18,67 @@ const ModalEditCharacter = ({
   action,
   setAction,
 }) => {
+  const { INFO } = gameData;
+  const handleCharacterLevel = (newValue) => {
+    setAction((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        info: {
+          ...prev.data.info,
+          characterLevel: newValue || "",
+        }
+      },
+    }));
+  };
+
+  const handleCharacterRank = (newValue) => {
+    setAction((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        info: {
+          ...prev.data.info,
+          characterRank: newValue || "",
+        }
+      },
+    }));
+  };
+
   return (
-    <Stack gap={2}>
-      
+    <Stack direction="row" spacing={2}>
+      <Autocomplete
+        size="small"
+        value={action?.data?.info?.characterLevel || ""}
+        options={Array.from({ length: INFO.LEVEL_CAP / 10 }, (_, i) => (INFO.LEVEL_CAP - i * 10).toString())}
+        onChange={(_, newValue) => {
+          if (newValue) handleCharacterLevel(newValue);
+        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Level"
+          />
+        )}
+        sx={{ width: 80 }}
+        disableClearable
+      />
+      <Autocomplete
+        size="small"
+        value={action?.data?.info?.characterRank || ""}
+        options={["0", "1", "2", "3", "4", "5", "6"]}
+        onChange={(_, newValue) => {
+          if (newValue) handleCharacterRank(newValue);
+        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Rank"
+          />
+        )}
+        sx={{ width: 80 }}
+        disableClearable
+      />
     </Stack>
   );
 };

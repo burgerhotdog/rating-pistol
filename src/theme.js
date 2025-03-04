@@ -25,6 +25,15 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiTextField: {
+      defaultProps: {
+        slotProps: {
+          inputLabel: {
+            shrink: true,
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

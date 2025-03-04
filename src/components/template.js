@@ -2,12 +2,15 @@ const templateInfo = (gameType) => {
   return {
     characterLevel: "",
     characterRank: "",
+
     weapon: "",
     weaponLevel: "",
     weaponRank: "",
+
     set: ["", ""],
     ...(gameType === "HSR" ? { setExtra: "" } : {}),
     ...(gameType === "ZZZ" ? { setExtra: "" } : {}),
+
     skills: {
       basic: "",
       skill: "",
