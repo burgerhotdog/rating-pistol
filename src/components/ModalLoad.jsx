@@ -325,33 +325,33 @@ const ModalLoad = ({
     <Modal open={action?.type === "load"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
         {!enkaList.length ? (
-          <Stack spacing={2}>
-            <TextField
-              label="Enter UID"
-              size="small"
-              value={gameUid}
-              onChange={(e) => {
-                const newValue = e.target.value;
-                const isValidNumber = /^\d*$/.test(newValue);
-                if (isValidNumber) setGameUid(newValue);
-              }}
-              error={Boolean(error)}
-              helperText={error}
-              sx={{ width: 300 }}
-            />
-            <FormControlLabel
-              control={
+          <Stack alignItems="center" spacing={2}>
+            <Stack>
+              <TextField
+                label="Enter UID"
+                size="small"
+                value={gameUid}
+                onChange={(e) => {
+                  const newValue = e.target.value;
+                  const isValidNumber = /^\d*$/.test(newValue);
+                  if (isValidNumber) setGameUid(newValue);
+                }}
+                error={Boolean(error)}
+                helperText={error}
+                fullWidth
+              />
+              <Stack direction="row" alignItems="center">
                 <Checkbox
-                  label="test"
-                  size="small"
-                  checked={rememberUid}
                   onChange={() => setRememberUid(!rememberUid)}
+                  checked={rememberUid}
+                  size="small"
                   disabled={!uid}
                 />
-              }
-              label={"Remember UID (requires sign-in)"}
-              sx={{ my: -1 }}
-            />
+                <Typography variant="body2" sx={{ color: "text.disabled" }}>
+                  Remember UID (requires sign-in)
+                </Typography>
+              </Stack>
+            </Stack>
             <Button
               variant="contained"
               onClick={handleNext}
@@ -362,22 +362,28 @@ const ModalLoad = ({
             </Button>
           </Stack>
         ) : (
-          <Stack spacing={2}>
-            <Typography>Select characters to add</Typography>
-            {enkaList.map((avatar, index) => (
-              <FormControlLabel
-                key={index}
-                control={
+          <Stack alignItems="center" spacing={2}>
+            <Stack>
+              <Typography variant="subtitle1">
+                Select characters to add
+              </Typography>
+              {enkaList.map((avatar, index) => (
+                <Stack
+                  key={index}
+                  direction="row"
+                  alignItems="center"
+                >
                   <Checkbox
-                    checked={selectedAvatars.includes(index)}
                     onChange={(e) => handleCheckboxChange(e, index)}
+                    checked={selectedAvatars.includes(index)}
+                    size="small"
                   />
-                }
-                label={CHAR[avatar.avatarId]?.name || "error"}
-                sx={{ my: -1 }}
-              />
-            ))}
-
+                  <Typography variant="body1">
+                    {CHAR[avatar.avatarId].name}
+                  </Typography>
+                </Stack>
+              ))}
+            </Stack>
             <Button
               onClick={handleSave}
               variant="contained"
