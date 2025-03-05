@@ -12,33 +12,37 @@ import {
   TableCell,
   Button,
   Typography,
+  CircularProgress,
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import ModalAdd from "./ModalAdd";
-import ModalDelete from "./ModalDelete";
-import ModalEdit from "./ModalEdit";
-import ModalLoad from "./ModalLoad";
-import getRating from "./getRating";
-import TableStar from "./TableStar";
-import TableCharacter from "./TableCharacter";
-import TableWeapon from "./TableWeapon";
-import TableGear from "./TableGear";
-import TableSkills from "./TableSkills";
-import TableRating from "./TableRating";
-import TableDelete from "./TableDelete";
+import AddModal from "./Add/AddModal";
+import DeleteModal from "./Delete/DeleteModal";
+import EditModal from "./Edit/EditModal";
+import LoadModal from "./Load/LoadModal";
+import getRating from "./getRating/getRating";
+import TableStar from "./Table/TableStar";
+import TableCharacter from "./Table/TableCharacter";
+import TableWeapon from "./Table/TableWeapon";
+import TableGear from "./Table/TableGear";
+import TableSkills from "./Table/TableSkills";
+import TableRating from "./Table/TableRating";
+import TableDelete from "./Table/TableDelete";
+import getData from "./getData";
 
-const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
-  const { INFO } = gameData;
-  const { charIcons, weapIcons, setsIcons } = gameIcons;
+const GamePage = ({ uid, gameType }) => {
+  const { INFO } = getData(gameType);
   const [localObjs, setLocalObjs] = useState({});
   const [sortedObjs, setSortedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [action, setAction] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
+  // get localObjs from firestore
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
+        setIsLoading(true);
         const infoDocsRef = collection(db, "users", uid, gameType);
         const infoDocs = await getDocs(infoDocsRef);
         const dataObjs = {};
@@ -55,6 +59,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           };
         };
         setLocalObjs(dataObjs);
+        setIsLoading(false);
       } else {
         setLocalObjs({});
       }
@@ -62,11 +67,12 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     fetchDB();
   }, [uid]);
 
+  // rate and sort localObjs for display table
   useEffect(() => {
     const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
       id,
       data,
-      rating: getRating(gameType, gameData, id, data),
+      rating: getRating(gameType, id, data),
     }));
     ratedObjs.sort((a, b) =>
       a.data.info.isStar === b.data.info.isStar
@@ -95,6 +101,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
       <Stack alignItems="center" sx={{ mt: 4 }}>
         <Typography variant="h4">{INFO.TITLE}</Typography>
         <Typography variant="body2">Updated for version {INFO.VERSION}</Typography>
+
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
@@ -109,71 +116,90 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
               </TableRow>
             </TableHead>
+
             <TableBody>
-              {sortedObjs.map(({ id, data, rating }) => (
-                <TableRow
-                  key={id}
-                  onMouseEnter={() => setHoveredRow(id)}
-                  onMouseLeave={() => setHoveredRow(null)}
-                >
+              {isLoading ? (
+                <TableRow>
                   <TableCell sx={{ borderBottom: "none" }} />
-                  <TableStar
-                    uid={uid}
-                    gameType={gameType}
-                    setLocalObjs={setLocalObjs}
-                    id={id}
-                    data={data}
-                  />
-                  <TableCharacter
-                    gameType={gameType}
-                    gameData={gameData}
-                    charIcons={charIcons}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                  />
-                  <TableWeapon
-                    gameType={gameType}
-                    gameData={gameData}
-                    weapIcons={weapIcons}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                  />
-                  <TableGear
-                    gameType={gameType}
-                    gameData={gameData}
-                    setsIcons={setsIcons}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                  />
-                  <TableSkills
-                    gameType={gameType}
-                    gameData={gameData}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                    rating={rating}
-                  />
-                  <TableRating
-                    gameType={gameType}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                    rating={rating}
-                  />
-                  <TableDelete
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                    hoveredRow={hoveredRow}
-                  />
+                  <TableCell colSpan={6} align="center">
+                    <CircularProgress />
+                  </TableCell>
+                  <TableCell sx={{ borderBottom: "none" }} />
                 </TableRow>
-              ))}
+              ) : (
+                sortedObjs.map(({ id, data, rating }) => (
+                  <TableRow
+                    key={id}
+                    onMouseEnter={() => setHoveredRow(id)}
+                    onMouseLeave={() => setHoveredRow(null)}
+                  >
+                    <TableCell sx={{ borderBottom: "none" }} />
+                    <TableCell>
+                      <TableStar
+                        uid={uid}
+                        gameType={gameType}
+                        setLocalObjs={setLocalObjs}
+                        id={id}
+                        data={data}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableCharacter
+                        gameType={gameType}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableWeapon
+                        gameType={gameType}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableGear
+                        gameType={gameType}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableSkills
+                        gameType={gameType}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                        rating={rating}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableRating
+                        gameType={gameType}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                        rating={rating}
+                      />
+                    </TableCell>
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <TableDelete
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                        hoveredRow={hoveredRow}
+                      />
+                    </TableCell>
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </TableContainer>
+
         <Stack direction="row" spacing={2} my={2}>
           <Button
             onClick={handleAdd}
@@ -191,43 +217,38 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             Load from UID
           </Button>
         </Stack>
-        <ModalAdd
+
+        <AddModal
           uid={uid}
           gameType={gameType}
-          gameData={gameData}
-          gameIcons={gameIcons}
           action={action}
           setAction={setAction}
           localObjs={localObjs}
           setLocalObjs={setLocalObjs}
         />
+        <DeleteModal
+          uid={uid}
+          gameType={gameType}
+          action={action}
+          setAction={setAction}
+          setLocalObjs={setLocalObjs}
+        />
+        <EditModal
+          uid={uid}
+          gameType={gameType}
+          action={action}
+          setAction={setAction}
+          setLocalObjs={setLocalObjs}
+        />
         {(gameType === "GI" || gameType === "HSR") && (
-          <ModalLoad
+          <LoadModal
             uid={uid}
             gameType={gameType}
-            gameData={gameData}
             action={action}
             setAction={setAction}
             setLocalObjs={setLocalObjs}
           />
         )}
-        <ModalDelete
-          uid={uid}
-          gameType={gameType}
-          gameData={gameData}
-          action={action}
-          setAction={setAction}
-          setLocalObjs={setLocalObjs}
-        />
-        <ModalEdit
-          uid={uid}
-          gameType={gameType}
-          gameData={gameData}
-          gameIcons={gameIcons}
-          action={action}
-          setAction={setAction}
-          setLocalObjs={setLocalObjs}
-        />
       </Stack>
     </Container>
   );
