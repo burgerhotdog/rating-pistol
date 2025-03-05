@@ -1,5 +1,5 @@
 import GamePage from "../components/GamePage";
-import GAME_DATA from "../components/gameData";
+import GAME_DATA from "../components/GAME_DATA";
 
 const gameIcons = {
   charIcons: import.meta.glob("../assets/char/WW/*.webp", { eager: true }),

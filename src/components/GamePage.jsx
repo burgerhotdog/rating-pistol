@@ -18,16 +18,16 @@ import { db } from "../firebase";
 import Back from "./Back";
 import AddModal from "./Add/AddModal";
 import DeleteModal from "./Delete/DeleteModal";
-import ModalEdit from "./ModalEdit";
-import ModalLoad from "./ModalLoad";
-import getRating from "./getRating";
-import TableStar from "./TableStar";
-import TableCharacter from "./TableCharacter";
-import TableWeapon from "./TableWeapon";
-import TableGear from "./TableGear";
-import TableSkills from "./TableSkills";
-import TableRating from "./TableRating";
-import TableDelete from "./Delete/TableDelete";
+import EditModal from "./Edit/EditModal";
+import LoadModal from "./Load/LoadModal";
+import getRating from "./getRating/getRating";
+import TableStar from "./Table/TableStar";
+import TableCharacter from "./Table/TableCharacter";
+import TableWeapon from "./Table/TableWeapon";
+import TableGear from "./Table/TableGear";
+import TableSkills from "./Table/TableSkills";
+import TableRating from "./Table/TableRating";
+import TableDelete from "./Table/TableDelete";
 
 const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const { INFO } = gameData;
@@ -38,6 +38,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const [action, setAction] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
+  // get localObjs from firestore
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
@@ -66,6 +67,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     fetchDB();
   }, [uid]);
 
+  // rate and sort localObjs for display table
   useEffect(() => {
     const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
       id,
@@ -99,6 +101,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
       <Stack alignItems="center" sx={{ mt: 4 }}>
         <Typography variant="h4">{INFO.TITLE}</Typography>
         <Typography variant="body2">Updated for version {INFO.VERSION}</Typography>
+
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
@@ -113,6 +116,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
               </TableRow>
             </TableHead>
+
             <TableBody>
               {isLoading ? (
                 <TableRow>
@@ -130,53 +134,64 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     onMouseLeave={() => setHoveredRow(null)}
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
-                    <TableStar
-                      uid={uid}
-                      gameType={gameType}
-                      setLocalObjs={setLocalObjs}
-                      id={id}
-                      data={data}
-                    />
-                    <TableCharacter
-                      gameType={gameType}
-                      gameData={gameData}
-                      charIcons={charIcons}
-                      setAction={setAction}
-                      id={id}
-                      data={data}
-                    />
-                    <TableWeapon
-                      gameType={gameType}
-                      gameData={gameData}
-                      weapIcons={weapIcons}
-                      setAction={setAction}
-                      id={id}
-                      data={data}
-                    />
-                    <TableGear
-                      gameType={gameType}
-                      gameData={gameData}
-                      setsIcons={setsIcons}
-                      setAction={setAction}
-                      id={id}
-                      data={data}
-                    />
-                    <TableSkills
-                      gameType={gameType}
-                      gameData={gameData}
-                      setAction={setAction}
-                      id={id}
-                      data={data}
-                      rating={rating}
-                    />
-                    <TableRating
-                      gameType={gameType}
-                      setAction={setAction}
-                      id={id}
-                      data={data}
-                      rating={rating}
-                    />
-
+                    <TableCell>
+                      <TableStar
+                        uid={uid}
+                        gameType={gameType}
+                        setLocalObjs={setLocalObjs}
+                        id={id}
+                        data={data}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableCharacter
+                        gameType={gameType}
+                        gameData={gameData}
+                        charIcons={charIcons}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableWeapon
+                        gameType={gameType}
+                        gameData={gameData}
+                        weapIcons={weapIcons}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableGear
+                        gameType={gameType}
+                        gameData={gameData}
+                        setsIcons={setsIcons}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableSkills
+                        gameType={gameType}
+                        gameData={gameData}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                        rating={rating}
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TableRating
+                        gameType={gameType}
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                        rating={rating}
+                      />
+                    </TableCell>
                     <TableCell sx={{ borderBottom: "none" }}>
                       <TableDelete
                         setAction={setAction}
@@ -191,6 +206,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             </TableBody>
           </Table>
         </TableContainer>
+
         <Stack direction="row" spacing={2} my={2}>
           <Button
             onClick={handleAdd}
@@ -219,18 +235,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           localObjs={localObjs}
           setLocalObjs={setLocalObjs}
         />
-
-        {(gameType === "GI" || gameType === "HSR") && (
-          <ModalLoad
-            uid={uid}
-            gameType={gameType}
-            gameData={gameData}
-            action={action}
-            setAction={setAction}
-            setLocalObjs={setLocalObjs}
-          />
-        )}
-
         <DeleteModal
           uid={uid}
           gameType={gameType}
@@ -239,8 +243,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           setAction={setAction}
           setLocalObjs={setLocalObjs}
         />
-
-        <ModalEdit
+        <EditModal
           uid={uid}
           gameType={gameType}
           gameData={gameData}
@@ -249,6 +252,16 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           setAction={setAction}
           setLocalObjs={setLocalObjs}
         />
+        {(gameType === "GI" || gameType === "HSR") && (
+          <LoadModal
+            uid={uid}
+            gameType={gameType}
+            gameData={gameData}
+            action={action}
+            setAction={setAction}
+            setLocalObjs={setLocalObjs}
+          />
+        )}
       </Stack>
     </Container>
   );
