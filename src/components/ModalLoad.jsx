@@ -357,9 +357,7 @@ const ModalLoad = ({
               loading={isLoading}
               variant="contained"
             >
-              <Typography variant="body2">
-                Next
-              </Typography>
+              Next
             </Button>
           </Stack>
         ) : (
@@ -386,9 +384,7 @@ const ModalLoad = ({
               ))}
             </Stack>
             <Button onClick={handleSave} variant="contained">
-              <Typography variant="body2">
-                Save
-              </Typography>
+              Save
             </Button>
           </Stack>
         )}

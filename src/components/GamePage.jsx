@@ -201,9 +201,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             variant="contained"
             startIcon={<Add />}
           >
-            <Typography variant="body2">
-              Add character
-            </Typography>
+            Add character
           </Button>
           <Button
             onClick={handleLoad}
@@ -211,9 +209,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             endIcon={<KeyboardArrowRight />}
             disabled={gameType === "WW" || gameType === "ZZZ"}
           >
-            <Typography variant="body2">
-              Load from UID
-            </Typography>
+            Load from UID
           </Button>
         </Stack>
 
