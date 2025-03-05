@@ -1,17 +1,12 @@
 import React from "react";
-import TableCell from "@mui/material/TableCell";
-import Tooltip from "@mui/material/Tooltip";
-import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
+import { TableCell, Stack, Tooltip, Typography } from "@mui/material";
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import Typography from "@mui/material/Typography";
 
 const TableRating = ({
   setAction,
   id,
   data,
   rating,
-  isModalClosed,
 }) => {
   const openModal = () => {
     setAction({
@@ -23,37 +18,18 @@ const TableRating = ({
   };
 
   return (
-    <TableCell align="center">
-      {rating.final !== -1 ? (
-        <Tooltip
-          title={isModalClosed && (
-            <Typography variant="body2">
-              See details
+    <TableCell>
+      <Stack alignItems="center">
+        <Tooltip title="See Details" arrow>
+          {rating.final !== -1 ? (
+            <Typography onClick={openModal} sx={{ cursor: "pointer" }}>
+              {rating.final.toString()}
             </Typography>
+          ) : (
+            <ErrorOutlineIcon color="error" cursor="pointer" />
           )}
-          arrow
-        >
-          <Typography onClick={openModal} sx={{ cursor: "pointer" }}>
-            {rating.final.toString()}
-          </Typography>
         </Tooltip>
-      ) : (
-        <Tooltip
-          title={isModalClosed && (
-            <Typography variant="body2">
-              No weapon selected
-            </Typography>
-          )}
-          arrow
-        >
-          <Stack alignItems="center">
-            <ErrorOutlineIcon
-              color="error"
-              cursor="pointer"
-            />
-          </Stack>
-        </Tooltip>
-      )}
+      </Stack>
     </TableCell>
   );
 };

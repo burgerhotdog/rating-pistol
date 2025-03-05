@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack, TableCell, Tooltip, Typography } from "@mui/material";
+import { Box, Stack, TableCell, Tooltip } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 
 const TableGear = ({
@@ -9,7 +9,6 @@ const TableGear = ({
   setAction,
   id,
   data,
-  isModalClosed,
 }) => {
   const { INFO } = gameData;
   const openModal = () => {
@@ -21,19 +20,15 @@ const TableGear = ({
     });
   };
 
+  const addOrEdit = data.info.set[0].id || data.info.setExtra.id ? "Edit" : "Add";
+  const sectionName = INFO.SECTION_NAMES[2];
+
   return (
-    <TableCell align="center">
-      <Tooltip
-        title={isModalClosed() && (
-          <Typography variant="body2">
-            {data.info.set[0].id || data.info.setExtra.id ? "Edit" : "Add"} {INFO.SECTION_NAMES[2]}
-          </Typography>
-        )}
-        arrow
-      >
-        <Stack justifyContent="center" alignItems="center">
+    <TableCell>
+      <Stack alignItems="center">
+        <Tooltip title={`${addOrEdit} ${sectionName}`} arrow>
           {data.info.set[0].id || data.info.setExtra.id ? (
-            <Stack 
+            <Stack
               onClick={openModal}
               direction="row"
               alignItems="center"
@@ -66,13 +61,10 @@ const TableGear = ({
               )}
             </Stack>
           ) : (
-            <Add
-              onClick={openModal}
-              cursor="pointer"
-            />
+            <Add onClick={openModal} cursor="pointer" />
           )}
-        </Stack>
-      </Tooltip>
+        </Tooltip>
+      </Stack>
     </TableCell>
   );
 };

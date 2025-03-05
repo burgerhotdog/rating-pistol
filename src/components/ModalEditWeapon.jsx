@@ -117,11 +117,6 @@ const ModalEditWeapon = ({
             <TextField
               {...params}
               label={INFO.SECTION_NAMES[1]}
-              sx={{
-                "& .MuiInputBase-root": {
-                  color: rarityColor[WEAP[action?.data?.info?.weapon]?.rarity] || "inherit",
-                }
-              }}
             />
           )}
           fullWidth

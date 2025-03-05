@@ -8,7 +8,6 @@ const TableCharacter = ({
   setAction,
   id,
   data,
-  isModalClosed,
 }) => {
   const { INFO, CHAR } = gameData;
   const openModal = () => {
@@ -20,34 +19,32 @@ const TableCharacter = ({
     });
   };
 
+  const addOrEdit = "Edit";
+  const sectionName = INFO.SECTION_NAMES[0];
+
   return (
-    <TableCell align="center">
-      <Tooltip
-        title={isModalClosed() && (
-          <Typography variant="body2">
-            Edit {INFO.SECTION_NAMES[0]}
-          </Typography>
-        )}
-        arrow
-      >
-        <Stack
-          onClick={openModal}
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{ cursor: "pointer" }}
-        >
-          <Box
-            component="img"
-            alt={id}
-            src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
-            sx={{ width: 50, height: 50, objectFit: "contain" }}
-          />
-          <Typography variant="body2" sx={{ textAlign: "left" }}>
-            {CHAR[id].name}
-          </Typography>
-        </Stack>
-      </Tooltip>
+    <TableCell>
+      <Stack>
+        <Tooltip title={`${addOrEdit} ${sectionName}`} arrow>
+          <Stack
+            onClick={openModal}
+            direction="row"
+            alignItems="center"
+            spacing={1}
+            sx={{ cursor: "pointer" }}
+          >
+            <Box
+              component="img"
+              alt={id}
+              src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
+              sx={{ width: 50, height: 50, objectFit: "contain" }}
+            />
+            <Typography variant="body2" sx={{ textAlign: "left" }}>
+              {CHAR[id].name}
+            </Typography>
+          </Stack>
+        </Tooltip>
+      </Stack>
     </TableCell>
   );
 };
