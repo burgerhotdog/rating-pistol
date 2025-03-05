@@ -8,7 +8,7 @@ import ZENLESS_ZONE_ZERO from "../assets/banner/zenless-zone-zero.webp"
 
 const tint = "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))";
 
-const Menu = () => {
+const MenuPage = () => {
   return (
     <Container maxWidth="sm">
       <Stack justifyContent="center" alignItems="center" mt={8} spacing={2}>
@@ -53,4 +53,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default MenuPage;

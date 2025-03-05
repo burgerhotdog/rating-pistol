@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { doc, writeBatch } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import {
   Modal,
   Box,
@@ -10,7 +10,7 @@ import {
   useTheme
 } from "@mui/material";
 
-const ModalDelete = ({
+const DeleteModal = ({
   uid,
   gameType,
   gameData,
@@ -80,4 +80,4 @@ const ModalDelete = ({
   );
 };
 
-export default ModalDelete;
+export default DeleteModal;

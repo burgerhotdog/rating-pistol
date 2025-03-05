@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { doc, writeBatch } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../../firebase";
 import {
   Modal,
   Box,
@@ -10,9 +10,9 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
-import { templateInfo, templateGear } from "./template";
+import { templateInfo, templateGear } from "../template";
 
-const ModalAdd = ({
+const AddModal = ({
   uid,
   gameType,
   gameData,
@@ -150,4 +150,4 @@ const ModalAdd = ({
   );
 };
 
-export default ModalAdd;
+export default AddModal;

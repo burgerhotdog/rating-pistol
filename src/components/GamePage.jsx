@@ -16,8 +16,8 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import ModalAdd from "./ModalAdd";
-import ModalDelete from "./ModalDelete";
+import AddModal from "./Add/AddModal";
+import DeleteModal from "./Delete/DeleteModal";
 import ModalEdit from "./ModalEdit";
 import ModalLoad from "./ModalLoad";
 import getRating from "./getRating";
@@ -27,7 +27,7 @@ import TableWeapon from "./TableWeapon";
 import TableGear from "./TableGear";
 import TableSkills from "./TableSkills";
 import TableRating from "./TableRating";
-import TableDelete from "./TableDelete";
+import TableDelete from "./Delete/TableDelete";
 
 const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const { INFO } = gameData;
@@ -176,12 +176,15 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                       data={data}
                       rating={rating}
                     />
-                    <TableDelete
-                      setAction={setAction}
-                      id={id}
-                      data={data}
-                      hoveredRow={hoveredRow}
-                    />
+
+                    <TableCell sx={{ borderBottom: "none" }}>
+                      <TableDelete
+                        setAction={setAction}
+                        id={id}
+                        data={data}
+                        hoveredRow={hoveredRow}
+                      />
+                    </TableCell>
                   </TableRow>
                 ))
               )}
@@ -205,7 +208,8 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             Load from UID
           </Button>
         </Stack>
-        <ModalAdd
+
+        <AddModal
           uid={uid}
           gameType={gameType}
           gameData={gameData}
@@ -215,6 +219,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           localObjs={localObjs}
           setLocalObjs={setLocalObjs}
         />
+
         {(gameType === "GI" || gameType === "HSR") && (
           <ModalLoad
             uid={uid}
@@ -225,7 +230,8 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             setLocalObjs={setLocalObjs}
           />
         )}
-        <ModalDelete
+
+        <DeleteModal
           uid={uid}
           gameType={gameType}
           gameData={gameData}
@@ -233,6 +239,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           setAction={setAction}
           setLocalObjs={setLocalObjs}
         />
+
         <ModalEdit
           uid={uid}
           gameType={gameType}
