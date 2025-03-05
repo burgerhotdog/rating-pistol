@@ -138,6 +138,8 @@ const ModalLoad = ({
         const userDocRef = doc(db, "users", uid);
         await setDoc(userDocRef, { [`${gameType}_UID`]: gameUid}, { merge: true });
       }
+
+      setIsLoading(false);
     } else {
       setError("Invalid uid");
     }
@@ -154,6 +156,7 @@ const ModalLoad = ({
   };
 
   const handleSave = async () => {
+    setIsLoading(true);
     const charBuffer =
       gameType === "GI" ?
         selectedAvatars.map((selectedAvatar) => {
@@ -383,7 +386,7 @@ const ModalLoad = ({
                 </Stack>
               ))}
             </Stack>
-            <Button onClick={handleSave} variant="contained">
+            <Button onClick={handleSave} loading={isLoading} variant="contained">
               Save
             </Button>
           </Stack>

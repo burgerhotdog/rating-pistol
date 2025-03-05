@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import { writeBatch, doc } from "firebase/firestore";
+import { doc, writeBatch } from "firebase/firestore";
+import { db } from "../firebase";
 import {
-  Box,
-  Button,
   Modal,
+  Box,
   Stack,
-  Typography,
+  Button,
   useTheme,
 } from "@mui/material";
-import { db } from "../firebase";
 import ModalEditCharacter from "./ModalEditCharacter";
 import ModalEditWeapon from "./ModalEditWeapon";
 import ModalEditGear from "./ModalEditGear";
@@ -24,17 +23,11 @@ const ModalEdit = ({
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { CHAR, WEAP, SETS } = gameData;
-  const { charIcons, weapIcons, setsIcons } = gameIcons;
-  const rarityColor = {
-    5: "goldenrod",
-    4: "orchid",
-    3: "cornflowerblue",
-    2: "green",
-    1: "slategrey",
-  };
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
+    setIsLoading(true);
+    
     if (uid) {
       const batch = writeBatch(db);
       const infoDocRef = doc(db, "users", uid, gameType, action.id);
@@ -51,6 +44,7 @@ const ModalEdit = ({
       [action.id]: action.data,
     }));
 
+    setIsLoading(false);
     setAction({});
   };
 
@@ -97,8 +91,8 @@ const ModalEdit = ({
           )}
           <Button
             onClick={handleSave}
+            loading={isLoading}
             variant="contained"
-            color="primary"
           >
             Save
           </Button>

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { doc, writeBatch } from "firebase/firestore";
-import { Modal, Box, Stack, Button, Typography, useTheme } from "@mui/material";
 import { db } from "../firebase";
+import {
+  Modal,
+  Box,
+  Stack,
+  Button,
+  Typography,
+  useTheme
+} from "@mui/material";
 
 const ModalDelete = ({
   uid,
@@ -13,8 +20,11 @@ const ModalDelete = ({
 }) => {
   const theme = useTheme();
   const { CHAR } = gameData;
+  const [isLoading, setIsLoading] = useState(false);
   
   const handleDelete = async () => {
+    setIsLoading(true);
+    
     if (uid) {
       const batch = writeBatch(db);
       for (const index of action.data.gearList.keys()) {
@@ -32,6 +42,7 @@ const ModalDelete = ({
       return newObjs;
     });
 
+    setIsLoading(false);
     setAction({});
   };
 
@@ -45,23 +56,20 @@ const ModalDelete = ({
         <Stack spacing={2}>
           <Typography variant="body1">
             Are you sure you want to delete{" "}
-            <strong>{CHAR[action.id]?.name}</strong>
-            ?
+            <strong>{CHAR[action.id]?.name}</strong>?
           </Typography>
           <Stack direction="row" justifyContent="center" spacing={2}>
             <Button
               onClick={handleCancel}
               variant="outlined"
-              color="primary"
-              sx={{ width: 80 }}
             >
               Cancel
             </Button>
             <Button
               onClick={handleDelete}
+              loading={isLoading}
               variant="contained"
               color="secondary"
-              sx={{ width: 80 }}
             >
               Delete
             </Button>

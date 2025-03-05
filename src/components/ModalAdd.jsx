@@ -1,16 +1,15 @@
-import React from "react";
-import { writeBatch, doc } from "firebase/firestore";
+import React, { useState } from "react";
+import { doc, writeBatch } from "firebase/firestore";
+import { db } from "../firebase";
 import {
-  Autocomplete,
-  Box,
-  Button,
-  InputAdornment,
   Modal,
+  Box,
   Stack,
+  Autocomplete,
   TextField,
+  Button,
   useTheme,
 } from "@mui/material";
-import { db } from "../firebase";
 import { templateInfo, templateGear } from "./template";
 
 const ModalAdd = ({
@@ -26,6 +25,7 @@ const ModalAdd = ({
   const theme = useTheme();
   const { INFO, CHAR } = gameData;
   const { charIcons } = gameIcons;
+  const [isLoading, setIsLoading] = useState(false);
   const rarityColor = {
     5: "goldenrod",
     4: "orchid",
@@ -54,6 +54,7 @@ const ModalAdd = ({
   };
 
   const handleAdd = async () => {
+    setIsLoading(true);
     const info = templateInfo(gameType);
     info.characterLevel = INFO.LEVEL_CAP.toString();
     info.characterRank = "0";
@@ -82,6 +83,7 @@ const ModalAdd = ({
       [action.id]: { info, gearList },
     }));
 
+    setIsLoading(false);
     setAction({});
   };
 
@@ -119,7 +121,7 @@ const ModalAdd = ({
                     alt={""}
                     sx={{ width: 24, height: 24, objectFit: "contain" }}
                   />
-                  {CHAR[option]?.name || ""}
+                  {CHAR[option].name}
                 </Box>
               );
             }}
@@ -127,26 +129,7 @@ const ModalAdd = ({
               <TextField
                 {...params}
                 label="Select"
-                sx={{
-                  "& .MuiInputBase-root": {
-                    color: rarityColor[CHAR[action?.id]?.rarity] || "inherit",
-                  }
-                }}
-                slotProps={{
-                  input: {
-                    ...params.InputProps,
-                    startAdornment: action?.id && (
-                      <InputAdornment position="start">
-                        <Box
-                          component="img"
-                          src={charIcons[`../assets/char/${gameType}/${action?.id}.webp`]?.default}
-                          alt=""
-                          sx={{ width: 24, height: 24, objectFit: "contain" }}
-                        />
-                      </InputAdornment>
-                    ),
-                  },
-                }}
+                
               />
             )}
             sx={{ width: 250 }}
@@ -154,6 +137,7 @@ const ModalAdd = ({
           />
           <Button
             onClick={handleAdd}
+            loading={isLoading}
             variant="contained"
             color="primary"
             disabled={!action?.id}

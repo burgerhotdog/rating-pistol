@@ -12,6 +12,7 @@ import {
   TableCell,
   Button,
   Typography,
+  CircularProgress,
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
@@ -35,10 +36,12 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
   const [sortedObjs, setSortedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [action, setAction] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
+        setIsLoading(true);
         const infoDocsRef = collection(db, "users", uid, gameType);
         const infoDocs = await getDocs(infoDocsRef);
         const dataObjs = {};
@@ -55,6 +58,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           };
         };
         setLocalObjs(dataObjs);
+        setIsLoading(false);
       } else {
         setLocalObjs({});
       }
@@ -110,67 +114,77 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {sortedObjs.map(({ id, data, rating }) => (
-                <TableRow
-                  key={id}
-                  onMouseEnter={() => setHoveredRow(id)}
-                  onMouseLeave={() => setHoveredRow(null)}
-                >
+              {isLoading ? (
+                <TableRow>
                   <TableCell sx={{ borderBottom: "none" }} />
-                  <TableStar
-                    uid={uid}
-                    gameType={gameType}
-                    setLocalObjs={setLocalObjs}
-                    id={id}
-                    data={data}
-                  />
-                  <TableCharacter
-                    gameType={gameType}
-                    gameData={gameData}
-                    charIcons={charIcons}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                  />
-                  <TableWeapon
-                    gameType={gameType}
-                    gameData={gameData}
-                    weapIcons={weapIcons}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                  />
-                  <TableGear
-                    gameType={gameType}
-                    gameData={gameData}
-                    setsIcons={setsIcons}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                  />
-                  <TableSkills
-                    gameType={gameType}
-                    gameData={gameData}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                    rating={rating}
-                  />
-                  <TableRating
-                    gameType={gameType}
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                    rating={rating}
-                  />
-                  <TableDelete
-                    setAction={setAction}
-                    id={id}
-                    data={data}
-                    hoveredRow={hoveredRow}
-                  />
+                  <TableCell colSpan={6} align="center">
+                    <CircularProgress />
+                  </TableCell>
+                  <TableCell sx={{ borderBottom: "none" }} />
                 </TableRow>
-              ))}
+              ) : (
+                sortedObjs.map(({ id, data, rating }) => (
+                  <TableRow
+                    key={id}
+                    onMouseEnter={() => setHoveredRow(id)}
+                    onMouseLeave={() => setHoveredRow(null)}
+                  >
+                    <TableCell sx={{ borderBottom: "none" }} />
+                    <TableStar
+                      uid={uid}
+                      gameType={gameType}
+                      setLocalObjs={setLocalObjs}
+                      id={id}
+                      data={data}
+                    />
+                    <TableCharacter
+                      gameType={gameType}
+                      gameData={gameData}
+                      charIcons={charIcons}
+                      setAction={setAction}
+                      id={id}
+                      data={data}
+                    />
+                    <TableWeapon
+                      gameType={gameType}
+                      gameData={gameData}
+                      weapIcons={weapIcons}
+                      setAction={setAction}
+                      id={id}
+                      data={data}
+                    />
+                    <TableGear
+                      gameType={gameType}
+                      gameData={gameData}
+                      setsIcons={setsIcons}
+                      setAction={setAction}
+                      id={id}
+                      data={data}
+                    />
+                    <TableSkills
+                      gameType={gameType}
+                      gameData={gameData}
+                      setAction={setAction}
+                      id={id}
+                      data={data}
+                      rating={rating}
+                    />
+                    <TableRating
+                      gameType={gameType}
+                      setAction={setAction}
+                      id={id}
+                      data={data}
+                      rating={rating}
+                    />
+                    <TableDelete
+                      setAction={setAction}
+                      id={id}
+                      data={data}
+                      hoveredRow={hoveredRow}
+                    />
+                  </TableRow>
+                ))
+              )}
             </TableBody>
           </Table>
         </TableContainer>
