@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Button, Container } from "@mui/material";
+import { Container, Stack, Button } from "@mui/material";
 import GENSHIN_IMPACT from "../assets/banner/genshin-impact.webp"
 import HONKAI_STAR_RAIL from "../assets/banner/honkai-star-rail.webp"
 import WUTHERING_WAVES from "../assets/banner/wuthering-waves.webp"
@@ -11,16 +11,7 @@ const tint = "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))";
 const Menu = () => {
   return (
     <Container maxWidth="sm">
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          mt: 8,
-          gap: 2,
-        }}
-      >
+      <Stack justifyContent="center" alignItems="center" mt={8} spacing={2}>
         <Button
           className="menuButton"
           component={Link}
@@ -57,7 +48,7 @@ const Menu = () => {
         >
           Zenless Zone Zero
         </Button>
-      </Box>
+      </Stack>
     </Container>
   );
 };

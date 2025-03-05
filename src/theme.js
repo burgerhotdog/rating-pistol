@@ -3,8 +3,37 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   palette: {
     mode: "dark",
+    gold: {
+      main: "#FFD700",
+      light: "#FFEC8B",
+      dark: "#B8860B",
+      contrastText: "#000",
+    },
+  },
+  customStyles: {
+    modal: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      padding: 4,
+      backgroundColor: "background.paper",
+      borderRadius: 2,
+      maxHeight: "80vh",
+      maxWidth: "80vw",
+      overflow: "auto",
+    },
   },
   components: {
+    MuiTextField: {
+      defaultProps: {
+        slotProps: {
+          inputLabel: {
+            shrink: true,
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -26,50 +55,3 @@ const theme = createTheme({
 });
 
 export default theme;
-
-/*
-{
-  "typography": {
-    "textPrimary": "#fff",
-    "textSecondary": "rgba(255, 255, 255, 0.7)",
-    "textDisabled": "rgba(255, 255, 255, 0.5)"
-  },
-  "buttons": {
-    "actionActive": "#fff",
-    "actionHover": "rgba(255, 255, 255, 0.08)",
-    "actionSelected": "rgba(255, 255, 255, 0.16)",
-    "actionDisabled": "rgba(255, 255, 255, 0.3)",
-    "actionDisabledBackground": "rgba(255, 255, 255, 0.12)"
-  },
-  "background": {
-    "default": "#121212",
-    "paper": "#121212"
-  },
-  "divider": {
-    "divider": "rgba(255, 255, 255, 0.12)"
-  },
-  "table": {
-    "background": "#1e1e1e",
-    "rowHover": "rgba(255, 255, 255, 0.08)",
-    "header": "#333333",
-    "border": "rgba(255, 255, 255, 0.12)"
-  },
-  "modal": {
-    "background": "#1c1c1c",
-    "overlay": "rgba(0, 0, 0, 0.7)"
-  },
-  "dropdown": {
-    "background": "#222222",
-    "optionHover": "rgba(255, 255, 255, 0.1)",
-    "optionSelected": "#444444",
-    "border": "rgba(255, 255, 255, 0.15)"
-  },
-  "form": {
-    "inputBackground": "#333333",
-    "inputText": "#fff",
-    "inputBorder": "rgba(255, 255, 255, 0.2)",
-    "inputFocusBorder": "#fff",
-    "inputPlaceholder": "rgba(255, 255, 255, 0.6)"
-  }
-}
-*/

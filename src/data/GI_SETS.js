@@ -12,15 +12,15 @@ const GI_SETS = {
   },
   
   // Version 4.6
-  "15035": {
-    name: "Fragment of Harmonic Whimsy",
-    rarity: 5,
-    desc: "2-Pc: ATK +18%.\n4-Pc: When the value of a Bond of Life increases or decreases, this character deals 18% increased DMG for 6s. Max 3 stacks.",
-  },
   "15036": {
     name: "Unfinished Reverie",
     rarity: 5,
     desc: "2-Pc: ATK +18%.\n4-Pc: After leaving combat for 3s, DMG dealt increased by 50%. In combat, if no Burning opponents are nearby for more than 6s, this DMG Bonus will decrease by 10% per second until it reaches 0%. When a Burning opponent exists, it will increase by 10% instead until it reaches 50%. This effect still triggers if the equipping character is off-field.",
+  },
+  "15035": {
+    name: "Fragment of Harmonic Whimsy",
+    rarity: 5,
+    desc: "2-Pc: ATK +18%.\n4-Pc: When the value of a Bond of Life increases or decreases, this character deals 18% increased DMG for 6s. Max 3 stacks.",
   },
   
   // Version 4.3
@@ -48,39 +48,39 @@ const GI_SETS = {
   },
   
   // Version 3.6
-  "15029": {
-    name: "Nymph's Dream",
-    rarity: 5,
-    desc: "2-Pc: Hydro DMG Bonus +15%\n4-Pc: After Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts hit opponents, 1 stack of Mirrored Nymph will be triggered, lasting 8s. When under the effect of 1, 2, or 3 or more Mirrored Nymph stacks, ATK will be increased by 7%/16%/25%, and Hydro DMG Bonus will be increased by 4%/9%/15%. Mirrored Nymph stacks created by Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts exist independently.",
-  },
   "15030": {
     name: "Vourukasha's Glow",
     rarity: 5,
     desc: "2-Pc: HP +20%\n4-Pc: Elemental Skill and Elemental Burst DMG will be increased by 10%. After the equipping character takes DMG, the aforementioned DMG Bonus is increased by 80% for 5s. This effect increase can have 5 stacks. The duration of each stack is counted independently. These effects can be triggered even when the equipping character is not on the field.",
   },
+  "15029": {
+    name: "Nymph's Dream",
+    rarity: 5,
+    desc: "2-Pc: Hydro DMG Bonus +15%\n4-Pc: After Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts hit opponents, 1 stack of Mirrored Nymph will be triggered, lasting 8s. When under the effect of 1, 2, or 3 or more Mirrored Nymph stacks, ATK will be increased by 7%/16%/25%, and Hydro DMG Bonus will be increased by 4%/9%/15%. Mirrored Nymph stacks created by Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts exist independently.",
+  },
   
   // Version 3.3
-  "15027": {
-    name: "Desert Pavilion Chronicle",
-    rarity: 5,
-    desc: "2-Pc: Anemo DMG Bonus +15%\n4-Pc: When Charged Attacks hit opponents, the equipping character's Normal Attack SPD will increase by 10% while Normal, Charged, and Plunging Attack DMG will increase by 40% for 15s.",
-  },
   "15028": {
     name: "Flower of Paradise Lost",
     rarity: 5,
     desc: "2-Pc: Increases Elemental Mastery by 80.\n4-Pc: The equipping character's Bloom, Hyperbloom, and Burgeon reaction DMG are increased by 40%. Additionally, after the equipping character triggers Bloom, Hyperbloom, or Burgeon, they will gain another 25% bonus to the effect mentioned prior. Each stack of this lasts 10s. Max 4 stacks simultaneously. This effect can only be triggered once per second. The character who equips this can still trigger its effects when not on the field.",
   },
+  "15027": {
+    name: "Desert Pavilion Chronicle",
+    rarity: 5,
+    desc: "2-Pc: Anemo DMG Bonus +15%\n4-Pc: When Charged Attacks hit opponents, the equipping character's Normal Attack SPD will increase by 10% while Normal, Charged, and Plunging Attack DMG will increase by 40% for 15s.",
+  },
   
   // Version 3.0
-  "15025": {
-    name: "Deepwood Memories",
-    rarity: 5,
-    desc: "2-Pc: Dendro DMG Bonus +15%.\n4-Pc: After Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field.",
-  },
   "15026": {
     name: "Gilded Dreams",
     rarity: 5,
     desc: "2-Pc: Increases Elemental Mastery by 80.\n4-Pc: Within 8s of triggering an Elemental Reaction, the character equipping this will obtain buffs based on the Elemental Type of the other party members. ATK is increased by 14% for each party member whose Elemental Type is the same as the equipping character, and Elemental Mastery is increased by 50 for every party member with a different Elemental Type. Each of the aforementioned buffs will count up to 3 characters. This effect can be triggered once every 8s. The character who equips this can still trigger its effects when not on the field.",
+  },
+  "15025": {
+    name: "Deepwood Memories",
+    rarity: 5,
+    desc: "2-Pc: Dendro DMG Bonus +15%.\n4-Pc: After Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field.",
   },
   
   // Version 2.6
@@ -96,15 +96,15 @@ const GI_SETS = {
   },
   
   // Version 2.3
-  "15021": {
-    name: "Husk of Opulent Dreams",
-    rarity: 5,
-    desc: "2-Pc: DEF +30%\n4-Pc: A character equipped with this Artifact set will obtain the Curiosity effect in the following conditions: When on the field, the character gains 1 stack after hitting an opponent with a Geo attack, triggering a maximum of once every 0.3s. When off the field, the character gains 1 stack every 3s. Curiosity can stack up to 4 times, each providing 6% DEF and a 6% Geo DMG Bonus. When 6 seconds pass without gaining a Curiosity stack, 1 stack is lost.",
-  },
   "15022": {
     name: "Ocean-Hued Clam",
     rarity: 5,
     desc: "2-Pc: Healing Bonus +15%.\n4-Pc: When the character equipping this artifact set heals a character in the party, a Sea-Dyed Foam will appear for 3 seconds, accumulating the amount of HP recovered from healing (including overflow healing). At the end of the duration, the Sea-Dyed Foam will explode, dealing DMG to nearby opponents based on 90% of the accumulated healing. (This DMG is calculated similarly to Reactions such as Electro-Charged, and Superconduct, but is not affected by Elemental Mastery, Character Levels, or Reaction DMG Bonuses). Only one Sea-Dyed Foam can be produced every 3.5 seconds. Each Sea-Dyed Foam can accumulate up to 30,000 HP (including overflow healing). There can be no more than one Sea-Dyed Foam active at any given time. This effect can still be triggered even when the character who is using this artifact set is not on the field.",
+  },
+  "15021": {
+    name: "Husk of Opulent Dreams",
+    rarity: 5,
+    desc: "2-Pc: DEF +30%\n4-Pc: A character equipped with this Artifact set will obtain the Curiosity effect in the following conditions: When on the field, the character gains 1 stack after hitting an opponent with a Geo attack, triggering a maximum of once every 0.3s. When off the field, the character gains 1 stack every 3s. Curiosity can stack up to 4 times, each providing 6% DEF and a 6% Geo DMG Bonus. When 6 seconds pass without gaining a Curiosity stack, 1 stack is lost.",
   },
   
   // Version 2.0
@@ -132,18 +132,23 @@ const GI_SETS = {
   },
   
   // Version 1.2
-  "14001": {
-    name: "Blizzard Strayer",
-    rarity: 5,
-    desc: "2-Pc: Cryo DMG Bonus +15%\n4-Pc: When a character attacks an opponent affected by Cryo, their CRIT Rate is increased by 20%. If the opponent is Frozen, CRIT Rate is increased by an additional 20%.",
-  },
   "15016": {
     name: "Heart of Depth",
     rarity: 5,
     desc: "2-Pc: Hydro DMG Bonus +15%\n4-Pc: After using Elemental Skill, increases Normal Attack and Charged Attack DMG by 30% for 15s.",
   },
+  "14001": {
+    name: "Blizzard Strayer",
+    rarity: 5,
+    desc: "2-Pc: Cryo DMG Bonus +15%\n4-Pc: When a character attacks an opponent affected by Cryo, their CRIT Rate is increased by 20%. If the opponent is Frozen, CRIT Rate is increased by an additional 20%.",
+  },
   
   // Version 1.0
+  "15015": {
+    name: "Retracing Bolide",
+    rarity: 5,
+    desc: "2-Pc: Increases Shield Strength by 35%.\n4-Pc: While protected by a shield, gain an additional 40% Normal and Charged Attack DMG.",
+  },
   "15014": {
     name: "Archaic Petra",
     rarity: 5,
@@ -154,55 +159,50 @@ const GI_SETS = {
     rarity: 5,
     desc: "2-Pc: Physical DMG +25%\n4-Pc: After defeating an opponent, increases Charged Attack DMG by 50%, and reduces its Stamina cost to 0 for 10s.",
   },
-  "15006": {
-    name: "Crimson Witch of Flames",
-    rarity: 5,
-    desc: "2-Pc: Pyro DMG Bonus +15%\n4-Pc: Increases Overloaded, Burning, and Burgeon DMG by 40%. Increases Vaporize and Melt DMG by 15%. Using Elemental Skill increases the 2-Piece Set Bonus by 50% of its starting value for 10s. Max 3 stacks.",
-  },
-  "15001": {
-    name: "Gladiator's Finale",
-    rarity: 5,
-    desc: "2-Pc: ATK +18%.\n4-Pc: If the wielder of this artifact set uses a Sword, Claymore or Polearm, increases their Normal Attack DMG by 35%.",
-  },
-  "14003": {
-    name: "Lavawalker",
-    rarity: 5,
-    desc: "2-Pc: Pyro RES increased by 40%.\n4-Pc: Increases DMG against opponents affected by Pyro by 35%.",
-  },
-  "14004": {
-    name: "Maiden Beloved",
-    rarity: 5,
-    desc: "2-Pc: Character Healing Effectiveness +15%\n4-Pc: Using an Elemental Skill or Burst increases healing received by all party members by 20% for 10s.",
-  },
   "15007": {
     name: "Noblesse Oblige",
     rarity: 5,
     desc: "2-Pc: Elemental Burst DMG +20%\n4-Pc: Using an Elemental Burst increases all party members' ATK by 20% for 12s. This effect cannot stack.",
   },
-  "15015": {
-    name: "Retracing Bolide",
+  "15006": {
+    name: "Crimson Witch of Flames",
     rarity: 5,
-    desc: "2-Pc: Increases Shield Strength by 35%.\n4-Pc: While protected by a shield, gain an additional 40% Normal and Charged Attack DMG.",
+    desc: "2-Pc: Pyro DMG Bonus +15%\n4-Pc: Increases Overloaded, Burning, and Burgeon DMG by 40%. Increases Vaporize and Melt DMG by 15%. Using Elemental Skill increases the 2-Piece Set Bonus by 50% of its starting value for 10s. Max 3 stacks.",
   },
   "15005": {
     name: "Thundering Fury",
     rarity: 5,
     desc: "2-Pc: Electro DMG Bonus +15%\n4-Pc: Increases DMG caused by Overloaded, Electro-Charged, Superconduct, and Hyperbloom by 40%, and the DMG Bonus conferred by Aggravate is increased by 20%. When Quicken or the aforementioned Elemental Reactions are triggered, Elemental Skill CD is decreased by 1s. Can only occur once every 0.8s.",
   },
-  "14002": {
-    name: "Thundersoother",
+  "15003": {
+    name: "Wanderer's Troupe",
     rarity: 5,
-    desc: "2-Pc: Electro RES increased by 40%.\n4-Pc: Increases DMG against opponents affected by Electro by 35%.",
+    desc: "2-Pc: Increases Elemental Mastery by 80.\n4-Pc: Increases Charged Attack DMG by 35% if the character uses a Catalyst or a Bow.",
   },
   "15002": {
     name: "Viridescent Venerer",
     rarity: 5,
     desc: "2-Pc: Anemo DMG Bonus +15%\n4-Pc: Increases Swirl DMG by 60%. Decreases opponent's Elemental RES to the element infused in the Swirl by 40% for 10s.",
   },
-  "15003": {
-    name: "Wanderer's Troupe",
+  "15001": {
+    name: "Gladiator's Finale",
     rarity: 5,
-    desc: "2-Pc: Increases Elemental Mastery by 80.\n4-Pc: Increases Charged Attack DMG by 35% if the character uses a Catalyst or a Bow.",
+    desc: "2-Pc: ATK +18%.\n4-Pc: If the wielder of this artifact set uses a Sword, Claymore or Polearm, increases their Normal Attack DMG by 35%.",
+  },
+  "14004": {
+    name: "Maiden Beloved",
+    rarity: 5,
+    desc: "2-Pc: Character Healing Effectiveness +15%\n4-Pc: Using an Elemental Skill or Burst increases healing received by all party members by 20% for 10s.",
+  },
+  "14003": {
+    name: "Lavawalker",
+    rarity: 5,
+    desc: "2-Pc: Pyro RES increased by 40%.\n4-Pc: Increases DMG against opponents affected by Pyro by 35%.",
+  },
+  "14002": {
+    name: "Thundersoother",
+    rarity: 5,
+    desc: "2-Pc: Electro RES increased by 40%.\n4-Pc: Increases DMG against opponents affected by Electro by 35%.",
   },
   "10012": {
     name: "Scholar",

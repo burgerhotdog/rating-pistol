@@ -1,15 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 const Back = () => (
-  <Box sx={{
-    position: "fixed",
-    top: 8,
-    left: 8,
-  }}>
+  <Box sx={{ position: "fixed", top: 8, left: 8 }}>
     <Button component={Link} to="/">
-      Back
+      <Typography variant="body2">
+        Back
+      </Typography>
     </Button>
   </Box>
 );
