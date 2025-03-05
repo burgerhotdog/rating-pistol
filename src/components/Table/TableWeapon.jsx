@@ -1,16 +1,17 @@
 import React from "react";
 import { Box, Stack, Tooltip } from "@mui/material";
 import Add from "@mui/icons-material/Add";
+import getData from "../getData";
+import getIcons from "../getIcons";
 
 const TableWeapon = ({
   gameType,
-  gameData,
-  weapIcons,
   setAction,
   id,
   data,
 }) => {
-  const { INFO } = gameData;
+  const { INFO } = getData(gameType);
+  const { weaponIcons } = getIcons(gameType);
   const openModal = () => {
     setAction({
       type: "edit",
@@ -31,7 +32,7 @@ const TableWeapon = ({
             onClick={openModal}
             component="img"
             alt={data.info.weapon}
-            src={weapIcons[`../assets/weap/${gameType}/${data.info.weapon}.webp`]?.default}
+            src={weaponIcons[`./${data.info.weapon}.webp`]?.default}
             sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
           />
         ) : (

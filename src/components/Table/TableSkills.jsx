@@ -1,15 +1,15 @@
 import React from "react";
 import { Stack, Tooltip, Typography } from "@mui/material";
+import getData from "../getData";
 
 const TableSkills = ({
   gameType,
-  gameData,
   setAction,
   id,
   data,
   rating,
 }) => {
-  const { INFO } = gameData;
+  const { INFO } = getData(gameType);
   const openModal = () => {
     setAction({
       type: "edit",

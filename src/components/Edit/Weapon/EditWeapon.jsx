@@ -8,16 +8,16 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import getData from "../../getData";
+import getIcons from "../../getIcons";
 
 const EditWeapon = ({
   gameType,
-  gameData,
-  gameIcons,
   action,
   setAction,
 }) => {
-  const { INFO, CHARACTERS, WEAPONS } = gameData;
-  const { weapIcons } = gameIcons;
+  const { INFO, CHARACTERS, WEAPONS } = getData(gameType);
+  const { weaponIcons } = getIcons(gameType);
   const rarityColor = {
     5: "goldenrod",
     4: "orchid",
@@ -104,7 +104,7 @@ const EditWeapon = ({
                 <Box
                   component="img"
                   loading="lazy"
-                  src={weapIcons[`../assets/weap/${gameType}/${id}.webp`]?.default}
+                  src={weaponIcons[`./${id}.webp`]?.default}
                   alt={""}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />
@@ -173,7 +173,7 @@ const EditWeapon = ({
               <Stack alignItems="center">
                 <Box
                   component="img"
-                  src={weapIcons[`../assets/weap/${gameType}/${action?.data?.info?.weapon}.webp`]?.default}
+                  src={weaponIcons[`./${action?.data?.info?.weapon}.webp`]?.default}
                   alt=""
                   sx={{ width: 200, height: 200, objectFit: "contain" }}
                 />

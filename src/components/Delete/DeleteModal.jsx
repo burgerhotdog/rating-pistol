@@ -9,17 +9,17 @@ import {
   Typography,
   useTheme
 } from "@mui/material";
+import getData from "../getData";
 
 const DeleteModal = ({
   uid,
   gameType,
-  gameData,
   action,
   setAction,
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { CHARACTERS } = gameData;
+  const { CHARACTERS } = getData(gameType);
   const [isLoading, setIsLoading] = useState(false);
   
   const handleDelete = async () => {

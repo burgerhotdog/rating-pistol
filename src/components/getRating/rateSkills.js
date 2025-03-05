@@ -1,5 +1,7 @@
-const rateSkills = (gameType, gameData, id, data) => {
-  const { INFO } = gameData;
+import getData from "../getData";
+
+const rateSkills = (gameType, id, data) => {
+  const { INFO } = getData(gameType);
   let percentLeveledTotal = 0;
   let count = 0;
   for (const [skillKey, skillValue] of Object.entries(data.info.skills)) {

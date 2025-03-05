@@ -10,15 +10,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import getData from "../../getData";
 
 const EditCharacter = ({
   gameType,
-  gameData,
-  gameIcons,
   action,
   setAction,
 }) => {
-  const { INFO } = gameData;
+  const { INFO } = getData(gameType);
+  
   const handleCharacterLevel = (newValue) => {
     setAction((prev) => ({
       ...prev,

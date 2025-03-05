@@ -1,16 +1,17 @@
 import React from "react";
 import { Box, Stack, Tooltip } from "@mui/material";
 import Add from "@mui/icons-material/Add";
+import getData from "../getData";
+import getIcons from "../getIcons";
 
 const TableGear = ({
   gameType,
-  gameData,
-  setsIcons,
   setAction,
   id,
   data,
 }) => {
-  const { INFO } = gameData;
+  const { INFO } = getData(gameType);
+  const { setIcons } = getIcons(gameType);
   const openModal = () => {
     setAction({
       type: "edit",
@@ -38,7 +39,7 @@ const TableGear = ({
               <Box
                 component="img"
                 alt={data.info.set[0].id}
-                src={setsIcons[`../assets/sets/${gameType}/${data.info.set[0].id}.webp`]?.default}
+                src={setIcons[`./${data.info.set[0].id}.webp`]?.default}
                 sx={{ width: 50, height: 50, objectFit: "contain" }}
               />
             )}
@@ -46,7 +47,7 @@ const TableGear = ({
               <Box
                 component="img"
                 alt={data.info.set[1].id}
-                src={setsIcons[`../assets/sets/${gameType}/${data.info.set[1].id}.webp`]?.default}
+                src={setIcons[`./${data.info.set[1].id}.webp`]?.default}
                 sx={{ width: 50, height: 50, objectFit: "contain" }}
               />
             )}
@@ -54,7 +55,7 @@ const TableGear = ({
               <Box
                 component="img"
                 alt={data.info.setExtra.id}
-                src={setsIcons[`../assets/sets/${gameType}/${data.info.setExtra.id}.webp`]?.default}
+                src={setIcons[`./${data.info.setExtra.id}.webp`]?.default}
                 sx={{ width: 50, height: 50, objectFit: "contain" }}
               />
             )}

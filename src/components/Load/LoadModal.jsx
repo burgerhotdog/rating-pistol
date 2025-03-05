@@ -14,17 +14,17 @@ import {
 } from "@mui/material";
 import { templateInfo, templateGear } from "../template";
 import enkaStatKey from "./enkaStatKey";
+import getData from "../getData";
 
 const ModalLoad = ({
   uid,
   gameType,
-  gameData,
   action,
   setAction,
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { CHARACTERS } = gameData;
+  const { CHARACTERS } = getData(gameType);
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
   const [enkaList, setEnkaList] = useState([]);

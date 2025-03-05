@@ -11,20 +11,20 @@ import {
   useTheme,
 } from "@mui/material";
 import { templateInfo, templateGear } from "../template";
+import getData from "../getData";
+import getIcons from "../getIcons";
 
 const AddModal = ({
   uid,
   gameType,
-  gameData,
-  gameIcons,
   action,
   setAction,
   localObjs,
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { INFO, CHARACTERS } = gameData;
-  const { charIcons } = gameIcons;
+  const { INFO, CHARACTERS } = getData(gameType);
+  const { characterIcons } = getIcons(gameType);
   const [isLoading, setIsLoading] = useState(false);
   const rarityColor = {
     5: "goldenrod",
@@ -101,9 +101,9 @@ const AddModal = ({
             options={charOptions()}
             getOptionLabel={(id) => CHARACTERS[id]?.name || ""}
             onChange={(_, newValue) => handleSelect(newValue)}
-            renderOption={(props, option) => {
-              const { key, ...optionProps } = props;
-              const rarity = CHARACTERS[option]?.rarity;
+            renderOption={(props, id) => {
+              const { key, ...idProps } = props;
+              const rarity = CHARACTERS[id]?.rarity;
               return (
                 <Box
                   key={key}
@@ -112,16 +112,16 @@ const AddModal = ({
                     "& > img": { mr: 2, flexShrink: 0 },
                     color: rarityColor[rarity],
                   }}
-                  {...optionProps}
+                  {...idProps}
                 >
                   <Box
                     component="img"
                     loading="lazy"
-                    src={charIcons[`../assets/char/${gameType}/${option}.webp`]?.default}
+                    src={characterIcons[`./${id}.webp`]?.default}
                     alt={""}
                     sx={{ width: 24, height: 24, objectFit: "contain" }}
                   />
-                  {CHARACTERS[option].name}
+                  {CHARACTERS[id].name}
                 </Box>
               );
             }}
@@ -129,7 +129,6 @@ const AddModal = ({
               <TextField
                 {...params}
                 label="Select"
-                
               />
             )}
             sx={{ width: 250 }}

@@ -8,15 +8,15 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { templateGear } from "../../template"
+import getData from "../../getData";
 
 const EditGearPiece = ({
   gameType,
-  gameData,
   action,
   setAction,
   mainIndex,
 }) => {
-  const { PIECE_NAMES, MAINSTATS, SUBSTATS } = gameData.INFO;
+  const { PIECE_NAMES, MAINSTATS, SUBSTATS } = getData(gameType).INFO;
 
   const handleMainstat = (newValue) => {
     setAction((prev) => ({

@@ -16,8 +16,6 @@ import EditSkills from "./Skills/EditSkills";
 const EditModal = ({
   uid,
   gameType,
-  gameData,
-  gameIcons,
   action,
   setAction,
   setLocalObjs,
@@ -59,32 +57,24 @@ const EditModal = ({
           {action?.item === "character" ? (
             <EditCharacter
               gameType={gameType}
-              gameData={gameData}
-              gameIcons={gameIcons}
               action={action}
               setAction={setAction}
             />
           ) : action?.item === "weapon" ? (
             <EditWeapon
               gameType={gameType}
-              gameData={gameData}
-              gameIcons={gameIcons}
               action={action}
               setAction={setAction}
             />
           ) : action?.item === "gear" ? (
             <EditGear
               gameType={gameType}
-              gameData={gameData}
-              gameIcons={gameIcons}
               action={action}
               setAction={setAction}
             />
           ) : action?.item === "skills" && (
             <EditSkills
               gameType={gameType}
-              gameData={gameData}
-              gameIcons={gameIcons}
               action={action}
               setAction={setAction}
             />

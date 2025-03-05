@@ -10,15 +10,14 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import getData from "../../getData";
 
 const EditSkills = ({
   gameType,
-  gameData,
-  gameIcons,
   action,
   setAction,
 }) => {
-  const { INFO } = gameData;
+  const { INFO } = getData(gameType);
   const handleSkill = (newValue, skillKey) => {
     setAction((prev) => ({
       ...prev,

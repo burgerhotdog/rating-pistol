@@ -12,16 +12,16 @@ import {
   InputAdornment,
 } from "@mui/material";
 import EditGearPiece from "./EditGearPiece";
+import getData from "../../getData";
+import getIcons from "../../getIcons";
 
 const EditGear = ({
   gameType,
-  gameData,
-  gameIcons,
   action,
   setAction,
 }) => {
-  const { INFO, SETS } = gameData;
-  const { setsIcons } = gameIcons;
+  const { SETS } = getData(gameType);
+  const { setIcons } = getIcons(gameType);
   const rarityColor = {
     5: "goldenrod",
     4: "orchid",
@@ -97,7 +97,7 @@ const EditGear = ({
                     <Box
                       component="img"
                       loading="lazy"
-                      src={setsIcons[`../assets/sets/${gameType}/${id}.webp`]?.default}
+                      src={setIcons[`./${id}.webp`]?.default}
                       alt={""}
                       sx={{ width: 24, height: 24, objectFit: "contain" }}
                     />
@@ -129,7 +129,7 @@ const EditGear = ({
                     <Stack alignItems="center">
                       <Box
                         component="img"
-                        src={setsIcons[`../assets/sets/${gameType}/${action.data.info.set[0].id}.webp`]?.default}
+                        src={setIcons[`./${action.data.info.set[0].id}.webp`]?.default}
                         alt=""
                         sx={{ width: 100, height: 100, objectFit: "contain" }}
                       />
@@ -179,7 +179,7 @@ const EditGear = ({
                       <Box
                         component="img"
                         loading="lazy"
-                        src={setsIcons[`../assets/sets/${gameType}/${id}.webp`]?.default}
+                        src={setIcons[`./${id}.webp`]?.default}
                         alt={""}
                         sx={{ width: 24, height: 24, objectFit: "contain" }}
                       />
@@ -211,7 +211,7 @@ const EditGear = ({
                       <Stack alignItems="center">
                         <Box
                           component="img"
-                          src={setsIcons[`../assets/sets/${gameType}/${action.data.info.setExtra.id}.webp`]?.default}
+                          src={setIcons[`./${action.data.info.setExtra.id}.webp`]?.default}
                           alt=""
                           sx={{ width: 100, height: 100, objectFit: "contain" }}
                         />
@@ -248,7 +248,6 @@ const EditGear = ({
           <EditGearPiece
             key={mainIndex}
             gameType={gameType}
-            gameData={gameData}
             action={action}
             setAction={setAction}
             mainIndex={mainIndex}

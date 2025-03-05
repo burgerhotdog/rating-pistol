@@ -3,11 +3,11 @@ import rateWeapon from "./rateWeapon";
 import rateGear from "./rateGear";
 import rateSkills from "./rateSkills";
 
-const getRating = (gameType, gameData, id, data) => {
-  const character = rateCharacter(gameType, gameData, id, data);
-  const weapon = rateWeapon(gameType, gameData, id, data);
-  const gear = rateGear(gameType, gameData, id, data);
-  const skills = rateSkills(gameType, gameData, id, data);
+const getRating = (gameType, id, data) => {
+  const character = rateCharacter(gameType, id, data);
+  const weapon = rateWeapon(gameType, id, data);
+  const gear = rateGear(gameType, id, data);
+  const skills = rateSkills(gameType, id, data);
 
   const final = Math.round(
     character === -1 ? -1 :

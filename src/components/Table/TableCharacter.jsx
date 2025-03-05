@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Stack, Tooltip, Typography } from "@mui/material";
 import getData from "../getData";
-import getIcon from "../getIcon";
+import getIcons from "../getIcons";
 
 const TableCharacter = ({
   gameType,
@@ -10,7 +10,7 @@ const TableCharacter = ({
   data,
 }) => {
   const { INFO, CHARACTERS } = getData(gameType);
-  const { characterIcons } = getIcon(gameType);
+  const { characterIcons } = getIcons(gameType);
   
   const openModal = () => {
     setAction({

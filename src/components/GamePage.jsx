@@ -28,10 +28,10 @@ import TableGear from "./Table/TableGear";
 import TableSkills from "./Table/TableSkills";
 import TableRating from "./Table/TableRating";
 import TableDelete from "./Table/TableDelete";
+import getData from "./getData";
 
-const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
-  const { INFO } = gameData;
-  const { charIcons, weapIcons, setsIcons } = gameIcons;
+const GamePage = ({ uid, gameType }) => {
+  const { INFO } = getData(gameType);
   const [localObjs, setLocalObjs] = useState({});
   const [sortedObjs, setSortedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
@@ -72,7 +72,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
     const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
       id,
       data,
-      rating: getRating(gameType, gameData, id, data),
+      rating: getRating(gameType, id, data),
     }));
     ratedObjs.sort((a, b) =>
       a.data.info.isStar === b.data.info.isStar
@@ -154,8 +154,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     <TableCell>
                       <TableWeapon
                         gameType={gameType}
-                        gameData={gameData}
-                        weapIcons={weapIcons}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -164,8 +162,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     <TableCell>
                       <TableGear
                         gameType={gameType}
-                        gameData={gameData}
-                        setsIcons={setsIcons}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -174,7 +170,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     <TableCell>
                       <TableSkills
                         gameType={gameType}
-                        gameData={gameData}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -226,8 +221,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
         <AddModal
           uid={uid}
           gameType={gameType}
-          gameData={gameData}
-          gameIcons={gameIcons}
           action={action}
           setAction={setAction}
           localObjs={localObjs}
@@ -236,7 +229,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
         <DeleteModal
           uid={uid}
           gameType={gameType}
-          gameData={gameData}
           action={action}
           setAction={setAction}
           setLocalObjs={setLocalObjs}
@@ -244,8 +236,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
         <EditModal
           uid={uid}
           gameType={gameType}
-          gameData={gameData}
-          gameIcons={gameIcons}
           action={action}
           setAction={setAction}
           setLocalObjs={setLocalObjs}
@@ -254,7 +244,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           <LoadModal
             uid={uid}
             gameType={gameType}
-            gameData={gameData}
             action={action}
             setAction={setAction}
             setLocalObjs={setLocalObjs}

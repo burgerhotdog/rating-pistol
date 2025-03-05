@@ -1,3 +1,5 @@
+import getData from "../getData";
+
 const combine_basestats = (charBase, weapBase) => {
   return Object.entries(charBase).reduce((basestats, [key, value]) => {
     basestats[key] = value + (weapBase[key] || 0);
@@ -123,9 +125,9 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS) => {
   return points;
 };
 
-const rateGear = (gameType, gameData, id, data) => {
-  const { CHARACTERS, WEAPONS } = gameData;
-  const SUBSTATS = gameData.INFO.SUBSTATS;
+const rateGear = (gameType, id, data) => {
+  const { INFO, CHARACTERS, WEAPONS } = getData(gameType);
+  const SUBSTATS = INFO.SUBSTATS;
   if (!data.info.weapon) return -1;
 
   // Combine stats
