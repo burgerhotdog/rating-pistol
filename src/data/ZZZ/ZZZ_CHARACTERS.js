@@ -1,4 +1,4 @@
-const CHARACTERS = {
+export default {
   // Version 1.5
   "1321": {
     name: "Evelyn",
@@ -339,5 +339,3 @@ const CHARACTERS = {
     },
   },
 };
-
-export default CHARACTERS;

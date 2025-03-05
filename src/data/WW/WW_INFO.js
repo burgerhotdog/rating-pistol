@@ -1,4 +1,4 @@
-const INFO = {
+export default {
   TITLE: "Wuthering Waves",
   VERSION: "2.1",
   SECTION_NAMES: [
@@ -277,5 +277,3 @@ const INFO = {
     },
   },
 };
-
-export default INFO;

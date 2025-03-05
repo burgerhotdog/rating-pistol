@@ -1,4 +1,4 @@
-const CHARACTERS = {
+export default {
   // Version 5.4
   "10000109": {
     name: "Yumemizuki Mizuki",
@@ -1239,5 +1239,3 @@ const CHARACTERS = {
     },
   },
 };
-
-export default CHARACTERS;

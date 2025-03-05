@@ -1,4 +1,4 @@
-const SETS = {
+export default {
   // Version 1.4
   "32800": {
     name: "Astral Voice",
@@ -85,5 +85,3 @@ const SETS = {
     desc: "2-Pc: CRIT Rate +8%\n4-Pc: Landing a critical hit on an enemy with a Basic Attack, Dodge Counter, or EX Special Attack increases the equipper's ATK by 9% for 6s. The buff duration for different skills are calculated separately.",
   },
 };
-
-export default SETS;

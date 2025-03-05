@@ -124,20 +124,20 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS) => {
 };
 
 const rateGear = (gameType, gameData, id, data) => {
-  const { CHAR, WEAP } = gameData;
+  const { CHARACTERS, WEAPONS } = gameData;
   const SUBSTATS = gameData.INFO.SUBSTATS;
   if (!data.info.weapon) return -1;
 
   // Combine stats
-  const basestats = combine_basestats(CHAR[id].base, WEAP[data.info.weapon].base);
+  const basestats = combine_basestats(CHARACTERS[id].base, WEAPONS[data.info.weapon].base);
   const substats = combine_substats(data.gearList);
 
   // Simulate perfect substats
-  const sim_substats = simulate_substats(substats, CHAR[id].weights, data.gearList, SUBSTATS, gameType);
+  const sim_substats = simulate_substats(substats, CHARACTERS[id].weights, data.gearList, SUBSTATS, gameType);
 
   // Calculate points
-  const points = calculatePoints(substats, CHAR[id].weights, basestats, SUBSTATS);
-  const sim_points = calculatePoints(sim_substats, CHAR[id].weights, basestats, SUBSTATS);
+  const points = calculatePoints(substats, CHARACTERS[id].weights, basestats, SUBSTATS);
+  const sim_points = calculatePoints(sim_substats, CHARACTERS[id].weights, basestats, SUBSTATS);
 
   // Calculate score
   return Math.round((points / sim_points) * 100);

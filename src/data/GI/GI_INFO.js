@@ -1,4 +1,4 @@
-const INFO = {
+export default {
   TITLE: "Genshin Impact",
   VERSION: "5.4",
   SECTION_NAMES: [
@@ -224,5 +224,3 @@ const INFO = {
     },
   },
 };
-
-export default INFO;

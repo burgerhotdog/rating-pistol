@@ -1,4 +1,4 @@
-const SETS = {
+export default {
   // Version 5.0
   "15038": {
     name: "Obsidian Codex",
@@ -270,5 +270,3 @@ const SETS = {
     desc: "2-Pc: Max HP increased by 1000.\n4-Pc: Opening a chest regenerates 30% Max HP over 5s.",
   },
 };
-
-export default SETS;

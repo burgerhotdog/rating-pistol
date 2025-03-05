@@ -1,4 +1,4 @@
-const INFO = {
+export default {
   TITLE: "Honkai Star Rail",
   VERSION: "3.1",
   SECTION_NAMES: [
@@ -251,5 +251,3 @@ const INFO = {
     },
   },
 };
-
-export default INFO;

@@ -16,7 +16,7 @@ const EditWeapon = ({
   action,
   setAction,
 }) => {
-  const { INFO, CHAR, WEAP } = gameData;
+  const { INFO, CHARACTERS, WEAPONS } = gameData;
   const { weapIcons } = gameIcons;
   const rarityColor = {
     5: "goldenrod",
@@ -27,14 +27,14 @@ const EditWeapon = ({
   };
 
   const weapOptions = () => {
-    return Object.keys(WEAP)
-      .filter(id => WEAP[id].type === CHAR[action.id]?.type)
+    return Object.keys(WEAPONS)
+      .filter(id => WEAPONS[id].type === CHARACTERS[action.id]?.type)
       .sort((a, b) => {
-        const rarityA = WEAP[a].rarity;
-        const rarityB = WEAP[b].rarity;
+        const rarityA = WEAPONS[a].rarity;
+        const rarityB = WEAPONS[b].rarity;
         return rarityA !== rarityB ? 
           rarityB - rarityA : 
-          WEAP[a].name.localeCompare(WEAP[b].name);
+          WEAPONS[a].name.localeCompare(WEAPONS[b].name);
       });
   };
 
@@ -86,11 +86,11 @@ const EditWeapon = ({
           size="small"
           value={action?.data?.info?.weapon || ""}
           options={weapOptions()}
-          getOptionLabel={(id) => WEAP[id]?.name || ""}
+          getOptionLabel={(id) => WEAPONS[id]?.name || ""}
           onChange={(_, newValue) => handleWeapon(newValue)}
           renderOption={(props, id) => {
             const { key, ...idProps } = props;
-            const rarity = WEAP[id]?.rarity;
+            const rarity = WEAPONS[id]?.rarity;
             return (
               <Box
                 key={key}
@@ -108,7 +108,7 @@ const EditWeapon = ({
                   alt={""}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />
-                {WEAP[id]?.name || ""}
+                {WEAPONS[id]?.name || ""}
               </Box>
             );
           }}
@@ -182,25 +182,25 @@ const EditWeapon = ({
             <Grid size={8}>
               <Stack>
                 <Typography variant="subtitle1" fontWeight="bold">
-                  {WEAP[action.data.info.weapon].name}
+                  {WEAPONS[action.data.info.weapon].name}
                 </Typography>
                 <Typography variant="body2">
                   {gameType === "HSR"
-                    && `Base HP: ${WEAP[action.data.info.weapon].base.FLAT_HP}`}
+                    && `Base HP: ${WEAPONS[action.data.info.weapon].base.FLAT_HP}`}
                 </Typography>
                 <Typography variant="body2">
-                  {`Base ATK: ${WEAP[action.data.info.weapon].base.FLAT_ATK}`}
+                  {`Base ATK: ${WEAPONS[action.data.info.weapon].base.FLAT_ATK}`}
                 </Typography>
                 <Typography variant="body2">
                   {gameType === "HSR"
-                    ? `Base DEF: ${WEAP[action.data.info.weapon].base.FLAT_DEF}`
-                    : WEAP[action.data.info.weapon].substat}
+                    ? `Base DEF: ${WEAPONS[action.data.info.weapon].base.FLAT_DEF}`
+                    : WEAPONS[action.data.info.weapon].substat}
                 </Typography>
                 <Typography variant="subtitle2" fontWeight="bold" mt={1}>
-                  {WEAP[action.data.info.weapon].subtitle}
+                  {WEAPONS[action.data.info.weapon].subtitle}
                 </Typography>
                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                  {WEAP[action.data.info.weapon].desc}
+                  {WEAPONS[action.data.info.weapon].desc}
                 </Typography>
               </Stack>
             </Grid>

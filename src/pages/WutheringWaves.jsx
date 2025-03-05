@@ -1,17 +1,17 @@
 import GamePage from "../components/GamePage";
-import GAME_DATA from "../components/GAME_DATA";
+import getData from "../components/getData";
 
 const gameIcons = {
-  charIcons: import.meta.glob("../assets/char/WW/*.webp", { eager: true }),
-  weapIcons: import.meta.glob("../assets/weap/WW/*.webp", { eager: true }),
-  setsIcons: import.meta.glob("../assets/sets/WW/*.webp", { eager: true }),
+  charIcons: import.meta.glob("../assets/WW/characters/*.webp", { eager: true }),
+  weapIcons: import.meta.glob("../assets/WW/weapons/*.webp", { eager: true }),
+  setsIcons: import.meta.glob("../assets/WW/sets/*.webp", { eager: true }),
 };
 
 const WutheringWaves = ({ uid }) => (
   <GamePage
     uid={uid}
     gameType="WW"
-    gameData={GAME_DATA.WW}
+    gameData={getData("WW")}
     gameIcons={gameIcons}
   />
 );

@@ -3,11 +3,4 @@ import CHARACTERS from "./GI_CHARACTERS";
 import WEAPONS from "./GI_WEAPONS";
 import SETS from "./GI_SETS";
 
-const GI = {
-  INFO,
-  CHARACTERS,
-  WEAPONS,
-  SETS,
-};
-
-export default GI;
+export default { INFO, CHARACTERS, WEAPONS, SETS };

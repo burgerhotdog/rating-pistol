@@ -19,7 +19,7 @@ const DeleteModal = ({
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { CHAR } = gameData;
+  const { CHARACTERS } = gameData;
   const [isLoading, setIsLoading] = useState(false);
   
   const handleDelete = async () => {
@@ -56,7 +56,7 @@ const DeleteModal = ({
         <Stack spacing={2}>
           <Typography variant="body1">
             Are you sure you want to delete{" "}
-            <strong>{CHAR[action.id]?.name}</strong>?
+            <strong>{CHARACTERS[action.id]?.name}</strong>?
           </Typography>
           <Stack direction="row" justifyContent="center" spacing={2}>
             <Button

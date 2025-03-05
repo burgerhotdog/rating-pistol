@@ -1,4 +1,4 @@
-const WEAPONS = {
+export default {
   // Version 1.5
   "14132": {
     name: "Heartstring Nocturne",
@@ -533,5 +533,3 @@ const WEAPONS = {
     desc: "Basic Attack, Dash Attack, and Dodge Counter DMG increases by 12%.",
   },
 };
-
-export default WEAPONS;

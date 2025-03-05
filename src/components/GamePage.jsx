@@ -146,8 +146,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     <TableCell>
                       <TableCharacter
                         gameType={gameType}
-                        gameData={gameData}
-                        charIcons={charIcons}
                         setAction={setAction}
                         id={id}
                         data={data}

@@ -1,4 +1,4 @@
-const CHARACTERS = {
+export default {
   // Version 3.1
   "1404": {
     name: "Mydei",
@@ -798,5 +798,3 @@ const CHARACTERS = {
     },
   },
 };
-
-export default CHARACTERS;

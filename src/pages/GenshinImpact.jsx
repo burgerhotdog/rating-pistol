@@ -1,17 +1,17 @@
 import GamePage from "../components/GamePage";
-import GAME_DATA from "../components/GAME_DATA";
+import getData from "../components/getData";
 
 const gameIcons = {
-  charIcons: import.meta.glob("../assets/char/GI/*.webp", { eager: true }),
-  weapIcons: import.meta.glob("../assets/weap/GI/*.webp", { eager: true }),
-  setsIcons: import.meta.glob("../assets/sets/GI/*.webp", { eager: true }),
+  charIcons: import.meta.glob("../assets/GI/characters/*.webp", { eager: true }),
+  weapIcons: import.meta.glob("../assets/GI/weapons/*.webp", { eager: true }),
+  setsIcons: import.meta.glob("../assets/GI/sets/*.webp", { eager: true }),
 };
 
 const GenshinImpact = ({ uid }) => (
   <GamePage
     uid={uid}
     gameType="GI"
-    gameData={GAME_DATA.GI}
+    gameData={getData("GI")}
     gameIcons={gameIcons}
   />
 );

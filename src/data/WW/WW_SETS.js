@@ -1,6 +1,4 @@
-import { SettingsSystemDaydreamRounded } from "@mui/icons-material";
-
-const SETS = {
+export default {
   // Version 2.0
   "014": {
     name: "Tidebreaking Courage",
@@ -75,5 +73,3 @@ const SETS = {
     desc: "2-Pc: Glacio DMG +10%.\n5-Pc: Glacio DMG +10% after releasing Basic Attack or Heavy Attack. This effect stacks up to 3 times, each stack lasts 15s.",
   },
 };
-
-export default SETS;

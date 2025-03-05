@@ -1,4 +1,4 @@
-const WEAPONS = {
+export default {
   // Version 3.1
   "23039": {
     name: "Flame of Blood, Blaze My Path",
@@ -1033,5 +1033,3 @@ const WEAPONS = {
     desc: "At the start of the battle, the wearer's CRIT Rate increases by 12% for 3 turn(s).",
   },
 };
-
-export default WEAPONS;

@@ -13,7 +13,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { templateInfo, templateGear } from "../template";
-import enkaStatKey from "../enkaStatKey";
+import enkaStatKey from "./enkaStatKey";
 
 const ModalLoad = ({
   uid,
@@ -24,7 +24,7 @@ const ModalLoad = ({
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { CHAR } = gameData;
+  const { CHARACTERS } = gameData;
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
   const [enkaList, setEnkaList] = useState([]);
@@ -381,7 +381,7 @@ const ModalLoad = ({
                     size="small"
                   />
                   <Typography variant="body2">
-                    {CHAR[avatar.avatarId].name}
+                    {CHARACTERS[avatar.avatarId].name}
                   </Typography>
                 </Stack>
               ))}

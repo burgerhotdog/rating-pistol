@@ -1,17 +1,17 @@
 import GamePage from "../components/GamePage";
-import GAME_DATA from "../components/GAME_DATA";
+import getData from "../components/getData";
 
 const gameIcons = {
-  charIcons: import.meta.glob("../assets/char/ZZZ/*.webp", { eager: true }),
-  weapIcons: import.meta.glob("../assets/weap/ZZZ/*.webp", { eager: true }),
-  setsIcons: import.meta.glob("../assets/sets/ZZZ/*.webp", { eager: true }),
+  charIcons: import.meta.glob("../assets/ZZZ/characters/*.webp", { eager: true }),
+  weapIcons: import.meta.glob("../assets/ZZZ/weapons/*.webp", { eager: true }),
+  setsIcons: import.meta.glob("../assets/ZZZ/sets/*.webp", { eager: true }),
 };
 
 const ZenlessZoneZero = ({ uid }) => (
   <GamePage
     uid={uid}
     gameType="ZZZ"
-    gameData={GAME_DATA.ZZZ}
+    gameData={getData("ZZZ")}
     gameIcons={gameIcons}
   />
 );

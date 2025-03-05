@@ -23,7 +23,7 @@ const AddModal = ({
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { INFO, CHAR } = gameData;
+  const { INFO, CHARACTERS } = gameData;
   const { charIcons } = gameIcons;
   const [isLoading, setIsLoading] = useState(false);
   const rarityColor = {
@@ -35,14 +35,14 @@ const AddModal = ({
   };
   
   const charOptions = () => {
-    return Object.keys(CHAR)
+    return Object.keys(CHARACTERS)
       .filter(id => !Object.keys(localObjs).includes(id))
       .sort((a, b) => {
-        const rarityA = CHAR[a].rarity;
-        const rarityB = CHAR[b].rarity;
+        const rarityA = CHARACTERS[a].rarity;
+        const rarityB = CHARACTERS[b].rarity;
         return rarityA != rarityB ?
           rarityB - rarityA :
-          CHAR[a].name.localeCompare(CHAR[b].name)
+          CHARACTERS[a].name.localeCompare(CHARACTERS[b].name)
       });
   };
 
@@ -99,11 +99,11 @@ const AddModal = ({
             size="small"
             value={action?.id}
             options={charOptions()}
-            getOptionLabel={(id) => CHAR[id]?.name || ""}
+            getOptionLabel={(id) => CHARACTERS[id]?.name || ""}
             onChange={(_, newValue) => handleSelect(newValue)}
             renderOption={(props, option) => {
               const { key, ...optionProps } = props;
-              const rarity = CHAR[option]?.rarity;
+              const rarity = CHARACTERS[option]?.rarity;
               return (
                 <Box
                   key={key}
@@ -121,7 +121,7 @@ const AddModal = ({
                     alt={""}
                     sx={{ width: 24, height: 24, objectFit: "contain" }}
                   />
-                  {CHAR[option].name}
+                  {CHARACTERS[option].name}
                 </Box>
               );
             }}

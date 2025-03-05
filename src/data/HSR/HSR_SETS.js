@@ -1,4 +1,4 @@
-const SETS = {
+export default {
   // Version 3.1
   "320": {
     name: "Giant Tree of Rapt Brooding",
@@ -238,6 +238,4 @@ const SETS = {
     rarity: 5,
     desc: "2-Pc: Increases the wearer's ATK by 12%. When the wearer's SPD reaches 120 or higher, the wearer's ATK increases by an extra 12%.",
   },
-}
-
-export default SETS;
+};

@@ -1,15 +1,17 @@
 import React from "react";
 import { Box, Stack, Tooltip, Typography } from "@mui/material";
+import getData from "../getData";
+import getIcon from "../getIcon";
 
 const TableCharacter = ({
   gameType,
-  gameData,
-  charIcons,
   setAction,
   id,
   data,
 }) => {
-  const { INFO, CHAR } = gameData;
+  const { INFO, CHARACTERS } = getData(gameType);
+  const { characterIcons } = getIcon(gameType);
+  
   const openModal = () => {
     setAction({
       type: "edit",
@@ -35,11 +37,11 @@ const TableCharacter = ({
           <Box
             component="img"
             alt={id}
-            src={charIcons[`../assets/char/${gameType}/${id}.webp`]?.default}
+            src={characterIcons[`./${id}.webp`]?.default}
             sx={{ width: 50, height: 50, objectFit: "contain" }}
           />
           <Typography variant="body2" sx={{ textAlign: "left" }}>
-            {CHAR[id].name}
+            {CHARACTERS[id].name}
           </Typography>
         </Stack>
       </Tooltip>

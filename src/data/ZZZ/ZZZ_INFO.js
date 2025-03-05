@@ -1,4 +1,4 @@
-const INFO = {
+export default {
   TITLE: "Zenless Zone Zero",
   VERSION: "1.5",
   SECTION_NAMES: [
@@ -229,5 +229,3 @@ const INFO = {
     },
   },
 };
-
-export default INFO;

@@ -1,4 +1,4 @@
-const WEAPONS = {
+export default {
   // Version 2.1
   "21050046": {
     name: "Luminous Hymn",
@@ -787,5 +787,3 @@ const WEAPONS = {
     desc: "Increases ATK by 4%.",
   },
 };
-
-export default WEAPONS;

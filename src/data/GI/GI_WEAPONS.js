@@ -1,4 +1,4 @@
-const WEAPONS = {
+export default {
   // Version 5.4
   "14158": {
     name: "Sunny Morning Sleep-In",
@@ -1929,5 +1929,3 @@ const WEAPONS = {
     desc: "",
   },
 };
-
-export default WEAPONS;
