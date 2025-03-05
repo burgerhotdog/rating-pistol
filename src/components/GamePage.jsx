@@ -3,7 +3,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
   Container,
-  Box,
   Stack,
   TableContainer,
   Table,
@@ -30,14 +29,13 @@ import TableRating from "./TableRating";
 import TableDelete from "./TableDelete";
 
 const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
-  const { INFO, CHAR, WEAP, SETS } = gameData;
+  const { INFO } = gameData;
   const { charIcons, weapIcons, setsIcons } = gameIcons;
   const [localObjs, setLocalObjs] = useState({});
   const [sortedObjs, setSortedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
   const [action, setAction] = useState({});
 
-  // Load localObjs from Firestore
   useEffect(() => {
     const fetchDB = async () => {
       if (uid) {
@@ -70,17 +68,13 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
       data,
       rating: getRating(gameType, gameData, id, data),
     }));
-
     ratedObjs.sort((a, b) =>
       a.data.info.isStar === b.data.info.isStar
         ? b.rating.final - a.rating.final
         : a.data.info.isStar ? -1 : 1
     );
-
     setSortedObjs(ratedObjs);
   }, [localObjs]);
-
-  const isModalClosed = () => !Boolean(Object.keys(action).length);
 
   const handleAdd = () => {
     setAction({
@@ -123,16 +117,13 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                   onMouseLeave={() => setHoveredRow(null)}
                 >
                   <TableCell sx={{ borderBottom: "none" }} />
-
                   <TableStar
                     uid={uid}
                     gameType={gameType}
                     setLocalObjs={setLocalObjs}
                     id={id}
                     data={data}
-                    hoveredRow={hoveredRow}
                   />
-
                   <TableCharacter
                     gameType={gameType}
                     gameData={gameData}
@@ -140,9 +131,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     setAction={setAction}
                     id={id}
                     data={data}
-                    isModalClosed={isModalClosed}
                   />
-
                   <TableWeapon
                     gameType={gameType}
                     gameData={gameData}
@@ -150,9 +139,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     setAction={setAction}
                     id={id}
                     data={data}
-                    isModalClosed={isModalClosed}
                   />
-
                   <TableGear
                     gameType={gameType}
                     gameData={gameData}
@@ -160,9 +147,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     setAction={setAction}
                     id={id}
                     data={data}
-                    isModalClosed={isModalClosed}
                   />
-
                   <TableSkills
                     gameType={gameType}
                     gameData={gameData}
@@ -170,18 +155,14 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
                     id={id}
                     data={data}
                     rating={rating}
-                    isModalClosed={isModalClosed}
                   />
-
                   <TableRating
                     gameType={gameType}
                     setAction={setAction}
                     id={id}
                     data={data}
                     rating={rating}
-                    isModalClosed={isModalClosed}
                   />
-
                   <TableDelete
                     setAction={setAction}
                     id={id}
@@ -193,17 +174,13 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             </TableBody>
           </Table>
         </TableContainer>
-
-        {/* Add & Load Buttons */}
         <Stack direction="row" spacing={2} my={2}>
           <Button
             onClick={handleAdd}
             variant="contained"
             startIcon={<Add />}
           >
-            <Typography variant="body2">
-              Add character
-            </Typography>
+            Add character
           </Button>
           <Button
             onClick={handleLoad}
@@ -211,13 +188,9 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             endIcon={<KeyboardArrowRight />}
             disabled={gameType === "WW" || gameType === "ZZZ"}
           >
-            <Typography variant="body2">
-              Load from UID
-            </Typography>
+            Load from UID
           </Button>
         </Stack>
-
-        {/* Modals */}
         <ModalAdd
           uid={uid}
           gameType={gameType}
@@ -228,7 +201,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           localObjs={localObjs}
           setLocalObjs={setLocalObjs}
         />
-
         {(gameType === "GI" || gameType === "HSR") && (
           <ModalLoad
             uid={uid}
@@ -239,7 +211,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
             setLocalObjs={setLocalObjs}
           />
         )}
-
         <ModalDelete
           uid={uid}
           gameType={gameType}
@@ -248,7 +219,6 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
           setAction={setAction}
           setLocalObjs={setLocalObjs}
         />
-
         <ModalEdit
           uid={uid}
           gameType={gameType}

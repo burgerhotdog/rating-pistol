@@ -11,7 +11,6 @@ const TableStar = ({
   setLocalObjs,
   id,
   data,
-  hoveredRow,
 }) => {
   const toggleStar = async () => {
     const newValue = !Boolean(data.info.isStar);
@@ -34,7 +33,7 @@ const TableStar = ({
   }
 
   return (
-    <TableCell align="center">
+    <TableCell>
       <Stack alignItems="center">
         {data.info.isStar ? (
           <StarIcon

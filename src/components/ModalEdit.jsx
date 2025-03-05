@@ -100,9 +100,7 @@ const ModalEdit = ({
             variant="contained"
             color="primary"
           >
-            <Typography variant="body2">
-              Save
-            </Typography>
+            Save
           </Button>
         </Stack>
       </Box>

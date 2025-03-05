@@ -56,9 +56,7 @@ const Auth = ({ setUid }) => {
           onClick={email ? handleSignOut : handleSignIn}
           loading={isLoading}
         >
-          <Typography variant="body2">
-            {email ? "Sign Out" : "Sign In"}
-          </Typography>
+          {email ? "Sign Out" : "Sign In"}
         </Button>
       </Stack>
     </Box>

@@ -170,7 +170,7 @@ const ModalLoad = ({
           const weaponObj = charObj.equipList[charObj.equipList.length - 1];
           info.weapon = weaponObj.itemId.toString();
           info.weaponLevel = weaponObj.weapon.level.toString();
-          info.weaponRank = (Object.values(weaponObj.weapon.affixMap)[0] + 1).toString();
+          info.weaponRank = (Object.values(weaponObj.weapon.affixMap ?? { rank: 0 })[0] + 1).toString();
 
           // gear
           const setCounts = {};
@@ -357,9 +357,7 @@ const ModalLoad = ({
               loading={isLoading}
               variant="contained"
             >
-              <Typography variant="body2">
-                Next
-              </Typography>
+              Next
             </Button>
           </Stack>
         ) : (
@@ -386,9 +384,7 @@ const ModalLoad = ({
               ))}
             </Stack>
             <Button onClick={handleSave} variant="contained">
-              <Typography variant="body2">
-                Save
-              </Typography>
+              Save
             </Button>
           </Stack>
         )}

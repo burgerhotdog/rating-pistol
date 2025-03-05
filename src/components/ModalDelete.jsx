@@ -55,9 +55,7 @@ const ModalDelete = ({
               color="primary"
               sx={{ width: 80 }}
             >
-              <Typography variant="body2">
-                Cancel
-              </Typography>
+              Cancel
             </Button>
             <Button
               onClick={handleDelete}
@@ -65,9 +63,7 @@ const ModalDelete = ({
               color="secondary"
               sx={{ width: 80 }}
             >
-              <Typography variant="body2">
-                Delete
-              </Typography>
+              Delete
             </Button>
           </Stack>
         </Stack>

@@ -8,7 +8,6 @@ import {
   Modal,
   Stack,
   TextField,
-  Typography,
   useTheme,
 } from "@mui/material";
 import { db } from "../firebase";
@@ -159,9 +158,7 @@ const ModalAdd = ({
             color="primary"
             disabled={!action?.id}
           >
-            <Typography variant="body2">
-              Save
-            </Typography>
+            Save
           </Button>
         </Stack>
       </Box>      
