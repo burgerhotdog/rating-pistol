@@ -197,21 +197,23 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
         {/* Add & Load Buttons */}
         <Stack direction="row" spacing={2} my={2}>
           <Button
-            variant="contained"
-            color="primary"
-            startIcon={<Add />}
             onClick={handleAdd}
+            variant="contained"
+            startIcon={<Add />}
           >
-            Add character
+            <Typography variant="body2">
+              Add character
+            </Typography>
           </Button>
           <Button
-            variant="contained"
-            color="primary"
-            endIcon={<KeyboardArrowRight />}
             onClick={handleLoad}
+            variant="contained"
+            endIcon={<KeyboardArrowRight />}
             disabled={gameType === "WW" || gameType === "ZZZ"}
           >
-            Load from UID
+            <Typography variant="body2">
+              Load from UID
+            </Typography>
           </Button>
         </Stack>
 

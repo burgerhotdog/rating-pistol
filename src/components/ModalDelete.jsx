@@ -48,23 +48,26 @@ const ModalDelete = ({
             <strong>{CHAR[action.id]?.name}</strong>
             ?
           </Typography>
-
           <Stack direction="row" justifyContent="center" spacing={2}>
             <Button
+              onClick={handleCancel}
               variant="outlined"
               color="primary"
-              onClick={handleCancel}
               sx={{ width: 80 }}
             >
-              Cancel
+              <Typography variant="body2">
+                Cancel
+              </Typography>
             </Button>
             <Button
+              onClick={handleDelete}
               variant="contained"
               color="secondary"
-              onClick={handleDelete}
               sx={{ width: 80 }}
             >
-              Delete
+              <Typography variant="body2">
+                Delete
+              </Typography>
             </Button>
           </Stack>
         </Stack>

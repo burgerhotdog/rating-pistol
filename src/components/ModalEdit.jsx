@@ -5,6 +5,7 @@ import {
   Button,
   Modal,
   Stack,
+  Typography,
   useTheme,
 } from "@mui/material";
 import { db } from "../firebase";
@@ -60,7 +61,7 @@ const ModalEdit = ({
   return (
     <Modal open={action?.type === "edit"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
-        <Stack spacing={2}>
+        <Stack alignItems="center" spacing={2}>
           {action?.item === "character" ? (
             <ModalEditCharacter
               gameType={gameType}
@@ -94,25 +95,15 @@ const ModalEdit = ({
               setAction={setAction}
             />
           )}
-
-          <Stack direction="row" justifyContent="center" spacing={2}>
-            <Button
-              onClick={handleCancel}
-              variant="outlined"
-              color="secondary"
-              sx={{ width: 80 }}
-            >
-              Cancel
-            </Button>
-            <Button
-              onClick={handleSave}
-              variant="contained"
-              color="primary"
-              sx={{ width: 80 }}
-            >
+          <Button
+            onClick={handleSave}
+            variant="contained"
+            color="primary"
+          >
+            <Typography variant="body2">
               Save
-            </Button>
-          </Stack>
+            </Typography>
+          </Button>
         </Stack>
       </Box>
     </Modal>

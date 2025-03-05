@@ -8,6 +8,7 @@ import {
   Modal,
   Stack,
   TextField,
+  Typography,
   useTheme,
 } from "@mui/material";
 import { db } from "../firebase";
@@ -92,7 +93,7 @@ const ModalAdd = ({
   return (
     <Modal open={action?.type === "add"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
-        <Stack spacing={2}>
+        <Stack alignItems="center" spacing={2}>
           <Autocomplete
             size="small"
             value={action?.id}
@@ -152,15 +153,15 @@ const ModalAdd = ({
             sx={{ width: 250 }}
             disableClearable={action?.id === ""}
           />
-
           <Button
             onClick={handleAdd}
             variant="contained"
             color="primary"
-            sx={{ width: 80 }}
             disabled={!action?.id}
           >
-            Save
+            <Typography variant="body2">
+              Save
+            </Typography>
           </Button>
         </Stack>
       </Box>      

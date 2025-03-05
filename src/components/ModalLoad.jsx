@@ -353,19 +353,20 @@ const ModalLoad = ({
               </Stack>
             </Stack>
             <Button
-              variant="contained"
               onClick={handleNext}
               loading={isLoading}
-              sx={{ width: 80 }}
+              variant="contained"
             >
-              Next
+              <Typography variant="body2">
+                Next
+              </Typography>
             </Button>
           </Stack>
         ) : (
           <Stack alignItems="center" spacing={2}>
             <Stack>
               <Typography variant="subtitle1">
-                Select characters to add
+                Select the characters to add.
               </Typography>
               {enkaList.map((avatar, index) => (
                 <Stack
@@ -378,18 +379,16 @@ const ModalLoad = ({
                     checked={selectedAvatars.includes(index)}
                     size="small"
                   />
-                  <Typography variant="body1">
+                  <Typography variant="body2">
                     {CHAR[avatar.avatarId].name}
                   </Typography>
                 </Stack>
               ))}
             </Stack>
-            <Button
-              onClick={handleSave}
-              variant="contained"
-              sx={{ width: 80 }}
-            >
-              Save
+            <Button onClick={handleSave} variant="contained">
+              <Typography variant="body2">
+                Save
+              </Typography>
             </Button>
           </Stack>
         )}
