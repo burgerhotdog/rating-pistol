@@ -64,7 +64,7 @@ const ModalEditGear = ({
               { set: [{ id: newValue || "", bonus: "" }, { id: "", bonus: "" }] } :
               { setExtra: { id: newValue || "", bonus: "" } }
           ),
-          ...(clearSetExtra && prev.setExtra.id === newValue ? { setExtra: { id: "", bonus: "" } } : {}),
+          ...(clearSetExtra && prev.data.info.setExtra.id === newValue ? { setExtra: { id: "", bonus: "" } } : {}),
         },
       },
     }));
