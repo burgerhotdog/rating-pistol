@@ -92,7 +92,7 @@ const ModalAdd = ({
   return (
     <Modal open={action?.type === "add"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
-        <Stack gap={2}>
+        <Stack spacing={2}>
           <Autocomplete
             size="small"
             value={action?.id}

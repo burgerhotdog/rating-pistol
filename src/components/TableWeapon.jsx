@@ -31,7 +31,7 @@ const TableWeapon = ({
         )}
         arrow
       >
-        <Stack 
+        <Stack
           onClick={openModal}
           alignItems="center"
           sx={{ cursor: "pointer" }}

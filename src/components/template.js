@@ -7,9 +7,8 @@ const templateInfo = (gameType) => {
     weaponLevel: "",
     weaponRank: "",
 
-    set: ["", ""],
-    ...(gameType === "HSR" ? { setExtra: "" } : {}),
-    ...(gameType === "ZZZ" ? { setExtra: "" } : {}),
+    set: [{ id: "", bonus: "" }, { id: "", bonus: "" }],
+    setExtra: { id: "", bonus: "" },
 
     skills: {
       basic: "",

@@ -42,14 +42,14 @@ const ModalDelete = ({
   return (
     <Modal open={action?.type === "delete"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
-        <Stack gap={2}>
+        <Stack spacing={2}>
           <Typography variant="body1">
             Are you sure you want to delete{" "}
             <strong>{CHAR[action.id]?.name}</strong>
             ?
           </Typography>
 
-          <Stack direction="row" justifyContent="center" gap={2}>
+          <Stack direction="row" justifyContent="center" spacing={2}>
             <Button
               variant="outlined"
               color="primary"

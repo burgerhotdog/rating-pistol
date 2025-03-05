@@ -33,12 +33,20 @@ const ModalLoad = ({
   const [rememberUid, setRememberUid] = useState(false);
   const statKey = enkaStatKey[gameType];
 
-  const suffix = (
-    gameType === "GI" ? "uid/" :
-    gameType === "HSR" ? "hsr/uid/" :
-    gameType === "WW" ? "" :
-    gameType === "ZZZ" && "zzz/uid/"
-  );
+  const suffix = {
+    GI: "uid/",
+    HSR: "hsr/uid/",
+    WW: "",
+    ZZZ: "zzz/uid/"
+  };
+
+  const equipTypeToIndexGI = {
+    EQUIP_BRACER: 0,
+    EQUIP_NECKLACE: 1,
+    EQUIP_SHOES: 2,
+    EQUIP_RING: 3,
+    EQUIP_DRESS: 4,
+  };
 
   useEffect(() => {
     const fetchUserUid = async () => {
@@ -64,67 +72,61 @@ const ModalLoad = ({
   // gi 604379917
   // hsr 602849613
   const fetchPlayerData = async () => {
-    try {
-      const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix+gameUid}/`);
-      const data = await response.json();
-      
-      switch (gameType) {
-        case "GI": {
-          const maleToFemale = {
-            "10000005-2": "10000007-2", // pyro
-            "10000005-3": "10000007-3", // hydro
-            "10000005-8": "10000007-8", // dendro
-            "10000005-7": "10000007-7", // electro
-            "10000005-6": "10000007-6", // geo
-            "10000005-4": "10000007-4", // anemo
-          };
+    const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix[gameType]+gameUid}/`);
+    const data = await response.json();
+    
+    switch (gameType) {
+      case "GI": {
+        const maleToFemale = {
+          "10000005-2": "10000007-2", // pyro
+          "10000005-3": "10000007-3", // hydro
+          "10000005-8": "10000007-8", // dendro
+          "10000005-7": "10000007-7", // electro
+          "10000005-6": "10000007-6", // geo
+          "10000005-4": "10000007-4", // anemo
+        };
 
-          for (const avatar of data.avatarInfoList ) {
-            if (maleToFemale[avatar.avatarId]) {
-              avatar.avatarId = maleToFemale[avatar.avatarId];
-            }
+        for (const avatar of data.avatarInfoList ) {
+          if (maleToFemale[avatar.avatarId]) {
+            avatar.avatarId = maleToFemale[avatar.avatarId];
           }
+        }
 
-          setEnkaList(data.avatarInfoList);
-        } break;
+        setEnkaList(data.avatarInfoList);
+      } break;
 
-        case "HSR": {
-          const maleToFemale = {
-            "8007": "8008", // remembrance
-            "8005": "8006", // harmony
-            "8003": "8004", // preservation
-            "8001": "8002", // destruction
-          };
+      case "HSR": {
+        const maleToFemale = {
+          "8007": "8008", // remembrance
+          "8005": "8006", // harmony
+          "8003": "8004", // preservation
+          "8001": "8002", // destruction
+        };
 
-          for (const avatar of data.detailInfo.avatarDetailList ) {
-            if (maleToFemale[avatar.avatarId]) {
-              avatar.avatarId = maleToFemale[avatar.avatarId];
-            }
+        for (const avatar of data.detailInfo.avatarDetailList ) {
+          if (maleToFemale[avatar.avatarId]) {
+            avatar.avatarId = maleToFemale[avatar.avatarId];
           }
+        }
 
-          setEnkaList(data.detailInfo.avatarDetailList);
-        } break;
+        setEnkaList(data.detailInfo.avatarDetailList);
+      } break;
 
-        case "ZZZ": {
-          // setEnkaList(data);
-        } break;
+      case "ZZZ": {
+        // setEnkaList(data);
+      } break;
 
-        case "WW": {
-          const maleToFemale = {
-            "1605": "1604", // havoc
-            "1501": "1502", // spectro
-          };
+      case "WW": {
+        const maleToFemale = {
+          "1605": "1604", // havoc
+          "1501": "1502", // spectro
+        };
 
-          // setEnkaList(data);
-        } break;
-      }
-
-      setError("");
-    } catch (error) {
-      console.error("Error fetching player data", error);
-      setError("Error fetching player data");
-      setIsLoading(false);
+        // setEnkaList(data);
+      } break;
     }
+
+    setError("");
   };
 
   const handleNext = async () => {
@@ -132,84 +134,146 @@ const ModalLoad = ({
       setIsLoading(true);
       await fetchPlayerData();
 
-      const userDocRef = doc(db, "users", uid);
-      await setDoc(userDocRef, { [`${gameType}_UID`]: rememberUid ? gameUid : "" }, { merge: true });
+      if (uid && rememberUid) {
+        const userDocRef = doc(db, "users", uid);
+        await setDoc(userDocRef, { [`${gameType}_UID`]: gameUid}, { merge: true });
+      }
     } else {
       setError("Invalid uid");
     }
+  };
+
+  const handleCheckboxChange = (event, index) => {
+    setSelectedAvatars((prevSelectedAvatars) => {
+      if (event.target.checked) {
+        return [...prevSelectedAvatars, index];
+      } else {
+        return prevSelectedAvatars.filter((id) => id !== index);
+      }
+    });
   };
 
   const handleSave = async () => {
     const charBuffer =
       gameType === "GI" ?
         selectedAvatars.map((selectedAvatar) => {
-          const id = enkaList[selectedAvatar].avatarId.toString();
+          const charObj = enkaList[selectedAvatar];
+          const id = charObj.avatarId.toString();
           const info = templateInfo(gameType);
           const gearList = Array(5).fill(null).map(() => templateGear(gameType));
+
+          // character
+          info.characterLevel = charObj.propMap["4001"].val;
+          info.characterRank = (charObj.talentIdList?.length ?? 0).toString();
     
-          info.weapon = enkaList[selectedAvatar].equipList[5]?.itemId || "";
+          // weapon
+          const weaponObj = charObj.equipList[charObj.equipList.length - 1];
+          info.weapon = weaponObj.itemId.toString();
+          info.weaponLevel = weaponObj.weapon.level.toString();
+          info.weaponRank = (Object.values(weaponObj.weapon.affixMap)[0] + 1).toString();
+
+          // gear
           const setCounts = {};
-    
-          // pieces
-          for (let i = 0; i < 5; i++) {
-            const currPiece = enkaList[selectedAvatar].equipList[i];
-            if (!currPiece) continue;
-    
-            const currSet = currPiece.flat.icon.substring(13, 18) || "";
+          const equipListArr = charObj.equipList.slice(0, -1);
+          for (const equipObj of equipListArr) {
+            const gearIndex = equipTypeToIndexGI[equipObj.flat.equipType];
+            const currSet = equipObj.flat.icon.substring(13, 18);
             setCounts[currSet] = (setCounts[currSet] || 0) + 1;
-    
-            gearList[i].mainstat = statKey.MAIN[currPiece.flat.reliquaryMainstat.mainPropId] || "";
-            for (let j = 0; j < 4; j++) {
-              gearList[i][j][0] = statKey.SUB[currPiece.flat.reliquarySubstats[j]?.appendPropId] || "";
-              gearList[i][j][1] = currPiece.flat.reliquarySubstats[j]?.statValue.toString() || "";
-              console.log(gearList[i][j][0], gearList[i][j][1]);
+            gearList[gearIndex].mainstat = statKey.MAIN[equipObj.flat.reliquaryMainstat.mainPropId];
+            const reliqSubArr = equipObj.flat.reliquarySubstats;
+            for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
+              gearList[gearIndex][subIndex][0] = statKey.SUB[reliqSubObj.appendPropId];
+              gearList[gearIndex][subIndex][1] = reliqSubObj.statValue.toString();
             }
           }
-    
-          // set
+          let alreadyTwoPiece = false;
           for (const set in setCounts) {
             if (setCounts[set] >= 4) {
-              info.set[0] = set;
+              info.set[0] = { id: set, bonus: "4" };
               break;
+            } else if (setCounts[set] >= 2) {
+              if (!alreadyTwoPiece) {
+                info.set[0] = { id: set, bonus: "2" };
+                alreadyTwoPiece = true;
+              } else {
+                info.set[1] = { id: set, bonus: "2" };
+              }
             }
           }
-    
+
+          // skills
+          const skillsArr = Object.values(charObj.skillLevelMap);
+          info.skills.basic = skillsArr[0].toString();
+          info.skills.skill = skillsArr[1].toString();
+          info.skills.ult = skillsArr[2].toString();
+
           return { id, info, gearList };
         }) :
       gameType === "HSR" ?
         selectedAvatars.map((selectedAvatar) => {
-          const id = enkaList[selectedAvatar].avatarId.toString();
+          const charObj = enkaList[selectedAvatar];
+          const id = charObj.avatarId.toString();
           const info = templateInfo(gameType);
           const gearList = Array(6).fill(null).map(() => templateGear(gameType));
 
-          info.weapon = enkaList[selectedAvatar].equipment?.tid.toString() || "";
+          // character
+          info.characterLevel = charObj.level.toString();
+          info.characterRank = (charObj.rank ?? 0).toString();
+
+          // weapon
+          const weaponObj = charObj.equipment;
+          info.weapon = (weaponObj?.tid ?? "").toString();
+          info.weaponLevel = (weaponObj?.level ?? "").toString();
+          info.weaponRank = (weaponObj?.rank ?? "").toString();
+
+          // gear
           const setCounts = {};
-
-          // pieces
-          for (let i = 0; i < 6; i++) {
-            const currPiece = enkaList[selectedAvatar].relicList[i];
-            if (!currPiece) continue;
-
-            const currSet = currPiece._flat.setID.toString() || "";
-            setCounts[currSet] = (setCounts[currSet] || 0) + 1;
-
-            gearList[i].mainstat = statKey.MAIN[currPiece._flat.props[0].type] || "";
-            for (let j = 0; j < 4; j++) {
-              gearList[i][j][0] = statKey.SUB[currPiece._flat.props[j + 1]?.type] || "";
-              const ratio = currPiece._flat.props[j + 1]?.type.slice(-5) === "Delta" ? 1 : 100;
+          const setExtraCounts = {};
+          const relicListArr = charObj.relicList;
+          for (const relicObj of relicListArr) {
+            const gearIndex = relicObj.type - 1;
+            const currSet = relicObj._flat.setID.toString();
+            if (gearIndex <= 3) {
+              setCounts[currSet] = (setCounts[currSet] || 0) + 1;
+            } else {
+              setExtraCounts[currSet] = (setExtraCounts[currSet] || 0) + 1;
+            }
+            gearList[gearIndex].mainstat = statKey.MAIN[relicObj._flat.props[0].type];
+            const subPropsArr = relicObj._flat.props.slice(1);
+            for (const [subIndex, subPropObj] of subPropsArr.entries()) {
+              gearList[gearIndex][subIndex][0] = statKey.SUB[subPropObj.type];
+              const ratio = subPropObj.type.slice(-5) === "Delta" ? 1 : 100;
               const roundAmount = ratio === 1 ? 1 : 10;
-              gearList[i][j][1] = (Math.round((currPiece._flat.props[j + 1]?.value * ratio) * roundAmount) / roundAmount).toString() || "";
+              gearList[gearIndex][subIndex][1] = (Math.round((subPropObj.value * ratio) * roundAmount) / roundAmount).toString() || "";
             }
           }
-
-          // set
+          let alreadyTwoPiece = false;
           for (const set in setCounts) {
             if (setCounts[set] >= 4) {
-              info.set[0] = set;
-            } else if (setCounts[set] == 2) {
-              info.set[0] = set;
+              info.set[0] = { id: set, bonus: "4" };
+              break;
+            } else if (setCounts[set] >= 2) {
+              if (!alreadyTwoPiece) {
+                info.set[0] = { id: set, bonus: "2" };
+                alreadyTwoPiece = true;
+              } else {
+                info.set[1] = { id: set, bonus: "2" };
+              }
             }
           }
+          for (const set in setExtraCounts) {
+            if (setExtraCounts[set] === 2) {
+              info.setExtra = { id: set, bonus: "2" };
+              break;
+            }
+          }
+
+          // skills
+          const skillsArr = charObj.skillTreeList;
+          info.skills.basic = skillsArr[0].level.toString();
+          info.skills.skill = skillsArr[1].level.toString();
+          info.skills.ult = skillsArr[2].level.toString();
+          info.skills.talent = skillsArr[3].level.toString();
 
           return { id, info, gearList };
         }) :
@@ -247,16 +311,6 @@ const ModalLoad = ({
     setAction({});
   };
 
-  const handleCheckboxChange = (event, index) => {
-    setSelectedAvatars((prevSelectedAvatars) => {
-      if (event.target.checked) {
-        return [...prevSelectedAvatars, index];
-      } else {
-        return prevSelectedAvatars.filter((id) => id !== index);
-      }
-    });
-  };
-
   const handleCancel = () => {
     setError("");
     setGameUid("");
@@ -271,7 +325,7 @@ const ModalLoad = ({
     <Modal open={action?.type === "load"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
         {!enkaList.length ? (
-          <Stack gap={2}>
+          <Stack spacing={2}>
             <TextField
               label="Enter UID"
               size="small"
@@ -283,7 +337,7 @@ const ModalLoad = ({
               }}
               error={Boolean(error)}
               helperText={error}
-              sx={{ width: 256 }}
+              sx={{ width: 300 }}
             />
             <FormControlLabel
               control={
@@ -308,7 +362,7 @@ const ModalLoad = ({
             </Button>
           </Stack>
         ) : (
-          <Stack gap={2}>
+          <Stack spacing={2}>
             <Typography>Select characters to add</Typography>
             {enkaList.map((avatar, index) => (
               <FormControlLabel
@@ -325,8 +379,8 @@ const ModalLoad = ({
             ))}
 
             <Button
-              variant="contained"
               onClick={handleSave}
+              variant="contained"
               sx={{ width: 80 }}
             >
               Save

@@ -11,7 +11,7 @@ const tint = "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))";
 const Menu = () => {
   return (
     <Container maxWidth="sm">
-      <Stack justifyContent="center" alignItems="center" mt={8} gap={2}>
+      <Stack justifyContent="center" alignItems="center" mt={8} spacing={2}>
         <Button
           className="menuButton"
           component={Link}

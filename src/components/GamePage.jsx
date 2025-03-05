@@ -195,7 +195,7 @@ const GamePage = ({ uid, gameType, gameData, gameIcons }) => {
         </TableContainer>
 
         {/* Add & Load Buttons */}
-        <Stack direction="row" gap={2} my={2}>
+        <Stack direction="row" spacing={2} my={2}>
           <Button
             variant="contained"
             color="primary"

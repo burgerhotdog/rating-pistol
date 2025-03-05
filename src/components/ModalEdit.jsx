@@ -60,7 +60,7 @@ const ModalEdit = ({
   return (
     <Modal open={action?.type === "edit"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
-        <Stack gap={2}>
+        <Stack spacing={2}>
           {action?.item === "character" ? (
             <ModalEditCharacter
               gameType={gameType}
@@ -95,7 +95,7 @@ const ModalEdit = ({
             />
           )}
 
-          <Stack direction="row" justifyContent="center" gap={2}>
+          <Stack direction="row" justifyContent="center" spacing={2}>
             <Button
               onClick={handleCancel}
               variant="outlined"

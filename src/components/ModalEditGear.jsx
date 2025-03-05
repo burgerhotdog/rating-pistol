@@ -40,7 +40,7 @@ const ModalEditGear = ({
             true :
           gameType === "HSR" ?
             id.substring(0, 1) === "3" :
-            id !== action?.data?.info?.set[0];
+            id !== action.data.info.set[0].id;
       })
       .sort((a, b) => {
         const rarityA = SETS[a].rarity;
@@ -52,7 +52,7 @@ const ModalEditGear = ({
   };
 
   const handleSet = (newValue, setType) => {
-    const clearSet2 = gameType === "ZZZ" && setType === "set";
+    const clearSetExtra = gameType === "ZZZ" && setType === "set";
     setAction((prev) => ({
       ...prev,
       data: {
@@ -61,10 +61,10 @@ const ModalEditGear = ({
           ...prev.data.info,
           ...(
             setType === "set" ?
-              { set: [newValue || "", ""] } :
-              { setExtra: newValue || "" }
+              { set: [{ id: newValue || "", bonus: "" }, { id: "", bonus: "" }] } :
+              { setExtra: { id: newValue || "", bonus: "" } }
           ),
-          ...(clearSet2 && prev.set2 === newValue ? { setExtra: "" } : {}),
+          ...(clearSetExtra && prev.setExtra.id === newValue ? { setExtra: { id: "", bonus: "" } } : {}),
         },
       },
     }));
@@ -77,7 +77,7 @@ const ModalEditGear = ({
           <Stack spacing={2}>
             <Autocomplete
               size="small"
-              value={action?.data?.info?.set[0] || ""}
+              value={action?.data?.info?.set[0]?.id || ""}
               options={setOptions("set")}
               getOptionLabel={(id) => SETS[id]?.name || ""}
               onChange={(_, newValue) => handleSet(newValue, "set")}
@@ -109,15 +109,10 @@ const ModalEditGear = ({
                 <TextField
                   {...params}
                   label="Set"
-                  sx={{
-                    "& .MuiInputBase-root": {
-                      color: rarityColor[SETS[action?.data?.info?.set[0]]?.rarity] || "inherit",
-                    }
-                  }}
                 />
               )}
               fullWidth
-              disableClearable={action?.data?.info?.set[0] === ""}
+              disableClearable={action?.data?.info?.set[0]?.id === ""}
             />
             <Card
               sx={{
@@ -128,13 +123,13 @@ const ModalEditGear = ({
                 p: 2
               }}
             >
-              {action?.data?.info?.set[0] ? (
+              {action?.data?.info?.set[0]?.id ? (
                 <Grid container spacing={1}>
                   <Grid size={4}>
                     <Stack alignItems="center">
                       <Box
                         component="img"
-                        src={setsIcons[`../assets/sets/${gameType}/${action?.data?.info?.set[0]}.webp`]?.default}
+                        src={setsIcons[`../assets/sets/${gameType}/${action.data.info.set[0].id}.webp`]?.default}
                         alt=""
                         sx={{ width: 100, height: 100, objectFit: "contain" }}
                       />
@@ -143,10 +138,10 @@ const ModalEditGear = ({
                   <Grid size={8}>
                     <Stack>
                       <Typography variant="subtitle1" fontWeight="bold">
-                        {SETS[action.data.info.set[0]].name}
+                        {SETS[action.data.info.set[0].id].name}
                       </Typography>
                       <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                        {SETS[action.data.info.set[0]].desc}
+                        {SETS[action.data.info.set[0].id].desc}
                       </Typography>
                     </Stack>
                   </Grid>
@@ -164,7 +159,7 @@ const ModalEditGear = ({
             <Stack spacing={2}>
               <Autocomplete
                 size="small"
-                value={action?.data?.info?.setExtra || ""}
+                value={action?.data?.info?.setExtra?.id || ""}
                 options={setOptions("setExtra")}
                 getOptionLabel={(id) => SETS[id]?.name || ""}
                 onChange={(_, newValue) => handleSet(newValue, "setExtra")}
@@ -196,15 +191,10 @@ const ModalEditGear = ({
                   <TextField
                     {...params}
                     label="Set"
-                    sx={{
-                      "& .MuiInputBase-root": {
-                        color: rarityColor[SETS[action?.data?.info?.setExtra]?.rarity] || "inherit",
-                      }
-                    }}
                   />
                 )}
                 fullWidth
-                disableClearable={action?.data?.info?.setExtra === ""}
+                disableClearable={action?.data?.info?.setExtra?.id === ""}
               />
               <Card
                 sx={{
@@ -215,13 +205,13 @@ const ModalEditGear = ({
                   p: 2
                 }}
               >
-                {action?.data?.info?.setExtra ? (
+                {action?.data?.info?.setExtra?.id ? (
                   <Grid container spacing={1}>
                     <Grid size={4}>
                       <Stack alignItems="center">
                         <Box
                           component="img"
-                          src={setsIcons[`../assets/sets/${gameType}/${action?.data?.info?.setExtra}.webp`]?.default}
+                          src={setsIcons[`../assets/sets/${gameType}/${action.data.info.setExtra.id}.webp`]?.default}
                           alt=""
                           sx={{ width: 100, height: 100, objectFit: "contain" }}
                         />
@@ -230,10 +220,10 @@ const ModalEditGear = ({
                     <Grid size={8}>
                       <Stack>
                         <Typography variant="subtitle1" fontWeight="bold">
-                          {SETS[action.data.info.setExtra].name}
+                          {SETS[action.data.info.setExtra.id].name}
                         </Typography>
                         <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                          {SETS[action.data.info.setExtra].desc}
+                          {SETS[action.data.info.setExtra.id].desc}
                         </Typography>
                       </Stack>
                     </Grid>

@@ -48,7 +48,7 @@ const Auth = ({ setUid }) => {
   
   return (
     <Box sx={{ position: "fixed", top: 8, right: 8 }}>
-      <Stack direction="row" alignItems="center" gap={1}>
+      <Stack direction="row" alignItems="center" spacing={1}>
         <Typography variant="button">
           {email}
         </Typography>
