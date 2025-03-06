@@ -1,9 +1,9 @@
-import GI from "../data/gi/gi1";
-import HSR from "../data/hsr/hsr1";
-import WW from "../data/ww/ww1";
-import ZZZ from "../data/zzz/zzz1";
+import gi from "../data/gi/gi";
+import hsr from "../data/hsr/hsr";
+import ww from "../data/ww/ww";
+import zzz from "../data/zzz/zzz";
 
 export default (gameType) => {
-  const data = { GI, HSR, WW, ZZZ };
+  const data = { gi, hsr, ww, zzz };
   return data[gameType];
 };
