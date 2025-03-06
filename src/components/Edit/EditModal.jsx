@@ -14,8 +14,8 @@ import EditGear from "./Gear/EditGear";
 import EditSkills from "./Skills/EditSkills";
 
 const EditModal = ({
-  userId,
   gameId,
+  userId,
   action,
   setAction,
   setLocalObjs,

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { doc, writeBatch } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import {
   Modal,
@@ -10,17 +10,17 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
-import { templateInfo, templateGear } from "../template";
+import template from "../template";
 import getData from "../getData";
 import getIcons from "../getIcons";
 
 const AddModal = ({
-  userId,
   gameId,
+  userId,
   action,
   setAction,
-  localObjs,
-  setLocalObjs,
+  localDocs,
+  setLocalDocs,
 }) => {
   const theme = useTheme();
   const { generalData, avatarData } = getData(gameId);
@@ -55,32 +55,21 @@ const AddModal = ({
 
   const handleAdd = async () => {
     setIsLoading(true);
-    const info = templateInfo(gameId);
-    info.characterLevel = generalData.LEVEL_CAP.toString();
-    info.characterRank = "0";
-    for (const skill in info.skills) {
-      info.skills[skill] = "1";
-    }
-
-    const gearList = Array(5).fill(null).map(() => templateGear(gameId));
-    if (gameId === "HSR" || gameId === "ZZZ") {
-      gearList.push(templateGear(gameId));
+    const data = template(gameId);
+    data.level = generalData.LEVEL_CAP;
+    data.rank = 0;
+    for (const skill in data.skillMap) {
+      info.skillMap[skill] = 1;
     }
 
     if (userId) {
-      const batch = writeBatch(db);
-      const infoDocRef = doc(db, "users", userId, gameId, action.id);
-      batch.set(infoDocRef, info, { merge: true });
-      for (const [index, gearObj] of gearList.entries()) {
-        const gearDocRef = doc(db, "users", userId, gameId, action.id, "gearList", index.toString());
-        batch.set(gearDocRef, gearObj, { merge: true });
-      }
-      await batch.commit();
+      const docRef = doc(db, "users", userId, gameId, action.id);
+      await setDoc(docRef, data, { merge: true });
     }
 
-    setLocalObjs((prev) => ({
+    setLocalDocs((prev) => ({
       ...prev,
-      [action.id]: { info, gearList },
+      [action.id]: data,
     }));
 
     setIsLoading(false);

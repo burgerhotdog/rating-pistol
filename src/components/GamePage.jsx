@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
@@ -32,55 +32,53 @@ import getData from "./getData";
 
 const GamePage = ({ gameId, userId }) => {
   const { generalData } = getData(gameId);
-  const [localObjs, setLocalObjs] = useState({});
-  const [sortedObjs, setSortedObjs] = useState([]);
-  const [hoveredRow, setHoveredRow] = useState(null);
+  const [localDocs, setLocalDocs] = useState({});
+  const [sortedDocs, setSortedDocs] = useState([]);
+  const [hoveredRowId, setHoveredRowId] = useState(null);
   const [action, setAction] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  // get localObjs from firestore
+  // get localDocs from firestore
   useEffect(() => {
     const fetchDB = async () => {
       if (userId) {
-        setIsLoading(true);
-        const infoDocsRef = collection(db, "users", userId, gameId);
-        const infoDocs = await getDocs(infoDocsRef);
-        const dataObjs = {};
-        for (const infoDoc of infoDocs.docs) {
-          const gearDocsRef = collection(db, "users", userId, gameId, infoDoc.id, "gearList");
-          const gearDocs = await getDocs(gearDocsRef);
-          const gearList = [];
-          for (const gearDoc of gearDocs.docs) {
-            gearList.push(gearDoc.data());
+        try {
+          setIsLoading(true);
+          const dataRef = collection(db, "users", userId, gameId);
+          const data = await getDocs(dataRef);
+          const dataDocs = {};
+          for (const doc of data.docs) {
+            dataDocs[doc.id] = doc.data();
           };
-          dataObjs[infoDoc.id] = {
-            info: infoDoc.data(),
-            gearList,
-          };
-        };
-        setLocalObjs(dataObjs);
-        setIsLoading(false);
+          setLocalDocs(dataDocs);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setIsLoading(false);
+        }
       } else {
-        setLocalObjs({});
+        setLocalDocs({});
       }
     };
     fetchDB();
   }, [userId]);
 
-  // rate and sort localObjs for display table
+  // rate and sort localDocs for display table
   useEffect(() => {
-    const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
+    const ratedObjs = Object.entries(localDocs).map(([id, data]) => ({
       id,
       data,
       rating: getRating(gameId, id, data),
     }));
-    ratedObjs.sort((a, b) =>
-      a.data.info.isStar === b.data.info.isStar
+
+    ratedObjs.sort((a, b) => 
+      a.data.isStar === b.data.isStar
         ? b.rating.final - a.rating.final
-        : a.data.info.isStar ? -1 : 1
+        : a.data.isStar ? -1 : 1
     );
-    setSortedObjs(ratedObjs);
-  }, [localObjs]);
+
+    setSortedDocs(ratedObjs);
+  }, [localDocs]);
 
   const handleAdd = () => {
     setAction({
@@ -127,18 +125,18 @@ const GamePage = ({ gameId, userId }) => {
                   <TableCell sx={{ borderBottom: "none" }} />
                 </TableRow>
               ) : (
-                sortedObjs.map(({ id, data, rating }) => (
+                sortedDocs.map(({ id, data, rating }) => (
                   <TableRow
                     key={id}
-                    onMouseEnter={() => setHoveredRow(id)}
-                    onMouseLeave={() => setHoveredRow(null)}
+                    onMouseEnter={() => setHoveredRowId(id)}
+                    onMouseLeave={() => setHoveredRowId(null)}
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
                     <TableCell>
                       <TableStar
                         userId={userId}
                         gameId={gameId}
-                        setLocalObjs={setLocalObjs}
+                        setLocalDocs={setLocalDocs}
                         id={id}
                         data={data}
                       />
@@ -190,7 +188,7 @@ const GamePage = ({ gameId, userId }) => {
                         setAction={setAction}
                         id={id}
                         data={data}
-                        hoveredRow={hoveredRow}
+                        hoveredRowId={hoveredRowId}
                       />
                     </TableCell>
                   </TableRow>
@@ -212,7 +210,7 @@ const GamePage = ({ gameId, userId }) => {
             onClick={handleLoad}
             variant="contained"
             endIcon={<KeyboardArrowRight />}
-            disabled={gameId === "WW" || gameId === "ZZZ"}
+            disabled={gameId === "ww" || gameId === "zzz"}
           >
             Load from UID
           </Button>
@@ -223,30 +221,30 @@ const GamePage = ({ gameId, userId }) => {
           gameId={gameId}
           action={action}
           setAction={setAction}
-          localObjs={localObjs}
-          setLocalObjs={setLocalObjs}
+          localDocs={localDocs}
+          setLocalDocs={setLocalDocs}
         />
         <DeleteModal
           userId={userId}
           gameId={gameId}
           action={action}
           setAction={setAction}
-          setLocalObjs={setLocalObjs}
+          setLocalDocs={setLocalDocs}
         />
         <EditModal
           userId={userId}
           gameId={gameId}
           action={action}
           setAction={setAction}
-          setLocalObjs={setLocalObjs}
+          setLocalDocs={setLocalDocs}
         />
-        {(gameId === "GI" || gameId === "HSR") && (
+        {(gameId === "gi" || gameId === "hsr") && (
           <LoadModal
             userId={userId}
             gameId={gameId}
             action={action}
             setAction={setAction}
-            setLocalObjs={setLocalObjs}
+            setLocalDocs={setLocalDocs}
           />
         )}
       </Stack>

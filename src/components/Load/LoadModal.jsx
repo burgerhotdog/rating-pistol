@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { writeBatch, doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import {
   Box,
@@ -13,31 +13,31 @@ import {
   useTheme,
 } from "@mui/material";
 import { templateInfo, templateGear } from "../template";
-import enkaStatKey from "./enkaStatKey";
+import translate from "./translate";
 import getData from "../getData";
 
 const ModalLoad = ({
-  user,
   gameId,
+  userId,
   action,
   setAction,
-  setLocalObjs,
+  setLocalDocs,
 }) => {
   const theme = useTheme();
   const { avatarData } = getData(gameId);
-  const [error, setError] = useState("");
-  const [gameUid, setGameUid] = useState("");
+  const [error, setError] = useState(false);
+  const [uid, setUid] = useState(null);
+  const [rememberUid, setRememberUid] = useState(false);
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [rememberUid, setRememberUid] = useState(false);
-  const statKey = enkaStatKey[gameId];
+  const statKey = translate(gameId);
 
   const suffix = {
-    GI: "uid/",
-    HSR: "hsr/uid/",
-    WW: "",
-    ZZZ: "zzz/uid/"
+    gi: "uid/",
+    hsr: "hsr/uid/",
+    ww: "",
+    zzz: "zzz/uid/"
   };
 
   const equipTypeToIndexGI = {
@@ -49,94 +49,67 @@ const ModalLoad = ({
   };
 
   useEffect(() => {
-    const fetchUserUid = async () => {
-      if (!user) return;
+    const fetchUid = async () => {
+      if (!userId) return;
   
-      const userDocRef = doc(db, "users", user.uid);
-      const userDoc = await getDoc(userDocRef);
+      const userRef = doc(db, "users", userId);
+      const userdoc = await getDoc(userRef);
   
-      if (userDoc.exists()) {
-        const storedUid = userDoc.data()?.[`${gameId}_UID`];
-        if (storedUid) {
-          setGameUid(storedUid);
+      if (userdoc.exists()) {
+        const newUid = userdoc.data()?.[`${gameId}_uid`];
+        if (newUid) {
+          setUid(newUid);
           setRememberUid(true);
+        } else {
+          setUid(null);
+          setRememberUid(false);
         }
       }
     };
   
     if (action?.type === "load") {
-      fetchUserUid();
+      fetchUid();
     }
   }, [action]);
   
   // gi 604379917
   // hsr 602849613
   const fetchPlayerData = async () => {
-    const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix[gameId]+gameUid}/`);
-    const data = await response.json();
+    const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix[gameId]+uid}/`);
+    const rawEnka = await response.json();
+    const { maleToFemale } = translate(gameId);
     
     switch (gameId) {
-      case "GI": {
-        const maleToFemale = {
-          "10000005-2": "10000007-2", // pyro
-          "10000005-3": "10000007-3", // hydro
-          "10000005-8": "10000007-8", // dendro
-          "10000005-7": "10000007-7", // electro
-          "10000005-6": "10000007-6", // geo
-          "10000005-4": "10000007-4", // anemo
-        };
+      case "GI":
+        for (const rawItem of rawEnka.avatarInfoList) {
+          if (maleToFemale[rawItem.avatarId]) {
+            rawItem.avatarId = maleToFemale[rawItem.avatarId];
+          }
+        }
+        setEnkaList(rawEnka.avatarInfoList);
+      break;
 
-        for (const avatar of data.avatarInfoList ) {
-          if (maleToFemale[avatar.avatarId]) {
-            avatar.avatarId = maleToFemale[avatar.avatarId];
+      case "HSR":
+        for (const rawItem of rawEnka.detailInfo.avatarDetailList ) {
+          if (maleToFemale[rawItem.avatarId]) {
+            rawItem.avatarId = maleToFemale[rawItem.avatarId];
           }
         }
 
-        setEnkaList(data.avatarInfoList);
-      } break;
-
-      case "HSR": {
-        const maleToFemale = {
-          "8007": "8008", // remembrance
-          "8005": "8006", // harmony
-          "8003": "8004", // preservation
-          "8001": "8002", // destruction
-        };
-
-        for (const avatar of data.detailInfo.avatarDetailList ) {
-          if (maleToFemale[avatar.avatarId]) {
-            avatar.avatarId = maleToFemale[avatar.avatarId];
-          }
-        }
-
-        setEnkaList(data.detailInfo.avatarDetailList);
-      } break;
-
-      case "ZZZ": {
-        // setEnkaList(data);
-      } break;
-
-      case "WW": {
-        const maleToFemale = {
-          "1605": "1604", // havoc
-          "1501": "1502", // spectro
-        };
-
-        // setEnkaList(data);
-      } break;
+        setEnkaList(rawEnka.detailInfo.avatarDetailList);
+      break;
     }
-
-    setError("");
+    setError(false);
   };
 
   const handleNext = async () => {
-    if (/^\d{9,10}$/.test(gameUid)) {
+    if (/^\d{9,10}$/.test(uid)) {
       setIsLoading(true);
       await fetchPlayerData();
 
-      if (user && rememberUid) {
-        const userDocRef = doc(db, "users", user.uid);
-        await setDoc(userDocRef, { [`${gameId}_UID`]: gameUid}, { merge: true });
+      if (userId && rememberUid) {
+        const userDocRef = doc(db, "users", userId);
+        await setDoc(userDocRef, { [`${gameId}_UID`]: uid}, { merge: true });
       }
 
       setIsLoading(false);
@@ -158,165 +131,112 @@ const ModalLoad = ({
   const handleSave = async () => {
     setIsLoading(true);
     const charBuffer =
-      gameId === "GI" ?
+      gameId === "gi" ?
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
           const id = charObj.avatarId.toString();
-          const info = templateInfo(gameId);
-          const gearList = Array(5).fill(null).map(() => templateGear(gameId));
+          const data = template(gameId);
 
-          // character
-          info.characterLevel = charObj.propMap["4001"].val;
-          info.characterRank = (charObj.talentIdList?.length ?? 0).toString();
+          // avatar
+          data.level = charObj.propMap["4001"].val;
+          data.rank = charObj.talentIdList?.length ?? 0;
     
           // weapon
           const weaponObj = charObj.equipList[charObj.equipList.length - 1];
-          info.weapon = weaponObj.itemId.toString();
-          info.weaponLevel = weaponObj.weapon.level.toString();
-          info.weaponRank = (Object.values(weaponObj.weapon.affixMap ?? { rank: 0 })[0] + 1).toString();
+          data.weaponId = weaponObj.itemId.toString();
+          data.weaponLevel = weaponObj.weapon.level;
+          data.weaponRank = (Object.values(weaponObj.weapon.affixMap ?? { rank: 0 })[0] + 1);
 
-          // gear
-          const setCounts = {};
+          // equipList
           const equipListArr = charObj.equipList.slice(0, -1);
           for (const equipObj of equipListArr) {
-            const gearIndex = equipTypeToIndexGI[equipObj.flat.equipType];
-            const currSet = equipObj.flat.icon.substring(13, 18);
-            setCounts[currSet] = (setCounts[currSet] || 0) + 1;
-            gearList[gearIndex].mainstat = statKey.MAIN[equipObj.flat.reliquaryMainstat.mainPropId];
+            const equipIndex = equipTypeToIndexGI[equipObj.flat.equipType];
+            data.equipList[equipIndex].setId = equipObj.flat.icon.substring(13, 18);
+            data.equipList[equipIndex].key = statKey.MAIN[equipObj.flat.reliquaryMainstat.mainPropId];
             const reliqSubArr = equipObj.flat.reliquarySubstats;
             for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
-              gearList[gearIndex][subIndex][0] = statKey.SUB[reliqSubObj.appendPropId];
-              gearList[gearIndex][subIndex][1] = reliqSubObj.statValue.toString();
-            }
-          }
-          let alreadyTwoPiece = false;
-          for (const set in setCounts) {
-            if (setCounts[set] >= 4) {
-              info.set[0] = { id: set, bonus: "4" };
-              break;
-            } else if (setCounts[set] >= 2) {
-              if (!alreadyTwoPiece) {
-                info.set[0] = { id: set, bonus: "2" };
-                alreadyTwoPiece = true;
-              } else {
-                info.set[1] = { id: set, bonus: "2" };
-              }
+              data.equipList[equipIndex].statMap[subIndex].key = statKey.SUB[reliqSubObj.appendPropId];
+              data.equipList[equipIndex].statMap[subIndex].value = reliqSubObj.statValue.toString();
             }
           }
 
-          // skills
+          // skillMap
           const skillsArr = Object.values(charObj.skillLevelMap);
-          info.skills.basic = skillsArr[0].toString();
-          info.skills.skill = skillsArr[1].toString();
-          info.skills.ult = skillsArr[2].toString();
+          data.skillMap.basic = skillsArr[0];
+          data.skillMap.skill = skillsArr[1];
+          data.skillMap.ult = skillsArr[2];
 
-          return { id, info, gearList };
+          return { id, data };
         }) :
-      gameId === "HSR" ?
+      gameId === "hsr" ?
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
           const id = charObj.avatarId.toString();
-          const info = templateInfo(gameId);
-          const gearList = Array(6).fill(null).map(() => templateGear(gameId));
+          const data = template(gameId);
 
-          // character
-          info.characterLevel = charObj.level.toString();
-          info.characterRank = (charObj.rank ?? 0).toString();
+          // avatar
+          data.level = charObj.level.toString();
+          data.rank = charObj.rank ?? 0;
 
           // weapon
           const weaponObj = charObj.equipment;
-          info.weapon = (weaponObj?.tid ?? "").toString();
-          info.weaponLevel = (weaponObj?.level ?? "").toString();
-          info.weaponRank = (weaponObj?.rank ?? "").toString();
+          data.weaponId = (weaponObj?.tid ?? "").toString();
+          data.weaponLevel = weaponObj?.level ?? null;
+          data.weaponRank = weaponObj?.rank ?? null;
 
-          // gear
-          const setCounts = {};
-          const setExtraCounts = {};
+          // equipList
           const relicListArr = charObj.relicList;
           for (const relicObj of relicListArr) {
-            const gearIndex = relicObj.type - 1;
-            const currSet = relicObj._flat.setID.toString();
-            if (gearIndex <= 3) {
-              setCounts[currSet] = (setCounts[currSet] || 0) + 1;
-            } else {
-              setExtraCounts[currSet] = (setExtraCounts[currSet] || 0) + 1;
-            }
-            gearList[gearIndex].mainstat = statKey.MAIN[relicObj._flat.props[0].type];
+            const equipIndex = relicObj.type - 1;
+            equipList[equipIndex].setId = relicObj._flat.setID.toString();
+            equipList[equipIndex].key = statKey.MAIN[relicObj._flat.props[0].type];
             const subPropsArr = relicObj._flat.props.slice(1);
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
-              gearList[gearIndex][subIndex][0] = statKey.SUB[subPropObj.type];
+              equipList[equipIndex].statMap[subIndex].key = statKey.SUB[subPropObj.type];
               const ratio = subPropObj.type.slice(-5) === "Delta" ? 1 : 100;
               const roundAmount = ratio === 1 ? 1 : 10;
-              gearList[gearIndex][subIndex][1] = (Math.round((subPropObj.value * ratio) * roundAmount) / roundAmount).toString() || "";
-            }
-          }
-          let alreadyTwoPiece = false;
-          for (const set in setCounts) {
-            if (setCounts[set] >= 4) {
-              info.set[0] = { id: set, bonus: "4" };
-              break;
-            } else if (setCounts[set] >= 2) {
-              if (!alreadyTwoPiece) {
-                info.set[0] = { id: set, bonus: "2" };
-                alreadyTwoPiece = true;
-              } else {
-                info.set[1] = { id: set, bonus: "2" };
-              }
-            }
-          }
-          for (const set in setExtraCounts) {
-            if (setExtraCounts[set] === 2) {
-              info.setExtra = { id: set, bonus: "2" };
-              break;
+              equipList[equipIndex].statMap[subIndex].value = Math.round((subPropObj.value * ratio) * roundAmount) / roundAmount;
             }
           }
 
-          // skills
+          // skillMap
           const skillsArr = charObj.skillTreeList;
-          info.skills.basic = skillsArr[0].level.toString();
-          info.skills.skill = skillsArr[1].level.toString();
-          info.skills.ult = skillsArr[2].level.toString();
-          info.skills.talent = skillsArr[3].level.toString();
+          data.skillMap.basic = skillsArr[0].level;
+          data.skillMap.skill = skillsArr[1].level;
+          data.skillMap.ult = skillsArr[2].level;
+          data.skillMap.talent = skillsArr[3].level;
 
-          return { id, info, gearList };
+          return { id, data };
         }) :
-      gameId === "WW" ?
+      gameId === "ww" ?
         [] :
-      gameId === "ZZZ" &&
+      gameId === "zzz" &&
         [];
 
     // update states
     for (const char of charBuffer) {
-      if (user) {
-        const batch = writeBatch(db);
-        const infoDocRef = doc(db, "users", user.uid, gameId, char.id);
-        batch.set(infoDocRef, char.info, { merge: false });
-        for (const [index, gearObj] of char.gearList.entries()) {
-          const gearDocRef = doc(db, "users", user.uid, gameId, char.id, "gearList", index.toString());
-          batch.set(gearDocRef, gearObj, { merge: false });
-        }
-        await batch.commit();
+      if (userId) {
+        const docRef = doc(db, "users", userId, gameId, char.id);
+        await setDoc(docRef, char.data, { merge: false });
       }
 
-      setLocalObjs((prev) => ({
+      setLocalDocs((prev) => ({
         ...prev,
-        [char.id]: { info: char.info, gearList: char.gearList },
+        [char.id]: char.data,
       }));
     }
 
     // cleanup
-    setError("");
+    setError(false);
     setSelectedAvatars([]);
     setEnkaList([]);
     setIsLoading(false);
-    setGameUid("");
     setRememberUid(false);
     setAction({});
   };
 
   const handleCancel = () => {
-    setError("");
-    setGameUid("");
+    setError(false);
     setEnkaList([]);
     setSelectedAvatars([]);
     setIsLoading(false);
@@ -333,14 +253,14 @@ const ModalLoad = ({
               <TextField
                 label="Enter UID"
                 size="small"
-                value={gameUid}
+                value={uid ?? ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*$/.test(newValue);
-                  if (isValidNumber) setGameUid(newValue);
+                  if (isValidNumber) setUid(newValue);
                 }}
-                error={Boolean(error)}
-                helperText={error}
+                error={error}
+                helperText="Invalid UID"
                 fullWidth
               />
               <Stack direction="row" alignItems="center">
@@ -348,7 +268,7 @@ const ModalLoad = ({
                   onChange={() => setRememberUid(!rememberUid)}
                   checked={rememberUid}
                   size="small"
-                  disabled={!user}
+                  disabled={!userId}
                 />
                 <Typography variant="body2" sx={{ color: "text.disabled" }}>
                   Remember UID (requires sign-in)

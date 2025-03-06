@@ -6,7 +6,7 @@ const TableDelete = ({
   setAction,
   id,
   data,
-  hoveredRow,
+  hoveredRowId,
 }) => {
   const openModal = () => {
     setAction({
@@ -23,7 +23,7 @@ const TableDelete = ({
         cursor="pointer"
         color="disabled"
         sx={{
-          opacity: hoveredRow === id ? 1 : 0,
+          opacity: hoveredRowId === id ? 1 : 0,
           transition: "opacity 0.3s ease, color 0.3s ease",
           "&:hover": { color: "secondary.main" },
         }}

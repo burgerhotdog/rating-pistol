@@ -8,33 +8,30 @@ import { db } from "../../firebase";
 const TableStar = ({
   userId,
   gameId,
-  setLocalObjs,
+  setLocalDocs,
   id,
   data,
 }) => {
   const toggleStar = async () => {
-    const newValue = !Boolean(data.info.isStar);
+    const newValue = !Boolean(data.isStar);
 
     if (userId) {
       const infoDocRef = doc(db, "users", userId, gameId, id);
       await setDoc(infoDocRef, { isStar: newValue }, { merge: true });
     }
 
-    setLocalObjs((prev) => ({
+    setLocalDocs((prev) => ({
       ...prev,
       [id]: {
         ...prev[id],
-        info: {
-          ...prev[id].info,
-          isStar: newValue,
-        },
-      }
+        isStar: newValue,
+      },
     }));
   }
 
   return (
     <Stack alignItems="center">
-      {data.info.isStar ? (
+      {data.isStar ? (
         <StarIcon
           onClick={toggleStar}
           cursor="pointer"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { doc, writeBatch } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import {
   Modal,
@@ -12,11 +12,11 @@ import {
 import getData from "../getData";
 
 const DeleteModal = ({
-  userId,
   gameId,
+  userId,
   action,
   setAction,
-  setLocalObjs,
+  setLocalDocs,
 }) => {
   const theme = useTheme();
   const { avatarData } = getData(gameId);
@@ -24,22 +24,15 @@ const DeleteModal = ({
   
   const handleDelete = async () => {
     setIsLoading(true);
-    
     if (userId) {
-      const batch = writeBatch(db);
-      for (const index of action.data.gearList.keys()) {
-        const gearDocRef = doc(db, "users", userId, gameId, action.id, "gearList", index.toString());
-        batch.delete(gearDocRef);
-      }
-      const infoDocRef = doc(db, "users", userId, gameId, action.id);
-      batch.delete(infoDocRef);
-      await batch.commit();
+      const docRef = doc(db, "users", userId, gameId, action.id);
+      await deleteDoc(docRef);
     }
 
-    setLocalObjs((prev) => {
-      const newObjs = { ...prev };
-      delete newObjs[action.id];
-      return newObjs;
+    setLocalDocs((prev) => {
+      const newDocs = { ...prev };
+      delete newDocs[action.id];
+      return newDocs;
     });
 
     setIsLoading(false);

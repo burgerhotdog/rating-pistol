@@ -21,13 +21,12 @@ const TableGear = ({
     });
   };
 
-  const addOrEdit = data.info.set[0].id || data.info.setExtra.id ? "Edit" : "Add";
   const sectionName = generalData.SECTION_NAMES[2];
 
   return (
     <Stack alignItems="center">
-      <Tooltip title={`${addOrEdit} ${sectionName}`} arrow>
-        {data.info.set[0].id || data.info.setExtra.id ? (
+      <Tooltip title={`Edit ${sectionName}`} arrow>
+        {data.set[0].id || data.setExtra.id ? (
           <Stack
             onClick={openModal}
             direction="row"
@@ -38,24 +37,24 @@ const TableGear = ({
             {data.info.set[0].id && (
               <Box
                 component="img"
-                alt={data.info.set[0].id}
-                src={setIcons[`./${data.info.set[0].id}.webp`]?.default}
+                alt={data.set[0].id}
+                src={setIcons[`./${data.set[0].id}.webp`]?.default}
                 sx={{ width: 50, height: 50, objectFit: "contain" }}
               />
             )}
             {data.info.set[1].id && (
               <Box
                 component="img"
-                alt={data.info.set[1].id}
-                src={setIcons[`./${data.info.set[1].id}.webp`]?.default}
+                alt={data.set[1].id}
+                src={setIcons[`./${data.set[1].id}.webp`]?.default}
                 sx={{ width: 50, height: 50, objectFit: "contain" }}
               />
             )}
             {data.info.setExtra.id && (
               <Box
                 component="img"
-                alt={data.info.setExtra.id}
-                src={setIcons[`./${data.info.setExtra.id}.webp`]?.default}
+                alt={data.setExtra.id}
+                src={setIcons[`./${data.setExtra.id}.webp`]?.default}
                 sx={{ width: 50, height: 50, objectFit: "contain" }}
               />
             )}

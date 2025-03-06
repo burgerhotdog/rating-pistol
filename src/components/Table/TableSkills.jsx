@@ -19,12 +19,11 @@ const TableSkills = ({
     });
   };
 
-  const addOrEdit = "Edit";
   const sectionName = generalData.SECTION_NAMES[3];
 
   return (
     <Stack alignItems="center">
-      <Tooltip title={`${addOrEdit} ${sectionName}`} arrow>
+      <Tooltip title={`Edit ${sectionName}`} arrow>
         <Typography
           onClick={openModal}
           variant="body1"

@@ -1,35 +1,44 @@
-const templateInfo = (gameId) => {
+export default (gameId) => {
+  const equipLength = (gameId === "gi" || gameId === "ww") ? 5 : 6;
   return {
-    characterLevel: "",
-    characterRank: "",
+    isStar: false,
 
-    weapon: "",
-    weaponLevel: "",
-    weaponRank: "",
+    level: null,
+    rank: null,
 
-    set: [{ id: "", bonus: "" }, { id: "", bonus: "" }],
-    setExtra: { id: "", bonus: "" },
+    weaponId: null,
+    weaponLevel: null,
+    weaponRank: null,
 
-    skills: {
-      basic: "",
-      skill: "",
-      ult: "",
-      ...(gameId === "HSR" ? { talent: "" } : {}),
-      ...(gameId === "WW" ? { forte: "", intro: "" } : {}),
-      ...(gameId === "ZZZ" ? { dodge: "", assist: "", core: "" } : {}),
+    equipList: Array(equipLength)
+      .fill()
+      .map(() => ({
+        setId: null,
+        key: null,
+        statMap: {
+          0: { key: null, value: null },
+          1: { key: null, value: null },
+          2: { key: null, value: null },
+          3: { key: null, value: null },
+          ...(gameId === "ww"
+            ? { 4: { key: null, value: null } }
+            : {}),
+        },
+      })),
+
+    skillMap: {
+      basic: null,
+      skill: null,
+      ult: null,
+      ...(gameId === "hsr"
+        ? { talent: null }
+        : {}),
+      ...(gameId === "ww"
+        ? { forte: null, intro: null }
+        : {}),
+      ...(gameId === "zzz"
+        ? { dodge: null, assist: null, core: null }
+        : {}),
     },
   };
 };
-
-const templateGear = (gameId) => {
-  return {
-    mainstat: "",
-    0: ["", ""],
-    1: ["", ""],
-    2: ["", ""],
-    3: ["", ""],
-    ...( gameId === "WW" ? { 4: ["", ""]} : {}),
-  };
-};
-
-export { templateInfo, templateGear };

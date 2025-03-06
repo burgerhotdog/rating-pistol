@@ -21,12 +21,11 @@ const TableCharacter = ({
     });
   };
 
-  const addOrEdit = "Edit";
   const sectionName = generalData.SECTION_NAMES[0];
 
   return (
     <Stack>
-      <Tooltip title={`${addOrEdit} ${sectionName}`} arrow>
+      <Tooltip title={`Edit ${sectionName}`} arrow>
         <Stack
           onClick={openModal}
           direction="row"
