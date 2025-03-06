@@ -30,7 +30,7 @@ import TableRating from "./Table/TableRating";
 import TableDelete from "./Table/TableDelete";
 import getData from "./getData";
 
-const GamePage = ({ uid, gameType }) => {
+const GamePage = ({ user, gameType }) => {
   const { INFO } = getData(gameType);
   const [localObjs, setLocalObjs] = useState({});
   const [sortedObjs, setSortedObjs] = useState([]);
@@ -41,13 +41,13 @@ const GamePage = ({ uid, gameType }) => {
   // get localObjs from firestore
   useEffect(() => {
     const fetchDB = async () => {
-      if (uid) {
+      if (user) {
         setIsLoading(true);
-        const infoDocsRef = collection(db, "users", uid, gameType);
+        const infoDocsRef = collection(db, "users", user.uid, gameType);
         const infoDocs = await getDocs(infoDocsRef);
         const dataObjs = {};
         for (const infoDoc of infoDocs.docs) {
-          const gearDocsRef = collection(db, "users", uid, gameType, infoDoc.id, "gearList");
+          const gearDocsRef = collection(db, "users", user.uid, gameType, infoDoc.id, "gearList");
           const gearDocs = await getDocs(gearDocsRef);
           const gearList = [];
           for (const gearDoc of gearDocs.docs) {
@@ -65,7 +65,7 @@ const GamePage = ({ uid, gameType }) => {
       }
     };
     fetchDB();
-  }, [uid]);
+  }, [user]);
 
   // rate and sort localObjs for display table
   useEffect(() => {
@@ -136,7 +136,7 @@ const GamePage = ({ uid, gameType }) => {
                     <TableCell sx={{ borderBottom: "none" }} />
                     <TableCell>
                       <TableStar
-                        uid={uid}
+                        user={user}
                         gameType={gameType}
                         setLocalObjs={setLocalObjs}
                         id={id}
@@ -219,7 +219,7 @@ const GamePage = ({ uid, gameType }) => {
         </Stack>
 
         <AddModal
-          uid={uid}
+          user={user}
           gameType={gameType}
           action={action}
           setAction={setAction}
@@ -227,14 +227,14 @@ const GamePage = ({ uid, gameType }) => {
           setLocalObjs={setLocalObjs}
         />
         <DeleteModal
-          uid={uid}
+          user={user}
           gameType={gameType}
           action={action}
           setAction={setAction}
           setLocalObjs={setLocalObjs}
         />
         <EditModal
-          uid={uid}
+          user={user}
           gameType={gameType}
           action={action}
           setAction={setAction}
@@ -242,7 +242,7 @@ const GamePage = ({ uid, gameType }) => {
         />
         {(gameType === "GI" || gameType === "HSR") && (
           <LoadModal
-            uid={uid}
+            user={user}
             gameType={gameType}
             action={action}
             setAction={setAction}

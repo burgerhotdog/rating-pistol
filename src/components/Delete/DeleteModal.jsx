@@ -12,7 +12,7 @@ import {
 import getData from "../getData";
 
 const DeleteModal = ({
-  uid,
+  user,
   gameType,
   action,
   setAction,
@@ -25,13 +25,13 @@ const DeleteModal = ({
   const handleDelete = async () => {
     setIsLoading(true);
     
-    if (uid) {
+    if (user) {
       const batch = writeBatch(db);
       for (const index of action.data.gearList.keys()) {
-        const gearDocRef = doc(db, "users", uid, gameType, action.id, "gearList", index.toString());
+        const gearDocRef = doc(db, "users", user.uid, gameType, action.id, "gearList", index.toString());
         batch.delete(gearDocRef);
       }
-      const infoDocRef = doc(db, "users", uid, gameType, action.id);
+      const infoDocRef = doc(db, "users", user.uid, gameType, action.id);
       batch.delete(infoDocRef);
       await batch.commit();
     }

@@ -14,7 +14,7 @@ import EditGear from "./Gear/EditGear";
 import EditSkills from "./Skills/EditSkills";
 
 const EditModal = ({
-  uid,
+  user,
   gameType,
   action,
   setAction,
@@ -26,12 +26,12 @@ const EditModal = ({
   const handleSave = async () => {
     setIsLoading(true);
     
-    if (uid) {
+    if (user) {
       const batch = writeBatch(db);
-      const infoDocRef = doc(db, "users", uid, gameType, action.id);
+      const infoDocRef = doc(db, "users", user.uid, gameType, action.id);
       batch.set(infoDocRef, action.data.info, { merge: true });
       for (const [index, gearObj] of action.data.gearList.entries()) {
-        const gearDocRef = doc(db, "users", uid, gameType, action.id, "gearList", index.toString());
+        const gearDocRef = doc(db, "users", user.uid, gameType, action.id, "gearList", index.toString());
         batch.set(gearDocRef, gearObj, { merge: true });
       }
       await batch.commit();

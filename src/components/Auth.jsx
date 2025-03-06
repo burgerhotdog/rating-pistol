@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   browserLocalPersistence,
   GoogleAuthProvider,
@@ -11,52 +11,57 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { Box, Stack, Button, Typography } from "@mui/material";
 import { auth, db } from "../firebase";
 
-const Auth = ({ setUid }) => {
-  const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+const Auth = ({ user, setUser }) => {
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const userDocRef = doc(db, "users", user.uid);
-        const userDoc = await getDoc(userDocRef);
-        if (!userDoc.exists()) {
-          await setDoc(userDocRef, { email: user.email }, { merge: true });
+    const unsubscribe = onAuthStateChanged(auth, async (newUser) => {
+      try {
+        if (newUser) {
+          // firestore state
+          const userDocRef = doc(db, "users", newUser.uid);
+          const userDoc = await getDoc(userDocRef);
+          if (!userDoc.exists()) {
+            await setDoc(userDocRef, { email: newUser.email }, { merge: true });
+          }
+  
+          // local state
+          setUser(newUser);
+        } else {
+          setUser(null);
         }
-
-        setUid(user.uid);
-        setEmail(user.email);
-      } else {
-        setUid(null);
-        setEmail("");
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     });
+
     return () => unsubscribe();
   }, []);
 
-  const handleSignIn = async () => {
+  const handleAuth = async () => {
     setIsLoading(true);
-    await setPersistence(auth, browserLocalPersistence);
-    await signInWithPopup(auth, new GoogleAuthProvider());
-  };
-
-  const handleSignOut = async () => {
-    setIsLoading(true);
-    await signOut(auth);
+    try {
+      if (user) {
+        await signOut(auth);
+      } else {
+        await setPersistence(auth, browserLocalPersistence);
+        await signInWithPopup(auth, new GoogleAuthProvider());
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   
   return (
     <Box sx={{ position: "fixed", top: 8, right: 8 }}>
       <Stack direction="row" alignItems="center" spacing={1}>
         <Typography variant="button">
-          {email}
+          {user?.email ?? ""}
         </Typography>
-        <Button
-          onClick={email ? handleSignOut : handleSignIn}
-          loading={isLoading}
-        >
-          {email ? "Sign Out" : "Sign In"}
+        <Button onClick={handleAuth} loading={isLoading}>
+          {user ? "Sign Out" : "Sign In"}
         </Button>
       </Stack>
     </Box>

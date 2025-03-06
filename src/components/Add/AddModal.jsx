@@ -15,7 +15,7 @@ import getData from "../getData";
 import getIcons from "../getIcons";
 
 const AddModal = ({
-  uid,
+  user,
   gameType,
   action,
   setAction,
@@ -67,12 +67,12 @@ const AddModal = ({
       gearList.push(templateGear(gameType));
     }
 
-    if (uid) {
+    if (user) {
       const batch = writeBatch(db);
-      const infoDocRef = doc(db, "users", uid, gameType, action.id);
+      const infoDocRef = doc(db, "users", user.uid, gameType, action.id);
       batch.set(infoDocRef, info, { merge: true });
       for (const [index, gearObj] of gearList.entries()) {
-        const gearDocRef = doc(db, "users", uid, gameType, action.id, "gearList", index.toString());
+        const gearDocRef = doc(db, "users", user.uid, gameType, action.id, "gearList", index.toString());
         batch.set(gearDocRef, gearObj, { merge: true });
       }
       await batch.commit();

@@ -17,7 +17,7 @@ import enkaStatKey from "./enkaStatKey";
 import getData from "../getData";
 
 const ModalLoad = ({
-  uid,
+  user,
   gameType,
   action,
   setAction,
@@ -50,9 +50,9 @@ const ModalLoad = ({
 
   useEffect(() => {
     const fetchUserUid = async () => {
-      if (!uid) return;
+      if (!user) return;
   
-      const userDocRef = doc(db, "users", uid);
+      const userDocRef = doc(db, "users", user.uid);
       const userDoc = await getDoc(userDocRef);
   
       if (userDoc.exists()) {
@@ -134,8 +134,8 @@ const ModalLoad = ({
       setIsLoading(true);
       await fetchPlayerData();
 
-      if (uid && rememberUid) {
-        const userDocRef = doc(db, "users", uid);
+      if (user && rememberUid) {
+        const userDocRef = doc(db, "users", user.uid);
         await setDoc(userDocRef, { [`${gameType}_UID`]: gameUid}, { merge: true });
       }
 
@@ -287,12 +287,12 @@ const ModalLoad = ({
 
     // update states
     for (const char of charBuffer) {
-      if (uid) {
+      if (user) {
         const batch = writeBatch(db);
-        const infoDocRef = doc(db, "users", uid, gameType, char.id);
+        const infoDocRef = doc(db, "users", user.uid, gameType, char.id);
         batch.set(infoDocRef, char.info, { merge: false });
         for (const [index, gearObj] of char.gearList.entries()) {
-          const gearDocRef = doc(db, "users", uid, gameType, char.id, "gearList", index.toString());
+          const gearDocRef = doc(db, "users", user.uid, gameType, char.id, "gearList", index.toString());
           batch.set(gearDocRef, gearObj, { merge: false });
         }
         await batch.commit();
@@ -348,7 +348,7 @@ const ModalLoad = ({
                   onChange={() => setRememberUid(!rememberUid)}
                   checked={rememberUid}
                   size="small"
-                  disabled={!uid}
+                  disabled={!user}
                 />
                 <Typography variant="body2" sx={{ color: "text.disabled" }}>
                   Remember UID (requires sign-in)

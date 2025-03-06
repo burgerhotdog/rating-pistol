@@ -6,7 +6,7 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { db } from "../../firebase";
 
 const TableStar = ({
-  uid,
+  user,
   gameType,
   setLocalObjs,
   id,
@@ -15,8 +15,8 @@ const TableStar = ({
   const toggleStar = async () => {
     const newValue = !Boolean(data.info.isStar);
 
-    if (uid) {
-      const infoDocRef = doc(db, "users", uid, gameType, id);
+    if (user) {
+      const infoDocRef = doc(db, "users", user.uid, gameType, id);
       await setDoc(infoDocRef, { isStar: newValue }, { merge: true });
     }
 
