@@ -17,7 +17,7 @@ const EditSkills = ({
   action,
   setAction,
 }) => {
-  const { INFO } = getData(gameType);
+  const { generalData } = getData(gameType);
   const handleSkill = (newValue, skillKey) => {
     setAction((prev) => ({
       ...prev,
@@ -42,7 +42,7 @@ const EditSkills = ({
           size="small"
           value={skillValue || ""}
           options={Array.from(
-            { length: INFO.SKILL_DATA[skillKey].skill_cap }, 
+            { length: generalData.SKILL_DATA[skillKey].skill_cap }, 
             (_, i) => (i + 1).toString()
           )}
           onChange={(_, newValue) => {

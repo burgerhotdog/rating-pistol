@@ -31,7 +31,7 @@ import TableDelete from "./Table/TableDelete";
 import getData from "./getData";
 
 const GamePage = ({ user, gameType }) => {
-  const { INFO } = getData(gameType);
+  const { generalData } = getData(gameType);
   const [localObjs, setLocalObjs] = useState({});
   const [sortedObjs, setSortedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
@@ -99,8 +99,8 @@ const GamePage = ({ user, gameType }) => {
     <Container>
       <Back />
       <Stack alignItems="center" sx={{ mt: 4 }}>
-        <Typography variant="h4">{INFO.TITLE}</Typography>
-        <Typography variant="body2">Updated for version {INFO.VERSION}</Typography>
+        <Typography variant="h4">{generalData.TITLE}</Typography>
+        <Typography variant="body2">Updated for version {generalData.VERSION}</Typography>
 
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
@@ -108,10 +108,10 @@ const GamePage = ({ user, gameType }) => {
               <TableRow>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
                 <TableCell align="center" sx={{ width: 60 }} />
-                <TableCell align="left" sx={{ width: 180 }}>{INFO.SECTION_NAMES[0]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[1]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[2]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[3]}</TableCell>
+                <TableCell align="left" sx={{ width: 180 }}>{generalData.SECTION_NAMES[0]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[1]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[2]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[3]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
               </TableRow>

@@ -20,7 +20,7 @@ const EditGear = ({
   action,
   setAction,
 }) => {
-  const { SETS } = getData(gameType);
+  const { setData } = getData(gameType);
   const { setIcons } = getIcons(gameType);
   const rarityColor = {
     5: "goldenrod",
@@ -32,7 +32,7 @@ const EditGear = ({
   const hasExtra = gameType === "HSR" || gameType === "ZZZ";
 
   const setOptions = (setType) => {
-    return Object.keys(SETS)
+    return Object.keys(setData)
       .filter(id => {
         return setType === "set" ?
           gameType === "HSR" ?
@@ -43,11 +43,11 @@ const EditGear = ({
             id !== action.data.info.set[0].id;
       })
       .sort((a, b) => {
-        const rarityA = SETS[a].rarity;
-        const rarityB = SETS[b].rarity;
+        const rarityA = setData[a].rarity;
+        const rarityB = setData[b].rarity;
         return rarityA !== rarityB ?
           rarityB - rarityA :
-          SETS[a].name.localeCompare(SETS[b].name);
+          setData[a].name.localeCompare(setData[b].name);
       });
   };
 
@@ -79,11 +79,11 @@ const EditGear = ({
               size="small"
               value={action?.data?.info?.set[0]?.id || ""}
               options={setOptions("set")}
-              getOptionLabel={(id) => SETS[id]?.name || ""}
+              getOptionLabel={(id) => setData[id]?.name || ""}
               onChange={(_, newValue) => handleSet(newValue, "set")}
               renderOption={(props, id) => {
                 const { key, ...idProps } = props;
-                const rarity = SETS[id]?.rarity;
+                const rarity = setData[id]?.rarity;
                 return (
                   <Box
                     key={key}
@@ -101,7 +101,7 @@ const EditGear = ({
                       alt={""}
                       sx={{ width: 24, height: 24, objectFit: "contain" }}
                     />
-                    {SETS[id]?.name || ""}
+                    {setData[id]?.name || ""}
                   </Box>
                 );
               }}
@@ -138,10 +138,10 @@ const EditGear = ({
                   <Grid size={8}>
                     <Stack>
                       <Typography variant="subtitle1" fontWeight="bold">
-                        {SETS[action.data.info.set[0].id].name}
+                        {setData[action.data.info.set[0].id].name}
                       </Typography>
                       <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                        {SETS[action.data.info.set[0].id].desc}
+                        {setData[action.data.info.set[0].id].desc}
                       </Typography>
                     </Stack>
                   </Grid>
@@ -161,11 +161,11 @@ const EditGear = ({
                 size="small"
                 value={action?.data?.info?.setExtra?.id || ""}
                 options={setOptions("setExtra")}
-                getOptionLabel={(id) => SETS[id]?.name || ""}
+                getOptionLabel={(id) => setData[id]?.name || ""}
                 onChange={(_, newValue) => handleSet(newValue, "setExtra")}
                 renderOption={(props, id) => {
                   const { key, ...idProps } = props;
-                  const rarity = SETS[id]?.rarity;
+                  const rarity = setData[id]?.rarity;
                   return (
                     <Box
                       key={key}
@@ -183,7 +183,7 @@ const EditGear = ({
                         alt={""}
                         sx={{ width: 24, height: 24, objectFit: "contain" }}
                       />
-                      {SETS[id]?.name || ""}
+                      {setData[id]?.name || ""}
                     </Box>
                   );
                 }}
@@ -220,10 +220,10 @@ const EditGear = ({
                     <Grid size={8}>
                       <Stack>
                         <Typography variant="subtitle1" fontWeight="bold">
-                          {SETS[action.data.info.setExtra.id].name}
+                          {setData[action.data.info.setExtra.id].name}
                         </Typography>
                         <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                          {SETS[action.data.info.setExtra.id].desc}
+                          {setData[action.data.info.setExtra.id].desc}
                         </Typography>
                       </Stack>
                     </Grid>

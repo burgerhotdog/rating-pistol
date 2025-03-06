@@ -10,7 +10,7 @@ const TableGear = ({
   id,
   data,
 }) => {
-  const { INFO } = getData(gameType);
+  const { generalData } = getData(gameType);
   const { setIcons } = getIcons(gameType);
   const openModal = () => {
     setAction({
@@ -22,7 +22,7 @@ const TableGear = ({
   };
 
   const addOrEdit = data.info.set[0].id || data.info.setExtra.id ? "Edit" : "Add";
-  const sectionName = INFO.SECTION_NAMES[2];
+  const sectionName = generalData.SECTION_NAMES[2];
 
   return (
     <Stack alignItems="center">

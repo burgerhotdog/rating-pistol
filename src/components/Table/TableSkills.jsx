@@ -9,7 +9,7 @@ const TableSkills = ({
   data,
   rating,
 }) => {
-  const { INFO } = getData(gameType);
+  const { generalData } = getData(gameType);
   const openModal = () => {
     setAction({
       type: "edit",
@@ -20,7 +20,7 @@ const TableSkills = ({
   };
 
   const addOrEdit = "Edit";
-  const sectionName = INFO.SECTION_NAMES[3];
+  const sectionName = generalData.SECTION_NAMES[3];
 
   return (
     <Stack alignItems="center">

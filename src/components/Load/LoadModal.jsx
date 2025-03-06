@@ -24,7 +24,7 @@ const ModalLoad = ({
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { CHARACTERS } = getData(gameType);
+  const { avatarData } = getData(gameType);
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
   const [enkaList, setEnkaList] = useState([]);
@@ -381,7 +381,7 @@ const ModalLoad = ({
                     size="small"
                   />
                   <Typography variant="body2">
-                    {CHARACTERS[avatar.avatarId].name}
+                    {avatarData[avatar.avatarId].name}
                   </Typography>
                 </Stack>
               ))}

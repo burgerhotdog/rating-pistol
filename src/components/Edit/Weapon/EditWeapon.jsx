@@ -16,7 +16,7 @@ const EditWeapon = ({
   action,
   setAction,
 }) => {
-  const { INFO, CHARACTERS, WEAPONS } = getData(gameType);
+  const { generalData, avatarData, weaponData } = getData(gameType);
   const { weaponIcons } = getIcons(gameType);
   const rarityColor = {
     5: "goldenrod",
@@ -27,14 +27,14 @@ const EditWeapon = ({
   };
 
   const weapOptions = () => {
-    return Object.keys(WEAPONS)
-      .filter(id => WEAPONS[id].type === CHARACTERS[action.id]?.type)
+    return Object.keys(weaponData)
+      .filter(id => weaponData[id].type === avatarData[action.id]?.type)
       .sort((a, b) => {
-        const rarityA = WEAPONS[a].rarity;
-        const rarityB = WEAPONS[b].rarity;
+        const rarityA = weaponData[a].rarity;
+        const rarityB = weaponData[b].rarity;
         return rarityA !== rarityB ? 
           rarityB - rarityA : 
-          WEAPONS[a].name.localeCompare(WEAPONS[b].name);
+          weaponData[a].name.localeCompare(weaponData[b].name);
       });
   };
 
@@ -46,7 +46,7 @@ const EditWeapon = ({
         info: {
           ...prev.data.info,
           weapon: newValue || "",
-          weaponLevel: newValue ? INFO.LEVEL_CAP.toString() : "",
+          weaponLevel: newValue ? generalData.LEVEL_CAP.toString() : "",
           weaponRank: newValue ? "1" : "",
         }
       },
@@ -86,11 +86,11 @@ const EditWeapon = ({
           size="small"
           value={action?.data?.info?.weapon || ""}
           options={weapOptions()}
-          getOptionLabel={(id) => WEAPONS[id]?.name || ""}
+          getOptionLabel={(id) => weaponData[id]?.name || ""}
           onChange={(_, newValue) => handleWeapon(newValue)}
           renderOption={(props, id) => {
             const { key, ...idProps } = props;
-            const rarity = WEAPONS[id]?.rarity;
+            const rarity = weaponData[id]?.rarity;
             return (
               <Box
                 key={key}
@@ -108,14 +108,14 @@ const EditWeapon = ({
                   alt={""}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />
-                {WEAPONS[id]?.name || ""}
+                {weaponData[id]?.name || ""}
               </Box>
             );
           }}
           renderInput={(params) => (
             <TextField
               {...params}
-              label={INFO.SECTION_NAMES[1]}
+              label={generalData.SECTION_NAMES[1]}
             />
           )}
           fullWidth
@@ -125,7 +125,7 @@ const EditWeapon = ({
         <Autocomplete
           size="small"
           value={action?.data?.info?.weaponLevel || ""}
-          options={Array.from({ length: INFO.LEVEL_CAP / 10 }, (_, i) => (INFO.LEVEL_CAP - i * 10).toString())}
+          options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10).toString())}
           onChange={(_, newValue) => {
             if (newValue) handleWeaponLevel(newValue);
           }}
@@ -182,32 +182,32 @@ const EditWeapon = ({
             <Grid size={8}>
               <Stack>
                 <Typography variant="subtitle1" fontWeight="bold">
-                  {WEAPONS[action.data.info.weapon].name}
+                  {weaponData[action.data.info.weapon].name}
                 </Typography>
                 <Typography variant="body2">
                   {gameType === "HSR"
-                    && `Base HP: ${WEAPONS[action.data.info.weapon].base.FLAT_HP}`}
+                    && `Base HP: ${weaponData[action.data.info.weapon].base.FLAT_HP}`}
                 </Typography>
                 <Typography variant="body2">
-                  {`Base ATK: ${WEAPONS[action.data.info.weapon].base.FLAT_ATK}`}
+                  {`Base ATK: ${weaponData[action.data.info.weapon].base.FLAT_ATK}`}
                 </Typography>
                 <Typography variant="body2">
                   {gameType === "HSR"
-                    ? `Base DEF: ${WEAPONS[action.data.info.weapon].base.FLAT_DEF}`
-                    : WEAPONS[action.data.info.weapon].substat}
+                    ? `Base DEF: ${weaponData[action.data.info.weapon].base.FLAT_DEF}`
+                    : weaponData[action.data.info.weapon].substat}
                 </Typography>
                 <Typography variant="subtitle2" fontWeight="bold" mt={1}>
-                  {WEAPONS[action.data.info.weapon].subtitle}
+                  {weaponData[action.data.info.weapon].subtitle}
                 </Typography>
                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                  {WEAPONS[action.data.info.weapon].desc}
+                  {weaponData[action.data.info.weapon].desc}
                 </Typography>
               </Stack>
             </Grid>
           </Grid>
         ) : (
           <Typography variant="body1" color="text.disabled">
-            No {INFO.SECTION_NAMES[1]} Selected
+            No {generalData.SECTION_NAMES[1]} Selected
           </Typography>
         )}
       </Card>

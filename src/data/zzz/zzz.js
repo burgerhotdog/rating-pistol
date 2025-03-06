@@ -1,6 +1,6 @@
-import INFO from "./ZZZ_INFO";
-import CHARACTERS from "./ZZZ_CHARACTERS";
-import WEAPONS from "./ZZZ_WEAPONS";
-import SETS from "./ZZZ_SETS";
+import generalData from "./generalData";
+import avatarData from "./avatarData";
+import weaponData from "./weaponData";
+import setData from "./setData";
 
-export default { INFO, CHARACTERS, WEAPONS, SETS };
+export default { generalData, avatarData, weaponData, setData };

@@ -9,7 +9,7 @@ const TableCharacter = ({
   id,
   data,
 }) => {
-  const { INFO, CHARACTERS } = getData(gameType);
+  const { generalData, avatarData } = getData(gameType);
   const { avatarIcons } = getIcons(gameType);
   
   const openModal = () => {
@@ -22,7 +22,7 @@ const TableCharacter = ({
   };
 
   const addOrEdit = "Edit";
-  const sectionName = INFO.SECTION_NAMES[0];
+  const sectionName = generalData.SECTION_NAMES[0];
 
   return (
     <Stack>
@@ -41,7 +41,7 @@ const TableCharacter = ({
             sx={{ width: 50, height: 50, objectFit: "contain" }}
           />
           <Typography variant="body2" sx={{ textAlign: "left" }}>
-            {CHARACTERS[id].name}
+            {avatarData[id].name}
           </Typography>
         </Stack>
       </Tooltip>

@@ -17,7 +17,7 @@ const EditCharacter = ({
   action,
   setAction,
 }) => {
-  const { INFO } = getData(gameType);
+  const { generalData } = getData(gameType);
   
   const handleCharacterLevel = (newValue) => {
     setAction((prev) => ({
@@ -50,7 +50,7 @@ const EditCharacter = ({
       <Autocomplete
         size="small"
         value={action?.data?.info?.characterLevel || ""}
-        options={Array.from({ length: INFO.LEVEL_CAP / 10 }, (_, i) => (INFO.LEVEL_CAP - i * 10).toString())}
+        options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10).toString())}
         onChange={(_, newValue) => {
           if (newValue) handleCharacterLevel(newValue);
         }}

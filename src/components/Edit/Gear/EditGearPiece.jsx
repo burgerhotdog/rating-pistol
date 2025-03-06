@@ -16,7 +16,7 @@ const EditGearPiece = ({
   setAction,
   mainIndex,
 }) => {
-  const { PIECE_NAMES, MAINSTATS, SUBSTATS } = getData(gameType).INFO;
+  const { PIECE_NAMES, MAINSTATS, SUBSTATS } = getData(gameType).generalData;
 
   const handleMainstat = (newValue) => {
     setAction((prev) => ({

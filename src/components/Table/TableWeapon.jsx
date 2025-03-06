@@ -10,7 +10,7 @@ const TableWeapon = ({
   id,
   data,
 }) => {
-  const { INFO } = getData(gameType);
+  const { generalData } = getData(gameType);
   const { weaponIcons } = getIcons(gameType);
   const openModal = () => {
     setAction({
@@ -22,7 +22,7 @@ const TableWeapon = ({
   };
 
   const addOrEdit = data.info.weapon ? "Edit " : "Add ";
-  const sectionName = INFO.SECTION_NAMES[1];
+  const sectionName = generalData.SECTION_NAMES[1];
 
   return (
     <Stack alignItems="center">

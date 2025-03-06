@@ -1,6 +1,6 @@
-import INFO from "./WW_INFO";
-import CHARACTERS from "./WW_CHARACTERS";
-import WEAPONS from "./WW_WEAPONS";
-import SETS from "./WW_SETS";
+import generalData from "./generalData";
+import avatarData from "./avatarData";
+import weaponData from "./weaponData";
+import setData from "./setData";
 
-export default { INFO, CHARACTERS, WEAPONS, SETS };
+export default { generalData, avatarData, weaponData, setData };

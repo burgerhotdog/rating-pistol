@@ -23,7 +23,7 @@ const AddModal = ({
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { INFO, CHARACTERS } = getData(gameType);
+  const { generalData, avatarData } = getData(gameType);
   const { avatarIcons } = getIcons(gameType);
   const [isLoading, setIsLoading] = useState(false);
   const rarityColor = {
@@ -35,14 +35,14 @@ const AddModal = ({
   };
   
   const charOptions = () => {
-    return Object.keys(CHARACTERS)
+    return Object.keys(avatarData)
       .filter(id => !Object.keys(localObjs).includes(id))
       .sort((a, b) => {
-        const rarityA = CHARACTERS[a].rarity;
-        const rarityB = CHARACTERS[b].rarity;
+        const rarityA = avatarData[a].rarity;
+        const rarityB = avatarData[b].rarity;
         return rarityA != rarityB ?
           rarityB - rarityA :
-          CHARACTERS[a].name.localeCompare(CHARACTERS[b].name)
+          avatarData[a].name.localeCompare(avatarData[b].name)
       });
   };
 
@@ -56,7 +56,7 @@ const AddModal = ({
   const handleAdd = async () => {
     setIsLoading(true);
     const info = templateInfo(gameType);
-    info.characterLevel = INFO.LEVEL_CAP.toString();
+    info.characterLevel = generalData.LEVEL_CAP.toString();
     info.characterRank = "0";
     for (const skill in info.skills) {
       info.skills[skill] = "1";
@@ -99,11 +99,11 @@ const AddModal = ({
             size="small"
             value={action?.id}
             options={charOptions()}
-            getOptionLabel={(id) => CHARACTERS[id]?.name || ""}
+            getOptionLabel={(id) => avatarData[id]?.name || ""}
             onChange={(_, newValue) => handleSelect(newValue)}
             renderOption={(props, id) => {
               const { key, ...idProps } = props;
-              const rarity = CHARACTERS[id]?.rarity;
+              const rarity = avatarData[id]?.rarity;
               return (
                 <Box
                   key={key}
@@ -121,7 +121,7 @@ const AddModal = ({
                     alt={""}
                     sx={{ width: 24, height: 24, objectFit: "contain" }}
                   />
-                  {CHARACTERS[id].name}
+                  {avatarData[id].name}
                 </Box>
               );
             }}

@@ -1,6 +1,6 @@
-import INFO from "./GI_INFO";
-import CHARACTERS from "./GI_CHARACTERS";
-import WEAPONS from "./GI_WEAPONS";
-import SETS from "./GI_SETS";
+import generalData from "./generalData";
+import avatarData from "./avatarData";
+import weaponData from "./weaponData";
+import setData from "./setData";
 
-export default { INFO, CHARACTERS, WEAPONS, SETS };
+export default { generalData, avatarData, weaponData, setData };
