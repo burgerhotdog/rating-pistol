@@ -1,5 +1,5 @@
-import characterIcons from "./characters/icons"
-import weaponIcons from "./weapons/icons"
-import setIcons from "./sets/icons"
+import avatarIcons from "./avatars/icons";
+import weaponIcons from "./weapons/icons";
+import setIcons from "./sets/icons";
 
-export default { characterIcons, weaponIcons, setIcons };
+export default { avatarIcons, weaponIcons, setIcons };

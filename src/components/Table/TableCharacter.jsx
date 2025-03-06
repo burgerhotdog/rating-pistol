@@ -10,7 +10,7 @@ const TableCharacter = ({
   data,
 }) => {
   const { INFO, CHARACTERS } = getData(gameType);
-  const { characterIcons } = getIcons(gameType);
+  const { avatarIcons } = getIcons(gameType);
   
   const openModal = () => {
     setAction({
@@ -37,7 +37,7 @@ const TableCharacter = ({
           <Box
             component="img"
             alt={id}
-            src={characterIcons[`./${id}.webp`]?.default}
+            src={avatarIcons[`./${id}.webp`]?.default}
             sx={{ width: 50, height: 50, objectFit: "contain" }}
           />
           <Typography variant="body2" sx={{ textAlign: "left" }}>

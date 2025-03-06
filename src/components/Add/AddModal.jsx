@@ -24,7 +24,7 @@ const AddModal = ({
 }) => {
   const theme = useTheme();
   const { INFO, CHARACTERS } = getData(gameType);
-  const { characterIcons } = getIcons(gameType);
+  const { avatarIcons } = getIcons(gameType);
   const [isLoading, setIsLoading] = useState(false);
   const rarityColor = {
     5: "goldenrod",
@@ -117,7 +117,7 @@ const AddModal = ({
                   <Box
                     component="img"
                     loading="lazy"
-                    src={characterIcons[`./${id}.webp`]?.default}
+                    src={avatarIcons[`./${id}.webp`]?.default}
                     alt={""}
                     sx={{ width: 24, height: 24, objectFit: "contain" }}
                   />
