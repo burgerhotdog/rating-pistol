@@ -14,8 +14,8 @@ import EditGear from "./Gear/EditGear";
 import EditSkills from "./Skills/EditSkills";
 
 const EditModal = ({
-  user,
-  gameType,
+  userId,
+  gameId,
   action,
   setAction,
   setLocalObjs,
@@ -26,12 +26,12 @@ const EditModal = ({
   const handleSave = async () => {
     setIsLoading(true);
     
-    if (user) {
+    if (userId) {
       const batch = writeBatch(db);
-      const infoDocRef = doc(db, "users", user.uid, gameType, action.id);
+      const infoDocRef = doc(db, "users", userId, gameId, action.id);
       batch.set(infoDocRef, action.data.info, { merge: true });
       for (const [index, gearObj] of action.data.gearList.entries()) {
-        const gearDocRef = doc(db, "users", user.uid, gameType, action.id, "gearList", index.toString());
+        const gearDocRef = doc(db, "users", userId, gameId, action.id, "gearList", index.toString());
         batch.set(gearDocRef, gearObj, { merge: true });
       }
       await batch.commit();
@@ -56,25 +56,25 @@ const EditModal = ({
         <Stack alignItems="center" spacing={2}>
           {action?.item === "character" ? (
             <EditCharacter
-              gameType={gameType}
+              gameId={gameId}
               action={action}
               setAction={setAction}
             />
           ) : action?.item === "weapon" ? (
             <EditWeapon
-              gameType={gameType}
+              gameId={gameId}
               action={action}
               setAction={setAction}
             />
           ) : action?.item === "gear" ? (
             <EditGear
-              gameType={gameType}
+              gameId={gameId}
               action={action}
               setAction={setAction}
             />
           ) : action?.item === "skills" && (
             <EditSkills
-              gameType={gameType}
+              gameId={gameId}
               action={action}
               setAction={setAction}
             />

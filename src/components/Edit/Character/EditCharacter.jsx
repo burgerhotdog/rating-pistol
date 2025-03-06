@@ -13,11 +13,11 @@ import {
 import getData from "../../getData";
 
 const EditCharacter = ({
-  gameType,
+  gameId,
   action,
   setAction,
 }) => {
-  const { generalData } = getData(gameType);
+  const { generalData } = getData(gameId);
   
   const handleCharacterLevel = (newValue) => {
     setAction((prev) => ({

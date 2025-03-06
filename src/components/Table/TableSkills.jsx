@@ -3,13 +3,13 @@ import { Stack, Tooltip, Typography } from "@mui/material";
 import getData from "../getData";
 
 const TableSkills = ({
-  gameType,
+  gameId,
   setAction,
   id,
   data,
   rating,
 }) => {
-  const { generalData } = getData(gameType);
+  const { generalData } = getData(gameId);
   const openModal = () => {
     setAction({
       type: "edit",

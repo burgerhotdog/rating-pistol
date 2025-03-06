@@ -11,12 +11,12 @@ import { templateGear } from "../../template"
 import getData from "../../getData";
 
 const EditGearPiece = ({
-  gameType,
+  gameId,
   action,
   setAction,
   mainIndex,
 }) => {
-  const { PIECE_NAMES, MAINSTATS, SUBSTATS } = getData(gameType).generalData;
+  const { PIECE_NAMES, MAINSTATS, SUBSTATS } = getData(gameId).generalData;
 
   const handleMainstat = (newValue) => {
     setAction((prev) => ({
@@ -25,7 +25,7 @@ const EditGearPiece = ({
         ...prev.data,
         gearList: prev.data.gearList.map((gearObj, index) => 
           index === mainIndex
-            ? { ...templateGear(gameType), mainstat: newValue || "" }
+            ? { ...templateGear(gameId), mainstat: newValue || "" }
             : gearObj
         ),
       },
@@ -61,7 +61,7 @@ const EditGearPiece = ({
       .filter((_, idx) => idx !== subIndex); // Exclude the current substat
     
     return Object.keys(SUBSTATS).filter(
-      (option) => gameType === "WW"
+      (option) => gameId === "WW"
         ? !selectedSubstats.includes(option)
         : !selectedSubstats.includes(option) && option !== selectedMainstat
     );
@@ -92,7 +92,7 @@ const EditGearPiece = ({
           <Divider />
         </Grid>
 
-        {[0, 1, 2, 3, ...(gameType === "WW" ? [4] : [])].map((subIndex) => (
+        {[0, 1, 2, 3, ...(gameId === "WW" ? [4] : [])].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Key Dropdown */}
             <Grid size={8}>
@@ -122,7 +122,7 @@ const EditGearPiece = ({
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (SUBSTATS[action.data.gearList[mainIndex][subIndex][0]]?.value * (gameType === "WW" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (SUBSTATS[action.data.gearList[mainIndex][subIndex][0]]?.value * (gameId === "WW" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, 1);
                   }

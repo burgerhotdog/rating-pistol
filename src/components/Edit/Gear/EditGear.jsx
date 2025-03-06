@@ -16,12 +16,12 @@ import getData from "../../getData";
 import getIcons from "../../getIcons";
 
 const EditGear = ({
-  gameType,
+  gameId,
   action,
   setAction,
 }) => {
-  const { setData } = getData(gameType);
-  const { setIcons } = getIcons(gameType);
+  const { setData } = getData(gameId);
+  const { setIcons } = getIcons(gameId);
   const rarityColor = {
     5: "goldenrod",
     4: "orchid",
@@ -29,16 +29,16 @@ const EditGear = ({
     2: "green",
     1: "slategrey",
   };
-  const hasExtra = gameType === "HSR" || gameType === "ZZZ";
+  const hasExtra = gameId === "HSR" || gameId === "ZZZ";
 
   const setOptions = (setType) => {
     return Object.keys(setData)
       .filter(id => {
         return setType === "set" ?
-          gameType === "HSR" ?
+          gameId === "HSR" ?
             id.substring(0, 1) === "1" :
             true :
-          gameType === "HSR" ?
+          gameId === "HSR" ?
             id.substring(0, 1) === "3" :
             id !== action.data.info.set[0].id;
       })
@@ -52,7 +52,7 @@ const EditGear = ({
   };
 
   const handleSet = (newValue, setType) => {
-    const clearSetExtra = gameType === "ZZZ" && setType === "set";
+    const clearSetExtra = gameId === "ZZZ" && setType === "set";
     setAction((prev) => ({
       ...prev,
       data: {
@@ -244,10 +244,10 @@ const EditGear = ({
         alignItems="center"
         spacing={2}
       >
-        {[0, 1, 2, 3, 4, ...(gameType === "HSR" || gameType === "ZZZ" ? [5] : [])].map((mainIndex) => (
+        {[0, 1, 2, 3, 4, ...(gameId === "HSR" || gameId === "ZZZ" ? [5] : [])].map((mainIndex) => (
           <EditGearPiece
             key={mainIndex}
-            gameType={gameType}
+            gameId={gameId}
             action={action}
             setAction={setAction}
             mainIndex={mainIndex}

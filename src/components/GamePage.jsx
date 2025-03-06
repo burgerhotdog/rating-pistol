@@ -30,8 +30,8 @@ import TableRating from "./Table/TableRating";
 import TableDelete from "./Table/TableDelete";
 import getData from "./getData";
 
-const GamePage = ({ user, gameType }) => {
-  const { generalData } = getData(gameType);
+const GamePage = ({ gameId, userId }) => {
+  const { generalData } = getData(gameId);
   const [localObjs, setLocalObjs] = useState({});
   const [sortedObjs, setSortedObjs] = useState([]);
   const [hoveredRow, setHoveredRow] = useState(null);
@@ -41,13 +41,13 @@ const GamePage = ({ user, gameType }) => {
   // get localObjs from firestore
   useEffect(() => {
     const fetchDB = async () => {
-      if (user) {
+      if (userId) {
         setIsLoading(true);
-        const infoDocsRef = collection(db, "users", user.uid, gameType);
+        const infoDocsRef = collection(db, "users", userId, gameId);
         const infoDocs = await getDocs(infoDocsRef);
         const dataObjs = {};
         for (const infoDoc of infoDocs.docs) {
-          const gearDocsRef = collection(db, "users", user.uid, gameType, infoDoc.id, "gearList");
+          const gearDocsRef = collection(db, "users", userId, gameId, infoDoc.id, "gearList");
           const gearDocs = await getDocs(gearDocsRef);
           const gearList = [];
           for (const gearDoc of gearDocs.docs) {
@@ -65,14 +65,14 @@ const GamePage = ({ user, gameType }) => {
       }
     };
     fetchDB();
-  }, [user]);
+  }, [userId]);
 
   // rate and sort localObjs for display table
   useEffect(() => {
     const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
       id,
       data,
-      rating: getRating(gameType, id, data),
+      rating: getRating(gameId, id, data),
     }));
     ratedObjs.sort((a, b) =>
       a.data.info.isStar === b.data.info.isStar
@@ -136,8 +136,8 @@ const GamePage = ({ user, gameType }) => {
                     <TableCell sx={{ borderBottom: "none" }} />
                     <TableCell>
                       <TableStar
-                        user={user}
-                        gameType={gameType}
+                        userId={userId}
+                        gameId={gameId}
                         setLocalObjs={setLocalObjs}
                         id={id}
                         data={data}
@@ -145,7 +145,7 @@ const GamePage = ({ user, gameType }) => {
                     </TableCell>
                     <TableCell>
                       <TableCharacter
-                        gameType={gameType}
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -153,7 +153,7 @@ const GamePage = ({ user, gameType }) => {
                     </TableCell>
                     <TableCell>
                       <TableWeapon
-                        gameType={gameType}
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -161,7 +161,7 @@ const GamePage = ({ user, gameType }) => {
                     </TableCell>
                     <TableCell>
                       <TableGear
-                        gameType={gameType}
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -169,7 +169,7 @@ const GamePage = ({ user, gameType }) => {
                     </TableCell>
                     <TableCell>
                       <TableSkills
-                        gameType={gameType}
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -178,7 +178,7 @@ const GamePage = ({ user, gameType }) => {
                     </TableCell>
                     <TableCell>
                       <TableRating
-                        gameType={gameType}
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -212,38 +212,38 @@ const GamePage = ({ user, gameType }) => {
             onClick={handleLoad}
             variant="contained"
             endIcon={<KeyboardArrowRight />}
-            disabled={gameType === "WW" || gameType === "ZZZ"}
+            disabled={gameId === "WW" || gameId === "ZZZ"}
           >
             Load from UID
           </Button>
         </Stack>
 
         <AddModal
-          user={user}
-          gameType={gameType}
+          userId={userId}
+          gameId={gameId}
           action={action}
           setAction={setAction}
           localObjs={localObjs}
           setLocalObjs={setLocalObjs}
         />
         <DeleteModal
-          user={user}
-          gameType={gameType}
+          userId={userId}
+          gameId={gameId}
           action={action}
           setAction={setAction}
           setLocalObjs={setLocalObjs}
         />
         <EditModal
-          user={user}
-          gameType={gameType}
+          userId={userId}
+          gameId={gameId}
           action={action}
           setAction={setAction}
           setLocalObjs={setLocalObjs}
         />
-        {(gameType === "GI" || gameType === "HSR") && (
+        {(gameId === "GI" || gameId === "HSR") && (
           <LoadModal
-            user={user}
-            gameType={gameType}
+            userId={userId}
+            gameId={gameId}
             action={action}
             setAction={setAction}
             setLocalObjs={setLocalObjs}

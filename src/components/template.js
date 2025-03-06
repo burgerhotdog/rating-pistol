@@ -1,4 +1,4 @@
-const templateInfo = (gameType) => {
+const templateInfo = (gameId) => {
   return {
     characterLevel: "",
     characterRank: "",
@@ -14,21 +14,21 @@ const templateInfo = (gameType) => {
       basic: "",
       skill: "",
       ult: "",
-      ...(gameType === "HSR" ? { talent: "" } : {}),
-      ...(gameType === "WW" ? { forte: "", intro: "" } : {}),
-      ...(gameType === "ZZZ" ? { dodge: "", assist: "", core: "" } : {}),
+      ...(gameId === "HSR" ? { talent: "" } : {}),
+      ...(gameId === "WW" ? { forte: "", intro: "" } : {}),
+      ...(gameId === "ZZZ" ? { dodge: "", assist: "", core: "" } : {}),
     },
   };
 };
 
-const templateGear = (gameType) => {
+const templateGear = (gameId) => {
   return {
     mainstat: "",
     0: ["", ""],
     1: ["", ""],
     2: ["", ""],
     3: ["", ""],
-    ...( gameType === "WW" ? { 4: ["", ""]} : {}),
+    ...( gameId === "WW" ? { 4: ["", ""]} : {}),
   };
 };
 

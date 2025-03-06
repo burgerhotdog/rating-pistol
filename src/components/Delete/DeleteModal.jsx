@@ -12,26 +12,26 @@ import {
 import getData from "../getData";
 
 const DeleteModal = ({
-  user,
-  gameType,
+  userId,
+  gameId,
   action,
   setAction,
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { avatarData } = getData(gameType);
+  const { avatarData } = getData(gameId);
   const [isLoading, setIsLoading] = useState(false);
   
   const handleDelete = async () => {
     setIsLoading(true);
     
-    if (user) {
+    if (userId) {
       const batch = writeBatch(db);
       for (const index of action.data.gearList.keys()) {
-        const gearDocRef = doc(db, "users", user.uid, gameType, action.id, "gearList", index.toString());
+        const gearDocRef = doc(db, "users", userId, gameId, action.id, "gearList", index.toString());
         batch.delete(gearDocRef);
       }
-      const infoDocRef = doc(db, "users", user.uid, gameType, action.id);
+      const infoDocRef = doc(db, "users", userId, gameId, action.id);
       batch.delete(infoDocRef);
       await batch.commit();
     }

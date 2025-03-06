@@ -27,7 +27,7 @@ const getLargestWeight = (weights) => {
     value > weights[maxWeight] ? key : maxWeight, Object.keys(weights)[0]);
 };
 
-const simulate_substats = (substats, weights, gearList, SUBSTATS, gameType) => {
+const simulate_substats = (substats, weights, gearList, SUBSTATS, gameId) => {
   // Match stat(er,spd,_,er) and calculate that in rolls
   const sim_substats = {};
   let matchStat = "";
@@ -37,15 +37,15 @@ const simulate_substats = (substats, weights, gearList, SUBSTATS, gameType) => {
   let MAX_ROLLS_PER_PIECE = 8;
   let FIXED_STAT_UNTIL_WHEN = 3;
   let INITIAL_ROLL_INCREMENT = 5;
-  if (gameType === "GI") {
+  if (gameId === "GI") {
     matchStat = "ENERGY_RECHARGE";
     TOTAL_ROLLS = 40;
     FIXED_STAT_UNTIL_WHEN = 2;
-  } else if (gameType === "HSR") {
+  } else if (gameId === "HSR") {
     matchStat = "SPD";
     matchStat2 = "EFFECT_HIT_RATE"
     FIXED_STAT_UNTIL_WHEN = 2;
-  } else if (gameType === "WW") {
+  } else if (gameId === "WW") {
     matchStat = "ENERGY_REGEN";
     TOTAL_ROLLS = 25;
     MAX_ROLLS_PER_PIECE = 5;
@@ -125,8 +125,8 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS) => {
   return points;
 };
 
-const rateGear = (gameType, id, data) => {
-  const { generalData, avatarData, weaponData } = getData(gameType);
+const rateGear = (gameId, id, data) => {
+  const { generalData, avatarData, weaponData } = getData(gameId);
   const SUBSTATS = generalData.SUBSTATS;
   if (!data.info.weapon) return -1;
 
@@ -135,7 +135,7 @@ const rateGear = (gameType, id, data) => {
   const substats = combine_substats(data.gearList);
 
   // Simulate perfect substats
-  const sim_substats = simulate_substats(substats, avatarData[id].weights, data.gearList, SUBSTATS, gameType);
+  const sim_substats = simulate_substats(substats, avatarData[id].weights, data.gearList, SUBSTATS, gameId);
 
   // Calculate points
   const points = calculatePoints(substats, avatarData[id].weights, basestats, SUBSTATS);

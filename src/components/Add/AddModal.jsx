@@ -15,16 +15,16 @@ import getData from "../getData";
 import getIcons from "../getIcons";
 
 const AddModal = ({
-  user,
-  gameType,
+  userId,
+  gameId,
   action,
   setAction,
   localObjs,
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { generalData, avatarData } = getData(gameType);
-  const { avatarIcons } = getIcons(gameType);
+  const { generalData, avatarData } = getData(gameId);
+  const { avatarIcons } = getIcons(gameId);
   const [isLoading, setIsLoading] = useState(false);
   const rarityColor = {
     5: "goldenrod",
@@ -55,24 +55,24 @@ const AddModal = ({
 
   const handleAdd = async () => {
     setIsLoading(true);
-    const info = templateInfo(gameType);
+    const info = templateInfo(gameId);
     info.characterLevel = generalData.LEVEL_CAP.toString();
     info.characterRank = "0";
     for (const skill in info.skills) {
       info.skills[skill] = "1";
     }
 
-    const gearList = Array(5).fill(null).map(() => templateGear(gameType));
-    if (gameType === "HSR" || gameType === "ZZZ") {
-      gearList.push(templateGear(gameType));
+    const gearList = Array(5).fill(null).map(() => templateGear(gameId));
+    if (gameId === "HSR" || gameId === "ZZZ") {
+      gearList.push(templateGear(gameId));
     }
 
-    if (user) {
+    if (userId) {
       const batch = writeBatch(db);
-      const infoDocRef = doc(db, "users", user.uid, gameType, action.id);
+      const infoDocRef = doc(db, "users", userId, gameId, action.id);
       batch.set(infoDocRef, info, { merge: true });
       for (const [index, gearObj] of gearList.entries()) {
-        const gearDocRef = doc(db, "users", user.uid, gameType, action.id, "gearList", index.toString());
+        const gearDocRef = doc(db, "users", userId, gameId, action.id, "gearList", index.toString());
         batch.set(gearDocRef, gearObj, { merge: true });
       }
       await batch.commit();

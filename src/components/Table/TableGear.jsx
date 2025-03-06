@@ -5,13 +5,13 @@ import getData from "../getData";
 import getIcons from "../getIcons";
 
 const TableGear = ({
-  gameType,
+  gameId,
   setAction,
   id,
   data,
 }) => {
-  const { generalData } = getData(gameType);
-  const { setIcons } = getIcons(gameType);
+  const { generalData } = getData(gameId);
+  const { setIcons } = getIcons(gameId);
   const openModal = () => {
     setAction({
       type: "edit",

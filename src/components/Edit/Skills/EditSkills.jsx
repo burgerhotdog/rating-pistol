@@ -13,11 +13,11 @@ import {
 import getData from "../../getData";
 
 const EditSkills = ({
-  gameType,
+  gameId,
   action,
   setAction,
 }) => {
-  const { generalData } = getData(gameType);
+  const { generalData } = getData(gameId);
   const handleSkill = (newValue, skillKey) => {
     setAction((prev) => ({
       ...prev,

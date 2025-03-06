@@ -5,13 +5,13 @@ import getData from "../getData";
 import getIcons from "../getIcons";
 
 const TableWeapon = ({
-  gameType,
+  gameId,
   setAction,
   id,
   data,
 }) => {
-  const { generalData } = getData(gameType);
-  const { weaponIcons } = getIcons(gameType);
+  const { generalData } = getData(gameId);
+  const { weaponIcons } = getIcons(gameId);
   const openModal = () => {
     setAction({
       type: "edit",

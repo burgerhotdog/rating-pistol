@@ -12,12 +12,12 @@ import getData from "../../getData";
 import getIcons from "../../getIcons";
 
 const EditWeapon = ({
-  gameType,
+  gameId,
   action,
   setAction,
 }) => {
-  const { generalData, avatarData, weaponData } = getData(gameType);
-  const { weaponIcons } = getIcons(gameType);
+  const { generalData, avatarData, weaponData } = getData(gameId);
+  const { weaponIcons } = getIcons(gameId);
   const rarityColor = {
     5: "goldenrod",
     4: "orchid",
@@ -185,14 +185,14 @@ const EditWeapon = ({
                   {weaponData[action.data.info.weapon].name}
                 </Typography>
                 <Typography variant="body2">
-                  {gameType === "HSR"
+                  {gameId === "HSR"
                     && `Base HP: ${weaponData[action.data.info.weapon].base.FLAT_HP}`}
                 </Typography>
                 <Typography variant="body2">
                   {`Base ATK: ${weaponData[action.data.info.weapon].base.FLAT_ATK}`}
                 </Typography>
                 <Typography variant="body2">
-                  {gameType === "HSR"
+                  {gameId === "HSR"
                     ? `Base DEF: ${weaponData[action.data.info.weapon].base.FLAT_DEF}`
                     : weaponData[action.data.info.weapon].substat}
                 </Typography>

@@ -18,20 +18,20 @@ import getData from "../getData";
 
 const ModalLoad = ({
   user,
-  gameType,
+  gameId,
   action,
   setAction,
   setLocalObjs,
 }) => {
   const theme = useTheme();
-  const { avatarData } = getData(gameType);
+  const { avatarData } = getData(gameId);
   const [error, setError] = useState("");
   const [gameUid, setGameUid] = useState("");
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [rememberUid, setRememberUid] = useState(false);
-  const statKey = enkaStatKey[gameType];
+  const statKey = enkaStatKey[gameId];
 
   const suffix = {
     GI: "uid/",
@@ -56,7 +56,7 @@ const ModalLoad = ({
       const userDoc = await getDoc(userDocRef);
   
       if (userDoc.exists()) {
-        const storedUid = userDoc.data()?.[`${gameType}_UID`];
+        const storedUid = userDoc.data()?.[`${gameId}_UID`];
         if (storedUid) {
           setGameUid(storedUid);
           setRememberUid(true);
@@ -72,10 +72,10 @@ const ModalLoad = ({
   // gi 604379917
   // hsr 602849613
   const fetchPlayerData = async () => {
-    const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix[gameType]+gameUid}/`);
+    const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix[gameId]+gameUid}/`);
     const data = await response.json();
     
-    switch (gameType) {
+    switch (gameId) {
       case "GI": {
         const maleToFemale = {
           "10000005-2": "10000007-2", // pyro
@@ -136,7 +136,7 @@ const ModalLoad = ({
 
       if (user && rememberUid) {
         const userDocRef = doc(db, "users", user.uid);
-        await setDoc(userDocRef, { [`${gameType}_UID`]: gameUid}, { merge: true });
+        await setDoc(userDocRef, { [`${gameId}_UID`]: gameUid}, { merge: true });
       }
 
       setIsLoading(false);
@@ -158,12 +158,12 @@ const ModalLoad = ({
   const handleSave = async () => {
     setIsLoading(true);
     const charBuffer =
-      gameType === "GI" ?
+      gameId === "GI" ?
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
           const id = charObj.avatarId.toString();
-          const info = templateInfo(gameType);
-          const gearList = Array(5).fill(null).map(() => templateGear(gameType));
+          const info = templateInfo(gameId);
+          const gearList = Array(5).fill(null).map(() => templateGear(gameId));
 
           // character
           info.characterLevel = charObj.propMap["4001"].val;
@@ -212,12 +212,12 @@ const ModalLoad = ({
 
           return { id, info, gearList };
         }) :
-      gameType === "HSR" ?
+      gameId === "HSR" ?
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
           const id = charObj.avatarId.toString();
-          const info = templateInfo(gameType);
-          const gearList = Array(6).fill(null).map(() => templateGear(gameType));
+          const info = templateInfo(gameId);
+          const gearList = Array(6).fill(null).map(() => templateGear(gameId));
 
           // character
           info.characterLevel = charObj.level.toString();
@@ -280,19 +280,19 @@ const ModalLoad = ({
 
           return { id, info, gearList };
         }) :
-      gameType === "WW" ?
+      gameId === "WW" ?
         [] :
-      gameType === "ZZZ" &&
+      gameId === "ZZZ" &&
         [];
 
     // update states
     for (const char of charBuffer) {
       if (user) {
         const batch = writeBatch(db);
-        const infoDocRef = doc(db, "users", user.uid, gameType, char.id);
+        const infoDocRef = doc(db, "users", user.uid, gameId, char.id);
         batch.set(infoDocRef, char.info, { merge: false });
         for (const [index, gearObj] of char.gearList.entries()) {
-          const gearDocRef = doc(db, "users", user.uid, gameType, char.id, "gearList", index.toString());
+          const gearDocRef = doc(db, "users", user.uid, gameId, char.id, "gearList", index.toString());
           batch.set(gearDocRef, gearObj, { merge: false });
         }
         await batch.commit();

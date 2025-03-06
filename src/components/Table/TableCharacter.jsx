@@ -4,13 +4,13 @@ import getData from "../getData";
 import getIcons from "../getIcons";
 
 const TableCharacter = ({
-  gameType,
+  gameId,
   setAction,
   id,
   data,
 }) => {
-  const { generalData, avatarData } = getData(gameType);
-  const { avatarIcons } = getIcons(gameType);
+  const { generalData, avatarData } = getData(gameId);
+  const { avatarIcons } = getIcons(gameId);
   
   const openModal = () => {
     setAction({
