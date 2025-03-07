@@ -16,7 +16,7 @@ const EditEquipListPiece = ({
   setAction,
   mainIndex,
 }) => {
-  const { PIECE_NAMES, MAINSTATS, SUBSTATS } = getData(gameId).generalData;
+  const { EQUIP_NAMES, MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX } = getData(gameId).equipData;
 
   const handleMainstat = (newValue) => {
     setAction((prev) => ({
@@ -74,11 +74,9 @@ const EditEquipListPiece = ({
       .map(([, substatObj]) => substatObj.key)
       .filter((_, idx) => idx !== subIndex);
     
-    return Object.keys(SUBSTATS).filter(
-      (option) => gameId === "ww"
-        ? !selectedSubstats.includes(option)
-        : !selectedSubstats.includes(option) && option !== selectedMainstat
-    );
+    return SUBSTAT_OPTIONS.filter((option) => gameId === "ww"
+      ? !selectedSubstats.includes(option)
+      : !selectedSubstats.includes(option) && option !== selectedMainstat);
   };
 
   return (
@@ -88,13 +86,13 @@ const EditEquipListPiece = ({
           <Autocomplete
             size="small"
             value={action?.data?.equipList[mainIndex].key}
-            options={Object.keys(MAINSTATS[mainIndex])}
-            getOptionLabel={(id) => MAINSTATS[mainIndex][id]?.name || ""}
+            options={MAINSTAT_OPTIONS[mainIndex]}
+            getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
                 {...params}
-                label={PIECE_NAMES[mainIndex]}
+                label={EQUIP_NAMES[mainIndex]}
               />
             )}
             fullWidth
@@ -113,7 +111,7 @@ const EditEquipListPiece = ({
                 size="small"
                 value={action?.data.equipList[mainIndex].statMap[subIndex].key}
                 options={substatOptions(subIndex)}
-                getOptionLabel={(id) => SUBSTATS[id]?.name || ""}
+                getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
                 renderInput={(params) => (
                   <TextField
@@ -134,7 +132,7 @@ const EditEquipListPiece = ({
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (SUBSTATS[action.data.equipList[mainIndex].statMap[subIndex].key]?.value * (gameId === "ww" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (STAT_INDEX[action.data.equipList[mainIndex].statMap[subIndex].key]?.valueSub * (gameId === "ww" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, "value");
                   }
@@ -143,7 +141,7 @@ const EditEquipListPiece = ({
                 disabled={action?.data.equipList[mainIndex].statMap[subIndex].key === null}
                 slotProps={{
                   input: {
-                    endAdornment: SUBSTATS[action?.data.equipList[mainIndex].statMap[subIndex].key]?.percent && (
+                    endAdornment: STAT_INDEX[action?.data.equipList[mainIndex].statMap[subIndex].key]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },

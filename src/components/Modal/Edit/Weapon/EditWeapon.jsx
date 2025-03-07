@@ -178,14 +178,14 @@ const EditWeapon = ({
                 </Typography>
                 <Typography variant="body2">
                   {gameId === "HSR"
-                    && `Base HP: ${weaponData[action.data.weaponId].base.FLAT_HP}`}
+                    && `Base HP: ${weaponData[action.data.weaponId].base._HP}`}
                 </Typography>
                 <Typography variant="body2">
-                  {`Base ATK: ${weaponData[action.data.weaponId].base.FLAT_ATK}`}
+                  {`Base ATK: ${weaponData[action.data.weaponId].base._ATK}`}
                 </Typography>
                 <Typography variant="body2">
                   {gameId === "HSR"
-                    ? `Base DEF: ${weaponData[action.data.weaponId].base.FLAT_DEF}`
+                    ? `Base DEF: ${weaponData[action.data.weaponId].base._DEF}`
                     : weaponData[action.data.weaponId].substat}
                 </Typography>
                 <Typography variant="subtitle2" fontWeight="bold" mt={1}>

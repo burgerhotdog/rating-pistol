@@ -29,7 +29,7 @@ const EditEquipList = ({
         alignItems="center"
         spacing={2}
       >
-        {[0, 1, 2, 3, 4, ...(gameId === "HSR" || gameId === "ZZZ" ? [5] : [])].map((mainIndex) => (
+        {[0, 1, 2, 3, 4, ...(gameId === "hsr" || gameId === "zzz" ? [5] : [])].map((mainIndex) => (
           <EditEquipListPiece
             key={mainIndex}
             gameId={gameId}

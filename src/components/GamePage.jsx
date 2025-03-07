@@ -71,11 +71,9 @@ const GamePage = ({ gameId, userId }) => {
       rating: getRating(gameId, id, data),
     }));
 
-    ratedObjs.sort((a, b) => 
-      a.data.isStar === b.data.isStar
-        ? b.rating.final - a.rating.final
-        : a.data.isStar ? -1 : 1
-    );
+    ratedObjs.sort((a, b) => a.data.isStar === b.data.isStar
+      ? b.rating.final - a.rating.final
+      : a.data.isStar ? -1 : 1);
 
     setSortedDocs(ratedObjs);
   }, [localDocs]);
