@@ -16,10 +16,10 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import AddModal from "./Add/AddModal";
-import DeleteModal from "./Delete/DeleteModal";
-import EditModal from "./Edit/EditModal";
-import LoadModal from "./Load/LoadModal";
+import AddModal from "./Modal/Add/AddModal";
+import DeleteModal from "./Modal/Delete/DeleteModal";
+import EditModal from "./Modal/Edit/EditModal";
+import LoadModal from "./Modal/Load/LoadModal";
 import getRating from "./getRating/getRating";
 import TableStar from "./Table/TableStar";
 import TableAvatar from "./Table/TableAvatar";

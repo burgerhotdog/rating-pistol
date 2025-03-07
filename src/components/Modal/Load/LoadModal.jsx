@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 import {
   Box,
   Button,
@@ -11,8 +11,8 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import template from "../template";
-import getData from "../getData";
+import template from "../../template";
+import getData from "../../getData";
 import translate from "./translate";
 
 const ModalLoad = ({
@@ -71,7 +71,7 @@ const ModalLoad = ({
     const { maleToFemale } = translate(gameId);
     
     switch (gameId) {
-      case "GI":
+      case "gi":
         for (const rawItem of rawEnka.avatarInfoList) {
           if (maleToFemale[rawItem.avatarId]) {
             rawItem.avatarId = maleToFemale[rawItem.avatarId];
@@ -80,7 +80,7 @@ const ModalLoad = ({
         setEnkaList(rawEnka.avatarInfoList);
       break;
 
-      case "HSR":
+      case "hsr":
         for (const rawItem of rawEnka.detailInfo.avatarDetailList ) {
           if (maleToFemale[rawItem.avatarId]) {
             rawItem.avatarId = maleToFemale[rawItem.avatarId];

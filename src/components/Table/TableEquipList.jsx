@@ -23,9 +23,10 @@ const TableEquipList = ({
 
   const getSetBonuses = (equipList) => {
     const setCounts = {};
-    equipList.forEach(({ key }) => {
-      if (key) {
-        setCounts[key] = (setCounts[key] || 0) + 1;
+    equipList.forEach(({ setId }) => {
+      console.log(setId);
+      if (setId) {
+        setCounts[setId] = (setCounts[setId] || 0) + 1;
       }
     });
   
@@ -57,7 +58,7 @@ const TableEquipList = ({
             spacing={1}
             sx={{ cursor: "pointer" }}
           >
-            {Object.entries(setBonuses).map((setId) => (
+            {Object.entries(setBonuses).map(([setId, numBonus]) => (
               <Box
                 key={setId}
                 component="img"

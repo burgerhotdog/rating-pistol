@@ -7,8 +7,8 @@ import {
   TextField,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import template from "../../template";
-import getData from "../../getData";
+import template from "../../../template";
+import getData from "../../../getData";
 
 const EditEquipListPiece = ({
   gameId,

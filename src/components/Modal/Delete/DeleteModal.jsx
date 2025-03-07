@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { doc, deleteDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 import {
   Modal,
   Box,
@@ -9,7 +9,7 @@ import {
   Typography,
   useTheme
 } from "@mui/material";
-import getData from "../getData";
+import getData from "../../getData";
 
 const DeleteModal = ({
   gameId,

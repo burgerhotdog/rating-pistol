@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import getData from "../../getData";
+import getData from "../../../getData";
 
 const EditAvatar = ({
   gameId,

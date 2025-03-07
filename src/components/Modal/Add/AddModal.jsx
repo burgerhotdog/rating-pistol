@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 import {
   Modal,
   Box,
@@ -10,9 +10,9 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
-import template from "../template";
-import getData from "../getData";
-import getIcons from "../getIcons";
+import template from "../../template";
+import getData from "../../getData";
+import getIcons from "../../getIcons";
 
 const AddModal = ({
   gameId,

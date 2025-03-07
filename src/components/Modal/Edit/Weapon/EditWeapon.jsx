@@ -8,8 +8,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import getData from "../../getData";
-import getIcons from "../../getIcons";
+import getData from "../../../getData";
+import getIcons from "../../../getIcons";
 
 const EditWeapon = ({
   gameId,

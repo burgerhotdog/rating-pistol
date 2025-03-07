@@ -12,8 +12,8 @@ import {
   InputAdornment,
 } from "@mui/material";
 import EditEquipListPiece from "./EditEquipListPiece";
-import getData from "../../getData";
-import getIcons from "../../getIcons";
+import getData from "../../../getData";
+import getIcons from "../../../getIcons";
 
 const EditEquipList = ({
   gameId,
