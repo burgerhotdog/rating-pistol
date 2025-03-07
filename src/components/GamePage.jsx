@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
@@ -16,71 +16,69 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import AddModal from "./Add/AddModal";
-import DeleteModal from "./Delete/DeleteModal";
-import EditModal from "./Edit/EditModal";
-import LoadModal from "./Load/LoadModal";
+import AddModal from "./Modal/Add/AddModal";
+import DeleteModal from "./Modal/Delete/DeleteModal";
+import EditModal from "./Modal/Edit/EditModal";
+import LoadModal from "./Modal/Load/LoadModal";
 import getRating from "./getRating/getRating";
 import TableStar from "./Table/TableStar";
-import TableCharacter from "./Table/TableCharacter";
+import TableAvatar from "./Table/TableAvatar";
 import TableWeapon from "./Table/TableWeapon";
-import TableGear from "./Table/TableGear";
-import TableSkills from "./Table/TableSkills";
+import TableEquipList from "./Table/TableEquipList";
+import TableSkillMap from "./Table/TableSkillMap";
 import TableRating from "./Table/TableRating";
 import TableDelete from "./Table/TableDelete";
 import getData from "./getData";
 
-const GamePage = ({ uid, gameType }) => {
-  const { INFO } = getData(gameType);
-  const [localObjs, setLocalObjs] = useState({});
-  const [sortedObjs, setSortedObjs] = useState([]);
-  const [hoveredRow, setHoveredRow] = useState(null);
+const GamePage = ({ gameId, userId }) => {
+  const { generalData } = getData(gameId);
+  const [localDocs, setLocalDocs] = useState({});
+  const [sortedDocs, setSortedDocs] = useState([]);
+  const [hoveredRowId, setHoveredRowId] = useState(null);
   const [action, setAction] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  // get localObjs from firestore
+  // get localDocs from firestore
   useEffect(() => {
     const fetchDB = async () => {
-      if (uid) {
-        setIsLoading(true);
-        const infoDocsRef = collection(db, "users", uid, gameType);
-        const infoDocs = await getDocs(infoDocsRef);
-        const dataObjs = {};
-        for (const infoDoc of infoDocs.docs) {
-          const gearDocsRef = collection(db, "users", uid, gameType, infoDoc.id, "gearList");
-          const gearDocs = await getDocs(gearDocsRef);
-          const gearList = [];
-          for (const gearDoc of gearDocs.docs) {
-            gearList.push(gearDoc.data());
+      if (userId) {
+        try {
+          setIsLoading(true);
+          const dataRef = collection(db, "users", userId, gameId);
+          const data = await getDocs(dataRef);
+          const dataDocs = {};
+          for (const doc of data.docs) {
+            dataDocs[doc.id] = doc.data();
           };
-          dataObjs[infoDoc.id] = {
-            info: infoDoc.data(),
-            gearList,
-          };
-        };
-        setLocalObjs(dataObjs);
-        setIsLoading(false);
+          setLocalDocs(dataDocs);
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setIsLoading(false);
+        }
       } else {
-        setLocalObjs({});
+        setLocalDocs({});
       }
     };
     fetchDB();
-  }, [uid]);
+  }, [userId]);
 
-  // rate and sort localObjs for display table
+  // rate and sort localDocs for display table
   useEffect(() => {
-    const ratedObjs = Object.entries(localObjs).map(([id, data]) => ({
+    const ratedObjs = Object.entries(localDocs).map(([id, data]) => ({
       id,
       data,
-      rating: getRating(gameType, id, data),
+      rating: getRating(gameId, id, data),
     }));
-    ratedObjs.sort((a, b) =>
-      a.data.info.isStar === b.data.info.isStar
+
+    ratedObjs.sort((a, b) => 
+      a.data.isStar === b.data.isStar
         ? b.rating.final - a.rating.final
-        : a.data.info.isStar ? -1 : 1
+        : a.data.isStar ? -1 : 1
     );
-    setSortedObjs(ratedObjs);
-  }, [localObjs]);
+
+    setSortedDocs(ratedObjs);
+  }, [localDocs]);
 
   const handleAdd = () => {
     setAction({
@@ -99,8 +97,8 @@ const GamePage = ({ uid, gameType }) => {
     <Container>
       <Back />
       <Stack alignItems="center" sx={{ mt: 4 }}>
-        <Typography variant="h4">{INFO.TITLE}</Typography>
-        <Typography variant="body2">Updated for version {INFO.VERSION}</Typography>
+        <Typography variant="h4">{generalData.TITLE}</Typography>
+        <Typography variant="body2">Updated for version {generalData.VERSION}</Typography>
 
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
@@ -108,10 +106,10 @@ const GamePage = ({ uid, gameType }) => {
               <TableRow>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
                 <TableCell align="center" sx={{ width: 60 }} />
-                <TableCell align="left" sx={{ width: 180 }}>{INFO.SECTION_NAMES[0]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[1]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[2]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{INFO.SECTION_NAMES[3]}</TableCell>
+                <TableCell align="left" sx={{ width: 180 }}>{generalData.SECTION_NAMES[0]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[1]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[2]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[3]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
               </TableRow>
@@ -127,25 +125,25 @@ const GamePage = ({ uid, gameType }) => {
                   <TableCell sx={{ borderBottom: "none" }} />
                 </TableRow>
               ) : (
-                sortedObjs.map(({ id, data, rating }) => (
+                sortedDocs.map(({ id, data, rating }) => (
                   <TableRow
                     key={id}
-                    onMouseEnter={() => setHoveredRow(id)}
-                    onMouseLeave={() => setHoveredRow(null)}
+                    onMouseEnter={() => setHoveredRowId(id)}
+                    onMouseLeave={() => setHoveredRowId(null)}
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
                     <TableCell>
                       <TableStar
-                        uid={uid}
-                        gameType={gameType}
-                        setLocalObjs={setLocalObjs}
+                        userId={userId}
+                        gameId={gameId}
+                        setLocalDocs={setLocalDocs}
                         id={id}
                         data={data}
                       />
                     </TableCell>
                     <TableCell>
-                      <TableCharacter
-                        gameType={gameType}
+                      <TableAvatar
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -153,23 +151,23 @@ const GamePage = ({ uid, gameType }) => {
                     </TableCell>
                     <TableCell>
                       <TableWeapon
-                        gameType={gameType}
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
                       />
                     </TableCell>
                     <TableCell>
-                      <TableGear
-                        gameType={gameType}
+                      <TableEquipList
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
                       />
                     </TableCell>
                     <TableCell>
-                      <TableSkills
-                        gameType={gameType}
+                      <TableSkillMap
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -178,7 +176,7 @@ const GamePage = ({ uid, gameType }) => {
                     </TableCell>
                     <TableCell>
                       <TableRating
-                        gameType={gameType}
+                        gameId={gameId}
                         setAction={setAction}
                         id={id}
                         data={data}
@@ -190,7 +188,7 @@ const GamePage = ({ uid, gameType }) => {
                         setAction={setAction}
                         id={id}
                         data={data}
-                        hoveredRow={hoveredRow}
+                        hoveredRowId={hoveredRowId}
                       />
                     </TableCell>
                   </TableRow>
@@ -212,41 +210,41 @@ const GamePage = ({ uid, gameType }) => {
             onClick={handleLoad}
             variant="contained"
             endIcon={<KeyboardArrowRight />}
-            disabled={gameType === "WW" || gameType === "ZZZ"}
+            disabled={gameId === "ww" || gameId === "zzz"}
           >
             Load from UID
           </Button>
         </Stack>
 
         <AddModal
-          uid={uid}
-          gameType={gameType}
+          userId={userId}
+          gameId={gameId}
           action={action}
           setAction={setAction}
-          localObjs={localObjs}
-          setLocalObjs={setLocalObjs}
+          localDocs={localDocs}
+          setLocalDocs={setLocalDocs}
         />
         <DeleteModal
-          uid={uid}
-          gameType={gameType}
+          userId={userId}
+          gameId={gameId}
           action={action}
           setAction={setAction}
-          setLocalObjs={setLocalObjs}
+          setLocalDocs={setLocalDocs}
         />
         <EditModal
-          uid={uid}
-          gameType={gameType}
+          userId={userId}
+          gameId={gameId}
           action={action}
           setAction={setAction}
-          setLocalObjs={setLocalObjs}
+          setLocalDocs={setLocalDocs}
         />
-        {(gameType === "GI" || gameType === "HSR") && (
+        {(gameId === "gi" || gameId === "hsr") && (
           <LoadModal
-            uid={uid}
-            gameType={gameType}
+            userId={userId}
+            gameId={gameId}
             action={action}
             setAction={setAction}
-            setLocalObjs={setLocalObjs}
+            setLocalDocs={setLocalDocs}
           />
         )}
       </Stack>

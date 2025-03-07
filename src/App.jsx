@@ -1,24 +1,22 @@
 import React, { useState } from "react";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
+import { auth } from "./firebase";
 import Auth from "./components/Auth";
 import MenuPage from "./components/MenuPage";
-import GenshinImpact from "./pages/GenshinImpact";
-import HonkaiStarRail from "./pages/HonkaiStarRail";
-import WutheringWaves from "./pages/WutheringWaves";
-import ZenlessZoneZero from "./pages/ZenlessZoneZero";
+import GamePage from "./components/GamePage";
 
 function App() {
-  const [uid, setUid] = useState(null);
+  const [user, setUser] = useState(auth.currentUser);
 
   return (
     <HashRouter>
-      <Auth setUid={setUid} />
+      <Auth user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<MenuPage />} />
-        <Route path="/genshin-impact" element={<GenshinImpact uid={uid} />} />
-        <Route path="/honkai-star-rail" element={<HonkaiStarRail uid={uid} />} />
-        <Route path="/wuthering-waves" element={<WutheringWaves uid={uid} />} />
-        <Route path="/zenless-zone-zero" element={<ZenlessZoneZero uid={uid} />} />
+        <Route path="/genshin-impact" element={<GamePage gameId="gi" userId={user?.uid}  />} />
+        <Route path="/honkai-star-rail" element={<GamePage gameId="hsr" userId={user?.uid} />} />
+        <Route path="/wuthering-waves" element={<GamePage gameId="ww" userId={user?.uid} />} />
+        <Route path="/zenless-zone-zero" element={<GamePage gameId="zzz" userId={user?.uid} />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

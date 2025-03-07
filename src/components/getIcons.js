@@ -1,9 +1,9 @@
-import GI from "../assets/GI/GI"
-import HSR from "../assets/HSR/HSR"
-import WW from "../assets/WW/WW"
-import ZZZ from "../assets/ZZZ/ZZZ"
+import gi from "../assets/gi/gi";
+import hsr from "../assets/hsr/hsr";
+import ww from "../assets/ww/ww";
+import zzz from "../assets/zzz/zzz";
 
-export default (gameType) => {
-  const data = { GI, HSR, WW, ZZZ };
-  return data[gameType];
+export default (gameId) => {
+  const data = { gi, hsr, ww, zzz };
+  return data[gameId];
 };
