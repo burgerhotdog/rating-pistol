@@ -2,7 +2,7 @@ export default {
   TITLE: "Wuthering Waves",
   VERSION: "2.1",
   SECTION_NAMES: [
-    "Character",
+    "Resonator",
     "Weapon",
     "Echoes",
     "Skills",
