@@ -6,51 +6,34 @@ import hsr from "../assets/hsr/banner.webp"
 import ww from "../assets/ww/banner.webp"
 import zzz from "../assets/zzz/banner.webp"
 
-const tint = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75))";
+const buttonStyles = (img) => ({
+  background: `rgba(0, 0, 0, 0.7) url(${img}) center/cover`,
+  backgroundBlendMode: "overlay",
+  width: 600,
+  height: 80,
+  fontWeight: "bold",
+  fontSize: "1.5rem",
+  color: "white",
+  "&:hover": { opacity: 0.8 },
+});
 
-const MenuPage = () => {
-  return (
-    <Container maxWidth="sm">
-      <Stack justifyContent="center" alignItems="center" mt={8} spacing={2}>
-        <Button
-          className="menuButton"
-          component={Link}
-          to="/genshin-impact"
-          fullWidth
-          sx={{ backgroundImage: `${tint}, url(${gi})` }}
-        >
-          Genshin Impact
+const games = [
+  { name: "Genshin Impact", path: "/genshin-impact", img: gi },
+  { name: "Honkai Star Rail", path: "/honkai-star-rail", img: hsr },
+  { name: "Wuthering Waves", path: "/wuthering-waves", img: ww },
+  { name: "Zenless Zone Zero", path: "/zenless-zone-zero", img: zzz },
+];
+
+const MenuPage = () => (
+  <Container>
+    <Stack alignItems="center" mt={8} spacing={2}>
+      {games.map(({ name, path, img }) => (
+        <Button key={path} component={Link} to={path} sx={buttonStyles(img)}>
+          {name}
         </Button>
-        <Button
-          className="menuButton"
-          component={Link}
-          to="/honkai-star-rail"
-          fullWidth
-          sx={{ backgroundImage: `${tint}, url(${hsr})` }}
-        >
-          Honkai Star Rail
-        </Button>
-        <Button
-          className="menuButton"
-          component={Link}
-          to="/wuthering-waves"
-          fullWidth
-          sx={{ backgroundImage: `${tint}, url(${ww})` }}
-        >
-          Wuthering Waves
-        </Button>
-        <Button
-          className="menuButton"
-          component={Link}
-          to="/zenless-zone-zero"
-          fullWidth
-          sx={{ backgroundImage: `${tint}, url(${zzz})` }}
-        >
-          Zenless Zone Zero
-        </Button>
-      </Stack>
-    </Container>
-  );
-};
+      ))}
+    </Stack>
+  </Container>
+);
 
 export default MenuPage;

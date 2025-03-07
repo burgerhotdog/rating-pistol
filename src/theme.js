@@ -34,23 +34,6 @@ const theme = createTheme({
         },
       },
     },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          "&.menuButton": {
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            height: "80px", 
-            fontWeight: "bold", 
-            fontSize: "1.2rem", 
-            color: "rgba(255, 255, 255, 0.87)",
-            "&:hover": {
-              opacity: 0.8,
-            },
-          },
-        },
-      },
-    },
   },
 });
 
