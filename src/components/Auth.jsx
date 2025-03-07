@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import {
-  browserLocalPersistence,
-  GoogleAuthProvider,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  browserLocalPersistence,
   setPersistence,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { Box, Stack, Button, Typography } from "@mui/material";
 import { auth, db } from "../firebase";
+import { Box, Stack, Button, Typography } from "@mui/material";
 
 const Auth = ({ user, setUser }) => {
   const [isLoading, setIsLoading] = useState(false);

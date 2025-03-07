@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Tooltip, Typography } from "@mui/material";
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { ErrorOutline } from '@mui/icons-material';
 
 const TableRating = ({
   setAction,
@@ -25,7 +25,7 @@ const TableRating = ({
             {rating.final.toString()}
           </Typography>
         ) : (
-          <ErrorOutlineIcon color="error" cursor="pointer" />
+          <ErrorOutline color="error" cursor="pointer" />
         )}
       </Tooltip>
     </Stack>

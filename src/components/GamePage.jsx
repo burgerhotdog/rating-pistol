@@ -134,8 +134,8 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell sx={{ borderBottom: "none" }} />
                     <TableCell>
                       <TableStar
-                        userId={userId}
                         gameId={gameId}
+                        userId={userId}
                         setLocalDocs={setLocalDocs}
                         id={id}
                         data={data}
@@ -217,31 +217,31 @@ const GamePage = ({ gameId, userId }) => {
         </Stack>
 
         <AddModal
-          userId={userId}
           gameId={gameId}
+          userId={userId}
           action={action}
           setAction={setAction}
           localDocs={localDocs}
           setLocalDocs={setLocalDocs}
         />
         <DeleteModal
-          userId={userId}
           gameId={gameId}
+          userId={userId}
           action={action}
           setAction={setAction}
           setLocalDocs={setLocalDocs}
         />
         <EditModal
-          userId={userId}
           gameId={gameId}
+          userId={userId}
           action={action}
           setAction={setAction}
           setLocalDocs={setLocalDocs}
         />
         {(gameId === "gi" || gameId === "hsr") && (
           <LoadModal
-            userId={userId}
             gameId={gameId}
+            userId={userId}
             action={action}
             setAction={setAction}
             setLocalDocs={setLocalDocs}

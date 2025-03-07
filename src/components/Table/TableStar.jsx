@@ -1,13 +1,12 @@
 import React from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { Stack } from "@mui/material";
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { db } from "../../firebase";
+import { Stack } from "@mui/material";
+import { Star, StarBorder } from '@mui/icons-material';
 
 const TableStar = ({
-  userId,
   gameId,
+  userId,
   setLocalDocs,
   id,
   data,
@@ -32,13 +31,13 @@ const TableStar = ({
   return (
     <Stack alignItems="center">
       {data.isStar ? (
-        <StarIcon
+        <Star
           onClick={toggleStar}
           cursor="pointer"
           color="gold"
         />
       ) : (
-        <StarBorderIcon
+        <StarBorder
           onClick={toggleStar}
           cursor="pointer"
           color="disabled"

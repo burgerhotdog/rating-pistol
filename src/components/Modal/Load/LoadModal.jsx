@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import {
+  Modal,
   Box,
+  Stack,
   Button,
   Checkbox,
-  Modal,
-  Stack,
   TextField,
   Typography,
   useTheme,

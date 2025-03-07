@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  Autocomplete,
+  Grid2 as Grid,
   Card,
   Divider,
-  InputAdornment,
+  Autocomplete,
   TextField,
+  InputAdornment,
 } from "@mui/material";
-import Grid from "@mui/material/Grid2";
 import template from "../../../template";
 import getData from "../../../getData";
 

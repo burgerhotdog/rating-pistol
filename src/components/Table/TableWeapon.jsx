@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Stack, Tooltip } from "@mui/material";
-import Add from "@mui/icons-material/Add";
+import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
 

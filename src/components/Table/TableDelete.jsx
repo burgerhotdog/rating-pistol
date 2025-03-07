@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Delete } from '@mui/icons-material';
 
 const TableDelete = ({
   setAction,
@@ -18,7 +18,7 @@ const TableDelete = ({
 
   return (
     <Stack alignItems="center">
-      <DeleteIcon
+      <Delete
         onClick={openModal}
         cursor="pointer"
         color="disabled"
