@@ -7,10 +7,9 @@ import {
   TextField,
   InputAdornment,
 } from "@mui/material";
-import template from "../../../template";
 import getData from "../../../getData";
 
-const EditEquipListPiece = ({
+const EquipCard = ({
   gameId,
   action,
   setAction,
@@ -155,4 +154,4 @@ const EditEquipListPiece = ({
   );
 };
 
-export default EditEquipListPiece;
+export default EquipCard;
