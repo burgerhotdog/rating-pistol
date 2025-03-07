@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Box, Stack, Tooltip } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import getData from "../getData";
@@ -24,7 +24,6 @@ const TableEquipList = ({
   const getSetBonuses = (equipList) => {
     const setCounts = {};
     equipList.forEach(({ setId }) => {
-      console.log(setId);
       if (setId) {
         setCounts[setId] = (setCounts[setId] || 0) + 1;
       }
@@ -44,7 +43,7 @@ const TableEquipList = ({
     return bonuses;
   }
 
-  const setBonuses = getSetBonuses(data.equipList);
+  const setBonuses = useMemo(() => getSetBonuses(data.equipList), [data.equipList]);
   const sectionName = generalData.SECTION_NAMES[2];
 
   return (
