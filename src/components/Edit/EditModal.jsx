@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { doc, writeBatch } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import {
   Modal,
@@ -8,36 +8,29 @@ import {
   Button,
   useTheme,
 } from "@mui/material";
-import EditCharacter from "./Character/EditCharacter";
+import EditAvatar from "./Avatar/EditAvatar";
 import EditWeapon from "./Weapon/EditWeapon";
-import EditGear from "./Gear/EditGear";
-import EditSkills from "./Skills/EditSkills";
+import EditEquipList from "./EquipList/EditEquipList";
+import EditSkillMap from "./SkillMap/EditSkillMap";
 
 const EditModal = ({
   gameId,
   userId,
   action,
   setAction,
-  setLocalObjs,
+  setLocalDocs,
 }) => {
   const theme = useTheme();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
     setIsLoading(true);
-    
     if (userId) {
-      const batch = writeBatch(db);
       const infoDocRef = doc(db, "users", userId, gameId, action.id);
-      batch.set(infoDocRef, action.data.info, { merge: true });
-      for (const [index, gearObj] of action.data.gearList.entries()) {
-        const gearDocRef = doc(db, "users", userId, gameId, action.id, "gearList", index.toString());
-        batch.set(gearDocRef, gearObj, { merge: true });
-      }
-      await batch.commit();
+      await setDoc(infoDocRef, action.data, { merge: true });
     }
 
-    setLocalObjs((prev) => ({
+    setLocalDocs((prev) => ({
       ...prev,
       [action.id]: action.data,
     }));
@@ -54,8 +47,8 @@ const EditModal = ({
     <Modal open={action?.type === "edit"} onClose={handleCancel}>
       <Box sx={theme.customStyles.modal}>
         <Stack alignItems="center" spacing={2}>
-          {action?.item === "character" ? (
-            <EditCharacter
+          {action?.item === "avatar" ? (
+            <EditAvatar
               gameId={gameId}
               action={action}
               setAction={setAction}
@@ -66,14 +59,14 @@ const EditModal = ({
               action={action}
               setAction={setAction}
             />
-          ) : action?.item === "gear" ? (
-            <EditGear
+          ) : action?.item === "equipList" ? (
+            <EditEquipList
               gameId={gameId}
               action={action}
               setAction={setAction}
             />
-          ) : action?.item === "skills" && (
-            <EditSkills
+          ) : action?.item === "skillMap" && (
+            <EditSkillMap
               gameId={gameId}
               action={action}
               setAction={setAction}

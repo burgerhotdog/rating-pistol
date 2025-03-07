@@ -12,35 +12,29 @@ import {
 } from "@mui/material";
 import getData from "../../getData";
 
-const EditCharacter = ({
+const EditAvatar = ({
   gameId,
   action,
   setAction,
 }) => {
   const { generalData } = getData(gameId);
   
-  const handleCharacterLevel = (newValue) => {
+  const handleLevel = (newValue) => {
     setAction((prev) => ({
       ...prev,
       data: {
         ...prev.data,
-        info: {
-          ...prev.data.info,
-          characterLevel: newValue || "",
-        }
+        level: newValue,
       },
     }));
   };
 
-  const handleCharacterRank = (newValue) => {
+  const handleRank = (newValue) => {
     setAction((prev) => ({
       ...prev,
       data: {
         ...prev.data,
-        info: {
-          ...prev.data.info,
-          characterRank: newValue || "",
-        }
+        rank: newValue,
       },
     }));
   };
@@ -49,10 +43,11 @@ const EditCharacter = ({
     <Stack direction="row" spacing={2}>
       <Autocomplete
         size="small"
-        value={action?.data?.info?.characterLevel || ""}
-        options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10).toString())}
+        value={action?.data?.level}
+        options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10))}
+        getOptionLabel={(id) => String(id)}
         onChange={(_, newValue) => {
-          if (newValue) handleCharacterLevel(newValue);
+          if (newValue) handleLevel(newValue);
         }}
         renderInput={(params) => (
           <TextField
@@ -60,15 +55,15 @@ const EditCharacter = ({
             label="Level"
           />
         )}
-        sx={{ width: 80 }}
         disableClearable
       />
       <Autocomplete
         size="small"
-        value={action?.data?.info?.characterRank || ""}
-        options={["0", "1", "2", "3", "4", "5", "6"]}
+        value={action?.data?.rank}
+        options={[0, 1, 2, 3, 4, 5, 6]}
+        getOptionLabel={(id) => String(id)}
         onChange={(_, newValue) => {
-          if (newValue) handleCharacterRank(newValue);
+          if (newValue) handleRank(newValue);
         }}
         renderInput={(params) => (
           <TextField
@@ -76,11 +71,10 @@ const EditCharacter = ({
             label="Rank"
           />
         )}
-        sx={{ width: 80 }}
         disableClearable
       />
     </Stack>
   );
 };
 
-export default EditCharacter;
+export default EditAvatar;

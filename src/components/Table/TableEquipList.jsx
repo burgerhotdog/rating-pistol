@@ -4,7 +4,7 @@ import Add from "@mui/icons-material/Add";
 import getData from "../getData";
 import getIcons from "../getIcons";
 
-const TableGear = ({
+const TableEquipList = ({
   gameId,
   setAction,
   id,
@@ -15,18 +15,41 @@ const TableGear = ({
   const openModal = () => {
     setAction({
       type: "edit",
-      item: "gear",
+      item: "equipList",
       id,
       data,
     });
   };
 
+  const getSetBonuses = (equipList) => {
+    const setCounts = {};
+    equipList.forEach(({ key }) => {
+      if (key) {
+        setCounts[key] = (setCounts[key] || 0) + 1;
+      }
+    });
+  
+    const bonuses = {};
+    const sets = Object.entries(setCounts).sort((a, b) => b[1] - a[1]);
+  
+    sets.forEach(([set, count]) => {
+      if (count >= 4) {
+        bonuses[set] = 4;
+      } else if (count === 2) {
+        bonuses[set] = 2;
+      }
+    });
+  
+    return bonuses;
+  }
+
+  const setBonuses = getSetBonuses(data.equipList);
   const sectionName = generalData.SECTION_NAMES[2];
 
   return (
     <Stack alignItems="center">
       <Tooltip title={`Edit ${sectionName}`} arrow>
-        {data.set[0].id || data.setExtra.id ? (
+        {Object.keys(setBonuses).length ? (
           <Stack
             onClick={openModal}
             direction="row"
@@ -34,30 +57,15 @@ const TableGear = ({
             spacing={1}
             sx={{ cursor: "pointer" }}
           >
-            {data.info.set[0].id && (
+            {Object.entries(setBonuses).map((setId) => (
               <Box
+                key={setId}
                 component="img"
-                alt={data.set[0].id}
-                src={setIcons[`./${data.set[0].id}.webp`]?.default}
+                alt={setId}
+                src={setIcons[`./${setId}.webp`]?.default}
                 sx={{ width: 50, height: 50, objectFit: "contain" }}
               />
-            )}
-            {data.info.set[1].id && (
-              <Box
-                component="img"
-                alt={data.set[1].id}
-                src={setIcons[`./${data.set[1].id}.webp`]?.default}
-                sx={{ width: 50, height: 50, objectFit: "contain" }}
-              />
-            )}
-            {data.info.setExtra.id && (
-              <Box
-                component="img"
-                alt={data.setExtra.id}
-                src={setIcons[`./${data.setExtra.id}.webp`]?.default}
-                sx={{ width: 50, height: 50, objectFit: "contain" }}
-              />
-            )}
+            ))}
           </Stack>
         ) : (
           <Add onClick={openModal} cursor="pointer" />
@@ -67,4 +75,4 @@ const TableGear = ({
   );
 };
 
-export default TableGear;
+export default TableEquipList;

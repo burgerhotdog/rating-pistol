@@ -3,7 +3,7 @@ import { Box, Stack, Tooltip, Typography } from "@mui/material";
 import getData from "../getData";
 import getIcons from "../getIcons";
 
-const TableCharacter = ({
+const TableAvatar = ({
   gameId,
   setAction,
   id,
@@ -15,7 +15,7 @@ const TableCharacter = ({
   const openModal = () => {
     setAction({
       type: "edit",
-      item: "character",
+      item: "avatar",
       id,
       data,
     });
@@ -48,4 +48,4 @@ const TableCharacter = ({
   );
 };
 
-export default TableCharacter;
+export default TableAvatar;

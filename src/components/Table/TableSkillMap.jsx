@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Tooltip, Typography } from "@mui/material";
 import getData from "../getData";
 
-const TableSkills = ({
+const TableSkillMap = ({
   gameId,
   setAction,
   id,
@@ -13,7 +13,7 @@ const TableSkills = ({
   const openModal = () => {
     setAction({
       type: "edit",
-      item: "skills",
+      item: "skillMap",
       id,
       data,
     });
@@ -29,11 +29,11 @@ const TableSkills = ({
           variant="body1"
           sx={{ cursor: "pointer" }}
         >
-          {`${rating.skills.toString()}%`}
+          {`${rating.skillMap.toString()}%`}
         </Typography>
       </Tooltip>
     </Stack>
   );
 };
 
-export default TableSkills;
+export default TableSkillMap;

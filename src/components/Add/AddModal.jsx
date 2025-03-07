@@ -36,7 +36,7 @@ const AddModal = ({
   
   const charOptions = () => {
     return Object.keys(avatarData)
-      .filter(id => !Object.keys(localObjs).includes(id))
+      .filter(id => !Object.keys(localDocs).includes(id))
       .sort((a, b) => {
         const rarityA = avatarData[a].rarity;
         const rarityB = avatarData[b].rarity;
@@ -59,7 +59,7 @@ const AddModal = ({
     data.level = generalData.LEVEL_CAP;
     data.rank = 0;
     for (const skill in data.skillMap) {
-      info.skillMap[skill] = 1;
+      data.skillMap[skill] = 1;
     }
 
     if (userId) {

@@ -1,6 +1,13 @@
 export default (gameId) => {
   const translate = {
     gi: {
+      equipTypeToIndex: {
+        EQUIP_BRACER: 0,
+        EQUIP_NECKLACE: 1,
+        EQUIP_SHOES: 2,
+        EQUIP_RING: 3,
+        EQUIP_DRESS: 4,
+      },
       maleToFemale: {
         "10000005-2": "10000007-2", // pyro
         "10000005-3": "10000007-3", // hydro

@@ -7,14 +7,14 @@ const combine_basestats = (charBase, weapBase) => {
   }, {});
 };
 
-const combine_substats = (gearList) => {
+const combine_substats = (equipList) => {
   const substats = {};
-  for (const gearObj of gearList) {
-    for (const [index, subArr] of Object.entries(gearObj)) {
-      if (index === "mainstat") continue;
-      const [key, value] = subArr;
-      if (!key || !value) continue;
-      substats[key] = (substats[key] || 0) + Number(value);
+  for (const equipObj of equipList) {
+    for (const statObj of Object.values(equipObj.statMap)) {
+      const { key, value } = statObj;
+      if (key && value) {
+        substats[key] = (substats[key] || 0) + Number(value);
+      }
     }
   }
   return substats;
@@ -27,7 +27,7 @@ const getLargestWeight = (weights) => {
     value > weights[maxWeight] ? key : maxWeight, Object.keys(weights)[0]);
 };
 
-const simulate_substats = (substats, weights, gearList, SUBSTATS, gameId) => {
+const simulate_substats = (substats, weights, equipList, SUBSTATS, gameId) => {
   // Match stat(er,spd,_,er) and calculate that in rolls
   const sim_substats = {};
   let matchStat = "";
@@ -64,25 +64,25 @@ const simulate_substats = (substats, weights, gearList, SUBSTATS, gameId) => {
     delete availableWeights[matchStat2];
   }
   let rollsLeft = Math.max(TOTAL_ROLLS - simMatchRolls, 0);
-  const rollCount = new Array(Object.entries(gearList).length).fill(0);
+  const rollCount = new Array(Object.entries(equipList).length).fill(0);
   while (rollsLeft > 0) {
     // get stat to roll
     const largestWeight = getLargestWeight(availableWeights);
     if (!largestWeight) break;
 
     // figure out which pieces are given rolls
-    const usingPiece = new Array(Object.entries(gearList).length).fill(false);
-    for (let i = 0; i < Object.entries(gearList).length; i++) {
+    const usingPiece = new Array(Object.entries(equipList).length).fill(false);
+    for (let i = 0; i < Object.entries(equipList).length; i++) {
       usingPiece[i] = rollCount[i] < MAX_ROLLS_PER_PIECE ? true : false;
       if (i < FIXED_STAT_UNTIL_WHEN) continue;
-      if (largestWeight === gearList[i].mainstat) {
+      if (largestWeight === equipList[i].key) {
         usingPiece[i] = false;
       }
     }
 
     // add rolls to timesToRoll and increment rollCount
     let timesToRoll = 0;
-    for (let i = 0; i < Object.entries(gearList).length; i++) {
+    for (let i = 0; i < Object.entries(equipList).length; i++) {
       if (!usingPiece[i]) continue;
       if (rollCount[i] === 0) {
         timesToRoll += INITIAL_ROLL_INCREMENT;
@@ -125,17 +125,17 @@ const calculatePoints = (statsObj, weights, basestats, SUBSTATS) => {
   return points;
 };
 
-const rateGear = (gameId, id, data) => {
+const rateEquipList = (gameId, id, data) => {
   const { generalData, avatarData, weaponData } = getData(gameId);
   const SUBSTATS = generalData.SUBSTATS;
-  if (!data.info.weapon) return -1;
+  if (!data.weaponId) return -1;
 
   // Combine stats
-  const basestats = combine_basestats(avatarData[id].base, weaponData[data.info.weapon].base);
-  const substats = combine_substats(data.gearList);
+  const basestats = combine_basestats(avatarData[id].base, weaponData[data.weaponId].base);
+  const substats = combine_substats(data.equipList);
 
   // Simulate perfect substats
-  const sim_substats = simulate_substats(substats, avatarData[id].weights, data.gearList, SUBSTATS, gameId);
+  const sim_substats = simulate_substats(substats, avatarData[id].weights, data.equipList, SUBSTATS, gameId);
 
   // Calculate points
   const points = calculatePoints(substats, avatarData[id].weights, basestats, SUBSTATS);
@@ -145,4 +145,4 @@ const rateGear = (gameId, id, data) => {
   return Math.round((points / sim_points) * 100);
 };
 
-export default rateGear;
+export default rateEquipList;

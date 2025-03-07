@@ -7,10 +7,10 @@ import {
   TextField,
 } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import { templateGear } from "../../template"
+import template from "../../template";
 import getData from "../../getData";
 
-const EditGearPiece = ({
+const EditEquipListPiece = ({
   gameId,
   action,
   setAction,
@@ -23,45 +23,59 @@ const EditGearPiece = ({
       ...prev,
       data: {
         ...prev.data,
-        gearList: prev.data.gearList.map((gearObj, index) => 
+        equipList: prev.data.equipList.map((equipObj, index) => 
           index === mainIndex
-            ? { ...templateGear(gameId), mainstat: newValue || "" }
-            : gearObj
+            ? {
+              ...equipObj,
+              key: newValue,
+              statMap: {
+                0: { key: null, value: null },
+                1: { key: null, value: null },
+                2: { key: null, value: null },
+                3: { key: null, value: null },
+                ...(gameId === "ww"
+                  ? { 4: { key: null, value: null } }
+                  : {}),
+              },
+            }
+            : equipObj
         ),
       },
     }));
   };
 
-  const handleSubstat = (newValue, subIndex, attrIndex) => {
+  const handleSubstat = (newValue, subIndex, attribute) => {
     setAction((prev) => ({
       ...prev,
       data: {
         ...prev.data,
-        gearList: prev.data.gearList.map((gearObj, index) => 
+        equipList: prev.data.equipList.map((equipObj, index) => 
           index === mainIndex
             ? {
-              ...gearObj,
-              [subIndex]: {
-                ...prev.data.gearList[mainIndex][subIndex],
-                [attrIndex]: newValue || "",
-                ...attrIndex === 0 ? { 1: "" } : {},
+              ...equipObj,
+              statMap: {
+                ...equipObj.statMap,
+                [subIndex]: {
+                  ...equipObj.statMap[subIndex],
+                  [attribute]: newValue,
+                  ...attribute === "key" ? { "value": null } : {},
+                },
               },
             }
-            : gearObj
+            : equipObj
         ),
       },
     }));
   };
 
   const substatOptions = (subIndex) => {
-    const selectedMainstat = action.data.gearList[mainIndex].mainstat;
-    const selectedSubstats = Object.entries(action.data.gearList[mainIndex] || {})
-      .filter(([key]) => key !== "mainstat") // Exclude the mainstat key
-      .map(([, substatArray]) => substatArray[0]) // Extract the first string in each array
-      .filter((_, idx) => idx !== subIndex); // Exclude the current substat
+    const selectedMainstat = action.data.equipList[mainIndex].key;
+    const selectedSubstats = Object.entries(action.data.equipList[mainIndex].statMap || {})
+      .map(([, substatObj]) => substatObj.key)
+      .filter((_, idx) => idx !== subIndex);
     
     return Object.keys(SUBSTATS).filter(
-      (option) => gameId === "WW"
+      (option) => gameId === "ww"
         ? !selectedSubstats.includes(option)
         : !selectedSubstats.includes(option) && option !== selectedMainstat
     );
@@ -73,7 +87,7 @@ const EditGearPiece = ({
         <Grid size={12}>
           <Autocomplete
             size="small"
-            value={action?.data?.gearList[mainIndex].mainstat || ""}
+            value={action?.data?.equipList[mainIndex].key}
             options={Object.keys(MAINSTATS[mainIndex])}
             getOptionLabel={(id) => MAINSTATS[mainIndex][id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
@@ -84,7 +98,6 @@ const EditGearPiece = ({
               />
             )}
             fullWidth
-            disableClearable={action?.data?.gearList[mainIndex].mainstat === ""}
           />
         </Grid>
 
@@ -98,10 +111,10 @@ const EditGearPiece = ({
             <Grid size={8}>
               <Autocomplete
                 size="small"
-                value={action?.data?.gearList[mainIndex][subIndex][0] || ""}
+                value={action?.data.equipList[mainIndex].statMap[subIndex].key}
                 options={substatOptions(subIndex)}
                 getOptionLabel={(id) => SUBSTATS[id]?.name || ""}
-                onChange={(_, newValue) => handleSubstat(newValue, subIndex, 0)}
+                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -109,8 +122,7 @@ const EditGearPiece = ({
                   />
                 )}
                 fullWidth
-                disabled={action?.data?.gearList[mainIndex].mainstat === ""}
-                disableClearable={action?.data?.gearList[mainIndex][subIndex][0] === ""}
+                disabled={action?.data?.equipList[mainIndex].key === null}
               />
             </Grid>
 
@@ -118,20 +130,20 @@ const EditGearPiece = ({
             <Grid size={4}>
               <TextField
                 size="small"
-                value={action.data.gearList[mainIndex][subIndex][1] || ""}
+                value={action?.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (SUBSTATS[action.data.gearList[mainIndex][subIndex][0]]?.value * (gameId === "WW" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (SUBSTATS[action.data.equipList[mainIndex].statMap[subIndex].key]?.value * (gameId === "ww" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
-                    handleSubstat(newValue, subIndex, 1);
+                    handleSubstat(newValue, subIndex, "value");
                   }
                 }}
                 fullWidth
-                disabled={action.data.gearList[mainIndex][subIndex][0] === ""}
+                disabled={action?.data.equipList[mainIndex].statMap[subIndex].key === null}
                 slotProps={{
                   input: {
-                    endAdornment: SUBSTATS[action.data.gearList[mainIndex][subIndex][0]]?.percent && (
+                    endAdornment: SUBSTATS[action?.data.equipList[mainIndex].statMap[subIndex].key]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },
@@ -145,4 +157,4 @@ const EditGearPiece = ({
   );
 };
 
-export default EditGearPiece;
+export default EditEquipListPiece;

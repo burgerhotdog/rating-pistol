@@ -5,16 +5,15 @@ import {
   Box,
   Button,
   Checkbox,
-  FormControlLabel,
   Modal,
   Stack,
   TextField,
   Typography,
   useTheme,
 } from "@mui/material";
-import { templateInfo, templateGear } from "../template";
-import translate from "./translate";
+import template from "../template";
 import getData from "../getData";
+import translate from "./translate";
 
 const ModalLoad = ({
   gameId,
@@ -38,14 +37,6 @@ const ModalLoad = ({
     hsr: "hsr/uid/",
     ww: "",
     zzz: "zzz/uid/"
-  };
-
-  const equipTypeToIndexGI = {
-    EQUIP_BRACER: 0,
-    EQUIP_NECKLACE: 1,
-    EQUIP_SHOES: 2,
-    EQUIP_RING: 3,
-    EQUIP_DRESS: 4,
   };
 
   useEffect(() => {
@@ -114,7 +105,7 @@ const ModalLoad = ({
 
       setIsLoading(false);
     } else {
-      setError("Invalid uid");
+      setError(true);
     }
   };
 
@@ -129,6 +120,7 @@ const ModalLoad = ({
   };
 
   const handleSave = async () => {
+    const { equipTypeToIndex } = translate(gameId);
     setIsLoading(true);
     const charBuffer =
       gameId === "gi" ?
@@ -150,7 +142,7 @@ const ModalLoad = ({
           // equipList
           const equipListArr = charObj.equipList.slice(0, -1);
           for (const equipObj of equipListArr) {
-            const equipIndex = equipTypeToIndexGI[equipObj.flat.equipType];
+            const equipIndex = equipTypeToIndex[equipObj.flat.equipType];
             data.equipList[equipIndex].setId = equipObj.flat.icon.substring(13, 18);
             data.equipList[equipIndex].key = statKey.MAIN[equipObj.flat.reliquaryMainstat.mainPropId];
             const reliqSubArr = equipObj.flat.reliquarySubstats;
@@ -260,7 +252,7 @@ const ModalLoad = ({
                   if (isValidNumber) setUid(newValue);
                 }}
                 error={error}
-                helperText="Invalid UID"
+                helperText={error && "Invalid UID"}
                 fullWidth
               />
               <Stack direction="row" alignItems="center">

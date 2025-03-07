@@ -1,27 +1,27 @@
-import rateCharacter from "./rateCharacter";
+import rateAvatar from "./rateAvatar";
 import rateWeapon from "./rateWeapon";
-import rateGear from "./rateGear";
-import rateSkills from "./rateSkills";
+import rateEquipList from "./rateEquipList";
+import rateSkillMap from "./rateSkillMap";
 
 const getRating = (gameId, id, data) => {
-  const character = rateCharacter(gameId, id, data);
+  const avatar = rateAvatar(gameId, id, data);
   const weapon = rateWeapon(gameId, id, data);
-  const gear = rateGear(gameId, id, data);
-  const skills = rateSkills(gameId, id, data);
+  const equipList = rateEquipList(gameId, id, data);
+  const skillMap = rateSkillMap(gameId, id, data);
 
   const final = Math.round(
-    character === -1 ? -1 :
+    avatar === -1 ? -1 :
     weapon === -1 ? -1 :
-    gear === -1 ? -1 :
-    skills === -1 ? -1 : (
-      0.25 * character +
+    equipList === -1 ? -1 :
+    skillMap === -1 ? -1 : (
+      0.25 * avatar +
       0.25 * weapon +
-      0.25 * gear +
-      0.25 * skills
+      0.25 * equipList +
+      0.25 * skillMap
     )
   );
 
-  return { final, character, weapon, gear, skills };
+  return { final, avatar, weapon, equipList, skillMap };
 };
 
 export default getRating;

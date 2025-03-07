@@ -22,10 +22,10 @@ import EditModal from "./Edit/EditModal";
 import LoadModal from "./Load/LoadModal";
 import getRating from "./getRating/getRating";
 import TableStar from "./Table/TableStar";
-import TableCharacter from "./Table/TableCharacter";
+import TableAvatar from "./Table/TableAvatar";
 import TableWeapon from "./Table/TableWeapon";
-import TableGear from "./Table/TableGear";
-import TableSkills from "./Table/TableSkills";
+import TableEquipList from "./Table/TableEquipList";
+import TableSkillMap from "./Table/TableSkillMap";
 import TableRating from "./Table/TableRating";
 import TableDelete from "./Table/TableDelete";
 import getData from "./getData";
@@ -142,7 +142,7 @@ const GamePage = ({ gameId, userId }) => {
                       />
                     </TableCell>
                     <TableCell>
-                      <TableCharacter
+                      <TableAvatar
                         gameId={gameId}
                         setAction={setAction}
                         id={id}
@@ -158,7 +158,7 @@ const GamePage = ({ gameId, userId }) => {
                       />
                     </TableCell>
                     <TableCell>
-                      <TableGear
+                      <TableEquipList
                         gameId={gameId}
                         setAction={setAction}
                         id={id}
@@ -166,7 +166,7 @@ const GamePage = ({ gameId, userId }) => {
                       />
                     </TableCell>
                     <TableCell>
-                      <TableSkills
+                      <TableSkillMap
                         gameId={gameId}
                         setAction={setAction}
                         id={id}

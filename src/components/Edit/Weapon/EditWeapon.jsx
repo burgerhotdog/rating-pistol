@@ -32,23 +32,20 @@ const EditWeapon = ({
       .sort((a, b) => {
         const rarityA = weaponData[a].rarity;
         const rarityB = weaponData[b].rarity;
-        return rarityA !== rarityB ? 
-          rarityB - rarityA : 
-          weaponData[a].name.localeCompare(weaponData[b].name);
+        return rarityA !== rarityB
+          ? rarityB - rarityA
+          : weaponData[a].name.localeCompare(weaponData[b].name);
       });
   };
 
-  const handleWeapon = (newValue) => {
+  const handleWeaponId = (newValue) => {
     setAction((prev) => ({
       ...prev,
       data: {
         ...prev.data,
-        info: {
-          ...prev.data.info,
-          weapon: newValue || "",
-          weaponLevel: newValue ? generalData.LEVEL_CAP.toString() : "",
-          weaponRank: newValue ? "1" : "",
-        }
+        weaponId: newValue,
+        weaponLevel: newValue ? generalData.LEVEL_CAP : null,
+        weaponRank: newValue ? 1 : null,
       },
     }));
   };
@@ -58,10 +55,7 @@ const EditWeapon = ({
       ...prev,
       data: {
         ...prev.data,
-        info: {
-          ...prev.data.info,
-          weaponLevel: newValue || "",
-        }
+        weaponLevel: newValue,
       },
     }));
   };
@@ -71,10 +65,7 @@ const EditWeapon = ({
       ...prev,
       data: {
         ...prev.data,
-        info: {
-          ...prev.data.info,
-          weaponRank: newValue || "",
-        }
+        weaponRank: newValue,
       },
     }));
   };
@@ -84,10 +75,10 @@ const EditWeapon = ({
       <Stack direction="row" spacing={2}>
         <Autocomplete
           size="small"
-          value={action?.data?.info?.weapon || ""}
+          value={action?.data?.weaponId}
           options={weapOptions()}
           getOptionLabel={(id) => weaponData[id]?.name || ""}
-          onChange={(_, newValue) => handleWeapon(newValue)}
+          onChange={(_, newValue) => handleWeaponId(newValue)}
           renderOption={(props, id) => {
             const { key, ...idProps } = props;
             const rarity = weaponData[id]?.rarity;
@@ -120,12 +111,12 @@ const EditWeapon = ({
           )}
           fullWidth
           sx={{ minWidth: 350 }}
-          disableClearable={action?.data?.info?.weapon === ""}
         />
         <Autocomplete
           size="small"
-          value={action?.data?.info?.weaponLevel || ""}
+          value={action?.data?.weaponLevel}
           options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10).toString())}
+          getOptionLabel={(id) => id.toString() || ""}
           onChange={(_, newValue) => {
             if (newValue) handleWeaponLevel(newValue);
           }}
@@ -136,13 +127,14 @@ const EditWeapon = ({
             />
           )}
           sx={{ width: 80 }}
-          disabled={!action?.data?.info?.weapon}
+          disabled={!action?.data?.weaponId}
           disableClearable
         />
         <Autocomplete
           size="small"
-          value={action?.data?.info?.weaponRank || ""}
+          value={action?.data?.weaponRank}
           options={["1", "2", "3", "4", "5"]}
+          getOptionLabel={(id) => id.toString() || ""}
           onChange={(_, newValue) => {
             if (newValue) handleWeaponRank(newValue);
           }}
@@ -153,7 +145,7 @@ const EditWeapon = ({
             />
           )}
           sx={{ width: 80 }}
-          disabled={!action?.data?.info?.weapon}
+          disabled={!action?.data?.weaponId}
           disableClearable
         />
       </Stack>
@@ -167,13 +159,13 @@ const EditWeapon = ({
           p: 2
         }}
       >
-        {action?.data?.info?.weapon ? (
+        {action?.data?.weaponId ? (
           <Grid container spacing={1}>
             <Grid size={4}>
               <Stack alignItems="center">
                 <Box
                   component="img"
-                  src={weaponIcons[`./${action?.data?.info?.weapon}.webp`]?.default}
+                  src={weaponIcons[`./${action?.data?.weaponId}.webp`]?.default}
                   alt=""
                   sx={{ width: 200, height: 200, objectFit: "contain" }}
                 />
@@ -182,25 +174,25 @@ const EditWeapon = ({
             <Grid size={8}>
               <Stack>
                 <Typography variant="subtitle1" fontWeight="bold">
-                  {weaponData[action.data.info.weapon].name}
+                  {weaponData[action.data.weaponId].name}
                 </Typography>
                 <Typography variant="body2">
                   {gameId === "HSR"
-                    && `Base HP: ${weaponData[action.data.info.weapon].base.FLAT_HP}`}
+                    && `Base HP: ${weaponData[action.data.weaponId].base.FLAT_HP}`}
                 </Typography>
                 <Typography variant="body2">
-                  {`Base ATK: ${weaponData[action.data.info.weapon].base.FLAT_ATK}`}
+                  {`Base ATK: ${weaponData[action.data.weaponId].base.FLAT_ATK}`}
                 </Typography>
                 <Typography variant="body2">
                   {gameId === "HSR"
-                    ? `Base DEF: ${weaponData[action.data.info.weapon].base.FLAT_DEF}`
-                    : weaponData[action.data.info.weapon].substat}
+                    ? `Base DEF: ${weaponData[action.data.weaponId].base.FLAT_DEF}`
+                    : weaponData[action.data.weaponId].substat}
                 </Typography>
                 <Typography variant="subtitle2" fontWeight="bold" mt={1}>
-                  {weaponData[action.data.info.weapon].subtitle}
+                  {weaponData[action.data.weaponId].subtitle}
                 </Typography>
                 <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                  {weaponData[action.data.info.weapon].desc}
+                  {weaponData[action.data.weaponId].desc}
                 </Typography>
               </Stack>
             </Grid>

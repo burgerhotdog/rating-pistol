@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import getData from "../../getData";
 
-const EditSkills = ({
+const EditSkillMap = ({
   gameId,
   action,
   setAction,
@@ -23,12 +23,9 @@ const EditSkills = ({
       ...prev,
       data: {
         ...prev.data,
-        info: {
-          ...prev.data.info,
-          skills: {
-            ...prev.data.info.skills,
-            [skillKey]: newValue || "",
-          },
+        skillMap: {
+          ...prev.data.skillMap,
+          [skillKey]: newValue,
         },
       },
     }));
@@ -36,15 +33,16 @@ const EditSkills = ({
 
   return (
     <Stack spacing={2}>
-      {Object.entries(action.data.info.skills).map(([skillKey, skillValue]) => (
+      {Object.entries(action.data.skillMap).map(([skillKey, skillValue]) => (
         <Autocomplete
           key={skillKey}
           size="small"
-          value={skillValue || ""}
+          value={skillValue}
           options={Array.from(
             { length: generalData.SKILL_DATA[skillKey].skill_cap }, 
             (_, i) => (i + 1).toString()
           )}
+          getOptionLabel={(id) => id.toString() || ""}
           onChange={(_, newValue) => {
             if (newValue) handleSkill(newValue, skillKey);
           }}
@@ -61,4 +59,4 @@ const EditSkills = ({
   );
 };
 
-export default EditSkills;
+export default EditSkillMap;

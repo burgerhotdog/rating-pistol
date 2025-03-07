@@ -1,9 +1,9 @@
 import getData from "../getData";
 
 const rateWeapon = (gameId, id, data) => {
-  if (!data.info.weapon || !data.info.weaponLevel) return -1;
+  if (!data.weaponId || !data.weaponLevel) return -1;
   const { generalData } = getData(gameId);
-  const level = Number(data.info.weaponLevel);
+  const level = Number(data.weaponLevel);
   const rawRating = (level / generalData.LEVEL_CAP) * 100 ;
   return Math.round(rawRating);
 };
