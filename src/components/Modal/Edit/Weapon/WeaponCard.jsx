@@ -5,6 +5,7 @@ import {
   Stack,
   Card,
   Typography,
+  Container,
 } from "@mui/material";
 import getData from "../../../getData";
 import getIcons from "../../../getIcons";
@@ -16,11 +17,7 @@ const WeaponCard = ({ gameId, action }) => {
   return (
     <Card
       sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         width: 700,
-        minHeight: 200,
         p: 2
       }}
     >
@@ -30,7 +27,7 @@ const WeaponCard = ({ gameId, action }) => {
             <Stack alignItems="center">
               <Box
                 component="img"
-                src={weaponIcons[`./${action?.data?.weaponId}.webp`]?.default}
+                src={weaponIcons[`./${action.data.weaponId}.webp`]?.default}
                 alt=""
                 sx={{ width: 200, height: 200, objectFit: "contain" }}
               />
@@ -63,9 +60,15 @@ const WeaponCard = ({ gameId, action }) => {
           </Grid>
         </Grid>
       ) : (
-        <Typography variant="body1" color="text.disabled">
-          No {generalData.SECTION_NAMES[1]} Selected
-        </Typography>
+        <Stack
+          justifyContent="center"
+          alignItems="center"
+          sx={{ minHeight: 100 }}
+        >
+          <Typography variant="body1" color="text.disabled">
+            No {generalData.SECTION_NAMES[1]} Selected
+          </Typography>
+        </Stack>
       )}
     </Card>
   );

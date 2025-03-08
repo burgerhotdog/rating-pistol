@@ -32,7 +32,7 @@ const EditEquipList = ({
   return (
     <Stack spacing={2}>
       <Stack direction="row" spacing={2}>
-        <Paper elevation={3} sx={{ width: 200, p: 2 }}>
+        <Card sx={{ width: 150 }}>
           <List>
             {equipSlots.map((index) => (
               <ListItem key={index} disablePadding>
@@ -45,7 +45,7 @@ const EditEquipList = ({
               </ListItem>
             ))}
           </List>
-        </Paper>
+        </Card>
 
         <EquipCard
           gameId={gameId}
