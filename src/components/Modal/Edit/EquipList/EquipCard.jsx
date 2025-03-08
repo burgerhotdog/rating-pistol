@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Grid2 as Grid,
+  Box,
   Card,
   Divider,
   Autocomplete,
@@ -8,6 +9,7 @@ import {
   InputAdornment,
 } from "@mui/material";
 import getData from "../../../getData";
+import getIcons from "../../../getIcons";
 
 const EquipCard = ({
   gameId,
@@ -15,7 +17,33 @@ const EquipCard = ({
   setAction,
   mainIndex,
 }) => {
-  const { EQUIP_NAMES, MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX } = getData(gameId).equipData;
+  const { equipData, setData } = getData(gameId);
+  const { EQUIP_NAMES, MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX } = equipData;
+  const { setIcons } = getIcons(gameId);
+  const rarityColor = {
+    5: "goldenrod",
+    4: "orchid",
+    3: "cornflowerblue",
+    2: "green",
+    1: "slategrey",
+  };
+
+  const handleSet = (newValue) => {
+    setAction((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        equipList: prev.data.equipList.map((equipObj, index) => 
+          index === mainIndex
+            ? {
+              ...equipObj,
+              setId: newValue,
+            }
+            : equipObj
+        ),
+      },
+    }));
+  };
 
   const handleMainstat = (newValue) => {
     setAction((prev) => ({
@@ -78,9 +106,67 @@ const EquipCard = ({
       : !selectedSubstats.includes(option) && option !== selectedMainstat);
   };
 
+  const setOptions = () => {
+    return Object.keys(setData)
+      .filter(id => 
+        gameId === "hsr"
+          ? mainIndex <= 3
+            ? setData[id].type === "Relic"
+            : setData[id].type === "Planar" : true)
+      .sort((a, b) => {
+        const rarityA = setData[a].rarity;
+        const rarityB = setData[b].rarity;
+        return rarityA !== rarityB
+          ? rarityB - rarityA
+          : setData[a].name.localeCompare(setData[b].name);
+      });
+  };
+
   return (
     <Card sx={{ width: 400, p: 2 }}>
       <Grid container spacing={1}>
+        <Grid size={12}>
+          <Autocomplete
+            size="small"
+            value={action?.data?.equipList[mainIndex].setId}
+            options={setOptions()}
+            getOptionLabel={(id) => setData[id]?.name || ""}
+            onChange={(_, newValue) => handleSet(newValue)}
+            renderOption={(props, id) => {
+              const { key, ...idProps } = props;
+              const rarity = setData[id]?.rarity;
+              return (
+                <Box
+                  key={key}
+                  component="li"
+                  sx={{
+                    "& > img": { mr: 2, flexShrink: 0 },
+                    color: rarityColor[rarity],
+                  }}
+                  {...idProps}
+                >
+                  <Box
+                    component="img"
+                    loading="lazy"
+                    src={setIcons[`./${id}.webp`]?.default}
+                    alt={""}
+                    sx={{ width: 24, height: 24, objectFit: "contain" }}
+                  />
+                  {setData[id]?.name || ""}
+                </Box>
+              );
+            }}
+            renderInput={(params) => (
+              <TextField
+                {...params}
+                label="Set"
+              />
+            )}
+            fullWidth
+            disableClearable
+          />
+        </Grid>
+
         <Grid size={12}>
           <Autocomplete
             size="small"
@@ -91,7 +177,7 @@ const EquipCard = ({
             renderInput={(params) => (
               <TextField
                 {...params}
-                label={EQUIP_NAMES[mainIndex]}
+                label="Mainstat"
               />
             )}
             fullWidth

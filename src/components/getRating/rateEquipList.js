@@ -128,7 +128,12 @@ const calculatePoints = (statsObj, weights, basestats, STAT_INDEX) => {
 const rateEquipList = (gameId, id, data) => {
   const { equipData, avatarData, weaponData } = getData(gameId);
   const { STAT_INDEX } = equipData;
-  if (!data.weaponId) return -1;
+  if (!data.equipList) return -1;
+  for (const equip of data.equipList) {
+    if (!equip.key) return -1;
+  }
+
+  if (!data.weaponId) return 0;
 
   // Combine stats
   const basestats = combine_basestats(avatarData[id].base, weaponData[data.weaponId].base);
@@ -142,7 +147,7 @@ const rateEquipList = (gameId, id, data) => {
   const sim_points = calculatePoints(sim_substats, avatarData[id].weights, basestats, STAT_INDEX);
 
   // Calculate score
-  return Math.round((points / sim_points) * 100);
+  return (points / sim_points) * 100;
 };
 
 export default rateEquipList;

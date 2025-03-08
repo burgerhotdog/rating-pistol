@@ -4,14 +4,12 @@ import rateEquipList from "./rateEquipList";
 import rateSkillMap from "./rateSkillMap";
 
 const getRating = (gameId, id, data) => {
-  const [avatar, weapon, equipList, skillMap] = [
-    rateAvatar(gameId, data),
-    rateWeapon(gameId, data),
-    rateEquipList(gameId, id, data),
-    rateSkillMap(gameId, id, data),
-  ];
+  const avatar = rateAvatar(gameId, data);
+  const weapon = rateWeapon(gameId, data);
+  const equipList = rateEquipList(gameId, id, data);
+  const skillMap = rateSkillMap(gameId, id, data);
 
-  const final = [avatar, weapon, equipList, skillMap].includes(-1)
+  const combined = [avatar, weapon, equipList, skillMap].includes(-1)
     ? -1
     : Math.round(
       0.2 * avatar +
@@ -19,7 +17,14 @@ const getRating = (gameId, id, data) => {
       0.3 * equipList +
       0.3 * skillMap);
 
-  return { final, avatar, weapon, equipList, skillMap};
+  const parts = [
+    Math.round(avatar),
+    Math.round(weapon),
+    Math.round(equipList),
+    Math.round(skillMap),
+  ];
+
+  return { combined, parts };
 };
 
 export default getRating;

@@ -33,9 +33,9 @@ const TableEquipList = ({
     const sets = Object.entries(setCounts).sort((a, b) => b[1] - a[1]);
   
     sets.forEach(([set, count]) => {
-      if (count >= 4) {
-        bonuses[set] = 4;
-      } else if (count === 2) {
+      if (count >= (gameId === "ww" ? 5 : 4)) {
+        bonuses[set] = (gameId === "ww" ? 5 : 4);
+      } else if (count >= 2) {
         bonuses[set] = 2;
       }
     });

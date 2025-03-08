@@ -27,7 +27,7 @@ const TableSkillMap = ({
           variant="body1"
           sx={{ cursor: "pointer" }}
         >
-          {`${rating.skillMap.toString()}%`}
+          {`${String(rating.parts[3])}%`}
         </Typography>
       </Tooltip>
     </Stack>

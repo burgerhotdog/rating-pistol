@@ -9,7 +9,7 @@ const rateSkillMap = (gameId, id, data) => {
     percentLeveledTotal += percentLeveled;
     count++;
   }
-  return Math.round((percentLeveledTotal / count) * 100);
+  return (percentLeveledTotal / count) * 100;
 };
 
 export default rateSkillMap;
