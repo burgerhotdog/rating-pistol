@@ -30,7 +30,7 @@ const ModalLoad = ({
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const statKey = translate(gameId);
+  const { STAT_INDEX } = translate(gameId);
 
   const suffix = {
     gi: "uid/",
@@ -42,26 +42,16 @@ const ModalLoad = ({
   useEffect(() => {
     const fetchUid = async () => {
       if (!userId) return;
-  
       const userRef = doc(db, "users", userId);
-      const userdoc = await getDoc(userRef);
-  
-      if (userdoc.exists()) {
-        const newUid = userdoc.data()?.[`${gameId}_uid`];
-        if (newUid) {
-          setUid(newUid);
-          setRememberUid(true);
-        } else {
-          setUid(null);
-          setRememberUid(false);
-        }
-      }
+      const userDoc = await getDoc(userRef);
+      const newUid = userDoc.exists() ? userDoc.data()?.[`${gameId}_uid`] : null;
+      
+      setUid(newUid ?? null);
+      setRememberUid(!!newUid);
     };
   
-    if (action?.type === "load") {
-      fetchUid();
-    }
-  }, [action]);
+    fetchUid();
+  }, [userId, gameId]);
   
   // gi 604379917
   // hsr 602849613
@@ -100,7 +90,7 @@ const ModalLoad = ({
 
       if (userId && rememberUid) {
         const userDocRef = doc(db, "users", userId);
-        await setDoc(userDocRef, { [`${gameId}_UID`]: uid}, { merge: true });
+        await setDoc(userDocRef, { [`${gameId}_uid`]: uid}, { merge: true });
       }
 
       setIsLoading(false);
@@ -144,10 +134,10 @@ const ModalLoad = ({
           for (const equipObj of equipListArr) {
             const equipIndex = equipTypeToIndex[equipObj.flat.equipType];
             data.equipList[equipIndex].setId = equipObj.flat.icon.substring(13, 18);
-            data.equipList[equipIndex].key = statKey.MAIN[equipObj.flat.reliquaryMainstat.mainPropId];
+            data.equipList[equipIndex].key = STAT_INDEX[equipObj.flat.reliquaryMainstat.mainPropId];
             const reliqSubArr = equipObj.flat.reliquarySubstats;
             for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
-              data.equipList[equipIndex].statMap[subIndex].key = statKey.SUB[reliqSubObj.appendPropId];
+              data.equipList[equipIndex].statMap[subIndex].key = STAT_INDEX[reliqSubObj.appendPropId];
               data.equipList[equipIndex].statMap[subIndex].value = reliqSubObj.statValue.toString();
             }
           }
@@ -180,14 +170,14 @@ const ModalLoad = ({
           const relicListArr = charObj.relicList;
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.type - 1;
-            equipList[equipIndex].setId = relicObj._flat.setID.toString();
-            equipList[equipIndex].key = statKey.MAIN[relicObj._flat.props[0].type];
+            data.equipList[equipIndex].setId = relicObj._flat.setID.toString();
+            data.equipList[equipIndex].key = STAT_INDEX[relicObj._flat.props[0].type];
             const subPropsArr = relicObj._flat.props.slice(1);
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
-              equipList[equipIndex].statMap[subIndex].key = statKey.SUB[subPropObj.type];
+              data.equipList[equipIndex].statMap[subIndex].key = STAT_INDEX[subPropObj.type];
               const ratio = subPropObj.type.slice(-5) === "Delta" ? 1 : 100;
               const roundAmount = ratio === 1 ? 1 : 10;
-              equipList[equipIndex].statMap[subIndex].value = Math.round((subPropObj.value * ratio) * roundAmount) / roundAmount;
+              data.equipList[equipIndex].statMap[subIndex].value = Math.round((subPropObj.value * ratio) * roundAmount) / roundAmount;
             }
           }
 
