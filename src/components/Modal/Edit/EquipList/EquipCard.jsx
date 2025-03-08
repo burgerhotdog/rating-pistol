@@ -79,7 +79,7 @@ const EquipCard = ({
   };
 
   return (
-    <Card sx={{ width: 250, p: 2 }}>
+    <Card sx={{ width: 400, p: 2 }}>
       <Grid container spacing={1}>
         <Grid size={12}>
           <Autocomplete
@@ -95,6 +95,7 @@ const EquipCard = ({
               />
             )}
             fullWidth
+            disableClearable
           />
         </Grid>
 
@@ -105,7 +106,7 @@ const EquipCard = ({
         {[0, 1, 2, 3, ...(gameId === "WW" ? [4] : [])].map((subIndex) => (
           <React.Fragment key={`${mainIndex}-${subIndex}`}>
             {/* Substat Key Dropdown */}
-            <Grid size={8}>
+            <Grid size={9}>
               <Autocomplete
                 size="small"
                 value={action?.data.equipList[mainIndex].statMap[subIndex].key}
@@ -119,12 +120,13 @@ const EquipCard = ({
                   />
                 )}
                 fullWidth
+                disableClearable
                 disabled={action?.data?.equipList[mainIndex].key === null}
               />
             </Grid>
 
             {/* Substat Value Input */}
-            <Grid size={4}>
+            <Grid size={3}>
               <TextField
                 size="small"
                 value={action?.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
