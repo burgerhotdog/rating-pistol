@@ -6,6 +6,7 @@ import {
   Box,
   Stack,
   Button,
+  FormControlLabel,
   Checkbox,
   TextField,
   Typography,
@@ -13,6 +14,7 @@ import {
 } from "@mui/material";
 import template from "../../template";
 import getData from "../../getData";
+import getIcons from "../../getIcons";
 import translate from "./translate";
 
 const ModalLoad = ({
@@ -24,6 +26,7 @@ const ModalLoad = ({
 }) => {
   const theme = useTheme();
   const { avatarData } = getData(gameId);
+  const { avatarIcons } = getIcons(gameId);
   const [error, setError] = useState(false);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);
@@ -272,20 +275,31 @@ const ModalLoad = ({
                 Select the characters to add.
               </Typography>
               {enkaList.map((avatar, index) => (
-                <Stack
+                <FormControlLabel
                   key={index}
-                  direction="row"
-                  alignItems="center"
-                >
-                  <Checkbox
-                    onChange={(e) => handleCheckboxChange(e, index)}
-                    checked={selectedAvatars.includes(index)}
-                    size="small"
-                  />
-                  <Typography variant="body2">
-                    {avatarData[avatar.avatarId].name}
-                  </Typography>
-                </Stack>
+                  control={
+                    <Checkbox
+                      onChange={(e) => handleCheckboxChange(e, index)}
+                      checked={selectedAvatars.includes(index)}
+                      size="small"
+                    />
+                  }
+                  label={
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                      <Box
+                        component="img"
+                        loading="lazy"
+                        src={avatarIcons[`./${avatar.avatarId}.webp`]?.default}
+                        alt={avatar.avatarId}
+                        sx={{ width: 24, height: 24, objectFit: "contain" }}
+                      />
+                      <Typography variant="body2">
+                        {avatarData[avatar.avatarId].name}
+                      </Typography>
+                    </Stack>
+                  }
+                  onClick={(e) => e.stopPropagation()}
+                />
               ))}
             </Stack>
             <Button onClick={handleSave} loading={isLoading} variant="contained">
