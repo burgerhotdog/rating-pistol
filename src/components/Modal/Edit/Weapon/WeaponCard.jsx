@@ -5,7 +5,6 @@ import {
   Stack,
   Card,
   Typography,
-  Container,
 } from "@mui/material";
 import getData from "../../../getData";
 import getIcons from "../../../getIcons";
@@ -39,14 +38,14 @@ const WeaponCard = ({ gameId, action }) => {
                 {weaponData[action.data.weaponId].name}
               </Typography>
               <Typography variant="body2">
-                {gameId === "HSR"
+                {gameId === "hsr"
                   && `Base HP: ${weaponData[action.data.weaponId].base._HP}`}
               </Typography>
               <Typography variant="body2">
                 {`Base ATK: ${weaponData[action.data.weaponId].base._ATK}`}
               </Typography>
               <Typography variant="body2">
-                {gameId === "HSR"
+                {gameId === "hsr"
                   ? `Base DEF: ${weaponData[action.data.weaponId].base._DEF}`
                   : weaponData[action.data.weaponId].substat}
               </Typography>

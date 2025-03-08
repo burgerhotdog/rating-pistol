@@ -20,6 +20,7 @@ import AddModal from "./Modal/Add/AddModal";
 import DeleteModal from "./Modal/Delete/DeleteModal";
 import EditModal from "./Modal/Edit/EditModal";
 import LoadModal from "./Modal/Load/LoadModal";
+import RatingModal from "./Modal/Rating/RatingModal";
 import getRating from "./getRating/getRating";
 import TableStar from "./Table/TableStar";
 import TableAvatar from "./Table/TableAvatar";
@@ -245,6 +246,11 @@ const GamePage = ({ gameId, userId }) => {
             setLocalDocs={setLocalDocs}
           />
         )}
+        <RatingModal
+          gameId={gameId}
+          action={action}
+          setAction={setAction}
+        />
       </Stack>
     </Container>
   );
