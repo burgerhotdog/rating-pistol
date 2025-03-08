@@ -20,6 +20,7 @@ import AddModal from "./Modal/Add/AddModal";
 import DeleteModal from "./Modal/Delete/DeleteModal";
 import EditModal from "./Modal/Edit/EditModal";
 import LoadModal from "./Modal/Load/LoadModal";
+import RatingModal from "./Modal/Rating/RatingModal";
 import getRating from "./getRating/getRating";
 import TableStar from "./Table/TableStar";
 import TableAvatar from "./Table/TableAvatar";
@@ -71,11 +72,9 @@ const GamePage = ({ gameId, userId }) => {
       rating: getRating(gameId, id, data),
     }));
 
-    ratedObjs.sort((a, b) => 
-      a.data.isStar === b.data.isStar
-        ? b.rating.final - a.rating.final
-        : a.data.isStar ? -1 : 1
-    );
+    ratedObjs.sort((a, b) => a.data.isStar === b.data.isStar
+      ? b.rating.final - a.rating.final
+      : a.data.isStar ? -1 : 1);
 
     setSortedDocs(ratedObjs);
   }, [localDocs]);
@@ -134,8 +133,8 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell sx={{ borderBottom: "none" }} />
                     <TableCell>
                       <TableStar
-                        userId={userId}
                         gameId={gameId}
+                        userId={userId}
                         setLocalDocs={setLocalDocs}
                         id={id}
                         data={data}
@@ -217,36 +216,41 @@ const GamePage = ({ gameId, userId }) => {
         </Stack>
 
         <AddModal
-          userId={userId}
           gameId={gameId}
+          userId={userId}
           action={action}
           setAction={setAction}
           localDocs={localDocs}
           setLocalDocs={setLocalDocs}
         />
         <DeleteModal
-          userId={userId}
           gameId={gameId}
+          userId={userId}
           action={action}
           setAction={setAction}
           setLocalDocs={setLocalDocs}
         />
         <EditModal
-          userId={userId}
           gameId={gameId}
+          userId={userId}
           action={action}
           setAction={setAction}
           setLocalDocs={setLocalDocs}
         />
         {(gameId === "gi" || gameId === "hsr") && (
           <LoadModal
-            userId={userId}
             gameId={gameId}
+            userId={userId}
             action={action}
             setAction={setAction}
             setLocalDocs={setLocalDocs}
           />
         )}
+        <RatingModal
+          gameId={gameId}
+          action={action}
+          setAction={setAction}
+        />
       </Stack>
     </Container>
   );

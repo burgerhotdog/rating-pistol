@@ -1,6 +1,8 @@
 import React from "react";
-import { Stack, Tooltip, Typography } from "@mui/material";
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
+import { Box, Stack, Tooltip, Typography } from "@mui/material";
+import { ErrorOutline } from '@mui/icons-material';
+import getLetter from "../getLetter";
+import letterIcons from "../../assets/icons";
 
 const TableRating = ({
   setAction,
@@ -21,11 +23,15 @@ const TableRating = ({
     <Stack alignItems="center">
       <Tooltip title="See Details" arrow>
         {rating.final !== -1 ? (
-          <Typography onClick={openModal} sx={{ cursor: "pointer" }}>
-            {rating.final.toString()}
-          </Typography>
+          <Box
+            onClick={openModal}
+            component="img"
+            alt={rating.final}
+            src={letterIcons[`./${getLetter(rating.final)}.webp`]?.default}
+            sx={{ width: 40, height: 40, objectFit: "contain", cursor: "pointer" }}
+          />
         ) : (
-          <ErrorOutlineIcon color="error" cursor="pointer" />
+          <ErrorOutline color="error" cursor="pointer" />
         )}
       </Tooltip>
     </Stack>

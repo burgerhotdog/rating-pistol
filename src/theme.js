@@ -16,8 +16,8 @@ const theme = createTheme({
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
-      padding: 4,
       backgroundColor: "background.paper",
+      p: 4,
       borderRadius: 2,
       maxHeight: "80vh",
       maxWidth: "80vw",
@@ -30,23 +30,6 @@ const theme = createTheme({
         slotProps: {
           inputLabel: {
             shrink: true,
-          },
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          "&.menuButton": {
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            height: "80px", 
-            fontWeight: "bold", 
-            fontSize: "1.2rem", 
-            color: "rgba(255, 255, 255, 0.87)",
-            "&:hover": {
-              opacity: 0.8,
-            },
           },
         },
       },

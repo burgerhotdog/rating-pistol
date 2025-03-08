@@ -1,15 +1,13 @@
 import React from "react";
 import {
-  Grid2 as Grid,
   Box,
   Stack,
-  Card,
   Autocomplete,
   TextField,
-  Typography,
 } from "@mui/material";
 import getData from "../../../getData";
 import getIcons from "../../../getIcons";
+import WeaponCard from "./WeaponCard";
 
 const EditWeapon = ({
   gameId,
@@ -75,7 +73,7 @@ const EditWeapon = ({
       <Stack direction="row" spacing={2}>
         <Autocomplete
           size="small"
-          value={action?.data?.weaponId}
+          value={action?.data.weaponId}
           options={weapOptions()}
           getOptionLabel={(id) => weaponData[id]?.name || ""}
           onChange={(_, newValue) => handleWeaponId(newValue)}
@@ -110,11 +108,11 @@ const EditWeapon = ({
             />
           )}
           fullWidth
-          sx={{ minWidth: 350 }}
+          disableClearable
         />
         <Autocomplete
           size="small"
-          value={action?.data?.weaponLevel}
+          value={action?.data.weaponLevel}
           options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10).toString())}
           getOptionLabel={(id) => id.toString() || ""}
           onChange={(_, newValue) => {
@@ -127,14 +125,14 @@ const EditWeapon = ({
             />
           )}
           sx={{ width: 80 }}
-          disabled={!action?.data?.weaponId}
           disableClearable
+          disabled={!action?.data.weaponId}
         />
         <Autocomplete
           size="small"
           value={action?.data?.weaponRank}
-          options={["1", "2", "3", "4", "5"]}
-          getOptionLabel={(id) => id.toString() || ""}
+          options={[1, 2, 3, 4, 5]}
+          getOptionLabel={(id) => String(id)}
           onChange={(_, newValue) => {
             if (newValue) handleWeaponRank(newValue);
           }}
@@ -145,64 +143,11 @@ const EditWeapon = ({
             />
           )}
           sx={{ width: 80 }}
-          disabled={!action?.data?.weaponId}
           disableClearable
+          disabled={!action?.data.weaponId}
         />
       </Stack>
-      <Card
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: 700,
-          minHeight: 200,
-          p: 2
-        }}
-      >
-        {action?.data?.weaponId ? (
-          <Grid container spacing={1}>
-            <Grid size={4}>
-              <Stack alignItems="center">
-                <Box
-                  component="img"
-                  src={weaponIcons[`./${action?.data?.weaponId}.webp`]?.default}
-                  alt=""
-                  sx={{ width: 200, height: 200, objectFit: "contain" }}
-                />
-              </Stack>
-            </Grid>
-            <Grid size={8}>
-              <Stack>
-                <Typography variant="subtitle1" fontWeight="bold">
-                  {weaponData[action.data.weaponId].name}
-                </Typography>
-                <Typography variant="body2">
-                  {gameId === "HSR"
-                    && `Base HP: ${weaponData[action.data.weaponId].base.FLAT_HP}`}
-                </Typography>
-                <Typography variant="body2">
-                  {`Base ATK: ${weaponData[action.data.weaponId].base.FLAT_ATK}`}
-                </Typography>
-                <Typography variant="body2">
-                  {gameId === "HSR"
-                    ? `Base DEF: ${weaponData[action.data.weaponId].base.FLAT_DEF}`
-                    : weaponData[action.data.weaponId].substat}
-                </Typography>
-                <Typography variant="subtitle2" fontWeight="bold" mt={1}>
-                  {weaponData[action.data.weaponId].subtitle}
-                </Typography>
-                <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                  {weaponData[action.data.weaponId].desc}
-                </Typography>
-              </Stack>
-            </Grid>
-          </Grid>
-        ) : (
-          <Typography variant="body1" color="text.disabled">
-            No {generalData.SECTION_NAMES[1]} Selected
-          </Typography>
-        )}
-      </Card>
+      <WeaponCard gameId={gameId} action={action} />
     </Stack>
   );
 };
