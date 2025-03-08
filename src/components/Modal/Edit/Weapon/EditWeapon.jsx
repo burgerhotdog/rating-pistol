@@ -16,13 +16,6 @@ const EditWeapon = ({
 }) => {
   const { generalData, avatarData, weaponData } = getData(gameId);
   const { weaponIcons } = getIcons(gameId);
-  const rarityColor = {
-    5: "goldenrod",
-    4: "orchid",
-    3: "cornflowerblue",
-    2: "green",
-    1: "slategrey",
-  };
 
   const weapOptions = () => {
     return Object.keys(weaponData)
@@ -86,7 +79,7 @@ const EditWeapon = ({
                 component="li"
                 sx={{
                   "& > img": { mr: 2, flexShrink: 0 },
-                  color: rarityColor[rarity],
+                  color: `rarityColor.${rarity}`,
                 }}
                 {...idProps}
               >

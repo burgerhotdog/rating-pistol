@@ -26,13 +26,6 @@ const AddModal = ({
   const { generalData, avatarData } = getData(gameId);
   const { avatarIcons } = getIcons(gameId);
   const [isLoading, setIsLoading] = useState(false);
-  const rarityColor = {
-    5: "goldenrod",
-    4: "orchid",
-    3: "cornflowerblue",
-    2: "green",
-    1: "slategrey",
-  };
   
   const charOptions = () => {
     return Object.keys(avatarData)
@@ -99,7 +92,7 @@ const AddModal = ({
                   component="li"
                   sx={{
                     "& > img": { mr: 2, flexShrink: 0 },
-                    color: rarityColor[rarity],
+                    color: `rarityColor.${rarity}`,
                   }}
                   {...idProps}
                 >

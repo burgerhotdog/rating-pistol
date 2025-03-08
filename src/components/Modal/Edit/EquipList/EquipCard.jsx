@@ -20,13 +20,6 @@ const EquipCard = ({
   const { equipData, setData } = getData(gameId);
   const { EQUIP_NAMES, MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX } = equipData;
   const { setIcons } = getIcons(gameId);
-  const rarityColor = {
-    5: "goldenrod",
-    4: "orchid",
-    3: "cornflowerblue",
-    2: "green",
-    1: "slategrey",
-  };
 
   const handleSet = (newValue) => {
     setAction((prev) => ({
@@ -141,7 +134,7 @@ const EquipCard = ({
                   component="li"
                   sx={{
                     "& > img": { mr: 2, flexShrink: 0 },
-                    color: rarityColor[rarity],
+                    color: `rarityColor.${rarity}`,
                   }}
                   {...idProps}
                 >
