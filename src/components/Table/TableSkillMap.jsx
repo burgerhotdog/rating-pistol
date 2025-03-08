@@ -19,11 +19,9 @@ const TableSkillMap = ({
     });
   };
 
-  const sectionName = generalData.SECTION_NAMES[3];
-
   return (
     <Stack alignItems="center">
-      <Tooltip title={`Edit ${sectionName}`} arrow>
+      <Tooltip title={`Edit ${generalData.SECTIONS[3]}`} arrow>
         <Typography
           onClick={openModal}
           variant="body1"

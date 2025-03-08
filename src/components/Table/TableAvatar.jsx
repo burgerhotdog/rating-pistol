@@ -21,11 +21,9 @@ const TableAvatar = ({
     });
   };
 
-  const sectionName = generalData.SECTION_NAMES[0];
-
   return (
     <Stack>
-      <Tooltip title={`Edit ${sectionName}`} arrow>
+      <Tooltip title={`Edit ${generalData.SECTIONS[0]}`} arrow>
         <Stack
           onClick={openModal}
           direction="row"

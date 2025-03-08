@@ -105,10 +105,10 @@ const GamePage = ({ gameId, userId }) => {
               <TableRow>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
                 <TableCell align="center" sx={{ width: 60 }} />
-                <TableCell align="left" sx={{ width: 180 }}>{generalData.SECTION_NAMES[0]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[1]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[2]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTION_NAMES[3]}</TableCell>
+                <TableCell align="left" sx={{ width: 180 }}>{generalData.SECTIONS[0]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTIONS[1]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTIONS[2]}</TableCell>
+                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTIONS[3]}</TableCell>
                 <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
                 <TableCell sx={{ width: 60, borderBottom: "none" }} />
               </TableRow>

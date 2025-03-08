@@ -65,7 +65,7 @@ const WeaponCard = ({ gameId, action }) => {
           sx={{ minHeight: 100 }}
         >
           <Typography variant="body1" color="text.disabled">
-            No {generalData.SECTION_NAMES[1]} Selected
+            No {generalData.SECTIONS[1]} Selected
           </Typography>
         </Stack>
       )}

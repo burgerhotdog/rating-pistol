@@ -21,11 +21,9 @@ const TableWeapon = ({
     });
   };
 
-  const sectionName = generalData.SECTION_NAMES[1];
-
   return (
     <Stack alignItems="center">
-      <Tooltip title={`Edit ${sectionName}`} arrow>
+      <Tooltip title={`Edit ${generalData.SECTIONS[1]}`} arrow>
         {data.weaponId ? (
           <Box
             onClick={openModal}

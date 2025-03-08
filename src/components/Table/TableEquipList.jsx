@@ -44,11 +44,10 @@ const TableEquipList = ({
   }
 
   const setBonuses = useMemo(() => getSetBonuses(data.equipList), [data.equipList]);
-  const sectionName = generalData.SECTION_NAMES[2];
 
   return (
     <Stack alignItems="center">
-      <Tooltip title={`Edit ${sectionName}`} arrow>
+      <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
         {Object.keys(setBonuses).length ? (
           <Stack
             onClick={openModal}

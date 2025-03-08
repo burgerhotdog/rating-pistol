@@ -104,7 +104,7 @@ const EditWeapon = ({
           renderInput={(params) => (
             <TextField
               {...params}
-              label={generalData.SECTION_NAMES[1]}
+              label={generalData.SECTIONS[1]}
             />
           )}
           fullWidth
@@ -124,7 +124,7 @@ const EditWeapon = ({
               label="Level"
             />
           )}
-          sx={{ width: 80 }}
+          sx={{ width: 100 }}
           disableClearable
           disabled={!action?.data.weaponId}
         />
@@ -132,17 +132,17 @@ const EditWeapon = ({
           size="small"
           value={action?.data?.weaponRank}
           options={[1, 2, 3, 4, 5]}
-          getOptionLabel={(id) => String(id)}
+          getOptionLabel={(opt) => `${generalData.WEAPON_RANK_PREFIX}${opt}`}
           onChange={(_, newValue) => {
             if (newValue) handleWeaponRank(newValue);
           }}
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Rank"
+              label={generalData.WEAPON_RANK}
             />
           )}
-          sx={{ width: 80 }}
+          sx={{ width: 150 }}
           disableClearable
           disabled={!action?.data.weaponId}
         />

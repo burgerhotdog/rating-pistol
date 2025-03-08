@@ -1,12 +1,16 @@
 export default {
   TITLE: "Zenless Zone Zero",
   VERSION: "1.5",
-  SECTION_NAMES: [
+  SECTIONS: [
     "Agent",
     "W-Engine",
     "Drive Discs",
     "Skills",
   ],
+  RANK: "Mindscape",
+  RANK_PREFIX: "M",
+  WEAPON_RANK: "Overclock",
+  WEAPON_RANK_PREFIX: "S",
   LEVEL_CAP: 60,
   SKILL_DATA: {
     basic: {

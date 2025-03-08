@@ -44,7 +44,7 @@ const EditAvatar = ({
       <Autocomplete
         size="small"
         value={action?.data?.level}
-        options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10))}
+        options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (i * 10 + 10))}
         getOptionLabel={(id) => String(id)}
         onChange={(_, newValue) => {
           if (newValue) handleLevel(newValue);
@@ -55,22 +55,24 @@ const EditAvatar = ({
             label="Level"
           />
         )}
+        sx={{ width: 150 }}
         disableClearable
       />
       <Autocomplete
         size="small"
         value={action?.data?.rank}
         options={[0, 1, 2, 3, 4, 5, 6]}
-        getOptionLabel={(id) => String(id)}
+        getOptionLabel={(id) => `${generalData.RANK_PREFIX}${id}`}
         onChange={(_, newValue) => {
           if (newValue) handleRank(newValue);
         }}
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Rank"
+            label={generalData.RANK}
           />
         )}
+        sx={{ width: 150 }}
         disableClearable
       />
     </Stack>
