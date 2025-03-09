@@ -101,7 +101,7 @@ const AddModal = ({
                     loading="lazy"
                     src={avatarIcons[`./${id}.webp`]?.default}
                     alt={""}
-                    sx={{ width: 24, height: 24, objectFit: "contain" }}
+                    sx={{ width: 25, height: 25, objectFit: "contain" }}
                   />
                   {avatarData[id].name}
                 </Box>

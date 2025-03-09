@@ -23,32 +23,30 @@ const TableRating = ({
   };
 
   return (
-    <Stack alignItems="center">
-      {rating.combined !== -1 ? (
-        <Tooltip title="See Details" arrow>
-          <Box
-            onClick={openModal}
-            component="img"
-            alt={rating.final}
-            src={letterIcons[`./${getLetter(rating.final)}.webp`]?.default}
-            sx={{ width: 40, height: 40, objectFit: "contain", cursor: "pointer" }}
-          />
-        </Tooltip>
-      ) : (
-        <Tooltip
-          title={
-            <Stack>
-              {rating?.parts.map((part, index) => part === -1
-                ? <Typography key={index}>{`Missing ${generalData.SECTIONS[index]}`}</Typography>
-                : null)}
-            </Stack>
-          }
-          arrow
-        >
-          <ErrorOutline color="error" />
-        </Tooltip>
-      )}
-    </Stack>
+    rating.combined !== -1 ? (
+      <Tooltip title="See Details" arrow>
+        <Box
+          onClick={openModal}
+          component="img"
+          alt={rating.final}
+          src={letterIcons[`./${getLetter(rating.combined)}.webp`]?.default}
+          sx={{ width: 40, height: 40, objectFit: "contain", cursor: "pointer" }}
+        />
+      </Tooltip>
+    ) : (
+      <Tooltip
+        title={
+          <Stack>
+            {rating?.parts.map((part, index) => part === -1
+              ? <Typography key={index}>{`Missing ${generalData.SECTIONS[index]}`}</Typography>
+              : null)}
+          </Stack>
+        }
+        arrow
+      >
+        <ErrorOutline color="error" />
+      </Tooltip>
+    )
   );
 };
 

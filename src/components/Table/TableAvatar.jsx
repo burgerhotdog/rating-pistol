@@ -22,27 +22,25 @@ const TableAvatar = ({
   };
 
   return (
-    <Stack>
-      <Tooltip title={`Edit ${generalData.SECTIONS[0]}`} arrow>
-        <Stack
-          onClick={openModal}
-          direction="row"
-          alignItems="center"
-          spacing={1}
-          sx={{ cursor: "pointer" }}
-        >
-          <Box
-            component="img"
-            alt={id}
-            src={avatarIcons[`./${id}.webp`]?.default}
-            sx={{ width: 50, height: 50, objectFit: "contain" }}
-          />
-          <Typography variant="body2" sx={{ textAlign: "left" }}>
-            {avatarData[id].name}
-          </Typography>
-        </Stack>
-      </Tooltip>
-    </Stack>
+    <Tooltip title={`Edit ${generalData.SECTIONS[0]}`} arrow>
+      <Stack
+        onClick={openModal}
+        direction="row"
+        alignItems="center"
+        spacing={1}
+        sx={{ cursor: "pointer", display: "inline-flex" }}
+      >
+        <Box
+          component="img"
+          alt={id}
+          src={avatarIcons[`./${id}.webp`]?.default}
+          sx={{ width: 50, height: 50, objectFit: "contain" }}
+        />
+        <Typography variant="body2" sx={{ textAlign: "left" }}>
+          {avatarData[id].name}
+        </Typography>
+      </Stack>
+    </Tooltip>
   );
 };
 

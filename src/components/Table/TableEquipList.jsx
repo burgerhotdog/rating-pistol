@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Box, Stack, Tooltip } from "@mui/material";
+import { Box, Stack, Tooltip, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
@@ -46,17 +46,17 @@ const TableEquipList = ({
   const setBonuses = useMemo(() => getSetBonuses(data.equipList), [data.equipList]);
 
   return (
-    <Stack alignItems="center">
-      <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
-        {Object.keys(setBonuses).length ? (
-          <Stack
-            onClick={openModal}
-            direction="row"
-            alignItems="center"
-            spacing={1}
-            sx={{ cursor: "pointer" }}
-          >
-            {Object.entries(setBonuses).map(([setId, numBonus]) => (
+    <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
+      {Object.keys(setBonuses).length ? (
+        <Stack
+          onClick={openModal}
+          direction="row"
+          justifyContent="center"
+          spacing={1}
+          sx={{ cursor: "pointer" }}
+        >
+          {Object.entries(setBonuses).map(([setId, numBonus]) => (
+            <Stack direction="row" alignItems="end">
               <Box
                 key={setId}
                 component="img"
@@ -64,13 +64,16 @@ const TableEquipList = ({
                 src={setIcons[`./${setId}.webp`]?.default}
                 sx={{ width: 50, height: 50, objectFit: "contain" }}
               />
-            ))}
-          </Stack>
-        ) : (
-          <Add onClick={openModal} cursor="pointer" />
-        )}
-      </Tooltip>
-    </Stack>
+              <Typography>
+                {`x${numBonus}`}
+              </Typography>
+            </Stack>
+          ))}
+        </Stack>
+      ) : (
+        <Add onClick={openModal} cursor="pointer" />
+      )}
+    </Tooltip>
   );
 };
 

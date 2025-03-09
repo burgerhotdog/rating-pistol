@@ -22,21 +22,19 @@ const TableWeapon = ({
   };
 
   return (
-    <Stack alignItems="center">
-      <Tooltip title={`Edit ${generalData.SECTIONS[1]}`} arrow>
-        {data.weaponId ? (
-          <Box
-            onClick={openModal}
-            component="img"
-            alt={data.weaponId}
-            src={weaponIcons[`./${data.weaponId}.webp`]?.default}
-            sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-          />
-        ) : (
-          <Add onClick={openModal} cursor="pointer" />
-        )}
-      </Tooltip>
-    </Stack>
+    <Tooltip title={`Edit ${generalData.SECTIONS[1]}`} arrow>
+      {data.weaponId ? (
+        <Box
+          onClick={openModal}
+          component="img"
+          alt={data.weaponId}
+          src={weaponIcons[`./${data.weaponId}.webp`]?.default}
+          sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+        />
+      ) : (
+        <Add onClick={openModal} cursor="pointer" />
+      )}
+    </Tooltip>
   );
 };
 

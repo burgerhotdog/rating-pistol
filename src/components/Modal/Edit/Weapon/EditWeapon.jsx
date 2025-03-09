@@ -88,7 +88,7 @@ const EditWeapon = ({
                   loading="lazy"
                   src={weaponIcons[`./${id}.webp`]?.default}
                   alt={""}
-                  sx={{ width: 24, height: 24, objectFit: "contain" }}
+                  sx={{ width: 25, height: 25, objectFit: "contain" }}
                 />
                 {weaponData[id]?.name || ""}
               </Box>

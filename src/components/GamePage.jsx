@@ -73,7 +73,7 @@ const GamePage = ({ gameId, userId }) => {
     }));
 
     ratedObjs.sort((a, b) => a.data.isStar === b.data.isStar
-      ? b.rating.final - a.rating.final
+      ? b.rating.combined - a.rating.combined
       : a.data.isStar ? -1 : 1);
 
     setSortedDocs(ratedObjs);
@@ -103,14 +103,13 @@ const GamePage = ({ gameId, userId }) => {
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
               <TableRow>
-                <TableCell sx={{ width: 60, borderBottom: "none" }} />
-                <TableCell align="center" sx={{ width: 60 }} />
-                <TableCell align="left" sx={{ width: 180 }}>{generalData.SECTIONS[0]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTIONS[1]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTIONS[2]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>{generalData.SECTIONS[3]}</TableCell>
-                <TableCell align="center" sx={{ width: 120 }}>Rating</TableCell>
-                <TableCell sx={{ width: 60, borderBottom: "none" }} />
+                <TableCell sx={{ width: 50, borderBottom: "none" }} />
+                <TableCell sx={{ width: 50 }} />
+                <TableCell sx={{ width: 250 }}>{generalData.SECTIONS[0]}</TableCell>
+                <TableCell align="center" sx={{ width: 100 }}>{generalData.SECTIONS[1]}</TableCell>
+                <TableCell align="center" sx={{ width: 200 }}>{generalData.SECTIONS[2]}</TableCell>
+                <TableCell align="center" sx={{ width: 100 }}>Rating</TableCell>
+                <TableCell sx={{ width: 50, borderBottom: "none" }} />
               </TableRow>
             </TableHead>
 
@@ -118,7 +117,7 @@ const GamePage = ({ gameId, userId }) => {
               {isLoading ? (
                 <TableRow>
                   <TableCell sx={{ borderBottom: "none" }} />
-                  <TableCell colSpan={6} align="center">
+                  <TableCell colSpan={5} align="center">
                     <CircularProgress />
                   </TableCell>
                   <TableCell sx={{ borderBottom: "none" }} />
@@ -131,7 +130,7 @@ const GamePage = ({ gameId, userId }) => {
                     onMouseLeave={() => setHoveredRowId(null)}
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
-                    <TableCell>
+                    <TableCell align="center">
                       <TableStar
                         gameId={gameId}
                         userId={userId}
@@ -148,7 +147,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
-                    <TableCell>
+                    <TableCell align="center">
                       <TableWeapon
                         gameId={gameId}
                         setAction={setAction}
@@ -156,7 +155,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
-                    <TableCell>
+                    <TableCell align="center">
                       <TableEquipList
                         gameId={gameId}
                         setAction={setAction}
@@ -164,16 +163,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
-                    <TableCell>
-                      <TableSkillMap
-                        gameId={gameId}
-                        setAction={setAction}
-                        id={id}
-                        data={data}
-                        rating={rating}
-                      />
-                    </TableCell>
-                    <TableCell>
+                    <TableCell align="center">
                       <TableRating
                         gameId={gameId}
                         setAction={setAction}

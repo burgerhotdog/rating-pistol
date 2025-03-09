@@ -17,18 +17,16 @@ const TableDelete = ({
   };
 
   return (
-    <Stack alignItems="center">
-      <Delete
-        onClick={openModal}
-        cursor="pointer"
-        color="disabled"
-        sx={{
-          opacity: hoveredRowId === id ? 1 : 0,
-          transition: "opacity 0.3s ease, color 0.3s ease",
-          "&:hover": { color: "secondary.main" },
-        }}
-      />
-    </Stack>
+    <Delete
+      onClick={openModal}
+      cursor="pointer"
+      color="disabled"
+      sx={{
+        opacity: hoveredRowId === id ? 1 : 0,
+        transition: "opacity 0.3s ease, color 0.3s ease",
+        "&:hover": { color: "secondary.main" },
+      }}
+    />
   );
 };
 

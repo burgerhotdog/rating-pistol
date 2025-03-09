@@ -29,16 +29,16 @@ const RatingModal = ({
             Score Breakdown
           </Typography>
           <Typography variant="body2">
-            {`${generalData.SECTIONS[0]} Score: ${action?.rating?.parts[0]}`}
+            {`${generalData.SECTIONS[0]} Score: ${Math.round(action?.rating?.parts[0])}`}
           </Typography>
           <Typography variant="body2">
-            {`${generalData.SECTIONS[1]} Score: ${action?.rating?.parts[1]}`}
+            {`${generalData.SECTIONS[1]} Score: ${Math.round(action?.rating?.parts[1])}`}
           </Typography>
           <Typography variant="body2">
-            {`${generalData.SECTIONS[2]} Score: ${action?.rating?.parts[2]}`}
+            {`${generalData.SECTIONS[2]} Score: ${Math.round(action?.rating?.parts[2])}`}
           </Typography>
           <Typography variant="body2">
-            {`${generalData.SECTIONS[3]} Score: ${action?.rating?.parts[3]}`}
+            {`${generalData.SECTIONS[3]} Score: ${Math.round(action?.rating?.parts[3])}`}
           </Typography>
         </Stack>
       </Box>

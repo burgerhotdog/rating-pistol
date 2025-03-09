@@ -11,18 +11,12 @@ const getRating = (gameId, id, data) => {
 
   const combined = [avatar, weapon, equipList, skillMap].includes(-1)
     ? -1
-    : Math.round(
-      0.2 * avatar +
+    : 0.2 * avatar +
       0.2 * weapon +
       0.3 * equipList +
-      0.3 * skillMap);
+      0.3 * skillMap;
 
-  const parts = [
-    Math.round(avatar),
-    Math.round(weapon),
-    Math.round(equipList),
-    Math.round(skillMap),
-  ];
+  const parts = [avatar, weapon, equipList, skillMap];
 
   return { combined, parts };
 };

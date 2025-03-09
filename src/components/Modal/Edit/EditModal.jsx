@@ -11,7 +11,6 @@ import {
 import EditAvatar from "./Avatar/EditAvatar";
 import EditWeapon from "./Weapon/EditWeapon";
 import EditEquipList from "./EquipList/EditEquipList";
-import EditSkillMap from "./SkillMap/EditSkillMap";
 
 const EditModal = ({
   gameId,
@@ -59,14 +58,8 @@ const EditModal = ({
               action={action}
               setAction={setAction}
             />
-          ) : action?.item === "equipList" ? (
+          ) : action?.item === "equipList" && (
             <EditEquipList
-              gameId={gameId}
-              action={action}
-              setAction={setAction}
-            />
-          ) : action?.item === "skillMap" && (
-            <EditSkillMap
               gameId={gameId}
               action={action}
               setAction={setAction}
