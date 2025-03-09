@@ -4,6 +4,7 @@ export default {
     name: "Phoebe",
     rarity: 5,
     type: "Rectifier",
+    sig: "21050046",
     statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
     weights: {
       "ER": 1,
@@ -16,6 +17,7 @@ export default {
     name: "Brant",
     rarity: 5,
     type: "Sword",
+    sig: "21020036",
     statBase: { _HP: 11675, _ATK: 375, _DEF: 1308 },
     weights: {
       "ER": 1,
@@ -30,6 +32,7 @@ export default {
     name: "Roccia",
     rarity: 5,
     type: "Gauntlets",
+    sig: "21040026",
     statBase: { _HP: 12250, _ATK: 375, _DEF: 1198 },
     weights: {
       "ER": 1,
@@ -43,6 +46,7 @@ export default {
     name: "Carlotta",
     rarity: 5,
     type: "Pistols",
+    sig: "21030016",
     statBase: { _HP: 12450, _ATK: 463, _DEF: 1198 },
     weights: {
       "ER": 1,
@@ -58,6 +62,7 @@ export default {
     name: "Camellya",
     rarity: 5,
     type: "Sword",
+    sig: "21020026",
     statBase: { _HP: 10325, _ATK: 450, _DEF: 1161 },
     weights: {
       "ER": 1,
@@ -89,6 +94,7 @@ export default {
     name: "The Shorekeeper",
     rarity: 5,
     type: "Rectifier",
+    sig: "21050036",
     statBase: { _HP: 16713, _ATK: 288, _DEF: 1100 },
     weights: {
       "ER": 1,
@@ -115,6 +121,7 @@ export default {
     name: "Xiangli Yao",
     rarity: 5,
     type: "Gauntlets",
+    sig: "21040016",
     statBase: { _HP: 10625, _ATK: 425, _DEF: 1222 },
     weights: {
       "ER": 1,
@@ -129,6 +136,7 @@ export default {
     name: "Zhezhi",
     rarity: 5,
     type: "Rectifier",
+    sig: "21050026",
     statBase: { _HP: 12250, _ATK: 375, _DEF: 1198 },
     weights: {
       "ER": 1,
@@ -144,6 +152,7 @@ export default {
     name: "Jinhsi",
     rarity: 5,
     type: "Broadblade",
+    sig: "21010026",
     statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
     weights: {
       "ER": 1,
@@ -158,6 +167,7 @@ export default {
     name: "Changli",
     rarity: 5,
     type: "Sword",
+    sig: "21020016",
     statBase: { _HP: 10388, _ATK: 463, _DEF: 1100 },
     weights: {
       "ER": 1,
@@ -174,6 +184,7 @@ export default {
     name: "Jiyan",
     rarity: 5,
     type: "Broadblade",
+    sig: "21010016",
     statBase: { _HP: 10488, _ATK: 438, _DEF: 1185 },
     weights: {
       "ER": 1,
@@ -187,6 +198,7 @@ export default {
     name: "Yinlin",
     rarity: 5,
     type: "Rectifier",
+    sig: "21050016",
     statBase: { _HP: 11000, _ATK: 400, _DEF: 1283 },
     weights: {
       "ER": 1,
@@ -225,6 +237,7 @@ export default {
     name: "Calcharo",
     rarity: 5,
     type: "Broadblade",
+    sig: "21010015",
     statBase: { _HP: 10500, _ATK: 438, _DEF: 1185 },
     weights: {
       "ER": 1,
@@ -239,6 +252,7 @@ export default {
     name: "Encore",
     rarity: 5,
     type: "Rectifier",
+    sig: "21050015",
     statBase: { _HP: 10513, _ATK: 425, _DEF: 1246 },
     weights: {
       "ER": 1,
@@ -252,6 +266,7 @@ export default {
     name: "Lingyang",
     rarity: 5,
     type: "Gauntlets",
+    sig: "21040015",
     statBase: { _HP: 10388, _ATK: 438, _DEF: 1210 },
     weights: {
       "ER": 1,

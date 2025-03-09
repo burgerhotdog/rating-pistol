@@ -4,6 +4,7 @@ import {
   Box,
   Autocomplete,
   TextField,
+  Typography,
 } from "@mui/material";
 import getData from "../../../getData";
 import getIcons from "../../../getIcons";
@@ -19,8 +20,11 @@ const EditWeapon = ({
 
   const weapOptions = () => {
     return Object.keys(weaponData)
-      .filter(id => weaponData[id].type === avatarData[action.id]?.type)
+      .filter(id => weaponData[id].type === avatarData[action.id].type)
       .sort((a, b) => {
+        const sig = avatarData[action.id]?.sig;
+        if (a === sig) return -1;
+        if (b === sig) return 1;
         const rarityA = weaponData[a].rarity;
         const rarityB = weaponData[b].rarity;
         return rarityA !== rarityB
@@ -68,11 +72,11 @@ const EditWeapon = ({
           size="small"
           value={action?.data.weaponId}
           options={weapOptions()}
-          getOptionLabel={(id) => weaponData[id]?.name || ""}
+          getOptionLabel={(option) => weaponData[option]?.name || ""}
           onChange={(_, newValue) => handleWeaponId(newValue)}
-          renderOption={(props, id) => {
-            const { key, ...idProps } = props;
-            const rarity = weaponData[id]?.rarity;
+          renderOption={(props, option) => {
+            const { key, ...optionProps } = props;
+            const rarity = weaponData[option]?.rarity;
             return (
               <Box
                 key={key}
@@ -81,16 +85,19 @@ const EditWeapon = ({
                   "& > img": { mr: 2, flexShrink: 0 },
                   color: `rarityColor.${rarity}`,
                 }}
-                {...idProps}
+                {...optionProps}
               >
                 <Box
                   component="img"
                   loading="lazy"
-                  src={weaponIcons[`./${id}.webp`]?.default}
+                  src={weaponIcons[`./${option}.webp`]?.default}
                   alt={""}
                   sx={{ width: 25, height: 25, objectFit: "contain" }}
                 />
-                {weaponData[id]?.name || ""}
+                {weaponData[option]?.name}
+                {option === avatarData[action.id]?.sig && (
+                  <Typography sx={{ color: "text.disabled", ml: 1 }}>(signature)</Typography>
+                )}
               </Box>
             );
           }}

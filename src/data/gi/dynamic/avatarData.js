@@ -4,6 +4,7 @@ export default {
     name: "Yumemizuki Mizuki",
     rarity: 5,
     type: "Catalyst",
+    sig: "14158",
     statBase: { _HP: 12736, _ATK: 215, _DEF: 757 },
     weights: {
       "ER": 1,
@@ -16,6 +17,7 @@ export default {
     name: "Citlali",
     rarity: 5,
     type: "Catalyst",
+    sig: "14517",
     statBase: { _HP: 11633, _ATK: 126, _DEF: 763 },
     weights: {
       "ER": 1,
@@ -26,6 +28,7 @@ export default {
     name: "Mavuika",
     rarity: 5,
     type: "Claymore",
+    sig: "12514",
     statBase: { _HP: 12552, _ATK: 358, _DEF: 791 },
     weights: {
       "CR": 1,
@@ -64,6 +67,7 @@ export default {
     name: "Chasca",
     rarity: 5,
     type: "Bow",
+    sig: "15514",
     statBase: { _HP: 9796, _ATK: 346, _DEF: 614 },
     weights: {
       "ER": 1,
@@ -92,6 +96,7 @@ export default {
     name: "Xilonen",
     rarity: 5,
     type: "Sword",
+    sig: "11516",
     statBase: { _HP: 12405, _ATK: 275, _DEF: 929 },
     weights: {
       "ER": 1,
@@ -104,6 +109,7 @@ export default {
     name: "Mualani",
     rarity: 5,
     type: "Catalyst",
+    sig: "14516",
     statBase: { _HP: 15184, _ATK: 181, _DEF: 570 },
     weights: {
       "ER": 1,
@@ -117,6 +123,7 @@ export default {
     name: "Kinich",
     rarity: 5,
     type: "Claymore",
+    sig: "12513",
     statBase: { _HP: 12858, _ATK: 332, _DEF: 801 },
     weights: {
       "ER": 1,
@@ -144,6 +151,7 @@ export default {
     name: "Emilie",
     rarity: 5,
     type: "Polearm",
+    sig: "13513",
     statBase: { _HP: 13568, _ATK: 334, _DEF: 730 },
     weights: {
       "ER": 1,
@@ -159,6 +167,7 @@ export default {
     name: "Clorinde",
     rarity: 5,
     type: "Sword",
+    sig: "11515",
     statBase: { _HP: 12956, _ATK: 337, _DEF: 783 },
     weights: {
       "ER": 1,
@@ -172,6 +181,7 @@ export default {
     name: "Sigewinne",
     rarity: 5,
     type: "Bow",
+    sig: "15513",
     statBase: { _HP: 13348, _ATK: 192, _DEF: 499 },
     weights: {
       "ER": 1,
@@ -197,6 +207,7 @@ export default {
     name: "Arlecchino",
     rarity: 5,
     type: "Polearm",
+    sig: "13512",
     statBase: { _HP: 13103, _ATK: 342, _DEF: 764 },
     weights: {
       "ER": 1,
@@ -212,6 +223,7 @@ export default {
     name: "Chiori",
     rarity: 5,
     type: "Sword",
+    sig: "11514",
     statBase: { _HP: 11437, _ATK: 322, _DEF: 953 },
     weights: {
       "CR": 1,
@@ -226,6 +238,7 @@ export default {
     name: "Xianyun",
     rarity: 5,
     type: "Catalyst",
+    sig: "14515",
     statBase: { _HP: 10409, _ATK: 334, _DEF: 572 },
     weights: {
       "ER": 1,
@@ -251,6 +264,7 @@ export default {
     name: "Navia",
     rarity: 5,
     type: "Claymore",
+    sig: "12512",
     statBase: { _HP: 12650, _ATK: 351, _DEF: 793 },
     weights: {
       "ER": 1,
@@ -275,6 +289,7 @@ export default {
     name: "Furina",
     rarity: 5,
     type: "Sword",
+    sig: "11513",
     statBase: { _HP: 15307, _ATK: 243, _DEF: 695 },
     weights: {
       "ER": 1,
@@ -300,6 +315,7 @@ export default {
     name: "Neuvillette",
     rarity: 5,
     type: "Catalyst",
+    sig: "14514",
     statBase: { _HP: 14695, _ATK: 208, _DEF: 576 },
     weights: {
       "CR": 1,
@@ -312,6 +328,7 @@ export default {
     name: "Wriothesley",
     rarity: 5,
     type: "Catalyst",
+    sig: "14513",
     statBase: { _HP: 13592, _ATK: 310, _DEF: 763 },
     weights: {
       "CR": 1,
@@ -326,6 +343,7 @@ export default {
     name: "Lyney",
     rarity: 5,
     type: "Bow",
+    sig: "15512",
     statBase: { _HP: 11021, _ATK: 231, _DEF: 537 },
     weights: {
       "ER": 1,
@@ -388,6 +406,7 @@ export default {
     name: "Baizhu",
     rarity: 5,
     type: "Catalyst",
+    sig: "14505",
     statBase: { _HP: 13348, _ATK: 192, _DEF: 499 },
     weights: {
       "ER": 1,
@@ -410,6 +429,7 @@ export default {
     name: "Dehya",
     rarity: 5,
     type: "Claymore",
+    sig: "12511",
     statBase: { _HP: 15674, _ATK: 265, _DEF: 627 },
     weights: {
       "ER": 1,
@@ -435,6 +455,7 @@ export default {
     name: "Alhaitham",
     rarity: 5,
     type: "Sword",
+    sig: "11512",
     statBase: { _HP: 13348, _ATK: 313, _DEF: 781 },
     weights: {
       "ER": 1,
@@ -460,6 +481,7 @@ export default {
     name: "Wanderer",
     rarity: 5,
     type: "Catalyst",
+    sig: "14512",
     statBase: { _HP: 10164, _ATK: 327, _DEF: 607 },
     weights: {
       "CR": 1,
@@ -486,6 +508,7 @@ export default {
     name: "Nahida",
     rarity: 5,
     type: "Catalyst",
+    sig: "14511",
     statBase: { _HP: 10360, _ATK: 298, _DEF: 630 },
     weights: {
       "CR": 1,
@@ -510,6 +533,7 @@ export default {
     name: "Cyno",
     rarity: 5,
     type: "Polearm",
+    sig: "13511",
     statBase: { _HP: 12490, _ATK: 318, _DEF: 859 },
     weights: {
       "ER": 1,
@@ -523,6 +547,7 @@ export default {
     name: "Nilou",
     rarity: 5,
     type: "Sword",
+    sig: "11511",
     statBase: { _HP: 15184, _ATK: 229, _DEF: 728 },
     weights: {
       "HP": 1,
@@ -545,6 +570,7 @@ export default {
     name: "Tighnari",
     rarity: 5,
     type: "Bow",
+    sig: "15511",
     statBase: { _HP: 10849, _ATK: 267, _DEF: 630 },
     weights: {
       "ER": 1,
@@ -609,6 +635,7 @@ export default {
     name: "Yelan",
     rarity: 5,
     type: "Bow",
+    sig: "15508",
     statBase: { _HP: 14450, _ATK: 243, _DEF: 547 },
     weights: {
       "ER": 1,
@@ -634,6 +661,7 @@ export default {
     name: "Kamisato Ayato",
     rarity: 5,
     type: "Sword",
+    sig: "11510",
     statBase: { _HP: 13715, _ATK: 298, _DEF: 768 },
     weights: {
       "CR": 1,
@@ -648,6 +676,7 @@ export default {
     name: "Yae Miko",
     rarity: 5,
     type: "Catalyst",
+    sig: "14509",
     statBase: { _HP: 10372, _ATK: 339, _DEF: 568 },
     weights: {
       "ER": 1,
@@ -663,6 +692,7 @@ export default {
     name: "Shenhe",
     rarity: 5,
     type: "Polearm",
+    sig: "13507",
     statBase: { _HP: 12992, _ATK: 303, _DEF: 830 },
     weights: {
       "ER": 1,
@@ -685,6 +715,7 @@ export default {
     name: "Arataki Itto",
     rarity: 5,
     type: "Claymore",
+    sig: "12510",
     statBase: { _HP: 12858, _ATK: 227, _DEF: 959 },
     weights: {
       "ER": 1,
@@ -722,6 +753,7 @@ export default {
     name: "Sangonomiya Kokomi",
     rarity: 5,
     type: "Catalyst",
+    sig: "14506",
     statBase: { _HP: 13470, _ATK: 234, _DEF: 657 },
     weights: {
       "ER": 1,
@@ -732,6 +764,7 @@ export default {
     name: "Raiden Shogun",
     rarity: 5,
     type: "Polearm",
+    sig: "13509",
     statBase: { _HP: 12907, _ATK: 337, _DEF: 789 },
     weights: {
       "ER": 1,
@@ -770,6 +803,7 @@ export default {
     name: "Yoimiya",
     rarity: 5,
     type: "Bow",
+    sig: "15509",
     statBase: { _HP: 10164, _ATK: 322, _DEF: 614 },
     weights: {
       "CR": 1,
@@ -782,6 +816,7 @@ export default {
     name: "Kamisato Ayaka",
     rarity: 5,
     type: "Sword",
+    sig: "11509",
     statBase: { _HP: 12858, _ATK: 342, _DEF: 783 },
     weights: {
       "ER": 1,
@@ -820,6 +855,7 @@ export default {
     name: "Kaedehara Kazuha",
     rarity: 5,
     type: "Sword",
+    sig: "11503",
     statBase: { _HP: 13348, _ATK: 296, _DEF: 806 },
     weights: {
       "ER": 1,
@@ -832,6 +868,7 @@ export default {
     name: "Eula",
     rarity: 5,
     type: "Claymore",
+    sig: "12503",
     statBase: { _HP: 13225, _ATK: 342, _DEF: 750 },
     weights: {
       "ER": 1,
@@ -873,6 +910,7 @@ export default {
     name: "Hu Tao",
     rarity: 5,
     type: "Polearm",
+    sig: "13501",
     statBase: { _HP: 15522, _ATK: 106, _DEF: 876 },
     weights: {
       "CR": 1,
@@ -886,6 +924,7 @@ export default {
     name: "Xiao",
     rarity: 5,
     type: "Polearm",
+    sig: "13505",
     statBase: { _HP: 12735, _ATK: 349, _DEF: 799 },
     weights: {
       "CR": 1,
@@ -910,6 +949,7 @@ export default {
     name: "Ganyu",
     rarity: 5,
     type: "Bow",
+    sig: "15502",
     statBase: { _HP: 9796, _ATK: 334, _DEF: 630 },
     weights: {
       "CR": 1,
@@ -924,6 +964,7 @@ export default {
     name: "Tartaglia",
     rarity: 5,
     type: "Bow",
+    sig: "15507",
     statBase: { _HP: 13103, _ATK: 301, _DEF: 814 },
     weights: {
       "CR": 1,
@@ -936,6 +977,7 @@ export default {
     name: "Zhongli",
     rarity: 5,
     type: "Polearm",
+    sig: "13504",
     statBase: { _HP: 14695, _ATK: 251, _DEF: 737 },
     weights: {
       "CR": 1,
@@ -1028,6 +1070,7 @@ export default {
     name: "Diluc",
     rarity: 5,
     type: "Claymore",
+    sig: "12502",
     statBase: { _HP: 12980, _ATK: 334, _DEF: 783 },
     weights: {
       "CR": 1,

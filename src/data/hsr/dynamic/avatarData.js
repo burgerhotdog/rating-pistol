@@ -4,6 +4,7 @@ export default {
     name: "Mydei",
     rarity: 5,
     type: "Destruction",
+    sig: "23039",
     statBase: { _HP: 1552, _ATK: 427, _DEF: 194 },
     weights: {
       "SPD": 1,
@@ -16,6 +17,7 @@ export default {
     name: "Tribbie",
     rarity: 5,
     type: "Harmony",
+    sig: "23038",
     statBase: { _HP: 1048, _ATK: 524, _DEF: 728 },
     weights: {
       "CR": 1,
@@ -29,6 +31,7 @@ export default {
     name: "Aglaea",
     rarity: 5,
     type: "Remembrance",
+    sig: "23036",
     statBase: { _HP: 1242, _ATK: 699, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -41,6 +44,7 @@ export default {
     name: "The Herta",
     rarity: 5,
     type: "Erudition",
+    sig: "23037",
     statBase: { _HP: 1164, _ATK: 679, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -65,6 +69,7 @@ export default {
     name: "Sunday",
     rarity: 5,
     type: "Harmony",
+    sig: "23034",
     statBase: { _HP: 1241, _ATK: 640, _DEF: 533 },
     weights: {
       "SPD": 1,
@@ -76,6 +81,7 @@ export default {
     name: "Fugue",
     rarity: 5,
     type: "Nihility",
+    sig: "23035",
     statBase: { _HP: 1125, _ATK: 582, _DEF: 557 },
     weights: {
       "SPD": 1,
@@ -90,6 +96,7 @@ export default {
     name: "Rappa",
     rarity: 5,
     type: "Erudition",
+    sig: "23033",
     statBase: { _HP: 1086, _ATK: 717, _DEF: 460 },
     weights: {
       "SPD": 1,
@@ -103,6 +110,7 @@ export default {
     name: "Lingsha",
     rarity: 5,
     type: "Abundance",
+    sig: "23032",
     statBase: { _HP: 1358, _ATK: 679, _DEF: 436 },
     weights: {
       "SPD": 1,
@@ -115,6 +123,7 @@ export default {
     name: "Feixiao",
     rarity: 5,
     type: "The Hunt",
+    sig: "23031",
     statBase: { _HP: 1047, _ATK: 601, _DEF: 388 },
     weights: {
       "SPD": 1,
@@ -140,6 +149,7 @@ export default {
     name: "Yunli",
     rarity: 5,
     type: "Destruction",
+    sig: "23030",
     statBase: { _HP: 1358, _ATK: 679, _DEF: 460 },
     weights: {
       "SPD": 1,
@@ -152,6 +162,7 @@ export default {
     name: "Jiaoqiu",
     rarity: 5,
     type: "Nihility",
+    sig: "23029",
     statBase: { _HP: 1358, _ATK: 601, _DEF: 509 },
     weights: {
       "SPD": 1,
@@ -177,6 +188,7 @@ export default {
     name: "Jade",
     rarity: 5,
     type: "Erudition",
+    sig: "23028",
     statBase: { _HP: 1086, _ATK: 659, _DEF: 509 },
     weights: {
       "CR": 1,
@@ -188,6 +200,7 @@ export default {
     name: "Firefly",
     rarity: 5,
     type: "Destruction",
+    sig: "23025",
     statBase: { _HP: 814, _ATK: 523, _DEF: 776 },
     weights: {
       "SPD": 1,
@@ -201,6 +214,7 @@ export default {
     name: "Boothill",
     rarity: 5,
     type: "The Hunt",
+    sig: "23027",
     statBase: { _HP: 1203, _ATK: 620, _DEF: 436 },
     weights: {
       "SPD": 1,
@@ -211,6 +225,7 @@ export default {
     name: "Robin",
     rarity: 5,
     type: "Harmony",
+    sig: "23026",
     statBase: { _HP: 1280, _ATK: 640, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -235,6 +250,7 @@ export default {
     name: "Acheron",
     rarity: 5,
     type: "Nihility",
+    sig: "23024",
     statBase: { _HP: 1125, _ATK: 698, _DEF: 436 },
     weights: {
       "CR": 1,
@@ -246,6 +262,7 @@ export default {
     name: "Aventurine",
     rarity: 5,
     type: "Preservation",
+    sig: "23023",
     statBase: { _HP: 1203, _ATK: 446, _DEF: 654 },
     weights: {
       "SPD": 1,
@@ -271,6 +288,7 @@ export default {
     name: "Black Swan",
     rarity: 5,
     type: "Nihility",
+    sig: "23022",
     statBase: { _HP: 1086, _ATK: 659, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -282,6 +300,7 @@ export default {
     name: "Sparkle",
     rarity: 5,
     type: "Harmony",
+    sig: "23021",
     statBase: { _HP: 1397, _ATK: 523, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -307,6 +326,7 @@ export default {
     name: "Dr. Ratio",
     rarity: 5,
     type: "The Hunt",
+    sig: "23020",
     statBase: { _HP: 1047, _ATK: 776, _DEF: 460 },
     weights: {
       "SPD": 1,
@@ -320,6 +340,7 @@ export default {
     name: "Ruan Mei",
     rarity: 5,
     type: "Harmony",
+    sig: "23019",
     statBase: { _HP: 1086, _ATK: 659, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -346,6 +367,7 @@ export default {
     name: "Argenti",
     rarity: 5,
     type: "Erudition",
+    sig: "23018",
     statBase: { _HP: 1047, _ATK: 737, _DEF: 363 },
     weights: {
       "SPD": 1,
@@ -358,6 +380,7 @@ export default {
     name: "Huohuo",
     rarity: 5,
     type: "Abundance",
+    sig: "23017",
     statBase: { _HP: 1358, _ATK: 601, _DEF: 509 },
     weights: {
       "SPD": 1,
@@ -381,6 +404,7 @@ export default {
     name: "Jingliu",
     rarity: 5,
     type: "Destruction",
+    sig: "23014",
     statBase: { _HP: 1435, _ATK: 679, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -393,6 +417,7 @@ export default {
     name: "Topaz & Numby",
     rarity: 5,
     type: "The Hunt",
+    sig: "23016",
     statBase: { _HP: 931, _ATK: 620, _DEF: 412 },
     weights: {
       "SPD": 1,
@@ -419,6 +444,7 @@ export default {
     name: "Dan Heng • Imbibitor Lunae",
     rarity: 5,
     type: "Destruction",
+    sig: "23015",
     statBase: { _HP: 1241, _ATK: 698, _DEF: 363 },
     weights: {
       "CR": 1,
@@ -430,6 +456,7 @@ export default {
     name: "Fu Xuan",
     rarity: 5,
     type: "Preservation",
+    sig: "23011",
     statBase: { _HP: 1474, _ATK: 465, _DEF: 606 },
     weights: {
       "SPD": 1,
@@ -455,6 +482,7 @@ export default {
     name: "Blade",
     rarity: 5,
     type: "Destruction",
+    sig: "23009",
     statBase: { _HP: 1358, _ATK: 543, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -467,6 +495,7 @@ export default {
     name: "Kafka",
     rarity: 5,
     type: "Nihility",
+    sig: "23006",
     statBase: { _HP: 1086, _ATK: 679, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -492,6 +521,7 @@ export default {
     name: "Luocha",
     rarity: 5,
     type: "Abundance",
+    sig: "23008",
     statBase: { _HP: 1280, _ATK: 756, _DEF: 363 },
     weights: {
       "SPD": 1,
@@ -503,6 +533,7 @@ export default {
     name: "Silver Wolf",
     rarity: 5,
     type: "Nihility",
+    sig: "23007",
     statBase: { _HP: 1047, _ATK: 640, _DEF: 460 },
     weights: {
       "SPD": 1,
@@ -526,6 +557,7 @@ export default {
     name: "Jing Yuan",
     rarity: 5,
     type: "Erudition",
+    sig: "23010",
     statBase: { _HP: 1164, _ATK: 698, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -537,6 +569,7 @@ export default {
     name: "Seele",
     rarity: 5,
     type: "The Hunt",
+    sig: "23001",
     statBase: { _HP: 931, _ATK: 640, _DEF: 363 },
     weights: {
       "SPD": 1,
@@ -549,6 +582,7 @@ export default {
     name: "Bailu",
     rarity: 5,
     type: "Abundance",
+    sig: "23013",
     statBase: { _HP: 1319, _ATK: 562, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -560,6 +594,7 @@ export default {
     name: "Yanqing",
     rarity: 5,
     type: "The Hunt",
+    sig: "23012",
     statBase: { _HP: 892, _ATK: 679, _DEF: 412 },
     weights: {
       "SPD": 1,
@@ -572,6 +607,7 @@ export default {
     name: "Clara",
     rarity: 5,
     type: "Destruction",
+    sig: "23002",
     statBase: { _HP: 1241, _ATK: 737, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -583,6 +619,7 @@ export default {
     name: "Gepard",
     rarity: 5,
     type: "Preservation",
+    sig: "23005",
     statBase: { _HP: 1397, _ATK: 543, _DEF: 654 },
     weights: {
       "SPD": 1,
@@ -594,6 +631,7 @@ export default {
     name: "Bronya",
     rarity: 5,
     type: "Harmony",
+    sig: "23003",
     statBase: { _HP: 1241, _ATK: 582, _DEF: 533 },
     weights: {
       "SPD": 1,
@@ -605,6 +643,7 @@ export default {
     name: "Welt",
     rarity: 5,
     type: "Nihility",
+    sig: "23004",
     statBase: { _HP: 1125, _ATK: 620, _DEF: 509 },
     weights: {
       "SPD": 1,
@@ -618,6 +657,7 @@ export default {
     name: "Himeko",
     rarity: 5,
     type: "Erudition",
+    sig: "23000",
     statBase: { _HP: 1047, _ATK: 756, _DEF: 436 },
     weights: {
       "CR": 1,

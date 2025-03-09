@@ -94,7 +94,7 @@ const GamePage = ({ gameId, userId }) => {
         <Typography variant="h4">{generalData.TITLE}</Typography>
         <Typography variant="body2">Updated for version {generalData.VERSION}</Typography>
 
-        <TableContainer sx={{ maxWidth: 850 }}>
+        <TableContainer sx={{ maxWidth: 900 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
               <TableRow>
