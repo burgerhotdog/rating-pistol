@@ -97,9 +97,9 @@ const EditAvatar = ({
           value={skillValue}
           options={Array.from(
             { length: generalData.SKILL_DATA[skillKey].skill_cap }, 
-            (_, i) => (i + 1).toString()
+            (_, i) => (i + 1)
           )}
-          getOptionLabel={(id) => id.toString() || ""}
+          getOptionLabel={(id) => String(id)}
           onChange={(_, newValue) => {
             if (newValue) handleSkill(newValue, skillKey);
           }}

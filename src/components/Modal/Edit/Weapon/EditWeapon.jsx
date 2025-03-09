@@ -1,9 +1,11 @@
 import React from "react";
 import {
-  Box,
   Stack,
+  Card,
+  Box,
   Autocomplete,
   TextField,
+  Typography,
 } from "@mui/material";
 import getData from "../../../getData";
 import getIcons from "../../../getIcons";
@@ -140,7 +142,26 @@ const EditWeapon = ({
           disabled={!action?.data.weaponId}
         />
       </Stack>
-      <WeaponCard gameId={gameId} action={action} />
+      <Card sx={{ width: 700, p: 2 }}>
+        {action?.data.weaponId ? (
+          <WeaponCard
+            gameId={gameId}
+            weapon={weaponData[action.data.weaponId]}
+            id={action.data.weaponId}
+            rank={action.data.weaponRank}
+          />
+        ) : (
+          <Stack
+            justifyContent="center"
+            alignItems="center"
+            sx={{ minHeight: 150 }}
+          >
+            <Typography variant="body1" color="text.disabled">
+              No {generalData.SECTIONS[1]} Selected
+            </Typography>
+          </Stack>
+        )}
+      </Card>
     </Stack>
   );
 };
