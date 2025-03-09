@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import {
-  Modal,
-  Box,
   Stack,
   Button,
-  useTheme,
 } from "@mui/material";
 import EditAvatar from "./Avatar/EditAvatar";
 import EditWeapon from "./Weapon/EditWeapon";
@@ -19,7 +16,6 @@ const EditModal = ({
   setAction,
   setLocalDocs,
 }) => {
-  const theme = useTheme();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
@@ -38,43 +34,35 @@ const EditModal = ({
     setAction({});
   };
 
-  const handleCancel = () => {
-    setAction({});
-  };
-
   return (
-    <Modal open={action?.type === "edit"} onClose={handleCancel}>
-      <Box sx={theme.customStyles.modal}>
-        <Stack alignItems="center" spacing={2}>
-          {action?.item === "avatar" ? (
-            <EditAvatar
-              gameId={gameId}
-              action={action}
-              setAction={setAction}
-            />
-          ) : action?.item === "weapon" ? (
-            <EditWeapon
-              gameId={gameId}
-              action={action}
-              setAction={setAction}
-            />
-          ) : action?.item === "equipList" && (
-            <EditEquipList
-              gameId={gameId}
-              action={action}
-              setAction={setAction}
-            />
-          )}
-          <Button
-            onClick={handleSave}
-            loading={isLoading}
-            variant="contained"
-          >
-            Save
-          </Button>
-        </Stack>
-      </Box>
-    </Modal>
+    <Stack alignItems="center" spacing={2}>
+      {action?.item === "avatar" ? (
+        <EditAvatar
+          gameId={gameId}
+          action={action}
+          setAction={setAction}
+        />
+      ) : action?.item === "weapon" ? (
+        <EditWeapon
+          gameId={gameId}
+          action={action}
+          setAction={setAction}
+        />
+      ) : action?.item === "equipList" && (
+        <EditEquipList
+          gameId={gameId}
+          action={action}
+          setAction={setAction}
+        />
+      )}
+      <Button
+        onClick={handleSave}
+        loading={isLoading}
+        variant="contained"
+      >
+        Save
+      </Button>
+    </Stack>
   );
 };
 

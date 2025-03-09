@@ -56,9 +56,8 @@ const TableEquipList = ({
           sx={{ cursor: "pointer" }}
         >
           {Object.entries(setBonuses).map(([setId, numBonus]) => (
-            <Stack direction="row" alignItems="end">
+            <Stack key={setId} direction="row" alignItems="end">
               <Box
-                key={setId}
                 component="img"
                 alt={setId}
                 src={setIcons[`./${setId}.webp`]?.default}

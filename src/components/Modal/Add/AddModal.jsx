@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import {
-  Modal,
   Box,
   Stack,
   Autocomplete,
   TextField,
   Button,
-  useTheme,
 } from "@mui/material";
 import template from "../../template";
 import getData from "../../getData";
@@ -22,7 +20,6 @@ const AddModal = ({
   localDocs,
   setLocalDocs,
 }) => {
-  const theme = useTheme();
   const { generalData, avatarData } = getData(gameId);
   const { avatarIcons } = getIcons(gameId);
   const [isLoading, setIsLoading] = useState(false);
@@ -42,7 +39,7 @@ const AddModal = ({
   const handleSelect = (newValue) => {
     setAction((prev) => ({
       ...prev,
-      id: newValue || "",
+      id: newValue,
     }));
   };
 
@@ -69,65 +66,57 @@ const AddModal = ({
     setAction({});
   };
 
-  const handleCancel = () => {
-    setAction({});
-  };
-
   return (
-    <Modal open={action?.type === "add"} onClose={handleCancel}>
-      <Box sx={theme.customStyles.modal}>
-        <Stack alignItems="center" spacing={2}>
-          <Autocomplete
-            size="small"
-            value={action?.id}
-            options={charOptions()}
-            getOptionLabel={(id) => avatarData[id]?.name || ""}
-            onChange={(_, newValue) => handleSelect(newValue)}
-            renderOption={(props, id) => {
-              const { key, ...idProps } = props;
-              const rarity = avatarData[id]?.rarity;
-              return (
-                <Box
-                  key={key}
-                  component="li"
-                  sx={{
-                    "& > img": { mr: 2, flexShrink: 0 },
-                    color: `rarityColor.${rarity}`,
-                  }}
-                  {...idProps}
-                >
-                  <Box
-                    component="img"
-                    loading="lazy"
-                    src={avatarIcons[`./${id}.webp`]?.default}
-                    alt={""}
-                    sx={{ width: 25, height: 25, objectFit: "contain" }}
-                  />
-                  {avatarData[id].name}
-                </Box>
-              );
-            }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Select"
+    <Stack alignItems="center" spacing={2}>
+      <Autocomplete
+        size="small"
+        value={action.id}
+        options={charOptions()}
+        getOptionLabel={(option) => avatarData[option]?.name || ""}
+        onChange={(_, newValue) => handleSelect(newValue)}
+        renderOption={(props, option) => {
+          const { key, ...optionProps } = props;
+          const rarity = avatarData[option]?.rarity;
+          return (
+            <Box
+              key={key}
+              component="li"
+              sx={{
+                "& > img": { mr: 2, flexShrink: 0 },
+                color: `rarityColor.${rarity}`,
+              }}
+              {...optionProps}
+            >
+              <Box
+                component="img"
+                loading="lazy"
+                src={avatarIcons[`./${option}.webp`]?.default}
+                alt={""}
+                sx={{ width: 25, height: 25, objectFit: "contain" }}
               />
-            )}
-            sx={{ width: 250 }}
-            disableClearable={action?.id === ""}
+              {avatarData[option].name}
+            </Box>
+          );
+        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Select"
           />
-          <Button
-            onClick={handleAdd}
-            loading={isLoading}
-            variant="contained"
-            color="primary"
-            disabled={!action?.id}
-          >
-            Save
-          </Button>
-        </Stack>
-      </Box>      
-    </Modal>
+        )}
+        sx={{ width: 250 }}
+        disableClearable
+      />
+      <Button
+        onClick={handleAdd}
+        loading={isLoading}
+        variant="contained"
+        color="primary"
+        disabled={!action.id}
+      >
+        Save
+      </Button>
+    </Stack>
   );
 };
 

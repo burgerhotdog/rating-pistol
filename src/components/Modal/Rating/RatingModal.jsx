@@ -1,48 +1,21 @@
-import React, { useState } from "react";
-import {
-  Modal,
-  Box,
-  Stack,
-  Button,
-  Typography,
-  useTheme
-} from "@mui/material";
+import React from "react";
+import { Stack, Typography } from "@mui/material";
 import getData from "../../getData";
 
-const RatingModal = ({
-  gameId,
-  action,
-  setAction,
-}) => {
-  const theme = useTheme();
+const RatingModal = ({ gameId, action }) => {
   const { generalData } = getData(gameId);
 
-  const handleCancel = () => {
-    setAction({});
-  };
-
   return (
-    <Modal open={action?.type === "rating"} onClose={handleCancel}>
-      <Box sx={theme.customStyles.modal}>
-        <Stack spacing={2}>
-          <Typography variant="body1">
-            Score Breakdown
-          </Typography>
-          <Typography variant="body2">
-            {`${generalData.SECTIONS[0]} Score: ${Math.round(action?.rating?.parts[0])}`}
-          </Typography>
-          <Typography variant="body2">
-            {`${generalData.SECTIONS[1]} Score: ${Math.round(action?.rating?.parts[1])}`}
-          </Typography>
-          <Typography variant="body2">
-            {`${generalData.SECTIONS[2]} Score: ${Math.round(action?.rating?.parts[2])}`}
-          </Typography>
-          <Typography variant="body2">
-            {`${generalData.SECTIONS[3]} Score: ${Math.round(action?.rating?.parts[3])}`}
-          </Typography>
-        </Stack>
-      </Box>
-    </Modal>
+    <Stack spacing={2}>
+      <Typography variant="body1">
+        Score Breakdown
+      </Typography>
+      {generalData.SECTIONS.map((section, index) => (
+        <Typography key={index} variant="body2">
+          {`${section} Score: ${Math.round(action.rating.parts[index])}`}
+        </Typography>
+      ))}
+    </Stack>
   );
 };
 

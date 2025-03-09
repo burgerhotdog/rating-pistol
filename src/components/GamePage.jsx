@@ -16,11 +16,7 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import AddModal from "./Modal/Add/AddModal";
-import DeleteModal from "./Modal/Delete/DeleteModal";
-import EditModal from "./Modal/Edit/EditModal";
-import LoadModal from "./Modal/Load/LoadModal";
-import RatingModal from "./Modal/Rating/RatingModal";
+import Action from "./Modal/Action";
 import getRating from "./getRating/getRating";
 import TableStar from "./Table/TableStar";
 import TableAvatar from "./Table/TableAvatar";
@@ -81,7 +77,7 @@ const GamePage = ({ gameId, userId }) => {
   const handleAdd = () => {
     setAction({
       type: "add",
-      id: "",
+      id: null,
     });
   };
 
@@ -205,41 +201,13 @@ const GamePage = ({ gameId, userId }) => {
           </Button>
         </Stack>
 
-        <AddModal
+        <Action
           gameId={gameId}
           userId={userId}
           action={action}
           setAction={setAction}
           localDocs={localDocs}
           setLocalDocs={setLocalDocs}
-        />
-        <DeleteModal
-          gameId={gameId}
-          userId={userId}
-          action={action}
-          setAction={setAction}
-          setLocalDocs={setLocalDocs}
-        />
-        <EditModal
-          gameId={gameId}
-          userId={userId}
-          action={action}
-          setAction={setAction}
-          setLocalDocs={setLocalDocs}
-        />
-        {(gameId === "gi" || gameId === "hsr") && (
-          <LoadModal
-            gameId={gameId}
-            userId={userId}
-            action={action}
-            setAction={setAction}
-            setLocalDocs={setLocalDocs}
-          />
-        )}
-        <RatingModal
-          gameId={gameId}
-          action={action}
-          setAction={setAction}
         />
       </Stack>
     </Container>
