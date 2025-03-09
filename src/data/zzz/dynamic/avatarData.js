@@ -4,7 +4,7 @@ export default {
     name: "Evelyn",
     rarity: 5,
     type: "Attack",
-    base: { _HP: 7788, _ATK: 929, _DEF: 612 },
+    statBase: { _HP: 7788, _ATK: 929, _DEF: 612 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -16,7 +16,7 @@ export default {
     name: "Astra",
     rarity: 5,
     type: "Support",
-    base: { _HP: 8609, _ATK: 715, _DEF: 600 },
+    statBase: { _HP: 8609, _ATK: 715, _DEF: 600 },
     weights: {
       "ATK": 1,
       "AP": 0.5,
@@ -29,7 +29,7 @@ export default {
     name: "Harumasa",
     rarity: 5,
     type: "Attack",
-    base: { _HP: 7405, _ATK: 915, _DEF: 600 },
+    statBase: { _HP: 7405, _ATK: 915, _DEF: 600 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -41,7 +41,7 @@ export default {
     name: "Miyabi",
     rarity: 5,
     type: "Anomaly",
-    base: { _HP: 7673, _ATK: 880, _DEF: 606 },
+    statBase: { _HP: 7673, _ATK: 880, _DEF: 606 },
     weights: {
       "CR": 1,
       "CD": 0.6,
@@ -56,7 +56,7 @@ export default {
     name: "Yanagi",
     rarity: 5,
     type: "Anomaly",
-    base: { _HP: 7789, _ATK: 873, _DEF: 613 },
+    statBase: { _HP: 7789, _ATK: 873, _DEF: 613 },
     weights: {
       "AP": 1,
       "ATK": 0.6,
@@ -67,7 +67,7 @@ export default {
     name: "Lighter",
     rarity: 5,
     type: "Stun",
-    base: { _HP: 8253, _ATK: 797, _DEF: 612 },
+    statBase: { _HP: 8253, _ATK: 797, _DEF: 612 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -81,7 +81,7 @@ export default {
     name: "Burnice",
     rarity: 5,
     type: "Anomaly",
-    base: { _HP: 7368, _ATK: 863, _DEF: 601 },
+    statBase: { _HP: 7368, _ATK: 863, _DEF: 601 },
     weights: {
       "AP": 1,
       "ATK": 0.6,
@@ -92,7 +92,7 @@ export default {
     name: "Caesar",
     rarity: 5,
     type: "Defense",
-    base: { _HP: 9526, _ATK: 712, _DEF: 754 },
+    statBase: { _HP: 9526, _ATK: 712, _DEF: 754 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -106,7 +106,7 @@ export default {
     name: "Jane",
     rarity: 5,
     type: "Anomaly",
-    base: { _HP: 7789, _ATK: 881, _DEF: 607 },
+    statBase: { _HP: 7789, _ATK: 881, _DEF: 607 },
     weights: {
       "AP": 1,
       "ATK": 0.6,
@@ -117,7 +117,7 @@ export default {
     name: "Qingyi",
     rarity: 5,
     type: "Stun",
-    base: { _HP: 8251, _ATK: 758, _DEF: 613 },
+    statBase: { _HP: 8251, _ATK: 758, _DEF: 613 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -129,7 +129,7 @@ export default {
     name: "Seth",
     rarity: 4,
     type: "Defense",
-    base: { _HP: 8701, _ATK: 643, _DEF: 746 },
+    statBase: { _HP: 8701, _ATK: 643, _DEF: 746 },
     weights: {
       "ATK": 1,
       "AP": 0.6,
@@ -142,7 +142,7 @@ export default {
     name: "Zhu Yuan",
     rarity: 5,
     type: "Attack",
-    base: { _HP: 7483, _ATK: 919, _DEF: 601 },
+    statBase: { _HP: 7483, _ATK: 919, _DEF: 601 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -154,7 +154,7 @@ export default {
     name: "Ellen",
     rarity: 5,
     type: "Attack",
-    base: { _HP: 7674, _ATK: 938, _DEF: 607 },
+    statBase: { _HP: 7674, _ATK: 938, _DEF: 607 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -166,7 +166,7 @@ export default {
     name: "Rina",
     rarity: 5,
     type: "Support",
-    base: { _HP: 8609, _ATK: 717, _DEF: 601 },
+    statBase: { _HP: 8609, _ATK: 717, _DEF: 601 },
     weights: {
       "AP": 1,
       "ATK": 0.6,
@@ -177,7 +177,7 @@ export default {
     name: "Grace",
     rarity: 5,
     type: "Anomaly",
-    base: { _HP: 7483, _ATK: 826, _DEF: 601 },
+    statBase: { _HP: 7483, _ATK: 826, _DEF: 601 },
     weights: {
       "AP": 1,
       "ATK": 0.6,
@@ -188,7 +188,7 @@ export default {
     name: "Lycaon",
     rarity: 5,
     type: "Stun",
-    base: { _HP: 8416, _ATK: 729, _DEF: 607 },
+    statBase: { _HP: 8416, _ATK: 729, _DEF: 607 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -200,7 +200,7 @@ export default {
     name: "Koleda",
     rarity: 5,
     type: "Stun",
-    base: { _HP: 8127, _ATK: 736, _DEF: 595 },
+    statBase: { _HP: 8127, _ATK: 736, _DEF: 595 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -212,7 +212,7 @@ export default {
     name: "Soldier 11",
     rarity: 5,
     type: "Attack",
-    base: { _HP: 7674, _ATK: 889, _DEF: 613 },
+    statBase: { _HP: 7674, _ATK: 889, _DEF: 613 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -224,7 +224,7 @@ export default {
     name: "Nekomata",
     rarity: 5,
     type: "Attack",
-    base: { _HP: 7560, _ATK: 911, _DEF: 588 },
+    statBase: { _HP: 7560, _ATK: 911, _DEF: 588 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -236,7 +236,7 @@ export default {
     name: "Piper",
     rarity: 4,
     type: "Anomaly",
-    base: { _HP: 6977, _ATK: 758, _DEF: 613 },
+    statBase: { _HP: 6977, _ATK: 758, _DEF: 613 },
     weights: {
       "AP": 1,
       "ATK": 0.6,
@@ -247,7 +247,7 @@ export default {
     name: "Lucy",
     rarity: 4,
     type: "Support",
-    base: { _HP: 8026, _ATK: 659, _DEF: 613 },
+    statBase: { _HP: 8026, _ATK: 659, _DEF: 613 },
     weights: {
       "ATK": 1,
       "CR": 0.5,
@@ -259,7 +259,7 @@ export default {
     name: "Soukaku",
     rarity: 4,
     type: "Support",
-    base: { _HP: 8026, _ATK: 666, _DEF: 598 },
+    statBase: { _HP: 8026, _ATK: 666, _DEF: 598 },
     weights: {
       "ATK": 1,
       "CR": 0.5,
@@ -271,7 +271,7 @@ export default {
     name: "Ben",
     rarity: 4,
     type: "Defense",
-    base: { _HP: 8578, _ATK: 653, _DEF: 724 },
+    statBase: { _HP: 8578, _ATK: 653, _DEF: 724 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -283,7 +283,7 @@ export default {
     name: "Anton",
     rarity: 4,
     type: "Attack",
-    base: { _HP: 7219, _ATK: 792, _DEF: 623 },
+    statBase: { _HP: 7219, _ATK: 792, _DEF: 623 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -295,7 +295,7 @@ export default {
     name: "Billy",
     rarity: 4,
     type: "Attack",
-    base: { _HP: 6907, _ATK: 787, _DEF: 607 },
+    statBase: { _HP: 6907, _ATK: 787, _DEF: 607 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -307,7 +307,7 @@ export default {
     name: "Corin",
     rarity: 4,
     type: "Attack",
-    base: { _HP: 6977, _ATK: 807, _DEF: 605 },
+    statBase: { _HP: 6977, _ATK: 807, _DEF: 605 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -319,7 +319,7 @@ export default {
     name: "Nicole",
     rarity: 4,
     type: "Support",
-    base: { _HP: 8146, _ATK: 649, _DEF: 623 },
+    statBase: { _HP: 8146, _ATK: 649, _DEF: 623 },
     weights: {
       "AP": 1,
       "ATK": 0.6,
@@ -330,7 +330,7 @@ export default {
     name: "Anby",
     rarity: 4,
     type: "Stun",
-    base: { _HP: 7501, _ATK: 659, _DEF: 613 },
+    statBase: { _HP: 7501, _ATK: 659, _DEF: 613 },
     weights: {
       "CR": 1,
       "CD": 1,

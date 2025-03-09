@@ -136,7 +136,7 @@ const rateEquipList = (gameId, id, data) => {
   if (!data.weaponId) return 0;
 
   // Combine stats
-  const basestats = combine_basestats(avatarData[id].base, weaponData[data.weaponId].base);
+  const basestats = combine_basestats(avatarData[id].statBase, weaponData[data.weaponId].statBase);
   const substats = combine_substats(data.equipList);
 
   // Simulate perfect substats

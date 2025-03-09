@@ -4,7 +4,7 @@ export default {
     name: "Phoebe",
     rarity: 5,
     type: "Rectifier",
-    base: { _HP: 10825, _ATK: 413, _DEF: 1259 },
+    statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -16,7 +16,7 @@ export default {
     name: "Brant",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 11675, _ATK: 375, _DEF: 1308 },
+    statBase: { _HP: 11675, _ATK: 375, _DEF: 1308 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -30,7 +30,7 @@ export default {
     name: "Roccia",
     rarity: 5,
     type: "Gauntlets",
-    base: { _HP: 12250, _ATK: 375, _DEF: 1198 },
+    statBase: { _HP: 12250, _ATK: 375, _DEF: 1198 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -43,7 +43,7 @@ export default {
     name: "Carlotta",
     rarity: 5,
     type: "Pistols",
-    base: { _HP: 12450, _ATK: 463, _DEF: 1198 },
+    statBase: { _HP: 12450, _ATK: 463, _DEF: 1198 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -58,7 +58,7 @@ export default {
     name: "Camellya",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10325, _ATK: 450, _DEF: 1161 },
+    statBase: { _HP: 10325, _ATK: 450, _DEF: 1161 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -72,7 +72,7 @@ export default {
     name: "Lumi",
     rarity: 4,
     type: "Broadblade",
-    base: { _HP: 8500, _ATK: 338, _DEF: 880 },
+    statBase: { _HP: 8500, _ATK: 338, _DEF: 880 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -89,7 +89,7 @@ export default {
     name: "The Shorekeeper",
     rarity: 5,
     type: "Rectifier",
-    base: { _HP: 16713, _ATK: 288, _DEF: 1100 },
+    statBase: { _HP: 16713, _ATK: 288, _DEF: 1100 },
     weights: {
       "ER": 1,
       "HP": 0.6,
@@ -101,7 +101,7 @@ export default {
     name: "Youhu",
     rarity: 4,
     type: "Gauntlets",
-    base: { _HP: 9975, _ATK: 263, _DEF: 1051 },
+    statBase: { _HP: 9975, _ATK: 263, _DEF: 1051 },
     weights: {
       "ER": 1,
       "ATK": 0.6,
@@ -115,7 +115,7 @@ export default {
     name: "Xiangli Yao",
     rarity: 5,
     type: "Gauntlets",
-    base: { _HP: 10625, _ATK: 425, _DEF: 1222 },
+    statBase: { _HP: 10625, _ATK: 425, _DEF: 1222 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -129,7 +129,7 @@ export default {
     name: "Zhezhi",
     rarity: 5,
     type: "Rectifier",
-    base: { _HP: 12250, _ATK: 375, _DEF: 1198 },
+    statBase: { _HP: 12250, _ATK: 375, _DEF: 1198 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -144,7 +144,7 @@ export default {
     name: "Jinhsi",
     rarity: 5,
     type: "Broadblade",
-    base: { _HP: 10825, _ATK: 413, _DEF: 1259 },
+    statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -158,7 +158,7 @@ export default {
     name: "Changli",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10388, _ATK: 463, _DEF: 1100 },
+    statBase: { _HP: 10388, _ATK: 463, _DEF: 1100 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -174,7 +174,7 @@ export default {
     name: "Jiyan",
     rarity: 5,
     type: "Broadblade",
-    base: { _HP: 10488, _ATK: 438, _DEF: 1185 },
+    statBase: { _HP: 10488, _ATK: 438, _DEF: 1185 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -187,7 +187,7 @@ export default {
     name: "Yinlin",
     rarity: 5,
     type: "Rectifier",
-    base: { _HP: 11000, _ATK: 400, _DEF: 1283 },
+    statBase: { _HP: 11000, _ATK: 400, _DEF: 1283 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -201,7 +201,7 @@ export default {
     name: "Verina",
     rarity: 5,
     type: "Rectifier",
-    base: { _HP: 14238, _ATK: 338, _DEF: 1100 },
+    statBase: { _HP: 14238, _ATK: 338, _DEF: 1100 },
     weights: {
       "ER": 1,
       "ATK": 0.6,
@@ -211,7 +211,7 @@ export default {
     name: "Jianxin",
     rarity: 5,
     type: "Gauntlets",
-    base: { _HP: 14113, _ATK: 338, _DEF: 1124 },
+    statBase: { _HP: 14113, _ATK: 338, _DEF: 1124 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -225,7 +225,7 @@ export default {
     name: "Calcharo",
     rarity: 5,
     type: "Broadblade",
-    base: { _HP: 10500, _ATK: 438, _DEF: 1185 },
+    statBase: { _HP: 10500, _ATK: 438, _DEF: 1185 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -239,7 +239,7 @@ export default {
     name: "Encore",
     rarity: 5,
     type: "Rectifier",
-    base: { _HP: 10513, _ATK: 425, _DEF: 1246 },
+    statBase: { _HP: 10513, _ATK: 425, _DEF: 1246 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -252,7 +252,7 @@ export default {
     name: "Lingyang",
     rarity: 5,
     type: "Gauntlets",
-    base: { _HP: 10388, _ATK: 438, _DEF: 1210 },
+    statBase: { _HP: 10388, _ATK: 438, _DEF: 1210 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -266,7 +266,7 @@ export default {
     name: "Rover (Havoc)",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10825, _ATK: 413, _DEF: 1259 },
+    statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -281,7 +281,7 @@ export default {
     name: "Rover (Spectro)",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 11400, _ATK: 375, _DEF: 1369 },
+    statBase: { _HP: 11400, _ATK: 375, _DEF: 1369 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -293,7 +293,7 @@ export default {
     name: "Danjin",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 9438, _ATK: 263, _DEF: 1149 },
+    statBase: { _HP: 9438, _ATK: 263, _DEF: 1149 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -308,7 +308,7 @@ export default {
     name: "Taoqi",
     rarity: 4,
     type: "Broadblade",
-    base: { _HP: 8950, _ATK: 225, _DEF: 1564 },
+    statBase: { _HP: 8950, _ATK: 225, _DEF: 1564 },
     weights: {
       "ER": 1,
       "DEF": 0.6,
@@ -320,7 +320,7 @@ export default {
     name: "Aalto",
     rarity: 4,
     type: "Pistols",
-    base: { _HP: 9850, _ATK: 263, _DEF: 1075 },
+    statBase: { _HP: 9850, _ATK: 263, _DEF: 1075 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -334,7 +334,7 @@ export default {
     name: "Yangyang",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 10200, _ATK: 250, _DEF: 1100 },
+    statBase: { _HP: 10200, _ATK: 250, _DEF: 1100 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -348,7 +348,7 @@ export default {
     name: "Yuanwu",
     rarity: 4,
     type: "Gauntlets",
-    base: { _HP: 8525, _ATK: 225, _DEF: 1637 },
+    statBase: { _HP: 8525, _ATK: 225, _DEF: 1637 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -362,7 +362,7 @@ export default {
     name: "Mortefi",
     rarity: 4,
     type: "Pistols",
-    base: { _HP: 10025, _ATK: 250, _DEF: 1136 },
+    statBase: { _HP: 10025, _ATK: 250, _DEF: 1136 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -376,7 +376,7 @@ export default {
     name: "Chixia",
     rarity: 4,
     type: "Pistols",
-    base: { _HP: 9088, _ATK: 300, _DEF: 953 },
+    statBase: { _HP: 9088, _ATK: 300, _DEF: 953 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -390,7 +390,7 @@ export default {
     name: "Baizhi",
     rarity: 4,
     type: "Rectifier",
-    base: { _HP: 12813, _ATK: 213, _DEF: 1002 },
+    statBase: { _HP: 12813, _ATK: 213, _DEF: 1002 },
     weights: {
       "ER": 1,
       "HP": 0.6,
@@ -400,7 +400,7 @@ export default {
     name: "Sanhua",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 10063, _ATK: 275, _DEF: 941 },
+    statBase: { _HP: 10063, _ATK: 275, _DEF: 941 },
     weights: {
       "ER": 1,
       "CR": 1,

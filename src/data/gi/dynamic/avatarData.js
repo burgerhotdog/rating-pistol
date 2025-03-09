@@ -4,7 +4,7 @@ export default {
     name: "Yumemizuki Mizuki",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 12736, _ATK: 215, _DEF: 757 },
+    statBase: { _HP: 12736, _ATK: 215, _DEF: 757 },
     weights: {
       "ER": 1,
       "EM": 1,
@@ -16,7 +16,7 @@ export default {
     name: "Citlali",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 11633, _ATK: 126, _DEF: 763 },
+    statBase: { _HP: 11633, _ATK: 126, _DEF: 763 },
     weights: {
       "ER": 1,
       "EM": 1,
@@ -26,7 +26,7 @@ export default {
     name: "Mavuika",
     rarity: 5,
     type: "Claymore",
-    base: { _HP: 12552, _ATK: 358, _DEF: 791 },
+    statBase: { _HP: 12552, _ATK: 358, _DEF: 791 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -38,7 +38,7 @@ export default {
     name: "Traveler (Pyro)",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10875, _ATK: 212, _DEF: 683 },
+    statBase: { _HP: 10875, _ATK: 212, _DEF: 683 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -51,7 +51,7 @@ export default {
     name: "Lan Yan",
     rarity: 4,
     type: "Catalyst",
-    base: { _HP: 9243, _ATK: 250, _DEF: 580 },
+    statBase: { _HP: 9243, _ATK: 250, _DEF: 580 },
     weights: {
       "ER": 1,
       "EM": 1,
@@ -64,7 +64,7 @@ export default {
     name: "Chasca",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 9796, _ATK: 346, _DEF: 614 },
+    statBase: { _HP: 9796, _ATK: 346, _DEF: 614 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -77,7 +77,7 @@ export default {
     name: "Ororon",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9243, _ATK: 244, _DEF: 586 },
+    statBase: { _HP: 9243, _ATK: 244, _DEF: 586 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -92,7 +92,7 @@ export default {
     name: "Xilonen",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 12405, _ATK: 275, _DEF: 929 },
+    statBase: { _HP: 12405, _ATK: 275, _DEF: 929 },
     weights: {
       "ER": 1,
       "DEF": 0.6,
@@ -104,7 +104,7 @@ export default {
     name: "Mualani",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 15184, _ATK: 181, _DEF: 570 },
+    statBase: { _HP: 15184, _ATK: 181, _DEF: 570 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -117,7 +117,7 @@ export default {
     name: "Kinich",
     rarity: 5,
     type: "Claymore",
-    base: { _HP: 12858, _ATK: 332, _DEF: 801 },
+    statBase: { _HP: 12858, _ATK: 332, _DEF: 801 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -130,7 +130,7 @@ export default {
     name: "Kachina",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 11799, _ATK: 216, _DEF: 792 },
+    statBase: { _HP: 11799, _ATK: 216, _DEF: 792 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -144,7 +144,7 @@ export default {
     name: "Emilie",
     rarity: 5,
     type: "Polearm",
-    base: { _HP: 13568, _ATK: 334, _DEF: 730 },
+    statBase: { _HP: 13568, _ATK: 334, _DEF: 730 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -159,7 +159,7 @@ export default {
     name: "Clorinde",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 12956, _ATK: 337, _DEF: 783 },
+    statBase: { _HP: 12956, _ATK: 337, _DEF: 783 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -172,7 +172,7 @@ export default {
     name: "Sigewinne",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 13348, _ATK: 192, _DEF: 499 },
+    statBase: { _HP: 13348, _ATK: 192, _DEF: 499 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -182,7 +182,7 @@ export default {
     name: "Sethos",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9787, _ATK: 227, _DEF: 559 },
+    statBase: { _HP: 9787, _ATK: 227, _DEF: 559 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -197,7 +197,7 @@ export default {
     name: "Arlecchino",
     rarity: 5,
     type: "Polearm",
-    base: { _HP: 13103, _ATK: 342, _DEF: 764 },
+    statBase: { _HP: 13103, _ATK: 342, _DEF: 764 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -212,7 +212,7 @@ export default {
     name: "Chiori",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 11437, _ATK: 322, _DEF: 953 },
+    statBase: { _HP: 11437, _ATK: 322, _DEF: 953 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -226,7 +226,7 @@ export default {
     name: "Xianyun",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 10409, _ATK: 334, _DEF: 572 },
+    statBase: { _HP: 10409, _ATK: 334, _DEF: 572 },
     weights: {
       "ER": 1,
       "ATK": 1,
@@ -236,7 +236,7 @@ export default {
     name: "Gaming",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 11418, _ATK: 301, _DEF: 702 },
+    statBase: { _HP: 11418, _ATK: 301, _DEF: 702 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -251,7 +251,7 @@ export default {
     name: "Navia",
     rarity: 5,
     type: "Claymore",
-    base: { _HP: 12650, _ATK: 351, _DEF: 793 },
+    statBase: { _HP: 12650, _ATK: 351, _DEF: 793 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -263,7 +263,7 @@ export default {
     name: "Chevreuse",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 11962, _ATK: 193, _DEF: 604 },
+    statBase: { _HP: 11962, _ATK: 193, _DEF: 604 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -275,7 +275,7 @@ export default {
     name: "Furina",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 15307, _ATK: 243, _DEF: 695 },
+    statBase: { _HP: 15307, _ATK: 243, _DEF: 695 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -288,7 +288,7 @@ export default {
     name: "Charlotte",
     rarity: 4,
     type: "Catalyst",
-    base: { _HP: 10766, _ATK: 173, _DEF: 546 },
+    statBase: { _HP: 10766, _ATK: 173, _DEF: 546 },
     weights: {
       "ER": 1,
       "ATK": 0.6,
@@ -300,7 +300,7 @@ export default {
     name: "Neuvillette",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 14695, _ATK: 208, _DEF: 576 },
+    statBase: { _HP: 14695, _ATK: 208, _DEF: 576 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -312,7 +312,7 @@ export default {
     name: "Wriothesley",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 13592, _ATK: 310, _DEF: 763 },
+    statBase: { _HP: 13592, _ATK: 310, _DEF: 763 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -326,7 +326,7 @@ export default {
     name: "Lyney",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 11021, _ATK: 231, _DEF: 537 },
+    statBase: { _HP: 11021, _ATK: 231, _DEF: 537 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -338,7 +338,7 @@ export default {
     name: "Traveler (Hydro)",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10875, _ATK: 212, _DEF: 683 },
+    statBase: { _HP: 10875, _ATK: 212, _DEF: 683 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -350,7 +350,7 @@ export default {
     name: "Freminet",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 12071, _ATK: 254, _DEF: 708 },
+    statBase: { _HP: 12071, _ATK: 254, _DEF: 708 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -362,7 +362,7 @@ export default {
     name: "Lynette",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 12397, _ATK: 231, _DEF: 711 },
+    statBase: { _HP: 12397, _ATK: 231, _DEF: 711 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -376,7 +376,7 @@ export default {
     name: "Kirara",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 12179, _ATK: 223, _DEF: 546 },
+    statBase: { _HP: 12179, _ATK: 223, _DEF: 546 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -388,7 +388,7 @@ export default {
     name: "Baizhu",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 13348, _ATK: 192, _DEF: 499 },
+    statBase: { _HP: 13348, _ATK: 192, _DEF: 499 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -398,7 +398,7 @@ export default {
     name: "Kaveh",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 11962, _ATK: 233, _DEF: 750 },
+    statBase: { _HP: 11962, _ATK: 233, _DEF: 750 },
     weights: {
       "ER": 1,
       "EM": 1,
@@ -410,7 +410,7 @@ export default {
     name: "Dehya",
     rarity: 5,
     type: "Claymore",
-    base: { _HP: 15674, _ATK: 265, _DEF: 627 },
+    statBase: { _HP: 15674, _ATK: 265, _DEF: 627 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -423,7 +423,7 @@ export default {
     name: "Mika",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 12506, _ATK: 223, _DEF: 713 },
+    statBase: { _HP: 12506, _ATK: 223, _DEF: 713 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -435,7 +435,7 @@ export default {
     name: "Alhaitham",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 13348, _ATK: 313, _DEF: 781 },
+    statBase: { _HP: 13348, _ATK: 313, _DEF: 781 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -448,7 +448,7 @@ export default {
     name: "Yaoyao",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 12288, _ATK: 212, _DEF: 750 },
+    statBase: { _HP: 12288, _ATK: 212, _DEF: 750 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -460,7 +460,7 @@ export default {
     name: "Wanderer",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 10164, _ATK: 327, _DEF: 607 },
+    statBase: { _HP: 10164, _ATK: 327, _DEF: 607 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -471,7 +471,7 @@ export default {
     name: "Faruzan",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9569, _ATK: 196, _DEF: 627 },
+    statBase: { _HP: 9569, _ATK: 196, _DEF: 627 },
     weights: {
       "ER": 1,
       "CR": 0.5,
@@ -486,7 +486,7 @@ export default {
     name: "Nahida",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 10360, _ATK: 298, _DEF: 630 },
+    statBase: { _HP: 10360, _ATK: 298, _DEF: 630 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -498,7 +498,7 @@ export default {
     name: "Layla",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 11092, _ATK: 216, _DEF: 655 },
+    statBase: { _HP: 11092, _ATK: 216, _DEF: 655 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -510,7 +510,7 @@ export default {
     name: "Cyno",
     rarity: 5,
     type: "Polearm",
-    base: { _HP: 12490, _ATK: 318, _DEF: 859 },
+    statBase: { _HP: 12490, _ATK: 318, _DEF: 859 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -523,7 +523,7 @@ export default {
     name: "Nilou",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 15184, _ATK: 229, _DEF: 728 },
+    statBase: { _HP: 15184, _ATK: 229, _DEF: 728 },
     weights: {
       "HP": 1,
       "EM": 0.24,
@@ -533,7 +533,7 @@ export default {
     name: "Candace",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 10874, _ATK: 212, _DEF: 682 },
+    statBase: { _HP: 10874, _ATK: 212, _DEF: 682 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -545,7 +545,7 @@ export default {
     name: "Tighnari",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 10849, _ATK: 267, _DEF: 630 },
+    statBase: { _HP: 10849, _ATK: 267, _DEF: 630 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -558,7 +558,7 @@ export default {
     name: "Traveler (Dendro)",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10875, _ATK: 212, _DEF: 683 },
+    statBase: { _HP: 10875, _ATK: 212, _DEF: 683 },
     weights: {
       "ER": 1,
       "CR": 0.5,
@@ -571,7 +571,7 @@ export default {
     name: "Dori",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 12397, _ATK: 223, _DEF: 723 },
+    statBase: { _HP: 12397, _ATK: 223, _DEF: 723 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -581,7 +581,7 @@ export default {
     name: "Collei",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9787, _ATK: 199, _DEF: 600 },
+    statBase: { _HP: 9787, _ATK: 199, _DEF: 600 },
     weights: {
       "ER": 1,
       "CR": 0.5,
@@ -596,7 +596,7 @@ export default {
     name: "Shikanoin Heizou",
     rarity: 4,
     type: "Catalyst",
-    base: { _HP: 10657, _ATK: 225, _DEF: 683 },
+    statBase: { _HP: 10657, _ATK: 225, _DEF: 683 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -609,7 +609,7 @@ export default {
     name: "Yelan",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 14450, _ATK: 243, _DEF: 547 },
+    statBase: { _HP: 14450, _ATK: 243, _DEF: 547 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -622,7 +622,7 @@ export default {
     name: "Kuki Shinobu",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 12288, _ATK: 212, _DEF: 750 },
+    statBase: { _HP: 12288, _ATK: 212, _DEF: 750 },
     weights: {
       "EM": 1,
       "HP": 0.6,
@@ -634,7 +634,7 @@ export default {
     name: "Kamisato Ayato",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 13715, _ATK: 298, _DEF: 768 },
+    statBase: { _HP: 13715, _ATK: 298, _DEF: 768 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -648,7 +648,7 @@ export default {
     name: "Yae Miko",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 10372, _ATK: 339, _DEF: 568 },
+    statBase: { _HP: 10372, _ATK: 339, _DEF: 568 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -663,7 +663,7 @@ export default {
     name: "Shenhe",
     rarity: 5,
     type: "Polearm",
-    base: { _HP: 12992, _ATK: 303, _DEF: 830 },
+    statBase: { _HP: 12992, _ATK: 303, _DEF: 830 },
     weights: {
       "ER": 1,
       "ATK": 1,
@@ -673,7 +673,7 @@ export default {
     name: "Yun Jin",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 10657, _ATK: 191, _DEF: 734 },
+    statBase: { _HP: 10657, _ATK: 191, _DEF: 734 },
     weights: {
       "ER": 1,
       "DEF": 1,
@@ -685,7 +685,7 @@ export default {
     name: "Arataki Itto",
     rarity: 5,
     type: "Claymore",
-    base: { _HP: 12858, _ATK: 227, _DEF: 959 },
+    statBase: { _HP: 12858, _ATK: 227, _DEF: 959 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -698,7 +698,7 @@ export default {
     name: "Gorou",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9569, _ATK: 182, _DEF: 648 },
+    statBase: { _HP: 9569, _ATK: 182, _DEF: 648 },
     weights: {
       "ER": 1,
       "DEF": 0.6,
@@ -710,7 +710,7 @@ export default {
     name: "Thoma",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 10331, _ATK: 201, _DEF: 750 },
+    statBase: { _HP: 10331, _ATK: 201, _DEF: 750 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -722,7 +722,7 @@ export default {
     name: "Sangonomiya Kokomi",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 13470, _ATK: 234, _DEF: 657 },
+    statBase: { _HP: 13470, _ATK: 234, _DEF: 657 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -732,7 +732,7 @@ export default {
     name: "Raiden Shogun",
     rarity: 5,
     type: "Polearm",
-    base: { _HP: 12907, _ATK: 337, _DEF: 789 },
+    statBase: { _HP: 12907, _ATK: 337, _DEF: 789 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -744,7 +744,7 @@ export default {
     name: "Aloy",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 10898, _ATK: 233, _DEF: 676 },
+    statBase: { _HP: 10898, _ATK: 233, _DEF: 676 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -756,7 +756,7 @@ export default {
     name: "Kujou Sara",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9569, _ATK: 195, _DEF: 627 },
+    statBase: { _HP: 9569, _ATK: 195, _DEF: 627 },
     weights: {
       "ER": 1,
       "CR": 0.5,
@@ -770,7 +770,7 @@ export default {
     name: "Yoimiya",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 10164, _ATK: 322, _DEF: 614 },
+    statBase: { _HP: 10164, _ATK: 322, _DEF: 614 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -782,7 +782,7 @@ export default {
     name: "Kamisato Ayaka",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 12858, _ATK: 342, _DEF: 783 },
+    statBase: { _HP: 12858, _ATK: 342, _DEF: 783 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -794,7 +794,7 @@ export default {
     name: "Traveler (Electro)",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10875, _ATK: 212, _DEF: 683 },
+    statBase: { _HP: 10875, _ATK: 212, _DEF: 683 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -807,7 +807,7 @@ export default {
     name: "Sayu",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 11853, _ATK: 244, _DEF: 744 },
+    statBase: { _HP: 11853, _ATK: 244, _DEF: 744 },
     weights: {
       "ER": 1,
       "EM": 1,
@@ -820,7 +820,7 @@ export default {
     name: "Kaedehara Kazuha",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 13348, _ATK: 296, _DEF: 806 },
+    statBase: { _HP: 13348, _ATK: 296, _DEF: 806 },
     weights: {
       "ER": 1,
       "EM": 1,
@@ -832,7 +832,7 @@ export default {
     name: "Eula",
     rarity: 5,
     type: "Claymore",
-    base: { _HP: 13225, _ATK: 342, _DEF: 750 },
+    statBase: { _HP: 13225, _ATK: 342, _DEF: 750 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -844,7 +844,7 @@ export default {
     name: "Yanfei",
     rarity: 4,
     type: "Catalyst",
-    base: { _HP: 9352, _ATK: 240, _DEF: 586 },
+    statBase: { _HP: 9352, _ATK: 240, _DEF: 586 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -858,7 +858,7 @@ export default {
     name: "Rosaria",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 12288, _ATK: 240, _DEF: 709 },
+    statBase: { _HP: 12288, _ATK: 240, _DEF: 709 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -873,7 +873,7 @@ export default {
     name: "Hu Tao",
     rarity: 5,
     type: "Polearm",
-    base: { _HP: 15522, _ATK: 106, _DEF: 876 },
+    statBase: { _HP: 15522, _ATK: 106, _DEF: 876 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -886,7 +886,7 @@ export default {
     name: "Xiao",
     rarity: 5,
     type: "Polearm",
-    base: { _HP: 12735, _ATK: 349, _DEF: 799 },
+    statBase: { _HP: 12735, _ATK: 349, _DEF: 799 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -899,7 +899,7 @@ export default {
     name: "Albedo",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 13225, _ATK: 251, _DEF: 876 },
+    statBase: { _HP: 13225, _ATK: 251, _DEF: 876 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -910,7 +910,7 @@ export default {
     name: "Ganyu",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 9796, _ATK: 334, _DEF: 630 },
+    statBase: { _HP: 9796, _ATK: 334, _DEF: 630 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -924,7 +924,7 @@ export default {
     name: "Tartaglia",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 13103, _ATK: 301, _DEF: 814 },
+    statBase: { _HP: 13103, _ATK: 301, _DEF: 814 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -936,7 +936,7 @@ export default {
     name: "Zhongli",
     rarity: 5,
     type: "Polearm",
-    base: { _HP: 14695, _ATK: 251, _DEF: 737 },
+    statBase: { _HP: 14695, _ATK: 251, _DEF: 737 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -947,7 +947,7 @@ export default {
     name: "Xinyan",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 11201, _ATK: 248, _DEF: 798 },
+    statBase: { _HP: 11201, _ATK: 248, _DEF: 798 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -959,7 +959,7 @@ export default {
     name: "Diona",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9569, _ATK: 212, _DEF: 600 },
+    statBase: { _HP: 9569, _ATK: 212, _DEF: 600 },
     weights: {
       "ER": 1,
       "HP": 1,
@@ -971,7 +971,7 @@ export default {
     name: "Klee",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 10286, _ATK: 310, _DEF: 614 },
+    statBase: { _HP: 10286, _ATK: 310, _DEF: 614 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -983,7 +983,7 @@ export default {
     name: "Venti",
     rarity: 5,
     type: "Bow",
-    base: { _HP: 10531, _ATK: 263, _DEF: 668 },
+    statBase: { _HP: 10531, _ATK: 263, _DEF: 668 },
     weights: {
       "ER": 1,
       "EM": 1,
@@ -993,7 +993,7 @@ export default {
     name: "Keqing",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 13103, _ATK: 322, _DEF: 799 },
+    statBase: { _HP: 13103, _ATK: 322, _DEF: 799 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -1005,7 +1005,7 @@ export default {
     name: "Mona",
     rarity: 5,
     type: "Catalyst",
-    base: { _HP: 10409, _ATK: 287, _DEF: 653 },
+    statBase: { _HP: 10409, _ATK: 287, _DEF: 653 },
     weights: {
       "ER": 1,
       "CR": 0.5,
@@ -1018,7 +1018,7 @@ export default {
     name: "Qiqi",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 12368, _ATK: 287, _DEF: 922 },
+    statBase: { _HP: 12368, _ATK: 287, _DEF: 922 },
     weights: {
       "ER": 1,
       "ATK": 1,
@@ -1028,7 +1028,7 @@ export default {
     name: "Diluc",
     rarity: 5,
     type: "Claymore",
-    base: { _HP: 12980, _ATK: 334, _DEF: 783 },
+    statBase: { _HP: 12980, _ATK: 334, _DEF: 783 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -1040,7 +1040,7 @@ export default {
     name: "Jean",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 14695, _ATK: 239, _DEF: 768 },
+    statBase: { _HP: 14695, _ATK: 239, _DEF: 768 },
     weights: {
       "ER": 1,
       "ATK": 0.6,
@@ -1050,7 +1050,7 @@ export default {
     name: "Traveler (Geo)",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10875, _ATK: 212, _DEF: 683 },
+    statBase: { _HP: 10875, _ATK: 212, _DEF: 683 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1062,7 +1062,7 @@ export default {
     name: "Traveler (Anemo)",
     rarity: 5,
     type: "Sword",
-    base: { _HP: 10875, _ATK: 212, _DEF: 683 },
+    statBase: { _HP: 10875, _ATK: 212, _DEF: 683 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1075,7 +1075,7 @@ export default {
     name: "Sucrose",
     rarity: 4,
     type: "Catalyst",
-    base: { _HP: 9243, _ATK: 169, _DEF: 702 },
+    statBase: { _HP: 9243, _ATK: 169, _DEF: 702 },
     weights: {
       "ER": 1,
       "EM": 1,
@@ -1085,7 +1085,7 @@ export default {
     name: "Chongyun",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 10983, _ATK: 223, _DEF: 648 },
+    statBase: { _HP: 10983, _ATK: 223, _DEF: 648 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -1097,7 +1097,7 @@ export default {
     name: "Noelle",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 12071, _ATK: 191, _DEF: 798 },
+    statBase: { _HP: 12071, _ATK: 191, _DEF: 798 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1109,7 +1109,7 @@ export default {
     name: "Bennett",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 12397, _ATK: 191, _DEF: 771 },
+    statBase: { _HP: 12397, _ATK: 191, _DEF: 771 },
     weights: {
       "ER": 1,
       "HP": 0.6,
@@ -1119,7 +1119,7 @@ export default {
     name: "Fischl",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9189, _ATK: 244, _DEF: 593 },
+    statBase: { _HP: 9189, _ATK: 244, _DEF: 593 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -1131,7 +1131,7 @@ export default {
     name: "Ningguang",
     rarity: 4,
     type: "Catalyst",
-    base: { _HP: 9787, _ATK: 212, _DEF: 573 },
+    statBase: { _HP: 9787, _ATK: 212, _DEF: 573 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -1142,7 +1142,7 @@ export default {
     name: "Xingqiu",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 10222, _ATK: 201, _DEF: 757 },
+    statBase: { _HP: 10222, _ATK: 201, _DEF: 757 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1155,7 +1155,7 @@ export default {
     name: "Beidou",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 13049, _ATK: 225, _DEF: 648 },
+    statBase: { _HP: 13049, _ATK: 225, _DEF: 648 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1168,7 +1168,7 @@ export default {
     name: "Xiangling",
     rarity: 4,
     type: "Polearm",
-    base: { _HP: 10874, _ATK: 225, _DEF: 668 },
+    statBase: { _HP: 10874, _ATK: 225, _DEF: 668 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1181,7 +1181,7 @@ export default {
     name: "Amber",
     rarity: 4,
     type: "Bow",
-    base: { _HP: 9461, _ATK: 223, _DEF: 600 },
+    statBase: { _HP: 9461, _ATK: 223, _DEF: 600 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1194,7 +1194,7 @@ export default {
     name: "Razor",
     rarity: 4,
     type: "Claymore",
-    base: { _HP: 11962, _ATK: 233, _DEF: 750 },
+    statBase: { _HP: 11962, _ATK: 233, _DEF: 750 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1206,7 +1206,7 @@ export default {
     name: "Kaeya",
     rarity: 4,
     type: "Sword",
-    base: { _HP: 11636, _ATK: 223, _DEF: 791 },
+    statBase: { _HP: 11636, _ATK: 223, _DEF: 791 },
     weights: {
       "ER": 1,
       "CR": 1,
@@ -1219,7 +1219,7 @@ export default {
     name: "Barbara",
     rarity: 4,
     type: "Catalyst",
-    base: { _HP: 9787, _ATK: 159, _DEF: 668 },
+    statBase: { _HP: 9787, _ATK: 159, _DEF: 668 },
     weights: {
       "ER": 1,
       "HP": 0.6,
@@ -1229,7 +1229,7 @@ export default {
     name: "Lisa",
     rarity: 4,
     type: "Catalyst",
-    base: { _HP: 9569, _ATK: 231, _DEF: 573 },
+    statBase: { _HP: 9569, _ATK: 231, _DEF: 573 },
     weights: {
       "ER": 1,
       "CR": 1,

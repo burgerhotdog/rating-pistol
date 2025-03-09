@@ -4,7 +4,7 @@ export default {
     name: "Mydei",
     rarity: 5,
     type: "Destruction",
-    base: { _HP: 1552, _ATK: 427, _DEF: 194 },
+    statBase: { _HP: 1552, _ATK: 427, _DEF: 194 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -16,7 +16,7 @@ export default {
     name: "Tribbie",
     rarity: 5,
     type: "Harmony",
-    base: { _HP: 1048, _ATK: 524, _DEF: 728 },
+    statBase: { _HP: 1048, _ATK: 524, _DEF: 728 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -29,7 +29,7 @@ export default {
     name: "Aglaea",
     rarity: 5,
     type: "Remembrance",
-    base: { _HP: 1242, _ATK: 699, _DEF: 485 },
+    statBase: { _HP: 1242, _ATK: 699, _DEF: 485 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -41,7 +41,7 @@ export default {
     name: "The Herta",
     rarity: 5,
     type: "Erudition",
-    base: { _HP: 1164, _ATK: 679, _DEF: 485 },
+    statBase: { _HP: 1164, _ATK: 679, _DEF: 485 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -52,7 +52,7 @@ export default {
     name: "Trailblazer (Remembrance)",
     rarity: 5,
     type: "Remembrance",
-    base: { _HP: 1047, _ATK: 543, _DEF: 630 },
+    statBase: { _HP: 1047, _ATK: 543, _DEF: 630 },
     weights: {
       "SPD": 1,
       "CD": 0.6,
@@ -65,7 +65,7 @@ export default {
     name: "Sunday",
     rarity: 5,
     type: "Harmony",
-    base: { _HP: 1241, _ATK: 640, _DEF: 533 },
+    statBase: { _HP: 1241, _ATK: 640, _DEF: 533 },
     weights: {
       "SPD": 1,
       "CD": 0.6,
@@ -76,7 +76,7 @@ export default {
     name: "Fugue",
     rarity: 5,
     type: "Nihility",
-    base: { _HP: 1125, _ATK: 582, _DEF: 557 },
+    statBase: { _HP: 1125, _ATK: 582, _DEF: 557 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -90,7 +90,7 @@ export default {
     name: "Rappa",
     rarity: 5,
     type: "Erudition",
-    base: { _HP: 1086, _ATK: 717, _DEF: 460 },
+    statBase: { _HP: 1086, _ATK: 717, _DEF: 460 },
     weights: {
       "SPD": 1,
       "BE": 1,
@@ -103,7 +103,7 @@ export default {
     name: "Lingsha",
     rarity: 5,
     type: "Abundance",
-    base: { _HP: 1358, _ATK: 679, _DEF: 436 },
+    statBase: { _HP: 1358, _ATK: 679, _DEF: 436 },
     weights: {
       "SPD": 1,
       "BE": 1,
@@ -115,7 +115,7 @@ export default {
     name: "Feixiao",
     rarity: 5,
     type: "The Hunt",
-    base: { _HP: 1047, _ATK: 601, _DEF: 388 },
+    statBase: { _HP: 1047, _ATK: 601, _DEF: 388 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -127,7 +127,7 @@ export default {
     name: "Moze",
     rarity: 4,
     type: "The Hunt",
-    base: { _HP: 811, _ATK: 599, _DEF: 352 },
+    statBase: { _HP: 811, _ATK: 599, _DEF: 352 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -140,7 +140,7 @@ export default {
     name: "Yunli",
     rarity: 5,
     type: "Destruction",
-    base: { _HP: 1358, _ATK: 679, _DEF: 460 },
+    statBase: { _HP: 1358, _ATK: 679, _DEF: 460 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -152,7 +152,7 @@ export default {
     name: "Jiaoqiu",
     rarity: 5,
     type: "Nihility",
-    base: { _HP: 1358, _ATK: 601, _DEF: 509 },
+    statBase: { _HP: 1358, _ATK: 601, _DEF: 509 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -163,7 +163,7 @@ export default {
     name: "March 7th (The Hunt)",
     rarity: 4,
     type: "The Hunt",
-    base: { _HP: 1058, _ATK: 564, _DEF: 441 },
+    statBase: { _HP: 1058, _ATK: 564, _DEF: 441 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -177,7 +177,7 @@ export default {
     name: "Jade",
     rarity: 5,
     type: "Erudition",
-    base: { _HP: 1086, _ATK: 659, _DEF: 509 },
+    statBase: { _HP: 1086, _ATK: 659, _DEF: 509 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -188,7 +188,7 @@ export default {
     name: "Firefly",
     rarity: 5,
     type: "Destruction",
-    base: { _HP: 814, _ATK: 523, _DEF: 776 },
+    statBase: { _HP: 814, _ATK: 523, _DEF: 776 },
     weights: {
       "SPD": 1,
       "BE": 1,
@@ -201,7 +201,7 @@ export default {
     name: "Boothill",
     rarity: 5,
     type: "The Hunt",
-    base: { _HP: 1203, _ATK: 620, _DEF: 436 },
+    statBase: { _HP: 1203, _ATK: 620, _DEF: 436 },
     weights: {
       "SPD": 1,
       "BE": 1,
@@ -211,7 +211,7 @@ export default {
     name: "Robin",
     rarity: 5,
     type: "Harmony",
-    base: { _HP: 1280, _ATK: 640, _DEF: 485 },
+    statBase: { _HP: 1280, _ATK: 640, _DEF: 485 },
     weights: {
       "SPD": 1,
       "ATK": 1,
@@ -222,7 +222,7 @@ export default {
     name: "Trailblazer (Harmony)",
     rarity: 5,
     type: "Harmony",
-    base: { _HP: 1086, _ATK: 446, _DEF: 679 },
+    statBase: { _HP: 1086, _ATK: 446, _DEF: 679 },
     weights: {
       "SPD": 1,
       "BE": 1,
@@ -235,7 +235,7 @@ export default {
     name: "Acheron",
     rarity: 5,
     type: "Nihility",
-    base: { _HP: 1125, _ATK: 698, _DEF: 436 },
+    statBase: { _HP: 1125, _ATK: 698, _DEF: 436 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -246,7 +246,7 @@ export default {
     name: "Aventurine",
     rarity: 5,
     type: "Preservation",
-    base: { _HP: 1203, _ATK: 446, _DEF: 654 },
+    statBase: { _HP: 1203, _ATK: 446, _DEF: 654 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -258,7 +258,7 @@ export default {
     name: "Gallagher",
     rarity: 4,
     type: "Abundance",
-    base: { _HP: 1305, _ATK: 529, _DEF: 441 },
+    statBase: { _HP: 1305, _ATK: 529, _DEF: 441 },
     weights: {
       "SPD": 1,
       "BE": 0.9,
@@ -271,7 +271,7 @@ export default {
     name: "Black Swan",
     rarity: 5,
     type: "Nihility",
-    base: { _HP: 1086, _ATK: 659, _DEF: 485 },
+    statBase: { _HP: 1086, _ATK: 659, _DEF: 485 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -282,7 +282,7 @@ export default {
     name: "Sparkle",
     rarity: 5,
     type: "Harmony",
-    base: { _HP: 1397, _ATK: 523, _DEF: 485 },
+    statBase: { _HP: 1397, _ATK: 523, _DEF: 485 },
     weights: {
       "SPD": 1,
       "CD": 0.6,
@@ -293,7 +293,7 @@ export default {
     name: "Misha",
     rarity: 4,
     type: "Destruction",
-    base: { _HP: 1270, _ATK: 599, _DEF: 396 },
+    statBase: { _HP: 1270, _ATK: 599, _DEF: 396 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -307,7 +307,7 @@ export default {
     name: "Dr. Ratio",
     rarity: 5,
     type: "The Hunt",
-    base: { _HP: 1047, _ATK: 776, _DEF: 460 },
+    statBase: { _HP: 1047, _ATK: 776, _DEF: 460 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -320,7 +320,7 @@ export default {
     name: "Ruan Mei",
     rarity: 5,
     type: "Harmony",
-    base: { _HP: 1086, _ATK: 659, _DEF: 485 },
+    statBase: { _HP: 1086, _ATK: 659, _DEF: 485 },
     weights: {
       "SPD": 1,
       "BE": 1,
@@ -331,7 +331,7 @@ export default {
     name: "Xueyi",
     rarity: 4,
     type: "Destruction",
-    base: { _HP: 1058, _ATK: 599, _DEF: 396 },
+    statBase: { _HP: 1058, _ATK: 599, _DEF: 396 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -346,7 +346,7 @@ export default {
     name: "Argenti",
     rarity: 5,
     type: "Erudition",
-    base: { _HP: 1047, _ATK: 737, _DEF: 363 },
+    statBase: { _HP: 1047, _ATK: 737, _DEF: 363 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -358,7 +358,7 @@ export default {
     name: "Huohuo",
     rarity: 5,
     type: "Abundance",
-    base: { _HP: 1358, _ATK: 601, _DEF: 509 },
+    statBase: { _HP: 1358, _ATK: 601, _DEF: 509 },
     weights: {
       "SPD": 1,
       "HP": 1,
@@ -369,7 +369,7 @@ export default {
     name: "Hanya",
     rarity: 4,
     type: "Harmony",
-    base: { _HP: 917, _ATK: 564, _DEF: 352 },
+    statBase: { _HP: 917, _ATK: 564, _DEF: 352 },
     weights: {
       "SPD": 1,
       "RES": 0.24,
@@ -381,7 +381,7 @@ export default {
     name: "Jingliu",
     rarity: 5,
     type: "Destruction",
-    base: { _HP: 1435, _ATK: 679, _DEF: 485 },
+    statBase: { _HP: 1435, _ATK: 679, _DEF: 485 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -393,7 +393,7 @@ export default {
     name: "Topaz & Numby",
     rarity: 5,
     type: "The Hunt",
-    base: { _HP: 931, _ATK: 620, _DEF: 412 },
+    statBase: { _HP: 931, _ATK: 620, _DEF: 412 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -405,7 +405,7 @@ export default {
     name: "Guinaifen",
     rarity: 4,
     type: "Nihility",
-    base: { _HP: 882, _ATK: 582, _DEF: 441 },
+    statBase: { _HP: 882, _ATK: 582, _DEF: 441 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -419,7 +419,7 @@ export default {
     name: "Dan Heng • Imbibitor Lunae",
     rarity: 5,
     type: "Destruction",
-    base: { _HP: 1241, _ATK: 698, _DEF: 363 },
+    statBase: { _HP: 1241, _ATK: 698, _DEF: 363 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -430,7 +430,7 @@ export default {
     name: "Fu Xuan",
     rarity: 5,
     type: "Preservation",
-    base: { _HP: 1474, _ATK: 465, _DEF: 606 },
+    statBase: { _HP: 1474, _ATK: 465, _DEF: 606 },
     weights: {
       "SPD": 1,
       "HP": 1,
@@ -442,7 +442,7 @@ export default {
     name: "Lynx",
     rarity: 4,
     type: "Abundance",
-    base: { _HP: 1058, _ATK: 493, _DEF: 551 },
+    statBase: { _HP: 1058, _ATK: 493, _DEF: 551 },
     weights: {
       "SPD": 1,
       "HP": 1,
@@ -455,7 +455,7 @@ export default {
     name: "Blade",
     rarity: 5,
     type: "Destruction",
-    base: { _HP: 1358, _ATK: 543, _DEF: 485 },
+    statBase: { _HP: 1358, _ATK: 543, _DEF: 485 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -467,7 +467,7 @@ export default {
     name: "Kafka",
     rarity: 5,
     type: "Nihility",
-    base: { _HP: 1086, _ATK: 679, _DEF: 485 },
+    statBase: { _HP: 1086, _ATK: 679, _DEF: 485 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -478,7 +478,7 @@ export default {
     name: "Luka",
     rarity: 4,
     type: "Nihility",
-    base: { _HP: 917, _ATK: 582, _DEF: 485 },
+    statBase: { _HP: 917, _ATK: 582, _DEF: 485 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -492,7 +492,7 @@ export default {
     name: "Luocha",
     rarity: 5,
     type: "Abundance",
-    base: { _HP: 1280, _ATK: 756, _DEF: 363 },
+    statBase: { _HP: 1280, _ATK: 756, _DEF: 363 },
     weights: {
       "SPD": 1,
       "ATK": 1,
@@ -503,7 +503,7 @@ export default {
     name: "Silver Wolf",
     rarity: 5,
     type: "Nihility",
-    base: { _HP: 1047, _ATK: 640, _DEF: 460 },
+    statBase: { _HP: 1047, _ATK: 640, _DEF: 460 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -514,7 +514,7 @@ export default {
     name: "Yukong",
     rarity: 4,
     type: "Harmony",
-    base: { _HP: 917, _ATK: 599, _DEF: 374 },
+    statBase: { _HP: 917, _ATK: 599, _DEF: 374 },
     weights: {
       "SPD": 1,
       "RES": 0.24,
@@ -526,7 +526,7 @@ export default {
     name: "Jing Yuan",
     rarity: 5,
     type: "Erudition",
-    base: { _HP: 1164, _ATK: 698, _DEF: 485 },
+    statBase: { _HP: 1164, _ATK: 698, _DEF: 485 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -537,7 +537,7 @@ export default {
     name: "Seele",
     rarity: 5,
     type: "The Hunt",
-    base: { _HP: 931, _ATK: 640, _DEF: 363 },
+    statBase: { _HP: 931, _ATK: 640, _DEF: 363 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -549,7 +549,7 @@ export default {
     name: "Bailu",
     rarity: 5,
     type: "Abundance",
-    base: { _HP: 1319, _ATK: 562, _DEF: 485 },
+    statBase: { _HP: 1319, _ATK: 562, _DEF: 485 },
     weights: {
       "SPD": 1,
       "HP": 1,
@@ -560,7 +560,7 @@ export default {
     name: "Yanqing",
     rarity: 5,
     type: "The Hunt",
-    base: { _HP: 892, _ATK: 679, _DEF: 412 },
+    statBase: { _HP: 892, _ATK: 679, _DEF: 412 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -572,7 +572,7 @@ export default {
     name: "Clara",
     rarity: 5,
     type: "Destruction",
-    base: { _HP: 1241, _ATK: 737, _DEF: 485 },
+    statBase: { _HP: 1241, _ATK: 737, _DEF: 485 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -583,7 +583,7 @@ export default {
     name: "Gepard",
     rarity: 5,
     type: "Preservation",
-    base: { _HP: 1397, _ATK: 543, _DEF: 654 },
+    statBase: { _HP: 1397, _ATK: 543, _DEF: 654 },
     weights: {
       "SPD": 1,
       "DEF": 1,
@@ -594,7 +594,7 @@ export default {
     name: "Bronya",
     rarity: 5,
     type: "Harmony",
-    base: { _HP: 1241, _ATK: 582, _DEF: 533 },
+    statBase: { _HP: 1241, _ATK: 582, _DEF: 533 },
     weights: {
       "SPD": 1,
       "CD": 0.6,
@@ -605,7 +605,7 @@ export default {
     name: "Welt",
     rarity: 5,
     type: "Nihility",
-    base: { _HP: 1125, _ATK: 620, _DEF: 509 },
+    statBase: { _HP: 1125, _ATK: 620, _DEF: 509 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -618,7 +618,7 @@ export default {
     name: "Himeko",
     rarity: 5,
     type: "Erudition",
-    base: { _HP: 1047, _ATK: 756, _DEF: 436 },
+    statBase: { _HP: 1047, _ATK: 756, _DEF: 436 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -629,7 +629,7 @@ export default {
     name: "Trailblazer (Preservation)",
     rarity: 5,
     type: "Preservation",
-    base: { _HP: 1241, _ATK: 601, _DEF: 606 },
+    statBase: { _HP: 1241, _ATK: 601, _DEF: 606 },
     weights: {
       "SPD": 1,
       "DEF": 1,
@@ -640,7 +640,7 @@ export default {
     name: "Trailblazer (Destruction)",
     rarity: 5,
     type: "Destruction",
-    base: { _HP: 1203, _ATK: 620, _DEF: 460 },
+    statBase: { _HP: 1203, _ATK: 620, _DEF: 460 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -652,7 +652,7 @@ export default {
     name: "Sushang",
     rarity: 4,
     type: "The Hunt",
-    base: { _HP: 917, _ATK: 564, _DEF: 418 },
+    statBase: { _HP: 917, _ATK: 564, _DEF: 418 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -665,7 +665,7 @@ export default {
     name: "Tingyun",
     rarity: 4,
     type: "Harmony",
-    base: { _HP: 846, _ATK: 529, _DEF: 396 },
+    statBase: { _HP: 846, _ATK: 529, _DEF: 396 },
     weights: {
       "SPD": 1,
       "ATK": 1,
@@ -676,7 +676,7 @@ export default {
     name: "Qingque",
     rarity: 4,
     type: "Erudition",
-    base: { _HP: 1023, _ATK: 652, _DEF: 441 },
+    statBase: { _HP: 1023, _ATK: 652, _DEF: 441 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -687,7 +687,7 @@ export default {
     name: "Hook",
     rarity: 4,
     type: "Destruction",
-    base: { _HP: 1340, _ATK: 617, _DEF: 352 },
+    statBase: { _HP: 1340, _ATK: 617, _DEF: 352 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -699,7 +699,7 @@ export default {
     name: "Sampo",
     rarity: 4,
     type: "Nihility",
-    base: { _HP: 1023, _ATK: 617, _DEF: 396 },
+    statBase: { _HP: 1023, _ATK: 617, _DEF: 396 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -710,7 +710,7 @@ export default {
     name: "Pela",
     rarity: 4,
     type: "Nihility",
-    base: { _HP: 987, _ATK: 546, _DEF: 463 },
+    statBase: { _HP: 987, _ATK: 546, _DEF: 463 },
     weights: {
       "SPD": 1,
       "EHR": 1,
@@ -721,7 +721,7 @@ export default {
     name: "Natasha",
     rarity: 4,
     type: "Abundance",
-    base: { _HP: 1164, _ATK: 476, _DEF: 507 },
+    statBase: { _HP: 1164, _ATK: 476, _DEF: 507 },
     weights: {
       "SPD": 1,
       "HP": 1,
@@ -732,7 +732,7 @@ export default {
     name: "Serval",
     rarity: 4,
     type: "Erudition",
-    base: { _HP: 917, _ATK: 652, _DEF: 374 },
+    statBase: { _HP: 917, _ATK: 652, _DEF: 374 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -744,7 +744,7 @@ export default {
     name: "Herta",
     rarity: 4,
     type: "Erudition",
-    base: { _HP: 952, _ATK: 582, _DEF: 396 },
+    statBase: { _HP: 952, _ATK: 582, _DEF: 396 },
     weights: {
       "CR": 1,
       "CD": 1,
@@ -755,7 +755,7 @@ export default {
     name: "Asta",
     rarity: 4,
     type: "Harmony",
-    base: { _HP: 1023, _ATK: 511, _DEF: 463 },
+    statBase: { _HP: 1023, _ATK: 511, _DEF: 463 },
     weights: {
       "SPD": 1,
       "RES": 0.24,
@@ -765,7 +765,7 @@ export default {
     name: "Arlan",
     rarity: 4,
     type: "Destruction",
-    base: { _HP: 1199, _ATK: 599, _DEF: 330 },
+    statBase: { _HP: 1199, _ATK: 599, _DEF: 330 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -777,7 +777,7 @@ export default {
     name: "Dan Heng",
     rarity: 4,
     type: "The Hunt",
-    base: { _HP: 882, _ATK: 546, _DEF: 396 },
+    statBase: { _HP: 882, _ATK: 546, _DEF: 396 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -789,7 +789,7 @@ export default {
     name: "March 7th (Preservation)",
     rarity: 4,
     type: "Preservation",
-    base: { _HP: 1058, _ATK: 511, _DEF: 573 },
+    statBase: { _HP: 1058, _ATK: 511, _DEF: 573 },
     weights: {
       "SPD": 1,
       "EHR": 1,
