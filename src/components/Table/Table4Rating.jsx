@@ -46,7 +46,7 @@ const Table4Rating = ({
         title={
           <Stack>
             {rating?.parts.map((part, index) => part === -1
-              ? <Typography key={index}>{`Missing ${generalData.SECTIONS[index]}`}</Typography>
+              ? <Typography variant="tooltip" key={index}>{`Missing ${generalData.SECTIONS[index]}`}</Typography>
               : null)}
           </Stack>
         }
