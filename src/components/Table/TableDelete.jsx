@@ -1,12 +1,11 @@
 import React from "react";
-import { Stack } from "@mui/material";
 import { Delete } from '@mui/icons-material';
 
 const TableDelete = ({
   setAction,
   id,
   data,
-  hoveredRowId,
+  hoveredId,
 }) => {
   const openModal = () => {
     setAction({
@@ -22,7 +21,7 @@ const TableDelete = ({
       cursor="pointer"
       color="disabled"
       sx={{
-        opacity: hoveredRowId === id ? 1 : 0,
+        opacity: hoveredId === id ? 1 : 0,
         transition: "opacity 0.3s ease, color 0.3s ease",
         "&:hover": { color: "secondary.main" },
       }}

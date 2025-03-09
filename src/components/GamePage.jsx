@@ -26,7 +26,6 @@ import TableStar from "./Table/TableStar";
 import TableAvatar from "./Table/TableAvatar";
 import TableWeapon from "./Table/TableWeapon";
 import TableEquipList from "./Table/TableEquipList";
-import TableSkillMap from "./Table/TableSkillMap";
 import TableRating from "./Table/TableRating";
 import TableDelete from "./Table/TableDelete";
 import getData from "./getData";
@@ -35,7 +34,7 @@ const GamePage = ({ gameId, userId }) => {
   const { generalData } = getData(gameId);
   const [localDocs, setLocalDocs] = useState({});
   const [sortedDocs, setSortedDocs] = useState([]);
-  const [hoveredRowId, setHoveredRowId] = useState(null);
+  const [hoveredId, setHoveredId] = useState(null);
   const [action, setAction] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -99,16 +98,16 @@ const GamePage = ({ gameId, userId }) => {
         <Typography variant="h4">{generalData.TITLE}</Typography>
         <Typography variant="body2">Updated for version {generalData.VERSION}</Typography>
 
-        <TableContainer sx={{ maxWidth: 900 }}>
+        <TableContainer sx={{ maxWidth: 850 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
               <TableRow>
                 <TableCell sx={{ width: 50, borderBottom: "none" }} />
                 <TableCell sx={{ width: 50 }} />
                 <TableCell sx={{ width: 250 }}>{generalData.SECTIONS[0]}</TableCell>
-                <TableCell align="center" sx={{ width: 100 }}>{generalData.SECTIONS[1]}</TableCell>
-                <TableCell align="center" sx={{ width: 200 }}>{generalData.SECTIONS[2]}</TableCell>
-                <TableCell align="center" sx={{ width: 100 }}>Rating</TableCell>
+                <TableCell align="center" sx={{ width: 125 }}>{generalData.SECTIONS[1]}</TableCell>
+                <TableCell align="center" sx={{ width: 250 }}>{generalData.SECTIONS[2]}</TableCell>
+                <TableCell align="center" sx={{ width: 125 }}>Rating</TableCell>
                 <TableCell sx={{ width: 50, borderBottom: "none" }} />
               </TableRow>
             </TableHead>
@@ -126,8 +125,8 @@ const GamePage = ({ gameId, userId }) => {
                 sortedDocs.map(({ id, data, rating }) => (
                   <TableRow
                     key={id}
-                    onMouseEnter={() => setHoveredRowId(id)}
-                    onMouseLeave={() => setHoveredRowId(null)}
+                    onMouseEnter={() => setHoveredId(id)}
+                    onMouseLeave={() => setHoveredId(null)}
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
                     <TableCell align="center">
@@ -178,7 +177,7 @@ const GamePage = ({ gameId, userId }) => {
                         setAction={setAction}
                         id={id}
                         data={data}
-                        hoveredRowId={hoveredRowId}
+                        hoveredId={hoveredId}
                       />
                     </TableCell>
                   </TableRow>
@@ -188,7 +187,7 @@ const GamePage = ({ gameId, userId }) => {
           </Table>
         </TableContainer>
 
-        <Stack direction="row" spacing={2} my={2}>
+        <Stack direction="row" spacing={2} mt={2} mb={4}>
           <Button
             onClick={handleAdd}
             variant="contained"
