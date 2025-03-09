@@ -17,7 +17,7 @@ const EditAvatar = ({
   action,
   setAction,
 }) => {
-  const { generalData } = getData(gameId);
+  const { generalData } = getData[gameId];
   
   const handleLevel = (newValue) => {
     setAction((prev) => ({

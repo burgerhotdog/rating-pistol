@@ -4,7 +4,7 @@ import { db } from "../../firebase";
 import { Stack } from "@mui/material";
 import { Star, StarBorder } from '@mui/icons-material';
 
-const TableStar = ({
+const Table0Star = ({
   gameId,
   userId,
   setLocalDocs,
@@ -49,4 +49,4 @@ const TableStar = ({
   );
 };
 
-export default TableStar;
+export default Table0Star;

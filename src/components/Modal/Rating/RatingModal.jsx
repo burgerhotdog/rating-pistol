@@ -3,7 +3,7 @@ import { Stack, Typography } from "@mui/material";
 import getData from "../../getData";
 
 const RatingModal = ({ gameId, action }) => {
-  const { generalData } = getData(gameId);
+  const { generalData } = getData[gameId];
 
   return (
     <Stack spacing={2}>

@@ -20,8 +20,8 @@ const AddModal = ({
   localDocs,
   setLocalDocs,
 }) => {
-  const { generalData, avatarData } = getData(gameId);
-  const { avatarIcons } = getIcons(gameId);
+  const { generalData, avatarData } = getData[gameId];
+  const { avatarIcons } = getIcons[gameId];
   const [isLoading, setIsLoading] = useState(false);
   
   const charOptions = () => {

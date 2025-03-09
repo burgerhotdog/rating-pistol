@@ -4,14 +4,14 @@ import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
 
-const TableWeapon = ({
+const Table2Weapon = ({
   gameId,
   setAction,
   id,
   data,
 }) => {
-  const { generalData } = getData(gameId);
-  const { weaponIcons } = getIcons(gameId);
+  const { generalData } = getData[gameId];
+  const { weaponIcons } = getIcons[gameId];
   const openModal = () => {
     setAction({
       type: "edit",
@@ -38,4 +38,4 @@ const TableWeapon = ({
   );
 };
 
-export default TableWeapon;
+export default Table2Weapon;

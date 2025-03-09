@@ -21,8 +21,8 @@ const LoadModal = ({
   setAction,
   setLocalDocs,
 }) => {
-  const { avatarData } = getData(gameId);
-  const { avatarIcons } = getIcons(gameId);
+  const { avatarData } = getData[gameId];
+  const { avatarIcons } = getIcons[gameId];
   const [error, setError] = useState(false);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);

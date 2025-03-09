@@ -15,7 +15,7 @@ const DeleteModal = ({
   setAction,
   setLocalDocs,
 }) => {
-  const { avatarData } = getData(gameId);
+  const { avatarData } = getData[gameId];
   const [isLoading, setIsLoading] = useState(false);
   
   const handleDelete = async () => {

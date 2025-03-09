@@ -1,7 +1,7 @@
 import React from "react";
 import { Delete } from '@mui/icons-material';
 
-const TableDelete = ({
+const Table5Delete = ({
   setAction,
   id,
   data,
@@ -29,4 +29,4 @@ const TableDelete = ({
   );
 };
 
-export default TableDelete;
+export default Table5Delete;

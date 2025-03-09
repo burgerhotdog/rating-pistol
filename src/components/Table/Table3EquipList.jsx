@@ -3,15 +3,18 @@ import { Tooltip, Stack, Box, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
+import getSetBonuses from "../getSetBonuses";
 
-const TableEquipList = ({
+const Table3EquipList = ({
   gameId,
   setAction,
   id,
   data,
 }) => {
-  const { generalData } = getData(gameId);
-  const { setIcons } = getIcons(gameId);
+  const { generalData } = getData[gameId];
+  const { setIcons } = getIcons[gameId];
+  const setBonuses = useMemo(() => getSetBonuses(data.equipList), [data.equipList]);
+  
   const openModal = () => {
     setAction({
       type: "edit",
@@ -21,29 +24,6 @@ const TableEquipList = ({
     });
   };
 
-  const getSetBonuses = (equipList) => {
-    const setCounts = {};
-    equipList.forEach(({ setId }) => {
-      if (setId) {
-        setCounts[setId] = (setCounts[setId] || 0) + 1;
-      }
-    });
-  
-    const bonuses = {};
-    const sets = Object.entries(setCounts).sort((a, b) => b[1] - a[1]);
-  
-    sets.forEach(([set, count]) => {
-      if (count >= (gameId === "ww" ? 5 : 4)) {
-        bonuses[set] = (gameId === "ww" ? 5 : 4);
-      } else if (count >= 2) {
-        bonuses[set] = 2;
-      }
-    });
-  
-    return bonuses;
-  }
-
-  const setBonuses = useMemo(() => getSetBonuses(data.equipList), [data.equipList]);
 
   return (
     <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
@@ -76,4 +56,4 @@ const TableEquipList = ({
   );
 };
 
-export default TableEquipList;
+export default Table3EquipList;

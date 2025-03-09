@@ -126,7 +126,7 @@ const calculatePoints = (statsObj, weights, basestats, STAT_INDEX) => {
 };
 
 const rateEquipList = (gameId, id, data) => {
-  const { equipData, avatarData, weaponData } = getData(gameId);
+  const { equipData, avatarData, weaponData } = getData[gameId];
   const { STAT_INDEX } = equipData;
   if (!data.equipList) return -1;
   for (const equip of data.equipList) {

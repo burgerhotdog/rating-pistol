@@ -15,8 +15,8 @@ const EditWeapon = ({
   action,
   setAction,
 }) => {
-  const { generalData, avatarData, weaponData } = getData(gameId);
-  const { weaponIcons } = getIcons(gameId);
+  const { generalData, avatarData, weaponData } = getData[gameId];
+  const { weaponIcons } = getIcons[gameId];
 
   const weapOptions = () => {
     return Object.keys(weaponData)

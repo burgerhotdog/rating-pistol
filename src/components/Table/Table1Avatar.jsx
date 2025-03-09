@@ -3,14 +3,14 @@ import { Tooltip, Stack, Box, Typography } from "@mui/material";
 import getData from "../getData";
 import getIcons from "../getIcons";
 
-const TableAvatar = ({
+const Table1Avatar = ({
   gameId,
   setAction,
   id,
   data,
 }) => {
-  const { generalData, avatarData } = getData(gameId);
-  const { avatarIcons } = getIcons(gameId);
+  const { generalData, avatarData } = getData[gameId];
+  const { avatarIcons } = getIcons[gameId];
   
   const openModal = () => {
     setAction({
@@ -44,4 +44,4 @@ const TableAvatar = ({
   );
 };
 
-export default TableAvatar;
+export default Table1Avatar;

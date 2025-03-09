@@ -17,9 +17,9 @@ const EquipCard = ({
   setAction,
   mainIndex,
 }) => {
-  const { equipData, setData } = getData(gameId);
-  const { EQUIP_NAMES, MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX } = equipData;
-  const { setIcons } = getIcons(gameId);
+  const { equipData, setData } = getData[gameId];
+  const { MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX } = equipData;
+  const { setIcons } = getIcons[gameId];
 
   const handleSet = (newValue) => {
     setAction((prev) => ({

@@ -18,16 +18,16 @@ import { db } from "../firebase";
 import Back from "./Back";
 import Action from "./Modal/Action";
 import getRating from "./getRating/getRating";
-import TableStar from "./Table/TableStar";
-import TableAvatar from "./Table/TableAvatar";
-import TableWeapon from "./Table/TableWeapon";
-import TableEquipList from "./Table/TableEquipList";
-import TableRating from "./Table/TableRating";
-import TableDelete from "./Table/TableDelete";
+import Table0Star from "./Table/Table0Star";
+import Table1Avatar from "./Table/Table1Avatar";
+import Table2Weapon from "./Table/Table2Weapon";
+import Table3EquipList from "./Table/Table3EquipList";
+import Table4Rating from "./Table/Table4Rating";
+import Table5Delete from "./Table/Table5Delete";
 import getData from "./getData";
 
 const GamePage = ({ gameId, userId }) => {
-  const { generalData } = getData(gameId);
+  const { generalData } = getData[gameId];
   const [localDocs, setLocalDocs] = useState({});
   const [sortedDocs, setSortedDocs] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
@@ -126,7 +126,7 @@ const GamePage = ({ gameId, userId }) => {
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
                     <TableCell align="center">
-                      <TableStar
+                      <Table0Star
                         gameId={gameId}
                         userId={userId}
                         setLocalDocs={setLocalDocs}
@@ -135,7 +135,7 @@ const GamePage = ({ gameId, userId }) => {
                       />
                     </TableCell>
                     <TableCell>
-                      <TableAvatar
+                      <Table1Avatar
                         gameId={gameId}
                         setAction={setAction}
                         id={id}
@@ -143,7 +143,7 @@ const GamePage = ({ gameId, userId }) => {
                       />
                     </TableCell>
                     <TableCell align="center">
-                      <TableWeapon
+                      <Table2Weapon
                         gameId={gameId}
                         setAction={setAction}
                         id={id}
@@ -151,7 +151,7 @@ const GamePage = ({ gameId, userId }) => {
                       />
                     </TableCell>
                     <TableCell align="center">
-                      <TableEquipList
+                      <Table3EquipList
                         gameId={gameId}
                         setAction={setAction}
                         id={id}
@@ -159,7 +159,7 @@ const GamePage = ({ gameId, userId }) => {
                       />
                     </TableCell>
                     <TableCell align="center">
-                      <TableRating
+                      <Table4Rating
                         gameId={gameId}
                         setAction={setAction}
                         id={id}
@@ -168,7 +168,7 @@ const GamePage = ({ gameId, userId }) => {
                       />
                     </TableCell>
                     <TableCell sx={{ borderBottom: "none" }}>
-                      <TableDelete
+                      <Table5Delete
                         gameId={gameId}
                         setAction={setAction}
                         id={id}

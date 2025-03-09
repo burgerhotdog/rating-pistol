@@ -1,7 +1,7 @@
 import getData from "../getData";
 
 const rateSkillMap = (gameId, id, data) => {
-  const { generalData } = getData(gameId);
+  const { generalData } = getData[gameId];
   let percentLeveledTotal = 0;
   let count = 0;
   for (const [skillKey, skillValue] of Object.entries(data.skillMap)) {
