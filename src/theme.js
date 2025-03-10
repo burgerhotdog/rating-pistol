@@ -9,6 +9,13 @@ const theme = createTheme({
       dark: "#B8860B",
       contrastText: "#000",
     },
+    rarityColor: {
+      5: "goldenrod",
+      4: "orchid",
+      3: "cornflowerblue",
+      2: "green",
+      1: "slategrey",
+    },
   },
   customStyles: {
     modal: {

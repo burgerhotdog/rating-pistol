@@ -1,12 +1,16 @@
 export default {
   TITLE: "Wuthering Waves",
   VERSION: "2.1",
-  SECTION_NAMES: [
+  SECTIONS: [
     "Resonator",
     "Weapon",
     "Echoes",
     "Skills",
   ],
+  RANK: "Sequence Node",
+  RANK_PREFIX: "S",
+  WEAPON_RANK: "Rank",
+  WEAPON_RANK_PREFIX: "R",
   LEVEL_CAP: 90,
   SKILL_DATA: {
     basic: {

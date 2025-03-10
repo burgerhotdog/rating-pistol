@@ -1,12 +1,16 @@
 export default {
   TITLE: "Genshin Impact",
   VERSION: "5.4",
-  SECTION_NAMES: [
+  SECTIONS: [
     "Character",
     "Weapon",
     "Artifacts",
     "Talents",
   ],
+  RANK: "Constellation",
+  RANK_PREFIX: "C",
+  WEAPON_RANK: "Refinement",
+  WEAPON_RANK_PREFIX: "R",
   LEVEL_CAP: 90,
   SKILL_DATA: {
     basic: {

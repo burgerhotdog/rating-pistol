@@ -4,7 +4,7 @@ import { db } from "../../firebase";
 import { Stack } from "@mui/material";
 import { Star, StarBorder } from '@mui/icons-material';
 
-const TableStar = ({
+const Table0Star = ({
   gameId,
   userId,
   setLocalDocs,
@@ -29,26 +29,24 @@ const TableStar = ({
   }
 
   return (
-    <Stack alignItems="center">
-      {data.isStar ? (
-        <Star
-          onClick={toggleStar}
-          cursor="pointer"
-          color="gold"
-        />
-      ) : (
-        <StarBorder
-          onClick={toggleStar}
-          cursor="pointer"
-          color="disabled"
-          sx={{
-            transition: "color 0.3s ease",
-            "&:hover": { color: "gold.main" },
-          }}
-        />
-      )}
-    </Stack>
+    data.isStar ? (
+      <Star
+        onClick={toggleStar}
+        cursor="pointer"
+        color="gold"
+      />
+    ) : (
+      <StarBorder
+        onClick={toggleStar}
+        cursor="pointer"
+        color="disabled"
+        sx={{
+          transition: "color 0.3s ease",
+          "&:hover": { color: "gold.main" },
+        }}
+      />
+    )
   );
 };
 
-export default TableStar;
+export default Table0Star;

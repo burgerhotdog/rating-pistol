@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import {
   Card,
   Grid2 as Grid,
@@ -8,11 +8,13 @@ import {
 } from "@mui/material";
 import getData from "../../../getData"
 import getIcons from "../../../getIcons";
+import getSetBonuses from "../../../getSetBonuses";
 import getWeaponDesc from "./getWeaponDesc";
 
-const WeaponCard = ({ gameId, action }) => {
+const SetCard = ({ gameId, action }) => {
   const { generalData, equipData, weaponData } = getData[gameId];
   const { weaponIcons } = getIcons[gameId];
+  const setBonuses = useMemo(() => getSetBonuses(action.data.equipList), [action.data.equipList]);
 
   const weaponId = action.data.weaponId;
   const weapon = weaponData?.[weaponId];
@@ -28,11 +30,6 @@ const WeaponCard = ({ gameId, action }) => {
       </Card>
     );
   }
-
-  const weaponDesc = useMemo(() => getWeaponDesc(weapon, action.data.rank), [
-    weapon,
-    action.data.rank,
-  ]);
 
   return (
     <Card sx={{ width: 700, p: 2 }}>
@@ -79,7 +76,7 @@ const WeaponCard = ({ gameId, action }) => {
             </Typography>
 
             <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-              {weaponDesc}
+              {getWeaponDesc(weapon, action.data.rank)}
             </Typography>
           </Stack>
         </Grid>
@@ -88,4 +85,4 @@ const WeaponCard = ({ gameId, action }) => {
   );
 };
 
-export default WeaponCard;
+export default SetCard;

@@ -3,7 +3,6 @@ import {
   Grid2 as Grid,
   Stack,
   Box,
-  Paper,
   List,
   ListItem,
   ListItemButton,
@@ -25,7 +24,7 @@ const EditEquipList = ({
   action,
   setAction,
 }) => {
-  const { equipData } = getData(gameId);
+  const { equipData } = getData[gameId];
   const [viewIndex, setViewIndex] = useState(0);
   const equipSlots = [...Array(equipData.EQUIP_NAMES.length).keys()];
 

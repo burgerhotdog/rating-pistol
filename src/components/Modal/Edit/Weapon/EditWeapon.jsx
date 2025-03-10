@@ -1,9 +1,10 @@
 import React from "react";
 import {
-  Box,
   Stack,
+  Box,
   Autocomplete,
   TextField,
+  Typography,
 } from "@mui/material";
 import getData from "../../../getData";
 import getIcons from "../../../getIcons";
@@ -14,20 +15,16 @@ const EditWeapon = ({
   action,
   setAction,
 }) => {
-  const { generalData, avatarData, weaponData } = getData(gameId);
-  const { weaponIcons } = getIcons(gameId);
-  const rarityColor = {
-    5: "goldenrod",
-    4: "orchid",
-    3: "cornflowerblue",
-    2: "green",
-    1: "slategrey",
-  };
+  const { generalData, avatarData, weaponData } = getData[gameId];
+  const { weaponIcons } = getIcons[gameId];
 
   const weapOptions = () => {
     return Object.keys(weaponData)
-      .filter(id => weaponData[id].type === avatarData[action.id]?.type)
+      .filter(id => weaponData[id].type === avatarData[action.id].type)
       .sort((a, b) => {
+        const sig = avatarData[action.id]?.sig;
+        if (a === sig) return -1;
+        if (b === sig) return 1;
         const rarityA = weaponData[a].rarity;
         const rarityB = weaponData[b].rarity;
         return rarityA !== rarityB
@@ -75,36 +72,39 @@ const EditWeapon = ({
           size="small"
           value={action?.data.weaponId}
           options={weapOptions()}
-          getOptionLabel={(id) => weaponData[id]?.name || ""}
+          getOptionLabel={(option) => weaponData[option]?.name || ""}
           onChange={(_, newValue) => handleWeaponId(newValue)}
-          renderOption={(props, id) => {
-            const { key, ...idProps } = props;
-            const rarity = weaponData[id]?.rarity;
+          renderOption={(props, option) => {
+            const { key, ...optionProps } = props;
+            const rarity = weaponData[option]?.rarity;
             return (
               <Box
                 key={key}
                 component="li"
                 sx={{
                   "& > img": { mr: 2, flexShrink: 0 },
-                  color: rarityColor[rarity],
+                  color: `rarityColor.${rarity}`,
                 }}
-                {...idProps}
+                {...optionProps}
               >
                 <Box
                   component="img"
                   loading="lazy"
-                  src={weaponIcons[`./${id}.webp`]?.default}
+                  src={weaponIcons[`./${option}.webp`]?.default}
                   alt={""}
-                  sx={{ width: 24, height: 24, objectFit: "contain" }}
+                  sx={{ width: 25, height: 25, objectFit: "contain" }}
                 />
-                {weaponData[id]?.name || ""}
+                {weaponData[option]?.name}
+                {option === avatarData[action.id]?.sig && (
+                  <Typography sx={{ color: "text.disabled", ml: 1 }}>(signature)</Typography>
+                )}
               </Box>
             );
           }}
           renderInput={(params) => (
             <TextField
               {...params}
-              label={generalData.SECTION_NAMES[1]}
+              label={generalData.SECTIONS[1]}
             />
           )}
           fullWidth
@@ -124,30 +124,33 @@ const EditWeapon = ({
               label="Level"
             />
           )}
-          sx={{ width: 80 }}
+          sx={{ width: 100 }}
           disableClearable
           disabled={!action?.data.weaponId}
         />
         <Autocomplete
           size="small"
-          value={action?.data?.weaponRank}
+          value={action.data.weaponRank}
           options={[1, 2, 3, 4, 5]}
-          getOptionLabel={(id) => String(id)}
+          getOptionLabel={(opt) => `${generalData.WEAPON_RANK_PREFIX}${opt}`}
           onChange={(_, newValue) => {
             if (newValue) handleWeaponRank(newValue);
           }}
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Rank"
+              label={generalData.WEAPON_RANK}
             />
           )}
-          sx={{ width: 80 }}
+          sx={{ width: 150 }}
           disableClearable
           disabled={!action?.data.weaponId}
         />
       </Stack>
-      <WeaponCard gameId={gameId} action={action} />
+      <WeaponCard
+        gameId={gameId}
+        action={action}
+      />
     </Stack>
   );
 };

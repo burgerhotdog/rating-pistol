@@ -3,7 +3,4 @@ import hsr from "../assets/hsr/hsr";
 import ww from "../assets/ww/ww";
 import zzz from "../assets/zzz/zzz";
 
-export default (gameId) => {
-  const data = { gi, hsr, ww, zzz };
-  return data[gameId];
-};
+export default { gi, hsr, ww, zzz };
