@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Delete, Check } from '@mui/icons-material';
-import { Popover, Stack, Typography } from "@mui/material";
+import { Popover, Stack, Typography, CircularProgress } from "@mui/material";
 import getData from "../getData";
 
 const Table5Delete = ({
@@ -70,11 +70,18 @@ const Table5Delete = ({
           <Typography variant="body2">
             Delete {avatarData[id]?.name}?
           </Typography>
-
-          <Check
-            onClick={handleDelete}
-            cursor="pointer"
-          />
+          
+          {isLoading ? (
+            <CircularProgress size={24} />
+          ) : (
+            <Check
+              onClick={handleDelete}
+              cursor="pointer"
+              sx={{
+                "&:hover": { color: "secondary.main" },
+              }}
+            />
+          )}
         </Stack>
       </Popover>
     </>
