@@ -30,36 +30,42 @@ const EditEquipList = ({
   const equipSlots = [...Array(equipData.EQUIP_NAMES.length).keys()];
 
   return (
-    <Stack spacing={2}>
-      <Stack direction="row" spacing={2}>
-        <Card sx={{ width: 150 }}>
-          <List>
-            {equipSlots.map((index) => (
-              <ListItem key={index} disablePadding>
-                <ListItemButton
-                  onClick={() => setViewIndex(index)}
-                  selected={viewIndex === index}
-                >
-                  <ListItemText primary={equipData.EQUIP_NAMES[index]} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-        </Card>
+    <Grid container spacing={2} minWidth={900}>
+      <Grid size="auto">
+        <Stack direction="row" spacing={2}>
+          <Card sx={{ width: 100 }}>
+            <List>
+              {equipSlots.map((index) => (
+                <ListItem key={index} disablePadding>
+                  <ListItemButton
+                    onClick={() => setViewIndex(index)}
+                    selected={viewIndex === index}
+                  >
+                    <ListItemText primary={equipData.EQUIP_NAMES[index]} />
+                  </ListItemButton>
+                </ListItem>
+              ))}
+            </List>
+          </Card>
 
-        <EquipCard
+          <EquipCard
+            gameId={gameId}
+            action={action}
+            setAction={setAction}
+            mainIndex={viewIndex}
+          />
+        </Stack>
+      </Grid>
+      <Grid size="grow">
+      </Grid>
+      
+      <Grid size={12}>
+        <PreviewSet
           gameId={gameId}
           action={action}
-          setAction={setAction}
-          mainIndex={viewIndex}
         />
-      </Stack>
-
-      <PreviewSet
-        gameId={gameId}
-        action={action}
-      />
-    </Stack>
+      </Grid>
+    </Grid>
   );
 };
 

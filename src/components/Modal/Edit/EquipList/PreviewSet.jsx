@@ -17,7 +17,7 @@ const PreviewSet = ({ gameId, action }) => {
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <Card sx={{ width: 900, p: 2 }}>
+      <Card sx={{ p: 2 }}>
         <Stack justifyContent="center" alignItems="center" sx={{ minHeight: 150 }}>
           <Typography variant="body1" color="text.disabled">
             No set bonuses
@@ -28,7 +28,7 @@ const PreviewSet = ({ gameId, action }) => {
   }
 
   return (
-    <Card sx={{ width: 900, p: 2 }}>
+    <Card sx={{ p: 2 }}>
       <Grid container spacing={1}>
         {Object.entries(setBonuses).map(([setId, numPc]) => (
           <Grid key={setId} size="grow" sx={{ minHeight: 150 }}>

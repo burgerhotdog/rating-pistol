@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import {
   Card,
-  Grid2 as Grid,
   Box,
   Stack,
   Typography,
@@ -17,10 +16,10 @@ const PreviewWeapon = ({ gameId, action }) => {
   const weaponId = action.data.weaponId;
   const weapon = weaponData?.[weaponId];
 
-  if (!weaponId || !weapon) {
+  if (!weapon) {
     return (
       <Card sx={{ width: 700, p: 2 }}>
-        <Stack justifyContent="center" alignItems="center" sx={{ minHeight: 150 }}>
+        <Stack justifyContent="center" alignItems="center" sx={{ minHeight: 200 }}>
           <Typography variant="body1" color="text.disabled">
             No {generalData.SECTIONS[1]} Selected
           </Typography>
@@ -36,55 +35,48 @@ const PreviewWeapon = ({ gameId, action }) => {
 
   return (
     <Card sx={{ width: 700, p: 2 }}>
-      <Grid container spacing={1}>
-        <Grid size={4}>
-          <Stack alignItems="center">
-            <Box
-              component="img"
-              src={weaponIcons[`./${weaponId}.webp`]?.default}
-              alt=""
-              sx={{ width: 200, height: 200 }}
-            />
-          </Stack>
-        </Grid>
+      <Stack direction="row" spacing={1}>
+        <Box
+          component="img"
+          alt={weaponId}
+          src={weaponIcons[`./${weaponId}.webp`]?.default}
+          sx={{ width: 200, height: 200 }}
+        />
+        <Stack>
+          <Typography variant="subtitle1" fontWeight="bold">
+            {weapon.name}
+          </Typography>
 
-        <Grid size={8}>
-          <Stack>
-            <Typography variant="subtitle1" fontWeight="bold">
-              {weapon.name}
-            </Typography>
+          {Object.entries(weapon.statBase).map(([key, value]) => {
+            const { name } = equipData.STAT_INDEX[key] || {};
+            return (
+              <Typography key={key} variant="body2">
+                Base {name}: {value}
+              </Typography>
+            );
+          })}
 
-            {Object.entries(weapon.statBase).map(([key, value]) => {
-              const { name } = equipData.STAT_INDEX[key] || {};
+          {weapon.statSub && (
+            Object.entries(weapon.statSub).map(([key, value]) => {
+              const { name, percent } = equipData.STAT_INDEX[key] || {};
               return (
                 <Typography key={key} variant="body2">
-                  Base {name}: {value}
+                  {name}: {value}
+                  {percent ? "%" : ""}
                 </Typography>
               );
-            })}
+            })
+          )}
 
-            {weapon.statSub && (
-              Object.entries(weapon.statSub).map(([key, value]) => {
-                const { name, percent } = equipData.STAT_INDEX[key] || {};
-                return (
-                  <Typography key={key} variant="body2">
-                    {name}: {value}
-                    {percent ? "%" : ""}
-                  </Typography>
-                );
-              })
-            )}
+          <Typography variant="subtitle2" fontWeight="bold" mt={1}>
+            {weapon.descHead}
+          </Typography>
 
-            <Typography variant="subtitle2" fontWeight="bold" mt={1}>
-              {weapon.descHead}
-            </Typography>
-
-            <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-              {weaponDesc}
-            </Typography>
-          </Stack>
-        </Grid>
-      </Grid>
+          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+            {weaponDesc}
+          </Typography>
+        </Stack>
+      </Stack>
     </Card>
   );
 };
