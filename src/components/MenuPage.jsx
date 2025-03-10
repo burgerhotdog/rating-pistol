@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Stack, Button } from "@mui/material";
-import gi from "../assets/gi/banner.webp"
-import hsr from "../assets/hsr/banner.webp"
-import ww from "../assets/ww/banner.webp"
-import zzz from "../assets/zzz/banner.webp"
+import gi from "../assets/banner_gi.webp"
+import hsr from "../assets/banner_hsr.webp"
+import ww from "../assets/banner_ww.webp"
+import zzz from "../assets/banner_zzz.webp"
 
 const buttonStyles = (img) => ({
   background: `rgba(0, 0, 0, 0.7) url(${img}) center/cover`,

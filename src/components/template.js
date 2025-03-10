@@ -1,10 +1,25 @@
 export default (gameId) => {
   const equipLength = (gameId === "gi" || gameId === "ww") ? 5 : 6;
+
   return {
     isStar: false,
 
     level: null,
     rank: null,
+    skillMap: {
+      basic: null,
+      skill: null,
+      ult: null,
+      ...(gameId === "hsr"
+        ? { talent: null }
+        : {}),
+      ...(gameId === "ww"
+        ? { forte: null, intro: null }
+        : {}),
+      ...(gameId === "zzz"
+        ? { dodge: null, assist: null, core: null }
+        : {}),
+    },
 
     weaponId: null,
     weaponLevel: null,
@@ -25,20 +40,5 @@ export default (gameId) => {
             : {}),
         },
       })),
-
-    skillMap: {
-      basic: null,
-      skill: null,
-      ult: null,
-      ...(gameId === "hsr"
-        ? { talent: null }
-        : {}),
-      ...(gameId === "ww"
-        ? { forte: null, intro: null }
-        : {}),
-      ...(gameId === "zzz"
-        ? { dodge: null, assist: null, core: null }
-        : {}),
-    },
   };
 };

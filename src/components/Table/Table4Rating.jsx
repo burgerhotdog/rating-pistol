@@ -45,7 +45,7 @@ const Table4Rating = ({
   }
 
   const letter = useMemo(() => getLetter(rating.combined), [rating.combined]);
-  const letterSrc = letterIcons[`./${letter}.webp`]?.default;
+  const letterSrc = letterIcons[`./letter_${letter}.webp`]?.default;
 
   return (
     <Tooltip title="See Details" arrow>
