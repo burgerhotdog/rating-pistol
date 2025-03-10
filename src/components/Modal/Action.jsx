@@ -15,18 +15,32 @@ const Action = ({
   setLocalDocs,
 }) => {
   const theme = useTheme();
-  let modalContent = null;
 
+  const saveAction = async (id, data) => {
+    if (userId) {
+      const docRef = doc(db, "users", userId, gameId, id);
+      await setDoc(docRef, data, { merge: true });
+    }
+
+    setLocalDocs((prev) => ({
+      ...prev,
+      [id]: data,
+    }));
+  };
+
+  const closeAction = () => {
+    setAction({});
+  };
+
+  let modalContent = null;
   switch (action.type) {
     case "add":
       modalContent = (
         <AddModal
           gameId={gameId}
-          userId={userId}
-          action={action}
-          setAction={setAction}
           localDocs={localDocs}
-          setLocalDocs={setLocalDocs}
+          saveAction={saveAction}
+          closeAction={closeAction}
         />
       );
       break;
@@ -62,6 +76,8 @@ const Action = ({
           userId={userId}
           setAction={setAction}
           setLocalDocs={setLocalDocs}
+          saveAction={saveAction}
+          closeAction={closeAction}
         />
       );
       break;
@@ -74,17 +90,10 @@ const Action = ({
         />
       );
       break;
-
-    default:
-      break;
   }
 
-  const handleCancel = () => {
-    setAction({});
-  };
-
   return (
-    <Modal open={Boolean(action.type)} onClose={handleCancel}>
+    <Modal open={Boolean(action.type)} onClose={closeAction}>
       <Box sx={theme.customStyles.modal}>
         {modalContent}
       </Box>

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../../firebase";
 import {
   Box,
   Stack,
@@ -14,15 +12,14 @@ import getIcons from "../../getIcons";
 
 const AddModal = ({
   gameId,
-  userId,
-  action,
-  setAction,
   localDocs,
-  setLocalDocs,
+  saveAction,
+  closeAction,
 }) => {
   const { generalData, avatarData } = getData[gameId];
   const { avatarIcons } = getIcons[gameId];
   const [isLoading, setIsLoading] = useState(false);
+  const [addId, setAddId] = useState(null);
   
   const charOptions = () => {
     return Object.keys(avatarData)
@@ -37,39 +34,26 @@ const AddModal = ({
   };
 
   const handleSelect = (newValue) => {
-    setAction((prev) => ({
-      ...prev,
-      id: newValue,
-    }));
+    setAddId(newValue);
   };
 
   const handleAdd = async () => {
     setIsLoading(true);
-    const data = template(gameId);
-    data.level = generalData.LEVEL_CAP;
-    data.rank = 0;
-    for (const skill in data.skillMap) {
-      data.skillMap[skill] = 1;
-    }
+    const addData = template(gameId);
+    addData.level = generalData.LEVEL_CAP;
+    addData.rank = 0;
+    Object.keys(addData.skillMap).forEach(skillKey => {
+      addData.skillMap[skillKey] = 1;
+    });
 
-    if (userId) {
-      const docRef = doc(db, "users", userId, gameId, action.id);
-      await setDoc(docRef, data, { merge: true });
-    }
-
-    setLocalDocs((prev) => ({
-      ...prev,
-      [action.id]: data,
-    }));
-
-    setIsLoading(false);
-    setAction({});
+    await saveAction(addId, addData);
+    closeAction({});
   };
 
   return (
     <Stack alignItems="center" spacing={2}>
       <Autocomplete
-        value={action.id}
+        value={addId}
         options={charOptions()}
         getOptionLabel={(option) => avatarData[option]?.name || ""}
         onChange={(_, newValue) => handleSelect(newValue)}
@@ -108,10 +92,10 @@ const AddModal = ({
       
       <Button
         onClick={handleAdd}
-        loading={isLoading}
         variant="contained"
         color="primary"
-        disabled={!action.id}
+        loading={isLoading}
+        disabled={!addId}
       >
         Save
       </Button>

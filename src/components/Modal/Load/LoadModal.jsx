@@ -20,6 +20,8 @@ const LoadModal = ({
   userId,
   setAction,
   setLocalDocs,
+  saveAction,
+  closeAction,
 }) => {
   const { avatarData } = getData[gameId];
   const { avatarIcons } = getIcons[gameId];
@@ -194,20 +196,10 @@ const LoadModal = ({
       gameId === "zzz" &&
         [];
 
-    // update states
     for (const char of charBuffer) {
-      if (userId) {
-        const docRef = doc(db, "users", userId, gameId, char.id);
-        await setDoc(docRef, char.data, { merge: false });
-      }
-
-      setLocalDocs((prev) => ({
-        ...prev,
-        [char.id]: char.data,
-      }));
+      saveAction(char.id, char.data);
     }
-
-    setAction({});
+    closeAction({});
   };
 
   return (
