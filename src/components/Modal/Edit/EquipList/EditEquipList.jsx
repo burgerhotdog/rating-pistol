@@ -16,6 +16,7 @@ import {
   InputAdornment,
 } from "@mui/material";
 import EquipCard from "./EquipCard";
+import SetCard from "./SetCard";
 import getData from "../../../getData";
 import getIcons from "../../../getIcons";
 
@@ -53,6 +54,11 @@ const EditEquipList = ({
           mainIndex={viewIndex}
         />
       </Stack>
+
+      <SetCard
+        gameId={gameId}
+        action={action}
+      />
     </Stack>
   );
 };
