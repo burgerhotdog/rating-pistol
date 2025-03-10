@@ -216,7 +216,6 @@ const LoadModal = ({
         <Stack>
           <TextField
             label="Enter UID"
-            size="small"
             value={uid ?? ""}
             onChange={(e) => {
               const newValue = e.target.value;
@@ -225,20 +224,21 @@ const LoadModal = ({
             }}
             error={error}
             helperText={error && "Invalid UID"}
-            fullWidth
           />
+
           <Stack direction="row" alignItems="center">
             <Checkbox
               onChange={() => setRememberUid(!rememberUid)}
               checked={rememberUid}
-              size="small"
               disabled={!userId}
             />
+
             <Typography variant="body2" sx={{ color: "text.disabled" }}>
               Remember UID (requires sign-in)
             </Typography>
           </Stack>
         </Stack>
+
         <Button
           onClick={handleNext}
           loading={isLoading}
@@ -253,6 +253,7 @@ const LoadModal = ({
           <Typography variant="subtitle1">
             Select the characters to add.
           </Typography>
+
           {enkaList.map((avatar, index) => (
             <FormControlLabel
               key={index}
@@ -260,7 +261,6 @@ const LoadModal = ({
                 <Checkbox
                   onChange={(e) => handleCheckboxChange(e, index)}
                   checked={selectedAvatars.includes(index)}
-                  size="small"
                 />
               }
               label={
@@ -270,8 +270,9 @@ const LoadModal = ({
                     loading="lazy"
                     src={avatarIcons[`./${avatar.avatarId}.webp`]?.default}
                     alt={avatar.avatarId}
-                    sx={{ width: 25, height: 25 }}
+                    sx={{ width: 25, height: 25, objectFit: "contain" }}
                   />
+
                   <Typography variant="body2">
                     {avatarData[avatar.avatarId].name}
                   </Typography>
@@ -281,6 +282,7 @@ const LoadModal = ({
             />
           ))}
         </Stack>
+        
         <Button onClick={handleSave} loading={isLoading} variant="contained">
           Save
         </Button>

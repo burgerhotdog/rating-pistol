@@ -69,7 +69,6 @@ const AddModal = ({
   return (
     <Stack alignItems="center" spacing={2}>
       <Autocomplete
-        size="small"
         value={action.id}
         options={charOptions()}
         getOptionLabel={(option) => avatarData[option]?.name || ""}

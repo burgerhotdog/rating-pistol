@@ -14,13 +14,6 @@ const Table4Rating = ({
 }) => {
   const { generalData } = getData[gameId];
 
-  const letter = useMemo(() => {
-    return rating.combined !== -1
-      ? getLetter(rating.combined)
-      : null;
-  }, [rating.combined]);
-  const imageSrc = letter ? letterIcons[`./${letter}.webp`]?.default : null;
-
   const openModal = () => {
     setAction({
       type: "rating",
@@ -30,31 +23,40 @@ const Table4Rating = ({
     });
   };
 
-  return (
-    rating.combined !== -1 ? (
-      <Tooltip title="See Details" arrow>
-        <Box
-          onClick={openModal}
-          component="img"
-          alt={rating.final}
-          src={imageSrc}
-          sx={{ width: 40, height: 40, cursor: "pointer" }}
-        />
-      </Tooltip>
-    ) : (
+  if (rating.combined === -1) {
+    return (
       <Tooltip
         title={
           <Stack>
-            {rating?.parts.map((part, index) => part === -1
-              ? <Typography variant="tooltip" key={index}>{`Missing ${generalData.SECTIONS[index]}`}</Typography>
-              : null)}
+            {rating.parts
+              .filter((part) => part === -1)
+              .map((_, index) => (
+                <Typography variant="tooltip" key={index}>
+                  {`Missing ${generalData.SECTIONS[index]}`}
+                </Typography>
+              ))}
           </Stack>
         }
         arrow
       >
         <ErrorOutline color="error" />
       </Tooltip>
-    )
+    );
+  }
+
+  const letter = useMemo(() => getLetter(rating.combined), [rating.combined]);
+  const letterSrc = letterIcons[`./${letter}.webp`]?.default;
+
+  return (
+    <Tooltip title="See Details" arrow>
+      <Box
+        component="img"
+        onClick={openModal}
+        src={letterSrc}
+        alt={rating.final}
+        sx={{ width: 40, height: 40, objectFit: "contain" }}
+      />
+    </Tooltip>
   );
 };
 

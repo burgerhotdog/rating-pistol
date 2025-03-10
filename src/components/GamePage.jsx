@@ -125,6 +125,7 @@ const GamePage = ({ gameId, userId }) => {
                     onMouseLeave={() => setHoveredId(null)}
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
+
                     <TableCell align="center">
                       <Table0Star
                         gameId={gameId}
@@ -134,6 +135,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
+
                     <TableCell>
                       <Table1Avatar
                         gameId={gameId}
@@ -142,6 +144,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
+
                     <TableCell align="center">
                       <Table2Weapon
                         gameId={gameId}
@@ -150,6 +153,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
+
                     <TableCell align="center">
                       <Table3EquipList
                         gameId={gameId}
@@ -158,6 +162,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
+
                     <TableCell align="center">
                       <Table4Rating
                         gameId={gameId}
@@ -167,6 +172,7 @@ const GamePage = ({ gameId, userId }) => {
                         rating={rating}
                       />
                     </TableCell>
+
                     <TableCell sx={{ borderBottom: "none" }}>
                       <Table5Delete
                         gameId={gameId}
@@ -191,6 +197,7 @@ const GamePage = ({ gameId, userId }) => {
           >
             Add character
           </Button>
+          
           <Button
             onClick={handleLoad}
             variant="contained"

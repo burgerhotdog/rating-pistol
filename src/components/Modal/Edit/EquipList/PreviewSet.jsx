@@ -11,7 +11,7 @@ import getIcons from "../../../getIcons";
 import getSetBonuses from "../../../getSetBonuses";
 
 const PreviewSet = ({ gameId, action }) => {
-  const { equipData, setData } = getData[gameId];
+  const { setData } = getData[gameId];
   const { setIcons } = getIcons[gameId];
   const setBonuses = useMemo(() => getSetBonuses(gameId, action.data.equipList), [action.data.equipList]);
 
@@ -37,8 +37,9 @@ const PreviewSet = ({ gameId, action }) => {
                 component="img"
                 alt={setId}
                 src={setIcons[`./${setId}.webp`]?.default}
-                sx={{ width: 75, height: 75 }}
+                sx={{ width: 75, height: 75, objectFit: "contain" }}
               />
+              
               <Stack>
                 <Typography variant="subtitle1" fontWeight="bold">
                   {setData[setId].name}

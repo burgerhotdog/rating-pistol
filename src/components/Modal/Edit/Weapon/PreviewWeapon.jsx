@@ -18,7 +18,7 @@ const PreviewWeapon = ({ gameId, action }) => {
 
   if (!weapon) {
     return (
-      <Card sx={{ width: 700, p: 2 }}>
+      <Card sx={{ p: 2 }}>
         <Stack justifyContent="center" alignItems="center" sx={{ minHeight: 200 }}>
           <Typography variant="body1" color="text.disabled">
             No {generalData.SECTIONS[1]} Selected
@@ -34,14 +34,15 @@ const PreviewWeapon = ({ gameId, action }) => {
   ]);
 
   return (
-    <Card sx={{ width: 700, p: 2 }}>
+    <Card sx={{ p: 2 }}>
       <Stack direction="row" spacing={1}>
         <Box
           component="img"
           alt={weaponId}
           src={weaponIcons[`./${weaponId}.webp`]?.default}
-          sx={{ width: 200, height: 200 }}
+          sx={{ width: 200, height: 200, objectFit: "contain" }}
         />
+        
         <Stack>
           <Typography variant="subtitle1" fontWeight="bold">
             {weapon.name}

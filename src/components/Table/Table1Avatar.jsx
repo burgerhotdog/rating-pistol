@@ -32,10 +32,11 @@ const Table1Avatar = ({
       >
         <Box
           component="img"
-          alt={id}
           src={avatarIcons[`./${id}.webp`]?.default}
-          sx={{ width: 50, height: 50 }}
+          alt={id}
+          sx={{ width: 50, height: 50, objectFit: "contain" }}
         />
+        
         <Typography variant="body2" sx={{ textAlign: "left" }}>
           {avatarData[id].name}
         </Typography>

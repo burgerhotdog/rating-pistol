@@ -32,27 +32,35 @@ const theme = createTheme({
     },
   },
   components: {
-    MuiBox: {
-      styleOverrides: {
-        root: {
-          '&[component="img"]': {
-            objectFit: "contain",
-          },
-        },
-      },
-    },
     MuiAutocomplete: {
       defaultProps: {
+        size: "small",
         disableClearable: true,
       },
     },
     MuiTextField: {
       defaultProps: {
+        size: "small",
         slotProps: {
           inputLabel: {
             shrink: true,
           },
         },
+      },
+    },
+    MuiCheckbox: {
+      defaultProps: {
+        size: "small",
+      },
+    },
+    MuiFormControl: {
+      defaultProps: {
+        size: "small",
+      },
+    },
+    MuiSelect: {
+      defaultProps: {
+        size: "small",
       },
     },
   },

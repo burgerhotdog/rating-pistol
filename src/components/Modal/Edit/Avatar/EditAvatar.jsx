@@ -56,8 +56,7 @@ const EditAvatar = ({
     <Stack spacing={2}>
       <Stack direction="row" spacing={2}>
         <Autocomplete
-          size="small"
-          value={action?.data?.level}
+          value={action.data.level}
           options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (i * 10 + 10))}
           getOptionLabel={(id) => String(id)}
           onChange={(_, newValue) => {
@@ -70,10 +69,9 @@ const EditAvatar = ({
             />
           )}
           sx={{ width: 150 }}
-          disableClearable
         />
+
         <Autocomplete
-          size="small"
           value={action?.data?.rank}
           options={[0, 1, 2, 3, 4, 5, 6]}
           getOptionLabel={(id) => `${generalData.RANK_PREFIX}${id}`}
@@ -87,13 +85,12 @@ const EditAvatar = ({
             />
           )}
           sx={{ width: 150 }}
-          disableClearable
         />
       </Stack>
+
       {Object.entries(action.data.skillMap).map(([skillKey, skillValue]) => (
         <Autocomplete
           key={skillKey}
-          size="small"
           value={skillValue}
           options={Array.from(
             { length: generalData.SKILL_DATA[skillKey].skill_cap }, 
@@ -109,7 +106,6 @@ const EditAvatar = ({
               label={skillKey}
             />
           )}
-          disableClearable
         />
       ))}
     </Stack>

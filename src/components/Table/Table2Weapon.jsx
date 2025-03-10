@@ -20,20 +20,24 @@ const Table2Weapon = ({
       data,
     });
   };
+  
+  if (!data.weaponId) {
+    return (
+      <Tooltip title={`Add ${generalData.SECTIONS[1]}`} arrow>
+        <Add onClick={openModal} cursor="pointer" />
+      </Tooltip>
+    );
+  }
 
   return (
     <Tooltip title={`Edit ${generalData.SECTIONS[1]}`} arrow>
-      {data.weaponId ? (
-        <Box
-          onClick={openModal}
-          component="img"
-          alt={data.weaponId}
-          src={weaponIcons[`./${data.weaponId}.webp`]?.default}
-          sx={{ width: 50, height: 50, cursor: "pointer" }}
-        />
-      ) : (
-        <Add onClick={openModal} cursor="pointer" />
-      )}
+      <Box
+        component="img"
+        onClick={openModal}
+        src={weaponIcons[`./${data.weaponId}.webp`]?.default}
+        alt={data.weaponId}
+        sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+      />
     </Tooltip>
   );
 };

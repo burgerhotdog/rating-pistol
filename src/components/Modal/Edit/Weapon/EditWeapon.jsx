@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Grid2 as Grid,
   Stack,
   Box,
   Autocomplete,
@@ -66,11 +67,10 @@ const EditWeapon = ({
   };
 
   return (
-    <Stack spacing={2}>
-      <Stack direction="row" spacing={2}>
+    <Grid container spacing={2} width={700}>
+      <Grid size="grow">
         <Autocomplete
-          size="small"
-          value={action?.data.weaponId}
+          value={action.data.weaponId}
           options={weapOptions()}
           getOptionLabel={(option) => weaponData[option]?.name || ""}
           onChange={(_, newValue) => handleWeaponId(newValue)}
@@ -90,8 +90,8 @@ const EditWeapon = ({
                 <Box
                   component="img"
                   loading="lazy"
-                  src={weaponIcons[`./${option}.webp`]?.default}
                   alt={""}
+                  src={weaponIcons[`./${option}.webp`]?.default}
                   sx={{ width: 25, height: 25, objectFit: "contain" }}
                 />
                 {weaponData[option]?.name}
@@ -107,11 +107,11 @@ const EditWeapon = ({
               label={generalData.SECTIONS[1]}
             />
           )}
-          fullWidth
         />
+      </Grid>
 
+      <Grid size="auto">
         <Autocomplete
-          size="small"
           value={action?.data.weaponLevel}
           options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10).toString())}
           getOptionLabel={(id) => id.toString() || ""}
@@ -124,12 +124,12 @@ const EditWeapon = ({
               label="Level"
             />
           )}
-          sx={{ width: 100 }}
           disabled={!action.data.weaponId}
         />
+      </Grid>
 
+      <Grid size="auto">
         <Autocomplete
-          size="small"
           value={action.data.weaponRank}
           options={[1, 2, 3, 4, 5]}
           getOptionLabel={(opt) => `${generalData.WEAPON_RANK_PREFIX}${opt}`}
@@ -142,16 +142,17 @@ const EditWeapon = ({
               label={generalData.WEAPON_RANK}
             />
           )}
-          sx={{ width: 150 }}
           disabled={!action.data.weaponId}
         />
-      </Stack>
+      </Grid>
 
-      <PreviewWeapon
-        gameId={gameId}
-        action={action}
-      />
-    </Stack>
+      <Grid size={12}>
+        <PreviewWeapon
+          gameId={gameId}
+          action={action}
+        />
+      </Grid>
+    </Grid>
   );
 };
 

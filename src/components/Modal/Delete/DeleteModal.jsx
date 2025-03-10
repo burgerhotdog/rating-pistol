@@ -31,7 +31,6 @@ const DeleteModal = ({
       return newDocs;
     });
 
-    setIsLoading(false);
     setAction({});
   };
 
@@ -45,6 +44,7 @@ const DeleteModal = ({
         Are you sure you want to delete{" "}
         <strong>{avatarData[action.id]?.name}</strong>?
       </Typography>
+      
       <Stack direction="row" justifyContent="center" spacing={2}>
         <Button
           onClick={handleCancel}
@@ -52,6 +52,7 @@ const DeleteModal = ({
         >
           Cancel
         </Button>
+
         <Button
           onClick={handleDelete}
           loading={isLoading}
