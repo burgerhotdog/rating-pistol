@@ -38,7 +38,7 @@ const Table4Rating = ({
           component="img"
           alt={rating.final}
           src={imageSrc}
-          sx={{ width: 40, height: 40, objectFit: "contain", cursor: "pointer" }}
+          sx={{ width: 40, height: 40, cursor: "pointer" }}
         />
       </Tooltip>
     ) : (

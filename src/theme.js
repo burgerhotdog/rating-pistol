@@ -32,6 +32,20 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiBox: {
+      styleOverrides: {
+        root: {
+          '&[component="img"]': {
+            objectFit: "contain",
+          },
+        },
+      },
+    },
+    MuiAutocomplete: {
+      defaultProps: {
+        disableClearable: true,
+      },
+    },
     MuiTextField: {
       defaultProps: {
         slotProps: {

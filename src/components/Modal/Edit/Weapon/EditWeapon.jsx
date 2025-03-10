@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import getData from "../../../getData";
 import getIcons from "../../../getIcons";
-import WeaponCard from "./WeaponCard";
+import PreviewWeapon from "./PreviewWeapon";
 
 const EditWeapon = ({
   gameId,
@@ -108,8 +108,8 @@ const EditWeapon = ({
             />
           )}
           fullWidth
-          disableClearable
         />
+
         <Autocomplete
           size="small"
           value={action?.data.weaponLevel}
@@ -125,9 +125,9 @@ const EditWeapon = ({
             />
           )}
           sx={{ width: 100 }}
-          disableClearable
-          disabled={!action?.data.weaponId}
+          disabled={!action.data.weaponId}
         />
+
         <Autocomplete
           size="small"
           value={action.data.weaponRank}
@@ -143,11 +143,11 @@ const EditWeapon = ({
             />
           )}
           sx={{ width: 150 }}
-          disableClearable
-          disabled={!action?.data.weaponId}
+          disabled={!action.data.weaponId}
         />
       </Stack>
-      <WeaponCard
+
+      <PreviewWeapon
         gameId={gameId}
         action={action}
       />

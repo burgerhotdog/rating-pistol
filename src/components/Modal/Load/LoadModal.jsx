@@ -270,7 +270,7 @@ const LoadModal = ({
                     loading="lazy"
                     src={avatarIcons[`./${avatar.avatarId}.webp`]?.default}
                     alt={avatar.avatarId}
-                    sx={{ width: 24, height: 24, objectFit: "contain" }}
+                    sx={{ width: 25, height: 25 }}
                   />
                   <Typography variant="body2">
                     {avatarData[avatar.avatarId].name}

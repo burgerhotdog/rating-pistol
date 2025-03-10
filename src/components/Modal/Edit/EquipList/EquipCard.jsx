@@ -156,14 +156,13 @@ const EquipCard = ({
               />
             )}
             fullWidth
-            disableClearable
           />
         </Grid>
 
         <Grid size={12}>
           <Autocomplete
             size="small"
-            value={action?.data?.equipList[mainIndex].key}
+            value={action.data.equipList[mainIndex].key}
             options={MAINSTAT_OPTIONS[mainIndex]}
             getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
@@ -174,7 +173,7 @@ const EquipCard = ({
               />
             )}
             fullWidth
-            disableClearable
+            disabled={!action.data.equipList[mainIndex].setId}
           />
         </Grid>
 
@@ -188,7 +187,7 @@ const EquipCard = ({
             <Grid size={9}>
               <Autocomplete
                 size="small"
-                value={action?.data.equipList[mainIndex].statMap[subIndex].key}
+                value={action.data.equipList[mainIndex].statMap[subIndex].key}
                 options={substatOptions(subIndex)}
                 getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
@@ -199,8 +198,7 @@ const EquipCard = ({
                   />
                 )}
                 fullWidth
-                disableClearable
-                disabled={action?.data?.equipList[mainIndex].key === null}
+                disabled={!action.data.equipList[mainIndex].key}
               />
             </Grid>
 
@@ -208,7 +206,7 @@ const EquipCard = ({
             <Grid size={3}>
               <TextField
                 size="small"
-                value={action?.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
+                value={action.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
@@ -218,7 +216,6 @@ const EquipCard = ({
                   }
                 }}
                 fullWidth
-                disabled={action?.data.equipList[mainIndex].statMap[subIndex].key === null}
                 slotProps={{
                   input: {
                     endAdornment: STAT_INDEX[action?.data.equipList[mainIndex].statMap[subIndex].key]?.percent && (
@@ -226,6 +223,7 @@ const EquipCard = ({
                     ),
                   },
                 }}
+                disabled={!action.data.equipList[mainIndex].statMap[subIndex].key}
               />
             </Grid>
           </React.Fragment>

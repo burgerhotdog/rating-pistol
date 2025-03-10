@@ -29,7 +29,7 @@ const Table2Weapon = ({
           component="img"
           alt={data.weaponId}
           src={weaponIcons[`./${data.weaponId}.webp`]?.default}
-          sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
+          sx={{ width: 50, height: 50, cursor: "pointer" }}
         />
       ) : (
         <Add onClick={openModal} cursor="pointer" />

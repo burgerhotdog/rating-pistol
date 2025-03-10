@@ -10,7 +10,7 @@ import getData from "../../../getData"
 import getIcons from "../../../getIcons";
 import getWeaponDesc from "./getWeaponDesc";
 
-const WeaponCard = ({ gameId, action }) => {
+const PreviewWeapon = ({ gameId, action }) => {
   const { generalData, equipData, weaponData } = getData[gameId];
   const { weaponIcons } = getIcons[gameId];
 
@@ -43,7 +43,7 @@ const WeaponCard = ({ gameId, action }) => {
               component="img"
               src={weaponIcons[`./${weaponId}.webp`]?.default}
               alt=""
-              sx={{ width: 200, height: 200, objectFit: "contain" }}
+              sx={{ width: 200, height: 200 }}
             />
           </Stack>
         </Grid>
@@ -63,7 +63,7 @@ const WeaponCard = ({ gameId, action }) => {
               );
             })}
 
-            {weapon.statSub &&
+            {weapon.statSub && (
               Object.entries(weapon.statSub).map(([key, value]) => {
                 const { name, percent } = equipData.STAT_INDEX[key] || {};
                 return (
@@ -72,7 +72,8 @@ const WeaponCard = ({ gameId, action }) => {
                     {percent ? "%" : ""}
                   </Typography>
                 );
-              })}
+              })
+            )}
 
             <Typography variant="subtitle2" fontWeight="bold" mt={1}>
               {weapon.descHead}
@@ -88,4 +89,4 @@ const WeaponCard = ({ gameId, action }) => {
   );
 };
 
-export default WeaponCard;
+export default PreviewWeapon;

@@ -41,7 +41,7 @@ const Table3EquipList = ({
                 component="img"
                 alt={setId}
                 src={setIcons[`./${setId}.webp`]?.default}
-                sx={{ width: 50, height: 50, objectFit: "contain" }}
+                sx={{ width: 50, height: 50 }}
               />
               <Typography>
                 {`x${numBonus}`}

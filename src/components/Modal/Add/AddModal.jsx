@@ -105,8 +105,8 @@ const AddModal = ({
           />
         )}
         sx={{ width: 250 }}
-        disableClearable
       />
+      
       <Button
         onClick={handleAdd}
         loading={isLoading}

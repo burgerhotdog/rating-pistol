@@ -34,7 +34,7 @@ const Table1Avatar = ({
           component="img"
           alt={id}
           src={avatarIcons[`./${id}.webp`]?.default}
-          sx={{ width: 50, height: 50, objectFit: "contain" }}
+          sx={{ width: 50, height: 50 }}
         />
         <Typography variant="body2" sx={{ textAlign: "left" }}>
           {avatarData[id].name}
