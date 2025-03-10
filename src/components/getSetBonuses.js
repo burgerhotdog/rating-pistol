@@ -1,4 +1,4 @@
-export default (equipList) => {
+export default (gameId, equipList) => {
   const setCounts = {};
   equipList.forEach(({ setId }) => {
     if (setId) {

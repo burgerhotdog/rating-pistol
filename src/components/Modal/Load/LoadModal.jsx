@@ -143,9 +143,9 @@ const LoadModal = ({
 
           // skillMap
           const skillsArr = Object.values(charObj.skillLevelMap);
-          data.skillMap.basic = skillsArr[0];
-          data.skillMap.skill = skillsArr[1];
-          data.skillMap.ult = skillsArr[2];
+          data.skillMap.basic = skillsArr[skillsArr.length - 3];
+          data.skillMap.skill = skillsArr[skillsArr.length - 2];
+          data.skillMap.ult = skillsArr[skillsArr.length - 1];
 
           return { id, data };
         }) :

@@ -13,7 +13,7 @@ const Table3EquipList = ({
 }) => {
   const { generalData } = getData[gameId];
   const { setIcons } = getIcons[gameId];
-  const setBonuses = useMemo(() => getSetBonuses(data.equipList), [data.equipList]);
+  const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
   
   const openModal = () => {
     setAction({
