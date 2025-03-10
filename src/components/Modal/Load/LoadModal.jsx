@@ -199,11 +199,12 @@ const LoadModal = ({
     for (const char of charBuffer) {
       saveAction(char.id, char.data);
     }
+
     closeAction({});
   };
 
-  return (
-    !enkaList.length ? (
+  if (!enkaList.length) {
+    return (
       <Stack alignItems="center" spacing={2}>
         <Stack>
           <TextField
@@ -233,53 +234,55 @@ const LoadModal = ({
 
         <Button
           onClick={handleNext}
-          loading={isLoading}
           variant="contained"
+          loading={isLoading}
         >
           Next
         </Button>
       </Stack>
-    ) : (
-      <Stack alignItems="center" spacing={2}>
-        <Stack>
-          <Typography variant="subtitle1">
-            Select the characters to add.
-          </Typography>
+    );
+  }
 
-          {enkaList.map((avatar, index) => (
-            <FormControlLabel
-              key={index}
-              control={
-                <Checkbox
-                  onChange={(e) => handleCheckboxChange(e, index)}
-                  checked={selectedAvatars.includes(index)}
+  return (
+    <Stack alignItems="center" spacing={2}>
+      <Stack>
+        <Typography variant="subtitle1">
+          Select the characters to add.
+        </Typography>
+
+        {enkaList.map((avatar, index) => (
+          <FormControlLabel
+            key={index}
+            control={
+              <Checkbox
+                onChange={(e) => handleCheckboxChange(e, index)}
+                checked={selectedAvatars.includes(index)}
+              />
+            }
+            label={
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <Box
+                  component="img"
+                  loading="lazy"
+                  src={avatarIcons[`./${avatar.avatarId}.webp`]?.default}
+                  alt={avatar.avatarId}
+                  sx={{ width: 25, height: 25, objectFit: "contain" }}
                 />
-              }
-              label={
-                <Stack direction="row" alignItems="center" spacing={1}>
-                  <Box
-                    component="img"
-                    loading="lazy"
-                    src={avatarIcons[`./${avatar.avatarId}.webp`]?.default}
-                    alt={avatar.avatarId}
-                    sx={{ width: 25, height: 25, objectFit: "contain" }}
-                  />
 
-                  <Typography variant="body2">
-                    {avatarData[avatar.avatarId].name}
-                  </Typography>
-                </Stack>
-              }
-              onClick={(e) => e.stopPropagation()}
-            />
-          ))}
-        </Stack>
-        
-        <Button onClick={handleSave} loading={isLoading} variant="contained">
-          Save
-        </Button>
+                <Typography variant="body2">
+                  {avatarData[avatar.avatarId].name}
+                </Typography>
+              </Stack>
+            }
+            onClick={(e) => e.stopPropagation()}
+          />
+        ))}
       </Stack>
-    )
+      
+      <Button onClick={handleSave} loading={isLoading} variant="contained">
+        Save
+      </Button>
+    </Stack>
   );
 };
 

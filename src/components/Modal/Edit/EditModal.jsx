@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
-import {
-  Stack,
-  Button,
-} from "@mui/material";
+import { Stack, Button } from "@mui/material";
 import EditAvatar from "./Avatar/EditAvatar";
 import EditWeapon from "./Weapon/EditWeapon";
 import EditEquipList from "./EquipList/EditEquipList";

@@ -176,9 +176,9 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell sx={{ borderBottom: "none" }}>
                       <Table5Delete
                         gameId={gameId}
-                        setAction={setAction}
+                        userId={userId}
                         id={id}
-                        data={data}
+                        setLocalDocs={setLocalDocs}
                         hoveredId={hoveredId}
                       />
                     </TableCell>

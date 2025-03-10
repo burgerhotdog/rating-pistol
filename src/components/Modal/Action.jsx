@@ -1,7 +1,6 @@
 import React from "react";
 import { Modal, Box, useTheme } from "@mui/material";
 import AddModal from "./Add/AddModal";
-import DeleteModal from "./Delete/DeleteModal";
 import EditModal from "./Edit/EditModal";
 import LoadModal from "./Load/LoadModal";
 import RatingModal from "./Rating/RatingModal";
@@ -41,18 +40,6 @@ const Action = ({
           localDocs={localDocs}
           saveAction={saveAction}
           closeAction={closeAction}
-        />
-      );
-      break;
-
-    case "delete":
-      modalContent = (
-        <DeleteModal
-          gameId={gameId}
-          userId={userId}
-          action={action}
-          setAction={setAction}
-          setLocalDocs={setLocalDocs}
         />
       );
       break;
