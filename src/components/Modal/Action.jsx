@@ -1,9 +1,11 @@
 import React from "react";
 import { Modal, Box, useTheme } from "@mui/material";
 import AddModal from "./Add/AddModal";
-import EditModal from "./Edit/EditModal";
+import AvatarModal from "./Avatar/AvatarModal";
+import EquipModal from "./Equip/EquipModal";
 import LoadModal from "./Load/LoadModal";
 import RatingModal from "./Rating/RatingModal";
+import WeaponModal from "./Weapon/WeaponModal";
 
 const Action = ({
   gameId,
@@ -44,14 +46,24 @@ const Action = ({
       );
       break;
 
-    case "edit":
+    case "avatar":
       modalContent = (
-        <EditModal
+        <AvatarModal
           gameId={gameId}
-          userId={userId}
           action={action}
           setAction={setAction}
-          setLocalDocs={setLocalDocs}
+          saveAction={saveAction}
+        />
+      );
+      break;
+
+    case "equip":
+      modalContent = (
+        <EquipModal
+          gameId={gameId}
+          action={action}
+          setAction={setAction}
+          saveAction={saveAction}
         />
       );
       break;
@@ -74,6 +86,17 @@ const Action = ({
         <RatingModal
           gameId={gameId}
           action={action}
+        />
+      );
+      break;
+
+    case "weapon":
+      modalContent = (
+        <WeaponModal
+          gameId={gameId}
+          action={action}
+          setAction={setAction}
+          saveAction={saveAction}
         />
       );
       break;

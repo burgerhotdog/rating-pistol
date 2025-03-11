@@ -17,8 +17,7 @@ const Table3EquipList = ({
   
   const openModal = () => {
     setAction({
-      type: "edit",
-      item: "equipList",
+      type: "equip",
       id,
       data,
     });

@@ -14,8 +14,7 @@ const Table1Avatar = ({
   
   const openModal = () => {
     setAction({
-      type: "edit",
-      item: "avatar",
+      type: "avatar",
       id,
       data,
     });

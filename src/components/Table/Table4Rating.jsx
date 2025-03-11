@@ -23,22 +23,21 @@ const Table4Rating = ({
     });
   };
 
+  const missingSections = useMemo(() => (
+    <Stack>
+      {rating.parts.map((part, index) => 
+        part === -1 ? (
+          <Typography variant="tooltip" key={index}>
+            {`Missing ${generalData.SECTIONS[index]}`}
+          </Typography>
+        ) : null
+      )}
+    </Stack>
+  ), [rating.parts]);
+
   if (rating.combined === -1) {
     return (
-      <Tooltip
-        title={
-          <Stack>
-            {rating.parts
-              .filter((part) => part === -1)
-              .map((_, index) => (
-                <Typography variant="tooltip" key={index}>
-                  {`Missing ${generalData.SECTIONS[index]}`}
-                </Typography>
-              ))}
-          </Stack>
-        }
-        arrow
-      >
+      <Tooltip title={missingSections} arrow>
         <ErrorOutline color="error" />
       </Tooltip>
     );

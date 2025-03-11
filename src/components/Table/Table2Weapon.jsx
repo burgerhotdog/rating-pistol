@@ -14,8 +14,7 @@ const Table2Weapon = ({
   const { weaponIcons } = getIcons[gameId];
   const openModal = () => {
     setAction({
-      type: "edit",
-      item: "weapon",
+      type: "weapon",
       id,
       data,
     });

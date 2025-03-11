@@ -6,9 +6,9 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import getData from "../../../getData"
-import getIcons from "../../../getIcons";
-import getSetBonuses from "../../../getSetBonuses";
+import getData from "../../getData"
+import getIcons from "../../getIcons";
+import getSetBonuses from "../../getSetBonuses";
 
 const PreviewSet = ({ gameId, action }) => {
   const { setData } = getData[gameId];

@@ -5,8 +5,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import getData from "../../../getData"
-import getIcons from "../../../getIcons";
+import getData from "../../getData"
+import getIcons from "../../getIcons";
 import getWeaponDesc from "./getWeaponDesc";
 
 const PreviewWeapon = ({ gameId, action }) => {
