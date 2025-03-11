@@ -48,12 +48,10 @@ const Table4Rating = ({
 
   return (
     <Tooltip title="See Details" arrow>
-      <Badge>
+      <Badge onClick={openModal}>
         <Avatar
-          onClick={openModal}
           alt={rating.final}
           src={letterSrc}
-          sx={{ cursor: "pointer" }}
         />
       </Badge>
     </Tooltip>

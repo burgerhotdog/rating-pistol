@@ -35,7 +35,6 @@ const Table2Weapon = ({
         overlap="circular"
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         badgeContent={`${generalData.WEAPON_RANK_PREFIX}${data.weaponRank}`}
-        sx={{ cursor: "pointer" }}
       >
         <Avatar
           variant="square"

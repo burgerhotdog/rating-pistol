@@ -63,6 +63,13 @@ const theme = createTheme({
         size: "small",
       },
     },
+    MuiBadge: {
+      styleOverrides: {
+        root: {
+          cursor: "pointer",
+        },
+      },
+    },
   },
 });
 

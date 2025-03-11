@@ -36,7 +36,7 @@ const Table3EquipList = ({
 
   return (
     <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
-      <Stack direction="row" display="inline-flex" spacing={1}>
+      <Stack display="inline-flex" direction="row" spacing={1}>
         {sortedSetBonuses.map(([setId, numBonus]) => (
           <Badge
             key={setId}
@@ -44,8 +44,6 @@ const Table3EquipList = ({
             overlap="circular"
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             badgeContent={`x${numBonus}`}
-            cursor="pointer"
-            sx={{ cursor: "pointer" }}
           >
             <Avatar
               variant="square"

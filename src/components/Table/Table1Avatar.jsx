@@ -24,14 +24,14 @@ const Table1Avatar = ({
     <Tooltip title={`Edit ${generalData.SECTIONS[0]}`} arrow>
       <Stack
         onClick={openModal}
+        display="inline-flex"
         direction="row"
         alignItems="center"
         spacing={1}
-        sx={{ cursor: "pointer", display: "inline-flex" }}
       >
         <Badge
           overlap="circular"
-          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           badgeContent={`${generalData.RANK_PREFIX}${data.rank}`}
         >
           <Avatar
@@ -41,7 +41,7 @@ const Table1Avatar = ({
           />
         </Badge>
         
-        <Typography variant="body2" sx={{ textAlign: "left" }}>
+        <Typography variant="body2">
           {avatarData[id].name}
         </Typography>
       </Stack>
