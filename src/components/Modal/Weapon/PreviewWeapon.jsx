@@ -16,6 +16,11 @@ const PreviewWeapon = ({ gameId, modalPipe }) => {
   const weaponId = modalPipe.data.weaponId;
   const weapon = weaponData?.[weaponId];
 
+  const weaponDesc = useMemo(() => getWeaponDesc(weapon, modalPipe.data.rank), [
+    weapon,
+    modalPipe.data.rank,
+  ]);
+
   if (!weapon) {
     return (
       <Card sx={{ p: 2 }}>
@@ -27,11 +32,6 @@ const PreviewWeapon = ({ gameId, modalPipe }) => {
       </Card>
     );
   }
-
-  const weaponDesc = useMemo(() => getWeaponDesc(weapon, modalPipe.data.rank), [
-    weapon,
-    modalPipe.data.rank,
-  ]);
 
   return (
     <Card sx={{ p: 2 }}>

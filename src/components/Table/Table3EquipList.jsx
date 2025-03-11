@@ -14,6 +14,9 @@ const Table3EquipList = ({
 }) => {
   const { generalData } = getData[gameId];
   const { setIcons } = getIcons[gameId];
+  
+  const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
+  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
 
   const openModal = () => {
     setModalPipe({
@@ -23,8 +26,6 @@ const Table3EquipList = ({
     });
   };
 
-  const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
-
   if (!Object.keys(setBonuses).length) {
     return (
       <Tooltip title={`Add ${generalData.SECTIONS[2]}`} arrow>
@@ -32,8 +33,6 @@ const Table3EquipList = ({
       </Tooltip>
     );
   }
-
-  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
 
   return (
     <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>

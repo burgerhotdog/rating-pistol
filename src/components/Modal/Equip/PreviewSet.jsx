@@ -16,6 +16,7 @@ const PreviewSet = ({ gameId, modalPipe }) => {
   const { setIcons } = getIcons[gameId];
 
   const setBonuses = useMemo(() => getSetBonuses(gameId, modalPipe.data.equipList), [modalPipe.data.equipList]);
+  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
 
   if (!Object.keys(setBonuses).length) {
     return (
@@ -28,8 +29,6 @@ const PreviewSet = ({ gameId, modalPipe }) => {
       </Card>
     );
   }
-
-  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
 
   return (
     <Card sx={{ p: 2 }}>

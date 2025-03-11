@@ -14,6 +14,9 @@ const Table4Rating = ({
 }) => {
   const { generalData } = getData[gameId];
 
+  const letter = useMemo(() => getLetter(rating.combined), [rating.combined]);
+  const letterSrc = letterIcons[`./letter_${letter}.webp`]?.default;
+
   const openModal = () => {
     setModalPipe({
       type: "rating",
@@ -42,9 +45,6 @@ const Table4Rating = ({
       </Tooltip>
     );
   }
-
-  const letter = useMemo(() => getLetter(rating.combined), [rating.combined]);
-  const letterSrc = letterIcons[`./letter_${letter}.webp`]?.default;
 
   return (
     <Tooltip title="See Details" arrow>
