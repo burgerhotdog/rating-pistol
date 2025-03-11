@@ -17,41 +17,42 @@ const Table3EquipList = ({
   
   const openModal = () => {
     setAction({
-      type: "edit",
-      item: "equipList",
+      type: "equip",
       id,
       data,
     });
   };
 
+  if (!Object.keys(setBonuses).length) {
+    return (
+      <Tooltip title={`Add ${generalData.SECTIONS[2]}`} arrow>
+        <Add onClick={openModal} cursor="pointer" />
+      </Tooltip>
+    );
+  }
 
   return (
     <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
-      {Object.keys(setBonuses).length ? (
-        <Stack
-          onClick={openModal}
-          direction="row"
-          justifyContent="center"
-          spacing={1}
-          sx={{ cursor: "pointer" }}
-        >
-          {Object.entries(setBonuses).map(([setId, numBonus]) => (
-            <Stack key={setId} direction="row" alignItems="end">
-              <Box
-                component="img"
-                alt={setId}
-                src={setIcons[`./${setId}.webp`]?.default}
-                sx={{ width: 50, height: 50, objectFit: "contain" }}
-              />
-              <Typography>
-                {`x${numBonus}`}
-              </Typography>
-            </Stack>
-          ))}
-        </Stack>
-      ) : (
-        <Add onClick={openModal} cursor="pointer" />
-      )}
+      <Stack
+        onClick={openModal}
+        direction="row"
+        justifyContent="center"
+        spacing={1}
+        sx={{ cursor: "pointer" }}
+      >
+        {Object.entries(setBonuses).map(([setId, numBonus]) => (
+          <Stack key={setId} direction="row" alignItems="end">
+            <Box
+              component="img"
+              src={setIcons[`./${setId}.webp`]?.default}
+              alt={setId}
+              sx={{ width: 50, height: 50, objectFit: "contain" }}
+            />
+            
+            <Typography>{`x${numBonus}`}</Typography>
+          </Stack>
+        ))}
+      </Stack>
     </Tooltip>
   );
 };

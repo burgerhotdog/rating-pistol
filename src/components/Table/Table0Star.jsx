@@ -1,7 +1,6 @@
 import React from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-import { Stack } from "@mui/material";
 import { Star, StarBorder } from '@mui/icons-material';
 
 const Table0Star = ({
@@ -16,7 +15,7 @@ const Table0Star = ({
 
     if (userId) {
       const infoDocRef = doc(db, "users", userId, gameId, id);
-      await setDoc(infoDocRef, { isStar: newValue }, { merge: true });
+      setDoc(infoDocRef, { isStar: newValue }, { merge: true });
     }
 
     setLocalDocs((prev) => ({
@@ -28,24 +27,20 @@ const Table0Star = ({
     }));
   }
 
+  if (data.isStar) {
+    return <Star onClick={toggleStar} cursor="pointer" color="gold" />;
+  }
+
   return (
-    data.isStar ? (
-      <Star
-        onClick={toggleStar}
-        cursor="pointer"
-        color="gold"
-      />
-    ) : (
-      <StarBorder
-        onClick={toggleStar}
-        cursor="pointer"
-        color="disabled"
-        sx={{
-          transition: "color 0.3s ease",
-          "&:hover": { color: "gold.main" },
-        }}
-      />
-    )
+    <StarBorder
+      onClick={toggleStar}
+      cursor="pointer"
+      color="disabled"
+      sx={{
+        transition: "color 0.3s ease",
+        "&:hover": { color: "gold.main" },
+      }}
+    />
   );
 };
 

@@ -20,6 +20,8 @@ const LoadModal = ({
   userId,
   setAction,
   setLocalDocs,
+  saveAction,
+  closeAction,
 }) => {
   const { avatarData } = getData[gameId];
   const { avatarIcons } = getIcons[gameId];
@@ -194,29 +196,19 @@ const LoadModal = ({
       gameId === "zzz" &&
         [];
 
-    // update states
     for (const char of charBuffer) {
-      if (userId) {
-        const docRef = doc(db, "users", userId, gameId, char.id);
-        await setDoc(docRef, char.data, { merge: false });
-      }
-
-      setLocalDocs((prev) => ({
-        ...prev,
-        [char.id]: char.data,
-      }));
+      saveAction(char.id, char.data);
     }
 
-    setAction({});
+    closeAction({});
   };
 
-  return (
-    !enkaList.length ? (
+  if (!enkaList.length) {
+    return (
       <Stack alignItems="center" spacing={2}>
         <Stack>
           <TextField
             label="Enter UID"
-            size="small"
             value={uid ?? ""}
             onChange={(e) => {
               const newValue = e.target.value;
@@ -225,67 +217,72 @@ const LoadModal = ({
             }}
             error={error}
             helperText={error && "Invalid UID"}
-            fullWidth
           />
+
           <Stack direction="row" alignItems="center">
             <Checkbox
               onChange={() => setRememberUid(!rememberUid)}
               checked={rememberUid}
-              size="small"
               disabled={!userId}
             />
+
             <Typography variant="body2" sx={{ color: "text.disabled" }}>
               Remember UID (requires sign-in)
             </Typography>
           </Stack>
         </Stack>
+
         <Button
           onClick={handleNext}
-          loading={isLoading}
           variant="contained"
+          loading={isLoading}
         >
           Next
         </Button>
       </Stack>
-    ) : (
-      <Stack alignItems="center" spacing={2}>
-        <Stack>
-          <Typography variant="subtitle1">
-            Select the characters to add.
-          </Typography>
-          {enkaList.map((avatar, index) => (
-            <FormControlLabel
-              key={index}
-              control={
-                <Checkbox
-                  onChange={(e) => handleCheckboxChange(e, index)}
-                  checked={selectedAvatars.includes(index)}
-                  size="small"
+    );
+  }
+
+  return (
+    <Stack alignItems="center" spacing={2}>
+      <Stack>
+        <Typography variant="subtitle1">
+          Select the characters to add.
+        </Typography>
+
+        {enkaList.map((avatar, index) => (
+          <FormControlLabel
+            key={index}
+            control={
+              <Checkbox
+                onChange={(e) => handleCheckboxChange(e, index)}
+                checked={selectedAvatars.includes(index)}
+              />
+            }
+            label={
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <Box
+                  component="img"
+                  loading="lazy"
+                  src={avatarIcons[`./${avatar.avatarId}.webp`]?.default}
+                  alt={avatar.avatarId}
+                  sx={{ width: 25, height: 25, objectFit: "contain" }}
                 />
-              }
-              label={
-                <Stack direction="row" alignItems="center" spacing={1}>
-                  <Box
-                    component="img"
-                    loading="lazy"
-                    src={avatarIcons[`./${avatar.avatarId}.webp`]?.default}
-                    alt={avatar.avatarId}
-                    sx={{ width: 24, height: 24, objectFit: "contain" }}
-                  />
-                  <Typography variant="body2">
-                    {avatarData[avatar.avatarId].name}
-                  </Typography>
-                </Stack>
-              }
-              onClick={(e) => e.stopPropagation()}
-            />
-          ))}
-        </Stack>
-        <Button onClick={handleSave} loading={isLoading} variant="contained">
-          Save
-        </Button>
+
+                <Typography variant="body2">
+                  {avatarData[avatar.avatarId].name}
+                </Typography>
+              </Stack>
+            }
+            onClick={(e) => e.stopPropagation()}
+          />
+        ))}
       </Stack>
-    )
+      
+      <Button onClick={handleSave} loading={isLoading} variant="contained">
+        Save
+      </Button>
+    </Stack>
   );
 };
 

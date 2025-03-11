@@ -10,6 +10,7 @@ const RatingModal = ({ gameId, action }) => {
       <Typography variant="body1">
         Score Breakdown
       </Typography>
+      
       {generalData.SECTIONS.map((section, index) => (
         <Typography key={index} variant="body2">
           {`${section} Score: ${Math.round(action.rating.parts[index])}`}

@@ -14,8 +14,7 @@ const Table1Avatar = ({
   
   const openModal = () => {
     setAction({
-      type: "edit",
-      item: "avatar",
+      type: "avatar",
       id,
       data,
     });
@@ -32,10 +31,11 @@ const Table1Avatar = ({
       >
         <Box
           component="img"
-          alt={id}
           src={avatarIcons[`./${id}.webp`]?.default}
+          alt={id}
           sx={{ width: 50, height: 50, objectFit: "contain" }}
         />
+        
         <Typography variant="body2" sx={{ textAlign: "left" }}>
           {avatarData[id].name}
         </Typography>

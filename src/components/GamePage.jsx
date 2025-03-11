@@ -67,9 +67,10 @@ const GamePage = ({ gameId, userId }) => {
       rating: getRating(gameId, id, data),
     }));
 
-    ratedObjs.sort((a, b) => a.data.isStar === b.data.isStar
-      ? b.rating.combined - a.rating.combined
-      : a.data.isStar ? -1 : 1);
+    ratedObjs.sort((a, b) =>
+      a.data.isStar === b.data.isStar
+        ? b.rating.combined - a.rating.combined
+        : a.data.isStar ? -1 : 1);
 
     setSortedDocs(ratedObjs);
   }, [localDocs]);
@@ -125,6 +126,7 @@ const GamePage = ({ gameId, userId }) => {
                     onMouseLeave={() => setHoveredId(null)}
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
+
                     <TableCell align="center">
                       <Table0Star
                         gameId={gameId}
@@ -134,6 +136,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
+
                     <TableCell>
                       <Table1Avatar
                         gameId={gameId}
@@ -142,6 +145,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
+
                     <TableCell align="center">
                       <Table2Weapon
                         gameId={gameId}
@@ -150,6 +154,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
+
                     <TableCell align="center">
                       <Table3EquipList
                         gameId={gameId}
@@ -158,6 +163,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
+
                     <TableCell align="center">
                       <Table4Rating
                         gameId={gameId}
@@ -167,12 +173,13 @@ const GamePage = ({ gameId, userId }) => {
                         rating={rating}
                       />
                     </TableCell>
+
                     <TableCell sx={{ borderBottom: "none" }}>
                       <Table5Delete
                         gameId={gameId}
-                        setAction={setAction}
+                        userId={userId}
                         id={id}
-                        data={data}
+                        setLocalDocs={setLocalDocs}
                         hoveredId={hoveredId}
                       />
                     </TableCell>
@@ -191,6 +198,7 @@ const GamePage = ({ gameId, userId }) => {
           >
             Add character
           </Button>
+          
           <Button
             onClick={handleLoad}
             variant="contained"

@@ -8,8 +8,8 @@ import {
   TextField,
   InputAdornment,
 } from "@mui/material";
-import getData from "../../../getData";
-import getIcons from "../../../getIcons";
+import getData from "../../getData";
+import getIcons from "../../getIcons";
 
 const EquipCard = ({
   gameId,
@@ -120,8 +120,7 @@ const EquipCard = ({
       <Grid container spacing={1}>
         <Grid size={12}>
           <Autocomplete
-            size="small"
-            value={action?.data?.equipList[mainIndex].setId}
+            value={action.data.equipList[mainIndex].setId}
             options={setOptions()}
             getOptionLabel={(id) => setData[id]?.name || ""}
             onChange={(_, newValue) => handleSet(newValue)}
@@ -141,10 +140,11 @@ const EquipCard = ({
                   <Box
                     component="img"
                     loading="lazy"
-                    src={setIcons[`./${id}.webp`]?.default}
                     alt={""}
-                    sx={{ width: 24, height: 24, objectFit: "contain" }}
+                    src={setIcons[`./${id}.webp`]?.default}
+                    sx={{ width: 25, height: 25, objectFit: "contain" }}
                   />
+                  
                   {setData[id]?.name || ""}
                 </Box>
               );
@@ -155,15 +155,12 @@ const EquipCard = ({
                 label="Set"
               />
             )}
-            fullWidth
-            disableClearable
           />
         </Grid>
 
         <Grid size={12}>
           <Autocomplete
-            size="small"
-            value={action?.data?.equipList[mainIndex].key}
+            value={action.data.equipList[mainIndex].key}
             options={MAINSTAT_OPTIONS[mainIndex]}
             getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
@@ -173,8 +170,7 @@ const EquipCard = ({
                 label="Mainstat"
               />
             )}
-            fullWidth
-            disableClearable
+            disabled={!action.data.equipList[mainIndex].setId}
           />
         </Grid>
 
@@ -187,8 +183,7 @@ const EquipCard = ({
             {/* Substat Key Dropdown */}
             <Grid size={9}>
               <Autocomplete
-                size="small"
-                value={action?.data.equipList[mainIndex].statMap[subIndex].key}
+                value={action.data.equipList[mainIndex].statMap[subIndex].key}
                 options={substatOptions(subIndex)}
                 getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
@@ -198,17 +193,14 @@ const EquipCard = ({
                     label={"Substat"}
                   />
                 )}
-                fullWidth
-                disableClearable
-                disabled={action?.data?.equipList[mainIndex].key === null}
+                disabled={!action.data.equipList[mainIndex].key}
               />
             </Grid>
 
             {/* Substat Value Input */}
             <Grid size={3}>
               <TextField
-                size="small"
-                value={action?.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
+                value={action.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
@@ -217,8 +209,6 @@ const EquipCard = ({
                     handleSubstat(newValue, subIndex, "value");
                   }
                 }}
-                fullWidth
-                disabled={action?.data.equipList[mainIndex].statMap[subIndex].key === null}
                 slotProps={{
                   input: {
                     endAdornment: STAT_INDEX[action?.data.equipList[mainIndex].statMap[subIndex].key]?.percent && (
@@ -226,6 +216,7 @@ const EquipCard = ({
                     ),
                   },
                 }}
+                disabled={!action.data.equipList[mainIndex].statMap[subIndex].key}
               />
             </Grid>
           </React.Fragment>
