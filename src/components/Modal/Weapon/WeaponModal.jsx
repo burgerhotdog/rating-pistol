@@ -149,7 +149,7 @@ const WeaponModal = ({
             renderInput={(params) => (
               <TextField
                 {...params}
-                label={generalData.WEAPON_RANK}
+                label="Rank"
               />
             )}
             disabled={!modalPipe.data.weaponId}

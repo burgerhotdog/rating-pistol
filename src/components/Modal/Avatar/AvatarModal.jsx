@@ -77,7 +77,6 @@ const AvatarModal = ({
                 label="Level"
               />
             )}
-            sx={{ width: 150 }}
           />
 
           <Autocomplete
@@ -90,10 +89,9 @@ const AvatarModal = ({
             renderInput={(params) => (
               <TextField
                 {...params}
-                label={generalData.RANK}
+                label="Rank"
               />
             )}
-            sx={{ width: 150 }}
           />
         </Stack>
 
