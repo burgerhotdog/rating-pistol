@@ -10,10 +10,10 @@ import getData from "../../getData"
 import getIcons from "../../getIcons";
 import getSetBonuses from "../../getSetBonuses";
 
-const PreviewSet = ({ gameId, action }) => {
+const PreviewSet = ({ gameId, modalPipe }) => {
   const { setData } = getData[gameId];
   const { setIcons } = getIcons[gameId];
-  const setBonuses = useMemo(() => getSetBonuses(gameId, action.data.equipList), [action.data.equipList]);
+  const setBonuses = useMemo(() => getSetBonuses(gameId, modalPipe.data.equipList), [modalPipe.data.equipList]);
 
   if (!Object.keys(setBonuses).length) {
     return (

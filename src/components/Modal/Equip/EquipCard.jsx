@@ -13,8 +13,8 @@ import getIcons from "../../getIcons";
 
 const EquipCard = ({
   gameId,
-  action,
-  setAction,
+  modalPipe,
+  setModalPipe,
   mainIndex,
 }) => {
   const { equipData, setData } = getData[gameId];
@@ -22,7 +22,7 @@ const EquipCard = ({
   const { setIcons } = getIcons[gameId];
 
   const handleSet = (newValue) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -39,7 +39,7 @@ const EquipCard = ({
   };
 
   const handleMainstat = (newValue) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -65,7 +65,7 @@ const EquipCard = ({
   };
 
   const handleSubstat = (newValue, subIndex, attribute) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -89,8 +89,8 @@ const EquipCard = ({
   };
 
   const substatOptions = (subIndex) => {
-    const selectedMainstat = action.data.equipList[mainIndex].key;
-    const selectedSubstats = Object.entries(action.data.equipList[mainIndex].statMap || {})
+    const selectedMainstat = modalPipe.data.equipList[mainIndex].key;
+    const selectedSubstats = Object.entries(modalPipe.data.equipList[mainIndex].statMap || {})
       .map(([, substatObj]) => substatObj.key)
       .filter((_, idx) => idx !== subIndex);
     
@@ -120,7 +120,7 @@ const EquipCard = ({
       <Grid container spacing={1}>
         <Grid size={12}>
           <Autocomplete
-            value={action.data.equipList[mainIndex].setId}
+            value={modalPipe.data.equipList[mainIndex].setId}
             options={setOptions()}
             getOptionLabel={(id) => setData[id]?.name || ""}
             onChange={(_, newValue) => handleSet(newValue)}
@@ -160,7 +160,7 @@ const EquipCard = ({
 
         <Grid size={12}>
           <Autocomplete
-            value={action.data.equipList[mainIndex].key}
+            value={modalPipe.data.equipList[mainIndex].key}
             options={MAINSTAT_OPTIONS[mainIndex]}
             getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
@@ -170,7 +170,7 @@ const EquipCard = ({
                 label="Mainstat"
               />
             )}
-            disabled={!action.data.equipList[mainIndex].setId}
+            disabled={!modalPipe.data.equipList[mainIndex].setId}
           />
         </Grid>
 
@@ -183,7 +183,7 @@ const EquipCard = ({
             {/* Substat Key Dropdown */}
             <Grid size={9}>
               <Autocomplete
-                value={action.data.equipList[mainIndex].statMap[subIndex].key}
+                value={modalPipe.data.equipList[mainIndex].statMap[subIndex].key}
                 options={substatOptions(subIndex)}
                 getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
@@ -193,30 +193,30 @@ const EquipCard = ({
                     label={"Substat"}
                   />
                 )}
-                disabled={!action.data.equipList[mainIndex].key}
+                disabled={!modalPipe.data.equipList[mainIndex].key}
               />
             </Grid>
 
             {/* Substat Value Input */}
             <Grid size={3}>
               <TextField
-                value={action.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
+                value={modalPipe.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (STAT_INDEX[action.data.equipList[mainIndex].statMap[subIndex].key]?.valueSub * (gameId === "ww" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (STAT_INDEX[modalPipe.data.equipList[mainIndex].statMap[subIndex].key]?.valueSub * (gameId === "ww" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, "value");
                   }
                 }}
                 slotProps={{
                   input: {
-                    endAdornment: STAT_INDEX[action?.data.equipList[mainIndex].statMap[subIndex].key]?.percent && (
+                    endAdornment: STAT_INDEX[modalPipe?.data.equipList[mainIndex].statMap[subIndex].key]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },
                 }}
-                disabled={!action.data.equipList[mainIndex].statMap[subIndex].key}
+                disabled={!modalPipe.data.equipList[mainIndex].statMap[subIndex].key}
               />
             </Grid>
           </React.Fragment>

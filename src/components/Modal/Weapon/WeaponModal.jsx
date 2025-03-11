@@ -14,8 +14,8 @@ import PreviewWeapon from "./PreviewWeapon";
 
 const WeaponModal = ({
   gameId,
-  action,
-  setAction,
+  modalPipe,
+  setModalPipe,
   saveAction,
 }) => {
   const { generalData, avatarData, weaponData } = getData[gameId];
@@ -24,9 +24,9 @@ const WeaponModal = ({
 
   const weapOptions = () => {
     return Object.keys(weaponData)
-      .filter(id => weaponData[id].type === avatarData[action.id].type)
+      .filter(id => weaponData[id].type === avatarData[modalPipe.id].type)
       .sort((a, b) => {
-        const sig = avatarData[action.id]?.sig;
+        const sig = avatarData[modalPipe.id]?.sig;
         if (a === sig) return -1;
         if (b === sig) return 1;
         const rarityA = weaponData[a].rarity;
@@ -38,7 +38,7 @@ const WeaponModal = ({
   };
 
   const handleWeaponId = (newValue) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -50,7 +50,7 @@ const WeaponModal = ({
   };
 
   const handleWeaponLevel = (newValue) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -60,7 +60,7 @@ const WeaponModal = ({
   };
 
   const handleWeaponRank = (newValue) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -71,8 +71,8 @@ const WeaponModal = ({
 
   const handleSave = async () => {
     setIsLoading(true);
-    await saveAction(action.id, action.data);
-    setAction({});
+    await saveAction(modalPipe.id, modalPipe.data);
+    setModalPipe({});
   };
 
   return (
@@ -80,7 +80,7 @@ const WeaponModal = ({
       <Grid container spacing={2} width={700}>
         <Grid size="grow">
           <Autocomplete
-            value={action.data.weaponId}
+            value={modalPipe.data.weaponId}
             options={weapOptions()}
             getOptionLabel={(option) => weaponData[option]?.name || ""}
             onChange={(_, newValue) => handleWeaponId(newValue)}
@@ -105,7 +105,7 @@ const WeaponModal = ({
                     sx={{ width: 25, height: 25, objectFit: "contain" }}
                   />
                   {weaponData[option]?.name}
-                  {option === avatarData[action.id]?.sig && (
+                  {option === avatarData[modalPipe.id]?.sig && (
                     <Typography sx={{ color: "text.disabled", ml: 1 }}>(signature)</Typography>
                   )}
                 </Box>
@@ -122,7 +122,7 @@ const WeaponModal = ({
 
         <Grid size="auto">
           <Autocomplete
-            value={action?.data.weaponLevel}
+            value={modalPipe?.data.weaponLevel}
             options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10).toString())}
             getOptionLabel={(id) => id.toString() || ""}
             onChange={(_, newValue) => {
@@ -134,13 +134,13 @@ const WeaponModal = ({
                 label="Level"
               />
             )}
-            disabled={!action.data.weaponId}
+            disabled={!modalPipe.data.weaponId}
           />
         </Grid>
 
         <Grid size="auto">
           <Autocomplete
-            value={action.data.weaponRank}
+            value={modalPipe.data.weaponRank}
             options={[1, 2, 3, 4, 5]}
             getOptionLabel={(opt) => `${generalData.WEAPON_RANK_PREFIX}${opt}`}
             onChange={(_, newValue) => {
@@ -152,14 +152,14 @@ const WeaponModal = ({
                 label={generalData.WEAPON_RANK}
               />
             )}
-            disabled={!action.data.weaponId}
+            disabled={!modalPipe.data.weaponId}
           />
         </Grid>
 
         <Grid size={12}>
           <PreviewWeapon
             gameId={gameId}
-            action={action}
+            modalPipe={modalPipe}
           />
         </Grid>
       </Grid>

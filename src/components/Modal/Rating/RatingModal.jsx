@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Typography } from "@mui/material";
 import getData from "../../getData";
 
-const RatingModal = ({ gameId, action }) => {
+const RatingModal = ({ gameId, modalPipe }) => {
   const { generalData } = getData[gameId];
 
   return (
@@ -13,7 +13,7 @@ const RatingModal = ({ gameId, action }) => {
       
       {generalData.SECTIONS.map((section, index) => (
         <Typography key={index} variant="body2">
-          {`${section} Score: ${Math.round(action.rating.parts[index])}`}
+          {`${section} Score: ${Math.round(modalPipe.rating.parts[index])}`}
         </Typography>
       ))}
     </Stack>

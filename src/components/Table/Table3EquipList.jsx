@@ -7,7 +7,7 @@ import getSetBonuses from "../getSetBonuses";
 
 const Table3EquipList = ({
   gameId,
-  setAction,
+  setModalPipe,
   id,
   data,
 }) => {
@@ -16,7 +16,7 @@ const Table3EquipList = ({
   const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
   
   const openModal = () => {
-    setAction({
+    setModalPipe({
       type: "equip",
       id,
       data,

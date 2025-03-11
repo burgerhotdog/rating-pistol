@@ -6,14 +6,14 @@ import getIcons from "../getIcons";
 
 const Table2Weapon = ({
   gameId,
-  setAction,
+  setModalPipe,
   id,
   data,
 }) => {
   const { generalData } = getData[gameId];
   const { weaponIcons } = getIcons[gameId];
   const openModal = () => {
-    setAction({
+    setModalPipe({
       type: "weapon",
       id,
       data,

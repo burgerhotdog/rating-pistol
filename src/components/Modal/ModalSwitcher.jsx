@@ -7,11 +7,11 @@ import LoadModal from "./Load/LoadModal";
 import RatingModal from "./Rating/RatingModal";
 import WeaponModal from "./Weapon/WeaponModal";
 
-const Action = ({
+const ModalSwitcher = ({
   gameId,
   userId,
-  action,
-  setAction,
+  modalPipe,
+  setModalPipe,
   localDocs,
   setLocalDocs,
 }) => {
@@ -30,11 +30,11 @@ const Action = ({
   };
 
   const closeAction = () => {
-    setAction({});
+    setModalPipe({});
   };
 
   let modalContent = null;
-  switch (action.type) {
+  switch (modalPipe.type) {
     case "add":
       modalContent = (
         <AddModal
@@ -50,8 +50,8 @@ const Action = ({
       modalContent = (
         <AvatarModal
           gameId={gameId}
-          action={action}
-          setAction={setAction}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
           saveAction={saveAction}
         />
       );
@@ -61,8 +61,8 @@ const Action = ({
       modalContent = (
         <EquipModal
           gameId={gameId}
-          action={action}
-          setAction={setAction}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
           saveAction={saveAction}
         />
       );
@@ -73,7 +73,7 @@ const Action = ({
         <LoadModal
           gameId={gameId}
           userId={userId}
-          setAction={setAction}
+          setModalPipe={setModalPipe}
           setLocalDocs={setLocalDocs}
           saveAction={saveAction}
           closeAction={closeAction}
@@ -85,7 +85,7 @@ const Action = ({
       modalContent = (
         <RatingModal
           gameId={gameId}
-          action={action}
+          modalPipe={modalPipe}
         />
       );
       break;
@@ -94,8 +94,8 @@ const Action = ({
       modalContent = (
         <WeaponModal
           gameId={gameId}
-          action={action}
-          setAction={setAction}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
           saveAction={saveAction}
         />
       );
@@ -103,7 +103,7 @@ const Action = ({
   }
 
   return (
-    <Modal open={Boolean(action.type)} onClose={closeAction}>
+    <Modal open={Boolean(modalPipe.type)} onClose={closeAction}>
       <Box sx={theme.customStyles.modal}>
         {modalContent}
       </Box>
@@ -111,4 +111,4 @@ const Action = ({
   );
 };
 
-export default Action;
+export default ModalSwitcher;

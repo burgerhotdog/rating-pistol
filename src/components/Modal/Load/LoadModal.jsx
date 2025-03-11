@@ -18,8 +18,6 @@ import translate from "./translate";
 const LoadModal = ({
   gameId,
   userId,
-  setAction,
-  setLocalDocs,
   saveAction,
   closeAction,
 }) => {

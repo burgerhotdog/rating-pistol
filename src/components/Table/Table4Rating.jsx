@@ -7,7 +7,7 @@ import letterIcons from "../../assets/icons";
 
 const Table4Rating = ({
   gameId,
-  setAction,
+  setModalPipe,
   id,
   data,
   rating,
@@ -15,7 +15,7 @@ const Table4Rating = ({
   const { generalData } = getData[gameId];
 
   const openModal = () => {
-    setAction({
+    setModalPipe({
       type: "rating",
       id,
       data,
