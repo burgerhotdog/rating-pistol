@@ -256,9 +256,7 @@ const LoadModal = ({
           return { id, data };
         });
 
-    for (const char of charBuffer) {
-      await saveAction(char.id, char.data);
-    }
+    await Promise.all(charBuffer.map(char => saveAction(char.id, char.data)));
 
     closeAction({});
   };
