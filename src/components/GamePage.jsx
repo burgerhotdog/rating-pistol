@@ -203,7 +203,7 @@ const GamePage = ({ gameId, userId }) => {
             onClick={handleLoad}
             variant="contained"
             endIcon={<KeyboardArrowRight />}
-            disabled={gameId === "ww" || gameId === "zzz"}
+            disabled={gameId === "ww"}
           >
             Load from UID
           </Button>
