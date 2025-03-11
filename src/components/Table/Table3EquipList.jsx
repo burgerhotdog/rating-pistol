@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Tooltip, Stack, Box, Typography } from "@mui/material";
+import { Tooltip, Badge, Avatar, Stack, Box, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
@@ -36,24 +36,23 @@ const Table3EquipList = ({
 
   return (
     <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
-      <Stack
-        onClick={openModal}
-        direction="row"
-        justifyContent="center"
-        spacing={1}
-        sx={{ cursor: "pointer" }}
-      >
+      <Stack direction="row" display="inline-flex" spacing={1}>
         {sortedSetBonuses.map(([setId, numBonus]) => (
-          <Stack key={setId} direction="row" alignItems="end">
-            <Box
-              component="img"
-              src={setIcons[`./${setId}.webp`]?.default}
+          <Badge
+            key={setId}
+            onClick={openModal}
+            overlap="circular"
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+            badgeContent={`x${numBonus}`}
+            cursor="pointer"
+            sx={{ cursor: "pointer" }}
+          >
+            <Avatar
+              variant="square"
               alt={setId}
-              sx={{ width: 50, height: 50, objectFit: "contain" }}
+              src={setIcons[`./${setId}.webp`]?.default}
             />
-            
-            <Typography>{`x${numBonus}`}</Typography>
-          </Stack>
+          </Badge>
         ))}
       </Stack>
     </Tooltip>

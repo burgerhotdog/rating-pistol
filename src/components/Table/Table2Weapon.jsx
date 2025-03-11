@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack, Tooltip } from "@mui/material";
+import { Avatar, Badge, Box, Stack, Tooltip } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
@@ -30,13 +30,19 @@ const Table2Weapon = ({
 
   return (
     <Tooltip title={`Edit ${generalData.SECTIONS[1]}`} arrow>
-      <Box
-        component="img"
+      <Badge
         onClick={openModal}
-        src={weaponIcons[`./${data.weaponId}.webp`]?.default}
-        alt={data.weaponId}
-        sx={{ width: 50, height: 50, objectFit: "contain", cursor: "pointer" }}
-      />
+        overlap="circular"
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        badgeContent={`${generalData.WEAPON_RANK_PREFIX}${data.weaponRank}`}
+        sx={{ cursor: "pointer" }}
+      >
+        <Avatar
+          variant="square"
+          alt={data.weaponId}
+          src={weaponIcons[`./${data.weaponId}.webp`]?.default}
+        />
+      </Badge>
     </Tooltip>
   );
 };

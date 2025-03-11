@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Box, Stack, Tooltip, Typography } from "@mui/material";
+import { Badge, Avatar, Box, Stack, Tooltip, Typography } from "@mui/material";
 import { ErrorOutline } from '@mui/icons-material';
 import getData from "../getData";
 import getLetter from "../getLetter";
@@ -48,13 +48,14 @@ const Table4Rating = ({
 
   return (
     <Tooltip title="See Details" arrow>
-      <Box
-        component="img"
-        onClick={openModal}
-        src={letterSrc}
-        alt={rating.final}
-        sx={{ width: 40, height: 40, objectFit: "contain" }}
-      />
+      <Badge>
+        <Avatar
+          onClick={openModal}
+          alt={rating.final}
+          src={letterSrc}
+          sx={{ cursor: "pointer" }}
+        />
+      </Badge>
     </Tooltip>
   );
 };

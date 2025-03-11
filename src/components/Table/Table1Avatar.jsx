@@ -1,5 +1,5 @@
 import React from "react";
-import { Tooltip, Stack, Box, Typography } from "@mui/material";
+import { Avatar, Badge, Tooltip, Stack, Box, Typography } from "@mui/material";
 import getData from "../getData";
 import getIcons from "../getIcons";
 
@@ -29,12 +29,17 @@ const Table1Avatar = ({
         spacing={1}
         sx={{ cursor: "pointer", display: "inline-flex" }}
       >
-        <Box
-          component="img"
-          src={avatarIcons[`./${id}.webp`]?.default}
-          alt={id}
-          sx={{ width: 50, height: 50, objectFit: "contain" }}
-        />
+        <Badge
+          overlap="circular"
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          badgeContent={`${generalData.RANK_PREFIX}${data.rank}`}
+        >
+          <Avatar
+            variant="square"
+            alt={avatarData[id].name}
+            src={avatarIcons[`./${id}.webp`]?.default}
+          />
+        </Badge>
         
         <Typography variant="body2" sx={{ textAlign: "left" }}>
           {avatarData[id].name}
