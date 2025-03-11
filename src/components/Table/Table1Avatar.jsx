@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Badge, Tooltip, Stack, Box, Typography } from "@mui/material";
+import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
 import getData from "../getData";
 import getIcons from "../getIcons";
 
@@ -10,6 +10,7 @@ const Table1Avatar = ({
   data,
 }) => {
   const { generalData, avatarData } = getData[gameId];
+  const { SECTIONS, RANK_PREFIX } = generalData;
   const { avatarIcons } = getIcons[gameId];
   
   const openModal = () => {
@@ -21,7 +22,7 @@ const Table1Avatar = ({
   };
 
   return (
-    <Tooltip title={`Edit ${generalData.SECTIONS[0]}`} arrow>
+    <Tooltip title={`Edit ${SECTIONS[0]}`} arrow>
       <Stack
         onClick={openModal}
         display="inline-flex"
@@ -30,12 +31,11 @@ const Table1Avatar = ({
         spacing={1}
       >
         <Badge
-          overlap="circular"
-          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-          badgeContent={`${generalData.RANK_PREFIX}${data.rank}`}
+          badgeContent={
+            <strong>{RANK_PREFIX}{data.rank}</strong>
+          }
         >
           <Avatar
-            variant="square"
             alt={avatarData[id].name}
             src={avatarIcons[`./${id}.webp`]?.default}
           />

@@ -28,7 +28,13 @@ const Table0Star = ({
   }
 
   if (data.isStar) {
-    return <Star onClick={toggleStar} cursor="pointer" color="gold" />;
+    return (
+      <Star
+        onClick={toggleStar}
+        cursor="pointer"
+        color="gold"
+      />
+    );
   }
 
   return (

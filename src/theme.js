@@ -64,10 +64,19 @@ const theme = createTheme({
       },
     },
     MuiBadge: {
+      defaultProps: {
+        overlap: "circular",
+        anchorOrigin: { vertical: "bottom", horizontal: "right" },
+      },
       styleOverrides: {
         root: {
           cursor: "pointer",
         },
+      },
+    },
+    MuiAvatar: {
+      defaultProps: {
+        variant: "square",
       },
     },
   },

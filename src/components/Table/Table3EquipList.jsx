@@ -13,6 +13,7 @@ const Table3EquipList = ({
   data,
 }) => {
   const { generalData } = getData[gameId];
+  const { SECTIONS } = generalData;
   const { setIcons } = getIcons[gameId];
   
   const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
@@ -28,25 +29,24 @@ const Table3EquipList = ({
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <Tooltip title={`Add ${generalData.SECTIONS[2]}`} arrow>
+      <Tooltip title={`Add ${SECTIONS[2]}`} arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
+    <Tooltip title={`Edit ${SECTIONS[2]}`} arrow>
       <Stack display="inline-flex" direction="row" spacing={1}>
         {sortedSetBonuses.map(([setId, numBonus]) => (
           <Badge
             key={setId}
             onClick={openModal}
-            overlap="circular"
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            badgeContent={`x${numBonus}`}
+            badgeContent={
+              <strong>x{numBonus}</strong>
+            }
           >
             <Avatar
-              variant="square"
               alt={setId}
               src={setIcons[`./${setId}.webp`]?.default}
             />

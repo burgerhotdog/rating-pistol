@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Badge, Box, Stack, Tooltip } from "@mui/material";
+import { Badge, Avatar, Tooltip } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
@@ -11,7 +11,9 @@ const Table2Weapon = ({
   data,
 }) => {
   const { generalData } = getData[gameId];
+  const { SECTIONS, WEAPON_RANK_PREFIX } = generalData;
   const { weaponIcons } = getIcons[gameId];
+
   const openModal = () => {
     setModalPipe({
       type: "weapon",
@@ -22,22 +24,21 @@ const Table2Weapon = ({
   
   if (!data.weaponId) {
     return (
-      <Tooltip title={`Add ${generalData.SECTIONS[1]}`} arrow>
+      <Tooltip title={`Add ${SECTIONS[1]}`} arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title={`Edit ${generalData.SECTIONS[1]}`} arrow>
+    <Tooltip title={`Edit ${SECTIONS[1]}`} arrow>
       <Badge
         onClick={openModal}
-        overlap="circular"
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-        badgeContent={`${generalData.WEAPON_RANK_PREFIX}${data.weaponRank}`}
+        badgeContent={
+          <strong>{WEAPON_RANK_PREFIX}{data.weaponRank}</strong>
+        }
       >
         <Avatar
-          variant="square"
           alt={data.weaponId}
           src={weaponIcons[`./${data.weaponId}.webp`]?.default}
         />

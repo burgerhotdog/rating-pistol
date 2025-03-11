@@ -13,9 +13,22 @@ const Table4Rating = ({
   rating,
 }) => {
   const { generalData } = getData[gameId];
+  const { SECTIONS } = generalData;
 
   const letter = useMemo(() => getLetter(rating.combined), [rating.combined]);
   const letterSrc = letterIcons[`./letter_${letter}.webp`]?.default;
+
+  const missingSections = useMemo(() => (
+    <Stack>
+      {rating.parts.map((part, index) => 
+        part === -1 ? (
+          <Typography key={index} variant="tooltip" >
+            {`Missing ${SECTIONS[index]}`}
+          </Typography>
+        ) : null
+      )}
+    </Stack>
+  ), [rating.parts]);
 
   const openModal = () => {
     setModalPipe({
@@ -25,18 +38,6 @@ const Table4Rating = ({
       rating,
     });
   };
-
-  const missingSections = useMemo(() => (
-    <Stack>
-      {rating.parts.map((part, index) => 
-        part === -1 ? (
-          <Typography variant="tooltip" key={index}>
-            {`Missing ${generalData.SECTIONS[index]}`}
-          </Typography>
-        ) : null
-      )}
-    </Stack>
-  ), [rating.parts]);
 
   if (rating.combined === -1) {
     return (
@@ -49,10 +50,7 @@ const Table4Rating = ({
   return (
     <Tooltip title="See Details" arrow>
       <Badge onClick={openModal}>
-        <Avatar
-          alt={rating.final}
-          src={letterSrc}
-        />
+        <Avatar alt={rating.final} src={letterSrc} />
       </Badge>
     </Tooltip>
   );
