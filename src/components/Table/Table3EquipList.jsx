@@ -37,11 +37,16 @@ const Table3EquipList = ({
 
   return (
     <Tooltip title={`Edit ${SECTIONS[2]}`} arrow>
-      <Stack display="inline-flex" direction="row" spacing={1}>
+      <Stack
+        onClick={openModal}
+        display="inline-flex"
+        direction="row"
+        spacing={1}
+        sx={{ cursor: "pointer" }}
+      >
         {sortedSetBonuses.map(([setId, numBonus]) => (
           <Badge
             key={setId}
-            onClick={openModal}
             badgeContent={
               <strong>x{numBonus}</strong>
             }

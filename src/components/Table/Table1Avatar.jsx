@@ -29,6 +29,7 @@ const Table1Avatar = ({
         direction="row"
         alignItems="center"
         spacing={1}
+        sx={{ cursor: "pointer" }}
       >
         <Badge
           badgeContent={
@@ -41,7 +42,10 @@ const Table1Avatar = ({
           />
         </Badge>
         
-        <Typography variant="body2">
+        <Typography
+          onClick={openModal}
+          variant="body2"
+        >
           {avatarData[id].name}
         </Typography>
       </Stack>

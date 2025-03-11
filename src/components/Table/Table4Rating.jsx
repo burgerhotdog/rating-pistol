@@ -49,9 +49,15 @@ const Table4Rating = ({
 
   return (
     <Tooltip title="See Details" arrow>
-      <Badge onClick={openModal}>
-        <Avatar alt={rating.final} src={letterSrc} />
-      </Badge>
+      <Stack display="inline-flex">
+        <Badge onClick={openModal}>
+          <Avatar
+            alt={rating.final}
+            src={letterSrc}
+            sx={{ width: 32, height: 32 }}
+          />
+        </Badge>
+      </Stack>
     </Tooltip>
   );
 };
