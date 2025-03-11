@@ -1,4 +1,6 @@
 import React from "react";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 import { Modal, Box, useTheme } from "@mui/material";
 import AddModal from "./Add/AddModal";
 import AvatarModal from "./Avatar/AvatarModal";

@@ -257,7 +257,7 @@ const LoadModal = ({
         });
 
     for (const char of charBuffer) {
-      saveAction(char.id, char.data);
+      await saveAction(char.id, char.data);
     }
 
     closeAction({});
