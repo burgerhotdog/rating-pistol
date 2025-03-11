@@ -251,7 +251,7 @@ const LoadModal = ({
           data.skillMap.ult = skillsArr[3].Level;
           data.skillMap.dodge = skillsArr[2].Level;
           data.skillMap.assist = skillsArr[5].Level;
-          data.skillMap.core = skillsArr[4].Level - 1;
+          data.skillMap.core = skillsArr[4].Level;
 
           return { id, data };
         });

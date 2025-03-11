@@ -125,7 +125,7 @@ const calculatePoints = (statsObj, weights, basestats, STAT_INDEX) => {
   return points;
 };
 
-const rateEquipList = (gameId, id, data) => {
+const rateEquips = (gameId, id, data) => {
   const { equipData, avatarData, weaponData } = getData[gameId];
   const { STAT_INDEX } = equipData;
   if (!data.equipList) return -1;
@@ -150,4 +150,4 @@ const rateEquipList = (gameId, id, data) => {
   return (points / sim_points) * 100;
 };
 
-export default rateEquipList;
+export default rateEquips;

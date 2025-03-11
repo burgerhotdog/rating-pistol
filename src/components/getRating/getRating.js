@@ -1,22 +1,19 @@
-import rateAvatar from "./rateAvatar";
-import rateWeapon from "./rateWeapon";
-import rateEquipList from "./rateEquipList";
-import rateSkillMap from "./rateSkillMap";
+import rateLevels from "./rateLevels";
+import rateSkills from "./rateSkills";
+import rateEquips from "./rateEquips";
 
 const getRating = (gameId, id, data) => {
-  const avatar = rateAvatar(gameId, data);
-  const weapon = rateWeapon(gameId, data);
-  const equipList = rateEquipList(gameId, id, data);
-  const skillMap = rateSkillMap(gameId, id, data);
+  const levels = rateLevels(gameId, data);
+  const skills = rateSkills(gameId, data);
+  const equips = rateEquips(gameId, id, data);
 
-  const combined = [avatar, weapon, equipList, skillMap].includes(-1)
+  const combined = [levels, skills, equips].includes(-1)
     ? -1
-    : 0.2 * avatar +
-      0.2 * weapon +
-      0.3 * equipList +
-      0.3 * skillMap;
+    : 0.4 * levels +
+      0.3 * skills +
+      0.3 * equips;
 
-  const parts = [avatar, weapon, equipList, skillMap];
+  const parts = [levels, skills, equips];
 
   return { combined, parts };
 };
