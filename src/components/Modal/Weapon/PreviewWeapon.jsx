@@ -9,12 +9,17 @@ import getData from "../../getData"
 import getIcons from "../../getIcons";
 import getWeaponDesc from "./getWeaponDesc";
 
-const PreviewWeapon = ({ gameId, action }) => {
+const PreviewWeapon = ({ gameId, modalPipe }) => {
   const { generalData, equipData, weaponData } = getData[gameId];
   const { weaponIcons } = getIcons[gameId];
 
-  const weaponId = action.data.weaponId;
+  const weaponId = modalPipe.data.weaponId;
   const weapon = weaponData?.[weaponId];
+
+  const weaponDesc = useMemo(() => getWeaponDesc(weapon, modalPipe.data.rank), [
+    weapon,
+    modalPipe.data.rank,
+  ]);
 
   if (!weapon) {
     return (
@@ -27,11 +32,6 @@ const PreviewWeapon = ({ gameId, action }) => {
       </Card>
     );
   }
-
-  const weaponDesc = useMemo(() => getWeaponDesc(weapon, action.data.rank), [
-    weapon,
-    action.data.rank,
-  ]);
 
   return (
     <Card sx={{ p: 2 }}>

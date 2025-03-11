@@ -4,19 +4,22 @@ import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
 import getSetBonuses from "../getSetBonuses";
+import sortSetBonuses from "../sortSetBonuses";
 
 const Table3EquipList = ({
   gameId,
-  setAction,
+  setModalPipe,
   id,
   data,
 }) => {
   const { generalData } = getData[gameId];
   const { setIcons } = getIcons[gameId];
-  const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
   
+  const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
+  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
+
   const openModal = () => {
-    setAction({
+    setModalPipe({
       type: "equip",
       id,
       data,
@@ -40,7 +43,7 @@ const Table3EquipList = ({
         spacing={1}
         sx={{ cursor: "pointer" }}
       >
-        {Object.entries(setBonuses).map(([setId, numBonus]) => (
+        {sortedSetBonuses.map(([setId, numBonus]) => (
           <Stack key={setId} direction="row" alignItems="end">
             <Box
               component="img"

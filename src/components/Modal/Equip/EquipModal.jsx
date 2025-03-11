@@ -22,8 +22,8 @@ import getIcons from "../../getIcons";
 
 const EquipModal = ({
   gameId,
-  action,
-  setAction,
+  modalPipe,
+  setModalPipe,
   saveAction,
 }) => {
   const { equipData } = getData[gameId];
@@ -33,8 +33,8 @@ const EquipModal = ({
 
   const handleSave = async () => {
     setIsLoading(true);
-    await saveAction(action.id, action.data);
-    setAction({});
+    await saveAction(modalPipe.id, modalPipe.data);
+    setModalPipe({});
   };
 
   return (
@@ -59,8 +59,8 @@ const EquipModal = ({
 
             <EquipCard
               gameId={gameId}
-              action={action}
-              setAction={setAction}
+              modalPipe={modalPipe}
+              setModalPipe={setModalPipe}
               mainIndex={viewIndex}
             />
           </Stack>
@@ -71,7 +71,7 @@ const EquipModal = ({
         <Grid size={12}>
           <PreviewSet
             gameId={gameId}
-            action={action}
+            modalPipe={modalPipe}
           />
         </Grid>
       </Grid>

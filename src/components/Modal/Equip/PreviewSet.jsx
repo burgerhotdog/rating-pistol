@@ -9,11 +9,14 @@ import {
 import getData from "../../getData"
 import getIcons from "../../getIcons";
 import getSetBonuses from "../../getSetBonuses";
+import sortSetBonuses from "../../sortSetBonuses";
 
-const PreviewSet = ({ gameId, action }) => {
+const PreviewSet = ({ gameId, modalPipe }) => {
   const { setData } = getData[gameId];
   const { setIcons } = getIcons[gameId];
-  const setBonuses = useMemo(() => getSetBonuses(gameId, action.data.equipList), [action.data.equipList]);
+
+  const setBonuses = useMemo(() => getSetBonuses(gameId, modalPipe.data.equipList), [modalPipe.data.equipList]);
+  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
 
   if (!Object.keys(setBonuses).length) {
     return (
@@ -30,7 +33,7 @@ const PreviewSet = ({ gameId, action }) => {
   return (
     <Card sx={{ p: 2 }}>
       <Grid container spacing={1}>
-        {Object.entries(setBonuses).map(([setId, numPc]) => (
+        {sortedSetBonuses.map(([setId, numPc]) => (
           <Grid key={setId} size="grow" sx={{ minHeight: 150 }}>
             <Stack direction="row" spacing={1}>
               <Box

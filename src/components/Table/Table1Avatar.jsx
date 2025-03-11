@@ -5,7 +5,7 @@ import getIcons from "../getIcons";
 
 const Table1Avatar = ({
   gameId,
-  setAction,
+  setModalPipe,
   id,
   data,
 }) => {
@@ -13,7 +13,7 @@ const Table1Avatar = ({
   const { avatarIcons } = getIcons[gameId];
   
   const openModal = () => {
-    setAction({
+    setModalPipe({
       type: "avatar",
       id,
       data,

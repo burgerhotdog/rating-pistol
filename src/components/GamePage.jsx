@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import Action from "./Modal/Action";
+import ModalSwitcher from "./Modal/ModalSwitcher";
 import getRating from "./getRating/getRating";
 import Table0Star from "./Table/Table0Star";
 import Table1Avatar from "./Table/Table1Avatar";
@@ -31,7 +31,7 @@ const GamePage = ({ gameId, userId }) => {
   const [localDocs, setLocalDocs] = useState({});
   const [sortedDocs, setSortedDocs] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
-  const [action, setAction] = useState({});
+  const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   // get localDocs from firestore
@@ -76,14 +76,14 @@ const GamePage = ({ gameId, userId }) => {
   }, [localDocs]);
 
   const handleAdd = () => {
-    setAction({
+    setModalPipe({
       type: "add",
       id: null,
     });
   };
 
   const handleLoad = () => {
-    setAction({
+    setModalPipe({
       type: "load",
     });
   };
@@ -140,7 +140,7 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell>
                       <Table1Avatar
                         gameId={gameId}
-                        setAction={setAction}
+                        setModalPipe={setModalPipe}
                         id={id}
                         data={data}
                       />
@@ -149,7 +149,7 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell align="center">
                       <Table2Weapon
                         gameId={gameId}
-                        setAction={setAction}
+                        setModalPipe={setModalPipe}
                         id={id}
                         data={data}
                       />
@@ -158,7 +158,7 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell align="center">
                       <Table3EquipList
                         gameId={gameId}
-                        setAction={setAction}
+                        setModalPipe={setModalPipe}
                         id={id}
                         data={data}
                       />
@@ -167,7 +167,7 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell align="center">
                       <Table4Rating
                         gameId={gameId}
-                        setAction={setAction}
+                        setModalPipe={setModalPipe}
                         id={id}
                         data={data}
                         rating={rating}
@@ -203,17 +203,17 @@ const GamePage = ({ gameId, userId }) => {
             onClick={handleLoad}
             variant="contained"
             endIcon={<KeyboardArrowRight />}
-            disabled={gameId === "ww" || gameId === "zzz"}
+            disabled={gameId === "ww"}
           >
             Load from UID
           </Button>
         </Stack>
 
-        <Action
+        <ModalSwitcher
           gameId={gameId}
           userId={userId}
-          action={action}
-          setAction={setAction}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
           localDocs={localDocs}
           setLocalDocs={setLocalDocs}
         />

@@ -14,15 +14,15 @@ import getData from "../../getData";
 
 const AvatarModal = ({
   gameId,
-  action,
-  setAction,
+  modalPipe,
+  setModalPipe,
   saveAction,
 }) => {
   const { generalData } = getData[gameId];
   const [isLoading, setIsLoading] = useState(false);
   
   const handleLevel = (newValue) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -32,7 +32,7 @@ const AvatarModal = ({
   };
 
   const handleRank = (newValue) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -42,7 +42,7 @@ const AvatarModal = ({
   };
 
   const handleSkill = (newValue, skillKey) => {
-    setAction((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -56,8 +56,8 @@ const AvatarModal = ({
 
   const handleSave = async () => {
     setIsLoading(true);
-    await saveAction(action.id, action.data);
-    setAction({});
+    await saveAction(modalPipe.id, modalPipe.data);
+    setModalPipe({});
   };
 
   return (
@@ -65,7 +65,7 @@ const AvatarModal = ({
       <Stack spacing={2}>
         <Stack direction="row" spacing={2}>
           <Autocomplete
-            value={action.data.level}
+            value={modalPipe.data.level}
             options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (i * 10 + 10))}
             getOptionLabel={(id) => String(id)}
             onChange={(_, newValue) => {
@@ -81,7 +81,7 @@ const AvatarModal = ({
           />
 
           <Autocomplete
-            value={action?.data?.rank}
+            value={modalPipe.data.rank}
             options={[0, 1, 2, 3, 4, 5, 6]}
             getOptionLabel={(id) => `${generalData.RANK_PREFIX}${id}`}
             onChange={(_, newValue) => {
@@ -97,7 +97,7 @@ const AvatarModal = ({
           />
         </Stack>
 
-        {Object.entries(action.data.skillMap).map(([skillKey, skillValue]) => (
+        {Object.entries(modalPipe.data.skillMap).map(([skillKey, skillValue]) => (
           <Autocomplete
             key={skillKey}
             value={skillValue}
