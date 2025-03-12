@@ -2326,7 +2326,7 @@ export default {
     descHead: "Archer's Message",
     descBody: "Charged Attack hits on weak points deal an additional {0} ATK DMG as CRIT DMG. Can only occur once every 10s.",
     descVar: [
-      ["100%"],
+      ["100%", "125%", "150%", "175%", "200%"],
     ],
   },
   "15304": {
@@ -2338,7 +2338,7 @@ export default {
     descHead: "Slingshot",
     descBody: "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by {0}. Otherwise, decreases DMG by 10%.",
     descVar: [
-      ["36%"],
+      ["36%", "42%", "48%", "54%", "60%"],
     ],
   },
   "15303": {
@@ -2350,7 +2350,7 @@ export default {
     descHead: "Cull the Weak",
     descBody: "Defeating an opponent restores {0} HP.",
     descVar: [
-      ["8%"],
+      ["8%", "10%", "12%", "14%", "16%"],
     ],
   },
   "15302": {
@@ -2362,7 +2362,7 @@ export default {
     descHead: "Precise",
     descBody: "Increases DMG against weak spots by {0}.",
     descVar: [
-      ["24%"],
+      ["24%", "30%", "36%", "42%", "48%"],
     ],
   },
   "15301": {
@@ -2374,7 +2374,7 @@ export default {
     descHead: "Bane of Flame and Water",
     descBody: "Increases DMG against opponents affected by Hydro or Pyro by {0}.",
     descVar: [
-      ["12%"],
+      ["12%", "15%", "18%", "21%", "24%"],
     ],
   },
   "14305": {
@@ -2386,7 +2386,7 @@ export default {
     descHead: "Guerilla Tactics",
     descBody: "Defeating an opponent increases Movement SPD and ATK by {0} for 15s.",
     descVar: [
-      ["12%"],
+      ["12%", "14%", "16%", "18%", "20%"],
     ],
   },
   "14304": {
@@ -2398,7 +2398,7 @@ export default {
     descHead: "Rapids",
     descBody: "Upon causing a Vaporize, Electro-Charged, Frozen, Bloom, or a Hydro-infused Swirl reaction, increases ATK by {0} for 12s.",
     descVar: [
-      ["20%"],
+      ["20%", "25%", "30%", "35%", "40%"],
     ],
   },
   "14303": {
@@ -2410,7 +2410,7 @@ export default {
     descHead: "Energy Shower",
     descBody: "Picking up an Elemental Energy Orb/Particle recovers {0} HP.",
     descVar: [
-      ["1%"],
+      ["1%", "1.25%", "1.5%", "1.75%", "2%"],
     ],
   },
   "14302": {
@@ -2422,7 +2422,7 @@ export default {
     descHead: "Heritage",
     descBody: "When switching characters, the new character taking the field has their ATK increased by {0} for 10s. This effect can only occur once every 20s.",
     descVar: [
-      ["24%"],
+      ["24%", "30%", "36%", "42%", "48%"],
     ],
   },
   "14301": {
@@ -2434,7 +2434,7 @@ export default {
     descHead: "Bane of Storm and Tide",
     descBody: "Increases DMG against opponents affected by Hydro or Electro by {0}.",
     descVar: [
-      ["12%"],
+      ["12%", "15%", "18%", "21%", "24%"],
     ],
   },
   "13303": {
@@ -2446,7 +2446,7 @@ export default {
     descHead: "Bane of the Soft",
     descBody: "Increases DMG against slimes by {0}.",
     descVar: [
-      ["40%"],
+      ["40%", "50%", "60%", "70%", "80%"],
     ],
   },
   "13302": {
@@ -2458,7 +2458,7 @@ export default {
     descHead: "Heavy",
     descBody: "Normal Attacks deal an additional {0} ATK as DMG. Can only occur once every 10s.",
     descVar: [
-      ["160%"],
+      ["160%", "200%", "240%", "280%", "320%"],
     ],
   },
   "13301": {
@@ -2470,7 +2470,7 @@ export default {
     descHead: "Sharp",
     descBody: "Increases Normal Attack DMG by {0}.",
     descVar: [
-      ["24%"],
+      ["24%", "30%", "36%", "42%", "48%"],
     ],
   },
   "12306": {
@@ -2482,7 +2482,7 @@ export default {
     descHead: "Courage",
     descBody: "On hit, Normal or Charged Attacks increase ATK by {0} for 6s. Max 4 stacks. Can occur once every 0.5s.",
     descVar: [
-      ["6%"],
+      ["6%", "7%", "8%", "9%", "10%"],
     ],
   },
   "12305": {
@@ -2494,7 +2494,7 @@ export default {
     descHead: "Blunt Conclusion",
     descBody: "After using an Elemental Skill, on hit, Normal and Charged Attacks deal additional DMG equal to {0} of ATK in a small AoE. Effect lasts 15s. DMG can only occur once every 3s.",
     descVar: [
-      ["60%"],
+      ["60%", "75%", "90%", "105%", "120%"],
     ],
   },
   "12303": {
@@ -2506,7 +2506,7 @@ export default {
     descHead: "Cull the Weak",
     descBody: "Defeating an opponent restores {0} HP.",
     descVar: [
-      ["8%"],
+      ["8%", "10%", "12%", "14%", "16%"],
     ],
   },
   "12302": {
@@ -2518,7 +2518,7 @@ export default {
     descHead: "Bane of Fire and Thunder",
     descBody: "Increases DMG dealt against opponents affected by Pyro or Electro by {0}.",
     descVar: [
-      ["12%"],
+      ["12%", "15%", "18%", "21%", "24%"],
     ],
   },
   "12301": {
@@ -2530,8 +2530,8 @@ export default {
     descHead: "Unbending",
     descBody: "When HP falls below {0}, increases Charged Attack DMG by {1} and Charged Attacks become harder to interrupt.",
     descVar: [
-      ["70%"],
-      ["30%"],
+      ["70%", "75%", "80%", "85%", "90%"],
+      ["30%", "35%", "40%", "45%", "50%"],
     ],
   },
   "11306": {
@@ -2543,7 +2543,7 @@ export default {
     descHead: "Determination",
     descBody: "Using an Elemental Burst grants a {0} increase in ATK and Movement SPD for 15s.",
     descVar: [
-      ["12%"],
+      ["12%", "15%", "18%", "21%", "24%"],
     ],
   },
   "11305": {
@@ -2555,8 +2555,8 @@ export default {
     descHead: "Gash",
     descBody: "On hit, has a 50% chance to deal {0} ATK DMG to a single opponent. Can only occur once every {1}s.",
     descVar: [
-      ["240%"],
-      ["15"],
+      ["240%", "280%", "320%", "360%", "400%"],
+      ["15", "14", "13", "12", "11"],
     ],
   },
   "11304": {
@@ -2568,7 +2568,7 @@ export default {
     descHead: "Overloaded",
     descBody: "Upon causing an Overloaded, Superconduct, Electro-Charged, Quicken, Aggravate, Hyperbloom, or Electro-infused Swirl reaction, ATK is increased by {0} for 12s.",
     descVar: [
-      ["20%"],
+      ["20%", "25%", "30%", "35%", "40%"],
     ],
   },
   "11303": {
@@ -2580,7 +2580,7 @@ export default {
     descHead: "Journey",
     descBody: "Each Elemental Orb or Particle collected restores {0} HP.",
     descVar: [
-      ["1%"],
+      ["1%", "1.25%", "1.5%", "1.75%", "2%"],
     ],
   },
   "11302": {
@@ -2592,7 +2592,7 @@ export default {
     descHead: "Vigorous",
     descBody: "When HP is above 90%, increases CRIT Rate by {0}.",
     descVar: [
-      ["14%"],
+      ["14%", "17.5%", "21", "24.5%", "28"],
     ],
   },
   "11301": {
@@ -2604,7 +2604,7 @@ export default {
     descHead: "Bane of Water and Ice",
     descBody: "Increases DMG against opponents affected by Hydro or Cryo by {0}.",
     descVar: [
-      ["12%"],
+      ["12%", "15%", "18%", "21%", "24%"],
     ],
   },
 
