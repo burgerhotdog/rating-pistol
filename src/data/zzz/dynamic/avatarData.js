@@ -1,4 +1,43 @@
 export default {
+  // Version 1.6
+  "1381": {
+    name: "Soldier 0 - Anby",
+    rarity: 5,
+    type: "Attack",
+    sig: "14138",
+    statBase: { _HP: 7673, _ATK: 929, _DEF: 612 },
+    weights: {
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+    },
+  },
+  "1361": {
+    name: "Trigger",
+    rarity: 5,
+    type: "Stun",
+    sig: "14136",
+    statBase: { _HP: 7923, _ATK: 750, _DEF: 600 },
+    weights: {
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+    },
+  },
+
+  "1351": {
+    name: "Pulchra",
+    rarity: 4,
+    type: "Stun",
+    sig: "13135",
+    statBase: { _HP: 7612, _ATK: 665, _DEF: 606 },
+    weights: {
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+    },
+  },
+
   // Version 1.5
   "1321": {
     name: "Evelyn",

@@ -1,4 +1,22 @@
 export default {
+  // Version 1.6
+  "33000": {
+    name: "Phaethon's Melody",
+    rarity: 5,
+    desc: {
+      2: "Anomaly Mastery +8%.",
+      4: "When any squad member uses an EX Special Attack, the equipper's Anomaly Proficiency increases by 45 for 8s. If the character using the EX Special Attack is not the equipper, the equipper's Ether DMG is increased by 25%.",
+    },
+  },
+  "32900": {
+    name: "Shadow Harmony",
+    rarity: 5,
+    desc: {
+      2: "The DMG of Aftershocks and Dash Attacks is increased by 15%.",
+      4: "Upon hitting an enemy with an Aftershock or Dash Attack, if the DMG dealt aligns with the equipper's attribute, the equipper gains 1 stack of a buff effect, at most once per use of a skill. For each stack, the equipper's ATK increases by 4%, and CRIT Rate increases by 4%. The effect can stack up to 3 times and lasts for 15s. Repeated triggers reset the duration.",
+    },
+  },
+
   // Version 1.4
   "32800": {
     name: "Astral Voice",

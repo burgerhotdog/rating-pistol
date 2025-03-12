@@ -134,7 +134,7 @@ const LoadModal = ({
           const data = template(gameId);
 
           // avatar
-          data.level = charObj.propMap["4001"].val;
+          data.level = Number(charObj.propMap["4001"].val);
           data.rank = charObj.talentIdList?.length ?? 0;
     
           // weapon
@@ -171,7 +171,7 @@ const LoadModal = ({
           const data = template(gameId);
 
           // avatar
-          data.level = charObj.level;
+          data.level = Number(charObj.level);
           data.rank = charObj.rank ?? 0;
 
           // weapon
@@ -215,7 +215,7 @@ const LoadModal = ({
           const data = template(gameId);
 
           // avatar
-          data.level = charObj.Level;
+          data.level = Number(charObj.Level);
           data.rank = charObj.TalentLevel;
 
           // weapon

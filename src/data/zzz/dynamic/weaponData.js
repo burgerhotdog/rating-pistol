@@ -1,4 +1,48 @@
 export default {
+  // Version 1.6
+  "14138": {
+    name: "Severed Innocence",
+    rarity: 5,
+    type: "Attack",
+    statBase: { _ATK: 713 },
+    statSub: { CD: 48 },
+    descHead: "Tranquil Blossom",
+    descBody: "CRIT DMG is increased by {0}. When the equipper lands a hit with a Basic Attack, Special Attack, or Aftershock, they gain 1 stack of a buff. Each stack increases the equipper's CRIT DMG by an additional {1}, stacking up to 3 times. The effect lasts for 30s, with each stack's duration calculated separately, and can only be triggered once per use of a skill. With all 3 stacks, the equipper's Electric DMG increases by {2}.",
+    descVar: [
+      ["30%"],
+      ["10%"],
+      ["20%"],
+    ],
+  },
+  "14136": {
+    name: "Spectral Gaze",
+    rarity: 5,
+    type: "Stun",
+    statBase: { _ATK: 713 },
+    statSub: { CR: 24 },
+    descHead: "Wind Seeker",
+    descBody: "When the equipper hits an enemy with an Aftershock, causing Electric DMG, the target's DEF is reduced by {0} for 5s. Passive effects of the same name do not stack. When this effect is triggered, if the equipper is not the active character, they gain 1 stack of Spirit Lock, up to a maximum of 3 stacks. This can trigger only once per use of a skill. Each stack of Spirit Lock increases the equipper's Impact by {1}, lasting 12s. The duration of each stack is calculated separately. At full stacks of Spirit Lock, the equipper's Impact increases by an additional {2}.",
+    descVar: [
+      ["25%"],
+      ["4%"],
+      ["8%"],
+    ],
+  },
+
+  "13135": {
+    name: "Box Cutter",
+    rarity: 4,
+    type: "Stun",
+    statBase: { _ATK: 624 },
+    statSub: { Impact: 15 },
+    descHead: "Watch Your Fingers",
+    descBody: "Upon launching an Aftershock, the equipper's Physical DMG increases by {0}, and Daze increases by {1}, lasting 10s.",
+    descVar: [
+      ["15%"],
+      ["10%"],
+    ],
+  },
+
   // Version 1.5
   "14132": {
     name: "Heartstring Nocturne",
