@@ -55,6 +55,7 @@ export default {
       ["20%"],
     ],
   },
+
   "13015": {
     name: "Marcato Desire",
     rarity: 4,
@@ -155,6 +156,7 @@ export default {
       ["20%"],
     ],
   },
+
   "13127": {
     name: "Peacekeeper - Specialized",
     rarity: 4,
@@ -196,20 +198,6 @@ export default {
       ["35%"],
     ],
   },
-  "14119": {
-    name: "Deep Sea Visitor",
-    rarity: 5,
-    type: "Attack",
-    statBase: { _ATK: 713 },
-    statSub: { CR: 24 },
-    descHead: "Lord of Seas",
-    descBody: "Increases Ice DMG by 25%. Upon hitting an enemy with a Basic Attack, the equipper's CRIT Rate increases by 10% for 8s. When dealing Ice DMG with a Dash Attack, the equipper's CRIT Rate increases by an additional 10% for 15s. The duration of each effect is calculated separately.",
-    descVar: [
-      ["25%"],
-      ["10%"],
-      ["10%"],
-    ],
-  },
   "14121": {
     name: "Weeping Cradle",
     rarity: 5,
@@ -223,6 +211,20 @@ export default {
       ["10%"],
       ["1.7%"],
       ["10.2%"],
+    ],
+  },
+  "14119": {
+    name: "Deep Sea Visitor",
+    rarity: 5,
+    type: "Attack",
+    statBase: { _ATK: 713 },
+    statSub: { CR: 24 },
+    descHead: "Lord of Seas",
+    descBody: "Increases Ice DMG by 25%. Upon hitting an enemy with a Basic Attack, the equipper's CRIT Rate increases by 10% for 8s. When dealing Ice DMG with a Dash Attack, the equipper's CRIT Rate increases by an additional 10% for 15s. The duration of each effect is calculated separately.",
+    descVar: [
+      ["25%"],
+      ["10%"],
+      ["10%"],
     ],
   },
   "14118": {
@@ -288,6 +290,7 @@ export default {
       ["25%"],
     ],
   },
+
   "14003": {
     name: "Six Shooter",
     rarity: 4,
@@ -581,6 +584,7 @@ export default {
       ["15%"],
     ],
   },
+
   "12014": {
     name: "[Identity] Inflection",
     rarity: 3,

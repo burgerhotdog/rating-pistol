@@ -343,19 +343,6 @@ export default {
       ["12%"],
     ],
   },
-  "21010016": {
-    name: "Verdant Summit",
-    rarity: 5,
-    type: "Broadblade",
-    statBase: { _ATK: 587 },
-    statSub: { CD: 48.6 },
-    descHead: "Swordsworn",
-    descBody: "Increases Attribute DMG Bonus by 12%. Every time Intro Skill or Resonance Liberation is cast, increases Heavy Attack DMG Bonus by 24%, stacking up to 2 time(s). This effect lasts for 14s.",
-    descVar: [
-      ["12%"],
-      ["24%"],
-    ],
-  },
   "21050015": {
     name: "Cosmic Ripples",
     rarity: 5,
@@ -407,6 +394,19 @@ export default {
     descVar: [
       ["12.8%"],
       ["6%"],
+    ],
+  },
+  "21010016": {
+    name: "Verdant Summit",
+    rarity: 5,
+    type: "Broadblade",
+    statBase: { _ATK: 587 },
+    statSub: { CD: 48.6 },
+    descHead: "Swordsworn",
+    descBody: "Increases Attribute DMG Bonus by 12%. Every time Intro Skill or Resonance Liberation is cast, increases Heavy Attack DMG Bonus by 24%, stacking up to 2 time(s). This effect lasts for 14s.",
+    descVar: [
+      ["12%"],
+      ["24%"],
     ],
   },
   "21010015": {

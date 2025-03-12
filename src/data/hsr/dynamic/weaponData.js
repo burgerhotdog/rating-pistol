@@ -1,5 +1,17 @@
 export default {
   // Version 3.1
+  "24005": {
+    name: "Memory's Curtain Never Falls",
+    rarity: 5,
+    type: "Remembrance",
+    statBase: { _HP: 1058, _ATK: 529, _DEF: 397 },
+    descHead: "Reception",
+    descBody: "Increases the wearer's SPD by 6%. After the wearer uses Skill, increases the DMG dealt by all allies by 8%, lasting for 3 turn(s).",
+    descVar: [
+      ["6%"],
+      ["8%"],
+    ],
+  },
   "23039": {
     name: "Flame of Blood, Blaze My Path",
     rarity: 5,
@@ -25,18 +37,6 @@ export default {
     descVar: [
       ["36%"],
       ["48%"],
-    ],
-  },
-  "24005": {
-    name: "Memory's Curtain Never Falls",
-    rarity: 5,
-    type: "Remembrance",
-    statBase: { _HP: 1058, _ATK: 529, _DEF: 397 },
-    descHead: "Reception",
-    descBody: "Increases the wearer's SPD by 6%. After the wearer uses Skill, increases the DMG dealt by all allies by 8%, lasting for 3 turn(s).",
-    descVar: [
-      ["6%"],
-      ["8%"],
     ],
   },
   
@@ -66,6 +66,7 @@ export default {
       ["9%"],
     ],
   },
+
   "21052": {
     name: "Sweat Now, Cry Less",
     rarity: 4,
@@ -102,6 +103,7 @@ export default {
       ["8%"],
     ],
   },
+
   "20022": {
     name: "Reminiscence",
     rarity: 3,
@@ -165,6 +167,7 @@ export default {
       ["50%"],
     ],
   },
+
   "22003": {
     name: "Ninja Record: Sound Hunt",
     rarity: 4,
@@ -216,6 +219,7 @@ export default {
       ["27%"],
     ],
   },
+
   "21047": {
     name: "Shadowed by Night",
     rarity: 4,
@@ -255,6 +259,7 @@ export default {
       ["14%"],
     ],
   },
+
   "21046": {
     name: "Poised to Bloom",
     rarity: 4,
@@ -269,6 +274,19 @@ export default {
   },
   
   // Version 2.3
+  "24004": {
+    name: "Eternal Calculus",
+    rarity: 5,
+    type: "Erudition",
+    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
+    descHead: "Boundless Thought",
+    descBody: "Increases the wearer's ATK by 8%. After using an attack, for each enemy target hit, additionally increases ATK by 4%. This effect can stack up to 5 times and last until the next attack. If there are 3 or more enemy targets hit, this unit's SPD increases by 8%, lasting for 1 turn(s).",
+    descVar: [
+      ["8%"],
+      ["4%"],
+      ["8%"],
+    ],
+  },
   "23028": {
     name: "Yet Hope Is Priceless",
     rarity: 5,
@@ -294,19 +312,7 @@ export default {
       ["24%"],
     ],
   },
-  "24004": {
-    name: "Eternal Calculus",
-    rarity: 5,
-    type: "Erudition",
-    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
-    descHead: "Boundless Thought",
-    descBody: "Increases the wearer's ATK by 8%. After using an attack, for each enemy target hit, additionally increases ATK by 4%. This effect can stack up to 5 times and last until the next attack. If there are 3 or more enemy targets hit, this unit's SPD increases by 8%, lasting for 1 turn(s).",
-    descVar: [
-      ["8%"],
-      ["4%"],
-      ["8%"],
-    ],
-  },
+
   "21045": {
     name: "After the Charmony Fall",
     rarity: 4,
@@ -347,6 +353,7 @@ export default {
       ["24%"],
     ],
   },
+
   "22002": {
     name: "For Tomorrow's Journey",
     rarity: 4,
@@ -400,6 +407,7 @@ export default {
       ["10%"],
     ],
   },
+
   "21043": {
     name: "Concert for Two",
     rarity: 4,
@@ -440,6 +448,7 @@ export default {
       ["28%"],
     ],
   },
+
   "21042": {
     name: "Indelible Promise",
     rarity: 4,
@@ -591,6 +600,7 @@ export default {
       ["2.4%"],
     ],
   },
+
   "22001": {
     name: "Hey, Over Here",
     rarity: 4,
@@ -633,6 +643,19 @@ export default {
   },
   
   // Version 1.3
+  "24003": {
+    name: "Solitary Healing",
+    rarity: 5,
+    type: "Nihility",
+    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
+    descHead: "Chaos Elixir",
+    descBody: "Increases the wearer's Break Effect by 20%. When the wearer uses their Ultimate, increases DoT dealt by the wearer by 24%, lasting for 2 turn(s). When a target enemy suffering from DoT imposed by the wearer is defeated, regenerates 4 Energy for the wearer.",
+    descVar: [
+      ["20%"],
+      ["24%"],
+      ["4"],
+    ],
+  },
   "23015": {
     name: "Brighter Than the Sun",
     rarity: 5,
@@ -658,19 +681,6 @@ export default {
       ["12%"],
       ["9%"],
       ["80%"],
-    ],
-  },
-  "24003": {
-    name: "Solitary Healing",
-    rarity: 5,
-    type: "Nihility",
-    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
-    descHead: "Chaos Elixir",
-    descBody: "Increases the wearer's Break Effect by 20%. When the wearer uses their Ultimate, increases DoT dealt by the wearer by 24%, lasting for 2 turn(s). When a target enemy suffering from DoT imposed by the wearer is defeated, regenerates 4 Energy for the wearer.",
-    descVar: [
-      ["20%"],
-      ["24%"],
-      ["4"],
     ],
   },
   
@@ -729,6 +739,7 @@ export default {
       ["12%"],
     ],
   },
+
   "22000": {
     name: "Before the Tutorial Mission Starts",
     rarity: 4,
@@ -743,29 +754,41 @@ export default {
   },
   
   // Version 1.0
-  "23010": {
-    name: "Before Dawn",
+  "24002": {
+    name: "Texture of Memories",
     rarity: 5,
-    type: "Erudition",
-    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
-    descHead: "Long Night",
-    descBody: "Increases the wearer's CRIT DMG by 36%. Increases DMG dealt by the wearer's Skill and Ultimate by 18%. After the wearer uses Skill or Ultimate, gains Somnus Corpus. Upon triggering a follow-up attack, consumes Somnus Corpus, and increases DMG dealt by follow-up attack by 48%.",
+    type: "Preservation",
+    statBase: { _HP: 1058, _ATK: 423, _DEF: 529 },
+    descHead: "Treasure",
+    descBody: "Increases the wearer's Effect RES by 8%. If the wearer is attacked and has no Shield, they gain a Shield equal to 16% of their Max HP for 2 turn(s). This effect can only be triggered once every 3 turn(s). If the wearer has a Shield when attacked, the DMG they receive decreases by 12%.",
     descVar: [
-      ["36%"],
-      ["18%"],
-      ["48%"],
+      ["8%"],
+      ["16%"],
+      ["12%"],
     ],
   },
-  "23001": {
-    name: "In the Night",
+  "24001": {
+    name: "Cruising in the Stellar Sea",
     rarity: 5,
     type: "The Hunt",
-    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
-    descHead: "Flowers and Butterflies",
-    descBody: "Increases the wearer's CRIT Rate by 18%. While the wearer is in battle, for every 10 SPD that exceeds 100, increases DMG dealt by Basic ATK and Skill by 6%. At the same time, increases the CRIT DMG of Ultimate by 12%. This effect can stack up to 6 time(s).",
+    statBase: { _HP: 952, _ATK: 529, _DEF: 463 },
+    descHead: "Chase",
+    descBody: "Increases the wearer's CRIT rate by 8%, and increases their CRIT rate against enemies with HP percentage less than or equal to 50% by an extra 8%. When the wearer defeats an enemy, their ATK is increased by 20% for 2 turn(s).",
     descVar: [
-      ["18%"],
-      ["6%"],
+      ["8%"],
+      ["8%"],
+      ["20%"],
+    ],
+  },
+  "24000": {
+    name: "On the Fall of an Aeon",
+    rarity: 5,
+    type: "Destruction",
+    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
+    descHead: "Moth to Flames",
+    descBody: "When the wearer attacks, increases their ATK by 8% in this battle. This effect can stack up to 4 time(s). After the wearer breaks an enemy's Weakness, increases DMG dealt by 12%, lasting for 2 turn(s).",
+    descVar: [
+      ["8%"],
       ["12%"],
     ],
   },
@@ -792,6 +815,19 @@ export default {
     descVar: [
       ["30%"],
       ["36%"],
+    ],
+  },
+  "23010": {
+    name: "Before Dawn",
+    rarity: 5,
+    type: "Erudition",
+    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
+    descHead: "Long Night",
+    descBody: "Increases the wearer's CRIT DMG by 36%. Increases DMG dealt by the wearer's Skill and Ultimate by 18%. After the wearer uses Skill or Ultimate, gains Somnus Corpus. Upon triggering a follow-up attack, consumes Somnus Corpus, and increases DMG dealt by follow-up attack by 48%.",
+    descVar: [
+      ["36%"],
+      ["18%"],
+      ["48%"],
     ],
   },
   "23005": {
@@ -845,6 +881,19 @@ export default {
       ["24%"],
     ],
   },
+  "23001": {
+    name: "In the Night",
+    rarity: 5,
+    type: "The Hunt",
+    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
+    descHead: "Flowers and Butterflies",
+    descBody: "Increases the wearer's CRIT Rate by 18%. While the wearer is in battle, for every 10 SPD that exceeds 100, increases DMG dealt by Basic ATK and Skill by 6%. At the same time, increases the CRIT DMG of Ultimate by 12%. This effect can stack up to 6 time(s).",
+    descVar: [
+      ["18%"],
+      ["6%"],
+      ["12%"],
+    ],
+  },
   "23000": {
     name: "Night on the Milky Way",
     rarity: 5,
@@ -857,44 +906,7 @@ export default {
       ["30%"],
     ],
   },
-  "24002": {
-    name: "Texture of Memories",
-    rarity: 5,
-    type: "Preservation",
-    statBase: { _HP: 1058, _ATK: 423, _DEF: 529 },
-    descHead: "Treasure",
-    descBody: "Increases the wearer's Effect RES by 8%. If the wearer is attacked and has no Shield, they gain a Shield equal to 16% of their Max HP for 2 turn(s). This effect can only be triggered once every 3 turn(s). If the wearer has a Shield when attacked, the DMG they receive decreases by 12%.",
-    descVar: [
-      ["8%"],
-      ["16%"],
-      ["12%"],
-    ],
-  },
-  "24001": {
-    name: "Cruising in the Stellar Sea",
-    rarity: 5,
-    type: "The Hunt",
-    statBase: { _HP: 952, _ATK: 529, _DEF: 463 },
-    descHead: "Chase",
-    descBody: "Increases the wearer's CRIT rate by 8%, and increases their CRIT rate against enemies with HP percentage less than or equal to 50% by an extra 8%. When the wearer defeats an enemy, their ATK is increased by 20% for 2 turn(s).",
-    descVar: [
-      ["8%"],
-      ["8%"],
-      ["20%"],
-    ],
-  },
-  "24000": {
-    name: "On the Fall of an Aeon",
-    rarity: 5,
-    type: "Destruction",
-    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
-    descHead: "Moth to Flames",
-    descBody: "When the wearer attacks, increases their ATK by 8% in this battle. This effect can stack up to 4 time(s). After the wearer breaks an enemy's Weakness, increases DMG dealt by 12%, lasting for 2 turn(s).",
-    descVar: [
-      ["8%"],
-      ["12%"],
-    ],
-  },
+
   "21034": {
     name: "Today Is Another Peaceful Day",
     rarity: 4,
@@ -1308,6 +1320,7 @@ export default {
       ["12%"],
     ],
   },
+  
   "20020": {
     name: "Sagacity",
     rarity: 3,

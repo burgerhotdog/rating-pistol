@@ -50,6 +50,7 @@ export default {
       "EM": 0.24,
     },
   },
+
   "10000108": {
     name: "Lan Yan",
     rarity: 4,
@@ -77,6 +78,7 @@ export default {
       "EM": 0.24,
     },
   },
+
   "10000105": {
     name: "Ororon",
     rarity: 4,
@@ -133,6 +135,7 @@ export default {
       "EM": 0.24,
     },
   },
+
   "10000100": {
     name: "Kachina",
     rarity: 4,
@@ -188,6 +191,7 @@ export default {
       "HP": 1,
     },
   },
+
   "10000097": {
     name: "Sethos",
     rarity: 4,
@@ -245,6 +249,7 @@ export default {
       "ATK": 1,
     },
   },
+
   "10000092": {
     name: "Gaming",
     rarity: 4,
@@ -273,6 +278,7 @@ export default {
       "ATK": 0.6,
     },
   },
+
   "10000090": {
     name: "Chevreuse",
     rarity: 4,
@@ -299,6 +305,7 @@ export default {
       "EM": 0.24,
     },
   },
+
   "10000088": {
     name: "Charlotte",
     rarity: 4,
@@ -364,6 +371,7 @@ export default {
       "ATK": 0.6,
     },
   },
+
   "10000085": {
     name: "Freminet",
     rarity: 4,
@@ -413,6 +421,7 @@ export default {
       "HP": 1,
     },
   },
+
   "10000081": {
     name: "Kaveh",
     rarity: 4,
@@ -439,6 +448,7 @@ export default {
       "ATK": 0.36,
     },
   },
+
   "10000080": {
     name: "Mika",
     rarity: 4,
@@ -465,6 +475,7 @@ export default {
       "ATK": 0.24,
     },
   },
+
   "10000077": {
     name: "Yaoyao",
     rarity: 4,
@@ -489,6 +500,7 @@ export default {
       "ATK": 0.6,
     },
   },
+
   "10000076": {
     name: "Faruzan",
     rarity: 4,
@@ -517,6 +529,7 @@ export default {
       "ATK": 0.24,
     },
   },
+
   "10000074": {
     name: "Layla",
     rarity: 4,
@@ -554,6 +567,7 @@ export default {
       "EM": 0.24,
     },
   },
+
   "10000072": {
     name: "Candace",
     rarity: 4,
@@ -593,6 +607,7 @@ export default {
       "ATK": 0.18,
     },
   },
+
   "10000068": {
     name: "Dori",
     rarity: 4,
@@ -645,6 +660,7 @@ export default {
       "EM": 0.24,
     },
   },
+
   "10000065": {
     name: "Kuki Shinobu",
     rarity: 4,
@@ -699,6 +715,7 @@ export default {
       "ATK": 1,
     },
   },
+
   "10000064": {
     name: "Yun Jin",
     rarity: 4,
@@ -725,6 +742,7 @@ export default {
       "ATK": 0.12,
     },
   },
+
   "10000055": {
     name: "Gorou",
     rarity: 4,
@@ -749,6 +767,18 @@ export default {
   },
   
   // Version 2.1
+  "10000062": {
+    name: "Aloy",
+    rarity: 5,
+    type: "Bow",
+    statBase: { _HP: 10898, _ATK: 233, _DEF: 676 },
+    weights: {
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+      "EM": 0.24,
+    },
+  },
   "10000054": {
     name: "Sangonomiya Kokomi",
     rarity: 5,
@@ -773,18 +803,7 @@ export default {
       "ATK": 0.6,
     },
   },
-  "10000062": {
-    name: "Aloy",
-    rarity: 5,
-    type: "Bow",
-    statBase: { _HP: 10898, _ATK: 233, _DEF: 676 },
-    weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
-    },
-  },
+
   "10000056": {
     name: "Kujou Sara",
     rarity: 4,
@@ -838,6 +857,7 @@ export default {
       "EM": 0.24,
     },
   },
+
   "10000053": {
     name: "Sayu",
     rarity: 4,
@@ -877,6 +897,7 @@ export default {
       "ATK": 0.6,
     },
   },
+
   "10000048": {
     name: "Yanfei",
     rarity: 4,
@@ -985,6 +1006,7 @@ export default {
       "HP": 0.9,
     },
   },
+
   "10000044": {
     name: "Xinyan",
     rarity: 4,
@@ -1009,28 +1031,6 @@ export default {
   },
   
   // Version 1.0
-  "10000029": {
-    name: "Klee",
-    rarity: 5,
-    type: "Catalyst",
-    statBase: { _HP: 10286, _ATK: 310, _DEF: 614 },
-    weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
-    },
-  },
-  "10000022": {
-    name: "Venti",
-    rarity: 5,
-    type: "Bow",
-    statBase: { _HP: 10531, _ATK: 263, _DEF: 668 },
-    weights: {
-      "ER": 1,
-      "EM": 1,
-    },
-  },
   "10000042": {
     name: "Keqing",
     rarity: 5,
@@ -1064,6 +1064,28 @@ export default {
     weights: {
       "ER": 1,
       "ATK": 1,
+    },
+  },
+  "10000029": {
+    name: "Klee",
+    rarity: 5,
+    type: "Catalyst",
+    statBase: { _HP: 10286, _ATK: 310, _DEF: 614 },
+    weights: {
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+      "EM": 0.24,
+    },
+  },
+  "10000022": {
+    name: "Venti",
+    rarity: 5,
+    type: "Bow",
+    statBase: { _HP: 10531, _ATK: 263, _DEF: 668 },
+    weights: {
+      "ER": 1,
+      "EM": 1,
     },
   },
   "10000016": {
@@ -1114,6 +1136,7 @@ export default {
       "EM": 0.24,
     },
   },
+
   "10000043": {
     name: "Sucrose",
     rarity: 4,

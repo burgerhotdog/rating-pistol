@@ -14,6 +14,7 @@ export default {
       ["32"],
     ],
   },
+  
   "13432": {
     name: "Tamayuratei no Ohanashi",
     rarity: 4,
@@ -70,6 +71,7 @@ export default {
       ["10%/24%"],
     ],
   },
+
   "15430": {
     name: "Flower-Wreathed Feathers",
     rarity: 4,
@@ -126,6 +128,7 @@ export default {
       ["25.6%"],
     ],
   },
+
   "13430": {
     name: "Mountain-Bracing Bolt",
     rarity: 4,
@@ -191,6 +194,7 @@ export default {
       ["10%"],
     ],
   },
+
   "15431": {
     name: "Chain Breaker",
     rarity: 4,
@@ -309,6 +313,7 @@ export default {
       ["16%"],
     ],
   },
+
   "15426": {
     name: "Cloudforged",
     rarity: 4,
@@ -352,6 +357,7 @@ export default {
       ["20%"],
     ],
   },
+
   "13426": {
     name: "Dialogues of the Desert Sages",
     rarity: 4,
@@ -394,6 +400,7 @@ export default {
       ["18%"],
     ],
   },
+
   "12426": {
     name: "\"Ultimate Overlord's Mega Magic Sword\"",
     rarity: 4,
@@ -422,6 +429,7 @@ export default {
       ["14%"],
     ],
   },
+
   "11428": {
     name: "Sword of Narzissenkreuz",
     rarity: 4,
@@ -465,6 +473,7 @@ export default {
       ["8%"],
     ],
   },
+
   "15427": {
     name: "Range Gauge",
     rarity: 4,
@@ -546,6 +555,7 @@ export default {
       ["4%/7%/10%"],
     ],
   },
+
   "15425": {
     name: "Song of Stillness",
     rarity: 4,
@@ -734,6 +744,7 @@ export default {
       ["32%"],
     ],
   },
+
   "12418": {
     name: "Mailed Flower",
     rarity: 4,
@@ -779,6 +790,7 @@ export default {
       ["48%"],
     ],
   },
+
   "11422": {
     name: "Toukabou Shigure",
     rarity: 4,
@@ -836,6 +848,7 @@ export default {
       ["0.2%"],
     ],
   },
+
   "14416": {
     name: "Wandering Evenstar",
     rarity: 4,
@@ -900,6 +913,7 @@ export default {
       ["160%"],
     ],
   },
+
   "15418": {
     name: "End of the Line",
     rarity: 4,
@@ -999,6 +1013,7 @@ export default {
       ["20%"],
     ],
   },
+
   "15411": {
     name: "Fading Twilight",
     rarity: 4,
@@ -1041,6 +1056,7 @@ export default {
       ["12%"],
     ],
   },
+
   "14415": {
     name: "Oathsworn Eye",
     rarity: 4,
@@ -1083,6 +1099,7 @@ export default {
       ["40%"],
     ],
   },
+
   "11415": {
     name: "Cinnabar Spindle",
     rarity: 4,
@@ -1110,6 +1127,7 @@ export default {
       ["10/20/30/48%"],
     ],
   },
+
   "15416": {
     name: "Mouun's Moon",
     rarity: 4,
@@ -1178,6 +1196,7 @@ export default {
       ["30%"],
     ],
   },
+
   "15415": {
     name: "Predator",
     rarity: 4,
@@ -1245,6 +1264,7 @@ export default {
       ["8/16/28%"],
     ],
   },
+
   "15414": {
     name: "Hamayumi",
     rarity: 4,
@@ -1324,6 +1344,7 @@ export default {
       ["20%"],
     ],
   },
+
   "15412": {
     name: "Mitternachts Waltz",
     rarity: 4,
@@ -1382,6 +1403,7 @@ export default {
       ["20%"],
     ],
   },
+
   "15413": {
     name: "Windblume Ode",
     rarity: 4,
@@ -1462,6 +1484,7 @@ export default {
       ["1.2%"],
     ],
   },
+
   "13406": {
     name: "Lithic Spear",
     rarity: 4,
@@ -1503,6 +1526,7 @@ export default {
       ["4%"],
     ],
   },
+
   "14412": {
     name: "Frostbearer",
     rarity: 4,
@@ -1599,6 +1623,7 @@ export default {
       ["4%"],
     ],
   },
+
   "13408": {
     name: "Royal Spear",
     rarity: 4,
@@ -1748,6 +1773,7 @@ export default {
       ["200%"],
     ],
   },
+
   "15409": {
     name: "The Viridescent Hunt",
     rarity: 4,
@@ -2290,6 +2316,7 @@ export default {
       ["12"],
     ],
   },
+
   "15305": {
     name: "Messenger",
     rarity: 3,
@@ -2580,6 +2607,7 @@ export default {
       ["12%"],
     ],
   },
+
   "15201": {
     name: "Seasoned Hunter's Bow",
     rarity: 2,
@@ -2610,6 +2638,7 @@ export default {
     type: "Sword",
     statBase: { _ATK: 243 },
   },
+  
   "15101": {
     name: "Hunter's Bow",
     rarity: 1,

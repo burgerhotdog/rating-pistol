@@ -135,6 +135,7 @@ export default {
       "PEN": 0.24,
     },
   },
+
   "1271": {
     name: "Seth",
     rarity: 4,
@@ -162,6 +163,18 @@ export default {
       "PEN": 0.24,
     },
   },
+  "1211": {
+    name: "Rina",
+    rarity: 5,
+    type: "Support",
+    sig: "14121",
+    statBase: { _HP: 8609, _ATK: 717, _DEF: 601 },
+    weights: {
+      "AP": 1,
+      "ATK": 0.6,
+      "PEN": 0.24,
+    },
+  },
   "1191": {
     name: "Ellen",
     rarity: 5,
@@ -171,18 +184,6 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
-    },
-  },
-  "1211": {
-    name: "Rina",
-    rarity: 5,
-    type: "Support",
-    sig: "14121",
-    statBase: { _HP: 8609, _ATK: 717, _DEF: 601 },
-    weights: {
-      "AP": 1,
       "ATK": 0.6,
       "PEN": 0.24,
     },
@@ -251,6 +252,7 @@ export default {
       "PEN": 0.24,
     },
   },
+  
   "1281": {
     name: "Piper",
     rarity: 4,
