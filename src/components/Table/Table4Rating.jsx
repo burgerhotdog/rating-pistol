@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Box, Stack, Tooltip, Typography } from "@mui/material";
+import { Badge, Avatar, Box, Stack, Tooltip, Typography } from "@mui/material";
 import { ErrorOutline } from '@mui/icons-material';
 import getData from "../getData";
 import getLetter from "../getLetter";
@@ -12,10 +12,7 @@ const Table4Rating = ({
   data,
   rating,
 }) => {
-  const { generalData } = getData[gameId];
-
-  const letter = useMemo(() => getLetter(rating.combined), [rating.combined]);
-  const letterSrc = letterIcons[`./letter_${letter}.webp`]?.default;
+  const letterSrc = letterIcons[`./letter_${getLetter(rating.combined)}.webp`]?.default;
 
   const openModal = () => {
     setModalPipe({
@@ -26,35 +23,17 @@ const Table4Rating = ({
     });
   };
 
-  const missingSections = useMemo(() => (
-    <Stack>
-      {rating.parts.map((part, index) => 
-        part === -1 ? (
-          <Typography variant="tooltip" key={index}>
-            {`Missing ${generalData.SECTIONS[index]}`}
-          </Typography>
-        ) : null
-      )}
-    </Stack>
-  ), [rating.parts]);
-
-  if (rating.combined === -1) {
-    return (
-      <Tooltip title={missingSections} arrow>
-        <ErrorOutline color="error" />
-      </Tooltip>
-    );
-  }
-
   return (
     <Tooltip title="See Details" arrow>
-      <Box
-        component="img"
-        onClick={openModal}
-        src={letterSrc}
-        alt={rating.final}
-        sx={{ width: 40, height: 40, objectFit: "contain" }}
-      />
+      <Stack display="inline-flex">
+        <Badge onClick={openModal}>
+          <Avatar
+            alt={rating.final}
+            src={letterSrc}
+            sx={{ width: 32, height: 32 }}
+          />
+        </Badge>
+      </Stack>
     </Tooltip>
   );
 };

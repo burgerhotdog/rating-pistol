@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
+import {
+  Backdrop,
+  Tooltip,
+  Stack,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
 import { Delete, Check } from '@mui/icons-material';
-import { Popover, Stack, Typography, CircularProgress } from "@mui/material";
-import getData from "../getData";
 
 const Table5Delete = ({
   gameId,
@@ -12,16 +17,11 @@ const Table5Delete = ({
   setLocalDocs,
   hoveredId,
 }) => {
-  const { avatarData } = getData[gameId];
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const openPopover = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const closePopover = () => {
-    setAnchorEl(null);
+  const openTooltip = () => {
+    setOpen(true);
   };
 
   const handleDelete = async () => {
@@ -38,52 +38,60 @@ const Table5Delete = ({
       return newDocs;
     });
 
-    closePopover();
+    handleCancel();
+  };
+
+  const handleCancel = () => {
+    setOpen(false);
   };
 
   return (
     <>
-      <Delete
-        onClick={openPopover}
-        cursor="pointer"
-        color="disabled"
-        sx={{
-          opacity: (Boolean(anchorEl) || hoveredId === id) ? 1 : 0,
-          transition: "opacity 0.3s ease, color 0.3s ease",
-          "&:hover": { color: "secondary.main" },
-        }}
-      />
+      <Tooltip
+        open={open}
+        title={
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={1}
+          >
+            <Typography variant="tooltip">
+              Delete?
+            </Typography>
 
-      <Popover
-        open={Boolean(anchorEl)}
-        anchorEl={anchorEl}
-        onClose={closePopover}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        transformOrigin={{ vertical: "top", horizontal: "center" }}
+            {isLoading ? (
+              <CircularProgress size={16} />
+            ) : (
+              <Check
+                onClick={handleDelete}
+                cursor="pointer"
+                sx={{
+                  fontSize: 16,
+                  "&:hover": { color: "secondary.main" },
+                }}
+              />
+            )}
+          </Stack>
+        }
+        arrow
       >
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={1}
-          p={1}
-        >
-          <Typography variant="body2">
-            Delete {avatarData[id]?.name}?
-          </Typography>
-          
-          {isLoading ? (
-            <CircularProgress size={24} />
-          ) : (
-            <Check
-              onClick={handleDelete}
-              cursor="pointer"
-              sx={{
-                "&:hover": { color: "secondary.main" },
-              }}
-            />
-          )}
-        </Stack>
-      </Popover>
+        <Delete
+          onClick={openTooltip}
+          cursor="pointer"
+          color="disabled"
+          sx={{
+            opacity: open || hoveredId === id ? 1 : 0,
+            transition: "opacity 0.3s ease, color 0.3s ease",
+            "&:hover": { color: "secondary.main" },
+          }}
+        />
+      </Tooltip>
+
+      <Backdrop
+        open={open}
+        onClick={handleCancel}
+        sx={{ zIndex: 1 }}
+      />
     </>
   );
 };

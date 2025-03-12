@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import getData from "../../getData"
 import getIcons from "../../getIcons";
-import getWeaponDesc from "./getWeaponDesc";
+import getWeaponDescArr from "./getWeaponDescArr";
 
 const PreviewWeapon = ({ gameId, modalPipe }) => {
   const { generalData, equipData, weaponData } = getData[gameId];
@@ -16,10 +16,10 @@ const PreviewWeapon = ({ gameId, modalPipe }) => {
   const weaponId = modalPipe.data.weaponId;
   const weapon = weaponData?.[weaponId];
 
-  const weaponDesc = useMemo(() => getWeaponDesc(weapon, modalPipe.data.rank), [
-    weapon,
-    modalPipe.data.rank,
-  ]);
+  const weaponDescArr = useMemo(
+    () => getWeaponDescArr(weapon, modalPipe.data.weaponRank),
+    [weapon, modalPipe.data.weaponRank],
+  );
 
   if (!weapon) {
     return (
@@ -69,13 +69,25 @@ const PreviewWeapon = ({ gameId, modalPipe }) => {
             })
           )}
 
-          <Typography variant="subtitle2" fontWeight="bold" mt={1}>
-            {weapon.descHead}
+          <Typography variant="subtitle2" mt={1}>
+            <strong>{weapon.descHead}</strong>
           </Typography>
 
-          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-            {weaponDesc}
-          </Typography>
+          <Box sx={{ whiteSpace: "pre-line" }}>
+            {weaponDescArr.map(([isVar, text], index) => (
+              <Typography
+                key={index}
+                variant="body2"
+                fontWeight={Boolean(isVar) ? "bold" : "normal"}
+                sx={{
+                  display: "inline",
+                  color: Boolean(isVar) ? "primary.main" : "text.primary",
+                 }}
+              >
+                {text}
+              </Typography>
+            ))}
+          </Box>
         </Stack>
       </Stack>
     </Card>

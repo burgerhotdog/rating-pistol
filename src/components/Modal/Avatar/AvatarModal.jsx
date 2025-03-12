@@ -20,6 +20,16 @@ const AvatarModal = ({
 }) => {
   const { generalData } = getData[gameId];
   const [isLoading, setIsLoading] = useState(false);
+
+  const rankOptions = () => {
+    const giNoRankOpt = gameId === "gi" && (
+      modalPipe.id === "10000062" // Aloy
+    );
+    
+    const noRankOpt = giNoRankOpt;
+
+    return noRankOpt ? [0] : [0, 1, 2, 3, 4, 5, 6];
+  };
   
   const handleLevel = (newValue) => {
     setModalPipe((prev) => ({
@@ -77,12 +87,11 @@ const AvatarModal = ({
                 label="Level"
               />
             )}
-            sx={{ width: 150 }}
           />
 
           <Autocomplete
             value={modalPipe.data.rank}
-            options={[0, 1, 2, 3, 4, 5, 6]}
+            options={rankOptions()}
             getOptionLabel={(id) => `${generalData.RANK_PREFIX}${id}`}
             onChange={(_, newValue) => {
               if (newValue) handleRank(newValue);
@@ -90,10 +99,9 @@ const AvatarModal = ({
             renderInput={(params) => (
               <TextField
                 {...params}
-                label={generalData.RANK}
+                label="Rank"
               />
             )}
-            sx={{ width: 150 }}
           />
         </Stack>
 

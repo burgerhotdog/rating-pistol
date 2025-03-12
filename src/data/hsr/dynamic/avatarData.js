@@ -27,6 +27,17 @@ export default {
   },
   
   // Version 3.0
+  "8008": {
+    name: "Trailblazer (Remembrance)",
+    rarity: 5,
+    type: "Remembrance",
+    statBase: { _HP: 1047, _ATK: 543, _DEF: 630 },
+    weights: {
+      "SPD": 1,
+      "CD": 0.6,
+      "ATK": 0.24,
+    },
+  },
   "1402": {
     name: "Aglaea",
     rarity: 5,
@@ -50,17 +61,6 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.6,
-    },
-  },
-  "8008": {
-    name: "Trailblazer (Remembrance)",
-    rarity: 5,
-    type: "Remembrance",
-    statBase: { _HP: 1047, _ATK: 543, _DEF: 630 },
-    weights: {
-      "SPD": 1,
-      "CD": 0.6,
-      "ATK": 0.24,
     },
   },
   
@@ -132,6 +132,7 @@ export default {
       "ATK": 0.6,
     },
   },
+
   "1223": {
     name: "Moze",
     rarity: 4,
@@ -170,6 +171,7 @@ export default {
       "ATK": 0.6,
     },
   },
+
   "1224": {
     name: "March 7th (The Hunt)",
     rarity: 4,
@@ -210,6 +212,17 @@ export default {
   },
   
   // Version 2.2
+  "8006": {
+    name: "Trailblazer (Harmony)",
+    rarity: 5,
+    type: "Harmony",
+    statBase: { _HP: 1086, _ATK: 446, _DEF: 679 },
+    weights: {
+      "SPD": 1,
+      "BE": 1,
+      "RES": 0.24,
+    },
+  },
   "1315": {
     name: "Boothill",
     rarity: 5,
@@ -230,17 +243,6 @@ export default {
     weights: {
       "SPD": 1,
       "ATK": 1,
-      "RES": 0.24,
-    },
-  },
-  "8006": {
-    name: "Trailblazer (Harmony)",
-    rarity: 5,
-    type: "Harmony",
-    statBase: { _HP: 1086, _ATK: 446, _DEF: 679 },
-    weights: {
-      "SPD": 1,
-      "BE": 1,
       "RES": 0.24,
     },
   },
@@ -271,6 +273,7 @@ export default {
       "DEF": 0.6,
     },
   },
+
   "1301": {
     name: "Gallagher",
     rarity: 4,
@@ -308,6 +311,7 @@ export default {
       "RES": 0.24,
     },
   },
+
   "1312": {
     name: "Misha",
     rarity: 4,
@@ -348,6 +352,7 @@ export default {
       "RES": 0.24,
     },
   },
+
   "1214": {
     name: "Xueyi",
     rarity: 4,
@@ -388,6 +393,7 @@ export default {
       "RES": 0.24,
     },
   },
+
   "1215": {
     name: "Hanya",
     rarity: 4,
@@ -426,6 +432,7 @@ export default {
       "ATK": 0.6,
     },
   },
+
   "1210": {
     name: "Guinaifen",
     rarity: 4,
@@ -465,6 +472,7 @@ export default {
       "RES": 0.24,
     },
   },
+
   "1110": {
     name: "Lynx",
     rarity: 4,
@@ -503,6 +511,7 @@ export default {
       "ATK": 1,
     },
   },
+
   "1111": {
     name: "Luka",
     rarity: 4,
@@ -541,6 +550,7 @@ export default {
       "RES": 0.24,
     },
   },
+
   "1207": {
     name: "Yukong",
     rarity: 4,
@@ -553,24 +563,22 @@ export default {
   },
   
   // Version 1.0
-  "1204": {
-    name: "Jing Yuan",
+  "8004": {
+    name: "Trailblazer (Preservation)",
     rarity: 5,
-    type: "Erudition",
-    sig: "23010",
-    statBase: { _HP: 1164, _ATK: 698, _DEF: 485 },
+    type: "Preservation",
+    statBase: { _HP: 1241, _ATK: 601, _DEF: 606 },
     weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
+      "SPD": 1,
+      "DEF": 1,
+      "RES": 0.24,
     },
   },
-  "1102": {
-    name: "Seele",
+  "8002": {
+    name: "Trailblazer (Destruction)",
     rarity: 5,
-    type: "The Hunt",
-    sig: "23001",
-    statBase: { _HP: 931, _ATK: 640, _DEF: 363 },
+    type: "Destruction",
+    statBase: { _HP: 1203, _ATK: 620, _DEF: 460 },
     weights: {
       "SPD": 1,
       "CR": 1,
@@ -603,6 +611,18 @@ export default {
       "ATK": 0.6,
     },
   },
+  "1204": {
+    name: "Jing Yuan",
+    rarity: 5,
+    type: "Erudition",
+    sig: "23010",
+    statBase: { _HP: 1164, _ATK: 698, _DEF: 485 },
+    weights: {
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+    },
+  },
   "1107": {
     name: "Clara",
     rarity: 5,
@@ -625,6 +645,19 @@ export default {
       "SPD": 1,
       "DEF": 1,
       "RES": 0.24,
+    },
+  },
+  "1102": {
+    name: "Seele",
+    rarity: 5,
+    type: "The Hunt",
+    sig: "23001",
+    statBase: { _HP: 931, _ATK: 640, _DEF: 363 },
+    weights: {
+      "SPD": 1,
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
     },
   },
   "1101": {
@@ -665,29 +698,7 @@ export default {
       "ATK": 0.6,
     },
   },
-  "8004": {
-    name: "Trailblazer (Preservation)",
-    rarity: 5,
-    type: "Preservation",
-    statBase: { _HP: 1241, _ATK: 601, _DEF: 606 },
-    weights: {
-      "SPD": 1,
-      "DEF": 1,
-      "RES": 0.24,
-    },
-  },
-  "8002": {
-    name: "Trailblazer (Destruction)",
-    rarity: 5,
-    type: "Destruction",
-    statBase: { _HP: 1203, _ATK: 620, _DEF: 460 },
-    weights: {
-      "SPD": 1,
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-    },
-  },
+  
   "1206": {
     name: "Sushang",
     rarity: 4,

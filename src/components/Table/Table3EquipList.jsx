@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Tooltip, Stack, Box, Typography } from "@mui/material";
+import { Tooltip, Badge, Avatar, Stack, Box, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getIcons from "../getIcons";
@@ -13,6 +13,7 @@ const Table3EquipList = ({
   data,
 }) => {
   const { generalData } = getData[gameId];
+  const { SECTIONS } = generalData;
   const { setIcons } = getIcons[gameId];
   
   const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
@@ -28,32 +29,33 @@ const Table3EquipList = ({
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <Tooltip title={`Add ${generalData.SECTIONS[2]}`} arrow>
+      <Tooltip title={`Add ${SECTIONS[2]}`} arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title={`Edit ${generalData.SECTIONS[2]}`} arrow>
+    <Tooltip title={`Edit ${SECTIONS[2]}`} arrow>
       <Stack
         onClick={openModal}
+        display="inline-flex"
         direction="row"
-        justifyContent="center"
         spacing={1}
         sx={{ cursor: "pointer" }}
       >
         {sortedSetBonuses.map(([setId, numBonus]) => (
-          <Stack key={setId} direction="row" alignItems="end">
-            <Box
-              component="img"
-              src={setIcons[`./${setId}.webp`]?.default}
+          <Badge
+            key={setId}
+            badgeContent={
+              <strong>x{numBonus}</strong>
+            }
+          >
+            <Avatar
               alt={setId}
-              sx={{ width: 50, height: 50, objectFit: "contain" }}
+              src={setIcons[`./${setId}.webp`]?.default}
             />
-            
-            <Typography>{`x${numBonus}`}</Typography>
-          </Stack>
+          </Badge>
         ))}
       </Stack>
     </Tooltip>

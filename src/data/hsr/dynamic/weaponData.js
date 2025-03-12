@@ -1,12 +1,31 @@
 export default {
   // Version 3.1
+  "24005": {
+    name: "Memory's Curtain Never Falls",
+    rarity: 5,
+    type: "Remembrance",
+    statBase: { _HP: 1058, _ATK: 529, _DEF: 397 },
+    descHead: "Reception",
+    descBody: "Increases the wearer's SPD by {0}. After the wearer uses Skill, increases the DMG dealt by all allies by {1}, lasting for 3 turn(s).",
+    descVar: [
+      ["6%"],
+      ["8%"],
+    ],
+  },
   "23039": {
     name: "Flame of Blood, Blaze My Path",
     rarity: 5,
     type: "Destruction",
     statBase: { _HP: 1376, _ATK: 476, _DEF: 397 },
     descHead: "Vista",
-    descBody: "Increases the wearer's Max HP by 18% and Incoming Healing by 20%. When using Skill or Ultimate, consumes HP equal to 6% of the wearer's Max HP and increases the DMG dealt by this attack by 30%. If this effect's consumed HP is greater than 500, the DMG additionally increases by 30%.\nIf the current HP is not sufficient, this effect reduces the wearer's current HP down to 1.",
+    descBody: "Increases the wearer's Max HP by {0} and Incoming Healing by {1}. When using Skill or Ultimate, consumes HP equal to {2} of the wearer's Max HP and increases the DMG dealt by this attack by {3}. If this effect's consumed HP is greater than 500, the DMG additionally increases by {4}.\nIf the current HP is not sufficient, this effect reduces the wearer's current HP down to 1.",
+    descVar: [
+      ["18%"],
+      ["20%"],
+      ["6%"],
+      ["30%"],
+      ["30%"],
+    ],
   },
   "23038": {
     name: "If Time Were a Flower",
@@ -14,15 +33,11 @@ export default {
     type: "Harmony",
     statBase: { _HP: 1270, _ATK: 529, _DEF: 397 },
     descHead: "Aspiration",
-    descBody: "Increases the wearer's CRIT DMG by 36%. After the wearer launches Follow-up ATK, additionally regenerates 12 Energy and gains \"Presage,\" lasting for 2 turn(s). While the wearer has \"Presage,\" all ally targets' CRIT DMG increases by 48%. When entering battle, the wearer regenerates 21 Energy and gains \"Presage,\" lasting for 2 turn(s).",
-  },
-  "24005": {
-    name: "Memory's Curtain Never Falls",
-    rarity: 5,
-    type: "Remembrance",
-    statBase: { _HP: 1058, _ATK: 529, _DEF: 397 },
-    descHead: "Reception",
-    descBody: "Increases the wearer's SPD by 6%. After the wearer uses Skill, increases the DMG dealt by all allies by 8%, lasting for 3 turn(s).",
+    descBody: "Increases the wearer's CRIT DMG by {0}. After the wearer launches Follow-up ATK, additionally regenerates 12 Energy and gains \"Presage,\" lasting for 2 turn(s). While the wearer has \"Presage,\" all ally targets' CRIT DMG increases by {1}. When entering battle, the wearer regenerates 21 Energy and gains \"Presage,\" lasting for 2 turn(s).",
+    descVar: [
+      ["36%"],
+      ["48%"],
+    ],
   },
   
   // Version 3.0
@@ -32,7 +47,11 @@ export default {
     type: "Erudition",
     statBase: { _HP: 952, _ATK: 635, _DEF: 463 },
     descHead: "Mind Game",
-    descBody: "Increases the wearer's CRIT Rate by 12%. When the wearer uses Ultimate, increases the Skill and Ultimate DMG dealt by the wearer by 60%, lasting for 3 turn(s). After the wearer uses Ultimate, if this instance of Ultimate consumed 140 or more Energy, recovers 1 Skill Point.",
+    descBody: "Increases the wearer's CRIT Rate by {0}. When the wearer uses Ultimate, increases the Skill and Ultimate DMG dealt by the wearer by {1}, lasting for 3 turn(s). After the wearer uses Ultimate, if this instance of Ultimate consumed 140 or more Energy, recovers 1 Skill Point.",
+    descVar: [
+      ["12%"],
+      ["60%"],
+    ],
   },
   "23036": {
     name: "Time Woven Into Gold",
@@ -40,15 +59,25 @@ export default {
     type: "Remembrance",
     statBase: { _HP: 1058, _ATK: 635, _DEF: 397 },
     descHead: "Establishment",
-    descBody: "Increases the wearer's base SPD by 12. After the wearer and the wearer's memosprite attacks, the wearer gains 1 stack of \"Brocade.\" Each stack of \"Brocade\" increases the wearer's and their memosprite's CRIT DMG by 9%, stacking up to 6 time(s). When reaching maximum stacks, each \"Brocade\" stack additionally increases Basic ATK DMG dealt by 9%.",
+    descBody: "Increases the wearer's base SPD by {0}. After the wearer and the wearer's memosprite attacks, the wearer gains 1 stack of \"Brocade.\" Each stack of \"Brocade\" increases the wearer's and their memosprite's CRIT DMG by {1}, stacking up to 6 time(s). When reaching maximum stacks, each \"Brocade\" stack additionally increases Basic ATK DMG dealt by {2}.",
+    descVar: [
+      ["12"],
+      ["9%"],
+      ["9%"],
+    ],
   },
+
   "21052": {
     name: "Sweat Now, Cry Less",
     rarity: 4,
     type: "Remembrance",
     statBase: { _HP: 1058, _ATK: 529, _DEF: 198 },
     descHead: "Come Train!",
-    descBody: "Increases the wearer's CRIT Rate by 12%. When the wearer's memosprite is on the field, increases the DMG dealt by the wearer and their memosprite by 24%.",
+    descBody: "Increases the wearer's CRIT Rate by {0}. When the wearer's memosprite is on the field, increases the DMG dealt by the wearer and their memosprite by {1}.",
+    descVar: [
+      ["12%"],
+      ["24%"],
+    ],
   },
   "21051": {
     name: "Geniuses' Greetings",
@@ -56,7 +85,11 @@ export default {
     type: "Remembrance",
     statBase: { _HP: 953, _ATK: 476, _DEF: 331 },
     descHead: "Congratulations",
-    descBody: "Increases the wearer's ATK by 16%. After the wearer uses Ultimate, increases the Basic ATK DMG dealt by the wearer and their memosprite by 20%, lasting for 3 turn(s).",
+    descBody: "Increases the wearer's ATK by {0}. After the wearer uses Ultimate, increases the Basic ATK DMG dealt by the wearer and their memosprite by {1}, lasting for 3 turn(s).",
+    descVar: [
+      ["16%"],
+      ["20%"],
+    ],
   },
   "21050": {
     name: "Victory In a Blink",
@@ -64,15 +97,23 @@ export default {
     type: "Remembrance",
     statBase: { _HP: 952, _ATK: 476, _DEF: 396 },
     descHead: "Final Hit",
-    descBody: "Increases the wearer's CRIT DMG by 12%. When the wearer's memosprite uses an ability on an ally target, increases the DMG dealt by all ally targets by 8%, lasting for 3 turn(s).",
+    descBody: "Increases the wearer's CRIT DMG by {0}. When the wearer's memosprite uses an ability on an ally target, increases the DMG dealt by all ally targets by {1}, lasting for 3 turn(s).",
+    descVar: [
+      ["12%"],
+      ["8%"],
+    ],
   },
+
   "20022": {
     name: "Reminiscence",
     rarity: 3,
     type: "Remembrance",
     statBase: { _HP: 635, _ATK: 423, _DEF: 264 },
     descHead: "Going to Sleep",
-    descBody: "When memosprite's turn starts, the wearer and memosprite each gain 1 stack of \"Commemoration.\" Each stack increases DMG dealt by 8%, stacking up to 4 time(s). When memosprite disappears, removes \"Commemoration\" from the wearer and memosprite.",
+    descBody: "When memosprite's turn starts, the wearer and memosprite each gain 1 stack of \"Commemoration.\" Each stack increases DMG dealt by {0}, stacking up to 4 time(s). When memosprite disappears, removes \"Commemoration\" from the wearer and memosprite.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "20021": {
     name: "Shadowburn",
@@ -80,7 +121,10 @@ export default {
     type: "Remembrance",
     statBase: { _HP: 846, _ATK: 317, _DEF: 264 },
     descHead: "Beautify",
-    descBody: "When the wearer summons memosprite for the first time, recovers 1 Skill Point(s) and regenerates 12 Energy for this unit.",
+    descBody: "When the wearer summons memosprite for the first time, recovers 1 Skill Point(s) and regenerates {0} Energy for this unit.",
+    descVar: [
+      ["12"],
+    ],
   },
   
   // Version 2.7
@@ -90,7 +134,11 @@ export default {
     type: "Nihility",
     statBase: { _HP: 952, _ATK: 476, _DEF: 661 },
     descHead: "Rebirth",
-    descBody: "Increases the wearer's Break Effect by 60%. When an enemy target's Weakness gets broken, there is a 100% base chance to inflict the \"Charring\" state on it, which increases its Break DMG taken by 18%, lasting for 2 turn(s). This effect can stack 2 time(s).",
+    descBody: "Increases the wearer's Break Effect by {0}. When an enemy target's Weakness gets broken, there is a 100% base chance to inflict the \"Charring\" state on it, which increases its Break DMG taken by {1}, lasting for 2 turn(s). This effect can stack 2 time(s).",
+    descVar: [
+      ["60%"],
+      ["18%"],
+    ],
   },
   "23034": {
     name: "A Grounded Ascent",
@@ -98,7 +146,11 @@ export default {
     type: "Harmony",
     statBase: { _HP: 1164, _ATK: 476, _DEF: 529 },
     descHead: "Departing Anew",
-    descBody: "After the wearer uses Skill or Ultimate on one ally character, the wearer regenerates 6 Energy and the ability's target receives 1 stack of \"Hymn\" for 3 turn(s), stacking up to 3 time(s). Each stack of \"Hymn\" increases its holder's DMG dealt by 15%. After every 2 instance(s) of Skill or Ultimate the wearer uses on one ally character, recovers 1 Skill Point.",
+    descBody: "After the wearer uses Skill or Ultimate on one ally character, the wearer regenerates {0} Energy and the ability's target receives 1 stack of \"Hymn\" for 3 turn(s), stacking up to 3 time(s). Each stack of \"Hymn\" increases its holder's DMG dealt by {1}. After every 2 instance(s) of Skill or Ultimate the wearer uses on one ally character, recovers 1 Skill Point.",
+    descVar: [
+      ["6"],
+      ["15%"],
+    ],
   },
   
   // Version 2.6
@@ -108,15 +160,25 @@ export default {
     type: "Erudition",
     statBase: { _HP: 952, _ATK: 582, _DEF: 529 },
     descHead: "Exorcism",
-    descBody: "Increases the wearer's Break Effect by 60%. When entering battle, immediately regenerates 30 Energy. After the wearer uses Ultimate, obtains \"Raiton.\" After using 2 Basic ATKs, advances the wearer's action by 50% and removes \"Raiton.\" After the wearer uses Ultimate, resets \"Raiton.\"",
+    descBody: "Increases the wearer's Break Effect by {0}. When entering battle, immediately regenerates {1} Energy. After the wearer uses Ultimate, obtains \"Raiton.\" After using 2 Basic ATKs, advances the wearer's action by {2} and removes \"Raiton.\" After the wearer uses Ultimate, resets \"Raiton.\"",
+    descVar: [
+      ["60%"],
+      ["30"],
+      ["50%"],
+    ],
   },
+
   "22003": {
     name: "Ninja Record: Sound Hunt",
     rarity: 4,
     type: "Destruction",
     statBase: { _HP: 1058, _ATK: 476, _DEF: 264 },
     descHead: "Curtains Up!",
-    descBody: "Increases the wearer's Max HP by 12%. When losing or restoring this unit's HP, increases CRIT DMG by 18%, lasting for 2 turn(s). This effect can only trigger once per turn.",
+    descBody: "Increases the wearer's Max HP by {0}. When losing or restoring this unit's HP, increases CRIT DMG by {1}, lasting for 2 turn(s). This effect can only trigger once per turn.",
+    descVar: [
+      ["12%"],
+      ["18%"],
+    ],
   },
   "21048": {
     name: "Dream's Montage",
@@ -124,7 +186,11 @@ export default {
     type: "Abundance",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Academy-Style Edit",
-    descBody: "Increases the wearer's SPD by 8%. After attacking enemy targets that are Weakness Broken, regenerates 3 Energy. This effect can trigger up to 2 time(s) per turn.",
+    descBody: "Increases the wearer's SPD by {0}. After attacking enemy targets that are Weakness Broken, regenerates {1} Energy. This effect can trigger up to 2 time(s) per turn.",
+    descVar: [
+      ["8%"],
+      ["3"],
+    ],
   },
   
   // Version 2.5
@@ -134,7 +200,12 @@ export default {
     type: "Abundance",
     statBase: { _HP: 1058, _ATK: 529, _DEF: 529 },
     descHead: "Contentment",
-    descBody: "Increases the wearer's Break Effect by 60%. After the wearer uses Ultimate to attack enemy targets, inflicts the targets with the \"Woefree\" state, lasting for 2 turn(s). While in \"Woefree,\" enemy targets take 10% increased DMG. The effect of increasing DMG taken is additionally boosted by 8% if the wearer's current Break Effect is 150% or higher.",
+    descBody: "Increases the wearer's Break Effect by {0}. After the wearer uses Ultimate to attack enemy targets, inflicts the targets with the \"Woefree\" state, lasting for 2 turn(s). While in \"Woefree,\" enemy targets take {1} increased DMG. The effect of increasing DMG taken is additionally boosted by {2} if the wearer's current Break Effect is 150% or higher.",
+    descVar: [
+      ["60%"],
+      ["10%"],
+      ["8%"],
+    ],
   },
   "23031": {
     name: "I Venture Forth to Hunt",
@@ -142,15 +213,24 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 952, _ATK: 635, _DEF: 463 },
     descHead: "Intimidation",
-    descBody: "Increases the wearer's CRIT Rate by 15%. When the wearer launches a follow-up attack, gains 1 stack of \"Luminflux,\" stacking up to 2 time(s). Each stack of \"Luminflux\" enables the Ultimate DMG dealt by the wearer to ignore 27% of the target's DEF. When the wearer's turn ends, removes 1 stack of \"Luminflux.\"",
+    descBody: "Increases the wearer's CRIT Rate by {0}. When the wearer launches a follow-up attack, gains 1 stack of \"Luminflux,\" stacking up to 2 time(s). Each stack of \"Luminflux\" enables the Ultimate DMG dealt by the wearer to ignore {1} of the target's DEF. When the wearer's turn ends, removes 1 stack of \"Luminflux.\"",
+    descVar: [
+      ["15%"],
+      ["27%"],
+    ],
   },
+
   "21047": {
     name: "Shadowed by Night",
     rarity: 4,
     type: "The Hunt",
     statBase: { _HP: 846, _ATK: 476, _DEF: 396 },
     descHead: "Concealment",
-    descBody: "Increases the wearer's Break Effect by 28%. When entering battle or after dealing Break DMG, increases SPD by 8%, lasting for 2 turn(s). This effect can only trigger once per turn.",
+    descBody: "Increases the wearer's Break Effect by {0}. When entering battle or after dealing Break DMG, increases SPD by {1}, lasting for 2 turn(s). This effect can only trigger once per turn.",
+    descVar: [
+      ["28%"],
+      ["8%"],
+    ],
   },
   
   // Version 2.4
@@ -160,7 +240,11 @@ export default {
     type: "Destruction",
     statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
     descHead: "Deeply Engrossed",
-    descBody: "Greatly increases the wearer's chance of getting attacked and increases CRIT DMG by 36%. After the wearer uses Ultimate, receives 1 stack of Firedance, lasting for 2 turns and stacking up to 2 time(s). Each stack of Firedance increases the DMG dealt by the wearer's follow-up attack by 36%.",
+    descBody: "Greatly increases the wearer's chance of getting attacked and increases CRIT DMG by {0}. After the wearer uses Ultimate, receives 1 stack of Firedance, lasting for 2 turns and stacking up to 2 time(s). Each stack of Firedance increases the DMG dealt by the wearer's follow-up attack by {1}.",
+    descVar: [
+      ["36%"],
+      ["36%"],
+    ],
   },
   "23029": {
     name: "Those Many Springs",
@@ -168,25 +252,53 @@ export default {
     type: "Nihility",
     statBase: { _HP: 952, _ATK: 582, _DEF: 529 },
     descHead: "Worldly Affairs Leave No Mark",
-    descBody: "Increases the wearer's Effect Hit Rate by 60%. After the wearer uses Basic ATK, Skill, or Ultimate to attack an enemy target, there is a 60% base chance to inflict \"Unarmored\" on the target. While in the Unarmored state, the enemy target receives 10% increased DMG, lasting for 2 turn(s). If the target is under a DoT state inflicted by the wearer, there is a 60% base chance to upgrade the \"Unarmored\" state inflicted by the wearer to the \"Cornered\" state, which additionally increases the DMG the enemy target receives by 14%, lasting for 2 turn(s). During this period, the wearer cannot inflict \"Unarmored\" on the target.",
+    descBody: "Increases the wearer's Effect Hit Rate by {0}. After the wearer uses Basic ATK, Skill, or Ultimate to attack an enemy target, there is a 60% base chance to inflict \"Unarmored\" on the target. While in the Unarmored state, the enemy target receives {1} increased DMG, lasting for 2 turn(s). If the target is under a DoT state inflicted by the wearer, there is a 60% base chance to upgrade the \"Unarmored\" state inflicted by the wearer to the \"Cornered\" state, which additionally increases the DMG the enemy target receives by {2}, lasting for 2 turn(s). During this period, the wearer cannot inflict \"Unarmored\" on the target.",
+    descVar: [
+      ["60%"],
+      ["10%"],
+      ["14%"],
+    ],
   },
+
   "21046": {
     name: "Poised to Bloom",
     rarity: 4,
     type: "Harmony",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Lose Not, Forget Not",
-    descBody: "Increases the wearer's ATK by 16%. Upon entering battle, if two or more characters follow the same Path, then these characters' CRIT DMG increases by 16%. Abilities of the same type cannot stack.",
+    descBody: "Increases the wearer's ATK by {0}. Upon entering battle, if two or more characters follow the same Path, then these characters' CRIT DMG increases by {1}. Abilities of the same type cannot stack.",
+    descVar: [
+      ["16%"],
+      ["16%"],
+    ],
   },
   
   // Version 2.3
+  "24004": {
+    name: "Eternal Calculus",
+    rarity: 5,
+    type: "Erudition",
+    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
+    descHead: "Boundless Thought",
+    descBody: "Increases the wearer's ATK by {0}. After using an attack, for each enemy target hit, additionally increases ATK by {1}. This effect can stack up to 5 times and last until the next attack. If there are 3 or more enemy targets hit, this unit's SPD increases by {2}, lasting for 1 turn(s).",
+    descVar: [
+      ["8%"],
+      ["4%"],
+      ["8%"],
+    ],
+  },
   "23028": {
     name: "Yet Hope Is Priceless",
     rarity: 5,
     type: "Erudition",
     statBase: { _HP: 952, _ATK: 582, _DEF: 529 },
     descHead: "Promise",
-    descBody: "Increases the wearer's CRIT Rate by 16%. While the wearer is in battle, for every 20% CRIT DMG that exceeds 120%, the DMG dealt by follow-up attack increases by 12%. This effect can stack up to 4 time(s). When the battle starts or after the wearer uses their Basic ATK, enables the DMG dealt by Ultimate or follow-up attack to ignore 20% of the target's DEF, lasting for 2 turn(s).",
+    descBody: "Increases the wearer's CRIT Rate by {0}. While the wearer is in battle, for every 20% CRIT DMG that exceeds 120%, the DMG dealt by follow-up attack increases by {1}. This effect can stack up to 4 time(s). When the battle starts or after the wearer uses their Basic ATK, enables the DMG dealt by Ultimate or follow-up attack to ignore {2} of the target's DEF, lasting for 2 turn(s).",
+    descVar: [
+      ["16%"],
+      ["12%"],
+      ["20%"],
+    ],
   },
   "23025": {
     name: "Whereabouts Should Dreams Rest",
@@ -194,23 +306,24 @@ export default {
     type: "Destruction",
     statBase: { _HP: 1164, _ATK: 476, _DEF: 529 },
     descHead: "Metamorphosis",
-    descBody: "Increases the wearer's Break Effect by 60%. When the wearer deals Break DMG to an enemy target, inflicts Routed on the enemy, lasting for 2 turn(s). Targets afflicted with Routed receive 24% increased Break DMG from the wearer, and their SPD is lowered by 20%. Effects of the same type cannot be stacked.",
+    descBody: "Increases the wearer's Break Effect by {0}. When the wearer deals Break DMG to an enemy target, inflicts Routed on the enemy, lasting for 2 turn(s). Targets afflicted with Routed receive {1} increased Break DMG from the wearer, and their SPD is lowered by 20%. Effects of the same type cannot be stacked.",
+    descVar: [
+      ["60%"],
+      ["24%"],
+    ],
   },
-  "24004": {
-    name: "Eternal Calculus",
-    rarity: 5,
-    type: "Erudition",
-    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
-    descHead: "Boundless Thought",
-    descBody: "Increases the wearer's ATK by 8%. After using an attack, for each enemy target hit, additionally increases ATK by 4%. This effect can stack up to 5 times and last until the next attack. If there are 3 or more enemy targets hit, this unit's SPD increases by 8%, lasting for 1 turn(s).",
-  },
+
   "21045": {
     name: "After the Charmony Fall",
     rarity: 4,
     type: "Erudition",
     statBase: { _HP: 846, _ATK: 476, _DEF: 396 },
     descHead: "Quiescence",
-    descBody: "Increases the wearer's Break Effect by 28%. After the wearer uses Ultimate, increases SPD by 8%, lasting for 2 turn(s).",
+    descBody: "Increases the wearer's Break Effect by {0}. After the wearer uses Ultimate, increases SPD by {1}, lasting for 2 turn(s).",
+    descVar: [
+      ["28%"],
+      ["8%"],
+    ],
   },
   
   // Version 2.2
@@ -220,7 +333,12 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
     descHead: "Rough Water",
-    descBody: "Increases the wearer's Break Effect by 60%. The Break DMG dealt by the wearer ignores 20% of the target's DEF. When the wearer's Break Effect in battle is at 150% or greater, increases their SPD by 12%.",
+    descBody: "Increases the wearer's Break Effect by {0}. The Break DMG dealt by the wearer ignores {1} of the target's DEF. When the wearer's Break Effect in battle is at 150% or greater, increases their SPD by {2}.",
+    descVar: [
+      ["60%"],
+      ["20%"],
+      ["12%"],
+    ],
   },
   "23026": {
     name: "Flowing Nightglow",
@@ -228,15 +346,25 @@ export default {
     type: "Harmony",
     statBase: { _HP: 952, _ATK: 635, _DEF: 463 },
     descHead: "Pacify",
-    descBody: "Every time an ally attacks, the wearer gains 1 stack of Cantillation. Each stack of Cantillation increases the wearer's Energy Regeneration Rate by 3%, stacking up to 5 time(s). When the wearer uses their Ultimate, removes Cantillation and gains Cadenza. Cadenza increases the Wearer's ATK by 48% and increases all allies' DMG dealt by 24%, lasting for 1 turn(s).",
+    descBody: "Every time an ally attacks, the wearer gains 1 stack of Cantillation. Each stack of Cantillation increases the wearer's Energy Regeneration Rate by {0}, stacking up to 5 time(s). When the wearer uses their Ultimate, removes Cantillation and gains Cadenza. Cadenza increases the Wearer's ATK by {1} and increases all allies' DMG dealt by {2}, lasting for 1 turn(s).",
+    descVar: [
+      ["3%"],
+      ["48%"],
+      ["24%"],
+    ],
   },
+
   "22002": {
     name: "For Tomorrow's Journey",
     rarity: 4,
     type: "Harmony",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Bonds",
-    descBody: "Increases the wearer's ATK by 16%. After the wearer uses their Ultimate, increases their DMG dealt by 18%, lasting for 1 turn(s).",
+    descBody: "Increases the wearer's ATK by {0}. After the wearer uses their Ultimate, increases their DMG dealt by {1}, lasting for 1 turn(s).",
+    descVar: [
+      ["16%"],
+      ["18%"],
+    ],
   },
   "21044": {
     name: "Boundless Choreo",
@@ -244,7 +372,11 @@ export default {
     type: "Nihility",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Scrutinize",
-    descBody: "Increase the wearer's CRIT Rate by 8%. The wearer deals 24% more CRIT DMG to enemies that are currently Slowed or have reduced DEF.",
+    descBody: "Increase the wearer's CRIT Rate by {0}. The wearer deals {1} more CRIT DMG to enemies that are currently Slowed or have reduced DEF.",
+    descVar: [
+      ["8%"],
+      ["24%"],
+    ],
   },
   
   // Version 2.1
@@ -254,7 +386,12 @@ export default {
     type: "Nihility",
     statBase: { _HP: 1058, _ATK: 635, _DEF: 396 },
     descHead: "Steerer",
-    descBody: "Increases the wearer's CRIT DMG by 36%. When the wearer hits an enemy target, inflicts Mirage Fizzle on the enemy, lasting for 1 turn. Each time the wearer attacks, this effect can only trigger 1 time on each target. The wearer deals 24% increased DMG to targets afflicted with Mirage Fizzle, and the DMG dealt by Ultimate additionally increases by 24%.",
+    descBody: "Increases the wearer's CRIT DMG by {0}. When the wearer hits an enemy target, inflicts Mirage Fizzle on the enemy, lasting for 1 turn. Each time the wearer attacks, this effect can only trigger 1 time on each target. The wearer deals {1} increased DMG to targets afflicted with Mirage Fizzle, and the DMG dealt by Ultimate additionally increases by {2}.",
+    descVar: [
+      ["36%"],
+      ["24%"],
+      ["24%"],
+    ],
   },
   "23023": {
     name: "Inherently Unjust Destiny",
@@ -262,15 +399,26 @@ export default {
     type: "Preservation",
     statBase: { _HP: 1058, _ATK: 423, _DEF: 661 },
     descHead: "All-In",
-    descBody: "Increases the wearer's DEF by 40%. When the wearer provides a Shield to an ally, the wearer's CRIT DMG increases by 40%, lasting for 2 turn(s). When the wearer's follow-up attack hits an enemy target, there is a 100% base chance to increase the DMG taken by the attacked enemy target by 10%, lasting for 2 turn(s).",
+    descBody: "Increases the wearer's DEF by {0}. When the wearer provides a Shield to an ally, the wearer's CRIT DMG increases by {1}, lasting for 2 turn(s). When the wearer's follow-up attack hits an enemy target, there is a {2} base chance to increase the DMG taken by the attacked enemy target by {3}, lasting for 2 turn(s).",
+    descVar: [
+      ["40%"],
+      ["40%"],
+      ["100%"],
+      ["10%"],
+    ],
   },
+
   "21043": {
     name: "Concert for Two",
     rarity: 4,
     type: "Preservation",
     statBase: { _HP: 952, _ATK: 370, _DEF: 463 },
     descHead: "Inspire",
-    descBody: "Increases the wearer's DEF by 16%. For every on-field character that has a Shield, the DMG dealt by the wearer increases by 4%.",
+    descBody: "Increases the wearer's DEF by {0}. For every on-field character that has a Shield, the DMG dealt by the wearer increases by {1}.",
+    descVar: [
+      ["16%"],
+      ["4%"],
+    ],
   },
   
   // Version 2.0
@@ -280,7 +428,12 @@ export default {
     type: "Nihility",
     statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
     descHead: "Crystallize",
-    descBody: "Increases the wearer's Effect Hit Rate by 40%. When the wearer deals DMG to an enemy inflicted with Wind Shear, Burn, Shock, or Bleed, each respectively grants 1 stack of Prophet, stacking up to 4 time(s). In a single battle, only 1 stack of Prophet can be granted for each type of DoT. Every stack of Prophet increases wearer's ATK by 5% and enables the DoT dealt to ignore 7.2% of the target's DEF.",
+    descBody: "Increases the wearer's Effect Hit Rate by {0}. When the wearer deals DMG to an enemy inflicted with Wind Shear, Burn, Shock, or Bleed, each respectively grants 1 stack of Prophet, stacking up to 4 time(s). In a single battle, only 1 stack of Prophet can be granted for each type of DoT. Every stack of Prophet increases wearer's ATK by {1} and enables the DoT dealt to ignore {2}% of the target's DEF.",
+    descVar: [
+      ["40%"],
+      ["5%"],
+      ["7.2%"],
+    ],
   },
   "23021": {
     name: "Earthly Escapade",
@@ -288,15 +441,25 @@ export default {
     type: "Harmony",
     statBase: { _HP: 1164, _ATK: 529, _DEF: 463 },
     descHead: "Capriciousness",
-    descBody: "Increases the wearer's CRIT DMG by 32%. At the start of the battle, the wearer gains Mask, lasting for 3 turn(s). While the wearer has Mask, the wearer's teammates have their CRIT Rate increased by 10% and their CRIT DMG increased by 28%. For every 1 Skill Point the wearer recovers (including Skill Points that exceed the limit), they gain 1 stack of Radiant Flame. And when the wearer has 4 stacks of Radiant Flame, all the stacks are removed, and they gain Mask, lasting for 4 turn(s).",
+    descBody: "Increases the wearer's CRIT DMG by {0}. At the start of the battle, the wearer gains Mask, lasting for 3 turn(s). While the wearer has Mask, the wearer's teammates have their CRIT Rate increased by {1} and their CRIT DMG increased by {2}. For every 1 Skill Point the wearer recovers (including Skill Points that exceed the limit), they gain 1 stack of Radiant Flame. And when the wearer has 4 stacks of Radiant Flame, all the stacks are removed, and they gain Mask, lasting for 4 turn(s).",
+    descVar: [
+      ["32%"],
+      ["10%"],
+      ["28%"],
+    ],
   },
+
   "21042": {
     name: "Indelible Promise",
     rarity: 4,
     type: "Destruction",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Inheritance",
-    descBody: "Increases the wearer's Break Effect by 28%. When the wearer uses their Ultimate, increases CRIT Rate by 15%, lasting for 2 turn(s).",
+    descBody: "Increases the wearer's Break Effect by {0}. When the wearer uses their Ultimate, increases CRIT Rate by {1}, lasting for 2 turn(s).",
+    descVar: [
+      ["28%"],
+      ["15%"],
+    ],
   },
   "21041": {
     name: "It's Showtime",
@@ -304,7 +467,11 @@ export default {
     type: "Nihility",
     statBase: { _HP: 1058, _ATK: 476, _DEF: 264 },
     descHead: "Self-Amusement",
-    descBody: "When the wearer inflicts a debuff on an enemy, gains a stack of Trick. Every stack of Trick increases the wearer's DMG dealt by 6%, stacking up to 3 time(s). This effect lasts for 1 turn(s). When the wearer's Effect Hit Rate is 80% or higher, increases ATK by 20%.",
+    descBody: "When the wearer inflicts a debuff on an enemy, gains a stack of Trick. Every stack of Trick increases the wearer's DMG dealt by {0}, stacking up to 3 time(s). This effect lasts for 1 turn(s). When the wearer's Effect Hit Rate is 80% or higher, increases ATK by {1}.",
+    descVar: [
+      ["6%"],
+      ["20%"],
+    ],
   },
   "21040": {
     name: "The Day The Cosmos Fell",
@@ -312,7 +479,11 @@ export default {
     type: "Erudition",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Stratagem",
-    descBody: "Increases the wearer's ATK by 16%. When the wearer uses an attack and at least 2 attacked enemies have the corresponding Weakness, the wearer's CRIT DMG increases by 20%, lasting for 2 turn(s).",
+    descBody: "Increases the wearer's ATK by {0}. When the wearer uses an attack and at least 2 attacked enemies have the corresponding Weakness, the wearer's CRIT DMG increases by {1}, lasting for 2 turn(s).",
+    descVar: [
+      ["16%"],
+      ["20%"],
+    ],
   },
   "21039": {
     name: "Destiny's Threads Forewoven",
@@ -320,7 +491,12 @@ export default {
     type: "Preservation",
     statBase: { _HP: 952, _ATK: 370, _DEF: 463 },
     descHead: "Insight",
-    descBody: "Increases the wearer's Effect RES by 12%. For every 100 of DEF the wearer has, increases the wearer's DMG dealt by 0.8%, up to a maximum DMG increase of 32%.",
+    descBody: "Increases the wearer's Effect RES by {0}. For every 100 of DEF the wearer has, increases the wearer's DMG dealt by {1}, up to a maximum DMG increase of {2}.",
+    descVar: [
+      ["12%"],
+      ["0.8%"],
+      ["32%"],
+    ],
   },
   "21038": {
     name: "Flames Afar",
@@ -328,7 +504,10 @@ export default {
     type: "Destruction",
     statBase: { _HP: 1058, _ATK: 476, _DEF: 264 },
     descHead: "Deflagration",
-    descBody: "When the wearer's cumulative HP loss during one attack exceeds 25% of their Max HP, or if the amount of their own HP consumed at one time is greater than 25% of their Max HP, immediately heals the wearer for 15% of their Max HP, and at the same time, increases the DMG they deal by 25% for 2 turn(s). This effect can only be triggered once every 3 turn(s).",
+    descBody: "When the wearer's cumulative HP loss during one attack exceeds 25% of their Max HP, or if the amount of their own HP consumed at one time is greater than 25% of their Max HP, immediately heals the wearer for 15% of their Max HP, and at the same time, increases the DMG they deal by {0} for 2 turn(s). This effect can only be triggered once every 3 turn(s).",
+    descVar: [
+      ["25%"],
+    ],
   },
   "21037": {
     name: "Final Victor",
@@ -336,7 +515,11 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Wager",
-    descBody: "Increases the wearer's ATK by 12%. When the wearer lands a CRIT hit on enemies, gains 1 stack of Good Fortune. This can stack up to 4 time(s). Every stack of Good Fortune increases the wearer's CRIT DMG by 8%. Good Fortune will be removed at the end of the wearer's turn.",
+    descBody: "Increases the wearer's ATK by {0}. When the wearer lands a CRIT hit on enemies, gains 1 stack of Good Fortune. This can stack up to 4 time(s). Every stack of Good Fortune increases the wearer's CRIT DMG by {1}. Good Fortune will be removed at the end of the wearer's turn.",
+    descVar: [
+      ["12%"],
+      ["8%"],
+    ],
   },
   "21036": {
     name: "Dreamville Adventure",
@@ -344,7 +527,10 @@ export default {
     type: "Harmony",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Solidarity",
-    descBody: "After the wearer uses a certain type of ability such as Basic ATK, Skill, or Ultimate, all allies gain Childishness, which increases allies' DMG for the same type of ability as used by the wearer by 12%. Childishness only takes effect for the most recent type of ability the wearer used and cannot be stacked.",
+    descBody: "After the wearer uses a certain type of ability such as Basic ATK, Skill, or Ultimate, all allies gain Childishness, which increases allies' DMG for the same type of ability as used by the wearer by {0}. Childishness only takes effect for the most recent type of ability the wearer used and cannot be stacked.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "21035": {
     name: "What Is Real?",
@@ -352,7 +538,11 @@ export default {
     type: "Abundance",
     statBase: { _HP: 1058, _ATK: 423, _DEF: 330 },
     descHead: "Hypothesis",
-    descBody: "Increases the wearer's Break Effect by 24%. After using Basic ATK, restores HP for the wearer by an amount equal to 2% of Max HP plus 800.",
+    descBody: "Increases the wearer's Break Effect by {0}. After using Basic ATK, restores HP for the wearer by an amount equal to {1} of Max HP plus 800.",
+    descVar: [
+      ["24%"],
+      ["2%"],
+    ],
   },
   
   // Version 1.6
@@ -362,7 +552,13 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 952, _ATK: 582, _DEF: 529 },
     descHead: "Mental Training",
-    descBody: "Increases the wearer's CRIT DMG by 20%. For every debuff on the enemy target, the wearer's CRIT DMG dealt against this target additionally increases by 8%, stacking up to 3 times. When using Ultimate to attack the enemy target, the wearer receives the Disputation effect, which increases DMG dealt by 36% and enables their follow-up attacks to ignore 24% of the target's DEF. This effect lasts for 2 turns.",
+    descBody: "Increases the wearer's CRIT DMG by {0}. For every debuff on the enemy target, the wearer's CRIT DMG dealt against this target additionally increases by {1}, stacking up to 3 times. When using Ultimate to attack the enemy target, the wearer receives the Disputation effect, which increases DMG dealt by {2} and enables their follow-up attacks to ignore {3} of the target's DEF. This effect lasts for 2 turns.",
+    descVar: [
+      ["20%"],
+      ["8%"],
+      ["36%"],
+      ["24%"],
+    ],
   },
   "23019": {
     name: "Past Self in Mirror",
@@ -370,7 +566,12 @@ export default {
     type: "Harmony",
     statBase: { _HP: 1058, _ATK: 529, _DEF: 529 },
     descHead: "The Plum Fragrance In My Bones",
-    descBody: "Increases the wearer's Break Effect by 60%. When the wearer uses their Ultimate, increases all allies' DMG by 24%, lasting for 3 turn(s). Should the wearer's Break Effect exceed or equal 150%, 1 Skill Point will be recovered.\nAt the start of each wave, all allies regenerate 10 Energy immediately. Abilities of the same type cannot stack.",
+    descBody: "Increases the wearer's Break Effect by {0}. When the wearer uses their Ultimate, increases all allies' DMG by {1}, lasting for 3 turn(s). Should the wearer's Break Effect exceed or equal 150%, 1 Skill Point will be recovered.\nAt the start of each wave, all allies regenerate {2} Energy immediately. Abilities of the same type cannot stack.",
+    descVar: [
+      ["60%"],
+      ["24%"],
+      ["10"],
+    ],
   },
   
   // Version 1.5
@@ -380,7 +581,11 @@ export default {
     type: "Erudition",
     statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
     descHead: "A Knight's Pilgrimage",
-    descBody: "Increases the wearer's CRIT DMG by 36%. When the wearer uses Ultimate, increases DMG dealt by the wearer's Ultimate based on their Max Energy. Each point of Energy increases DMG dealt by Ultimate by 0.36%. A max of 180 points of Energy will be taken into account for this.",
+    descBody: "Increases the wearer's CRIT DMG by {0}. When the wearer uses Ultimate, increases DMG dealt by the wearer's Ultimate based on their Max Energy. Each point of Energy increases DMG dealt by Ultimate by {1}. A max of 180 points of Energy will be taken into account for this.",
+    descVar: [
+      ["36%"],
+      ["0.36%"],
+    ],
   },
   "23017": {
     name: "Night of Fright",
@@ -388,15 +593,25 @@ export default {
     type: "Abundance",
     statBase: { _HP: 1164, _ATK: 476, _DEF: 529 },
     descHead: "Deep, Deep Breaths",
-    descBody: "Increases the wearer's Energy Regeneration Rate by 12%. When any ally uses their Ultimate, the wearer restores HP for the ally currently with the lowest HP percentage by an amount equal to 10% of the healed ally's Max HP. When the wearer provides healing for an ally, increases the healed ally's ATK by 2.4%. This effect can stack up to 5 times and lasts for 2 turn(s).",
+    descBody: "Increases the wearer's Energy Regeneration Rate by {0}. When any ally uses their Ultimate, the wearer restores HP for the ally currently with the lowest HP percentage by an amount equal to {1} of the healed ally's Max HP. When the wearer provides healing for an ally, increases the healed ally's ATK by {2}. This effect can stack up to 5 times and lasts for 2 turn(s).",
+    descVar: [
+      ["12%"],
+      ["10%"],
+      ["2.4%"],
+    ],
   },
+
   "22001": {
     name: "Hey, Over Here",
     rarity: 4,
     type: "Abundance",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "I'm Not Afraid!",
-    descBody: "Increases the wearer's Max HP by 8%. When the wearer uses their Skill, increases Outgoing Healing by 16%, lasting for 2 turn(s).",
+    descBody: "Increases the wearer's Max HP by {0}. When the wearer uses their Skill, increases Outgoing Healing by {1}, lasting for 2 turn(s).",
+    descVar: [
+      ["8%"],
+      ["16%"],
+    ],
   },
   
   // Version 1.4
@@ -406,7 +621,12 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
     descHead: "One At A Time",
-    descBody: "Increase the wearer's CRIT Rate by 18% and increases DMG dealt by follow-up attack by 30%. After the wearer uses a follow-up attack, inflicts the target with the Tame state, stacking up to 2 time(s). When allies hit enemy targets under the Tame state, each Tame stack increases the CRIT DMG dealt by 12%.",
+    descBody: "Increase the wearer's CRIT Rate by {0} and increases DMG dealt by follow-up attack by {1}. After the wearer uses a follow-up attack, inflicts the target with the Tame state, stacking up to 2 time(s). When allies hit enemy targets under the Tame state, each Tame stack increases the CRIT DMG dealt by {2}.",
+    descVar: [
+      ["18%"],
+      ["30%"],
+      ["12%"],
+    ],
   },
   "23014": {
     name: "I Shall Be My Own Sword",
@@ -414,17 +634,40 @@ export default {
     type: "Destruction",
     statBase: { _HP: 1164, _ATK: 582, _DEF: 396 },
     descHead: "With This Evening Jade",
-    descBody: "Increases the wearer's CRIT DMG by 20%. When a teammate gets attacked or loses HP, the wearer gains 1 stack of Eclipse, up to a max of 3 stack(s). Each stack of Eclipse increases the DMG of the wearer's next attack by 14%. When 3 stack(s) are reached, additionally enables that attack to ignore 12% of the enemy's DEF. This effect will be removed after the wearer uses an attack.",
+    descBody: "Increases the wearer's CRIT DMG by {0}. When a teammate gets attacked or loses HP, the wearer gains 1 stack of Eclipse, up to a max of 3 stack(s). Each stack of Eclipse increases the DMG of the wearer's next attack by {1}. When 3 stack(s) are reached, additionally enables that attack to ignore {2} of the enemy's DEF. This effect will be removed after the wearer uses an attack.",
+    descVar: [
+      ["20%"],
+      ["14%"],
+      ["12%"],
+    ],
   },
   
   // Version 1.3
+  "24003": {
+    name: "Solitary Healing",
+    rarity: 5,
+    type: "Nihility",
+    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
+    descHead: "Chaos Elixir",
+    descBody: "Increases the wearer's Break Effect by {0}. When the wearer uses their Ultimate, increases DoT dealt by the wearer by {1}, lasting for 2 turn(s). When a target enemy suffering from DoT imposed by the wearer is defeated, regenerates {2} Energy for the wearer.",
+    descVar: [
+      ["20%"],
+      ["24%"],
+      ["4"],
+    ],
+  },
   "23015": {
     name: "Brighter Than the Sun",
     rarity: 5,
     type: "Destruction",
     statBase: { _HP: 1058, _ATK: 635, _DEF: 396 },
     descHead: "Defiant Till Death",
-    descBody: "Increases the wearer's CRIT Rate by 18%. When the wearer uses their Basic ATK, they will gain 1 stack of Dragon's Call, lasting for 2 turns. Each stack of Dragon's Call increases the wearer's ATK by 18% and Energy Regeneration Rate by 6%. Dragon's Call can be stacked up to 2 times.",
+    descBody: "Increases the wearer's CRIT Rate by {0}. When the wearer uses their Basic ATK, they will gain 1 stack of Dragon's Call, lasting for 2 turns. Each stack of Dragon's Call increases the wearer's ATK by {1} and Energy Regeneration Rate by {2}. Dragon's Call can be stacked up to 2 times.",
+    descVar: [
+      ["18%"],
+      ["18%"],
+      ["6%"],
+    ],
   },
   "23011": {
     name: "She Already Shut Her Eyes",
@@ -432,15 +675,13 @@ export default {
     type: "Preservation",
     statBase: { _HP: 1270, _ATK: 423, _DEF: 529 },
     descHead: "Visioscape",
-    descBody: "Increases the wearer's Max HP by 24% and Energy Regeneration Rate by 12%. When the wearer's HP is reduced, all allies' DMG dealt increases by 9%, lasting for 2 turn(s).\nAt the start of every wave, restores HP to all allies by an amount equal to 80% of their respective lost HP.",
-  },
-  "24003": {
-    name: "Solitary Healing",
-    rarity: 5,
-    type: "Nihility",
-    statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
-    descHead: "Chaos Elixir",
-    descBody: "Increases the wearer's Break Effect by 20%. When the wearer uses their Ultimate, increases DoT dealt by the wearer by 24%, lasting for 2 turn(s). When a target enemy suffering from DoT imposed by the wearer is defeated, regenerates 4 Energy for the wearer.",
+    descBody: "Increases the wearer's Max HP by {0} and Energy Regeneration Rate by {1}. When the wearer's HP is reduced, all allies' DMG dealt increases by {2}, lasting for 2 turn(s).\nAt the start of every wave, restores HP to all allies by an amount equal to {3} of their respective lost HP.",
+    descVar: [
+      ["24%"],
+      ["12%"],
+      ["9%"],
+      ["80%"],
+    ],
   },
   
   // Version 1.2
@@ -450,7 +691,12 @@ export default {
     type: "Destruction",
     statBase: { _HP: 1270, _ATK: 582, _DEF: 330 },
     descHead: "Unfulfilled Yearning",
-    descBody: "Increases the wearer's CRIT Rate by 18% and increases their Max HP by 18%. When the wearer is attacked or consumes their own HP, their DMG increases by 24%. This effect is removed after the wearer uses an attack.",
+    descBody: "Increases the wearer's CRIT Rate by {0} and increases their Max HP by {1}. When the wearer is attacked or consumes their own HP, their DMG increases by {2}. This effect is removed after the wearer uses an attack.",
+    descVar: [
+      ["18%"],
+      ["18%"],
+      ["24%"],
+    ],
   },
   "23006": {
     name: "Patience Is All You Need",
@@ -458,7 +704,12 @@ export default {
     type: "Nihility",
     statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
     descHead: "Spider Web",
-    descBody: "Increases DMG dealt by the wearer by 24%. After every attack launched by wearer, their SPD increases by 4.8%, stacking up to 3 times.\nIf the wearer hits an enemy target that is not afflicted by Erode, there is a 100% base chance to inflict Erode to the target. Enemies afflicted with Erode are also considered to be Shocked and will receive Lightning DoT at the start of each turn equal to 60% of the wearer's ATK, lasting for 1 turn(s).",
+    descBody: "Increases DMG dealt by the wearer by {0}. After every attack launched by wearer, their SPD increases by {1}, stacking up to 3 times.\nIf the wearer hits an enemy target that is not afflicted by Erode, there is a 100% base chance to inflict Erode to the target. Enemies afflicted with Erode are also considered to be Shocked and will receive Lightning DoT at the start of each turn equal to {2} of the wearer's ATK, lasting for 1 turn(s).",
+    descVar: [
+      ["24%"],
+      ["4.8%"],
+      ["60%"],
+    ],
   },
   
   // Version 1.1
@@ -468,7 +719,12 @@ export default {
     type: "Abundance",
     statBase: { _HP: 1164, _ATK: 582, _DEF: 396 },
     descHead: "Thorns",
-    descBody: "Increases the wearer's ATK by 24%. After the wearer uses an attack, for each different enemy target the wearer hits, regenerates 3 Energy. Each attack can regenerate Energy up to 3 time(s) this way. After the wearer uses their Ultimate, all allies gain 12 SPD for 1 turn.",
+    descBody: "Increases the wearer's ATK by {0}. After the wearer uses an attack, for each different enemy target the wearer hits, regenerates {1} Energy. Each attack can regenerate Energy up to 3 time(s) this way. After the wearer uses their Ultimate, all allies gain {2} SPD for 1 turn.",
+    descVar: [
+      ["24%"],
+      ["3"],
+      ["12"],
+    ],
   },
   "23007": {
     name: "Incessant Rain",
@@ -476,97 +732,40 @@ export default {
     type: "Nihility",
     statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
     descHead: "Mirage of Reality",
-    descBody: "Increases the wearer's Effect Hit Rate by 24%. When the wearer deals DMG to an enemy that currently has 3 or more debuffs, increases the wearer's CRIT Rate by 12%. After the wearer uses their Basic ATK, Skill, or Ultimate, there is a 100% base chance to implant Aether Code on a random hit target that does not yet have it. Targets with Aether Code receive 12% increased DMG for 1 turn.",
+    descBody: "Increases the wearer's Effect Hit Rate by {0}. When the wearer deals DMG to an enemy that currently has 3 or more debuffs, increases the wearer's CRIT Rate by {1}. After the wearer uses their Basic ATK, Skill, or Ultimate, there is a 100% base chance to implant Aether Code on a random hit target that does not yet have it. Targets with Aether Code receive {2} increased DMG for 1 turn.",
+    descVar: [
+      ["24%"],
+      ["12%"],
+      ["12%"],
+    ],
   },
+
   "22000": {
     name: "Before the Tutorial Mission Starts",
     rarity: 4,
     type: "Nihility",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Quick on the Draw",
-    descBody: "Increases the wearer's Effect Hit Rate by 20%. When the wearer attacks DEF-reduced enemies, regenerates 4 Energy.",
+    descBody: "Increases the wearer's Effect Hit Rate by {0}. When the wearer attacks DEF-reduced enemies, regenerates {1} Energy.",
+    descVar: [
+      ["20%"],
+      ["4"],
+    ],
   },
   
   // Version 1.0
-  "23010": {
-    name: "Before Dawn",
-    rarity: 5,
-    type: "Erudition",
-    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
-    descHead: "Long Night",
-    descBody: "Increases the wearer's CRIT DMG by 36%. Increases DMG dealt by the wearer's Skill and Ultimate by 18%. After the wearer uses Skill or Ultimate, gains Somnus Corpus. Upon triggering a follow-up attack, consumes Somnus Corpus, and increases DMG dealt by follow-up attack by 48%.",
-  },
-  "23001": {
-    name: "In the Night",
-    rarity: 5,
-    type: "The Hunt",
-    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
-    descHead: "Flowers and Butterflies",
-    descBody: "Increases the wearer's CRIT Rate by 18%. While the wearer is in battle, for every 10 SPD that exceeds 100, increases DMG dealt by Basic ATK and Skill by 6%. At the same time, increases the CRIT DMG of Ultimate by 12%. This effect can stack up to 6 time(s).",
-  },
-  "23013": {
-    name: "Time Waits for No One",
-    rarity: 5,
-    type: "Abundance",
-    statBase: { _HP: 1270, _ATK: 476, _DEF: 463 },
-    descHead: "Morn, Noon, Dusk, and Night",
-    descBody: "Increases the wearer's Max HP by 18% and Outgoing Healing by 12%. When the wearer heals allies, record the amount of Outgoing Healing. When any ally launches an attack, a random attacked enemy takes Additional DMG equal to 36% of the recorded Outgoing Healing value. The type of this Additional DMG is of the same Type as the wearer's. This Additional DMG is not affected by other buffs, and can only occur 1 time per turn.",
-  },
-  "23012": {
-    name: "Sleep Like the Dead",
-    rarity: 5,
-    type: "The Hunt",
-    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
-    descHead: "Sweet Dreams",
-    descBody: "Increases the wearer's CRIT DMG by 30%. When the wearer's Basic ATK or Skill DMG does not result in a CRIT Hit, increases their CRIT Rate by 36%, lasting for 1 turn(s). This effect can only trigger once every 3 turn(s).",
-  },
-  "23005": {
-    name: "Moment of Victory",
-    rarity: 5,
-    type: "Preservation",
-    statBase: { _HP: 1058, _ATK: 476, _DEF: 595 },
-    descHead: "Verdict",
-    descBody: "Increases the wearer's DEF by 24% and Effect Hit Rate by 24%. Increases the chance for the wearer to be attacked by enemies. When the wearer is attacked, increase their DEF by an extra 24% until the end of the wearer's turn.",
-  },
-  "23004": {
-    name: "In the Name of the World",
-    rarity: 5,
-    type: "Nihility",
-    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
-    descHead: "Inheritor",
-    descBody: "Increases the wearer's DMG to debuffed enemies by 24%. When the wearer uses their Skill, the Effect Hit Rate for this attack increases by 18%, and ATK increases by 24%.",
-  },
-  "23003": {
-    name: "But the Battle Isn't Over",
-    rarity: 5,
-    type: "Harmony",
-    statBase: { _HP: 1164, _ATK: 529, _DEF: 463 },
-    descHead: "Heir",
-    descBody: "Increases the wearer's Energy Regeneration Rate by 10% and regenerates 1 Skill Point when the wearer uses their Ultimate on an ally. This effect can be triggered once after every 2 uses of the wearer's Ultimate. When the wearer uses their Skill, the next ally taking action (except the wearer) deals 30% more DMG for 1 turn(s).",
-  },
-  "23002": {
-    name: "Something Irreplaceable",
-    rarity: 5,
-    type: "Destruction",
-    statBase: { _HP: 1164, _ATK: 582, _DEF: 396 },
-    descHead: "Kinship",
-    descBody: "Increases the wearer's ATK by 24%. When the wearer defeats an enemy or is hit, immediately restores HP equal to 8% of the wearer's ATK. At the same time, the wearer's DMG is increased by 24% until the end of their next turn. This effect cannot stack and can only trigger 1 time per turn.",
-  },
-  "23000": {
-    name: "Night on the Milky Way",
-    rarity: 5,
-    type: "Erudition",
-    statBase: { _HP: 1164, _ATK: 582, _DEF: 396 },
-    descHead: "Meteor Swarm",
-    descBody: "For every enemy on the field, increases the wearer's ATK by 9%, up to 5 stacks. When an enemy is inflicted with Weakness Break, the DMG dealt by the wearer increases by 30% for 1 turn.",
-  },
   "24002": {
     name: "Texture of Memories",
     rarity: 5,
     type: "Preservation",
     statBase: { _HP: 1058, _ATK: 423, _DEF: 529 },
     descHead: "Treasure",
-    descBody: "Increases the wearer's Effect RES by 8%. If the wearer is attacked and has no Shield, they gain a Shield equal to 16% of their Max HP for 2 turn(s). This effect can only be triggered once every 3 turn(s). If the wearer has a Shield when attacked, the DMG they receive decreases by 12%.",
+    descBody: "Increases the wearer's Effect RES by {0}. If the wearer is attacked and has no Shield, they gain a Shield equal to {1} of their Max HP for 2 turn(s). This effect can only be triggered once every 3 turn(s). If the wearer has a Shield when attacked, the DMG they receive decreases by {2}.",
+    descVar: [
+      ["8%"],
+      ["16%"],
+      ["12%"],
+    ],
   },
   "24001": {
     name: "Cruising in the Stellar Sea",
@@ -574,7 +773,12 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 952, _ATK: 529, _DEF: 463 },
     descHead: "Chase",
-    descBody: "Increases the wearer's CRIT rate by 8%, and increases their CRIT rate against enemies with HP percentage less than or equal to 50% by an extra 8%. When the wearer defeats an enemy, their ATK is increased by 20% for 2 turn(s).",
+    descBody: "Increases the wearer's CRIT rate by {0}, and increases their CRIT rate against enemies with HP percentage less than or equal to 50% by an extra {1}. When the wearer defeats an enemy, their ATK is increased by {2} for 2 turn(s).",
+    descVar: [
+      ["8%"],
+      ["8%"],
+      ["20%"],
+    ],
   },
   "24000": {
     name: "On the Fall of an Aeon",
@@ -582,15 +786,137 @@ export default {
     type: "Destruction",
     statBase: { _HP: 1058, _ATK: 529, _DEF: 396 },
     descHead: "Moth to Flames",
-    descBody: "When the wearer attacks, increases their ATK by 8% in this battle. This effect can stack up to 4 time(s). After the wearer breaks an enemy's Weakness, increases DMG dealt by 12%, lasting for 2 turn(s).",
+    descBody: "When the wearer attacks, increases their ATK by {0} in this battle. This effect can stack up to 4 time(s). After the wearer breaks an enemy's Weakness, increases DMG dealt by {1}, lasting for 2 turn(s).",
+    descVar: [
+      ["8%"],
+      ["12%"],
+    ],
   },
+  "23013": {
+    name: "Time Waits for No One",
+    rarity: 5,
+    type: "Abundance",
+    statBase: { _HP: 1270, _ATK: 476, _DEF: 463 },
+    descHead: "Morn, Noon, Dusk, and Night",
+    descBody: "Increases the wearer's Max HP by {0} and Outgoing Healing by {1}. When the wearer heals allies, record the amount of Outgoing Healing. When any ally launches an attack, a random attacked enemy takes Additional DMG equal to {2} of the recorded Outgoing Healing value. The type of this Additional DMG is of the same Type as the wearer's. This Additional DMG is not affected by other buffs, and can only occur 1 time per turn.",
+    descVar: [
+      ["18%"],
+      ["12%"],
+      ["36%"],
+    ],
+  },
+  "23012": {
+    name: "Sleep Like the Dead",
+    rarity: 5,
+    type: "The Hunt",
+    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
+    descHead: "Sweet Dreams",
+    descBody: "Increases the wearer's CRIT DMG by {0}. When the wearer's Basic ATK or Skill DMG does not result in a CRIT Hit, increases their CRIT Rate by {1}, lasting for 1 turn(s). This effect can only trigger once every 3 turn(s).",
+    descVar: [
+      ["30%"],
+      ["36%"],
+    ],
+  },
+  "23010": {
+    name: "Before Dawn",
+    rarity: 5,
+    type: "Erudition",
+    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
+    descHead: "Long Night",
+    descBody: "Increases the wearer's CRIT DMG by {0}. Increases DMG dealt by the wearer's Skill and Ultimate by {1}. After the wearer uses Skill or Ultimate, gains Somnus Corpus. Upon triggering a follow-up attack, consumes Somnus Corpus, and increases DMG dealt by follow-up attack by {2}.",
+    descVar: [
+      ["36%"],
+      ["18%"],
+      ["48%"],
+    ],
+  },
+  "23005": {
+    name: "Moment of Victory",
+    rarity: 5,
+    type: "Preservation",
+    statBase: { _HP: 1058, _ATK: 476, _DEF: 595 },
+    descHead: "Verdict",
+    descBody: "Increases the wearer's DEF by {0} and Effect Hit Rate by {1}. Increases the chance for the wearer to be attacked by enemies. When the wearer is attacked, increase their DEF by an extra {2} until the end of the wearer's turn.",
+    descVar: [
+      ["24%"],
+      ["24%"],
+      ["24%"],
+    ],
+  },
+  "23004": {
+    name: "In the Name of the World",
+    rarity: 5,
+    type: "Nihility",
+    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
+    descHead: "Inheritor",
+    descBody: "Increases the wearer's DMG to debuffed enemies by {0}. When the wearer uses their Skill, the Effect Hit Rate for this attack increases by {1}, and ATK increases by {2}.",
+    descVar: [
+      ["24%"],
+      ["18%"],
+      ["24%"],
+    ],
+  },
+  "23003": {
+    name: "But the Battle Isn't Over",
+    rarity: 5,
+    type: "Harmony",
+    statBase: { _HP: 1164, _ATK: 529, _DEF: 463 },
+    descHead: "Heir",
+    descBody: "Increases the wearer's Energy Regeneration Rate by {0} and regenerates 1 Skill Point when the wearer uses their Ultimate on an ally. This effect can be triggered once after every 2 uses of the wearer's Ultimate. When the wearer uses their Skill, the next ally taking action (except the wearer) deals {1} more DMG for 1 turn(s).",
+    descVar: [
+      ["10%"],
+      ["30%"],
+    ],
+  },
+  "23002": {
+    name: "Something Irreplaceable",
+    rarity: 5,
+    type: "Destruction",
+    statBase: { _HP: 1164, _ATK: 582, _DEF: 396 },
+    descHead: "Kinship",
+    descBody: "Increases the wearer's ATK by {0}. When the wearer defeats an enemy or is hit, immediately restores HP equal to {1} of the wearer's ATK. At the same time, the wearer's DMG is increased by {2} until the end of their next turn. This effect cannot stack and can only trigger 1 time per turn.",
+    descVar: [
+      ["24%"],
+      ["8%"],
+      ["24%"],
+    ],
+  },
+  "23001": {
+    name: "In the Night",
+    rarity: 5,
+    type: "The Hunt",
+    statBase: { _HP: 1058, _ATK: 582, _DEF: 463 },
+    descHead: "Flowers and Butterflies",
+    descBody: "Increases the wearer's CRIT Rate by {0}. While the wearer is in battle, for every 10 SPD that exceeds 100, increases DMG dealt by Basic ATK and Skill by {1}. At the same time, increases the CRIT DMG of Ultimate by {2}. This effect can stack up to 6 time(s).",
+    descVar: [
+      ["18%"],
+      ["6%"],
+      ["12%"],
+    ],
+  },
+  "23000": {
+    name: "Night on the Milky Way",
+    rarity: 5,
+    type: "Erudition",
+    statBase: { _HP: 1164, _ATK: 582, _DEF: 396 },
+    descHead: "Meteor Swarm",
+    descBody: "For every enemy on the field, increases the wearer's ATK by {0}, up to 5 stacks. When an enemy is inflicted with Weakness Break, the DMG dealt by the wearer increases by {1} for 1 turn.",
+    descVar: [
+      ["9%"],
+      ["30%"],
+    ],
+  },
+
   "21034": {
     name: "Today Is Another Peaceful Day",
     rarity: 4,
     type: "Erudition",
     statBase: { _HP: 846, _ATK: 529, _DEF: 330 },
     descHead: "A Storm Is Coming",
-    descBody: "After entering battle, increases the wearer's DMG based on their Max Energy. Each point of Energy increases DMG by 0.2%. A max of 160 Energy will be taken into account for this.",
+    descBody: "After entering battle, increases the wearer's DMG based on their Max Energy. Each point of Energy increases DMG by {0}. A max of 160 Energy will be taken into account for this.",
+    descVar: [
+      ["0.2%"],
+    ],
   },
   "21033": {
     name: "Nowhere to Run",
@@ -598,7 +924,11 @@ export default {
     type: "Destruction",
     statBase: { _HP: 952, _ATK: 529, _DEF: 264 },
     descHead: "Desperate Times",
-    descBody: "Increases the wearer's ATK by 24%. Whenever the wearer defeats an enemy, they restore HP equal to 12% of their ATK.",
+    descBody: "Increases the wearer's ATK by {0}. Whenever the wearer defeats an enemy, they restore HP equal to {1} of their ATK.",
+    descVar: [
+      ["24%"],
+      ["12%"],
+    ],
   },
   "21032": {
     name: "Carve the Moon, Weave the Clouds",
@@ -606,7 +936,12 @@ export default {
     type: "Harmony",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Secret",
-    descBody: "At the start of the battle and whenever the wearer's turn begins, one of the following effects is applied randomly: All allies' ATK increases by 10%, all allies' CRIT DMG increases by 12%, or all allies' Energy Regeneration Rate increases by 6%. The applied effect cannot be identical to the last effect applied, and will replace the previous effect. The applied effect will be removed when the wearer has been knocked down. Effects of the same type cannot be stacked.",
+    descBody: "At the start of the battle and whenever the wearer's turn begins, one of the following effects is applied randomly: All allies' ATK increases by {0}, all allies' CRIT DMG increases by {1}, or all allies' Energy Regeneration Rate increases by {2}. The applied effect cannot be identical to the last effect applied, and will replace the previous effect. The applied effect will be removed when the wearer has been knocked down. Effects of the same type cannot be stacked.",
+    descVar: [
+      ["10%"],
+      ["12%"],
+      ["6%"],
+    ],
   },
   "21031": {
     name: "Return to Darkness",
@@ -614,7 +949,11 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 846, _ATK: 529, _DEF: 330 },
     descHead: "Raging Waves",
-    descBody: "Increases the wearer's CRIT Rate by 12%. After a CRIT Hit, there is a 16% fixed chance to dispel 1 buff on the target enemy. This effect can only trigger 1 time per attack.",
+    descBody: "Increases the wearer's CRIT Rate by {0}. After a CRIT Hit, there is a {1} fixed chance to dispel 1 buff on the target enemy. This effect can only trigger 1 time per attack.",
+    descVar: [
+      ["12%"],
+      ["16%"],
+    ],
   },
   "21030": {
     name: "This Is Me!",
@@ -622,7 +961,11 @@ export default {
     type: "Preservation",
     statBase: { _HP: 846, _ATK: 370, _DEF: 529 },
     descHead: "New Chapter",
-    descBody: "Increases the wearer's DEF by 16%. Increases the DMG of the wearer when they use their Ultimate by 60% of the wearer's DEF. This effect only applies 1 time per enemy target during each use of the wearer's Ultimate.",
+    descBody: "Increases the wearer's DEF by {0}. Increases the DMG of the wearer when they use their Ultimate by {1} of the wearer's DEF. This effect only applies 1 time per enemy target during each use of the wearer's Ultimate.",
+    descVar: [
+      ["16%"],
+      ["60%"],
+    ],
   },
   "21029": {
     name: "We Will Meet Again",
@@ -630,7 +973,10 @@ export default {
     type: "Nihility",
     statBase: { _HP: 846, _ATK: 529, _DEF: 330 },
     descHead: "A Discourse in Arms",
-    descBody: "After the wearer uses Basic ATK or Skill, deals Additional DMG equal to 48% of the wearer's ATK to a random enemy that has been attacked.",
+    descBody: "After the wearer uses Basic ATK or Skill, deals Additional DMG equal to {0} of the wearer's ATK to a random enemy that has been attacked.",
+    descVar: [
+      ["48%"],
+    ],
   },
   "21028": {
     name: "Warmth Shortens Cold Nights",
@@ -638,7 +984,11 @@ export default {
     type: "Abundance",
     statBase: { _HP: 1058, _ATK: 370, _DEF: 396 },
     descHead: "Tiny Light",
-    descBody: "Increases the wearer's Max HP by 16%. When using Basic ATK or Skill, restores all allies' HP by an amount equal to 2% of their respective Max HP.",
+    descBody: "Increases the wearer's Max HP by {0}. When using Basic ATK or Skill, restores all allies' HP by an amount equal to {1} of their respective Max HP.",
+    descVar: [
+      ["16%"],
+      ["2%"],
+    ],
   },
   "21027": {
     name: "The Seriousness of Breakfast",
@@ -646,7 +996,11 @@ export default {
     type: "Erudition",
     statBase: { _HP: 846, _ATK: 476, _DEF: 396 },
     descHead: "Get Ready",
-    descBody: "Increases the wearer's DMG by 12%. For every enemy defeated by the wearer, the wearer's ATK increases by 4%, stacking up to 3 time(s).",
+    descBody: "Increases the wearer's DMG by {0}. For every enemy defeated by the wearer, the wearer's ATK increases by {1}, stacking up to 3 time(s).",
+    descVar: [
+      ["12%"],
+      ["4%"],
+    ],
   },
   "21026": {
     name: "Woof! Walk Time!",
@@ -654,7 +1008,11 @@ export default {
     type: "Destruction",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Run!",
-    descBody: "Increases the wearer's ATK by 10%, and increases their DMG to enemies afflicted with Burn or Bleed by 16%. This also applies to DoT.",
+    descBody: "Increases the wearer's ATK by {0}, and increases their DMG to enemies afflicted with Burn or Bleed by {1}. This also applies to DoT.",
+    descVar: [
+      ["10%"],
+      ["16%"],
+    ],
   },
   "21025": {
     name: "Past and Future",
@@ -662,7 +1020,10 @@ export default {
     type: "Harmony",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Kites From the Past",
-    descBody: "When the wearer uses their Skill, the next ally taking action (except the wearer) deals 16% increased DMG for 1 turn(s).",
+    descBody: "When the wearer uses their Skill, the next ally taking action (except the wearer) deals {0} increased DMG for 1 turn(s).",
+    descVar: [
+      ["16%"],
+    ],
   },
   "21024": {
     name: "River Flows in Spring",
@@ -670,7 +1031,11 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 846, _ATK: 476, _DEF: 396 },
     descHead: "Stave Off the Lingering Cold",
-    descBody: "After entering battle, increases the wearer's SPD by 8% and DMG by 12%. When the wearer takes DMG, this effect will disappear. This effect will resume after the end of the wearer's next turn.",
+    descBody: "After entering battle, increases the wearer's SPD by {0} and DMG by {1}. When the wearer takes DMG, this effect will disappear. This effect will resume after the end of the wearer's next turn.",
+    descVar: [
+      ["8%"],
+      ["12%"],
+    ],
   },
   "21023": {
     name: "We Are Wildfire",
@@ -678,7 +1043,11 @@ export default {
     type: "Preservation",
     statBase: { _HP: 740, _ATK: 476, _DEF: 463 },
     descHead: "Teary-Eyed",
-    descBody: "At the start of the battle, the DMG dealt to all allies decreases by 8% for 5 turn(s). At the same time, immediately restores HP to all allies equal to 30% of the respective HP difference between the characters' Max HP and current HP.",
+    descBody: "At the start of the battle, the DMG dealt to all allies decreases by {0} for 5 turn(s). At the same time, immediately restores HP to all allies equal to {1} of the respective HP difference between the characters' Max HP and current HP.",
+    descVar: [
+      ["8%"],
+      ["30%"],
+    ],
   },
   "21022": {
     name: "Fermata",
@@ -686,7 +1055,11 @@ export default {
     type: "Nihility",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Semibreve Rest",
-    descBody: "Increases the wearer's Break Effect by 16%, and increases their DMG to enemies afflicted with Shock or Wind Shear by 16%. This also applies to DoT.",
+    descBody: "Increases the wearer's Break Effect by {0}, and increases their DMG to enemies afflicted with Shock or Wind Shear by {1}. This also applies to DoT.",
+    descVar: [
+      ["16%"],
+      ["16%"],
+    ],
   },
   "21021": {
     name: "Quid Pro Quo",
@@ -694,7 +1067,10 @@ export default {
     type: "Abundance",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Enjoy With Rapture",
-    descBody: "At the start of the wearer's turn, regenerates 8 Energy for a randomly chosen ally (excluding the wearer) whose current Energy is lower than 50%.",
+    descBody: "At the start of the wearer's turn, regenerates {0} Energy for a randomly chosen ally (excluding the wearer) whose current Energy is lower than 50%.",
+    descVar: [
+      ["8"],
+    ],
   },
   "21020": {
     name: "Geniuses' Repose",
@@ -702,7 +1078,11 @@ export default {
     type: "Erudition",
     statBase: { _HP: 846, _ATK: 476, _DEF: 396 },
     descHead: "Each Now Has a Role to Play",
-    descBody: "Increases the wearer's ATK by 16%. When the wearer defeats an enemy, the wearer's CRIT DMG increases by 24% for 3 turn(s).",
+    descBody: "Increases the wearer's ATK by {0}. When the wearer defeats an enemy, the wearer's CRIT DMG increases by {1} for 3 turn(s).",
+    descVar: [
+      ["16%"],
+      ["24%"],
+    ],
   },
   "21019": {
     name: "Under the Blue Sky",
@@ -710,7 +1090,11 @@ export default {
     type: "Destruction",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Rye Under the Sun",
-    descBody: "Increases the wearer's ATK by 16%. When the wearer defeats an enemy, the wearer's CRIT Rate increases by 12% for 3 turn(s).",
+    descBody: "Increases the wearer's ATK by {0}. When the wearer defeats an enemy, the wearer's CRIT Rate increases by {1} for 3 turn(s).",
+    descVar: [
+      ["16%"],
+      ["12%"],
+    ],
   },
   "21018": {
     name: "Dance! Dance! Dance!",
@@ -718,7 +1102,10 @@ export default {
     type: "Harmony",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Cannot Stop It!",
-    descBody: "When the wearer uses their Ultimate, all allies' actions are Advanced Forward by 16%.",
+    descBody: "When the wearer uses their Ultimate, all allies' actions are Advanced Forward by {0}.",
+    descVar: [
+      ["16%"],
+    ],
   },
   "21017": {
     name: "Subscribe for More!",
@@ -726,7 +1113,11 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Like Before You Leave!",
-    descBody: "The wearer's Basic ATK and Skill deals 24% more DMG. This effect increases by an extra 24% when the wearer's current Energy reaches its max level.",
+    descBody: "The wearer's Basic ATK and Skill deals {0} more DMG. This effect increases by an extra {1} when the wearer's current Energy reaches its max level.",
+    descVar: [
+      ["24%"],
+      ["24%"],
+    ],
   },
   "21016": {
     name: "Trend of the Universal Market",
@@ -734,7 +1125,12 @@ export default {
     type: "Preservation",
     statBase: { _HP: 1058, _ATK: 370, _DEF: 396 },
     descHead: "A New Round of Shuffling",
-    descBody: "Increases the wearer's DEF by 16%. When the wearer is attacked, there is a 100% base chance to Burn the enemy. For each turn, the wearer deals DoT that is equal to 40% of the wearer's DEF for 2 turn(s).",
+    descBody: "Increases the wearer's DEF by {0}. When the wearer is attacked, there is a {1} base chance to Burn the enemy. For each turn, the wearer deals DoT that is equal to {2} of the wearer's DEF for 2 turn(s).",
+    descVar: [
+      ["16%"],
+      ["100%"],
+      ["40%"],
+    ],
   },
   "21015": {
     name: "Resolution Shines As Pearls of Sweat",
@@ -742,7 +1138,11 @@ export default {
     type: "Nihility",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Glance Back",
-    descBody: "When the wearer hits an enemy and if the hit enemy is not already \"Ensnared,\" then there is a 60% base chance to \"Ensnare\" the hit enemy. \"Ensnared\" enemies' DEF decreases by 12% for 1 turn(s).",
+    descBody: "When the wearer hits an enemy and if the hit enemy is not already \"Ensnared,\" then there is a {0} base chance to \"Ensnare\" the hit enemy. \"Ensnared\" enemies' DEF decreases by {1} for 1 turn(s).",
+    descVar: [
+      ["60%"],
+      ["12%"],
+    ],
   },
   "21014": {
     name: "Perfect Timing",
@@ -750,7 +1150,12 @@ export default {
     type: "Abundance",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Refraction of Sightline",
-    descBody: "Increases the wearer's Effect RES by 16% and increases Outgoing Healing by an amount that is equal to 33% of Effect RES. Outgoing Healing can be increased this way by up to 15%.",
+    descBody: "Increases the wearer's Effect RES by {0} and increases Outgoing Healing by an amount that is equal to {1} of Effect RES. Outgoing Healing can be increased this way by up to {2}.",
+    descVar: [
+      ["16%"],
+      ["33%"],
+      ["15%"],
+    ],
   },
   "21013": {
     name: "Make the World Clamor",
@@ -758,7 +1163,11 @@ export default {
     type: "Erudition",
     statBase: { _HP: 846, _ATK: 476, _DEF: 396 },
     descHead: "The Power of Sound",
-    descBody: "The wearer regenerates 20 Energy immediately upon entering battle, and increases DMG dealt by the wearer's Ultimate by 32%.",
+    descBody: "The wearer regenerates {0} Energy immediately upon entering battle, and increases DMG dealt by the wearer's Ultimate by {1}.",
+    descVar: [
+      ["20"],
+      ["32%"],
+    ],
   },
   "21012": {
     name: "A Secret Vow",
@@ -766,7 +1175,11 @@ export default {
     type: "Destruction",
     statBase: { _HP: 1058, _ATK: 476, _DEF: 264 },
     descHead: "Spare No Effort",
-    descBody: "Increases DMG dealt by the wearer by 20%. The wearer also deals an extra 20% of DMG to enemies whose current HP percentage is equal to or higher than the wearer's current HP percentage.",
+    descBody: "Increases DMG dealt by the wearer by {0}. The wearer also deals an extra {1} of DMG to enemies whose current HP percentage is equal to or higher than the wearer's current HP percentage.",
+    descVar: [
+      ["20%"],
+      ["20%"],
+    ],
   },
   "21011": {
     name: "Planetary Rendezvous",
@@ -774,7 +1187,10 @@ export default {
     type: "Harmony",
     statBase: { _HP: 1058, _ATK: 423, _DEF: 330 },
     descHead: "Departure",
-    descBody: "After entering battle, if an ally deals the same DMG Type as the wearer, DMG dealt increases by 12%",
+    descBody: "After entering battle, if an ally deals the same DMG Type as the wearer, DMG dealt increases by {0}",
+    descVar: [
+      ["12%"],
+    ],
   },
   "21010": {
     name: "Swordplay",
@@ -782,7 +1198,10 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Answers of Their Own",
-    descBody: "For each time the wearer hits the same target, DMG dealt increases by 8%, stacking up to 5 time(s). This effect will be dispelled when the wearer changes targets.",
+    descBody: "For each time the wearer hits the same target, DMG dealt increases by {0}, stacking up to 5 time(s). This effect will be dispelled when the wearer changes targets.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "21009": {
     name: "Landau's Choice",
@@ -790,7 +1209,10 @@ export default {
     type: "Preservation",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Time Fleets Away",
-    descBody: "The wearer is more likely to be attacked, and DMG taken is reduced by 16%.",
+    descBody: "The wearer is more likely to be attacked, and DMG taken is reduced by {0}.",
+    descVar: [
+      ["16%"],
+    ],
   },
   "21008": {
     name: "Eyes of the Prey",
@@ -798,7 +1220,11 @@ export default {
     type: "Nihility",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Self-Confidence",
-    descBody: "Increases the wearer's Effect Hit Rate by 20% and increases DoT by 24%.",
+    descBody: "Increases the wearer's Effect Hit Rate by {0} and increases DoT by {1}.",
+    descVar: [
+      ["20%"],
+      ["24%"],
+    ],
   },
   "21007": {
     name: "Shared Feeling",
@@ -806,7 +1232,11 @@ export default {
     type: "Abundance",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Cure and Repair",
-    descBody: "Increases the wearer's Outgoing Healing by 10%. When using Skill, regenerates 2 Energy for all allies.",
+    descBody: "Increases the wearer's Outgoing Healing by {0}. When using Skill, regenerates {1} Energy for all allies.",
+    descVar: [
+      ["10%"],
+      ["2"],
+    ],
   },
   "21006": {
     name: "The Birth of the Self",
@@ -814,7 +1244,11 @@ export default {
     type: "Erudition",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "The Maiden in the Painting",
-    descBody: "Increases DMG dealt by the wearer's follow-up attacks by 24%. If the current HP percentage of the target enemy is below or equal to 50%, increases DMG dealt by follow-up attacks by an extra 24%.",
+    descBody: "Increases DMG dealt by the wearer's follow-up attacks by {0}. If the current HP percentage of the target enemy is below or equal to 50%, increases DMG dealt by follow-up attacks by an extra {1}.",
+    descVar: [
+      ["24%"],
+      ["24%"],
+    ],
   },
   "21005": {
     name: "The Moles Welcome You",
@@ -822,7 +1256,10 @@ export default {
     type: "Destruction",
     statBase: { _HP: 1058, _ATK: 476, _DEF: 264 },
     descHead: "Fantastic Adventure",
-    descBody: "When the wearer uses Basic ATK, Skill, or Ultimate to attack enemies, the wearer gains one stack of Mischievous. Each stack increases the wearer's ATK by 12%.",
+    descBody: "When the wearer uses Basic ATK, Skill, or Ultimate to attack enemies, the wearer gains one stack of Mischievous. Each stack increases the wearer's ATK by {0}.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "21004": {
     name: "Memories of the Past",
@@ -830,7 +1267,11 @@ export default {
     type: "Harmony",
     statBase: { _HP: 952, _ATK: 423, _DEF: 396 },
     descHead: "Old Photo",
-    descBody: "Increases the wearer's Break Effect by 28%. When the wearer attacks, additionally regenerates 4 Energy. This effect cannot be repeatedly triggered in a single turn.",
+    descBody: "Increases the wearer's Break Effect by {0}. When the wearer attacks, additionally regenerates {1} Energy. This effect cannot be repeatedly triggered in a single turn.",
+    descVar: [
+      ["28%"],
+      ["4"],
+    ],
   },
   "21003": {
     name: "Only Silence Remains",
@@ -838,7 +1279,11 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Record",
-    descBody: "Increases the wearer's ATK by 16%. If there are 2 or fewer enemies on the field, increases wearer's CRIT Rate by 12%.",
+    descBody: "Increases the wearer's ATK by {0}. If there are 2 or fewer enemies on the field, increases wearer's CRIT Rate by {1}.",
+    descVar: [
+      ["16%"],
+      ["12%"],
+    ],
   },
   "21002": {
     name: "Day One of My New Life",
@@ -846,7 +1291,11 @@ export default {
     type: "Preservation",
     statBase: { _HP: 952, _ATK: 370, _DEF: 463 },
     descHead: "At This Very Moment",
-    descBody: "Increases the wearer's DEF by 16%. After entering battle, increases All-Type RES of all allies by 8%. Abilities of the same type cannot stack.",
+    descBody: "Increases the wearer's DEF by {0}. After entering battle, increases All-Type RES of all allies by {1}. Abilities of the same type cannot stack.",
+    descVar: [
+      ["16%"],
+      ["8%"],
+    ],
   },
   "21001": {
     name: "Good Night and Sleep Well",
@@ -854,7 +1303,10 @@ export default {
     type: "Nihility",
     statBase: { _HP: 952, _ATK: 476, _DEF: 330 },
     descHead: "Toiler",
-    descBody: "For every debuff the target enemy has, the DMG dealt by the wearer increases by 12%, stacking up to 3 time(s). This effect also applies to DoT.",
+    descBody: "For every debuff the target enemy has, the DMG dealt by the wearer increases by {0}, stacking up to 3 time(s). This effect also applies to DoT.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "21000": {
     name: "Post-Op Conversation",
@@ -862,15 +1314,23 @@ export default {
     type: "Abundance",
     statBase: { _HP: 1058, _ATK: 423, _DEF: 330 },
     descHead: "Mutual Healing",
-    descBody: "Increases the wearer's Energy Regeneration Rate by 8% and increases Outgoing Healing when they use their Ultimate by 12%.",
+    descBody: "Increases the wearer's Energy Regeneration Rate by {0} and increases Outgoing Healing when they use their Ultimate by {1}.",
+    descVar: [
+      ["8%"],
+      ["12%"],
+    ],
   },
+  
   "20020": {
     name: "Sagacity",
     rarity: 3,
     type: "Erudition",
     statBase: { _HP: 740, _ATK: 370, _DEF: 264 },
     descHead: "Genius",
-    descBody: "When the wearer uses their Ultimate, increases ATK by 24% for 2 turn(s).",
+    descBody: "When the wearer uses their Ultimate, increases ATK by {0} for 2 turn(s).",
+    descVar: [
+      ["24%"],
+    ],
   },
   "20019": {
     name: "Mediation",
@@ -878,7 +1338,10 @@ export default {
     type: "Harmony",
     statBase: { _HP: 846, _ATK: 317, _DEF: 264 },
     descHead: "Family",
-    descBody: "Upon entering battle, increases SPD of all allies by 12 points for 1 turn(s).",
+    descBody: "Upon entering battle, increases SPD of all allies by {0} points for 1 turn(s).",
+    descVar: [
+      ["12"],
+    ],
   },
   "20018": {
     name: "Hidden Shadow",
@@ -886,7 +1349,10 @@ export default {
     type: "Nihility",
     statBase: { _HP: 846, _ATK: 317, _DEF: 264 },
     descHead: "Mechanism",
-    descBody: "After using Skill, the wearer's next Basic ATK deals Additional DMG equal to 60% of ATK to the target enemy.",
+    descBody: "After using Skill, the wearer's next Basic ATK deals Additional DMG equal to {0} of ATK to the target enemy.",
+    descVar: [
+      ["60%"],
+    ],
   },
   "20017": {
     name: "Pioneering",
@@ -894,7 +1360,10 @@ export default {
     type: "Preservation",
     statBase: { _HP: 952, _ATK: 264, _DEF: 264 },
     descHead: "IPC",
-    descBody: "When the wearer Breaks an enemy's Weakness, the wearer restores HP by 12% of their Max HP.",
+    descBody: "When the wearer Breaks an enemy's Weakness, the wearer restores HP by {0} of their Max HP.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "20016": {
     name: "Mutual Demise",
@@ -902,7 +1371,10 @@ export default {
     type: "Destruction",
     statBase: { _HP: 846, _ATK: 370, _DEF: 198 },
     descHead: "Legion",
-    descBody: "If the wearer's current HP percentage is lower than 80%, CRIT Rate increases by 12%.",
+    descBody: "If the wearer's current HP percentage is lower than 80%, CRIT Rate increases by {0}.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "20015": {
     name: "Multiplication",
@@ -910,7 +1382,10 @@ export default {
     type: "Abundance",
     statBase: { _HP: 952, _ATK: 317, _DEF: 198 },
     descHead: "Denizens of Abundance",
-    descBody: "After the wearer uses their Basic ATK, their next action will be Advanced Forward by 12%.",
+    descBody: "After the wearer uses their Basic ATK, their next action will be Advanced Forward by {0}.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "20014": {
     name: "Adversarial",
@@ -918,7 +1393,10 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 740, _ATK: 370, _DEF: 264 },
     descHead: "Alliance",
-    descBody: "When the wearer defeats an enemy, increases SPD by 10% for 2 turn(s).",
+    descBody: "When the wearer defeats an enemy, increases SPD by {0} for 2 turn(s).",
+    descVar: [
+      ["10%"],
+    ],
   },
   "20013": {
     name: "Passkey",
@@ -926,7 +1404,10 @@ export default {
     type: "Erudition",
     statBase: { _HP: 740, _ATK: 370, _DEF: 264 },
     descHead: "Epiphany",
-    descBody: "After the wearer uses their Skill, additionally regenerates 8 Energy. This effect cannot be repeatedly triggered in a single turn.",
+    descBody: "After the wearer uses their Skill, additionally regenerates {0} Energy. This effect cannot be repeatedly triggered in a single turn.",
+    descVar: [
+      ["8"],
+    ],
   },
   "20012": {
     name: "Meshing Cogs",
@@ -934,7 +1415,10 @@ export default {
     type: "Harmony",
     statBase: { _HP: 846, _ATK: 317, _DEF: 264 },
     descHead: "Fleet Triumph",
-    descBody: "After the wearer uses attacks or gets hit, additionally regenerates 4 Energy. This effect cannot be repeatedly triggered in a single turn.",
+    descBody: "After the wearer uses attacks or gets hit, additionally regenerates {0} Energy. This effect cannot be repeatedly triggered in a single turn.",
+    descVar: [
+      ["4"],
+    ],
   },
   "20011": {
     name: "Loop",
@@ -942,7 +1426,10 @@ export default {
     type: "Nihility",
     statBase: { _HP: 846, _ATK: 317, _DEF: 264 },
     descHead: "Pursuit",
-    descBody: "Increases DMG dealt from its wearer to Slowed enemies by 24%.",
+    descBody: "Increases DMG dealt from its wearer to Slowed enemies by {0}.",
+    descVar: [
+      ["24%"],
+    ],
   },
   "20010": {
     name: "Defense",
@@ -950,7 +1437,10 @@ export default {
     type: "Preservation",
     statBase: { _HP: 952, _ATK: 264, _DEF: 264 },
     descHead: "Revitalization",
-    descBody: "When the wearer unleashes their Ultimate, they restore HP by 18% of their Max HP.",
+    descBody: "When the wearer unleashes their Ultimate, they restore HP by {0} of their Max HP.",
+    descVar: [
+      ["18%"],
+    ],
   },
   "20009": {
     name: "Shattered Home",
@@ -958,7 +1448,10 @@ export default {
     type: "Destruction",
     statBase: { _HP: 846, _ATK: 370, _DEF: 198 },
     descHead: "Eradication",
-    descBody: "The wearer deals 20% more DMG to enemy targets whose HP percentage is greater than 50%.",
+    descBody: "The wearer deals {0} more DMG to enemy targets whose HP percentage is greater than 50%.",
+    descVar: [
+      ["20%"],
+    ],
   },
   "20008": {
     name: "Fine Fruit",
@@ -966,7 +1459,10 @@ export default {
     type: "Abundance",
     statBase: { _HP: 952, _ATK: 317, _DEF: 198 },
     descHead: "Savor",
-    descBody: "At the start of the battle, immediately regenerates 6 Energy for all allies.",
+    descBody: "At the start of the battle, immediately regenerates {0} Energy for all allies.",
+    descVar: [
+      ["6"],
+    ],
   },
   "20007": {
     name: "Darting Arrow",
@@ -974,7 +1470,10 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 740, _ATK: 370, _DEF: 264 },
     descHead: "War Cry",
-    descBody: "When the wearer defeats an enemy, increases ATK by 24% for 3 turn(s).",
+    descBody: "When the wearer defeats an enemy, increases ATK by {0} for 3 turn(s).",
+    descVar: [
+      ["24%"],
+    ],
   },
   "20006": {
     name: "Data Bank",
@@ -982,7 +1481,10 @@ export default {
     type: "Erudition",
     statBase: { _HP: 740, _ATK: 370, _DEF: 264 },
     descHead: "Learned",
-    descBody: "Increases DMG dealt by the wearer's Ultimate by 28%.",
+    descBody: "Increases DMG dealt by the wearer's Ultimate by {0}.",
+    descVar: [
+      ["28%"],
+    ],
   },
   "20005": {
     name: "Chorus",
@@ -990,7 +1492,10 @@ export default {
     type: "Harmony",
     statBase: { _HP: 846, _ATK: 317, _DEF: 264 },
     descHead: "Concerted",
-    descBody: "After entering battle, increases the ATK of all allies by 8%. Abilities of the same type cannot stack.",
+    descBody: "After entering battle, increases the ATK of all allies by {0}. Abilities of the same type cannot stack.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "20004": {
     name: "Void",
@@ -998,7 +1503,10 @@ export default {
     type: "Nihility",
     statBase: { _HP: 846, _ATK: 317, _DEF: 264 },
     descHead: "Fallen",
-    descBody: "At the start of the battle, the wearer's Effect Hit Rate increases by 20% for 3 turn(s).",
+    descBody: "At the start of the battle, the wearer's Effect Hit Rate increases by {0} for 3 turn(s).",
+    descVar: [
+      ["20%"],
+    ],
   },
   "20003": {
     name: "Amber",
@@ -1006,7 +1514,11 @@ export default {
     type: "Preservation",
     statBase: { _HP: 846, _ATK: 264, _DEF: 330 },
     descHead: "Stasis",
-    descBody: "Increases the wearer's DEF by 16%. If the wearer's current HP percentage is lower than 50%, increases their DEF by a further 16%.",
+    descBody: "Increases the wearer's DEF by {0}. If the wearer's current HP percentage is lower than 50%, increases their DEF by a further {1}.",
+    descVar: [
+      ["16%"],
+      ["16%"],
+    ],
   },
   "20002": {
     name: "Collapsing Sky",
@@ -1014,7 +1526,10 @@ export default {
     type: "Destruction",
     statBase: { _HP: 846, _ATK: 370, _DEF: 198 },
     descHead: "Havoc",
-    descBody: "The wearer's Basic ATK and Skill deal 20% more DMG.",
+    descBody: "The wearer's Basic ATK and Skill deal {0} more DMG.",
+    descVar: [
+      ["20%"],
+    ],
   },
   "20001": {
     name: "Cornucopia",
@@ -1022,7 +1537,10 @@ export default {
     type: "Abundance",
     statBase: { _HP: 952, _ATK: 264, _DEF: 264 },
     descHead: "Prosperity",
-    descBody: "When the wearer uses their Skill or Ultimate, their Outgoing Healing increases by 12%.",
+    descBody: "When the wearer uses their Skill or Ultimate, their Outgoing Healing increases by {0}.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "20000": {
     name: "Arrows",
@@ -1030,6 +1548,9 @@ export default {
     type: "The Hunt",
     statBase: { _HP: 846, _ATK: 317, _DEF: 264 },
     descHead: "Crisis",
-    descBody: "At the start of the battle, the wearer's CRIT Rate increases by 12% for 3 turn(s).",
+    descBody: "At the start of the battle, the wearer's CRIT Rate increases by {0} for 3 turn(s).",
+    descVar: [
+      ["12%"],
+    ],
   },
 };

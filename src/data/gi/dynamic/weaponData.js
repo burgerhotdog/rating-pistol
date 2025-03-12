@@ -9,11 +9,12 @@ export default {
     descHead: "Bathhouses, Hawks, and Narukami",
     descBody: "Elemental Mastery increases by {0} for 6s after triggering Swirl. Elemental Mastery increases by {1} for 9s after the wielder's Elemental Skill hits an opponent. Elemental Mastery increases by {2} for 30s after the wielder's Elemental Burst hits an opponent.",
     descVar: [
-      [120, 150, 180, 210, 240],
-      [96, 120, 144, 168, 192],
-      [32, 40, 48, 56, 64],
+      ["120", "150", "180", "210", "240"],
+      ["96"],
+      ["32"],
     ],
   },
+  
   "13432": {
     name: "Tamayuratei no Ohanashi",
     rarity: 4,
@@ -21,9 +22,9 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Busybody's Running Light",
-    descBody: "Increase ATK by {0}% and Movement SPD by 10% for 10s when using an Elemental Skill.",
+    descBody: "Increase ATK by {0} and Movement SPD by 10% for 10s when using an Elemental Skill.",
     descVar: [
-      [20, 25, 30, 35, 40],
+      ["20%"],
     ],
   },
   
@@ -35,10 +36,10 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { EM: 265 },
     descHead: "Offering Unto Wind and Sun",
-    descBody: "Increases Elemental Mastery by {0}. Gain the \"Mirror of Night\" effect within 15s after the equipping character creates a shield: The current active party member deals {1}% increased DMG to nearby opponents. You can gain the \"Mirror of Night\" effect once every 14s.",
+    descBody: "Increases Elemental Mastery by {0}. Gain the \"Mirror of Night\" effect within 15s after the equipping character creates a shield: The current active party member deals {1} increased DMG to nearby opponents. You can gain the \"Mirror of Night\" effect once every 14s.",
     descVar: [
-      [100, 125, 150, 175, 200],
-      [28, 35, 42, 49, 56],
+      ["100"],
+      ["28%"],
     ],
   },
   "12514": {
@@ -48,10 +49,10 @@ export default {
     statBase: { _ATK: 741 },
     statSub: { CR: 11 },
     descHead: "Sunset Reignites the Dawn",
-    descBody: "Gain the \"Scorching Brilliance\" effect when using an Elemental Skill or Burst: CRIT DMG increased by {0}% and ATK increased by {1}% for 6s. This effect can trigger once every 10s.\nWhile a \"Scorching Brilliance\" instance is active, its duration is increased by 2s after Normal or Charged attacks deal Elemental DMG. This effect can trigger once every second, and the max duration increase is 6s.\nAdditionally, when the equipping character is in the Nightsoul's Blessing state, \"Scorching Brilliance\" effects are increased by 75%, and its duration will not count down when the equipping character is off-field.",
+    descBody: "Gain the \"Scorching Brilliance\" effect when using an Elemental Skill or Burst: CRIT DMG increased by {0} and ATK increased by {1} for 6s. This effect can trigger once every 10s.\nWhile a \"Scorching Brilliance\" instance is active, its duration is increased by 2s after Normal or Charged attacks deal Elemental DMG. This effect can trigger once every second, and the max duration increase is 6s.\nAdditionally, when the equipping character is in the Nightsoul's Blessing state, \"Scorching Brilliance\" effects are increased by 75%, and its duration will not count down when the equipping character is off-field.",
     descVar: [
-      [20, 25, 30, 35, 40],
-      [28, 35, 42, 49, 56],
+      ["20%"],
+      ["28%"],
     ],
   },
   
@@ -63,15 +64,14 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CD: 66.2 },
     descHead: "The Moonring Sighted",
-    descBody: "For 12s after triggering a Swirl reaction, ATK increases by {0}%. In addition, when 1/2 or more characters in the party are of a different Elemental Type from the equipping character, the DMG dealt by the equipping character's Charged Attacks is increased by {1}%/{2}% and Elemental Burst DMG dealt is increased by {3}%/{4}%.",
+    descBody: "For 12s after triggering a Swirl reaction, ATK increases by {0}. In addition, when 1/2 or more characters in the party are of a different Elemental Type from the equipping character, the DMG dealt by the equipping character's Charged Attacks is increased by {1} and Elemental Burst DMG dealt is increased by {2}.",
     descVar: [
-      [24, 30, 36, 42, 48],
-      [20, 25, 30, 35, 40],
-      [48, 60, 72, 84, 96],
-      [10, 12.5, 15, 17.5, 20],
-      [24, 30, 36, 42, 48],
+      ["24%"],
+      ["20%/48%"],
+      ["10%/24%"],
     ],
   },
+
   "15430": {
     name: "Flower-Wreathed Feathers",
     rarity: 4,
@@ -79,8 +79,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Inflorescence Unattainable",
-    descBody: "Decreases Gliding Stamina consumption by 15%. When using Aimed Shots, the DMG dealt by Charged Attacks increases by 6% every 0.5s. This effect can stack up to 6 times and will be removed 10s after leaving Aiming Mode.",
-    descVar: [],
+    descBody: "Decreases Gliding Stamina consumption by 15%. When using Aimed Shots, the DMG dealt by Charged Attacks increases by {0} every 0.5s. This effect can stack up to 6 times and will be removed 10s after leaving Aiming Mode.",
+    descVar: [
+      ["6%"],
+    ],
   },
   "14430": {
     name: "Waveriding Whirl",
@@ -89,8 +91,12 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ER: 61.3 },
     descHead: "Fangs Flying To and Fro",
-    descBody: "Decreases Swimming Stamina consumption by 15%. In addition, for 10s after using an Elemental Skill, Max HP is increased by 20%. For every Hydro Elemental Type character in the party, Max HP is increased by another 12%, and the maximum increase that can be achieved in this way is 24%. Can be triggered once every 15s.",
-    descVar: [],
+    descBody: "Decreases Swimming Stamina consumption by 15%. In addition, for 10s after using an Elemental Skill, Max HP is increased by {0}. For every Hydro Elemental Type character in the party, Max HP is increased by another {1}, and the maximum increase that can be achieved in this way is {2}. Can be triggered once every 15s.",
+    descVar: [
+      ["20%"],
+      ["12%"],
+      ["24%"],
+    ],
   },
   "11432": {
     name: "Calamity of Eshu",
@@ -99,8 +105,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Diffusing Boundary",
-    descBody: "While characters are protected by a Shield, DMG dealt by Normal and Charged Attacks is increased by 20%, and Normal and Charged Attack CRIT Rate is increased by 8%.",
-    descVar: [],
+    descBody: "While characters are protected by a Shield, DMG dealt by Normal and Charged Attacks is increased by {0}, and Normal and Charged Attack CRIT Rate is increased by {1}.",
+    descVar: [
+      ["20%"],
+      ["8%"],
+    ],
   },
   
   // Version 5.1
@@ -111,9 +120,15 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { DEF: 82.7 },
     descHead: "Halcyon Years Unending",
-    descBody: "Gain \"Ode to Flowers\" after Normal or Plunging Attacks hit an opponent: DEF increases by 8% and gain a 10% All Elemental DMG Bonus for 6s. Max 2 stacks. Can trigger once per 0.1s. When this effect reaches 2 stacks or the 2nd stack's duration is refreshed, increase all nearby party members' All Elemental DMG Bonus by 8% for every 1,000 DEF the equipping character has, up to a maximum of 25.6%, for 15s.",
-    descVar: [],
+    descBody: "Gain \"Ode to Flowers\" after Normal or Plunging Attacks hit an opponent: DEF increases by {0} and gain a {1} All Elemental DMG Bonus for 6s. Max 2 stacks. Can trigger once per 0.1s. When this effect reaches 2 stacks or the 2nd stack's duration is refreshed, increase all nearby party members' All Elemental DMG Bonus by {2} for every 1,000 DEF the equipping character has, up to a maximum of {3}, for 15s.",
+    descVar: [
+      ["8%"],
+      ["10%"],
+      ["8%"],
+      ["25.6%"],
+    ],
   },
+
   "13430": {
     name: "Mountain-Bracing Bolt",
     rarity: 4,
@@ -121,8 +136,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Hope Beyond the Peaks",
-    descBody: "Decreases Climbing Stamina Consumption by 15% and increases Elemental Skill DMG by 12%. Also, after other nearby party members use Elemental Skills, the equipping character's Elemental Skill DMG will also increase by 12% for 8s.",
-    descVar: [],
+    descBody: "Decreases Climbing Stamina Consumption by 15% and increases Elemental Skill DMG by {0}. Also, after other nearby party members use Elemental Skills, the equipping character's Elemental Skill DMG will also increase by {1} for 8s.",
+    descVar: [
+      ["12%"],
+      ["12%"],
+    ],
   },
   "12430": {
     name: "Fruitful Hook",
@@ -131,8 +149,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "The Weight of Falling Branches",
-    descBody: "Increase Plunging Attack CRIT Rate by 16%; After a Plunging Attack hits an opponent, Normal, Charged, and Plunging Attack DMG increased by 16% for 10s.",
-    descVar: [],
+    descBody: "Increase Plunging Attack CRIT Rate by {0}; After a Plunging Attack hits an opponent, Normal, Charged, and Plunging Attack DMG increased by {1} for 10s.",
+    descVar: [
+      ["16%"],
+      ["16%"],
+    ],
   },
   "11430": {
     name: "Sturdy Bone",
@@ -141,8 +162,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Trapper's Pride",
-    descBody: "Sprint or Alternate Sprint Stamina Consumption decreased by 15%. Additionally, after using Sprint or Alternate Sprint, Normal Attack DMG is increased by 16% of ATK. This effect expires after triggering 18 times or 7s.",
-    descVar: [],
+    descBody: "Sprint or Alternate Sprint Stamina Consumption decreased by 15%. Additionally, after using Sprint or Alternate Sprint, Normal Attack DMG is increased by {0} of ATK. This effect expires after triggering 18 times or 7s.",
+    descVar: [
+      ["16%"],
+    ],
   },
   
   // Version 5.0
@@ -153,8 +176,11 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CD: 88.2 },
     descHead: "Aqua Remembrance",
-    descBody: "Max HP increased by 20%. Once every 15s, for the 14s after using an Elemental Skill: Gain 4 Scorching Summer stacks. Each stack increases Normal Attack DMG by 12%. For the duration of the effect, once every 1.5s, lose 1 stack after a Normal Attack hits an opponent; once every 1.5s, gain 1 stack after triggering a Vaporize reaction on an opponent. Max 4 Scorching Summer stacks.",
-    descVar: [],
+    descBody: "Max HP increased by {0}. Once every 15s, for the 14s after using an Elemental Skill: Gain 4 Scorching Summer stacks. Each stack increases Normal Attack DMG by {1}. For the duration of the effect, once every 1.5s, lose 1 stack after a Normal Attack hits an opponent; once every 1.5s, gain 1 stack after triggering a Vaporize reaction on an opponent. Max 4 Scorching Summer stacks.",
+    descVar: [
+      ["20%"],
+      ["12%"],
+    ],
   },
   "12513": {
     name: "Fang of the Mountain King",
@@ -163,9 +189,12 @@ export default {
     statBase: { _ATK: 741 },
     statSub: { CR: 11 },
     descHead: "Turquoise Hunt",
-    descBody: "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by 10% for 6s. Max 6 stacks. Each stack is counted independently.",
-    descVar: [],
+    descBody: "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by {0} for 6s. Max 6 stacks. Each stack is counted independently.",
+    descVar: [
+      ["10%"],
+    ],
   },
+
   "15431": {
     name: "Chain Breaker",
     rarity: 4,
@@ -173,8 +202,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Flower-Feather Song",
-    descBody: "For every party member from Natlan or who has a different Elemental Type from the equipping character, the equipping character gains 4.8% increased ATK. When there are no less than 3 of the aforementioned characters, the equipping character gains 24 Elemental Mastery.",
-    descVar: [],
+    descBody: "For every party member from Natlan or who has a different Elemental Type from the equipping character, the equipping character gains {0} increased ATK. When there are no less than 3 of the aforementioned characters, the equipping character gains {1} Elemental Mastery.",
+    descVar: [
+      ["4.8%"],
+      ["24"],
+    ],
   },
   "14431": {
     name: "Ring of Yaxche",
@@ -183,8 +215,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { HP: 41.3 },
     descHead: "Echoes of the Plentiful Land",
-    descBody: "Using an Elemental Skill grants the Jade-Forged Crown effect: Every 1,000 Max HP will increase the Normal Attack DMG dealt by the equipping character by 0.6% for 10s. Normal Attack DMG can be increased this way by a maximum of 16%.",
-    descVar: [],
+    descBody: "Using an Elemental Skill grants the Jade-Forged Crown effect: Every 1,000 Max HP will increase the Normal Attack DMG dealt by the equipping character by {0} for 10s. Normal Attack DMG can be increased this way by a maximum of {1}.",
+    descVar: [
+      ["0.6%"],
+      ["16%"],
+    ],
   },
   "14427": {
     name: "Ash-Graven Drinking Horn",
@@ -193,8 +228,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { HP: 41.3 },
     descHead: "Tupac's Grip",
-    descBody: "When an attack hits an opponent, deal AoE DMG equal to 40% of Max HP at the target location. This effect can be triggered once every 15s.",
-    descVar: [],
+    descBody: "When an attack hits an opponent, deal AoE DMG equal to {0} of Max HP at the target location. This effect can be triggered once every 15s.",
+    descVar: [
+      ["40%"],
+    ],
   },
   "13431": {
     name: "Footprint of the Rainbow",
@@ -203,8 +240,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { DEF: 51.7 },
     descHead: "Pact of Flowing Springs",
-    descBody: "Using an Elemental Skill increases DEF by 16% for 15s.",
-    descVar: [],
+    descBody: "Using an Elemental Skill increases DEF by {0} for 15s.",
+    descVar: [
+      ["16%"],
+    ],
   },
   "12431": {
     name: "Earth Shaker",
@@ -213,8 +252,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Oath of Qhapaq Nan",
-    descBody: "After a party member triggers a Pyro-related reaction, the equipping character's Elemental Skill DMG is increased by 16% for 8s. This effect can be triggered even when the triggering party member is not on the field.",
-    descVar: [],
+    descBody: "After a party member triggers a Pyro-related reaction, the equipping character's Elemental Skill DMG is increased by {0} for 8s. This effect can be triggered even when the triggering party member is not on the field.",
+    descVar: [
+      ["16%"],
+    ],
   },
   "11431": {
     name: "Flute of Ezpitzal",
@@ -223,8 +264,10 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { DEF: 69 },
     descHead: "Smoke-and-Mirror Mystery",
-    descBody: "Using an Elemental Skill increases DEF by 16% for 15s.",
-    descVar: [],
+    descBody: "Using an Elemental Skill increases DEF by {0} for 15s.",
+    descVar: [
+      ["16%"],
+    ],
   },
   
   // Version 4.8
@@ -235,8 +278,12 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CR: 33.1 },
     descHead: "Bright Dawn Overture",
-    descBody: "ATK increased by 15%. After the equipping character triggers Burning on an opponent or deals Dendro DMG to Burning opponents, the DMG dealt is increased by 18%. This effect lasts for 8s, max 2 stacks. When 2 stacks are reached or when the duration is refreshed at 2 stacks, restore 12 Energy. Energy can be restored this way once every 12s. The 2 aforementioned effects can be triggered even when the character is off-field.",
-    descVar: [],
+    descBody: "ATK increased by {0}. After the equipping character triggers Burning on an opponent or deals Dendro DMG to Burning opponents, the DMG dealt is increased by {1}. This effect lasts for 8s, max 2 stacks. When 2 stacks are reached or when the duration is refreshed at 2 stacks, restore {2} Energy. Energy can be restored this way once every 12s. The 2 aforementioned effects can be triggered even when the character is off-field.",
+    descVar: [
+      ["15%"],
+      ["18%"],
+      ["12"],
+    ],
   },
   
   // Version 4.7
@@ -247,8 +294,11 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { HP: 66.2 },
     descHead: "Dryas's Nocturne",
-    descBody: "The equipping character can gain the Remedy effect. When they possess 1/2/3 Remedy stacks, Max HP will increase by 12%/24%/40%. 1 stack may be gained when the following conditions are met: 1 stack for 25s when using an Elemental Skill; 1 stack for 25s when the value of a Bond of Life value increases; 1 stack for 20s for performing healing. Stacks can still be triggered when the equipping character is not on the field. Each stack's duration is counted independently. In addition, when 3 stacks are active, Elemental Burst CRIT Rate will be increased by 28%. This effect will be canceled 4s after falling under 3 stacks.",
-    descVar: [],
+    descBody: "The equipping character can gain the Remedy effect. When they possess 1/2/3 Remedy stacks, Max HP will increase by {0}. 1 stack may be gained when the following conditions are met: 1 stack for 25s when using an Elemental Skill; 1 stack for 25s when the value of a Bond of Life value increases; 1 stack for 20s for performing healing. Stacks can still be triggered when the equipping character is not on the field. Each stack's duration is counted independently. In addition, when 3 stacks are active, Elemental Burst CRIT Rate will be increased by {1}. This effect will be canceled 4s after falling under 3 stacks.",
+    descVar: [
+      ["12%/24%/40%"],
+      ["28%"],
+    ],
   },
   "11515": {
     name: "Absolution",
@@ -257,9 +307,13 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { CD: 44.1 },
     descHead: "Deathly Pact",
-    descBody: "CRIT DMG increased by 20%. Increasing the value of a Bond of Life increases the DMG the equipping character deals by 16% for 6s. Max 3 stacks.",
-    descVar: [],
+    descBody: "CRIT DMG increased by {0}. Increasing the value of a Bond of Life increases the DMG the equipping character deals by {1} for 6s. Max 3 stacks.",
+    descVar: [
+      ["20%"],
+      ["16%"],
+    ],
   },
+
   "15426": {
     name: "Cloudforged",
     rarity: 4,
@@ -268,7 +322,9 @@ export default {
     statSub: { EM: 165 },
     descHead: "Crag-Chiseled Forge",
     descBody: "After Elemental Energy is decreased, the equipping character's Elemental Mastery will increase by 40 for 18s. Max 2 stacks.",
-    descVar: [],
+    descVar: [
+      ["40"],
+    ],
   },
   
   // Version 4.6
@@ -279,8 +335,11 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { CR: 22.1 },
     descHead: "Ashen Sun's Shadow",
-    descBody: "Grants a Bond of Life equal to 25% of Max HP when a Charged Attack hits an opponent. This effect can be triggered up to once every 14s. In addition, when the equipping character has a Bond of Life, they gain a 12% DMG Bonus; if the value of the Bond of Life is greater than or equal to 30% of Max HP, then gain an additional 24% DMG Bonus.",
-    descVar: [],
+    descBody: "Grants a Bond of Life equal to 25% of Max HP when a Charged Attack hits an opponent. This effect can be triggered up to once every 14s. In addition, when the equipping character has a Bond of Life, they gain a {0} DMG Bonus; if the value of the Bond of Life is greater than or equal to 30% of Max HP, then gain an additional {1} DMG Bonus.",
+    descVar: [
+      ["12%"],
+      ["24%"],
+    ],
   },
   
   // Version 4.5
@@ -291,9 +350,14 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CD: 88.2 },
     descHead: "Brocade Bloom, Shrine Sword",
-    descBody: "Normal Attack DMG is increased by 16% and Elemental Skill DMG is increased by 24%. After a nearby active character deals Geo DMG, the aforementioned effects increase by 100% for 15s. Additionally, the wielder's DEF is increased by 20%.",
-    descVar: [],
+    descBody: "Normal Attack DMG is increased by {0} and Elemental Skill DMG is increased by {1}. After a nearby active character deals Geo DMG, the aforementioned effects increase by 100% for 15s. Additionally, the wielder's DEF is increased by {2}.",
+    descVar: [
+      ["16%"],
+      ["24%"],
+      ["20%"],
+    ],
   },
+
   "13426": {
     name: "Dialogues of the Desert Sages",
     rarity: 4,
@@ -301,8 +365,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { HP: 41.3 },
     descHead: "Principle of Equilibrium",
-    descBody: "When the wielder performs healing, restore 8 Energy. This effect can be triggered once every 10s and can occur even when the character is not on the field.",
-    descVar: [],
+    descBody: "When the wielder performs healing, restore {0} Energy. This effect can be triggered once every 10s and can occur even when the character is not on the field.",
+    descVar: [
+      ["8"],
+    ],
   },
   
   // Version 4.4
@@ -313,8 +379,11 @@ export default {
     statBase: { _ATK: 741 },
     statSub: { ATK: 16.5 },
     descHead: "Cloudfall Axiom",
-    descBody: "After the equipping character hits an opponent with a Plunging Attack, all nearby party members' Plunging Attacks will deal 28% increased DMG for 20s. When nearby party members hit opponents with Plunging Attacks, they will restore 2.5 Energy to the equipping character. Energy can be restored this way every 0.7s. This energy regain effect can be triggered even if the equipping character is not on the field.",
-    descVar: [],
+    descBody: "After the equipping character hits an opponent with a Plunging Attack, all nearby party members' Plunging Attacks will deal {0} increased DMG for 20s. When nearby party members hit opponents with Plunging Attacks, they will restore {1} Energy to the equipping character. Energy can be restored this way every 0.7s. This energy regain effect can be triggered even if the equipping character is not on the field.",
+    descVar: [
+      ["28%"],
+      ["2.5"],
+    ],
   },
   
   // Version 4.3
@@ -325,9 +394,13 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { CR: 22.1 },
     descHead: "Many Oaths of Dawn and Dusk",
-    descBody: "Increases ATK by 20%. When party members obtain Elemental Shards from Crystallize reactions, the equipping character will gain 1 Seal, increasing Elemental Skill DMG by 18%. The Seal lasts for 15s, and the equipper may have up to 2 Seals at once. All of the equipper's Seals will disappear 0.2s after their Elemental Skill deals DMG.",
-    descVar: [],
+    descBody: "Increases ATK by {0}. When party members obtain Elemental Shards from Crystallize reactions, the equipping character will gain 1 Seal, increasing Elemental Skill DMG by {1}. The Seal lasts for 15s, and the equipper may have up to 2 Seals at once. All of the equipper's Seals will disappear 0.2s after their Elemental Skill deals DMG.",
+    descVar: [
+      ["20%"],
+      ["18%"],
+    ],
   },
+
   "12426": {
     name: "\"Ultimate Overlord's Mega Magic Sword\"",
     rarity: 4,
@@ -335,8 +408,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Melussistance!",
-    descBody: "ATK increased by 12%. That's not all! The support from all Melusines you've helped in Merusea Village fills you with strength! Based on the number of them you've helped, your ATK is increased by up to an additional 12%.",
-    descVar: [],
+    descBody: "ATK increased by {0}. That's not all! The support from all Melusines you've helped in Merusea Village fills you with strength! Based on the number of them you've helped, your ATK is increased by up to an additional {1}.",
+    descVar: [
+      ["12%"],
+      ["12%"],
+    ],
   },
   
   // Version 4.2
@@ -347,9 +423,13 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CD: 88.2 },
     descHead: "Dawn and Dusk by the Lake",
-    descBody: "When the equipping character's current HP increases or decreases, Elemental Skill DMG dealt will be increased by 8% for 6s. Max 3 stacks. This effect can be triggered once every 0.2s. When other party members' current HP increases or decreases, the equipping character's Max HP will be increased by 14% for 6s. Max 2 stacks. This effect can be triggered once every 0.2s. The aforementioned effects can be triggered even if the wielder is off-field.",
-    descVar: [],
+    descBody: "When the equipping character's current HP increases or decreases, Elemental Skill DMG dealt will be increased by {0} for 6s. Max 3 stacks. This effect can be triggered once every 0.2s. When other party members' current HP increases or decreases, the equipping character's Max HP will be increased by {1} for 6s. Max 2 stacks. This effect can be triggered once every 0.2s. The aforementioned effects can be triggered even if the wielder is off-field.",
+    descVar: [
+      ["8%"],
+      ["14%"],
+    ],
   },
+
   "11428": {
     name: "Sword of Narzissenkreuz",
     rarity: 4,
@@ -357,8 +437,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Hero's Blade",
-    descBody: "When the equipping character does not have an Arkhe: When Normal Attacks, Charged Attacks, or Plunging Attacks strike, a Pneuma or Ousia energy blast will be unleashed, dealing 160% of ATK as DMG. This effect can be triggered once every 12s. The energy blast type is determined by the current type of the Sword of Narzissenkreuz.",
-    descVar: [],
+    descBody: "When the equipping character does not have an Arkhe: When Normal Attacks, Charged Attacks, or Plunging Attacks strike, a Pneuma or Ousia energy blast will be unleashed, dealing {0} of ATK as DMG. This effect can be triggered once every 12s. The energy blast type is determined by the current type of the Sword of Narzissenkreuz.",
+    descVar: [
+      ["160%"],
+    ],
   },
   
   // Version 4.1
@@ -369,8 +451,12 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CD: 88.2 },
     descHead: "Aeon Wave",
-    descBody: "HP is increased by 16%. When current HP increases or decreases, Charged Attack DMG will be increased by 14% for 4s. Max 3 stacks. This effect can be triggered once every 0.3s. When the character has 3 stacks or a third stack's duration refreshes, 8 Energy will be restored. This Energy restoration effect can be triggered once every 12s.",
-    descVar: [],
+    descBody: "HP is increased by {0}. When current HP increases or decreases, Charged Attack DMG will be increased by {1} for 4s. Max 3 stacks. This effect can be triggered once every 0.3s. When the character has 3 stacks or a third stack's duration refreshes, {2} Energy will be restored. This Energy restoration effect can be triggered once every 12s.",
+    descVar: [
+      ["16%"],
+      ["14%"],
+      ["8"],
+    ],
   },
   "14513": {
     name: "Cashflow Supervision",
@@ -379,9 +465,15 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { CR: 22.1 },
     descHead: "Golden Blood-Tide",
-    descBody: "ATK is increased by 16%. When current HP increases or decreases, Normal Attack DMG will be increased by 16% and Charged Attack DMG will be increased by 14% for 4s. Max 3 stacks. This effect can be triggered once every 0.3s. When the wielder has 3 stacks, ATK SPD will be increased by 8%.",
-    descVar: [],
+    descBody: "ATK is increased by {0}. When current HP increases or decreases, Normal Attack DMG will be increased by {1} and Charged Attack DMG will be increased by {2} for 4s. Max 3 stacks. This effect can be triggered once every 0.3s. When the wielder has 3 stacks, ATK SPD will be increased by {3}.",
+    descVar: [
+      ["16%"],
+      ["16%"],
+      ["14%"],
+      ["8%"],
+    ],
   },
+
   "15427": {
     name: "Range Gauge",
     rarity: 4,
@@ -389,8 +481,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Masons' Ditty",
-    descBody: "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain 3% ATK and 7% All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
-    descVar: [],
+    descBody: "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain {0} ATK and {1} All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+    descVar: [
+      ["3%"],
+      ["7%"],
+    ],
   },
   "14426": {
     name: "Ballad of the Boundless Blue",
@@ -399,8 +494,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Azure Skies",
-    descBody: "Within 6s after Normal or Charged Attacks hit an opponent, Normal Attack DMG will be increased by 8% and Charged Attack DMG will be increased by 6%. Max 3 stacks. This effect can be triggered once every 0.3s.",
-    descVar: [],
+    descBody: "Within 6s after Normal or Charged Attacks hit an opponent, Normal Attack DMG will be increased by {0} and Charged Attack DMG will be increased by {1}. Max 3 stacks. This effect can be triggered once every 0.3s.",
+    descVar: [
+      ["8%"],
+      ["6%"],
+    ],
   },
   "13427": {
     name: "Prospector's Drill",
@@ -409,8 +507,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Masons' Ditty",
-    descBody: "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain 3% ATK and 7% All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
-    descVar: [],
+    descBody: "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain {0} ATK and {1} All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+    descVar: [
+      ["3%"],
+      ["7%"],
+    ],
   },
   "12427": {
     name: "Portable Power Saw",
@@ -419,8 +520,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { HP: 55.1 },
     descHead: "Sea Shanty",
-    descBody: "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain 40 Elemental Mastery, and 2s after the effect occurs, 2 Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
-    descVar: [],
+    descBody: "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain {0} Elemental Mastery, and 2s after the effect occurs, {1} Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+    descVar: [
+      ["40"],
+      ["2"],
+    ],
   },
   "11427": {
     name: "The Dockhand's Assistant",
@@ -429,8 +533,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { HP: 41.3 },
     descHead: "Sea Shanty",
-    descBody: "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain 40 Elemental Mastery, and 2s after the effect occurs, 2 Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
-    descVar: [],
+    descBody: "When the wielder is healed or heals others, they will gain a Stoic's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Roused effect will be granted for 10s. For each Symbol consumed, gain {0} Elemental Mastery, and 2s after the effect occurs, {1} Energy per Symbol consumed will be restored for said character. The Roused effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+    descVar: [
+      ["40"],
+      ["2"],
+    ],
   },
   
   // Version 4.0
@@ -441,9 +548,14 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CD: 66.2 },
     descHead: "Parsifal the Great",
-    descBody: "DMG dealt by Charged Attacks increased by 16%. For every party member with the same Elemental Type as the wielder (including the wielder themselves), gain 1 Gimmick stack. For every party member with a different Elemental Type from the wielder, gain 1 Theatrics stack. When the wielder has 1/2/3 or more Gimmick stacks, ATK will be increased by 16%/32%/48%. When the wielder has 1/2/3 or more Theatrics stacks, Movement SPD will be increased by 4%/7%/10%.",
-    descVar: [],
+    descBody: "DMG dealt by Charged Attacks increased by {0}. For every party member with the same Elemental Type as the wielder (including the wielder themselves), gain 1 Gimmick stack. For every party member with a different Elemental Type from the wielder, gain 1 Theatrics stack. When the wielder has 1/2/3 or more Gimmick stacks, ATK will be increased by {1}. When the wielder has 1/2/3 or more Theatrics stacks, Movement SPD will be increased by {2}.",
+    descVar: [
+      ["16%"],
+      ["16%/32%/48%"],
+      ["4%/7%/10%"],
+    ],
   },
+
   "15425": {
     name: "Song of Stillness",
     rarity: 4,
@@ -451,8 +563,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Benthic Pulse",
-    descBody: "After the wielder is healed, they will deal 16% more DMG for 8s. This can be triggered even when the character is not on the field.",
-    descVar: [],
+    descBody: "After the wielder is healed, they will deal {0} more DMG for 8s. This can be triggered even when the character is not on the field.",
+    descVar: [
+      ["16%"],
+    ],
   },
   "15424": {
     name: "Scion of the Blazing Sun",
@@ -461,8 +575,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { CR: 18.4 },
     descHead: "The Way of Sunfire",
-    descBody: "After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing 60% ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take 28% more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s.",
-    descVar: [],
+    descBody: "After a Charged Attack hits an opponent, a Sunfire Arrow will descend upon the opponent hit, dealing {0} ATK as DMG, and applying the Heartsearer effect to the opponent damaged by said Arrow for 10s. Opponents affected by Heartsearer take {1} more Charged Attack DMG from the wielder. A Sunfire Arrow can be triggered once every 10s.",
+    descVar: [
+      ["60%"],
+      ["28%"],
+    ],
   },
   "14425": {
     name: "Flowing Purity",
@@ -471,8 +588,12 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Unfinished Masterpiece",
-    descBody: "When using an Elemental Skill, All Elemental DMG Bonus will be increased by 8% for 15s, and a Bond of Life worth 24% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond of Life is cleared, every 1,000 HP cleared in the process will provide 2% All Elemental DMG Bonus, up to a maximum of 12%. This effect lasts 15s.",
-    descVar: [],
+    descBody: "When using an Elemental Skill, All Elemental DMG Bonus will be increased by {0} for 15s, and a Bond of Life worth 24% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond of Life is cleared, every 1,000 HP cleared in the process will provide {1} All Elemental DMG Bonus, up to a maximum of {2}. This effect lasts 15s.",
+    descVar: [
+      ["8%"],
+      ["2%"],
+      ["12%"],
+    ],
   },
   "14424": {
     name: "Sacrificial Jade",
@@ -481,8 +602,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { CR: 36.8 },
     descHead: "Jade Circulation",
-    descBody: "When not on the field for more than 5s, Max HP will be increased by 32% and Elemental Mastery will be increased by 40. These effects will be canceled after the wielder has been on the field for 10s.",
-    descVar: [],
+    descBody: "When not on the field for more than 5s, Max HP will be increased by {0} and Elemental Mastery will be increased by {1}. These effects will be canceled after the wielder has been on the field for 10s.",
+    descVar: [
+      ["32%"],
+      ["40"],
+    ],
   },
   "13425": {
     name: "Rightful Reward",
@@ -491,8 +615,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { HP: 27.6 },
     descHead: "Tip of the Spear",
-    descBody: "When the wielder is healed, restore 8 Energy. This effect can be triggered once every 10s, and can occur even when the character is not on the field.",
-    descVar: [],
+    descBody: "When the wielder is healed, restore {0} Energy. This effect can be triggered once every 10s, and can occur even when the character is not on the field.",
+    descVar: [
+      ["8"],
+    ],
   },
   "13424": {
     name: "Ballad of the Fjords",
@@ -501,8 +627,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CR: 27.6 },
     descHead: "Tales of the Tundra",
-    descBody: "When there are at least 3 different Elemental Types in your party, Elemental Mastery will be increased by 120.",
-    descVar: [],
+    descBody: "When there are at least 3 different Elemental Types in your party, Elemental Mastery will be increased by {0}.",
+    descVar: [
+      ["120"],
+    ],
   },
   "12425": {
     name: "Tidal Shadow",
@@ -511,8 +639,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "White Cruising Wave",
-    descBody: "After the wielder is healed, ATK will be increased by 24% for 8s. This can be triggered even when the character is not on the field.",
-    descVar: [],
+    descBody: "After the wielder is healed, ATK will be increased by {0} for 8s. This can be triggered even when the character is not on the field.",
+    descVar: [
+      ["24%"],
+    ],
   },
   "12424": {
     name: "Talking Stick",
@@ -521,8 +651,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { CR: 18.4 },
     descHead: "\"The Silver Tongue\"",
-    descBody: "ATK will be increased by 16% for 15s after being affected by Pyro. This effect can be triggered once every 12s. All Elemental DMG Bonus will be increased by 12% for 15s after being affected by Hydro, Cryo, Electro, or Dendro. This effect can be triggered once every 12s.",
-    descVar: [],
+    descBody: "ATK will be increased by {0} for 15s after being affected by Pyro. This effect can be triggered once every 12s. All Elemental DMG Bonus will be increased by {1} for 15s after being affected by Hydro, Cryo, Electro, or Dendro. This effect can be triggered once every 12s.",
+    descVar: [
+      ["16%"],
+      ["12%"],
+    ],
   },
   "11426": {
     name: "Fleuve Cendre Ferryman",
@@ -531,8 +664,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ER: 45.9 },
     descHead: "Ironbone",
-    descBody: "Increases Elemental Skill CRIT Rate by 8%. Additionally, increases Energy Recharge by 16% for 5s after using an Elemental Skill.",
-    descVar: [],
+    descBody: "Increases Elemental Skill CRIT Rate by {0}. Additionally, increases Energy Recharge by {1} for 5s after using an Elemental Skill.",
+    descVar: [
+      ["8%"],
+      ["16%"],
+    ],
   },
   "11425": {
     name: "Finale of the Deep",
@@ -541,8 +677,12 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "An End Sublime",
-    descBody: "When using an Elemental Skill, ATK will be increased by 12% for 15s, and a Bond of Life worth 25% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond of Life is cleared, a maximum of 150 ATK will be gained based on 2.4% of the total amount of the Life Bond cleared, lasting for 15s.",
-    descVar: [],
+    descBody: "When using an Elemental Skill, ATK will be increased by {0} for 15s, and a Bond of Life worth 25% of Max HP will be granted. This effect can be triggered once every 10s. When the Bond of Life is cleared, a maximum of {1} ATK will be gained based on {2} of the total amount of the Life Bond cleared, lasting for 15s.",
+    descVar: [
+      ["12%"],
+      ["150"],
+      ["2.4%"],
+    ],
   },
   "11424": {
     name: "Wolf-Fang",
@@ -551,8 +691,12 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CR: 27.6 },
     descHead: "Northwind Wolf",
-    descBody: "DMG dealt by Elemental Skill and Elemental Burst is increased by 16%. When an Elemental Skill hits an opponent, its CRIT Rate will be increased by 2%. When an Elemental Burst hits an opponent, its CRIT Rate will be increased by 2%. Both of these effects last 10s separately, have 4 max stacks, and can be triggered once every 0.1s.",
-    descVar: [],
+    descBody: "DMG dealt by Elemental Skill and Elemental Burst is increased by {0}. When an Elemental Skill hits an opponent, its CRIT Rate will be increased by {1}. When an Elemental Burst hits an opponent, its CRIT Rate will be increased by {2}. Both of these effects last 10s separately, have 4 max stacks, and can be triggered once every 0.1s.",
+    descVar: [
+      ["16%"],
+      ["2%"],
+      ["2%"],
+    ],
   },
   
   // Version 3.7
@@ -563,8 +707,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Secret Wisdom's Favor",
-    descBody: "The character's Elemental Mastery will increase by 40 within 6s after Charged Attacks hit opponents. Max 2 stacks. This effect can be triggered once every 0.5s.",
-    descVar: [],
+    descBody: "The character's Elemental Mastery will increase by {0} within 6s after Charged Attacks hit opponents. Max 2 stacks. This effect can be triggered once every 0.5s.",
+    descVar: [
+      ["40"],
+    ],
   },
   
   // Version 3.6
@@ -575,8 +721,12 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { HP: 49.6 },
     descHead: "Primordial Jade Regalia",
-    descBody: "For 3s after using an Elemental Burst or creating a shield, the equipping character can gain the Primordial Jade Regalia effect: Restore 4.5 Energy every 2.5s, and gain 0.3% Elemental DMG Bonus for their corresponding Elemental Type for every 1,000 Max HP they possess, up to 12%. Primordial Jade Regalia will still take effect even if the equipping character is not on the field.",
-    descVar: [],
+    descBody: "For 3s after using an Elemental Burst or creating a shield, the equipping character can gain the Primordial Jade Regalia effect: Restore {0} Energy every 2.5s, and gain {1} Elemental DMG Bonus for their corresponding Elemental Type for every 1,000 Max HP they possess, up to {2}. Primordial Jade Regalia will still take effect even if the equipping character is not on the field.",
+    descVar: [
+      ["4.5"],
+      ["0.3%"],
+      ["12%"],
+    ],
   },
   
   // Version 3.5
@@ -587,9 +737,14 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CR: 33.1 },
     descHead: "Desert Watch",
-    descBody: "After the character's Elemental Skill hits an opponent, their ATK will be increased by 20% for 8s. After the character takes DMG, their ATK will be increased by 20% for 8s. The 2 aforementioned effects can be triggered even when the character is not on the field. Additionally, when not protected by a shield, the character's Max HP will be increased by 32%.",
-    descVar: [],
+    descBody: "After the character's Elemental Skill hits an opponent, their ATK will be increased by {0} for 8s. After the character takes DMG, their ATK will be increased by {1} for 8s. The 2 aforementioned effects can be triggered even when the character is not on the field. Additionally, when not protected by a shield, the character's Max HP will be increased by {2}.",
+    descVar: [
+      ["20%"],
+      ["20%"],
+      ["32%"],
+    ],
   },
+
   "12418": {
     name: "Mailed Flower",
     rarity: 4,
@@ -597,8 +752,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { EM: 110 },
     descHead: "Whispers of Wind and Flower",
-    descBody: "Within 8s after the character's Elemental Skill hits an opponent or the character triggers an Elemental Reaction, their ATK and Elemental Mastery will be increased by 12% and 48 respectively.",
-    descVar: [],
+    descBody: "Within 8s after the character's Elemental Skill hits an opponent or the character triggers an Elemental Reaction, their ATK and Elemental Mastery will be increased by {0} and {1} respectively.",
+    descVar: [
+      ["12%"],
+      ["48"],
+    ],
   },
   
   // Version 3.4
@@ -609,8 +767,11 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CD: 88.2 },
     descHead: "Whitemoon Bristle",
-    descBody: "CRIT Rate is increased by 4%. After Normal Attacks deal Elemental DMG, the Foliar Incision effect will be obtained, increasing DMG dealt by Normal Attacks and Elemental Skills by 120% of Elemental Mastery. This effect will disappear after 28 DMG instances or 12s. You can obtain Foliar Incision once every 12s.",
-    descVar: [],
+    descBody: "CRIT Rate is increased by {0}. After Normal Attacks deal Elemental DMG, the Foliar Incision effect will be obtained, increasing DMG dealt by Normal Attacks and Elemental Skills by {1} of Elemental Mastery. This effect will disappear after 28 DMG instances or 12s. You can obtain Foliar Incision once every 12s.",
+    descVar: [
+      ["4%"],
+      ["120%"],
+    ],
   },
   
   // Version 3.3
@@ -621,9 +782,15 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { CD: 44.1 },
     descHead: "Bygone Azure Teardrop",
-    descBody: "Normal Attack SPD is increased by 10%. After the wielder unleashes an Elemental Skill, Normal Attack DMG will increase by 4.8% every second for 14s. After hitting an opponent with a Normal Attack during this duration, Normal Attack DMG will be increased by 9.6%. This increase can be triggered once every 0.3s. The maximum Normal Attack DMG increase per single duration of the overall effect is 48%. The effect will be removed when the wielder leaves the field, and using the Elemental Skill again will reset all DMG buffs.",
-    descVar: [],
+    descBody: "Normal Attack SPD is increased by {0}. After the wielder unleashes an Elemental Skill, Normal Attack DMG will increase by {1} every second for 14s. After hitting an opponent with a Normal Attack during this duration, Normal Attack DMG will be increased by {2}. This increase can be triggered once every 0.3s. The maximum Normal Attack DMG increase per single duration of the overall effect is {3}. The effect will be removed when the wielder leaves the field, and using the Elemental Skill again will reset all DMG buffs.",
+    descVar: [
+      ["10%"],
+      ["4.8%"],
+      ["9.6%"],
+      ["48%"],
+    ],
   },
+
   "11422": {
     name: "Toukabou Shigure",
     rarity: 4,
@@ -631,8 +798,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { EM: 165 },
     descHead: "Kaidan: Rainfall Earthbinder",
-    descBody: "After an attack hits opponents, it will inflict an instance of Cursed Parasol upon one of them for 10s. This effect can be triggered once every 15s. If this opponent is defeated during Cursed Parasol's duration, Cursed Parasol's CD will be refreshed immediately. The character wielding this weapon will deal 16% more DMG to the opponent affected by Cursed Parasol.",
-    descVar: [],
+    descBody: "After an attack hits opponents, it will inflict an instance of Cursed Parasol upon one of them for 10s. This effect can be triggered once every 15s. If this opponent is defeated during Cursed Parasol's duration, Cursed Parasol's CD will be refreshed immediately. The character wielding this weapon will deal {0} more DMG to the opponent affected by Cursed Parasol.",
+    descVar: [
+      ["16%"],
+    ],
   },
   
   // Version 3.2
@@ -643,8 +812,12 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { EM: 265 },
     descHead: "A Thousand Nights' Dawnsong",
-    descBody: "Party members other than the equipping character will provide the equipping character with buffs based on whether their Elemental Type is the same as the latter or not. If their Elemental Types are the same, increase Elemental Mastery by 32. If not, increase the equipping character's DMG Bonus from their Elemental Type by 10%. Each of the aforementioned effects can have up to 3 stacks. Additionally, all nearby party members other than the equipping character will have their Elemental Mastery increased by 40. Multiple such effects from multiple such weapons can stack.",
-    descVar: [],
+    descBody: "Party members other than the equipping character will provide the equipping character with buffs based on whether their Elemental Type is the same as the latter or not. If their Elemental Types are the same, increase Elemental Mastery by {0}. If not, increase the equipping character's DMG Bonus from their Elemental Type by {1}. Each of the aforementioned effects can have up to 3 stacks. Additionally, all nearby party members other than the equipping character will have their Elemental Mastery increased by {2}. Multiple such effects from multiple such weapons can stack.",
+    descVar: [
+      ["32"],
+      ["10%"],
+      ["40"],
+    ],
   },
   
   // Version 3.1
@@ -655,8 +828,11 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CR: 44.1 },
     descHead: "Heat Haze at Horizon's End",
-    descBody: "The equipping character gains 52% of their Elemental Mastery as bonus ATK. When an Elemental Skill hits opponents, the Dream of the Scarlet Sands effect will be gained for 10s: The equipping character will gain 28% of their Elemental Mastery as bonus ATK. Max 3 stacks.",
-    descVar: [],
+    descBody: "The equipping character gains {0} of their Elemental Mastery as bonus ATK. When an Elemental Skill hits opponents, the Dream of the Scarlet Sands effect will be gained for 10s: The equipping character will gain {1} of their Elemental Mastery as bonus ATK. Max 3 stacks.",
+    descVar: [
+      ["52%"],
+      ["28%"],
+    ],
   },
   "11511": {
     name: "Key of Khaj-Nisut",
@@ -665,9 +841,14 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { HP: 66.2 },
     descHead: "Sunken Song of the Sands",
-    descBody: "HP increased by 20%. When an Elemental Skill hits opponents, you gain the Grand Hymn effect for 20s. This effect increases the equipping character's Elemental Mastery by 0.12% of their Max HP. This effect can trigger once every 0.3s. Max 3 stacks. When this effect gains 3 stacks, or when the third stack's duration is refreshed, the Elemental Mastery of all nearby party members will be increased by 0.2% of the equipping character's max HP for 20s.",
-    descVar: [],
+    descBody: "HP increased by {0}. When an Elemental Skill hits opponents, you gain the Grand Hymn effect for 20s. This effect increases the equipping character's Elemental Mastery by {1} of their Max HP. This effect can trigger once every 0.3s. Max 3 stacks. When this effect gains 3 stacks, or when the third stack's duration is refreshed, the Elemental Mastery of all nearby party members will be increased by {2} of the equipping character's max HP for 20s.",
+    descVar: [
+      ["20%"],
+      ["0.12%"],
+      ["0.2%"],
+    ],
   },
+
   "14416": {
     name: "Wandering Evenstar",
     rarity: 4,
@@ -675,8 +856,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { EM: 165 },
     descHead: "Wildling Nightstar",
-    descBody: "The following effect will trigger every 10s: The equipping character will gain 24% of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
-    descVar: [],
+    descBody: "The following effect will trigger every 10s: The equipping character will gain {0} of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
+    descVar: [
+      ["24%"],
+    ],
   },
   "13419": {
     name: "Missive Windspear",
@@ -685,8 +868,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "The Wind Unattained",
-    descBody: "Within 10s after an Elemental Reaction is triggered, ATK is increased by 12% and Elemental Mastery is increased by 48.",
-    descVar: [],
+    descBody: "Within 10s after an Elemental Reaction is triggered, ATK is increased by {0} and Elemental Mastery is increased by {1}.",
+    descVar: [
+      ["12%"],
+      ["48"],
+    ],
   },
   "12415": {
     name: "Makhaira Aquamarine",
@@ -695,8 +881,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { EM: 165 },
     descHead: "Desert Pavilion",
-    descBody: "The following effect will trigger every 10s: The equipping character will gain 24% of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
-    descVar: [],
+    descBody: "The following effect will trigger every 10s: The equipping character will gain {0} of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
+    descVar: [
+      ["24%"],
+    ],
   },
   "11418": {
     name: "Xiphos' Moonlight",
@@ -705,8 +893,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { EM: 165 },
     descHead: "Jinni's Whisper",
-    descBody: "The following effect will trigger every 10s: The equipping character will gain 0.036% Energy Recharge for each point of Elemental Mastery they possess for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
-    descVar: [],
+    descBody: "The following effect will trigger every 10s: The equipping character will gain {0} Energy Recharge for each point of Elemental Mastery they possess for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
+    descVar: [
+      ["0.036%"],
+    ],
   },
   
   // Version 3.0
@@ -717,9 +907,13 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CR: 44.1 },
     descHead: "At the End of the Beast-Paths",
-    descBody: "Gain 12% All Elemental DMG Bonus. Obtain the Tireless Hunt effect after hitting an opponent with a Charged Attack. This effect increases Charged Attack DMG by 160% of Elemental Mastery. This effect will be removed after 12 Charged Attacks or 10s. Only 1 instance of Tireless Hunt can be gained every 12s.",
-    descVar: [],
+    descBody: "Gain {0} All Elemental DMG Bonus. Obtain the Tireless Hunt effect after hitting an opponent with a Charged Attack. This effect increases Charged Attack DMG by {1} of Elemental Mastery. This effect will be removed after 12 Charged Attacks or 10s. Only 1 instance of Tireless Hunt can be gained every 12s.",
+    descVar: [
+      ["12%"],
+      ["160%"],
+    ],
   },
+
   "15418": {
     name: "End of the Line",
     rarity: 4,
@@ -727,8 +921,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ER: 45.9 },
     descHead: "Net Snapper",
-    descBody: "Triggers the Flowrider effect after using an Elemental Skill, dealing 80% ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s.",
-    descVar: [],
+    descBody: "Triggers the Flowrider effect after using an Elemental Skill, dealing {0} ATK as AoE DMG upon hitting an opponent with an attack. Flowrider will be removed after 15s or after causing 3 instances of AoE DMG. Only 1 instance of AoE DMG can be caused every 2s in this way. Flowrider can be triggered once every 12s.",
+    descVar: [
+      ["80%"],
+    ],
   },
   "15417": {
     name: "King's Squire",
@@ -737,8 +933,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ATK: 55.1 },
     descHead: "Labyrinth Lord's Instruction",
-    descBody: "Obtain the Teachings of the Forest effect when unleashing Elemental Skills and Bursts, increasing Elemental Mastery by 60 for 12s. This effect will be removed when switching characters. When the Teachings of the Forest effect ends or is removed, it will deal 100% of ATK as DMG to 1 nearby opponent. The Teachings of the Forest effect can be triggered once every 20s.",
-    descVar: [],
+    descBody: "Obtain the Teachings of the Forest effect when unleashing Elemental Skills and Bursts, increasing Elemental Mastery by {0} for 12s. This effect will be removed when switching characters. When the Teachings of the Forest effect ends or is removed, it will deal {1} of ATK as DMG to 1 nearby opponent. The Teachings of the Forest effect can be triggered once every 20s.",
+    descVar: [
+      ["60"],
+      ["100%"],
+    ],
   },
   "14417": {
     name: "Fruit of Fulfillment",
@@ -747,8 +946,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ER: 45.9 },
     descHead: "Full Circle",
-    descBody: "Obtain the \"Wax and Wane\" effect after an Elemental Reaction is triggered, gaining 24 Elemental Mastery while losing 5% ATK. For every 0.3s, 1 stack of Wax and Wane can be gained. Max 5 stacks. For every 6s that go by without an Elemental Reaction being triggered, 1 stack will be lost. This effect can be triggered even when the character is off-field.",
-    descVar: [],
+    descBody: "Obtain the \"Wax and Wane\" effect after an Elemental Reaction is triggered, gaining {0} Elemental Mastery while losing 5% ATK. For every 0.3s, 1 stack of Wax and Wane can be gained. Max 5 stacks. For every 6s that go by without an Elemental Reaction being triggered, 1 stack will be lost. This effect can be triggered even when the character is off-field.",
+    descVar: [
+      ["24"],
+    ],
   },
   "13417": {
     name: "Moonpiercer",
@@ -757,8 +958,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { EM: 110 },
     descHead: "Stillwood Moonshadow",
-    descBody: "After triggering Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon, a Leaf of Revival will be created around the character for a maximum of 10s. When picked up, the Leaf will grant the character 16% ATK for 12s. Only 1 Leaf can be generated this way every 20s. This effect can still be triggered if the character is not on the field.",
-    descVar: [],
+    descBody: "After triggering Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon, a Leaf of Revival will be created around the character for a maximum of 10s. When picked up, the Leaf will grant the character {0} ATK for 12s. Only 1 Leaf can be generated this way every 20s. This effect can still be triggered if the character is not on the field.",
+    descVar: [
+      ["16%"],
+    ],
   },
   "12417": {
     name: "Forest Regalia",
@@ -767,8 +970,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Forest Sanctuary",
-    descBody: "After triggering Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon, a Leaf of Consciousness will be created around the character for a maximum of 10s. When picked up, the Leaf will grant the character 60 Elemental Mastery for 12s. Only 1 Leaf can be generated this way every 20s. This effect can still be triggered if the character is not on the field. The Leaf of Consciousness' effect cannot stack.",
-    descVar: [],
+    descBody: "After triggering Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon, a Leaf of Consciousness will be created around the character for a maximum of 10s. When picked up, the Leaf will grant the character {0} Elemental Mastery for 12s. Only 1 Leaf can be generated this way every 20s. This effect can still be triggered if the character is not on the field. The Leaf of Consciousness' effect cannot stack.",
+    descVar: [
+      ["60"],
+    ],
   },
   "11417": {
     name: "Sapwood Blade",
@@ -777,8 +982,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Forest Sanctuary",
-    descBody: "After triggering Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon, a Leaf of Consciousness will be created around the character for a maximum of 10s. When picked up, the Leaf will grant the character 60 Elemental Mastery for 12s. Only 1 Leaf can be generated this way every 20s. This effect can still be triggered if the character is not on the field. The Leaf of Consciousness' effect cannot stack.",
-    descVar: [],
+    descBody: "After triggering Burning, Quicken, Aggravate, Spread, Bloom, Hyperbloom, or Burgeon, a Leaf of Consciousness will be created around the character for a maximum of 10s. When picked up, the Leaf will grant the character {0} Elemental Mastery for 12s. Only 1 Leaf can be generated this way every 20s. This effect can still be triggered if the character is not on the field. The Leaf of Consciousness' effect cannot stack.",
+    descVar: [
+      ["60"],
+    ],
   },
   
   // Version 2.8
@@ -790,7 +997,6 @@ export default {
     statSub: { ATK: 41.3 },
     descHead: "Isshin Art Clarity",
     descBody: "When a Normal, Charged, or Plunging Attack hits an opponent, it will whip up a Hewing Gale, dealing AoE DMG equal to 180% of ATK and increasing ATK by 15% for 8s. This effect can be triggered once every 8s.",
-    descVar: [],
   },
   
   // Version 2.7
@@ -801,9 +1007,13 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CD: 88.2 },
     descHead: "The Cleansing Form",
-    descBody: "HP is increased by 16%. When there are opponents nearby, the DMG dealt by the wielder of this weapon is increased by 20%. This will take effect whether the character is on-field or not.",
-    descVar: [],
+    descBody: "HP is increased by {0}. When there are opponents nearby, the DMG dealt by the wielder of this weapon is increased by {1}. This will take effect whether the character is on-field or not.",
+    descVar: [
+      ["16%"],
+      ["20%"],
+    ],
   },
+
   "15411": {
     name: "Fading Twilight",
     rarity: 4,
@@ -811,8 +1021,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Radiance of the Deeps",
-    descBody: "Has three states, Evengleam, Afterglow, and Dawnblaze, which increase DMG dealt by 6%/10%/14% respectively. When attacks hit opponents, this weapon will switch to the next state. This weapon can change states once every 7s. The character equipping this weapon can still trigger the state switch while not on the field.",
-    descVar: [],
+    descBody: "Has three states, Evengleam, Afterglow, and Dawnblaze, which increase DMG dealt by {0} respectively. When attacks hit opponents, this weapon will switch to the next state. This weapon can change states once every 7s. The character equipping this weapon can still trigger the state switch while not on the field.",
+    descVar: [
+      ["6%/10%/14%"],
+    ],
   },
   
   // Version 2.6
@@ -823,8 +1035,11 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CR: 33.1 },
     descHead: "Honed Flow",
-    descBody: "Obtain 12% All Elemental DMG Bonus. When other nearby party members use Elemental Skills, the character equipping this weapon will gain 1 Wavespike stack. Max 2 stacks. This effect can be triggered once every 0.3s. When the character equipping this weapon uses an Elemental Skill, all stacks of Wavespike will be consumed to gain Rippling Upheaval: each stack of Wavespike consumed will increase Normal Attack DMG by 20% for 8s.",
-    descVar: [],
+    descBody: "Obtain {0} All Elemental DMG Bonus. When other nearby party members use Elemental Skills, the character equipping this weapon will gain 1 Wavespike stack. Max 2 stacks. This effect can be triggered once every 0.3s. When the character equipping this weapon uses an Elemental Skill, all stacks of Wavespike will be consumed to gain Rippling Upheaval: each stack of Wavespike consumed will increase Normal Attack DMG by {1} for 8s.",
+    descVar: [
+      ["12%"],
+      ["20%"],
+    ],
   },
   
   // Version 2.5
@@ -835,9 +1050,13 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CD: 66.2 },
     descHead: "Kagura Dance of the Sacred Sakura",
-    descBody: "Gains the Kagura Dance effect when using an Elemental Skill, causing the Elemental Skill DMG of the character wielding this weapon to increase by 12% for 16s. Max 3 stacks. This character will gain 12% All Elemental DMG Bonus when they possess 3 stacks.",
-    descVar: [],
+    descBody: "Gains the Kagura Dance effect when using an Elemental Skill, causing the Elemental Skill DMG of the character wielding this weapon to increase by {0} for 16s. Max 3 stacks. This character will gain {1} All Elemental DMG Bonus when they possess 3 stacks.",
+    descVar: [
+      ["12%"],
+      ["12%"],
+    ],
   },
+
   "14415": {
     name: "Oathsworn Eye",
     rarity: 4,
@@ -845,8 +1064,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "People of the Faltering Light",
-    descBody: "Increases Energy Recharge by 24% for 10s after using an Elemental Skill.",
-    descVar: [],
+    descBody: "Increases Energy Recharge by {0} for 10s after using an Elemental Skill.",
+    descVar: [
+      ["24%"],
+    ],
   },
   
   // Version 2.4
@@ -857,8 +1078,11 @@ export default {
     statBase: { _ATK: 741 },
     statSub: { ATK: 16.5 },
     descHead: "Extinguishing Precept",
-    descBody: "Gain 12% All Elemental DMG Bonus. Obtain Consummation for 20s after using an Elemental Skill, causing ATK to increase by 3.2% per second. This ATK increase has a maximum of 6 stacks. When the character equipped with this weapon is not on the field, Consummation's ATK increase is doubled.",
-    descVar: [],
+    descBody: "Gain {0} All Elemental DMG Bonus. Obtain Consummation for 20s after using an Elemental Skill, causing ATK to increase by {1} per second. This ATK increase has a maximum of 6 stacks. When the character equipped with this weapon is not on the field, Consummation's ATK increase is doubled.",
+    descVar: [
+      ["12%"],
+      ["3.2%"],
+    ],
   },
   
   // Version 2.3
@@ -869,9 +1093,13 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CD: 88.2 },
     descHead: "Gokadaiou Otogibanashi",
-    descBody: "DEF is increased by 28%. Normal and Charged Attack DMG is increased by 40% of DEF.",
-    descVar: [],
+    descBody: "DEF is increased by {0}. Normal and Charged Attack DMG is increased by {1} of DEF.",
+    descVar: [
+      ["28%"],
+      ["40%"],
+    ],
   },
+
   "11415": {
     name: "Cinnabar Spindle",
     rarity: 4,
@@ -879,8 +1107,10 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { DEF: 69 },
     descHead: "Spotless Heart",
-    descBody: "Elemental Skill DMG is increased by 40% of DEF. The effect will be triggered no more than once every 1.5s and will be cleared 0.1s after the Elemental Skill deals DMG.",
-    descVar: [],
+    descBody: "Elemental Skill DMG is increased by {0} of DEF. The effect will be triggered no more than once every 1.5s and will be cleared 0.1s after the Elemental Skill deals DMG.",
+    descVar: [
+      ["40%"],
+    ],
   },
   
   // Version 2.2
@@ -891,9 +1121,13 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CR: 33.1 },
     descHead: "Daylight's Augury",
-    descBody: "Elemental Skill and Elemental Burst DMG increased by 12%. After a Normal Attack, Charged Attack, Elemental Skill or Elemental Burst hits an opponent, 1 stack of Ashen Nightstar will be gained for 12s. When 1/2/3/4 stacks of Ashen Nightstar are present, ATK is increased by 10/20/30/48%. The stack of Ashen Nightstar created by the Normal Attack, Charged Attack, Elemental Skill or Elemental Burst will be counted independently of the others.",
-    descVar: [],
+    descBody: "Elemental Skill and Elemental Burst DMG increased by {0}. After a Normal Attack, Charged Attack, Elemental Skill or Elemental Burst hits an opponent, 1 stack of Ashen Nightstar will be gained for 12s. When 1/2/3/4 stacks of Ashen Nightstar are present, ATK is increased by {1}. The stack of Ashen Nightstar created by the Normal Attack, Charged Attack, Elemental Skill or Elemental Burst will be counted independently of the others.",
+    descVar: [
+      ["12%"],
+      ["10/20/30/48%"],
+    ],
   },
+
   "15416": {
     name: "Mouun's Moon",
     rarity: 4,
@@ -901,8 +1135,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Watatsumi Wavewalker",
-    descBody: "For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by 0.12%. A maximum of 40% increased Elemental Burst DMG can be achieved this way.",
-    descVar: [],
+    descBody: "For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by {0}. A maximum of {1} increased Elemental Burst DMG can be achieved this way.",
+    descVar: [
+      ["0.12%"],
+      ["40%"],
+    ],
   },
   "13416": {
     name: "Wavebreaker's Fin",
@@ -911,8 +1148,11 @@ export default {
     statBase: { _ATK: 620 },
     statSub: { ATK: 13.8 },
     descHead: "Watatsumi Wavewalker",
-    descBody: "For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by 0.12%. A maximum of 40% increased Elemental Burst DMG can be achieved this way.",
-    descVar: [],
+    descBody: "For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by {0}. A maximum of {1} increased Elemental Burst DMG can be achieved this way.",
+    descVar: [
+      ["0.12%"],
+      ["40%"],
+    ],
   },
   "12416": {
     name: "Akuoumaru",
@@ -921,8 +1161,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Watatsumi Wavewalker",
-    descBody: "For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by 0.12%. A maximum of 40% increased Elemental Burst DMG can be achieved this way.",
-    descVar: [],
+    descBody: "For every point of the entire party's combined maximum Energy capacity, the Elemental Burst DMG of the character equipping this weapon is increased by {0}. A maximum of {1} increased Elemental Burst DMG can be achieved this way.",
+    descVar: [
+      ["0.12%"],
+      ["40%"],
+    ],
   },
   
   // Version 2.1
@@ -933,8 +1176,11 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { HP: 49.6 },
     descHead: "Byakuya Kougetsu",
-    descBody: "Healing Bonus increased by 10%, Normal Attack DMG is increased by 1% of the Max HP of the character equipping this weapon. For 12s after using an Elemental Burst, Normal Attacks that hit opponents will restore 0.6 Energy. Energy can be restored this way once every 0.1s.",
-    descVar: [],
+    descBody: "Healing Bonus increased by {0}, Normal Attack DMG is increased by {1} of the Max HP of the character equipping this weapon. For 12s after using an Elemental Burst, Normal Attacks that hit opponents will restore 0.6 Energy. Energy can be restored this way once every 0.1s.",
+    descVar: [
+      ["10%"],
+      ["1%"],
+    ],
   },
   "13509": {
     name: "Engulfing Lightning",
@@ -943,9 +1189,14 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ER: 55.1 },
     descHead: "Timeless Dream: Eternal Stove",
-    descBody: "ATK increased by 28% of Energy Recharge over the base 100%. You can gain a maximum bonus of 80% ATK. Gain 30% Energy Recharge for 12s after using an Elemental Burst.",
-    descVar: [],
+    descBody: "ATK increased by {0} of Energy Recharge over the base 100%. You can gain a maximum bonus of {1} ATK. Gain {2} Energy Recharge for 12s after using an Elemental Burst.",
+    descVar: [
+      ["28%"],
+      ["80%"],
+      ["30%"],
+    ],
   },
+
   "15415": {
     name: "Predator",
     rarity: 4,
@@ -953,8 +1204,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Strong Strike",
-    descBody: "Effective only on the following platform:\n\"PlayStation Network\"\nDealing Cryo DMG to opponents increases this character's Normal and Charged Attack DMG by 10% for 6s. This effect can have a maximum of 2 stacks. Additionally, when Aloy equips Predator, ATK is increased by 66.",
-    descVar: [],
+    descBody: "{0}\n{1}\nDealing Cryo DMG to opponents increases this character's Normal and Charged Attack DMG by 10% for 6s. This effect can have a maximum of 2 stacks. Additionally, when Aloy equips Predator, ATK is increased by 66.",
+    descVar: [
+      ["Effective only on the following platform:"],
+      ["\"PlayStation Network\""],
+    ],
   },
   "13415": {
     name: "\"The Catch\"",
@@ -963,8 +1217,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ER: 45.9 },
     descHead: "Shanty",
-    descBody: "Increases Elemental Burst DMG by 16% and Elemental Burst CRIT Rate by 6%.",
-    descVar: [],
+    descBody: "Increases Elemental Burst DMG by {0} and Elemental Burst CRIT Rate by {1}.",
+    descVar: [
+      ["16%"],
+      ["6%"],
+    ],
   },
   "12412": {
     name: "Luxurious Sea-Lord",
@@ -973,8 +1230,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ATK: 55.1 },
     descHead: "Oceanic Victory",
-    descBody: "Increases Elemental Burst DMG by 12%. When Elemental Burst hits opponents, there is a 100% chance of summoning a huge onrush of tuna that deals 100% ATK as AoE DMG. This effect can occur once every 15s.",
-    descVar: [],
+    descBody: "Increases Elemental Burst DMG by {0}. When Elemental Burst hits opponents, there is a 100% chance of summoning a huge onrush of tuna that deals {1} ATK as AoE DMG. This effect can occur once every 15s.",
+    descVar: [
+      ["12%"],
+      ["100%"],
+    ],
   },
   
   // Version 2.0
@@ -985,8 +1245,11 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CD: 66.2 },
     descHead: "Rule by Thunder",
-    descBody: "Increases ATK by 20% and grants the might of the Thunder Emblem. At stack levels 1/2/3, the Thunder Emblem increases Normal Attack DMG by 12/24/40%. The character will obtain 1 stack of Thunder Emblem in each of the following scenarios: Normal Attack deals DMG (stack lasts 5s), casting Elemental Skill (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
-    descVar: [],
+    descBody: "Increases ATK by {0} and grants the might of the Thunder Emblem. At stack levels 1/2/3, the Thunder Emblem increases Normal Attack DMG by {1}. The character will obtain 1 stack of Thunder Emblem in each of the following scenarios: Normal Attack deals DMG (stack lasts 5s), casting Elemental Skill (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
+    descVar: [
+      ["20%"],
+      ["12/24/40%"],
+    ],
   },
   "11509": {
     name: "Mistsplitter Reforged",
@@ -995,9 +1258,13 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { CD: 44.1 },
     descHead: "Mistsplitter's Edge",
-    descBody: "Gain a 12% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, the Mistsplitter's Emblem provides a 8/16/28% Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
-    descVar: [],
+    descBody: "Gain a {0} Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, the Mistsplitter's Emblem provides a {1} Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
+    descVar: [
+      ["12%"],
+      ["8/16/28%"],
+    ],
   },
+
   "15414": {
     name: "Hamayumi",
     rarity: 4,
@@ -1005,8 +1272,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ATK: 55.1 },
     descHead: "Full Draw",
-    descBody: "Increases Normal Attack DMG by 16% and Charged Attack DMG by 12%. When the equipping character's Energy reaches 100%, this effect is increased by 100%.",
-    descVar: [],
+    descBody: "Increases Normal Attack DMG by {0} and Charged Attack DMG by {1}. When the equipping character's Energy reaches 100%, this effect is increased by 100%.",
+    descVar: [
+      ["16%"],
+      ["12%"],
+    ],
   },
   "14414": {
     name: "Hakushin Ring",
@@ -1015,8 +1285,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Sakura Saiguu",
-    descBody: "After the character equipped with this weapon triggers an Electro elemental reaction, nearby party members of an Elemental Type involved in the elemental reaction receive a 10% Elemental DMG Bonus for their element, lasting 6s. Elemental Bonuses gained in this way cannot be stacked.",
-    descVar: [],
+    descBody: "After the character equipped with this weapon triggers an Electro elemental reaction, nearby party members of an Elemental Type involved in the elemental reaction receive a {0} Elemental DMG Bonus for their element, lasting 6s. Elemental Bonuses gained in this way cannot be stacked.",
+    descVar: [
+      ["10%"],
+    ],
   },
   "13414": {
     name: "Kitain Cross Spear",
@@ -1025,8 +1297,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { EM: 110 },
     descHead: "Samurai Conduct",
-    descBody: "Increases Elemental Skill DMG by 6%. After Elemental Skill hits an opponent, the character loses 3 Energy but regenerates 3 Energy every 2s for the next 6s. This effect can occur once every 10s. Can be triggered even when the character is not on the field.",
-    descVar: [],
+    descBody: "Increases Elemental Skill DMG by {0}. After Elemental Skill hits an opponent, the character loses 3 Energy but regenerates {1} Energy every 2s for the next 6s. This effect can occur once every 10s. Can be triggered even when the character is not on the field.",
+    descVar: [
+      ["6%"],
+      ["3"],
+    ],
   },
   "12414": {
     name: "Katsuragikiri Nagamasa",
@@ -1035,8 +1310,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ER: 45.9 },
     descHead: "Samurai Conduct",
-    descBody: "Increases Elemental Skill DMG by 6%. After Elemental Skill hits an opponent, the character loses 3 Energy but regenerates 3 Energy every 2s for the next 6s. This effect can occur once every 10s. Can be triggered even when the character is not on the field.",
-    descVar: [],
+    descBody: "Increases Elemental Skill DMG by {0}. After Elemental Skill hits an opponent, the character loses 3 Energy but regenerates {1} Energy every 2s for the next 6s. This effect can occur once every 10s. Can be triggered even when the character is not on the field.",
+    descVar: [
+      ["6%"],
+      ["3"],
+    ],
   },
   "11414": {
     name: "Amenoma Kageuchi",
@@ -1045,8 +1323,10 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ATK: 55.1 },
     descHead: "Iwakura Succession",
-    descBody: "After casting an Elemental Skill, gain 1 Succession Seed. This effect can be triggered once every 5s. The Succession Seed lasts for 30s. Up to 3 Succession Seeds may exist simultaneously. After using an Elemental Burst, all Succession Seeds are consumed and after 2s, the character regenerates 6 Energy for each seed consumed.",
-    descVar: [],
+    descBody: "After casting an Elemental Skill, gain 1 Succession Seed. This effect can be triggered once every 5s. The Succession Seed lasts for 30s. Up to 3 Succession Seeds may exist simultaneously. After using an Elemental Burst, all Succession Seeds are consumed and after 2s, the character regenerates {0} Energy for each seed consumed.",
+    descVar: [
+      ["6"],
+    ],
   },
   
   // Version 1.6
@@ -1057,9 +1337,14 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { EM: 198 },
     descHead: "Revolutionary Chorale",
-    descBody: "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases DMG by 10%. When the character wielding this weapon triggers Elemental Reactions, they gain a Sigil of Rebellion. This effect can be triggered once every 0.5s and can be triggered even if said character is not on the field. When you possess 2 Sigils of Rebellion, all of them will be consumed and all nearby party members will obtain \"Millennial Movement: Song of Resistance\" for 12s. \"Millennial Movement: Song of Resistance\" increases Normal, Charged and Plunging Attack DMG by 16% and increases ATK by 20%. Once this effect is triggered, you will not gain Sigils of Rebellion for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
-    descVar: [],
+    descBody: "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases DMG by {0}. When the character wielding this weapon triggers Elemental Reactions, they gain a Sigil of Rebellion. This effect can be triggered once every 0.5s and can be triggered even if said character is not on the field. When you possess 2 Sigils of Rebellion, all of them will be consumed and all nearby party members will obtain \"Millennial Movement: Song of Resistance\" for 12s. \"Millennial Movement: Song of Resistance\" increases Normal, Charged and Plunging Attack DMG by {1} and increases ATK by {2}. Once this effect is triggered, you will not gain Sigils of Rebellion for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
+    descVar: [
+      ["10%"],
+      ["16%"],
+      ["20%"],
+    ],
   },
+
   "15412": {
     name: "Mitternachts Waltz",
     rarity: 4,
@@ -1067,8 +1352,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { PHYSICAL: 51.7 },
     descHead: "Evernight Duet",
-    descBody: "Normal Attack hits on opponents increase Elemental Skill DMG by 20% for 5s. Elemental Skill hits on opponents increase Normal Attack DMG by 20% for 5s.",
-    descVar: [],
+    descBody: "Normal Attack hits on opponents increase Elemental Skill DMG by {0} for 5s. Elemental Skill hits on opponents increase Normal Attack DMG by {1} for 5s.",
+    descVar: [
+      ["20%"],
+      ["20%"],
+    ],
   },
   "14413": {
     name: "Dodoco Tales",
@@ -1077,8 +1365,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ATK: 55.1 },
     descHead: "Dodoventure!",
-    descBody: "Normal Attack hits on opponents increase Charged Attack DMG by 16% for 6s. Charged Attack hits on opponents increase ATK by 8% for 6s.",
-    descVar: [],
+    descBody: "Normal Attack hits on opponents increase Charged Attack DMG by {0} for 6s. Charged Attack hits on opponents increase ATK by {1} for 6s.",
+    descVar: [
+      ["16%"],
+      ["8%"],
+    ],
   },
   
   // Version 1.5
@@ -1089,8 +1380,12 @@ export default {
     statBase: { _ATK: 741 },
     statSub: { PHYSICAL: 20.7 },
     descHead: "Rebel's Banner-Hymn",
-    descBody: "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases ATK by 16%, and when Normal or Charged Attacks hit opponents, the character gains a Sigil of Whispers. This effect can be triggered once every 0.3s. When you possess 4 Sigils of Whispers, all of them will be consumed and all nearby party members will obtain the \"Millennial Movement: Banner-Hymn\" effect for 12s. \"Millennial Movement: Banner-Hymn\" increases Normal ATK SPD by 12% and increases ATK by 20%. Once this effect is triggered, you will not gain Sigils of Whispers for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
-    descVar: [],
+    descBody: "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases ATK by {0}, and when Normal or Charged Attacks hit opponents, the character gains a Sigil of Whispers. This effect can be triggered once every 0.3s. When you possess 4 Sigils of Whispers, all of them will be consumed and all nearby party members will obtain the \"Millennial Movement: Banner-Hymn\" effect for 12s. \"Millennial Movement: Banner-Hymn\" increases Normal ATK SPD by {1} and increases ATK by {2}. Once this effect is triggered, you will not gain Sigils of Whispers for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
+    descVar: [
+      ["16%"],
+      ["12%"],
+      ["20%"],
+    ],
   },
   
   // Version 1.4
@@ -1101,9 +1396,14 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ER: 55.1 },
     descHead: "The Parting Refrain",
-    descBody: "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases Elemental Mastery by 60. When the Elemental Skills or Elemental Bursts of the character wielding this weapon hit opponents, that character gains a Sigil of Remembrance. This effect can be triggered once every 0.2s and can be triggered even if said character is not on the field. When you possess 4 Sigils of Remembrance, all of them will be consumed and all nearby party members will obtain the \"Millennial Movement: Farewell Song\" effect for 12s. \"Millennial Movement: Farewell Song\" increases Elemental Mastery by 100 and increases ATK by 20%. Once this effect is triggered, you will not gain Sigils of Remembrance for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
-    descVar: [],
+    descBody: "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases Elemental Mastery by {0}. When the Elemental Skills or Elemental Bursts of the character wielding this weapon hit opponents, that character gains a Sigil of Remembrance. This effect can be triggered once every 0.2s and can be triggered even if said character is not on the field. When you possess 4 Sigils of Remembrance, all of them will be consumed and all nearby party members will obtain the \"Millennial Movement: Farewell Song\" effect for 12s. \"Millennial Movement: Farewell Song\" increases Elemental Mastery by {1} and increases ATK by {2}. Once this effect is triggered, you will not gain Sigils of Remembrance for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
+    descVar: [
+      ["60"],
+      ["100"],
+      ["20%"],
+    ],
   },
+
   "15413": {
     name: "Windblume Ode",
     rarity: 4,
@@ -1111,8 +1411,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { EM: 165 },
     descHead: "Windblume Wish",
-    descBody: "After using an Elemental Skill, receive a boon from the ancient wish of the Windblume, increasing ATK by 16% for 6s.",
-    descVar: [],
+    descBody: "After using an Elemental Skill, receive a boon from the ancient wish of the Windblume, increasing ATK by {0} for 6s.",
+    descVar: [
+      ["16%"],
+    ],
   },
   "15410": {
     name: "Alley Hunter",
@@ -1121,8 +1423,12 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Oppidan Ambush",
-    descBody: "While the character equipped with this weapon is in the party but not on the field, their DMG increases by 2% every second up to a max of 20%. When the character is on the field for more than 4s, the aforementioned DMG buff decreases by 4% per second until it reaches 0%.",
-    descVar: [],
+    descBody: "While the character equipped with this weapon is in the party but not on the field, their DMG increases by {0} every second up to a max of {1}. When the character is on the field for more than 4s, the aforementioned DMG buff decreases by {2} per second until it reaches 0%.",
+    descVar: [
+      ["2%"],
+      ["20%"],
+      ["4%"],
+    ],
   },
   "14410": {
     name: "Wine and Song",
@@ -1131,8 +1437,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Ever-Changing",
-    descBody: "Hitting an opponent with a Normal Attack decreases the Stamina consumption of Sprint or Alternate Sprint by 14% for 5s. Additionally, using a Sprint or Alternate Sprint ability increases ATK by 20% for 5s.",
-    descVar: [],
+    descBody: "Hitting an opponent with a Normal Attack decreases the Stamina consumption of Sprint or Alternate Sprint by {0} for 5s. Additionally, using a Sprint or Alternate Sprint ability increases ATK by {1} for 5s.",
+    descVar: [
+      ["14%"],
+      ["20%"],
+    ],
   },
   "11410": {
     name: "The Alley Flash",
@@ -1141,8 +1450,10 @@ export default {
     statBase: { _ATK: 620 },
     statSub: { EM: 55 },
     descHead: "Itinerant Hero",
-    descBody: "Increases DMG dealt by the character equipping this weapon by 12%. Taking DMG disables this effect for 5s.",
-    descVar: [],
+    descBody: "Increases DMG dealt by the character equipping this weapon by {0}. Taking DMG disables this effect for 5s.",
+    descVar: [
+      ["12%"],
+    ],
   },
   
   // Version 1.3
@@ -1153,8 +1464,12 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CD: 66.2 },
     descHead: "Reckless Cinnabar",
-    descBody: "HP increased by 20%. Additionally, provides an ATK Bonus based on 0.8% of the wielder's Max HP. When the wielder's HP is less than 50%, this ATK Bonus is increased by an additional 1% of Max HP.",
-    descVar: [],
+    descBody: "HP increased by {0}. Additionally, provides an ATK Bonus based on {1} of the wielder's Max HP. When the wielder's HP is less than 50%, this ATK Bonus is increased by an additional {2} of Max HP.",
+    descVar: [
+      ["20%"],
+      ["0.8%"],
+      ["1%"],
+    ],
   },
   "11505": {
     name: "Primordial Jade Cutter",
@@ -1163,9 +1478,13 @@ export default {
     statBase: { _ATK: 542 },
     statSub: { CR: 44.1 },
     descHead: "Protector's Virtue",
-    descBody: "HP increased by 20%. Additionally, provides an ATK Bonus based on 1.2% of the wielder's Max HP.",
-    descVar: [],
+    descBody: "HP increased by {0}. Additionally, provides an ATK Bonus based on {1} of the wielder's Max HP.",
+    descVar: [
+      ["20%"],
+      ["1.2%"],
+    ],
   },
+
   "13406": {
     name: "Lithic Spear",
     rarity: 4,
@@ -1173,8 +1492,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Lithic Axiom: Unity",
-    descBody: "For every character in the party who hails from Liyue, the character who equips this weapon gains a 7% ATK increase and a 3% CRIT Rate increase. This effect stacks up to 4 times.",
-    descVar: [],
+    descBody: "For every character in the party who hails from Liyue, the character who equips this weapon gains a {0} ATK increase and a {1} CRIT Rate increase. This effect stacks up to 4 times.",
+    descVar: [
+      ["7%"],
+      ["3%"],
+    ],
   },
   "12410": {
     name: "Lithic Blade",
@@ -1183,8 +1505,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Lithic Axiom: Unity",
-    descBody: "For every character in the party who hails from Liyue, the character who equips this weapon gains a 7% ATK increase and a 3% CRIT Rate increase. This effect stacks up to 4 times.",
-    descVar: [],
+    descBody: "For every character in the party who hails from Liyue, the character who equips this weapon gains a {0} ATK increase and a {1} CRIT Rate increase. This effect stacks up to 4 times.",
+    descVar: [
+      ["7%"],
+      ["3%"],
+    ],
   },
   
   // Version 1.2
@@ -1195,9 +1520,13 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ATK: 49.6 },
     descHead: "Golden Majesty",
-    descBody: "Increases Shield Strength by 20%. Scoring hits on opponents increases ATK by 4% for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
-    descVar: [],
+    descBody: "Increases Shield Strength by {0}. Scoring hits on opponents increases ATK by {1} for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
+    descVar: [
+      ["20%"],
+      ["4%"],
+    ],
   },
+
   "14412": {
     name: "Frostbearer",
     rarity: 4,
@@ -1205,8 +1534,12 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Frost Burial",
-    descBody: "Hitting an opponent with Normal and Charged Attacks has a 60% chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to 80% of ATK. Opponents affected by Cryo are instead dealt DMG equal to 200% of ATK. Can only occur once every 10s.",
-    descVar: [],
+    descBody: "Hitting an opponent with Normal and Charged Attacks has a {0} chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to {1} of ATK. Opponents affected by Cryo are instead dealt DMG equal to {2} of ATK. Can only occur once every 10s.",
+    descVar: [
+      ["60%"],
+      ["80%"],
+      ["200%"],
+    ],
   },
   "13409": {
     name: "Dragonspine Spear",
@@ -1215,8 +1548,12 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { PHYSICAL: 69 },
     descHead: "Frost Burial",
-    descBody: "Hitting an opponent with Normal and Charged Attacks has a 60% chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to 80% of ATK. Opponents affected by Cryo are instead dealt DMG equal to 200% of ATK. Can only occur once every 10s.",
-    descVar: [],
+    descBody: "Hitting an opponent with Normal and Charged Attacks has a {0} chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to {1} of ATK. Opponents affected by Cryo are instead dealt DMG equal to {2} of ATK. Can only occur once every 10s.",
+    descVar: [
+      ["60%"],
+      ["80%"],
+      ["200%"],
+    ],
   },
   "12411": {
     name: "Snow-Tombed Starsilver",
@@ -1225,8 +1562,12 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { PHYSICAL: 34.5 },
     descHead: "Frost Burial",
-    descBody: "Hitting an opponent with Normal and Charged Attacks has a 60% chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to 80% of ATK. Opponents affected by Cryo are instead dealt DMG equal to 200% of ATK. Can only occur once every 10s.",
-    descVar: [],
+    descBody: "Hitting an opponent with Normal and Charged Attacks has a {0} chance of forming and dropping an Everfrost Icicle above them, dealing AoE DMG equal to {1} of ATK. Opponents affected by Cryo are instead dealt DMG equal to {2} of ATK. Can only occur once every 10s.",
+    descVar: [
+      ["60%"],
+      ["80%"],
+      ["200%"],
+    ],
   },
   "11413": {
     name: "Festering Desire",
@@ -1235,8 +1576,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ER: 45.9 },
     descHead: "Undying Admiration",
-    descBody: "Increases Elemental Skill DMG by 16% and Elemental Skill CRIT Rate by 6%.",
-    descVar: [],
+    descBody: "Increases Elemental Skill DMG by {0} and Elemental Skill CRIT Rate by {1}.",
+    descVar: [
+      ["16%"],
+      ["6%"],
+    ],
   },
   
   // Version 1.1
@@ -1247,8 +1591,11 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ATK: 49.6 },
     descHead: "Golden Majesty",
-    descBody: "Increases Shield Strength by 20%. Scoring hits on opponents increases ATK by 4% for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
-    descVar: [],
+    descBody: "Increases Shield Strength by {0}. Scoring hits on opponents increases ATK by {1} for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
+    descVar: [
+      ["20%"],
+      ["4%"],
+    ],
   },
   "13504": {
     name: "Vortex Vanquisher",
@@ -1257,8 +1604,11 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ATK: 49.6 },
     descHead: "Golden Majesty",
-    descBody: "Increases Shield Strength by 20%. Scoring hits on opponents increases ATK by 4% for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
-    descVar: [],
+    descBody: "Increases Shield Strength by {0}. Scoring hits on opponents increases ATK by {1} for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
+    descVar: [
+      ["20%"],
+      ["4%"],
+    ],
   },
   "12504": {
     name: "The Unforged",
@@ -1267,9 +1617,13 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ATK: 49.6 },
     descHead: "Golden Majesty",
-    descBody: "Increases Shield Strength by 20%. Scoring hits on opponents increases ATK by 4% for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
-    descVar: [],
+    descBody: "Increases Shield Strength by {0}. Scoring hits on opponents increases ATK by {1} for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
+    descVar: [
+      ["20%"],
+      ["4%"],
+    ],
   },
+
   "13408": {
     name: "Royal Spear",
     rarity: 4,
@@ -1277,8 +1631,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Focus",
-    descBody: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
-    descVar: [],
+    descBody: "Upon damaging an opponent, increases CRIT Rate by {0}. Max 5 stacks. A CRIT Hit removes all stacks.",
+    descVar: [
+      ["8%"],
+    ],
   },
   
   // Version 1.0
@@ -1289,8 +1645,11 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ATK: 49.6 },
     descHead: "Strong-Willed",
-    descBody: "Increases Normal and Charged Attack DMG by 12%. After a Normal or Charged Attack is fired, DMG dealt increases by a further 8% every 0.1s the arrow is in the air for up to 5 times.",
-    descVar: [],
+    descBody: "Increases Normal and Charged Attack DMG by {0}. After a Normal or Charged Attack is fired, DMG dealt increases by a further {1} every 0.1s the arrow is in the air for up to 5 times.",
+    descVar: [
+      ["12%"],
+      ["8%"],
+    ],
   },
   "15501": {
     name: "Skyward Harp",
@@ -1299,8 +1658,12 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { CR: 22.1 },
     descHead: "Echoing Ballad",
-    descBody: "Increases CRIT DMG by 20%. Hits have a 60% chance to inflict a small AoE attack, dealing 125% Physical ATK DMG. Can only occur once every 4s.",
-    descVar: [],
+    descBody: "Increases CRIT DMG by {0}. Hits have a {1} chance to inflict a small AoE attack, dealing 125% Physical ATK DMG. Can only occur once every {2}s.",
+    descVar: [
+      ["20%"],
+      ["60%"],
+      ["4"],
+    ],
   },
   "14502": {
     name: "Lost Prayer to the Sacred Winds",
@@ -1309,8 +1672,10 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { CR: 33.1 },
     descHead: "Boundless Blessing",
-    descBody: "Increases Movement SPD by 10%. When in battle, gain an 8% Elemental DMG Bonus every 4s. Max 4 stacks. Lasts until the character falls or leaves combat.",
-    descVar: [],
+    descBody: "Increases Movement SPD by 10%. When in battle, gain an {0} Elemental DMG Bonus every 4s. Max 4 stacks. Lasts until the character falls or leaves combat.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "14501": {
     name: "Skyward Atlas",
@@ -1319,8 +1684,11 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { ATK: 33.1 },
     descHead: "Wandering Clouds",
-    descBody: "Increases Elemental DMG Bonus by 12%. Normal Attack hits have a 50% chance to earn the favor of the clouds, which actively seek out nearby opponents to attack for 15s, dealing 160% ATK DMG. Can only occur once every 30s.",
-    descVar: [],
+    descBody: "Increases Elemental DMG Bonus by {0}. Normal Attack hits have a 50% chance to earn the favor of the clouds, which actively seek out nearby opponents to attack for 15s, dealing {1} ATK DMG. Can only occur once every 30s.",
+    descVar: [
+      ["12%"],
+      ["160%"],
+    ],
   },
   "13505": {
     name: "Primordial Jade Winged-Spear",
@@ -1329,8 +1697,11 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { CR: 22.1 },
     descHead: "Eagle Spear of Justice",
-    descBody: "On hit, increases ATK by 3.2% for 6s. Max 7 stacks. This effect can only occur once every 0.3s. While in possession of the maximum possible stacks, DMG dealt is increased by 12%.",
-    descVar: [],
+    descBody: "On hit, increases ATK by {0} for 6s. Max 7 stacks. This effect can only occur once every 0.3s. While in possession of the maximum possible stacks, DMG dealt is increased by {1}.",
+    descVar: [
+      ["3.2%"],
+      ["12%"],
+    ],
   },
   "13502": {
     name: "Skyward Spine",
@@ -1339,8 +1710,13 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { ER: 36.8 },
     descHead: "Black Wing",
-    descBody: "Increases CRIT Rate by 8% and increases Normal ATK SPD by 12%. Additionally, Normal and Charged Attacks hits on opponents have a 50% chance to trigger a vacuum blade that deals 40% of ATK as DMG in a small AoE. This effect can occur no more than once every 2s.",
-    descVar: [],
+    descBody: "Increases CRIT Rate by {0} and increases Normal ATK SPD by {1}. Additionally, Normal and Charged Attacks hits on opponents have a {2} chance to trigger a vacuum blade that deals {3} of ATK as DMG in a small AoE. This effect can occur no more than once every 2s.",
+    descVar: [
+      ["8%"],
+      ["12%"],
+      ["50%"],
+      ["40%"],
+    ],
   },
   "12502": {
     name: "Wolf's Gravestone",
@@ -1349,8 +1725,11 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ATK: 49.6 },
     descHead: "Wolfish Tracker",
-    descBody: "Increases ATK by 20%. On hit, attacks against opponents with less than 30% HP increase all party members' ATK by 40% for 12s. Can only occur once every 30s.",
-    descVar: [],
+    descBody: "Increases ATK by {0}. On hit, attacks against opponents with less than 30% HP increase all party members' ATK by {1} for 12s. Can only occur once every 30s.",
+    descVar: [
+      ["20%"],
+      ["40%"],
+    ],
   },
   "12501": {
     name: "Skyward Pride",
@@ -1359,8 +1738,11 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { ER: 36.8 },
     descHead: "Sky-ripping Dragon Spine",
-    descBody: "Increases all DMG by 8%. After using an Elemental Burst, a vacuum blade that does 80% of ATK as DMG to opponents along its path will be created when Normal or Charged Attacks hit. Lasts for 20s or 8 vacuum blades.",
-    descVar: [],
+    descBody: "Increases all DMG by {0}. After using an Elemental Burst, a vacuum blade that does {1} of ATK as DMG to opponents along its path will be created when Normal or Charged Attacks hit. Lasts for 20s or 8 vacuum blades.",
+    descVar: [
+      ["8%"],
+      ["80%"],
+    ],
   },
   "11502": {
     name: "Skyward Blade",
@@ -1369,8 +1751,13 @@ export default {
     statBase: { _ATK: 608 },
     statSub: { ER: 55.1 },
     descHead: "Sky-Piercing Fang",
-    descBody: "CRIT Rate increased by 4%. Gains Skypiercing Might upon using an Elemental Burst: Increases Movement SPD by 10%, increases ATK SPD by 10%, and Normal and Charged hits deal additional DMG equal to 20% of ATK. Skypiercing Might lasts for 12s.",
-    descVar: [],
+    descBody: "CRIT Rate increased by {0}. Gains Skypiercing Might upon using an Elemental Burst: Increases Movement SPD by {1}, increases ATK SPD by {2}, and Normal and Charged hits deal additional DMG equal to {3} of ATK. Skypiercing Might lasts for 12s.",
+    descVar: [
+      ["4%"],
+      ["10%"],
+      ["10%"],
+      ["20%"],
+    ],
   },
   "11501": {
     name: "Aquila Favonia",
@@ -1379,9 +1766,14 @@ export default {
     statBase: { _ATK: 674 },
     statSub: { PHYSICAL: 41.3 },
     descHead: "Falcon's Defiance",
-    descBody: "ATK is increased by 20%. Triggers on taking DMG: the soul of the Falcon of the West awakens, holding the banner of resistance aloft, regenerating HP equal to 100% of ATK and dealing 200% of ATK as DMG to surrounding opponents. This effect can only occur once every 15s.",
-    descVar: [],
+    descBody: "ATK is increased by {0}. Triggers on taking DMG: the soul of the Falcon of the West awakens, holding the banner of resistance aloft, regenerating HP equal to {1} of ATK and dealing {2} of ATK as DMG to surrounding opponents. This effect can only occur once every 15s.",
+    descVar: [
+      ["20%"],
+      ["100%"],
+      ["200%"],
+    ],
   },
+
   "15409": {
     name: "The Viridescent Hunt",
     rarity: 4,
@@ -1389,8 +1781,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CR: 27.6 },
     descHead: "Verdant Wind",
-    descBody: "Upon hit, Normal and Charged Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing 40% of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every 14s.",
-    descVar: [],
+    descBody: "Upon hit, Normal and Charged Attacks have a 50% chance to generate a Cyclone, which will continuously attract surrounding opponents, dealing {0} of ATK as DMG to these opponents every 0.5s for 4s. This effect can only occur once every {1}s.",
+    descVar: [
+      ["40%"],
+      ["14"],
+    ],
   },
   "15408": {
     name: "Blackcliff Warbow",
@@ -1399,8 +1794,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { CD: 36.8 },
     descHead: "Press the Advantage",
-    descBody: "After defeating an enemy, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
-    descVar: [],
+    descBody: "After defeating an enemy, ATK is increased by {0} for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "15407": {
     name: "Compound Bow",
@@ -1409,8 +1806,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { PHYSICAL: 69 },
     descHead: "Infusion Arrow",
-    descBody: "Normal Attack and Charged Attack hits increase ATK by 4% and Normal ATK SPD by 1.2% for 6s. Max 4 stacks. Can only occur once every 0.3s.",
-    descVar: [],
+    descBody: "Normal Attack and Charged Attack hits increase ATK by {0} and Normal ATK SPD by {1} for 6s. Max 4 stacks. Can only occur once every 0.3s.",
+    descVar: [
+      ["4%"],
+      ["1.2%"],
+    ],
   },
   "15406": {
     name: "Prototype Crescent",
@@ -1419,8 +1819,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Unreturning",
-    descBody: "Charged Attack hits on weak points increase Movement SPD by 10% and ATK by 36% for 10s.",
-    descVar: [],
+    descBody: "Charged Attack hits on weak points increase Movement SPD by 10% and ATK by {0} for 10s.",
+    descVar: [
+      ["36%"],
+    ],
   },
   "15405": {
     name: "Rust",
@@ -1429,8 +1831,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Rapid Firing",
-    descBody: "Increases Normal Attack DMG by 40% but decreases Charged Attack DMG by 10%.",
-    descVar: [],
+    descBody: "Increases Normal Attack DMG by {0} but decreases Charged Attack DMG by 10%.",
+    descVar: [
+      ["40%"],
+    ],
   },
   "15404": {
     name: "Royal Bow",
@@ -1439,8 +1843,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Focus",
-    descBody: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
-    descVar: [],
+    descBody: "Upon damaging an opponent, increases CRIT Rate by {0}. Max 5 stacks. A CRIT Hit removes all stacks.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "15403": {
     name: "Sacrificial Bow",
@@ -1449,8 +1855,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Composed",
-    descBody: "After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.",
-    descVar: [],
+    descBody: "After damaging an opponent with an Elemental Skill, the skill has a {0} chance to end its own CD. Can only occur once every {1}s.",
+    descVar: [
+      ["40%"],
+      ["30"],
+    ],
   },
   "15402": {
     name: "The Stringless",
@@ -1459,8 +1868,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { EM: 165 },
     descHead: "Arrowless Song",
-    descBody: "Increases Elemental Skill and Elemental Burst DMG by 24%.",
-    descVar: [],
+    descBody: "Increases Elemental Skill and Elemental Burst DMG by {0}.",
+    descVar: [
+      ["24%"],
+    ],
   },
   "15401": {
     name: "Favonius Warbow",
@@ -1469,8 +1880,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ER: 61.3 },
     descHead: "Windfall",
-    descBody: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
-    descVar: [],
+    descBody: "CRIT Hits have a {0} chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every {1}s.",
+    descVar: [
+      ["60%"],
+      ["12"],
+    ],
   },
   "14409": {
     name: "Eye of Perception",
@@ -1479,8 +1893,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ATK: 55.1 },
     descHead: "Echo",
-    descBody: "Normal and Charged Attacks have a 50% chance to fire a Bolt of Perception, dealing 240% ATK as DMG. This bolt can bounce between opponents a maximum of 4 times. This effect can occur once every 12s.",
-    descVar: [],
+    descBody: "Normal and Charged Attacks have a 50% chance to fire a Bolt of Perception, dealing {0} ATK as DMG. This bolt can bounce between opponents a maximum of 4 times. This effect can occur once every {1}s.",
+    descVar: [
+      ["240%"],
+      ["12"],
+    ],
   },
   "14408": {
     name: "Blackcliff Agate",
@@ -1489,8 +1906,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CD: 55.1 },
     descHead: "Press the Advantage",
-    descBody: "After defeating an enemy, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
-    descVar: [],
+    descBody: "After defeating an enemy, ATK is increased by {0} for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "14407": {
     name: "Mappa Mare",
@@ -1499,8 +1918,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { EM: 110 },
     descHead: "Infusion Scroll",
-    descBody: "Triggering an Elemental reaction grants a 8% Elemental DMG Bonus for 10s. Max 2 stacks.",
-    descVar: [],
+    descBody: "Triggering an Elemental reaction grants a {0} Elemental DMG Bonus for 10s. Max 2 stacks.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "14406": {
     name: "Prototype Amber",
@@ -1509,8 +1930,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { HP: 41.3 },
     descHead: "Gilding",
-    descBody: "Using an Elemental Burst regenerates 4 Energy every 2s for 6s. All party members will regenerate 4% HP every 2s for this duration.",
-    descVar: [],
+    descBody: "Using an Elemental Burst regenerates {0} Energy every 2s for 6s. All party members will regenerate {1} HP every 2s for this duration.",
+    descVar: [
+      ["4"],
+      ["4%"],
+    ],
   },
   "14405": {
     name: "Solar Pearl",
@@ -1519,8 +1943,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CR: 27.6 },
     descHead: "Solar Shine",
-    descBody: "Normal Attack hits increase Elemental Skill and Elemental Burst DMG by 20% for 6s. Likewise, Elemental Skill or Elemental Burst hits increase Normal Attack DMG by 20% for 6s.",
-    descVar: [],
+    descBody: "Normal Attack hits increase Elemental Skill and Elemental Burst DMG by {0} for 6s. Likewise, Elemental Skill or Elemental Burst hits increase Normal Attack DMG by {1} for 6s.",
+    descVar: [
+      ["20%"],
+      ["20%"],
+    ],
   },
   "14404": {
     name: "Royal Grimoire",
@@ -1529,8 +1956,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Focus",
-    descBody: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
-    descVar: [],
+    descBody: "Upon damaging an opponent, increases CRIT Rate by {0}. Max 5 stacks. A CRIT Hit removes all stacks.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "14403": {
     name: "Sacrificial Fragments",
@@ -1539,8 +1968,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { EM: 221 },
     descHead: "Composed",
-    descBody: "After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.",
-    descVar: [],
+    descBody: "After damaging an opponent with an Elemental Skill, the skill has a {0} chance to end its own CD. Can only occur once every {1}s.",
+    descVar: [
+      ["40%"],
+      ["30"],
+    ],
   },
   "14402": {
     name: "The Widsith",
@@ -1549,8 +1981,12 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CD: 55.1 },
     descHead: "Debut",
-    descBody: "When the character takes the field, they will gain a random theme song for 10s. This can only occur once every 30s. Recitative: ATK is increased by 60%. Aria: Increases all Elemental DMG by 48%. Interlude: Elemental Mastery is increased by 240.",
-    descVar: [],
+    descBody: "When the character takes the field, they will gain a random theme song for 10s. This can only occur once every 30s. Recitative: ATK is increased by {0}. Aria: Increases all Elemental DMG by {1}. Interlude: Elemental Mastery is increased by {2}.",
+    descVar: [
+      ["60%"],
+      ["48%"],
+      ["240"],
+    ],
   },
   "14401": {
     name: "Favonius Codex",
@@ -1559,8 +1995,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ER: 45.9 },
     descHead: "Windfall",
-    descBody: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
-    descVar: [],
+    descBody: "CRIT Hits have a {0} chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every {1}s.",
+    descVar: [
+      ["60%"],
+      ["12"],
+    ],
   },
   "13407": {
     name: "Favonius Lance",
@@ -1569,8 +2008,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Windfall",
-    descBody: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
-    descVar: [],
+    descBody: "CRIT Hits have a {0} chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every {1}s.",
+    descVar: [
+      ["60%"],
+      ["12"],
+    ],
   },
   "13405": {
     name: "Deathmatch",
@@ -1579,8 +2021,12 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { CR: 36.8 },
     descHead: "Gladiator",
-    descBody: "If there are at least 2 opponents nearby, ATK is increased by 16% and DEF is increased by 16%. If there are fewer than 2 opponents nearby, ATK is increased by 24%.",
-    descVar: [],
+    descBody: "If there are at least 2 opponents nearby, ATK is increased by {0} and DEF is increased by {1}. If there are fewer than 2 opponents nearby, ATK is increased by {2}.",
+    descVar: [
+      ["16%"],
+      ["16%"],
+      ["24%"],
+    ],
   },
   "13404": {
     name: "Blackcliff Pole",
@@ -1589,8 +2035,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CD: 55.1 },
     descHead: "Press the Advantage",
-    descBody: "After defeating an enemy, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
-    descVar: [],
+    descBody: "After defeating an enemy, ATK is increased by {0} for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "13403": {
     name: "Crescent Pike",
@@ -1599,8 +2047,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { PHYSICAL: 34.5 },
     descHead: "Infusion Needle",
-    descBody: "After picking up an Elemental Orb/Particle, Normal and Charged Attacks deal additional DMG equal to 20% of ATK for 5s.",
-    descVar: [],
+    descBody: "After picking up an Elemental Orb/Particle, Normal and Charged Attacks deal additional DMG equal to {0} of ATK for 5s.",
+    descVar: [
+      ["20%"],
+    ],
   },
   "13402": {
     name: "Prototype Starglitter",
@@ -1609,8 +2059,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ER: 45.9 },
     descHead: "Magic Affinity",
-    descBody: "After using an Elemental Skill, increases Normal and Charged Attack DMG by 8% for 12s. Max 2 stacks.",
-    descVar: [],
+    descBody: "After using an Elemental Skill, increases Normal and Charged Attack DMG by {0} for 12s. Max 2 stacks.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "13401": {
     name: "Dragon's Bane",
@@ -1619,8 +2071,10 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { EM: 221 },
     descHead: "Bane of Flame and Water",
-    descBody: "Increases DMG against opponents affected by Hydro or Pyro by 20%.",
-    descVar: [],
+    descBody: "Increases DMG against opponents affected by Hydro or Pyro by {0}.",
+    descVar: [
+      ["20%"],
+    ],
   },
   "12409": {
     name: "Serpent Spine",
@@ -1629,8 +2083,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CR: 27.6 },
     descHead: "Wavesplitter",
-    descBody: "Every 4s a character is on the field, they will deal 6% more DMG and take 3% more DMG. This effect has a maximum of 5 stacks and will not be reset if the character leaves the field, but will be reduced by 1 stack when the character takes DMG.",
-    descVar: [],
+    descBody: "Every 4s a character is on the field, they will deal {0} more DMG and take {1} more DMG. This effect has a maximum of 5 stacks and will not be reset if the character leaves the field, but will be reduced by 1 stack when the character takes DMG.",
+    descVar: [
+      ["6%"],
+      ["3%"],
+    ],
   },
   "12408": {
     name: "Blackcliff Slasher",
@@ -1639,8 +2096,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CD: 55.1 },
     descHead: "Press the Advantage",
-    descBody: "After defeating an opponent, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
-    descVar: [],
+    descBody: "After defeating an opponent, ATK is increased by {0} for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "12407": {
     name: "Whiteblind",
@@ -1649,8 +2108,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { DEF: 51.7 },
     descHead: "Infusion Blade",
-    descBody: "On hit, Normal or Charged Attacks increase ATK and DEF by 6% for 6s. Max 4 stacks. This effect can only occur once every 0.5s.",
-    descVar: [],
+    descBody: "On hit, Normal or Charged Attacks increase ATK and DEF by {0} for 6s. Max 4 stacks. This effect can only occur once every 0.5s.",
+    descVar: [
+      ["6%"],
+    ],
   },
   "12406": {
     name: "Prototype Archaic",
@@ -1659,8 +2120,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Crush",
-    descBody: "On hit, Normal or Charged Attacks have a 50% chance to deal an additional 240% ATK DMG to opponents within a small AoE. Can only occur once every 15s.",
-    descVar: [],
+    descBody: "On hit, Normal or Charged Attacks have a 50% chance to deal an additional {0} ATK DMG to opponents within a small AoE. Can only occur once every 15s.",
+    descVar: [
+      ["240%"],
+    ],
   },
   "12405": {
     name: "Rainslasher",
@@ -1669,8 +2132,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { EM: 165 },
     descHead: "Bane of Storm and Tide",
-    descBody: "Increases DMG against opponents affected by Hydro or Electro by 20%.",
-    descVar: [],
+    descBody: "Increases DMG against opponents affected by Hydro or Electro by {0}.",
+    descVar: [
+      ["20%"],
+    ],
   },
   "12404": {
     name: "Royal Greatsword",
@@ -1679,8 +2144,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ATK: 27.6 },
     descHead: "Focus",
-    descBody: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
-    descVar: [],
+    descBody: "Upon damaging an opponent, increases CRIT Rate by {0}. Max 5 stacks. A CRIT Hit removes all stacks.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "12403": {
     name: "Sacrificial Greatsword",
@@ -1689,8 +2156,11 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { ER: 30.6 },
     descHead: "Composed",
-    descBody: "After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.",
-    descVar: [],
+    descBody: "After damaging an opponent with an Elemental Skill, the skill has a {0} chance to end its own CD. Can only occur once every {1}s.",
+    descVar: [
+      ["40%"],
+      ["30"],
+    ],
   },
   "12402": {
     name: "The Bell",
@@ -1699,8 +2169,12 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { HP: 41.3 },
     descHead: "Rebellious Guardian",
-    descBody: "Taking DMG generates a shield which absorbs DMG up to 20% of Max HP. This shield lasts for 10s or until broken, and can only be triggered once every 45s. While protected by a shield, the character gains 12% increased DMG.",
-    descVar: [],
+    descBody: "Taking DMG generates a shield which absorbs DMG up to {0} of Max HP. This shield lasts for 10s or until broken, and can only be triggered once every {1}s. While protected by a shield, the character gains {2} increased DMG.",
+    descVar: [
+      ["20%"],
+      ["45"],
+      ["12%"],
+    ],
   },
   "12401": {
     name: "Favonius Greatsword",
@@ -1709,8 +2183,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ER: 61.3 },
     descHead: "Windfall",
-    descBody: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
-    descVar: [],
+    descBody: "CRIT Hits have a {0} chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every {1}s.",
+    descVar: [
+      ["60%"],
+      ["12"],
+    ],
   },
   "11412": {
     name: "Sword of Descension",
@@ -1719,8 +2196,14 @@ export default {
     statBase: { _ATK: 440 },
     statSub: { ATK: 35.2 },
     descHead: "Descension",
-    descBody: "Effective only on the following platform:\n\"PlayStation Network\"\nHitting opponents with Normal and Charged Attacks grants a 50% chance to deal 200% ATK as DMG in a small AoE. This effect can only occur once every 10s. Additionally, if the Traveler equips the Sword of Descension, their ATK is increased by 66.",
-    descVar: [],
+    descBody: "{0}\n{1}\nHitting opponents with Normal and Charged Attacks grants a {2} chance to deal {3} ATK as DMG in a small AoE. This effect can only occur once every 10s. Additionally, if the Traveler equips the Sword of Descension, their ATK is increased by {4}.",
+    descVar: [
+      ["Effective only on the following platform:"],
+      ["\"PlayStation Network\""],
+      ["50%"],
+      ["200%"],
+      ["66"],
+    ],
   },
   "11409": {
     name: "The Black Sword",
@@ -1729,8 +2212,11 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { CR: 27.6 },
     descHead: "Justice",
-    descBody: "Increases DMG dealt by Normal and Charged Attacks by 20%. Additionally, regenerates 60% of ATK as HP when Normal and Charged Attacks score a CRIT Hit. This effect can occur once every 5s.",
-    descVar: [],
+    descBody: "Increases DMG dealt by Normal and Charged Attacks by {0}. Additionally, regenerates {1} of ATK as HP when Normal and Charged Attacks score a CRIT Hit. This effect can occur once every 5s.",
+    descVar: [
+      ["20%"],
+      ["60%"],
+    ],
   },
   "11408": {
     name: "Blackcliff Longsword",
@@ -1739,8 +2225,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { CD: 36.8 },
     descHead: "Press the Advantage",
-    descBody: "After defeating an opponent, ATK is increased by 12% for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
-    descVar: [],
+    descBody: "After defeating an opponent, ATK is increased by {0} for 30s. This effect has a maximum of 3 stacks, and the duration of each stack is independent of the others.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "11407": {
     name: "Iron Sting",
@@ -1749,8 +2237,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { EM: 165 },
     descHead: "Infusion Stinger",
-    descBody: "Dealing Elemental DMG increases all DMG by 6% for 6s. Max 2 stacks. Can occur once every 1s.",
-    descVar: [],
+    descBody: "Dealing Elemental DMG increases all DMG by {0} for 6s. Max 2 stacks. Can occur once every 1s.",
+    descVar: [
+      ["6%"],
+    ],
   },
   "11406": {
     name: "Prototype Rancour",
@@ -1759,8 +2249,10 @@ export default {
     statBase: { _ATK: 565 },
     statSub: { PHYSICAL: 34.5 },
     descHead: "Smashed Stone",
-    descBody: "On hit, Normal or Charged Attacks increase ATK and DEF by 4% for 6s. Max 4 stacks. This effect can only occur once every 0.3s.",
-    descVar: [],
+    descBody: "On hit, Normal or Charged Attacks increase ATK and DEF by {0} for 6s. Max 4 stacks. This effect can only occur once every 0.3s.",
+    descVar: [
+      ["4%"],
+    ],
   },
   "11405": {
     name: "Lion's Roar",
@@ -1769,8 +2261,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Bane of Fire and Thunder",
-    descBody: "Increases DMG against opponents affected by Pyro or Electro by 20%.",
-    descVar: [],
+    descBody: "Increases DMG against opponents affected by Pyro or Electro by {0}.",
+    descVar: [
+      ["20%"],
+    ],
   },
   "11404": {
     name: "Royal Longsword",
@@ -1779,8 +2273,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Focus",
-    descBody: "Upon damaging an opponent, increases CRIT Rate by 8%. Max 5 stacks. A CRIT Hit removes all stacks.",
-    descVar: [],
+    descBody: "Upon damaging an opponent, increases CRIT Rate by {0}. Max 5 stacks. A CRIT Hit removes all stacks.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "11403": {
     name: "Sacrificial Sword",
@@ -1789,8 +2285,11 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ER: 61.3 },
     descHead: "Composed",
-    descBody: "After damaging an opponent with an Elemental Skill, the skill has a 40% chance to end its own CD. Can only occur once every 30s.",
-    descVar: [],
+    descBody: "After damaging an opponent with an Elemental Skill, the skill has a {0} chance to end its own CD. Can only occur once every {0}s.",
+    descVar: [
+      ["40%"],
+      ["30"],
+    ],
   },
   "11402": {
     name: "The Flute",
@@ -1799,8 +2298,10 @@ export default {
     statBase: { _ATK: 510 },
     statSub: { ATK: 41.3 },
     descHead: "Chord",
-    descBody: "Normal or Charged Attacks grant a Harmonic on hits. Gaining 5 Harmonics triggers the power of music and deals 100% ATK DMG to surrounding opponents. Harmonics last up to 30s, and a maximum of 1 can be gained every 0.5s.",
-    descVar: [],
+    descBody: "Normal or Charged Attacks grant a Harmonic on hits. Gaining 5 Harmonics triggers the power of music and deals {0} ATK DMG to surrounding opponents. Harmonics last up to 30s, and a maximum of 1 can be gained every 0.5s.",
+    descVar: [
+      ["100%"],
+    ],
   },
   "11401": {
     name: "Favonius Sword",
@@ -1809,9 +2310,13 @@ export default {
     statBase: { _ATK: 454 },
     statSub: { ER: 61.3 },
     descHead: "Windfall",
-    descBody: "CRIT Hits have a 60% chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every 12s.",
-    descVar: [],
+    descBody: "CRIT Hits have a {0} chance to generate a small amount of Elemental Particles, which will regenerate 6 Energy for the character. Can only occur once every {1}s.",
+    descVar: [
+      ["60%"],
+      ["12"],
+    ],
   },
+
   "15305": {
     name: "Messenger",
     rarity: 3,
@@ -1819,8 +2324,10 @@ export default {
     statBase: { _ATK: 448 },
     statSub: { CR: 31.2 },
     descHead: "Archer's Message",
-    descBody: "Charged Attack hits on weak points deal an additional 100% ATK DMG as CRIT DMG. Can only occur once every 10s.",
-    descVar: [],
+    descBody: "Charged Attack hits on weak points deal an additional {0} ATK DMG as CRIT DMG. Can only occur once every 10s.",
+    descVar: [
+      ["100%"],
+    ],
   },
   "15304": {
     name: "Slingshot",
@@ -1829,8 +2336,10 @@ export default {
     statBase: { _ATK: 354 },
     statSub: { CR: 31.2 },
     descHead: "Slingshot",
-    descBody: "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by 36%. Otherwise, decreases DMG by 10%.",
-    descVar: [],
+    descBody: "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by {0}. Otherwise, decreases DMG by 10%.",
+    descVar: [
+      ["36%"],
+    ],
   },
   "15303": {
     name: "Recurve Bow",
@@ -1839,8 +2348,10 @@ export default {
     statBase: { _ATK: 354 },
     statSub: { HP: 46.9 },
     descHead: "Cull the Weak",
-    descBody: "Defeating an opponent restores 8% HP.",
-    descVar: [],
+    descBody: "Defeating an opponent restores {0} HP.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "15302": {
     name: "Sharpshooter's Oath",
@@ -1849,8 +2360,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { CD: 46.9 },
     descHead: "Precise",
-    descBody: "Increases DMG against weak spots by 24%.",
-    descVar: [],
+    descBody: "Increases DMG against weak spots by {0}.",
+    descVar: [
+      ["24%"],
+    ],
   },
   "15301": {
     name: "Raven Bow",
@@ -1859,8 +2372,10 @@ export default {
     statBase: { _ATK: 448 },
     statSub: { EM: 94 },
     descHead: "Bane of Flame and Water",
-    descBody: "Increases DMG against opponents affected by Hydro or Pyro by 12%.",
-    descVar: [],
+    descBody: "Increases DMG against opponents affected by Hydro or Pyro by {0}.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "14305": {
     name: "Twin Nephrite",
@@ -1869,8 +2384,10 @@ export default {
     statBase: { _ATK: 448 },
     statSub: { CR: 15.6 },
     descHead: "Guerilla Tactics",
-    descBody: "Defeating an opponent increases Movement SPD and ATK by 12% for 15s.",
-    descVar: [],
+    descBody: "Defeating an opponent increases Movement SPD and ATK by {0} for 15s.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "14304": {
     name: "Emerald Orb",
@@ -1879,8 +2396,10 @@ export default {
     statBase: { _ATK: 448 },
     statSub: { EM: 94 },
     descHead: "Rapids",
-    descBody: "Upon causing a Vaporize, Electro-Charged, Frozen, Bloom, or a Hydro-infused Swirl reaction, increases ATK by 20% for 12s.",
-    descVar: [],
+    descBody: "Upon causing a Vaporize, Electro-Charged, Frozen, Bloom, or a Hydro-infused Swirl reaction, increases ATK by {0} for 12s.",
+    descVar: [
+      ["20%"],
+    ],
   },
   "14303": {
     name: "Otherworldly Story",
@@ -1889,8 +2408,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { ER: 39 },
     descHead: "Energy Shower",
-    descBody: "Picking up an Elemental Energy Orb/Particle recovers 1% HP.",
-    descVar: [],
+    descBody: "Picking up an Elemental Energy Orb/Particle recovers {0} HP.",
+    descVar: [
+      ["1%"],
+    ],
   },
   "14302": {
     name: "Thrilling Tales of Dragon Slayers",
@@ -1899,8 +2420,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { HP: 35.2 },
     descHead: "Heritage",
-    descBody: "When switching characters, the new character taking the field has their ATK increased by 24% for 10s. This effect can only occur once every 20s.",
-    descVar: [],
+    descBody: "When switching characters, the new character taking the field has their ATK increased by {0} for 10s. This effect can only occur once every 20s.",
+    descVar: [
+      ["24%"],
+    ],
   },
   "14301": {
     name: "Magic Guide",
@@ -1909,8 +2432,10 @@ export default {
     statBase: { _ATK: 354 },
     statSub: { EM: 187 },
     descHead: "Bane of Storm and Tide",
-    descBody: "Increases DMG against opponents affected by Hydro or Electro by 12%.",
-    descVar: [],
+    descBody: "Increases DMG against opponents affected by Hydro or Electro by {0}.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "13303": {
     name: "Black Tassel",
@@ -1919,8 +2444,10 @@ export default {
     statBase: { _ATK: 354 },
     statSub: { HP: 46.9 },
     descHead: "Bane of the Soft",
-    descBody: "Increases DMG against slimes by 40%.",
-    descVar: [],
+    descBody: "Increases DMG against slimes by {0}.",
+    descVar: [
+      ["40%"],
+    ],
   },
   "13302": {
     name: "Halberd",
@@ -1929,8 +2456,10 @@ export default {
     statBase: { _ATK: 448 },
     statSub: { ATK: 23.5 },
     descHead: "Heavy",
-    descBody: "Normal Attacks deal an additional 160% ATK as DMG. Can only occur once every 10s.",
-    descVar: [],
+    descBody: "Normal Attacks deal an additional {0} ATK as DMG. Can only occur once every 10s.",
+    descVar: [
+      ["160%"],
+    ],
   },
   "13301": {
     name: "White Tassel",
@@ -1939,8 +2468,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { CR: 23.4 },
     descHead: "Sharp",
-    descBody: "Increases Normal Attack DMG by 24%.",
-    descVar: [],
+    descBody: "Increases Normal Attack DMG by {0}.",
+    descVar: [
+      ["24%"],
+    ],
   },
   "12306": {
     name: "Skyrider Greatsword",
@@ -1949,8 +2480,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { PHYSICAL: 43.9 },
     descHead: "Courage",
-    descBody: "On hit, Normal or Charged Attacks increase ATK by 6% for 6s. Max 4 stacks. Can occur once every 0.5s.",
-    descVar: [],
+    descBody: "On hit, Normal or Charged Attacks increase ATK by {0} for 6s. Max 4 stacks. Can occur once every 0.5s.",
+    descVar: [
+      ["6%"],
+    ],
   },
   "12305": {
     name: "Debate Club",
@@ -1959,8 +2492,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { ATK: 35.2 },
     descHead: "Blunt Conclusion",
-    descBody: "After using an Elemental Skill, on hit, Normal and Charged Attacks deal additional DMG equal to 60% of ATK in a small AoE. Effect lasts 15s. DMG can only occur once every 3s.",
-    descVar: [],
+    descBody: "After using an Elemental Skill, on hit, Normal and Charged Attacks deal additional DMG equal to {0} of ATK in a small AoE. Effect lasts 15s. DMG can only occur once every 3s.",
+    descVar: [
+      ["60%"],
+    ],
   },
   "12303": {
     name: "White Iron Greatsword",
@@ -1969,8 +2504,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { DEF: 43.9 },
     descHead: "Cull the Weak",
-    descBody: "Defeating an opponent restores 8% HP.",
-    descVar: [],
+    descBody: "Defeating an opponent restores {0} HP.",
+    descVar: [
+      ["8%"],
+    ],
   },
   "12302": {
     name: "Bloodtainted Greatsword",
@@ -1979,8 +2516,10 @@ export default {
     statBase: { _ATK: 354 },
     statSub: { EM: 187 },
     descHead: "Bane of Fire and Thunder",
-    descBody: "Increases DMG dealt against opponents affected by Pyro or Electro by 12%.",
-    descVar: [],
+    descBody: "Increases DMG dealt against opponents affected by Pyro or Electro by {0}.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "12301": {
     name: "Ferrous Shadow",
@@ -1989,8 +2528,11 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { HP: 35.2 },
     descHead: "Unbending",
-    descBody: "When HP falls below 70%, increases Charged Attack DMG by 30% and Charged Attacks become harder to interrupt.",
-    descVar: [],
+    descBody: "When HP falls below {0}, increases Charged Attack DMG by {1} and Charged Attacks become harder to interrupt.",
+    descVar: [
+      ["70%"],
+      ["30%"],
+    ],
   },
   "11306": {
     name: "Skyrider Sword",
@@ -1999,8 +2541,10 @@ export default {
     statBase: { _ATK: 354 },
     statSub: { ER: 52.1 },
     descHead: "Determination",
-    descBody: "Using an Elemental Burst grants a 12% increase in ATK and Movement SPD for 15s.",
-    descVar: [],
+    descBody: "Using an Elemental Burst grants a {0} increase in ATK and Movement SPD for 15s.",
+    descVar: [
+      ["12%"],
+    ],
   },
   "11305": {
     name: "Fillet Blade",
@@ -2009,8 +2553,11 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { ATK: 35.2 },
     descHead: "Gash",
-    descBody: "On hit, has a 50% chance to deal 240% ATK DMG to a single opponent. Can only occur once every 15s.",
-    descVar: [],
+    descBody: "On hit, has a 50% chance to deal {0} ATK DMG to a single opponent. Can only occur once every {1}s.",
+    descVar: [
+      ["240%"],
+      ["15"],
+    ],
   },
   "11304": {
     name: "Dark Iron Sword",
@@ -2019,8 +2566,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { EM: 141 },
     descHead: "Overloaded",
-    descBody: "Upon causing an Overloaded, Superconduct, Electro-Charged, Quicken, Aggravate, Hyperbloom, or Electro-infused Swirl reaction, ATK is increased by 20% for 12s.",
-    descVar: [],
+    descBody: "Upon causing an Overloaded, Superconduct, Electro-Charged, Quicken, Aggravate, Hyperbloom, or Electro-infused Swirl reaction, ATK is increased by {0} for 12s.",
+    descVar: [
+      ["20%"],
+    ],
   },
   "11303": {
     name: "Traveler's Handy Sword",
@@ -2029,8 +2578,10 @@ export default {
     statBase: { _ATK: 448 },
     statSub: { DEF: 29.3 },
     descHead: "Journey",
-    descBody: "Each Elemental Orb or Particle collected restores 1% HP.",
-    descVar: [],
+    descBody: "Each Elemental Orb or Particle collected restores {0} HP.",
+    descVar: [
+      ["1%"],
+    ],
   },
   "11302": {
     name: "Harbinger of Dawn",
@@ -2039,8 +2590,10 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { CD: 46.9 },
     descHead: "Vigorous",
-    descBody: "When HP is above 90%, increases CRIT Rate by 14%.",
-    descVar: [],
+    descBody: "When HP is above 90%, increases CRIT Rate by {0}.",
+    descVar: [
+      ["14%"],
+    ],
   },
   "11301": {
     name: "Cool Steel",
@@ -2049,107 +2602,71 @@ export default {
     statBase: { _ATK: 401 },
     statSub: { ATK: 35.2 },
     descHead: "Bane of Water and Ice",
-    descBody: "Increases DMG against opponents affected by Hydro or Cryo by 12%.",
-    descVar: [],
+    descBody: "Increases DMG against opponents affected by Hydro or Cryo by {0}.",
+    descVar: [
+      ["12%"],
+    ],
   },
+
   "15201": {
     name: "Seasoned Hunter's Bow",
     rarity: 2,
     type: "Bow",
     statBase: { _ATK: 243 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
   "14201": {
     name: "Pocket Grimoire",
     rarity: 2,
     type: "Catalyst",
     statBase: { _ATK: 243 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
   "13201": {
     name: "Iron Point",
     rarity: 2,
     type: "Polearm",
     statBase: { _ATK: 243 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
   "12201": {
     name: "Old Merc's Pal",
     rarity: 2,
     type: "Claymore",
     statBase: { _ATK: 243 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
   "11201": {
     name: "Silver Sword",
     rarity: 2,
     type: "Sword",
     statBase: { _ATK: 243 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
+  
   "15101": {
     name: "Hunter's Bow",
     rarity: 1,
     type: "Bow",
     statBase: { _ATK: 185 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
   "14101": {
     name: "Apprentice's Notes",
     rarity: 1,
     type: "Catalyst",
     statBase: { _ATK: 185 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
   "13101": {
     name: "Beginner's Protector",
     rarity: 1,
     type: "Polearm",
     statBase: { _ATK: 185 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
   "12101": {
     name: "Waster Greatsword",
     rarity: 1,
     type: "Claymore",
     statBase: { _ATK: 185 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
   "11101": {
     name: "Dull Blade",
     rarity: 1,
     type: "Sword",
     statBase: { _ATK: 185 },
-    statSub: {  },
-    descHead: "",
-    descBody: "",
-    descVar: [],
   },
 };

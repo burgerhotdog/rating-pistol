@@ -312,6 +312,7 @@ export default {
       4: "Increases DMG against opponents affected by Electro by 35%.",
     },
   },
+  
   "10012": {
     name: "Scholar",
     rarity: 4,
@@ -392,6 +393,7 @@ export default {
       4: "Increases Charged Attack CRIT Rate by 30%.",
     },
   },
+
   "10013": {
     name: "Traveling Doctor",
     rarity: 3,

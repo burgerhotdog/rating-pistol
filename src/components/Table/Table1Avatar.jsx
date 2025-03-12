@@ -1,5 +1,5 @@
 import React from "react";
-import { Tooltip, Stack, Box, Typography } from "@mui/material";
+import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
 import getData from "../getData";
 import getIcons from "../getIcons";
 
@@ -10,6 +10,7 @@ const Table1Avatar = ({
   data,
 }) => {
   const { generalData, avatarData } = getData[gameId];
+  const { SECTIONS, RANK_PREFIX } = generalData;
   const { avatarIcons } = getIcons[gameId];
   
   const openModal = () => {
@@ -21,22 +22,30 @@ const Table1Avatar = ({
   };
 
   return (
-    <Tooltip title={`Edit ${generalData.SECTIONS[0]}`} arrow>
+    <Tooltip title={`Edit ${SECTIONS[0]}`} arrow>
       <Stack
         onClick={openModal}
+        display="inline-flex"
         direction="row"
         alignItems="center"
         spacing={1}
-        sx={{ cursor: "pointer", display: "inline-flex" }}
+        sx={{ cursor: "pointer" }}
       >
-        <Box
-          component="img"
-          src={avatarIcons[`./${id}.webp`]?.default}
-          alt={id}
-          sx={{ width: 50, height: 50, objectFit: "contain" }}
-        />
+        <Badge
+          badgeContent={
+            <strong>{RANK_PREFIX}{data.rank}</strong>
+          }
+        >
+          <Avatar
+            alt={avatarData[id].name}
+            src={avatarIcons[`./${id}.webp`]?.default}
+          />
+        </Badge>
         
-        <Typography variant="body2" sx={{ textAlign: "left" }}>
+        <Typography
+          onClick={openModal}
+          variant="body2"
+        >
           {avatarData[id].name}
         </Typography>
       </Stack>

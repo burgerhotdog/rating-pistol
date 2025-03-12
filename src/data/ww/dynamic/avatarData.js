@@ -73,6 +73,7 @@ export default {
       "RL": 0.1,
     },
   },
+
   "1504": {
     name: "Lumi",
     rarity: 4,
@@ -103,6 +104,7 @@ export default {
       "RL": 0.25,
     },
   },
+
   "1106": {
     name: "Youhu",
     rarity: 4,
@@ -180,6 +182,57 @@ export default {
   },
   
   // Version 1.0
+  "1604": {
+    name: "Rover (Havoc)",
+    rarity: 5,
+    type: "Sword",
+    statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
+    weights: {
+      "ER": 1,
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+      "BA": 0.19,
+      "RL": 0.16,
+      "RS": 0.11,
+    },
+  },
+  "1503": {
+    name: "Verina",
+    rarity: 5,
+    type: "Rectifier",
+    statBase: { _HP: 14238, _ATK: 338, _DEF: 1100 },
+    weights: {
+      "ER": 1,
+      "ATK": 0.6,
+    },
+  },
+  "1502": {
+    name: "Rover (Spectro)",
+    rarity: 5,
+    type: "Sword",
+    statBase: { _HP: 11400, _ATK: 375, _DEF: 1369 },
+    weights: {
+      "ER": 1,
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+    },
+  },
+  "1405": {
+    name: "Jianxin",
+    rarity: 5,
+    type: "Gauntlets",
+    statBase: { _HP: 14113, _ATK: 338, _DEF: 1124 },
+    weights: {
+      "ER": 1,
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.6,
+      "RL": 0.22,
+      "BA": 0.19,
+    },
+  },
   "1404": {
     name: "Jiyan",
     rarity: 5,
@@ -207,30 +260,6 @@ export default {
       "ATK": 0.6,
       "RS": 0.33,
       "RL": 0.12,
-    },
-  },
-  "1503": {
-    name: "Verina",
-    rarity: 5,
-    type: "Rectifier",
-    statBase: { _HP: 14238, _ATK: 338, _DEF: 1100 },
-    weights: {
-      "ER": 1,
-      "ATK": 0.6,
-    },
-  },
-  "1405": {
-    name: "Jianxin",
-    rarity: 5,
-    type: "Gauntlets",
-    statBase: { _HP: 14113, _ATK: 338, _DEF: 1124 },
-    weights: {
-      "ER": 1,
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "RL": 0.22,
-      "BA": 0.19,
     },
   },
   "1301": {
@@ -277,33 +306,7 @@ export default {
       "RS": 0.17,
     },
   },
-  "1604": {
-    name: "Rover (Havoc)",
-    rarity: 5,
-    type: "Sword",
-    statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
-    weights: {
-      "ER": 1,
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "BA": 0.19,
-      "RL": 0.16,
-      "RS": 0.11,
-    },
-  },
-  "1502": {
-    name: "Rover (Spectro)",
-    rarity: 5,
-    type: "Sword",
-    statBase: { _HP: 11400, _ATK: 375, _DEF: 1369 },
-    weights: {
-      "ER": 1,
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-    },
-  },
+  
   "1602": {
     name: "Danjin",
     rarity: 4,
