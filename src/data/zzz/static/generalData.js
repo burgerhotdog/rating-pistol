@@ -1,6 +1,6 @@
 export default {
   TITLE: "Zenless Zone Zero",
-  VERSION: "1.5",
+  VERSION: "1.6",
   SECTIONS: [
     "Agent",
     "W-Engine",
