@@ -78,7 +78,7 @@ export default {
     statBase: { _ATK: 713 },
     statSub: { ATK: 30 },
     descHead: "Time-Devouring Stratagem",
-    descBody: "The equipper's Electric Anomaly Buildup Rate increases by 30%. When Special Attacks or EX Special Attacks hit enemies suffering an Attribute Anomaly, the equipper's Anomaly Proficiency increases by 75 for 15s.\nWhen the equipper's Anomaly Proficiency is greater than or equal to 375, Disorder DMG inflicted by the equipper increases by 25%.",
+    descBody: "The equipper's Electric Anomaly Buildup Rate increases by {0}. When Special Attacks or EX Special Attacks hit enemies suffering an Attribute Anomaly, the equipper's Anomaly Proficiency increases by {1} for 15s.\nWhen the equipper's Anomaly Proficiency is greater than or equal to 375, Disorder DMG inflicted by the equipper increases by {2}.",
     descVar: [
       ["30%"],
       ["75"],
@@ -92,7 +92,7 @@ export default {
     statBase: { _ATK: 713 },
     statSub: { Impact: 18 },
     descHead: "Flowing Flame",
-    descBody: "Upon launching a Quick Assist or Perfect Assist, the equipper's Impact increases by 25% for 8s. When the equipper launches and hits an enemy with a Basic Attack, apply Wilt to the target for 30s, stacking up to 20 times, repeated triggers reset the duration. When any squad member hits an enemy, for every stack of Wilt applied to the target, the CRIT DMG of the Ice DMG and Fire DMG dealt by that attack increases by 1.5%. Only one instance of this effect can exist in the same squad.",
+    descBody: "Upon launching a Quick Assist or Perfect Assist, the equipper's Impact increases by {0} for 8s. When the equipper launches and hits an enemy with a Basic Attack, apply Wilt to the target for 30s, stacking up to 20 times, repeated triggers reset the duration. When any squad member hits an enemy, for every stack of Wilt applied to the target, the CRIT DMG of the Ice DMG and Fire DMG dealt by that attack increases by {1}. Only one instance of this effect can exist in the same squad.",
     descVar: [
       ["25%"],
       ["1.5%"],
@@ -107,7 +107,7 @@ export default {
     statBase: { _ATK: 713 },
     statSub: { ATK: 30 },
     descHead: "Fuel on the Rocks",
-    descBody: "While off-field, the equipper's Energy Regen increases by 0.6/s. When hitting an enemy with an EX Special Attack or Assist Attack, the equipper's DMG increases by 3.5%, stacking up to 10 times and lasting for 6s. This effect can trigger once every 0.3s. While off-field, the stack effect is doubled. Repeated triggers reset the duration. Upon obtaining the DMG increase effect, if the number of current stacks is greater than or equal to 5, then the equipper's Anomaly Proficiency increases by 50. This Anomaly Proficiency increase does not stack and lasts for 6s.",
+    descBody: "While off-field, the equipper's Energy Regen increases by {0}/s. When hitting an enemy with an EX Special Attack or Assist Attack, the equipper's DMG increases by {1}%, stacking up to 10 times and lasting for 6s. This effect can trigger once every 0.3s. While off-field, the stack effect is doubled. Repeated triggers reset the duration. Upon obtaining the DMG increase effect, if the number of current stacks is greater than or equal to 5, then the equipper's Anomaly Proficiency increases by {2}. This Anomaly Proficiency increase does not stack and lasts for 6s.",
     descVar: [
       ["0.6"],
       ["3.5%"],
@@ -121,7 +121,7 @@ export default {
     statBase: { _ATK: 713 },
     statSub: { Impact: 18 },
     descHead: "Invincible Rider",
-    descBody: "The Shield value provided by the equipper increases by 30%. When any squad member triggers Interrupt or Perfect Dodge, all squad members' DMG increases by 18% and Daze dealt increases by 12% for 20s. Passive effects of the same name do not stack.",
+    descBody: "The Shield value provided by the equipper increases by {0}. When any squad member triggers Interrupt or Perfect Dodge, all squad members' DMG increases by {1} and Daze dealt increases by {2} for 20s. Passive effects of the same name do not stack.",
     descVar: [
       ["30%"],
       ["18%"],
@@ -137,7 +137,7 @@ export default {
     statBase: { _ATK: 713 },
     statSub: { AP: 90 },
     descHead: "Indulge in the Hunt",
-    descBody: "Upon activating a Dash Attack, gain 1 stack of Predatory Instinct. Each stack of Predatory Instinct increases the equipper's Physical DMG by 12% for 10s, stacking up to 3 times. This effect can trigger once every 0.5s and repeated triggers reset the duration. When entering combat or triggering Perfect Dodge, gain 3 stacks of Predatory Instinct. While Predatory Instinct is at maximum stacks, the equipper's Anomaly Buildup Rate increases by 40%.",
+    descBody: "Upon activating a Dash Attack, gain 1 stack of Predatory Instinct. Each stack of Predatory Instinct increases the equipper's Physical DMG by {0} for 10s, stacking up to 3 times. This effect can trigger once every 0.5s and repeated triggers reset the duration. When entering combat or triggering Perfect Dodge, gain 3 stacks of Predatory Instinct. While Predatory Instinct is at maximum stacks, the equipper's Anomaly Buildup Rate increases by {1}.",
     descVar: [
       ["12%"],
       ["40%"],
@@ -150,7 +150,7 @@ export default {
     statBase: { _ATK: 713 },
     statSub: { Impact: 18 },
     descHead: "Ringing Melody",
-    descBody: "When a Basic Attack hits an enemy, gain 1 stack of Tea-riffic. Each stack of Tea-riffic increases the user's Impact by 0.7%, stacking up to 30 times, and lasting for 8s. The duration of each stack is calculated separately. Upon acquiring Tea-riffic, if the equipper possesses stacks of Tea-riffic greater than or equal to 15, all squad members' DMG is increased by 20% for 10s. Passive effects of the same name do not stack.",
+    descBody: "When a Basic Attack hits an enemy, gain 1 stack of Tea-riffic. Each stack of Tea-riffic increases the user's Impact by {0}, stacking up to 30 times, and lasting for 8s. The duration of each stack is calculated separately. Upon acquiring Tea-riffic, if the equipper possesses stacks of Tea-riffic greater than or equal to 15, all squad members' DMG is increased by {1} for 10s. Passive effects of the same name do not stack.",
     descVar: [
       ["0.7%"],
       ["20%"],
@@ -164,7 +164,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { ATK: 25 },
     descHead: "Standard Blocking Technique",
-    descBody: "While Shielded, the equipper's Energy Regen increases by 0.4/s. The Anomaly Buildup of EX Special Attacks and Assist Follow-Ups increase by 36%.",
+    descBody: "While Shielded, the equipper's Energy Regen increases by {0}/s. The Anomaly Buildup of EX Special Attacks and Assist Follow-Ups increase by {1}.",
     descVar: [
       ["0.4"],
       ["36%"],
@@ -177,9 +177,9 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { ATK: 25 },
     descHead: "Extraordinary Anti-Theft Measures",
-    descBody: "ATK increases by 6%, and DMG dealt by EX Special Attacks increases by 15%.",
+    descBody: "ATK increases by {0}, and DMG dealt by EX Special Attacks increases by {1}.",
     descVar: [
-      ["6"],
+      ["6%"],
       ["15%"],
     ],
   },
@@ -192,7 +192,7 @@ export default {
     statBase: { _ATK: 713 },
     statSub: { CD: 48 },
     descHead: "Security Patrol",
-    descBody: "Increases CRIT Rate by 15%. Launching an EX Special Attack grants the equipper 8 Charge stacks, up to a maximum of 8 stacks. Whenever the equipper's Basic Attack deals Ether DMG, consumes a Charge stack and increases the skill's DMG by 35%.",
+    descBody: "Increases CRIT Rate by {0}. Launching an EX Special Attack grants the equipper 8 Charge stacks, up to a maximum of 8 stacks. Whenever the equipper's Basic Attack deals Ether DMG, consumes a Charge stack and increases the skill's DMG by {1}.",
     descVar: [
       ["15%"],
       ["35%"],
@@ -205,7 +205,7 @@ export default {
     statBase: { _ATK: 684 },
     statSub: { PR: 24 },
     descHead: "Punishment",
-    descBody: "While off-field, the equipper's Energy Regen increases by 0.6/s. Attacks from the equipper enhance the squad's DMG against a struck target by 10% for 3 seconds. During this period, this effect is further increased by 1.7% every 0.5s, up to a maximum additional increase of 10.2%. Repeated triggers only refresh its duration without refreshing the DMG increase effect. Passive effects of the same name do not stack.",
+    descBody: "While off-field, the equipper's Energy Regen increases by {0}/s. Attacks from the equipper enhance the squad's DMG against a struck target by {1} for 3 seconds. During this period, this effect is further increased by {2} every 0.5s, up to a maximum additional increase of {3}. Repeated triggers only refresh its duration without refreshing the DMG increase effect. Passive effects of the same name do not stack.",
     descVar: [
       ["0.6"],
       ["10%"],
@@ -220,7 +220,7 @@ export default {
     statBase: { _ATK: 713 },
     statSub: { CR: 24 },
     descHead: "Lord of Seas",
-    descBody: "Increases Ice DMG by 25%. Upon hitting an enemy with a Basic Attack, the equipper's CRIT Rate increases by 10% for 8s. When dealing Ice DMG with a Dash Attack, the equipper's CRIT Rate increases by an additional 10% for 15s. The duration of each effect is calculated separately.",
+    descBody: "Increases Ice DMG by {0}. Upon hitting an enemy with a Basic Attack, the equipper's CRIT Rate increases by {1} for 8s. When dealing Ice DMG with a Dash Attack, the equipper's CRIT Rate increases by an additional {2} for 15s. The duration of each effect is calculated separately.",
     descVar: [
       ["25%"],
       ["10%"],
@@ -234,7 +234,7 @@ export default {
     statBase: { _ATK: 684 },
     statSub: { PR: 24 },
     descHead: "Data Flood",
-    descBody: "Increases ATK by 12%.\nWhen using a Special Attack or EX Special Attack, the equipper's Anomaly Proficiency is increased by 25 for 8s, stacking up to 3 times. The duration of each stack is calculated separately.",
+    descBody: "Increases ATK by {0}.\nWhen using a Special Attack or EX Special Attack, the equipper's Anomaly Proficiency is increased by {1} for 8s, stacking up to 3 times. The duration of each stack is calculated separately.",
     descVar: [
       ["12%"],
       ["25"],
@@ -247,7 +247,7 @@ export default {
     statBase: { _ATK: 684 },
     statSub: { Impact: 18 },
     descHead: "Binding Chains",
-    descBody: "When an attack hits an enemy, DMG and Daze from Basic Attacks increase by 6% for 8s, stacking up to 5 times. This effect can trigger at most once during each skill. The duration of each stack is calculated separately.",
+    descBody: "When an attack hits an enemy, DMG and Daze from Basic Attacks increase by {0} for 8s, stacking up to 5 times. This effect can trigger at most once during each skill. The duration of each stack is calculated separately.",
     descVar: [
       ["6%"],
     ],
@@ -259,7 +259,7 @@ export default {
     statBase: { _ATK: 684 },
     statSub: { Impact: 18 },
     descHead: "Passionate Construction",
-    descBody: "While off-field, the equipper's Energy Regen increases by 0.6/s.\nWhen using an EX Special Attack, the equipper's Impact is increased by 10% for 10s, stacking up to 2 times. The duration of each stack is calculated separately.",
+    descBody: "While off-field, the equipper's Energy Regen increases by {0}/s.\nWhen using an EX Special Attack, the equipper's Impact is increased by {1} for 10s, stacking up to 2 times. The duration of each stack is calculated separately.",
     descVar: [
       ["0.6"],
       ["10%"],
@@ -272,7 +272,7 @@ export default {
     statBase: { _ATK: 684 },
     statSub: { ATK: 30 },
     descHead: "Scorching Breath",
-    descBody: "Upon hitting an enemy with a Basic Attack, Dash Attack, or Dodge Counter, the equipper's ATK increases by 3.5% for 8s, stacking up to 8 times. This effect can trigger once every 0.5s. The duration of each stack is calculated separately.",
+    descBody: "Upon hitting an enemy with a Basic Attack, Dash Attack, or Dodge Counter, the equipper's ATK increases by {0} for 8s, stacking up to 8 times. This effect can trigger once every 0.5s. The duration of each stack is calculated separately.",
     descVar: [
       ["3.5%"],
     ],
@@ -284,7 +284,7 @@ export default {
     statBase: { _ATK: 684 },
     statSub: { CR: 24 },
     descHead: "Metal Cat Claws",
-    descBody: "Increases Physical DMG by 20%. The equipper's DMG increases by 25% when hitting the enemy from behind.",
+    descBody: "Increases Physical DMG by {0}. The equipper's DMG increases by {1} when hitting the enemy from behind.",
     descVar: [
       ["20%"],
       ["25%"],
@@ -298,7 +298,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { Impact: 15 },
     descHead: "Fire!",
-    descBody: "The equipper gains 1 Charge stack every 3s, stacking up to 6 times. When launching an EX Special Attack, consumes all Charge stacks and each stack consumed increases the skill's Daze inflicted by 4%.",
+    descBody: "The equipper gains 1 Charge stack every 3s, stacking up to 6 times. When launching an EX Special Attack, consumes all Charge stacks and each stack consumed increases the skill's Daze inflicted by {0}.",
     descVar: [
       ["4%"],
     ],
@@ -310,7 +310,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { ER: 50 },
     descHead: "Game Start!",
-    descBody: "Whenever the equipper's attack triggers an Attribute Counter effect, all squad members' CRIT Rate against the struck enemy increases by 12% for 12s. Passive effects of the same name do not stack.",
+    descBody: "Whenever the equipper's attack triggers an Attribute Counter effect, all squad members' CRIT Rate against the struck enemy increases by {0} for 12s. Passive effects of the same name do not stack.",
     descVar: [
       ["12%"],
     ],
@@ -322,7 +322,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { CR: 20 },
     descHead: "Oversized Barrel",
-    descBody: "Increases ATK by 7.5%. Landing a critical hit on an enemy will inflict an additional 200% of ATK as DMG. This effect can trigger once every 8s.",
+    descBody: "Increases ATK by {0}. Landing a critical hit on an enemy will inflict an additional 200% of ATK as DMG. This effect can trigger once every {1}s.",
     descVar: [
       ["7.5%"],
       ["8"],
@@ -335,7 +335,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { ATK: 25 },
     descHead: "Collision Potential",
-    descBody: "When EX Special Attack hits an enemy, one of three possible effects is randomly triggered for 5 seconds. This effect can trigger once every 0.3s. The same types of effects cannot stack. Repeated triggers reset the duration, allowing several effects to be active at once:\nIncreases the equipper's ATK by 8%, increases the equipper's Anomaly Proficiency by 40, or increases the equipper's Anomaly Buildup Rate by 25%.",
+    descBody: "When EX Special Attack hits an enemy, one of three possible effects is randomly triggered for 5 seconds. This effect can trigger once every 0.3s. The same types of effects cannot stack. Repeated triggers reset the duration, allowing several effects to be active at once:\nIncreases the equipper's ATK by {0}, increases the equipper's Anomaly Proficiency by {1}, or increases the equipper's Anomaly Buildup Rate by {2}.",
     descVar: [
       ["8%"],
       ["40"],
@@ -349,7 +349,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { ER: 50 },
     descHead: "Stampede Accident",
-    descBody: "When any friendly unit in the squad attacks and hits an enemy, all friendly units' ATK increases by 2.5% for 8s, stacking up to 4 times. The duration of each stack is calculated separately, and each friendly unit can provide 1 stack of the buff. Passive effects of the same name do not stack.",
+    descBody: "When any friendly unit in the squad attacks and hits an enemy, all friendly units' ATK increases by {0} for 8s, stacking up to 4 times. The duration of each stack is calculated separately, and each friendly unit can provide 1 stack of the buff. Passive effects of the same name do not stack.",
     descVar: [
       ["2.5%"],
     ],
@@ -361,7 +361,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { ATK: 25 },
     descHead: "Visage of Greed",
-    descBody: "Increases Ice DMG by 15%. When launching an EX Special Attack, all squad members' ATK increases by 2% for 12s, stacking up to 4 times. Repeated triggers reset the duration. Passive effects of the same name do not stack.",
+    descBody: "Increases Ice DMG by {0}. When launching an EX Special Attack, all squad members' ATK increases by {1} for 12s, stacking up to 4 times. Repeated triggers reset the duration. Passive effects of the same name do not stack.",
     descVar: [
       ["15%"],
       ["2%"],
@@ -374,7 +374,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { DEF: 40 },
     descHead: "Ten Ton Top",
-    descBody: "Reduces DMG taken by 7.5%. After being attacked, the next attack to hit an enemy will trigger a critical hit and deal 600% of the equipper's DEF as additional DMG. This effect can be triggered once every 7.5s.",
+    descBody: "Reduces DMG taken by {0}. After being attacked, the next attack to hit an enemy will trigger a critical hit and deal {1} of the equipper's DEF as additional DMG. This effect can be triggered once every 7.5s.",
     descVar: [
       ["7.5%"],
       ["600%"],
@@ -387,7 +387,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { ER: 50 },
     descHead: "Hell's Generator",
-    descBody: "When launching an EX Special Attack or Chain Attack, Electric DMG from Basic Attacks and Dash Attacks increases by 50% for 10s. This effect can trigger once every 15s.",
+    descBody: "When launching an EX Special Attack or Chain Attack, Electric DMG from Basic Attacks and Dash Attacks increases by {0} for 10s. This effect can trigger once every 15s.",
     descVar: [
       ["50%"],
     ],
@@ -399,7 +399,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { ATK: 25 },
     descHead: "Knight Beam: Change",
-    descBody: "Increases the equipper's Physical DMG against the target by 36% for 8s upon hitting an enemy at least 6 meters away with a Basic Attack or Dash Attack.",
+    descBody: "Increases the equipper's Physical DMG against the target by {0} for 8s upon hitting an enemy at least 6 meters away with a Basic Attack or Dash Attack.",
     descVar: [
       ["36%"],
     ],
@@ -411,7 +411,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { ATK: 25 },
     descHead: "Safe Household Saw",
-    descBody: "While off-field, the equipper's Energy Regen increases by 0.45/s. When an EX Special Attack hits an enemy, the equipper's Physical DMG increases by 3%, stacking up to 15 times and lasting 1s. Repeated triggers reset the duration.",
+    descBody: "While off-field, the equipper's Energy Regen increases by {0}/s. When an EX Special Attack hits an enemy, the equipper's Physical DMG increases by {1}, stacking up to 15 times and lasting 1s. Repeated triggers reset the duration.",
     descVar: [
       ["0.45"],
       ["3%"],
@@ -424,7 +424,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { ER: 50 },
     descHead: "Money-Lover",
-    descBody: "Dealing Ether DMG using an EX Special Attack, Chain Attack, or Ultimate increases all squad members' DMG against the target by 15% and increases the equipper's Energy Regen by 0.5/s for 2s. Passive effects of the same name do not stack.",
+    descBody: "Dealing Ether DMG using an EX Special Attack, Chain Attack, or Ultimate increases all squad members' DMG against the target by {0} and increases the equipper's Energy Regen by {1}/s for 2s. Passive effects of the same name do not stack.",
     descVar: [
       ["15%"],
       ["0.5"],
@@ -437,7 +437,7 @@ export default {
     statBase: { _ATK: 624 },
     statSub: { Impact: 15 },
     descHead: "In a Flash of Light",
-    descBody: "Increases Electric DMG by 15%. When the equipper hits an enemy with a Dodge Counter or Assist Attack, their Energy Generation Rate increases by 18% for 8s.",
+    descBody: "Increases Electric DMG by {0}. When the equipper hits an enemy with a Dodge Counter or Assist Attack, their Energy Generation Rate increases by {1} for 8s.",
     descVar: [
       ["15%"],
       ["18%"],
@@ -450,7 +450,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { ATK: 25 },
     descHead: "Hot Spring Soup",
-    descBody: "Reduces DMG taken by 7.5%. When attacked, the equipper's Energy Generation Rate increases by 10% for 12s. When the equipper switches off-field, this buff will be transferred to the new on-field character with its duration refreshed. Passive effects of the same name do not stack.",
+    descBody: "Reduces DMG taken by {0}. When attacked, the equipper's Energy Generation Rate increases by {0} for 12s. When the equipper switches off-field, this buff will be transferred to the new on-field character with its duration refreshed. Passive effects of the same name do not stack.",
     descVar: [
       ["7.5%"],
       ["10%"],
@@ -463,7 +463,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { DEF: 40 },
     descHead: "Pet the Bunny",
-    descBody: "Increases Max HP by 8%. Increases the equipper's ATK by 10% when they are shielded.",
+    descBody: "Increases Max HP by {0}. Increases the equipper's ATK by {1} when they are shielded.",
     descVar: [
       ["8%"],
       ["10%"],
@@ -476,7 +476,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { AP: 75 },
     descHead: "Kiss of Death",
-    descBody: "When there are enemies inflicted with Attribute Anomaly on the field, the equipper's ATK increases by 10% and they deal an additional 15% more DMG to the target.",
+    descBody: "When there are enemies inflicted with Attribute Anomaly on the field, the equipper's ATK increases by {0} and they deal an additional {1} more DMG to the target.",
     descVar: [
       ["10%"],
       ["15%"],
@@ -489,7 +489,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { ATK: 25 },
     descHead: "Lingering Cries",
-    descBody: "Whenever a squad member inflicts an Attribute Anomaly on an enemy, the equipper gains a buff that increases Anomaly Proficiency by 30, stacking up to 4 times. This effect expires when the target recovers from Stun or is defeated. The duration of each stack is calculated separately.",
+    descBody: "Whenever a squad member inflicts an Attribute Anomaly on an enemy, the equipper gains a buff that increases Anomaly Proficiency by {0}, stacking up to 4 times. This effect expires when the target recovers from Stun or is defeated. The duration of each stack is calculated separately.",
     descVar: [
       ["30"],
     ],
@@ -501,7 +501,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { HP: 25 },
     descHead: "Starlight Knight Flying Kick",
-    descBody: "Increases Max HP by 8%. When attacked, the equipper's Impact is increased by 10% for 12s.",
+    descBody: "Increases Max HP by {0}. When attacked, the equipper's Impact is increased by {1} for 12s.",
     descVar: [
       ["8%"],
       ["10%"],
@@ -514,7 +514,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { Impact: 15 },
     descHead: "Behemoth Hunter",
-    descBody: "When the target's HP is no lower than 50%, the equipper inflicts 10% more Daze to the target. When the target's HP is no lower than 75%, this bonus is further increased by 10%.",
+    descBody: "When the target's HP is no lower than 50%, the equipper inflicts {0} more Daze to the target. When the target's HP is no lower than 75%, this bonus is further increased by {1}.",
     descVar: [
       ["10%"],
       ["10%"],
@@ -527,7 +527,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { ER: 50 },
     descHead: "Thick Broth",
-    descBody: "For every 10 Energy accumulated, the equipper's Impact is increased by 2%, stacking up to 8 times. After Energy is consumed, this bonus remains for 8 more seconds. The duration of each stack is calculated separately.",
+    descBody: "For every 10 Energy accumulated, the equipper's Impact is increased by {1}, stacking up to 8 times. After Energy is consumed, this bonus remains for 8 more seconds. The duration of each stack is calculated separately.",
     descVar: [
       ["2%"],
     ],
@@ -539,7 +539,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { ATK: 25 },
     descHead: "Knight's Combo",
-    descBody: "Launching a Dodge Counter or Quick Assist increases the equipper's ATK by 12% for 12s.",
+    descBody: "Launching a Dodge Counter or Quick Assist increases the equipper's ATK by {0} for 12s.",
     descVar: [
       ["12%"],
     ],
@@ -551,7 +551,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { AP: 75 },
     descHead: "Dinner's Ready!",
-    descBody: "For every 10 Energy consumed, the equipper gains a buff that increases ATK by 2.5% for 10s, stacking up to 10 times. The duration of each stack is calculated separately.",
+    descBody: "For every 10 Energy consumed, the equipper gains a buff that increases ATK by {0} for 10s, stacking up to 10 times. The duration of each stack is calculated separately.",
     descVar: [
       ["2.5%"],
     ],
@@ -563,7 +563,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { PR: 20 },
     descHead: "Say Cheese",
-    descBody: "Any squad members' Dodge Counter, EX Special Attack, Assist Attack, or Chain Attack respectively generates 20/25/30/35 more Decibels and generates 0.7 Energy for the equipper. This effect can trigger once every 12s. The cooldown for each type of attack is independent of others. Passive effects of the same name do not stack.",
+    descBody: "Any squad members' Dodge Counter, EX Special Attack, Assist Attack, or Chain Attack respectively generates {0}/{1}/{2}/{3} more Decibels and generates {4} Energy for the equipper. This effect can trigger once every 12s. The cooldown for each type of attack is independent of others. Passive effects of the same name do not stack.",
     descVar: [
       ["20"],
       ["25"],
@@ -579,7 +579,7 @@ export default {
     statBase: { _ATK: 594 },
     statSub: { ATK: 25 },
     descHead: "Flaming Bars",
-    descBody: "Whenever a squad member launches a Chain Attack, the equipper gains 1 Charge stack, stacking up to 3 times. Upon activating their own Ultimate, the equipper consumes all Charge stacks, and each stack increases the skill's DMG by 15%.",
+    descBody: "Whenever a squad member launches a Chain Attack, the equipper gains 1 Charge stack, stacking up to 3 times. Upon activating their own Ultimate, the equipper consumes all Charge stacks, and each stack increases the skill's DMG by {0}.",
     descVar: [
       ["15%"],
     ],
@@ -592,7 +592,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { DEF: 32 },
     descHead: "Dazzle",
-    descBody: "When attacked, reduces the attacker's DMG by 6% for 12s.",
+    descBody: "When attacked, reduces the attacker's DMG by {0} for 12s.",
     descVar: [
       ["6%"],
     ],
@@ -604,7 +604,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { DEF: 32 },
     descHead: "Sinking Strike",
-    descBody: "When attacked, the equipper's DEF increases by 20% for 8s.",
+    descBody: "When attacked, the equipper's DEF increases by {0} for 8s.",
     descVar: [
       ["20%"],
     ],
@@ -616,7 +616,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { PR: 16 },
     descHead: "Charge Overload",
-    descBody: "Whenever a squad member inflicts an Attribute Anomaly on an enemy, the equipper generates 3.5 Energy. This effect can trigger once every 12s.",
+    descBody: "Whenever a squad member inflicts an Attribute Anomaly on an enemy, the equipper generates {0} Energy. This effect can trigger once every 12s.",
     descVar: [
       ["3.5"],
     ],
@@ -628,7 +628,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { AP: 60 },
     descHead: "High-Voltage Surge",
-    descBody: "Accumulating Anomaly Buildup increases the equipper's Anomaly Proficiency by 25 for 10s. This effect can trigger once every 20s.",
+    descBody: "Accumulating Anomaly Buildup increases the equipper's Anomaly Proficiency by {0} for 10s. This effect can trigger once every 20s.",
     descVar: [
       ["25"],
     ],
@@ -640,7 +640,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { ATK: 20 },
     descHead: "Disordered Current",
-    descBody: "Accumulating Anomaly Buildup increases the equipper's Anomaly Mastery by 25 for 10s. This effect can trigger once every 20s.",
+    descBody: "Accumulating Anomaly Buildup increases the equipper's Anomaly Mastery by {0} for 10s. This effect can trigger once every 20s.",
     descVar: [
       ["25"],
     ],
@@ -652,7 +652,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { ER: 40 },
     descHead: "Riptide",
-    descBody: "Upon entering combat or switching in, the equipper's Impact increases by 9% for 10s. This effect can trigger once every 20s.",
+    descBody: "Upon entering combat or switching in, the equipper's Impact increases by {0} for 10s. This effect can trigger once every 20s.",
     descVar: [
       ["9%"],
     ],
@@ -664,7 +664,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { Impact: 12 },
     descHead: "Tsunami",
-    descBody: "The equipper's attacks inflict 8% more Daze on their main target.",
+    descBody: "The equipper's attacks inflict {0} more Daze on their main target.",
     descVar: [
       ["8%"],
     ],
@@ -676,7 +676,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { ATK: 20 },
     descHead: "Undercurrent",
-    descBody: "EX Special Attacks inflict 10% more Daze.",
+    descBody: "EX Special Attacks inflict {0} more Daze.",
     descVar: [
       ["10%"],
     ],
@@ -688,7 +688,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { HP: 20 },
     descHead: "Booming Sound",
-    descBody: "Launching a Chain Attack or Ultimate increases all squad members' ATK by 8% for 10s. This effect can trigger once every 20s. Passive effects of the same name do not stack.",
+    descBody: "Launching a Chain Attack or Ultimate increases all squad members' ATK by {0} for 10s. This effect can trigger once every 20s. Passive effects of the same name do not stack.",
     descVar: [
       ["8%"],
     ],
@@ -700,7 +700,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { ER: 40 },
     descHead: "Roaring Waves",
-    descBody: "Launching an EX Special Attack or Chain Attack increases all squad members' Anomaly Mastery and Anomaly Proficiency by 10 for 10s. This effect can trigger once every 20s. Passive effects of the same name do not stack.",
+    descBody: "Launching an EX Special Attack or Chain Attack increases all squad members' Anomaly Mastery and Anomaly Proficiency by {0} for 10s. This effect can trigger once every 20s. Passive effects of the same name do not stack.",
     descVar: [
       ["10"],
     ],
@@ -712,7 +712,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { ATK: 20 },
     descHead: "Changing Tides",
-    descBody: "Launching an EX Special Attack increases all squad members' Impact by 8% for 10s. This effect can trigger once every 20s. Passive effects of the same name do not stack.",
+    descBody: "Launching an EX Special Attack increases all squad members' Impact by {0} for 10s. This effect can trigger once every 20s. Passive effects of the same name do not stack.",
     descVar: [
       ["8%"],
     ],
@@ -724,7 +724,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { CR: 16 },
     descHead: "New Moon",
-    descBody: "Launching an EX Special Attack generates 3 Energy for the equipper. This effect can trigger once every 12s.",
+    descBody: "Launching an EX Special Attack generates {0} Energy for the equipper. This effect can trigger once every 12s.",
     descVar: [
       ["3"],
     ],
@@ -736,7 +736,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { ATK: 20 },
     descHead: "Waning Moon",
-    descBody: "Launching a Chain Attack or Ultimate increases the equipper's DMG by 15% for 6s.",
+    descBody: "Launching a Chain Attack or Ultimate increases the equipper's DMG by {0} for 6s.",
     descVar: [
       ["15%"],
     ],
@@ -748,7 +748,7 @@ export default {
     statBase: { _ATK: 475 },
     statSub: { ATK: 20 },
     descHead: "Full Moon",
-    descBody: "Basic Attack, Dash Attack, and Dodge Counter DMG increases by 12%.",
+    descBody: "Basic Attack, Dash Attack, and Dodge Counter DMG increases by {0}.",
     descVar: [
       ["12%"],
     ],
