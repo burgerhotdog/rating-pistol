@@ -9,9 +9,9 @@ export default {
     descHead: "Tranquil Blossom",
     descBody: "CRIT DMG is increased by {0}. When the equipper lands a hit with a Basic Attack, Special Attack, or Aftershock, they gain 1 stack of a buff. Each stack increases the equipper's CRIT DMG by an additional {1}, stacking up to 3 times. The effect lasts for 30s, with each stack's duration calculated separately, and can only be triggered once per use of a skill. With all 3 stacks, the equipper's Electric DMG increases by {2}.",
     descVar: [
-      ["30%"],
-      ["10%"],
-      ["20%"],
+      ["30%", "34.5%", "39%", "43.5%", "48%"],
+      ["10%", "11.5%", "13%", "14.5%", "16%"],
+      ["20%", "23%", "26%", "29%", "32%"],
     ],
   },
   "14136": {
@@ -23,9 +23,9 @@ export default {
     descHead: "Wind Seeker",
     descBody: "When the equipper hits an enemy with an Aftershock, causing Electric DMG, the target's DEF is reduced by {0} for 5s. Passive effects of the same name do not stack. When this effect is triggered, if the equipper is not the active character, they gain 1 stack of Spirit Lock, up to a maximum of 3 stacks. This can trigger only once per use of a skill. Each stack of Spirit Lock increases the equipper's Impact by {1}, lasting 12s. The duration of each stack is calculated separately. At full stacks of Spirit Lock, the equipper's Impact increases by an additional {2}.",
     descVar: [
-      ["25%"],
-      ["4%"],
-      ["8%"],
+      ["25%", "28%", "32%", "36%", "40%"],
+      ["4%", "4.6%", "5.2%", "5.8%", "6.4%"],
+      ["8%", "9.2%", "10.4%", "11.6%", "12.8%"],
     ],
   },
 
@@ -53,8 +53,8 @@ export default {
     descHead: "String & Melody",
     descBody: "CRIT DMG increases by {0}. When the equipper enters the battlefield, or activates a Chain Attack or Ultimate, they gain 1 stack of Heartstring. Each stack of Heartstring allows the equipper's Chain Attack and Ultimate to ignore {1} of the target's Fire RES, stacking up to 2 times and lasting 30s. Repeated triggers reset the duration.",
     descVar: [
-      ["50%"],
-      ["12.5%"],
+      ["50%", "57.5%", "65%", "72.5%", "80%"],
+      ["12.5%", "14.5%", "16.5%", "18.5%", "20%"],
     ],
   },
   "14131": {
@@ -66,8 +66,8 @@ export default {
     descHead: "Untold Beauty",
     descBody: "When any squad member enters the field through a Quick Assist, Chain Attack, Defensive Assist, or Evasive Assist, the equipper gains {0} Energy. This effect can trigger once every 5s. When the equipper consumes 25 or more Energy, the DMG dealt by all squad members increases by {1}, stacking up to 2 times, and lasting 20s. Repeated triggers reset the duration. Only one instance of this effect can exist in the same squad.",
     descVar: [
-      ["5"],
-      ["10%"],
+      ["5", "5.5", "6", "6.5", "7"],
+      ["10%", "11.5%", "13%", "14.5%", "16%"],
     ],
   },
   
@@ -81,9 +81,9 @@ export default {
     descHead: "Growth Through Adversity",
     descBody: "CRIT Rate increases by {0}. Dash Attack Electric DMG increases by {1}. When any squad member applies an Attribute Anomaly or Stuns an enemy, the equipper's CRIT Rate increases by an additional {2} for 15s.",
     descVar: [
-      ["10%"],
-      ["40%"],
-      ["10%"],
+      ["10%", "11.5%", "13%", "14.5%", "16%"],
+      ["40%", "46%", "52%", "58%", "64%"],
+      ["10%", "11.5%", "13%", "14.5%", "16%"],
     ],
   },
   "14109": {
@@ -95,8 +95,8 @@ export default {
     descHead: "Frost-Stained Star",
     descBody: "CRIT DMG increases by {0}. When using an EX Special Attack or when any squad member applies an Attribute Anomaly to an enemy, the equipper's Ice DMG increases by {1}, stacking up to 2 times and lasting 15s. The duration of each stack is calculated separately.",
     descVar: [
-      ["50%"],
-      ["20%"],
+      ["50%", "57%", "65%", "72%", "80%"],
+      ["20%", "23%", "26%", "29%", "32%"],
     ],
   },
 
@@ -124,9 +124,9 @@ export default {
     descHead: "Time-Devouring Stratagem",
     descBody: "The equipper's Electric Anomaly Buildup Rate increases by {0}. When Special Attacks or EX Special Attacks hit enemies suffering an Attribute Anomaly, the equipper's Anomaly Proficiency increases by {1} for 15s.\nWhen the equipper's Anomaly Proficiency is greater than or equal to 375, Disorder DMG inflicted by the equipper increases by {2}.",
     descVar: [
-      ["30%"],
-      ["75"],
-      ["25%"],
+      ["30%", "35%", "40%", "45%", "50%"],
+      ["75", "85", "95", "105", "115"],
+      ["25%", "27.5%", "30%", "32.5%", "35%"],
     ],
   },
   "14116": {
@@ -138,8 +138,8 @@ export default {
     descHead: "Flowing Flame",
     descBody: "Upon launching a Quick Assist or Perfect Assist, the equipper's Impact increases by {0} for 8s. When the equipper launches and hits an enemy with a Basic Attack, apply Wilt to the target for 30s, stacking up to 20 times, repeated triggers reset the duration. When any squad member hits an enemy, for every stack of Wilt applied to the target, the CRIT DMG of the Ice DMG and Fire DMG dealt by that attack increases by {1}. Only one instance of this effect can exist in the same squad.",
     descVar: [
-      ["25%"],
-      ["1.5%"],
+      ["25%", "28.75%", "32.5%", "36.25%", "40%"],
+      ["1.5%", "1.72%", "1.95%", "2.17%", "2.4%"],
     ],
   },
   
@@ -153,9 +153,9 @@ export default {
     descHead: "Fuel on the Rocks",
     descBody: "While off-field, the equipper's Energy Regen increases by {0}/s. When hitting an enemy with an EX Special Attack or Assist Attack, the equipper's DMG increases by {1}%, stacking up to 10 times and lasting for 6s. This effect can trigger once every 0.3s. While off-field, the stack effect is doubled. Repeated triggers reset the duration. Upon obtaining the DMG increase effect, if the number of current stacks is greater than or equal to 5, then the equipper's Anomaly Proficiency increases by {2}. This Anomaly Proficiency increase does not stack and lasts for 6s.",
     descVar: [
-      ["0.6"],
-      ["3.5%"],
-      ["50"],
+      ["0.6", "0.75", "0.9", "1.05", "1.2"],
+      ["3.5%", "4.4%", "5.2%", "6.1%", "7%"],
+      ["50", "62", "75", "87", "100"],
     ],
   },
   "14107": {
@@ -167,9 +167,9 @@ export default {
     descHead: "Invincible Rider",
     descBody: "The Shield value provided by the equipper increases by {0}. When any squad member triggers Interrupt or Perfect Dodge, all squad members' DMG increases by {1} and Daze dealt increases by {2} for 20s. Passive effects of the same name do not stack.",
     descVar: [
-      ["30%"],
-      ["18%"],
-      ["12%"],
+      ["30%", "38%", "46%", "52%", "60%"],
+      ["18%", "22.5%", "27%", "31.5%", "36%"],
+      ["12%", "15%", "18%", "21%", "24%"],
     ],
   },
   
@@ -183,8 +183,8 @@ export default {
     descHead: "Indulge in the Hunt",
     descBody: "Upon activating a Dash Attack, gain 1 stack of Predatory Instinct. Each stack of Predatory Instinct increases the equipper's Physical DMG by {0} for 10s, stacking up to 3 times. This effect can trigger once every 0.5s and repeated triggers reset the duration. When entering combat or triggering Perfect Dodge, gain 3 stacks of Predatory Instinct. While Predatory Instinct is at maximum stacks, the equipper's Anomaly Buildup Rate increases by {1}.",
     descVar: [
-      ["12%"],
-      ["40%"],
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["40%", "50%", "60%", "70%", "80%"],
     ],
   },
   "14125": {
@@ -196,8 +196,8 @@ export default {
     descHead: "Ringing Melody",
     descBody: "When a Basic Attack hits an enemy, gain 1 stack of Tea-riffic. Each stack of Tea-riffic increases the user's Impact by {0}, stacking up to 30 times, and lasting for 8s. The duration of each stack is calculated separately. Upon acquiring Tea-riffic, if the equipper possesses stacks of Tea-riffic greater than or equal to 15, all squad members' DMG is increased by {1} for 10s. Passive effects of the same name do not stack.",
     descVar: [
-      ["0.7%"],
-      ["20%"],
+      ["0.7%", "0.88%", "1.05%", "1.22%", "1.4%"],
+      ["20%", "23%", "26%", "29%", "32%"],
     ],
   },
 
