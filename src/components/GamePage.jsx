@@ -76,11 +76,11 @@ const GamePage = ({ gameId, userId }) => {
   }, [localDocs]);
 
   const handleAdd = () => {
-    setModalPipe({ type: "add"});
+    setModalPipe({ type: "add", id: null, data: null });
   };
 
   const handleLoad = () => {
-    setModalPipe({ type: "load" });
+    setModalPipe({ type: "load", id: null, data: null });
   };
 
   return (

@@ -9,7 +9,7 @@ import getData from "../../getData"
 import getIcons from "../../getIcons";
 import getWeaponDescArr from "./getWeaponDescArr";
 
-const PreviewWeapon = ({ gameId, modalPipe }) => {
+const DisplayCard = ({ gameId, modalPipe }) => {
   const { generalData, equipData, weaponData } = getData[gameId];
   const { weaponIcons } = getIcons[gameId];
 
@@ -94,4 +94,4 @@ const PreviewWeapon = ({ gameId, modalPipe }) => {
   );
 };
 
-export default PreviewWeapon;
+export default DisplayCard;
