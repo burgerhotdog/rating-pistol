@@ -148,7 +148,7 @@ export default {
     descHead: "Departing Anew",
     descBody: "After the wearer uses Skill or Ultimate on one ally character, the wearer regenerates {0} Energy and the ability's target receives 1 stack of \"Hymn\" for 3 turn(s), stacking up to 3 time(s). Each stack of \"Hymn\" increases its holder's DMG dealt by {1}. After every 2 instance(s) of Skill or Ultimate the wearer uses on one ally character, recovers 1 Skill Point.",
     descVar: [
-      ["6", "6.5", "7", "7.5", "8"],
+      ["6.0", "6.5", "7.0", "7.5", "8.0"],
       ["15%", "17.25%", "19.5%", "21.75%", "24%"],
     ],
   },
@@ -163,7 +163,7 @@ export default {
     descBody: "Increases the wearer's Break Effect by {0}. When entering battle, immediately regenerates {1} Energy. After the wearer uses Ultimate, obtains \"Raiton.\" After using 2 Basic ATKs, advances the wearer's action by {2} and removes \"Raiton.\" After the wearer uses Ultimate, resets \"Raiton.\"",
     descVar: [
       ["60%", "70%", "80%", "90%", "100%"],
-      ["30", "32.5%", "35%", "37.5%", "40%"],
+      ["30", "32.5", "35", "37.5", "40"],
       ["50%", "55%", "60%", "65%", "70%"],
     ],
   },
@@ -189,7 +189,7 @@ export default {
     descBody: "Increases the wearer's SPD by {0}. After attacking enemy targets that are Weakness Broken, regenerates {1} Energy. This effect can trigger up to 2 time(s) per turn.",
     descVar: [
       ["8%", "9%", "10%", "11%", "12%"],
-      ["3", "3.5", "4", "4.5", "5"],
+      ["3.0", "3.5", "4.0", "4.5", "5.0"],
     ],
   },
   
@@ -404,7 +404,7 @@ export default {
       ["40%", "46%", "52%", "58%", "64%"],
       ["40%", "46%", "52%", "58%", "64%"],
       ["100%", "115%", "130%", "145%", "160%"],
-      ["10%", "11.5%", "13%", "14.5%", "16%"],
+      ["10.0%", "11.5%", "13.0%", "14.5%", "16.0%"],
     ],
   },
 
@@ -432,7 +432,7 @@ export default {
     descVar: [
       ["40%", "45%", "50%", "55%", "60%"],
       ["5%", "6%", "7%", "8%", "9%"],
-      ["7.2%", "7.9%", "8.6%", "9.3", "10%"],
+      ["7.2%", "7.9%", "8.6%", "9.3", "10.0%"],
     ],
   },
   "23021": {
