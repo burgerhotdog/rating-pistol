@@ -8,7 +8,7 @@ export default {
     descHead: "Reception",
     descBody: "Increases the wearer's SPD by {0}. After the wearer uses Skill, increases the DMG dealt by all allies by {1}, lasting for 3 turn(s).",
     descVar: [
-      ["6%", "7.5%", "9%", "10.5%", "12%"],
+      ["6.0%", "7.5%", "9.0%", "10.5%", "12.0%"],
       ["8%", "10%", "12%", "14%", "16%"],
     ],
   },
@@ -215,7 +215,7 @@ export default {
     descHead: "Intimidation",
     descBody: "Increases the wearer's CRIT Rate by {0}. When the wearer launches a follow-up attack, gains 1 stack of \"Luminflux,\" stacking up to 2 time(s). Each stack of \"Luminflux\" enables the Ultimate DMG dealt by the wearer to ignore {1} of the target's DEF. When the wearer's turn ends, removes 1 stack of \"Luminflux.\"",
     descVar: [
-      ["15%", "17.5%", "20%", "22.5%", "25%"],
+      ["15.0%", "17.5%", "20.0%", "22.5%", "25.0%"],
       ["27%", "30%", "33%", "36%", "39%"],
     ],
   },
@@ -309,7 +309,7 @@ export default {
     descBody: "Increases the wearer's Break Effect by {0}. When the wearer deals Break DMG to an enemy target, inflicts Routed on the enemy, lasting for 2 turn(s). Targets afflicted with Routed receive {1} increased Break DMG from the wearer, and their SPD is lowered by 20%. Effects of the same type cannot be stacked.",
     descVar: [
       ["60%", "70%", "80%", "90%", "100%"],
-      ["24%", "28%", "32%", "36%", "40%"],
+      ["24.0%", "28.0%", "32.0%", "36.0%", "40.0%"],
     ],
   },
 
@@ -348,7 +348,7 @@ export default {
     descHead: "Pacify",
     descBody: "Every time an ally attacks, the wearer gains 1 stack of Cantillation. Each stack of Cantillation increases the wearer's Energy Regeneration Rate by {0}, stacking up to 5 time(s). When the wearer uses their Ultimate, removes Cantillation and gains Cadenza. Cadenza increases the Wearer's ATK by {1} and increases all allies' DMG dealt by {2}, lasting for 1 turn(s).",
     descVar: [
-      ["3%", "3.5%", "4%", "4.5%", "5%"],
+      ["3.0%", "3.5%", "4.0%", "4.5%", "5.0%"],
       ["48%", "60%", "72%", "84%", "96%"],
       ["24%", "28%", "32%", "36%", "40%"],
     ],
@@ -494,7 +494,7 @@ export default {
     descBody: "Increases the wearer's Effect RES by {0}. For every 100 of DEF the wearer has, increases the wearer's DMG dealt by {1}, up to a maximum DMG increase of {2}.",
     descVar: [
       ["12%", "14%", "16%", "18%", "20%"],
-      ["0.8%", "0.9%", "1%", "1.1%", "1.2%"],
+      ["0.8%", "0.9%", "1.0%", "1.1%", "1.2%"],
       ["32%", "36%", "40%", "44%", "48%"],
     ],
   },
@@ -506,7 +506,7 @@ export default {
     descHead: "Deflagration",
     descBody: "When the wearer's cumulative HP loss during one attack exceeds 25% of their Max HP, or if the amount of their own HP consumed at one time is greater than 25% of their Max HP, immediately heals the wearer for 15% of their Max HP, and at the same time, increases the DMG they deal by {0} for 2 turn(s). This effect can only be triggered once every 3 turn(s).",
     descVar: [
-      ["25%", "31.25%", "37.5%", "43.75%", "50%"],
+      ["25%", "31%", "37%", "43%", "50%"],
     ],
   },
   "21037": {
@@ -541,7 +541,7 @@ export default {
     descBody: "Increases the wearer's Break Effect by {0}. After using Basic ATK, restores HP for the wearer by an amount equal to {1} of Max HP plus 800.",
     descVar: [
       ["24%", "30%", "36%", "42%", "48%"],
-      ["2%", "2.5%", "3%", "3.5%", "4%"],
+      ["2.0%", "2.5%", "3.0%", "3.5%", "4.0%"],
     ],
   },
   
@@ -570,7 +570,7 @@ export default {
     descVar: [
       ["60%", "70%", "80%", "90%", "100%"],
       ["24%", "28%", "32%", "36%", "40%"],
-      ["10", "12.5", "15", "17.5", "20"],
+      ["10.0", "12.5", "15.0", "17.5", "20.0"],
     ],
   },
   
@@ -597,7 +597,7 @@ export default {
     descVar: [
       ["12%", "14%", "16%", "18%", "20%"],
       ["10%", "11%", "12%", "13%", "14%"],
-      ["2.4%", "2.8%", "3.2%", "3.6%", "4%"],
+      ["2.4%", "2.8%", "3.2%", "3.6%", "4.0%"],
     ],
   },
 
@@ -637,7 +637,7 @@ export default {
     descBody: "Increases the wearer's CRIT DMG by {0}. When a teammate gets attacked or loses HP, the wearer gains 1 stack of Eclipse, up to a max of 3 stack(s). Each stack of Eclipse increases the DMG of the wearer's next attack by {1}. When 3 stack(s) are reached, additionally enables that attack to ignore {2} of the enemy's DEF. This effect will be removed after the wearer uses an attack.",
     descVar: [
       ["20%", "23%", "26%", "29%", "32%"],
-      ["14%", "16.5%", "19%", "21.5%", "24%"],
+      ["14.0%", "16.5%", "19.0%", "21.5%", "24.0%"],
       ["12%", "14%", "16%", "18%", "20%"],
     ],
   },
@@ -679,7 +679,7 @@ export default {
     descVar: [
       ["24%", "28%", "32%", "36%", "40%"],
       ["12%", "14%", "16%", "18%", "20%"],
-      ["9%", "10.5%", "12%", "13.5%", "15%"],
+      ["9.0%", "10.5%", "12.0%", "13.5%", "15.0%"],
       ["80%", "85%", "90%", "95%", "100%"],
     ],
   },
@@ -902,7 +902,7 @@ export default {
     descHead: "Meteor Swarm",
     descBody: "For every enemy on the field, increases the wearer's ATK by {0}, up to 5 stacks. When an enemy is inflicted with Weakness Break, the DMG dealt by the wearer increases by {1} for 1 turn.",
     descVar: [
-      ["9%", "10.5%", "12%", "13.5%", "15%"],
+      ["9.0%", "10.5%", "12%", "13.5%", "15%"],
       ["30%", "35%", "40%", "45%", "50%"],
     ],
   },
@@ -915,7 +915,7 @@ export default {
     descHead: "A Storm Is Coming",
     descBody: "After entering battle, increases the wearer's DMG based on their Max Energy. Each point of Energy increases DMG by {0}. A max of 160 Energy will be taken into account for this.",
     descVar: [
-      ["0.2%", "0.25%", "0.3%", "0.35%", "0.4%"],
+      ["0.20%", "0.25%", "0.30%", "0.35%", "0.40%"],
     ],
   },
   "21033": {
@@ -987,7 +987,7 @@ export default {
     descBody: "Increases the wearer's Max HP by {0}. When using Basic ATK or Skill, restores all allies' HP by an amount equal to {1} of their respective Max HP.",
     descVar: [
       ["16%", "20%", "24%", "28%", "32%"],
-      ["2%", "2.5%", "3%", "3.5%", "4%"],
+      ["2.0%", "2.5%", "3.0%", "3.5%", "4.0%"],
     ],
   },
   "21027": {
@@ -1235,7 +1235,7 @@ export default {
     descBody: "Increases the wearer's Outgoing Healing by {0}. When using Skill, regenerates {1} Energy for all allies.",
     descVar: [
       ["10%", "12.5%", "15%", "17.5%", "20%"],
-      ["2", "2.5", "3", "3.5", "4"],
+      ["2.0", "2.5", "3.0", "3.5", "4.0"],
     ],
   },
   "21006": {
