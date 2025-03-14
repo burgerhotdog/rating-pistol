@@ -16,7 +16,7 @@ const AvatarModal = ({
   gameId,
   modalPipe,
   setModalPipe,
-  saveAction,
+  savePipe,
 }) => {
   const { generalData } = getData[gameId];
   const [isLoading, setIsLoading] = useState(false);
@@ -66,7 +66,8 @@ const AvatarModal = ({
 
   const handleSave = async () => {
     setIsLoading(true);
-    await saveAction(modalPipe.id, modalPipe.data);
+    await savePipe();
+    
     setModalPipe({});
   };
 

@@ -13,8 +13,9 @@ import getIcons from "../../getIcons";
 const AddModal = ({
   gameId,
   localDocs,
-  saveAction,
-  closeAction,
+  modalPipe,
+  setModalPipe,
+  savePipe,
 }) => {
   const { generalData, avatarData } = getData[gameId];
   const { avatarIcons } = getIcons[gameId];
@@ -34,26 +35,29 @@ const AddModal = ({
   };
 
   const handleSelect = (newValue) => {
-    setAddId(newValue);
+    const id = newValue;
+    const data = template(gameId);
+    data.level = generalData.LEVEL_CAP;
+    data.rank = 0;
+
+    setModalPipe((prev) => ({
+      ...prev,
+      id,
+      data,
+    }));
   };
 
   const handleAdd = async () => {
     setIsLoading(true);
-    const addData = template(gameId);
-    addData.level = generalData.LEVEL_CAP;
-    addData.rank = 0;
-    Object.keys(addData.skillMap).forEach(skillKey => {
-      addData.skillMap[skillKey] = 1;
-    });
-
-    await saveAction(addId, addData);
-    closeAction({});
+    await savePipe();
+    
+    setModalPipe({});
   };
 
   return (
     <Stack alignItems="center" spacing={2}>
       <Autocomplete
-        value={addId}
+        value={modalPipe.id}
         options={charOptions()}
         getOptionLabel={(option) => avatarData[option]?.name || ""}
         onChange={(_, newValue) => handleSelect(newValue)}
@@ -95,7 +99,7 @@ const AddModal = ({
         variant="contained"
         color="primary"
         loading={isLoading}
-        disabled={!addId}
+        disabled={!modalPipe.id}
       >
         Save
       </Button>

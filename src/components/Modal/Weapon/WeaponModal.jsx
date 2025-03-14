@@ -16,7 +16,7 @@ const WeaponModal = ({
   gameId,
   modalPipe,
   setModalPipe,
-  saveAction,
+  savePipe,
 }) => {
   const { generalData, avatarData, weaponData } = getData[gameId];
   const { weaponIcons } = getIcons[gameId];
@@ -93,7 +93,8 @@ const WeaponModal = ({
 
   const handleSave = async () => {
     setIsLoading(true);
-    await saveAction(modalPipe.id, modalPipe.data);
+    await savePipe();
+    
     setModalPipe({});
   };
 

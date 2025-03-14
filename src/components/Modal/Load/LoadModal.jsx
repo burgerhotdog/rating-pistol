@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { writeBatch, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import {
   Box,
@@ -18,8 +18,8 @@ import translate from "./translate";
 const LoadModal = ({
   gameId,
   userId,
-  saveAction,
-  closeAction,
+  setModalPipe,
+  setLocalDocs
 }) => {
   const { equipData, avatarData } = getData[gameId];
   const { avatarIcons } = getIcons[gameId];
@@ -256,9 +256,25 @@ const LoadModal = ({
           return { id, data };
         });
 
-    await Promise.all(charBuffer.map(char => saveAction(char.id, char.data)));
+    const localUpdates = {};
+    if (userId) {
+      const batch = writeBatch(db);
+      charBuffer.forEach((char) => {
+        const { id, data } = char;
+        const docRef = doc(db, "users", userId, gameId, id);
+        
+        batch.set(docRef, data, { merge: true });
+        localUpdates[id] = data;
+      });
+      await batch.commit();
+    }
 
-    closeAction({});
+    setLocalDocs((prev) => ({
+      ...prev,
+      ...localUpdates,
+    }));
+
+    setModalPipe({});
   };
 
   if (!enkaList.length) {

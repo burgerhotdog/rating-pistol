@@ -4,20 +4,20 @@ export default (gameId) => {
   return {
     isStar: false,
 
-    level: null,
-    rank: null,
+    level: 1,
+    rank: 0,
     skillMap: {
-      basic: null,
-      skill: null,
-      ult: null,
+      basic: 1,
+      skill: 1,
+      ult: 1,
       ...(gameId === "hsr"
-        ? { talent: null }
+        ? { talent: 1 }
         : {}),
       ...(gameId === "ww"
-        ? { forte: null, intro: null }
+        ? { forte: 1, intro: 1 }
         : {}),
       ...(gameId === "zzz"
-        ? { dodge: null, assist: null, core: null }
+        ? { dodge: 1, assist: 1, core: 1 }
         : {}),
     },
 
