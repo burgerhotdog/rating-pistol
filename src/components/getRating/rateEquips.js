@@ -147,7 +147,7 @@ const rateEquips = (gameId, id, data) => {
   const sim_points = calculatePoints(sim_substats, avatarData[id].weights, basestats, STAT_INDEX);
 
   // Calculate score
-  return (points / sim_points) * 100;
+  return ((points / sim_points) * 100) / 0.75;
 };
 
 export default rateEquips;

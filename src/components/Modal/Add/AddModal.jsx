@@ -20,7 +20,6 @@ const AddModal = ({
   const { generalData, avatarData } = getData[gameId];
   const { avatarIcons } = getIcons[gameId];
   const [isLoading, setIsLoading] = useState(false);
-  const [addId, setAddId] = useState(null);
   
   const charOptions = () => {
     return Object.keys(avatarData)
@@ -28,9 +27,9 @@ const AddModal = ({
       .sort((a, b) => {
         const rarityA = avatarData[a].rarity;
         const rarityB = avatarData[b].rarity;
-        return rarityA != rarityB ?
-          rarityB - rarityA :
-          avatarData[a].name.localeCompare(avatarData[b].name)
+        return rarityA != rarityB
+          ? rarityB - rarityA
+          : avatarData[a].name.localeCompare(avatarData[b].name);
       });
   };
 
@@ -91,7 +90,7 @@ const AddModal = ({
             label="Select"
           />
         )}
-        sx={{ width: 250 }}
+        sx={{ width: 300 }}
       />
       
       <Button
