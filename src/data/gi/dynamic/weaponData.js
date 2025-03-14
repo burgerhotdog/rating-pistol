@@ -484,7 +484,7 @@ export default {
     descBody: "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain {0} ATK and {1} All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
     descVar: [
       ["3%", "4%", "5%", "6%", "7%"],
-      ["7%", "8.59%", "10%", "11.5%", "13%"],
+      ["7%", "8.5%", "10%", "11.5%", "13%"],
     ],
   },
   "14426": {
@@ -510,7 +510,7 @@ export default {
     descBody: "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain {0} ATK and {1} All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
     descVar: [
       ["3%", "4%", "5%", "6%", "7%"],
-      ["7%", "8.59%", "10%", "11.5%", "13%"],
+      ["7%", "8.5%", "10%", "11.5%", "13%"],
     ],
   },
   "12427": {
