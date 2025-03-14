@@ -7,6 +7,10 @@ import {
   TextField,
   Button,
   Typography,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
 } from "@mui/material";
 import getData from "../../getData";
 import getIcons from "../../getIcons";
@@ -78,7 +82,8 @@ const WeaponModal = ({
     }));
   };
 
-  const handleWeaponLevel = (newValue) => {
+  const handleWeaponLevel = (event) => {
+    const newValue = event.target.value;
     setModalPipe((prev) => ({
       ...prev,
       data: {
@@ -99,16 +104,24 @@ const WeaponModal = ({
   };
 
   const validate = () => {
+    // validate weaponId
     if (!modalPipe.data.weaponId) {
       setError("weaponId");
       return false;
     }
 
-    if (!modalPipe.data.weaponLevel) {
+    // validate weaponLevel
+    if (!/^[1-9]\d*$/.test(modalPipe.data.weaponLevel)) {
+      setError("weaponLevel");
+      return false;
+    }
+    const weaponLevel = Number(modalPipe.data.weaponLevel);
+    if (weaponLevel < 1 || weaponLevel > LEVEL_CAP) {
       setError("weaponLevel");
       return false;
     }
 
+    // validate weaponRank
     if (!modalPipe.data.weaponRank) {
       setError("weaponRank");
       return false;
@@ -166,46 +179,39 @@ const WeaponModal = ({
                 {...params}
                 label={SECTIONS[1]}
                 error={error === "weaponId"}
-                helperText={error === "weaponId" && "Please select a weapon"}
               />
             )}
           />
         </Grid>
 
         <Grid size="auto">
-          <Autocomplete
-            value={modalPipe.data.weaponLevel}
-            options={Array.from({ length: LEVEL_CAP / 10 }, (_, i) => String(LEVEL_CAP - i * 10))}
-            getOptionLabel={String}
-            onChange={(_, newValue) => {
-              if (newValue) handleWeaponLevel(newValue);
-            }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Level"
-              />
-            )}
+          <TextField
+            value={modalPipe.data.weaponLevel ?? ""}
+            label="Level"
+            onChange={handleWeaponLevel}
+            slotProps={{ htmlInput: { inputMode: "numeric" } }}
+            sx={{ width: 75 }}
+            error={error === "weaponLevel"}
             disabled={!modalPipe.data.weaponId}
           />
         </Grid>
 
         <Grid size="auto">
-          <Autocomplete
-            value={modalPipe.data.weaponRank}
-            options={weaponRankOptions()}
-            getOptionLabel={addRankPrefix}
-            onChange={(_, newValue) => {
-              if (newValue) handleWeaponRank(newValue);
-            }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Rank"
-              />
-            )}
-            disabled={!modalPipe.data.weaponId}
-          />
+          <FormControl sx={{ width: 75 }} disabled={!modalPipe.data.weaponId}>
+            <InputLabel id="weapon-rank-select" shrink>Rank</InputLabel>
+            <Select
+              labelId="weapon-rank-select"
+              label="Rank"
+              value={modalPipe.data.weaponRank ?? ""}
+              onChange={(event) => handleWeaponRank(event.target.value)}
+            >
+              {weaponRankOptions().map((rank) => (
+                <MenuItem key={rank} value={rank}>
+                  {addRankPrefix(rank)}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
 
         <Grid size={12}>
