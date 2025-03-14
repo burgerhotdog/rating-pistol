@@ -2,7 +2,8 @@ import getData from "../getData";
 
 const rateLevels = (gameId, data) => {
   const { generalData } = getData[gameId];
-  const { level, weaponLevel } = data;
+  const level = Number(data.level);
+  const weaponLevel = Number(data.weaponLevel);
 
   if (!level || !weaponLevel) return 0;
 

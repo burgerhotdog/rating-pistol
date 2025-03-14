@@ -24,7 +24,7 @@ const EquipModal = ({
   gameId,
   modalPipe,
   setModalPipe,
-  saveAction,
+  savePipe,
 }) => {
   const { equipData } = getData[gameId];
   const [viewIndex, setViewIndex] = useState(0);
@@ -33,7 +33,8 @@ const EquipModal = ({
 
   const handleSave = async () => {
     setIsLoading(true);
-    await saveAction(modalPipe.id, modalPipe.data);
+    await savePipe();
+
     setModalPipe({});
   };
 

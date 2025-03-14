@@ -19,7 +19,10 @@ const ModalSwitcher = ({
 }) => {
   const theme = useTheme();
 
-  const saveAction = async (id, data) => {
+  const savePipe = async () => {
+    const id = modalPipe.id;
+    const data = modalPipe.data;
+
     if (userId) {
       const docRef = doc(db, "users", userId, gameId, id);
       await setDoc(docRef, data, { merge: true });
@@ -31,7 +34,7 @@ const ModalSwitcher = ({
     }));
   };
 
-  const closeAction = () => {
+  const closeModal = () => {
     setModalPipe({});
   };
 
@@ -42,8 +45,9 @@ const ModalSwitcher = ({
         <AddModal
           gameId={gameId}
           localDocs={localDocs}
-          saveAction={saveAction}
-          closeAction={closeAction}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
+          savePipe={savePipe}
         />
       );
       break;
@@ -54,7 +58,7 @@ const ModalSwitcher = ({
           gameId={gameId}
           modalPipe={modalPipe}
           setModalPipe={setModalPipe}
-          saveAction={saveAction}
+          savePipe={savePipe}
         />
       );
       break;
@@ -65,7 +69,7 @@ const ModalSwitcher = ({
           gameId={gameId}
           modalPipe={modalPipe}
           setModalPipe={setModalPipe}
-          saveAction={saveAction}
+          savePipe={savePipe}
         />
       );
       break;
@@ -77,8 +81,6 @@ const ModalSwitcher = ({
           userId={userId}
           setModalPipe={setModalPipe}
           setLocalDocs={setLocalDocs}
-          saveAction={saveAction}
-          closeAction={closeAction}
         />
       );
       break;
@@ -98,14 +100,14 @@ const ModalSwitcher = ({
           gameId={gameId}
           modalPipe={modalPipe}
           setModalPipe={setModalPipe}
-          saveAction={saveAction}
+          savePipe={savePipe}
         />
       );
       break;
   }
 
   return (
-    <Modal open={Boolean(modalPipe.type)} onClose={closeAction}>
+    <Modal open={Boolean(modalPipe.type)} onClose={closeModal}>
       <Box sx={theme.customStyles.modal}>
         {modalContent}
       </Box>

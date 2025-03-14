@@ -61,31 +61,26 @@ const GamePage = ({ gameId, userId }) => {
 
   // rate and sort localDocs for display table
   useEffect(() => {
-    const ratedObjs = Object.entries(localDocs).map(([id, data]) => ({
-      id,
-      data,
-      rating: getRating(gameId, id, data),
-    }));
+    const localEntries = Object.entries(localDocs);
+    const ratedDocs = localEntries.map(([id, data]) => {
+      const rating = getRating(gameId, id, data);
+      return { id, data, rating };
+    });
 
-    ratedObjs.sort((a, b) =>
-      a.data.isStar === b.data.isStar
-        ? b.rating.combined - a.rating.combined
-        : a.data.isStar ? -1 : 1);
+    ratedDocs.sort((a, b) => a.data.isStar === b.data.isStar
+      ? b.rating.combined - a.rating.combined
+      : a.data.isStar ? -1 : 1
+    );
 
-    setSortedDocs(ratedObjs);
+    setSortedDocs(ratedDocs);
   }, [localDocs]);
 
   const handleAdd = () => {
-    setModalPipe({
-      type: "add",
-      id: null,
-    });
+    setModalPipe({ type: "add", id: null, data: null });
   };
 
   const handleLoad = () => {
-    setModalPipe({
-      type: "load",
-    });
+    setModalPipe({ type: "load", id: null, data: null });
   };
 
   return (

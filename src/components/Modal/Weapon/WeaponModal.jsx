@@ -7,26 +7,33 @@ import {
   TextField,
   Button,
   Typography,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
 } from "@mui/material";
 import getData from "../../getData";
 import getIcons from "../../getIcons";
-import PreviewWeapon from "./PreviewWeapon";
+import DisplayCard from "./DisplayCard";
 
 const WeaponModal = ({
   gameId,
   modalPipe,
   setModalPipe,
-  saveAction,
+  savePipe,
 }) => {
   const { generalData, avatarData, weaponData } = getData[gameId];
+  const { SECTIONS, LEVEL_CAP, WEAPON_RANK_PREFIX } = generalData;
+  const avatar = avatarData[modalPipe.id];
   const { weaponIcons } = getIcons[gameId];
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const weapOptions = () => {
+  const weaponIdOptions = () => {
     return Object.keys(weaponData)
-      .filter(id => weaponData[id].type === avatarData[modalPipe.id].type)
+      .filter(id => weaponData[id].type === avatar.type)
       .sort((a, b) => {
-        const sig = avatarData[modalPipe.id]?.sig;
+        const sig = avatar.sig;
         if (a === sig) return -1;
         if (b === sig) return 1;
         const rarityA = weaponData[a].rarity;
@@ -37,7 +44,7 @@ const WeaponModal = ({
       });
   };
 
-  const weapRankOptions = () => {
+  const weaponRankOptions = () => {
     const giNoRankOpt = gameId === "gi" && (
       modalPipe.data.weaponId === "11416" || // Kagotsurube Isshin
       modalPipe.data.weaponId === "15415" || // Predator
@@ -56,22 +63,27 @@ const WeaponModal = ({
     
     const noRankOpt = giNoRankOpt;
 
-    return noRankOpt ? [1] : [1, 2, 3, 4, 5];
+    return noRankOpt ? ["1"] : ["1", "2", "3", "4", "5"];
   };
 
-  const handleWeaponId = (newValue) => {
+  const addRankPrefix = (rank) => {
+    return `${WEAPON_RANK_PREFIX}${rank}`;
+  }
+
+  const handleWeaponId = (_, newValue) => {
     setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
         weaponId: newValue,
-        weaponLevel: newValue ? generalData.LEVEL_CAP : null,
-        weaponRank: newValue ? 1 : null,
+        weaponLevel: LEVEL_CAP,
+        weaponRank: 1,
       },
     }));
   };
 
-  const handleWeaponLevel = (newValue) => {
+  const handleWeaponLevel = (event) => {
+    const newValue = event.target.value;
     setModalPipe((prev) => ({
       ...prev,
       data: {
@@ -81,7 +93,8 @@ const WeaponModal = ({
     }));
   };
 
-  const handleWeaponRank = (newValue) => {
+  const handleWeaponRank = (event) => {
+    const newValue = event.target.value;
     setModalPipe((prev) => ({
       ...prev,
       data: {
@@ -91,10 +104,39 @@ const WeaponModal = ({
     }));
   };
 
+  const validate = () => {
+    // validate weaponId
+    if (!modalPipe.data.weaponId) {
+      setError("weaponId");
+      return false;
+    }
+
+    // validate weaponLevel
+    if (!/^[1-9]\d*$/.test(modalPipe.data.weaponLevel)) {
+      setError("weaponLevel");
+      return false;
+    }
+    const weaponLevel = Number(modalPipe.data.weaponLevel);
+    if (weaponLevel < 1 || weaponLevel > LEVEL_CAP) {
+      setError("weaponLevel");
+      return false;
+    }
+
+    // validate weaponRank
+    if (!modalPipe.data.weaponRank) {
+      setError("weaponRank");
+      return false;
+    }
+    setError(null);
+    return true;
+  };
+
   const handleSave = async () => {
-    setIsLoading(true);
-    await saveAction(modalPipe.id, modalPipe.data);
-    setModalPipe({});
+    if (validate()) {
+      setIsLoading(true);
+      await savePipe();
+      setModalPipe({});
+    }
   };
 
   return (
@@ -103,9 +145,9 @@ const WeaponModal = ({
         <Grid size="grow">
           <Autocomplete
             value={modalPipe.data.weaponId}
-            options={weapOptions()}
-            getOptionLabel={(option) => weaponData[option]?.name || ""}
-            onChange={(_, newValue) => handleWeaponId(newValue)}
+            options={weaponIdOptions()}
+            getOptionLabel={(option) => weaponData[option]?.name ?? ""}
+            onChange={handleWeaponId}
             renderOption={(props, option) => {
               const { key, ...optionProps } = props;
               const rarity = weaponData[option]?.rarity;
@@ -127,7 +169,7 @@ const WeaponModal = ({
                     sx={{ width: 25, height: 25, objectFit: "contain" }}
                   />
                   {weaponData[option]?.name}
-                  {option === avatarData[modalPipe.id]?.sig && (
+                  {option === avatar.sig && (
                     <Typography sx={{ color: "text.disabled", ml: 1 }}>(signature)</Typography>
                   )}
                 </Box>
@@ -136,50 +178,45 @@ const WeaponModal = ({
             renderInput={(params) => (
               <TextField
                 {...params}
-                label={generalData.SECTIONS[1]}
+                label={SECTIONS[1]}
+                error={error === "weaponId"}
               />
             )}
           />
         </Grid>
 
         <Grid size="auto">
-          <Autocomplete
-            value={modalPipe?.data.weaponLevel}
-            options={Array.from({ length: generalData.LEVEL_CAP / 10 }, (_, i) => (generalData.LEVEL_CAP - i * 10).toString())}
-            getOptionLabel={(id) => id.toString() || ""}
-            onChange={(_, newValue) => {
-              if (newValue) handleWeaponLevel(newValue);
-            }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Level"
-              />
-            )}
+          <TextField
+            value={modalPipe.data.weaponLevel ?? ""}
+            label="Level"
+            onChange={handleWeaponLevel}
+            slotProps={{ htmlInput: { inputMode: "numeric" } }}
+            sx={{ width: 75 }}
+            error={error === "weaponLevel"}
             disabled={!modalPipe.data.weaponId}
           />
         </Grid>
 
         <Grid size="auto">
-          <Autocomplete
-            value={modalPipe.data.weaponRank}
-            options={weapRankOptions()}
-            getOptionLabel={(opt) => `${generalData.WEAPON_RANK_PREFIX}${opt}`}
-            onChange={(_, newValue) => {
-              if (newValue) handleWeaponRank(newValue);
-            }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Rank"
-              />
-            )}
-            disabled={!modalPipe.data.weaponId}
-          />
+          <FormControl sx={{ width: 75 }} disabled={!modalPipe.data.weaponId}>
+            <InputLabel id="weapon-rank-select" shrink>Rank</InputLabel>
+            <Select
+              labelId="weapon-rank-select"
+              label="Rank"
+              value={modalPipe.data.weaponRank ?? ""}
+              onChange={handleWeaponRank}
+            >
+              {weaponRankOptions().map((rank) => (
+                <MenuItem key={rank} value={rank}>
+                  {addRankPrefix(rank)}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Grid>
 
         <Grid size={12}>
-          <PreviewWeapon
+          <DisplayCard
             gameId={gameId}
             modalPipe={modalPipe}
           />

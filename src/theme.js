@@ -9,6 +9,12 @@ const theme = createTheme({
       dark: "#B8860B",
       contrastText: "#000",
     },
+    grey: {
+      main: "#808080",
+      light: "#808080",
+      dark: "#808080",
+      contrastText: "#000",
+    },
     rarityColor: {
       5: "goldenrod",
       4: "orchid",
@@ -39,6 +45,16 @@ const theme = createTheme({
       },
     },
     MuiTextField: {
+      defaultProps: {
+        size: "small",
+        slotProps: {
+          inputLabel: {
+            shrink: true,
+          },
+        },
+      },
+    },
+    MuiSelect: {
       defaultProps: {
         size: "small",
         slotProps: {
