@@ -139,9 +139,10 @@ const LoadModal = ({
     
           // weapon
           const weaponObj = charObj.equipList[charObj.equipList.length - 1];
-          data.weaponId = weaponObj.itemId.toString();
-          data.weaponLevel = weaponObj.weapon.level;
-          data.weaponRank = (Object.values(weaponObj.weapon.affixMap ?? { rank: 0 })[0] + 1);
+          data.weaponId = String(weaponObj.itemId);
+          data.weaponLevel = String(weaponObj.weapon.level);
+          const weaponRank = Object.values(weaponObj.weapon.affixMap ?? { rank: 0 })[0] + 1;
+          data.weaponRank = String(weaponRank);
 
           // equipList
           const equipListArr = charObj.equipList.slice(0, -1);
@@ -176,10 +177,10 @@ const LoadModal = ({
 
           // weapon
           const weaponObj = charObj.equipment;
-          if (weaponObj) {
-            data.weaponId = String(weaponObj?.tid);
-            data.weaponLevel = weaponObj.level ?? null;
-            data.weaponRank = weaponObj.rank ?? null;
+          if (weaponObj?.tid) {
+            data.weaponId = String(weaponObj.tid);
+            data.weaponLevel = String(weaponObj.level);
+            data.weaponRank = String(weaponObj.rank);
           }
 
           // equipList
@@ -220,10 +221,10 @@ const LoadModal = ({
 
           // weapon
           const weaponObj = charObj.Weapon;
-          if (weaponObj) {
+          if (weaponObj?.Id) {
             data.weaponId = String(weaponObj.Id);
-            data.weaponLevel = weaponObj.Level ?? null;
-            data.weaponRank = weaponObj.UpgradeLevel ?? null;
+            data.weaponLevel = String(weaponObj.Level)
+            data.weaponRank = String(weaponObj.UpgradeLevel);
           }
 
           // equipList

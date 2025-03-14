@@ -63,7 +63,7 @@ const WeaponModal = ({
     
     const noRankOpt = giNoRankOpt;
 
-    return noRankOpt ? [1] : [1, 2, 3, 4, 5];
+    return noRankOpt ? ["1"] : ["1", "2", "3", "4", "5"];
   };
 
   const addRankPrefix = (rank) => {
@@ -93,7 +93,8 @@ const WeaponModal = ({
     }));
   };
 
-  const handleWeaponRank = (newValue) => {
+  const handleWeaponRank = (event) => {
+    const newValue = event.target.value;
     setModalPipe((prev) => ({
       ...prev,
       data: {
@@ -203,7 +204,7 @@ const WeaponModal = ({
               labelId="weapon-rank-select"
               label="Rank"
               value={modalPipe.data.weaponRank ?? ""}
-              onChange={(event) => handleWeaponRank(event.target.value)}
+              onChange={handleWeaponRank}
             >
               {weaponRankOptions().map((rank) => (
                 <MenuItem key={rank} value={rank}>
