@@ -29,6 +29,7 @@ const WeaponModal = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  // weaponId
   const weaponIdOptions = () => {
     return Object.keys(weaponData)
       .filter(id => weaponData[id].type === avatar.type)
@@ -44,6 +45,63 @@ const WeaponModal = ({
       });
   };
 
+  const weaponIdOptionLabel = (id) => {
+    return weaponData[id]?.name ?? "";
+  }
+
+  const handleWeaponId = (_, newValue) => {
+    setModalPipe((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        weaponId: newValue,
+        weaponLevel: LEVEL_CAP,
+        weaponRank: 1,
+      },
+    }));
+  };
+
+  const renderOptionWeaponId = (props, option) => {
+    const { key, ...optionProps } = props;
+    const rarity = weaponData[option]?.rarity;
+    return (
+      <Box
+        key={key}
+        component="li"
+        sx={{
+          "& > img": { mr: 2, flexShrink: 0 },
+          color: `rarityColor.${rarity}`,
+        }}
+        {...optionProps}
+      >
+        <Box
+          component="img"
+          loading="lazy"
+          alt={""}
+          src={weaponIcons[`./${option}.webp`]?.default}
+          sx={{ width: 25, height: 25, objectFit: "contain" }}
+        />
+        {weaponData[option]?.name}
+        {option === avatar.sig && (
+          <Typography sx={{ color: "text.disabled", ml: 1 }}>(signature)</Typography>
+        )}
+      </Box>
+    );
+  };
+
+  // weaponLevel
+  const handleWeaponLevel = (event) => {
+    const newValue = event.target.value;
+    setModalPipe((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        weaponLevel: newValue,
+      },
+    }));
+  };
+
+  // weaponRank
   const weaponRankOptions = () => {
     const giNoRankOpt = gameId === "gi" && (
       modalPipe.data.weaponId === "11416" || // Kagotsurube Isshin
@@ -66,32 +124,9 @@ const WeaponModal = ({
     return noRankOpt ? ["1"] : ["1", "2", "3", "4", "5"];
   };
 
-  const addRankPrefix = (rank) => {
+  const weaponRankOptionLabel = (rank) => {
     return `${WEAPON_RANK_PREFIX}${rank}`;
   }
-
-  const handleWeaponId = (_, newValue) => {
-    setModalPipe((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        weaponId: newValue,
-        weaponLevel: LEVEL_CAP,
-        weaponRank: 1,
-      },
-    }));
-  };
-
-  const handleWeaponLevel = (event) => {
-    const newValue = event.target.value;
-    setModalPipe((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        weaponLevel: newValue,
-      },
-    }));
-  };
 
   const handleWeaponRank = (event) => {
     const newValue = event.target.value;
@@ -104,14 +139,15 @@ const WeaponModal = ({
     }));
   };
 
+  // validate & save
   const validate = () => {
-    // validate weaponId
+    // weaponId
     if (!modalPipe.data.weaponId) {
       setError("weaponId");
       return false;
     }
 
-    // validate weaponLevel
+    // weaponLevel
     if (!/^[1-9]\d*$/.test(modalPipe.data.weaponLevel)) {
       setError("weaponLevel");
       return false;
@@ -122,7 +158,7 @@ const WeaponModal = ({
       return false;
     }
 
-    // validate weaponRank
+    // weaponRank
     if (!modalPipe.data.weaponRank) {
       setError("weaponRank");
       return false;
@@ -144,37 +180,11 @@ const WeaponModal = ({
       <Grid container spacing={2} width={700}>
         <Grid size="grow">
           <Autocomplete
-            value={modalPipe.data.weaponId}
+            value={modalPipe.data.weaponId ?? ""}
             options={weaponIdOptions()}
-            getOptionLabel={(option) => weaponData[option]?.name ?? ""}
+            getOptionLabel={weaponIdOptionLabel}
             onChange={handleWeaponId}
-            renderOption={(props, option) => {
-              const { key, ...optionProps } = props;
-              const rarity = weaponData[option]?.rarity;
-              return (
-                <Box
-                  key={key}
-                  component="li"
-                  sx={{
-                    "& > img": { mr: 2, flexShrink: 0 },
-                    color: `rarityColor.${rarity}`,
-                  }}
-                  {...optionProps}
-                >
-                  <Box
-                    component="img"
-                    loading="lazy"
-                    alt={""}
-                    src={weaponIcons[`./${option}.webp`]?.default}
-                    sx={{ width: 25, height: 25, objectFit: "contain" }}
-                  />
-                  {weaponData[option]?.name}
-                  {option === avatar.sig && (
-                    <Typography sx={{ color: "text.disabled", ml: 1 }}>(signature)</Typography>
-                  )}
-                </Box>
-              );
-            }}
+            renderOption={renderOptionWeaponId}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -199,16 +209,19 @@ const WeaponModal = ({
 
         <Grid size="auto">
           <FormControl sx={{ width: 75 }} disabled={!modalPipe.data.weaponId}>
-            <InputLabel id="weapon-rank-select" shrink>Rank</InputLabel>
+            <InputLabel id="weapon-rank-select" shrink>
+              Rank
+            </InputLabel>
             <Select
               labelId="weapon-rank-select"
               label="Rank"
               value={modalPipe.data.weaponRank ?? ""}
               onChange={handleWeaponRank}
+              notched
             >
               {weaponRankOptions().map((rank) => (
                 <MenuItem key={rank} value={rank}>
-                  {addRankPrefix(rank)}
+                  {weaponRankOptionLabel(rank)}
                 </MenuItem>
               ))}
             </Select>
