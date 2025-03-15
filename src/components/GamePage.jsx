@@ -18,6 +18,7 @@ import { db } from "../firebase";
 import Back from "./Back";
 import ModalSwitcher from "./Modal/ModalSwitcher";
 import getRating from "./getRating/getRating";
+import DeleteAll from "./Table/DeleteAll";
 import Table0Star from "./Table/Table0Star";
 import Table1Avatar from "./Table/Table1Avatar";
 import Table2Weapon from "./Table/Table2Weapon";
@@ -31,6 +32,7 @@ const GamePage = ({ gameId, userId }) => {
   const [localDocs, setLocalDocs] = useState({});
   const [sortedDocs, setSortedDocs] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
+  const [hoveredHead, setHoveredHead] = useState(false);
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -93,14 +95,27 @@ const GamePage = ({ gameId, userId }) => {
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
-              <TableRow>
+              <TableRow
+                onMouseEnter={() => setHoveredHead(true)}
+                onMouseLeave={() => setHoveredHead(false)}
+              >
                 <TableCell sx={{ width: 50, borderBottom: "none" }} />
                 <TableCell sx={{ width: 50 }} />
                 <TableCell sx={{ width: 250 }}>{generalData.SECTIONS[0]}</TableCell>
                 <TableCell align="center" sx={{ width: 125 }}>{generalData.SECTIONS[1]}</TableCell>
                 <TableCell align="center" sx={{ width: 250 }}>{generalData.SECTIONS[2]}</TableCell>
                 <TableCell align="center" sx={{ width: 125 }}>Rating</TableCell>
-                <TableCell sx={{ width: 50, borderBottom: "none" }} />
+                <TableCell sx={{ width: 50, borderBottom: "none" }}>
+                  {Boolean(Object.entries(localDocs).length) && (
+                    <DeleteAll
+                      gameId={gameId}
+                      userId={userId}
+                      localDocs={localDocs}
+                      setLocalDocs={setLocalDocs}
+                      hoveredHead={hoveredHead}
+                    />
+                  )}
+                </TableCell>
               </TableRow>
             </TableHead>
 
