@@ -16,8 +16,8 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import ModalSwitcher from "./Modal/ModalSwitcher";
-import getRating from "./getRating/getRating";
+import ModalSwitcher from "./ModalSwitcher";
+import getRating from "./getRating";
 import DeleteAll from "./Table/DeleteAll";
 import Table0Star from "./Table/Table0Star";
 import Table1Avatar from "./Table/Table1Avatar";

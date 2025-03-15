@@ -2,12 +2,12 @@ import React from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { Modal, Box, useTheme } from "@mui/material";
-import AddModal from "./Add/AddModal";
-import AvatarModal from "./Avatar/AvatarModal";
-import EquipModal from "./Equip/EquipModal";
-import LoadModal from "./Load/LoadModal";
-import RatingModal from "./Rating/RatingModal";
-import WeaponModal from "./Weapon/WeaponModal";
+import AddModal from "./Add";
+import AvatarModal from "./Avatar";
+import EquipModal from "./Equip";
+import LoadModal from "./Load";
+import RatingModal from "./Rating";
+import WeaponModal from "./Weapon";
 
 const ModalSwitcher = ({
   gameId,
