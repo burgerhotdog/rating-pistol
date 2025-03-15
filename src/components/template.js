@@ -4,8 +4,8 @@ export default (gameId) => {
   return {
     isStar: false,
 
-    level: 1,
-    rank: 0,
+    level: "1",
+    rank: "0",
     skillMap: {
       basic: 1,
       skill: 1,

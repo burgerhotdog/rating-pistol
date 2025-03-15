@@ -163,6 +163,7 @@ const WeaponModal = ({
       setError("weaponRank");
       return false;
     }
+    
     setError(null);
     return true;
   };
