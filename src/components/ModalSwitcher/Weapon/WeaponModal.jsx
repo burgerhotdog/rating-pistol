@@ -13,7 +13,7 @@ import {
   Select,
 } from "@mui/material";
 import getData from "../../getData";
-import getIcons from "../../getIcons";
+import getImgs from "../../getImgs";
 import DisplayCard from "./DisplayCard";
 
 const WeaponModal = ({
@@ -24,7 +24,7 @@ const WeaponModal = ({
 }) => {
   const { WEAPON_PREFIX, LEVEL_CAP, HEADERS, AVATAR_DATA, WEAPON_DATA } = getData[gameId];
   const avatar = AVATAR_DATA[modalPipe.id];
-  const { weaponIcons } = getIcons[gameId];
+  const { WEAPON_IMGS } = getImgs[gameId];
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -77,7 +77,7 @@ const WeaponModal = ({
           component="img"
           loading="lazy"
           alt={""}
-          src={weaponIcons[`./${option}.webp`]?.default}
+          src={WEAPON_IMGS[`./${option}.webp`]?.default}
           sx={{ width: 25, height: 25, objectFit: "contain" }}
         />
         {WEAPON_DATA[option]?.name}

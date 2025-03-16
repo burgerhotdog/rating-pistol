@@ -6,12 +6,12 @@ import {
   Typography,
 } from "@mui/material";
 import getData from "../../getData"
-import getIcons from "../../getIcons";
+import getImgs from "../../getImgs";
 import getWeaponDescArr from "./getWeaponDescArr";
 
 const DisplayCard = ({ gameId, modalPipe }) => {
   const { HEADERS, STAT_INDEX, WEAPON_DATA } = getData[gameId];
-  const { weaponIcons } = getIcons[gameId];
+  const { WEAPON_IMGS } = getImgs[gameId];
 
   const weaponId = modalPipe.data.weaponId;
   const weapon = WEAPON_DATA?.[weaponId];
@@ -39,7 +39,7 @@ const DisplayCard = ({ gameId, modalPipe }) => {
         <Box
           component="img"
           alt={weaponId}
-          src={weaponIcons[`./${weaponId}.webp`]?.default}
+          src={WEAPON_IMGS[`./${weaponId}.webp`]?.default}
           sx={{ width: 200, height: 200, objectFit: "contain" }}
         />
         

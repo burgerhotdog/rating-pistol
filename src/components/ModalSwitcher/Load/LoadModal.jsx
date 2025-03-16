@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import template from "../../template";
 import getData from "../../getData";
-import getIcons from "../../getIcons";
+import getImgs from "../../getImgs";
 import translate from "./translate";
 
 const LoadModal = ({
@@ -22,7 +22,7 @@ const LoadModal = ({
   setLocalDocs
 }) => {
   const { STAT_INDEX, AVATAR_DATA } = getData[gameId];
-  const { avatarIcons } = getIcons[gameId];
+  const { AVATAR_IMGS } = getImgs[gameId];
   const [error, setError] = useState(false);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);
@@ -339,7 +339,7 @@ const LoadModal = ({
                 <Box
                   component="img"
                   loading="lazy"
-                  src={avatarIcons[`./${avatar.avatarId}.webp`]?.default}
+                  src={AVATAR_IMGS[`./${avatar.avatarId}.webp`]?.default}
                   alt={avatar.avatarId}
                   sx={{ width: 25, height: 25, objectFit: "contain" }}
                 />

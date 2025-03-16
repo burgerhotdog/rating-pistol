@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack, Box, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
-import getIcons from "../getIcons";
+import getImgs from "../getImgs";
 import getSetBonuses from "../getSetBonuses";
 import sortSetBonuses from "../sortSetBonuses";
 
@@ -13,7 +13,7 @@ const Table3EquipList = ({
   data,
 }) => {
   const { HEADERS } = getData[gameId];
-  const { setIcons } = getIcons[gameId];
+  const { SET_IMGS } = getImgs[gameId];
   
   const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
   const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
@@ -52,7 +52,7 @@ const Table3EquipList = ({
           >
             <Avatar
               alt={setId}
-              src={setIcons[`./${setId}.webp`]?.default}
+              src={SET_IMGS[`./${setId}.webp`]?.default}
             />
           </Badge>
         ))}

@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Badge, Avatar, Tooltip } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
-import getIcons from "../getIcons";
+import getImgs from "../getImgs";
 
 const Table2Weapon = ({
   gameId,
@@ -11,7 +11,7 @@ const Table2Weapon = ({
   data,
 }) => {
   const { WEAPON_PREFIX, HEADERS } = getData[gameId];
-  const { weaponIcons } = getIcons[gameId];
+  const { WEAPON_IMGS } = getImgs[gameId];
 
   const openModal = () => {
     setModalPipe({
@@ -40,7 +40,7 @@ const Table2Weapon = ({
         >
           <Avatar
             alt={data.weaponId}
-            src={weaponIcons[`./${data.weaponId}.webp`]?.default}
+            src={WEAPON_IMGS[`./${data.weaponId}.webp`]?.default}
           />
         </Badge>
       </Stack>

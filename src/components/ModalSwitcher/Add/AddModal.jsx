@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import template from "../../template";
 import getData from "../../getData";
-import getIcons from "../../getIcons";
+import getImgs from "../../getImgs";
 
 const AddModal = ({
   gameId,
@@ -18,7 +18,7 @@ const AddModal = ({
   savePipe,
 }) => {
   const { LEVEL_CAP, AVATAR_DATA } = getData[gameId];
-  const { avatarIcons } = getIcons[gameId];
+  const { AVATAR_IMGS } = getImgs[gameId];
   const [isLoading, setIsLoading] = useState(false);
   
   const charOptions = () => {
@@ -76,7 +76,7 @@ const AddModal = ({
               <Box
                 component="img"
                 loading="lazy"
-                src={avatarIcons[`./${option}.webp`]?.default}
+                src={AVATAR_IMGS[`./${option}.webp`]?.default}
                 alt={""}
                 sx={{ width: 25, height: 25, objectFit: "contain" }}
               />

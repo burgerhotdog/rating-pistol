@@ -7,13 +7,13 @@ import {
   Typography,
 } from "@mui/material";
 import getData from "../../getData"
-import getIcons from "../../getIcons";
+import getImgs from "../../getImgs";
 import getSetBonuses from "../../getSetBonuses";
 import sortSetBonuses from "../../sortSetBonuses";
 
 const PreviewSet = ({ gameId, modalPipe }) => {
   const { SET_DATA } = getData[gameId];
-  const { setIcons } = getIcons[gameId];
+  const { SET_IMGS } = getImgs[gameId];
 
   const setBonuses = useMemo(() => getSetBonuses(gameId, modalPipe.data.equipList), [modalPipe.data.equipList]);
   const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
@@ -39,7 +39,7 @@ const PreviewSet = ({ gameId, modalPipe }) => {
               <Box
                 component="img"
                 alt={setId}
-                src={setIcons[`./${setId}.webp`]?.default}
+                src={SET_IMGS[`./${setId}.webp`]?.default}
                 sx={{ width: 75, height: 75, objectFit: "contain" }}
               />
               

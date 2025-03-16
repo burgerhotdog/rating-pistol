@@ -9,7 +9,7 @@ import {
   InputAdornment,
 } from "@mui/material";
 import getData from "../../getData";
-import getIcons from "../../getIcons";
+import getImgs from "../../getImgs";
 
 const EquipCard = ({
   gameId,
@@ -18,7 +18,7 @@ const EquipCard = ({
   mainIndex,
 }) => {
   const { MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX, SET_DATA } = getData[gameId];
-  const { setIcons } = getIcons[gameId];
+  const { SET_IMGS } = getImgs[gameId];
 
   const handleSet = (newValue) => {
     setModalPipe((prev) => ({
@@ -140,7 +140,7 @@ const EquipCard = ({
                     component="img"
                     loading="lazy"
                     alt={""}
-                    src={setIcons[`./${id}.webp`]?.default}
+                    src={SET_IMGS[`./${id}.webp`]?.default}
                     sx={{ width: 25, height: 25, objectFit: "contain" }}
                   />
                   

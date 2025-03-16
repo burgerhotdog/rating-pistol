@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
 import getData from "../getData";
-import getIcons from "../getIcons";
+import getImgs from "../getImgs";
 
 const Table1Avatar = ({
   gameId,
@@ -10,7 +10,7 @@ const Table1Avatar = ({
   data,
 }) => {
   const { HEADERS, PREFIX, AVATAR_DATA } = getData[gameId];
-  const { avatarIcons } = getIcons[gameId];
+  const { AVATAR_IMGS } = getImgs[gameId];
   
   const openModal = () => {
     setModalPipe({
@@ -42,7 +42,7 @@ const Table1Avatar = ({
         >
           <Avatar
             alt={AVATAR_DATA[id].name}
-            src={avatarIcons[`./${id}.webp`]?.default}
+            src={AVATAR_IMGS[`./${id}.webp`]?.default}
           />
         </Badge>
         
