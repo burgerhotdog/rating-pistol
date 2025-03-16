@@ -12,8 +12,7 @@ const Table3EquipList = ({
   id,
   data,
 }) => {
-  const { generalData } = getData[gameId];
-  const { SECTIONS } = generalData;
+  const { HEADERS } = getData[gameId];
   const { setIcons } = getIcons[gameId];
   
   const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
@@ -29,14 +28,14 @@ const Table3EquipList = ({
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <Tooltip title={`Add ${SECTIONS[2]}`} arrow>
+      <Tooltip title={`Add ${HEADERS.equips}`} arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title={`Edit ${SECTIONS[2]}`} arrow>
+    <Tooltip title={`Edit ${HEADERS.equips}`} arrow>
       <Stack
         onClick={openModal}
         display="inline-flex"

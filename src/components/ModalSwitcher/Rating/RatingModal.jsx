@@ -1,9 +1,7 @@
 import React from "react";
 import { Stack, Typography } from "@mui/material";
-import getData from "../../getData";
 
 const RatingModal = ({ gameId, modalPipe }) => {
-  const { SECTIONS } = getData[gameId].generalData;
 
   return (
     <Stack spacing={2}>
@@ -16,11 +14,11 @@ const RatingModal = ({ gameId, modalPipe }) => {
       </Typography>
 
       <Typography variant="body2">
-        {`${SECTIONS[3]}: ${Math.round(modalPipe.rating.parts[1])}% complete`}
+        {`Skills: ${Math.round(modalPipe.rating.parts[1])}% complete`}
       </Typography>
 
       <Typography variant="body2">
-        {`${SECTIONS[2]}: ${Math.round(modalPipe.rating.parts[2])}% complete`}
+        {`Equip: ${Math.round(modalPipe.rating.parts[2])}% complete`}
       </Typography>
     </Stack>
   );

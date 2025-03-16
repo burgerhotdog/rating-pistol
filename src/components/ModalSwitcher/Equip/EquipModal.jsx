@@ -18,7 +18,6 @@ import {
 import EquipCard from "./EquipCard";
 import PreviewSet from "./PreviewSet";
 import getData from "../../getData";
-import getIcons from "../../getIcons";
 
 const EquipModal = ({
   gameId,
@@ -26,9 +25,9 @@ const EquipModal = ({
   setModalPipe,
   savePipe,
 }) => {
-  const { equipData } = getData[gameId];
+  const { EQUIP_NAMES } = getData[gameId];
   const [viewIndex, setViewIndex] = useState(0);
-  const equipSlots = [...Array(equipData.EQUIP_NAMES.length).keys()];
+  const equipSlots = [...Array(EQUIP_NAMES.length).keys()];
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
@@ -51,7 +50,7 @@ const EquipModal = ({
                       onClick={() => setViewIndex(index)}
                       selected={viewIndex === index}
                     >
-                      <ListItemText primary={equipData.EQUIP_NAMES[index]} />
+                      <ListItemText primary={EQUIP_NAMES[index]} />
                     </ListItemButton>
                   </ListItem>
                 ))}

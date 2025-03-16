@@ -10,11 +10,11 @@ import getIcons from "../../getIcons";
 import getWeaponDescArr from "./getWeaponDescArr";
 
 const DisplayCard = ({ gameId, modalPipe }) => {
-  const { generalData, equipData, weaponData } = getData[gameId];
+  const { HEADERS, STAT_INDEX, WEAPON_DATA } = getData[gameId];
   const { weaponIcons } = getIcons[gameId];
 
   const weaponId = modalPipe.data.weaponId;
-  const weapon = weaponData?.[weaponId];
+  const weapon = WEAPON_DATA?.[weaponId];
 
   const weaponDescArr = useMemo(
     () => getWeaponDescArr(weapon, modalPipe.data.weaponRank),
@@ -26,7 +26,7 @@ const DisplayCard = ({ gameId, modalPipe }) => {
       <Card sx={{ p: 2 }}>
         <Stack justifyContent="center" alignItems="center" sx={{ minHeight: 200 }}>
           <Typography variant="body1" color="text.disabled">
-            No {generalData.SECTIONS[1]} Selected
+            No {HEADERS.weapon} Selected
           </Typography>
         </Stack>
       </Card>
@@ -49,7 +49,7 @@ const DisplayCard = ({ gameId, modalPipe }) => {
           </Typography>
 
           {Object.entries(weapon.statBase).map(([key, value]) => {
-            const { name } = equipData.STAT_INDEX[key] || {};
+            const { name } = STAT_INDEX[key] || {};
             return (
               <Typography key={key} variant="body2">
                 Base {name}: {value}
@@ -59,7 +59,7 @@ const DisplayCard = ({ gameId, modalPipe }) => {
 
           {weapon.statSub && (
             Object.entries(weapon.statSub).map(([key, value]) => {
-              const { name, percent } = equipData.STAT_INDEX[key] || {};
+              const { name, percent } = STAT_INDEX[key] || {};
               return (
                 <Typography key={key} variant="body2">
                   {name}: {value}

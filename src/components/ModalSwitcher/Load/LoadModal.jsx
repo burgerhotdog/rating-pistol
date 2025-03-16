@@ -21,7 +21,7 @@ const LoadModal = ({
   setModalPipe,
   setLocalDocs
 }) => {
-  const { equipData, avatarData } = getData[gameId];
+  const { STAT_INDEX, AVATAR_DATA } = getData[gameId];
   const { avatarIcons } = getIcons[gameId];
   const [error, setError] = useState(false);
   const [uid, setUid] = useState(null);
@@ -29,7 +29,7 @@ const LoadModal = ({
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { STAT_INDEX } = translate(gameId);
+  const { STAT_CONVERT } = translate(gameId);
 
   const suffix = {
     gi: "uid/",
@@ -149,10 +149,10 @@ const LoadModal = ({
           for (const equipObj of equipListArr) {
             const equipIndex = equipTypeToIndex[equipObj.flat.equipType];
             data.equipList[equipIndex].setId = equipObj.flat.icon.substring(13, 18);
-            data.equipList[equipIndex].key = STAT_INDEX[equipObj.flat.reliquaryMainstat.mainPropId];
+            data.equipList[equipIndex].key = STAT_CONVERT[equipObj.flat.reliquaryMainstat.mainPropId];
             const reliqSubArr = equipObj.flat.reliquarySubstats;
             for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
-              data.equipList[equipIndex].statMap[subIndex].key = STAT_INDEX[reliqSubObj.appendPropId];
+              data.equipList[equipIndex].statMap[subIndex].key = STAT_CONVERT[reliqSubObj.appendPropId];
               data.equipList[equipIndex].statMap[subIndex].value = reliqSubObj.statValue.toString();
             }
           }
@@ -188,10 +188,10 @@ const LoadModal = ({
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.type - 1;
             data.equipList[equipIndex].setId = relicObj._flat.setID.toString();
-            data.equipList[equipIndex].key = STAT_INDEX[relicObj._flat.props[0].type];
+            data.equipList[equipIndex].key = STAT_CONVERT[relicObj._flat.props[0].type];
             const subPropsArr = relicObj._flat.props.slice(1);
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
-              data.equipList[equipIndex].statMap[subIndex].key = STAT_INDEX[subPropObj.type];
+              data.equipList[equipIndex].statMap[subIndex].key = STAT_CONVERT[subPropObj.type];
               const valueRatio = subPropObj.type.slice(-5) === "Delta" ? 1 : 100;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               data.equipList[equipIndex].statMap[subIndex].value = Math.round((subPropObj.value * valueRatio) * roundAmount) / roundAmount;
@@ -232,13 +232,13 @@ const LoadModal = ({
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.Slot - 1;
             data.equipList[equipIndex].setId = `${Math.floor(relicObj.Equipment.Id / 100)}00`;
-            data.equipList[equipIndex].key = STAT_INDEX[relicObj.Equipment.MainPropertyList[0].PropertyId];
+            data.equipList[equipIndex].key = STAT_CONVERT[relicObj.Equipment.MainPropertyList[0].PropertyId];
             const subPropsArr = relicObj.Equipment.RandomPropertyList;
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
-              const key = STAT_INDEX[String(subPropObj.PropertyId)];
+              const key = STAT_CONVERT[String(subPropObj.PropertyId)];
               data.equipList[equipIndex].statMap[subIndex].key = key;
               const value = subPropObj.PropertyValue;
-              const valueRatio = equipData.STAT_INDEX[key].percent ? 0.01 : 1;
+              const valueRatio = STAT_INDEX[key].percent ? 0.01 : 1;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               const timesAppeared = subPropObj.PropertyLevel;
               data.equipList[equipIndex].statMap[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
@@ -345,7 +345,7 @@ const LoadModal = ({
                 />
 
                 <Typography variant="body2">
-                  {avatarData[avatar.avatarId].name}
+                  {AVATAR_DATA[avatar.avatarId].name}
                 </Typography>
               </Stack>
             }

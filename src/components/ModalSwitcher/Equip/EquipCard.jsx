@@ -17,8 +17,7 @@ const EquipCard = ({
   setModalPipe,
   mainIndex,
 }) => {
-  const { equipData, setData } = getData[gameId];
-  const { MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX } = equipData;
+  const { MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX, SET_DATA } = getData[gameId];
   const { setIcons } = getIcons[gameId];
 
   const handleSet = (newValue) => {
@@ -100,18 +99,18 @@ const EquipCard = ({
   };
 
   const setOptions = () => {
-    return Object.keys(setData)
+    return Object.keys(SET_DATA)
       .filter(id => 
         gameId === "hsr"
           ? mainIndex <= 3
-            ? setData[id].type === "Relic"
-            : setData[id].type === "Planar" : true)
+            ? SET_DATA[id].type === "Relic"
+            : SET_DATA[id].type === "Planar" : true)
       .sort((a, b) => {
-        const rarityA = setData[a].rarity;
-        const rarityB = setData[b].rarity;
+        const rarityA = SET_DATA[a].rarity;
+        const rarityB = SET_DATA[b].rarity;
         return rarityA !== rarityB
           ? rarityB - rarityA
-          : setData[a].name.localeCompare(setData[b].name);
+          : SET_DATA[a].name.localeCompare(SET_DATA[b].name);
       });
   };
 
@@ -122,11 +121,11 @@ const EquipCard = ({
           <Autocomplete
             value={modalPipe.data.equipList[mainIndex].setId}
             options={setOptions()}
-            getOptionLabel={(id) => setData[id]?.name || ""}
+            getOptionLabel={(id) => SET_DATA[id]?.name || ""}
             onChange={(_, newValue) => handleSet(newValue)}
             renderOption={(props, id) => {
               const { key, ...idProps } = props;
-              const rarity = setData[id]?.rarity;
+              const rarity = SET_DATA[id]?.rarity;
               return (
                 <Box
                   key={key}
@@ -145,7 +144,7 @@ const EquipCard = ({
                     sx={{ width: 25, height: 25, objectFit: "contain" }}
                   />
                   
-                  {setData[id]?.name || ""}
+                  {SET_DATA[id]?.name || ""}
                 </Box>
               );
             }}

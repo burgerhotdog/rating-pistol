@@ -1,12 +1,9 @@
-import React, { useMemo } from "react";
-import { Badge, Avatar, Box, Stack, Tooltip, Typography } from "@mui/material";
-import { ErrorOutline } from '@mui/icons-material';
-import getData from "../getData";
+import React from "react";
+import { Badge, Avatar, Stack, Tooltip, Typography } from "@mui/material";
 import getLetter from "../getLetter";
 import letterIcons from "../../assets/icons";
 
 const Table4Rating = ({
-  gameId,
   setModalPipe,
   id,
   data,

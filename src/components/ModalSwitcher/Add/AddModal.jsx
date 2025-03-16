@@ -17,26 +17,26 @@ const AddModal = ({
   setModalPipe,
   savePipe,
 }) => {
-  const { generalData, avatarData } = getData[gameId];
+  const { LEVEL_CAP, AVATAR_DATA } = getData[gameId];
   const { avatarIcons } = getIcons[gameId];
   const [isLoading, setIsLoading] = useState(false);
   
   const charOptions = () => {
-    return Object.keys(avatarData)
+    return Object.keys(AVATAR_DATA)
       .filter(id => !Object.keys(localDocs).includes(id))
       .sort((a, b) => {
-        const rarityA = avatarData[a].rarity;
-        const rarityB = avatarData[b].rarity;
+        const rarityA = AVATAR_DATA[a].rarity;
+        const rarityB = AVATAR_DATA[b].rarity;
         return rarityA != rarityB
           ? rarityB - rarityA
-          : avatarData[a].name.localeCompare(avatarData[b].name);
+          : AVATAR_DATA[a].name.localeCompare(AVATAR_DATA[b].name);
       });
   };
 
   const handleSelect = (newValue) => {
     const id = newValue;
     const data = template(gameId);
-    data.level = generalData.LEVEL_CAP;
+    data.level = LEVEL_CAP;
     data.rank = 0;
 
     setModalPipe((prev) => ({
@@ -58,11 +58,11 @@ const AddModal = ({
       <Autocomplete
         value={modalPipe.id}
         options={charOptions()}
-        getOptionLabel={(option) => avatarData[option]?.name || ""}
+        getOptionLabel={(option) => AVATAR_DATA[option]?.name || ""}
         onChange={(_, newValue) => handleSelect(newValue)}
         renderOption={(props, option) => {
           const { key, ...optionProps } = props;
-          const rarity = avatarData[option]?.rarity;
+          const rarity = AVATAR_DATA[option]?.rarity;
           return (
             <Box
               key={key}
@@ -80,7 +80,7 @@ const AddModal = ({
                 alt={""}
                 sx={{ width: 25, height: 25, objectFit: "contain" }}
               />
-              {avatarData[option].name}
+              {AVATAR_DATA[option].name}
             </Box>
           );
         }}

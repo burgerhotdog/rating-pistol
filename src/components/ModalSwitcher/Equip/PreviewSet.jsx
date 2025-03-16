@@ -12,7 +12,7 @@ import getSetBonuses from "../../getSetBonuses";
 import sortSetBonuses from "../../sortSetBonuses";
 
 const PreviewSet = ({ gameId, modalPipe }) => {
-  const { setData } = getData[gameId];
+  const { SET_DATA } = getData[gameId];
   const { setIcons } = getIcons[gameId];
 
   const setBonuses = useMemo(() => getSetBonuses(gameId, modalPipe.data.equipList), [modalPipe.data.equipList]);
@@ -45,10 +45,10 @@ const PreviewSet = ({ gameId, modalPipe }) => {
               
               <Stack>
                 <Typography variant="subtitle1" fontWeight="bold">
-                  {setData[setId].name}
+                  {SET_DATA[setId].name}
                 </Typography>
 
-                {Object.entries(setData[setId].desc)
+                {Object.entries(SET_DATA[setId].desc)
                   .filter(([numBonus]) => numPc >= numBonus)
                   .map(([numBonus, effect]) => (
                     <Typography key={numBonus} variant="body2" sx={{ whiteSpace: "pre-line" }}>

@@ -22,31 +22,30 @@ const WeaponModal = ({
   setModalPipe,
   savePipe,
 }) => {
-  const { generalData, avatarData, weaponData } = getData[gameId];
-  const { SECTIONS, LEVEL_CAP, WEAPON_RANK_PREFIX } = generalData;
-  const avatar = avatarData[modalPipe.id];
+  const { WEAPON_PREFIX, LEVEL_CAP, HEADERS, AVATAR_DATA, WEAPON_DATA } = getData[gameId];
+  const avatar = AVATAR_DATA[modalPipe.id];
   const { weaponIcons } = getIcons[gameId];
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   // weaponId
   const weaponIdOptions = () => {
-    return Object.keys(weaponData)
-      .filter(id => weaponData[id].type === avatar.type)
+    return Object.keys(WEAPON_DATA)
+      .filter(id => WEAPON_DATA[id].type === avatar.type)
       .sort((a, b) => {
         const sig = avatar.sig;
         if (a === sig) return -1;
         if (b === sig) return 1;
-        const rarityA = weaponData[a].rarity;
-        const rarityB = weaponData[b].rarity;
+        const rarityA = WEAPON_DATA[a].rarity;
+        const rarityB = WEAPON_DATA[b].rarity;
         return rarityA !== rarityB
           ? rarityB - rarityA
-          : weaponData[a].name.localeCompare(weaponData[b].name);
+          : WEAPON_DATA[a].name.localeCompare(WEAPON_DATA[b].name);
       });
   };
 
   const weaponIdOptionLabel = (id) => {
-    return weaponData[id]?.name ?? "";
+    return WEAPON_DATA[id]?.name ?? "";
   }
 
   const handleWeaponId = (_, newValue) => {
@@ -63,7 +62,7 @@ const WeaponModal = ({
 
   const renderOptionWeaponId = (props, option) => {
     const { key, ...optionProps } = props;
-    const rarity = weaponData[option]?.rarity;
+    const rarity = WEAPON_DATA[option]?.rarity;
     return (
       <Box
         key={key}
@@ -81,7 +80,7 @@ const WeaponModal = ({
           src={weaponIcons[`./${option}.webp`]?.default}
           sx={{ width: 25, height: 25, objectFit: "contain" }}
         />
-        {weaponData[option]?.name}
+        {WEAPON_DATA[option]?.name}
         {option === avatar.sig && (
           <Typography sx={{ color: "text.disabled", ml: 1 }}>(signature)</Typography>
         )}
@@ -125,7 +124,7 @@ const WeaponModal = ({
   };
 
   const weaponRankOptionLabel = (rank) => {
-    return `${WEAPON_RANK_PREFIX}${rank}`;
+    return `${WEAPON_PREFIX}${rank}`;
   }
 
   const handleWeaponRank = (event) => {
@@ -189,7 +188,7 @@ const WeaponModal = ({
             renderInput={(params) => (
               <TextField
                 {...params}
-                label={SECTIONS[1]}
+                label={HEADERS.weapon}
                 error={error === "weaponId"}
               />
             )}

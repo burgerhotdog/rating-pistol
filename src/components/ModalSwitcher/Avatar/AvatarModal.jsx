@@ -22,8 +22,7 @@ const AvatarModal = ({
   setModalPipe,
   savePipe,
 }) => {
-  const { generalData } = getData[gameId];
-  const { LEVEL_CAP, RANK_PREFIX } = generalData;
+  const { LEVEL_CAP, PREFIX, SKILL_INDEX } = getData[gameId];
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   
@@ -51,7 +50,7 @@ const AvatarModal = ({
   };
 
   const rankOptionLabel = (rank) => {
-    return `${RANK_PREFIX}${rank}`;
+    return `${PREFIX}${rank}`;
   }
 
   const handleRank = (event) => {
@@ -148,7 +147,7 @@ const AvatarModal = ({
             key={skillKey}
             value={skillValue}
             options={Array.from(
-              { length: generalData.SKILL_DATA[skillKey].skill_cap }, 
+              { length: SKILL_INDEX[skillKey].levelCap }, 
               (_, i) => (i + 1)
             )}
             getOptionLabel={(id) => String(id)}
