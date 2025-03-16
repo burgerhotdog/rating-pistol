@@ -9,6 +9,7 @@ const HEADERS = {
   avatar: "Character",
   weapon: "Weapon",
   equips: "Artifacts",
+  skills: "Talents",
 };
 
 const SKILL_INDEX = {

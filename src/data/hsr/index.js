@@ -1,6 +1,6 @@
-import AVATAR_DATA from "./avatarData";
-import WEAPON_DATA from "./weaponData";
-import SET_DATA from "./setData";
+import AVATAR_DATA from "./AVATAR_DATA";
+import WEAPON_DATA from "./WEAPON_DATA";
+import SET_DATA from "./SET_DATA";
 
 const TITLE = "Honkai Star Rail";
 const VERSION = "3.1";
@@ -9,6 +9,7 @@ const HEADERS = {
   avatar: "Character",
   weapon: "Light Cone",
   equips: "Relics",
+  skills: "Traces",
 };
 
 const SKILL_INDEX = {

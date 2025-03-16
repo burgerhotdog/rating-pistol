@@ -1,6 +1,6 @@
-import AVATAR_DATA from "./avatarData";
-import WEAPON_DATA from "./weaponData";
-import SET_DATA from "./setData";
+import AVATAR_DATA from "./AVATAR_DATA";
+import WEAPON_DATA from "./WEAPON_DATA";
+import SET_DATA from "./SET_DATA";
 
 const TITLE = "Wuthering Waves";
 const VERSION = "2.1";
@@ -9,6 +9,7 @@ const HEADERS = {
   avatar: "Resonator",
   weapon: "Weapon",
   equips: "Echoes",
+  skills: "Skills",
 };
 
 const SKILL_INDEX = {

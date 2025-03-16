@@ -1,6 +1,6 @@
-import AVATAR_DATA from "./avatarData";
-import WEAPON_DATA from "./weaponData";
-import SET_DATA from "./setData";
+import AVATAR_DATA from "./AVATAR_DATA";
+import WEAPON_DATA from "./WEAPON_DATA";
+import SET_DATA from "./SET_DATA";
 
 const TITLE = "Zenless Zone Zero";
 const VERSION = "1.6";
@@ -9,6 +9,7 @@ const HEADERS = {
   avatar: "Agent",
   weapon: "W-Engine",
   equips: "Drive Discs",
+  skills: "Skills",
 };
 
 const SKILL_INDEX = {
