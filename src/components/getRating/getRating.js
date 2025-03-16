@@ -1,6 +1,7 @@
 import rateLevels from "./rateLevels";
 import rateSkills from "./rateSkills";
 import rateEquips from "./rateEquips";
+import letterSrc from "./letterSrc";
 
 const getRating = (gameId, id, data) => {
   const levels = rateLevels(gameId, data);
@@ -13,9 +14,11 @@ const getRating = (gameId, id, data) => {
       0.3 * skills +
       0.3 * equips;
 
+  const letter = letterSrc(combined);
+
   const parts = [levels, skills, equips];
 
-  return { combined, parts };
+  return { combined, letter, parts };
 };
 
 export default getRating;

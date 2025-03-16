@@ -1,7 +1,6 @@
 import React from "react";
-import { Badge, Avatar, Stack, Tooltip, Typography } from "@mui/material";
-import getLetter from "../getLetter";
-import letterIcons from "../../assets/icons";
+import { Badge, Avatar, Stack, Tooltip } from "@mui/material";
+import letterIcons from "../../assets";
 
 const Table4Rating = ({
   setModalPipe,
@@ -9,8 +8,6 @@ const Table4Rating = ({
   data,
   rating,
 }) => {
-  const letterSrc = letterIcons[`./letter_${getLetter(rating.combined)}.webp`]?.default;
-
   const openModal = () => {
     setModalPipe({
       type: "rating",
@@ -26,7 +23,7 @@ const Table4Rating = ({
         <Badge onClick={openModal}>
           <Avatar
             alt={rating.final}
-            src={letterSrc}
+            src={letterIcons[`./${rating.letter}.webp`]?.default}
             sx={{ width: 32, height: 32 }}
           />
         </Badge>
