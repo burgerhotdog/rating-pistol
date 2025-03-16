@@ -1,7 +1,7 @@
 import getData from "./getData";
 
 export default (gameId, setBonuses) => {
-  const { setData } = getData[gameId];
+  const { SET_DATA } = getData[gameId];
   
   return Object.entries(setBonuses)
     .sort(([setIdA, numBonusA], [setIdB, numBonusB]) => {
@@ -19,8 +19,8 @@ export default (gameId, setBonuses) => {
     .sort(([setIdA, numBonusA], [setIdB, numBonusB]) => {
       // Step 3: For "hsr" gameId, move Planar type entries to the back
       if (gameId === "hsr") {
-        const isPlanarA = setData[setIdA]?.type === "Planar";
-        const isPlanarB = setData[setIdB]?.type === "Planar";
+        const isPlanarA = SET_DATA[setIdA]?.type === "Planar";
+        const isPlanarB = SET_DATA[setIdB]?.type === "Planar";
 
         // If one is Planar and the other is not, move Planar to the back
         if (isPlanarA && !isPlanarB) return 1;

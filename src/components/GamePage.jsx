@@ -16,8 +16,9 @@ import {
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import ModalSwitcher from "./Modal/ModalSwitcher";
-import getRating from "./getRating/getRating";
+import ModalSwitcher from "./ModalSwitcher";
+import getRating from "./getRating";
+import DeleteAll from "./Table/DeleteAll";
 import Table0Star from "./Table/Table0Star";
 import Table1Avatar from "./Table/Table1Avatar";
 import Table2Weapon from "./Table/Table2Weapon";
@@ -27,10 +28,11 @@ import Table5Delete from "./Table/Table5Delete";
 import getData from "./getData";
 
 const GamePage = ({ gameId, userId }) => {
-  const { generalData } = getData[gameId];
+  const { TITLE, VERSION, HEADERS } = getData[gameId];
   const [localDocs, setLocalDocs] = useState({});
   const [sortedDocs, setSortedDocs] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
+  const [hoveredHead, setHoveredHead] = useState(false);
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -87,20 +89,33 @@ const GamePage = ({ gameId, userId }) => {
     <Container>
       <Back />
       <Stack alignItems="center" sx={{ mt: 4 }}>
-        <Typography variant="h4">{generalData.TITLE}</Typography>
-        <Typography variant="body2">Updated for version {generalData.VERSION}</Typography>
+        <Typography variant="h4">{TITLE}</Typography>
+        <Typography variant="body2">Updated for version {VERSION}</Typography>
 
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
-              <TableRow>
+              <TableRow
+                onMouseEnter={() => setHoveredHead(true)}
+                onMouseLeave={() => setHoveredHead(false)}
+              >
                 <TableCell sx={{ width: 50, borderBottom: "none" }} />
                 <TableCell sx={{ width: 50 }} />
-                <TableCell sx={{ width: 250 }}>{generalData.SECTIONS[0]}</TableCell>
-                <TableCell align="center" sx={{ width: 125 }}>{generalData.SECTIONS[1]}</TableCell>
-                <TableCell align="center" sx={{ width: 250 }}>{generalData.SECTIONS[2]}</TableCell>
+                <TableCell sx={{ width: 250 }}>{HEADERS.avatar}</TableCell>
+                <TableCell align="center" sx={{ width: 125 }}>{HEADERS.weapon}</TableCell>
+                <TableCell align="center" sx={{ width: 250 }}>{HEADERS.equips}</TableCell>
                 <TableCell align="center" sx={{ width: 125 }}>Rating</TableCell>
-                <TableCell sx={{ width: 50, borderBottom: "none" }} />
+                <TableCell sx={{ width: 50, borderBottom: "none" }}>
+                  {Boolean(Object.entries(localDocs).length) && (
+                    <DeleteAll
+                      gameId={gameId}
+                      userId={userId}
+                      localDocs={localDocs}
+                      setLocalDocs={setLocalDocs}
+                      hoveredHead={hoveredHead}
+                    />
+                  )}
+                </TableCell>
               </TableRow>
             </TableHead>
 
@@ -161,7 +176,6 @@ const GamePage = ({ gameId, userId }) => {
 
                     <TableCell align="center">
                       <Table4Rating
-                        gameId={gameId}
                         setModalPipe={setModalPipe}
                         id={id}
                         data={data}

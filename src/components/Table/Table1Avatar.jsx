@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
 import getData from "../getData";
-import getIcons from "../getIcons";
+import getImgs from "../getImgs";
 
 const Table1Avatar = ({
   gameId,
@@ -9,9 +9,8 @@ const Table1Avatar = ({
   id,
   data,
 }) => {
-  const { generalData, avatarData } = getData[gameId];
-  const { SECTIONS, RANK_PREFIX } = generalData;
-  const { avatarIcons } = getIcons[gameId];
+  const { HEADERS, PREFIX, AVATAR_DATA } = getData[gameId];
+  const { AVATAR_IMGS } = getImgs[gameId];
   
   const openModal = () => {
     setModalPipe({
@@ -22,7 +21,7 @@ const Table1Avatar = ({
   };
 
   return (
-    <Tooltip title={`Edit ${SECTIONS[0]}`} arrow>
+    <Tooltip title={`Edit ${HEADERS.avatar}`} arrow>
       <Stack
         onClick={openModal}
         display="inline-flex"
@@ -38,12 +37,12 @@ const Table1Avatar = ({
             },
           }}
           badgeContent={
-            <strong>{RANK_PREFIX}{data.rank}</strong>
+            <strong>{PREFIX}{data.rank}</strong>
           }
         >
           <Avatar
-            alt={avatarData[id].name}
-            src={avatarIcons[`./${id}.webp`]?.default}
+            alt={AVATAR_DATA[id].name}
+            src={AVATAR_IMGS[`./${id}.webp`]?.default}
           />
         </Badge>
         
@@ -51,7 +50,7 @@ const Table1Avatar = ({
           onClick={openModal}
           variant="body2"
         >
-          {avatarData[id].name}
+          {AVATAR_DATA[id].name}
         </Typography>
       </Stack>
     </Tooltip>

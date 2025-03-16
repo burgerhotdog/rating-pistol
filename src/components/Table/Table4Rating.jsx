@@ -1,19 +1,13 @@
-import React, { useMemo } from "react";
-import { Badge, Avatar, Box, Stack, Tooltip, Typography } from "@mui/material";
-import { ErrorOutline } from '@mui/icons-material';
-import getData from "../getData";
-import getLetter from "../getLetter";
-import letterIcons from "../../assets/icons";
+import React from "react";
+import { Badge, Avatar, Stack, Tooltip } from "@mui/material";
+import assets from "../../assets";
 
 const Table4Rating = ({
-  gameId,
   setModalPipe,
   id,
   data,
   rating,
 }) => {
-  const letterSrc = letterIcons[`./letter_${getLetter(rating.combined)}.webp`]?.default;
-
   const openModal = () => {
     setModalPipe({
       type: "rating",
@@ -29,7 +23,7 @@ const Table4Rating = ({
         <Badge onClick={openModal}>
           <Avatar
             alt={rating.final}
-            src={letterSrc}
+            src={assets[`./${rating.letter}.webp`]?.default}
             sx={{ width: 32, height: 32 }}
           />
         </Badge>

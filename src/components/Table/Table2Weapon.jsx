@@ -2,7 +2,7 @@ import React from "react";
 import { Stack, Badge, Avatar, Tooltip } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
-import getIcons from "../getIcons";
+import getImgs from "../getImgs";
 
 const Table2Weapon = ({
   gameId,
@@ -10,9 +10,8 @@ const Table2Weapon = ({
   id,
   data,
 }) => {
-  const { generalData } = getData[gameId];
-  const { SECTIONS, WEAPON_RANK_PREFIX } = generalData;
-  const { weaponIcons } = getIcons[gameId];
+  const { WEAPON_PREFIX, HEADERS } = getData[gameId];
+  const { WEAPON_IMGS } = getImgs[gameId];
 
   const openModal = () => {
     setModalPipe({
@@ -24,24 +23,24 @@ const Table2Weapon = ({
   
   if (!data.weaponId) {
     return (
-      <Tooltip title={`Add ${SECTIONS[1]}`} arrow>
+      <Tooltip title={`Add ${HEADERS.weapon}`} arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title={`Edit ${SECTIONS[1]}`} arrow>
+    <Tooltip title={`Edit ${HEADERS.weapon}`} arrow>
       <Stack display="inline-flex">
         <Badge
           onClick={openModal}
           badgeContent={
-            <strong>{WEAPON_RANK_PREFIX}{data.weaponRank}</strong>
+            <strong>{WEAPON_PREFIX}{data.weaponRank}</strong>
           }
         >
           <Avatar
             alt={data.weaponId}
-            src={weaponIcons[`./${data.weaponId}.webp`]?.default}
+            src={WEAPON_IMGS[`./${data.weaponId}.webp`]?.default}
           />
         </Badge>
       </Stack>

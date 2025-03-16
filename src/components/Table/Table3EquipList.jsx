@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack, Box, Typography } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
-import getIcons from "../getIcons";
+import getImgs from "../getImgs";
 import getSetBonuses from "../getSetBonuses";
 import sortSetBonuses from "../sortSetBonuses";
 
@@ -12,9 +12,8 @@ const Table3EquipList = ({
   id,
   data,
 }) => {
-  const { generalData } = getData[gameId];
-  const { SECTIONS } = generalData;
-  const { setIcons } = getIcons[gameId];
+  const { HEADERS } = getData[gameId];
+  const { SET_IMGS } = getImgs[gameId];
   
   const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
   const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
@@ -29,14 +28,14 @@ const Table3EquipList = ({
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <Tooltip title={`Add ${SECTIONS[2]}`} arrow>
+      <Tooltip title={`Add ${HEADERS.equips}`} arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title={`Edit ${SECTIONS[2]}`} arrow>
+    <Tooltip title={`Edit ${HEADERS.equips}`} arrow>
       <Stack
         onClick={openModal}
         display="inline-flex"
@@ -53,7 +52,7 @@ const Table3EquipList = ({
           >
             <Avatar
               alt={setId}
-              src={setIcons[`./${setId}.webp`]?.default}
+              src={SET_IMGS[`./${setId}.webp`]?.default}
             />
           </Badge>
         ))}
