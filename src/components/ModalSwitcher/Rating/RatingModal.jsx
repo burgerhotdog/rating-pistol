@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Tabs, Tab } from "@mui/material";
+import { Box, Tabs, Tab, Typography } from "@mui/material";
 import getData from "../../getData";
 import LevelTab from "./LevelTab";
 import SkillTab from "./SkillTab";
@@ -16,7 +16,7 @@ const RatingModal = ({ gameId, modalPipe }) => {
   return (
     <Box sx={{ width: 500 }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs value={tabValue} onChange={handleTab}>
+        <Tabs value={tabValue} onChange={handleTab} centered>
           <Tab label={`${HEADERS.avatar} & ${HEADERS.weapon}`} />
           <Tab label={HEADERS.skills} />
           <Tab label={HEADERS.equips} />
