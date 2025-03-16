@@ -3,8 +3,10 @@ import {
   Grid2 as Grid,
   Stack,
   Box,
+  Avatar,
   List,
   ListItem,
+  ListItemIcon,
   ListItemButton,
   ListItemText,
   Divider,
@@ -18,6 +20,7 @@ import {
 import EquipCard from "./EquipCard";
 import PreviewSet from "./PreviewSet";
 import getData from "../../getData";
+import getImgs from "../../getImgs";
 
 const EquipModal = ({
   gameId,
@@ -26,6 +29,7 @@ const EquipModal = ({
   savePipe,
 }) => {
   const { EQUIP_NAMES } = getData[gameId];
+  const { EQUIP_IMGS } = getImgs[gameId];
   const [viewIndex, setViewIndex] = useState(0);
   const equipSlots = [...Array(EQUIP_NAMES.length).keys()];
   const [isLoading, setIsLoading] = useState(false);
@@ -33,7 +37,6 @@ const EquipModal = ({
   const handleSave = async () => {
     setIsLoading(true);
     await savePipe();
-
     setModalPipe({});
   };
 
@@ -42,7 +45,7 @@ const EquipModal = ({
       <Grid container spacing={2} minWidth={900}>
         <Grid size="auto">
           <Stack direction="row" spacing={2}>
-            <Card sx={{ width: 100 }}>
+            <Card sx={{ width: 125 }}>
               <List>
                 {equipSlots.map((index) => (
                   <ListItem key={index} disablePadding>
@@ -50,7 +53,14 @@ const EquipModal = ({
                       onClick={() => setViewIndex(index)}
                       selected={viewIndex === index}
                     >
-                      <ListItemText primary={EQUIP_NAMES[index]} />
+                      <Stack direction="row" spacing={1}>
+                        <Box
+                          component="img"
+                          src={EQUIP_IMGS[`./${index}.webp`]?.default}
+                          sx={{ width: 24, height: 24, objectFit: "contain" }}
+                        />
+                        <ListItemText primary={EQUIP_NAMES[index]} />
+                      </Stack>
                     </ListItemButton>
                   </ListItem>
                 ))}

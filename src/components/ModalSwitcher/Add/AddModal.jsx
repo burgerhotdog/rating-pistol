@@ -78,7 +78,7 @@ const AddModal = ({
                 loading="lazy"
                 src={AVATAR_IMGS[`./${option}.webp`]?.default}
                 alt={""}
-                sx={{ width: 25, height: 25, objectFit: "contain" }}
+                sx={{ width: 24, height: 24, objectFit: "contain" }}
               />
               {AVATAR_DATA[option].name}
             </Box>

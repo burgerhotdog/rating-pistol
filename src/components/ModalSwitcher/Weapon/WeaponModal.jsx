@@ -78,7 +78,7 @@ const WeaponModal = ({
           loading="lazy"
           alt={""}
           src={WEAPON_IMGS[`./${option}.webp`]?.default}
-          sx={{ width: 25, height: 25, objectFit: "contain" }}
+          sx={{ width: 24, height: 24, objectFit: "contain" }}
         />
         {WEAPON_DATA[option]?.name}
         {option === avatar.sig && (
