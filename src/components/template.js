@@ -7,17 +7,17 @@ export default (gameId) => {
     level: "1",
     rank: "0",
     skillMap: {
-      basic: 1,
-      skill: 1,
-      ult: 1,
+      basic: "1",
+      skill: "1",
+      ult: "1",
       ...(gameId === "hsr"
-        ? { talent: 1 }
+        ? { talent: "1" }
         : {}),
       ...(gameId === "ww"
-        ? { forte: 1, intro: 1 }
+        ? { forte: "1", intro: "1" }
         : {}),
       ...(gameId === "zzz"
-        ? { dodge: 1, assist: 1, core: 1 }
+        ? { dodge: "1", assist: "1", core: "1" }
         : {}),
     },
 

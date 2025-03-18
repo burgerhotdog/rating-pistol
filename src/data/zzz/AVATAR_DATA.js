@@ -9,7 +9,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1361": {
@@ -21,7 +22,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
 
@@ -34,7 +36,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
 
@@ -48,8 +51,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1311": {
@@ -61,7 +64,6 @@ export default {
     weights: {
       "ATK": 1,
       "AP": 0.5,
-      "PEN": 0.12,
     },
   },
 
@@ -75,8 +77,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1091": {
@@ -87,10 +89,10 @@ export default {
     statBase: { _HP: 7673, _ATK: 880, _DEF: 606 },
     weights: {
       "CR": 1,
-      "CD": 0.6,
-      "ATK": 0.6,
-      "AP": 0.24,
-      "PEN": 0.24,
+      "CD": 1,
+      "ATK": 0.75,
+      "AP": 0.5,
+      "PEN": 0.25,
     },
   },
   
@@ -103,8 +105,8 @@ export default {
     statBase: { _HP: 7789, _ATK: 873, _DEF: 613 },
     weights: {
       "AP": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1161": {
@@ -116,8 +118,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   
@@ -130,8 +132,8 @@ export default {
     statBase: { _HP: 7368, _ATK: 863, _DEF: 601 },
     weights: {
       "AP": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1071": {
@@ -143,8 +145,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   
@@ -157,8 +159,8 @@ export default {
     statBase: { _HP: 7789, _ATK: 881, _DEF: 607 },
     weights: {
       "AP": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1251": {
@@ -170,8 +172,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
 
@@ -183,8 +185,7 @@ export default {
     statBase: { _HP: 8701, _ATK: 643, _DEF: 746 },
     weights: {
       "ATK": 1,
-      "AP": 0.6,
-      "PEN": 0.24,
+      "AP": 0.5,
     },
   },
   
@@ -198,8 +199,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1211": {
@@ -210,8 +211,8 @@ export default {
     statBase: { _HP: 8609, _ATK: 717, _DEF: 601 },
     weights: {
       "AP": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1191": {
@@ -223,8 +224,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1181": {
@@ -235,8 +236,8 @@ export default {
     statBase: { _HP: 7483, _ATK: 826, _DEF: 601 },
     weights: {
       "AP": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1141": {
@@ -248,8 +249,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1101": {
@@ -261,8 +262,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1041": {
@@ -274,8 +275,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1021": {
@@ -287,8 +288,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   
@@ -300,8 +301,8 @@ export default {
     statBase: { _HP: 6977, _ATK: 758, _DEF: 613 },
     weights: {
       "AP": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1151": {
@@ -314,7 +315,6 @@ export default {
       "ATK": 1,
       "CR": 0.5,
       "CD": 0.5,
-      "PEN": 0.12,
     },
   },
   "1131": {
@@ -327,7 +327,6 @@ export default {
       "ATK": 1,
       "CR": 0.5,
       "CD": 0.5,
-      "PEN": 0.12,
     },
   },
   "1121": {
@@ -339,8 +338,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "DEF": 0.6,
-      "PEN": 0.24,
+      "DEF": 0.75,
+      "PEN": 0.25,
     },
   },
   "1111": {
@@ -352,8 +351,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1081": {
@@ -365,8 +364,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1061": {
@@ -378,8 +377,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1031": {
@@ -390,8 +389,8 @@ export default {
     statBase: { _HP: 8146, _ATK: 649, _DEF: 623 },
     weights: {
       "AP": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
   "1011": {
@@ -403,8 +402,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "PEN": 0.24,
+      "ATK": 0.75,
+      "PEN": 0.25,
     },
   },
 };

@@ -37,7 +37,7 @@ const AddModal = ({
     const id = newValue;
     const data = template(gameId);
     data.level = LEVEL_CAP;
-    data.rank = 0;
+    data.rank = "0";
 
     setModalPipe((prev) => ({
       ...prev,
