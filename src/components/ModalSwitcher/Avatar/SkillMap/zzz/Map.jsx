@@ -14,12 +14,10 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import getData from "../../../../getData";
 const options10 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 const optionsCore = ["1", "2", "3", "4", "5", "6", "7"];
 
 const ZZZ = ({
-  gameId,
   modalPipe,
   handleSkill,
 }) => {

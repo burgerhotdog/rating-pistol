@@ -14,7 +14,6 @@ import TraceNode from "./TraceNode";
 import TracePath from "./TracePath";
 
 const HSR = ({
-  gameId,
   modalPipe,
   handleSkill,
 }) => {
@@ -28,10 +27,10 @@ const HSR = ({
   
   // Main trace positions
   const mainTraces = {
-    basic: { angle: -120, label: "Basic ATK" },
-    skill: { angle: -40, label: "Skill" },
+    basic: { angle: -180, label: "Basic ATK" },
+    skill: { angle: 0, label: "Skill" },
     ult: { angle: 40, label: "Ultimate" },
-    talent: { angle: 120, label: "Talent" },
+    talent: { angle: -90, label: "Talent" },
   };
   
   // Stat traces connected to main traces
@@ -154,99 +153,77 @@ const HSR = ({
     <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
       <Box sx={{ position: "relative", width: "100%", height: "450px" }}>
         <svg width="100%" height="100%" viewBox="0 0 600 400">
-          {/* Draw paths from center to main traces */}
-          {Object.keys(mainTraces).map(trace => {
-
-            return (
-              <TracePath
-                key={`path-${trace}`}
-                startX={centerX}
-                startY={centerY}
-                endX={mainTraces[trace].x}
-                endY={mainTraces[trace].y}
-                isActive={isMainTraceActive(trace)}
-              />
-            );
-          })}
-          
-          {/* Draw paths from main traces to stat traces */}
-          {Object.keys(statTraces).map(trace => (
-            <TracePath
-              key={`path-${trace}`}
-              startX={statTraces[trace].parentX}
-              startY={statTraces[trace].parentY}
-              endX={statTraces[trace].x}
-              endY={statTraces[trace].y}
-              isActive={isStatTraceActive(trace)}
-              isLocked={isStatTraceLocked(trace)}
-            />
-          ))}
-          
-          {/* Draw main trace nodes */}
-          {Object.keys(mainTraces).map(trace => {
-            const { x, y, label } = mainTraces[trace];
-            const level = skillMap[trace] || '';
-            const maxLevel = trace === 'basic' ? 6 : 10;
-            
-            return (
-              <TraceNode 
-                key={trace}
-                x={x}
-                y={y}
-                type={trace}
-                level={level}
-                maxLevel={maxLevel}
-                isActive={isMainTraceActive(trace)}
-                onClick={() => handleMainNodeClick(trace)}
-                label={label}
-              />
-            );
-          })}
-          
-          {/* Draw stat trace nodes */}
-          {Object.keys(statTraces).map(trace => {
-            const { x, y, label } = statTraces[trace];
-            const level = skillMap[trace] || '';
-            const locked = isStatTraceLocked(trace);
-            
-            return (
-              <TraceNode 
-                key={trace}
-                x={x}
-                y={y}
-                type="stat"
-                level={level}
-                maxLevel={3}
-                isActive={isStatTraceActive(trace)}
-                onClick={() => handleStatNodeClick(trace)}
-                label={label}
-                isLocked={locked}
-              />
-            );
-          })}
-          
-          {/* Center node (character) */}
-          <circle 
-            cx={centerX} 
-            cy={centerY} 
-            r={50} 
-            fill="#3B4252" 
-            stroke="#5E81AC" 
-            strokeWidth={3} 
+          <TracePath
+            startX={centerX}
+            startY={centerY}
+            endX={centerX + 50}
+            endY={centerY}
+            isActive={true}
+          />
+          <TracePath
+            startX={centerX}
+            startY={centerY}
+            endX={centerX - 50}
+            endY={centerY}
+            isActive={true}
+          />
+          <TracePath
+            startX={centerX}
+            startY={centerY}
+            endX={centerX}
+            endY={centerY + 50}
+            isActive={true}
+          />
+          <TracePath
+            startX={centerX}
+            startY={centerY}
+            endX={centerX}
+            endY={centerY - 50}
+            isActive={true}
           />
 
-          {/* Character initial or icon */}
-          <text 
-            x={centerX} 
-            y={centerY} 
-            textAnchor="middle" 
-            dominantBaseline="middle" 
-            fill="#E5E9F0"
-            fontSize={24}
-            fontWeight="bold"
-          >
-            HSR
-          </text>
+          <TraceNode
+            x={centerX + 50}
+            y={centerY}
+            type={"skill"}
+            level={skillMap.skill}
+            maxLevel={10}
+            isActive={true}
+            onClick={() => handleMainNodeClick("skill")}
+            label={"skill"}
+          />
+
+          <TraceNode
+            x={centerX - 50}
+            y={centerY}
+            type={"basic"}
+            level={skillMap.basic}
+            maxLevel={10}
+            isActive={true}
+            onClick={() => handleMainNodeClick("basic")}
+            label={"basic"}
+          />
+
+          <TraceNode
+            x={centerX}
+            y={centerY + 50}
+            type={"tech"}
+            level={1}
+            maxLevel={1}
+            isActive={false}
+            label={"tech"}
+          />
+
+          <TraceNode
+            x={centerX}
+            y={centerY - 50}
+            type={"talent"}
+            level={skillMap.talent}
+            maxLevel={10}
+            isActive={true}
+            onClick={() => handleMainNodeClick("talent")}
+            label={"talent"}
+          />
         </svg>
       </Box>
     </Paper>

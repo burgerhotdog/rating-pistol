@@ -29,7 +29,6 @@ const Switcher = ({
     case "gi":
       mapContent = (
         <GI
-          gameId={gameId}
           modalPipe={modalPipe}
           handleSkill={handleSkill}
         />
@@ -39,7 +38,6 @@ const Switcher = ({
     case "hsr":
       mapContent = (
         <HSR
-          gameId={gameId}
           modalPipe={modalPipe}
           handleSkill={handleSkill}
         />
@@ -49,7 +47,6 @@ const Switcher = ({
     case "ww":
       mapContent = (
         <WW
-          gameId={gameId}
           modalPipe={modalPipe}
           handleSkill={handleSkill}
         />
@@ -59,7 +56,6 @@ const Switcher = ({
     case "zzz":
       mapContent = (
         <ZZZ
-          gameId={gameId}
           modalPipe={modalPipe}
           handleSkill={handleSkill}
         />
