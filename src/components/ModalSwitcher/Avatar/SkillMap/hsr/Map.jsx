@@ -10,8 +10,8 @@ import {
   Paper,
   Tooltip,
 } from "@mui/material";
-import TraceNode from "./TraceNode";
-import TracePath from "./TracePath";
+import { SkillNode, MajorNode, MinorNode } from "./Node";
+import Path from "./Path";
 
 const HSR = ({
   modalPipe,
@@ -153,76 +153,253 @@ const HSR = ({
     <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
       <Box sx={{ position: "relative", width: "100%", height: "450px" }}>
         <svg width="100%" height="100%" viewBox="0 0 600 400">
-          <TracePath
+          {/* Skill Paths */}
+          <Path
             startX={centerX}
             startY={centerY}
-            endX={centerX + 50}
-            endY={centerY}
-            isActive={true}
+            endX={centerX - 60}
+            endY={centerY + 5}
+            active
           />
-          <TracePath
+          <Path
             startX={centerX}
             startY={centerY}
-            endX={centerX - 50}
-            endY={centerY}
-            isActive={true}
+            endX={centerX + 60}
+            endY={centerY + 5}
+            active
           />
-          <TracePath
+          <Path
             startX={centerX}
             startY={centerY}
-            endX={centerX}
-            endY={centerY + 50}
-            isActive={true}
-          />
-          <TracePath
-            startX={centerX}
-            startY={centerY}
-            endX={centerX}
+            endX={centerX + 0}
             endY={centerY - 50}
-            isActive={true}
+            active
+          />
+          <Path
+            startX={centerX}
+            startY={centerY}
+            endX={centerX + 0}
+            endY={centerY + 50}
+            active
           />
 
-          <TraceNode
-            x={centerX + 50}
-            y={centerY}
-            type={"skill"}
-            level={skillMap.skill}
-            maxLevel={10}
-            isActive={true}
-            onClick={() => handleMainNodeClick("skill")}
-            label={"skill"}
+          {/* Major Paths */}
+          <Path
+            startX={centerX - 60}
+            startY={centerY + 5}
+            endX={centerX - 60 - 50}
+            endY={centerY + 5 - 25}
+            active
+          />
+          <Path
+            startX={centerX + 60}
+            startY={centerY + 5}
+            endX={centerX + 60 + 50}
+            endY={centerY + 5 - 25}
+            active
+          />
+          <Path
+            startX={centerX + 0}
+            startY={centerY - 50}
+            endX={centerX + 0 + 0}
+            endY={centerY - 50 - 50}
+            active
           />
 
-          <TraceNode
-            x={centerX - 50}
-            y={centerY}
-            type={"basic"}
-            level={skillMap.basic}
-            maxLevel={10}
-            isActive={true}
+          {/* Minor Paths */}
+          <Path
+            startX={centerX - 60 - 50}
+            startY={centerY + 5 - 25}
+            endX={centerX - 60 - 50 - 50}
+            endY={centerY + 5 - 25 + 40}
+            active
+          />
+          <Path
+            startX={centerX - 60 - 50 - 50}
+            startY={centerY + 5 - 25 + 40}
+            endX={centerX - 60 - 50 - 50 + 30}
+            endY={centerY + 5 - 25 + 40 + 40}
+            active
+          />
+          <Path
+            startX={centerX - 60 - 50 - 50 + 30}
+            startY={centerY + 5 - 25 + 40 + 40}
+            endX={centerX - 60 - 50 - 50 + 30 + 30}
+            endY={centerY + 5 - 25 + 40 + 40 + 40}
+            active
+          />
+          
+          <Path
+            startX={centerX + 60 + 50}
+            startY={centerY + 5 - 25}
+            endX={centerX + 60 + 50 + 50}
+            endY={centerY + 5 - 25 + 40}
+            active
+          />
+          <Path
+            startX={centerX + 60 + 50 + 50}
+            startY={centerY + 5 - 25 + 40}
+            endX={centerX + 60 + 50 + 50 - 30}
+            endY={centerY + 5 - 25 + 40 + 40}
+            active
+          />
+          <Path
+            startX={centerX + 60 + 50 + 50 - 30}
+            startY={centerY + 5 - 25 + 40 + 40}
+            endX={centerX + 60 + 50 + 50 - 30 - 30}
+            endY={centerY + 5 - 25 + 40 + 40 + 40}
+            active
+          />
+          
+          <Path
+            startX={centerX + 0 + 0}
+            startY={centerY - 50 - 50}
+            endX={centerX + 0 + 0 + 65}
+            endY={centerY - 50 - 50 + 5}
+            active
+          />
+          <Path
+            startX={centerX + 0 + 0}
+            startY={centerY - 50 - 50}
+            endX={centerX + 0 + 0 - 65}
+            endY={centerY - 50 - 50 + 5}
+            active
+          />
+
+          <Path
+            startX={centerX + 0}
+            startY={centerY + 50}
+            endX={centerX + 0 + 0}
+            endY={centerY + 50 + 40}
+            active
+          />
+          <Path
+            startX={centerX + 0 + 0}
+            startY={centerY + 50 + 40}
+            endX={centerX + 0 + 0 + 0}
+            endY={centerY + 50 + 40 + 40}
+            active
+          />
+
+          {/* Skill Nodes */}
+          <SkillNode
+            x={centerX - 60}
+            y={centerY + 5}
+            value={skillMap.basic}
             onClick={() => handleMainNodeClick("basic")}
             label={"basic"}
           />
-
-          <TraceNode
+          <SkillNode
+            x={centerX + 60}
+            y={centerY + 5}
+            value={skillMap.skill}
+            onClick={() => handleMainNodeClick("skill")}
+            label={"skill"}
+          />
+          <SkillNode
             x={centerX}
+            y={centerY}
+            value={skillMap.ult}
+            onClick={() => handleMainNodeClick("ult")}
+            label={"ult"}
+          />
+          <SkillNode
+            x={centerX + 0}
+            y={centerY - 50}
+            value={skillMap.talent}
+            onClick={() => handleMainNodeClick("talent")}
+            label={"talent"}
+          />
+          <SkillNode
+            x={centerX + 0}
             y={centerY + 50}
-            type={"tech"}
-            level={1}
-            maxLevel={1}
-            isActive={false}
+            value={1}
             label={"tech"}
           />
 
-          <TraceNode
-            x={centerX}
-            y={centerY - 50}
-            type={"talent"}
-            level={skillMap.talent}
-            maxLevel={10}
-            isActive={true}
-            onClick={() => handleMainNodeClick("talent")}
-            label={"talent"}
+          {/* Major Nodes */}
+          <MajorNode
+            x={centerX - 60 - 50}
+            y={centerY + 5 - 25}
+            value={1}
+            label={"A2"}
+          />
+          <MajorNode
+            x={centerX + 60 + 50}
+            y={centerY + 5 - 25}
+            value={1}
+            label={"A4"}
+          />
+          <MajorNode
+            x={centerX + 0 + 0}
+            y={centerY - 50 - 50}
+            value={1}
+            label={"A6"}
+          />
+
+          {/* Minor Nodes */}
+          <MinorNode
+            x={centerX - 60 - 50 - 50}
+            y={centerY + 5 - 25 + 40}
+            value={1}
+            label={"ehr"}
+          />
+          <MinorNode
+            x={centerX - 60 - 50 - 50 + 30}
+            y={centerY + 5 - 25 + 40 + 40}
+            value={1}
+            label={"atk"}
+          />
+          <MinorNode
+            x={centerX - 60 - 50 - 50 + 30 + 30}
+            y={centerY + 5 - 25 + 40 + 40 + 40}
+            value={1}
+            label={"quantum"}
+          />
+          
+          <MinorNode
+            x={centerX + 60 + 50 + 50}
+            y={centerY + 5 - 25 + 40}
+            value={1}
+            label={"atk"}
+          />
+          <MinorNode
+            x={centerX + 60 + 50 + 50 - 30}
+            y={centerY + 5 - 25 + 40 + 40}
+            value={1}
+            label={"ehr"}
+          />
+          <MinorNode
+            x={centerX + 60 + 50 + 50 - 30 - 30}
+            y={centerY + 5 - 25 + 40 + 40 + 40}
+            value={1}
+            label={"atk"}
+          />
+
+          <MinorNode
+            x={centerX + 0 + 0 + 65}
+            y={centerY - 50 - 50 + 5}
+            value={1}
+            label={"ehr"}
+          />
+          <MinorNode
+            x={centerX + 0 + 0 - 65}
+            y={centerY - 50 - 50 + 5}
+            value={1}
+            label={"quantum"}
+          />
+          
+          <MinorNode
+            x={centerX + 0 + 0}
+            y={centerY + 50 + 40}
+            value={1}
+            label={"atk"}
+          />
+          <MinorNode
+            x={centerX + 0 + 0 + 0}
+            y={centerY + 50 + 40 + 40}
+            value={1}
+            label={"atk"}
           />
         </svg>
       </Box>
