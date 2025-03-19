@@ -14,7 +14,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import SkillMapSwitcher from "./SkillMapSwitcher";
+import SkillMap from "./SkillMap";
 import getData from "../../getData";
 
 const AvatarModal = ({
@@ -131,7 +131,7 @@ const AvatarModal = ({
 
         <Divider />
 
-        <SkillMapSwitcher
+        <SkillMap
           gameId={gameId}
           modalPipe={modalPipe}
           setModalPipe={setModalPipe}

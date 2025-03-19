@@ -1,10 +1,10 @@
 import React from "react";
-import GI from "./gi-map";
-import HSR from "./hsr-map";
-import WW from "./ww-map";
-import ZZZ from "./zzz-map";
+import GI from "./gi/Map";
+import HSR from "./hsr/Map";
+import WW from "./ww/Map";
+import ZZZ from "./zzz/Map";
 
-const SkillMapSwitcher = ({
+const Switcher = ({
   gameId,
   modalPipe,
   setModalPipe,
@@ -70,4 +70,4 @@ const SkillMapSwitcher = ({
   return mapContent;
 };
 
-export default SkillMapSwitcher;
+export default Switcher;

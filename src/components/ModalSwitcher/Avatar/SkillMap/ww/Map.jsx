@@ -14,11 +14,10 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import getData from "../../getData";
+import getData from "../../../../getData";
 const options10 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-const optionsCore = ["1", "2", "3", "4", "5", "6", "7"];
 
-const ZZZ = ({
+const WW = ({
   gameId,
   modalPipe,
   handleSkill,
@@ -48,53 +47,13 @@ const ZZZ = ({
       </FormControl>
 
       <FormControl sx={{ width: 75 }}>
-        <InputLabel id="dodge-label" shrink>
-          Dodge
-        </InputLabel>
-        <Select
-          name="dodge"
-          labelId="dodge-label"
-          label="Dodge"
-          value={skillMap.dodge ?? ""}
-          onChange={handleSkill}
-          notched
-        >
-          {options10.map((lvl) => (
-            <MenuItem key={lvl} value={lvl}>
-              {lvl}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <FormControl sx={{ width: 75 }}>
-        <InputLabel id="assist-label" shrink>
-          Assist
-        </InputLabel>
-        <Select
-          name="assist"
-          labelId="assist-label"
-          label="Assist"
-          value={skillMap.assist ?? ""}
-          onChange={handleSkill}
-          notched
-        >
-          {options10.map((lvl) => (
-            <MenuItem key={lvl} value={lvl}>
-              {lvl}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      <FormControl sx={{ width: 75 }}>
         <InputLabel id="skill-label" shrink>
-          EX Special
+          Resonance Skill
         </InputLabel>
         <Select
           name="skill"
           labelId="skill-label"
-          label="EX Special"
+          label="Resonance Skill"
           value={skillMap.skill ?? ""}
           onChange={handleSkill}
           notched
@@ -108,13 +67,33 @@ const ZZZ = ({
       </FormControl>
 
       <FormControl sx={{ width: 75 }}>
+        <InputLabel id="forte-label" shrink>
+          Forte Circuit
+        </InputLabel>
+        <Select
+          name="forte"
+          labelId="forte-label"
+          label="Forte Circuit"
+          value={skillMap.forte ?? ""}
+          onChange={handleSkill}
+          notched
+        >
+          {options10.map((lvl) => (
+            <MenuItem key={lvl} value={lvl}>
+              {lvl}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
+      <FormControl sx={{ width: 75 }}>
         <InputLabel id="ult-label" shrink>
-          Chain Attack / Ultimate
+          Resonance Liberation
         </InputLabel>
         <Select
           name="ult"
           labelId="ult-label"
-          label="Chain Attack / Ultimate"
+          label="Resonance Liberation"
           value={skillMap.ult ?? ""}
           onChange={handleSkill}
           notched
@@ -128,18 +107,18 @@ const ZZZ = ({
       </FormControl>
 
       <FormControl sx={{ width: 75 }}>
-        <InputLabel id="core-label" shrink>
-          Core Passive
+        <InputLabel id="intro-label" shrink>
+          Intro Skill
         </InputLabel>
         <Select
-          name="core"
-          labelId="core-label"
-          label="Core Passive"
-          value={skillMap.core ?? ""}
+          name="intro"
+          labelId="intro-label"
+          label="Intro Skill"
+          value={skillMap.intro ?? ""}
           onChange={handleSkill}
           notched
         >
-          {optionsCore.map((lvl) => (
+          {options10.map((lvl) => (
             <MenuItem key={lvl} value={lvl}>
               {lvl}
             </MenuItem>
@@ -150,4 +129,4 @@ const ZZZ = ({
   );
 };
 
-export default ZZZ;
+export default WW;

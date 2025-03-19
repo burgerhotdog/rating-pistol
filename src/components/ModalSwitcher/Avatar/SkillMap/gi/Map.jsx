@@ -1,20 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  Grid2 as Grid,
-  Box,
   Stack,
-  Divider,
-  Autocomplete,
-  TextField,
-  Button,
-  Typography,
-  InputAdornment,
   FormControl,
   InputLabel,
   MenuItem,
   Select,
 } from "@mui/material";
-import getData from "../../getData";
 const options10 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 const GI = ({
