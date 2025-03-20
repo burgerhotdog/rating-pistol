@@ -32,7 +32,7 @@ export default {
     offsetY: 60,
     type: "skill",
     parent: "ult",
-    children: ["M1-4"],
+    children: ["m1d"],
   },
 
   // Major Nodes
@@ -41,90 +41,90 @@ export default {
     offsetY: 10 - 30,
     type: "major",
     parent: "basic",
-    children: ["M2-1"],
+    children: ["m2a"],
   },
   "A4": {
     offsetX: 90 + 70,
     offsetY: 10 - 30,
     type: "major",
     parent: "skill",
-    children: ["M1-2"],
+    children: ["m1b"],
   },
   "A6": {
     offsetX: 0,
     offsetY: -60 - 50,
     type: "major",
     parent: "talent",
-    children: ["M2-3", "M3-2"],
+    children: ["m2c", "m3b"],
   },
 
   // Minor Nodes
-  "M2-1": {
+  "m2a": {
     offsetX: -90 - 70 - 50,
     offsetY: 10 - 30 + 40,
     type: "minor",
     parent: "A2",
-    children: ["M1-1"],
+    children: ["m1a"],
   },
-  "M1-1": {
+  "m1a": {
     offsetX: -90 - 70 - 50 + 30,
     offsetY: 10 - 30 + 40 + 40,
     type: "minor",
-    parent: "M2-1",
-    children: ["M3-1"],
+    parent: "m2a",
+    children: ["m3a"],
   },
-  "M3-1": {
+  "m3a": {
     offsetX: -90 - 70 - 50 + 30 + 30,
     offsetY: 10 - 30 + 40 + 40 + 40,
     type: "minor",
-    parent: "M1-1",
+    parent: "m1a",
   },
   
-  "M1-2": {
+  "m1b": {
     offsetX: 90 + 70 + 50,
     offsetY: 10 - 30 + 40,
     type: "minor",
     parent: "A4",
-    children: ["M2-2"],
+    children: ["m2b"],
   },
-  "M2-2": {
+  "m2b": {
     offsetX: 90 + 70 + 50 - 30,
     offsetY: 10 - 30 + 40 + 40,
     type: "minor",
-    parent: "M1-2",
-    children: ["M1-3"],
+    parent: "m1b",
+    children: ["m1c"],
   },
-  "M1-3": {
+  "m1c": {
     offsetX: 90 + 70 + 50 - 30 - 30,
     offsetY: 10 - 30 + 40 + 40 + 40,
     type: "minor",
-    parent: "M2-2",
+    parent: "m2b",
   },
 
-  "M2-3": {
+  "m2c": {
     offsetX: 65,
     offsetY: -60 - 50 + 5,
     type: "minor",
     parent: "A6",
   },
-  "M3-2": {
+  "m3b": {
     offsetX: -65,
     offsetY: -60 - 50 + 5,
     type: "minor",
     parent: "A6",
   },
   
-  "M1-4": {
+  "m1d": {
     offsetX: 0,
     offsetY: 60 + 50,
     type: "minor",
     parent: "tech",
-    children: ["M1-5"],
+    children: ["m1e"],
   },
-  "M1-5": {
+  "m1e": {
     offsetX: 0,
     offsetY: 60 + 50 + 50,
     type: "minor",
-    parent: "M1-4",
+    parent: "m1d",
   },
 };

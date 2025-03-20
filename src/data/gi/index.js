@@ -13,18 +13,9 @@ const HEADERS = {
 };
 
 const SKILL_INDEX = {
-  basic: {
-    name: "Normal Attack",
-    levelCap: 10,
-  },
-  skill: {
-    name: "Elemental Skill",
-    levelCap: 10,
-  },
-  ult: {
-    name: "Elemental Burst",
-    levelCap: 10,
-  },
+  basic: { name: "Normal Attack", levelCap: 10 },
+  skill: { name: "Elemental Skill", levelCap: 10 },
+  ult: { name: "Elemental Burst", levelCap: 10 },
 };
 
 const EQUIP_NAMES = [

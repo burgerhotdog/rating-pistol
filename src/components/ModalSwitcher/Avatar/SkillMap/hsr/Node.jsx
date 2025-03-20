@@ -2,11 +2,12 @@ const Node = ({
   x,
   y,
   type,
-  value = null,
+  id,
+  value,
   onClick,
   label,
-  active = false,
-  locked = false,
+  active,
+  locked,
 }) => {
   const size =
     type === "skill" ? 40 :
@@ -14,7 +15,7 @@ const Node = ({
   
   return (
     <g
-      onClick={locked ? undefined : onClick}
+      onClick={locked ? undefined : () => onClick(id, type)}
       style={{ cursor: locked ? "not-allowed" : "pointer" }}
     >
       {/* Ring */}
@@ -23,7 +24,7 @@ const Node = ({
         cy={y}
         r={size/2 + 3}
         fill="none"
-        stroke={!active && !locked ? "cornflowerblue" : "none"}
+        stroke={active || locked ? "none" : "cornflowerblue"}
         strokeWidth={3}
       />
       
@@ -32,7 +33,7 @@ const Node = ({
         cx={x}
         cy={y}
         r={size/2}
-        fill={active ? "white" : "dimgrey"} 
+        fill={active ? "white" : "dimgrey"}
       />
       
       {/* label */}

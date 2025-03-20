@@ -13,26 +13,11 @@ const HEADERS = {
 };
 
 const SKILL_INDEX = {
-  basic: {
-    name: "Normal Attack",
-    levelCap: 10,
-  },
-  skill: {
-    name: "Resonance Skill",
-    levelCap: 10,
-  },
-  ult: {
-    name: "Resonance Liberation",
-    levelCap: 10,
-  },
-  forte: {
-    name: "Forte Circuit",
-    levelCap: 10,
-  },
-  intro: {
-    name: "Intro Skill",
-    levelCap: 10,
-  },
+  basic: { name: "Normal Attack", levelCap: 10 },
+  skill: { name: "Resonance Skill", levelCap: 10 },
+  ult: { name: "Resonance Liberation", levelCap: 10 },
+  forte: { name: "Forte Circuit", levelCap: 10 },
+  intro: { name: "Intro Skill", levelCap: 10 },
 };
 
 const EQUIP_NAMES = [

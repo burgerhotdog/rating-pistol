@@ -13,22 +13,23 @@ const HEADERS = {
 };
 
 const SKILL_INDEX = {
-  basic: {
-    name: "Basic Attack",
-    levelCap: 6,
-  },
-  skill: {
-    name: "Skill",
-    levelCap: 10,
-  },
-  ult: {
-    name: "Ultimate",
-    levelCap: 10,
-  },
-  talent: {
-    name: "Talent",
-    levelCap: 10,
-  },
+  basic: { name: "Basic Attack", levelCap: 6 },
+  skill: { name: "Skill", levelCap: 10 },
+  ult: { name: "Ultimate", levelCap: 10 },
+  talent: { name: "Talent", levelCap: 10 },
+  A2: { name: "A2", levelCap: 1 },
+  A4: { name: "A4", levelCap: 1 },
+  A6: { name: "A6", levelCap: 1 },
+  m1a: { name: "m1a", levelCap: 1 },
+  m1b: { name: "m1b", levelCap: 1 },
+  m1c: { name: "m1c", levelCap: 1 },
+  m1d: { name: "m1d", levelCap: 1 },
+  m1e: { name: "m1e", levelCap: 1 },
+  m2a: { name: "m2a", levelCap: 1 },
+  m2b: { name: "m2b", levelCap: 1 },
+  m2c: { name: "m2c", levelCap: 1 },
+  m3a: { name: "m3a", levelCap: 1 },
+  m3b: { name: "m3b", levelCap: 1 },
 };
 
 const EQUIP_NAMES = [

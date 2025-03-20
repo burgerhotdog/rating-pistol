@@ -13,30 +13,12 @@ const HEADERS = {
 };
 
 const SKILL_INDEX = {
-  basic: {
-    name: "Basic Attack",
-    levelCap: 12,
-  },
-  skill: {
-    name: "EX Special",
-    levelCap: 12,
-  },
-  ult: {
-    name: "Ult",
-    levelCap: 12,
-  },
-  dodge: {
-    name: "Dodge",
-    levelCap: 12,
-  },
-  assist: {
-    name: "Assist",
-    levelCap: 12,
-  },
-  core: {
-    name: "Core Passive",
-    levelCap: 7,
-  },
+  basic: { name: "Basic Attack", levelCap: 12 },
+  skill: { name: "EX Special", levelCap: 12 },
+  ult: { name: "Ult", levelCap: 12 },
+  dodge: { name: "Dodge", levelCap: 12 },
+  assist: { name: "Assist", levelCap: 12 },
+  core: { name: "Core Passive", levelCap: 7 },
 };
 
 const EQUIP_NAMES = [

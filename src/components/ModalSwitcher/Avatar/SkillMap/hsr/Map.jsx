@@ -32,7 +32,7 @@ const HSR = ({
     }
   };
 
-  const handleNodeClick = (id) => {
+  const handleMajorMinor = (id) => {
     const currentValue = skillMap[id] === "1";
     const newValue = currentValue ? "0" : "1";
     editSkillMap(id, newValue);
@@ -40,6 +40,14 @@ const HSR = ({
     // If turning off, recursively deactivate all descendants
     if (newValue === "0") {
       deactivateChildren(id);
+    }
+  };
+
+  const handleNode = (id, type) => {
+    if (type !== "skill") {
+      handleMajorMinor(id);
+    } else if (id !== "tech") {
+      handleSkill(id);
     }
   };
 
@@ -70,25 +78,19 @@ const HSR = ({
 
           {Object.entries(NODES).map(([id, config], index) => {
             const { offsetX, offsetY, type, parent } = config;
-            const parentActive = skillMap[parent] === "1";
-            const locked = type === "minor" && !parentActive;
+            const parentActive = skillMap[parent] !== "0";
             return (
               <Node
                 key={index}
                 x={centerX + offsetX}
                 y={centerY + offsetY}
                 type={type}
-                value={type === "skill" ? skillMap[id] : null}
-                onClick={() => {
-                  if (type === "skill") {
-                    handleSkill(id);
-                  } else {
-                    handleNodeClick(id);
-                  }
-                }}
+                id={id}
+                value={skillMap[id] ?? "0"}
+                onClick={handleNode}
                 label={id}
-                active={type === "skill" ? true : skillMap[id] === "1"}
-                locked={locked}
+                active={skillMap[id] !== "0"}
+                locked={!parentActive}
               />
             )
           })}
