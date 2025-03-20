@@ -10,9 +10,14 @@ const options10 = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 const GI = ({
   modalPipe,
-  handleSkill,
+  editSkillMap,
 }) => {
   const { skillMap } = modalPipe.data;
+  
+  const handleSkill = (event) => {
+    const { name, value } = event.target;
+    editSkillMap(name, value);
+  };
 
   return (
     <Stack spacing={2}>

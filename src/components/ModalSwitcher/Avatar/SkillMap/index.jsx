@@ -9,16 +9,14 @@ const Switcher = ({
   modalPipe,
   setModalPipe,
 }) => {
-  const handleSkill = (event) => {
-    const { name, value } = event.target;
-
+  const editSkillMap = (skill, newValue) => {
     setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
         skillMap: {
           ...prev.data.skillMap,
-          [name]: value,
+          [skill]: newValue,
         },
       },
     }));
@@ -30,7 +28,7 @@ const Switcher = ({
       mapContent = (
         <GI
           modalPipe={modalPipe}
-          handleSkill={handleSkill}
+          editSkillMap={editSkillMap}
         />
       );
       break;
@@ -39,7 +37,7 @@ const Switcher = ({
       mapContent = (
         <HSR
           modalPipe={modalPipe}
-          handleSkill={handleSkill}
+          editSkillMap={editSkillMap}
         />
       );
       break;
@@ -48,7 +46,7 @@ const Switcher = ({
       mapContent = (
         <WW
           modalPipe={modalPipe}
-          handleSkill={handleSkill}
+          editSkillMap={editSkillMap}
         />
       );
       break;
@@ -57,7 +55,7 @@ const Switcher = ({
       mapContent = (
         <ZZZ
           modalPipe={modalPipe}
-          handleSkill={handleSkill}
+          editSkillMap={editSkillMap}
         />
       );
       break;

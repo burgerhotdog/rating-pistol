@@ -1,13 +1,14 @@
 const Node = ({
   x,
   y,
-  size,
-  value,
+  type,
+  value = null,
   onClick,
   label,
   active = false,
   locked = false,
 }) => {
+  const size = type === "skill" ? 30 : type === "major" ? 35 : 25;
   const activeColor = active ? "#81A1C1" : "#4C566A";
   const textColor = active ? "white" : "#D8DEE9";
   
@@ -79,68 +80,4 @@ const Node = ({
   );
 };
 
-const SkillNode = ({
-  x,
-  y,
-  value,
-  onClick,
-  label,
-}) => {
-  return (
-    <Node
-      x={x}
-      y={y}
-      size={30}
-      value={value}
-      onClick={onClick}
-      label={label}
-      active
-    />
-  );
-};
-
-const MajorNode = ({
-  x,
-  y,
-  value,
-  onClick,
-  label,
-  locked,
-}) => {
-  return (
-    <Node
-      x={x}
-      y={y}
-      size={35}
-      value={value}
-      onClick={onClick}
-      label={label}
-      active={Boolean(value)}
-      locked={locked}
-    />
-  );
-};
-
-const MinorNode = ({
-  x,
-  y,
-  value,
-  onClick,
-  label,
-  locked,
-}) => {
-  return (
-    <Node
-      x={x}
-      y={y}
-      size={25}
-      value={value}
-      onClick={onClick}
-      label={label}
-      active={Boolean(value)}
-      locked={locked}
-    />
-  );
-};
-
-export { SkillNode, MajorNode, MinorNode };
+export default Node;
