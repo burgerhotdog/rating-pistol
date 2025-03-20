@@ -13,6 +13,7 @@ export default (gameId) => {
       ...(gameId === "hsr"
         ? {
           talent: "1",
+          tech: "1",
           A2: "0",
           A4: "0",
           A6: "0",

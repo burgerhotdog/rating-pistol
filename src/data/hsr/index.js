@@ -17,6 +17,7 @@ const SKILL_INDEX = {
   skill: { name: "Skill", levelCap: 10 },
   ult: { name: "Ultimate", levelCap: 10 },
   talent: { name: "Talent", levelCap: 10 },
+  tech: { name: "Technique", levelCap: 1 },
   A2: { name: "A2", levelCap: 1 },
   A4: { name: "A4", levelCap: 1 },
   A6: { name: "A6", levelCap: 1 },

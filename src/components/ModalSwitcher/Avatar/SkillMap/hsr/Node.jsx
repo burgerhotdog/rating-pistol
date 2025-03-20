@@ -7,6 +7,7 @@ const Node = ({
   onClick,
   label,
   active,
+  capped,
   locked,
 }) => {
   const size =
@@ -24,7 +25,7 @@ const Node = ({
         cy={y}
         r={size/2 + 3}
         fill="none"
-        stroke={active || locked ? "none" : "cornflowerblue"}
+        stroke={capped || locked ? "none" : "cornflowerblue"}
         strokeWidth={3}
       />
       
