@@ -1,130 +1,130 @@
 export default {
   // Skill Nodes
   "basic": {
-    xOffset: -60,
-    yOffset: 5,
+    offsetX: -80,
+    offsetY: 10,
     type: "skill",
     parent: "ult",
     children: ["A2"],
   },
   "skill": {
-    xOffset: 60,
-    yOffset: 5,
+    offsetX: 80,
+    offsetY: 10,
     type: "skill",
     parent: "ult",
     children: ["A4"],
   },
   "ult": {
-    xOffset: 0,
-    yOffset: 0,
+    offsetX: 0,
+    offsetY: 0,
     type: "skill",
     children: ["basic", "skill", "talent", "tech"],
   },
   "talent": {
-    xOffset: 0,
-    yOffset: -50,
+    offsetX: 0,
+    offsetY: -60,
     type: "skill",
     parent: "ult",
     children: ["A6"],
   },
   "tech": {
-    xOffset: 0,
-    yOffset: 50,
+    offsetX: 0,
+    offsetY: 60,
     type: "skill",
     parent: "ult",
-    children: ["2-4"],
+    children: ["M1-4"],
   },
 
   // Major Nodes
   "A2": {
-    xOffset: -60 - 50,
-    yOffset: 5 - 25,
+    offsetX: -90 - 70,
+    offsetY: 10 - 30,
     type: "major",
     parent: "basic",
-    children: ["1-1"],
+    children: ["M2-1"],
   },
   "A4": {
-    xOffset: 60 + 50,
-    yOffset: 5 - 25,
+    offsetX: 90 + 70,
+    offsetY: 10 - 30,
     type: "major",
     parent: "skill",
-    children: ["2-2"],
+    children: ["M1-2"],
   },
   "A6": {
-    xOffset: 0,
-    yOffset: -50 - 50,
+    offsetX: 0,
+    offsetY: -60 - 50,
     type: "major",
     parent: "talent",
-    children: ["1-3", "3-2"],
+    children: ["M2-3", "M3-2"],
   },
 
   // Minor Nodes
-  "1-1": {
-    xOffset: -60 - 50 - 50,
-    yOffset: 5 - 25 + 40,
+  "M2-1": {
+    offsetX: -90 - 70 - 50,
+    offsetY: 10 - 30 + 40,
     type: "minor",
     parent: "A2",
-    children: ["2-1"],
+    children: ["M1-1"],
   },
-  "2-1": {
-    xOffset: -60 - 50 - 50 + 30,
-    yOffset: 5 - 25 + 40 + 40,
+  "M1-1": {
+    offsetX: -90 - 70 - 50 + 30,
+    offsetY: 10 - 30 + 40 + 40,
     type: "minor",
-    parent: "1-1",
-    children: ["3-1"],
+    parent: "M2-1",
+    children: ["M3-1"],
   },
-  "3-1": {
-    xOffset: -60 - 50 - 50 + 30 + 30,
-    yOffset: 5 - 25 + 40 + 40 + 40,
+  "M3-1": {
+    offsetX: -90 - 70 - 50 + 30 + 30,
+    offsetY: 10 - 30 + 40 + 40 + 40,
     type: "minor",
-    parent: "2-1",
+    parent: "M1-1",
   },
   
-  "2-2": {
-    xOffset: 60 + 50 + 50,
-    yOffset: 5 - 25 + 40,
+  "M1-2": {
+    offsetX: 90 + 70 + 50,
+    offsetY: 10 - 30 + 40,
     type: "minor",
     parent: "A4",
-    children: ["1-2"],
+    children: ["M2-2"],
   },
-  "1-2": {
-    xOffset: 60 + 50 + 50 - 30,
-    yOffset: 5 - 25 + 40 + 40,
+  "M2-2": {
+    offsetX: 90 + 70 + 50 - 30,
+    offsetY: 10 - 30 + 40 + 40,
     type: "minor",
-    parent: "2-2",
-    children: ["2-3"],
+    parent: "M1-2",
+    children: ["M1-3"],
   },
-  "2-3": {
-    xOffset: 60 + 50 + 50 - 30 - 30,
-    yOffset: 5 - 25 + 40 + 40 + 40,
+  "M1-3": {
+    offsetX: 90 + 70 + 50 - 30 - 30,
+    offsetY: 10 - 30 + 40 + 40 + 40,
     type: "minor",
-    parent: "1-2",
+    parent: "M2-2",
   },
 
-  "1-3": {
-    xOffset: 65,
-    yOffset: -50 - 50 + 5,
+  "M2-3": {
+    offsetX: 65,
+    offsetY: -60 - 50 + 5,
     type: "minor",
     parent: "A6",
   },
-  "3-2": {
-    xOffset: -65,
-    yOffset: -50 - 50 + 5,
+  "M3-2": {
+    offsetX: -65,
+    offsetY: -60 - 50 + 5,
     type: "minor",
     parent: "A6",
   },
   
-  "2-4": {
-    xOffset: 0,
-    yOffset: 50 + 40,
+  "M1-4": {
+    offsetX: 0,
+    offsetY: 60 + 50,
     type: "minor",
     parent: "tech",
-    children: ["2-5"],
+    children: ["M1-5"],
   },
-  "2-5": {
-    xOffset: 0,
-    yOffset: 50 + 40 + 40,
+  "M1-5": {
+    offsetX: 0,
+    offsetY: 60 + 50 + 50,
     type: "minor",
-    parent: "2-4",
+    parent: "M1-4",
   },
 };

@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
 import Node from "./Node";
-import Path from "./Path";
 import nihility from "./configs/nihility";
 const pathConfigs = { nihility };
 
@@ -58,26 +57,26 @@ const HSR = ({
             .map(([id, config], index) => {
               const { parent } = config;
               return (
-                <Path
+                <line
                   key={index}
-                  x1={centerX + NODES[id].xOffset}
-                  y1={centerY + NODES[id].yOffset}
-                  x2={centerX + NODES[parent].xOffset}
-                  y2={centerY + NODES[parent].yOffset}
-                  active
+                  x1={centerX + NODES[id].offsetX}
+                  y1={centerY + NODES[id].offsetY}
+                  x2={centerX + NODES[parent].offsetX}
+                  y2={centerY + NODES[parent].offsetY}
+                  stroke="white"
                 />
               );
             })}
 
           {Object.entries(NODES).map(([id, config], index) => {
-            const { xOffset, yOffset, type, parent } = config;
+            const { offsetX, offsetY, type, parent } = config;
             const parentActive = skillMap[parent] === "1";
             const locked = type === "minor" && !parentActive;
             return (
               <Node
                 key={index}
-                x={centerX + xOffset}
-                y={centerY + yOffset}
+                x={centerX + offsetX}
+                y={centerY + offsetY}
                 type={type}
                 value={type === "skill" ? skillMap[id] : null}
                 onClick={() => {
