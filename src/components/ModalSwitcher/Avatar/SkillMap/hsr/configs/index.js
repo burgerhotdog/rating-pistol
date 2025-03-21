@@ -1,5 +1,7 @@
-import nihility from "./nihility";
+import Abundance from "./abundance";
+import Nihility from "./nihility";
 
 export default {
-  nihility,
+  Abundance,
+  Nihility,
 };

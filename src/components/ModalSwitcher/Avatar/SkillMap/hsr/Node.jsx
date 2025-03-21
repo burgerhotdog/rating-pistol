@@ -10,9 +10,10 @@ const Node = ({
   capped,
   locked,
 }) => {
+  if (type === "invis") return;
   const size =
-    type === "skill" ? 40 :
-    type === "major" ? 50 : 30;
+    type === "skill" ? 46 :
+    type === "major" ? 52 : 34;
   
   return (
     <g

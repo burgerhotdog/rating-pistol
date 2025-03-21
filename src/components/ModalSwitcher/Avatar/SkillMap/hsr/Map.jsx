@@ -9,11 +9,9 @@ const HSR = ({
   modalPipe,
   editSkillMap,
 }) => {
-  const { SKILL_CAPS } = getData.hsr;
+  const { SKILL_CAPS, AVATAR_DATA } = getData.hsr;
   const { skillMap } = modalPipe.data;
-  const NODES = configs["nihility"]; // hardcoded for now
-  const centerX = 300;
-  const centerY = 200;
+  const NODES = configs[AVATAR_DATA[modalPipe.id].type] ?? configs["Nihility"]; // hardcoded for now
 
   const handleSkill = (skill) => {
     const currentLevel = Number(skillMap[skill] || "0");
@@ -28,7 +26,9 @@ const HSR = ({
     const { children } = NODES[id];
     if (children) {
       children.forEach((childId) => {
-        editSkillMap(childId, "0"); // Set child to "0"
+        if (NODES[childId].type !== "invis") {
+          editSkillMap(childId, "0"); // Set child to "0"
+        }
         deactivateChildren(childId); // Recursively process its children
       });
     }
@@ -55,8 +55,8 @@ const HSR = ({
 
   return (
     <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
-      <Box sx={{ position: "relative", width: "100%", height: "450px" }}>
-        <svg width="100%" height="100%" viewBox="0 0 600 400">
+      <Box sx={{ position: "relative", width: "100%", height: "550px" }}>
+        <svg width="100%" height="100%" viewBox="0 0 600 600">
           {Object.entries(NODES)
             .reduce((next, [id, config]) => {
               if (config.parent) {
@@ -69,35 +69,44 @@ const HSR = ({
               return (
                 <line
                   key={index}
-                  x1={centerX + NODES[id].offsetX}
-                  y1={centerY + NODES[id].offsetY}
-                  x2={centerX + NODES[parent].offsetX}
-                  y2={centerY + NODES[parent].offsetY}
+                  x1={NODES[id].x}
+                  y1={NODES[id].y}
+                  x2={NODES[parent].x}
+                  y2={NODES[parent].y}
                   stroke="white"
                 />
               );
             })}
 
-          {Object.entries(NODES).map(([id, config], index) => {
-            const { offsetX, offsetY, type, parent } = config;
-            const parentActive = skillMap[parent] !== "0";
-            const label = getNodeLabel(modalPipe.id, id);
-            return (
-              <Node
-                key={index}
-                x={centerX + offsetX}
-                y={centerY + offsetY}
-                type={type}
-                id={id}
-                value={skillMap[id]}
-                onClick={handleNode}
-                label={label}
-                active={skillMap[id] !== "0"}
-                capped={Number(skillMap[id]) === SKILL_CAPS[id]}
-                locked={!parentActive}
-              />
-            )
-          })}
+          {Object.entries(NODES)
+            .reduce((next, [id, config]) => {
+              if (config.type !== "invis") {
+                next.push([id, config]);
+              }
+              return next;
+            }, [])
+            .map(([id, config], index) => {
+              const { x, y, type, parent } = config;
+              const isParentInvis = NODES[parent]?.type === "invis";
+              const actingParent = isParentInvis ? NODES[parent].parent : parent;
+              const parentActive = skillMap[actingParent] !== "0";
+              const label = getNodeLabel(modalPipe.id, id);
+              return (
+                <Node
+                  key={index}
+                  x={x}
+                  y={y}
+                  type={type}
+                  id={id}
+                  value={skillMap[id]}
+                  onClick={handleNode}
+                  label={label}
+                  active={skillMap[id] !== "0"}
+                  capped={Number(skillMap[id]) === SKILL_CAPS[id]}
+                  locked={!parentActive}
+                />
+              )
+            })}
         </svg>
       </Box>
     </Paper>

@@ -27,7 +27,7 @@ export default (id, nodeId) => {
         return AVATAR_DATA[id].major[subType];
       } else {
         const statId = AVATAR_DATA[id].minor[subType];
-        return STAT_INDEX[statId].name;
+        return STAT_INDEX[statId]?.name ?? statId;
       }
   }
 };

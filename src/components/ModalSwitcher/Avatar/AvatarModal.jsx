@@ -98,7 +98,7 @@ const AvatarModal = ({
 
   return (
     <Stack alignItems="center" spacing={2}>
-      <Stack spacing={2}>
+      <Stack direction="row" spacing={2}>
         <Stack direction="row" spacing={2}>
           <TextField
             value={modalPipe.data.level ?? ""}
@@ -129,7 +129,7 @@ const AvatarModal = ({
           </FormControl>
         </Stack>
 
-        <Divider />
+        <Divider orientation="vertical" flexItem />
 
         <SkillMap
           gameId={gameId}
