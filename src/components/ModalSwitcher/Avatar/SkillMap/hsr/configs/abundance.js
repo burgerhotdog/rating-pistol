@@ -35,25 +35,25 @@ export default {
 
   // Major Nodes
   "A2": {
-    x: 160,
-    y: 430,
-    type: "major",
-    parent: "tech",
-    children: ["m1b"],
-  },
-  "A4": {
     x: 440,
     y: 430,
     type: "major",
     parent: "tech",
-    children: ["m3b"],
+    children: ["m2a"],
+  },
+  "A4": {
+    x: 160,
+    y: 430,
+    type: "major",
+    parent: "tech",
+    children: ["m1c"],
   },
   "A6": {
     x: 300,
     y: 70,
     type: "major",
     parent: "talent",
-    children: ["m1e", "m2c"],
+    children: ["m2c", "m3b"],
   },
 
   // Minor Nodes
@@ -64,64 +64,64 @@ export default {
     parent: "i1",
   },
   "m1b": {
-    x: 95,
-    y: 350,
-    type: "minor",
-    parent: "A2",
-    children: ["m3a"],
-  },
-  "m1c": {
-    x: 130,
-    y: 220,
-    type: "minor",
-    parent: "m3a",
-  },
-  "m1d": {
     x: 540,
     y: 290,
     type: "minor",
-    parent: "m3b",
+    parent: "m2a",
+    children: ["m3a"],
+  },
+  "m1c": {
+    x: 95,
+    y: 350,
+    type: "minor",
+    parent: "A4",
     children: ["m2b"],
   },
+  "m1d": {
+    x: 130,
+    y: 220,
+    type: "minor",
+    parent: "m2b",
+  },
   "m1e": {
+    x: 250,
+    y: 485,
+    type: "minor",
+    parent: "i1",
+  },
+
+  "m2a": {
+    x: 505,
+    y: 350,
+    type: "minor",
+    parent: "A2",
+    children: ["m1b"],
+  },
+  "m2b": {
+    x: 60,
+    y: 290,
+    type: "minor",
+    parent: "m1c",
+    children: ["m1d"],
+  },
+  "m2c": {
     x: 190,
     y: 95,
     type: "minor",
     parent: "A6",
   },
 
-  "m2a": {
-    x: 250,
-    y: 485,
-    type: "minor",
-    parent: "i1",
-  },
-  "m2b": {
+  "m3a": {
     x: 470,
     y: 220,
     type: "minor",
-    parent: "m1d",
+    parent: "m1b",
   },
-  "m2c": {
+  "m3b": {
     x: 410,
     y: 95,
     type: "minor",
     parent: "A6",
-  },
-
-  "m3a": {
-    x: 60,
-    y: 290,
-    type: "minor",
-    parent: "m1b",
-    children: ["m1c"],
-  },
-  "m3b": {
-    x: 505,
-    y: 350,
-    type: "minor",
-    parent: "A4",
-    children: ["m1d"],
   },
 
   // Invis Nodes
@@ -130,6 +130,6 @@ export default {
     y: 475,
     type: "invis",
     parent: "tech",
-    children: ["m2a", "m1a"],
+    children: ["m1a", "m1e"],
   },
 };
