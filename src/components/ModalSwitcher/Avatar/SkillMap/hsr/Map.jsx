@@ -2,16 +2,16 @@ import React from "react";
 import { Box, Paper } from "@mui/material";
 import getData from "../../../../getData";
 import Node from "./Node";
-import nihility from "./configs/nihility";
-const pathConfigs = { nihility };
+import getNodeLabel from "./getNodeLabel";
+import configs from "./configs";
 
 const HSR = ({
   modalPipe,
   editSkillMap,
 }) => {
-  const { SKILL_INDEX } = getData.hsr;
+  const { SKILL_CAPS } = getData.hsr;
   const { skillMap } = modalPipe.data;
-  const NODES = pathConfigs["nihility"]; // hardcoded for now
+  const NODES = configs["nihility"]; // hardcoded for now
   const centerX = 300;
   const centerY = 200;
 
@@ -81,6 +81,7 @@ const HSR = ({
           {Object.entries(NODES).map(([id, config], index) => {
             const { offsetX, offsetY, type, parent } = config;
             const parentActive = skillMap[parent] !== "0";
+            const label = getNodeLabel(modalPipe.id, id);
             return (
               <Node
                 key={index}
@@ -90,9 +91,9 @@ const HSR = ({
                 id={id}
                 value={skillMap[id]}
                 onClick={handleNode}
-                label={id}
+                label={label}
                 active={skillMap[id] !== "0"}
-                capped={Number(skillMap[id]) === SKILL_INDEX[id].levelCap}
+                capped={Number(skillMap[id]) === SKILL_CAPS[id]}
                 locked={!parentActive}
               />
             )

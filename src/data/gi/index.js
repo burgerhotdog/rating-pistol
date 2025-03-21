@@ -12,10 +12,10 @@ const HEADERS = {
   skills: "Talents",
 };
 
-const SKILL_INDEX = {
-  basic: { name: "Normal Attack", levelCap: 10 },
-  skill: { name: "Elemental Skill", levelCap: 10 },
-  ult: { name: "Elemental Burst", levelCap: 10 },
+const SKILL_CAPS = {
+  basic: 10,
+  skill: 10,
+  ult: 10,
 };
 
 const EQUIP_NAMES = [
@@ -161,7 +161,7 @@ export default {
   LEVEL_CAP: 90,
   AVATAR_DATA,
   PREFIX: "C",
-  SKILL_INDEX,
+  SKILL_CAPS,
   WEAPON_DATA,
   WEAPON_PREFIX: "R",
   SET_DATA,

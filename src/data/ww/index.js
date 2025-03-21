@@ -12,12 +12,12 @@ const HEADERS = {
   skills: "Skills",
 };
 
-const SKILL_INDEX = {
-  basic: { name: "Normal Attack", levelCap: 10 },
-  skill: { name: "Resonance Skill", levelCap: 10 },
-  ult: { name: "Resonance Liberation", levelCap: 10 },
-  forte: { name: "Forte Circuit", levelCap: 10 },
-  intro: { name: "Intro Skill", levelCap: 10 },
+const SKILL_CAPS = {
+  basic: 10,
+  skill: 10,
+  ult: 10,
+  forte: 10,
+  intro: 10,
 };
 
 const EQUIP_NAMES = [
@@ -174,7 +174,7 @@ export default {
   LEVEL_CAP: 90,
   AVATAR_DATA,
   PREFIX: "S",
-  SKILL_INDEX,
+  SKILL_CAPS,
   WEAPON_DATA,
   WEAPON_PREFIX: "R",
   SET_DATA,
