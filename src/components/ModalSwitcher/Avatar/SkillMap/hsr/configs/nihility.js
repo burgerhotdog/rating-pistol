@@ -32,7 +32,7 @@ export default {
     offsetY: 60,
     type: "skill",
     parent: "ult",
-    children: ["m1d"],
+    children: ["m1a"],
   },
 
   // Major Nodes
@@ -48,7 +48,7 @@ export default {
     offsetY: 10 - 30,
     type: "major",
     parent: "skill",
-    children: ["m1b"],
+    children: ["m1c"],
   },
   "A6": {
     offsetX: 0,
@@ -64,9 +64,9 @@ export default {
     offsetY: 10 - 30 + 40,
     type: "minor",
     parent: "A2",
-    children: ["m1a"],
+    children: ["m1b"],
   },
-  "m1a": {
+  "m1b": {
     offsetX: -90 - 70 - 50 + 30,
     offsetY: 10 - 30 + 40 + 40,
     type: "minor",
@@ -77,10 +77,10 @@ export default {
     offsetX: -90 - 70 - 50 + 30 + 30,
     offsetY: 10 - 30 + 40 + 40 + 40,
     type: "minor",
-    parent: "m1a",
+    parent: "m1b",
   },
   
-  "m1b": {
+  "m1c": {
     offsetX: 90 + 70 + 50,
     offsetY: 10 - 30 + 40,
     type: "minor",
@@ -91,10 +91,10 @@ export default {
     offsetX: 90 + 70 + 50 - 30,
     offsetY: 10 - 30 + 40 + 40,
     type: "minor",
-    parent: "m1b",
-    children: ["m1c"],
+    parent: "m1c",
+    children: ["m1d"],
   },
-  "m1c": {
+  "m1d": {
     offsetX: 90 + 70 + 50 - 30 - 30,
     offsetY: 10 - 30 + 40 + 40 + 40,
     type: "minor",
@@ -114,7 +114,7 @@ export default {
     parent: "A6",
   },
   
-  "m1d": {
+  "m1a": {
     offsetX: 0,
     offsetY: 60 + 50,
     type: "minor",
@@ -125,6 +125,6 @@ export default {
     offsetX: 0,
     offsetY: 60 + 50 + 50,
     type: "minor",
-    parent: "m1d",
+    parent: "m1a",
   },
 };
