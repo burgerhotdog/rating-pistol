@@ -1,7 +1,9 @@
 import getData from "../../../../getData";
+import getImgs from "../../../../getImgs";
 
 export default (id, nodeId) => {
   const { AVATAR_DATA, STAT_INDEX } = getData.hsr;
+  const { STAT_IMGS } = getImgs.hsr;
 
   switch (nodeId) {
     case "basic":
@@ -22,12 +24,12 @@ export default (id, nodeId) => {
     default:
       const type = nodeId[0];
       const subType = nodeId[1];
-
+      
       if (type === "A") {
         return AVATAR_DATA[id].major[subType];
       } else {
         const statId = AVATAR_DATA[id].minor[subType];
-        return STAT_INDEX[statId]?.name ?? statId;
+        return STAT_IMGS[`./${statId}.webp`]?.default;
       }
   }
 };

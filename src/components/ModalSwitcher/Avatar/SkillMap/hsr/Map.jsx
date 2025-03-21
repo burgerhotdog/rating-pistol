@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
 import getData from "../../../../getData";
+import getImgs from "../../../../getImgs";
 import Node from "./Node";
 import getNodeLabel from "./getNodeLabel";
 import configs from "./configs";
@@ -10,6 +11,7 @@ const HSR = ({
   editSkillMap,
 }) => {
   const { SKILL_CAPS, AVATAR_DATA } = getData.hsr;
+  const { STAT_IMGS } = getData.hsr;
   const { skillMap } = modalPipe.data;
   const NODES = configs[AVATAR_DATA[modalPipe.id].type] ?? configs["Nihility"]; // hardcoded for now
 
@@ -100,7 +102,7 @@ const HSR = ({
                   id={id}
                   value={skillMap[id]}
                   onClick={handleNode}
-                  label={label}
+                  imageSrc={label}
                   active={skillMap[id] !== "0"}
                   capped={Number(skillMap[id]) === SKILL_CAPS[id]}
                   locked={!parentActive}

@@ -5,7 +5,7 @@ const Node = ({
   id,
   value,
   onClick,
-  label,
+  imageSrc,
   active,
   capped,
   locked,
@@ -20,6 +20,30 @@ const Node = ({
       onClick={locked ? undefined : () => onClick(id, type)}
       style={{ cursor: locked ? "not-allowed" : "pointer" }}
     >
+      {/* Filter definition for black coloring */}
+      <defs>
+        <filter id="blackFilter">
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 1 0"
+          />
+        </filter>
+
+        {/* Lighter filter for disabled state */}
+        <filter id="lighterBlackFilter">
+          <feColorMatrix
+            type="matrix"
+            values="0 0 0 0 0.05
+                    0 0 0 0 0.05
+                    0 0 0 0 0.05
+                    0 0 0 1 0"
+          />
+        </filter>
+      </defs>
+
       {/* Ring */}
       <circle 
         cx={x}
@@ -35,31 +59,44 @@ const Node = ({
         cx={x}
         cy={y}
         r={size/2}
-        fill={active ? "white" : "dimgrey"}
+        fill={active ? "white" : "grey"}
       />
-      
-      {/* label */}
-      <text
-        x={x}
-        y={y}
-        textAnchor="middle"
-        dominantBaseline="middle"
-        fontSize={size/3}
-        fontWeight="bold"
-      >
-        {label}
-      </text>
+
+      {/* image */}
+      {type === "minor" ? (
+        <image
+          href={imageSrc}
+          x={x - size/2.5}
+          y={y - size/2.5}
+          width={size/1.25}
+          height={size/1.25}
+          filter={!active ? "url(#lighterBlackFilter)" : "url(#blackFilter)"}
+        />
+      ) : (
+        <text
+          x={x}
+          y={y}
+          textAnchor="middle"
+          dominantBaseline="middle"
+          fontSize={size/3}
+          fontWeight="bold"
+        >
+          {imageSrc}
+        </text>
+      )}
       
       {/* value */}
-      <text
-        x={x}
-        y={y + size/1.5 + 5}
-        textAnchor="middle"
-        fill="white"
-        fontSize={12}
-      >
-        {value}
-      </text>
+      {type === "skill" && (
+        <text
+          x={x}
+          y={y + size/1.5 + 5}
+          textAnchor="middle"
+          fill="white"
+          fontSize={12}
+        >
+          {value}
+        </text>
+      )}
     </g>
   );
 };
