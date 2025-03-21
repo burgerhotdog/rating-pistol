@@ -2,7 +2,7 @@ import getData from "../../../../getData";
 import getImgs from "../../../../getImgs";
 
 export default (id, nodeId) => {
-  const { AVATAR_DATA, STAT_INDEX } = getData.hsr;
+  const { AVATAR_DATA } = getData.hsr;
   const { STAT_IMGS } = getImgs.hsr;
 
   switch (nodeId) {
