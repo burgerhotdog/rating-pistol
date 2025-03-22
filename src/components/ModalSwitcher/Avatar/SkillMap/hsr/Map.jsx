@@ -103,10 +103,10 @@ const HSR = ({
                   type={type}
                   id={id}
                   value={skillMap[id]}
+                  maxValue={SKILL_CAPS[id]}
                   onClick={handleNode}
                   imageSrc={imageSrc}
                   active={skillMap[id] !== "0"}
-                  capped={Number(skillMap[id]) === SKILL_CAPS[id]}
                   locked={!parentActive}
                 />
               )

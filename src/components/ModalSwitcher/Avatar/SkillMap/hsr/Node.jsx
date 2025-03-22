@@ -4,17 +4,23 @@ const Node = ({
   type,
   id,
   value,
+  maxValue,
   onClick,
   imageSrc,
   active,
-  capped,
   locked,
 }) => {
   if (type === "invis") return;
+  const capped = Number(value) === maxValue;
   const size =
     type === "skill" ? 46 :
     type === "major" ? 52 : 34;
-  
+
+  const textContent = `${value} / ${maxValue}`;
+  const textLength = textContent.length;
+  const textWidth = textLength * 7; // Approximate width per character
+  const padding = 6; // Extra padding for better spacing
+
   return (
     <g
       onClick={locked ? undefined : () => onClick(id, type)}
@@ -62,7 +68,7 @@ const Node = ({
         fill={active ? "white" : "grey"}
       />
 
-      {/* image */}
+      {/* Image or Text */}
       {type === "minor" ? (
         <image
           href={imageSrc}
@@ -85,17 +91,28 @@ const Node = ({
         </text>
       )}
       
-      {/* value */}
+      {/* Value with dark background */}
       {type === "skill" && (
-        <text
-          x={x}
-          y={y + size/1.5 + 5}
-          textAnchor="middle"
-          fill="white"
-          fontSize={12}
-        >
-          {value}
-        </text>
+        <>
+          <rect
+            x={x - textWidth / 2 - padding / 2}
+            y={y + size/1.5}
+            width={textWidth + padding}
+            height={16}
+            fill="rgba(0, 0, 0, 0.5)"
+            rx="4"
+          />
+          <text
+            x={x}
+            y={y + size/1.5 + 12}
+            textAnchor="middle"
+            fill="white"
+            fontSize={12}
+            fontWeight="bold"
+          >
+            {textContent}
+          </text>
+        </>
       )}
     </g>
   );
