@@ -657,8 +657,8 @@ export default {
       "BE",
       "RES",
       "HP",
-      "BE",
       "RES",
+      "HP",
     ],
     statBase: { _HP: 1305, _ATK: 529, _DEF: 441 },
     weights: {
@@ -1988,11 +1988,11 @@ export default {
       "ICE",
       "RES",
       "ICE",
-      "DEF",
-      "ICE",
       "RES",
       "DEF",
       "ICE",
+      "ICE",
+      "DEF",
     ],
     statBase: { _HP: 1058, _ATK: 511, _DEF: 573 },
     weights: {
