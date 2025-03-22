@@ -1,24 +1,23 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
 import getData from "../../../../getData";
-import getImgs from "../../../../getImgs";
 import Node from "./Node";
 import getNodeLabel from "./getNodeLabel";
 import configs from "./configs";
+import { amIException, exceptionConfig } from "./exceptionConfigs";
 
 const HSR = ({
   modalPipe,
   editSkillMap,
 }) => {
   const { SKILL_CAPS, AVATAR_DATA } = getData.hsr;
-  const { STAT_IMGS } = getData.hsr;
   const { skillMap } = modalPipe.data;
-  const NODES = configs[AVATAR_DATA[modalPipe.id].type] ?? configs["Nihility"]; // hardcoded for now
+  const NODES = configs[AVATAR_DATA[modalPipe.id].type];
+  const isException = amIException(modalPipe.id);
 
   const handleSkill = (skill) => {
     const currentLevel = Number(skillMap[skill] || "0");
-    const maxLevel = skill === "basic" ? 6 : 10;
-    const nextLevel = currentLevel < maxLevel
+    const nextLevel = currentLevel < SKILL_CAPS[skill]
       ? currentLevel + 1
       : 1;
     editSkillMap(skill, String(nextLevel));
@@ -59,6 +58,7 @@ const HSR = ({
     <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
       <Box sx={{ position: "relative", width: "100%", height: "550px" }}>
         <svg width="100%" height="100%" viewBox="0 0 600 600">
+          {/* Render lines */}
           {Object.entries(NODES)
             .reduce((next, [id, config]) => {
               if (config.parent) {
@@ -80,6 +80,7 @@ const HSR = ({
               );
             })}
 
+          {/* Render nodes */}
           {Object.entries(NODES)
             .reduce((next, [id, config]) => {
               if (config.type !== "invis") {
@@ -92,7 +93,8 @@ const HSR = ({
               const isParentInvis = NODES[parent]?.type === "invis";
               const actingParent = isParentInvis ? NODES[parent].parent : parent;
               const parentActive = skillMap[actingParent] !== "0";
-              const label = getNodeLabel(modalPipe.id, id);
+
+              const imageSrc = getNodeLabel(type, modalPipe.id, id);
               return (
                 <Node
                   key={index}
@@ -102,7 +104,7 @@ const HSR = ({
                   id={id}
                   value={skillMap[id]}
                   onClick={handleNode}
-                  imageSrc={label}
+                  imageSrc={imageSrc}
                   active={skillMap[id] !== "0"}
                   capped={Number(skillMap[id]) === SKILL_CAPS[id]}
                   locked={!parentActive}

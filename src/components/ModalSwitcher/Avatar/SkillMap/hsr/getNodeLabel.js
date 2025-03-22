@@ -1,35 +1,28 @@
 import getData from "../../../../getData";
 import getImgs from "../../../../getImgs";
 
-export default (id, nodeId) => {
+const skillLabels = {
+  basic: "Basic Attack",
+  skill: "Skill",
+  ult: "Ultimate",
+  talent: "Talent",
+  tech: "Technique",
+};
+
+export default (type, id, nodeId) => {
   const { AVATAR_DATA } = getData.hsr;
   const { STAT_IMGS } = getImgs.hsr;
+  const subType = nodeId[1];
 
-  switch (nodeId) {
-    case "basic":
-      return "Basic Attack";
-
+  switch (type) {
     case "skill":
-      return "Skill";
-    
-    case "ult":
-      return "Ultimate";
+      return skillLabels[nodeId];
 
-    case "talent":
-      return "Talent";
-
-    case "tech":
-      return "Technique";
+    case "major":
+      return AVATAR_DATA[id].major[subType];
     
-    default:
-      const type = nodeId[0];
-      const subType = nodeId[1];
-      
-      if (type === "A") {
-        return AVATAR_DATA[id].major[subType];
-      } else {
-        const statId = AVATAR_DATA[id].minor[subType];
-        return STAT_IMGS[`./${statId}.webp`]?.default;
-      }
+    case "minor":
+      const statId = AVATAR_DATA[id].minor[subType];
+      return STAT_IMGS[`./${statId}.webp`]?.default;
   }
 };

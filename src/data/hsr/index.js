@@ -18,6 +18,8 @@ const SKILL_CAPS = {
   ult: 10,
   talent: 10,
   tech: 1,
+  memoSkill: 6,
+  memoTalent: 6,
   A2: 1,
   A4: 1,
   A6: 1,

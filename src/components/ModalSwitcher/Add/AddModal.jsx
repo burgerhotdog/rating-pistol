@@ -38,6 +38,10 @@ const AddModal = ({
     const data = template(gameId);
     data.level = LEVEL_CAP;
     data.rank = "0";
+    if (gameId === "hsr" && AVATAR_DATA[id].type === "Remembrance") {
+      data.skillMap.memoSkill = "1";
+      data.skillMap.memoTalent = "1";
+    }
 
     setModalPipe((prev) => ({
       ...prev,

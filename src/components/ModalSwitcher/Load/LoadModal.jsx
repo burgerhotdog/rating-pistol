@@ -130,7 +130,7 @@ const LoadModal = ({
       gameId === "gi" ?
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
-          const id = charObj.avatarId.toString();
+          const id = String(charObj.avatarId);
           const data = template(gameId);
 
           // avatar
@@ -153,7 +153,7 @@ const LoadModal = ({
             const reliqSubArr = equipObj.flat.reliquarySubstats;
             for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
               data.equipList[equipIndex].statMap[subIndex].key = STAT_CONVERT[reliqSubObj.appendPropId];
-              data.equipList[equipIndex].statMap[subIndex].value = reliqSubObj.statValue.toString();
+              data.equipList[equipIndex].statMap[subIndex].value = String(reliqSubObj.statValue);
             }
           }
 
@@ -168,8 +168,12 @@ const LoadModal = ({
       gameId === "hsr" ?
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
-          const id = charObj.avatarId.toString();
+          const id = String(charObj.avatarId);
           const data = template(gameId);
+          if (AVATAR_DATA[id].type === "Remembrance") {
+            data.skillMap.memoSkill = "1";
+            data.skillMap.memoTalent = "1";
+          }
 
           // avatar
           data.level = String(charObj.level);
@@ -187,7 +191,7 @@ const LoadModal = ({
           const relicListArr = charObj.relicList;
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.type - 1;
-            data.equipList[equipIndex].setId = relicObj._flat.setID.toString();
+            data.equipList[equipIndex].setId = String(relicObj._flat.setID);
             data.equipList[equipIndex].key = STAT_CONVERT[relicObj._flat.props[0].type];
             const subPropsArr = relicObj._flat.props.slice(1);
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
@@ -212,7 +216,7 @@ const LoadModal = ({
       gameId === "zzz" &&
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
-          const id = charObj.Id.toString();
+          const id = String(charObj.Id);
           const data = template(gameId);
 
           // avatar
