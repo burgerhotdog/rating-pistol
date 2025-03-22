@@ -5,14 +5,14 @@ export default {
     y: 250,
     type: "skill",
     parent: "ult",
-    children: ["A2"],
+    children: ["M0"],
   },
   "skill": {
     x: 405,
     y: 250,
     type: "skill",
     parent: "ult",
-    children: ["A4"],
+    children: ["M1"],
   },
   "ult": {
     x: 300,
@@ -25,105 +25,105 @@ export default {
     y: 155,
     type: "skill",
     parent: "ult",
-    children: ["A6"],
+    children: ["M2"],
   },
   "tech": {
     x: 300,
     y: 340,
     type: "skill",
     parent: "ult",
-    children: ["m1a"],
+    children: ["m0"],
   },
 
   // Major Nodes
-  "A2": {
+  "M0": {
     x: 115,
     y: 215,
     type: "major",
     parent: "basic",
-    children: ["m2a"],
+    children: ["m1"],
   },
-  "A4": {
+  "M1": {
     x: 485,
     y: 215,
     type: "major",
     parent: "skill",
-    children: ["m1c"],
+    children: ["m4"],
   },
-  "A6": {
+  "M2": {
     x: 300,
     y: 70,
     type: "major",
     parent: "talent",
-    children: ["m2c", "m3b"],
+    children: ["m8", "m7"],
   },
 
   // Minor Nodes
-  "m1a": {
+  "m0": {
     x: 300,
     y: 415,
     type: "minor",
     parent: "tech",
-    children: ["m1e"],
+    children: ["m9"],
   },
-  "m1b": {
+  "m2": {
     x: 100,
     y: 380,
     type: "minor",
-    parent: "m2a",
-    children: ["m3a"],
+    parent: "m1",
+    children: ["m3"],
   },
-  "m1c": {
+  "m4": {
     x: 570,
     y: 300,
     type: "minor",
-    parent: "A4",
-    children: ["m2b"],
+    parent: "M1",
+    children: ["m5"],
   },
-  "m1d": {
+  "m6": {
     x: 430,
     y: 460,
     type: "minor",
-    parent: "m2b",
+    parent: "m5",
   },
-  "m1e": {
+  "m9": {
     x: 300,
     y: 490,
     type: "minor",
-    parent: "m1a",
+    parent: "m0",
   },
 
-  "m2a": {
+  "m1": {
     x: 30,
     y: 300,
     type: "minor",
-    parent: "A2",
-    children: ["m1b"],
+    parent: "M0",
+    children: ["m2"],
   },
-  "m2b": {
+  "m5": {
     x: 500,
     y: 380,
     type: "minor",
-    parent: "m1c",
-    children: ["m1d"],
+    parent: "m4",
+    children: ["m6"],
   },
-  "m2c": {
+  "m8": {
     x: 185,
     y: 90,
     type: "minor",
-    parent: "A6",
+    parent: "M2",
   },
 
-  "m3a": {
+  "m3": {
     x: 170,
     y: 460,
     type: "minor",
-    parent: "m1b",
+    parent: "m2",
   },
-  "m3b": {
+  "m7": {
     x: 415,
     y: 90,
     type: "minor",
-    parent: "A6",
+    parent: "M2",
   },
 };

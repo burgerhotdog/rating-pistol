@@ -23,105 +23,105 @@ export default {
     y: 210,
     type: "skill",
     parent: "ult",
-    children: ["A6"],
+    children: ["M2"],
   },
   "tech": {
     x: 300,
     y: 405,
     type: "skill",
     parent: "ult",
-    children: ["A2", "A4", "m1a"],
+    children: ["M0", "M1", "m0"],
   },
 
   // Major Nodes
-  "A2": {
+  "M0": {
     x: 185,
     y: 415,
     type: "major",
     parent: "tech",
-    children: ["m2a"],
+    children: ["m1"],
   },
-  "A4": {
+  "M1": {
     x: 415,
     y: 415,
     type: "major",
     parent: "tech",
-    children: ["m1c"],
+    children: ["m4"],
   },
-  "A6": {
+  "M2": {
     x: 300,
     y: 140,
     type: "major",
     parent: "talent",
-    children: ["m3b"],
+    children: ["m7"],
   },
 
   // Minor Nodes
-  "m1a": {
+  "m0": {
     x: 300,
     y: 490,
     type: "minor",
     parent: "tech",
   },
-  "m1b": {
+  "m2": {
     x: 40,
     y: 300,
     type: "minor",
-    parent: "m2a",
-    children: ["m3a"],
+    parent: "m1",
+    children: ["m3"],
   },
-  "m1c": {
+  "m4": {
     x: 495,
     y: 365,
     type: "minor",
-    parent: "A4",
-    children: ["m2b"],
+    parent: "M1",
+    children: ["m5"],
   },
-  "m1d": {
+  "m6": {
     x: 495,
     y: 210,
     type: "minor",
-    parent: "m2b",
+    parent: "m5",
   },
-  "m1e": {
+  "m9": {
     x: 415,
     y: 90,
     type: "minor",
-    parent: "m3b",
+    parent: "m7",
   },
 
-  "m2a": {
+  "m1": {
     x: 105,
     y: 365,
     type: "minor",
-    parent: "A2",
-    children: ["m1b"],
+    parent: "M0",
+    children: ["m2"],
   },
-  "m2b": {
+  "m5": {
     x: 560,
     y: 300,
     type: "minor",
-    parent: "m1c",
-    children: ["m1d"],
+    parent: "m4",
+    children: ["m6"],
   },
-  "m2c": {
+  "m8": {
     x: 185,
     y: 90,
     type: "minor",
-    parent: "m3b",
+    parent: "m7",
   },
 
-  "m3a": {
+  "m3": {
     x: 105,
     y: 210,
     type: "minor",
-    parent: "m1b",
+    parent: "m2",
   },
-  "m3b": {
+  "m7": {
     x: 300,
     y: 70,
     type: "minor",
-    parent: "A6",
-    children: ["m1e", "m2c"],
+    parent: "M2",
+    children: ["m9", "m8"],
   },
 };

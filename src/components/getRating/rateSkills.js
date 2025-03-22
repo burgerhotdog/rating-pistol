@@ -5,8 +5,10 @@ const rateSkillMap = (gameId, data) => {
   let levelTotal = 0;
   let capTotal = 0;
   for (const [skillKey, skillValue] of Object.entries(data.skillMap)) {
+    const type = skillKey[0];
+    const isMajorMinor = type === "M" || type === "m";
     levelTotal += Number(skillValue);
-    capTotal += SKILL_CAPS[skillKey];
+    capTotal += isMajorMinor ? 1 : SKILL_CAPS[skillKey];
   }
   return (levelTotal / capTotal) * 100;
 };

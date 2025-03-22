@@ -103,7 +103,7 @@ const HSR = ({
                   type={type}
                   id={id}
                   value={skillMap[id]}
-                  maxValue={SKILL_CAPS[id]}
+                  maxValue={type === "skill" ? SKILL_CAPS[id] : 1}
                   onClick={handleNode}
                   imageSrc={imageSrc}
                   active={skillMap[id] !== "0"}
