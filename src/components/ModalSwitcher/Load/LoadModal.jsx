@@ -124,7 +124,6 @@ const LoadModal = ({
   };
 
   const handleSave = async () => {
-    console.log("hi");
     const { equipTypeToIndex } = translate[gameId];
     setIsLoading(true);
     const charBuffer =
@@ -240,6 +239,15 @@ const LoadModal = ({
                 const num = Number(skillId.slice(1)) - 1;
                 data.skillMap[`m${num}`] = String(level);
               } break;
+
+              case "3": {
+                // memo skill
+                if (skillId[2] === "1") {
+                  data.skillMap.memoSkill = String(level);
+                } else {
+                  data.skillMap.memoTalent = String(level);
+                }
+              } break;
             }
           }
 
@@ -297,17 +305,14 @@ const LoadModal = ({
 
     const localUpdates = {};
     const batch = userId ? writeBatch(db) : null;
-    charBuffer.forEach((char) => {
-      const { id, data } = char;
+    charBuffer.forEach(({ id, data }) => {
       localUpdates[id] = data;
       if (userId) {
         const docRef = doc(db, "users", userId, gameId, id);
         batch.set(docRef, data, { merge: true });
       }
     });
-    if (userId) {
-      await batch.commit();
-    }
+    if (userId) await batch.commit();
 
     setLocalDocs((prev) => ({
       ...prev,
