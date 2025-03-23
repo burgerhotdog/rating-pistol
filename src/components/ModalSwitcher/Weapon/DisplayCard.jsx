@@ -50,9 +50,10 @@ const DisplayCard = ({ gameId, modalPipe }) => {
 
           {Object.entries(weapon.statBase).map(([key, value]) => {
             const { name } = STAT_INDEX[key] || {};
+            const base = gameId === "hsr" ? "" : "Base ";
             return (
               <Typography key={key} variant="body2">
-                Base {name}: {value}
+                {base}{name}: {value}
               </Typography>
             );
           })}
