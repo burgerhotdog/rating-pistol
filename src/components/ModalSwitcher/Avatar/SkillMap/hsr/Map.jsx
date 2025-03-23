@@ -93,8 +93,9 @@ const HSR = ({
               const parentActive = skillMap[actingParent] !== "0";
               const imageSrc = getNodeLabel(type, modalPipe.id, id);
               const rankReq = AVATAR_DATA[modalPipe.id].rankTrace[id];
+              const singleBonus = ["basic", "memoSkill", "memoTalent"].includes(id);
               const rankBonus = rankReq && modalPipe.data.rank >= rankReq  
-                ? id === "basic" ? 1 : 2  
+                ? singleBonus ? 1 : 2  
                 : 0;
               return (
                 <Node
