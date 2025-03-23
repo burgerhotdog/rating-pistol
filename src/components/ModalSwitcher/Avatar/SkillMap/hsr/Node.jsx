@@ -1,7 +1,8 @@
+import { useState } from "react";
+
 const Node = ({
   x,
   y,
-  type,
   id,
   value,
   maxValue,
@@ -11,23 +12,26 @@ const Node = ({
   locked,
   rankBonus,
 }) => {
-  if (type === "invis") return;
-  const capped = Number(value) === maxValue;
-  const size =
-    type === "skill" ? 46 :
-    type === "major" ? 52 : 34;
+  const [isHovered, setIsHovered] = useState(false);
+  const capped = value === maxValue;
+  const size = id[0] === "0" ? 46 : id[0] === "1" ? 52 : 34;
 
-  const textContent = `${Number(value) + rankBonus} / ${maxValue + rankBonus}`;
+  const textContent = `${value + rankBonus} / ${maxValue + rankBonus}`;
   const textLength = textContent.length;
-  const textWidth = textLength * 7; // Approximate width per character
-  const padding = 6; // Extra padding for better spacing
+  const textWidth = textLength * 7;
+  const padding = 6;
 
   return (
     <g
-      onClick={locked ? undefined : () => onClick(id, type)}
-      style={{ cursor: locked ? "not-allowed" : "pointer" }}
+      onClick={locked ? undefined : () => onClick(id)}
+      style={{
+        cursor: "pointer",
+        transition: "transform 0.2s ease-in-out",
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Filter definition for black coloring */}
+      {/* Black filter */}
       <defs>
         <filter id="blackFilter">
           <feColorMatrix
@@ -39,7 +43,7 @@ const Node = ({
           />
         </filter>
 
-        {/* Lighter filter for disabled state */}
+        {/* Lighter black filter */}
         <filter id="lighterBlackFilter">
           <feColorMatrix
             type="matrix"
@@ -51,7 +55,7 @@ const Node = ({
         </filter>
       </defs>
 
-      {/* Ring */}
+      {/* Blue Ring */}
       <circle 
         cx={x}
         cy={y}
@@ -66,42 +70,32 @@ const Node = ({
         cx={x}
         cy={y}
         r={size/2}
-        fill={active ? "white" : "grey"}
+        fill={id[0] === "0" ? "#151515" : active ? "lightgrey" : "grey"}
+        stroke={isHovered ? "white" : active ? "lightgrey" : "none"}
+        strokeWidth={isHovered ? 2 : 1}
       />
 
-      {/* Image or Text */}
-      {type === "minor" ? (
-        <image
-          href={imageSrc}
-          x={x - size/2.5}
-          y={y - size/2.5}
-          width={size/1.25}
-          height={size/1.25}
-          filter={!active ? "url(#lighterBlackFilter)" : "url(#blackFilter)"}
-        />
-      ) : (
-        <text
-          x={x}
-          y={y}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          fontSize={size/3}
-          fontWeight="bold"
-        >
-          {imageSrc}
-        </text>
-      )}
+      {/* Image */}
+      <image
+        href={imageSrc}
+        x={x - size/2.5}
+        y={y - size/2.5}
+        width={size/1.25}
+        height={size/1.25}
+        filter={id[0] !== "0" ? (!active ? "url(#lighterBlackFilter)" : "url(#blackFilter)") : "none"}
+      />
       
       {/* Value with dark background */}
-      {type === "skill" && (
+      {id[0] === "0" && (
         <>
           <rect
             x={x - textWidth / 2 - padding / 2}
             y={y + size/1.5}
             width={textWidth + padding}
             height={16}
-            fill="rgba(0, 0, 0, 0.5)"
+            fill="rgba(15, 15, 15, .85)"
             rx="4"
+            style={{ pointerEvents: "none" }}
           />
           <text
             x={x}
@@ -109,6 +103,7 @@ const Node = ({
             textAnchor="middle"
             fill="white"
             fontSize={12}
+            style={{ pointerEvents: "none", userSelect: "none" }}
           >
             {textContent}
           </text>

@@ -12,37 +12,8 @@ const HEADERS = {
   skills: "Traces",
 };
 
-const SKILL_CAPS = {
-  basic: 6,
-  skill: 10,
-  ult: 10,
-  talent: 10,
-  tech: 1,
-  memoSkill: 6,
-  memoTalent: 6,
-  A2: 1,
-  A4: 1,
-  A6: 1,
-  m1a: 1,
-  m1b: 1,
-  m1c: 1,
-  m1d: 1,
-  m1e: 1,
-  m2a: 1,
-  m2b: 1,
-  m2c: 1,
-  m3a: 1,
-  m3b: 1,
-};
-
-const EQUIP_NAMES = [
-  "Head",
-  "Hands",
-  "Body",
-  "Feet",
-  "Orb",
-  "Rope",
-];
+const SKILL_CAPS = [6, 10, 10, 10, 6, 6, 1];
+const EQUIP_NAMES = ["Head", "Hands", "Body", "Feet", "Orb", "Rope"];
 
 const MAINSTAT_OPTIONS = [
   ["_HP"],

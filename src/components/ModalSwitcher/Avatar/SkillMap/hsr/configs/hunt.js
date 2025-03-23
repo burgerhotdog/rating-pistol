@@ -1,127 +1,109 @@
 export default {
   // Skill Nodes
-  "basic": {
+  "001": {
     x: 200,
     y: 260,
-    type: "skill",
-    parent: "ult",
-    children: ["m3"],
+    parent: "003",
+    children: ["204"],
   },
-  "skill": {
+  "002": {
     x: 400,
     y: 260,
-    type: "skill",
-    parent: "ult",
-    children: ["m6"],
+    parent: "003",
+    children: ["207"],
   },
-  "ult": {
+  "003": {
     x: 300,
     y: 310,
-    type: "skill",
-    children: ["basic", "skill", "talent", "tech"],
+    children: ["001", "002", "004", "007"],
   },
-  "talent": {
+  "004": {
     x: 300,
     y: 210,
-    type: "skill",
-    parent: "ult",
-    children: ["M2"],
+    parent: "003",
+    children: ["103"],
   },
-  "tech": {
+  "007": {
     x: 300,
     y: 395,
-    type: "skill",
-    parent: "ult",
-    children: ["M0", "M1", "m0"],
+    parent: "003",
+    children: ["101", "102", "201"],
   },
 
   // Major Nodes
-  "M0": {
+  "101": {
     x: 195,
     y: 405,
-    type: "major",
-    parent: "tech",
-    children: ["m1"],
+    parent: "007",
+    children: ["202"],
   },
-  "M1": {
+  "102": {
     x: 405,
     y: 405,
-    type: "major",
-    parent: "tech",
-    children: ["m4"],
+    parent: "007",
+    children: ["205"],
   },
-  "M2": {
+  "103": {
     x: 300,
     y: 135,
-    type: "major",
-    parent: "talent",
-    children: ["m7"],
+    parent: "004",
+    children: ["208"],
   },
 
   // Minor Nodes
-  "m0": {
+  "201": {
     x: 300,
     y: 500,
-    type: "minor",
-    parent: "tech",
+    parent: "007",
   },
-  "m2": {
+  "203": {
     x: 55,
     y: 270,
-    type: "minor",
-    parent: "m1",
+    parent: "202",
   },
-  "m4": {
+  "205": {
     x: 475,
     y: 335,
-    type: "minor",
-    parent: "M1",
-    children: ["m5"],
+    parent: "102",
+    children: ["206"],
   },
-  "m6": {
+  "207": {
     x: 475,
     y: 180,
-    type: "minor",
-    parent: "skill",
+    parent: "002",
   },
-  "m9": {
+  "210": {
     x: 415,
     y: 90,
-    type: "minor",
-    parent: "m7",
+    parent: "208",
   },
 
-  "m1": {
+  "202": {
     x: 125,
     y: 335,
-    type: "minor",
-    parent: "M0",
-    children: ["m2"],
+    parent: "101",
+    children: ["203"],
   },
-  "m5": {
+  "206": {
     x: 545,
     y: 270,
-    type: "minor",
-    parent: "m4",
+    parent: "205",
   },
-  "m8": {
+  "209": {
     x: 185,
     y: 90,
-    type: "minor",
-    parent: "m7",
+    parent: "208",
   },
 
-  "m3": {
+  "204": {
     x: 125,
     y: 180,
-    type: "minor",
-    parent: "basic",
+    parent: "001",
   },
-  "m7": {
+  "208": {
     x: 300,
     y: 70,
-    type: "minor",
-    parent: "M2",
-    children: ["m9", "m8"],
+    parent: "103",
+    children: ["210", "209"],
   },
 };

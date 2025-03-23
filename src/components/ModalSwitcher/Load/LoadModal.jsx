@@ -211,19 +211,19 @@ const LoadModal = ({
                 // skill
                 switch (skillId[2]) {
                   case "1":
-                    data.skillMap.basic = String(level);
+                    data.skillMap.basic = level;
                     break;
                   
                   case "2":
-                    data.skillMap.skill = String(level);
+                    data.skillMap.skill = level;
                     break;
                 
                   case "3":
-                    data.skillMap.ult = String(level);
+                    data.skillMap.ult = level;
                     break;
                   
                   case "4":
-                    data.skillMap.talent = String(level);
+                    data.skillMap.talent = level;
                     break;
                 }
               } break;
@@ -231,21 +231,21 @@ const LoadModal = ({
               case "1": {
                 // major
                 const num = Number(skillId[2]) - 1;
-                data.skillMap[`M${num}`] = String(level);
+                data.skillMap[`M${num}`] = level;
               } break;
 
               case "2": {
                 // minor
                 const num = Number(skillId.slice(1)) - 1;
-                data.skillMap[`m${num}`] = String(level);
+                data.skillMap[`m${num}`] = level;
               } break;
 
               case "3": {
                 // memo skill
                 if (skillId[2] === "1") {
-                  data.skillMap.memoSkill = String(level);
+                  data.skillMap.memoSkill = level;
                 } else {
-                  data.skillMap.memoTalent = String(level);
+                  data.skillMap.memoTalent = level;
                 }
               } break;
             }

@@ -1,139 +1,119 @@
 export default {
   // Skill Nodes
-  "basic": {
+  "001": {
     x: 220,
     y: 380,
-    type: "skill",
-    parent: "ult",
-    children: ["tech"],
+    parent: "003",
+    children: ["007"],
   },
-  "skill": {
+  "002": {
     x: 405,
     y: 380,
-    type: "skill",
-    parent: "ult",
-    children: ["talent"],
+    parent: "003",
+    children: ["004"],
   },
-  "ult": {
+  "003": {
     x: 310,
     y: 410,
-    type: "skill",
-    children: ["basic", "skill", "M1"],
+    children: ["001", "002", "102"],
   },
-  "talent": {
+  "004": {
     x: 455,
     y: 290,
-    type: "skill",
-    parent: "skill",
-    children: ["M0"],
+    parent: "002",
+    children: ["101"],
   },
-  "tech": {
+  "007": {
     x: 170,
     y: 290,
-    type: "skill",
-    parent: "basic",
-    children: ["M2", "m0"],
+    parent: "001",
+    children: ["103", "201"],
   },
-  "memoSkill": {
+  "005": {
     x: 310,
     y: 270,
-    type: "skill",
-    children: ["memoTalent"],
+    children: ["006"],
   },
-  "memoTalent": {
+  "006": {
     x: 310,
     y: 155,
-    type: "skill",
-    parent: "memoSkill",
+    parent: "005",
   },
 
   // Major Nodes
-  "M0": {
+  "101": {
     x: 550,
     y: 290,
-    type: "major",
-    parent: "talent",
-    children: ["m4", "m5"],
+    parent: "004",
+    children: ["205", "206"],
   },
-  "M1": {
+  "102": {
     x: 310,
     y: 495,
-    type: "major",
-    parent: "ult",
-    children: ["m6", "m3"],
+    parent: "003",
+    children: ["207", "204"],
   },
-  "M2": {
+  "103": {
     x: 210,
     y: 190,
-    type: "major",
-    parent: "tech",
-    children: ["m8"],
+    parent: "007",
+    children: ["209"],
   },
 
   // Minor Nodes
-  "m0": {
+  "201": {
     x: 60,
     y: 290,
-    type: "minor",
-    parent: "tech",
-    children: ["m2", "m1"],
+    parent: "007",
+    children: ["203", "202"],
   },
-  "m2": {
+  "203": {
     x: 90,
     y: 380,
-    type: "minor",
-    parent: "m0",
+    parent: "201",
   },
-  "m4": {
+  "205": {
     x: 540,
     y: 380,
-    type: "minor",
-    parent: "M0",
+    parent: "101",
   },
-  "m6": {
+  "207": {
     x: 400,
     y: 480,
-    type: "minor",
-    parent: "M1",
+    parent: "102",
   },
-  "m9": {
+  "210": {
     x: 360,
     y: 70,
-    type: "minor",
-    parent: "m7",
+    parent: "208",
   },
 
-  "m1": {
+  "202": {
     x: 90,
     y: 195,
-    type: "minor",
-    parent: "m0",
+    parent: "201",
   },
-  "m5": {
+  "206": {
     x: 530,
     y: 195,
-    type: "minor",
-    parent: "M0",
+    parent: "101",
   },
-  "m8": {
+  "209": {
     x: 170,
     y: 105,
-    type: "minor",
-    parent: "M2",
-    children: ["m7"],
+    parent: "103",
+    children: ["208"],
   },
 
-  "m3": {
+  "204": {
     x: 220,
     y: 480,
-    type: "minor",
-    parent: "M1",
+    parent: "102",
   },
-  "m7": {
+  "208": {
     x: 260,
     y: 70,
-    type: "minor",
-    parent: "m8",
-    children: ["m9"],
+    parent: "209",
+    children: ["210"],
   },
 };

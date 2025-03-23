@@ -1,129 +1,111 @@
 export default {
   // Skill Nodes
-  "basic": {
+  "001": {
     x: 195,
     y: 250,
-    type: "skill",
-    parent: "ult",
-    children: ["M0"],
+    parent: "003",
+    children: ["101"],
   },
-  "skill": {
+  "002": {
     x: 405,
     y: 250,
-    type: "skill",
-    parent: "ult",
-    children: ["M1"],
+    parent: "003",
+    children: ["102"],
   },
-  "ult": {
+  "003": {
     x: 300,
     y: 240,
-    type: "skill",
-    children: ["basic", "skill", "talent", "tech"],
+    children: ["001", "002", "004", "007"],
   },
-  "talent": {
+  "004": {
     x: 300,
     y: 155,
-    type: "skill",
-    parent: "ult",
-    children: ["M2"],
+    parent: "003",
+    children: ["103"],
   },
-  "tech": {
+  "007": {
     x: 300,
     y: 340,
-    type: "skill",
-    parent: "ult",
-    children: ["m0"],
+    parent: "003",
+    children: ["201"],
   },
 
   // Major Nodes
-  "M0": {
+  "101": {
     x: 115,
     y: 215,
-    type: "major",
-    parent: "basic",
-    children: ["m1"],
+    parent: "001",
+    children: ["202"],
   },
-  "M1": {
+  "102": {
     x: 485,
     y: 215,
-    type: "major",
-    parent: "skill",
-    children: ["m4"],
+    parent: "002",
+    children: ["205"],
   },
-  "M2": {
+  "103": {
     x: 300,
     y: 70,
-    type: "major",
-    parent: "talent",
-    children: ["m8", "m7"],
+    parent: "004",
+    children: ["209", "208"],
   },
 
   // Minor Nodes
-  "m0": {
+  "201": {
     x: 300,
     y: 415,
-    type: "minor",
-    parent: "tech",
-    children: ["m9"],
+    parent: "007",
+    children: ["210"],
   },
-  "m2": {
+  "203": {
     x: 100,
     y: 380,
-    type: "minor",
-    parent: "m1",
-    children: ["m3"],
+    parent: "202",
+    children: ["204"],
   },
-  "m4": {
+  "205": {
     x: 570,
     y: 300,
-    type: "minor",
-    parent: "M1",
-    children: ["m5"],
+    parent: "102",
+    children: ["206"],
   },
-  "m6": {
+  "207": {
     x: 430,
     y: 460,
-    type: "minor",
-    parent: "m5",
+    parent: "206",
   },
-  "m9": {
+  "210": {
     x: 300,
     y: 490,
-    type: "minor",
-    parent: "m0",
+    parent: "201",
   },
 
-  "m1": {
+  "202": {
     x: 30,
     y: 300,
-    type: "minor",
-    parent: "M0",
-    children: ["m2"],
+    parent: "101",
+    children: ["203"],
   },
-  "m5": {
+  "206": {
     x: 500,
     y: 380,
-    type: "minor",
-    parent: "m4",
-    children: ["m6"],
+    parent: "205",
+    children: ["207"],
   },
-  "m8": {
+  "209": {
     x: 185,
     y: 90,
-    type: "minor",
-    parent: "M2",
+    parent: "103",
   },
 
-  "m3": {
+  "204": {
     x: 170,
     y: 460,
-    type: "minor",
-    parent: "m2",
+    parent: "203",
   },
-  "m7": {
+  "208": {
     x: 415,
     y: 90,
-    type: "minor",
-    parent: "M2",
+    parent: "103",
   },
 };
