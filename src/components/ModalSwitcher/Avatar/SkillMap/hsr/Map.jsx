@@ -29,19 +29,27 @@ const HSR = ({
     }
   };
 
+  const activateParents = (id) => {
+    const { parent } = NODES[id];
+    if (parent && !skillMap[parent]) {
+      if (parent !== "000") editSkillMap(parent, 1);
+      activateParents(parent);
+    }
+  };
+
   const handleNonSkill = (id) => {
     const value = skillMap[id];
     const newValue = value ? 0 : 1;
     editSkillMap(id, newValue);
 
-    // If turning off, deactivate all children
     if (!newValue) deactivateChildren(id);
+    else activateParents(id);
   };
 
   const handleNode = (id) => {
     if (id[0] !== "0") {
       handleNonSkill(id);
-    } else if (id !== "007") {
+    } else if (id[2] !== "7") {
       handleSkill(id);
     }
   };
@@ -69,7 +77,7 @@ const HSR = ({
             .filter(([id]) => Number(id))
             .map(([id, { x, y, parent }], index) => {
               const realParent = parent === "000" ? NODES[parent].parent : parent;
-              const parentIsActive = Boolean(skillMap[realParent]);
+              const parentInactive = !Boolean(skillMap[realParent]);
 
               const imageSrc = getNodeIcon(modalPipe.id, id);
 
@@ -90,7 +98,7 @@ const HSR = ({
                   onClick={handleNode}
                   imageSrc={imageSrc}
                   active={skillMap[id] !== 0}
-                  locked={id[0] !== "0" && !parentIsActive}
+                  locked={id[0] !== "0" && parentInactive}
                   rankBonus={rankBonus}
                 />
               )

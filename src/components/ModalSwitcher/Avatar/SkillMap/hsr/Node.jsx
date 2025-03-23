@@ -13,7 +13,7 @@ const Node = ({
   rankBonus,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const capped = value === maxValue;
+  const maxed = value === maxValue;
   const size = id[0] === "0" ? 46 : id[0] === "1" ? 52 : 34;
 
   const textContent = `${value + rankBonus} / ${maxValue + rankBonus}`;
@@ -23,11 +23,8 @@ const Node = ({
 
   return (
     <g
-      onClick={locked ? undefined : () => onClick(id)}
-      style={{
-        cursor: "pointer",
-        transition: "transform 0.2s ease-in-out",
-      }}
+      onClick={() => onClick(id)}
+      style={{ cursor: "pointer" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -61,8 +58,9 @@ const Node = ({
         cy={y}
         r={size/2 + 3}
         fill="none"
-        stroke={capped || locked ? "none" : "cornflowerblue"}
+        stroke={locked || maxed ? "none" : "cornflowerblue"}
         strokeWidth={3}
+        style={{ pointerEvents: "none" }}
       />
       
       {/* Circle */}
