@@ -29,7 +29,7 @@ const LoadModal = ({
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { STAT_CONVERT } = translate(gameId);
+  const { STAT_CONVERT } = translate[gameId];
 
   const suffix = {
     gi: "uid/",
@@ -65,7 +65,7 @@ const LoadModal = ({
     }
 
     const rawEnka = await response.json();
-    const { maleToFemale } = translate(gameId);
+    const { maleToFemale } = translate[gameId];
     
     switch (gameId) {
       case "gi":
@@ -124,7 +124,8 @@ const LoadModal = ({
   };
 
   const handleSave = async () => {
-    const { equipTypeToIndex } = translate(gameId);
+    console.log("hi");
+    const { equipTypeToIndex } = translate[gameId];
     setIsLoading(true);
     const charBuffer =
       gameId === "gi" ?
@@ -204,10 +205,43 @@ const LoadModal = ({
 
           // skillMap
           const skillsArr = charObj.skillTreeList;
-          data.skillMap.basic = skillsArr[0].level;
-          data.skillMap.skill = skillsArr[1].level;
-          data.skillMap.ult = skillsArr[2].level;
-          data.skillMap.talent = skillsArr[3].level;
+          for (const { pointId, level } of skillsArr) {
+            const skillId = String(pointId).slice(4);
+            switch (skillId[0]) {
+              case "0": {
+                // skill
+                switch (skillId[2]) {
+                  case "1":
+                    data.skillMap.basic = String(level);
+                    break;
+                  
+                  case "2":
+                    data.skillMap.skill = String(level);
+                    break;
+                
+                  case "3":
+                    data.skillMap.ult = String(level);
+                    break;
+                  
+                  case "4":
+                    data.skillMap.talent = String(level);
+                    break;
+                }
+              } break;
+
+              case "1": {
+                // major
+                const num = Number(skillId[2]) - 1;
+                data.skillMap[`M${num}`] = String(level);
+              } break;
+
+              case "2": {
+                // minor
+                const num = Number(skillId.slice(1)) - 1;
+                data.skillMap[`m${num}`] = String(level);
+              } break;
+            }
+          }
 
           return { id, data };
         }) :
@@ -262,15 +296,16 @@ const LoadModal = ({
         });
 
     const localUpdates = {};
-    if (userId) {
-      const batch = writeBatch(db);
-      charBuffer.forEach((char) => {
-        const { id, data } = char;
+    const batch = userId ? writeBatch(db) : null;
+    charBuffer.forEach((char) => {
+      const { id, data } = char;
+      localUpdates[id] = data;
+      if (userId) {
         const docRef = doc(db, "users", userId, gameId, id);
-        
         batch.set(docRef, data, { merge: true });
-        localUpdates[id] = data;
-      });
+      }
+    });
+    if (userId) {
       await batch.commit();
     }
 
