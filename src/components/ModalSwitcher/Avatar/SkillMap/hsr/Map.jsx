@@ -4,7 +4,6 @@ import getData from "../../../../getData";
 import Node from "./Node";
 import getNodeLabel from "./getNodeLabel";
 import configs from "./configs";
-import { amIException, exceptionConfig } from "./exceptionConfigs";
 
 const HSR = ({
   modalPipe,
@@ -13,7 +12,6 @@ const HSR = ({
   const { SKILL_CAPS, AVATAR_DATA } = getData.hsr;
   const { skillMap } = modalPipe.data;
   const NODES = configs[AVATAR_DATA[modalPipe.id].type];
-  const isException = amIException(modalPipe.id);
 
   const handleSkill = (skill) => {
     const currentLevel = Number(skillMap[skill] || "0");
@@ -93,8 +91,11 @@ const HSR = ({
               const isParentInvis = NODES[parent]?.type === "invis";
               const actingParent = isParentInvis ? NODES[parent].parent : parent;
               const parentActive = skillMap[actingParent] !== "0";
-
               const imageSrc = getNodeLabel(type, modalPipe.id, id);
+              const rankReq = AVATAR_DATA[modalPipe.id].rankTrace[id];
+              const rankBonus = rankReq && modalPipe.data.rank >= rankReq  
+                ? id === "basic" ? 1 : 2  
+                : 0;
               return (
                 <Node
                   key={index}
@@ -108,6 +109,7 @@ const HSR = ({
                   imageSrc={imageSrc}
                   active={skillMap[id] !== "0"}
                   locked={!parentActive}
+                  rankBonus={rankBonus}
                 />
               )
             })}

@@ -9,6 +9,7 @@ const Node = ({
   imageSrc,
   active,
   locked,
+  rankBonus,
 }) => {
   if (type === "invis") return;
   const capped = Number(value) === maxValue;
@@ -16,7 +17,7 @@ const Node = ({
     type === "skill" ? 46 :
     type === "major" ? 52 : 34;
 
-  const textContent = `${value} / ${maxValue}`;
+  const textContent = `${Number(value) + rankBonus} / ${maxValue + rankBonus}`;
   const textLength = textContent.length;
   const textWidth = textLength * 7; // Approximate width per character
   const padding = 6; // Extra padding for better spacing
@@ -108,7 +109,6 @@ const Node = ({
             textAnchor="middle"
             fill="white"
             fontSize={12}
-            fontWeight="bold"
           >
             {textContent}
           </text>

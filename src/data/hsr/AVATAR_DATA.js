@@ -22,6 +22,12 @@ export default {
       "HP",
       "CD",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1552, _ATK: 427, _DEF: 194 },
     weights: {
       "SPD": 1,
@@ -52,6 +58,12 @@ export default {
       "CR",
       "CD",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1048, _ATK: 524, _DEF: 728 },
     weights: {
       "SPD": 1,
@@ -84,6 +96,12 @@ export default {
       "ATK",
       "CD",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1047, _ATK: 543, _DEF: 630 },
     weights: {
       "SPD": 1,
@@ -114,6 +132,12 @@ export default {
       "CR",
       "LIGHTNING",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1242, _ATK: 699, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -144,6 +168,12 @@ export default {
       "ATK",
       "ICE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1164, _ATK: 679, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -176,6 +206,12 @@ export default {
       "RES",
       "CD",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1241, _ATK: 640, _DEF: 533 },
     weights: {
       "SPD": 1,
@@ -205,6 +241,12 @@ export default {
       "BE",
       "SPD",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1125, _ATK: 582, _DEF: 557 },
     weights: {
       "EHR": 1,
@@ -237,6 +279,12 @@ export default {
       "SPD",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1086, _ATK: 717, _DEF: 460 },
     weights: {
       "SPD": 1,
@@ -268,6 +316,12 @@ export default {
       "HP",
       "BE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1358, _ATK: 679, _DEF: 436 },
     weights: {
       "SPD": 1,
@@ -298,6 +352,12 @@ export default {
       "CR",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1047, _ATK: 601, _DEF: 388 },
     weights: {
       "SPD": 1,
@@ -328,6 +388,12 @@ export default {
       "ATK",
       "CD",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 811, _ATK: 599, _DEF: 352 },
     weights: {
       "SPD": 1,
@@ -360,6 +426,12 @@ export default {
       "HP",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1358, _ATK: 679, _DEF: 460 },
     weights: {
       "SPD": 1,
@@ -390,6 +462,12 @@ export default {
       "FIRE",
       "EHR",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1358, _ATK: 601, _DEF: 509 },
     weights: {
       "EHR": 1,
@@ -419,6 +497,12 @@ export default {
       "CD",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1058, _ATK: 564, _DEF: 441 },
     weights: {
       "SPD": 1,
@@ -451,6 +535,12 @@ export default {
       "ATK",
       "QUANTUM",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1086, _ATK: 659, _DEF: 509 },
     weights: {
       "SPD": 1,
@@ -481,6 +571,12 @@ export default {
       "RES",
       "BE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 814, _ATK: 523, _DEF: 776 },
     weights: {
       "SPD": 1,
@@ -511,6 +607,12 @@ export default {
       "IMAGINARY",
       "BE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1086, _ATK: 446, _DEF: 679 },
     weights: {
       "SPD": 1,
@@ -540,6 +642,12 @@ export default {
       "ATK",
       "BE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1203, _ATK: 620, _DEF: 436 },
     weights: {
       "SPD": 1,
@@ -568,6 +676,12 @@ export default {
       "HP",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1280, _ATK: 640, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -599,6 +713,12 @@ export default {
       "CD",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1125, _ATK: 698, _DEF: 436 },
     weights: {
       "SPD": 1,
@@ -629,6 +749,12 @@ export default {
       "IMAGINARY",
       "DEF",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1203, _ATK: 446, _DEF: 654 },
     weights: {
       "SPD": 1,
@@ -660,6 +786,12 @@ export default {
       "RES",
       "HP",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1305, _ATK: 529, _DEF: 441 },
     weights: {
       "SPD": 1,
@@ -691,6 +823,12 @@ export default {
       "WIND",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1086, _ATK: 659, _DEF: 485 },
     weights: {
       "EHR": 1,
@@ -720,6 +858,12 @@ export default {
       "CD",
       "HP",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1397, _ATK: 523, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -749,6 +893,12 @@ export default {
       "DEF",
       "ICE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1270, _ATK: 599, _DEF: 396 },
     weights: {
       "SPD": 1,
@@ -781,6 +931,12 @@ export default {
       "CR",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1047, _ATK: 776, _DEF: 460 },
     weights: {
       "SPD": 1,
@@ -811,6 +967,12 @@ export default {
       "DEF",
       "BE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1086, _ATK: 659, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -840,6 +1002,12 @@ export default {
       "HP",
       "BE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1058, _ATK: 599, _DEF: 396 },
     weights: {
       "SPD": 1,
@@ -873,6 +1041,12 @@ export default {
       "PHYSICAL",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1047, _ATK: 737, _DEF: 363 },
     weights: {
       "SPD": 1,
@@ -903,6 +1077,12 @@ export default {
       "RES",
       "HP",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1358, _ATK: 601, _DEF: 509 },
     weights: {
       "SPD": 1,
@@ -932,6 +1112,12 @@ export default {
       "SPD",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 917, _ATK: 564, _DEF: 352 },
     weights: {
       "SPD": 1,
@@ -962,6 +1148,12 @@ export default {
       "SPD",
       "CD",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1435, _ATK: 679, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -992,6 +1184,12 @@ export default {
       "CR",
       "FIRE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 931, _ATK: 620, _DEF: 412 },
     weights: {
       "SPD": 1,
@@ -1022,6 +1220,12 @@ export default {
       "BE",
       "FIRE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 882, _ATK: 582, _DEF: 441 },
     weights: {
       "EHR": 1,
@@ -1054,6 +1258,12 @@ export default {
       "CR",
       "IMAGINARY",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1241, _ATK: 698, _DEF: 363 },
     weights: {
       "SPD": 1,
@@ -1084,6 +1294,12 @@ export default {
       "HP",
       "CR",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1474, _ATK: 465, _DEF: 606 },
     weights: {
       "SPD": 1,
@@ -1114,6 +1330,12 @@ export default {
       "DEF",
       "HP",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1058, _ATK: 493, _DEF: 551 },
     weights: {
       "SPD": 1,
@@ -1145,6 +1367,12 @@ export default {
       "CR",
       "HP",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1358, _ATK: 543, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -1175,6 +1403,12 @@ export default {
       "EHR",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1086, _ATK: 679, _DEF: 485 },
     weights: {
       "EHR": 1,
@@ -1204,6 +1438,12 @@ export default {
       "EHR",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 917, _ATK: 582, _DEF: 485 },
     weights: {
       "EHR": 1,
@@ -1236,6 +1476,12 @@ export default {
       "HP",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1280, _ATK: 756, _DEF: 363 },
     weights: {
       "SPD": 1,
@@ -1265,6 +1511,12 @@ export default {
       "EHR",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1047, _ATK: 640, _DEF: 460 },
     weights: {
       "EHR": 1,
@@ -1294,6 +1546,12 @@ export default {
       "HP",
       "IMAGINARY",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 917, _ATK: 599, _DEF: 374 },
     weights: {
       "SPD": 1,
@@ -1323,6 +1581,12 @@ export default {
       "ATK",
       "DEF",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1241, _ATK: 601, _DEF: 606 },
     weights: {
       "SPD": 1,
@@ -1351,6 +1615,12 @@ export default {
       "HP",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1203, _ATK: 620, _DEF: 460 },
     weights: {
       "SPD": 1,
@@ -1381,6 +1651,12 @@ export default {
       "DEF",
       "HP",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1319, _ATK: 562, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -1410,6 +1686,12 @@ export default {
       "ICE",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 892, _ATK: 679, _DEF: 412 },
     weights: {
       "SPD": 1,
@@ -1440,6 +1722,12 @@ export default {
       "CR",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1164, _ATK: 698, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -1470,6 +1758,12 @@ export default {
       "PHYSICAL",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1241, _ATK: 737, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -1500,6 +1794,12 @@ export default {
       "RES",
       "ICE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1397, _ATK: 543, _DEF: 654 },
     weights: {
       "EHR": 1,
@@ -1530,6 +1830,12 @@ export default {
       "CD",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 931, _ATK: 640, _DEF: 363 },
     weights: {
       "SPD": 1,
@@ -1560,6 +1866,12 @@ export default {
       "CD",
       "WIND",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1241, _ATK: 582, _DEF: 533 },
     weights: {
       "SPD": 1,
@@ -1589,6 +1901,12 @@ export default {
       "IMAGINARY",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1125, _ATK: 620, _DEF: 509 },
     weights: {
       "EHR": 1,
@@ -1620,6 +1938,12 @@ export default {
       "ATK",
       "FIRE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1047, _ATK: 756, _DEF: 436 },
     weights: {
       "SPD": 1,
@@ -1650,6 +1974,12 @@ export default {
       "HP",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 917, _ATK: 564, _DEF: 418 },
     weights: {
       "SPD": 1,
@@ -1680,6 +2010,12 @@ export default {
       "DEF",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 846, _ATK: 529, _DEF: 396 },
     weights: {
       "SPD": 1,
@@ -1708,6 +2044,12 @@ export default {
       "QUANTUM",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1023, _ATK: 652, _DEF: 441 },
     weights: {
       "SPD": 1,
@@ -1737,6 +2079,12 @@ export default {
       "HP",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1340, _ATK: 617, _DEF: 352 },
     weights: {
       "SPD": 1,
@@ -1766,6 +2114,12 @@ export default {
       "EHR",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1023, _ATK: 617, _DEF: 396 },
     weights: {
       "EHR": 1,
@@ -1794,6 +2148,12 @@ export default {
       "ATK",
       "ICE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 987, _ATK: 546, _DEF: 463 },
     weights: {
       "EHR": 1,
@@ -1822,6 +2182,12 @@ export default {
       "RES",
       "HP",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1164, _ATK: 476, _DEF: 507 },
     weights: {
       "SPD": 1,
@@ -1850,6 +2216,12 @@ export default {
       "EHR",
       "CR",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 917, _ATK: 652, _DEF: 374 },
     weights: {
       "SPD": 1,
@@ -1879,6 +2251,12 @@ export default {
       "DEF",
       "ICE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 952, _ATK: 582, _DEF: 396 },
     weights: {
       "SPD": 1,
@@ -1908,6 +2286,12 @@ export default {
       "DEF",
       "FIRE",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1023, _ATK: 511, _DEF: 463 },
     weights: {
       "SPD": 1,
@@ -1936,6 +2320,12 @@ export default {
       "RES",
       "ATK",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1199, _ATK: 599, _DEF: 330 },
     weights: {
       "SPD": 1,
@@ -1965,6 +2355,12 @@ export default {
       "ATK",
       "WIND",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 882, _ATK: 546, _DEF: 396 },
     weights: {
       "SPD": 1,
@@ -1994,6 +2390,12 @@ export default {
       "ICE",
       "DEF",
     ],
+    rankTrace: {
+      basic: 3,
+      skill: 5,
+      ult: 3,
+      talent: 5,
+    },
     statBase: { _HP: 1058, _ATK: 511, _DEF: 573 },
     weights: {
       "EHR": 1,
