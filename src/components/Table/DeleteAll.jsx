@@ -20,10 +20,6 @@ const DeleteAll = ({
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const openTooltip = () => {
-    setOpen(true);
-  };
-
   const handleDelete = async () => {
     setIsLoading(true);
     if (userId) {
@@ -35,10 +31,6 @@ const DeleteAll = ({
       await batch.commit();
     }
     setLocalDocs({});
-    setOpen(false);
-  };
-
-  const handleCancel = () => {
     setOpen(false);
   };
 
@@ -69,7 +61,7 @@ const DeleteAll = ({
         arrow
       >
         <Delete
-          onClick={openTooltip}
+          onClick={() => setOpen(true)}
           cursor="pointer"
           color="disabled"
           sx={{
@@ -80,7 +72,11 @@ const DeleteAll = ({
         />
       </Tooltip>
 
-      <Backdrop open={open} onClick={handleCancel} sx={{ zIndex: 1 }} />
+      <Backdrop
+        open={open}
+        onClick={() => setOpen(false)}
+        sx={{ zIndex: 1 }}
+      />
     </Stack>
   );
 };
