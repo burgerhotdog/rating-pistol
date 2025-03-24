@@ -18,8 +18,7 @@ const Node = ({
 
   const textContent = `${value + rankBonus} / ${maxValue + rankBonus}`;
   const textLength = textContent.length;
-  const textWidth = textLength * 7;
-  const padding = 6;
+  const textWidth = textLength * 9;
 
   return (
     <g
@@ -87,20 +86,21 @@ const Node = ({
       {id[0] === "0" && (
         <>
           <rect
-            x={x - textWidth / 2 - padding / 2}
-            y={y + size/1.5}
-            width={textWidth + padding}
-            height={16}
-            fill="rgba(15, 15, 15, .85)"
-            rx="4"
+            x={x - textWidth / 2}
+            y={y + size / 1.5 - 8}
+            width={textWidth}
+            height={22}
+            fill="rgba(20, 20, 20, .8)"
+            rx="10"
             style={{ pointerEvents: "none" }}
           />
           <text
             x={x}
-            y={y + size/1.5 + 12}
+            y={y + size / 1.5 + 4}
             textAnchor="middle"
-            fill="white"
-            fontSize={12}
+            fill={rankBonus ? "cyan" : "white"}
+            fontSize={16}
+            dominantBaseline="middle"
             style={{ pointerEvents: "none", userSelect: "none" }}
           >
             {textContent}
