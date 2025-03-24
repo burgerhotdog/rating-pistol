@@ -36,7 +36,7 @@ const Table2Weapon = ({
           onClick={openModal}
           sx={{
             "& .MuiBadge-badge": {
-              backgroundColor: "rgba(20, 20, 20, 0.2)",
+              backgroundColor: "rgba(20, 20, 20, 0.4)",
             },
           }}
           badgeContent={
