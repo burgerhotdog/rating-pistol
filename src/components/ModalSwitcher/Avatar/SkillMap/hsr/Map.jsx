@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
 import getData from "../../../../getData";
+import getImgs from "../../../../getImgs";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
@@ -10,8 +11,11 @@ const HSR = ({
   editSkillMap,
 }) => {
   const { SKILL_CAPS, AVATAR_DATA } = getData.hsr;
+  const { PATH_IMGS } = getImgs.hsr;
   const { skillMap } = modalPipe.data;
-  const NODES = configs[AVATAR_DATA[modalPipe.id].type];
+  const avatarType = AVATAR_DATA[modalPipe.id].type;
+  const NODES = configs[avatarType];
+  const pathSrc = PATH_IMGS[`./${avatarType.replace(/ /g, "_")}.webp`]?.default
 
   const handleSkill = (id) => {
     const value = skillMap[id];
@@ -56,8 +60,19 @@ const HSR = ({
 
   return (
     <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
-      <Box sx={{ position: "relative", width: "100%", height: "550px" }}>
+      <Box sx={{ width: 600, height: 600 }}>
         <svg width="100%" height="100%" viewBox="0 0 600 600">
+          {/* Background Image */}
+          <image
+            href={pathSrc}
+            x="108"
+            y="108"
+            width="384"
+            height="384"
+            preserveAspectRatio="xMidYMid slice"
+            opacity="0.1"
+          />
+
           {/* Render lines */}
           {Object.entries(NODES)
             .filter(([_, config]) => config.parent)

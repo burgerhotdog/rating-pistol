@@ -55,7 +55,7 @@ const Node = ({
       <circle 
         cx={x}
         cy={y}
-        r={size/2 + 3}
+        r={size / 2 + 3}
         fill="none"
         stroke={locked || maxed ? "none" : "cornflowerblue"}
         strokeWidth={3}
@@ -75,10 +75,10 @@ const Node = ({
       {/* Image */}
       <image
         href={imageSrc}
-        x={x - size/2.5}
-        y={y - size/2.5}
-        width={size/1.25}
-        height={size/1.25}
+        x={x - size / 2.5}
+        y={y - size / 2.5}
+        width={size / 1.25}
+        height={size / 1.25}
         filter={id[0] !== "0" ? (!active ? "url(#lighterBlackFilter)" : "url(#blackFilter)") : "none"}
       />
       
