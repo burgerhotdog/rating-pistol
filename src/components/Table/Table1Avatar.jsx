@@ -33,7 +33,7 @@ const Table1Avatar = ({
         <Badge
           sx={{
             "& .MuiBadge-badge": {
-              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              backgroundColor: "rgba(20, 20, 20, 0.2)",
             },
           }}
           badgeContent={
