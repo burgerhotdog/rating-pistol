@@ -1,12 +1,12 @@
 import getData from "../getData";
 
 const rateSkillMap = (gameId, data) => {
-  const { SKILL_INDEX } = getData[gameId];
+  const { SKILL_CAPS } = getData[gameId];
   let levelTotal = 0;
   let capTotal = 0;
-  for (const [skillKey, skillValue] of Object.entries(data.skillMap)) {
-    levelTotal += Number(skillValue);
-    capTotal += SKILL_INDEX[skillKey].levelCap;
+  for (const [id, value] of Object.entries(data.skillMap)) {
+    levelTotal += value;
+    capTotal += id[0] === "0" ? SKILL_CAPS[Number(id[2]) - 1] : 1;
   }
   return (levelTotal / capTotal) * 100;
 };

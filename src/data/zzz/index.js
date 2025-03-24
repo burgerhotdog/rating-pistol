@@ -1,6 +1,6 @@
-import AVATAR_DATA from "./avatarData";
-import WEAPON_DATA from "./weaponData";
-import SET_DATA from "./setData";
+import AVATAR_DATA from "./AVATAR_DATA";
+import WEAPON_DATA from "./WEAPON_DATA";
+import SET_DATA from "./SET_DATA";
 
 const TITLE = "Zenless Zone Zero";
 const VERSION = "1.6";
@@ -9,33 +9,16 @@ const HEADERS = {
   avatar: "Agent",
   weapon: "W-Engine",
   equips: "Drive Discs",
+  skills: "Skills",
 };
 
-const SKILL_INDEX = {
-  basic: {
-    name: "Basic Attack",
-    levelCap: 12,
-  },
-  skill: {
-    name: "EX Special",
-    levelCap: 12,
-  },
-  ult: {
-    name: "Ult",
-    levelCap: 12,
-  },
-  dodge: {
-    name: "Dodge",
-    levelCap: 12,
-  },
-  assist: {
-    name: "Assist",
-    levelCap: 12,
-  },
-  core: {
-    name: "Core Passive",
-    levelCap: 7,
-  },
+const SKILL_CAPS = {
+  basic: 12,
+  skill: 12,
+  ult: 12,
+  dodge: 12,
+  assist: 12,
+  core: 7,
 };
 
 const EQUIP_NAMES = [
@@ -183,7 +166,7 @@ export default {
   LEVEL_CAP: 60,
   AVATAR_DATA,
   PREFIX: "M",
-  SKILL_INDEX,
+  SKILL_CAPS,
   WEAPON_DATA,
   WEAPON_PREFIX: "S",
   SET_DATA,

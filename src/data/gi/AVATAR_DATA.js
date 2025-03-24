@@ -33,8 +33,7 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000007-2": {
@@ -46,8 +45,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
 
@@ -59,7 +57,7 @@ export default {
     weights: {
       "ER": 1,
       "EM": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   
@@ -74,8 +72,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
 
@@ -88,8 +85,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
+      "EM": 0.25,
     },
   },
   
@@ -102,7 +99,7 @@ export default {
     statBase: { _HP: 12405, _ATK: 275, _DEF: 929 },
     weights: {
       "ER": 1,
-      "DEF": 0.6,
+      "DEF": 1,
     },
   },
   
@@ -117,8 +114,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "HP": 0.6,
-      "EM": 0.24,
+      "HP": 0.75,
+      "EM": 0.25,
     },
   },
   "10000101": {
@@ -131,8 +128,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
 
@@ -145,7 +141,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "DEF": 0.6,
+      "DEF": 0.75,
     },
   },
   
@@ -160,8 +156,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   
@@ -176,8 +171,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000095": {
@@ -201,8 +195,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "EM": 0.48,
-      "ATK": 0.36,
+      "EM": 0.5,
+      "ATK": 0.25,
     },
   },
   
@@ -217,8 +211,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   
@@ -230,10 +223,11 @@ export default {
     sig: "11514",
     statBase: { _HP: 11437, _ATK: 322, _DEF: 953 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "DEF": 0.6,
-      "ATK": 0.12,
+      "DEF": 0.75,
+      "ATK": 0.25,
     },
   },
   
@@ -259,8 +253,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
+      "EM": 0.25,
     },
   },
   
@@ -275,7 +269,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
 
@@ -301,8 +295,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "HP": 0.6,
-      "EM": 0.24,
+      "HP": 0.75,
     },
   },
 
@@ -313,7 +306,7 @@ export default {
     statBase: { _HP: 10766, _ATK: 173, _DEF: 546 },
     weights: {
       "ER": 1,
-      "ATK": 0.6,
+      "ATK": 1,
     },
   },
   
@@ -325,10 +318,10 @@ export default {
     sig: "14514",
     statBase: { _HP: 14695, _ATK: 208, _DEF: 576 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "HP": 0.6,
-      "EM": 0.24,
+      "HP": 0.75,
     },
   },
   "10000086": {
@@ -338,10 +331,11 @@ export default {
     sig: "14513",
     statBase: { _HP: 13592, _ATK: 310, _DEF: 763 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
+      "EM": 0.25,
     },
   },
   
@@ -356,7 +350,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   "10000007-3": {
@@ -368,7 +362,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
 
@@ -381,7 +375,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   "10000083": {
@@ -393,7 +387,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
 
@@ -429,7 +423,7 @@ export default {
     statBase: { _HP: 11962, _ATK: 233, _DEF: 750 },
     weights: {
       "ER": 1,
-      "EM": 1,
+      "EM": 0.75,
     },
   },
   
@@ -444,8 +438,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "HP": 0.48,
-      "ATK": 0.36,
+      "HP": 0.5,
+      "ATK": 0.5,
     },
   },
 
@@ -471,8 +465,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "EM": 0.6,
-      "ATK": 0.24,
+      "EM": 0.5,
+      "ATK": 0.25,
     },
   },
 
@@ -495,9 +489,10 @@ export default {
     sig: "14512",
     statBase: { _HP: 10164, _ATK: 327, _DEF: 607 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
 
@@ -508,10 +503,7 @@ export default {
     statBase: { _HP: 9569, _ATK: 196, _DEF: 627 },
     weights: {
       "ER": 1,
-      "CR": 0.5,
-      "CD": 0.5,
-      "ATK": 0.3,
-      "EM": 0.12,
+      "EM": 0.5,
     },
   },
   
@@ -523,10 +515,11 @@ export default {
     sig: "14511",
     statBase: { _HP: 10360, _ATK: 298, _DEF: 630 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "EM": 0.6,
-      "ATK": 0.24,
+      "EM": 0.5,
+      "ATK": 0.25,
     },
   },
 
@@ -552,8 +545,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "EM": 0.48,
-      "ATK": 0.36,
+      "EM": 0.5,
+      "ATK": 0.25,
     },
   },
   "10000070": {
@@ -563,8 +556,8 @@ export default {
     sig: "11511",
     statBase: { _HP: 15184, _ATK: 229, _DEF: 728 },
     weights: {
+      "ER": 1,
       "HP": 1,
-      "EM": 0.24,
     },
   },
 
@@ -590,8 +583,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "EM": 0.48,
-      "ATK": 0.36,
+      "EM": 0.5,
+      "ATK": 0.25,
     },
   },
   "10000007-8": {
@@ -601,10 +594,10 @@ export default {
     statBase: { _HP: 10875, _ATK: 212, _DEF: 683 },
     weights: {
       "ER": 1,
-      "CR": 0.5,
-      "CD": 0.5,
-      "EM": 0.24,
-      "ATK": 0.18,
+      "CR": 1,
+      "CD": 1,
+      "EM": 0.5,
+      "ATK": 0.25,
     },
   },
 
@@ -625,10 +618,10 @@ export default {
     statBase: { _HP: 9787, _ATK: 199, _DEF: 600 },
     weights: {
       "ER": 1,
-      "CR": 0.5,
-      "CD": 0.5,
-      "EM": 0.24,
-      "ATK": 0.18,
+      "CR": 1,
+      "CD": 1,
+      "EM": 0.5,
+      "ATK": 0.25,
     },
   },
   
@@ -639,9 +632,10 @@ export default {
     type: "Catalyst",
     statBase: { _HP: 10657, _ATK: 225, _DEF: 683 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   
@@ -656,8 +650,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "HP": 0.6,
-      "EM": 0.24,
+      "HP": 0.75,
     },
   },
 
@@ -667,8 +660,9 @@ export default {
     type: "Sword",
     statBase: { _HP: 12288, _ATK: 212, _DEF: 750 },
     weights: {
+      "ER": 1,
       "EM": 1,
-      "HP": 0.6,
+      "HP": 0.75,
     },
   },
   
@@ -680,10 +674,10 @@ export default {
     sig: "11510",
     statBase: { _HP: 13715, _ATK: 298, _DEF: 768 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   
@@ -698,8 +692,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "EM": 0.48,
-      "ATK": 0.36,
+      "ATK": 0.5,
+      "EM": 0.5,
     },
   },
   
@@ -738,8 +732,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "DEF": 0.6,
-      "ATK": 0.12,
+      "DEF": 0.75,
     },
   },
 
@@ -750,7 +743,7 @@ export default {
     statBase: { _HP: 9569, _ATK: 182, _DEF: 648 },
     weights: {
       "ER": 1,
-      "DEF": 0.6,
+      "DEF": 0.75,
     },
   },
   
@@ -773,10 +766,10 @@ export default {
     type: "Bow",
     statBase: { _HP: 10898, _ATK: 233, _DEF: 676 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000054": {
@@ -800,7 +793,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
 
@@ -811,9 +804,9 @@ export default {
     statBase: { _HP: 9569, _ATK: 195, _DEF: 627 },
     weights: {
       "ER": 1,
-      "CR": 0.5,
-      "CD": 0.5,
-      "ATK": 0.3,
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.75,
     },
   },
   
@@ -825,10 +818,10 @@ export default {
     sig: "15509",
     statBase: { _HP: 10164, _ATK: 322, _DEF: 614 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000002": {
@@ -841,7 +834,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   "10000007-7": {
@@ -853,8 +846,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
 
@@ -866,7 +858,7 @@ export default {
     weights: {
       "ER": 1,
       "EM": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   
@@ -894,7 +886,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
 
@@ -906,8 +898,8 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
+      "EM": 0.25,
     },
   },
   
@@ -921,8 +913,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
+      "EM": 0.25,
     },
   },
   
@@ -934,11 +926,11 @@ export default {
     sig: "13501",
     statBase: { _HP: 15522, _ATK: 106, _DEF: 876 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "HP": 0.6,
-      "EM": 0.24,
-      "ATK": 0.12,
+      "HP": 0.75,
+      "EM": 0.25,
     },
   },
   "10000026": {
@@ -948,9 +940,10 @@ export default {
     sig: "13505",
     statBase: { _HP: 12735, _ATK: 349, _DEF: 799 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   
@@ -961,9 +954,10 @@ export default {
     type: "Sword",
     statBase: { _HP: 13225, _ATK: 251, _DEF: 876 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "DEF": 0.6,
+      "DEF": 0.75,
     },
   },
   "10000037": {
@@ -973,10 +967,10 @@ export default {
     sig: "15502",
     statBase: { _HP: 9796, _ATK: 334, _DEF: 630 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   
@@ -988,10 +982,10 @@ export default {
     sig: "15507",
     statBase: { _HP: 13103, _ATK: 301, _DEF: 814 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000030": {
@@ -1001,9 +995,10 @@ export default {
     sig: "13504",
     statBase: { _HP: 14695, _ATK: 251, _DEF: 737 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "HP": 0.9,
+      "HP": 0.75,
     },
   },
 
@@ -1013,10 +1008,11 @@ export default {
     type: "Claymore",
     statBase: { _HP: 11201, _ATK: 248, _DEF: 798 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "DEF": 0.24,
+      "ATK": 0.5,
+      "DEF": 0.5,
     },
   },
   "10000039": {
@@ -1037,10 +1033,11 @@ export default {
     type: "Sword",
     statBase: { _HP: 13103, _ATK: 322, _DEF: 799 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.48,
-      "EM": 0.36,
+      "ATK": 0.5,
+      "EM": 0.5,
     },
   },
   "10000041": {
@@ -1050,10 +1047,9 @@ export default {
     statBase: { _HP: 10409, _ATK: 287, _DEF: 653 },
     weights: {
       "ER": 1,
-      "CR": 0.5,
-      "CD": 0.5,
-      "ATK": 0.3,
-      "EM": 0.12,
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.75,
     },
   },
   "10000035": {
@@ -1072,10 +1068,10 @@ export default {
     type: "Catalyst",
     statBase: { _HP: 10286, _ATK: 310, _DEF: 614 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000022": {
@@ -1085,7 +1081,7 @@ export default {
     statBase: { _HP: 10531, _ATK: 263, _DEF: 668 },
     weights: {
       "ER": 1,
-      "EM": 1,
+      "EM": 0.75,
     },
   },
   "10000016": {
@@ -1095,10 +1091,10 @@ export default {
     sig: "12502",
     statBase: { _HP: 12980, _ATK: 334, _DEF: 783 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000003": {
@@ -1108,7 +1104,7 @@ export default {
     statBase: { _HP: 14695, _ATK: 239, _DEF: 768 },
     weights: {
       "ER": 1,
-      "ATK": 0.6,
+      "ATK": 1,
     },
   },
   "10000007-6": {
@@ -1120,7 +1116,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   "10000007-4": {
@@ -1130,10 +1126,7 @@ export default {
     statBase: { _HP: 10875, _ATK: 212, _DEF: 683 },
     weights: {
       "ER": 1,
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "EM": 0.75,
     },
   },
 
@@ -1153,10 +1146,10 @@ export default {
     type: "Claymore",
     statBase: { _HP: 10983, _ATK: 223, _DEF: 648 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000034": {
@@ -1168,7 +1161,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "DEF": 0.6,
+      "DEF": 0.75,
     },
   },
   "10000032": {
@@ -1178,7 +1171,7 @@ export default {
     statBase: { _HP: 12397, _ATK: 191, _DEF: 771 },
     weights: {
       "ER": 1,
-      "HP": 0.6,
+      "HP": 1,
     },
   },
   "10000031": {
@@ -1187,10 +1180,11 @@ export default {
     type: "Bow",
     statBase: { _HP: 9189, _ATK: 244, _DEF: 593 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.48,
-      "EM": 0.36,
+      "ATK": 0.5,
+      "EM": 0.25,
     },
   },
   "10000027": {
@@ -1199,9 +1193,10 @@ export default {
     type: "Catalyst",
     statBase: { _HP: 9787, _ATK: 212, _DEF: 573 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   "10000025": {
@@ -1213,8 +1208,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000024": {
@@ -1226,8 +1220,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000023": {
@@ -1239,8 +1232,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
+      "EM": 0.25,
     },
   },
   "10000021": {
@@ -1252,8 +1245,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000020": {
@@ -1265,7 +1257,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
+      "ATK": 0.75,
     },
   },
   "10000015": {
@@ -1277,8 +1269,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.6,
-      "EM": 0.24,
+      "ATK": 0.75,
     },
   },
   "10000014": {
@@ -1288,7 +1279,7 @@ export default {
     statBase: { _HP: 9787, _ATK: 159, _DEF: 668 },
     weights: {
       "ER": 1,
-      "HP": 0.6,
+      "HP": 1,
     },
   },
   "10000006": {
@@ -1300,8 +1291,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.48,
-      "EM": 0.36,
+      "ATK": 0.5,
+      "EM": 0.25,
     },
   },
 };

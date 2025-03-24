@@ -1,7 +1,3 @@
-# Rating Pistol
+# Rating Pistol (WIP)
 
-Build tracker for:
-- Genshin Impact
-- Honkai Star Rail
-- Zenless Zone Zero
-- Wuthering Waves
+Character stat tracker and build optimization tool for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.

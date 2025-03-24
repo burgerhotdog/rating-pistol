@@ -14,6 +14,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
+import SkillMap from "./SkillMap";
 import getData from "../../getData";
 
 const AvatarModal = ({
@@ -22,7 +23,7 @@ const AvatarModal = ({
   setModalPipe,
   savePipe,
 }) => {
-  const { LEVEL_CAP, PREFIX, SKILL_INDEX } = getData[gameId];
+  const { LEVEL_CAP, PREFIX } = getData[gameId];
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   
@@ -64,20 +65,6 @@ const AvatarModal = ({
     }));
   };
 
-  // skillMap
-  const handleSkill = (newValue, skillKey) => {
-    setModalPipe((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        skillMap: {
-          ...prev.data.skillMap,
-          [skillKey]: newValue,
-        },
-      },
-    }));
-  };
-
   // validate & save
   const validate = () => {
     // level
@@ -111,7 +98,7 @@ const AvatarModal = ({
 
   return (
     <Stack alignItems="center" spacing={2}>
-      <Stack spacing={2}>
+      <Stack direction="row" spacing={2}>
         <Stack direction="row" spacing={2}>
           <TextField
             value={modalPipe.data.level ?? ""}
@@ -142,26 +129,13 @@ const AvatarModal = ({
           </FormControl>
         </Stack>
 
-        {Object.entries(modalPipe.data.skillMap).map(([skillKey, skillValue]) => (
-          <Autocomplete
-            key={skillKey}
-            value={skillValue}
-            options={Array.from(
-              { length: SKILL_INDEX[skillKey].levelCap }, 
-              (_, i) => (i + 1)
-            )}
-            getOptionLabel={(id) => String(id)}
-            onChange={(_, newValue) => {
-              if (newValue) handleSkill(newValue, skillKey);
-            }}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label={skillKey}
-              />
-            )}
-          />
-        ))}
+        <Divider orientation="vertical" flexItem />
+
+        <SkillMap
+          gameId={gameId}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
+        />
       </Stack>
 
       <Button

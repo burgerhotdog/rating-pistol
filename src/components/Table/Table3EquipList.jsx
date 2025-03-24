@@ -46,6 +46,11 @@ const Table3EquipList = ({
         {sortedSetBonuses.map(([setId, numBonus]) => (
           <Badge
             key={setId}
+            sx={{
+              "& .MuiBadge-badge": {
+                backgroundColor: "rgba(20, 20, 20, 0.4)",
+              },
+            }}
             badgeContent={
               <strong>x{numBonus}</strong>
             }

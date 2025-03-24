@@ -1,6 +1,6 @@
-import AVATAR_DATA from "./avatarData";
-import WEAPON_DATA from "./weaponData";
-import SET_DATA from "./setData";
+import AVATAR_DATA from "./AVATAR_DATA";
+import WEAPON_DATA from "./WEAPON_DATA";
+import SET_DATA from "./SET_DATA";
 
 const TITLE = "Honkai Star Rail";
 const VERSION = "3.1";
@@ -9,35 +9,11 @@ const HEADERS = {
   avatar: "Character",
   weapon: "Light Cone",
   equips: "Relics",
+  skills: "Traces",
 };
 
-const SKILL_INDEX = {
-  basic: {
-    name: "Basic Attack",
-    levelCap: 6,
-  },
-  skill: {
-    name: "Skill",
-    levelCap: 10,
-  },
-  ult: {
-    name: "Ultimate",
-    levelCap: 10,
-  },
-  talent: {
-    name: "Talent",
-    levelCap: 10,
-  },
-};
-
-const EQUIP_NAMES = [
-  "Head",
-  "Hands",
-  "Body",
-  "Feet",
-  "Orb",
-  "Rope",
-];
+const SKILL_CAPS = [6, 10, 10, 10, 6, 6, 1];
+const EQUIP_NAMES = ["Head", "Hands", "Body", "Feet", "Orb", "Rope"];
 
 const MAINSTAT_OPTIONS = [
   ["_HP"],
@@ -188,7 +164,7 @@ export default {
   LEVEL_CAP: 80,
   AVATAR_DATA,
   PREFIX: "E",
-  SKILL_INDEX,
+  SKILL_CAPS,
   WEAPON_DATA,
   WEAPON_PREFIX: "S",
   SET_DATA,

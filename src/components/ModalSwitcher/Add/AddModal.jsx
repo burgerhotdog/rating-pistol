@@ -37,7 +37,11 @@ const AddModal = ({
     const id = newValue;
     const data = template(gameId);
     data.level = LEVEL_CAP;
-    data.rank = 0;
+    data.rank = "0";
+    if (gameId === "hsr" && AVATAR_DATA[id].type === "Remembrance") {
+      data.skillMap["005"] = 1;
+      data.skillMap["006"] = 1;
+    }
 
     setModalPipe((prev) => ({
       ...prev,
@@ -49,7 +53,6 @@ const AddModal = ({
   const handleAdd = async () => {
     setIsLoading(true);
     await savePipe();
-    
     setModalPipe({});
   };
 

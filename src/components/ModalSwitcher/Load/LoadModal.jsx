@@ -29,7 +29,7 @@ const LoadModal = ({
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { STAT_CONVERT } = translate(gameId);
+  const { STAT_CONVERT } = translate[gameId];
 
   const suffix = {
     gi: "uid/",
@@ -65,7 +65,7 @@ const LoadModal = ({
     }
 
     const rawEnka = await response.json();
-    const { maleToFemale } = translate(gameId);
+    const { maleToFemale } = translate[gameId];
     
     switch (gameId) {
       case "gi":
@@ -124,13 +124,13 @@ const LoadModal = ({
   };
 
   const handleSave = async () => {
-    const { equipTypeToIndex } = translate(gameId);
+    const { equipTypeToIndex } = translate[gameId];
     setIsLoading(true);
     const charBuffer =
       gameId === "gi" ?
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
-          const id = charObj.avatarId.toString();
+          const id = String(charObj.avatarId);
           const data = template(gameId);
 
           // avatar
@@ -153,7 +153,7 @@ const LoadModal = ({
             const reliqSubArr = equipObj.flat.reliquarySubstats;
             for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
               data.equipList[equipIndex].statMap[subIndex].key = STAT_CONVERT[reliqSubObj.appendPropId];
-              data.equipList[equipIndex].statMap[subIndex].value = reliqSubObj.statValue.toString();
+              data.equipList[equipIndex].statMap[subIndex].value = String(reliqSubObj.statValue);
             }
           }
 
@@ -168,8 +168,12 @@ const LoadModal = ({
       gameId === "hsr" ?
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
-          const id = charObj.avatarId.toString();
+          const id = String(charObj.avatarId);
           const data = template(gameId);
+          if (AVATAR_DATA[id].type === "Remembrance") {
+            data.skillMap.memoSkill = "1";
+            data.skillMap.memoTalent = "1";
+          }
 
           // avatar
           data.level = String(charObj.level);
@@ -187,7 +191,7 @@ const LoadModal = ({
           const relicListArr = charObj.relicList;
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.type - 1;
-            data.equipList[equipIndex].setId = relicObj._flat.setID.toString();
+            data.equipList[equipIndex].setId = String(relicObj._flat.setID);
             data.equipList[equipIndex].key = STAT_CONVERT[relicObj._flat.props[0].type];
             const subPropsArr = relicObj._flat.props.slice(1);
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
@@ -200,10 +204,52 @@ const LoadModal = ({
 
           // skillMap
           const skillsArr = charObj.skillTreeList;
-          data.skillMap.basic = skillsArr[0].level;
-          data.skillMap.skill = skillsArr[1].level;
-          data.skillMap.ult = skillsArr[2].level;
-          data.skillMap.talent = skillsArr[3].level;
+          for (const { pointId, level } of skillsArr) {
+            const skillId = String(pointId).slice(4);
+            switch (skillId[0]) {
+              case "0": {
+                // skill
+                switch (skillId[2]) {
+                  case "1":
+                    data.skillMap.basic = level;
+                    break;
+                  
+                  case "2":
+                    data.skillMap.skill = level;
+                    break;
+                
+                  case "3":
+                    data.skillMap.ult = level;
+                    break;
+                  
+                  case "4":
+                    data.skillMap.talent = level;
+                    break;
+                }
+              } break;
+
+              case "1": {
+                // major
+                const num = Number(skillId[2]) - 1;
+                data.skillMap[`M${num}`] = level;
+              } break;
+
+              case "2": {
+                // minor
+                const num = Number(skillId.slice(1)) - 1;
+                data.skillMap[`m${num}`] = level;
+              } break;
+
+              case "3": {
+                // memo skill
+                if (skillId[2] === "1") {
+                  data.skillMap.memoSkill = level;
+                } else {
+                  data.skillMap.memoTalent = level;
+                }
+              } break;
+            }
+          }
 
           return { id, data };
         }) :
@@ -212,7 +258,7 @@ const LoadModal = ({
       gameId === "zzz" &&
         selectedAvatars.map((selectedAvatar) => {
           const charObj = enkaList[selectedAvatar];
-          const id = charObj.Id.toString();
+          const id = String(charObj.Id);
           const data = template(gameId);
 
           // avatar
@@ -258,17 +304,15 @@ const LoadModal = ({
         });
 
     const localUpdates = {};
-    if (userId) {
-      const batch = writeBatch(db);
-      charBuffer.forEach((char) => {
-        const { id, data } = char;
+    const batch = userId ? writeBatch(db) : null;
+    charBuffer.forEach(({ id, data }) => {
+      localUpdates[id] = data;
+      if (userId) {
         const docRef = doc(db, "users", userId, gameId, id);
-        
         batch.set(docRef, data, { merge: true });
-        localUpdates[id] = data;
-      });
-      await batch.commit();
-    }
+      }
+    });
+    if (userId) await batch.commit();
 
     setLocalDocs((prev) => ({
       ...prev,

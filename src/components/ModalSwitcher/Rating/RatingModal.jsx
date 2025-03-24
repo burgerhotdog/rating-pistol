@@ -1,26 +1,40 @@
-import React from "react";
-import { Stack, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Tabs, Tab, Typography } from "@mui/material";
+import getData from "../../getData";
+import LevelTab from "./LevelTab";
+import SkillTab from "./SkillTab";
+import EquipTab from "./EquipTab";
 
 const RatingModal = ({ gameId, modalPipe }) => {
+  const { HEADERS } = getData[gameId];
+  const [tabValue, setTabValue] = useState(0);
+
+  const handleTab = (_, newValue) => {
+    setTabValue(newValue);
+  };
 
   return (
-    <Stack spacing={2}>
-      <Typography variant="body1">
-        Rating Breakdown (WIP)
-      </Typography>
-      
-      <Typography variant="body2">
-        {`Character/Weapon Levels: ${Math.round(modalPipe.rating.parts[0])}% complete`}
-      </Typography>
+    <Box sx={{ width: 500 }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs value={tabValue} onChange={handleTab} centered>
+          <Tab label={`${HEADERS.avatar} & ${HEADERS.weapon}`} />
+          <Tab label={HEADERS.skills} />
+          <Tab label={HEADERS.equips} />
+        </Tabs>
+      </Box>
 
-      <Typography variant="body2">
-        {`Skills: ${Math.round(modalPipe.rating.parts[1])}% complete`}
-      </Typography>
+      <Box hidden={tabValue !== 0}>
+        <LevelTab modalPipe={modalPipe} />
+      </Box>
 
-      <Typography variant="body2">
-        {`Equip: ${Math.round(modalPipe.rating.parts[2])}% complete`}
-      </Typography>
-    </Stack>
+      <Box hidden={tabValue !== 1}>
+        <SkillTab modalPipe={modalPipe} />
+      </Box>
+
+      <Box hidden={tabValue !== 2}>
+        <EquipTab modalPipe={modalPipe} />
+      </Box>
+    </Box>
   );
 };
 
