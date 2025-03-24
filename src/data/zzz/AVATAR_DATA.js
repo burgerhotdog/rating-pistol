@@ -11,6 +11,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1361": {
@@ -24,6 +25,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
 
@@ -38,6 +40,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
 
@@ -53,6 +56,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1311": {
@@ -64,6 +68,7 @@ export default {
     weights: {
       "ATK": 1,
       "AP": 0.5,
+      "_ATK": 0.5,
     },
   },
 
@@ -79,6 +84,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1091": {
@@ -93,6 +99,7 @@ export default {
       "ATK": 0.75,
       "AP": 0.5,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -107,6 +114,7 @@ export default {
       "AP": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1161": {
@@ -120,6 +128,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -134,6 +143,7 @@ export default {
       "AP": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1071": {
@@ -147,6 +157,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -161,6 +172,7 @@ export default {
       "AP": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1251": {
@@ -174,6 +186,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
 
@@ -186,6 +199,7 @@ export default {
     weights: {
       "ATK": 1,
       "AP": 0.5,
+      "_ATK": 0.5,
     },
   },
   
@@ -201,6 +215,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1211": {
@@ -213,6 +228,7 @@ export default {
       "AP": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1191": {
@@ -226,6 +242,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1181": {
@@ -238,6 +255,7 @@ export default {
       "AP": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1141": {
@@ -251,6 +269,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1101": {
@@ -264,6 +283,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1041": {
@@ -277,6 +297,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1021": {
@@ -290,6 +311,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -303,6 +325,7 @@ export default {
       "AP": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1151": {
@@ -315,6 +338,7 @@ export default {
       "ATK": 1,
       "CR": 0.5,
       "CD": 0.5,
+      "_ATK": 0.5,
     },
   },
   "1131": {
@@ -327,6 +351,7 @@ export default {
       "ATK": 1,
       "CR": 0.5,
       "CD": 0.5,
+      "_ATK": 0.5,
     },
   },
   "1121": {
@@ -340,6 +365,7 @@ export default {
       "CD": 1,
       "DEF": 0.75,
       "PEN": 0.25,
+      "_DEF": 0.25,
     },
   },
   "1111": {
@@ -353,6 +379,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1081": {
@@ -366,6 +393,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1061": {
@@ -379,6 +407,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1031": {
@@ -391,6 +420,7 @@ export default {
       "AP": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1011": {
@@ -404,6 +434,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
 };

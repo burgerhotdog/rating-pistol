@@ -34,6 +34,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-2": {
@@ -46,6 +47,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -58,6 +60,7 @@ export default {
       "ER": 1,
       "EM": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -73,6 +76,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -87,6 +91,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -100,6 +105,7 @@ export default {
     weights: {
       "ER": 1,
       "DEF": 1,
+      "_DEF": 0.5,
     },
   },
   
@@ -116,6 +122,7 @@ export default {
       "CD": 1,
       "HP": 0.75,
       "EM": 0.25,
+      "_HP": 0.25,
     },
   },
   "10000101": {
@@ -129,6 +136,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -142,6 +150,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   
@@ -157,6 +166,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -172,6 +182,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000095": {
@@ -183,6 +194,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
 
@@ -212,6 +224,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -228,6 +241,7 @@ export default {
       "CD": 1,
       "DEF": 0.75,
       "ATK": 0.25,
+      "_DEF": 0.25,
     },
   },
   
@@ -241,6 +255,7 @@ export default {
     weights: {
       "ER": 1,
       "ATK": 1,
+      "_ATK": 0.5,
     },
   },
 
@@ -255,6 +270,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -270,6 +286,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -281,6 +298,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   
@@ -296,6 +314,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
 
@@ -307,6 +326,7 @@ export default {
     weights: {
       "ER": 1,
       "ATK": 1,
+      "_ATK": 0.5,
     },
   },
   
@@ -322,6 +342,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   "10000086": {
@@ -336,6 +357,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -351,6 +373,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-3": {
@@ -363,6 +386,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -376,6 +400,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000083": {
@@ -388,6 +413,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -400,6 +426,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   
@@ -413,6 +440,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
 
@@ -451,6 +479,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   
@@ -478,6 +507,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   
@@ -493,6 +523,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -531,6 +562,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   
@@ -558,6 +590,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
 
@@ -569,6 +602,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   
@@ -609,6 +643,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   "10000067": {
@@ -636,6 +671,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -651,6 +687,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
 
@@ -663,6 +700,7 @@ export default {
       "ER": 1,
       "EM": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   
@@ -678,6 +716,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -707,6 +746,7 @@ export default {
     weights: {
       "ER": 1,
       "ATK": 1,
+      "_ATK": 0.5,
     },
   },
 
@@ -718,6 +758,7 @@ export default {
     weights: {
       "ER": 1,
       "DEF": 1,
+      "_DEF": 0.5,
     },
   },
   
@@ -733,6 +774,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
 
@@ -744,6 +786,7 @@ export default {
     weights: {
       "ER": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   
@@ -756,6 +799,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   
@@ -770,6 +814,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000054": {
@@ -781,6 +826,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   "10000052": {
@@ -794,6 +840,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -807,6 +854,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -822,6 +870,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000002": {
@@ -835,6 +884,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-7": {
@@ -847,6 +897,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -859,6 +910,7 @@ export default {
       "ER": 1,
       "EM": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -887,6 +939,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -900,6 +953,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -915,6 +969,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -931,6 +986,7 @@ export default {
       "CD": 1,
       "HP": 0.75,
       "EM": 0.25,
+      "_HP": 0.25,
     },
   },
   "10000026": {
@@ -944,6 +1000,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -958,6 +1015,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   "10000037": {
@@ -971,6 +1029,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -986,6 +1045,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000030": {
@@ -999,6 +1059,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
 
@@ -1050,6 +1111,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000035": {
@@ -1060,6 +1122,7 @@ export default {
     weights: {
       "ER": 1,
       "ATK": 1,
+      "_ATK": 0.5,
     },
   },
   "10000029": {
@@ -1072,6 +1135,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000022": {
@@ -1095,6 +1159,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000003": {
@@ -1105,6 +1170,7 @@ export default {
     weights: {
       "ER": 1,
       "ATK": 1,
+      "_ATK": 0.5,
     },
   },
   "10000007-6": {
@@ -1117,6 +1183,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-4": {
@@ -1150,6 +1217,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000034": {
@@ -1162,6 +1230,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   "10000032": {
@@ -1172,6 +1241,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   "10000031": {
@@ -1197,6 +1267,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000025": {
@@ -1209,6 +1280,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000024": {
@@ -1221,6 +1293,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000023": {
@@ -1234,6 +1307,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   "10000021": {
@@ -1246,6 +1320,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000020": {
@@ -1258,6 +1333,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000015": {
@@ -1270,6 +1346,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000014": {

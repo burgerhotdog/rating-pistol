@@ -15,6 +15,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   "1403": {
@@ -32,7 +33,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "HP": 0.75,
-      "RES": 0.25,
+      "_HP": 0.25,
     },
   },
   
@@ -48,9 +49,8 @@ export default {
     statBase: { _HP: 1047, _ATK: 543, _DEF: 630 },
     weights: {
       "SPD": 1,
-      "CD": 0.75,
-      "ATK": 0.5,
-      "RES": 0.25,
+      "CD": 0.5,
+      "ATK": 0.25,
     },
   },
   "1402": {
@@ -68,6 +68,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1401": {
@@ -85,6 +86,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -101,8 +103,7 @@ export default {
     statBase: { _HP: 1241, _ATK: 640, _DEF: 533 },
     weights: {
       "SPD": 1,
-      "CD": 0.75,
-      "RES": 0.25,
+      "CD": 0.5,
     },
   },
   "1225": {
@@ -119,7 +120,6 @@ export default {
       "EHR": 1,
       "SPD": 1,
       "BE": 1,
-      "RES": 0.25,
     },
   },
   
@@ -138,6 +138,7 @@ export default {
       "SPD": 1,
       "BE": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -156,7 +157,8 @@ export default {
       "SPD": 1,
       "BE": 1,
       "ATK": 0.75,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_ATK": 0.25,
     },
   },
   "1220": {
@@ -174,6 +176,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -191,6 +194,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -210,6 +214,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1218": {
@@ -225,7 +230,7 @@ export default {
     weights: {
       "EHR": 1,
       "SPD": 1,
-      "ATK": 0.75,
+      "ATK": 0.5,
     },
   },
 
@@ -243,6 +248,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -262,6 +268,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1310": {
@@ -278,6 +285,7 @@ export default {
       "SPD": 1,
       "BE": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -294,7 +302,6 @@ export default {
     weights: {
       "SPD": 1,
       "BE": 1,
-      "RES": 0.25,
     },
   },
   "1315": {
@@ -325,7 +332,7 @@ export default {
     weights: {
       "SPD": 1,
       "ATK": 1,
-      "RES": 0.25,
+      "_ATK": 0.5,
     },
   },
   
@@ -345,6 +352,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1304": {
@@ -362,7 +370,8 @@ export default {
       "CR": 1,
       "CD": 1,
       "DEF": 0.75,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_DEF": 0.25,
     },
   },
 
@@ -378,7 +387,7 @@ export default {
     weights: {
       "SPD": 1,
       "BE": 1,
-      "RES": 0.25,
+      "RES": 0.5,
     },
   },
   
@@ -397,6 +406,7 @@ export default {
       "EHR": 1,
       "SPD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1306": {
@@ -411,8 +421,7 @@ export default {
     statBase: { _HP: 1397, _ATK: 523, _DEF: 485 },
     weights: {
       "SPD": 1,
-      "CD": 0.75,
-      "RES": 0.25,
+      "CD": 0.5,
     },
   },
 
@@ -430,6 +439,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -449,6 +459,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1303": {
@@ -464,7 +475,6 @@ export default {
     weights: {
       "SPD": 1,
       "BE": 1,
-      "RES": 0.25,
     },
   },
 
@@ -483,6 +493,7 @@ export default {
       "CD": 1,
       "BE": 0.75,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -502,6 +513,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1217": {
@@ -517,7 +529,8 @@ export default {
     weights: {
       "SPD": 1,
       "HP": 1,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_HP": 0.5,
     },
   },
 
@@ -532,7 +545,6 @@ export default {
     statBase: { _HP: 917, _ATK: 564, _DEF: 352 },
     weights: {
       "SPD": 1,
-      "RES": 0.25,
     },
   },
   
@@ -552,6 +564,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1112": {
@@ -569,6 +582,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -585,7 +599,7 @@ export default {
       "EHR": 1,
       "SPD": 1,
       "ATK": 0.75,
-      "RES": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -605,6 +619,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1208": {
@@ -621,7 +636,9 @@ export default {
       "SPD": 1,
       "HP": 1,
       "DEF": 0.75,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_HP": 0.5,
+      "_DEF": 0.25,
     },
   },
 
@@ -637,7 +654,8 @@ export default {
     weights: {
       "SPD": 1,
       "HP": 1,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_HP": 0.5,
     },
   },
   
@@ -657,6 +675,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   "1005": {
@@ -673,6 +692,7 @@ export default {
       "EHR": 1,
       "SPD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -690,6 +710,7 @@ export default {
       "SPD": 1,
       "BE": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -707,7 +728,8 @@ export default {
     weights: {
       "SPD": 1,
       "ATK": 1,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_ATK": 0.5,
     },
   },
   "1006": {
@@ -723,7 +745,6 @@ export default {
     weights: {
       "EHR": 1,
       "SPD": 1,
-      "RES": 0.25,
     },
   },
 
@@ -738,7 +759,6 @@ export default {
     statBase: { _HP: 917, _ATK: 599, _DEF: 374 },
     weights: {
       "SPD": 1,
-      "RES": 0.25,
     },
   },
   
@@ -755,7 +775,8 @@ export default {
     weights: {
       "SPD": 1,
       "DEF": 1,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_DEF": 0.5,
     },
   },
   "8002": {
@@ -772,6 +793,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1211": {
@@ -787,7 +809,8 @@ export default {
     weights: {
       "SPD": 1,
       "HP": 1,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_HP": 0.5,
     },
   },
   "1209": {
@@ -805,6 +828,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1204": {
@@ -822,6 +846,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1107": {
@@ -839,6 +864,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1104": {
@@ -855,7 +881,8 @@ export default {
       "EHR": 1,
       "SPD": 1,
       "DEF": 1,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_DEF": 0.5,
     },
   },
   "1102": {
@@ -873,6 +900,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1101": {
@@ -887,8 +915,7 @@ export default {
     statBase: { _HP: 1241, _ATK: 582, _DEF: 533 },
     weights: {
       "SPD": 1,
-      "CD": 0.75,
-      "RES": 0.25,
+      "CD": 0.5,
     },
   },
   "1004": {
@@ -907,6 +934,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1003": {
@@ -924,6 +952,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -942,6 +971,7 @@ export default {
       "CD": 1,
       "ATK": 0.75,
       "BE": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1202": {
@@ -956,7 +986,7 @@ export default {
     weights: {
       "SPD": 1,
       "ATK": 1,
-      "RES": 0.25,
+      "_ATK": 0.5,
     },
   },
   "1201": {
@@ -973,6 +1003,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1109": {
@@ -989,6 +1020,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1108": {
@@ -1004,6 +1036,7 @@ export default {
       "EHR": 1,
       "SPD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1106": {
@@ -1018,7 +1051,6 @@ export default {
     weights: {
       "EHR": 1,
       "SPD": 1,
-      "RES": 0.25,
     },
   },
   "1105": {
@@ -1033,7 +1065,8 @@ export default {
     weights: {
       "SPD": 1,
       "HP": 1,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_HP": 0.5,
     },
   },
   "1103": {
@@ -1050,6 +1083,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1013": {
@@ -1066,6 +1100,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1009": {
@@ -1079,8 +1114,6 @@ export default {
     statBase: { _HP: 1023, _ATK: 511, _DEF: 463 },
     weights: {
       "SPD": 1,
-      "ATK": 0.5,
-      "RES": 0.25,
     },
   },
   "1008": {
@@ -1097,6 +1130,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1002": {
@@ -1113,6 +1147,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "1001": {
@@ -1128,7 +1163,8 @@ export default {
       "EHR": 1,
       "SPD": 1,
       "DEF": 1,
-      "RES": 0.25,
+      "RES": 0.5,
+      "_DEF": 0.5,
     },
   },
 };

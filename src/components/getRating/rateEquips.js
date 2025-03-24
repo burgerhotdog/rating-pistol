@@ -1,10 +1,14 @@
 import getData from "../getData";
 
-const combine_basestats = (charBase, weapBase) => {
-  return Object.entries(charBase).reduce((basestats, [key, value]) => {
-    basestats[key] = value + (weapBase[key] || 0);
-    return basestats;
-  }, {});
+const combine_mainstats = (equipList, STAT_INDEX) => {
+  const mainstats = {};
+  for (const equipObj of equipList) {
+    const key = equipObj.key;
+    if (key && STAT_INDEX[key]?.valueMain) {
+      mainstats[key] = (mainstats[key] || 0) + STAT_INDEX[key].valueMain;
+    }
+  }
+  return mainstats;
 };
 
 const combine_substats = (equipList) => {
@@ -108,42 +112,37 @@ const simulate_substats = (substats, weights, equipList, STAT_INDEX, gameId) => 
   return sim_substats;
 };
 
-const calculatePoints = (statsObj, weights, basestats, STAT_INDEX) => {
+const calculatePoints = (statsObj, weights, STAT_INDEX) => {
   let points = 0;
   Object.entries(statsObj).forEach(([key, value]) => {
     if (weights[key]) {
       const weight = weights[key];
       const normalize = STAT_INDEX[key]?.valueSub;
       points += (value / normalize) * weight;
-    } else if (basestats[key] && weights[key.slice(1)]) {
-      const valuePercent = (value / basestats[key]) * 100;
-      const weight = weights[key.slice(1)];
-      const normalize = STAT_INDEX[key.slice(1)]?.valueSub;
-      points += (valuePercent / normalize) * weight;
     }
   });
   return points;
 };
 
 const rateEquips = (gameId, id, data) => {
-  const { AVATAR_DATA, WEAPON_DATA, STAT_INDEX } = getData[gameId];
+  const { AVATAR_DATA, STAT_INDEX } = getData[gameId];
   if (!data.equipList) return 0;
   for (const equip of data.equipList) {
     if (!equip.key) return 0;
   }
 
-  if (!data.weaponId) return 0;
-
   // Combine stats
-  const basestats = combine_basestats(AVATAR_DATA[id].statBase, WEAPON_DATA[data.weaponId].statBase);
+  const mainstats = combine_mainstats(data.equipList, STAT_INDEX);
   const substats = combine_substats(data.equipList);
 
   // Simulate perfect substats
   const sim_substats = simulate_substats(substats, AVATAR_DATA[id].weights, data.equipList, STAT_INDEX, gameId);
 
   // Calculate points
-  const points = calculatePoints(substats, AVATAR_DATA[id].weights, basestats, STAT_INDEX);
-  const sim_points = calculatePoints(sim_substats, AVATAR_DATA[id].weights, basestats, STAT_INDEX);
+  const points = calculatePoints(substats, AVATAR_DATA[id].weights, STAT_INDEX);
+  const sim_points = calculatePoints(sim_substats, AVATAR_DATA[id].weights, STAT_INDEX);
+
+  if (sim_points === 0) return 100;
 
   // Calculate score
   return ((points / sim_points) * 100) / 0.75;
