@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const Node = ({
   x,
   y,
@@ -11,8 +9,10 @@ const Node = ({
   active,
   locked,
   rankBonus,
+  hoveredNode,
+  setHoveredNode,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const isHovered = hoveredNode === id;
   const maxed = value === maxValue;
   const size = id[0] === "0" ? 46 : id[0] === "1" ? 52 : 34;
 
@@ -24,8 +24,8 @@ const Node = ({
     <g
       onClick={() => onClick(id)}
       style={{ cursor: "pointer" }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setHoveredNode(id)}
+      onMouseLeave={() => setHoveredNode(null)}
     >
       {/* Black filter */}
       <defs>

@@ -15,6 +15,25 @@ const HEADERS = {
 const SKILL_CAPS = [6, 10, 10, 10, 6, 6, 1];
 const EQUIP_NAMES = ["Head", "Hands", "Body", "Feet", "Orb", "Rope"];
 
+const MINOR_VALUE_TYPE = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2];
+const MINOR_VALUES = {
+  HP: ["4%", "6%", "8%"],
+  ATK: ["4%", "6%", "8%"],
+  DEF: ["4%", "6%", "8%"],
+  CR: ["2.7%", "4%", "5.3%"],
+  CD: ["5.3%", "8%", "10.6%"],
+  EHR: ["4%", "6%", "8%"],
+  SPD: ["2", "3", "4"],
+  FIRE: ["3.2%", "4.8%", "6.4%"],
+  LIGHTNING: ["3.2%", "4.8%", "6.4%"],
+  ICE: ["3.2%", "4.8%", "6.4%"],
+  IMAGINARY: ["3.2%", "4.8%", "6.4%"],
+  PHYSICAL: ["3.2%", "4.8%", "6.4%"],
+  QUANTUM: ["3.2%", "4.8%", "6.4%"],
+  WIND: ["3.2%", "4.8%", "6.4%"],
+  RES: ["4%", "6%", "8%"],
+};
+
 const MAINSTAT_OPTIONS = [
   ["_HP"],
   ["_ATK"],
@@ -169,6 +188,8 @@ export default {
   WEAPON_PREFIX: "S",
   SET_DATA,
   EQUIP_NAMES,
+  MINOR_VALUE_TYPE,
+  MINOR_VALUES,
   MAINSTAT_OPTIONS,
   SUBSTAT_OPTIONS,
   STAT_INDEX,

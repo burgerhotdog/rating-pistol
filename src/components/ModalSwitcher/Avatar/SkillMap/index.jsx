@@ -25,39 +25,19 @@ const Switcher = ({
   let mapContent = null;
   switch (gameId) {
     case "gi":
-      mapContent = (
-        <GI
-          modalPipe={modalPipe}
-          editSkillMap={editSkillMap}
-        />
-      );
+      mapContent = (<GI modalPipe={modalPipe} editSkillMap={editSkillMap} />);
       break;
 
     case "hsr":
-      mapContent = (
-        <HSR
-          modalPipe={modalPipe}
-          editSkillMap={editSkillMap}
-        />
-      );
+      mapContent = (<HSR modalPipe={modalPipe} editSkillMap={editSkillMap} />);
       break;
 
     case "ww":
-      mapContent = (
-        <WW
-          modalPipe={modalPipe}
-          editSkillMap={editSkillMap}
-        />
-      );
+      mapContent = (<WW modalPipe={modalPipe} editSkillMap={editSkillMap} />);
       break;
 
     case "zzz":
-      mapContent = (
-        <ZZZ
-          modalPipe={modalPipe}
-          editSkillMap={editSkillMap}
-        />
-      );
+      mapContent = (<ZZZ modalPipe={modalPipe} editSkillMap={editSkillMap} />);
       break;
   }
 
