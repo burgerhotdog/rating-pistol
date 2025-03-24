@@ -16,7 +16,7 @@ const skillTypes = [
 
 const DisplayInfo = ({ id, avatarId }) => {
   const { STAT_INDEX, AVATAR_DATA, MINOR_VALUE_TYPE, MINOR_VALUES } = getData["hsr"];
-  const { skill, skillDesc, major, majorDesc, minor } = AVATAR_DATA[avatarId];
+  const { skill, major, minor } = AVATAR_DATA[avatarId];
   const title = id[0] === "0" ? skillTypes[id[2]] : otherTypes[id[0]];
   const idIndex = Number(id.slice(1)) - 1;
   const subtitle =
@@ -26,8 +26,7 @@ const DisplayInfo = ({ id, avatarId }) => {
 
   const desc =
     id[0] === "2" ? `${STAT_INDEX[minor[idIndex]].name} increases by ${MINOR_VALUES[minor[idIndex]][MINOR_VALUE_TYPE[idIndex]]}` :
-    id[0] === "1" ? majorDesc[idIndex] :
-    skillDesc[idIndex];
+    "";
   
   return (
     <>
