@@ -1,29 +1,5 @@
 import getData from "../getData";
 
-const combine_mainstats = (equipList, STAT_INDEX) => {
-  const mainstats = {};
-  for (const equipObj of equipList) {
-    const key = equipObj.key;
-    if (key && STAT_INDEX[key]?.valueMain) {
-      mainstats[key] = (mainstats[key] || 0) + STAT_INDEX[key].valueMain;
-    }
-  }
-  return mainstats;
-};
-
-const combine_substats = (equipList) => {
-  const substats = {};
-  for (const equipObj of equipList) {
-    for (const statObj of Object.values(equipObj.statMap)) {
-      const { key, value } = statObj;
-      if (key && value) {
-        substats[key] = (substats[key] || 0) + Number(value);
-      }
-    }
-  }
-  return substats;
-};
-
 const getLargestWeight = (weights) => {
   const entries = Object.entries(weights);
   if (entries.length === 0) return "";
@@ -126,13 +102,33 @@ const calculatePoints = (statsObj, weights, STAT_INDEX) => {
 
 const rateEquips = (gameId, id, data) => {
   const { AVATAR_DATA, STAT_INDEX } = getData[gameId];
-  if (!data.equipList) return 0;
-  for (const equip of data.equipList) {
-    if (!equip.key) return 0;
-  }
+
+  const combine_mainstats = (equipList) => {
+    const mainstats = {};
+    for (const equipObj of equipList) {
+      const key = equipObj.key;
+      if (key && STAT_INDEX[key]?.valueMain) {
+        mainstats[key] = (mainstats[key] || 0) + STAT_INDEX[key].valueMain;
+      }
+    }
+    return mainstats;
+  };
+
+  const combine_substats = (equipList) => {
+    const substats = {};
+    for (const equipObj of equipList) {
+      for (const statObj of Object.values(equipObj.statMap)) {
+        const { key, value } = statObj;
+        if (key && value) {
+          substats[key] = (substats[key] || 0) + Number(value);
+        }
+      }
+    }
+    return substats;
+  };
 
   // Combine stats
-  const mainstats = combine_mainstats(data.equipList, STAT_INDEX);
+  const mainstats = combine_mainstats(data.equipList);
   const substats = combine_substats(data.equipList);
 
   // Simulate perfect substats

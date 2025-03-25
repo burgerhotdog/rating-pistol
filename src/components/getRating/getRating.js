@@ -14,7 +14,7 @@ const getRating = (gameId, id, data) => {
       0.3 * skills +
       0.3 * equips;
 
-  const letter = letterSrc(combined);
+  const letter = letterSrc(Math.round(combined));
 
   const parts = [levels, skills, equips];
 
