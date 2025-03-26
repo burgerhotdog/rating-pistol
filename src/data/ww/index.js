@@ -12,13 +12,7 @@ const HEADERS = {
   skills: "Skills",
 };
 
-const SKILL_CAPS = {
-  basic: 10,
-  skill: 10,
-  ult: 10,
-  forte: 10,
-  intro: 10,
-};
+const SKILL_CAPS = [10, 10, 10, 10, 10];
 
 const EQUIP_NAMES = [
   "4-Cost",

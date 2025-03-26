@@ -5,7 +5,8 @@ export default {
     totalRolls: 40,
     rollsPerPiece: 8,
     firstIncrement: 5,
-    matchStats: ["ER"],
+    matchStatsMain: ["ER"],
+    matchStatsSub: ["ER"],
   },
   hsr: {
     numMain: 6,
@@ -13,7 +14,8 @@ export default {
     totalRolls: 48,
     rollsPerPiece: 8,
     firstIncrement: 5,
-    matchStats: ["EHR", "SPD"],
+    matchStatsMain: ["EHR", "SPD", "ERR"],
+    matchStatsSub: ["EHR", "SPD"],
   },
   ww: {
     numMain: 5,
@@ -21,7 +23,8 @@ export default {
     totalRolls: 25,
     rollsPerPiece: 5,
     firstIncrement: 1,
-    matchStats: ["ER"],
+    matchStatsMain: ["ER"],
+    matchStatsSub: ["ER"],
   },
   zzz: {
     numMain: 6,
@@ -29,6 +32,7 @@ export default {
     totalRolls: 48,
     rollsPerPiece: 8,
     firstIncrement: 5,
-    matchStats: [],
+    matchStatsMain: ["ER"],
+    matchStatsSub: [],
   },
 };

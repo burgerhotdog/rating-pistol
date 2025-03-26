@@ -12,11 +12,7 @@ const HEADERS = {
   skills: "Talents",
 };
 
-const SKILL_CAPS = {
-  basic: 10,
-  skill: 10,
-  ult: 10,
-};
+const SKILL_CAPS = [10, 10, 10];
 
 const EQUIP_NAMES = [
   "Flower",
