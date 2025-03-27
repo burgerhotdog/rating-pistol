@@ -1,11 +1,34 @@
 import React, { useState } from "react";
-import { Box, Stack, Paper } from "@mui/material";
+import { Box, Stack, Paper, Typography } from "@mui/material";
 import getData from "../../../../getData";
 import getImgs from "../../../../getImgs";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
 import DisplayInfo from "./DisplayInfo";
+
+const mapLabel = {
+  "001": "Basic ATK",
+  "002": "Skill",
+  "003": "Ultimate",
+  "004": "Talent",
+  "005": "Memosprite Skill",
+  "006": "Memosprite Talent",
+  "007": "Technique",
+  "101": "Bonus Ability",
+  "102": "Bonus Ability",
+  "103": "Bonus Ability",
+  "201": "Stat Bonus",
+  "202": "Stat Bonus",
+  "203": "Stat Bonus",
+  "204": "Stat Bonus",
+  "205": "Stat Bonus",
+  "206": "Stat Bonus",
+  "207": "Stat Bonus",
+  "208": "Stat Bonus",
+  "209": "Stat Bonus",
+  "210": "Stat Bonus",
+};
 
 const HSR = ({ modalPipe, editSkillMap }) => {
   const { SKILL_CAPS, AVATAR_DATA } = getData.hsr;
@@ -82,7 +105,9 @@ const HSR = ({ modalPipe, editSkillMap }) => {
             {Object.entries(NODES)
               .filter(([id]) => Number(id))
               .map(([id, { x, y, parent }], index) => {
-                const realParent = parent === "000" ? NODES[parent].parent : parent;
+                const realParent = parent === "000"
+                  ? NODES[parent].parent
+                  : parent;
                 const parentInactive = !Boolean(skillMap[realParent]);
 
                 const imageSrc = getNodeIcon(modalPipe.id, id);
@@ -111,14 +136,17 @@ const HSR = ({ modalPipe, editSkillMap }) => {
                   />
                 )
               })}
+              
+            <text
+              x={4}
+              y={596}
+              fill="white"
+              fontSize={16}
+              style={{ userSelect: "none" }}
+            >
+              {mapLabel[hoveredNode]}
+            </text>
           </svg>
-        </Box>
-      </Paper>
-      <Paper sx={{ p: 3, borderRadius: 2 }}>
-        <Box sx={{ width: 250, height: 600 }}>
-          {hoveredNode && (
-            <DisplayInfo id={hoveredNode} avatarId={modalPipe.id} />
-          )}
         </Box>
       </Paper>
     </Stack>
