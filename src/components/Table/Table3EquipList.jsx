@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Tooltip, Badge, Avatar, Stack, Box, Typography } from "@mui/material";
+import { Tooltip, Badge, Avatar, Stack } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import getData from "../getData";
 import getImgs from "../getImgs";
@@ -15,8 +15,13 @@ const Table3EquipList = ({
   const { HEADERS } = getData[gameId];
   const { SET_IMGS } = getImgs[gameId];
   
-  const setBonuses = useMemo(() => getSetBonuses(gameId, data.equipList), [gameId, data.equipList]);
-  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
+  const setBonuses = useMemo(() => (
+    getSetBonuses(gameId, data.equipList)
+  ), [gameId, data.equipList]);
+
+  const sortedSetBonuses = useMemo(() => (
+    sortSetBonuses(gameId, setBonuses)
+  ), [gameId, setBonuses]);
 
   const openModal = () => {
     setModalPipe({
@@ -46,14 +51,12 @@ const Table3EquipList = ({
         {sortedSetBonuses.map(([setId, numBonus]) => (
           <Badge
             key={setId}
+            badgeContent={<strong>x{numBonus}</strong>}
             sx={{
               "& .MuiBadge-badge": {
                 backgroundColor: "rgba(20, 20, 20, 0.4)",
               },
             }}
-            badgeContent={
-              <strong>x{numBonus}</strong>
-            }
           >
             <Avatar
               alt={setId}

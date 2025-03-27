@@ -34,14 +34,12 @@ const Table2Weapon = ({
       <Stack display="inline-flex">
         <Badge
           onClick={openModal}
+          badgeContent={<strong>{WEAPON_PREFIX}{data.weaponRank}</strong>}
           sx={{
             "& .MuiBadge-badge": {
               backgroundColor: "rgba(20, 20, 20, 0.4)",
             },
           }}
-          badgeContent={
-            <strong>{WEAPON_PREFIX}{data.weaponRank}</strong>
-          }
         >
           <Avatar
             alt={data.weaponId}

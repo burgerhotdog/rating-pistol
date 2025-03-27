@@ -27,10 +27,12 @@ const Table1Avatar = ({
         sx={{ cursor: "pointer" }}
       >
         <Badge
-          sx={{
-            "& .MuiBadge-badge": { backgroundColor: "rgba(20, 20, 20, 0.4)" },
-          }}
           badgeContent={<strong>{PREFIX}{data.rank}</strong>}
+          sx={{
+            "& .MuiBadge-badge": {
+              backgroundColor: "rgba(20, 20, 20, 0.4)",
+            },
+          }}
         >
           <Avatar
             alt={AVATAR_DATA[id].name}

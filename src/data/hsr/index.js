@@ -4,17 +4,9 @@ import SET_DATA from "./SET_DATA";
 
 const TITLE = "Honkai Star Rail";
 const VERSION = "3.1";
-
-const HEADERS = {
-  avatar: "Character",
-  weapon: "Light Cone",
-  equips: "Relics",
-  skills: "Traces",
-};
-
+const HEADERS = { avatar: "Character", weapon: "Light Cone", equips: "Relics", skills: "Traces" };
 const SKILL_CAPS = [6, 10, 10, 10, 6, 6, 1];
 const EQUIP_NAMES = ["Head", "Hands", "Body", "Feet", "Orb", "Rope"];
-
 const MINOR_VALUE_TYPE = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2];
 const MINOR_VALUES = {
   HP: ["4%", "6%", "8%"],
@@ -33,7 +25,6 @@ const MINOR_VALUES = {
   WIND: ["3.2%", "4.8%", "6.4%"],
   RES: ["4%", "6%", "8%"],
 };
-
 const MAINSTAT_OPTIONS = [
   ["_HP"],
   ["_ATK"],
@@ -42,22 +33,7 @@ const MAINSTAT_OPTIONS = [
   ["HP", "ATK", "DEF", "FIRE", "ICE", "IMAGINARY", "LIGHTNING", "PHYSICAL", "QUANTUM", "WIND"],
   ["HP", "ATK", "DEF", "BE", "ERR"],
 ];
-
-const SUBSTAT_OPTIONS = [
-  "_HP",
-  "_ATK",
-  "_DEF",
-  "HP",
-  "ATK",
-  "DEF",
-  "CR",
-  "CD",
-  "EHR",
-  "SPD",
-  "BE",
-  "RES",
-];
-
+const SUBSTAT_OPTIONS = ["_HP", "_ATK", "_DEF", "HP", "ATK", "DEF", "CR", "CD", "EHR", "SPD", "BE", "RES"];
 const STAT_INDEX = {
   "_HP": {
     name: "HP",

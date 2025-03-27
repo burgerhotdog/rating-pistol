@@ -1,4 +1,32 @@
 export default {
+  // Version 5.5
+  "10000111": {
+    name: "Varesa",
+    rarity: 5,
+    type: "Catalyst",
+    sig: "14519",
+    statBase: { _HP: 12699, _ATK: 356, _DEF: 782 },
+    weights: {
+      "ER": 1,
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.75,
+      "_ATK": 0.25,
+    },
+  },
+
+  "10000110": {
+    name: "Iansan",
+    rarity: 4,
+    type: "Polearm",
+    statBase: { _HP: 10657, _ATK: 257, _DEF: 638 },
+    weights: {
+      "ER": 1,
+      "EM": 1,
+      "HB": 0.75,
+    },
+  },
+
   // Version 5.4
   "10000109": {
     name: "Yumemizuki Mizuki",

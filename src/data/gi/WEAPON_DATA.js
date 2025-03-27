@@ -1,4 +1,20 @@
 export default {
+  // Version 5.5
+  "14519": {
+    name: "Vivid Notions",
+    rarity: 5,
+    type: "Catalyst",
+    statBase: { _ATK: 674 },
+    statSub: { CD: 44.1 },
+    descHead: "Falling Rainbow's Wish",
+    descBody: "ATK is increased by {0}. When you use a Plunging Attack, you will gain the \"Dawn's First Hue\" effect: Plunging Attack CRIT DMG is increased by {1}. When you use an Elemental Skill or Burst, you will gain the \"Twilight's Splendor\" effect: Plunging Attack CRIT DMG is increased by {2}. The two effects above each last for 15s, and will be canceled 0.1s after the ground impact hits a target.",
+    descVar: [
+      ["28%", "35%", "42%", "49%", "56%"],
+      ["28%", "35%", "42%", "49%", "56%"],
+      ["40%", "50%", "60%", "70%", "80%"],
+    ],
+  },
+
   // Version 5.4
   "14158": {
     name: "Sunny Morning Sleep-In",

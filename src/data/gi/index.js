@@ -3,25 +3,10 @@ import WEAPON_DATA from "./WEAPON_DATA";
 import SET_DATA from "./SET_DATA";
 
 const TITLE = "Genshin Impact";
-const VERSION = "5.4";
-
-const HEADERS = {
-  avatar: "Character",
-  weapon: "Weapon",
-  equips: "Artifacts",
-  skills: "Talents",
-};
-
+const VERSION = "5.5";
+const HEADERS = { avatar: "Character", weapon: "Weapon", equips: "Artifacts", skills: "Talents" };
 const SKILL_CAPS = [10, 10, 10];
-
-const EQUIP_NAMES = [
-  "Flower",
-  "Plume",
-  "Sands",
-  "Goblet",
-  "Circlet",
-];
-
+const EQUIP_NAMES = ["Flower", "Plume", "Sands", "Goblet", "Circlet"];
 const MAINSTAT_OPTIONS = [
   ["_HP"],
   ["_ATK"],
@@ -29,20 +14,7 @@ const MAINSTAT_OPTIONS = [
   ["HP", "ATK", "DEF", "EM", "ANEMO", "CRYO", "DENDRO", "ELECTRO", "GEO", "HYDRO", "PYRO", "PHYSICAL"],
   ["HP", "ATK", "DEF", "EM", "CR", "CD", "HB"],
 ];
-
-const SUBSTAT_OPTIONS = [
-  "_HP",
-  "_ATK",
-  "_DEF",
-  "HP",
-  "ATK",
-  "DEF",
-  "EM",
-  "ER",
-  "CR",
-  "CD",
-];
-
+const SUBSTAT_OPTIONS = ["_HP", "_ATK", "_DEF", "HP", "ATK", "DEF", "EM", "ER", "CR", "CD"];
 const STAT_INDEX = {
   "_HP": {
     name: "HP",
