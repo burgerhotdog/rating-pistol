@@ -328,7 +328,7 @@ const LoadModal = ({
     <Stack alignItems="center" spacing={2}>
       <Stack>
         <Typography variant="subtitle1">
-          Select the characters to add.
+          Select characters to add.
         </Typography>
 
         {enkaList.map((avatar, index) => (

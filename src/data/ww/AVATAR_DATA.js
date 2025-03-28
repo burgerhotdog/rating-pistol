@@ -1,4 +1,36 @@
 export default {
+  // Version 2.2
+  "1607": {
+    name: "Cantarella",
+    rarity: 5,
+    type: "Rectifier",
+    sig: "21050056",
+    statBase: { _HP: 11600, _ATK: 400, _DEF: 1100 },
+    weights: {
+      "ER": 1,
+      "CR": 1,
+      "CD": 1,
+      "HAVOC": 1,
+      "ATK": 0.75,
+      "_ATK": 0.25,
+    },
+  },
+  "1408": {
+    name: "Rover (Aero)",
+    rarity: 5,
+    type: "Sword",
+    sig: "21020046",
+    statBase: { _HP: 10775, _ATK: 438, _DEF: 1137 },
+    weights: {
+      "ER": 1,
+      "CR": 1,
+      "CD": 1,
+      "AERO": 1,
+      "ATK": 0.75,
+      "_ATK": 0.25,
+    },
+  },
+
   // Version 2.1
   "1506": {
     name: "Phoebe",

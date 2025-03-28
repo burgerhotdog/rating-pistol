@@ -3,7 +3,7 @@ import WEAPON_DATA from "./WEAPON_DATA";
 import SET_DATA from "./SET_DATA";
 
 const TITLE = "Wuthering Waves";
-const VERSION = "2.1";
+const VERSION = "2.2";
 const HEADERS = { avatar: "Resonator", weapon: "Weapon", equips: "Echoes", skills: "Skills" };
 const SKILL_CAPS = [10, 10, 10, 10, 10];
 const EQUIP_NAMES = ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"];

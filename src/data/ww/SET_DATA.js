@@ -1,4 +1,14 @@
 export default {
+  // Version 2.1
+  "015": {
+    name: "Gusts of Welkin",
+    rarity: 5,
+    desc: {
+      2: "Aero DMG +10%",
+      5: "Inflicting Aero Erosion upon enemies increases Aero DMG for all Resonators in the team by 15%, and for the Resonator triggering this effect by an additional 15%, lasting for 20s.",
+    },
+  },
+
   // Version 2.0
   "014": {
     name: "Tidebreaking Courage",
