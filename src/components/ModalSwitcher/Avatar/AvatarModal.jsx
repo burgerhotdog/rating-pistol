@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import {
-  Grid2 as Grid,
-  Box,
   Stack,
   Divider,
-  Autocomplete,
   TextField,
   Button,
-  Typography,
-  InputAdornment,
   FormControl,
   InputLabel,
   MenuItem,
@@ -89,11 +84,10 @@ const AvatarModal = ({
   };
 
   const handleSave = async () => {
-    if (validate()) {
-      setIsLoading(true);
-      await savePipe();
-      setModalPipe({});
-    }
+    if (!validate()) return
+    setIsLoading(true);
+    await savePipe();
+    setModalPipe({});
   };
 
   return (

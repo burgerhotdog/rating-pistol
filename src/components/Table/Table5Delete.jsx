@@ -20,28 +20,17 @@ const Table5Delete = ({
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const openTooltip = () => {
-    setOpen(true);
-  };
-
   const handleDelete = async () => {
     setIsLoading(true);
-
     if (userId) {
       const docRef = doc(db, "users", userId, gameId, id);
       await deleteDoc(docRef);
     }
-
     setLocalDocs((prev) => {
       const newDocs = { ...prev };
       delete newDocs[id];
       return newDocs;
     });
-
-    handleCancel();
-  };
-
-  const handleCancel = () => {
     setOpen(false);
   };
 
@@ -50,14 +39,8 @@ const Table5Delete = ({
       <Tooltip
         open={open}
         title={
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={1}
-          >
-            <Typography variant="tooltip">
-              Delete?
-            </Typography>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Typography variant="tooltip">Delete?</Typography>
 
             {isLoading ? (
               <CircularProgress size={16} />
@@ -76,7 +59,7 @@ const Table5Delete = ({
         arrow
       >
         <Delete
-          onClick={openTooltip}
+          onClick={() => setOpen(true)}
           cursor="pointer"
           color="disabled"
           sx={{
@@ -89,7 +72,7 @@ const Table5Delete = ({
 
       <Backdrop
         open={open}
-        onClick={handleCancel}
+        onClick={() => setOpen(false)}
         sx={{ zIndex: 1 }}
       />
     </>

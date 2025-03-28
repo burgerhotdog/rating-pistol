@@ -1,4 +1,32 @@
 export default {
+  // Version 5.5
+  "10000111": {
+    name: "Varesa",
+    rarity: 5,
+    type: "Catalyst",
+    sig: "14519",
+    statBase: { _HP: 12699, _ATK: 356, _DEF: 782 },
+    weights: {
+      "ER": 1,
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.75,
+      "_ATK": 0.25,
+    },
+  },
+
+  "10000110": {
+    name: "Iansan",
+    rarity: 4,
+    type: "Polearm",
+    statBase: { _HP: 10657, _ATK: 257, _DEF: 638 },
+    weights: {
+      "ER": 1,
+      "EM": 1,
+      "HB": 0.75,
+    },
+  },
+
   // Version 5.4
   "10000109": {
     name: "Yumemizuki Mizuki",
@@ -9,6 +37,7 @@ export default {
     weights: {
       "ER": 1,
       "EM": 1,
+      "HB": 0.75,
     },
   },
   
@@ -33,7 +62,9 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-2": {
@@ -45,7 +76,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -58,6 +91,7 @@ export default {
       "ER": 1,
       "EM": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -73,6 +107,7 @@ export default {
       "CR": 1,
       "CD": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -85,8 +120,10 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -99,7 +136,9 @@ export default {
     statBase: { _HP: 12405, _ATK: 275, _DEF: 929 },
     weights: {
       "ER": 1,
-      "DEF": 1,
+      "HB": 1,
+      "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   
@@ -114,8 +153,10 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 1,
       "HP": 0.75,
       "EM": 0.25,
+      "_HP": 0.25,
     },
   },
   "10000101": {
@@ -128,7 +169,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "DENDRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -141,7 +184,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   
@@ -156,7 +201,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "DENDRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -171,7 +218,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000095": {
@@ -183,6 +232,8 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "HB": 0.75,
+      "_HP": 0.5,
     },
   },
 
@@ -195,6 +246,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "EM": 0.5,
       "ATK": 0.25,
     },
@@ -211,7 +263,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -226,8 +280,10 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 1,
       "DEF": 0.75,
       "ATK": 0.25,
+      "_DEF": 0.25,
     },
   },
   
@@ -241,6 +297,8 @@ export default {
     weights: {
       "ER": 1,
       "ATK": 1,
+      "HB": 0.75,
+      "_ATK": 0.5,
     },
   },
 
@@ -253,8 +311,10 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -269,7 +329,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -281,6 +343,8 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "HB": 0.75,
+      "_HP": 0.5,
     },
   },
   
@@ -295,7 +359,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 0.75,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
 
@@ -306,7 +372,9 @@ export default {
     statBase: { _HP: 10766, _ATK: 173, _DEF: 546 },
     weights: {
       "ER": 1,
-      "ATK": 1,
+      "HB": 1,
+      "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -321,7 +389,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   "10000086": {
@@ -334,8 +404,10 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "CRYO": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -350,7 +422,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-3": {
@@ -362,7 +436,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -375,7 +451,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PHYSICAL": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000083": {
@@ -387,7 +465,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ANEMO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -399,7 +479,8 @@ export default {
     statBase: { _HP: 12179, _ATK: 223, _DEF: 546 },
     weights: {
       "ER": 1,
-      "HP": 1,
+      "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   
@@ -413,6 +494,8 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "HB": 0.75,
+      "_HP": 0.5,
     },
   },
 
@@ -438,6 +521,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "HP": 0.5,
       "ATK": 0.5,
     },
@@ -450,7 +534,9 @@ export default {
     statBase: { _HP: 12506, _ATK: 223, _DEF: 713 },
     weights: {
       "ER": 1,
-      "HP": 1,
+      "HB": 1,
+      "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   
@@ -465,7 +551,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "EM": 0.5,
+      "DENDRO": 1,
+      "EM": 0.75,
       "ATK": 0.25,
     },
   },
@@ -477,7 +564,9 @@ export default {
     statBase: { _HP: 12288, _ATK: 212, _DEF: 750 },
     weights: {
       "ER": 1,
-      "HP": 1,
+      "HB": 1,
+      "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   
@@ -492,7 +581,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ANEMO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -503,7 +594,6 @@ export default {
     statBase: { _HP: 9569, _ATK: 196, _DEF: 627 },
     weights: {
       "ER": 1,
-      "EM": 0.5,
     },
   },
   
@@ -518,7 +608,8 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
-      "EM": 0.5,
+      "DENDRO": 0.75,
+      "EM": 0.75,
       "ATK": 0.25,
     },
   },
@@ -530,7 +621,8 @@ export default {
     statBase: { _HP: 11092, _ATK: 216, _DEF: 655 },
     weights: {
       "ER": 1,
-      "HP": 1,
+      "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   
@@ -545,6 +637,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "EM": 0.5,
       "ATK": 0.25,
     },
@@ -558,6 +651,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
 
@@ -569,6 +663,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   
@@ -583,6 +678,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "DENDRO": 1,
       "EM": 0.5,
       "ATK": 0.25,
     },
@@ -596,6 +692,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "DENDRO": 1,
       "EM": 0.5,
       "ATK": 0.25,
     },
@@ -608,7 +705,9 @@ export default {
     statBase: { _HP: 12397, _ATK: 223, _DEF: 723 },
     weights: {
       "ER": 1,
-      "HP": 1,
+      "HB": 1,
+      "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   "10000067": {
@@ -620,6 +719,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "DENDRO": 1,
       "EM": 0.5,
       "ATK": 0.25,
     },
@@ -635,7 +735,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ANEMO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -650,7 +752,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 1,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
 
@@ -662,7 +766,9 @@ export default {
     weights: {
       "ER": 1,
       "EM": 1,
+      "HB": 0.75,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   
@@ -677,7 +783,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -692,6 +800,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.5,
       "EM": 0.5,
     },
@@ -707,6 +816,7 @@ export default {
     weights: {
       "ER": 1,
       "ATK": 1,
+      "_ATK": 0.5,
     },
   },
 
@@ -718,6 +828,7 @@ export default {
     weights: {
       "ER": 1,
       "DEF": 1,
+      "_DEF": 0.5,
     },
   },
   
@@ -732,7 +843,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
 
@@ -743,7 +856,9 @@ export default {
     statBase: { _HP: 9569, _ATK: 182, _DEF: 648 },
     weights: {
       "ER": 1,
+      "HB": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   
@@ -755,7 +870,8 @@ export default {
     statBase: { _HP: 10331, _ATK: 201, _DEF: 750 },
     weights: {
       "ER": 1,
-      "HP": 1,
+      "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   
@@ -769,7 +885,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "CRYO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000054": {
@@ -780,7 +898,10 @@ export default {
     statBase: { _HP: 13470, _ATK: 234, _DEF: 657 },
     weights: {
       "ER": 1,
-      "HP": 1,
+      "HB": 1,
+      "HYDRO": 0.75,
+      "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   "10000052": {
@@ -793,7 +914,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 0.75,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -806,7 +929,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -821,7 +946,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000002": {
@@ -834,7 +961,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "CRYO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-7": {
@@ -846,7 +975,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -858,7 +989,9 @@ export default {
     weights: {
       "ER": 1,
       "EM": 1,
+      "HB": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -886,7 +1019,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PHYSICAL": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
 
@@ -896,10 +1031,13 @@ export default {
     type: "Catalyst",
     statBase: { _HP: 9352, _ATK: 240, _DEF: 586 },
     weights: {
+      "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -913,8 +1051,10 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "CRYO": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -929,8 +1069,10 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "HP": 0.75,
       "EM": 0.25,
+      "_HP": 0.25,
     },
   },
   "10000026": {
@@ -943,7 +1085,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ANEMO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -957,7 +1101,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   "10000037": {
@@ -970,7 +1116,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "CRYO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   
@@ -985,7 +1133,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000030": {
@@ -998,7 +1148,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 0.75,
       "HP": 0.75,
+      "_HP": 0.25,
     },
   },
 
@@ -1011,6 +1163,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PHYSICAL": 1,
       "ATK": 0.5,
       "DEF": 0.5,
     },
@@ -1023,6 +1176,8 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "HB": 0.75,
+      "_HP": 0.5,
     },
   },
   
@@ -1036,6 +1191,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.5,
       "EM": 0.5,
     },
@@ -1049,7 +1205,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000035": {
@@ -1059,7 +1217,9 @@ export default {
     statBase: { _HP: 12368, _ATK: 287, _DEF: 922 },
     weights: {
       "ER": 1,
-      "ATK": 1,
+      "HB": 1,
+      "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000029": {
@@ -1071,7 +1231,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000022": {
@@ -1094,7 +1256,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000003": {
@@ -1104,7 +1268,9 @@ export default {
     statBase: { _HP: 14695, _ATK: 239, _DEF: 768 },
     weights: {
       "ER": 1,
-      "ATK": 1,
+      "HB": 1,
+      "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-6": {
@@ -1116,7 +1282,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000007-4": {
@@ -1149,7 +1317,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "CRYO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000034": {
@@ -1161,7 +1331,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 1,
       "DEF": 0.75,
+      "_DEF": 0.25,
     },
   },
   "10000032": {
@@ -1172,6 +1344,7 @@ export default {
     weights: {
       "ER": 1,
       "HP": 1,
+      "_HP": 0.5,
     },
   },
   "10000031": {
@@ -1183,6 +1356,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.5,
       "EM": 0.25,
     },
@@ -1196,7 +1370,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "GEO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000025": {
@@ -1208,7 +1384,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "HYDRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000024": {
@@ -1220,7 +1398,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000023": {
@@ -1232,8 +1412,10 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
       "EM": 0.25,
+      "_ATK": 0.25,
     },
   },
   "10000021": {
@@ -1245,7 +1427,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PYRO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000020": {
@@ -1257,7 +1441,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "PHYSICAL": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000015": {
@@ -1269,7 +1455,9 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "CRYO": 1,
       "ATK": 0.75,
+      "_ATK": 0.25,
     },
   },
   "10000014": {
@@ -1279,7 +1467,9 @@ export default {
     statBase: { _HP: 9787, _ATK: 159, _DEF: 668 },
     weights: {
       "ER": 1,
-      "HP": 1,
+      "HB": 1,
+      "HP": 0.75,
+      "_HP": 0.25,
     },
   },
   "10000006": {
@@ -1291,6 +1481,7 @@ export default {
       "ER": 1,
       "CR": 1,
       "CD": 1,
+      "ELECTRO": 1,
       "ATK": 0.5,
       "EM": 0.25,
     },

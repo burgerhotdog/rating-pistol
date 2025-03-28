@@ -13,11 +13,7 @@ const Table1Avatar = ({
   const { AVATAR_IMGS } = getImgs[gameId];
   
   const openModal = () => {
-    setModalPipe({
-      type: "avatar",
-      id,
-      data,
-    });
+    setModalPipe({ type: "avatar", id, data });
   };
 
   return (
@@ -31,14 +27,12 @@ const Table1Avatar = ({
         sx={{ cursor: "pointer" }}
       >
         <Badge
+          badgeContent={<strong>{PREFIX}{data.rank}</strong>}
           sx={{
             "& .MuiBadge-badge": {
               backgroundColor: "rgba(20, 20, 20, 0.4)",
             },
           }}
-          badgeContent={
-            <strong>{PREFIX}{data.rank}</strong>
-          }
         >
           <Avatar
             alt={AVATAR_DATA[id].name}
@@ -46,10 +40,7 @@ const Table1Avatar = ({
           />
         </Badge>
         
-        <Typography
-          onClick={openModal}
-          variant="body2"
-        >
+        <Typography variant="body2">
           {AVATAR_DATA[id].name}
         </Typography>
       </Stack>

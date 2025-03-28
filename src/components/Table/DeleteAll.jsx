@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { writeBatch, doc, deleteDoc } from "firebase/firestore";
+import { doc, writeBatch } from "firebase/firestore";
 import { db } from "../../firebase";
 import {
   Backdrop,
@@ -20,42 +20,26 @@ const DeleteAll = ({
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const openTooltip = () => {
-    setOpen(true);
-  };
-
   const handleDelete = async () => {
     setIsLoading(true);
-
     if (userId) {
       const batch = writeBatch(db);
-      const localEntries = Object.entries(localDocs);
-      localEntries.forEach(([id, _]) => {
+      Object.entries(localDocs).forEach(([id]) => {
         const docRef = doc(db, "users", userId, gameId, id);
         batch.delete(docRef);
       });
       await batch.commit();
     }
-
     setLocalDocs({});
-
-    setOpen(false);
-  };
-
-  const handleCancel = () => {
     setOpen(false);
   };
 
   return (
-    <>
+    <Stack>
       <Tooltip
         open={open}
         title={
-          <Stack
-            direction="row"
-            alignItems="center"
-            spacing={1}
-          >
+          <Stack direction="row" alignItems="center" spacing={1}>
             <Typography variant="tooltip">
               Delete All?
             </Typography>
@@ -77,7 +61,7 @@ const DeleteAll = ({
         arrow
       >
         <Delete
-          onClick={openTooltip}
+          onClick={() => setOpen(true)}
           cursor="pointer"
           color="disabled"
           sx={{
@@ -90,10 +74,10 @@ const DeleteAll = ({
 
       <Backdrop
         open={open}
-        onClick={handleCancel}
+        onClick={() => setOpen(false)}
         sx={{ zIndex: 1 }}
       />
-    </>
+    </Stack>
   );
 };
 

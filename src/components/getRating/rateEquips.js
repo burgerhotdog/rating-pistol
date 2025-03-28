@@ -1,152 +1,148 @@
 import getData from "../getData";
-
-const combine_basestats = (charBase, weapBase) => {
-  return Object.entries(charBase).reduce((basestats, [key, value]) => {
-    basestats[key] = value + (weapBase[key] || 0);
-    return basestats;
-  }, {});
-};
-
-const combine_substats = (equipList) => {
-  const substats = {};
-  for (const equipObj of equipList) {
-    for (const statObj of Object.values(equipObj.statMap)) {
-      const { key, value } = statObj;
-      if (key && value) {
-        substats[key] = (substats[key] || 0) + Number(value);
-      }
-    }
-  }
-  return substats;
-};
-
-const getLargestWeight = (weights) => {
-  const entries = Object.entries(weights);
-  if (entries.length === 0) return "";
-  return entries.reduce((maxWeight, [key, value]) =>
-    value > weights[maxWeight] ? key : maxWeight, Object.keys(weights)[0]);
-};
-
-const simulate_substats = (substats, weights, equipList, STAT_INDEX, gameId) => {
-  // Match stat(er,spd,_,er) and calculate that in rolls
-  const sim_substats = {};
-  let matchStat = "";
-  let matchStat2 = "";
-  let simMatchRolls = 0;
-  let TOTAL_ROLLS = 48;
-  let MAX_ROLLS_PER_PIECE = 8;
-  let FIXED_STAT_UNTIL_WHEN = 3;
-  let INITIAL_ROLL_INCREMENT = 5;
-  if (gameId === "gi") {
-    matchStat = "ER";
-    TOTAL_ROLLS = 40;
-    FIXED_STAT_UNTIL_WHEN = 2;
-  } else if (gameId === "hsr") {
-    matchStat = "SPD";
-    matchStat2 = "EHR"
-    FIXED_STAT_UNTIL_WHEN = 2;
-  } else if (gameId === "ww") {
-    matchStat = "ER";
-    TOTAL_ROLLS = 25;
-    MAX_ROLLS_PER_PIECE = 5;
-    FIXED_STAT_UNTIL_WHEN = 0;
-    INITIAL_ROLL_INCREMENT = 1;
-  }
-  const availableWeights = { ...weights };
-  if (matchStat) {
-    sim_substats[matchStat] = substats[matchStat] || 0;
-    simMatchRolls += Math.ceil(sim_substats[matchStat] / STAT_INDEX[matchStat]?.valueSub);
-    delete availableWeights[matchStat];
-  }
-  if (matchStat2) {
-    sim_substats[matchStat2] = substats[matchStat2] || 0;
-    simMatchRolls += Math.ceil(sim_substats[matchStat2] / STAT_INDEX[matchStat2]?.valueSub);
-    delete availableWeights[matchStat2];
-  }
-  let rollsLeft = Math.max(TOTAL_ROLLS - simMatchRolls, 0);
-  const rollCount = new Array(Object.entries(equipList).length).fill(0);
-  while (rollsLeft > 0) {
-    // get stat to roll
-    const largestWeight = getLargestWeight(availableWeights);
-    if (!largestWeight) break;
-
-    // figure out which pieces are given rolls
-    const usingPiece = new Array(Object.entries(equipList).length).fill(false);
-    for (let i = 0; i < Object.entries(equipList).length; i++) {
-      usingPiece[i] = rollCount[i] < MAX_ROLLS_PER_PIECE ? true : false;
-      if (i < FIXED_STAT_UNTIL_WHEN) continue;
-      if (largestWeight === equipList[i].key) {
-        usingPiece[i] = false;
-      }
-    }
-
-    // add rolls to timesToRoll and increment rollCount
-    let timesToRoll = 0;
-    for (let i = 0; i < Object.entries(equipList).length; i++) {
-      if (!usingPiece[i]) continue;
-      if (rollCount[i] === 0) {
-        timesToRoll += INITIAL_ROLL_INCREMENT;
-        rollCount[i] += INITIAL_ROLL_INCREMENT;
-      } else {
-        timesToRoll++;
-        rollCount[i]++;
-      }
-    }
-
-    if (timesToRoll > rollsLeft) {
-      timesToRoll = rollsLeft;
-    }
-
-    // add rolls to sim_substats
-    sim_substats[largestWeight] = (sim_substats[largestWeight] || 0) + (timesToRoll * STAT_INDEX[largestWeight]?.valueSub);
-
-    // remove stat from available weights
-    delete availableWeights[largestWeight];
-    rollsLeft -= timesToRoll;
-  }
-
-  return sim_substats;
-};
-
-const calculatePoints = (statsObj, weights, basestats, STAT_INDEX) => {
-  let points = 0;
-  Object.entries(statsObj).forEach(([key, value]) => {
-    if (weights[key]) {
-      const weight = weights[key];
-      const normalize = STAT_INDEX[key]?.valueSub;
-      points += (value / normalize) * weight;
-    } else if (basestats[key] && weights[key.slice(1)]) {
-      const valuePercent = (value / basestats[key]) * 100;
-      const weight = weights[key.slice(1)];
-      const normalize = STAT_INDEX[key.slice(1)]?.valueSub;
-      points += (valuePercent / normalize) * weight;
-    }
-  });
-  return points;
-};
+import equipConfig from "./equipConfig";
 
 const rateEquips = (gameId, id, data) => {
-  const { AVATAR_DATA, WEAPON_DATA, STAT_INDEX } = getData[gameId];
-  if (!data.equipList) return 0;
-  for (const equip of data.equipList) {
-    if (!equip.key) return 0;
+  const { AVATAR_DATA, STAT_INDEX, MAINSTAT_OPTIONS } = getData[gameId];
+  const config = equipConfig[gameId];
+
+  // consolidate mainstats
+  const mainstats = data.equipList
+    .filter(({ key }) => key)
+    .reduce((acc, { key }, index) => {
+      const valueKeyWW =
+        index === 0 ? "valueMain4" :
+        index <= 2 ? "valueMain3" :
+        "valueMain1";
+  
+      (acc[key] ??= 0);
+      acc[key] += STAT_INDEX[key][gameId === "ww" ? valueKeyWW : "valueMain"];
+  
+      return acc;
+    }, {});
+  
+  // consolidate substats
+  const substats = data.equipList
+    .flatMap(({ statMap }) => Object.values(statMap))
+    .filter(({ key, value }) => key && value)
+    .reduce((acc, { key, value }) => (
+      (acc[key] ??= 0), acc[key] += Number(value), acc
+    ), {});
+  
+  // calculate optimized mainstat spread
+  // match er, ehr, spd
+  const sim_mainstats = {};
+  const mainFilled = new Array(config.numMain).fill(false);
+  const availableMainWeights = Object.fromEntries(
+    Object.entries(AVATAR_DATA[id].weights)
+      .filter(([weight]) => gameId === "ww"
+        ? (STAT_INDEX[weight].valueMain4 || STAT_INDEX[weight].valueMain3)
+        : STAT_INDEX[weight].valueMain)
+  );
+  for (const matchStat of config.matchStatsMain) {
+    delete availableMainWeights[matchStat];
+  }
+  for (const [index, { key }] of data.equipList.entries()) {
+    if (config.matchStatsMain.includes(key)) {
+      sim_mainstats[key] ??= 0;
+      sim_mainstats[key] += gameId === "ww"
+        ? STAT_INDEX[key][`valueMain${index < 1 ? 4 : index < 3 ? 3 : 1}`]
+        : STAT_INDEX[key].valueMain;
+      mainFilled[index] = true;
+    } else {
+      if (!Object.entries(availableMainWeights).length) continue;
+      const options = MAINSTAT_OPTIONS[index];
+      const bestStat = options.reduce((maxKey, key) => (
+        availableMainWeights[key] > (availableMainWeights[maxKey] ?? 0)
+          ? key
+          : maxKey
+      ), options[0]);
+      sim_mainstats[bestStat] ??= 0;
+      sim_mainstats[bestStat] += gameId === "ww"
+        ? STAT_INDEX[bestStat][`valueMain${index < 1 ? 4 : index < 3 ? 3 : 1}`]
+        : STAT_INDEX[bestStat].valueMain;
+    }
   }
 
-  if (!data.weaponId) return 0;
+  // calculate optimized substat spread
+  // match er, ehr, spd
+  const sim_substats = {};
+  let matchRolls = 0;
+  const availableWeights = Object.fromEntries(
+    Object.entries(AVATAR_DATA[id].weights)
+      .filter(([weight]) => STAT_INDEX[weight].valueSub)
+  );
+  for (const matchStat of config.matchStatsSub) {
+    delete availableWeights[matchStat];
+    const matchValue = substats[matchStat];
+    if (!matchValue) continue;
+    sim_substats[matchStat] = matchValue;
+    matchRolls += Math.ceil(matchValue / STAT_INDEX[matchStat].valueSub);
+  }
 
-  // Combine stats
-  const basestats = combine_basestats(AVATAR_DATA[id].statBase, WEAPON_DATA[data.weaponId].statBase);
-  const substats = combine_substats(data.equipList);
+  // distribute rolls
+  const rollCounts = new Array(config.numMain).fill(0);
+  let rollsLeft = Math.max(config.totalRolls - matchRolls, 0);
+  while (rollsLeft) {
+    if (!Object.keys(availableWeights).length) break;
 
-  // Simulate perfect substats
-  const sim_substats = simulate_substats(substats, AVATAR_DATA[id].weights, data.equipList, STAT_INDEX, gameId);
+    // identify remaining stat with highest weight
+    const bestStat = Object.entries(availableWeights)
+      .reduce((maxKey, [key, value]) => (
+        value > availableWeights[maxKey] ? key : maxKey
+      ), Object.keys(availableWeights)[0]);
 
-  // Calculate points
-  const points = calculatePoints(substats, AVATAR_DATA[id].weights, basestats, STAT_INDEX);
-  const sim_points = calculatePoints(sim_substats, AVATAR_DATA[id].weights, basestats, STAT_INDEX);
+    // figure out which pieces can receive rolls
+    const beingRolled = data.equipList.map(({ key }, index) =>
+      rollCounts[index] < config.rollsPerPiece &&
+      (gameId === "ww" || key !== bestStat)
+    );
 
-  // Calculate score
-  return ((points / sim_points) * 100) / 0.75;
+    // calculate total roll count and increment individual rollCounts
+    const totalIncrement = beingRolled.reduce((acc, isRolled, index) => {
+      if (!isRolled) return acc;
+      const increment = !rollCounts[index] ? config.firstIncrement : 1;
+      rollCounts[index] += increment;
+      return acc + increment;
+    }, 0);
+    const actualIncrement = Math.min(totalIncrement, rollsLeft);
+
+    // add rolls to sim_substats
+    sim_substats[bestStat] ??= 0;
+    sim_substats[bestStat] += actualIncrement * STAT_INDEX[bestStat].valueSub;
+
+    // remove stat from available weights
+    delete availableWeights[bestStat];
+    rollsLeft -= actualIncrement;
+  }
+
+  // calculate mainstat points
+  const [pointsM, sim_pointsM] = [mainstats, sim_mainstats].map(stats =>
+    Object.entries(stats).reduce((total, [key, value]) => {
+      const weight = AVATAR_DATA[id].weights[key];
+      const normalize = gameId === "ww"
+        ? ((STAT_INDEX[key].valueMain4
+          ? STAT_INDEX[key].valueMain4
+          : STAT_INDEX[key].valueMain3) / 10)
+        : (STAT_INDEX[key].valueMain / 10);
+      return weight
+        ? total + (value / normalize) * weight
+        : total;
+    }, 0)
+  );
+
+  // calculate substat points
+  const [points, sim_points] = [substats, sim_substats].map(stats =>
+    Object.entries(stats).reduce((total, [key, value]) => {
+      const weight = AVATAR_DATA[id].weights[key];
+      return weight
+        ? total + (value / STAT_INDEX[key].valueSub) * weight
+        : total;
+    }, 0)
+  );
+
+  // calculate score
+  if (!(sim_pointsM + sim_points)) return 100;
+  return (((pointsM + points) / (sim_pointsM + sim_points)) * 100) / 0.8;
 };
 
 export default rateEquips;

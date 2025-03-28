@@ -1,4 +1,33 @@
 export default {
+  // Version 2.2
+  "21050056": {
+    name: "Whispers of Sirens",
+    rarity: 5,
+    type: "Rectifier",
+    statBase: { _ATK: 500 },
+    statSub: { CD: 72 },
+    descHead: "From the Deep",
+    descBody: "Increases ATK by {0}. Casting Echo Skill within 10s after casting Intro Skill or Basic Attacks grants 1 stack of Gentle Dream. Echoes with the same name can only trigger this effect once, stacking up to 2 times, lasting for 10s. When reaching 2 stacks, casting Echo Skill no longer resets the duration of this effect. This effect activates up to once per 10s. Switching to another Resonator ends this effect early.\nWith 1 Stack: Grants {1} Basic Attack DMG Bonus.\nWith 2 Stacks: Ignores {2} of the target's Havoc RES.",
+    descVar: [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["40%", "50%", "60%", "70%", "80%"],
+      ["12%", "15%", "18%", "21%", "24%"],
+    ],
+  },
+  "21020046": {
+    name: "Bloodpact's Pledge",
+    rarity: 5,
+    type: "Sword",
+    statBase: { _ATK: 588 },
+    statSub: { ER: 38.9 },
+    descHead: "Harmonious Vibrancy",
+    descBody: "Providing Healing increases Resonance Skill DMG by {0} for 6s. When Rover: Aero casts Resonance Skill Unbound Flow, Aero DMG dealt by nearby Resonators on the field is Amplified by {1} for 30s.",
+    descVar: [
+      ["10%", "14%", "18%", "22%", "26%"],
+      ["10%", "14%", "18%", "22%", "26%"],
+    ],
+  },
+  
   // Version 2.1
   "21050046": {
     name: "Luminous Hymn",

@@ -78,6 +78,7 @@ export default {
     maleToFemale: {
       "1605": "1604", // havoc
       "1501": "1502", // spectro
+      "1406": "1408", // spectro
     },
     STAT_CONVERT: {
       "": "_HP",

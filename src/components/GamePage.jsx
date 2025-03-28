@@ -90,7 +90,7 @@ const GamePage = ({ gameId, userId }) => {
       <Back />
       <Stack alignItems="center" sx={{ mt: 4 }}>
         <Typography variant="h4">{TITLE}</Typography>
-        <Typography variant="body2">Updated for version {VERSION}</Typography>
+        <Typography variant="body2">Updated for Version {VERSION}</Typography>
 
         <TableContainer sx={{ maxWidth: 900 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
@@ -205,7 +205,7 @@ const GamePage = ({ gameId, userId }) => {
             variant="contained"
             startIcon={<Add />}
           >
-            Add character
+            New Build
           </Button>
           
           <Button
@@ -214,7 +214,7 @@ const GamePage = ({ gameId, userId }) => {
             endIcon={<KeyboardArrowRight />}
             disabled={gameId === "ww"}
           >
-            Load from UID
+            Lookup UID
           </Button>
         </Stack>
 

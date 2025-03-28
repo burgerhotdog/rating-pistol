@@ -1,4 +1,22 @@
 export default {
+  // Version 5.5
+  "15040": {
+    name: "Finale of the Deep Galleries",
+    rarity: 5,
+    desc: {
+      2: "Cryo DMG Bonus +15%.",
+      4: "When the equipping character has 0 Elemental Energy, Normal Attack DMG is increased by 60% and Elemental Burst DMG is increased by 60%. After the equipping character deals Normal Attack DMG, the aforementioned Elemental Burst effect will stop applying for 6s. After the equipping character deals Elemental Burst DMG, the aforementioned Normal Attack effect will stop applying for 6s. This effect can trigger even if the equipping character is off the field.",
+    },
+  },
+  "15039": {
+    name: "Long Night's Oath",
+    rarity: 5,
+    desc: {
+      2: "Plunging Attack DMG increased by 25%.",
+      4: "After the equipping character's Plunging Attack/Charged Attack/Elemental Skill hits an opponent, they will gain 1/2/2 stack(s) of \"Radiance Everlasting.\" Plunging Attacks, Charged Attacks, or Elemental Skills can each trigger this effect once every 1s. Radiance Everlasting: Plunging Attacks deal 15% increased DMG for 6s. Max 5 stacks. Each stack's duration is counted independently.",
+    },
+  },
+
   // Version 5.0
   "15038": {
     name: "Obsidian Codex",

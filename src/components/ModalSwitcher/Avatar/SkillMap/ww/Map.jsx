@@ -8,10 +8,7 @@ import {
 } from "@mui/material";
 const options10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const WW = ({
-  modalPipe,
-  editSkillMap,
-}) => {
+const WW = ({ modalPipe, editSkillMap }) => {
   const { skillMap } = modalPipe.data;
   
   const handleSkill = (event) => {

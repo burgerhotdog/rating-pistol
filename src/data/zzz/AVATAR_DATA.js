@@ -9,8 +9,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "ELECTRIC": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1361": {
@@ -20,10 +23,12 @@ export default {
     sig: "14136",
     statBase: { _HP: 7923, _ATK: 750, _DEF: 600 },
     weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "IMPACT": 1,
+      "CR": 0.75,
+      "CD": 0.75,
+      "ELECTRIC": 0.75,
+      "PR": 0.5,
+      "ATK": 0.5,
     },
   },
 
@@ -34,10 +39,12 @@ export default {
     sig: "13135",
     statBase: { _HP: 7612, _ATK: 665, _DEF: 606 },
     weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "IMPACT": 1,
+      "CR": 0.75,
+      "CD": 0.75,
+      "PHYSICAL": 0.75,
+      "PR": 0.5,
+      "ATK": 0.5,
     },
   },
 
@@ -51,8 +58,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "FIRE": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1311": {
@@ -62,8 +72,9 @@ export default {
     sig: "14131",
     statBase: { _HP: 8609, _ATK: 715, _DEF: 600 },
     weights: {
+      "ER": 1,
       "ATK": 1,
-      "AP": 0.5,
+      "_ATK": 0.5,
     },
   },
 
@@ -77,8 +88,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "ELECTRIC": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1091": {
@@ -90,9 +104,12 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "ICE": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "AP": 0.5,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -104,9 +121,13 @@ export default {
     sig: "14122",
     statBase: { _HP: 7789, _ATK: 873, _DEF: 613 },
     weights: {
+      "AM": 1,
       "AP": 1,
+      "ELECTRIC": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1161": {
@@ -116,10 +137,12 @@ export default {
     sig: "14116",
     statBase: { _HP: 8253, _ATK: 797, _DEF: 612 },
     weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "IMPACT": 1,
+      "CR": 0.75,
+      "CD": 0.75,
+      "FIRE": 0.75,
+      "PR": 0.5,
+      "ATK": 0.5,
     },
   },
   
@@ -131,9 +154,13 @@ export default {
     sig: "14117",
     statBase: { _HP: 7368, _ATK: 863, _DEF: 601 },
     weights: {
+      "AM": 1,
       "AP": 1,
+      "FIRE": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1071": {
@@ -143,10 +170,12 @@ export default {
     sig: "14107",
     statBase: { _HP: 9526, _ATK: 712, _DEF: 754 },
     weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "IMPACT": 1,
+      "CR": 0.75,
+      "CD": 0.75,
+      "PHYSICAL": 0.75,
+      "PR": 0.5,
+      "ATK": 0.25,
     },
   },
   
@@ -158,9 +187,13 @@ export default {
     sig: "14126",
     statBase: { _HP: 7789, _ATK: 881, _DEF: 607 },
     weights: {
+      "AM": 1,
       "AP": 1,
+      "PHYSICAL": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1251": {
@@ -170,10 +203,12 @@ export default {
     sig: "14125",
     statBase: { _HP: 8251, _ATK: 758, _DEF: 613 },
     weights: {
+      "IMPACT": 1,
       "CR": 1,
       "CD": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "ELECTRIC": 1,
+      "PR": 0.75,
+      "ATK": 0.5,
     },
   },
 
@@ -184,8 +219,10 @@ export default {
     sig: "13127",
     statBase: { _HP: 8701, _ATK: 643, _DEF: 746 },
     weights: {
+      "ER": 1,
       "ATK": 1,
       "AP": 0.5,
+      "_ATK": 0.5,
     },
   },
   
@@ -199,8 +236,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "ETHER": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1211": {
@@ -210,9 +250,10 @@ export default {
     sig: "14121",
     statBase: { _HP: 8609, _ATK: 717, _DEF: 601 },
     weights: {
-      "AP": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "ER": 1,
+      "PR": 1,
+      "AP": 0.75,
+      "ATK": 0.5,
     },
   },
   "1191": {
@@ -224,8 +265,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "ICE": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1181": {
@@ -235,9 +279,13 @@ export default {
     sig: "14118",
     statBase: { _HP: 7483, _ATK: 826, _DEF: 601 },
     weights: {
+      "AM": 1,
       "AP": 1,
+      "ELECTRIC": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1141": {
@@ -247,10 +295,12 @@ export default {
     sig: "14114",
     statBase: { _HP: 8416, _ATK: 729, _DEF: 607 },
     weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "IMPACT": 1,
+      "CR": 0.75,
+      "CD": 0.75,
+      "ICE": 0.75,
+      "PR": 0.5,
+      "ATK": 0.5,
     },
   },
   "1101": {
@@ -260,10 +310,12 @@ export default {
     sig: "14110",
     statBase: { _HP: 8127, _ATK: 736, _DEF: 595 },
     weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "IMPACT": 1,
+      "CR": 0.75,
+      "CD": 0.75,
+      "FIRE": 0.75,
+      "PR": 0.5,
+      "ATK": 0.5,
     },
   },
   "1041": {
@@ -275,8 +327,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "FIRE": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1021": {
@@ -288,8 +343,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "PHYSICAL": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   
@@ -300,9 +358,13 @@ export default {
     sig: "13128",
     statBase: { _HP: 6977, _ATK: 758, _DEF: 613 },
     weights: {
+      "AM": 1,
       "AP": 1,
+      "PHYSICAL": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1151": {
@@ -312,9 +374,13 @@ export default {
     sig: "13115",
     statBase: { _HP: 8026, _ATK: 659, _DEF: 613 },
     weights: {
+      "ER": 1,
       "ATK": 1,
-      "CR": 0.5,
-      "CD": 0.5,
+      "CR": 0.75,
+      "CD": 0.75,
+      "FIRE": 0.75,
+      "PR": 0.5,
+      "_ATK": 0.5,
     },
   },
   "1131": {
@@ -324,9 +390,13 @@ export default {
     sig: "13113",
     statBase: { _HP: 8026, _ATK: 666, _DEF: 598 },
     weights: {
+      "ER": 1,
       "ATK": 1,
-      "CR": 0.5,
-      "CD": 0.5,
+      "CR": 0.75,
+      "CD": 0.75,
+      "ICE": 0.75,
+      "PR": 0.5,
+      "_ATK": 0.5,
     },
   },
   "1121": {
@@ -338,8 +408,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "FIRE": 1,
+      "PR": 0.75,
       "DEF": 0.75,
       "PEN": 0.25,
+      "_DEF": 0.25,
     },
   },
   "1111": {
@@ -351,8 +424,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "ELECTRIC": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1081": {
@@ -364,8 +440,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "PHYSICAL": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1061": {
@@ -377,8 +456,11 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
+      "PHYSICAL": 1,
+      "PR": 0.75,
       "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1031": {
@@ -388,9 +470,12 @@ export default {
     sig: "13103",
     statBase: { _HP: 8146, _ATK: 649, _DEF: 623 },
     weights: {
-      "AP": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "ER": 1,
+      "AM": 1,
+      "AP": 0.75,
+      "ETHER": 0.75,
+      "PR": 0.5,
+      "ATK": 0.5,
     },
   },
   "1011": {
@@ -400,10 +485,12 @@ export default {
     sig: "13101",
     statBase: { _HP: 7501, _ATK: 659, _DEF: 613 },
     weights: {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.75,
-      "PEN": 0.25,
+      "IMPACT": 1,
+      "CR": 0.75,
+      "CD": 0.75,
+      "ELECTRIC": 0.75,
+      "PR": 0.5,
+      "ATK": 0.5,
     },
   },
 };

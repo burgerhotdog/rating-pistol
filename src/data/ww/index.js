@@ -3,31 +3,10 @@ import WEAPON_DATA from "./WEAPON_DATA";
 import SET_DATA from "./SET_DATA";
 
 const TITLE = "Wuthering Waves";
-const VERSION = "2.1";
-
-const HEADERS = {
-  avatar: "Resonator",
-  weapon: "Weapon",
-  equips: "Echoes",
-  skills: "Skills",
-};
-
-const SKILL_CAPS = {
-  basic: 10,
-  skill: 10,
-  ult: 10,
-  forte: 10,
-  intro: 10,
-};
-
-const EQUIP_NAMES = [
-  "4-Cost",
-  "3-Cost",
-  "3-Cost",
-  "1-Cost",
-  "1-Cost",
-];
-
+const VERSION = "2.2";
+const HEADERS = { avatar: "Resonator", weapon: "Weapon", equips: "Echoes", skills: "Skills" };
+const SKILL_CAPS = [10, 10, 10, 10, 10];
+const EQUIP_NAMES = ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"];
 const MAINSTAT_OPTIONS = [
   ["HP", "ATK", "DEF", "CR", "CD", "HB"],
   ["HP", "ATK", "DEF", "AERO", "ELECTRO", "FUSION", "GLACIO", "HAVOC", "SPECTRO", "ER"],
@@ -35,23 +14,7 @@ const MAINSTAT_OPTIONS = [
   ["HP", "ATK", "DEF"],
   ["HP", "ATK", "DEF"],
 ];
-
-const SUBSTAT_OPTIONS = [
-  "_HP",
-  "_ATK",
-  "_DEF",
-  "HP",
-  "ATK",
-  "DEF",
-  "CR",
-  "CD",
-  "ER",
-  "BA",
-  "HA",
-  "RS",
-  "RL",
-];
-
+const SUBSTAT_OPTIONS = ["_HP", "_ATK", "_DEF", "HP", "ATK", "DEF", "CR", "CD", "ER", "BA", "HA", "RS", "RL"];
 const STAT_INDEX = {
   "_HP": {
     name: "HP",
