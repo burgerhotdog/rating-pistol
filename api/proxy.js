@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
     if (!response.ok) {
       console.error("Failed to fetch Enka API:", response.status, response.statusText);
-      return res.status(response.status).json({ error: "Failed to fetch Enka API" });
+      return res.status(response.status).json({ error: response.statusText });
     }
 
     const data = await response.json();
