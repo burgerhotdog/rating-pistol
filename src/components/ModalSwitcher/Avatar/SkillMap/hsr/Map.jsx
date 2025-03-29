@@ -5,7 +5,6 @@ import getImgs from "../../../../getImgs";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
-import DisplayInfo from "./DisplayInfo";
 
 const mapLabel = {
   "001": "Basic ATK",
