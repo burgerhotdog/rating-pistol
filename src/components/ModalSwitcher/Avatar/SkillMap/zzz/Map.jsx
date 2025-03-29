@@ -23,6 +23,11 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
     return lvl;
   }
 
+  const coreLabel = (lvl) => {
+    const labels = ["unleveled","A","B","C","D","E","F"];
+    return labels[lvl - 1];
+  }
+
   return (
     <Stack spacing={2}>
       <FormControl sx={{ width: 150 }}>
@@ -139,7 +144,7 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
         >
           {optionsCore.map((lvl) => (
             <MenuItem key={lvl} value={lvl}>
-              {lvl}
+              {coreLabel(lvl)}
             </MenuItem>
           ))}
         </Select>
