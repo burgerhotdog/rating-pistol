@@ -94,8 +94,11 @@ const LoadModal = ({ gameId, userId, setModalPipe, setLocalDocs }) => {
         rawItem.avatarId = `${rawItem.avatarId}-${energyConvert[energyType]}`;
         console.log(rawItem.avatarId);
       }
-      if (maleToFemale[rawItem.avatarId]) {
+      if (gameId !== "zzz" && maleToFemale[rawItem.avatarId]) {
         rawItem.avatarId = maleToFemale[rawItem.avatarId];
+      }
+      if (gameId === "zzz") {
+        rawItem.avatarId = rawItem.Id;
       }
     });
 
