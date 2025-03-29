@@ -15,28 +15,36 @@ import getData from "../../getData";
 import getImgs from "../../getImgs";
 import translate from "./translate";
 
-const LoadModal = ({
-  gameId,
-  userId,
-  setModalPipe,
-  setLocalDocs
-}) => {
+const errorMessages = {
+  400: "Wrong UID format",
+  404: "Player does not exist",
+  424: "Game maintenance",
+  429: "Rate-limited",
+  500: "General server error",
+  503: "Server error",
+  600: "Profile showcase empty",
+};
+
+const suffixes = {
+  gi: "uid/",
+  hsr: "hsr/uid/",
+  ww: "",
+  zzz: "zzz/uid/",
+};
+
+const urlBase = "https://rating-pistol.vercel.app/api/proxy?suffix=";
+
+const LoadModal = ({ gameId, userId, setModalPipe, setLocalDocs }) => {
   const { STAT_INDEX, AVATAR_DATA } = getData[gameId];
   const { AVATAR_IMGS } = getImgs[gameId];
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);
   const [enkaList, setEnkaList] = useState([]);
   const [selectedAvatars, setSelectedAvatars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const { STAT_CONVERT } = translate[gameId];
-
-  const suffix = {
-    gi: "uid/",
-    hsr: "hsr/uid/",
-    ww: "",
-    zzz: "zzz/uid/",
-  };
+  const suffix = suffixes[gameId];
 
   useEffect(() => {
     const fetchUid = async () => {
@@ -44,73 +52,64 @@ const LoadModal = ({
       const userRef = doc(db, "users", userId);
       const userDoc = await getDoc(userRef);
       const newUid = userDoc.exists() ? userDoc.data()?.[`${gameId}_uid`] : null;
-      
+
       setUid(newUid ?? null);
       setRememberUid(!!newUid);
     };
-  
+
     fetchUid();
   }, [userId, gameId]);
-  
-  // gi 604379917
-  // hsr 602849613
-  // zzz 1000147721
-  const fetchPlayerData = async () => {
-    const response = await fetch(`https://rating-pistol.vercel.app/api/proxy?suffix=${suffix[gameId]+uid}/`);
+
+  const fetchData = async () => {
+    setError(null);
+    setIsLoading(true);
+
+    // fetch api response
+    const response = await fetch(`${urlBase}${suffix}${uid}`);
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Error response from Enka API:", errorData);
-      setError(true);
+      setError(response.status);
+      setIsLoading(false);
       return false;
     }
 
+    // parse avatarList
     const rawEnka = await response.json();
-    const { maleToFemale } = translate[gameId];
-    
-    switch (gameId) {
-      case "gi":
-        for (const rawItem of rawEnka.avatarInfoList) {
-          if (maleToFemale[rawItem.avatarId]) {
-            rawItem.avatarId = maleToFemale[rawItem.avatarId];
-          }
-        }
-        setEnkaList(rawEnka.avatarInfoList);
-        break;
-
-      case "hsr":
-        for (const rawItem of rawEnka.detailInfo.avatarDetailList) {
-          if (maleToFemale[rawItem.avatarId]) {
-            rawItem.avatarId = maleToFemale[rawItem.avatarId];
-          }
-        }
-
-        setEnkaList(rawEnka.detailInfo.avatarDetailList);
-        break;
-
-      case "ww":
-        break;
-
-      case "zzz":
-        for (const rawItem of rawEnka.PlayerInfo.ShowcaseDetail.AvatarList) {
-          rawItem.avatarId = rawItem.Id;
-        }
-        setEnkaList(rawEnka.PlayerInfo.ShowcaseDetail.AvatarList);
-        break;
+    const avatarList = {
+      gi: rawEnka.avatarInfoList,
+      hsr: rawEnka.detailInfo?.avatarDetailList,
+      zzz: rawEnka.PlayerInfo?.ShowcaseDetail?.AvatarList,
+    }[gameId];
+    if (!avatarList) {
+      setError(600);
+      setIsLoading(false);
+      return false;
     }
 
-    setError(false);
+    // convert male mc to female mc
+    const { energyConvert, maleToFemale } = translate[gameId];
+    avatarList.forEach((rawItem, index) => {
+      if (gameId === "gi" && (rawItem.avatarId === 10000005 || rawItem.avatarId === 10000007)) {
+        const { energyType } = rawEnka.playerInfo.showAvatarInfoList[index];
+        console.log(rawEnka.playerInfo.showAvatarInfoList);
+        rawItem.avatarId = `${rawItem.avatarId}-${energyConvert[energyType]}`;
+        console.log(rawItem.avatarId);
+      }
+      if (maleToFemale[rawItem.avatarId]) {
+        rawItem.avatarId = maleToFemale[rawItem.avatarId];
+      }
+    });
+
+    setEnkaList(avatarList);
+    setIsLoading(false);
     return true;
   };
 
   const handleNext = async () => {
-    setIsLoading(true);
-    if (await fetchPlayerData()) {
-      if (userId && rememberUid) {
-        const userDocRef = doc(db, "users", userId);
-        await setDoc(userDocRef, { [`${gameId}_uid`]: uid}, { merge: true });
-      }
+    const fetchSuccess = await fetchData();
+    if (fetchSuccess && userId && rememberUid) {
+      const userDocRef = doc(db, "users", userId);
+      await setDoc(userDocRef, { [`${gameId}_uid`]: uid }, { merge: true });
     }
-    setIsLoading(false);
   };
 
   const handleCheckboxChange = (event, index) => {
@@ -124,12 +123,11 @@ const LoadModal = ({
   };
 
   const handleSave = async () => {
-    const { equipTypeToIndex } = translate[gameId];
     setIsLoading(true);
-    const charBuffer =
-      gameId === "gi" ?
-        selectedAvatars.map((selectedAvatar) => {
-          const charObj = enkaList[selectedAvatar];
+    const charBuffer = selectedAvatars.map((selectedAvatar) => {
+      const charObj = enkaList[selectedAvatar];
+      switch (gameId) {
+        case "gi": {
           const id = String(charObj.avatarId);
           const data = template(gameId);
 
@@ -145,12 +143,20 @@ const LoadModal = ({
           data.weaponRank = String(weaponRank);
 
           // equipList
+          const { equipTypeToIndex } = translate[gameId];
           const equipListArr = charObj.equipList.slice(0, -1);
           for (const equipObj of equipListArr) {
             const equipIndex = equipTypeToIndex[equipObj.flat.equipType];
+
+            // set
             data.equipList[equipIndex].setId = equipObj.flat.icon.substring(13, 18);
+
+            // mainstat
             data.equipList[equipIndex].key = STAT_CONVERT[equipObj.flat.reliquaryMainstat.mainPropId];
+
+            // substats
             const reliqSubArr = equipObj.flat.reliquarySubstats;
+            if (!reliqSubArr) continue;
             for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
               data.equipList[equipIndex].statMap[subIndex].key = STAT_CONVERT[reliqSubObj.appendPropId];
               data.equipList[equipIndex].statMap[subIndex].value = String(reliqSubObj.statValue);
@@ -164,10 +170,9 @@ const LoadModal = ({
           data.skillMap["003"] = Number(skillsArr[skillsArr.length - 1]);
 
           return { id, data };
-        }) :
-      gameId === "hsr" ?
-        selectedAvatars.map((selectedAvatar) => {
-          const charObj = enkaList[selectedAvatar];
+        }
+
+        case "hsr": {
           const id = String(charObj.avatarId);
           const data = template(gameId);
           if (AVATAR_DATA[id].type === "Remembrance") {
@@ -191,9 +196,16 @@ const LoadModal = ({
           const relicListArr = charObj.relicList;
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.type - 1;
+
+            // set
             data.equipList[equipIndex].setId = String(relicObj._flat.setID);
+
+            // mainstat
             data.equipList[equipIndex].key = STAT_CONVERT[relicObj._flat.props[0].type];
+
+            // substats
             const subPropsArr = relicObj._flat.props.slice(1);
+            if (!subPropsArr) continue;
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
               data.equipList[equipIndex].statMap[subIndex].key = STAT_CONVERT[subPropObj.type];
               const valueRatio = subPropObj.type.slice(-5) === "Delta" ? 1 : 100;
@@ -214,12 +226,9 @@ const LoadModal = ({
           }
 
           return { id, data };
-        }) :
-      gameId === "ww" ?
-        [] :
-      gameId === "zzz" &&
-        selectedAvatars.map((selectedAvatar) => {
-          const charObj = enkaList[selectedAvatar];
+        }
+
+        case "zzz": {
           const id = String(charObj.Id);
           const data = template(gameId);
 
@@ -239,9 +248,16 @@ const LoadModal = ({
           const relicListArr = charObj.EquippedList;
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.Slot - 1;
+
+            // set
             data.equipList[equipIndex].setId = `${Math.floor(relicObj.Equipment.Id / 100)}00`;
+
+            // mainstat
             data.equipList[equipIndex].key = STAT_CONVERT[relicObj.Equipment.MainPropertyList[0].PropertyId];
+
+            // substats
             const subPropsArr = relicObj.Equipment.RandomPropertyList;
+            if (!subPropsArr) continue;
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
               const key = STAT_CONVERT[String(subPropObj.PropertyId)];
               data.equipList[equipIndex].statMap[subIndex].key = key;
@@ -263,7 +279,9 @@ const LoadModal = ({
           data.skillMap["006"] = Number(skillsArr[4].Level);
 
           return { id, data };
-        });
+        }
+      }
+    });
 
     const localUpdates = {};
     const batch = userId ? writeBatch(db) : null;
@@ -284,6 +302,11 @@ const LoadModal = ({
     setModalPipe({});
   };
 
+  const handleUid = (event) => {
+    const newValue = event.target.value;
+    setUid(newValue);
+  };
+
   if (!enkaList.length) {
     return (
       <Stack alignItems="center" spacing={2}>
@@ -291,13 +314,9 @@ const LoadModal = ({
           <TextField
             label="Enter UID"
             value={uid ?? ""}
-            onChange={(e) => {
-              const newValue = e.target.value;
-              const isValidNumber = /^\d*$/.test(newValue);
-              if (isValidNumber) setUid(newValue);
-            }}
-            error={error}
-            helperText={error && "Invalid UID"}
+            onChange={handleUid}
+            error={!!error}
+            helperText={error && errorMessages[error]}
           />
 
           <Stack direction="row" alignItems="center">
@@ -313,11 +332,7 @@ const LoadModal = ({
           </Stack>
         </Stack>
 
-        <Button
-          onClick={handleNext}
-          variant="contained"
-          loading={isLoading}
-        >
+        <Button onClick={handleNext} variant="contained" loading={isLoading}>
           Next
         </Button>
       </Stack>
@@ -347,7 +362,7 @@ const LoadModal = ({
                   loading="lazy"
                   src={AVATAR_IMGS[`./${avatar.avatarId}.webp`]?.default}
                   alt={avatar.avatarId}
-                  sx={{ width: 25, height: 25, objectFit: "contain" }}
+                  sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />
 
                 <Typography variant="body2">

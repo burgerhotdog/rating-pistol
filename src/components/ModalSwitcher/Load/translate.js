@@ -7,6 +7,15 @@ export default {
       EQUIP_RING: 3,
       EQUIP_DRESS: 4,
     },
+    energyConvert: {
+      5: 0, // cryo
+      1: 2, // pyro
+      2: 3, // hydro
+      3: 8, // dendro
+      4: 7, // electro
+      8: 6, // geo
+      7: 4, // anemo
+    },
     maleToFemale: {
       "10000005-2": "10000007-2", // pyro
       "10000005-3": "10000007-3", // hydro
