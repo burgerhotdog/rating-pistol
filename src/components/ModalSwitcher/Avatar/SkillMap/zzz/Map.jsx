@@ -6,8 +6,8 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-const options10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const optionsCore = [1, 2, 3, 4, 5, 6, 7];
+const options10 = Array.from({ length: 12 }, (_, i) => i + 1);
+const optionsCore = Array.from({ length: 7 }, (_, i) => i + 1);
 
 const ZZZ = ({ modalPipe, editSkillMap }) => {
   const { skillMap } = modalPipe.data;
@@ -16,6 +16,17 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
     const { name, value } = event.target;
     editSkillMap(name, value);
   };
+
+  const rankBonus = (lvl) => {
+    if (modalPipe.data.rank >= 5) return lvl + 4;
+    if (modalPipe.data.rank >= 3) return lvl + 2;
+    return lvl;
+  }
+
+  const coreLabel = (lvl) => {
+    const labels = ["unleveled","A","B","C","D","E","F"];
+    return labels[lvl - 1];
+  }
 
   return (
     <Stack spacing={2}>
@@ -27,13 +38,13 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
           name="001"
           labelId="basic-label"
           label="Basic"
-          value={String(skillMap["001"])}
+          value={skillMap["001"]}
           onChange={handleSkill}
           notched
         >
           {options10.map((lvl) => (
             <MenuItem key={lvl} value={lvl}>
-              {String(lvl)}
+              {rankBonus(lvl)}
             </MenuItem>
           ))}
         </Select>
@@ -47,13 +58,13 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
           name="004"
           labelId="dodge-label"
           label="Dodge"
-          value={String(skillMap["004"])}
+          value={skillMap["004"]}
           onChange={handleSkill}
           notched
         >
           {options10.map((lvl) => (
             <MenuItem key={lvl} value={lvl}>
-              {String(lvl)}
+              {rankBonus(lvl)}
             </MenuItem>
           ))}
         </Select>
@@ -67,13 +78,13 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
           name="005"
           labelId="assist-label"
           label="Assist"
-          value={String(skillMap["005"])}
+          value={skillMap["005"]}
           onChange={handleSkill}
           notched
         >
           {options10.map((lvl) => (
             <MenuItem key={lvl} value={lvl}>
-              {String(lvl)}
+              {rankBonus(lvl)}
             </MenuItem>
           ))}
         </Select>
@@ -87,13 +98,13 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
           name="002"
           labelId="skill-label"
           label="EX Special"
-          value={String(skillMap["002"])}
+          value={skillMap["002"]}
           onChange={handleSkill}
           notched
         >
           {options10.map((lvl) => (
             <MenuItem key={lvl} value={lvl}>
-              {String(lvl)}
+              {rankBonus(lvl)}
             </MenuItem>
           ))}
         </Select>
@@ -107,13 +118,13 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
           name="003"
           labelId="ult-label"
           label="Chain Attack / Ultimate"
-          value={String(skillMap["003"])}
+          value={skillMap["003"]}
           onChange={handleSkill}
           notched
         >
           {options10.map((lvl) => (
             <MenuItem key={lvl} value={lvl}>
-              {String(lvl)}
+              {rankBonus(lvl)}
             </MenuItem>
           ))}
         </Select>
@@ -127,13 +138,13 @@ const ZZZ = ({ modalPipe, editSkillMap }) => {
           name="006"
           labelId="core-label"
           label="Core Passive"
-          value={String(skillMap["006"])}
+          value={skillMap["006"]}
           onChange={handleSkill}
           notched
         >
           {optionsCore.map((lvl) => (
             <MenuItem key={lvl} value={lvl}>
-              {String(lvl)}
+              {coreLabel(lvl)}
             </MenuItem>
           ))}
         </Select>
