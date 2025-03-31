@@ -33,7 +33,7 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
     
     for (let i = 0; i < iterations; i++) {
       // remove mainstat from substat pool
-      let unusedSubstats = addSubstatWeights[gameId].filter(([stat]) => 
+      let unusedSubstats = addSubstatWeights[gameId].filter(([stat]) =>
         gameId === "ww" || stat !== mainstat
       );
 
@@ -83,7 +83,6 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
     return { x: scores, y: percentiles };
   }, [equipIndex, mainstat]);
 
-  const artifactIndex = distributionData.x.findIndex(x => Math.abs(x - (artifactScore + 10)) < 20);
   const closestIndex = distributionData.x.reduce((bestIndex, x, i) =>
     Math.abs(x - artifactScore) < Math.abs(distributionData.x[bestIndex] - artifactScore) ? i : bestIndex
   , 0);
@@ -112,7 +111,7 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
             title: 'Score Distribution',
             xaxis: {
               title: "Roll Value",
-              range: [0, Math.max(...distributionData.x)],
+              range: [0, 800],
             },
             yaxis: {
               title: "Percentile",
