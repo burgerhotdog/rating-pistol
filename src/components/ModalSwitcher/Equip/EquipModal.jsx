@@ -3,24 +3,18 @@ import {
   Grid2 as Grid,
   Stack,
   Box,
-  Avatar,
   List,
   ListItem,
-  ListItemIcon,
   ListItemButton,
   ListItemText,
-  Divider,
   Card,
-  Autocomplete,
-  TextField,
   Button,
-  Typography,
-  InputAdornment,
 } from "@mui/material";
 import EquipCard from "./EquipCard";
 import PreviewSet from "./PreviewSet";
 import getData from "../../getData";
 import getImgs from "../../getImgs";
+import Analysis from "./Analysis";
 
 const EquipModal = ({
   gameId,
@@ -42,7 +36,7 @@ const EquipModal = ({
 
   return (
     <Stack alignItems="center" spacing={2}>
-      <Grid container spacing={2} minWidth={900}>
+      <Grid container spacing={2} minWidth={950}>
         <Grid size="auto">
           <Stack direction="row" spacing={2}>
             <Card sx={{ width: 125 }}>
@@ -76,6 +70,12 @@ const EquipModal = ({
           </Stack>
         </Grid>
         <Grid size="grow">
+          <Analysis
+            gameId={gameId}
+            avatarId={modalPipe.id}
+            equipIndex={viewIndex}
+            equipObj={modalPipe.data.equipList[viewIndex]}
+          />
         </Grid>
         
         <Grid size={12}>

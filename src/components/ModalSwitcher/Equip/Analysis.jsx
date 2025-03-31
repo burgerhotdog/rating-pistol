@@ -1,235 +1,134 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from "react";
+import { Paper, Stack } from "@mui/material";
+import getData from "../../getData";
+import Plot from "react-plotly.js";
 import {
-  Container, Typography, Select, MenuItem, TextField,
-  FormControl, InputLabel, Paper, Stack, Divider,
-} from '@mui/material';
-import Plot from 'react-plotly.js';
+  addSubstatWeights,
+  getRandValueMultiplier,
+} from "./simulationConstants";
 
-const STAT_WEIGHTS = {
-  'Flat HP': 0,
-  'Flat ATK': 0.25,
-  'Flat DEF': 0,
-  'HP%': 0,
-  'ATK%': 0.75,
-  'DEF%': 0,
-  'Elemental Mastery': 0.25,
-  'Energy Recharge': 1,
-  'CRIT Rate': 1,
-  'CRIT DMG': 1,
-};
+const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
+  const { weights } = getData[gameId].AVATAR_DATA[avatarId];
+  const { STAT_INDEX } = getData[gameId];
+  const mainstat = equipObj.key;
+  const substats = equipObj.statMap;
 
-// Available stats
-const MAINSTATS = [
-  'HP%',
-  'ATK%',
-  'DEF%',
-  'Elemental Mastery',
-  'Energy Recharge',
-];
+  const getScore = (statMap) => {
+    const score = statMap.reduce((acc, { key, value }) => {
+      if (!key) return acc;
+      const rolls = Number(value) / STAT_INDEX[key].valueSub;
+      return acc + ((weights[key] ?? 0) * rolls);
+    }, 0);
+    const wwMulti = gameId === "ww" ? 2 : 1;
+    return Math.round(score * 10) * 10 * wwMulti;
+  };
 
-const SUBSTATS = [
-  'Flat HP',
-  'Flat ATK',
-  'Flat DEF',
-  'HP%',
-  'ATK%',
-  'DEF%',
-  'Elemental Mastery',
-  'Energy Recharge',
-  'CRIT Rate',
-  'CRIT DMG',
-];
-const MAX_TOTAL_ROLLS = 8;
+  // Calculate substat score
+  const artifactScore = useMemo(() => getScore(Object.values(substats)), [substats]);
 
-function App() {
-  const [mainstat, setMainstat] = useState("");
-  const [substats, setSubstats] = useState([
-    { stat: "", rolls: 1 },
-    { stat: "", rolls: 1 },
-    { stat: "", rolls: 1 },
-    { stat: "", rolls: 1 }
-  ]);
-
-  // Calculate total assigned rolls
-  const totalRolls = substats.reduce((sum, { rolls }) => sum + rolls, 0);
-
-  // Calculate artifact score
-  const artifactScore = useMemo(() => {
-    const mainScore = (STAT_WEIGHTS[mainstat] ?? 0) * 10 ; // Main stat base value
-    const subScore = substats.reduce((sum, { stat, rolls }) => 
-      sum + (stat ? STAT_WEIGHTS[stat] * rolls : 0), 0
-    );
-    return Math.round((mainScore + subScore) * 100) / 100;
-  }, [mainstat, substats]);
-
-  // Generate probability distribution using Monte Carlo simulation
+  // Generate Monte Carlo simulation
   const distributionData = useMemo(() => {
     const iterations = 10000;
     const scoreCounts = {};
     
     for (let i = 0; i < iterations; i++) {
-      let score = 0;
-      const newMainstat = MAINSTATS[Math.floor(Math.random() * 5)]
-      score += STAT_WEIGHTS[newMainstat] * 10;
+      // remove mainstat from substat pool
+      let unusedSubstats = addSubstatWeights[gameId].filter(([stat]) => 
+        gameId === "ww" || stat !== mainstat
+      );
 
-      let unusedSubstats = [...SUBSTATS];
+      // adding each substat line (weighted selection)
       let usedSubstats = [];
-      for (let j = 0; j < 4; j++) {
-        const randomIndex = Math.floor(Math.random() * unusedSubstats.length);
-        const newSubstat = unusedSubstats[randomIndex];
-        usedSubstats.push({ stat: newSubstat, rolls: 1 });
-        unusedSubstats = unusedSubstats.filter((_, index) => index !== randomIndex);
+      const numLines = gameId === "ww" ? 5 : 4;
+      for (let j = 0; j < numLines; j++) {
+        const totalWeight = unusedSubstats.reduce((acc, [, weight]) => acc + weight, 0);
+        const randNum = Math.floor(Math.random() * totalWeight) + 1;
+        let cumulative = 0;
+        for (let k = 0; k < unusedSubstats.length; k++) {
+          const [key, weight] = unusedSubstats[k];
+          cumulative += weight;
+          if (randNum > cumulative) continue;
+          const mult = getRandValueMultiplier(gameId);
+          const value = STAT_INDEX[key].valueSub * mult;
+          usedSubstats.push({ key, value });
+          unusedSubstats.splice(k, 1);
+          break;
+        }
       }
-      for (let j = 0; j < 4; j++) {
-        const randomIndex = Math.floor(Math.random() * 4);
-        usedSubstats[randomIndex].rolls += 1;
-      }
-      score += usedSubstats.reduce((sum, { stat, rolls }) => sum + (STAT_WEIGHTS[stat] * rolls), 0);
-      const roundedScore = Math.round(score * 100) / 100;
 
-      scoreCounts[roundedScore] ??= 0;
-      scoreCounts[roundedScore]++;
+      // adding the rest of the rolls
+      if (gameId !== "ww") {
+        const upgradeTimes = Math.floor(Math.random() * 4) ? 4 : 5;
+        for (let j = 0; j < upgradeTimes; j++) {
+          const randomIndex = Math.floor(Math.random() * 4);
+          const key = usedSubstats[randomIndex].key;
+          const mult = getRandValueMultiplier(gameId);
+          usedSubstats[randomIndex].value += STAT_INDEX[key].valueSub * mult;
+        }
+      }
+
+      const score = getScore(usedSubstats);
+      scoreCounts[score] ??= 0;
+      scoreCounts[score]++;
     }
 
     const scores = Object.keys(scoreCounts).map(Number).sort((a, b) => a - b);
-    const probabilities = scores.map(score => scoreCounts[score] / iterations);
-    return { x: scores, y: probabilities };
-  }, []);
+    let cumulativeCount = 0;
+    const percentiles = scores.map(score => {
+      const percentile = Math.round(cumulativeCount / iterations * 1000) / 10;
+      cumulativeCount += scoreCounts[score];
+      return percentile;
+    });
+    //const probabilities = scores.map(score => scoreCounts[score] / iterations);
+    return { x: scores, y: percentiles };
+  }, [equipIndex, mainstat]);
 
-  // Handle substat changes
-  const handleSubstatChange = (index, field, value) => {
-    const newSubstats = [...substats];
-    newSubstats[index] = { ...newSubstats[index], [field]: value };
-    if (field === 'rolls' && newSubstats.reduce((sum, s) => sum + s.rolls, 0) > MAX_TOTAL_ROLLS) {
-      return;
-    }
-    setSubstats(newSubstats);
-  };
-
-  const artifactIndex = distributionData.x.findIndex(x => Math.abs(x - artifactScore) < 0.01);
-  const artifactProbability = artifactIndex !== -1 ? distributionData.y[artifactIndex] : 0;
+  const artifactIndex = distributionData.x.findIndex(x => Math.abs(x - (artifactScore + 10)) < 20);
+  const closestIndex = distributionData.x.reduce((bestIndex, x, i) =>
+    Math.abs(x - artifactScore) < Math.abs(distributionData.x[bestIndex] - artifactScore) ? i : bestIndex
+  , 0);
+  const artifactProbability = closestIndex !== -1 ? distributionData.y[closestIndex] : 0;
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Paper elevation={3} sx={{ p: 4, borderRadius: 2 }}>
-        <Typography variant="h4" gutterBottom align="center" fontWeight="bold">
-          Genshin Artifact Scorer
-        </Typography>
-        <Divider />
-        <Stack direction="row" spacing={3} mt={2}>
-          <Stack spacing={2} sx={{ width: "50%" }}>
-            <Typography align="center" variant="h5" sx={{ fontWeight: 600, color: "#1976d2" }}>
-              Enter Stats
-            </Typography>
-            <FormControl fullWidth variant="outlined">
-              <InputLabel>Mainstat</InputLabel>
-              <Select
-                value={mainstat}
-                label="Mainstat"
-                onChange={(e) => setMainstat(e.target.value)}
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    borderRadius: 2,
-                    '& fieldset': { borderColor: '#1976d2' },
-                    '&:hover fieldset': { borderColor: '#1976d2' },
-                    '&.Mui-focused fieldset': { borderColor: '#1976d2' },
-                  },
-                }}
-              >
-                {MAINSTATS.map((stat) => (
-                  <MenuItem key={stat} value={stat}>
-                    {stat}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-
-            {/* Substats */}
-            {substats.map((substat, index) => (
-              <Stack key={index} direction="row" spacing={2} sx={{ mb: 2 }}>
-                <FormControl fullWidth>
-                  <InputLabel>Substat {index + 1}</InputLabel>
-                  <Select
-                    value={substat.stat}
-                    label={`Substat ${index + 1}`}
-                    onChange={(e) => handleSubstatChange(index, 'stat', e.target.value)}
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        borderRadius: 2,
-                        '& fieldset': { borderColor: '#1976d2' },
-                        '&:hover fieldset': { borderColor: '#1976d2' },
-                        '&.Mui-focused fieldset': { borderColor: '#1976d2' },
-                      },
-                    }}
-                  >
-                    {SUBSTATS.filter((s) => !substats.some((ss, i) => i !== index && ss.stat === s)).map((stat) => (
-                      <MenuItem key={stat} value={stat}>
-                        {stat}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-                <TextField
-                  type="number"
-                  label="Rolls"
-                  value={substat.rolls}
-                  onChange={(e) => handleSubstatChange(index, 'rolls', Number(e.target.value))}
-                  sx={{
-                    width: '50%',
-                    '& .MuiOutlinedInput-root': {
-                      borderRadius: 2,
-                    },
-                  }}
-                  inputProps={{
-                    min: 1,
-                    max: MAX_TOTAL_ROLLS - (totalRolls - substat.rolls),
-                  }}
-                  disabled={!substat.stat}
-                />
-              </Stack>
-            ))}
-          </Stack>
-
-          <Stack sx={{ width: '100%' }}>
-            <Typography variant="h5" align="center" sx={{ fontWeight: 600 }}>
-              Artifact Score: {artifactScore}
-            </Typography>
-            <Plot
-              data={[{
-                ...distributionData,
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Probability Distribution',
-                line: { color: '#1976d2', shape: 'spline' },
-              }, {
-                x: [artifactScore],
-                y: [artifactProbability],
-                type: 'scatter',
-                mode: 'markers',
-                name: 'Your Artifact',
-                marker: { color: '#d32f2f', size: 12 },
-              }]}
-              layout={{
-                title: 'Score Distribution',
-                xaxis: {
-                  title: 'Score',
-                  range: [0, Math.max(...distributionData.x)],
-                },
-                yaxis: {
-                  title: 'Probability',
-                  range: [0, Math.max(...distributionData.y)],
-                },
-                height: 400,
-                margin: { t: 50, b: 50, l: 50, r: 20 },
-                legend: { orientation: 'h', itemclick: false, itemdoubleclick: false },
-              }}
-              config={{ responsive: true, displayModeBar: false }}
-            />
-          </Stack>
-        </Stack>
-      </Paper>
-    </Container>
+    <Paper elevation={3} display="flex" sx={{ p: 2, borderRadius: 2, width: "100%" }}>
+      <Stack>
+        <Plot
+          data={[{
+            ...distributionData,
+            type: 'scatter',
+            mode: 'lines',
+            name: "Percentile",
+            line: { color: '#1976d2', shape: 'spline' },
+            showlegend: false,
+          }, {
+            x: [artifactScore],
+            y: [artifactProbability],
+            type: 'scatter',
+            mode: 'markers',
+            name: "Current RV%",
+            marker: { color: '#d32f2f', size: 12 },
+          }]}
+          layout={{
+            title: 'Score Distribution',
+            xaxis: {
+              title: "Roll Value",
+              range: [0, Math.max(...distributionData.x)],
+            },
+            yaxis: {
+              title: "Percentile",
+              range: [0, 101],
+            },
+            dragmode: false,
+            width: 450,
+            height: 300,
+            margin: { t: 30, b: 30, l: 30, r: 30 },
+            showlegend: false,
+          }}
+          config={{ responsive: true, displayModeBar: false }}
+        />
+      </Stack>
+    </Paper>
   );
-}
+};
 
-export default App;
+export default Analysis;

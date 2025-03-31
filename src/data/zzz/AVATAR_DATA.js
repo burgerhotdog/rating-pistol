@@ -171,10 +171,9 @@ export default {
     statBase: { _HP: 9526, _ATK: 712, _DEF: 754 },
     weights: {
       "IMPACT": 1,
-      "CR": 0.75,
-      "CD": 0.75,
-      "PHYSICAL": 0.75,
-      "PR": 0.5,
+      "AP": 0.5,
+      "PHYSICAL": 0.5,
+      "PR": 0.25,
       "ATK": 0.25,
     },
   },
