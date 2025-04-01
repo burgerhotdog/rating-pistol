@@ -1,4 +1,4 @@
-const addSubstatWeights = {
+const getStatPool = {
   gi: [
     ["_HP", 6],
     ["_ATK", 6],
@@ -54,7 +54,7 @@ const addSubstatWeights = {
   ],
 };
 
-const getRandValueMultiplier = (gameId) => {
+const getRandomMultiplier = (gameId) => {
   if (gameId === "zzz") return 1;
   if (gameId === "ww") {
     const hiLo = [35, 33, 31, 29, 27, 25, 23, 21];
@@ -67,4 +67,4 @@ const getRandValueMultiplier = (gameId) => {
   return hiLo[randIndex];
 };
 
-export { addSubstatWeights, getRandValueMultiplier };
+export { getStatPool, getRandomMultiplier };
