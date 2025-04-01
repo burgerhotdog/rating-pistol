@@ -6,7 +6,7 @@ import letterSrc from "./letterSrc";
 const getRating = (gameId, id, data) => {
   const levels = rateLevels(gameId, data);
   const skills = rateSkills(gameId, data);
-  const equips = rateEquips(gameId, id, data);
+  const equips = true ? 0 : rateEquips(gameId, id, data);
 
   const combined = [levels, skills, equips].includes(-1)
     ? -1
