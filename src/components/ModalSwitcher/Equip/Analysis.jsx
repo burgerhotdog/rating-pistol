@@ -20,7 +20,7 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
       return acc + ((weights[key] ?? 0) * rolls);
     }, 0);
     const wwMulti = gameId === "ww" ? 2 : 1;
-    return Math.round(score * 10) * 10 * wwMulti;
+    return Math.round(score * 100) * wwMulti;
   };
 
   // Calculate substat score
@@ -29,7 +29,7 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
   // Generate Monte Carlo simulation
   const distributionData = useMemo(() => {
     const iterations = 10000;
-    const scoreCounts = {};
+    const scores = [];
     
     for (let i = 0; i < iterations; i++) {
       // remove mainstat from substat pool
@@ -67,61 +67,70 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
         }
       }
 
-      const score = getScore(usedSubstats);
-      scoreCounts[score] ??= 0;
-      scoreCounts[score]++;
+      scores.push(getScore(usedSubstats));
     }
-
-    const scores = Object.keys(scoreCounts).map(Number).sort((a, b) => a - b);
-    let cumulativeCount = 0;
-    const percentiles = scores.map(score => {
-      const percentile = Math.round(cumulativeCount / iterations * 1000) / 10;
-      cumulativeCount += scoreCounts[score];
-      return percentile;
-    });
-    //const probabilities = scores.map(score => scoreCounts[score] / iterations);
-    return { x: scores, y: percentiles };
+    return scores;
   }, [equipIndex, mainstat]);
+  // Ensure distributionData is sorted for binary search (if necessary)
+  const sortedScores = [...distributionData].sort((a, b) => a - b);
 
-  const closestIndex = distributionData.x.reduce((bestIndex, x, i) =>
-    Math.abs(x - artifactScore) < Math.abs(distributionData.x[bestIndex] - artifactScore) ? i : bestIndex
-  , 0);
-  const artifactProbability = closestIndex !== -1 ? distributionData.y[closestIndex] : 0;
+  // Determine bin size (same as histogram)
+  const binSize = 10;
+
+  // Find the bin that artifactScore belongs to
+  const binStart = Math.floor(artifactScore / binSize) * binSize;
+  const binEnd = binStart + binSize;
+
+  // Count occurrences of scores within the bin range
+  const artifactProbability = sortedScores.filter(score => score >= binStart && score < binEnd).length;
+
 
   return (
-    <Paper elevation={3} display="flex" sx={{ p: 2, borderRadius: 2, width: "100%" }}>
+    <Paper display="flex" sx={{ p: 2, width: "100%" }}>
       <Stack>
         <Plot
           data={[{
-            ...distributionData,
-            type: 'scatter',
-            mode: 'lines',
-            name: "Percentile",
-            line: { color: '#1976d2', shape: 'spline' },
-            showlegend: false,
+            x: distributionData,
+            type: "histogram",
+            mode: "lines",
+            name: "",
+            xbins: { 
+              start: 0, 
+              end: 800, 
+              size: 10,
+            },
           }, {
             x: [artifactScore],
             y: [artifactProbability],
-            type: 'scatter',
-            mode: 'markers',
-            name: "Current RV%",
-            marker: { color: '#d32f2f', size: 12 },
+            type: "scatter",
+            mode: "markers+text",
+            name: "",
+            text: ["You"],
+            textposition: "top center",
+            marker: { color: "red", size: 12 },
           }]}
           layout={{
-            title: 'Score Distribution',
+            title: { text: "Effective Roll Value Distribution" },
             xaxis: {
-              title: "Roll Value",
+              title: { text: "Substat RV% (Higher is better)" },
               range: [0, 800],
+              tickfont: { color: "grey" },
+              gridcolor: "grey",
+              showgrid: false
             },
             yaxis: {
-              title: "Percentile",
-              range: [0, 101],
+              range: [0, 1000],
+              tickfont: { color: "grey" },
+              gridcolor: "grey",
+              showgrid: false
             },
             dragmode: false,
             width: 450,
             height: 300,
-            margin: { t: 30, b: 30, l: 30, r: 30 },
+            margin: { t: 40, b: 40, l: 40, r: 40 },
             showlegend: false,
+            paper_bgcolor: "rgba(0, 0, 0, 0)",
+            plot_bgcolor: "rgba(0, 0, 0, 0)",
           }}
           config={{ responsive: true, displayModeBar: false }}
         />

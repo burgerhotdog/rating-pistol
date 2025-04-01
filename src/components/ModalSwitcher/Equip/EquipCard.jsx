@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Grid2 as Grid,
+  Grid,
   Box,
   Card,
   Divider,
@@ -116,6 +116,7 @@ const EquipCard = ({
 
   return (
     <Card sx={{ width: 300, p: 2 }}>
+      <Box sx={{ height: 300 }}>
       <Grid container spacing={1}>
         <Grid size={12}>
           <Autocomplete
@@ -221,6 +222,7 @@ const EquipCard = ({
           </React.Fragment>
         ))}
       </Grid>
+      </Box>
     </Card>
   );
 };

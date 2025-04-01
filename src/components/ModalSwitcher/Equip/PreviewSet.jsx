@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import {
   Card,
-  Grid2 as Grid,
+  Grid,
   Box,
   Stack,
   Typography,

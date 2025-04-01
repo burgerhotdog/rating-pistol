@@ -373,7 +373,10 @@ export default {
       "CD": 1,
       "LIGHTNING": 0.75,
       "ATK": 0.75,
-      "_ATK": 0.25,
+      "_ATK": 0.3,
+      "RES": 0.2,
+      "HP": 0.1,
+      "DEF": 0.1,
     },
   },
   "1304": {
