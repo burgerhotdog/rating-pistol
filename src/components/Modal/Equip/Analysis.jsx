@@ -13,7 +13,7 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
 
   // Calculate substat score
   const rollValue = useMemo(
-    () => getRollValue(substats, STAT_INDEX, weights),
+    () => getRollValue(gameId, substats, STAT_INDEX, weights),
     [substats]
   );
 

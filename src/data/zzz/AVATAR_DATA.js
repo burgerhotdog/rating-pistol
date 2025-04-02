@@ -336,9 +336,9 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 1,
-      "_ATK": 0.5,
+      "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.5,
     },
   },
   "1131": {
@@ -350,9 +350,9 @@ export default {
     weights: {
       "CR": 1,
       "CD": 1,
-      "ATK": 1,
-      "_ATK": 0.5,
+      "ATK": 0.75,
       "PEN": 0.25,
+      "_ATK": 0.25,
     },
   },
   "1121": {

@@ -48,7 +48,7 @@ const simulateData = (gameId, mainstat, weights) => {
       }
     }
 
-    scores[i] = getRollValue(substats, STAT_INDEX, weights);
+    scores[i] = getRollValue(gameId, substats, STAT_INDEX, weights);
   }
   return scores;
 };
