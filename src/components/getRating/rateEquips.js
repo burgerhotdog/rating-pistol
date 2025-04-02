@@ -1,8 +1,8 @@
-import getData from "../getData";
+import { DATA } from "../importData";
 import equipConfig from "./equipConfig";
 
 const rateEquips = (gameId, id, data) => {
-  const { AVATAR_DATA, STAT_INDEX, MAINSTAT_OPTIONS } = getData[gameId];
+  const { AVATAR_DATA, STAT_INDEX, MAINSTAT_OPTIONS } = DATA[gameId];
   const config = equipConfig[gameId];
 
   // consolidate mainstats

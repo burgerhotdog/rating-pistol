@@ -1,9 +1,8 @@
-import getData from "../../../../getData";
-import getImgs from "../../../../getImgs";
+import { ASSETS, DATA } from "../../../../importData";
 
 export default (id, nodeId) => {
-  const { AVATAR_DATA } = getData.hsr;
-  const { STAT_IMGS, SKILL_IMGS } = getImgs.hsr;
+  const { AVATAR_DATA } = DATA.hsr;
+  const { STAT_IMGS, SKILL_IMGS } = ASSETS.hsr;
   const minorIndex = Number(nodeId.slice(1)) - 1;
 
   if (nodeId[0] === "2") {

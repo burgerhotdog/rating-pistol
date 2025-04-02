@@ -60,9 +60,10 @@ const GamePage = ({ gameId, userId }) => {
       return { id, data, rating };
     });
 
-    ratedDocs.sort((a, b) => a.data.isStar === b.data.isStar
-      ? b.rating.combined - a.rating.combined
-      : a.data.isStar ? -1 : 1
+    ratedDocs.sort((a, b) =>
+      a.data.isStar === b.data.isStar
+        ? b.rating.combined - a.rating.combined
+        : a.data.isStar ? -1 : 1
     );
 
     setSortedDocs(ratedDocs);
