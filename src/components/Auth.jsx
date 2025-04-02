@@ -18,14 +18,14 @@ const Auth = ({ user, setUser }) => {
     const unsubscribe = onAuthStateChanged(auth, async (newUser) => {
       try {
         if (newUser) {
-          // firestore state
-          const userDocRef = doc(db, "users", newUser.uid);
+          const { uid, email } = newUser;
+
+          const userDocRef = doc(db, "users", uid);
           const userDoc = await getDoc(userDocRef);
           if (!userDoc.exists()) {
-            await setDoc(userDocRef, { email: newUser.email }, { merge: true });
+            await setDoc(userDocRef, { email }, { merge: true });
           }
   
-          // local state
           setUser(newUser);
         } else {
           setUser(null);
@@ -60,6 +60,7 @@ const Auth = ({ user, setUser }) => {
         <Typography variant="button">
           {user?.email ?? ""}
         </Typography>
+        
         <Button onClick={handleAuth} loading={isLoading}>
           {user ? "Sign Out" : "Sign In"}
         </Button>

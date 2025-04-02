@@ -22,15 +22,18 @@ const Table5Delete = ({
 
   const handleDelete = async () => {
     setIsLoading(true);
+
     if (userId) {
       const docRef = doc(db, "users", userId, gameId, id);
       await deleteDoc(docRef);
     }
+
     setLocalDocs((prev) => {
       const newDocs = { ...prev };
       delete newDocs[id];
       return newDocs;
     });
+    
     setOpen(false);
   };
 

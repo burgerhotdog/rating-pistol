@@ -5,7 +5,6 @@ import gi from "../assets/banner_gi.webp";
 import hsr from "../assets/banner_hsr.webp";
 import ww from "../assets/banner_ww.webp";
 import zzz from "../assets/banner_zzz.webp";
-import getImgs from "./getImgs";
 import assets from "../assets";
 
 const buttonStyles = (img) => ({

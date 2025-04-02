@@ -1,7 +1,7 @@
-import getData from "./getData";
+import { DATA } from "./importData";
 
 export default (gameId, setBonuses) => {
-  const { SET_DATA } = getData[gameId];
+  const { SET_DATA } = DATA[gameId];
   
   return Object.entries(setBonuses)
     .sort(([setIdA, numBonusA], [setIdB, numBonusB]) => {

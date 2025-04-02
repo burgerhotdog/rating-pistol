@@ -2,21 +2,12 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
-  Container,
-  Stack,
-  TableContainer,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  Button,
-  Typography,
-  CircularProgress,
+  Container, Stack, TableContainer, Table, TableHead, TableBody,
+  TableRow, TableCell, Button, Typography, CircularProgress,
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
-import ModalSwitcher from "./ModalSwitcher";
+import Modal from "./Modal";
 import getRating from "./getRating";
 import DeleteAll from "./Table/DeleteAll";
 import Table0Star from "./Table/Table0Star";
@@ -25,15 +16,15 @@ import Table2Weapon from "./Table/Table2Weapon";
 import Table3EquipList from "./Table/Table3EquipList";
 import Table4Rating from "./Table/Table4Rating";
 import Table5Delete from "./Table/Table5Delete";
-import getData from "./getData";
+import { DATA } from "./importData";
 
 const GamePage = ({ gameId, userId }) => {
-  const { TITLE, VERSION, HEADERS } = getData[gameId];
+  const { TITLE, VERSION, HEADERS } = DATA[gameId];
   const [localDocs, setLocalDocs] = useState({});
   const [sortedDocs, setSortedDocs] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
   const [hoveredHead, setHoveredHead] = useState(false);
-  const [modalPipe, setModalPipe] = useState({});
+  const [pipe, setPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   // get localDocs from firestore
@@ -77,13 +68,8 @@ const GamePage = ({ gameId, userId }) => {
     setSortedDocs(ratedDocs);
   }, [localDocs]);
 
-  const handleAdd = () => {
-    setModalPipe({ type: "add", id: null, data: null });
-  };
-
-  const handleLoad = () => {
-    setModalPipe({ type: "load", id: null, data: null });
-  };
+  const handleAdd = () => setPipe({ type: "add", id: null, data: null });
+  const handleLoad = () => setPipe({ type: "load", id: null, data: null });
 
   return (
     <Container>
@@ -150,7 +136,7 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell>
                       <Table1Avatar
                         gameId={gameId}
-                        setModalPipe={setModalPipe}
+                        setPipe={setPipe}
                         id={id}
                         data={data}
                       />
@@ -159,7 +145,7 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell align="center">
                       <Table2Weapon
                         gameId={gameId}
-                        setModalPipe={setModalPipe}
+                        setPipe={setPipe}
                         id={id}
                         data={data}
                       />
@@ -168,7 +154,7 @@ const GamePage = ({ gameId, userId }) => {
                     <TableCell align="center">
                       <Table3EquipList
                         gameId={gameId}
-                        setModalPipe={setModalPipe}
+                        setPipe={setPipe}
                         id={id}
                         data={data}
                       />
@@ -176,7 +162,7 @@ const GamePage = ({ gameId, userId }) => {
 
                     <TableCell align="center">
                       <Table4Rating
-                        setModalPipe={setModalPipe}
+                        setPipe={setPipe}
                         id={id}
                         data={data}
                         rating={rating}
@@ -218,11 +204,11 @@ const GamePage = ({ gameId, userId }) => {
           </Button>
         </Stack>
 
-        <ModalSwitcher
+        <Modal
           gameId={gameId}
           userId={userId}
-          modalPipe={modalPipe}
-          setModalPipe={setModalPipe}
+          pipe={pipe}
+          setPipe={setPipe}
           localDocs={localDocs}
           setLocalDocs={setLocalDocs}
         />

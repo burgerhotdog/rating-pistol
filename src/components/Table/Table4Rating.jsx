@@ -2,20 +2,8 @@ import React from "react";
 import { Badge, Avatar, Stack, Tooltip } from "@mui/material";
 import assets from "../../assets";
 
-const Table4Rating = ({
-  setModalPipe,
-  id,
-  data,
-  rating,
-}) => {
-  const openModal = () => {
-    setModalPipe({
-      type: "rating",
-      id,
-      data,
-      rating,
-    });
-  };
+const Table4Rating = ({ setPipe, id, data, rating }) => {
+  const openModal = () => setPipe({ type: "rating", id, data, rating });
 
   return (
     <Tooltip title="See Details" arrow>

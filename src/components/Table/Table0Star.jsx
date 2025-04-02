@@ -12,10 +12,12 @@ const Table0Star = ({
 }) => {
   const toggleStar = async () => {
     const newValue = !Boolean(data.isStar);
+    
     if (userId) {
       const infoDocRef = doc(db, "users", userId, gameId, id);
       setDoc(infoDocRef, { isStar: newValue }, { merge: true });
     }
+
     setLocalDocs((prev) => ({
       ...prev,
       [id]: {
