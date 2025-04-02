@@ -1,6 +1,6 @@
 import React from "react";
 import { Badge, Avatar, Stack, Tooltip } from "@mui/material";
-import assets from "../../assets";
+import { ASSETS } from "../importData";
 
 const Table4Rating = ({ setPipe, id, data, rating }) => {
   const openModal = () => setPipe({ type: "rating", id, data, rating });
@@ -11,7 +11,7 @@ const Table4Rating = ({ setPipe, id, data, rating }) => {
         <Badge onClick={openModal}>
           <Avatar
             alt={rating.final}
-            src={assets[`./${rating.letter}.webp`]?.default}
+            src={ASSETS.other[`./${rating.letter}.webp`]?.default}
             sx={{ width: 32, height: 32 }}
           />
         </Badge>

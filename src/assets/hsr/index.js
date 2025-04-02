@@ -6,4 +6,6 @@ import STAT_IMGS from "./stat";
 import SKILL_IMGS from "./skill"
 import PATH_IMGS from "./paths";
 
-export default { AVATAR_IMGS, WEAPON_IMGS, SET_IMGS, EQUIP_IMGS, STAT_IMGS, SKILL_IMGS, PATH_IMGS };
+const other = import.meta.glob("./*.webp", { eager: true });
+
+export default { AVATAR_IMGS, WEAPON_IMGS, SET_IMGS, EQUIP_IMGS, STAT_IMGS, SKILL_IMGS, PATH_IMGS, other };
