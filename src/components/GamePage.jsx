@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
@@ -9,19 +9,15 @@ import { db } from "../firebase";
 import Back from "./Back";
 import Modal from "./Modal";
 import getRating from "./getRating";
-import DeleteAll from "./Table/DeleteAll";
-import Table0Star from "./Table/Table0Star";
-import Table1Avatar from "./Table/Table1Avatar";
-import Table2Weapon from "./Table/Table2Weapon";
-import Table3EquipList from "./Table/Table3EquipList";
-import Table4Rating from "./Table/Table4Rating";
-import Table5Delete from "./Table/Table5Delete";
+import {
+  DeleteAll, Table0Star, Table1Avatar, Table2Weapon,
+  Table3EquipList, Table4Rating, Table5Delete,
+} from "./Table";
 import { DATA } from "./importData";
 
 const GamePage = ({ gameId, userId }) => {
   const { TITLE, VERSION, HEADERS } = DATA[gameId];
   const [localDocs, setLocalDocs] = useState({});
-  const [sortedDocs, setSortedDocs] = useState([]);
   const [hoveredId, setHoveredId] = useState(null);
   const [hoveredHead, setHoveredHead] = useState(false);
   const [pipe, setPipe] = useState({});
@@ -53,33 +49,40 @@ const GamePage = ({ gameId, userId }) => {
   }, [userId]);
 
   // rate and sort localDocs for display table
-  useEffect(() => {
+  const sortedDocs = useMemo(() => {
     const localEntries = Object.entries(localDocs);
     const ratedDocs = localEntries.map(([id, data]) => {
       const rating = getRating(gameId, id, data);
       return { id, data, rating };
     });
-
+  
     ratedDocs.sort((a, b) =>
       a.data.isStar === b.data.isStar
         ? b.rating.combined - a.rating.combined
         : a.data.isStar ? -1 : 1
     );
-
-    setSortedDocs(ratedDocs);
+  
+    return ratedDocs;
   }, [localDocs]);
 
   const handleAdd = () => setPipe({ type: "add", id: null, data: null });
   const handleLoad = () => setPipe({ type: "load", id: null, data: null });
 
+  const hoverStyle = (id) => ({
+    backgroundColor: hoveredId === id ? "rgba(255, 255, 255, 0.03)" : "inherit",
+  });
+
   return (
     <Container>
       <Back />
-      <Stack alignItems="center" sx={{ mt: 4 }}>
-        <Typography variant="h4">{TITLE}</Typography>
-        <Typography variant="body2">Updated for Version {VERSION}</Typography>
-
-        <TableContainer sx={{ maxWidth: 900 }}>
+      <Stack alignItems="center" sx={{ mt: 4, mb: 6 }}>
+        <Typography variant="h4" fontWeight="bold">
+          {TITLE}
+        </Typography>
+        <Typography variant="subtitle2" color="text.secondary">
+          Updated for Version {VERSION}
+        </Typography>
+        <TableContainer sx={{ maxWidth: 900, mt: 2 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
             <TableHead>
               <TableRow
@@ -105,7 +108,6 @@ const GamePage = ({ gameId, userId }) => {
                 </TableCell>
               </TableRow>
             </TableHead>
-
             <TableBody>
               {isLoading ? (
                 <TableRow>
@@ -123,8 +125,7 @@ const GamePage = ({ gameId, userId }) => {
                     onMouseLeave={() => setHoveredId(null)}
                   >
                     <TableCell sx={{ borderBottom: "none" }} />
-
-                    <TableCell align="center">
+                    <TableCell align="center" sx={hoverStyle(id)}>
                       <Table0Star
                         gameId={gameId}
                         userId={userId}
@@ -133,8 +134,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
-
-                    <TableCell>
+                    <TableCell sx={hoverStyle(id)}>
                       <Table1Avatar
                         gameId={gameId}
                         setPipe={setPipe}
@@ -142,8 +142,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
-
-                    <TableCell align="center">
+                    <TableCell align="center" sx={hoverStyle(id)}>
                       <Table2Weapon
                         gameId={gameId}
                         setPipe={setPipe}
@@ -151,8 +150,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
-
-                    <TableCell align="center">
+                    <TableCell align="center" sx={hoverStyle(id)}>
                       <Table3EquipList
                         gameId={gameId}
                         setPipe={setPipe}
@@ -160,8 +158,7 @@ const GamePage = ({ gameId, userId }) => {
                         data={data}
                       />
                     </TableCell>
-
-                    <TableCell align="center">
+                    <TableCell align="center" sx={hoverStyle(id)}>
                       <Table4Rating
                         setPipe={setPipe}
                         id={id}
@@ -169,7 +166,6 @@ const GamePage = ({ gameId, userId }) => {
                         rating={rating}
                       />
                     </TableCell>
-
                     <TableCell sx={{ borderBottom: "none" }}>
                       <Table5Delete
                         gameId={gameId}
@@ -185,7 +181,6 @@ const GamePage = ({ gameId, userId }) => {
             </TableBody>
           </Table>
         </TableContainer>
-
         <Stack direction="row" spacing={2} mt={2} mb={4}>
           <Button
             onClick={handleAdd}
@@ -194,7 +189,6 @@ const GamePage = ({ gameId, userId }) => {
           >
             New Build
           </Button>
-          
           <Button
             onClick={handleLoad}
             variant="contained"
@@ -204,7 +198,6 @@ const GamePage = ({ gameId, userId }) => {
             Lookup UID
           </Button>
         </Stack>
-
         <Modal
           gameId={gameId}
           userId={userId}

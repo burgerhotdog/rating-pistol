@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Tabs, Tab } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { DATA } from "../../importData";
 import LevelTab from "./LevelTab";
 import SkillTab from "./SkillTab";
@@ -15,25 +15,7 @@ const RatingModal = ({ gameId, pipe }) => {
 
   return (
     <Box sx={{ width: 500 }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs value={tabValue} onChange={handleTab} centered>
-          <Tab label={`${HEADERS.avatar} & ${HEADERS.weapon}`} />
-          <Tab label={HEADERS.skills} />
-          <Tab label={HEADERS.equips} />
-        </Tabs>
-      </Box>
-
-      <Box hidden={tabValue !== 0}>
-        <LevelTab pipe={pipe} />
-      </Box>
-
-      <Box hidden={tabValue !== 1}>
-        <SkillTab pipe={pipe} />
-      </Box>
-
-      <Box hidden={tabValue !== 2}>
-        <EquipTab pipe={pipe} />
-      </Box>
+      <Typography>Currently redesigning this page please check back later</Typography>
     </Box>
   );
 };
