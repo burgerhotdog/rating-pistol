@@ -1,12 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Box, Stack, Button, Typography } from "@mui/material";
-import gi from "../assets/banner_gi.webp";
-import hsr from "../assets/banner_hsr.webp";
-import ww from "../assets/banner_ww.webp";
-import zzz from "../assets/banner_zzz.webp";
-import getImgs from "./getImgs";
-import assets from "../assets";
+import { ASSETS } from "./importData";
 
 const buttonStyles = (img) => ({
   background: `rgba(0, 0, 0, 0.7) url(${img}) center/cover`,
@@ -20,10 +15,10 @@ const buttonStyles = (img) => ({
 });
 
 const games = [
-  { name: "Genshin Impact", path: "/genshin-impact", img: gi },
-  { name: "Honkai Star Rail", path: "/honkai-star-rail", img: hsr },
-  { name: "Wuthering Waves", path: "/wuthering-waves", img: ww },
-  { name: "Zenless Zone Zero", path: "/zenless-zone-zero", img: zzz },
+  { name: "Genshin Impact", path: "/genshin-impact", img: ASSETS.gi.other[`./banner.webp`]?.default },
+  { name: "Honkai Star Rail", path: "/honkai-star-rail", img: ASSETS.hsr.other[`./banner.webp`]?.default },
+  { name: "Wuthering Waves", path: "/wuthering-waves", img: ASSETS.ww.other[`./banner.webp`]?.default },
+  { name: "Zenless Zone Zero", path: "/zenless-zone-zero", img: ASSETS.zzz.other[`./banner.webp`]?.default },
 ];
 
 const MenuPage = () => (
@@ -34,7 +29,7 @@ const MenuPage = () => (
         <Box
           component="img"
           alt={"title"}
-          src={assets[`./title.webp`]?.default}
+          src={ASSETS.other[`./title.webp`]?.default}
           sx={{ width: 100, height: 100 }}
         />
       </Stack>

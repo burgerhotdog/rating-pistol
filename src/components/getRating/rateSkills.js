@@ -1,7 +1,7 @@
-import getData from "../getData";
+import { DATA } from "../importData";
 
 const rateSkillMap = (gameId, data) => {
-  const { SKILL_CAPS } = getData[gameId];
+  const { SKILL_CAPS } = DATA[gameId];
   let levelTotal = 0;
   let capTotal = 0;
   for (const [id, value] of Object.entries(data.skillMap)) {

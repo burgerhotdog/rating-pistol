@@ -1,35 +1,25 @@
 import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack } from "@mui/material";
 import { Add } from "@mui/icons-material";
-import getData from "../getData";
-import getImgs from "../getImgs";
+import { ASSETS, DATA } from "../importData";
 import getSetBonuses from "../getSetBonuses";
 import sortSetBonuses from "../sortSetBonuses";
 
-const Table3EquipList = ({
-  gameId,
-  setModalPipe,
-  id,
-  data,
-}) => {
-  const { HEADERS } = getData[gameId];
-  const { SET_IMGS } = getImgs[gameId];
+const Table3EquipList = ({ gameId, setPipe, id, data }) => {
+  const { SET_IMGS } = ASSETS[gameId];
+  const { HEADERS } = DATA[gameId];
   
-  const setBonuses = useMemo(() => (
-    getSetBonuses(gameId, data.equipList)
-  ), [gameId, data.equipList]);
+  const setBonuses = useMemo(() =>
+    getSetBonuses(gameId, data.equipList),
+    [gameId, data.equipList]
+  );
 
-  const sortedSetBonuses = useMemo(() => (
-    sortSetBonuses(gameId, setBonuses)
-  ), [gameId, setBonuses]);
+  const sortedSetBonuses = useMemo(() =>
+    sortSetBonuses(gameId, setBonuses),
+    [gameId, setBonuses]
+  );
 
-  const openModal = () => {
-    setModalPipe({
-      type: "equip",
-      id,
-      data,
-    });
-  };
+  const openModal = () => setPipe({ type: "equip", id, data });
 
   if (!Object.keys(setBonuses).length) {
     return (

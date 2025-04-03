@@ -1,7 +1,7 @@
-import getData from "../getData";
+import { DATA } from "../importData";
 
 const rateLevels = (gameId, data) => {
-  const { LEVEL_CAP } = getData[gameId];
+  const { LEVEL_CAP } = DATA[gameId];
   const level = Number(data.level);
   const weaponLevel = Number(data.weaponLevel);
 

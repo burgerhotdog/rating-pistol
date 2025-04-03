@@ -1,25 +1,13 @@
 import React from "react";
 import { Stack, Badge, Avatar, Tooltip } from "@mui/material";
 import { Add } from "@mui/icons-material";
-import getData from "../getData";
-import getImgs from "../getImgs";
+import { ASSETS, DATA } from "../importData";
 
-const Table2Weapon = ({
-  gameId,
-  setModalPipe,
-  id,
-  data,
-}) => {
-  const { WEAPON_PREFIX, HEADERS } = getData[gameId];
-  const { WEAPON_IMGS } = getImgs[gameId];
+const Table2Weapon = ({ gameId, setPipe, id, data }) => {
+  const { WEAPON_IMGS } = ASSETS[gameId];
+  const { WEAPON_PREFIX, HEADERS } = DATA[gameId];
 
-  const openModal = () => {
-    setModalPipe({
-      type: "weapon",
-      id,
-      data,
-    });
-  };
+  const openModal = () => setPipe({ type: "weapon", id, data });
   
   if (!data.weaponId) {
     return (

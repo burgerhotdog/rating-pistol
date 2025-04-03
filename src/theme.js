@@ -74,11 +74,6 @@ const theme = createTheme({
         size: "small",
       },
     },
-    MuiSelect: {
-      defaultProps: {
-        size: "small",
-      },
-    },
     MuiBadge: {
       defaultProps: {
         overlap: "circular",

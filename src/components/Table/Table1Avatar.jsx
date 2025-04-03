@@ -1,20 +1,12 @@
 import React from "react";
 import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
-import getData from "../getData";
-import getImgs from "../getImgs";
+import { ASSETS, DATA } from "../importData";
 
-const Table1Avatar = ({
-  gameId,
-  setModalPipe,
-  id,
-  data,
-}) => {
-  const { HEADERS, PREFIX, AVATAR_DATA } = getData[gameId];
-  const { AVATAR_IMGS } = getImgs[gameId];
+const Table1Avatar = ({ gameId, setPipe, id, data }) => {
+  const { AVATAR_IMGS } = ASSETS[gameId];
+  const { HEADERS, PREFIX, AVATAR_DATA } = DATA[gameId];
   
-  const openModal = () => {
-    setModalPipe({ type: "avatar", id, data });
-  };
+  const openModal = () => setPipe({ type: "avatar", id, data });
 
   return (
     <Tooltip title={`Edit ${HEADERS.avatar}`} arrow>
