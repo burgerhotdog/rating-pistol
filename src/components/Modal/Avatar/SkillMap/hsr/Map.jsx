@@ -28,21 +28,19 @@ const mapLabel = {
   "210": "Stat Bonus",
 };
 
-const HSR = ({ pipe, editSkillMap }) => {
+const HSR = ({ avatarId, rank, skillMap, editSkillMap }) => {
   const { SKILL_CAPS, AVATAR_DATA } = DATA.hsr;
   const { PATH_IMGS } = ASSETS.hsr;
-  const { skillMap } = pipe.data;
-  const avatarType = AVATAR_DATA[pipe.id].type;
-  const NODES = configs[avatarType];
-  const pathSrc = PATH_IMGS[`./${avatarType.replace(/ /g, "_")}.webp`]?.default
+  const { type } = AVATAR_DATA[avatarId];
+  const NODES = configs[type];
   const [hoveredNode, setHoveredNode] = useState(null);
 
   const deactivateChildren = (id) => {
     const { children } = NODES[id];
     if (children) {
-      children.forEach((childId) => {
-        if (childId !== "000") editSkillMap(childId, 0);
-        deactivateChildren(childId);
+      children.forEach((child) => {
+        if (child !== "000") editSkillMap(child, 0);
+        deactivateChildren(child);
       });
     }
   };
@@ -56,7 +54,7 @@ const HSR = ({ pipe, editSkillMap }) => {
   };
 
   const handleNode = (id) => {
-    if (id === "007") return;
+    if (id === "007") return; // technique
     const value = skillMap[id];
     if (id[0] === "0") {
       const newValue = value < SKILL_CAPS[Number(id[2]) - 1] ? value + 1 : 1;
@@ -76,7 +74,7 @@ const HSR = ({ pipe, editSkillMap }) => {
           <svg width="100%" height="100%" viewBox="0 0 600 600">
             {/* Background Image */}
             <image
-              href={pathSrc}
+              href={PATH_IMGS[`./${type.replace(/ /g, "_")}.webp`]?.default}
               x="108"
               y="108"
               width="384"
@@ -108,11 +106,11 @@ const HSR = ({ pipe, editSkillMap }) => {
                   : parent;
                 const parentInactive = !Boolean(skillMap[realParent]);
 
-                const imageSrc = getNodeIcon(pipe.id, id);
+                const imageSrc = getNodeIcon(avatarId, id);
 
                 const rankTraceIndex = Number(id.slice(1)) - 1;
-                const rankReq = AVATAR_DATA[pipe.id].rankTrace[rankTraceIndex];
-                const rankBonus = rankReq && pipe.data.rank >= rankReq
+                const rankReq = AVATAR_DATA[avatarId].rankTrace[rankTraceIndex];
+                const rankBonus = rankReq && rank >= rankReq
                   ? ["001", "005", "006"].includes(id) ? 1 : 2
                   : 0;
                 

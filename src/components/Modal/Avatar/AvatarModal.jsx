@@ -12,19 +12,14 @@ import {
 import SkillMap from "./SkillMap";
 import { DATA } from "../../importData"
 
-const AvatarModal = ({
-  gameId,
-  pipe,
-  setPipe,
-  savePipe,
-}) => {
+const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
   const { LEVEL_CAP, PREFIX } = DATA[gameId];
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   
   // level
-  const handleLevel = (event) => {
-    const newValue = event.target.value;
+  const handleLevel = (e) => {
+    const newValue = e.target.value;
     setPipe((prev) => ({
       ...prev,
       data: {
@@ -36,21 +31,16 @@ const AvatarModal = ({
 
   // rank
   const rankOptions = () => {
-    const giNoRankOpt = gameId === "gi" && (
+    const giNoRank = gameId === "gi" && (
       pipe.id === "10000062" // Aloy
     );
-    
-    const noRankOpt = giNoRankOpt;
+    const noRank = giNoRank;
 
-    return noRankOpt ? ["0"] : ["0", "1", "2", "3", "4", "5", "6"];
+    return noRank ? [0] : [0, 1, 2, 3, 4, 5, 6];
   };
 
-  const rankOptionLabel = (rank) => {
-    return `${PREFIX}${rank}`;
-  }
-
-  const handleRank = (event) => {
-    const newValue = event.target.value;
+  const handleRank = (e) => {
+    const newValue = e.target.value;
     setPipe((prev) => ({
       ...prev,
       data: {
@@ -70,12 +60,6 @@ const AvatarModal = ({
     const level = Number(pipe.data.level);
     if (level < 1 || level > LEVEL_CAP) {
       setError("level");
-      return false;
-    }
-
-    // rank
-    if (!pipe.data.rank) {
-      setError("rank");
       return false;
     }
 
@@ -110,13 +94,13 @@ const AvatarModal = ({
             <Select
               labelId="rank-select"
               label="Rank"
-              value={pipe.data.rank ?? ""}
+              value={pipe.data.rank ?? 0}
               onChange={handleRank}
               notched
             >
               {rankOptions().map((rank) => (
                 <MenuItem key={rank} value={rank}>
-                  {rankOptionLabel(rank)}
+                  {`${PREFIX}${rank}`}
                 </MenuItem>
               ))}
             </Select>

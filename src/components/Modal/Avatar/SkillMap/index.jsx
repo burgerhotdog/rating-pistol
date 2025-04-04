@@ -4,11 +4,7 @@ import HSR from "./hsr/Map";
 import WW from "./ww/Map";
 import ZZZ from "./zzz/Map";
 
-const Switcher = ({
-  gameId,
-  pipe,
-  setPipe,
-}) => {
+export default ({ gameId, pipe, setPipe }) => {
   const editSkillMap = (skill, newValue) => {
     setPipe((prev) => ({
       ...prev,
@@ -22,26 +18,40 @@ const Switcher = ({
     }));
   };
 
-  let mapContent = null;
   switch (gameId) {
     case "gi":
-      mapContent = (<GI pipe={pipe} editSkillMap={editSkillMap} />);
-      break;
+      return (
+        <GI
+          skillMap={pipe.data.skillMap}
+          editSkillMap={editSkillMap} 
+        />
+      );
 
     case "hsr":
-      mapContent = (<HSR pipe={pipe} editSkillMap={editSkillMap} />);
-      break;
+      return (
+        <HSR
+          id={pipe.id}
+          rank={pipe.data.rank}
+          skillMap={pipe.data.skillMap}
+          editSkillMap={editSkillMap}
+        />
+      );
 
     case "ww":
-      mapContent = (<WW pipe={pipe} editSkillMap={editSkillMap} />);
-      break;
+      return (
+        <WW
+          skillMap={pipe.data.skillMap}
+          editSkillMap={editSkillMap}
+        />
+      );
 
     case "zzz":
-      mapContent = (<ZZZ pipe={pipe} editSkillMap={editSkillMap} />);
-      break;
+      return (
+        <ZZZ
+          rank={pipe.data.rank}
+          skillMap={pipe.data.skillMap}
+          editSkillMap={editSkillMap}
+        />
+      );
   }
-
-  return mapContent;
 };
-
-export default Switcher;

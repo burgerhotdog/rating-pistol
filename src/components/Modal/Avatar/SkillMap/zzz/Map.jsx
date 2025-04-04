@@ -9,17 +9,15 @@ import {
 const options10 = Array.from({ length: 12 }, (_, i) => i + 1);
 const optionsCore = Array.from({ length: 7 }, (_, i) => i + 1);
 
-const ZZZ = ({ pipe, editSkillMap }) => {
-  const { skillMap } = pipe.data;
-  
+const ZZZ = ({ rank, skillMap, editSkillMap }) => {  
   const handleSkill = (event) => {
     const { name, value } = event.target;
     editSkillMap(name, value);
   };
 
   const rankBonus = (lvl) => {
-    if (pipe.data.rank >= 5) return lvl + 4;
-    if (pipe.data.rank >= 3) return lvl + 2;
+    if (rank >= 5) return lvl + 4;
+    if (rank >= 3) return lvl + 2;
     return lvl;
   }
 

@@ -134,8 +134,8 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
           const data = template(gameId);
 
           // avatar
-          data.level = String(charObj.propMap["4001"].val);
-          data.rank = String(charObj.talentIdList?.length ?? 0);
+          data.level = Number(charObj.propMap["4001"].val);
+          data.rank = Number(charObj.talentIdList?.length ?? 0);
     
           // weapon
           const weaponObj = charObj.equipList[charObj.equipList.length - 1];
@@ -154,7 +154,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             data.equipList[equipIndex].setId = equipObj.flat.icon.substring(13, 18);
 
             // mainstat
-            data.equipList[equipIndex].key = STAT_CONVERT[equipObj.flat.reliquaryMainstat.mainPropId];
+            data.equipList[equipIndex].stat = STAT_CONVERT[equipObj.flat.reliquaryMainstat.mainPropId];
 
             // substats
             const reliqSubArr = equipObj.flat.reliquarySubstats;
@@ -183,8 +183,8 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
           }
 
           // avatar
-          data.level = String(charObj.level);
-          data.rank = String(charObj.rank ?? 0);
+          data.level = Number(charObj.level);
+          data.rank = Number(charObj.rank ?? 0);
 
           // weapon
           const weaponObj = charObj.equipment;
@@ -203,7 +203,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             data.equipList[equipIndex].setId = String(relicObj._flat.setID);
 
             // mainstat
-            data.equipList[equipIndex].key = STAT_CONVERT[relicObj._flat.props[0].type];
+            data.equipList[equipIndex].stat = STAT_CONVERT[relicObj._flat.props[0].type];
 
             // substats
             const subPropsArr = relicObj._flat.props.slice(1);
@@ -235,8 +235,8 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
           const data = template(gameId);
 
           // avatar
-          data.level = String(charObj.Level);
-          data.rank = String(charObj.TalentLevel);
+          data.level = Number(charObj.Level);
+          data.rank = Number(charObj.TalentLevel);
 
           // weapon
           const weaponObj = charObj.Weapon;
@@ -255,7 +255,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             data.equipList[equipIndex].setId = `${Math.floor(relicObj.Equipment.Id / 100)}00`;
 
             // mainstat
-            data.equipList[equipIndex].key = STAT_CONVERT[relicObj.Equipment.MainPropertyList[0].PropertyId];
+            data.equipList[equipIndex].stat = STAT_CONVERT[relicObj.Equipment.MainPropertyList[0].PropertyId];
 
             // substats
             const subPropsArr = relicObj.Equipment.RandomPropertyList;

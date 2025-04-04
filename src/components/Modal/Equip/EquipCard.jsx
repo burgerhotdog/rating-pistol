@@ -10,12 +10,7 @@ import {
 } from "@mui/material";
 import { ASSETS, DATA } from "../../importData";
 
-const EquipCard = ({
-  gameId,
-  pipe,
-  setPipe,
-  mainIndex,
-}) => {
+const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
   const { STAT_INDEX, SET_DATA } = DATA[gameId];
   const { SET_IMGS } = ASSETS[gameId];
 
@@ -45,7 +40,7 @@ const EquipCard = ({
           index === mainIndex
             ? {
               ...equipObj,
-              key: newValue,
+              stat: newValue,
               statMap: {
                 0: { stat: null, value: null },
                 1: { stat: null, value: null },
@@ -91,15 +86,15 @@ const EquipCard = ({
   );
 
   const substatOptions = (subIndex) => {
-    const selectedMainstat = pipe.data.equipList[mainIndex].key;
+    const selectedMainstat = pipe.data.equipList[mainIndex].stat;
     const selectedSubstats = Object.entries(pipe.data.equipList[mainIndex].statMap || {})
       .map(([, substatObj]) => substatObj.stat)
       .filter((_, idx) => idx !== subIndex);
     
     return Object.keys(STAT_INDEX).filter((stat) => {
       const isSubstat = STAT_INDEX[stat].value;
-      const isNotMainstat = gameId === "ww" || option !== selectedMainstat;
-      const isNotDuplicate = !selectedSubstats.includes(option);
+      const isNotMainstat = gameId === "ww" || stat !== selectedMainstat;
+      const isNotDuplicate = !selectedSubstats.includes(stat);
       return isSubstat && isNotDuplicate && isNotMainstat;
     });
   };
@@ -166,7 +161,7 @@ const EquipCard = ({
 
         <Grid size={12}>
           <Autocomplete
-            value={pipe.data.equipList[mainIndex].key}
+            value={pipe.data.equipList[mainIndex].stat}
             options={mainstatOptions}
             getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
@@ -199,7 +194,7 @@ const EquipCard = ({
                     label={"Substat"}
                   />
                 )}
-                disabled={!pipe.data.equipList[mainIndex].key}
+                disabled={!pipe.data.equipList[mainIndex].stat}
               />
             </Grid>
 

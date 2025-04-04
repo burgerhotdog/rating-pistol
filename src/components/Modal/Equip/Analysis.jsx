@@ -9,7 +9,7 @@ import getRollValue from "./getRollValue";
 const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
   const { weights } = DATA[gameId].AVATAR_DATA[avatarId];
   const { STAT_INDEX } = DATA[gameId];
-  const mainstat = equipObj.key;
+  const mainstat = equipObj.stat;
   const substats = Object.values(equipObj.statMap);
 
   // Calculate substat score
@@ -35,6 +35,7 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
     });
     return bins;
   }, [simulationData, binSize, mainstat]);
+  
   // Get the maximum bin count for y-axis scaling
   const maxBinCount = useMemo(() => {
     const counts = Object.values(histogramData);

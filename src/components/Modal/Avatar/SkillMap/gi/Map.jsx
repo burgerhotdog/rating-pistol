@@ -8,9 +8,7 @@ import {
 } from "@mui/material";
 const options10 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const GI = ({ pipe, editSkillMap }) => {
-  const { skillMap } = pipe.data;
-  
+const GI = ({ skillMap, editSkillMap }) => {  
   const handleSkill = (event) => {
     const { name, value } = event.target;
     editSkillMap(name, value);

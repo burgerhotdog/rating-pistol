@@ -3,9 +3,8 @@ export default (gameId) => {
 
   return {
     isStar: false,
-
-    level: "1",
-    rank: "0",
+    level: 1,
+    rank: 0,
     skillMap: {
       "001": 1,
       "002": 1,
@@ -58,7 +57,7 @@ export default (gameId) => {
       .fill()
       .map(() => ({
         setId: null,
-        key: null,
+        stat: null,
         statMap: {
           0: { stat: null, value: null },
           1: { stat: null, value: null },
