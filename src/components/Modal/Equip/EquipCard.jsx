@@ -171,7 +171,6 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
                 label="Mainstat"
               />
             )}
-            disabled={!pipe.data.equipList[mainIndex].setId}
           />
         </Grid>
 

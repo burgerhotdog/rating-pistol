@@ -30,7 +30,7 @@ export default ({ gameId, pipe, setPipe }) => {
     case "hsr":
       return (
         <HSR
-          id={pipe.id}
+          avatarId={pipe.id}
           rank={pipe.data.rank}
           skillMap={pipe.data.skillMap}
           editSkillMap={editSkillMap}
