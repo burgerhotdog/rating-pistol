@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
   Container, Stack, TableContainer, Table, TableHead, TableBody,
   TableRow, TableCell, Button, Typography, CircularProgress,
+  Box, Grid, Select, MenuItem, InputLabel, FormControl,
 } from "@mui/material";
 import { db } from "../firebase";
 import Back from "./Back";
@@ -16,8 +17,9 @@ import {
 import { DATA } from "./importData";
 
 const GamePage = ({ gameId, userId }) => {
-  const { TITLE, VERSION, HEADERS } = DATA[gameId];
+  const { TITLE, VERSION, HEADERS, AVATAR_DATA } = DATA[gameId];
   const [localDocs, setLocalDocs] = useState({});
+  const [teamDocs, setTeamDocs] = useState({});
   const [hoveredId, setHoveredId] = useState(null);
   const [hoveredHead, setHoveredHead] = useState(false);
   const [pipe, setPipe] = useState({});
@@ -34,8 +36,16 @@ const GamePage = ({ gameId, userId }) => {
           const dataDocs = {};
           for (const doc of data.docs) {
             dataDocs[doc.id] = doc.data();
-          };
+          }
           setLocalDocs(dataDocs);
+
+          const teamsRef = collection(db, "users", userId, `${gameId}_teams`);
+          const teamsData = await getDocs(teamsRef);
+          const teamsDocs = {};
+          for (const doc of teamsData.docs) {
+            teamsDocs[doc.id] = doc.data();
+          }
+          setTeamDocs(teamsDocs);
         } catch (error) {
           console.log(error);
         } finally {
@@ -43,10 +53,11 @@ const GamePage = ({ gameId, userId }) => {
         }
       } else {
         setLocalDocs({});
+        setTeamDocs({});
       }
     };
     fetchDB();
-  }, [userId]);
+  }, [userId, gameId]);
 
   // rate and sort localDocs for display table
   const sortedDocs = useMemo(() => {
@@ -71,6 +82,22 @@ const GamePage = ({ gameId, userId }) => {
   const hoverStyle = (id) => ({
     backgroundColor: hoveredId === id ? "rgba(255, 255, 255, 0.03)" : "inherit",
   });
+
+  const handleTeamChange = async (teamId, slot, characterId) => {
+    setTeamDocs(prev => ({
+      ...prev,
+      [teamId]: {
+        ...prev[teamId],
+        [slot]: characterId,
+      },
+    }));
+
+    if (userId) {
+      await setDoc(doc(db, "users", userId, `${gameId}_teams`, teamId), {
+        [slot]: characterId,
+      }, { merge: true });
+    }
+  };
 
   return (
     <Container>
@@ -206,6 +233,47 @@ const GamePage = ({ gameId, userId }) => {
           localDocs={localDocs}
           setLocalDocs={setLocalDocs}
         />
+
+        {/* Teams Section */}
+        <Box sx={{ mt: 4 }}>
+          <Typography variant="h5" gutterBottom>Teams</Typography>
+          <Grid container spacing={2}>
+            {[...Array(8)].map((_, index) => {
+              const teamId = `0${index + 1}`.slice(-2);
+              return (
+                <Grid key={teamId} size={3}>
+                  <Box border={1} p={2} borderRadius={1}>
+                    <Typography variant="h6">Team {teamId}</Typography>
+                    {[...Array(4)].map((_, slotIndex) => {
+                      const slot = slotIndex.toString();
+                      const selectedIds = Object.values(teamDocs[teamId] || {}).filter(Boolean);
+                      const currentId = teamDocs[teamId]?.[slot];
+
+                      const availableOptions = sortedDocs.filter(({ id }) => {
+                        return id === currentId || !selectedIds.includes(id);
+                      });
+                      return (
+                        <FormControl fullWidth key={slot} sx={{ mb: 1 }}>
+                          <InputLabel>Slot {slotIndex + 1}</InputLabel>
+                          <Select
+                            value={teamDocs[teamId]?.[slot] || ""}
+                            onChange={(e) => handleTeamChange(teamId, slot, e.target.value)}
+                            label={`Slot ${slotIndex + 1}`}
+                          >
+                            <MenuItem value="">None</MenuItem>
+                            {availableOptions.map(({ id }) => (
+                              <MenuItem key={id} value={id}>{AVATAR_DATA[id].name}</MenuItem>
+                            ))}
+                          </Select>
+                        </FormControl>
+                      );
+                    })}
+                  </Box>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </Box>
       </Stack>
     </Container>
   );
