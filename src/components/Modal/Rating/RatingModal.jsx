@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { DATA } from "../../importData";
-import LevelTab from "./LevelTab";
-import SkillTab from "./SkillTab";
-import EquipTab from "./EquipTab";
 
 const RatingModal = ({ gameId, pipe }) => {
   const { HEADERS } = DATA[gameId];

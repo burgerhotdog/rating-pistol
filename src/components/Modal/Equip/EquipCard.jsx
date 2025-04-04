@@ -16,7 +16,7 @@ const EquipCard = ({
   setPipe,
   mainIndex,
 }) => {
-  const { MAINSTAT_OPTIONS, SUBSTAT_OPTIONS, STAT_INDEX, SET_DATA } = DATA[gameId];
+  const { STAT_INDEX, SET_DATA } = DATA[gameId];
   const { SET_IMGS } = ASSETS[gameId];
 
   const handleSet = (newValue) => {
@@ -47,12 +47,12 @@ const EquipCard = ({
               ...equipObj,
               key: newValue,
               statMap: {
-                0: { key: null, value: null },
-                1: { key: null, value: null },
-                2: { key: null, value: null },
-                3: { key: null, value: null },
+                0: { stat: null, value: null },
+                1: { stat: null, value: null },
+                2: { stat: null, value: null },
+                3: { stat: null, value: null },
                 ...(gameId === "ww"
-                  ? { 4: { key: null, value: null } }
+                  ? { 4: { stat: null, value: null } }
                   : {}),
               },
             }
@@ -76,7 +76,7 @@ const EquipCard = ({
                 [subIndex]: {
                   ...equipObj.statMap[subIndex],
                   [attribute]: newValue,
-                  ...attribute === "key" ? { "value": null } : {},
+                  ...attribute === "stat" ? { "value": null } : {},
                 },
               },
             }
@@ -86,15 +86,22 @@ const EquipCard = ({
     }));
   };
 
+  const mainstatOptions = Object.keys(STAT_INDEX).filter(
+    (stat) => STAT_INDEX[stat].index?.includes(mainIndex)
+  );
+
   const substatOptions = (subIndex) => {
     const selectedMainstat = pipe.data.equipList[mainIndex].key;
     const selectedSubstats = Object.entries(pipe.data.equipList[mainIndex].statMap || {})
-      .map(([, substatObj]) => substatObj.key)
+      .map(([, substatObj]) => substatObj.stat)
       .filter((_, idx) => idx !== subIndex);
     
-    return SUBSTAT_OPTIONS.filter((option) => gameId === "ww"
-      ? !selectedSubstats.includes(option)
-      : !selectedSubstats.includes(option) && option !== selectedMainstat);
+    return Object.keys(STAT_INDEX).filter((stat) => {
+      const isSubstat = STAT_INDEX[stat].value;
+      const isNotMainstat = gameId === "ww" || option !== selectedMainstat;
+      const isNotDuplicate = !selectedSubstats.includes(option);
+      return isSubstat && isNotDuplicate && isNotMainstat;
+    });
   };
 
   const setOptions = () => {
@@ -160,7 +167,7 @@ const EquipCard = ({
         <Grid size={12}>
           <Autocomplete
             value={pipe.data.equipList[mainIndex].key}
-            options={MAINSTAT_OPTIONS[mainIndex]}
+            options={mainstatOptions}
             getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
@@ -182,10 +189,10 @@ const EquipCard = ({
             {/* Substat Key Dropdown */}
             <Grid size={8}>
               <Autocomplete
-                value={pipe.data.equipList[mainIndex].statMap[subIndex].key}
+                value={pipe.data.equipList[mainIndex].statMap[subIndex].stat}
                 options={substatOptions(subIndex)}
                 getOptionLabel={(id) => STAT_INDEX[id]?.name || ""}
-                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "key")}
+                onChange={(_, newValue) => handleSubstat(newValue, subIndex, "stat")}
                 renderInput={(params) => (
                   <TextField
                     {...params}
@@ -203,19 +210,19 @@ const EquipCard = ({
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (STAT_INDEX[pipe.data.equipList[mainIndex].statMap[subIndex].key]?.valueSub * (gameId === "ww" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (STAT_INDEX[pipe.data.equipList[mainIndex].statMap[subIndex].stat]?.value * (gameId === "ww" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, "value");
                   }
                 }}
                 slotProps={{
                   input: {
-                    endAdornment: STAT_INDEX[pipe?.data.equipList[mainIndex].statMap[subIndex].key]?.percent && (
+                    endAdornment: STAT_INDEX[pipe?.data.equipList[mainIndex].statMap[subIndex].stat]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },
                 }}
-                disabled={!pipe.data.equipList[mainIndex].statMap[subIndex].key}
+                disabled={!pipe.data.equipList[mainIndex].statMap[subIndex].stat}
               />
             </Grid>
           </React.Fragment>

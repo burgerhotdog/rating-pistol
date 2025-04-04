@@ -60,12 +60,12 @@ export default (gameId) => {
         setId: null,
         key: null,
         statMap: {
-          0: { key: null, value: null },
-          1: { key: null, value: null },
-          2: { key: null, value: null },
-          3: { key: null, value: null },
+          0: { stat: null, value: null },
+          1: { stat: null, value: null },
+          2: { stat: null, value: null },
+          3: { stat: null, value: null },
           ...(gameId === "ww"
-            ? { 4: { key: null, value: null } }
+            ? { 4: { stat: null, value: null } }
             : {}),
         },
       })),

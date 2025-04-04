@@ -27,8 +27,8 @@ const simulateData = (gameId, mainstat, weights) => {
         cumulative += weight;
         if (random <= cumulative) {
           const multiplier = getRandomMultiplier(gameId);
-          const value = STAT_INDEX[stat].valueSub * multiplier;
-          substats.push({ key: stat, value });
+          const value = STAT_INDEX[stat].value * multiplier;
+          substats.push({ stat, value });
           statPool.splice(k, 1);
           break;
         };
@@ -41,9 +41,9 @@ const simulateData = (gameId, mainstat, weights) => {
       const upgrades = Math.floor(Math.random() * 4) ? 4 : 5;
       for (let j = 0; j < upgrades; j++) {
         const randomIndex = Math.floor(Math.random() * 4);
-        const { key } = substats[randomIndex];
+        const { stat } = substats[randomIndex];
         const multiplier = getRandomMultiplier(gameId);
-        const addValue = STAT_INDEX[key].valueSub * multiplier;
+        const addValue = STAT_INDEX[stat].value * multiplier;
         substats[randomIndex].value += addValue;
       }
     }
