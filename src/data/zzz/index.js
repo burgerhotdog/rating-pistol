@@ -7,119 +7,110 @@ const VERSION = "1.6";
 const HEADERS = { avatar: "Agent", weapon: "W-Engine", equips: "Drive Discs", skills: "Skills" };
 const SKILL_CAPS = [12, 12, 12, 12, 12, 7];
 const EQUIP_NAMES = ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"];
-const MAINSTAT_OPTIONS = [
-  ["_HP"],
-  ["_ATK"],
-  ["_DEF"],
-  ["HP", "ATK", "DEF", "CR", "CD", "AP"],
-  ["HP", "ATK", "DEF", "ETHER", "ELECTRIC", "FIRE", "ICE", "PHYSICAL", "PR"],
-  ["HP", "ATK", "DEF", "AM", "IMPACT", "ER"],
-];
-const SUBSTAT_OPTIONS = ["_HP", "_ATK", "_DEF", "HP", "ATK", "DEF", "CR", "CD", "AP", "PEN"];
 const STAT_INDEX = {
   "_HP": {
     name: "HP",
     percent: false,
-    valueMain: 2200,
-    valueSub: 112,
+    index: [0],
+    value: 112,
   },
   "_ATK": {
     name: "ATK",
     percent: false,
-    valueMain: 316,
-    valueSub: 19,
+    index: [1],
+    value: 19,
   },
   "_DEF": {
     name: "DEF",
     percent: false,
-    valueMain: 184,
-    valueSub: 15,
+    index: [2],
+    value: 15,
   },
   "HP": {
     name: "HP%",
     percent: true,
-    valueMain: 30,
-    valueSub: 3,
+    index: [3, 4, 5],
+    value: 3,
   },
   "ATK": {
     name: "ATK%",
     percent: true,
-    valueMain: 30,
-    valueSub: 3,
+    index: [3, 4, 5],
+    value: 3,
   },
   "DEF": {
     name: "DEF%",
     percent: true,
-    valueMain: 48,
-    valueSub: 4.8,
+    index: [3, 4, 5],
+    value: 4.8,
   },
   "CR": {
     name: "CRIT Rate",
     percent: true,
-    valueMain: 24,
-    valueSub: 2.4,
+    index: [3],
+    value: 2.4,
   },
   "CD": {
     name: "CRIT DMG",
     percent: true,
-    valueMain: 48,
-    valueSub: 4.8,
+    index: [3],
+    value: 4.8,
   },
   "AP": {
     name: "Anomaly Proficiency",
     percent: false,
-    valueMain: 92,
-    valueSub: 9,
+    index: [3],
+    value: 9,
   },
   "ETHER": {
     name: "Ether DMG Bonus",
     percent: true,
-    valueMain: 30,
+    index: [4],
   },
   "ELECTRIC": {
     name: "Electric DMG Bonus",
     percent: true,
-    valueMain: 30,
+    index: [4],
   },
   "FIRE": {
     name: "Fire DMG Bonus",
     percent: true,
-    valueMain: 30,
+    index: [4],
   },
   "ICE": {
     name: "Ice DMG Bonus",
     percent: true,
-    valueMain: 30,
+    index: [4],
   },
   "PHYSICAL": {
     name: "Physical DMG Bonus",
     percent: true,
-    valueMain: 30,
+    index: [4],
   },
   "PR": {
     name: "PEN Ratio",
     percent: true,
-    valueMain: 24,
+    index: [4],
   },
   "AM": {
     name: "Anomaly Mastery",
     percent: false,
-    valueMain: 30,
+    index: [5],
   },
   "IMPACT": {
     name: "Impact%",
     percent: true,
-    valueMain: 18,
+    index: [5],
   },
   "ER": {
     name: "Energy Regen%",
     percent: true,
-    valueMain: 60,
+    index: [5],
   },
   "PEN": {
     name: "PEN",
     percent: false,
-    valueSub: 9,
+    value: 9,
   },
 };
 

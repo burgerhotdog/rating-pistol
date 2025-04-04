@@ -1,11 +1,11 @@
 const getRollValue = (gameId, substats, STAT_INDEX, weights) => {
-  const rollValue = substats.reduce((acc, { key, value }) => {
-    if (!key || !value) return acc;
+  const rollValue = substats.reduce((acc, { stat, value }) => {
+    if (!stat || !value) return acc;
 
-    const weight = weights[key];
+    const weight = weights[stat];
     if (!weight) return acc;
 
-    const rolls = Number(value) / STAT_INDEX[key].valueSub;
+    const rolls = Number(value) / STAT_INDEX[stat].value;
     return acc + rolls * weight * 100;
   }, 0);
   const multiplier = gameId === "ww" ? 2 : 1; 

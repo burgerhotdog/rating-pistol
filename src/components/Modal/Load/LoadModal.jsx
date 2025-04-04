@@ -160,7 +160,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             const reliqSubArr = equipObj.flat.reliquarySubstats;
             if (!reliqSubArr) continue;
             for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
-              data.equipList[equipIndex].statMap[subIndex].key = STAT_CONVERT[reliqSubObj.appendPropId];
+              data.equipList[equipIndex].statMap[subIndex].stat = STAT_CONVERT[reliqSubObj.appendPropId];
               data.equipList[equipIndex].statMap[subIndex].value = String(reliqSubObj.statValue);
             }
           }
@@ -209,7 +209,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             const subPropsArr = relicObj._flat.props.slice(1);
             if (!subPropsArr) continue;
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
-              data.equipList[equipIndex].statMap[subIndex].key = STAT_CONVERT[subPropObj.type];
+              data.equipList[equipIndex].statMap[subIndex].stat = STAT_CONVERT[subPropObj.type];
               const valueRatio = subPropObj.type.slice(-5) === "Delta" ? 1 : 100;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               data.equipList[equipIndex].statMap[subIndex].value = Math.round((subPropObj.value * valueRatio) * roundAmount) / roundAmount;
@@ -262,7 +262,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             if (!subPropsArr) continue;
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
               const key = STAT_CONVERT[String(subPropObj.PropertyId)];
-              data.equipList[equipIndex].statMap[subIndex].key = key;
+              data.equipList[equipIndex].statMap[subIndex].stat = key;
               const value = subPropObj.PropertyValue;
               const valueRatio = STAT_INDEX[key].percent ? 0.01 : 1;
               const roundAmount = valueRatio === 1 ? 1 : 10;

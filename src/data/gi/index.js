@@ -7,118 +7,110 @@ const VERSION = "5.5";
 const HEADERS = { avatar: "Character", weapon: "Weapon", equips: "Artifacts", skills: "Talents" };
 const SKILL_CAPS = [10, 10, 10];
 const EQUIP_NAMES = ["Flower", "Plume", "Sands", "Goblet", "Circlet"];
-const MAINSTAT_OPTIONS = [
-  ["_HP"],
-  ["_ATK"],
-  ["HP", "ATK", "DEF", "EM", "ER"],
-  ["HP", "ATK", "DEF", "EM", "ANEMO", "CRYO", "DENDRO", "ELECTRO", "GEO", "HYDRO", "PYRO", "PHYSICAL"],
-  ["HP", "ATK", "DEF", "EM", "CR", "CD", "HB"],
-];
-const SUBSTAT_OPTIONS = ["_HP", "_ATK", "_DEF", "HP", "ATK", "DEF", "EM", "ER", "CR", "CD"];
 const STAT_INDEX = {
   "_HP": {
     name: "HP",
     percent: false,
-    valueMain: 4780,
-    valueSub: 298.75,
+    index: [0],
+    value: 298.75,
   },
   "_ATK": {
     name: "ATK",
     percent: false,
-    valueMain: 311,
-    valueSub: 19.45,
+    index: [1],
+    value: 19.45,
   },
   "_DEF": {
     name: "DEF",
     percent: false,
-    valueSub: 23.15,
+    value: 23.15,
   },
   "HP": {
     name: "HP%",
     percent: true,
-    valueMain: 46.6,
-    valueSub: 5.83,
+    index: [2, 3, 4],
+    value: 5.83,
   },
   "ATK": {
     name: "ATK%",
     percent: true,
-    valueMain: 46.6,
-    valueSub: 5.83,
+    index: [2, 3, 4],
+    value: 5.83,
   },
   "DEF": {
     name: "DEF%",
     percent: true,
-    valueMain: 58.3,
-    valueSub: 7.29,
+    index: [2, 3, 4],
+    value: 7.29,
   },
   "EM": {
     name: "Elemental Mastery",
     percent: false,
-    valueMain: 186.5,
-    valueSub: 23.31,
+    index: [2, 3, 4],
+    value: 23.31,
   },
   "ER": {
     name: "Energy Recharge",
     percent: true,
-    valueMain: 51.8,
-    valueSub: 6.48,
+    index: [2],
+    value: 6.48,
   },
   "ANEMO": {
     name: "Anemo DMG Bonus",
     percent: true,
-    valueMain: 46.6,
+    index: [3],
   },
   "CRYO": {
     name: "Cryo DMG Bonus",
     percent: true,
-    valueMain: 46.6,
+    index: [3],
   },
   "DENDRO": {
     name: "Dendro DMG Bonus",
     percent: true,
-    valueMain: 46.6,
+    index: [3],
   },
   "ELECTRO": {
     name: "Electro DMG Bonus",
     percent: true,
-    valueMain: 46.6,
+    index: [3],
   },
   "GEO": {
     name: "Geo DMG Bonus",
     percent: true,
-    valueMain: 46.6,
+    index: [3],
   },
   "HYDRO": {
     name: "Hydro DMG Bonus",
     percent: true,
-    valueMain: 46.6,
+    index: [3],
   },
   "PYRO": {
     name: "Pyro DMG Bonus",
     percent: true,
-    valueMain: 46.6,
+    index: [3],
   },
   "PHYSICAL": {
     name: "Physical DMG Bonus",
     percent: true,
-    valueMain: 58.3,
+    index: [3],
   },
   "CR": {
     name: "CRIT Rate",
     percent: true,
-    valueMain: 31.1,
-    valueSub: 3.89,
+    index: [4],
+    value: 3.89,
   },
   "CD": {
     name: "CRIT DMG",
     percent: true,
-    valueMain: 62.2,
-    valueSub: 7.77,
+    index: [4],
+    value: 7.77,
   },
   "HB": {
     name: "Healing Bonus",
     percent: true,
-    valueMain: 35.9,
+    index: [4],
   },
 };
 
