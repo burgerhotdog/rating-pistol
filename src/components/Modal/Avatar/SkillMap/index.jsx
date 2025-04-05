@@ -40,6 +40,7 @@ export default ({ gameId, pipe, setPipe }) => {
     case "ww":
       return (
         <WW
+          avatarId={pipe.id}
           skillMap={pipe.data.skillMap}
           editSkillMap={editSkillMap}
         />

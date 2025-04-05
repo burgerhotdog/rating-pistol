@@ -5,6 +5,7 @@ export default {
     rarity: 5,
     type: "Rectifier",
     sig: "21050056",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 11600, _ATK: 400, _DEF: 1100 },
     weights: {
       "CR": 1,
@@ -20,6 +21,7 @@ export default {
     rarity: 5,
     type: "Sword",
     sig: "21020046",
+    minor: ["ATK", "ATK", "HB", "HB", "ATK", "ATK", "HB", "HB"],
     statBase: { _HP: 10775, _ATK: 438, _DEF: 1137 },
     weights: {
       "CR": 1,
@@ -36,6 +38,7 @@ export default {
     rarity: 5,
     type: "Rectifier",
     sig: "21050046",
+    minor: ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
     weights: {
       "CR": 1,
@@ -51,6 +54,7 @@ export default {
     rarity: 5,
     type: "Sword",
     sig: "21020036",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 11675, _ATK: 375, _DEF: 1308 },
     weights: {
       "CR": 1,
@@ -68,6 +72,7 @@ export default {
     rarity: 5,
     type: "Gauntlets",
     sig: "21040026",
+    minor: ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     statBase: { _HP: 12250, _ATK: 375, _DEF: 1198 },
     weights: {
       "CR": 1,
@@ -83,6 +88,7 @@ export default {
     rarity: 5,
     type: "Pistols",
     sig: "21030016",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 12450, _ATK: 463, _DEF: 1198 },
     weights: {
       "CR": 1,
@@ -100,6 +106,7 @@ export default {
     rarity: 5,
     type: "Sword",
     sig: "21020026",
+    minor: ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     statBase: { _HP: 10325, _ATK: 450, _DEF: 1161 },
     weights: {
       "CR": 1,
@@ -115,6 +122,7 @@ export default {
     name: "Lumi",
     rarity: 4,
     type: "Broadblade",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 8500, _ATK: 338, _DEF: 880 },
     weights: {
       "CR": 1,
@@ -132,6 +140,7 @@ export default {
     rarity: 5,
     type: "Rectifier",
     sig: "21050036",
+    minor: ["HP", "HP", "HB", "HB", "HP", "HP", "HB", "HB"],
     statBase: { _HP: 16713, _ATK: 288, _DEF: 1100 },
     weights: {
       "CD": 1,
@@ -146,6 +155,7 @@ export default {
     name: "Youhu",
     rarity: 4,
     type: "Gauntlets",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 9975, _ATK: 263, _DEF: 1051 },
     weights: {
       "CR": 1,
@@ -162,6 +172,7 @@ export default {
     rarity: 5,
     type: "Gauntlets",
     sig: "21040016",
+    minor: ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     statBase: { _HP: 10625, _ATK: 425, _DEF: 1222 },
     weights: {
       "CR": 1,
@@ -177,6 +188,7 @@ export default {
     rarity: 5,
     type: "Rectifier",
     sig: "21050026",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 12250, _ATK: 375, _DEF: 1198 },
     weights: {
       "CR": 1,
@@ -194,6 +206,7 @@ export default {
     rarity: 5,
     type: "Broadblade",
     sig: "21010026",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
     weights: {
       "CR": 1,
@@ -209,6 +222,7 @@ export default {
     rarity: 5,
     type: "Sword",
     sig: "21020016",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 10388, _ATK: 463, _DEF: 1100 },
     weights: {
       "CR": 1,
@@ -225,6 +239,7 @@ export default {
     name: "Rover (Havoc)",
     rarity: 5,
     type: "Sword",
+    minor: ["ATK", "ATK", "HAVOC", "HAVOC", "ATK", "ATK", "HAVOC", "HAVOC"],
     statBase: { _HP: 10825, _ATK: 413, _DEF: 1259 },
     weights: {
       "CR": 1,
@@ -238,6 +253,7 @@ export default {
     name: "Verina",
     rarity: 5,
     type: "Rectifier",
+    minor: ["ATK", "ATK", "HB", "HB", "ATK", "ATK", "HB", "HB"],
     statBase: { _HP: 14238, _ATK: 338, _DEF: 1100 },
     weights: {
       "ER": 1,
@@ -249,6 +265,7 @@ export default {
     name: "Rover (Spectro)",
     rarity: 5,
     type: "Sword",
+    minor: ["ATK", "ATK", "SPECTRO", "SPECTRO", "ATK", "ATK", "SPECTRO", "SPECTRO"],
     statBase: { _HP: 11400, _ATK: 375, _DEF: 1369 },
     weights: {
       "CR": 1,
@@ -262,6 +279,7 @@ export default {
     name: "Jianxin",
     rarity: 5,
     type: "Gauntlets",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 14113, _ATK: 338, _DEF: 1124 },
     weights: {
       "CR": 1,
@@ -277,6 +295,7 @@ export default {
     rarity: 5,
     type: "Broadblade",
     sig: "21010016",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 10488, _ATK: 438, _DEF: 1185 },
     weights: {
       "CR": 1,
@@ -292,6 +311,7 @@ export default {
     rarity: 5,
     type: "Rectifier",
     sig: "21050016",
+    minor: ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     statBase: { _HP: 11000, _ATK: 400, _DEF: 1283 },
     weights: {
       "CR": 1,
@@ -307,6 +327,7 @@ export default {
     rarity: 5,
     type: "Broadblade",
     sig: "21010015",
+    minor: ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     statBase: { _HP: 10500, _ATK: 438, _DEF: 1185 },
     weights: {
       "CR": 1,
@@ -322,6 +343,7 @@ export default {
     rarity: 5,
     type: "Rectifier",
     sig: "21050015",
+    minor: ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
     statBase: { _HP: 10513, _ATK: 425, _DEF: 1246 },
     weights: {
       "CR": 1,
@@ -337,6 +359,7 @@ export default {
     rarity: 5,
     type: "Gauntlets",
     sig: "21040015",
+    minor: ["ATK", "ATK", "GLACIO", "GLACIO", "ATK", "ATK", "GLACIO", "GLACIO"],
     statBase: { _HP: 10388, _ATK: 438, _DEF: 1210 },
     weights: {
       "CR": 1,
@@ -352,6 +375,7 @@ export default {
     name: "Danjin",
     rarity: 4,
     type: "Sword",
+    minor: ["ATK", "ATK", "HAVOC", "HAVOC", "ATK", "ATK", "HAVOC", "HAVOC"],
     statBase: { _HP: 9438, _ATK: 263, _DEF: 1149 },
     weights: {
       "CR": 1,
@@ -365,6 +389,7 @@ export default {
     name: "Taoqi",
     rarity: 4,
     type: "Broadblade",
+    minor: ["DEF", "DEF", "HAVOC", "HAVOC", "DEF", "DEF", "HAVOC", "HAVOC"],
     statBase: { _HP: 8950, _ATK: 225, _DEF: 1564 },
     weights: {
       "CR": 1,
@@ -378,6 +403,7 @@ export default {
     name: "Aalto",
     rarity: 4,
     type: "Pistols",
+    minor: ["ATK", "ATK", "AERO", "AERO", "ATK", "ATK", "AERO", "AERO"],
     statBase: { _HP: 9850, _ATK: 263, _DEF: 1075 },
     weights: {
       "CR": 1,
@@ -392,6 +418,7 @@ export default {
     name: "Yangyang",
     rarity: 4,
     type: "Sword",
+    minor: ["ATK", "ATK", "AERO", "AERO", "ATK", "ATK", "AERO", "AERO"],
     statBase: { _HP: 10200, _ATK: 250, _DEF: 1100 },
     weights: {
       "CR": 1,
@@ -406,6 +433,7 @@ export default {
     name: "Yuanwu",
     rarity: 4,
     type: "Gauntlets",
+    minor: ["DEF", "DEF", "ELECTRO", "ELECTRO", "DEF", "DEF", "ELECTRO", "ELECTRO"],
     statBase: { _HP: 8525, _ATK: 225, _DEF: 1637 },
     weights: {
       "CR": 1,
@@ -421,6 +449,7 @@ export default {
     name: "Mortefi",
     rarity: 4,
     type: "Pistols",
+    minor: ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
     statBase: { _HP: 10025, _ATK: 250, _DEF: 1136 },
     weights: {
       "CR": 1,
@@ -435,6 +464,7 @@ export default {
     name: "Chixia",
     rarity: 4,
     type: "Pistols",
+    minor: ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
     statBase: { _HP: 9088, _ATK: 300, _DEF: 953 },
     weights: {
       "CR": 1,
@@ -450,6 +480,7 @@ export default {
     name: "Baizhi",
     rarity: 4,
     type: "Rectifier",
+    minor: ["HP", "HP", "HB", "HB", "HP", "HP", "HB", "HB"],
     statBase: { _HP: 12813, _ATK: 213, _DEF: 1002 },
     weights: {
       "ER": 1,
@@ -462,6 +493,7 @@ export default {
     name: "Sanhua",
     rarity: 4,
     type: "Sword",
+    minor: ["ATK", "ATK", "GLACIO", "GLACIO", "ATK", "ATK", "GLACIO", "GLACIO"],
     statBase: { _HP: 10063, _ATK: 275, _DEF: 941 },
     weights: {
       "CR": 1,

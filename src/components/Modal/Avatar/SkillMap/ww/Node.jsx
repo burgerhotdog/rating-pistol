@@ -8,7 +8,6 @@ const Node = ({
   imageSrc,
   active,
   locked,
-  rankBonus,
   hoveredNode,
   setHoveredNode,
 }) => {
@@ -16,7 +15,7 @@ const Node = ({
   const maxed = value === maxValue;
   const size = id[0] === "0" ? 46 : id[0] === "1" ? 52 : 34;
 
-  const textContent = `${value + rankBonus} / ${maxValue + rankBonus}`;
+  const textContent = `${value} / ${maxValue}`;
   const textLength = textContent.length;
   const textWidth = textLength * 9;
 
@@ -84,7 +83,7 @@ const Node = ({
       
       {/* Value with dark background */}
       {id[0] === "0" && (
-        <>
+        <g style={{ pointerEvents: "none" }}>
           <rect
             x={x - textWidth / 2}
             y={y + size / 1.5 - 8}
@@ -92,20 +91,18 @@ const Node = ({
             height={22}
             fill="rgba(20, 20, 20, .8)"
             rx="10"
-            style={{ pointerEvents: "none" }}
           />
           <text
             x={x}
             y={y + size / 1.5 + 4}
             textAnchor="middle"
-            fill={rankBonus ? "cyan" : "white"}
+            fill="white"
             fontSize={16}
             dominantBaseline="middle"
-            style={{ pointerEvents: "none", userSelect: "none" }}
           >
             {textContent}
           </text>
-        </>
+        </g>
       )}
     </g>
   );

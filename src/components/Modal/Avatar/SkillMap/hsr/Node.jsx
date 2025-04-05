@@ -84,7 +84,7 @@ const Node = ({
       
       {/* Value with dark background */}
       {id[0] === "0" && (
-        <>
+        <g style={{ pointerEvents: "none" }}>
           <rect
             x={x - textWidth / 2}
             y={y + size / 1.5 - 8}
@@ -92,7 +92,6 @@ const Node = ({
             height={22}
             fill="rgba(20, 20, 20, .8)"
             rx="10"
-            style={{ pointerEvents: "none" }}
           />
           <text
             x={x}
@@ -101,11 +100,10 @@ const Node = ({
             fill={rankBonus ? "cyan" : "white"}
             fontSize={16}
             dominantBaseline="middle"
-            style={{ pointerEvents: "none", userSelect: "none" }}
           >
             {textContent}
           </text>
-        </>
+        </g>
       )}
     </g>
   );

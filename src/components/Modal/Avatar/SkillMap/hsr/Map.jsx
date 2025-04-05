@@ -5,29 +5,6 @@ import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
 
-const mapLabel = {
-  "001": "Basic ATK",
-  "002": "Skill",
-  "003": "Ultimate",
-  "004": "Talent",
-  "005": "Memosprite Skill",
-  "006": "Memosprite Talent",
-  "007": "Technique",
-  "101": "Bonus Ability",
-  "102": "Bonus Ability",
-  "103": "Bonus Ability",
-  "201": "Stat Bonus",
-  "202": "Stat Bonus",
-  "203": "Stat Bonus",
-  "204": "Stat Bonus",
-  "205": "Stat Bonus",
-  "206": "Stat Bonus",
-  "207": "Stat Bonus",
-  "208": "Stat Bonus",
-  "209": "Stat Bonus",
-  "210": "Stat Bonus",
-};
-
 const HSR = ({ avatarId, rank, skillMap, editSkillMap }) => {
   const { SKILL_CAPS, AVATAR_DATA } = DATA.hsr;
   const { PATH_IMGS } = ASSETS.hsr;
@@ -70,7 +47,7 @@ const HSR = ({ avatarId, rank, skillMap, editSkillMap }) => {
   return (
     <Stack direction="row" spacing={2}>
       <Paper sx={{ p: 3, borderRadius: 2 }}>
-        <Box sx={{ width: 600, height: 600 }}>
+        <Box sx={{ width: 600, height: 600, userSelect: "none" }}>
           <svg width="100%" height="100%" viewBox="0 0 600 600">
             {/* Background Image */}
             <image
@@ -107,6 +84,7 @@ const HSR = ({ avatarId, rank, skillMap, editSkillMap }) => {
                 const parentInactive = !Boolean(skillMap[realParent]);
 
                 const imageSrc = getNodeIcon(avatarId, id);
+                const isPassive = id === "007";
 
                 const rankTraceIndex = Number(id.slice(1)) - 1;
                 const rankReq = AVATAR_DATA[avatarId].rankTrace[rankTraceIndex];
@@ -120,8 +98,8 @@ const HSR = ({ avatarId, rank, skillMap, editSkillMap }) => {
                     x={x}
                     y={y}
                     id={id}
-                    value={skillMap[id]}
-                    maxValue={id[0] === "0" ? SKILL_CAPS[Number(id[2]) - 1] : 1}
+                    value={isPassive ? 1 : skillMap[id]}
+                    maxValue={isPassive ? 1 : id[0] === "0" ? SKILL_CAPS[Number(id[2]) - 1] : 1}
                     onClick={handleNode}
                     imageSrc={imageSrc}
                     active={skillMap[id] !== 0}
@@ -132,16 +110,6 @@ const HSR = ({ avatarId, rank, skillMap, editSkillMap }) => {
                   />
                 )
               })}
-              
-            <text
-              x={4}
-              y={596}
-              fill="white"
-              fontSize={16}
-              style={{ userSelect: "none" }}
-            >
-              {mapLabel[hoveredNode]}
-            </text>
           </svg>
         </Box>
       </Paper>
