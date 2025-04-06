@@ -51,7 +51,7 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
   };
 
   const handleNode = (id) => {
-    if (id === "007") return; // technique
+    if (id === "007") return;
     const value = skillMap[id];
     if (id[0] === "0") {
       const newValue = value < SKILL_CAPS[Number(id[2]) - 1] ? value + 1 : 1;

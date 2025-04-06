@@ -278,7 +278,11 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
           data.skillMap["003"] = Number(skillsArr[3].Level);
           data.skillMap["004"] = Number(skillsArr[2].Level);
           data.skillMap["005"] = Number(skillsArr[5].Level);
-          data.skillMap["006"] = Number(skillsArr[4].Level);
+
+          const coreLevel = Number(skillsArr[4].Level);
+          for (let i = 1; i < coreLevel; i++) {
+            data.skillMap[`10${i}`] = 1;
+          }
 
           return { id, data };
         }

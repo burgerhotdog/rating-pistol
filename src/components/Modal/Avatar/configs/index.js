@@ -7,13 +7,11 @@ export default {
   gi: {
     width: 200,
     height: 300,
-    skillRankBonus: [3, 3, 3],
     nodes: gi_nodes,
   },
   hsr: {
     width: 600,
     height: 600,
-    skillRankBonus: [1, 2, 2, 2, 1, 1],
     nodes: hsr_nodes,
   },
   ww: {
@@ -24,7 +22,6 @@ export default {
   zzz: {
     width: 600,
     height: 300,
-    skillRankBonus: [2, 2, 2, 2, 2],
     nodes: zzz_nodes,
   },
 };

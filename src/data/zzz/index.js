@@ -5,7 +5,7 @@ import SET_DATA from "./SET_DATA";
 const TITLE = "Zenless Zone Zero";
 const VERSION = "1.6";
 const HEADERS = { avatar: "Agent", weapon: "W-Engine", equips: "Drive Discs", skills: "Skills" };
-const SKILL_CAPS = [12, 12, 12, 12, 12, 7];
+const SKILL_CAPS = [12, 12, 12, 12, 12];
 const EQUIP_NAMES = ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"];
 const STAT_INDEX = {
   "_HP": {
