@@ -15,7 +15,6 @@ import { DATA } from "../../importData"
 const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
   const { LEVEL_CAP, PREFIX } = DATA[gameId];
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   
   // level
   const handleLevel = (e) => {
@@ -44,7 +43,7 @@ const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
     );
     const noRank = giNoRank;
 
-    return noRank ? [0] : [0, 1, 2, 3, 4, 5, 6];
+    return noRank ? [0] : Array.from({ length: 7 }, (_, i) => i);
   };
 
   const handleRank = (e) => {

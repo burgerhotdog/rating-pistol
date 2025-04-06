@@ -1,8 +1,8 @@
-import { ASSETS, DATA } from "../../../../importData";
+import { ASSETS, DATA } from "../../importData";
 
-export default (id, nodeId) => {
-  const { AVATAR_DATA } = DATA.hsr;
-  const { STAT_IMGS, SKILL_IMGS } = ASSETS.hsr;
+export default (gameId, id, nodeId) => {
+  const { AVATAR_DATA } = DATA[gameId];
+  const { STAT_IMGS, SKILL_IMGS } = ASSETS[gameId];
   const minorIndex = Number(nodeId.slice(1)) - 1;
 
   if (nodeId[0] === "2") {
