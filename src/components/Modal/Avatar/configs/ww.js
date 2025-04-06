@@ -1,92 +1,86 @@
 export default {
-  // Skill Nodes
-  "001": {
+  "001": { // Normal Attack
     x: 100,
     y: 330,
     children: ["203"],
   },
-  "002": {
+  "002": { // Resonance SKill
     x: 200,
     y: 280,
     children: ["201"],
   },
-  "004": {
+  "004": { // Forte Circuit
     x: 300,
     y: 250,
     children: ["101"],
   },
-  "003": {
+  "003": { // Resonance Liberation
     x: 400,
     y: 280,
     children: ["202"],
   },
-  "005": {
+  "005": { // Intro Skill
     x: 500,
     y: 330,
     children: ["204"],
   },
-  "007": {
+  "007": { // Outro Skill
     x: 300,
     y: 350,
   },
 
-  // Major Nodes
-  "101": {
+  "101": { // Bonus Ability 1
     x: 300,
     y: 150,
     parent: "004",
     children: ["102"],
   },
-  "102": {
+  "102": { // Bonus Ability 2
     x: 300,
     y: 50,
     parent: "101",
   },
 
-  // Minor Nodes
-  "201": {
+  "201": { // Level 50
     x: 200,
     y: 180,
     parent: "002",
     children: ["205"],
   },
-  "202": {
+  "202": { // Level 50
     x: 400,
     y: 180,
     parent: "003",
     children: ["206"],
   },
-
-  "203": {
+  "203": { // Level 60
     x: 100,
     y: 230,
     parent: "001",
     children: ["207"],
   },
-  "204": {
+  "204": { // Level 60
     x: 500,
     y: 230,
     parent: "005",
     children: ["208"],
   },
-
-  "205": {
+  "205": { // Level 70
     x: 200,
     y: 80,
     parent: "201",
   },
-  "206": {
+  "206": { // Level 70
     x: 400,
     y: 80,
     parent: "202",
   },
-
-  "207": {
+  "207": { // Level 80
     x: 100,
     y: 130,
     parent: "203",
   },
-  "208": {
+  "208": { // Level 80
     x: 500,
     y: 130,
     parent: "204",

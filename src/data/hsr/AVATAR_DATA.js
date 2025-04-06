@@ -6,7 +6,7 @@ export default {
     type: "Destruction",
     sig: "23039",
     minor: ["CD", "HP", "CD", "SPD", "CD", "HP", "CD", "SPD", "HP", "CD"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1552, _ATK: 427, _DEF: 194 },
     weights: {
       "CR": 1,
@@ -23,7 +23,7 @@ export default {
     type: "Harmony",
     sig: "23038",
     minor: ["CD", "CR", "CD", "HP", "CD", "CR", "CD", "HP", "CR", "CD"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1048, _ATK: 524, _DEF: 728 },
     weights: {
       "CR": 1,
@@ -41,7 +41,7 @@ export default {
     rarity: 5,
     type: "Remembrance",
     minor: ["CD", "ATK", "CD", "HP", "CD", "ATK", "CD", "HP", "ATK", "CD"],
-    rankTrace: [5, 3, 5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3, 5, 3],
     statBase: { _HP: 1047, _ATK: 543, _DEF: 630 },
     weights: {
       "SPD": 1,
@@ -58,7 +58,7 @@ export default {
     type: "Remembrance",
     sig: "23036",
     minor: ["LIGHTNING", "CR", "LIGHTNING", "DEF", "LIGHTNING", "CR", "LIGHTNING", "DEF", "CR", "LIGHTNING"],
-    rankTrace: [3, 3, 5, 5, 5, 3],
+    skillRank: [3, 3, 5, 5, 5, 3],
     statBase: { _HP: 1242, _ATK: 699, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -75,7 +75,7 @@ export default {
     type: "Erudition",
     sig: "23037",
     minor: ["ICE", "ATK", "ICE", "SPD", "ICE", "ATK", "ICE", "SPD", "ATK", "ICE"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1164, _ATK: 679, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -94,7 +94,7 @@ export default {
     type: "Harmony",
     sig: "23034",
     minor: ["CD", "RES", "CD", "DEF", "CD", "RES", "CD", "DEF", "RES", "CD"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1241, _ATK: 640, _DEF: 533 },
     weights: {
       "SPD": 1,
@@ -110,7 +110,7 @@ export default {
     type: "Nihility",
     sig: "23035",
     minor: ["SPD", "BE", "SPD", "HP", "SPD", "BE", "SPD", "HP", "BE", "SPD"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1125, _ATK: 582, _DEF: 557 },
     weights: {
       "EHR": 1,
@@ -129,7 +129,7 @@ export default {
     type: "Erudition",
     sig: "23033",
     minor: ["ATK", "SPD", "ATK", "BE", "ATK", "SPD", "ATK", "BE", "SPD", "ATK"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1086, _ATK: 717, _DEF: 460 },
     weights: {
       "BE": 1,
@@ -147,7 +147,7 @@ export default {
     type: "Abundance",
     sig: "23032",
     minor: ["BE", "HP", "BE", "ATK", "BE", "HP", "BE", "ATK", "HP", "BE"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 1358, _ATK: 679, _DEF: 436 },
     weights: {
       "SPD": 1,
@@ -163,7 +163,7 @@ export default {
     type: "The Hunt",
     sig: "23031",
     minor: ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1047, _ATK: 601, _DEF: 388 },
     weights: {
       "CR": 1,
@@ -180,7 +180,7 @@ export default {
     rarity: 4,
     type: "The Hunt",
     minor: ["CD", "ATK", "CD", "HP", "CD", "ATK", "CD", "HP", "ATK", "CD"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 811, _ATK: 599, _DEF: 352 },
     weights: {
       "CR": 1,
@@ -199,7 +199,7 @@ export default {
     type: "Destruction",
     sig: "23030",
     minor: ["ATK", "HP", "ATK", "CR", "ATK", "HP", "ATK", "CR", "HP", "ATK"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1358, _ATK: 679, _DEF: 460 },
     weights: {
       "CR": 1,
@@ -216,7 +216,7 @@ export default {
     type: "Nihility",
     sig: "23029",
     minor: ["EHR", "FIRE", "EHR", "SPD", "EHR", "FIRE", "EHR", "SPD", "FIRE", "EHR"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1358, _ATK: 601, _DEF: 509 },
     weights: {
       "EHR": 1,
@@ -231,7 +231,7 @@ export default {
     rarity: 4,
     type: "The Hunt",
     minor: ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1058, _ATK: 564, _DEF: 441 },
     weights: {
       "CR": 1,
@@ -250,7 +250,7 @@ export default {
     type: "Erudition",
     sig: "23028",
     minor: ["QUANTUM", "ATK", "QUANTUM", "RES", "QUANTUM", "ATK", "QUANTUM", "RES", "ATK", "QUANTUM"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1086, _ATK: 659, _DEF: 509 },
     weights: {
       "CR": 1,
@@ -267,7 +267,7 @@ export default {
     type: "Destruction",
     sig: "23025",
     minor: ["BE", "RES", "BE", "SPD", "BE", "RES", "BE", "SPD", "RES", "BE"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 814, _ATK: 523, _DEF: 776 },
     weights: {
       "BE": 1,
@@ -284,7 +284,7 @@ export default {
     rarity: 5,
     type: "Harmony",
     minor: ["BE", "IMAGINARY", "BE", "RES", "BE", "IMAGINARY", "BE", "RES", "IMAGINARY", "BE"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1086, _ATK: 446, _DEF: 679 },
     weights: {
       "BE": 1,
@@ -300,7 +300,7 @@ export default {
     type: "The Hunt",
     sig: "23027",
     minor: ["BE", "ATK", "BE", "HP", "BE", "ATK", "BE", "HP", "ATK", "BE"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1203, _ATK: 620, _DEF: 436 },
     weights: {
       "BE": 1,
@@ -314,7 +314,7 @@ export default {
     type: "Harmony",
     sig: "23026",
     minor: ["ATK", "HP", "ATK", "SPD", "ATK", "HP", "ATK", "SPD", "HP", "ATK"],
-    rankTrace: [5, 3, 3, 5],
+    skillRank: [5, 3, 3, 5],
     statBase: { _HP: 1280, _ATK: 640, _DEF: 485 },
     weights: {
       "ATK": 1,
@@ -333,7 +333,7 @@ export default {
     type: "Nihility",
     sig: "23024",
     minor: ["ATK", "CD", "ATK", "LIGHTNING", "ATK", "CD", "ATK", "LIGHTNING", "CD", "ATK"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1125, _ATK: 698, _DEF: 436 },
     weights: {
       "CR": 1,
@@ -350,7 +350,7 @@ export default {
     type: "Preservation",
     sig: "23023",
     minor: ["DEF", "IMAGINARY", "DEF", "RES", "DEF", "IMAGINARY", "DEF", "RES", "IMAGINARY", "DEF"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1203, _ATK: 446, _DEF: 654 },
     weights: {
       "CR": 1,
@@ -368,7 +368,7 @@ export default {
     rarity: 4,
     type: "Abundance",
     minor: ["RES", "BE", "RES", "HP", "RES", "BE", "RES", "HP", "RES", "HP"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1305, _ATK: 529, _DEF: 441 },
     weights: {
       "SPD": 1,
@@ -386,7 +386,7 @@ export default {
     type: "Nihility",
     sig: "23022",
     minor: ["ATK", "WIND", "ATK", "EHR", "ATK", "WIND", "ATK", "EHR", "WIND", "ATK"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1086, _ATK: 659, _DEF: 485 },
     weights: {
       "EHR": 1,
@@ -402,7 +402,7 @@ export default {
     type: "Harmony",
     sig: "23021",
     minor: ["HP", "CD", "HP", "RES", "HP", "CD", "HP", "RES", "CD", "HP"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1397, _ATK: 523, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -418,7 +418,7 @@ export default {
     rarity: 4,
     type: "Destruction",
     minor: ["ICE", "DEF", "ICE", "CR", "ICE", "DEF", "ICE", "CR", "DEF", "ICE"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1270, _ATK: 599, _DEF: 396 },
     weights: {
       "CR": 1,
@@ -437,7 +437,7 @@ export default {
     type: "The Hunt",
     sig: "23020",
     minor: ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1047, _ATK: 776, _DEF: 460 },
     weights: {
       "CR": 1,
@@ -454,7 +454,7 @@ export default {
     type: "Harmony",
     sig: "23019",
     minor: ["BE", "DEF", "BE", "SPD", "BE", "DEF", "BE", "SPD", "DEF", "BE"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 1086, _ATK: 659, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -470,7 +470,7 @@ export default {
     rarity: 4,
     type: "Destruction",
     minor: ["BE", "HP", "BE", "QUANTUM", "BE", "HP", "BE", "QUANTUM", "HP", "BE"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1058, _ATK: 599, _DEF: 396 },
     weights: {
       "CR": 1,
@@ -490,7 +490,7 @@ export default {
     type: "Erudition",
     sig: "23018",
     minor: ["ATK", "PHYSICAL", "ATK", "HP", "ATK", "PHYSICAL", "ATK", "HP", "PHYSICAL", "ATK"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1047, _ATK: 737, _DEF: 363 },
     weights: {
       "CR": 1,
@@ -507,7 +507,7 @@ export default {
     type: "Abundance",
     sig: "23017",
     minor: ["HP", "RES", "HP", "SPD", "HP", "RES", "HP", "SPD", "RES", "HP"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 1358, _ATK: 601, _DEF: 509 },
     weights: {
       "SPD": 1,
@@ -523,7 +523,7 @@ export default {
     rarity: 4,
     type: "Harmony",
     minor: ["ATK", "SPD", "ATK", "HP", "ATK", "SPD", "ATK", "HP", "SPD", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 917, _ATK: 564, _DEF: 352 },
     weights: {
       "SPD": 1,
@@ -540,7 +540,7 @@ export default {
     type: "Destruction",
     sig: "23014",
     minor: ["CD", "SPD", "CD", "HP", "CD", "SPD", "CD", "HP", "SPD", "CD"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 1435, _ATK: 679, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -557,7 +557,7 @@ export default {
     type: "The Hunt",
     sig: "23016",
     minor: ["FIRE", "CR", "FIRE", "HP", "FIRE", "CR", "FIRE", "HP", "CR", "FIRE"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 931, _ATK: 620, _DEF: 412 },
     weights: {
       "CR": 1,
@@ -574,7 +574,7 @@ export default {
     rarity: 4,
     type: "Nihility",
     minor: ["FIRE", "BE", "FIRE", "EHR", "FIRE", "BE", "FIRE", "EHR", "BE", "FIRE"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 882, _ATK: 582, _DEF: 441 },
     weights: {
       "EHR": 1,
@@ -592,7 +592,7 @@ export default {
     type: "Destruction",
     sig: "23015",
     minor: ["IMAGINARY", "CR", "IMAGINARY", "HP", "IMAGINARY", "CR", "IMAGINARY", "HP", "CR", "IMAGINARY"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1241, _ATK: 698, _DEF: 363 },
     weights: {
       "CR": 1,
@@ -609,7 +609,7 @@ export default {
     type: "Preservation",
     sig: "23011",
     minor: ["CR", "HP", "CR", "RES", "CR", "HP", "CR", "RES", "HP", "CR"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1474, _ATK: 465, _DEF: 606 },
     weights: {
       "SPD": 1,
@@ -625,7 +625,7 @@ export default {
     rarity: 4,
     type: "Abundance",
     minor: ["HP", "DEF", "HP", "RES", "HP", "DEF", "HP", "RES", "DEF", "HP"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1058, _ATK: 493, _DEF: 551 },
     weights: {
       "SPD": 1,
@@ -643,7 +643,7 @@ export default {
     type: "Destruction",
     sig: "23009",
     minor: ["HP", "CR", "HP", "RES", "HP", "CR", "HP", "RES", "CR", "HP"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 1358, _ATK: 543, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -661,7 +661,7 @@ export default {
     type: "Nihility",
     sig: "23006",
     minor: ["ATK", "EHR", "ATK", "HP", "ATK", "EHR", "ATK", "HP", "EHR", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1086, _ATK: 679, _DEF: 485 },
     weights: {
       "EHR": 1,
@@ -677,7 +677,7 @@ export default {
     rarity: 4,
     type: "Nihility",
     minor: ["ATK", "EHR", "ATK", "DEF", "ATK", "EHR", "ATK", "DEF", "EHR", "ATK"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 917, _ATK: 582, _DEF: 485 },
     weights: {
       "EHR": 1,
@@ -695,7 +695,7 @@ export default {
     type: "Abundance",
     sig: "23008",
     minor: ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1280, _ATK: 756, _DEF: 363 },
     weights: {
       "SPD": 1,
@@ -712,7 +712,7 @@ export default {
     type: "Nihility",
     sig: "23007",
     minor: ["ATK", "EHR", "ATK", "QUANTUM", "ATK", "EHR", "ATK", "QUANTUM", "EHR", "ATK"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1047, _ATK: 640, _DEF: 460 },
     weights: {
       "EHR": 1,
@@ -728,7 +728,7 @@ export default {
     rarity: 4,
     type: "Harmony",
     minor: ["IMAGINARY", "HP", "IMAGINARY", "ATK", "IMAGINARY", "HP", "IMAGINARY", "ATK", "HP", "IMAGINARY"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 917, _ATK: 599, _DEF: 374 },
     weights: {
       "SPD": 1,
@@ -744,7 +744,7 @@ export default {
     rarity: 5,
     type: "Preservation",
     minor: ["DEF", "ATK", "DEF", "HP", "DEF", "ATK", "DEF", "HP", "ATK", "DEF"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1241, _ATK: 601, _DEF: 606 },
     weights: {
       "SPD": 1,
@@ -759,7 +759,7 @@ export default {
     rarity: 5,
     type: "Destruction",
     minor: ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1203, _ATK: 620, _DEF: 460 },
     weights: {
       "CR": 1,
@@ -776,7 +776,7 @@ export default {
     type: "Abundance",
     sig: "23013",
     minor: ["HP", "DEF", "HP", "RES", "HP", "DEF", "HP", "RES", "DEF", "HP"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1319, _ATK: 562, _DEF: 485 },
     weights: {
       "SPD": 1,
@@ -792,7 +792,7 @@ export default {
     type: "The Hunt",
     sig: "23012",
     minor: ["ATK", "ICE", "ATK", "HP", "ATK", "ICE", "ATK", "HP", "ICE", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 892, _ATK: 679, _DEF: 412 },
     weights: {
       "CR": 1,
@@ -809,7 +809,7 @@ export default {
     type: "Erudition",
     sig: "23010",
     minor: ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1164, _ATK: 698, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -826,7 +826,7 @@ export default {
     type: "Destruction",
     sig: "23002",
     minor: ["ATK", "PHYSICAL", "ATK", "HP", "ATK", "PHYSICAL", "ATK", "HP", "PHYSICAL", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1241, _ATK: 737, _DEF: 485 },
     weights: {
       "CR": 1,
@@ -843,7 +843,7 @@ export default {
     type: "Preservation",
     sig: "23005",
     minor: ["ICE", "RES", "ICE", "DEF", "ICE", "RES", "ICE", "DEF", "RES", "ICE"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 1397, _ATK: 543, _DEF: 654 },
     weights: {
       "SPD": 1,
@@ -860,7 +860,7 @@ export default {
     type: "The Hunt",
     sig: "23001",
     minor: ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 931, _ATK: 640, _DEF: 363 },
     weights: {
       "CR": 1,
@@ -877,7 +877,7 @@ export default {
     type: "Harmony",
     sig: "23003",
     minor: ["WIND", "CD", "WIND", "RES", "WIND", "CD", "WIND", "RES", "CD", "WIND"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 1241, _ATK: 582, _DEF: 533 },
     weights: {
       "SPD": 1,
@@ -893,7 +893,7 @@ export default {
     type: "Nihility",
     sig: "23004",
     minor: ["ATK", "IMAGINARY", "ATK", "RES", "ATK", "IMAGINARY", "ATK", "RES", "IMAGINARY", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1125, _ATK: 620, _DEF: 509 },
     weights: {
       "CR": 1,
@@ -911,7 +911,7 @@ export default {
     type: "Erudition",
     sig: "23000",
     minor: ["FIRE", "ATK", "FIRE", "RES", "FIRE", "ATK", "FIRE", "RES", "ATK", "FIRE"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1047, _ATK: 756, _DEF: 436 },
     weights: {
       "CR": 1,
@@ -929,7 +929,7 @@ export default {
     rarity: 4,
     type: "The Hunt",
     minor: ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 917, _ATK: 564, _DEF: 418 },
     weights: {
       "CR": 1,
@@ -945,7 +945,7 @@ export default {
     rarity: 4,
     type: "Harmony",
     minor: ["ATK", "DEF", "ATK", "LIGHTNING", "ATK", "DEF", "ATK", "LIGHTNING", "DEF", "ATK"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 846, _ATK: 529, _DEF: 396 },
     weights: {
       "SPD": 1,
@@ -961,7 +961,7 @@ export default {
     rarity: 4,
     type: "Erudition",
     minor: ["ATK", "QUANTUM", "ATK", "DEF", "ATK", "QUANTUM", "ATK", "DEF", "QUANTUM", "ATK"],
-    rankTrace: [5, 5, 3, 3],
+    skillRank: [5, 5, 3, 3],
     statBase: { _HP: 1023, _ATK: 652, _DEF: 441 },
     weights: {
       "CR": 1,
@@ -977,7 +977,7 @@ export default {
     rarity: 4,
     type: "Destruction",
     minor: ["ATK", "HP", "ATK", "CD", "ATK", "HP", "ATK", "CD", "HP", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1340, _ATK: 617, _DEF: 352 },
     weights: {
       "CR": 1,
@@ -993,7 +993,7 @@ export default {
     rarity: 4,
     type: "Nihility",
     minor: ["ATK", "EHR", "ATK", "RES", "ATK", "EHR", "ATK", "RES", "EHR", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1023, _ATK: 617, _DEF: 396 },
     weights: {
       "EHR": 1,
@@ -1008,7 +1008,7 @@ export default {
     rarity: 4,
     type: "Nihility",
     minor: ["ICE", "ATK", "ICE", "EHR", "ICE", "ATK", "ICE", "EHR", "ATK", "ICE"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 987, _ATK: 546, _DEF: 463 },
     weights: {
       "EHR": 1,
@@ -1023,7 +1023,7 @@ export default {
     rarity: 4,
     type: "Abundance",
     minor: ["HP", "RES", "HP", "DEF", "HP", "RES", "HP", "DEF", "RES", "HP"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1164, _ATK: 476, _DEF: 507 },
     weights: {
       "SPD": 1,
@@ -1038,7 +1038,7 @@ export default {
     rarity: 4,
     type: "Erudition",
     minor: ["CR", "EHR", "CR", "RES", "CR", "EHR", "CR", "RES", "EHR", "CR"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 917, _ATK: 652, _DEF: 374 },
     weights: {
       "CR": 1,
@@ -1054,7 +1054,7 @@ export default {
     rarity: 4,
     type: "Erudition",
     minor: ["ICE", "DEF", "ICE", "CR", "ICE", "DEF", "ICE", "CR", "DEF", "ICE"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 952, _ATK: 582, _DEF: 396 },
     weights: {
       "CR": 1,
@@ -1070,7 +1070,7 @@ export default {
     rarity: 4,
     type: "Harmony",
     minor: ["FIRE", "DEF", "FIRE", "CR", "FIRE", "DEF", "FIRE", "CR", "DEF", "FIRE"],
-    rankTrace: [5, 3, 5, 3],
+    skillRank: [5, 3, 5, 3],
     statBase: { _HP: 1023, _ATK: 511, _DEF: 463 },
     weights: {
       "SPD": 1,
@@ -1085,7 +1085,7 @@ export default {
     rarity: 4,
     type: "Destruction",
     minor: ["ATK", "RES", "ATK", "HP", "ATK", "RES", "ATK", "HP", "RES", "ATK"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 1199, _ATK: 599, _DEF: 330 },
     weights: {
       "CR": 1,
@@ -1101,7 +1101,7 @@ export default {
     rarity: 4,
     type: "The Hunt",
     minor: ["WIND", "ATK", "WIND", "DEF", "WIND", "ATK", "WIND", "DEF", "ATK", "WIND"],
-    rankTrace: [3, 3, 5, 5],
+    skillRank: [3, 3, 5, 5],
     statBase: { _HP: 882, _ATK: 546, _DEF: 396 },
     weights: {
       "CR": 1,
@@ -1117,7 +1117,7 @@ export default {
     rarity: 4,
     type: "Preservation",
     minor: ["ICE", "DEF", "ICE", "RES", "ICE", "RES", "DEF", "ICE", "ICE", "DEF"],
-    rankTrace: [3, 5, 3, 5],
+    skillRank: [3, 5, 3, 5],
     statBase: { _HP: 1058, _ATK: 511, _DEF: 573 },
     weights: {
       "SPD": 1,

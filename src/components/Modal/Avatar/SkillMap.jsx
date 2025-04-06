@@ -4,6 +4,7 @@ import { ASSETS, DATA } from "../../importData";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
+import getRankBonus from "./getRankBonus";
 
 const SkillMap = ({ gameId, pipe, setPipe }) => {
   const config = configs[gameId];
@@ -105,15 +106,9 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
                   ? NODES[parent].parent
                   : parent;
                 const parentInactive = skillMap[realParent] === 0;
-
-                const imageSrc = getNodeIcon(gameId, avatarId, id);
                 const isPassive = id === "007";
-
-                const rankTraceIndex = Number(id.slice(1)) - 1;
-                const rankReq = AVATAR_DATA[avatarId].rankTrace?.[rankTraceIndex];
-                const rankBonus = rankReq && rank >= rankReq
-                  ? ["001", "005", "006"].includes(id) ? 1 : 2
-                  : 0;
+                const imageSrc = getNodeIcon(gameId, avatarId, id);
+                const rankBonus = getRankBonus(gameId, avatarId, rank, id);
                 
                 return (
                   <Node

@@ -1,56 +1,53 @@
 export default {
-  // Skill Nodes
-  "001": {
+  "001": { // Basic Attack
     x: 200,
     y: 260,
     parent: "003",
     children: ["204"],
   },
-  "002": {
+  "002": { // Skill
     x: 400,
     y: 260,
     parent: "003",
     children: ["207"],
   },
-  "003": {
+  "003": { // Ultimate
     x: 300,
     y: 310,
     children: ["001", "002", "004", "007"],
   },
-  "004": {
+  "004": { // Talent
     x: 300,
     y: 210,
     parent: "003",
     children: ["103"],
   },
-  "007": {
+  "007": { // Technique
     x: 300,
     y: 395,
     parent: "003",
     children: ["101", "102", "201"],
   },
 
-  // Major Nodes
-  "101": {
+  "101": { // Bonus Ability A2
     x: 195,
     y: 405,
     parent: "007",
     children: ["202"],
   },
-  "102": {
+  "102": { // Bonus Ability A4
     x: 405,
     y: 405,
     parent: "007",
     children: ["205"],
   },
-  "103": {
+  "103": { // Bonus Ability A6
     x: 300,
     y: 135,
     parent: "004",
     children: ["208"],
   },
 
-  // Minor Nodes
   "201": {
     x: 300,
     y: 500,

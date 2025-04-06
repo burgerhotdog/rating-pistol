@@ -1,66 +1,63 @@
 export default {
-  // Skill Nodes
-  "001": {
+  "001": { // Basic Attack
     x: 220,
     y: 380,
     parent: "003",
     children: ["007"],
   },
-  "002": {
+  "002": { // Skill
     x: 405,
     y: 380,
     parent: "003",
     children: ["004"],
   },
-  "003": {
+  "003": { // Ultimate
     x: 310,
     y: 410,
     children: ["001", "002", "102"],
   },
-  "004": {
+  "004": { // Talent
     x: 455,
     y: 290,
     parent: "002",
     children: ["101"],
   },
-  "007": {
+  "007": { // Technique
     x: 170,
     y: 290,
     parent: "001",
     children: ["103", "201"],
   },
-  "005": {
+  "005": { // Memosprite Skill
     x: 310,
     y: 270,
     children: ["006"],
   },
-  "006": {
+  "006": { // Memosprite Talent
     x: 310,
     y: 155,
     parent: "005",
   },
 
-  // Major Nodes
-  "101": {
+  "101": { // Bonus Ability A2
     x: 550,
     y: 290,
     parent: "004",
     children: ["205", "206"],
   },
-  "102": {
+  "102": { // Bonus Ability A4
     x: 310,
     y: 495,
     parent: "003",
     children: ["207", "204"],
   },
-  "103": {
+  "103": { // Bonus Ability A6
     x: 210,
     y: 190,
     parent: "007",
     children: ["209"],
   },
 
-  // Minor Nodes
   "201": {
     x: 60,
     y: 290,
