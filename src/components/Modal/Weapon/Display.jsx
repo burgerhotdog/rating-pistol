@@ -1,14 +1,9 @@
 import React, { useMemo } from "react";
-import {
-  Card,
-  Box,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Paper, Box, Stack, Typography } from "@mui/material";
 import { ASSETS, DATA } from "../../importData";
 import getWeaponDescArr from "./getWeaponDescArr";
 
-const DisplayCard = ({ gameId, pipe }) => {
+const Display = ({ gameId, pipe }) => {
   const { WEAPON_IMGS } = ASSETS[gameId];
   const { HEADERS, STAT_INDEX, WEAPON_DATA } = DATA[gameId];
 
@@ -22,19 +17,19 @@ const DisplayCard = ({ gameId, pipe }) => {
 
   if (!weapon) {
     return (
-      <Card sx={{ p: 2 }}>
-        <Stack justifyContent="center" alignItems="center" sx={{ minHeight: 200 }}>
-          <Typography variant="body1" color="text.disabled">
+      <Paper sx={{ p: 2, width: 700, height: 200 }}>
+        <Stack justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
+          <Typography variant="h6" color="text.disabled">
             No {HEADERS.weapon} Selected
           </Typography>
         </Stack>
-      </Card>
+      </Paper>
     );
   }
 
   return (
-    <Card sx={{ p: 2 }}>
-      <Stack direction="row" spacing={1}>
+    <Paper sx={{ p: 2, width: 700, minHeight: 200 }}>
+      <Stack direction="row" spacing={1} sx={{ height: "100%" }}>
         <Box
           component="img"
           alt={weaponId}
@@ -42,7 +37,7 @@ const DisplayCard = ({ gameId, pipe }) => {
           sx={{ width: 200, height: 200, objectFit: "contain" }}
         />
         
-        <Stack>
+        <Box>
           <Typography variant="subtitle1" fontWeight="bold">
             {weapon.name}
           </Typography>
@@ -88,10 +83,10 @@ const DisplayCard = ({ gameId, pipe }) => {
               </Typography>
             ))}
           </Box>
-        </Stack>
+        </Box>
       </Stack>
-    </Card>
+    </Paper>
   );
 };
 
-export default DisplayCard;
+export default Display;

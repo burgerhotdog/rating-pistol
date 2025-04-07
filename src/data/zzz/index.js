@@ -126,5 +126,4 @@ export default {
   STAT_INDEX,
   LEVEL_CAP: 60,
   PREFIX: "M",
-  WEAPON_PREFIX: "S",
 };
