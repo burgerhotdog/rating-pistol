@@ -1,6 +1,6 @@
 import { getStatPool, getRandomMultiplier } from "./simulationConstants";
 import { DATA } from "../../importData";
-import getRollValue from "./getRollValue";
+import getRollValue from "../../getRollValue";
 const ITERATIONS = 10000;
 
 const simulateData = (gameId, mainstat, weights) => {
@@ -48,7 +48,7 @@ const simulateData = (gameId, mainstat, weights) => {
       }
     }
 
-    scores[i] = getRollValue(gameId, substats, STAT_INDEX, weights);
+    scores[i] = getRollValue(gameId, substats, weights);
   }
   return scores;
 };

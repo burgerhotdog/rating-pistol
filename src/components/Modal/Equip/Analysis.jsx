@@ -4,17 +4,16 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import Plot from "react-plotly.js";
 import { DATA } from "../../importData";
 import simulateData from "./simulateData";
-import getRollValue from "./getRollValue";
+import getRollValue from "../../getRollValue";
 
 const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
   const { weights } = DATA[gameId].AVATAR_DATA[avatarId];
-  const { STAT_INDEX } = DATA[gameId];
   const mainstat = equipObj.stat;
   const substats = Object.values(equipObj.statMap);
 
   // Calculate substat score
   const rollValue = useMemo(
-    () => getRollValue(gameId, substats, STAT_INDEX, weights),
+    () => getRollValue(gameId, substats, weights),
     [substats]
   );
 

@@ -1,4 +1,7 @@
-const getRollValue = (gameId, substats, STAT_INDEX, weights) => {
+import { DATA } from "./importData";
+
+const getRollValue = (gameId, substats, weights) => {
+  const { STAT_INDEX } = DATA[gameId];
   const rollValue = substats.reduce((acc, { stat, value }) => {
     if (!stat || !value) return acc;
 
