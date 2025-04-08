@@ -3,7 +3,7 @@ import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
   Container, Stack, TableContainer, Table, TableHead, TableBody,
-  TableRow, TableCell, Button, Typography, CircularProgress,
+  TableRow, TableCell, Button, Typography, Skeleton,
   Box, Grid, Select, MenuItem, InputLabel, FormControl,
 } from "@mui/material";
 import { db } from "@config/firebase";
@@ -22,7 +22,7 @@ const Game = ({ gameId, userId }) => {
   const [hoveredId, setHoveredId] = useState(null);
   const [hoveredHead, setHoveredHead] = useState(false);
   const [pipe, setPipe] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // get localDocs from firestore
   useEffect(() => {
@@ -53,6 +53,8 @@ const Game = ({ gameId, userId }) => {
       } else {
         setLocalDocs({});
         setTeamDocs({});
+        // Allow a brief moment to show the skeleton
+        setTimeout(() => setIsLoading(false), 1000);
       }
     };
     fetchDB();
@@ -136,13 +138,17 @@ const Game = ({ gameId, userId }) => {
             </TableHead>
             <TableBody>
               {isLoading ? (
-                <TableRow>
-                  <TableCell sx={{ borderBottom: "none" }} />
-                  <TableCell colSpan={5} align="center">
-                    <CircularProgress />
-                  </TableCell>
-                  <TableCell sx={{ borderBottom: "none" }} />
-                </TableRow>
+                [...Array(5)].map((_, index) => (
+                  <TableRow key={index}>
+                    <TableCell sx={{ borderBottom: "none" }} />
+                    <TableCell align="center"><Skeleton variant="circular" width={30} height={30} /></TableCell>
+                    <TableCell><Skeleton variant="text" width="80%" height={40} /></TableCell>
+                    <TableCell align="center"><Skeleton variant="rounded" width={80} height={40} /></TableCell>
+                    <TableCell align="center"><Skeleton variant="text" width="90%" height={40} /></TableCell>
+                    <TableCell align="center"><Skeleton variant="rounded" width={60} height={40} /></TableCell>
+                    <TableCell sx={{ borderBottom: "none" }} />
+                  </TableRow>
+                ))
               ) : (
                 sortedDocs.map(({ id, data, rating }) => (
                   <TableRow
@@ -237,40 +243,55 @@ const Game = ({ gameId, userId }) => {
         <Box sx={{ mt: 4 }}>
           <Typography variant="h5" gutterBottom>Teams</Typography>
           <Grid container spacing={2}>
-            {[...Array(8)].map((_, index) => {
-              const teamId = `0${index + 1}`.slice(-2);
-              return (
-                <Grid key={teamId} size={3}>
+            {isLoading ? (
+              [...Array(8)].map((_, index) => (
+                <Grid key={index} size={3}>
                   <Box border={1} p={2} borderRadius={1}>
-                    <Typography variant="h6">Team {teamId}</Typography>
-                    {[...Array(4)].map((_, slotIndex) => {
-                      const slot = slotIndex.toString();
-                      const selectedIds = Object.values(teamDocs[teamId] || {}).filter(Boolean);
-                      const currentId = teamDocs[teamId]?.[slot];
-
-                      const availableOptions = sortedDocs.filter(({ id }) => {
-                        return id === currentId || !selectedIds.includes(id);
-                      });
-                      return (
-                        <FormControl fullWidth key={slot} sx={{ mb: 1 }}>
-                          <InputLabel>Slot {slotIndex + 1}</InputLabel>
-                          <Select
-                            value={teamDocs[teamId]?.[slot] || ""}
-                            onChange={(e) => handleTeamChange(teamId, slot, e.target.value)}
-                            label={`Slot ${slotIndex + 1}`}
-                          >
-                            <MenuItem value="">None</MenuItem>
-                            {availableOptions.map(({ id }) => (
-                              <MenuItem key={id} value={id}>{AVATAR_DATA[gameId][id].name}</MenuItem>
-                            ))}
-                          </Select>
-                        </FormControl>
-                      );
-                    })}
+                    <Typography variant="h6"><Skeleton width={100} /></Typography>
+                    {[...Array(4)].map((_, slotIndex) => (
+                      <Box key={slotIndex} sx={{ mb: 1 }}>
+                        <Skeleton variant="rounded" height={56} />
+                      </Box>
+                    ))}
                   </Box>
                 </Grid>
-              );
-            })}
+              ))
+            ) : (
+              [...Array(8)].map((_, index) => {
+                const teamId = `0${index + 1}`.slice(-2);
+                return (
+                  <Grid key={teamId} size={3}>
+                    <Box border={1} p={2} borderRadius={1}>
+                      <Typography variant="h6">Team {teamId}</Typography>
+                      {[...Array(4)].map((_, slotIndex) => {
+                        const slot = slotIndex.toString();
+                        const selectedIds = Object.values(teamDocs[teamId] || {}).filter(Boolean);
+                        const currentId = teamDocs[teamId]?.[slot];
+
+                        const availableOptions = sortedDocs.filter(({ id }) => {
+                          return id === currentId || !selectedIds.includes(id);
+                        });
+                        return (
+                          <FormControl fullWidth key={slot} sx={{ mb: 1 }}>
+                            <InputLabel>Slot {slotIndex + 1}</InputLabel>
+                            <Select
+                              value={teamDocs[teamId]?.[slot] || ""}
+                              onChange={(e) => handleTeamChange(teamId, slot, e.target.value)}
+                              label={`Slot ${slotIndex + 1}`}
+                            >
+                              <MenuItem value="">None</MenuItem>
+                              {availableOptions.map(({ id }) => (
+                                <MenuItem key={id} value={id}>{AVATAR_DATA[gameId][id].name}</MenuItem>
+                              ))}
+                            </Select>
+                          </FormControl>
+                        );
+                      })}
+                    </Box>
+                  </Grid>
+                );
+              })
+            )}
           </Grid>
         </Box>
       </Stack>
