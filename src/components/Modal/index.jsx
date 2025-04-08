@@ -1,13 +1,13 @@
 import React from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "@config/firebase";
 import { Modal, Box, useTheme } from "@mui/material";
-import AddModal from "./Add";
-import AvatarModal from "./Avatar";
-import EquipModal from "./Equip";
-import LoadModal from "./Load";
-import RatingModal from "./Rating";
-import WeaponModal from "./Weapon";
+import Add from "./Add";
+import Avatar from "./Avatar";
+import Equip from "./Equip";
+import Load from "./Load";
+import Rating from "./Rating";
+import Weapon from "./Weapon";
 
 export default ({
   gameId,
@@ -37,7 +37,7 @@ export default ({
   switch (pipe.type) {
     case "add":
       modalContent = (
-        <AddModal
+        <Add
           gameId={gameId}
           localDocs={localDocs}
           pipe={pipe}
@@ -49,7 +49,7 @@ export default ({
 
     case "avatar":
       modalContent = (
-        <AvatarModal
+        <Avatar
           gameId={gameId}
           pipe={pipe}
           setPipe={setPipe}
@@ -60,7 +60,7 @@ export default ({
 
     case "equip":
       modalContent = (
-        <EquipModal
+        <Equip
           gameId={gameId}
           pipe={pipe}
           setPipe={setPipe}
@@ -71,7 +71,7 @@ export default ({
 
     case "load":
       modalContent = (
-        <LoadModal
+        <Load
           gameId={gameId}
           userId={userId}
           setPipe={setPipe}
@@ -82,7 +82,7 @@ export default ({
 
     case "rating":
       modalContent = (
-        <RatingModal
+        <Rating
           gameId={gameId}
           pipe={pipe}
         />
@@ -91,7 +91,7 @@ export default ({
 
     case "weapon":
       modalContent = (
-        <WeaponModal
+        <Weapon
           gameId={gameId}
           pipe={pipe}
           setPipe={setPipe}

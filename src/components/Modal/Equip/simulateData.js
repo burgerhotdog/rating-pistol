@@ -1,11 +1,10 @@
 import { getStatPool, getRandomMultiplier } from "./simulationConstants";
-import { DATA } from "../../importData";
-import getRollValue from "../../getRollValue";
+import STATS_DATA from "@data/misc/stats";
+import BASIC_DATA from "@data/misc/basic";
+import getRollValue from "@utils/getRollValue";
 const ITERATIONS = 10000;
 
 const simulateData = (gameId, mainstat, weights) => {
-  const { STAT_INDEX } = DATA[gameId];
-  const lineCount = gameId === "ww" ? 5 : 4;
   const scores = new Array(ITERATIONS).fill(0);
   // remove mainstat from substat pool
   const startingPool = getStatPool[gameId].filter(([stat]) =>
@@ -17,7 +16,7 @@ const simulateData = (gameId, mainstat, weights) => {
 
     // adding each substat line (weighted selection)
     let substats = [];
-    for (let j = 0; j < lineCount; j++) {
+    for (let j = 0; j < BASIC_DATA[gameId].SUB_LEN; j++) {
       const totalWeight = statPool.reduce((acc, [, weight]) => acc + weight, 0);
       const random = Math.floor(Math.random() * totalWeight) + 1;
 
@@ -27,7 +26,7 @@ const simulateData = (gameId, mainstat, weights) => {
         cumulative += weight;
         if (random <= cumulative) {
           const multiplier = getRandomMultiplier(gameId);
-          const value = STAT_INDEX[stat].value * multiplier;
+          const value = STATS_DATA[gameId][stat].value * multiplier;
           substats.push({ stat, value });
           statPool.splice(k, 1);
           break;
@@ -43,7 +42,7 @@ const simulateData = (gameId, mainstat, weights) => {
         const randomIndex = Math.floor(Math.random() * 4);
         const { stat } = substats[randomIndex];
         const multiplier = getRandomMultiplier(gameId);
-        const addValue = STAT_INDEX[stat].value * multiplier;
+        const addValue = STATS_DATA[gameId][stat].value * multiplier;
         substats[randomIndex].value += addValue;
       }
     }

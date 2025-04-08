@@ -10,10 +10,9 @@ import {
   Select,
 } from "@mui/material";
 import SkillMap from "./SkillMap";
-import { DATA } from "../../importData"
+import BASIC_DATA from "@data/misc/basic";
 
 const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
-  const { LEVEL_CAP, PREFIX } = DATA[gameId];
   const [isLoading, setIsLoading] = useState(false);
   
   // level
@@ -23,7 +22,7 @@ const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
 
     const outOfBounds =
       newValue < 0 ||
-      newValue > LEVEL_CAP ||
+      newValue > BASIC_DATA[gameId].MAX_LEVEL ||
       !Number.isInteger(newValue);
     if (outOfBounds) return;
 
@@ -88,7 +87,7 @@ const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
             >
               {rankOptions().map((rank) => (
                 <MenuItem key={rank} value={rank}>
-                  {`${PREFIX}${rank}`}
+                  {`${BASIC_DATA[gameId].AVATAR_PREFIX}${rank}`}
                 </MenuItem>
               ))}
             </Select>

@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import { Paper, Stack, Typography, Tooltip, IconButton } from "@mui/material";
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutline from "@mui/icons-material/HelpOutline";
 import Plot from "react-plotly.js";
-import { DATA } from "../../importData";
+import AVATAR_DATA from "@data/avatar";
 import simulateData from "./simulateData";
-import getRollValue from "../../getRollValue";
+import getRollValue from "@utils/getRollValue";
 
 const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
-  const { weights } = DATA[gameId].AVATAR_DATA[avatarId];
+  const weights = AVATAR_DATA[gameId][avatarId].weights;
   const mainstat = equipObj.stat;
   const substats = Object.values(equipObj.statMap);
 
@@ -86,7 +86,7 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
 
           <Tooltip title={helpText} arrow>
             <IconButton size="small">
-              <HelpOutlineIcon fontSize="small" sx={{ color: "text.disabled" }}/>
+              <HelpOutline fontSize="small" sx={{ color: "text.disabled" }}/>
             </IconButton>
           </Tooltip>
         </Stack>

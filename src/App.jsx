@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
-import { auth } from "./firebase";
-import Auth from "./components/Auth";
-import MenuPage from "./components/MenuPage";
-import GamePage from "./components/GamePage";
+import { auth } from "@config/firebase";
+import Menu from "@pages/Menu";
+import Game from "@pages/Game";
+import Auth from "@components/Auth";
 
 class ErrorBoundary extends React.Component {
   state = { hasError: false };
@@ -28,11 +28,11 @@ function App() {
       <HashRouter>
         <Auth user={user} setUser={setUser} />
         <Routes>
-        <Route path="/" element={<MenuPage />} />
-        <Route path="/genshin-impact" element={<GamePage gameId="gi" userId={user?.uid}  />} />
-        <Route path="/honkai-star-rail" element={<GamePage gameId="hsr" userId={user?.uid} />} />
-        <Route path="/wuthering-waves" element={<GamePage gameId="ww" userId={user?.uid} />} />
-        <Route path="/zenless-zone-zero" element={<GamePage gameId="zzz" userId={user?.uid} />} />
+        <Route path="/" element={<Menu />} />
+        <Route path="/genshin-impact" element={<Game gameId="gi" userId={user?.uid}  />} />
+        <Route path="/honkai-star-rail" element={<Game gameId="hsr" userId={user?.uid} />} />
+        <Route path="/wuthering-waves" element={<Game gameId="ww" userId={user?.uid} />} />
+        <Route path="/zenless-zone-zero" element={<Game gameId="zzz" userId={user?.uid} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </HashRouter>

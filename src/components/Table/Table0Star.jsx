@@ -1,6 +1,6 @@
 import React from "react";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "@config/firebase";
 import { Star, StarBorder } from '@mui/icons-material';
 
 const Table0Star = ({

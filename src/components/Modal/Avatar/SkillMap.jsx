@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Box, Stack, Paper } from "@mui/material";
-import { ASSETS, DATA } from "../../importData";
+import MISC_ASSETS from "@assets/misc";
+import AVATAR_DATA from "@data/avatar";
+import BASIC_DATA from "@data/misc/basic";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
@@ -11,9 +13,8 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
   const avatarId = pipe.id;
   const rank = pipe.data.rank;
   const skillMap = pipe.data.skillMap;
-  const { SKILL_CAPS, AVATAR_DATA } = DATA[gameId];
-  const { PATH_IMGS } = ASSETS[gameId];
-  const { type } = AVATAR_DATA[avatarId];
+  const SKILL_MAX_LEVEL = BASIC_DATA[gameId].SKILL_MAX_LEVEL;
+  const type = AVATAR_DATA[gameId][avatarId].type;
   const NODES = gameId === "hsr"
     ? config.nodes[type]
     : config.nodes;
@@ -54,7 +55,7 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
     if (id === "007") return;
     const value = skillMap[id];
     if (id[0] === "0") {
-      const newValue = value < SKILL_CAPS[Number(id[2]) - 1] ? value + 1 : 1;
+      const newValue = value < SKILL_MAX_LEVEL[Number(id[2]) - 1] ? value + 1 : 1;
       editSkillMap(id, newValue);
     } else {
       const newValue = value ? 0 : 1;
@@ -74,7 +75,7 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
             {/* Background Image */}
             {gameId === "hsr" && (
               <image
-                href={PATH_IMGS[`./${type.replace(/ /g, "_")}.webp`]?.default}
+                href={MISC_ASSETS[`./paths/${type.replace(/ /g, "_")}.webp`]?.default}
                 x="108"
                 y="108"
                 width="384"
@@ -117,7 +118,7 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
                     y={y}
                     id={id}
                     value={isPassive ? 1 : skillMap[id]}
-                    maxValue={isPassive ? 1 : id[0] === "0" ? SKILL_CAPS[Number(id[2]) - 1] : 1}
+                    maxValue={isPassive ? 1 : id[0] === "0" ? SKILL_MAX_LEVEL[Number(id[2]) - 1] : 1}
                     onClick={handleNode}
                     imageSrc={imageSrc}
                     active={skillMap[id] !== 0}

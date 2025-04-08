@@ -1,7 +1,7 @@
-import { DATA } from "../../importData";
+import AVATAR_DATA from "@data/avatar";
 
 const getRankBonus = (gameId, avatarId, rank, nodeId) => {
-  const { skillRank } = DATA[gameId].AVATAR_DATA[avatarId];
+  const skillRank = AVATAR_DATA[gameId][avatarId].skillRank;
   const skillIndex = Number(nodeId.slice(1)) - 1;
 
   switch (gameId) {

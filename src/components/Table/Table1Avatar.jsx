@@ -1,15 +1,15 @@
 import React from "react";
 import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
-import { ASSETS, DATA } from "../importData";
+import AVATAR_ASSETS from "@assets/avatar";
+import AVATAR_DATA from "@data/avatar";
+
+const PREFIX = { gi: "C", hsr: "E", ww: "S", zzz: "M" };
 
 const Table1Avatar = ({ gameId, setPipe, id, data }) => {
-  const { AVATAR_IMGS } = ASSETS[gameId];
-  const { HEADERS, PREFIX, AVATAR_DATA } = DATA[gameId];
-  
   const openModal = () => setPipe({ type: "avatar", id, data });
 
   return (
-    <Tooltip title={`Edit ${HEADERS.avatar}`} arrow>
+    <Tooltip title="Edit" arrow>
       <Stack
         onClick={openModal}
         display="inline-flex"
@@ -19,7 +19,7 @@ const Table1Avatar = ({ gameId, setPipe, id, data }) => {
         sx={{ cursor: "pointer" }}
       >
         <Badge
-          badgeContent={<strong>{PREFIX}{data.rank}</strong>}
+          badgeContent={<strong>{PREFIX[gameId]}{data.rank}</strong>}
           sx={{
             "& .MuiBadge-badge": {
               backgroundColor: "rgba(20, 20, 20, 0.4)",
@@ -27,13 +27,13 @@ const Table1Avatar = ({ gameId, setPipe, id, data }) => {
           }}
         >
           <Avatar
-            alt={AVATAR_DATA[id].name}
-            src={AVATAR_IMGS[`./${id}.webp`]?.default}
+            alt={AVATAR_DATA[gameId][id].name}
+            src={AVATAR_ASSETS[`./${gameId}/${id}.webp`]?.default}
           />
         </Badge>
         
         <Typography variant="body2">
-          {AVATAR_DATA[id].name}
+          {AVATAR_DATA[gameId][id].name}
         </Typography>
       </Stack>
     </Tooltip>

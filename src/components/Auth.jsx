@@ -8,7 +8,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
+import { auth, db } from "@config/firebase";
 import { Box, Stack, Button, Typography } from "@mui/material";
 
 const Auth = ({ user, setUser }) => {

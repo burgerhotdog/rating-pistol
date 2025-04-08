@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
 import { Paper, Box, Stack, Typography } from "@mui/material";
-import { ASSETS, DATA } from "../../importData";
+import WEAPON_ASSETS from "@assets/weapon";
+import WEAPON_DATA from "@data/weapon";
+import STATS_DATA from "@data/misc/stats";
+import LABELS_DATA from "@data/misc/labels";
 import getWeaponDescArr from "./getWeaponDescArr";
 
 const Display = ({ gameId, pipe }) => {
-  const { WEAPON_IMGS } = ASSETS[gameId];
-  const { HEADERS, STAT_INDEX, WEAPON_DATA } = DATA[gameId];
-
   const weaponId = pipe.data.weaponId;
-  const weapon = WEAPON_DATA?.[weaponId];
+  const weapon = WEAPON_DATA[gameId][weaponId];
 
   const weaponDescArr = useMemo(
     () => getWeaponDescArr(weapon, pipe.data.weaponRank),
@@ -20,7 +20,7 @@ const Display = ({ gameId, pipe }) => {
       <Paper sx={{ p: 2, width: 700, height: 200 }}>
         <Stack justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
           <Typography variant="h6" color="text.disabled">
-            No {HEADERS.weapon} Selected
+            No {LABELS_DATA[gameId].weapon} Selected
           </Typography>
         </Stack>
       </Paper>
@@ -33,7 +33,7 @@ const Display = ({ gameId, pipe }) => {
         <Box
           component="img"
           alt={weaponId}
-          src={WEAPON_IMGS[`./${weaponId}.webp`]?.default}
+          src={WEAPON_ASSETS[`./${gameId}/${weaponId}.webp`]?.default}
           sx={{ width: 200, height: 200, objectFit: "contain" }}
         />
         
@@ -43,7 +43,7 @@ const Display = ({ gameId, pipe }) => {
           </Typography>
 
           {Object.entries(weapon.statBase).map(([key, value]) => {
-            const { name } = STAT_INDEX[key] || {};
+            const { name } = STATS_DATA[gameId][key] || {};
             const base = gameId === "hsr" ? "" : "Base ";
             return (
               <Typography key={key} variant="body2">
@@ -54,7 +54,7 @@ const Display = ({ gameId, pipe }) => {
 
           {weapon.statSub && (
             Object.entries(weapon.statSub).map(([key, value]) => {
-              const { name, percent } = STAT_INDEX[key] || {};
+              const { name, percent } = STATS_DATA[gameId][key] || {};
               return (
                 <Typography key={key} variant="body2">
                   {name}: {value}

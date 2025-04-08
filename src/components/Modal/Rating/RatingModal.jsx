@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
-import { DATA } from "../../importData";
 
 const RatingModal = ({ gameId, pipe }) => {
-  const { HEADERS } = DATA[gameId];
   const [tabValue, setTabValue] = useState(0);
 
   const handleTab = (_, newValue) => {

@@ -1,14 +1,11 @@
 import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack } from "@mui/material";
-import { Add } from "@mui/icons-material";
-import { ASSETS, DATA } from "../importData";
-import getSetBonuses from "../getSetBonuses";
-import sortSetBonuses from "../sortSetBonuses";
+import Add from "@mui/icons-material/Add";
+import SET_ASSETS from "@assets/set";
+import getSetBonuses from "@utils/getSetBonuses";
+import sortSetBonuses from "@utils/sortSetBonuses";
 
-const Table3EquipList = ({ gameId, setPipe, id, data }) => {
-  const { SET_IMGS } = ASSETS[gameId];
-  const { HEADERS } = DATA[gameId];
-  
+const Table3EquipList = ({ gameId, setPipe, id, data }) => {  
   const setBonuses = useMemo(() =>
     getSetBonuses(gameId, data.equipList),
     [gameId, data.equipList]
@@ -23,14 +20,14 @@ const Table3EquipList = ({ gameId, setPipe, id, data }) => {
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <Tooltip title={`Add ${HEADERS.equips}`} arrow>
+      <Tooltip title="Add" arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title={`Edit ${HEADERS.equips}`} arrow>
+    <Tooltip title="Edit" arrow>
       <Stack
         onClick={openModal}
         display="inline-flex"
@@ -50,7 +47,7 @@ const Table3EquipList = ({ gameId, setPipe, id, data }) => {
           >
             <Avatar
               alt={setId}
-              src={SET_IMGS[`./${setId}.webp`]?.default}
+              src={SET_ASSETS[`./${gameId}/${setId}.webp`]?.default}
             />
           </Badge>
         ))}

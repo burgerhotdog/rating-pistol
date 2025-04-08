@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
-import template from "../../template";
-import { ASSETS, DATA } from "../../importData";
+import template from "@config/template";
+import AVATAR_ASSETS from "@assets/avatar";
+import AVATAR_DATA from "@data/avatar";
+import BASIC_DATA from "@data/misc/basic";
 
 const AddModal = ({
   gameId,
@@ -10,27 +12,26 @@ const AddModal = ({
   setPipe,
   savePipe,
 }) => {
-  const { LEVEL_CAP, AVATAR_DATA } = DATA[gameId];
-  const { AVATAR_IMGS } = ASSETS[gameId];
   const [isLoading, setIsLoading] = useState(false);
   
   const charOptions = () => {
-    return Object.keys(AVATAR_DATA)
+    return Object.keys(AVATAR_DATA[gameId])
       .filter(id => !Object.keys(localDocs).includes(id))
       .sort((a, b) => {
-        const rarityA = AVATAR_DATA[a].rarity;
-        const rarityB = AVATAR_DATA[b].rarity;
-        return rarityA != rarityB
-          ? rarityB - rarityA
-          : AVATAR_DATA[a].name.localeCompare(AVATAR_DATA[b].name);
+        const A = AVATAR_DATA[gameId][a];
+        const B = AVATAR_DATA[gameId][b];
+
+        return A.rarity != B.rarity
+          ? B.rarity - A.rarity
+          : A.name.localeCompare(B.name);
       });
   };
 
   const handleSelect = (newValue) => {
     const id = newValue;
     const data = template(gameId);
-    data.level = LEVEL_CAP;
-    if (gameId === "hsr" && AVATAR_DATA[id].type === "Remembrance") {
+    data.level = BASIC_DATA[gameId].MAX_LEVEL;
+    if (gameId === "hsr" && AVATAR_DATA[gameId][id].type === "Remembrance") {
       data.skillMap["005"] = 1;
       data.skillMap["006"] = 1;
     }
@@ -53,11 +54,11 @@ const AddModal = ({
       <Autocomplete
         value={pipe.id}
         options={charOptions()}
-        getOptionLabel={(option) => AVATAR_DATA[option]?.name || ""}
+        getOptionLabel={(avatarId) => AVATAR_DATA[gameId][avatarId]?.name || ""}
         onChange={(_, newValue) => handleSelect(newValue)}
         renderOption={(props, option) => {
           const { key, ...optionProps } = props;
-          const rarity = AVATAR_DATA[option]?.rarity;
+          const rarity = AVATAR_DATA[gameId][option]?.rarity;
           return (
             <Box
               key={key}
@@ -71,11 +72,11 @@ const AddModal = ({
               <Box
                 component="img"
                 loading="lazy"
-                src={AVATAR_IMGS[`./${option}.webp`]?.default}
+                src={AVATAR_ASSETS[`./${gameId}/${option}.webp`]?.default}
                 alt={""}
                 sx={{ width: 24, height: 24, objectFit: "contain" }}
               />
-              {AVATAR_DATA[option].name}
+              {AVATAR_DATA[gameId][option].name}
             </Box>
           );
         }}

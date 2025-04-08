@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { doc, writeBatch } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "@config/firebase";
 import {
   Backdrop,
   Tooltip,

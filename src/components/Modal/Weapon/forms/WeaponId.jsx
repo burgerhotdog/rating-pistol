@@ -1,26 +1,26 @@
 import React from "react";
 import { Box, Autocomplete, TextField, Typography } from "@mui/material";
-import { ASSETS, DATA } from "../../../importData";
+import WEAPON_ASSETS from "@assets/weapon";
+import WEAPON_DATA from "@data/weapon";
+import AVATAR_DATA from "@data/avatar";
 
 const MAX_LEVEL = { gi: 90, hsr: 80, ww: 90, zzz: 60 };
 const LABEL = { gi: "Weapon", hsr: "Light Cone", ww: "W-Engine", zzz: "Weapon" };
 
 const WeaponId = ({ gameId, pipe, setPipe }) => {
-  const { WEAPON_IMGS } = ASSETS[gameId];
-  const { AVATAR_DATA, WEAPON_DATA } = DATA[gameId];
-  const { sig, type } = AVATAR_DATA[pipe.id];
+  const { sig, type } = AVATAR_DATA[gameId][pipe.id];
 
   const weaponIdOptions = () => {
-    return Object.keys(WEAPON_DATA)
-      .filter(id => WEAPON_DATA[id].type === type)
+    return Object.keys(WEAPON_DATA[gameId])
+      .filter(id => WEAPON_DATA[gameId][id].type === type)
       .sort((a, b) => {
         if (a === sig) return -1;
         if (b === sig) return 1;
-        const rarityA = WEAPON_DATA[a].rarity;
-        const rarityB = WEAPON_DATA[b].rarity;
+        const rarityA = WEAPON_DATA[gameId][a].rarity;
+        const rarityB = WEAPON_DATA[gameId][b].rarity;
         return rarityA !== rarityB
           ? rarityB - rarityA
-          : WEAPON_DATA[a].name.localeCompare(WEAPON_DATA[b].name);
+          : WEAPON_DATA[gameId][a].name.localeCompare(WEAPON_DATA[gameId][b].name);
       });
   };
 
@@ -38,7 +38,7 @@ const WeaponId = ({ gameId, pipe, setPipe }) => {
 
   const renderOptionWeaponId = (props, option) => {
     const { key, ...optionProps } = props;
-    const rarity = WEAPON_DATA[option]?.rarity;
+    const rarity = WEAPON_DATA[gameId][option]?.rarity;
     return (
       <Box
         key={key}
@@ -53,10 +53,10 @@ const WeaponId = ({ gameId, pipe, setPipe }) => {
           component="img"
           loading="lazy"
           alt={""}
-          src={WEAPON_IMGS[`./${option}.webp`]?.default}
+          src={WEAPON_ASSETS[`./${gameId}/${option}.webp`]?.default}
           sx={{ width: 24, height: 24, objectFit: "contain" }}
         />
-        {WEAPON_DATA[option]?.name}
+        {WEAPON_DATA[gameId][option]?.name}
         {option === sig && (
           <Typography sx={{ color: "text.disabled", ml: 1 }}>
             (signature)
@@ -70,7 +70,7 @@ const WeaponId = ({ gameId, pipe, setPipe }) => {
     <Autocomplete
       value={pipe.data.weaponId ?? ""}
       options={weaponIdOptions()}
-      getOptionLabel={(id) => WEAPON_DATA[id]?.name ?? ""}
+      getOptionLabel={(id) => WEAPON_DATA[gameId][id]?.name ?? ""}
       onChange={handleWeaponId}
       renderOption={renderOptionWeaponId}
       renderInput={(params) => (

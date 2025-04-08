@@ -1,0 +1,38 @@
+export default {
+  gi: {
+    title: "Genshin Impact",
+    version: "5.5",
+    path: "/genshin-impact",
+    avatar: "character",
+    skill: "talent",
+    weapon: "weapon",
+    equip: "artifact",
+  },
+  hsr: {
+    title: "Honkai Star Rail",
+    version: "3.1",
+    path: "/honkai-star-rail",
+    avatar: "character",
+    skill: "trace",
+    weapon: "light cone",
+    equip: "relic",
+  },
+  ww: {
+    title: "Wuthering Waves",
+    version: "2.2",
+    path: "/wuthering-waves",
+    avatar: "resonator",
+    skill: "skill",
+    weapon: "weapon",
+    equip: "echo",
+  },
+  zzz: {
+    title: "Zenless Zone Zero",
+    version: "1.6",
+    path: "/zenless-zone-zero",
+    avatar: "agent",
+    skill: "skill",
+    weapon: "w-engine",
+    equip: "drive disc",
+  },
+};
