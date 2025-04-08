@@ -1,20 +1,20 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
+import { db } from "@config/firebase";
 import {
   Container, Stack, TableContainer, Table, TableHead, TableBody,
   TableRow, TableCell, Button, Typography, Skeleton,
   Box, Grid, Select, MenuItem, InputLabel, FormControl,
 } from "@mui/material";
-import { db } from "@config/firebase";
+import { INFO, LABELS } from "@data/static";
+import { VERSION, AVATARS } from "@data/dynamic";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
 import {
   DeleteAll, Table0Star, Table1Avatar, Table2Weapon,
   Table3EquipList, Table4Rating, Table5Delete,
-} from "../components/Table";
-import { AVATAR_DATA } from "@data";
-import { LABELS_DATA } from "@data/misc";
+} from "@components/Table";
 
 const Game = ({ gameId, userId }) => {
   const [localDocs, setLocalDocs] = useState({});
@@ -105,10 +105,10 @@ const Game = ({ gameId, userId }) => {
       <Back />
       <Stack alignItems="center" sx={{ mt: 4, mb: 6 }}>
         <Typography variant="h4" fontWeight="bold">
-          {LABELS_DATA[gameId].title}
+          {INFO[gameId].TITLE}
         </Typography>
         <Typography variant="subtitle2" color="text.secondary">
-          Updated for Version {LABELS_DATA[gameId].version}
+          Updated for Version {VERSION[gameId]}
         </Typography>
         <TableContainer sx={{ maxWidth: 900, mt: 2 }}>
           <Table sx={{ tableLayout: "fixed", width: "100%" }}>
@@ -119,9 +119,9 @@ const Game = ({ gameId, userId }) => {
               >
                 <TableCell sx={{ width: 50, borderBottom: "none" }} />
                 <TableCell sx={{ width: 50 }} />
-                <TableCell sx={{ width: 250 }}>{LABELS_DATA[gameId].avatar}</TableCell>
-                <TableCell align="center" sx={{ width: 125 }}>{LABELS_DATA[gameId].weapon}</TableCell>
-                <TableCell align="center" sx={{ width: 250 }}>{LABELS_DATA[gameId].equip}</TableCell>
+                <TableCell sx={{ width: 250 }}>{LABELS[gameId].Avatar}</TableCell>
+                <TableCell align="center" sx={{ width: 125 }}>{LABELS[gameId].Weapon}</TableCell>
+                <TableCell align="center" sx={{ width: 250 }}>{LABELS[gameId].Equip}</TableCell>
                 <TableCell align="center" sx={{ width: 125 }}>Rating</TableCell>
                 <TableCell sx={{ width: 50, borderBottom: "none" }}>
                   {Boolean(Object.entries(localDocs).length) && (
@@ -281,7 +281,7 @@ const Game = ({ gameId, userId }) => {
                             >
                               <MenuItem value="">None</MenuItem>
                               {availableOptions.map(({ id }) => (
-                                <MenuItem key={id} value={id}>{AVATAR_DATA[gameId][id].name}</MenuItem>
+                                <MenuItem key={id} value={id}>{AVATARS[gameId][id].name}</MenuItem>
                               ))}
                             </Select>
                           </FormControl>

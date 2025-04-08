@@ -1,9 +1,8 @@
 import React from "react";
 import { Stack, Badge, Avatar, Tooltip } from "@mui/material";
 import Add from "@mui/icons-material/Add";
-import WEAPON_ASSETS from "@assets/weapon";
-
-const PREFIX = { gi: "R", hsr: "S", ww: "R", zzz: "S" };
+import WEAPON_ASSETS from "@assets/dynamic/weapon";
+import INFO from "@data/static/info";
 
 const Table2Weapon = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "weapon", id, data });
@@ -21,7 +20,7 @@ const Table2Weapon = ({ gameId, setPipe, id, data }) => {
       <Stack display="inline-flex">
         <Badge
           onClick={openModal}
-          badgeContent={<strong>{PREFIX[gameId]}{data.weaponRank}</strong>}
+          badgeContent={<strong>{INFO[gameId].PREFIX_WEAPON}{data.weaponRank}</strong>}
           sx={{
             "& .MuiBadge-badge": {
               backgroundColor: "rgba(20, 20, 20, 0.4)",

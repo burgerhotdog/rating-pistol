@@ -1,9 +1,8 @@
 import React from "react";
 import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
-import AVATAR_ASSETS from "@assets/avatar";
-import AVATAR_DATA from "@data/avatar";
-
-const PREFIX = { gi: "C", hsr: "E", ww: "S", zzz: "M" };
+import AVATAR_ASSETS from "@assets/dynamic/avatar";
+import AVATARS from "@data/dynamic/avatars";
+import INFO from "@data/static/info";
 
 const Table1Avatar = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "avatar", id, data });
@@ -19,7 +18,7 @@ const Table1Avatar = ({ gameId, setPipe, id, data }) => {
         sx={{ cursor: "pointer" }}
       >
         <Badge
-          badgeContent={<strong>{PREFIX[gameId]}{data.rank}</strong>}
+          badgeContent={<strong>{INFO[gameId].PREFIX_AVATAR}{data.rank}</strong>}
           sx={{
             "& .MuiBadge-badge": {
               backgroundColor: "rgba(20, 20, 20, 0.4)",
@@ -27,13 +26,13 @@ const Table1Avatar = ({ gameId, setPipe, id, data }) => {
           }}
         >
           <Avatar
-            alt={AVATAR_DATA[gameId][id].name}
+            alt={AVATARS[gameId][id].name}
             src={AVATAR_ASSETS[`./${gameId}/${id}.webp`]?.default}
           />
         </Badge>
         
         <Typography variant="body2">
-          {AVATAR_DATA[gameId][id].name}
+          {AVATARS[gameId][id].name}
         </Typography>
       </Stack>
     </Tooltip>

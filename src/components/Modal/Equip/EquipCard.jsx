@@ -8,9 +8,9 @@ import {
   TextField,
   InputAdornment,
 } from "@mui/material";
-import SET_ASSETS from "@assets/set";
-import SET_DATA from "@data/set";
-import STATS_DATA from "@data/misc/stats";
+import SET_ASSETS from "@assets/dynamic/set";
+import STATS from "@data/static/stats";
+import SETS from "@data/dynamic/sets";
 
 const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
   const handleSet = (newValue) => {
@@ -80,8 +80,8 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
     }));
   };
 
-  const mainstatOptions = Object.keys(STATS_DATA[gameId]).filter(
-    (stat) => STATS_DATA[gameId][stat].index?.includes(mainIndex)
+  const mainstatOptions = Object.keys(STATS[gameId]).filter(
+    (stat) => STATS[gameId][stat].index?.includes(mainIndex)
   );
 
   const substatOptions = (subIndex) => {
@@ -90,8 +90,8 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
       .map(([, substatObj]) => substatObj.stat)
       .filter((_, idx) => idx !== subIndex);
     
-    return Object.keys(STATS_DATA[gameId]).filter((stat) => {
-      const isSubstat = STATS_DATA[gameId][stat].value;
+    return Object.keys(STATS[gameId]).filter((stat) => {
+      const isSubstat = STATS[gameId][stat].value;
       const isNotMainstat = gameId === "ww" || stat !== selectedMainstat;
       const isNotDuplicate = !selectedSubstats.includes(stat);
       return isSubstat && isNotDuplicate && isNotMainstat;
@@ -99,18 +99,18 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
   };
 
   const setOptions = () => {
-    return Object.keys(SET_DATA[gameId])
+    return Object.keys(SETS[gameId])
       .filter(id => 
         gameId === "hsr"
           ? mainIndex <= 3
-            ? SET_DATA[gameId][id].type === "Relic"
-            : SET_DATA[gameId][id].type === "Planar" : true)
+            ? SETS[gameId][id].type === "Relic"
+            : SETS[gameId][id].type === "Planar" : true)
       .sort((a, b) => {
-        const rarityA = SET_DATA[gameId][a].rarity;
-        const rarityB = SET_DATA[gameId][b].rarity;
+        const rarityA = SETS[gameId][a].rarity;
+        const rarityB = SETS[gameId][b].rarity;
         return rarityA !== rarityB
           ? rarityB - rarityA
-          : SET_DATA[gameId][a].name.localeCompare(SET_DATA[gameId][b].name);
+          : SETS[gameId][a].name.localeCompare(SETS[gameId][b].name);
       });
   };
 
@@ -122,11 +122,11 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
           <Autocomplete
             value={pipe.data.equipList[mainIndex].setId}
             options={setOptions()}
-            getOptionLabel={(id) => SET_DATA[gameId][id]?.name || ""}
+            getOptionLabel={(id) => SETS[gameId][id]?.name || ""}
             onChange={(_, newValue) => handleSet(newValue)}
             renderOption={(props, id) => {
               const { key, ...idProps } = props;
-              const rarity = SET_DATA[gameId][id]?.rarity;
+              const rarity = SETS[gameId][id]?.rarity;
               return (
                 <Box
                   key={key}
@@ -145,7 +145,7 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
                     sx={{ width: 25, height: 25, objectFit: "contain" }}
                   />
                   
-                  {SET_DATA[gameId][id]?.name || ""}
+                  {SETS[gameId][id]?.name || ""}
                 </Box>
               );
             }}
@@ -162,7 +162,7 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
           <Autocomplete
             value={pipe.data.equipList[mainIndex].stat}
             options={mainstatOptions}
-            getOptionLabel={(id) => STATS_DATA[gameId][id]?.name || ""}
+            getOptionLabel={(id) => STATS[gameId][id]?.name || ""}
             onChange={(_, newValue) => handleMainstat(newValue)}
             renderInput={(params) => (
               <TextField
@@ -184,7 +184,7 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
               <Autocomplete
                 value={pipe.data.equipList[mainIndex].statMap[subIndex].stat}
                 options={substatOptions(subIndex)}
-                getOptionLabel={(id) => STATS_DATA[gameId][id]?.name || ""}
+                getOptionLabel={(id) => STATS[gameId][id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "stat")}
                 renderInput={(params) => (
                   <TextField
@@ -203,14 +203,14 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (STATS_DATA[gameId][pipe.data.equipList[mainIndex].statMap[subIndex].stat]?.value * (gameId === "ww" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (STATS[gameId][pipe.data.equipList[mainIndex].statMap[subIndex].stat]?.value * (gameId === "ww" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, "value");
                   }
                 }}
                 slotProps={{
                   input: {
-                    endAdornment: STATS_DATA[gameId][pipe?.data.equipList[mainIndex].statMap[subIndex].stat]?.percent && (
+                    endAdornment: STATS[gameId][pipe?.data.equipList[mainIndex].statMap[subIndex].stat]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },

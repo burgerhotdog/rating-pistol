@@ -1,4 +1,4 @@
-import SET_DATA from "@data/set";
+import SETS from "@data/dynamic/sets";
 
 export default (gameId, setBonuses) => {
   return Object.entries(setBonuses)
@@ -17,8 +17,8 @@ export default (gameId, setBonuses) => {
     .sort(([setIdA, numBonusA], [setIdB, numBonusB]) => {
       // Step 3: For "hsr" gameId, move Planar type entries to the back
       if (gameId === "hsr") {
-        const isPlanarA = SET_DATA[gameId][setIdA]?.type === "Planar";
-        const isPlanarB = SET_DATA[gameId][setIdB]?.type === "Planar";
+        const isPlanarA = SETS[gameId][setIdA]?.type === "Planar";
+        const isPlanarB = SETS[gameId][setIdB]?.type === "Planar";
 
         // If one is Planar and the other is not, move Planar to the back
         if (isPlanarA && !isPlanarB) return 1;

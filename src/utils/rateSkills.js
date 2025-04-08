@@ -1,4 +1,4 @@
-import BASIC_DATA from "@data/misc/basic";
+import INFO from "@data/static/info";
 
 const rateSkillMap = (gameId, data) => {
   let levelTotal = 0;
@@ -6,7 +6,7 @@ const rateSkillMap = (gameId, data) => {
   for (const [id, value] of Object.entries(data.skillMap)) {
     levelTotal += value;
     capTotal += id[0] === "0"
-      ? BASIC_DATA[gameId].SKILL_MAX_LEVEL[Number(id[2]) - 1]
+      ? INFO[gameId].SKILL_MAX_LEVEL[Number(id[2]) - 1]
       : 1;
   }
   return (levelTotal / capTotal) * 100;

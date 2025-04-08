@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack } from "@mui/material";
 import Add from "@mui/icons-material/Add";
-import SET_ASSETS from "@assets/set";
+import SET_ASSETS from "@assets/dynamic/set";
 import getSetBonuses from "@utils/getSetBonuses";
 import sortSetBonuses from "@utils/sortSetBonuses";
 

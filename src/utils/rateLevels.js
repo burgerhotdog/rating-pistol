@@ -1,4 +1,4 @@
-import BASIC_DATA from "@data/misc/basic";
+import INFO from "@data/static/info";
 
 const rateLevels = (gameId, data) => {
   const level = Number(data.level);
@@ -6,7 +6,7 @@ const rateLevels = (gameId, data) => {
   if (!level || !weaponLevel) return 0;
 
   const avg = (level + weaponLevel) / 2
-  return (avg / BASIC_DATA[gameId].MAX_LEVEL) * 100;
+  return (avg / INFO[gameId].MAX_LEVEL) * 100;
 };
 
 export default rateLevels;

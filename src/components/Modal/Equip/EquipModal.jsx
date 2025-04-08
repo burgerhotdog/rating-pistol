@@ -13,12 +13,12 @@ import {
 import EquipCard from "./EquipCard";
 import PreviewSet from "./PreviewSet";
 import Analysis from "./Analysis";
-import MISC_ASSETS from "@assets/misc";
-import BASIC_DATA from "@data/misc/basic";
+import EQUIP_ASSETS from "@assets/static/equip";
+import INFO from "@data/static/info";
 
 const EquipModal = ({ gameId, pipe, setPipe, savePipe }) => {
   const [viewIndex, setViewIndex] = useState(0);
-  const equipSlots = [...Array(BASIC_DATA[gameId].MAIN_LEN).keys()];
+  const equipSlots = [...Array(INFO[gameId].MAIN_LEN).keys()];
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
@@ -43,10 +43,10 @@ const EquipModal = ({ gameId, pipe, setPipe, savePipe }) => {
                       <Stack direction="row" spacing={1}>
                         <Box
                           component="img"
-                          src={MISC_ASSETS[`./equip/${gameId}/${index}.webp`]?.default}
+                          src={EQUIP_ASSETS[`./${gameId}/${index}.webp`]?.default}
                           sx={{ width: 24, height: 24, objectFit: "contain" }}
                         />
-                        <ListItemText primary={BASIC_DATA[gameId].EQUIP_NAMES[index]} />
+                        <ListItemText primary={INFO[gameId].EQUIP_NAMES[index]} />
                       </Stack>
                     </ListItemButton>
                   </ListItem>

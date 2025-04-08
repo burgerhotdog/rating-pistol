@@ -1,4 +1,4 @@
-import STATS_DATA from "@data/misc/stats";
+import STATS from "@data/static/stats";
 
 const getRollValue = (gameId, substats, weights) => {
   const rollValue = substats.reduce((acc, { stat, value }) => {
@@ -7,7 +7,7 @@ const getRollValue = (gameId, substats, weights) => {
     const weight = weights[stat];
     if (!weight) return acc;
 
-    const rolls = Number(value) / STATS_DATA[gameId][stat].value;
+    const rolls = Number(value) / STATS[gameId][stat].value;
     return acc + rolls * weight * 100;
   }, 0);
   const multiplier = gameId === "ww" ? 2 : 1;

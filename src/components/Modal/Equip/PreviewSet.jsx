@@ -6,8 +6,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import SET_ASSETS from "@assets/set";
-import SET_DATA from "@data/set";
+import SET_ASSETS from "@assets/dynamic/set";
+import SETS from "@data/dynamic/sets";
 import getSetBonuses from "@utils/getSetBonuses";
 import sortSetBonuses from "@utils/sortSetBonuses";
 
@@ -43,10 +43,10 @@ const PreviewSet = ({ gameId, pipe }) => {
               
               <Stack>
                 <Typography variant="subtitle1" fontWeight="bold">
-                  {SET_DATA[gameId][setId].name}
+                  {SETS[gameId][setId].name}
                 </Typography>
 
-                {Object.entries(SET_DATA[gameId][setId].desc)
+                {Object.entries(SETS[gameId][setId].desc)
                   .filter(([numBonus]) => numPc >= numBonus)
                   .map(([numBonus, effect]) => (
                     <Typography key={numBonus} variant="body2" sx={{ whiteSpace: "pre-line" }}>

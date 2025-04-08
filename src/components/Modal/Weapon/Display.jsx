@@ -1,14 +1,13 @@
 import React, { useMemo } from "react";
 import { Paper, Box, Stack, Typography } from "@mui/material";
-import WEAPON_ASSETS from "@assets/weapon";
-import WEAPON_DATA from "@data/weapon";
-import STATS_DATA from "@data/misc/stats";
-import LABELS_DATA from "@data/misc/labels";
+import WEAPON_ASSETS from "@assets/dynamic/weapon";
+import { STATS, LABELS } from "@data/static";
+import WEAPONS from "@data/dynamic/weapons";
 import getWeaponDescArr from "./getWeaponDescArr";
 
 const Display = ({ gameId, pipe }) => {
   const weaponId = pipe.data.weaponId;
-  const weapon = WEAPON_DATA[gameId][weaponId];
+  const weapon = WEAPONS[gameId][weaponId];
 
   const weaponDescArr = useMemo(
     () => getWeaponDescArr(weapon, pipe.data.weaponRank),
@@ -20,7 +19,7 @@ const Display = ({ gameId, pipe }) => {
       <Paper sx={{ p: 2, width: 700, height: 200 }}>
         <Stack justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
           <Typography variant="h6" color="text.disabled">
-            No {LABELS_DATA[gameId].weapon} Selected
+            No {LABELS[gameId].weapon} Selected
           </Typography>
         </Stack>
       </Paper>
@@ -43,7 +42,7 @@ const Display = ({ gameId, pipe }) => {
           </Typography>
 
           {Object.entries(weapon.statBase).map(([key, value]) => {
-            const { name } = STATS_DATA[gameId][key] || {};
+            const { name } = STATS[gameId][key] || {};
             const base = gameId === "hsr" ? "" : "Base ";
             return (
               <Typography key={key} variant="body2">
@@ -54,7 +53,7 @@ const Display = ({ gameId, pipe }) => {
 
           {weapon.statSub && (
             Object.entries(weapon.statSub).map(([key, value]) => {
-              const { name, percent } = STATS_DATA[gameId][key] || {};
+              const { name, percent } = STATS[gameId][key] || {};
               return (
                 <Typography key={key} variant="body2">
                   {name}: {value}

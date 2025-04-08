@@ -1,11 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Box, Stack, Button, Typography } from "@mui/material";
-import { MISC_ASSETS } from "@assets";
-import { LABELS_DATA } from "@data/misc";
+import { Container, Stack, Box, Button, Typography } from "@mui/material";
+import { ICON, BANNER_ASSETS } from "@assets/static";
+import INFO from "@data/static/info";
 
-const buttonStyles = (img) => ({
-  background: `rgba(0, 0, 0, 0.7) url(${img}) center/cover`,
+const gameIds = ["gi", "hsr", "ww", "zzz"];
+
+const styles = (src) => ({
+  background: `rgba(0, 0, 0, 0.7) url(${src}) center/cover`,
   backgroundBlendMode: "overlay",
   width: 600,
   height: 80,
@@ -15,28 +17,28 @@ const buttonStyles = (img) => ({
   "&:hover": { opacity: 0.8 },
 });
 
-const games = ["gi", "hsr", "ww", "zzz"];
-
 const Menu = () => (
   <Container>
     <Stack alignItems="center" mt={6} mb={2} spacing={2}>
       <Stack direction="row" alignItems="center" spacing={2}>
         <Typography variant="h2" fontWeight="bold">Rating Pistol</Typography>
+
         <Box
           component="img"
-          alt={"title"}
-          src={MISC_ASSETS[`./icon.webp`]?.default}
+          alt="icon"
+          src={ICON[`./icon.webp`]?.default}
           sx={{ width: 100, height: 100 }}
         />
       </Stack>
-      {games.map((id) => (
+
+      {gameIds.map((gameId) => (
         <Button
-          key={id}
+          key={gameId}
           component={Link}
-          to={LABELS_DATA[id].path}
-          sx={buttonStyles(MISC_ASSETS[`./banner/${id}.webp`]?.default)}
+          to={INFO[gameId].PATH}
+          sx={styles(BANNER_ASSETS[`./${gameId}.webp`]?.default)}
         >
-          {LABELS_DATA[id].title}
+          {INFO[gameId].TITLE}
         </Button>
       ))}
     </Stack>

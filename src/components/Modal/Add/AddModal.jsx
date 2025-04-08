@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
 import template from "@config/template";
-import AVATAR_ASSETS from "@assets/avatar";
-import AVATAR_DATA from "@data/avatar";
-import BASIC_DATA from "@data/misc/basic";
+import AVATAR_ASSETS from "@assets/dynamic/avatar";
+import AVATARS from "@data/dynamic/avatars";
+import INFO from "@data/static/info";
 
 const AddModal = ({
   gameId,
@@ -15,11 +15,11 @@ const AddModal = ({
   const [isLoading, setIsLoading] = useState(false);
   
   const charOptions = () => {
-    return Object.keys(AVATAR_DATA[gameId])
+    return Object.keys(AVATARS[gameId])
       .filter(id => !Object.keys(localDocs).includes(id))
       .sort((a, b) => {
-        const A = AVATAR_DATA[gameId][a];
-        const B = AVATAR_DATA[gameId][b];
+        const A = AVATARS[gameId][a];
+        const B = AVATARS[gameId][b];
 
         return A.rarity != B.rarity
           ? B.rarity - A.rarity
@@ -30,8 +30,8 @@ const AddModal = ({
   const handleSelect = (newValue) => {
     const id = newValue;
     const data = template(gameId);
-    data.level = BASIC_DATA[gameId].MAX_LEVEL;
-    if (gameId === "hsr" && AVATAR_DATA[gameId][id].type === "Remembrance") {
+    data.level = INFO[gameId].MAX_LEVEL;
+    if (gameId === "hsr" && AVATARS[gameId][id].type === "Remembrance") {
       data.skillMap["005"] = 1;
       data.skillMap["006"] = 1;
     }
@@ -54,11 +54,11 @@ const AddModal = ({
       <Autocomplete
         value={pipe.id}
         options={charOptions()}
-        getOptionLabel={(avatarId) => AVATAR_DATA[gameId][avatarId]?.name || ""}
+        getOptionLabel={(avatarId) => AVATARS[gameId][avatarId]?.name || ""}
         onChange={(_, newValue) => handleSelect(newValue)}
         renderOption={(props, option) => {
           const { key, ...optionProps } = props;
-          const rarity = AVATAR_DATA[gameId][option]?.rarity;
+          const rarity = AVATARS[gameId][option]?.rarity;
           return (
             <Box
               key={key}
@@ -76,7 +76,7 @@ const AddModal = ({
                 alt={""}
                 sx={{ width: 24, height: 24, objectFit: "contain" }}
               />
-              {AVATAR_DATA[gameId][option].name}
+              {AVATARS[gameId][option].name}
             </Box>
           );
         }}

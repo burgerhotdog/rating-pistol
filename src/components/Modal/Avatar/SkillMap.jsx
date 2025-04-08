@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Box, Stack, Paper } from "@mui/material";
-import MISC_ASSETS from "@assets/misc";
-import AVATAR_DATA from "@data/avatar";
-import BASIC_DATA from "@data/misc/basic";
+import PATH_ASSETS from "@assets/static/path";
+import INFO from "@data/static/info";
+import AVATARS from "@data/dynamic/avatars";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
@@ -13,8 +13,8 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
   const avatarId = pipe.id;
   const rank = pipe.data.rank;
   const skillMap = pipe.data.skillMap;
-  const SKILL_MAX_LEVEL = BASIC_DATA[gameId].SKILL_MAX_LEVEL;
-  const type = AVATAR_DATA[gameId][avatarId].type;
+  const SKILL_MAX_LEVEL = INFO[gameId].SKILL_MAX_LEVEL;
+  const type = AVATARS[gameId][avatarId].type;
   const NODES = gameId === "hsr"
     ? config.nodes[type]
     : config.nodes;
@@ -75,7 +75,7 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
             {/* Background Image */}
             {gameId === "hsr" && (
               <image
-                href={MISC_ASSETS[`./paths/${type.replace(/ /g, "_")}.webp`]?.default}
+                href={PATH_ASSETS[`./${type.replace(/ /g, "_")}.webp`]?.default}
                 x="108"
                 y="108"
                 width="384"

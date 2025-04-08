@@ -11,9 +11,9 @@ import {
   Typography,
 } from "@mui/material";
 import template from "@config/template";
-import AVATAR_ASSETS from "@assets/avatar";
-import AVATAR_DATA from "@data/avatar";
-import STATS_DATA from "@data/misc/stats";
+import AVATAR_ASSETS from "@assets/dynamic/avatar";
+import STATS from "@data/static/stats";
+import AVATARS from "@data/dynamic/avatars";
 import translate from "./translate";
 
 const errorMessages = {
@@ -177,7 +177,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
         case "hsr": {
           const id = String(charObj.avatarId);
           const data = template(gameId);
-          if (AVATAR_DATA[gameId][id].type === "Remembrance") {
+          if (AVATARS[gameId][id].type === "Remembrance") {
             data.skillMap.memoSkill = "1";
             data.skillMap.memoTalent = "1";
           }
@@ -264,7 +264,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
               const key = STAT_CONVERT[String(subPropObj.PropertyId)];
               data.equipList[equipIndex].statMap[subIndex].stat = key;
               const value = subPropObj.PropertyValue;
-              const valueRatio = STATS_DATA[gameId][key].percent ? 0.01 : 1;
+              const valueRatio = STATS[gameId][key].percent ? 0.01 : 1;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               const timesAppeared = subPropObj.PropertyLevel;
               data.equipList[equipIndex].statMap[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
@@ -372,7 +372,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
                 />
 
                 <Typography variant="body2">
-                  {AVATAR_DATA[gameId][avatar.avatarId].name}
+                  {AVATARS[gameId][avatar.avatarId].name}
                 </Typography>
               </Stack>
             }
