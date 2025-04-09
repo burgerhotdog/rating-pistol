@@ -7,6 +7,7 @@ import {
   Stack,
   Typography,
   CircularProgress,
+  TableCell,
 } from "@mui/material";
 import { Delete, Check } from '@mui/icons-material';
 
@@ -37,7 +38,7 @@ const DeleteCell = ({
   };
 
   return (
-    <>
+    <TableCell align="center" width={50}>
       <Tooltip
         open={open}
         title={
@@ -60,17 +61,17 @@ const DeleteCell = ({
         }
         arrow
       >
-        <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
-          <Delete
-            onClick={() => setOpen(true)}
-            cursor="pointer"
-            color="disabled"
-            sx={{
-              transition: "color 0.3s ease",
-              "&:hover": { color: "secondary.main" },
-            }}
-          />
-        </Stack>
+        <Delete
+          onClick={() => setOpen(true)}
+          cursor="pointer"
+          color="disabled"
+          sx={{
+            transition: "color 0.3s ease",
+            "&:hover": {
+              color: "secondary.main",
+            },
+          }}
+        />
       </Tooltip>
 
       <Backdrop
@@ -78,7 +79,7 @@ const DeleteCell = ({
         onClick={() => setOpen(false)}
         sx={{ zIndex: 1 }}
       />
-    </>
+    </TableCell>
   );
 };
 

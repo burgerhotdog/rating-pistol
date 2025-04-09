@@ -1,25 +1,24 @@
 import React from "react";
-import { Stack, Badge, Avatar, Tooltip } from "@mui/material";
+import { Badge, Avatar, Tooltip, TableCell } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import WEAPON_ASSETS from "@assets/dynamic/weapon";
 import { INFO, LABELS} from "@data/static";
-
 const WeaponCell = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "weapon", id, data });
   
   if (!data.weaponId) {
     return (
-      <Tooltip title={`Add ${LABELS[gameId].Weapon}`} arrow>
-        <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+      <TableCell align="center">
+        <Tooltip title={`Add ${LABELS[gameId].Weapon}`} arrow>
           <Add onClick={openModal} cursor="pointer" />
-        </Stack>
-      </Tooltip>
+        </Tooltip>
+      </TableCell>
     );
   }
 
   return (
-    <Tooltip title={`Edit ${LABELS[gameId].Weapon}`} arrow>
-      <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+    <TableCell align="center">
+      <Tooltip title={`Edit ${LABELS[gameId].Weapon}`} arrow>
         <Badge
           onClick={openModal}
           badgeContent={<strong>{INFO[gameId].PREFIX_WEAPON}{data.weaponRank}</strong>}
@@ -35,8 +34,8 @@ const WeaponCell = ({ gameId, setPipe, id, data }) => {
             src={WEAPON_ASSETS[`./${gameId}/${data.weaponId}.webp`]?.default}
           />
         </Badge>
-      </Stack>
-    </Tooltip>
+      </Tooltip>
+    </TableCell>
   );
 };
 

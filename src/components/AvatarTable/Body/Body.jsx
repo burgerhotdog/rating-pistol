@@ -7,56 +7,45 @@ import EquipCell from "./EquipCell";
 import RatingCell from "./RatingCell";
 import DeleteCell from "./DeleteCell";
 
-const cellStyle = { 
-  verticalAlign: "middle", 
-  height: 60, 
-  textAlign: "center" 
-};
-
-const avatarCellStyle = {
-  ...cellStyle,
-  textAlign: "left"
-};
-
 export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs, setPipe }) => {
   if (isLoading) {
     return (
       <TableBody>
         {[...Array(5)].map((_, index) => (
-          <TableRow key={index}>
-            <TableCell align="center" sx={{ ...cellStyle, width: 50 }}>
-              <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+          <TableRow key={index} sx={{ height: 60 }}>
+            <TableCell align="center" width={50}>
+              <Stack direction="row" display="inline-flex">
                 <Skeleton variant="circular" width={24} height={24} />
               </Stack>
             </TableCell>
 
-            <TableCell sx={avatarCellStyle}>
-              <Stack direction="row" display="inline-flex" spacing={1} sx={{ justifyContent: 'flex-start', alignItems: 'center' }}>
+            <TableCell align="left">
+              <Stack direction="row" display="inline-flex" spacing={1}>
                 <Skeleton variant="circular" width={40} height={40} />
-                <Skeleton variant="text" width={120} />
+                <Skeleton variant="text" width={120} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell sx={cellStyle}>
-              <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+            <TableCell align="center">
+              <Stack direction="row" display="inline-flex">
                 <Skeleton variant="rounded" width={80} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell sx={cellStyle}>
-              <Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
+            <TableCell align="center">
+              <Stack direction="row" display="inline-flex">
                 <Skeleton variant="text" width={80} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell sx={cellStyle}>
-              <Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
+            <TableCell align="center">
+              <Stack direction="row" display="inline-flex">
                 <Skeleton variant="rounded" width={60} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell sx={{ ...cellStyle, width: 50 }}>
-              <Stack sx={{ justifyContent: 'center', alignItems: 'center' }}>
+            <TableCell align="center" width={50}>
+              <Stack direction="row" display="inline-flex">
                 <Skeleton variant="circular" width={24} height={24} />
               </Stack>
             </TableCell>
@@ -71,62 +60,55 @@ export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs
       {sortedDocs.map(({ id, data, rating }) => (
         <TableRow
           key={id}
-          sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.03)" } }}
+          sx={{
+            height: 60,
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.03)",
+            },
+          }}
         >
-          <TableCell sx={{ ...cellStyle, width: 50 }}>
-            <StarCell
-              gameId={gameId}
-              userId={userId}
-              setLocalDocs={setLocalDocs}
-              id={id}
-              data={data}
-            />
-          </TableCell>
+          <StarCell
+            gameId={gameId}
+            userId={userId}
+            setLocalDocs={setLocalDocs}
+            id={id}
+            data={data}
+          />
           
-          <TableCell sx={avatarCellStyle}>
-            <AvatarCell
-              gameId={gameId}
-              setPipe={setPipe}
-              id={id}
-              data={data}
-            />
-          </TableCell>
+          <AvatarCell
+            gameId={gameId}
+            setPipe={setPipe}
+            id={id}
+            data={data}
+          />
 
-          <TableCell sx={cellStyle}>
-            <WeaponCell
-              gameId={gameId}
-              setPipe={setPipe}
-              id={id}
-              data={data}
-            />
-          </TableCell>
+          <WeaponCell
+            gameId={gameId}
+            setPipe={setPipe}
+            id={id}
+            data={data}
+          />
 
-          <TableCell sx={cellStyle}>
-            <EquipCell
-              gameId={gameId}
-              setPipe={setPipe}
-              id={id}
-              data={data}
-            />
-          </TableCell>
+          <EquipCell
+            gameId={gameId}
+            setPipe={setPipe}
+            id={id}
+            data={data}
+          />
 
-          <TableCell sx={cellStyle}>
-            <RatingCell
-              setPipe={setPipe}
-              id={id}
-              data={data}
-              rating={rating}
-            />
-          </TableCell>
+          <RatingCell
+            setPipe={setPipe}
+            id={id}
+            data={data}
+            rating={rating}
+          />
 
-          <TableCell sx={{ ...cellStyle, width: 50 }}>
-            <DeleteCell
-              gameId={gameId}
-              userId={userId}
-              id={id}
-              setLocalDocs={setLocalDocs}
-            />
-          </TableCell>
+          <DeleteCell
+            gameId={gameId}
+            userId={userId}
+            id={id}
+            setLocalDocs={setLocalDocs}
+          />
         </TableRow>
       ))}
     </TableBody>

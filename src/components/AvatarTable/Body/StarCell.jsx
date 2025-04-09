@@ -1,7 +1,7 @@
 import React from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
-import { Stack } from "@mui/material";
+import TableCell from "@mui/material/TableCell";
 import { Star, StarBorder } from '@mui/icons-material';
 
 const StarCell = ({
@@ -30,24 +30,30 @@ const StarCell = ({
 
   if (data.isStar) {
     return (
-      <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
-        <Star onClick={toggleStar} cursor="pointer" color="gold" />
-      </Stack>
+      <TableCell align="center" width={50}>
+        <Star 
+          onClick={toggleStar} 
+          cursor="pointer" 
+          color="gold" 
+        />
+      </TableCell>
     );
   }
 
   return (
-    <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+    <TableCell align="center" width={50}>
       <StarBorder
         onClick={toggleStar}
         cursor="pointer"
         color="disabled"
         sx={{
           transition: "color 0.3s ease",
-          "&:hover": { color: "gold.main" },
+          "&:hover": {
+            color: "gold.main",
+          },
         }}
       />
-    </Stack>
+    </TableCell>
   );
 };
 

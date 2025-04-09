@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Avatar, Stack, Tooltip } from "@mui/material";
+import { Badge, Avatar, Tooltip, TableCell } from "@mui/material";
 import RATING_ASSETS from "@assets/static/rating";
 
 const getIconSrc = (rating) => {
@@ -9,12 +9,12 @@ const getIconSrc = (rating) => {
   return "3";
 };
 
-const WeaponCell = ({ setPipe, id, data, rating }) => {
+const RatingCell = ({ setPipe, id, data, rating }) => {
   const openModal = () => setPipe({ type: "rating", id, data, rating });
 
   return (
-    <Tooltip title="See Details" arrow>
-      <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+    <TableCell align="center">
+      <Tooltip title="See Details" arrow>
         <Badge onClick={openModal} sx={{ cursor: 'pointer' }}>
           <Avatar
             alt={String(rating)}
@@ -22,9 +22,9 @@ const WeaponCell = ({ setPipe, id, data, rating }) => {
             sx={{ width: 32, height: 32 }}
           />
         </Badge>
-      </Stack>
-    </Tooltip>
+      </Tooltip>
+    </TableCell>
   );
 };
 
-export default WeaponCell;
+export default RatingCell;
