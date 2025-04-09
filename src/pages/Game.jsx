@@ -96,7 +96,7 @@ const Game = ({ gameId, userId }) => {
       <Box sx={{ py: 4 }}>
         <Stack spacing={2}>
           <Stack alignItems="center" textAlign="center">
-            <Typography variant="h4" fontWeight="bold">
+            <Typography variant="h3" fontWeight="bold">
               {INFO[gameId].TITLE}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
@@ -122,7 +122,7 @@ const Game = ({ gameId, userId }) => {
               <Tab 
                 label={
                   <Typography variant="subtitle1" fontWeight="bold">
-                    Teams
+                    Teams (Unfinished)
                   </Typography>
                 }
                 sx={{ textTransform: "none" }}

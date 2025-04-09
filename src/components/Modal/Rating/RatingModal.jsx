@@ -10,7 +10,7 @@ const RatingModal = ({ gameId, pipe }) => {
 
   return (
     <Box sx={{ width: 500 }}>
-      <Typography>Currently redesigning this page please check back later</Typography>
+      <Typography>This page is currently being redesigned. Please check back later</Typography>
     </Box>
   );
 };
