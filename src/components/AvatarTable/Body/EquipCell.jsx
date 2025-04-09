@@ -22,7 +22,9 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
   if (!Object.keys(setBonuses).length) {
     return (
       <Tooltip title={`Add ${LABELS[gameId].Equips}`} arrow>
-        <Add onClick={openModal} cursor="pointer" />
+        <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+          <Add onClick={openModal} cursor="pointer" />
+        </Stack>
       </Tooltip>
     );
   }
@@ -34,7 +36,7 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
         display="inline-flex"
         direction="row"
         spacing={1}
-        sx={{ cursor: "pointer" }}
+        sx={{ cursor: "pointer", justifyContent: 'center', alignItems: 'center' }}
       >
         {sortedSetBonuses.map(([setId, numBonus]) => (
           <Badge

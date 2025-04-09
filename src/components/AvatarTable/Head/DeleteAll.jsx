@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, writeBatch } from "firebase/firestore";
 import { db } from "@config/firebase";
 import {
   Backdrop,
@@ -10,10 +10,10 @@ import {
 } from "@mui/material";
 import { Delete, Check } from '@mui/icons-material';
 
-const DeleteCell = ({
+const DeleteAll = ({
   gameId,
   userId,
-  id,
+  localDocs,
   setLocalDocs,
 }) => {
   const [open, setOpen] = useState(false);
@@ -21,18 +21,15 @@ const DeleteCell = ({
 
   const handleDelete = async () => {
     setIsLoading(true);
-
     if (userId) {
-      const docRef = doc(db, "users", userId, gameId, id);
-      await deleteDoc(docRef);
+      const batch = writeBatch(db);
+      Object.entries(localDocs).forEach(([id]) => {
+        const docRef = doc(db, "users", userId, gameId, id);
+        batch.delete(docRef);
+      });
+      await batch.commit();
     }
-
-    setLocalDocs((prev) => {
-      const newDocs = { ...prev };
-      delete newDocs[id];
-      return newDocs;
-    });
-    
+    setLocalDocs({});
     setOpen(false);
   };
 
@@ -42,7 +39,9 @@ const DeleteCell = ({
         open={open}
         title={
           <Stack direction="row" alignItems="center" spacing={1}>
-            <Typography variant="tooltip">Delete?</Typography>
+            <Typography variant="tooltip">
+              Delete All?
+            </Typography>
 
             {isLoading ? (
               <CircularProgress size={16} />
@@ -80,4 +79,4 @@ const DeleteCell = ({
   );
 };
 
-export default DeleteCell;
+export default DeleteAll;

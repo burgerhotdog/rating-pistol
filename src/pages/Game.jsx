@@ -91,121 +91,131 @@ const Game = ({ gameId, userId }) => {
   };
 
   return (
-    <Container>
+    <Container maxWidth="lg">
       <Back />
-      <Stack alignItems="center" sx={{ mt: 4, mb: 6 }}>
-        <Typography variant="h4" fontWeight="bold">
-          {INFO[gameId].TITLE}
-        </Typography>
-        <Typography variant="subtitle2" color="text.secondary">
-          Updated for Version {VERSION[gameId]}
-        </Typography>
+      <Box sx={{ py: 4 }}>
+        <Stack spacing={2}>
+          <Stack alignItems="center" textAlign="center">
+            <Typography variant="h4" fontWeight="bold">
+              {INFO[gameId].TITLE}
+            </Typography>
+            <Typography variant="subtitle1" color="text.secondary">
+              Updated for Version {VERSION[gameId]}
+            </Typography>
+          </Stack>
 
-        <Tabs
-          value={activeTab}
-          onChange={(_, newValue) => setActiveTab(newValue)}
-          sx={{ mb: 4 }}
-        >
-          <Tab label={LABELS[gameId].Avatars} />
-          <Tab label="Teams" />
-        </Tabs>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs
+              value={activeTab}
+              onChange={(_, newValue) => setActiveTab(newValue)}
+              variant="fullWidth"
+              centered
+            >
+              <Tab label={LABELS[gameId].Avatars} />
+              <Tab label="Teams" />
+            </Tabs>
+          </Box>
 
-        {activeTab === 0 && (
-          <>
-            <AvatarTable
-              gameId={gameId}
-              userId={userId}
-              localDocs={localDocs}
-              setLocalDocs={setLocalDocs}
-              isLoading={isLoading}
-              sortedDocs={sortedDocs}
-              setPipe={setPipe}
-            />
-            <Stack direction="row" spacing={2} mt={2} mb={4}>
-              <Button
-                onClick={handleAdd}
-                variant="contained"
-                startIcon={<Add />}
-              >
-                New Build
-              </Button>
-              <Button
-                onClick={handleLoad}
-                variant="contained"
-                endIcon={<KeyboardArrowRight />}
-                disabled={gameId === "ww"}
-              >
-                Lookup UID
-              </Button>
+          {activeTab === 0 && (
+            <Stack spacing={2}>
+              <AvatarTable
+                gameId={gameId}
+                userId={userId}
+                localDocs={localDocs}
+                setLocalDocs={setLocalDocs}
+                isLoading={isLoading}
+                sortedDocs={sortedDocs}
+                setPipe={setPipe}
+              />
+
+              <Stack direction="row" sx={{ justifyContent: "center", gap: 2 }}>
+                <Button
+                  onClick={handleAdd}
+                  variant="contained"
+                  color="primary"
+                  startIcon={<Add />}
+                >
+                  New Build
+                </Button>
+                <Button
+                  onClick={handleLoad}
+                  variant="outlined"
+                  endIcon={<KeyboardArrowRight />}
+                  disabled={gameId === "ww"}
+                >
+                  Lookup UID
+                </Button>
+              </Stack>
             </Stack>
-            <Modal
-              gameId={gameId}
-              userId={userId}
-              pipe={pipe}
-              setPipe={setPipe}
-              localDocs={localDocs}
-              setLocalDocs={setLocalDocs}
-            />
-          </>
-        )}
+          )}
 
-        {activeTab === 1 && (
-          <Box sx={{ width: '100%', maxWidth: 1200 }}>
-            <Typography variant="h5" gutterBottom>Teams</Typography>
-            <Grid container spacing={2}>
-              {isLoading ? (
-                [...Array(8)].map((_, index) => (
-                  <Grid key={index} size={3}>
-                    <Box border={1} p={2} borderRadius={1}>
-                      <Typography variant="h6"><Skeleton width={100} /></Typography>
-                      {[...Array(4)].map((_, slotIndex) => (
-                        <Box key={slotIndex} sx={{ mb: 1 }}>
-                          <Skeleton variant="rounded" height={56} />
-                        </Box>
-                      ))}
-                    </Box>
-                  </Grid>
-                ))
-              ) : (
-                [...Array(8)].map((_, index) => {
-                  const teamId = `0${index + 1}`.slice(-2);
-                  return (
-                    <Grid key={teamId} size={3}>
+          {activeTab === 1 && (
+            <Box sx={{ width: '100%' }}>
+              <Grid container spacing={3}>
+                {isLoading ? (
+                  [...Array(8)].map((_, index) => (
+                    <Grid key={index} size={3}>
                       <Box border={1} p={2} borderRadius={1}>
-                        <Typography variant="h6">Team {teamId}</Typography>
-                        {[...Array(4)].map((_, slotIndex) => {
-                          const slot = slotIndex.toString();
-                          const selectedIds = Object.values(teamDocs[teamId] || {}).filter(Boolean);
-                          const currentId = teamDocs[teamId]?.[slot];
-
-                          const availableOptions = sortedDocs.filter(({ id }) => {
-                            return id === currentId || !selectedIds.includes(id);
-                          });
-                          return (
-                            <FormControl fullWidth key={slot} sx={{ mb: 1 }}>
-                              <InputLabel>Slot {slotIndex + 1}</InputLabel>
-                              <Select
-                                value={teamDocs[teamId]?.[slot] || ""}
-                                onChange={(e) => handleTeamChange(teamId, slot, e.target.value)}
-                                label={`Slot ${slotIndex + 1}`}
-                              >
-                                <MenuItem value="">None</MenuItem>
-                                {availableOptions.map(({ id }) => (
-                                  <MenuItem key={id} value={id}>{AVATARS[gameId][id].name}</MenuItem>
-                                ))}
-                              </Select>
-                            </FormControl>
-                          );
-                        })}
+                        <Typography variant="h6"><Skeleton width={100} /></Typography>
+                        {[...Array(4)].map((_, slotIndex) => (
+                          <Box key={slotIndex} sx={{ mb: 1 }}>
+                            <Skeleton variant="rounded" height={56} />
+                          </Box>
+                        ))}
                       </Box>
                     </Grid>
-                  );
-                })
-              )}
-            </Grid>
-          </Box>
-        )}
-      </Stack>
+                  ))
+                ) : (
+                  [...Array(8)].map((_, index) => {
+                    const teamId = `0${index + 1}`.slice(-2);
+                    return (
+                      <Grid key={teamId} size={3}>
+                        <Box border={1} p={2} borderRadius={1}>
+                          <Typography variant="h6">Team {teamId}</Typography>
+                          {[...Array(4)].map((_, slotIndex) => {
+                            const slot = slotIndex.toString();
+                            const selectedIds = Object.values(teamDocs[teamId] || {}).filter(Boolean);
+                            const currentId = teamDocs[teamId]?.[slot];
+
+                            const availableOptions = sortedDocs.filter(({ id }) => {
+                              return id === currentId || !selectedIds.includes(id);
+                            });
+                            return (
+                              <FormControl fullWidth key={slot} sx={{ mb: 1 }}>
+                                <InputLabel>Slot {slotIndex + 1}</InputLabel>
+                                <Select
+                                  value={teamDocs[teamId]?.[slot] || ""}
+                                  onChange={(e) => handleTeamChange(teamId, slot, e.target.value)}
+                                  label={`Slot ${slotIndex + 1}`}
+                                >
+                                  <MenuItem value="">None</MenuItem>
+                                  {availableOptions.map(({ id }) => (
+                                    <MenuItem key={id} value={id}>{AVATARS[gameId][id].name}</MenuItem>
+                                  ))}
+                                </Select>
+                              </FormControl>
+                            );
+                          })}
+                        </Box>
+                      </Grid>
+                    );
+                  })
+                )}
+              </Grid>
+            </Box>
+          )}
+          
+        </Stack>
+      </Box>
+      
+      <Modal
+        gameId={gameId}
+        userId={userId}
+        pipe={pipe}
+        setPipe={setPipe}
+        localDocs={localDocs}
+        setLocalDocs={setLocalDocs}
+      />
     </Container>
   );
 };

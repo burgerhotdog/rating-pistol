@@ -1,14 +1,19 @@
 import React from "react";
 import { TableContainer, Table } from "@mui/material";
-import TableHead from "./TableHead";
-import TableBody from "./TableBody";
+import Head from "./Head";
+import Body from "./Body";
 
 const AvatarTable = ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs, setPipe }) => {
   return (
-    <TableContainer sx={{ maxWidth: 900, mt: 2 }}>
+    <TableContainer>
       <Table sx={{ tableLayout: "fixed", width: "100%" }}>
-        <TableHead gameId={gameId} userId={userId} localDocs={localDocs} setLocalDocs={setLocalDocs} />
-        <TableBody
+        <Head
+          gameId={gameId}
+          userId={userId}
+          localDocs={localDocs}
+          setLocalDocs={setLocalDocs}
+        />
+        <Body
           gameId={gameId}
           userId={userId}
           localDocs={localDocs}
@@ -23,4 +28,3 @@ const AvatarTable = ({ gameId, userId, localDocs, setLocalDocs, isLoading, sorte
 };
 
 export default AvatarTable;
-

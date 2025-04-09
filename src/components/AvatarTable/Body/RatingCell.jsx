@@ -14,8 +14,8 @@ const WeaponCell = ({ setPipe, id, data, rating }) => {
 
   return (
     <Tooltip title="See Details" arrow>
-      <Stack display="inline-flex">
-        <Badge onClick={openModal}>
+      <Stack display="inline-flex" sx={{ justifyContent: 'center', alignItems: 'center' }}>
+        <Badge onClick={openModal} sx={{ cursor: 'pointer' }}>
           <Avatar
             alt={String(rating)}
             src={RATING_ASSETS[`./${getIconSrc(rating)}.webp`]?.default}

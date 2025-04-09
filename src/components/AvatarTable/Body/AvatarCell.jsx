@@ -15,7 +15,7 @@ const AvatarCell = ({ gameId, setPipe, id, data }) => {
         direction="row"
         alignItems="center"
         spacing={1}
-        sx={{ cursor: "pointer" }}
+        sx={{ cursor: "pointer", justifyContent: 'flex-start' }}
       >
         <Badge
           badgeContent={<strong>{INFO[gameId].PREFIX_AVATAR}{data.rank}</strong>}
