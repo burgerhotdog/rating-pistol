@@ -1,4 +1,44 @@
 export default {
+  // Version 3.2
+  "23041": {
+    name: "Life Should Be Cast to Flames",
+    rarity: 5,
+    type: "Erudition",
+    statBase: { _HP: 953, _ATK: 582, _DEF: 529 },
+    descHead: "Smelt",
+    descBody: "When the wearer's turn starts, regenerates 10 Energy. If the enemy target has a Weakness implanted by the wearer, increases the wearer's DMG dealt to it by {0}.\nWhen an enemy target gets attacked by the wearer, the wearer decreases the target's DEF by {1}, lasting for 2 turn(s). The same types of effects cannot stack.",
+    descVar: [
+      ["60%", "70%", "80%", "90%", "100%"],
+      ["12%", "15%", "18%", "21%", "24%"],
+    ],
+  },
+  "23040": {
+    name: "Make Farewells More Beautiful",
+    rarity: 5,
+    type: "Remembrance",
+    statBase: { _HP: 1270, _ATK: 529, _DEF: 397 },
+    descHead: "Engrave",
+    descBody: "Increases the wearer's Max HP by {0}. When the wearer or their memosprite loses HP during their own turn, the wearer gains \"Death Flower.\" \"Death Flower\" allows the wearer and their memosprite to ignore {1} of the target's DEF when dealing DMG, lasting for 2 turn(s).\nWhen the wearer's memosprite disappears, advances the wearer's action by {2}. This effect can only trigger up to 1 time, and the trigger count resets every time the wearer uses Ultimate.",
+    descVar: [
+      ["30%", "38%", "45%", "53%", "60%"],
+      ["30%", "35%", "40%", "45%", "50%"],
+      ["12%", "15%", "18%", "21%", "24%"],
+    ],
+  },
+
+  "22004": {
+    name: "The Great Cosmic Enterprise",
+    rarity: 4,
+    type: "Erudition",
+    statBase: { _HP: 953, _ATK: 476, _DEF: 331 },
+    descHead: "Mutual Benefit",
+    descBody: "Increases the wearer's ATK by {0}. For every 1 different Weakness Type an enemy target has, increases the DMG dealt to it by the wearer by {1}. Up to a max of 7 Weakness Types can be taken into account for this effect.",
+    descVar: [
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["4%", "5%", "6%", "7%", "8%"],
+    ],
+  },
+
   // Version 3.1
   "24005": {
     name: "Memory's Curtain Never Falls",

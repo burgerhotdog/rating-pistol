@@ -1,4 +1,40 @@
 export default {
+  // Version 3.2
+  "1407": {
+    name: "Castorice",
+    rarity: 5,
+    type: "Remembrance",
+    sig: "23040",
+    minor: ["CR", "QUANTUM", "CR", "CD", "CR", "QUANTUM", "CR", "CD", "QUANTUM", "CR"],
+    skillRank: [3, 5, 3, 5, 5, 3],
+    statBase: { _HP: 1630, _ATK: 524, _DEF: 485 },
+    weights: {
+      "CR": 1,
+      "CD": 1,
+      "HP": 0.75,
+      "SPD": 0.25,
+      "_HP": 0.25,
+      "RES": 0.25,
+    },
+  },
+  "1405": {
+    name: "Anaxa",
+    rarity: 5,
+    type: "Erudition",
+    sig: "23041",
+    minor: ["WIND", "CR", "WIND", "HP", "WIND", "CR", "WIND", "HP", "CR", "WIND"],
+    skillRank: [3, 5, 3, 5],
+    statBase: { _HP: 970, _ATK: 757, _DEF: 558 },
+    weights: {
+      "CR": 1,
+      "CD": 1,
+      "ATK": 0.75,
+      "SPD": 0.5,
+      "_ATK": 0.25,
+      "RES": 0.25,
+    },
+  },
+
   // Version 3.1
   "1404": {
     name: "Mydei",
