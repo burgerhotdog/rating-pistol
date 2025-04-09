@@ -7,15 +7,11 @@ import {
   Stack,
   Typography,
   CircularProgress,
+  TableCell,
 } from "@mui/material";
 import { Delete, Check } from '@mui/icons-material';
 
-const DeleteAll = ({
-  gameId,
-  userId,
-  localDocs,
-  setLocalDocs,
-}) => {
+const DeleteHead = ({ gameId, userId, localDocs, setLocalDocs }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,7 +30,7 @@ const DeleteAll = ({
   };
 
   return (
-    <>
+    <TableCell align="center" width={50}>
       <Tooltip
         open={open}
         title={
@@ -75,8 +71,8 @@ const DeleteAll = ({
         onClick={() => setOpen(false)}
         sx={{ zIndex: 1 }}
       />
-    </>
+    </TableCell>
   );
 };
 
-export default DeleteAll;
+export default DeleteHead;

@@ -1,40 +1,45 @@
 import React from "react";
-import { TableHead, TableRow, TableCell } from "@mui/material";
+import { TableHead, TableRow, TableCell, Typography } from "@mui/material";
 import LABELS from "@data/static/labels";
-import DeleteAll from "./DeleteAll";
+import StarHead from "./StarHead";
+import DeleteHead from "./DeleteHead";
 
 export default ({ gameId, userId, localDocs, setLocalDocs }) => {
   return (
     <TableHead>
       <TableRow>
-        <TableCell align="center" sx={{ width: 50, py: 1.5, color: "text.secondary" }}>
+        <StarHead />
 
+        <TableCell align="left">
+          <Typography variant="body1" color="text.secondary">
+            {LABELS[gameId].Avatar}
+          </Typography>
         </TableCell>
 
-        <TableCell sx={{ width: 250, py: 1.5, color: "text.secondary" }}>
-          {LABELS[gameId].Avatar}
+        <TableCell align="center">
+          <Typography variant="body1" color="text.secondary">
+            {LABELS[gameId].Weapon}
+          </Typography>
         </TableCell>
 
-        <TableCell align="center" sx={{ width: 125, py: 1.5, color: "text.secondary" }}>
-          {LABELS[gameId].Weapon}
+        <TableCell align="center">
+          <Typography variant="body1" color="text.secondary">
+            {LABELS[gameId].Equip}
+          </Typography>
         </TableCell>
 
-        <TableCell align="center" sx={{ width: 250, py: 1.5, color: "text.secondary" }}>
-          {LABELS[gameId].Equip}
+        <TableCell align="center">
+          <Typography variant="body1" color="text.secondary">
+            Rating
+          </Typography>
         </TableCell>
 
-        <TableCell align="center" sx={{ width: 125, py: 1.5, color: "text.secondary" }}>
-          Rating
-        </TableCell>
-
-        <TableCell align="center" sx={{ width: 50, py: 1.5, color: "text.secondary" }}>
-          <DeleteAll
-            gameId={gameId}
-            userId={userId}
-            localDocs={localDocs}
-            setLocalDocs={setLocalDocs}
-          />
-        </TableCell>
+        <DeleteHead
+          gameId={gameId}
+          userId={userId}
+          localDocs={localDocs}
+          setLocalDocs={setLocalDocs}
+        />
       </TableRow>
     </TableHead>
   );

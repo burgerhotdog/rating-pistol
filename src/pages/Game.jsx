@@ -111,8 +111,22 @@ const Game = ({ gameId, userId }) => {
               variant="fullWidth"
               centered
             >
-              <Tab label={LABELS[gameId].Avatars} />
-              <Tab label="Teams" />
+              <Tab 
+                label={
+                  <Typography variant="subtitle1" fontWeight="bold">
+                    {LABELS[gameId].Avatars}
+                  </Typography>
+                }
+                sx={{ textTransform: "none" }}
+              />
+              <Tab 
+                label={
+                  <Typography variant="subtitle1" fontWeight="bold">
+                    Teams
+                  </Typography>
+                }
+                sx={{ textTransform: "none" }}
+              />
             </Tabs>
           </Box>
 
