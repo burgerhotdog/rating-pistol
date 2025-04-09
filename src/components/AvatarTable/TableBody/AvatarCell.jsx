@@ -4,7 +4,7 @@ import AVATAR_ASSETS from "@assets/dynamic/avatar";
 import AVATARS from "@data/dynamic/avatars";
 import { INFO, LABELS } from "@data/static";
 
-const Table1Avatar = ({ gameId, setPipe, id, data }) => {
+const AvatarCell = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "avatar", id, data });
 
   return (
@@ -39,4 +39,4 @@ const Table1Avatar = ({ gameId, setPipe, id, data }) => {
   );
 };
 
-export default Table1Avatar;
+export default AvatarCell;

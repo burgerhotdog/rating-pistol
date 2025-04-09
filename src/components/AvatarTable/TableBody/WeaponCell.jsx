@@ -4,7 +4,7 @@ import Add from "@mui/icons-material/Add";
 import WEAPON_ASSETS from "@assets/dynamic/weapon";
 import { INFO, LABELS} from "@data/static";
 
-const Table2Weapon = ({ gameId, setPipe, id, data }) => {
+const WeaponCell = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "weapon", id, data });
   
   if (!data.weaponId) {
@@ -37,4 +37,4 @@ const Table2Weapon = ({ gameId, setPipe, id, data }) => {
   );
 };
 
-export default Table2Weapon;
+export default WeaponCell;

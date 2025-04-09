@@ -3,7 +3,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Star, StarBorder } from '@mui/icons-material';
 
-const Table0Star = ({
+const StarCell = ({
   gameId,
   userId,
   setLocalDocs,
@@ -46,4 +46,4 @@ const Table0Star = ({
   );
 };
 
-export default Table0Star;
+export default StarCell;

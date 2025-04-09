@@ -9,7 +9,7 @@ const getIconSrc = (rating) => {
   return "3";
 };
 
-const Table4Rating = ({ setPipe, id, data, rating }) => {
+const WeaponCell = ({ setPipe, id, data, rating }) => {
   const openModal = () => setPipe({ type: "rating", id, data, rating });
 
   return (
@@ -27,4 +27,4 @@ const Table4Rating = ({ setPipe, id, data, rating }) => {
   );
 };
 
-export default Table4Rating;
+export default WeaponCell;

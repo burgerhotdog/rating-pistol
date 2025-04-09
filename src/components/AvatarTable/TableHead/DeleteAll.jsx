@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, writeBatch } from "firebase/firestore";
 import { db } from "@config/firebase";
 import {
   Backdrop,
@@ -10,40 +10,38 @@ import {
 } from "@mui/material";
 import { Delete, Check } from '@mui/icons-material';
 
-const Table5Delete = ({
+const DeleteAll = ({
   gameId,
   userId,
-  id,
+  localDocs,
   setLocalDocs,
-  hoveredId,
 }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = async () => {
     setIsLoading(true);
-
     if (userId) {
-      const docRef = doc(db, "users", userId, gameId, id);
-      await deleteDoc(docRef);
+      const batch = writeBatch(db);
+      Object.entries(localDocs).forEach(([id]) => {
+        const docRef = doc(db, "users", userId, gameId, id);
+        batch.delete(docRef);
+      });
+      await batch.commit();
     }
-
-    setLocalDocs((prev) => {
-      const newDocs = { ...prev };
-      delete newDocs[id];
-      return newDocs;
-    });
-    
+    setLocalDocs({});
     setOpen(false);
   };
 
   return (
-    <>
+    <Stack>
       <Tooltip
         open={open}
         title={
           <Stack direction="row" alignItems="center" spacing={1}>
-            <Typography variant="tooltip">Delete?</Typography>
+            <Typography variant="tooltip">
+              Delete All?
+            </Typography>
 
             {isLoading ? (
               <CircularProgress size={16} />
@@ -66,8 +64,7 @@ const Table5Delete = ({
           cursor="pointer"
           color="disabled"
           sx={{
-            opacity: open || hoveredId === id ? 1 : 0,
-            transition: "opacity 0.3s ease, color 0.3s ease",
+            transition: "color 0.3s ease",
             "&:hover": { color: "secondary.main" },
           }}
         />
@@ -78,8 +75,8 @@ const Table5Delete = ({
         onClick={() => setOpen(false)}
         sx={{ zIndex: 1 }}
       />
-    </>
+    </Stack>
   );
 };
 
-export default Table5Delete;
+export default DeleteAll;

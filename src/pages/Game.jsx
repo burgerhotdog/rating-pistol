@@ -3,8 +3,7 @@ import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import { db } from "@config/firebase";
 import {
-  Container, Stack, TableContainer, Table, TableHead, TableBody,
-  TableRow, TableCell, Button, Typography, Skeleton,
+  Container, Stack, Button, Typography, Skeleton,
   Box, Grid, Select, MenuItem, InputLabel, FormControl,
   Tabs, Tab,
 } from "@mui/material";
@@ -12,16 +11,11 @@ import { INFO, LABELS } from "@data/static";
 import { VERSION, AVATARS } from "@data/dynamic";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
-import {
-  DeleteAll, Table0Star, Table1Avatar, Table2Weapon,
-  Table3EquipList, Table4Rating, Table5Delete,
-} from "@components/Table";
+import AvatarTable from "@components/AvatarTable";
 
 const Game = ({ gameId, userId }) => {
   const [localDocs, setLocalDocs] = useState({});
   const [teamDocs, setTeamDocs] = useState({});
-  const [hoveredId, setHoveredId] = useState(null);
-  const [hoveredHead, setHoveredHead] = useState(false);
   const [pipe, setPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
@@ -80,10 +74,6 @@ const Game = ({ gameId, userId }) => {
   const handleAdd = () => setPipe({ type: "add", id: null, data: null });
   const handleLoad = () => setPipe({ type: "load", id: null, data: null });
 
-  const hoverStyle = (id) => ({
-    backgroundColor: hoveredId === id ? "rgba(255, 255, 255, 0.03)" : "inherit",
-  });
-
   const handleTeamChange = async (teamId, slot, characterId) => {
     setTeamDocs(prev => ({
       ...prev,
@@ -113,118 +103,24 @@ const Game = ({ gameId, userId }) => {
 
         <Tabs
           value={activeTab}
-          onChange={(e, newValue) => setActiveTab(newValue)}
+          onChange={(_, newValue) => setActiveTab(newValue)}
           sx={{ mb: 4 }}
         >
-          <Tab label="Avatars" />
+          <Tab label={LABELS[gameId].Avatars} />
           <Tab label="Teams" />
         </Tabs>
 
         {activeTab === 0 && (
           <>
-            <TableContainer sx={{ maxWidth: 900, mt: 2 }}>
-              <Table sx={{ tableLayout: "fixed", width: "100%" }}>
-                <TableHead>
-                  <TableRow
-                    onMouseEnter={() => setHoveredHead(true)}
-                    onMouseLeave={() => setHoveredHead(false)}
-                  >
-                    <TableCell sx={{ width: 50, borderBottom: "none" }} />
-                    <TableCell sx={{ width: 50 }} />
-                    <TableCell sx={{ width: 250 }}>{LABELS[gameId].Avatar}</TableCell>
-                    <TableCell align="center" sx={{ width: 125 }}>{LABELS[gameId].Weapon}</TableCell>
-                    <TableCell align="center" sx={{ width: 250 }}>{LABELS[gameId].Equip}</TableCell>
-                    <TableCell align="center" sx={{ width: 125 }}>Rating</TableCell>
-                    <TableCell sx={{ width: 50, borderBottom: "none" }}>
-                      {Boolean(Object.entries(localDocs).length) && (
-                        <DeleteAll
-                          gameId={gameId}
-                          userId={userId}
-                          localDocs={localDocs}
-                          setLocalDocs={setLocalDocs}
-                          hoveredHead={hoveredHead}
-                        />
-                      )}
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {isLoading ? (
-                    [...Array(5)].map((_, index) => (
-                      <TableRow key={index}>
-                        <TableCell sx={{ borderBottom: "none" }} />
-                        <TableCell align="center"><Skeleton variant="circular" width={30} height={30} /></TableCell>
-                        <TableCell><Skeleton variant="text" width="80%" height={40} /></TableCell>
-                        <TableCell align="center"><Skeleton variant="rounded" width={80} height={40} /></TableCell>
-                        <TableCell align="center"><Skeleton variant="text" width="90%" height={40} /></TableCell>
-                        <TableCell align="center"><Skeleton variant="rounded" width={60} height={40} /></TableCell>
-                        <TableCell sx={{ borderBottom: "none" }} />
-                      </TableRow>
-                    ))
-                  ) : (
-                    sortedDocs.map(({ id, data, rating }) => (
-                      <TableRow
-                        key={id}
-                        onMouseEnter={() => setHoveredId(id)}
-                        onMouseLeave={() => setHoveredId(null)}
-                      >
-                        <TableCell sx={{ borderBottom: "none" }} />
-                        <TableCell align="center" sx={hoverStyle(id)}>
-                          <Table0Star
-                            gameId={gameId}
-                            userId={userId}
-                            setLocalDocs={setLocalDocs}
-                            id={id}
-                            data={data}
-                          />
-                        </TableCell>
-                        <TableCell sx={hoverStyle(id)}>
-                          <Table1Avatar
-                            gameId={gameId}
-                            setPipe={setPipe}
-                            id={id}
-                            data={data}
-                          />
-                        </TableCell>
-                        <TableCell align="center" sx={hoverStyle(id)}>
-                          <Table2Weapon
-                            gameId={gameId}
-                            setPipe={setPipe}
-                            id={id}
-                            data={data}
-                          />
-                        </TableCell>
-                        <TableCell align="center" sx={hoverStyle(id)}>
-                          <Table3EquipList
-                            gameId={gameId}
-                            setPipe={setPipe}
-                            id={id}
-                            data={data}
-                          />
-                        </TableCell>
-                        <TableCell align="center" sx={hoverStyle(id)}>
-                          <Table4Rating
-                            setPipe={setPipe}
-                            id={id}
-                            data={data}
-                            rating={rating}
-                          />
-                        </TableCell>
-                        <TableCell sx={{ borderBottom: "none" }}>
-                          <Table5Delete
-                            gameId={gameId}
-                            userId={userId}
-                            id={id}
-                            setLocalDocs={setLocalDocs}
-                            hoveredId={hoveredId}
-                          />
-                        </TableCell>
-                      </TableRow>
-                    ))
-                  )}
-                </TableBody>
-              </Table>
-            </TableContainer>
+            <AvatarTable
+              gameId={gameId}
+              userId={userId}
+              localDocs={localDocs}
+              setLocalDocs={setLocalDocs}
+              isLoading={isLoading}
+              sortedDocs={sortedDocs}
+              setPipe={setPipe}
+            />
             <Stack direction="row" spacing={2} mt={2} mb={4}>
               <Button
                 onClick={handleAdd}

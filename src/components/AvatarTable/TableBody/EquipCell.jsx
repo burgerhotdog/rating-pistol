@@ -6,7 +6,7 @@ import { LABELS } from "@data/static";
 import getSetBonuses from "@utils/getSetBonuses";
 import sortSetBonuses from "@utils/sortSetBonuses";
 
-const Table3EquipList = ({ gameId, setPipe, id, data }) => {  
+const EquipCell = ({ gameId, setPipe, id, data }) => {  
   const setBonuses = useMemo(() =>
     getSetBonuses(gameId, data.equipList),
     [gameId, data.equipList]
@@ -57,4 +57,4 @@ const Table3EquipList = ({ gameId, setPipe, id, data }) => {
   );
 };
 
-export default Table3EquipList;
+export default EquipCell;
