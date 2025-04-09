@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { writeBatch, doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../../../firebase";
+import { db } from "@config/firebase";
 import {
   Box,
   Stack,
@@ -10,8 +10,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import template from "../../template";
-import { ASSETS, DATA } from "../../importData";
+import template from "@config/template";
+import AVATAR_ASSETS from "@assets/dynamic/avatar";
+import STATS from "@data/static/stats";
+import AVATARS from "@data/dynamic/avatars";
 import translate from "./translate";
 
 const errorMessages = {
@@ -34,8 +36,6 @@ const suffixes = {
 const urlBase = "https://rating-pistol.vercel.app/api/proxy?suffix=";
 
 const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
-  const { AVATAR_IMGS } = ASSETS[gameId];
-  const { STAT_INDEX, AVATAR_DATA } = DATA[gameId];
   const [error, setError] = useState(null);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);
@@ -177,7 +177,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
         case "hsr": {
           const id = String(charObj.avatarId);
           const data = template(gameId);
-          if (AVATAR_DATA[id].type === "Remembrance") {
+          if (AVATARS[gameId][id].type === "Remembrance") {
             data.skillMap.memoSkill = "1";
             data.skillMap.memoTalent = "1";
           }
@@ -264,7 +264,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
               const key = STAT_CONVERT[String(subPropObj.PropertyId)];
               data.equipList[equipIndex].statMap[subIndex].stat = key;
               const value = subPropObj.PropertyValue;
-              const valueRatio = STAT_INDEX[key].percent ? 0.01 : 1;
+              const valueRatio = STATS[gameId][key].percent ? 0.01 : 1;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               const timesAppeared = subPropObj.PropertyLevel;
               data.equipList[equipIndex].statMap[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
@@ -278,7 +278,11 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
           data.skillMap["003"] = Number(skillsArr[3].Level);
           data.skillMap["004"] = Number(skillsArr[2].Level);
           data.skillMap["005"] = Number(skillsArr[5].Level);
-          data.skillMap["006"] = Number(skillsArr[4].Level);
+
+          const coreLevel = Number(skillsArr[4].Level);
+          for (let i = 1; i < coreLevel; i++) {
+            data.skillMap[`10${i}`] = 1;
+          }
 
           return { id, data };
         }
@@ -362,13 +366,13 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
                 <Box
                   component="img"
                   loading="lazy"
-                  src={AVATAR_IMGS[`./${avatar.avatarId}.webp`]?.default}
+                  src={AVATAR_ASSETS[`./${gameId}/${avatar.avatarId}.webp`]?.default}
                   alt={avatar.avatarId}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />
 
                 <Typography variant="body2">
-                  {AVATAR_DATA[avatar.avatarId].name}
+                  {AVATARS[gameId][avatar.avatarId].name}
                 </Typography>
               </Stack>
             }

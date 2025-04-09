@@ -1,8 +1,5 @@
 export default (weapon, weaponRank) => {
-  if (!weapon) {
-    return [];
-  }
-
+  if (!weapon) return [];
   if (weapon.descVar) {
     const descBodyArr = weapon.descBody.split(/({\d+})/).map((part) => {
       const match = part.match(/^{(\d+)}$/);
@@ -14,10 +11,7 @@ export default (weapon, weaponRank) => {
       }
       return ["", part];
     });
-
     return descBodyArr;
   }
-
-  console.log(["", weapon.descBody]);
   return [["", weapon.descBody]];
 };

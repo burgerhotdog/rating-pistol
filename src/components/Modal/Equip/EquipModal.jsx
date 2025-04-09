@@ -12,19 +12,13 @@ import {
 } from "@mui/material";
 import EquipCard from "./EquipCard";
 import PreviewSet from "./PreviewSet";
-import { ASSETS, DATA } from "../../importData";
 import Analysis from "./Analysis";
+import EQUIP_ASSETS from "@assets/static/equip";
+import INFO from "@data/static/info";
 
-const EquipModal = ({
-  gameId,
-  pipe,
-  setPipe,
-  savePipe,
-}) => {
-  const { EQUIP_IMGS } = ASSETS[gameId];
-  const { EQUIP_NAMES } = DATA[gameId];
+const EquipModal = ({ gameId, pipe, setPipe, savePipe }) => {
   const [viewIndex, setViewIndex] = useState(0);
-  const equipSlots = [...Array(EQUIP_NAMES.length).keys()];
+  const equipSlots = [...Array(INFO[gameId].MAIN_LEN).keys()];
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
@@ -49,10 +43,10 @@ const EquipModal = ({
                       <Stack direction="row" spacing={1}>
                         <Box
                           component="img"
-                          src={EQUIP_IMGS[`./${index}.webp`]?.default}
+                          src={EQUIP_ASSETS[`./${gameId}/${index}.webp`]?.default}
                           sx={{ width: 24, height: 24, objectFit: "contain" }}
                         />
-                        <ListItemText primary={EQUIP_NAMES[index]} />
+                        <ListItemText primary={INFO[gameId].EQUIP_NAMES[index]} />
                       </Stack>
                     </ListItemButton>
                   </ListItem>

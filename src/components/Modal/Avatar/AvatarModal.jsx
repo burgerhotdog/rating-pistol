@@ -10,16 +10,22 @@ import {
   Select,
 } from "@mui/material";
 import SkillMap from "./SkillMap";
-import { DATA } from "../../importData"
+import INFO from "@data/static/info";
 
 const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
-  const { LEVEL_CAP, PREFIX } = DATA[gameId];
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   
   // level
   const handleLevel = (e) => {
-    const newValue = e.target.value;
+    const newValue = Number(e.target.value);
+    if (isNaN(newValue)) return;
+
+    const outOfBounds =
+      newValue < 0 ||
+      newValue > INFO[gameId].MAX_LEVEL ||
+      !Number.isInteger(newValue);
+    if (outOfBounds) return;
+
     setPipe((prev) => ({
       ...prev,
       data: {
@@ -36,11 +42,11 @@ const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
     );
     const noRank = giNoRank;
 
-    return noRank ? [0] : [0, 1, 2, 3, 4, 5, 6];
+    return noRank ? [0] : Array.from({ length: 7 }, (_, i) => i);
   };
 
   const handleRank = (e) => {
-    const newValue = e.target.value;
+    const newValue = Number(e.target.value);
     setPipe((prev) => ({
       ...prev,
       data: {
@@ -50,25 +56,7 @@ const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
     }));
   };
 
-  // validate & save
-  const validate = () => {
-    // level
-    if (!/^[1-9]\d*$/.test(pipe.data.level)) {
-      setError("level");
-      return false;
-    }
-    const level = Number(pipe.data.level);
-    if (level < 1 || level > LEVEL_CAP) {
-      setError("level");
-      return false;
-    }
-
-    setError(null);
-    return true;
-  };
-
   const handleSave = async () => {
-    if (!validate()) return
     setIsLoading(true);
     await savePipe();
     setPipe({});
@@ -84,7 +72,6 @@ const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
             onChange={handleLevel}
             slotProps={{ htmlInput: { inputMode: "numeric" } }}
             sx={{ width: 75 }}
-            error={error === "level"}
           />
 
           <FormControl sx={{ width: 75 }}>
@@ -100,7 +87,7 @@ const AvatarModal = ({ gameId, pipe, setPipe, savePipe }) => {
             >
               {rankOptions().map((rank) => (
                 <MenuItem key={rank} value={rank}>
-                  {`${PREFIX}${rank}`}
+                  {`${INFO[gameId].PREFIX_AVATAR}${rank}`}
                 </MenuItem>
               ))}
             </Select>
