@@ -15,7 +15,6 @@ const DeleteCell = ({
   userId,
   id,
   setLocalDocs,
-  hoveredId,
 }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -66,8 +65,7 @@ const DeleteCell = ({
           cursor="pointer"
           color="disabled"
           sx={{
-            opacity: open || hoveredId === id ? 1 : 0,
-            transition: "opacity 0.3s ease, color 0.3s ease",
+            transition: "color 0.3s ease",
             "&:hover": { color: "secondary.main" },
           }}
         />

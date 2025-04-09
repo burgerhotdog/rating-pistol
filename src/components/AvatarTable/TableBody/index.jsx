@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { TableBody, TableRow, TableCell, Skeleton } from "@mui/material";
 import StarCell from "./StarCell";
 import AvatarCell from "./AvatarCell";
@@ -8,7 +8,6 @@ import RatingCell from "./RatingCell";
 import DeleteCell from "./DeleteCell";
 
 const AvatarTable = ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs, setPipe }) => {
-  const [hoveredId, setHoveredId] = useState(null);
 
   if (isLoading) {
     return (
@@ -32,13 +31,7 @@ const AvatarTable = ({ gameId, userId, localDocs, setLocalDocs, isLoading, sorte
       {sortedDocs.map(({ id, data, rating }) => (
         <TableRow
           key={id}
-          onMouseEnter={() => setHoveredId(id)}
-          onMouseLeave={() => setHoveredId(null)}
-          sx={{
-            backgroundColor: hoveredId === id 
-              ? "rgba(255, 255, 255, 0.03)"
-              : "inherit",
-          }}
+          sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.03)" } }}
         >
           <TableCell align="center">
             <StarCell
@@ -87,7 +80,6 @@ const AvatarTable = ({ gameId, userId, localDocs, setLocalDocs, isLoading, sorte
               userId={userId}
               id={id}
               setLocalDocs={setLocalDocs}
-              hoveredId={hoveredId}
             />
           </TableCell>
         </TableRow>
