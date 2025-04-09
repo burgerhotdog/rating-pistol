@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import SET_ASSETS from "@assets/dynamic/set";
+import { LABELS } from "@data/static";
 import getSetBonuses from "@utils/getSetBonuses";
 import sortSetBonuses from "@utils/sortSetBonuses";
 
@@ -20,14 +21,14 @@ const Table3EquipList = ({ gameId, setPipe, id, data }) => {
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <Tooltip title="Add" arrow>
+      <Tooltip title={`Add ${LABELS[gameId].Equips}`} arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title="Edit" arrow>
+    <Tooltip title={`Edit ${LABELS[gameId].Equips}`} arrow>
       <Stack
         onClick={openModal}
         display="inline-flex"

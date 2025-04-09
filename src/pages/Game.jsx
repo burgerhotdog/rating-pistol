@@ -22,7 +22,7 @@ const Game = ({ gameId, userId }) => {
   const [hoveredId, setHoveredId] = useState(null);
   const [hoveredHead, setHoveredHead] = useState(false);
   const [pipe, setPipe] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   // get localDocs from firestore
   useEffect(() => {
@@ -53,8 +53,6 @@ const Game = ({ gameId, userId }) => {
       } else {
         setLocalDocs({});
         setTeamDocs({});
-        // Allow a brief moment to show the skeleton
-        setTimeout(() => setIsLoading(false), 1000);
       }
     };
     fetchDB();

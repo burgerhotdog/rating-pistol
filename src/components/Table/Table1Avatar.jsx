@@ -2,13 +2,13 @@ import React from "react";
 import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
 import AVATARS from "@data/dynamic/avatars";
-import INFO from "@data/static/info";
+import { INFO, LABELS } from "@data/static";
 
 const Table1Avatar = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "avatar", id, data });
 
   return (
-    <Tooltip title="Edit" arrow>
+    <Tooltip title={`Edit ${LABELS[gameId].Avatar}`} arrow>
       <Stack
         onClick={openModal}
         display="inline-flex"

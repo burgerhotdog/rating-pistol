@@ -2,21 +2,21 @@ import React from "react";
 import { Stack, Badge, Avatar, Tooltip } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import WEAPON_ASSETS from "@assets/dynamic/weapon";
-import INFO from "@data/static/info";
+import { INFO, LABELS} from "@data/static";
 
 const Table2Weapon = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "weapon", id, data });
   
   if (!data.weaponId) {
     return (
-      <Tooltip title="Add" arrow>
+      <Tooltip title={`Add ${LABELS[gameId].Weapon}`} arrow>
         <Add onClick={openModal} cursor="pointer" />
       </Tooltip>
     );
   }
 
   return (
-    <Tooltip title="Edit" arrow>
+    <Tooltip title={`Edit ${LABELS[gameId].Weapon}`} arrow>
       <Stack display="inline-flex">
         <Badge
           onClick={openModal}
