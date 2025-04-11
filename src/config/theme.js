@@ -30,6 +30,11 @@ const theme = createTheme({
         disableClearable: true,
       },
     },
+    MuiTooltip: {
+      defaultProps: {
+        arrow: true,
+      },
+    },
     MuiTextField: {
       defaultProps: {
         size: "small",
@@ -68,6 +73,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           cursor: "pointer",
+        },
+        badge: {
+          fontWeight: "bold",
+          textShadow: "0 0 8px rgba(0, 0, 0, 1)",
         },
       },
     },

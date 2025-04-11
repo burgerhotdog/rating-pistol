@@ -19,14 +19,7 @@ const AvatarCell = ({ gameId, setPipe, id, data }) => {
           spacing={1}
           sx={{ cursor: "pointer" }}
         >
-          <Badge
-            badgeContent={<strong>{INFO[gameId].PREFIX_AVATAR}{data.rank}</strong>}
-            sx={{
-              "& .MuiBadge-badge": {
-                backgroundColor: "rgba(20, 20, 20, 0.4)",
-              },
-            }}
-          >
+          <Badge badgeContent={`${INFO[gameId].PREFIX_AVATAR}${data.rank}`}>
             <Avatar
               alt={AVATARS[gameId][id].name}
               src={AVATAR_ASSETS[`./${gameId}/${id}.webp`]?.default}
