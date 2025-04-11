@@ -1,1 +1,1 @@
-export default import.meta.glob("./*.webp", { eager: true });
+export { default } from "./icon.webp";

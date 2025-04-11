@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { collection, getDocs, doc, setDoc } from "firebase/firestore";
-import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import { db } from "@config/firebase";
+import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import {
   Container, Stack, Button, Typography, Skeleton,
   Box, Grid, Select, MenuItem, InputLabel, FormControl,
@@ -11,7 +11,7 @@ import { INFO, LABELS } from "@data/static";
 import { VERSION, AVATARS } from "@data/dynamic";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
-import AvatarTable from "@components/AvatarTable";
+import AvatarView from "@components/AvatarView";
 
 const Game = ({ gameId, userId }) => {
   const [localDocs, setLocalDocs] = useState({});
@@ -132,7 +132,7 @@ const Game = ({ gameId, userId }) => {
 
           {activeTab === 0 && (
             <Stack spacing={2}>
-              <AvatarTable
+              <AvatarView
                 gameId={gameId}
                 userId={userId}
                 localDocs={localDocs}

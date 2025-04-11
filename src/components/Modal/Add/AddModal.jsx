@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
-import template from "@config/template";
+import { avatarTemplate } from "@config/templates";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
 import AVATARS from "@data/dynamic/avatars";
-import INFO from "@data/static/info";
 
 const AddModal = ({
   gameId,
@@ -29,8 +28,7 @@ const AddModal = ({
 
   const handleSelect = (newValue) => {
     const id = newValue;
-    const data = template(gameId);
-    data.level = INFO[gameId].MAX_LEVEL;
+    const data = avatarTemplate(gameId);
     if (gameId === "hsr" && AVATARS[gameId][id].type === "Remembrance") {
       data.skillMap["005"] = 1;
       data.skillMap["006"] = 1;

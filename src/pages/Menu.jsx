@@ -22,11 +22,10 @@ const Menu = () => (
     <Stack alignItems="center" mt={6} mb={2} spacing={2}>
       <Stack direction="row" alignItems="center" spacing={2}>
         <Typography variant="h2" fontWeight="bold">Rating Pistol</Typography>
-
         <Box
           component="img"
           alt="icon"
-          src={ICON[`./icon.webp`]?.default}
+          src={ICON}
           sx={{ width: 100, height: 100 }}
         />
       </Stack>

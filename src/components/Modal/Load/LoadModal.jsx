@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import template from "@config/template";
+import { avatarTemplate } from "@config/templates";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
 import STATS from "@data/static/stats";
 import AVATARS from "@data/dynamic/avatars";
@@ -131,7 +131,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
       switch (gameId) {
         case "gi": {
           const id = String(charObj.avatarId);
-          const data = template(gameId);
+          const data = avatarTemplate(gameId);
 
           // avatar
           data.level = Number(charObj.propMap["4001"].val);
@@ -140,9 +140,9 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
           // weapon
           const weaponObj = charObj.equipList[charObj.equipList.length - 1];
           data.weaponId = String(weaponObj.itemId);
-          data.weaponLevel = String(weaponObj.weapon.level);
+          data.weaponLevel = Number(weaponObj.weapon.level);
           const weaponRank = Object.values(weaponObj.weapon.affixMap ?? { rank: 0 })[0] + 1;
-          data.weaponRank = String(weaponRank);
+          data.weaponRank = Number(weaponRank);
 
           // equipList
           const { equipTypeToIndex } = translate[gameId];
@@ -160,8 +160,8 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             const reliqSubArr = equipObj.flat.reliquarySubstats;
             if (!reliqSubArr) continue;
             for (const [subIndex, reliqSubObj] of reliqSubArr.entries()) {
-              data.equipList[equipIndex].statMap[subIndex].stat = STAT_CONVERT[reliqSubObj.appendPropId];
-              data.equipList[equipIndex].statMap[subIndex].value = String(reliqSubObj.statValue);
+              data.equipList[equipIndex].statList[subIndex].stat = STAT_CONVERT[reliqSubObj.appendPropId];
+              data.equipList[equipIndex].statList[subIndex].value = Number(reliqSubObj.statValue);
             }
           }
 
@@ -176,10 +176,10 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
 
         case "hsr": {
           const id = String(charObj.avatarId);
-          const data = template(gameId);
+          const data = avatarTemplate(gameId);
           if (AVATARS[gameId][id].type === "Remembrance") {
-            data.skillMap.memoSkill = "1";
-            data.skillMap.memoTalent = "1";
+            data.skillMap["005"] = 1;
+            data.skillMap["006"] = 1;
           }
 
           // avatar
@@ -190,8 +190,8 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
           const weaponObj = charObj.equipment;
           if (weaponObj?.tid) {
             data.weaponId = String(weaponObj.tid);
-            data.weaponLevel = String(weaponObj.level);
-            data.weaponRank = String(weaponObj.rank);
+            data.weaponLevel = Number(weaponObj.level);
+            data.weaponRank = Number(weaponObj.rank);
           }
 
           // equipList
@@ -209,10 +209,10 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             const subPropsArr = relicObj._flat.props.slice(1);
             if (!subPropsArr) continue;
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
-              data.equipList[equipIndex].statMap[subIndex].stat = STAT_CONVERT[subPropObj.type];
+              data.equipList[equipIndex].statList[subIndex].stat = STAT_CONVERT[subPropObj.type];
               const valueRatio = subPropObj.type.slice(-5) === "Delta" ? 1 : 100;
               const roundAmount = valueRatio === 1 ? 1 : 10;
-              data.equipList[equipIndex].statMap[subIndex].value = Math.round((subPropObj.value * valueRatio) * roundAmount) / roundAmount;
+              data.equipList[equipIndex].statList[subIndex].value = Math.round((subPropObj.value * valueRatio) * roundAmount) / roundAmount;
             }
           }
 
@@ -232,7 +232,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
 
         case "zzz": {
           const id = String(charObj.Id);
-          const data = template(gameId);
+          const data = avatarTemplate(gameId);
 
           // avatar
           data.level = Number(charObj.Level);
@@ -242,8 +242,8 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
           const weaponObj = charObj.Weapon;
           if (weaponObj?.Id) {
             data.weaponId = String(weaponObj.Id);
-            data.weaponLevel = String(weaponObj.Level)
-            data.weaponRank = String(weaponObj.UpgradeLevel);
+            data.weaponLevel = Number(weaponObj.Level);
+            data.weaponRank = Number(weaponObj.UpgradeLevel);
           }
 
           // equipList
@@ -262,12 +262,12 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
             if (!subPropsArr) continue;
             for (const [subIndex, subPropObj] of subPropsArr.entries()) {
               const key = STAT_CONVERT[String(subPropObj.PropertyId)];
-              data.equipList[equipIndex].statMap[subIndex].stat = key;
+              data.equipList[equipIndex].statList[subIndex].stat = key;
               const value = subPropObj.PropertyValue;
               const valueRatio = STATS[gameId][key].percent ? 0.01 : 1;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               const timesAppeared = subPropObj.PropertyLevel;
-              data.equipList[equipIndex].statMap[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
+              data.equipList[equipIndex].statList[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
             }
           }
 
