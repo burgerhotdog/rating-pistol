@@ -1,15 +1,15 @@
-import { Autocomplete, TextField, Box } from "@mui/material";
+import { Autocomplete, TextField, Box, Paper } from "@mui/material";
 import SET_ASSETS from "@assets/dynamic/set";
+import { LABELS } from "@data/static";
 import SETS from "@data/dynamic/sets";
 
 const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
   const setOptions = Object.keys(SETS[gameId])
-    .filter((id) => gameId !== "hsr"
-      ? true
-      : mainIndex < 4
-        ? SETS[gameId][id].type === "Relic"
-        : SETS[gameId][id].type === "Planar"
-    )
+    .filter((id) => {
+      if (gameId !== "hsr") return true;
+      if (mainIndex < 4) return SETS[gameId][id].type === "Relic";
+      return SETS[gameId][id].type === "Planar";
+    })
     .sort((a, b) => {
       const A = SETS[gameId][a];
       const B = SETS[gameId][b];
@@ -41,6 +41,13 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
       options={setOptions}
       getOptionLabel={(id) => SETS[gameId][id]?.name ?? ""}
       onChange={(_, newValue) => handleSet(newValue)}
+      slots={{
+        paper: ({ children }) => (
+          <Paper elevation={3}>
+            {children}
+          </Paper>
+        )
+      }}
       renderOption={(props, id) => {
         const { key, ...idProps } = props;
         const rarity = SETS[gameId][id]?.rarity;
@@ -66,7 +73,7 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
         );
       }}
       renderInput={(params) => (
-        <TextField {...params} label="Set" />
+        <TextField {...params} label={`${LABELS[gameId].Equip} Set`} />
       )}
     />
   )

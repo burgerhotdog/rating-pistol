@@ -1,27 +1,28 @@
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete, TextField, Paper } from "@mui/material";
 import { INFO, STATS } from "@data/static";
 import { statObjTemplate } from "@config/templates";
 
 const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
   const mainstatOptions = Object.keys(STATS[gameId])
-    .filter((stat) => STATS[gameId][stat].index?.includes(mainIndex));
+    .filter((stat) => (
+      STATS[gameId][stat].index?.includes(mainIndex)
+    ));
 
   const handleMainstat = (newValue) => {
     setPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
-        equipList: prev.data.equipList.map((equipObj, index) => 
-          index === mainIndex
-            ? {
-              ...equipObj,
-              stat: String(newValue),
-              statList: Array(INFO[gameId].SUB_LEN)
-                .fill()
-                .map(() => ({ ...statObjTemplate })),
-            }
-            : equipObj
-        ),
+        equipList: prev.data.equipList.map((equipObj, index) => {
+          if (index !== mainIndex) return equipObj;
+          return {
+            ...equipObj,
+            stat: String(newValue),
+            statList: Array(INFO[gameId].SUB_LEN).fill().map(() => ({
+              ...statObjTemplate,
+            })),
+          };
+        }),
       },
     }));
   };
@@ -35,6 +36,13 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
       renderInput={(params) => (
         <TextField {...params} label="Mainstat" />
       )}
+      slots={{
+        paper: ({ children }) => (
+          <Paper elevation={3}>
+            {children}
+          </Paper>
+        )
+      }}
     />
   )
 };
