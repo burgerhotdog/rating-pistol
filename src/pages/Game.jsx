@@ -11,7 +11,8 @@ import { INFO, LABELS } from "@data/static";
 import { VERSION, AVATARS } from "@data/dynamic";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
-import AvatarView from "@components/AvatarView";
+import AvatarsView from "@components/AvatarsView";
+import TeamsView from "@components/TeamsView";
 
 const Game = ({ gameId, userId }) => {
   const [localDocs, setLocalDocs] = useState({});
@@ -20,7 +21,7 @@ const Game = ({ gameId, userId }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
 
-  // get localDocs from firestore
+  // load firestore data
   useEffect(() => {
     const fetchDB = async () => {
       if (userId) {
@@ -74,22 +75,6 @@ const Game = ({ gameId, userId }) => {
   const handleAdd = () => setPipe({ type: "add", id: null, data: null });
   const handleLoad = () => setPipe({ type: "load", id: null, data: null });
 
-  const handleTeamChange = async (teamId, slot, characterId) => {
-    setTeamDocs(prev => ({
-      ...prev,
-      [teamId]: {
-        ...prev[teamId],
-        [slot]: characterId,
-      },
-    }));
-
-    if (userId) {
-      await setDoc(doc(db, "users", userId, `${gameId}_teams`, teamId), {
-        [slot]: characterId,
-      }, { merge: true });
-    }
-  };
-
   return (
     <Container maxWidth="lg">
       <Back />
@@ -104,7 +89,7 @@ const Game = ({ gameId, userId }) => {
             </Typography>
           </Stack>
 
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <Tabs
               value={activeTab}
               onChange={(_, newValue) => setActiveTab(newValue)}
@@ -132,7 +117,7 @@ const Game = ({ gameId, userId }) => {
 
           {activeTab === 0 && (
             <Stack spacing={2}>
-              <AvatarView
+              <AvatarsView
                 gameId={gameId}
                 userId={userId}
                 localDocs={localDocs}
@@ -164,61 +149,15 @@ const Game = ({ gameId, userId }) => {
           )}
 
           {activeTab === 1 && (
-            <Box sx={{ width: '100%' }}>
-              <Grid container spacing={3}>
-                {isLoading ? (
-                  [...Array(8)].map((_, index) => (
-                    <Grid key={index} size={3}>
-                      <Box border={1} p={2} borderRadius={1}>
-                        <Typography variant="h6"><Skeleton width={100} /></Typography>
-                        {[...Array(4)].map((_, slotIndex) => (
-                          <Box key={slotIndex} sx={{ mb: 1 }}>
-                            <Skeleton variant="rounded" height={56} />
-                          </Box>
-                        ))}
-                      </Box>
-                    </Grid>
-                  ))
-                ) : (
-                  [...Array(8)].map((_, index) => {
-                    const teamId = `0${index + 1}`.slice(-2);
-                    return (
-                      <Grid key={teamId} size={3}>
-                        <Box border={1} p={2} borderRadius={1}>
-                          <Typography variant="h6">Team {teamId}</Typography>
-                          {[...Array(4)].map((_, slotIndex) => {
-                            const slot = slotIndex.toString();
-                            const selectedIds = Object.values(teamDocs[teamId] || {}).filter(Boolean);
-                            const currentId = teamDocs[teamId]?.[slot];
-
-                            const availableOptions = sortedDocs.filter(({ id }) => {
-                              return id === currentId || !selectedIds.includes(id);
-                            });
-                            return (
-                              <FormControl fullWidth key={slot} sx={{ mb: 1 }}>
-                                <InputLabel>Slot {slotIndex + 1}</InputLabel>
-                                <Select
-                                  value={teamDocs[teamId]?.[slot] || ""}
-                                  onChange={(e) => handleTeamChange(teamId, slot, e.target.value)}
-                                  label={`Slot ${slotIndex + 1}`}
-                                >
-                                  <MenuItem value="">None</MenuItem>
-                                  {availableOptions.map(({ id }) => (
-                                    <MenuItem key={id} value={id}>{AVATARS[gameId][id].name}</MenuItem>
-                                  ))}
-                                </Select>
-                              </FormControl>
-                            );
-                          })}
-                        </Box>
-                      </Grid>
-                    );
-                  })
-                )}
-              </Grid>
-            </Box>
+            <TeamsView
+              gameId={gameId}
+              userId={userId}
+              localDocs={localDocs}
+              teamDocs={teamDocs}
+              setTeamDocs={setTeamDocs}
+              sortedDocs={sortedDocs}
+            />
           )}
-          
         </Stack>
       </Box>
       
