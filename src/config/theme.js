@@ -23,25 +23,16 @@ const theme = createTheme({
       1: "slategrey",
     },
   },
-  customStyles: {
-    modal: {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      backgroundColor: "background.paper",
-      p: 4,
-      borderRadius: 2,
-      maxHeight: "80vh",
-      maxWidth: "80vw",
-      overflow: "auto",
-    },
-  },
   components: {
     MuiAutocomplete: {
       defaultProps: {
         size: "small",
         disableClearable: true,
+      },
+    },
+    MuiTooltip: {
+      defaultProps: {
+        arrow: true,
       },
     },
     MuiTextField: {
@@ -82,6 +73,10 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           cursor: "pointer",
+        },
+        badge: {
+          fontWeight: "bold",
+          textShadow: "0 0 8px rgba(0, 0, 0, 1)",
         },
       },
     },

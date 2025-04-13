@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { auth } from "@config/firebase";
-import Menu from "@pages/Menu";
-import Game from "@pages/Game";
+import { Menu, Game } from "@pages";
 import Auth from "@components/Auth";
 
 class ErrorBoundary extends React.Component {
@@ -10,11 +9,9 @@ class ErrorBoundary extends React.Component {
   static getDerivedStateFromError() {
     return { hasError: true };
   }
-
   componentDidCatch(error) {
     console.error(error);
   }
-
   render() {
     return this.state.hasError ? null : this.props.children;
   }
@@ -28,11 +25,23 @@ function App() {
       <HashRouter>
         <Auth user={user} setUser={setUser} />
         <Routes>
-        <Route path="/" element={<Menu />} />
-        <Route path="/genshin-impact" element={<Game gameId="gi" userId={user?.uid}  />} />
-        <Route path="/honkai-star-rail" element={<Game gameId="hsr" userId={user?.uid} />} />
-        <Route path="/wuthering-waves" element={<Game gameId="ww" userId={user?.uid} />} />
-        <Route path="/zenless-zone-zero" element={<Game gameId="zzz" userId={user?.uid} />} />
+          <Route path="/" element={<Menu />} />
+          <Route
+            path="/genshin-impact"
+            element={<Game gameId="gi" userId={user?.uid}  />}
+          />
+          <Route
+            path="/honkai-star-rail"
+            element={<Game gameId="hsr" userId={user?.uid} />}
+          />
+          <Route
+            path="/wuthering-waves"
+            element={<Game gameId="ww" userId={user?.uid} />}
+          />
+          <Route
+            path="/zenless-zone-zero"
+            element={<Game gameId="zzz" userId={user?.uid} />}
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </HashRouter>

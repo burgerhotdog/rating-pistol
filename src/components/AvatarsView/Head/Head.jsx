@@ -24,7 +24,7 @@ export default ({ gameId, userId, localDocs, setLocalDocs }) => {
 
         <TableCell align="center">
           <Typography variant="body1" color="text.secondary">
-            {LABELS[gameId].Equip}
+            {LABELS[gameId].Equips}
           </Typography>
         </TableCell>
 

@@ -9,7 +9,7 @@ import getRollValue from "@utils/getRollValue";
 const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
   const weights = AVATARS[gameId][avatarId].weights;
   const mainstat = equipObj.stat;
-  const substats = Object.values(equipObj.statMap);
+  const substats = equipObj.statList;
 
   // Calculate substat score
   const rollValue = useMemo(

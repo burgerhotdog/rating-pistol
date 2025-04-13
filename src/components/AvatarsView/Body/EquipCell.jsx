@@ -42,12 +42,7 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
           {sortedSetBonuses.map(([setId, numBonus]) => (
             <Badge
               key={setId}
-              badgeContent={<strong>x{numBonus}</strong>}
-              sx={{
-                "& .MuiBadge-badge": {
-                  backgroundColor: "rgba(20, 20, 20, 0.4)",
-                },
-              }}
+              badgeContent={`x${numBonus}`}
             >
               <Avatar
                 alt={setId}

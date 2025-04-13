@@ -8,8 +8,9 @@ import {
   TextField,
   InputAdornment,
 } from "@mui/material";
+import { statObjTemplate } from "@config/templates";
 import SET_ASSETS from "@assets/dynamic/set";
-import STATS from "@data/static/stats";
+import { INFO, STATS } from "@data/static";
 import SETS from "@data/dynamic/sets";
 
 const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
@@ -40,15 +41,9 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
             ? {
               ...equipObj,
               stat: newValue,
-              statMap: {
-                0: { stat: null, value: null },
-                1: { stat: null, value: null },
-                2: { stat: null, value: null },
-                3: { stat: null, value: null },
-                ...(gameId === "ww"
-                  ? { 4: { stat: null, value: null } }
-                  : {}),
-              },
+              statList: Array(INFO[gameId].SUB_LEN)
+                .fill()
+                .map(() => ({ ...statObjTemplate })),
             }
             : equipObj
         ),
@@ -61,18 +56,19 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
       ...prev,
       data: {
         ...prev.data,
-        equipList: prev.data.equipList.map((equipObj, index) => 
-          index === mainIndex
+        equipList: prev.data.equipList.map((equipObj, equipIndex) => 
+          equipIndex === mainIndex
             ? {
               ...equipObj,
-              statMap: {
-                ...equipObj.statMap,
-                [subIndex]: {
-                  ...equipObj.statMap[subIndex],
-                  [attribute]: newValue,
-                  ...attribute === "stat" ? { "value": null } : {},
-                },
-              },
+              statList: equipObj.statList.map((statObj, statIndex) =>
+                statIndex === subIndex
+                  ? {
+                    ...statObj,
+                    [attribute]: newValue,
+                    ...attribute === "stat" ? { "value": null } : {},
+                  }
+                  : statObj
+              ),
             }
             : equipObj
         ),
@@ -86,9 +82,9 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
 
   const substatOptions = (subIndex) => {
     const selectedMainstat = pipe.data.equipList[mainIndex].stat;
-    const selectedSubstats = Object.entries(pipe.data.equipList[mainIndex].statMap || {})
-      .map(([, substatObj]) => substatObj.stat)
-      .filter((_, idx) => idx !== subIndex);
+    const selectedSubstats = pipe.data.equipList[mainIndex].statList
+      .map((statObj) => statObj.stat)
+      .filter((_, index) => index !== subIndex);
     
     return Object.keys(STATS[gameId]).filter((stat) => {
       const isSubstat = STATS[gameId][stat].value;
@@ -142,7 +138,7 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
                     loading="lazy"
                     alt={""}
                     src={SET_ASSETS[`./${gameId}/${id}.webp`]?.default}
-                    sx={{ width: 25, height: 25, objectFit: "contain" }}
+                    sx={{ width: 24, height: 24, objectFit: "contain" }}
                   />
                   
                   {SETS[gameId][id]?.name || ""}
@@ -182,7 +178,7 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
             {/* Substat Key Dropdown */}
             <Grid size={8}>
               <Autocomplete
-                value={pipe.data.equipList[mainIndex].statMap[subIndex].stat}
+                value={pipe.data.equipList[mainIndex].statList[subIndex].stat}
                 options={substatOptions(subIndex)}
                 getOptionLabel={(id) => STATS[gameId][id]?.name || ""}
                 onChange={(_, newValue) => handleSubstat(newValue, subIndex, "stat")}
@@ -199,23 +195,23 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
             {/* Substat Value Input */}
             <Grid size={4}>
               <TextField
-                value={pipe.data.equipList[mainIndex].statMap[subIndex].value ?? ""}
+                value={pipe.data.equipList[mainIndex].statList[subIndex].value ?? ""}
                 onChange={(e) => {
                   const newValue = e.target.value;
                   const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-                  const isLessThanMax = Number(newValue) <= (STATS[gameId][pipe.data.equipList[mainIndex].statMap[subIndex].stat]?.value * (gameId === "ww" ? 1 : 6));
+                  const isLessThanMax = Number(newValue) <= (STATS[gameId][pipe.data.equipList[mainIndex].statList[subIndex].stat]?.value * (gameId === "ww" ? 1 : 6));
                   if (isValidNumber && isLessThanMax) {
                     handleSubstat(newValue, subIndex, "value");
                   }
                 }}
                 slotProps={{
                   input: {
-                    endAdornment: STATS[gameId][pipe?.data.equipList[mainIndex].statMap[subIndex].stat]?.percent && (
+                    endAdornment: STATS[gameId][pipe?.data.equipList[mainIndex].statList[subIndex].stat]?.percent && (
                       <InputAdornment position="end">%</InputAdornment>
                     ),
                   },
                 }}
-                disabled={!pipe.data.equipList[mainIndex].statMap[subIndex].stat}
+                disabled={!pipe.data.equipList[mainIndex].statList[subIndex].stat}
               />
             </Grid>
           </React.Fragment>

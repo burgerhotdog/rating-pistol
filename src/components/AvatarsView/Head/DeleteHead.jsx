@@ -27,6 +27,7 @@ const DeleteHead = ({ gameId, userId, localDocs, setLocalDocs }) => {
     }
     setLocalDocs({});
     setOpen(false);
+    setIsLoading(false);
   };
 
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
-import { Modal, Box, useTheme } from "@mui/material";
+import { Modal, Box } from "@mui/material";
 import Add from "./Add";
 import Avatar from "./Avatar";
 import Equip from "./Equip";
@@ -17,8 +17,6 @@ export default ({
   localDocs,
   setLocalDocs,
 }) => {
-  const theme = useTheme();
-
   const savePipe = async () => {
     const { id, data } = pipe;
 
@@ -103,7 +101,18 @@ export default ({
 
   return (
     <Modal open={Boolean(pipe.type)} onClose={() => setPipe({})}>
-      <Box sx={theme.customStyles.modal}>
+      <Box sx={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        backgroundColor: "background.paper",
+        p: 4,
+        borderRadius: 2,
+        maxHeight: "80vh",
+        maxWidth: "80vw",
+        overflow: "auto",
+      }}>
         {modalContent}
       </Box>
     </Modal>
