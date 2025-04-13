@@ -10,13 +10,13 @@ import {
   Card,
   Button,
 } from "@mui/material";
-import EquipCard from "./EquipCard";
+import Input from "./Input";
 import PreviewSet from "./PreviewSet";
 import Analysis from "./Analysis";
 import EQUIP_ASSETS from "@assets/static/equip";
 import INFO from "@data/static/info";
 
-const EquipModal = ({ gameId, pipe, setPipe, savePipe }) => {
+const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {
   const [viewIndex, setViewIndex] = useState(0);
   const equipSlots = [...Array(INFO[gameId].MAIN_LEN).keys()];
   const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +54,7 @@ const EquipModal = ({ gameId, pipe, setPipe, savePipe }) => {
               </List>
             </Card>
 
-            <EquipCard
+            <Input
               gameId={gameId}
               pipe={pipe}
               setPipe={setPipe}
@@ -90,4 +90,4 @@ const EquipModal = ({ gameId, pipe, setPipe, savePipe }) => {
   );
 };
 
-export default EquipModal;
+export default EquipContent;
