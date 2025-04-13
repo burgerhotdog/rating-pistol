@@ -24,12 +24,12 @@ const WeaponId = ({ gameId, pipe, setPipe }) => {
       });
   };
 
-  const handleWeaponId = (_, newValue) => {
+  const handleWeaponId = (newValue) => {
     setPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
-        weaponId: newValue,
+        weaponId: String(newValue),
         weaponLevel: MAX_LEVEL[gameId],
         weaponRank: 1,
       },
@@ -71,7 +71,7 @@ const WeaponId = ({ gameId, pipe, setPipe }) => {
       value={pipe.data.weaponId ?? ""}
       options={weaponIdOptions()}
       getOptionLabel={(id) => WEAPONS[gameId][id]?.name ?? ""}
-      onChange={handleWeaponId}
+      onChange={(_, newValue) => handleWeaponId(newValue)}
       renderOption={renderOptionWeaponId}
       renderInput={(params) => (
         <TextField
