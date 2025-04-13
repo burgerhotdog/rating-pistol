@@ -28,7 +28,7 @@ function App() {
           <Route path="/" element={<Menu />} />
           <Route
             path="/genshin-impact"
-            element={<Game gameId="gi" userId={user?.uid}  />}
+            element={<Game gameId="gi" userId={user?.uid} />}
           />
           <Route
             path="/honkai-star-rail"

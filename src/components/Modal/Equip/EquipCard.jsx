@@ -64,7 +64,7 @@ const EquipCard = ({ gameId, pipe, setPipe, mainIndex }) => {
                 statIndex === subIndex
                   ? {
                     ...statObj,
-                    [attribute]: newValue,
+                    [attribute]: Number(newValue),
                     ...attribute === "stat" ? { "value": null } : {},
                   }
                   : statObj
