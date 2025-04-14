@@ -1,1 +1,1 @@
-export { default } from "./EquipModal";
+export { default } from "./EquipContent";
