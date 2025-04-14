@@ -1,6 +1,5 @@
 import { Autocomplete, TextField, Paper } from "@mui/material";
 import { INFO, STATS } from "@data/static";
-import { statObjTemplate } from "@config/templates";
 
 const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
   const mainstatOptions = Object.keys(STATS[gameId])
@@ -18,9 +17,8 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
           return {
             ...equipObj,
             stat: String(newValue),
-            statList: Array(INFO[gameId].SUB_LEN).fill().map(() => ({
-              ...statObjTemplate,
-            })),
+            statList: Array(INFO[gameId].SUB_LEN).fill()
+              .map(() => ({ stat: null, value: null })),
           };
         }),
       },

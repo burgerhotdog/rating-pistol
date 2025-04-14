@@ -1,9 +1,14 @@
 import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
 import { STATS } from "@data/static";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
   const [inputValue, setInputValue] = useState(pipe.data.equipList[mainIndex].statList[subIndex].value ?? "");
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setInputValue(pipe.data.equipList[mainIndex].statList[subIndex].value ?? "");
+  }, [pipe.data.equipList[mainIndex].statList[subIndex].value]);
 
   const substatOptions = (subIndex) => {
     const selectedMainstat = pipe.data.equipList[mainIndex].stat;
@@ -54,12 +59,12 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
               if (statIndex !== subIndex) return statObj;
               return {
                 ...statObj,
-                value: Number(newValue),
+                value: Number(newValue)
               };
-            }),
+            })
           };
-        }),
-      },
+        })
+      }
     }));
   };
 
@@ -85,6 +90,21 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
           options={substatOptions(subIndex)}
           getOptionLabel={(id) => STATS[gameId][id]?.name || ""}
           onChange={(_, newValue) => handleStat(newValue, subIndex)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              const inputValue = e.target.value.toLowerCase();
+              const options = substatOptions(subIndex).filter(option => 
+                STATS[gameId][option]?.name.toLowerCase().includes(inputValue)
+              );
+              if (options.length > 0) {
+                handleStat(options[0], subIndex);
+                setOpen(false);
+              }
+            }
+          }}
+          open={open}
+          onOpen={() => setOpen(true)}
+          onClose={() => setOpen(false)}
           renderInput={(params) => (
             <TextField {...params} label={"Substat"} />
           )}

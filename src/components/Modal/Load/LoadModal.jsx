@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { avatarTemplate } from "@config/templates";
+import template from "@config/template";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
 import STATS from "@data/static/stats";
 import AVATARS from "@data/dynamic/avatars";
@@ -131,7 +131,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
       switch (gameId) {
         case "gi": {
           const id = String(charObj.avatarId);
-          const data = avatarTemplate(gameId);
+          const data = template(gameId);
 
           // avatar
           data.level = Number(charObj.propMap["4001"].val);
@@ -176,7 +176,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
 
         case "hsr": {
           const id = String(charObj.avatarId);
-          const data = avatarTemplate(gameId);
+          const data = template(gameId);
           if (AVATARS[gameId][id].type === "Remembrance") {
             data.skillMap["005"] = 1;
             data.skillMap["006"] = 1;
@@ -232,7 +232,7 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
 
         case "zzz": {
           const id = String(charObj.Id);
-          const data = avatarTemplate(gameId);
+          const data = template(gameId);
 
           // avatar
           data.level = Number(charObj.Level);

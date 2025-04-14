@@ -7,9 +7,7 @@ const skillMapTemplate = {
   zzz: { "001": 1, "002": 1, "003": 1, "004": 1, "005": 1, "101": 0, "102": 0, "103": 0, "104": 0, "105": 0, "106": 0 },
 };
 
-export const statObjTemplate = { stat: null, value: null };
-
-export const avatarTemplate = (gameId) => ({
+export default (gameId) => ({
   isStar: false,
   level: INFO[gameId].MAX_LEVEL,
   rank: 0,
@@ -17,13 +15,12 @@ export const avatarTemplate = (gameId) => ({
   weaponId: null,
   weaponLevel: null,
   weaponRank: null,
-  equipList: Array(INFO[gameId].MAIN_LEN)
-    .fill()
-    .map(() => ({
-      setId: null,
+  equipList: Array(INFO[gameId].MAIN_LEN).fill().map(() => ({
+    setId: null,
+    stat: null,
+    statList: Array(INFO[gameId].SUB_LEN).fill().map(() => ({
       stat: null,
-      statList: Array(INFO[gameId].SUB_LEN)
-        .fill()
-        .map(() => ({ ...statObjTemplate })),
-    })),
+      value: null
+    }))
+  })),
 });

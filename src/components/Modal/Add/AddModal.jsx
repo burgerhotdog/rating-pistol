@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
-import { avatarTemplate } from "@config/templates";
+import template from "@config/template";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
 import AVATARS from "@data/dynamic/avatars";
 
@@ -28,7 +28,7 @@ const AddModal = ({
 
   const handleSelect = (newValue) => {
     const id = newValue;
-    const data = avatarTemplate(gameId);
+    const data = template(gameId);
     if (gameId === "hsr" && AVATARS[gameId][id].type === "Remembrance") {
       data.skillMap["005"] = 1;
       data.skillMap["006"] = 1;
