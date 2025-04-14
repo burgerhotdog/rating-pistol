@@ -16,7 +16,29 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
     });
   };
 
-  const handleSubstat = (newValue, subIndex, attribute) => {
+  const handleStat = (newValue, subIndex) => {
+    setPipe((prev) => ({
+      ...prev,
+      data: {
+        ...prev.data,
+        equipList: prev.data.equipList.map((equipObj, equipIndex) => {
+          if (equipIndex !== mainIndex) return equipObj;
+          return {
+            ...equipObj,
+            statList: equipObj.statList.map((statObj, statIndex) => {
+              if (statIndex !== subIndex) return statObj;
+              return {
+                stat: String(newValue),
+                value: null,
+              };
+            }),
+          };
+        }),
+      },
+    }));
+  };
+
+  const handleValue = (newValue, subIndex) => {
     setPipe((prev) => ({
       ...prev,
       data: {
@@ -29,8 +51,7 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
               if (statIndex !== subIndex) return statObj;
               return {
                 ...statObj,
-                [attribute]: Number(newValue),
-                ...attribute === "stat" ? { "value": null } : {},
+                value: Number(newValue),
               };
             }),
           };
@@ -47,7 +68,7 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
           value={pipe.data.equipList[mainIndex].statList[subIndex].stat}
           options={substatOptions(subIndex)}
           getOptionLabel={(id) => STATS[gameId][id]?.name || ""}
-          onChange={(_, newValue) => handleSubstat(newValue, subIndex, "stat")}
+          onChange={(_, newValue) => handleStat(newValue, subIndex)}
           renderInput={(params) => (
             <TextField {...params} label={"Substat"} />
           )}
@@ -64,7 +85,7 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
             const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
             const isLessThanMax = Number(newValue) <= (STATS[gameId][pipe.data.equipList[mainIndex].statList[subIndex].stat]?.value * (gameId === "ww" ? 1 : 6));
             if (isValidNumber && isLessThanMax) {
-              handleSubstat(newValue, subIndex, "value");
+              handleValue(newValue, subIndex);
             }
           }}
           slotProps={{
