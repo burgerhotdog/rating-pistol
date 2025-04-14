@@ -1,7 +1,10 @@
 import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
 import { STATS } from "@data/static";
+import { useState } from "react";
 
 const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
+  const [inputValue, setInputValue] = useState(pipe.data.equipList[mainIndex].statList[subIndex].value ?? "");
+
   const substatOptions = (subIndex) => {
     const selectedMainstat = pipe.data.equipList[mainIndex].stat;
     const selectedSubstats = pipe.data.equipList[mainIndex].statList
@@ -60,6 +63,19 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
     }));
   };
 
+  const handleInputChange = (e) => {
+    const newValue = e.target.value;
+    setInputValue(newValue);
+  };
+
+  const handleSubmit = () => {
+    if (!isNaN(inputValue)) {
+      handleValue(inputValue, subIndex);
+    } else {
+      setInputValue(pipe.data.equipList[mainIndex].statList[subIndex].value ?? "");
+    }
+  };
+
   return (
     <Grid container spacing={1}>
       {/* Substat Key Dropdown */}
@@ -79,13 +95,12 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
       {/* Substat Value Input */}
       <Grid size={4}>
         <TextField
-          value={pipe.data.equipList[mainIndex].statList[subIndex].value ?? ""}
-          onChange={(e) => {
-            const newValue = e.target.value;
-            const isValidNumber = /^\d*\.?\d{0,1}$/.test(newValue);
-            const isLessThanMax = Number(newValue) <= (STATS[gameId][pipe.data.equipList[mainIndex].statList[subIndex].stat]?.value * (gameId === "ww" ? 1 : 6));
-            if (isValidNumber && isLessThanMax) {
-              handleValue(newValue, subIndex);
+          value={inputValue}
+          onChange={handleInputChange}
+          onBlur={handleSubmit}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSubmit();
             }
           }}
           slotProps={{
