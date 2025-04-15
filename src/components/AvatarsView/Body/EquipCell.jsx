@@ -4,17 +4,11 @@ import Add from "@mui/icons-material/Add";
 import SET_ASSETS from "@assets/dynamic/set";
 import { LABELS } from "@data/static";
 import getSetBonuses from "@utils/getSetBonuses";
-import sortSetBonuses from "@utils/sortSetBonuses";
 
 const EquipCell = ({ gameId, setPipe, id, data }) => {  
   const setBonuses = useMemo(() =>
     getSetBonuses(gameId, data.equipList),
     [gameId, data.equipList]
-  );
-
-  const sortedSetBonuses = useMemo(() =>
-    sortSetBonuses(gameId, setBonuses),
-    [gameId, setBonuses]
   );
 
   const openModal = () => setPipe({ type: "equip", id, data });
@@ -39,7 +33,7 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
           spacing={1}
           sx={{ cursor: "pointer" }}
         >
-          {sortedSetBonuses.map(([setId, numBonus]) => (
+          {setBonuses.map(([setId, numBonus]) => (
             <Badge
               key={setId}
               badgeContent={`x${numBonus}`}

@@ -7,7 +7,7 @@ const getRollValue = (gameId, statList, weights) => {
     const weight = weights[stat];
     if (!weight) return acc;
 
-    const rolls = value / STATS[gameId][stat].value;
+    const rolls = value / STATS[gameId][stat].subValue;
     return acc + rolls * weight * 100;
   }, 0);
   const multiplier = gameId === "ww" ? 2 : 1;

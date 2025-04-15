@@ -17,7 +17,7 @@ const getRating = (gameId, avatarId, equipList) => {
 
     return { percent, simData };
   });
-  
+
   return rating;
 };
 

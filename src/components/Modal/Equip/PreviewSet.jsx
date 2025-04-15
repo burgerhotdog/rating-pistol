@@ -9,12 +9,12 @@ import {
 import SET_ASSETS from "@assets/dynamic/set";
 import SETS from "@data/dynamic/sets";
 import getSetBonuses from "@utils/getSetBonuses";
-import sortSetBonuses from "@utils/sortSetBonuses";
 
 const PreviewSet = ({ gameId, pipe }) => {
 
-  const setBonuses = useMemo(() => getSetBonuses(gameId, pipe.data.equipList), [pipe.data.equipList]);
-  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
+  const setBonuses = useMemo(() => (
+    getSetBonuses(gameId, pipe.data.equipList)
+  ), [pipe.data.equipList]);
 
   if (!Object.keys(setBonuses).length) {
     return (
@@ -31,7 +31,7 @@ const PreviewSet = ({ gameId, pipe }) => {
   return (
     <Paper sx={{ p: 2 }}>
       <Grid container spacing={1}>
-        {sortedSetBonuses.map(([setId, numPc]) => (
+        {setBonuses.map(([setId, numPc]) => (
           <Grid key={setId} size="grow" sx={{ minHeight: 150 }}>
             <Stack direction="row" spacing={1}>
               <Box
