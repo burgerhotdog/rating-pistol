@@ -1,1 +1,1 @@
-export { default } from "./RatingModal";
+export { default } from "./Rating";

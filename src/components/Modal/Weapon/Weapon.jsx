@@ -3,7 +3,7 @@ import { Stack, Grid, Button } from "@mui/material";
 import { WeaponId, WeaponLevel, WeaponRank } from "./forms";
 import Display from "./Display";
 
-export default ({ gameId, pipe, setPipe, savePipe }) => {
+const Weapon = ({ gameId, pipe, setPipe, savePipe }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
@@ -42,3 +42,5 @@ export default ({ gameId, pipe, setPipe, savePipe }) => {
     </Stack>
   );
 };
+
+export default Weapon;

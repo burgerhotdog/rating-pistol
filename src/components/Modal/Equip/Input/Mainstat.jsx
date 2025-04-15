@@ -39,7 +39,7 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
           <Paper elevation={3}>
             {children}
           </Paper>
-        )
+        ),
       }}
     />
   )

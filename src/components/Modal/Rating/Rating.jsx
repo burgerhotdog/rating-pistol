@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 
-const RatingModal = ({ gameId, pipe }) => {
+const Rating = ({ gameId, pipe }) => {
   const [tabValue, setTabValue] = useState(0);
 
   const handleTab = (_, newValue) => {
@@ -15,4 +15,4 @@ const RatingModal = ({ gameId, pipe }) => {
   );
 };
 
-export default RatingModal;
+export default Rating;

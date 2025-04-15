@@ -4,13 +4,7 @@ import template from "@config/template";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
 import AVATARS from "@data/dynamic/avatars";
 
-const AddModal = ({
-  gameId,
-  localDocs,
-  pipe,
-  setPipe,
-  savePipe,
-}) => {
+const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
   const [isLoading, setIsLoading] = useState(false);
   
   const charOptions = () => {
@@ -19,8 +13,7 @@ const AddModal = ({
       .sort((a, b) => {
         const A = AVATARS[gameId][a];
         const B = AVATARS[gameId][b];
-
-        return A.rarity != B.rarity
+        return A.rarity !== B.rarity
           ? B.rarity - A.rarity
           : A.name.localeCompare(B.name);
       });
@@ -29,7 +22,7 @@ const AddModal = ({
   const handleSelect = (newValue) => {
     const id = newValue;
     const data = template(gameId);
-    if (gameId === "hsr" && AVATARS[gameId][id].type === "Remembrance") {
+    if (AVATARS[gameId][id].type === "Remembrance") {
       data.skillMap["005"] = 1;
       data.skillMap["006"] = 1;
     }
@@ -50,9 +43,9 @@ const AddModal = ({
   return (
     <Stack alignItems="center" spacing={2}>
       <Autocomplete
-        value={pipe.id}
+        value={pipe.id ?? ""}
         options={charOptions()}
-        getOptionLabel={(avatarId) => AVATARS[gameId][avatarId]?.name || ""}
+        getOptionLabel={(id) => AVATARS[gameId][id]?.name ?? ""}
         onChange={(_, newValue) => handleSelect(newValue)}
         renderOption={(props, option) => {
           const { key, ...optionProps } = props;
@@ -71,7 +64,7 @@ const AddModal = ({
                 component="img"
                 loading="lazy"
                 src={AVATAR_ASSETS[`./${gameId}/${option}.webp`]?.default}
-                alt={""}
+                alt=""
                 sx={{ width: 24, height: 24, objectFit: "contain" }}
               />
               {AVATARS[gameId][option].name}
@@ -79,10 +72,7 @@ const AddModal = ({
           );
         }}
         renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Select"
-          />
+          <TextField {...params} label="Select" />
         )}
         sx={{ width: 300 }}
       />
@@ -100,4 +90,4 @@ const AddModal = ({
   );
 };
 
-export default AddModal;
+export default Add;

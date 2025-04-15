@@ -13,6 +13,7 @@ import Back from "@components/Back";
 import Modal from "@components/Modal";
 import AvatarsView from "@components/AvatarsView";
 import TeamsView from "@components/TeamsView";
+import getRating from "@utils/getRating";
 
 const Game = ({ gameId, userId }) => {
   const [localDocs, setLocalDocs] = useState({});
@@ -59,13 +60,14 @@ const Game = ({ gameId, userId }) => {
   const sortedDocs = useMemo(() => {
     const localEntries = Object.entries(localDocs);
     const ratedDocs = localEntries.map(([id, data]) => {
-      //const rating = getRating(gameId, id, data);
-      return { id, data, rating: 0 };
+      const rawRating = getRating(gameId, id, data.equipList);
+      const rating = rawRating.reduce((sum, item) => sum + item.percent, 0) / rawRating.length;
+      return { id, data, rating, rawRating };
     });
   
     ratedDocs.sort((a, b) =>
       a.data.isStar === b.data.isStar
-        ? b.rating - a.rating
+        ? a.rating - b.rating
         : a.data.isStar ? -1 : 1
     );
   

@@ -9,6 +9,7 @@ const gameIds = ["gi", "hsr", "ww", "zzz"];
 const update = {
   date: "2025-04-14",
   content: [
+    "Average artifact rating is now displayed in table (\"see details\" page will be available soon)",
     "Fixed issue with manual substat entry",
   ],
 };

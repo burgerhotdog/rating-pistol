@@ -1,7 +1,7 @@
 import STATS from "@data/static/stats";
 
-const getRollValue = (gameId, substats, weights) => {
-  const rollValue = substats.reduce((acc, { stat, value }) => {
+const getRollValue = (gameId, statList, weights) => {
+  const rollValue = statList.reduce((acc, { stat, value }) => {
     if (!stat || !value) return acc;
 
     const weight = weights[stat];
