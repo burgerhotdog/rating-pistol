@@ -1,1 +1,1 @@
-export { default } from "./AvatarModal";
+export { default } from "./Avatar";

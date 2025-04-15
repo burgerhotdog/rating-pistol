@@ -8,7 +8,7 @@ import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
 import getRankBonus from "./getRankBonus";
 
-const SkillMap = ({ gameId, pipe, setPipe }) => {
+const InputSkills = ({ gameId, pipe, setPipe }) => {
   const config = configs[gameId];
   const avatarId = pipe.id;
   const rank = pipe.data.rank;
@@ -136,4 +136,4 @@ const SkillMap = ({ gameId, pipe, setPipe }) => {
   );
 };
 
-export default SkillMap;
+export default InputSkills;

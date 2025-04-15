@@ -35,7 +35,7 @@ const suffixes = {
 
 const urlBase = "https://rating-pistol.vercel.app/api/proxy?suffix=";
 
-const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
+const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
   const [error, setError] = useState(null);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);
@@ -388,4 +388,4 @@ const LoadModal = ({ gameId, userId, setPipe, setLocalDocs }) => {
   );
 };
 
-export default LoadModal;
+export default Load;

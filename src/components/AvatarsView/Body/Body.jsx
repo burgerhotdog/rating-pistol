@@ -57,7 +57,7 @@ export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs
 
   return (
     <TableBody>
-      {sortedDocs.map(({ id, data, rating }) => (
+      {sortedDocs.map(({ id, data, rating, rawRating }) => (
         <TableRow
           key={id}
           sx={{
@@ -101,6 +101,7 @@ export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs
             id={id}
             data={data}
             rating={rating}
+            rawRating={rawRating}
           />
 
           <DeleteCell

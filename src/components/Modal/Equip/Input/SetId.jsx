@@ -3,12 +3,13 @@ import SET_ASSETS from "@assets/dynamic/set";
 import { LABELS } from "@data/static";
 import SETS from "@data/dynamic/sets";
 
-const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
+const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
   const setOptions = Object.keys(SETS[gameId])
     .filter((id) => {
       if (gameId !== "hsr") return true;
-      if (mainIndex < 4) return SETS[gameId][id].type === "Relic";
-      return SETS[gameId][id].type === "Planar";
+      return mainIndex < 4
+        ? SETS[gameId][id].type === "Relic"
+        : SETS[gameId][id].type === "Planar";
     })
     .sort((a, b) => {
       const A = SETS[gameId][a];
@@ -23,14 +24,13 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
       ...prev,
       data: {
         ...prev.data,
-        equipList: prev.data.equipList.map((equipObj, index) => 
-          index === mainIndex
-            ? {
-              ...equipObj,
-              setId: String(newValue),
-            }
-            : equipObj
-        ),
+        equipList: prev.data.equipList.map((equipObj, index) => {
+          if (index !== mainIndex) return equipObj;
+          return {
+            ...equipObj,
+            setId: String(newValue),
+          };
+        }),
       },
     }));
   };
@@ -46,7 +46,7 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
           <Paper elevation={3}>
             {children}
           </Paper>
-        )
+        ),
       }}
       renderOption={(props, id) => {
         const { key, ...idProps } = props;
@@ -79,4 +79,4 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
   )
 };
 
-export default Mainstat;
+export default SetId;

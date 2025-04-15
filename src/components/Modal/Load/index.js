@@ -1,1 +1,1 @@
-export { default } from "./LoadModal";
+export { default } from "./Load";
