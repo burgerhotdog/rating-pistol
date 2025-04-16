@@ -1,10 +1,10 @@
 import { Autocomplete, TextField, Paper } from "@mui/material";
-import { INFO, STATS } from "@data";
+import { INFO_DATA, STAT_DATA } from "@data";
 
 const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
-  const mainstatOptions = Object.keys(STATS[gameId])
+  const mainstatOptions = Object.keys(STAT_DATA[gameId])
     .filter((stat) => (
-      STATS[gameId][stat].index?.includes(mainIndex)
+      STAT_DATA[gameId][stat].index?.includes(mainIndex)
     ));
 
   const handleMainstat = (newValue) => {
@@ -17,7 +17,7 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
           return {
             ...equipObj,
             stat: String(newValue),
-            statList: Array(INFO[gameId].SUB_LEN).fill()
+            statList: Array(INFO_DATA[gameId].SUB_LEN).fill()
               .map(() => ({ stat: null, value: null })),
           };
         }),
@@ -29,7 +29,7 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
     <Autocomplete
       value={pipe.data.equipList[mainIndex].stat ?? ""}
       options={mainstatOptions}
-      getOptionLabel={(stat) => STATS[gameId][stat]?.name ?? ""}
+      getOptionLabel={(stat) => STAT_DATA[gameId][stat]?.name ?? ""}
       onChange={(_, newValue) => handleMainstat(newValue)}
       renderInput={(params) => (
         <TextField {...params} label="Mainstat" />

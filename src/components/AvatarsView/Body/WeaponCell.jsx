@@ -2,7 +2,7 @@ import React from "react";
 import { Badge, Avatar, Tooltip, TableCell } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import { WEAPON_ASSETS } from "@assets";
-import { WEAPONS, INFO, LABELS } from "@data";
+import { WEAPON_DATA, INFO_DATA, LABEL_DATA } from "@data";
 
 const WeaponCell = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "weapon", id, data });
@@ -10,7 +10,7 @@ const WeaponCell = ({ gameId, setPipe, id, data }) => {
   if (!data.weaponId) {
     return (
       <TableCell align="center">
-        <Tooltip title={`Add ${LABELS[gameId].Weapon}`} arrow>
+        <Tooltip title={`Add ${LABEL_DATA[gameId].Weapon}`} arrow>
           <Add onClick={openModal} cursor="pointer" />
         </Tooltip>
       </TableCell>
@@ -19,10 +19,10 @@ const WeaponCell = ({ gameId, setPipe, id, data }) => {
 
   return (
     <TableCell align="center">
-      <Tooltip title={WEAPONS[gameId][data.weaponId].name}>
+      <Tooltip title={WEAPON_DATA[gameId][data.weaponId].name}>
         <Badge
           onClick={openModal}
-          badgeContent={`${INFO[gameId].PREFIX_WEAPON}${data.weaponRank}`}
+          badgeContent={`${INFO_DATA[gameId].PREFIX_WEAPON}${data.weaponRank}`}
         >
           <Avatar
             alt={data.weaponId}

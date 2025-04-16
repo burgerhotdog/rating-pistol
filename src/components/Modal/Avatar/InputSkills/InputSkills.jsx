@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Stack, Paper } from "@mui/material";
 import { PATH_ASSETS } from "@assets";
-import { AVATARS, INFO } from "@data";
+import { AVATAR_DATA, INFO_DATA } from "@data";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
@@ -12,8 +12,8 @@ const InputSkills = ({ gameId, pipe, setPipe }) => {
   const avatarId = pipe.id;
   const rank = pipe.data.rank;
   const skillMap = pipe.data.skillMap;
-  const SKILL_MAX_LEVEL = INFO[gameId].SKILL_MAX_LEVEL;
-  const type = AVATARS[gameId][avatarId].type;
+  const SKILL_MAX_LEVEL = INFO_DATA[gameId].SKILL_MAX_LEVEL;
+  const type = AVATAR_DATA[gameId][avatarId].type;
   const NODES = gameId === "hsr"
     ? config.nodes[type]
     : config.nodes;

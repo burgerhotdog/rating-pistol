@@ -1,5 +1,5 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-import { INFO } from "@data";
+import { INFO_DATA } from "@data";
 
 const Rank = ({ gameId, pipe, setPipe }) => {
   const options = () => {
@@ -35,7 +35,7 @@ const Rank = ({ gameId, pipe, setPipe }) => {
       >
         {options().map((rank) => (
           <MenuItem key={rank} value={rank}>
-            {`${INFO[gameId].PREFIX_AVATAR}${rank}`}
+            {`${INFO_DATA[gameId].PREFIX_AVATAR}${rank}`}
           </MenuItem>
         ))}
       </Select>

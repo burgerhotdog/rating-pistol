@@ -1,11 +1,11 @@
-import { AVATARS } from "@data";
+import { AVATAR_DATA } from "@data";
 import getRollValue from "@utils/getRollValue";
 import simulateEquipRVs from "@utils/simulateEquipRVs";
 
 const getEquipRatings = (gameId, avatarId, equipList) => {
   const rating = equipList.map((equipObj) => {
     const { stat, statList } = equipObj;
-    const weights = AVATARS[gameId][avatarId].weights;
+    const weights = AVATAR_DATA[gameId][avatarId].weights;
     const rollValue = getRollValue(gameId, statList, weights);
     const simData = simulateEquipRVs(gameId, stat, weights);
 

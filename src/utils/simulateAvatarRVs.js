@@ -1,4 +1,4 @@
-import { INFO } from "@data";
+import { INFO_DATA } from "@data";
 
 const ITERATIONS = 10000;
 
@@ -14,7 +14,7 @@ const simulateAvatarRVs = (gameId, equipRatings) => {
     const numTriesMult = isWhale ? 8 : isDolphin ? 4 : 2;
 
     for (let j = 0; j < equipRatings.length; j++) {
-      const numTries = (4 - INFO[gameId].EQUIP_RARITY[j]) * numTriesMult;
+      const numTries = (4 - INFO_DATA[gameId].EQUIP_RARITY[j]) * numTriesMult;
       const rvs = [];
       for (let k = 0; k < numTries; k++) {
         const random = Math.floor(Math.random() * equipRatings[j].simData.length);

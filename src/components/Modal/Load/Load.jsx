@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import template from "@config/template";
 import { AVATAR_ASSETS } from "@assets";
-import { AVATARS, STATS } from "@data";
+import { AVATAR_DATA, STAT_DATA } from "@data";
 import translate from "./translate";
 
 const errorMessages = {
@@ -176,7 +176,7 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
         case "hsr": {
           const id = String(charObj.avatarId);
           const data = template(gameId);
-          if (AVATARS[gameId][id].type === "Remembrance") {
+          if (AVATAR_DATA[gameId][id].type === "Remembrance") {
             data.skillMap["005"] = 1;
             data.skillMap["006"] = 1;
           }
@@ -263,7 +263,7 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
               const key = STAT_CONVERT[String(subPropObj.PropertyId)];
               data.equipList[equipIndex].statList[subIndex].stat = key;
               const value = subPropObj.PropertyValue;
-              const valueRatio = STATS[gameId][key].percent ? 0.01 : 1;
+              const valueRatio = STAT_DATA[gameId][key].percent ? 0.01 : 1;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               const timesAppeared = subPropObj.PropertyLevel;
               data.equipList[equipIndex].statList[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
@@ -371,7 +371,7 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
                 />
 
                 <Typography variant="body2">
-                  {AVATARS[gameId][avatar.avatarId].name}
+                  {AVATAR_DATA[gameId][avatar.avatarId].name}
                 </Typography>
               </Stack>
             }

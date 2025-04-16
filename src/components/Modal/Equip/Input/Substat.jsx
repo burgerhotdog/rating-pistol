@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
-import { STATS } from "@data";
+import { STAT_DATA } from "@data";
 
 const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
   const [inputValue, setInputValue] = useState(String(pipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
@@ -15,8 +15,8 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
       .map((statObj) => statObj.stat)
       .filter((_, index) => index !== subIndex);
     
-    return Object.keys(STATS[gameId]).filter((stat) => {
-      const isSubstat = STATS[gameId][stat].value;
+    return Object.keys(STAT_DATA[gameId]).filter((stat) => {
+      const isSubstat = STAT_DATA[gameId][stat].value;
       const isNotMainstat = gameId === "ww" || stat !== selectedMainstat;
       const isNotDuplicate = !selectedSubstats.includes(stat);
       return isSubstat && isNotDuplicate && isNotMainstat;
@@ -78,7 +78,7 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
         <Autocomplete
           value={pipe.data.equipList[mainIndex].statList[subIndex].stat}
           options={substatOptions(subIndex)}
-          getOptionLabel={(id) => STATS[gameId][id]?.name || ""}
+          getOptionLabel={(id) => STAT_DATA[gameId][id]?.name || ""}
           onChange={(_, newValue) => handleStat(newValue, subIndex)}
           slots={{
             paper: ({ children }) => (
@@ -104,7 +104,7 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
           }}
           slotProps={{
             input: {
-              endAdornment: STATS[gameId][pipe.data.equipList[mainIndex].statList[subIndex].stat]?.percent && (
+              endAdornment: STAT_DATA[gameId][pipe.data.equipList[mainIndex].statList[subIndex].stat]?.percent && (
                 <InputAdornment position="end">%</InputAdornment>
               ),
             },

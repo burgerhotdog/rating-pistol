@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
-import { INFO, LABELS, VERSION } from "@data";
+import { INFO_DATA, LABEL_DATA, VERSION_DATA } from "@data";
 import { getEquipRatings, getAvatarRating } from "@utils";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
@@ -79,10 +79,10 @@ const Game = ({ gameId, userId }) => {
         <Stack spacing={2}>
           <Stack alignItems="center" textAlign="center">
             <Typography variant="h3" fontWeight="bold">
-              {INFO[gameId].TITLE}
+              {INFO_DATA[gameId].TITLE}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
-              Updated for Version {VERSION[gameId]}
+              Updated for Version {VERSION_DATA[gameId]}
             </Typography>
           </Stack>
 
@@ -96,7 +96,7 @@ const Game = ({ gameId, userId }) => {
               <Tab 
                 label={
                   <Typography variant="subtitle1" fontWeight="bold">
-                    {LABELS[gameId].Avatars}
+                    {LABEL_DATA[gameId].Avatars}
                   </Typography>
                 }
                 sx={{ textTransform: "none" }}

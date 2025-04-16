@@ -1,14 +1,14 @@
 import React from "react";
 import { Avatar, Badge, Tooltip, Stack, Typography, TableCell } from "@mui/material";
 import { AVATAR_ASSETS } from "@assets";
-import { AVATARS, INFO, LABELS } from "@data";
+import { AVATAR_DATA, INFO_DATA, LABEL_DATA } from "@data";
 
 const AvatarCell = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "avatar", id, data });
 
   return (
     <TableCell align="left">
-      <Tooltip title={`Edit ${LABELS[gameId].Avatar}`} arrow>
+      <Tooltip title={`Edit ${LABEL_DATA[gameId].Avatar}`} arrow>
         <Stack
           onClick={openModal}
           display="inline-flex"
@@ -17,15 +17,15 @@ const AvatarCell = ({ gameId, setPipe, id, data }) => {
           spacing={1}
           sx={{ cursor: "pointer" }}
         >
-          <Badge badgeContent={`${INFO[gameId].PREFIX_AVATAR}${data.rank}`}>
+          <Badge badgeContent={`${INFO_DATA[gameId].PREFIX_AVATAR}${data.rank}`}>
             <Avatar
-              alt={AVATARS[gameId][id].name}
+              alt={AVATAR_DATA[gameId][id].name}
               src={AVATAR_ASSETS[`./${gameId}/${id}.webp`]?.default}
             />
           </Badge>
           
           <Typography variant="body2">
-            {AVATARS[gameId][id].name}
+            {AVATAR_DATA[gameId][id].name}
           </Typography>
         </Stack>
       </Tooltip>

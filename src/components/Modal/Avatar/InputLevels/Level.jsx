@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
-import { INFO } from "@data";
+import { INFO_DATA } from "@data";
 
 const Level = ({ gameId, pipe, setPipe }) => {
   const [inputValue, setInputValue] = useState(String(pipe.data.level));
@@ -17,7 +17,7 @@ const Level = ({ gameId, pipe, setPipe }) => {
 
     const outOfBounds =
       Number(inputValue) < 1 ||
-      Number(inputValue) > INFO[gameId].MAX_LEVEL ||
+      Number(inputValue) > INFO_DATA[gameId].MAX_LEVEL ||
       !Number.isInteger(Number(inputValue));
     if (outOfBounds) {
       setInputValue(String(pipe.data.level));

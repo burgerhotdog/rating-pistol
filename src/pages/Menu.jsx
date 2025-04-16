@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
 import { ICON, MENU_ASSETS } from "@assets";
-import { INFO } from "@data";
+import { INFO_DATA } from "@data";
 
 const gameIds = ["gi", "hsr", "ww", "zzz"];
 
@@ -36,9 +36,9 @@ const Menu = () => (
 
         <Stack direction="row" spacing={2}>
           {gameIds.map((gameId) => (
-            <Link key={gameId} to={INFO[gameId].PATH} style={{ textDecoration: "none" }}>
+            <Link key={gameId} to={INFO_DATA[gameId].PATH} style={{ textDecoration: "none" }}>
               <Tooltip 
-                title={INFO[gameId].TITLE}
+                title={INFO_DATA[gameId].TITLE}
                 placement="bottom"
                 slotProps={{
                   tooltip: {

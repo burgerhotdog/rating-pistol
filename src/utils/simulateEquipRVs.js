@@ -1,11 +1,11 @@
-import { INFO, STATS } from "@data";
+import { INFO_DATA, STAT_DATA } from "@data";
 import { getMult, getRollValue } from "@utils";
 
 const ITERATIONS = 10000;
 
 const simulateEquipRVs = (gameId, mainstat, weights) => {
   const scores = new Array(ITERATIONS).fill(0);
-  const startingPool = Object.entries(STATS[gameId])
+  const startingPool = Object.entries(STAT_DATA[gameId])
     .filter(([stat, { subValue }]) => {
       if (!subValue) return false; // filter out mainstats
       if (gameId === "ww") return true; // ww can match selected mainstat
@@ -21,7 +21,7 @@ const simulateEquipRVs = (gameId, mainstat, weights) => {
 
     // adding the substat lines (weighted selection)
     let substats = [];
-    for (let j = 0; j < INFO[gameId].SUB_LEN; j++) {
+    for (let j = 0; j < INFO_DATA[gameId].SUB_LEN; j++) {
       const totalChance = statPool.reduce((acc, [, , chance]) => (
         acc + chance
       ), 0);
@@ -48,7 +48,7 @@ const simulateEquipRVs = (gameId, mainstat, weights) => {
       for (let j = 0; j < upgradeCount; j++) {
         const random = Math.floor(Math.random() * 4);
         const stat = substats[random].stat;
-        const subValue = STATS[gameId][stat].subValue;
+        const subValue = STAT_DATA[gameId][stat].subValue;
         const mult = getMult(gameId);
         substats[random].value += subValue * mult;
       }

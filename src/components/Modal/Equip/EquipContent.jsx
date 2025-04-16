@@ -11,14 +11,14 @@ import {
   Button,
 } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
-import { INFO } from "@data";
+import { INFO_DATA } from "@data";
 import Input from "./Input";
 import PreviewSet from "./PreviewSet";
 import Analysis from "./Analysis";
 
 const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {
   const [viewIndex, setViewIndex] = useState(0);
-  const equipSlots = [...Array(INFO[gameId].MAIN_LEN).keys()];
+  const equipSlots = [...Array(INFO_DATA[gameId].MAIN_LEN).keys()];
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
@@ -46,7 +46,7 @@ const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {
                           src={EQUIP_ASSETS[`./${gameId}/${index}.webp`]?.default}
                           sx={{ width: 24, height: 24, objectFit: "contain" }}
                         />
-                        <ListItemText primary={INFO[gameId].EQUIP_NAMES[index]} />
+                        <ListItemText primary={INFO_DATA[gameId].EQUIP_NAMES[index]} />
                       </Stack>
                     </ListItemButton>
                   </ListItem>

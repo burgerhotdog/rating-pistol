@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack, TableCell } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import { SET_ASSETS } from "@assets";
-import { LABELS } from "@data";
+import { LABEL_DATA } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
 
 const EquipCell = ({ gameId, setPipe, id, data }) => {  
@@ -16,7 +16,7 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
   if (!Object.keys(setBonuses).length) {
     return (
       <TableCell align="center">
-        <Tooltip title={`Add ${LABELS[gameId].Equips}`} arrow>
+        <Tooltip title={`Add ${LABEL_DATA[gameId].Equips}`} arrow>
           <Add onClick={openModal} cursor="pointer" />
         </Tooltip>
       </TableCell>
@@ -25,7 +25,7 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
 
   return (
     <TableCell align="center">
-      <Tooltip title={`Edit ${LABELS[gameId].Equips}`} arrow>
+      <Tooltip title={`Edit ${LABEL_DATA[gameId].Equips}`} arrow>
         <Stack
           onClick={openModal}
           display="inline-flex"

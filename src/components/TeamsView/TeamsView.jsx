@@ -4,7 +4,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { Box, Grid, Typography, Stack, Button, Paper, IconButton, TextField, InputAdornment } from "@mui/material";
 import { Close, Edit, Analytics, Add } from "@mui/icons-material";
 import { AVATAR_ASSETS } from "@assets";
-import { AVATARS } from "@data";
+import { AVATAR_DATA } from "@data";
 
 const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDocs }) => {
   const [team, setTeam] = useState([null, null, null, null]);
@@ -38,7 +38,7 @@ const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDoc
   };
 
   const CharacterSlot = ({ charId, index }) => {
-    const AVATAR = AVATARS[gameId][charId];
+    const AVATAR = AVATAR_DATA[gameId][charId];
     return (
       <Paper
         onClick={() => handleSlotClick(index)}

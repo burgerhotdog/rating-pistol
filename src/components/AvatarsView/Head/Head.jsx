@@ -1,6 +1,6 @@
 import React from "react";
 import { TableHead, TableRow, TableCell, Typography } from "@mui/material";
-import { LABELS } from "@data";
+import { LABEL_DATA } from "@data";
 import StarHead from "./StarHead";
 import DeleteHead from "./DeleteHead";
 
@@ -12,19 +12,19 @@ export default ({ gameId, userId, localDocs, setLocalDocs }) => {
 
         <TableCell align="left">
           <Typography variant="body1" color="text.secondary">
-            {LABELS[gameId].Avatar}
+            {LABEL_DATA[gameId].Avatar}
           </Typography>
         </TableCell>
 
         <TableCell align="center">
           <Typography variant="body1" color="text.secondary">
-            {LABELS[gameId].Weapon}
+            {LABEL_DATA[gameId].Weapon}
           </Typography>
         </TableCell>
 
         <TableCell align="center">
           <Typography variant="body1" color="text.secondary">
-            {LABELS[gameId].Equips}
+            {LABEL_DATA[gameId].Equips}
           </Typography>
         </TableCell>
 

@@ -1,4 +1,4 @@
-import { SETS } from "@data";
+import { SET_DATA } from "@data";
 
 const getSetBonuses = (gameId, equipList) => {
   const setCounts = {};
@@ -32,8 +32,8 @@ const getSetBonuses = (gameId, equipList) => {
       if (gameId !== "hsr") return 0;
 
       // Move hsr planar bonus to the back
-      if (SETS.hsr[a].type === "Planar") return 1;
-      if (SETS.hsr[b].type === "Planar") return -1;
+      if (SET_DATA.hsr[a].type === "Planar") return 1;
+      if (SET_DATA.hsr[b].type === "Planar") return -1;
       return 0;
     });
 };

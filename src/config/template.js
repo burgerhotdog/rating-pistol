@@ -1,4 +1,4 @@
-import { INFO } from "@data";
+import { INFO_DATA } from "@data";
 
 const skillMapTemplate = {
   gi: { "001": 1, "002": 1, "003": 1 },
@@ -9,16 +9,16 @@ const skillMapTemplate = {
 
 export default (gameId) => ({
   isStar: false,
-  level: INFO[gameId].MAX_LEVEL,
+  level: INFO_DATA[gameId].MAX_LEVEL,
   rank: 0,
   skillMap: { ...skillMapTemplate[gameId] },
   weaponId: null,
   weaponLevel: null,
   weaponRank: null,
-  equipList: Array(INFO[gameId].MAIN_LEN).fill().map(() => ({
+  equipList: Array(INFO_DATA[gameId].MAIN_LEN).fill().map(() => ({
     setId: null,
     stat: null,
-    statList: Array(INFO[gameId].SUB_LEN).fill().map(() => ({
+    statList: Array(INFO_DATA[gameId].SUB_LEN).fill().map(() => ({
       stat: null,
       value: null
     }))
