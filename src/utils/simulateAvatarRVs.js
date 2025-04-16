@@ -1,6 +1,6 @@
 import { INFO } from "@data/static";
 
-const ITERATIONS = 100;
+const ITERATIONS = 10000;
 
 const simulateAvatarRVs = (gameId, equipRatings) => {
   const scores = new Array(ITERATIONS).fill(0);
@@ -11,7 +11,7 @@ const simulateAvatarRVs = (gameId, equipRatings) => {
     const playerType = Math.floor(Math.random() * 10);
     const isWhale = playerType < 1;
     const isDolphin = playerType < 2;
-    const numTriesMult = isWhale ? 3 : isDolphin ? 2 : 1;
+    const numTriesMult = isWhale ? 8 : isDolphin ? 4 : 2;
 
     for (let j = 0; j < equipRatings.length; j++) {
       const numTries = (4 - INFO[gameId].EQUIP_RARITY[j]) * numTriesMult;
