@@ -3,7 +3,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
-import { INFO_DATA, LABEL_DATA, VERSION_DATA } from "@data";
+import { VERSION_DATA, INFO_DATA, LABEL_DATA } from "@data";
 import { getEquipRatings, getAvatarRating } from "@utils";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
