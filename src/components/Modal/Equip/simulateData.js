@@ -26,7 +26,7 @@ const simulateData = (gameId, mainstat, weights) => {
         cumulative += weight;
         if (random <= cumulative) {
           const multiplier = getRandomMultiplier(gameId);
-          const value = STATS[gameId][stat].value * multiplier;
+          const value = STATS[gameId][stat].subValue * multiplier;
           substats.push({ stat, value });
           statPool.splice(k, 1);
           break;
@@ -42,7 +42,7 @@ const simulateData = (gameId, mainstat, weights) => {
         const randomIndex = Math.floor(Math.random() * 4);
         const { stat } = substats[randomIndex];
         const multiplier = getRandomMultiplier(gameId);
-        const addValue = STATS[gameId][stat].value * multiplier;
+        const addValue = STATS[gameId][stat].subValue * multiplier;
         substats[randomIndex].value += addValue;
       }
     }
