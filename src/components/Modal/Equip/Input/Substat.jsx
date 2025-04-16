@@ -1,5 +1,5 @@
 import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
-import { STATS } from "@data/static";
+import { STATS } from "@data";
 import { useState, useEffect } from "react";
 
 const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {

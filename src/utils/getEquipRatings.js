@@ -1,4 +1,4 @@
-import AVATARS from "@data/dynamic/avatars";
+import { AVATARS } from "@data";
 import getRollValue from "@utils/getRollValue";
 import simulateEquipRVs from "@utils/simulateEquipRVs";
 

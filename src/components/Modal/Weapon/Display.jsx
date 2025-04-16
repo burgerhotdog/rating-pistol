@@ -1,8 +1,7 @@
 import React, { useMemo } from "react";
 import { Paper, Box, Stack, Typography } from "@mui/material";
 import WEAPON_ASSETS from "@assets/dynamic/weapon";
-import { STATS, LABELS } from "@data/static";
-import WEAPONS from "@data/dynamic/weapons";
+import { STATS, LABELS, WEAPONS } from "@data";
 import getWeaponDescArr from "./getWeaponDescArr";
 
 const Display = ({ gameId, pipe }) => {

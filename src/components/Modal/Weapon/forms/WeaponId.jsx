@@ -1,8 +1,7 @@
 import React from "react";
 import { Box, Autocomplete, TextField, Typography } from "@mui/material";
 import WEAPON_ASSETS from "@assets/dynamic/weapon";
-import WEAPONS from "@data/dynamic/weapons";
-import AVATARS from "@data/dynamic/avatars";
+import { AVATARS, WEAPONS } from "@data";
 
 const MAX_LEVEL = { gi: 90, hsr: 80, ww: 90, zzz: 60 };
 const LABEL = { gi: "Weapon", hsr: "Light Cone", ww: "W-Engine", zzz: "Weapon" };

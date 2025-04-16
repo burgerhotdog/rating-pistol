@@ -1,4 +1,4 @@
-import { INFO } from "@data/static";
+import { INFO } from "@data";
 
 const ITERATIONS = 10000;
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Grid, Typography, Stack, Button, Paper, IconButton, TextField, InputAdornment } from "@mui/material";
 import { Close, Edit, Analytics, Add } from "@mui/icons-material";
 import { AVATAR_ASSETS } from "@assets/dynamic";
-import { AVATARS } from "@data/dynamic";
+import { AVATARS } from "@data";
 import { db } from "@config/firebase";
 import { doc, setDoc } from "firebase/firestore";
 

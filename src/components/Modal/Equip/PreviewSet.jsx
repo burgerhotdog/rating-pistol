@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import SET_ASSETS from "@assets/dynamic/set";
-import SETS from "@data/dynamic/sets";
+import { SETS } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
 
 const PreviewSet = ({ gameId, pipe }) => {

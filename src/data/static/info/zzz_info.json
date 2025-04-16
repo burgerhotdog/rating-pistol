@@ -1,0 +1,12 @@
+{
+  "TITLE": "Zenless Zone Zero",
+  "PATH": "/zenless-zone-zero",
+  "MAX_LEVEL": 60,
+  "PREFIX_AVATAR": "M",
+  "PREFIX_WEAPON": "S",
+  "SKILL_MAX_LEVEL": [12, 12, 12, 12, 12],
+  "EQUIP_NAMES": ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"],
+  "EQUIP_RARITY": [1, 1, 1, 2, 3, 2],
+  "MAIN_LEN": 6,
+  "SUB_LEN": 4
+}

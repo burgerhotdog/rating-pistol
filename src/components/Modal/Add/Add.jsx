@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
 import template from "@config/template";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
-import AVATARS from "@data/dynamic/avatars";
+import { AVATARS } from "@data";
 
 const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
   const [isLoading, setIsLoading] = useState(false);

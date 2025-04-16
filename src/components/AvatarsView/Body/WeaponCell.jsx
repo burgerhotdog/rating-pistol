@@ -2,8 +2,7 @@ import React from "react";
 import { Badge, Avatar, Tooltip, TableCell } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import WEAPON_ASSETS from "@assets/dynamic/weapon";
-import { INFO, LABELS} from "@data/static";
-import WEAPONS from "@data/dynamic/weapons";
+import { INFO, LABELS, WEAPONS } from "@data";
 
 const WeaponCell = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "weapon", id, data });

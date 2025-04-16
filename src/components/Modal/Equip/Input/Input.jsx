@@ -1,6 +1,5 @@
 import React from "react";
 import { Stack, Box, Paper, Divider } from "@mui/material";
-import { INFO } from "@data/static";
 import SetId from "./SetId";
 import Mainstat from "./Mainstat";
 import Substat from "./Substat";

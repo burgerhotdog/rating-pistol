@@ -1,4 +1,4 @@
-import { INFO, STATS } from "@data/static";
+import { INFO, STATS } from "@data";
 import { getMult, getRollValue } from "@utils";
 
 const ITERATIONS = 10000;

@@ -1,4 +1,4 @@
-import INFO from "@data/static/info";
+import { INFO } from "@data";
 
 const skillMapTemplate = {
   gi: { "001": 1, "002": 1, "003": 1 },

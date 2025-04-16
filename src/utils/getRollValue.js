@@ -1,4 +1,4 @@
-import STATS from "@data/static/stats";
+import { STATS } from "@data";
 
 const getRollValue = (gameId, statList, weights) => {
   const rollValue = statList.reduce((acc, { stat, value }) => {

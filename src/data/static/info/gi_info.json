@@ -1,0 +1,12 @@
+{
+  "TITLE": "Genshin Impact",
+  "PATH": "/genshin-impact",
+  "MAX_LEVEL": 90,
+  "PREFIX_AVATAR": "C",
+  "PREFIX_WEAPON": "R",
+  "SKILL_MAX_LEVEL": [10, 10, 10],
+  "EQUIP_NAMES": ["Flower", "Plume", "Sands", "Goblet", "Circlet"],
+  "EQUIP_RARITY": [1, 1, 2, 3, 2],
+  "MAIN_LEN": 5,
+  "SUB_LEN": 4
+}

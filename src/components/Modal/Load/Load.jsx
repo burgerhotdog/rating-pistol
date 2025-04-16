@@ -12,8 +12,7 @@ import {
 } from "@mui/material";
 import template from "@config/template";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
-import STATS from "@data/static/stats";
-import AVATARS from "@data/dynamic/avatars";
+import { STATS, AVATARS } from "@data";
 import translate from "./translate";
 
 const errorMessages = {

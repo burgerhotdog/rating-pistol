@@ -1,4 +1,4 @@
-import AVATARS from "@data/dynamic/avatars";
+import { AVATARS } from "@data";
 
 const getRankBonus = (gameId, avatarId, rank, nodeId) => {
   const skillRank = AVATARS[gameId][avatarId].skillRank;

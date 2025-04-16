@@ -1,5 +1,5 @@
 import { Autocomplete, TextField, Paper } from "@mui/material";
-import { INFO, STATS } from "@data/static";
+import { INFO, STATS } from "@data";
 
 const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
   const mainstatOptions = Object.keys(STATS[gameId])

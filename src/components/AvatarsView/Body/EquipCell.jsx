@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack, TableCell } from "@mui/material";
 import Add from "@mui/icons-material/Add";
 import SET_ASSETS from "@assets/dynamic/set";
-import { LABELS } from "@data/static";
+import { LABELS } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
 
 const EquipCell = ({ gameId, setPipe, id, data }) => {  

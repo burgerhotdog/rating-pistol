@@ -1,14 +1,9 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
-import {
-  Container, Stack, Button, Typography, Skeleton,
-  Box, Grid, Select, MenuItem, InputLabel, FormControl,
-  Tabs, Tab,
-} from "@mui/material";
-import { INFO, LABELS } from "@data/static";
-import { VERSION, AVATARS } from "@data/dynamic";
+import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
+import { INFO, LABELS, VERSION } from "@data";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
 import AvatarsView from "@components/AvatarsView";
@@ -129,7 +124,7 @@ const Game = ({ gameId, userId }) => {
                 setPipe={setPipe}
               />
 
-              <Stack direction="row" sx={{ justifyContent: "center", gap: 2 }}>
+              <Stack direction="row" justifyContent="center" spacing={2}>
                 <Button
                   onClick={handleAdd}
                   variant="contained"

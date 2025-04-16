@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
-import INFO from "@data/static/info";
+import { INFO } from "@data";
 
 const Level = ({ gameId, pipe, setPipe }) => {
   const [inputValue, setInputValue] = useState(String(pipe.data.level));

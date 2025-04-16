@@ -1,9 +1,7 @@
 import React from "react";
-import { Avatar, Badge, Tooltip, Stack, Typography } from "@mui/material";
+import { Avatar, Badge, Tooltip, Stack, Typography, TableCell } from "@mui/material";
 import AVATAR_ASSETS from "@assets/dynamic/avatar";
-import AVATARS from "@data/dynamic/avatars";
-import { INFO, LABELS } from "@data/static";
-import TableCell from "@mui/material/TableCell";
+import { INFO, LABELS, AVATARS } from "@data";
 
 const AvatarCell = ({ gameId, setPipe, id, data }) => {
   const openModal = () => setPipe({ type: "avatar", id, data });

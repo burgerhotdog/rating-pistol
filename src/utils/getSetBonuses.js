@@ -1,4 +1,4 @@
-import SETS from "@data/dynamic/sets";
+import { SETS } from "@data";
 
 const getSetBonuses = (gameId, equipList) => {
   const setCounts = {};

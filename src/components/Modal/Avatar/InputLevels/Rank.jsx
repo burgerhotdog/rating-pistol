@@ -1,5 +1,5 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-import INFO from "@data/static/info";
+import { INFO } from "@data";
 
 const Rank = ({ gameId, pipe, setPipe }) => {
   const options = () => {

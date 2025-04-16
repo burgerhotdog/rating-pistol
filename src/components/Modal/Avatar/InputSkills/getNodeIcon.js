@@ -1,6 +1,6 @@
 import STATS_ASSETS from "@assets/static/stats";
 import SKILL_ASSETS from "@assets/dynamic/skill";
-import AVATARS from "@data/dynamic/avatars";
+import { AVATARS } from "@data";
 
 export default (gameId, avatarId, nodeId) => {
   const minorIndex = Number(nodeId.slice(1)) - 1;
