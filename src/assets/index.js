@@ -1,0 +1,10 @@
+export { default as AVATAR_ASSETS } from "./dynamic/avatar";
+export { default as SKILL_ASSETS } from "./dynamic/skill";
+export { default as WEAPON_ASSETS } from "./dynamic/weapon";
+export { default as SET_ASSETS } from "./dynamic/set";
+export { default as ICON } from "./static/icon";
+export { default as EQUIP_ASSETS } from "./static/equip";
+export { default as PATH_ASSETS } from "./static/path";
+export { default as RATING_ASSETS } from "./static/rating";
+export { default as STATS_ASSETS } from "./static/stats";
+export { default as MENU_ASSETS } from "./static/menu";

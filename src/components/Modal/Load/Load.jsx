@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import template from "@config/template";
-import AVATAR_ASSETS from "@assets/dynamic/avatar";
+import { AVATAR_ASSETS } from "@assets";
 import { STATS, AVATARS } from "@data";
 import translate from "./translate";
 

@@ -6,7 +6,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import SET_ASSETS from "@assets/dynamic/set";
+import { SET_ASSETS } from "@assets";
 import { SETS } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
-import { ICON, MENU_ASSETS } from "@assets/static";
+import { ICON, MENU_ASSETS } from "@assets";
 import { INFO } from "@data";
 
 const gameIds = ["gi", "hsr", "ww", "zzz"];

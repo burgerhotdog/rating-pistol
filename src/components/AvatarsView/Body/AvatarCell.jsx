@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar, Badge, Tooltip, Stack, Typography, TableCell } from "@mui/material";
-import AVATAR_ASSETS from "@assets/dynamic/avatar";
+import { AVATAR_ASSETS } from "@assets";
 import { INFO, LABELS, AVATARS } from "@data";
 
 const AvatarCell = ({ gameId, setPipe, id, data }) => {

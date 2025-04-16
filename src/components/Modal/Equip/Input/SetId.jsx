@@ -1,5 +1,5 @@
 import { Autocomplete, TextField, Box, Paper } from "@mui/material";
-import SET_ASSETS from "@assets/dynamic/set";
+import { SET_ASSETS } from "@assets";
 import { LABELS, SETS } from "@data";
 
 const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {

@@ -1,7 +1,6 @@
 import React from "react";
-import TableCell from "@mui/material/TableCell";
-import Typography from "@mui/material/Typography";
-import StarBorder from "@mui/icons-material/StarBorder";
+import { TableCell } from "@mui/material";
+import { StarBorder } from "@mui/icons-material";
 
 const StarHead = () => {
   return (

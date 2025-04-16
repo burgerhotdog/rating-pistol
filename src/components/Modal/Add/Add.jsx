@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
 import template from "@config/template";
-import AVATAR_ASSETS from "@assets/dynamic/avatar";
+import { AVATAR_ASSETS } from "@assets";
 import { AVATARS } from "@data";
 
 const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {

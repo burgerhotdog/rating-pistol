@@ -1,5 +1,4 @@
-import STATS_ASSETS from "@assets/static/stats";
-import SKILL_ASSETS from "@assets/dynamic/skill";
+import { SKILL_ASSETS, STATS_ASSETS } from "@assets";
 import { AVATARS } from "@data";
 
 export default (gameId, avatarId, nodeId) => {

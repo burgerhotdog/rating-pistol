@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Autocomplete, TextField, Typography } from "@mui/material";
-import WEAPON_ASSETS from "@assets/dynamic/weapon";
+import { WEAPON_ASSETS } from "@assets";
 import { AVATARS, WEAPONS } from "@data";
 
 const MAX_LEVEL = { gi: 90, hsr: 80, ww: 90, zzz: 60 };

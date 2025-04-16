@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge, Avatar, Tooltip, TableCell } from "@mui/material";
 import Add from "@mui/icons-material/Add";
-import WEAPON_ASSETS from "@assets/dynamic/weapon";
+import { WEAPON_ASSETS } from "@assets";
 import { INFO, LABELS, WEAPONS } from "@data";
 
 const WeaponCell = ({ gameId, setPipe, id, data }) => {

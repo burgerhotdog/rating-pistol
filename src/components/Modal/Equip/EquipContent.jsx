@@ -13,7 +13,7 @@ import {
 import Input from "./Input";
 import PreviewSet from "./PreviewSet";
 import Analysis from "./Analysis";
-import EQUIP_ASSETS from "@assets/static/equip";
+import { EQUIP_ASSETS } from "@assets";
 import { INFO } from "@data";
 
 const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {

@@ -9,7 +9,7 @@ import {
   CircularProgress,
   TableCell,
 } from "@mui/material";
-import { Delete, Check } from '@mui/icons-material';
+import { Delete, Check } from "@mui/icons-material";
 
 const DeleteHead = ({ gameId, userId, localDocs, setLocalDocs }) => {
   const [open, setOpen] = useState(false);

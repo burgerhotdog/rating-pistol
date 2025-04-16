@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack, Badge, Avatar, Typography, Tooltip, TableCell } from "@mui/material";
-import RATING_ASSETS from "@assets/static/rating";
+import { RATING_ASSETS } from "@assets";
 
 const getIconSrc = (rating) => {
   if (rating <= 10) return "0";

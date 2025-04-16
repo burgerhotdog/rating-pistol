@@ -1,6 +1,6 @@
+import { useState, useEffect } from "react";
 import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
 import { STATS } from "@data";
-import { useState, useEffect } from "react";
 
 const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
   const [inputValue, setInputValue] = useState(String(pipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
