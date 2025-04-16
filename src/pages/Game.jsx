@@ -62,7 +62,6 @@ const Game = ({ gameId, userId }) => {
     const ratedDocs = localEntries.map(([id, data]) => {
       const equipRatings = getEquipRatings(gameId, id, data.equipList);
       const avatarRating = getAvatarRating(gameId, equipRatings);
-      console.log(AVATARS[gameId][id].name, avatarRating.percent, equipRatings.map(r => r.percent));
       return { id, data, avatarRating, equipRatings };
     });
   
