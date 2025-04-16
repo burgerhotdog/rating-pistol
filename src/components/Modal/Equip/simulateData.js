@@ -1,6 +1,6 @@
-import { getStatPool, getRandomMultiplier } from "./simulationConstants";
 import { INFO, STATS } from "@data";
 import getRollValue from "@utils/getRollValue";
+import { getStatPool, getRandomMultiplier } from "./simulationConstants";
 
 const ITERATIONS = 10000;
 

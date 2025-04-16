@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Stack, Paper } from "@mui/material";
 import { PATH_ASSETS } from "@assets";
-import { INFO, AVATARS } from "@data";
+import { AVATARS, INFO } from "@data";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";

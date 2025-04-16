@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@config/firebase";
-import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
+import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import { INFO, LABELS, VERSION } from "@data";
+import { getEquipRatings, getAvatarRating } from "@utils";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
 import AvatarsView from "@components/AvatarsView";
 import TeamsView from "@components/TeamsView";
-import { getEquipRatings, getAvatarRating } from "@utils";
 
 const Game = ({ gameId, userId }) => {
   const [localDocs, setLocalDocs] = useState({});

@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack, TableCell } from "@mui/material";
-import Add from "@mui/icons-material/Add";
+import { Add } from "@mui/icons-material";
 import { SET_ASSETS } from "@assets";
 import { LABELS } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { db } from "@config/firebase";
+import { doc, setDoc } from "firebase/firestore";
 import { Box, Grid, Typography, Stack, Button, Paper, IconButton, TextField, InputAdornment } from "@mui/material";
 import { Close, Edit, Analytics, Add } from "@mui/icons-material";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATARS } from "@data";
-import { db } from "@config/firebase";
-import { doc, setDoc } from "firebase/firestore";
 
 const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDocs }) => {
   const [team, setTeam] = useState([null, null, null, null]);

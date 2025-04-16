@@ -1,6 +1,6 @@
 import { Autocomplete, TextField, Box, Paper } from "@mui/material";
 import { SET_ASSETS } from "@assets";
-import { LABELS, SETS } from "@data";
+import { SETS, LABELS } from "@data";
 
 const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
   const setOptions = Object.keys(SETS[gameId])
