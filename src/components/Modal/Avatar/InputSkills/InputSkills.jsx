@@ -113,6 +113,7 @@ const InputSkills = ({ gameId, pipe, setPipe }) => {
                 return (
                   <Node
                     key={index}
+                    gameId={gameId}
                     x={x}
                     y={y}
                     id={id}

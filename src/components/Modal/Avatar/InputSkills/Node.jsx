@@ -1,4 +1,5 @@
 const Node = ({
+  gameId,
   x,
   y,
   id,
@@ -79,7 +80,7 @@ const Node = ({
         y={y - size / 2.5}
         width={size / 1.25}
         height={size / 1.25}
-        filter={id[0] !== "0" ? (!active ? "url(#lighterBlackFilter)" : "url(#blackFilter)") : "none"}
+        filter={id[0] === "0" ? "none" : !active ? "url(#lighterBlackFilter)" : gameId === "zzz" ? "none" : "url(#blackFilter)" }
       />
       
       {/* Value with dark background */}
