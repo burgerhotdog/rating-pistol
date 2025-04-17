@@ -20,7 +20,7 @@ const RatingCell = ({ setPipe, id, data, avatarRating, equipRatings }) => {
           <Badge onClick={openModal} sx={{ cursor: "pointer" }}>
             <Avatar
               alt={String(roundedRating)}
-              src={RATING_ASSETS[`./${getIconSrc(avatarRating.percent)}.webp`]?.default}
+              src={RATING_ASSETS[getIconSrc(avatarRating.percent)]}
               sx={{ width: 32, height: 32 }}
             />
           </Badge>

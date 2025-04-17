@@ -13,10 +13,10 @@ const InputSkills = ({ gameId, pipe, setPipe }) => {
   const rank = pipe.data.rank;
   const skillMap = pipe.data.skillMap;
   const SKILL_MAX_LEVEL = INFO_DATA[gameId].SKILL_MAX_LEVEL;
-  const type = AVATAR_DATA[gameId][avatarId].type;
-  const NODES = gameId === "hsr"
-    ? config.nodes[type]
-    : config.nodes;
+  const typeSrc = AVATAR_DATA[gameId][avatarId].type.replace(/ /g, "_");
+  const NODES = gameId !== "hsr"
+    ? config.nodes
+    : config.nodes[typeSrc];
   const [hoveredNode, setHoveredNode] = useState(null);
 
   const editSkillMap = (skill, newValue) => {
@@ -74,7 +74,7 @@ const InputSkills = ({ gameId, pipe, setPipe }) => {
             {/* Background Image */}
             {gameId === "hsr" && (
               <image
-                href={PATH_ASSETS[`./${type.replace(/ /g, "_")}.webp`]?.default}
+                href={PATH_ASSETS[typeSrc]}
                 x="108"
                 y="108"
                 width="384"

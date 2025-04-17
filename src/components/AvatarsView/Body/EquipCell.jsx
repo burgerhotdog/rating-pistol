@@ -40,7 +40,7 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
             >
               <Avatar
                 alt={setId}
-                src={SET_ASSETS[`./${gameId}/${setId}.webp`]?.default}
+                src={SET_ASSETS[gameId][setId]}
               />
             </Badge>
           ))}

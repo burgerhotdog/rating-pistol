@@ -26,7 +26,7 @@ const WeaponCell = ({ gameId, setPipe, id, data }) => {
         >
           <Avatar
             alt={data.weaponId}
-            src={WEAPON_ASSETS[`./${gameId}/${data.weaponId}.webp`]?.default}
+            src={WEAPON_ASSETS[gameId][data.weaponId]}
           />
         </Badge>
       </Tooltip>

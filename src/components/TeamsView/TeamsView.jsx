@@ -62,7 +62,7 @@ const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDoc
             <Box
               component="img"
               alt={AVATAR?.name}
-              src={AVATAR_ASSETS[`./${gameId}/${charId}.webp`]?.default}
+              src={AVATAR_ASSETS[gameId][charId]}
               sx={{ width: 120, height: 120, objectFit: 'contain', p: 1 }}
             />
             <Box sx={{ 

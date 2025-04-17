@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
-import { ICON, MENU_ASSETS } from "@assets";
+import { ICON_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
 
 const gameIds = ["gi", "hsr", "ww", "zzz"];
@@ -25,7 +25,7 @@ const Menu = () => (
           <Box
             component="img"
             alt="icon"
-            src={ICON}
+            src={ICON_ASSETS.default}
             sx={{ 
               width: 120,
               height: 120,
@@ -54,7 +54,7 @@ const Menu = () => (
                 <Box
                   component="img"
                   alt={gameId}
-                  src={MENU_ASSETS[`./${gameId}.png`]?.default}
+                  src={ICON_ASSETS[gameId]}
                   sx={{ 
                     width: 160,
                     height: 160,

@@ -52,7 +52,7 @@ const WeaponId = ({ gameId, pipe, setPipe }) => {
           component="img"
           loading="lazy"
           alt={""}
-          src={WEAPON_ASSETS[`./${gameId}/${option}.webp`]?.default}
+          src={WEAPON_ASSETS[gameId][option]}
           sx={{ width: 24, height: 24, objectFit: "contain" }}
         />
         {WEAPON_DATA[gameId][option]?.name}

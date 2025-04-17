@@ -31,7 +31,7 @@ const Display = ({ gameId, pipe }) => {
         <Box
           component="img"
           alt={weaponId}
-          src={WEAPON_ASSETS[`./${gameId}/${weaponId}.webp`]?.default}
+          src={WEAPON_ASSETS[gameId][weaponId]}
           sx={{ width: 200, height: 200, objectFit: "contain" }}
         />
         

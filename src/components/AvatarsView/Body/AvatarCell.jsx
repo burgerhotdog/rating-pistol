@@ -20,7 +20,7 @@ const AvatarCell = ({ gameId, setPipe, id, data }) => {
           <Badge badgeContent={`${INFO_DATA[gameId].PREFIX_AVATAR}${data.rank}`}>
             <Avatar
               alt={AVATAR_DATA[gameId][id].name}
-              src={AVATAR_ASSETS[`./${gameId}/${id}.webp`]?.default}
+              src={AVATAR_ASSETS[gameId][id]}
             />
           </Badge>
           

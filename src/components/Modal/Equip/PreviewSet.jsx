@@ -37,7 +37,7 @@ const PreviewSet = ({ gameId, pipe }) => {
               <Box
                 component="img"
                 alt={setId}
-                src={SET_ASSETS[`./${gameId}/${setId}.webp`]?.default}
+                src={SET_ASSETS[gameId][setId]}
                 sx={{ width: 75, height: 75, objectFit: "contain" }}
               />
               

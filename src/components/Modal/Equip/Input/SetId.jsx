@@ -64,7 +64,7 @@ const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
               component="img"
               loading="lazy"
               alt=""
-              src={SET_ASSETS[`./${gameId}/${id}.webp`]?.default}
+              src={SET_ASSETS[gameId][id]}
               sx={{ width: 24, height: 24, objectFit: "contain" }}
             />
             {SET_DATA[gameId][id]?.name ?? ""}

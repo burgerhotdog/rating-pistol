@@ -365,7 +365,7 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
                 <Box
                   component="img"
                   loading="lazy"
-                  src={AVATAR_ASSETS[`./${gameId}/${avatar.avatarId}.webp`]?.default}
+                  src={AVATAR_ASSETS[gameId][avatar.avatarId]}
                   alt={avatar.avatarId}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />

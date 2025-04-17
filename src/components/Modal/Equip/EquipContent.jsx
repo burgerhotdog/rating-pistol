@@ -43,7 +43,7 @@ const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {
                       <Stack direction="row" spacing={1}>
                         <Box
                           component="img"
-                          src={EQUIP_ASSETS[`./${gameId}/${index}.webp`]?.default}
+                          src={EQUIP_ASSETS[gameId][index]}
                           sx={{ width: 24, height: 24, objectFit: "contain" }}
                         />
                         <ListItemText primary={INFO_DATA[gameId].EQUIP_NAMES[index]} />
