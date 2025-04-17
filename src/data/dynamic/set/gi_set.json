@@ -15,7 +15,6 @@
       "4": "After the equipping character's Plunging Attack/Charged Attack/Elemental Skill hits an opponent, they will gain 1/2/2 stack(s) of \"Radiance Everlasting.\" Plunging Attacks, Charged Attacks, or Elemental Skills can each trigger this effect once every 1s. Radiance Everlasting: Plunging Attacks deal 15% increased DMG for 6s. Max 5 stacks. Each stack's duration is counted independently."
     }
   },
-
   "15038": {
     "name": "Obsidian Codex",
     "rarity": 5,
@@ -32,7 +31,6 @@
       "4": "After the equipping character triggers a reaction related to their Elemental Type, all nearby party members gain a 12% Elemental DMG Bonus for the Elemental Types involved in the elemental reaction for 15s. If the equipping character is in the Nightsoul's Blessing state when triggering this effect, all nearby party members gain an additional 28% Elemental DMG Bonus for the Elemental Types involved in the elemental reaction for 20s. The equipping character can trigger this effect while off-field, and the DMG bonus from Artifact Sets with the same name do not stack."
     }
   },
-  
   "15036": {
     "name": "Unfinished Reverie",
     "rarity": 5,
@@ -49,7 +47,6 @@
       "4": "When the value of a Bond of Life increases or decreases, this character deals 18% increased DMG for 6s. Max 3 stacks."
     }
   },
-  
   "15034": {
     "name": "Nighttime Whispers in the Echoing Woods",
     "rarity": 5,
@@ -66,7 +63,6 @@
       "4": "When the equipping character heals a party member, the Yearning effect will be created for 6s, which records the total amount of healing provided (including overflow healing). When the duration expires, the Yearning effect will be transformed into the \"Waves of Days Past\" effect: When your active party member hits an opponent with a Normal Attack, Charged Attack, Plunging Attack, Elemental Skill, or Elemental Burst, the DMG dealt will be increased by 8% of the total healing amount recorded by the Yearning effect. The \"Waves of Days Past\" effect is removed after it has taken effect 5 times or after 10s. A single instance of the Yearning effect can record up to 15,000 healing, and only a single instance can exist at once, but it can record the healing from multiple equipping characters. Equipping characters on standby can still trigger this effect."
     }
   },
-  
   "15032": {
     "name": "Golden Troupe",
     "rarity": 5,
@@ -83,7 +79,6 @@
       "4": "When current HP increases or decreases, CRIT Rate will be increased by 12% for 5s. Max 3 stacks."
     }
   },
-  
   "15030": {
     "name": "Vourukasha's Glow",
     "rarity": 5,
@@ -100,7 +95,6 @@
       "4": "After Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts hit opponents, 1 stack of Mirrored Nymph will be triggered, lasting 8s. When under the effect of 1, 2, or 3 or more Mirrored Nymph stacks, ATK will be increased by 7%/16%/25%, and Hydro DMG Bonus will be increased by 4%/9%/15%. Mirrored Nymph stacks created by Normal, Charged, and Plunging Attacks, Elemental Skills, and Elemental Bursts exist independently."
     }
   },
-  
   "15028": {
     "name": "Flower of Paradise Lost",
     "rarity": 5,
@@ -117,7 +111,6 @@
       "4": "When Charged Attacks hit opponents, the equipping character's Normal Attack SPD will increase by 10% while Normal, Charged, and Plunging Attack DMG will increase by 40% for 15s."
     }
   },
-  
   "15026": {
     "name": "Gilded Dreams",
     "rarity": 5,
@@ -134,7 +127,6 @@
       "4": "After Elemental Skills or Bursts hit opponents, the targets' Dendro RES will be decreased by 30% for 8s. This effect can be triggered even if the equipping character is not on the field."
     }
   },
-  
   "15024": {
     "name": "Echoes of an Offering",
     "rarity": 5,
@@ -151,7 +143,6 @@
       "4": "After using an Elemental Burst, this character will gain the Nascent Light effect, increasing their ATK by 8% for 16s. When the character's HP decreases, their ATK will further increase by 10%. This further increase can occur this way a maximum of 4 times. This effect can be triggered once every 0.8s. Nascent Light will be dispelled when the character leaves the field. If an Elemental Burst is used again during the duration of Nascent Light, the original Nascent Light will be dispelled."
     }
   },
-  
   "15022": {
     "name": "Ocean-Hued Clam",
     "rarity": 5,
@@ -168,7 +159,6 @@
       "4": "A character equipped with this Artifact set will obtain the Curiosity effect in the following conditions: When on the field, the character gains 1 stack after hitting an opponent with a Geo attack, triggering a maximum of once every 0.3s. When off the field, the character gains 1 stack every 3s. Curiosity can stack up to 4 times, each providing 6% DEF and a 6% Geo DMG Bonus. When 6 seconds pass without gaining a Curiosity stack, 1 stack is lost."
     }
   },
-  
   "15020": {
     "name": "Emblem of Severed Fate",
     "rarity": 5,
@@ -185,7 +175,6 @@
       "4": "When casting an Elemental Skill, if the character has 15 or more Energy, they lose 15 Energy and Normal/Charged/Plunging Attack DMG is increased by 50% for 10s. This effect will not trigger again during that duration."
     }
   },
-  
   "15018": {
     "name": "Pale Flame",
     "rarity": 5,
@@ -202,7 +191,6 @@
       "4": "When an Elemental Skill hits an opponent, the ATK of all nearby party members is increased by 20% and their Shield Strength is increased by 30% for 3s. This effect can be triggered once every 0.5s. This effect can still be triggered even when the character who is using this artifact set is not on the field."
     }
   },
-  
   "15016": {
     "name": "Heart of Depth",
     "rarity": 5,
@@ -219,7 +207,6 @@
       "4": "When a character attacks an opponent affected by Cryo, their CRIT Rate is increased by 20%. If the opponent is Frozen, CRIT Rate is increased by an additional 20%."
     }
   },
-  
   "15015": {
     "name": "Retracing Bolide",
     "rarity": 5,
@@ -316,7 +303,6 @@
       "4": "Increases DMG against opponents affected by Electro by 35%."
     }
   },
-  
   "10012": {
     "name": "Scholar",
     "rarity": 4,
@@ -397,7 +383,6 @@
       "4": "Increases Charged Attack CRIT Rate by 30%."
     }
   },
-
   "10013": {
     "name": "Traveling Doctor",
     "rarity": 3,

@@ -15,7 +15,6 @@
       "4": "Upon hitting an enemy with an Aftershock or Dash Attack, if the DMG dealt aligns with the equipper's attribute, the equipper gains 1 stack of a buff effect, at most once per use of a skill. For each stack, the equipper's ATK increases by 4%, and CRIT Rate increases by 4%. The effect can stack up to 3 times and lasts for 15s. Repeated triggers reset the duration."
     }
   },
-
   "32800": {
     "name": "Astral Voice",
     "rarity": 5,
@@ -32,7 +31,6 @@
       "4": "When Anomaly Mastery exceeds or equals 115 points, the equipper's CRIT DMG increases by 30%. When any squad member applies Freeze or triggers the Shatter effect on an enemy, the equipper's CRIT Rate increases by 12%, lasting 15s."
     }
   },
-  
   "31900": {
     "name": "Proto Punk",
     "rarity": 5,
@@ -49,7 +47,6 @@
       "4": "Fire DMG and Electric DMG increases by 15%. While off-field, EX Special Attack and Assist Attack DMG increases by 20%. When switching on-field, this buff continues for 5s, and this continuation effect can trigger once every 7.5s."
     }
   },
-  
   "32600": {
     "name": "Fanged Metal",
     "rarity": 5,

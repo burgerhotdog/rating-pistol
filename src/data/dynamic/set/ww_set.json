@@ -7,7 +7,6 @@
       "5": "Inflicting Aero Erosion upon enemies increases Aero DMG for all Resonators in the team by 15%, and for the Resonator triggering this effect by an additional 15%, lasting for 20s."
     }
   },
-
   "014": {
     "name": "Tidebreaking Courage",
     "rarity": 5,
@@ -48,7 +47,6 @@
       "5": "Casting Resonance Skill grants 22.5% Glacio DMG Bonus for 15s and casting Resonance Liberation increases Resonance Skill DMG by 18%, lasting for 5s. This effect stacks up to 2 times."
     }
   },
-  
   "009": {
     "name": "Lingering Tunes",
     "rarity": 5,

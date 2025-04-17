@@ -15,7 +15,6 @@
       "2": "Increases the wearer's Max HP by 12%. When the wearer's Max HP is 5000 or higher, increases the wearer's and their memosprite's CRIT DMG by 28%."
     }
   },
-  
   "124": {
     "name": "Poet of Mourning Collapse",
     "rarity": 5,
@@ -34,7 +33,6 @@
       "4": "While the wearer's memosprite is on the field, increases the wearer's SPD by 6%. When the wearer's memosprite attacks, increases the wearer's and memosprite's CRIT DMG by 30%, lasting for 2 turn(s)."
     }
   },
-  
   "122": {
     "name": "Scholar Lost in Erudition",
     "rarity": 5,
@@ -53,7 +51,6 @@
       "4": "When using Skill or Ultimate on one ally target, increases the ability target's CRIT DMG by 18%, lasting for 2 turn(s). This effect can stack up to 2 time(s)."
     }
   },
-
   "318": {
     "name": "The Wondrous BananAmusement Park",
     "rarity": 5,
@@ -70,7 +67,6 @@
       "2": "Increases the wearer's Energy Regeneration Rate by 5%. If the wearer is not the first character in the team lineup, then increases the ATK of the first character in the team lineup by 12%."
     }
   },
-  
   "120": {
     "name": "The Wind-Soaring Valorous",
     "rarity": 5,
@@ -105,7 +101,6 @@
       "2": "When an ally uses a follow-up attack, the wearer gains 1 stack of Merit, stacking up to 5 time(s). Each stack of Merit increases the DMG dealt by the wearer's follow-up attacks by 5%. When there are 5 stacks, additionally increases the wearer's CRIT DMG by 25%."
     }
   },
-
   "314": {
     "name": "Izumo Gensei and Takama Divine Realm",
     "rarity": 5,
@@ -122,7 +117,6 @@
       "2": "Increases the wearer's CRIT Rate by 4%. When an enemy target gets defeated, the wearer's CRIT DMG increases by 4%, stacking up to 10 time(s)."
     }
   },
-  
   "118": {
     "name": "Watchmaker, Master of Dream Machinations",
     "rarity": 5,
@@ -141,7 +135,6 @@
       "4": "Increases CRIT Rate by 4%. The wearer deals 8%/12% increased CRIT DMG to enemies with at least 2/3 debuffs. After the wearer inflicts a debuff on enemy targets, the aforementioned effects increase by 100%, lasting for 1 turn(s)."
     }
   },
-  
   "116": {
     "name": "Prisoner in Deep Confinement",
     "rarity": 5,
@@ -176,7 +169,6 @@
       "2": "Increases the wearer's ATK by 12%. When the wearer's SPD is equal to or higher than 135/160, the wearer deals 12%/18% more DMG."
     }
   },
-  
   "114": {
     "name": "Messenger Traversing Hackerspace",
     "rarity": 5,
@@ -211,7 +203,6 @@
       "2": "Increases the wearer's CRIT Rate by 8%. When the wearer's current CRIT Rate reaches 70% or higher, DMG dealt by Basic ATK and Skill increases by 20%."
     }
   },
-  
   "110": {
     "name": "Eagle of Twilight Line",
     "rarity": 5,
