@@ -35,7 +35,7 @@ export const SKILL_ASSETS = {
   gi: shorter(import.meta.glob("./dynamic/skill/gi_skill/*/*.webp", { eager: true })),
   hsr: shorter(import.meta.glob("./dynamic/skill/hsr_skill/*/*.webp", { eager: true })),
   ww: shorter(import.meta.glob("./dynamic/skill/ww_skill/*/*.webp", { eager: true })),
-  zzz: shorter(import.meta.glob("./dynamic/skill/zzz_skill/*/*.webp", { eager: true })),
+  zzz: short(import.meta.glob("./dynamic/skill/zzz_skill/*.webp", { eager: true })),
 };
 
 export const WEAPON_ASSETS = { 

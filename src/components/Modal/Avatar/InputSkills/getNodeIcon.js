@@ -8,5 +8,10 @@ export default (gameId, avatarId, nodeId) => {
     const statId = AVATAR_DATA[gameId][avatarId].minor[minorIndex];
     return STAT_ASSETS[gameId][statId];
   }
+
+  if (gameId === "zzz") {
+    return SKILL_ASSETS[gameId][nodeId];
+  }
+  
   return SKILL_ASSETS[gameId][avatarId]?.[nodeId];
 };
