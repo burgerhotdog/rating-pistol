@@ -5,13 +5,13 @@ import { SET_ASSETS } from "@assets";
 import { LABEL_DATA } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
 
-const EquipCell = ({ gameId, setPipe, id, data }) => {  
+const EquipCell = ({ gameId, setModalPipe, id, data }) => {  
   const setBonuses = useMemo(() =>
     getSetBonuses(gameId, data.equipList),
     [gameId, data.equipList]
   );
 
-  const openModal = () => setPipe({ type: "equip", id, data });
+  const openModal = () => setModalPipe({ type: "equip", id, data });
 
   if (!Object.keys(setBonuses).length) {
     return (

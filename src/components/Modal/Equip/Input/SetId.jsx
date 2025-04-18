@@ -2,7 +2,7 @@ import { Autocomplete, TextField, Box, Paper } from "@mui/material";
 import { SET_ASSETS } from "@assets";
 import { SET_DATA, LABEL_DATA } from "@data";
 
-const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
+const SetId = ({ gameId, modalPipe, setModalPipe, mainIndex }) => {
   const setOptions = Object.keys(SET_DATA[gameId])
     .filter((id) => {
       if (gameId !== "hsr") return true;
@@ -19,7 +19,7 @@ const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
     });
 
   const handleSet = (newValue) => {
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -36,7 +36,7 @@ const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
 
   return (
     <Autocomplete
-      value={pipe.data.equipList[mainIndex].setId ?? ""}
+      value={modalPipe.data.equipList[mainIndex].setId ?? ""}
       options={setOptions}
       getOptionLabel={(id) => SET_DATA[gameId][id]?.name ?? ""}
       onChange={(_, newValue) => handleSet(newValue)}

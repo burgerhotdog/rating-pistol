@@ -10,11 +10,11 @@ import { SET_ASSETS } from "@assets";
 import { SET_DATA } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
 
-const PreviewSet = ({ gameId, pipe }) => {
+const PreviewSet = ({ gameId, modalPipe }) => {
 
   const setBonuses = useMemo(() => (
-    getSetBonuses(gameId, pipe.data.equipList)
-  ), [pipe.data.equipList]);
+    getSetBonuses(gameId, modalPipe.data.equipList)
+  ), [modalPipe.data.equipList]);
 
   if (!Object.keys(setBonuses).length) {
     return (

@@ -6,8 +6,8 @@ import { AVATAR_DATA, WEAPON_DATA } from "@data";
 const MAX_LEVEL = { gi: 90, hsr: 80, ww: 90, zzz: 60 };
 const LABEL = { gi: "Weapon", hsr: "Light Cone", ww: "W-Engine", zzz: "Weapon" };
 
-const WeaponId = ({ gameId, pipe, setPipe }) => {
-  const { sig, type } = AVATAR_DATA[gameId][pipe.id];
+const WeaponId = ({ gameId, modalPipe, setModalPipe }) => {
+  const { sig, type } = AVATAR_DATA[gameId][modalPipe.id];
 
   const weaponIdOptions = () => {
     return Object.keys(WEAPON_DATA[gameId])
@@ -24,7 +24,7 @@ const WeaponId = ({ gameId, pipe, setPipe }) => {
   };
 
   const handleWeaponId = (newValue) => {
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -67,7 +67,7 @@ const WeaponId = ({ gameId, pipe, setPipe }) => {
 
   return (
     <Autocomplete
-      value={pipe.data.weaponId ?? ""}
+      value={modalPipe.data.weaponId ?? ""}
       options={weaponIdOptions()}
       getOptionLabel={(id) => WEAPON_DATA[gameId][id]?.name ?? ""}
       onChange={(_, newValue) => handleWeaponId(newValue)}

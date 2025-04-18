@@ -9,9 +9,10 @@ const getIconSrc = (rating) => {
   return "3";
 };
 
-const RatingCell = ({ setPipe, id, data, avatarRating, equipRatings }) => {
-  const openModal = () => setPipe({ type: "rating", id, data, avatarRating, equipRatings });
+const RatingCell = ({ setModalPipe, id, data, equipRatings, avatarRating }) => {
+  const openModal = () => setModalPipe({ type: "rating", id, data, avatarRating, equipRatings });
   const roundedRating = Math.ceil(avatarRating.percent);
+  const iconSrc = getIconSrc(roundedRating)
 
   return (
     <TableCell align="center">
@@ -20,7 +21,7 @@ const RatingCell = ({ setPipe, id, data, avatarRating, equipRatings }) => {
           <Badge onClick={openModal} sx={{ cursor: "pointer" }}>
             <Avatar
               alt={String(roundedRating)}
-              src={RATING_ASSETS[getIconSrc(avatarRating.percent)]}
+              src={RATING_ASSETS[iconSrc]}
               sx={{ width: 32, height: 32 }}
             />
           </Badge>
@@ -28,7 +29,9 @@ const RatingCell = ({ setPipe, id, data, avatarRating, equipRatings }) => {
             onClick={openModal}
             sx={{ cursor: "pointer" }}
           >
-            {`Top ${roundedRating}%`}
+            {roundedRating <= 50
+              ? `Top ${roundedRating}%`
+              : `Bottom ${101 - roundedRating}%`}
           </Typography>
         </Stack>
       </Tooltip>

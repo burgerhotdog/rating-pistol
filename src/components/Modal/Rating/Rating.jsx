@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 
-const Rating = ({ gameId, pipe }) => {
+const Rating = ({ gameId, modalPipe }) => {
   const [tabValue, setTabValue] = useState(0);
 
   const handleTab = (_, newValue) => {

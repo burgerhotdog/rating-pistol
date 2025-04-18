@@ -4,7 +4,7 @@ import { LABEL_DATA } from "@data";
 import StarHead from "./StarHead";
 import DeleteHead from "./DeleteHead";
 
-export default ({ gameId, userId, localDocs, setLocalDocs }) => {
+export default ({ gameId, userId, avatarCache, setAvatarCache }) => {
   return (
     <TableHead>
       <TableRow>
@@ -37,8 +37,8 @@ export default ({ gameId, userId, localDocs, setLocalDocs }) => {
         <DeleteHead
           gameId={gameId}
           userId={userId}
-          localDocs={localDocs}
-          setLocalDocs={setLocalDocs}
+          avatarCache={avatarCache}
+          setAvatarCache={setAvatarCache}
         />
       </TableRow>
     </TableHead>

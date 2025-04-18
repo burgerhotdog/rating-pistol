@@ -4,12 +4,12 @@ import template from "@config/template";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA } from "@data";
 
-const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
+const Add = ({ gameId, avatarCache, modalPipe, setModalPipe, pushModalPipe }) => {
   const [isLoading, setIsLoading] = useState(false);
   
   const charOptions = () => {
     return Object.keys(AVATAR_DATA[gameId])
-      .filter(id => !Object.keys(localDocs).includes(id))
+      .filter(id => !Object.keys(avatarCache).includes(id))
       .sort((a, b) => {
         const A = AVATAR_DATA[gameId][a];
         const B = AVATAR_DATA[gameId][b];
@@ -27,7 +27,7 @@ const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
       data.skillMap["006"] = 1;
     }
 
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       id,
       data,
@@ -36,14 +36,14 @@ const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
 
   const handleAdd = async () => {
     setIsLoading(true);
-    await savePipe();
-    setPipe({});
+    await pushModalPipe(true);
+    setModalPipe({});
   };
 
   return (
     <Stack alignItems="center" spacing={2}>
       <Autocomplete
-        value={pipe.id ?? ""}
+        value={modalPipe.id ?? ""}
         options={charOptions()}
         getOptionLabel={(id) => AVATAR_DATA[gameId][id]?.name ?? ""}
         onChange={(_, newValue) => handleSelect(newValue)}
@@ -82,7 +82,7 @@ const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
         variant="contained"
         color="primary"
         loading={isLoading}
-        disabled={!pipe.id}
+        disabled={!modalPipe.id}
       >
         Save
       </Button>

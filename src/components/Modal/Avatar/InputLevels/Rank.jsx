@@ -1,10 +1,10 @@
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import { INFO_DATA } from "@data";
 
-const Rank = ({ gameId, pipe, setPipe }) => {
+const Rank = ({ gameId, modalPipe, setModalPipe }) => {
   const options = () => {
     const giNoRank = gameId === "gi" && (
-      pipe.id === "10000062" // Aloy
+      modalPipe.id === "10000062" // Aloy
     );
     const noRank = giNoRank;
 
@@ -12,7 +12,7 @@ const Rank = ({ gameId, pipe, setPipe }) => {
   };
 
   const handleChange = (newValue) => {
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -29,7 +29,7 @@ const Rank = ({ gameId, pipe, setPipe }) => {
       <Select
         labelId="rank-select"
         label="Rank"
-        value={pipe.data.rank ?? 0}
+        value={modalPipe.data.rank ?? 0}
         onChange={(e) => handleChange(e.target.value)}
         notched
       >

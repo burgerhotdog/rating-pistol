@@ -1,14 +1,14 @@
 import { Autocomplete, TextField, Paper } from "@mui/material";
 import { INFO_DATA, STAT_DATA } from "@data";
 
-const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
+const Mainstat = ({ gameId, modalPipe, setModalPipe, mainIndex }) => {
   const mainstatOptions = Object.keys(STAT_DATA[gameId])
     .filter((stat) => (
       STAT_DATA[gameId][stat].index?.includes(mainIndex)
     ));
 
   const handleMainstat = (newValue) => {
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -27,7 +27,7 @@ const Mainstat = ({ gameId, pipe, setPipe, mainIndex }) => {
 
   return (
     <Autocomplete
-      value={pipe.data.equipList[mainIndex].stat ?? ""}
+      value={modalPipe.data.equipList[mainIndex].stat ?? ""}
       options={mainstatOptions}
       getOptionLabel={(stat) => STAT_DATA[gameId][stat]?.name ?? ""}
       onChange={(_, newValue) => handleMainstat(newValue)}

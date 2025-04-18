@@ -4,13 +4,13 @@ import { WEAPON_ASSETS } from "@assets";
 import { WEAPON_DATA, STAT_DATA, LABEL_DATA } from "@data";
 import getWeaponDescArr from "./getWeaponDescArr";
 
-const Display = ({ gameId, pipe }) => {
-  const weaponId = pipe.data.weaponId;
+const Display = ({ gameId, modalPipe }) => {
+  const weaponId = modalPipe.data.weaponId;
   const weapon = WEAPON_DATA[gameId][weaponId];
 
   const weaponDescArr = useMemo(
-    () => getWeaponDescArr(weapon, pipe.data.weaponRank),
-    [weapon, pipe.data.weaponRank],
+    () => getWeaponDescArr(weapon, modalPipe.data.weaponRank),
+    [weapon, modalPipe.data.weaponRank],
   );
 
   if (!weapon) {

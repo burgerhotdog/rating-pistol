@@ -7,12 +7,11 @@ import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
 import getRankBonus from "./getRankBonus";
 
-const InputSkills = ({ gameId, pipe, setPipe }) => {
+const InputSkills = ({ gameId, modalPipe, setModalPipe }) => {
   const config = configs[gameId];
-  const avatarId = pipe.id;
-  const rank = pipe.data.rank;
-  const skillMap = pipe.data.skillMap;
-  const SKILL_MAX_LEVEL = INFO_DATA[gameId].SKILL_MAX_LEVEL;
+  const avatarId = modalPipe.id;
+  const { rank, skillMap } = modalPipe.data;
+  const { SKILL_MAX_LEVEL } = INFO_DATA[gameId];
   const typeSrc = AVATAR_DATA[gameId][avatarId].type.replace(/ /g, "_");
   const NODES = gameId !== "hsr"
     ? config.nodes
@@ -20,7 +19,7 @@ const InputSkills = ({ gameId, pipe, setPipe }) => {
   const [hoveredNode, setHoveredNode] = useState(null);
 
   const editSkillMap = (skill, newValue) => {
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -68,7 +67,7 @@ const InputSkills = ({ gameId, pipe, setPipe }) => {
 
   return (
     <Stack direction="row" spacing={2}>
-      <Paper sx={{ p: 3, borderRadius: 2 }}>
+      <Paper sx={{ p: 1, borderRadius: 2 }}>
         <Box sx={{ width: config.width, height: config.height, userSelect: "none" }}>
           <svg width="100%" height="100%" viewBox={viewBox}>
             {/* Background Image */}

@@ -4,8 +4,8 @@ import { Add } from "@mui/icons-material";
 import { WEAPON_ASSETS } from "@assets";
 import { WEAPON_DATA, INFO_DATA, LABEL_DATA } from "@data";
 
-const WeaponCell = ({ gameId, setPipe, id, data }) => {
-  const openModal = () => setPipe({ type: "weapon", id, data });
+const WeaponCell = ({ gameId, setModalPipe, id, data }) => {
+  const openModal = () => setModalPipe({ type: "weapon", id, data });
   
   if (!data.weaponId) {
     return (

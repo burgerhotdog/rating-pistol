@@ -2,20 +2,20 @@ import { Stack } from "@mui/material";
 import Level from "./Level";
 import Rank from "./Rank";
 
-const InputLevels = ({ gameId, pipe, setPipe }) => {
+const InputLevels = ({ gameId, modalPipe, setModalPipe }) => {
 
   return (
     <Stack direction="row" spacing={2}>
       <Level
         gameId={gameId}
-        pipe={pipe}
-        setPipe={setPipe}
+        modalPipe={modalPipe}
+        setModalPipe={setModalPipe}
       />
       
       <Rank
         gameId={gameId}
-        pipe={pipe}
-        setPipe={setPipe}
+        modalPipe={modalPipe}
+        setModalPipe={setModalPipe}
       />
     </Stack>
   );

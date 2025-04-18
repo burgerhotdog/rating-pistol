@@ -6,7 +6,7 @@ import { Close, Edit, Analytics, Add } from "@mui/icons-material";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA } from "@data";
 
-const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDocs }) => {
+const TeamsView = ({ gameId, userId, avatarCache, teamCache, setTeamCache, sortedDocs }) => {
   const [team, setTeam] = useState([null, null, null, null]);
   const [teamName, setTeamName] = useState("My Team");
   const [selectedSlot, setSelectedSlot] = useState(null);
@@ -15,7 +15,7 @@ const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDoc
   const [analyticsOpen, setAnalyticsOpen] = useState(false);
   
   const handleTeamChange = async (teamId, slot, characterId) => {
-    setTeamDocs(prev => ({
+    setTeamCache(prev => ({
       ...prev,
       [teamId]: {
         ...prev[teamId],

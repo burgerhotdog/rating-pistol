@@ -14,6 +14,7 @@ import template from "@config/template";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA, STAT_DATA } from "@data";
 import translate from "./translate";
+import { getEquipRatings, getAvatarRating } from "@utils";
 
 const errorMessages = {
   400: "Wrong UID format",
@@ -34,7 +35,7 @@ const suffixes = {
 
 const urlBase = "https://rating-pistol.vercel.app/api/proxy?suffix=";
 
-const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
+const Load = ({ gameId, userId, setModalPipe, setAvatarCache }) => {
   const [error, setError] = useState(null);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);
@@ -291,7 +292,10 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
     const localUpdates = {};
     const batch = userId ? writeBatch(db) : null;
     charBuffer.forEach(({ id, data }) => {
-      localUpdates[id] = data;
+      const equipRatings = getEquipRatings(gameId, id, data.equipList);
+      const avatarRating = getAvatarRating(gameId, equipRatings);
+      localUpdates[id] = { data, equipRatings, avatarRating };
+      
       if (userId) {
         const docRef = doc(db, "users", userId, gameId, id);
         batch.set(docRef, data, { merge: true });
@@ -299,17 +303,12 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
     });
     if (userId) await batch.commit();
 
-    setLocalDocs((prev) => ({
+    setAvatarCache((prev) => ({
       ...prev,
       ...localUpdates,
     }));
 
-    setPipe({});
-  };
-
-  const handleUid = (event) => {
-    const newValue = event.target.value;
-    setUid(newValue);
+    setModalPipe({});
   };
 
   if (!enkaList.length) {
@@ -319,7 +318,7 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
           <TextField
             label="Enter UID"
             value={uid ?? ""}
-            onChange={handleUid}
+            onChange={(e) => setUid(e.target.value)}
             error={!!error}
             helperText={error && errorMessages[error]}
           />

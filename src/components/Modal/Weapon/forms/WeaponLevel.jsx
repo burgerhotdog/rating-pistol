@@ -3,14 +3,14 @@ import { TextField } from "@mui/material";
 
 const MAX_LEVEL = { gi: 90, hsr: 80, ww: 90, zzz: 60 };
 
-const WeaponLevel = ({ gameId, pipe, setPipe }) => {
+const WeaponLevel = ({ gameId, modalPipe, setModalPipe }) => {
   const handleWeaponLevel = (e) => {
     const newValue = Number(e.target.value);
     if (isNaN(newValue)) return;
     if (newValue < 1 || newValue > MAX_LEVEL[gameId]) return;
     if (!Number.isInteger(newValue)) return;
 
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -21,12 +21,12 @@ const WeaponLevel = ({ gameId, pipe, setPipe }) => {
 
   return (
     <TextField
-      value={pipe.data.weaponLevel ?? ""}
+      value={modalPipe.data.weaponLevel ?? ""}
       label="Level"
       onChange={handleWeaponLevel}
       slotProps={{ htmlInput: { inputMode: "numeric" } }}
       sx={{ width: 75 }}
-      disabled={!pipe.data.weaponId}
+      disabled={!modalPipe.data.weaponId}
     />
   );
 };

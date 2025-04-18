@@ -3,24 +3,24 @@ import { TableContainer, Table } from "@mui/material";
 import Head from "./Head";
 import Body from "./Body";
 
-const AvatarsView = ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs, setPipe }) => {
+const AvatarsView = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedDocs, setModalPipe }) => {
   return (
     <TableContainer>
       <Table sx={{ tableLayout: "fixed", width: "100%" }}>
         <Head
           gameId={gameId}
           userId={userId}
-          localDocs={localDocs}
-          setLocalDocs={setLocalDocs}
+          avatarCache={avatarCache}
+          setAvatarCache={setAvatarCache}
         />
         <Body
           gameId={gameId}
           userId={userId}
-          localDocs={localDocs}
-          setLocalDocs={setLocalDocs}
+          avatarCache={avatarCache}
+          setAvatarCache={setAvatarCache}
           isLoading={isLoading}
           sortedDocs={sortedDocs}
-          setPipe={setPipe}
+          setModalPipe={setModalPipe}
         />
       </Table>
     </TableContainer>

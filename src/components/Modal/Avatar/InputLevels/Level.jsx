@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
 import { INFO_DATA } from "@data";
 
-const Level = ({ gameId, pipe, setPipe }) => {
-  const [inputValue, setInputValue] = useState(String(pipe.data.level));
+const Level = ({ gameId, modalPipe, setModalPipe }) => {
+  const [inputValue, setInputValue] = useState(String(modalPipe.data.level));
   
   useEffect(() => {
-    setInputValue(String(pipe.data.level));
-  }, [pipe.data.level]);
+    setInputValue(String(modalPipe.data.level));
+  }, [modalPipe.data.level]);
 
   const handleBlur = () => {
     if (isNaN(inputValue)) {
-      setInputValue(String(pipe.data.level));
+      setInputValue(String(modalPipe.data.level));
       return;
     };
 
@@ -20,11 +20,11 @@ const Level = ({ gameId, pipe, setPipe }) => {
       Number(inputValue) > INFO_DATA[gameId].MAX_LEVEL ||
       !Number.isInteger(Number(inputValue));
     if (outOfBounds) {
-      setInputValue(String(pipe.data.level));
+      setInputValue(String(modalPipe.data.level));
       return;
     };
 
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,

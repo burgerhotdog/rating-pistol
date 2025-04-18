@@ -2,6 +2,7 @@ import React from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Modal, Box } from "@mui/material";
+import { getEquipRatings, getAvatarRating } from "@utils";
 import Add from "./Add";
 import Avatar from "./Avatar";
 import Equip from "./Equip";
@@ -12,35 +13,44 @@ import Weapon from "./Weapon";
 export default ({
   gameId,
   userId,
-  pipe,
-  setPipe,
-  localDocs,
-  setLocalDocs,
+  modalPipe,
+  setModalPipe,
+  avatarCache,
+  setAvatarCache,
 }) => {
-  const savePipe = async () => {
-    const { id, data } = pipe;
-
-    if (userId) {
-      const reference = doc(db, "users", userId, gameId, id);
-      await setDoc(reference, data, { merge: true });
+  const pushModalPipe = async (updateRatings = false) => {
+    const { id, data } = modalPipe;
+    let equipRatings = {}, avatarRating = {};
+    if (updateRatings) {
+      equipRatings = getEquipRatings(gameId, id, data.equipList);
+      avatarRating = getAvatarRating(gameId, equipRatings);
     }
 
-    setLocalDocs((prev) => ({
+    if (userId) {
+      const ref = doc(db, "users", userId, gameId, id);
+      await setDoc(ref, data, { merge: true });
+    }
+
+    setAvatarCache((prev) => ({
       ...prev,
-      [id]: data,
+      [id]: {
+        ...prev[id],
+        data,
+        ...updateRatings ? { equipRatings, avatarRating } : {},
+      },
     }));
   };
 
   let modalContent = null;
-  switch (pipe.type) {
+  switch (modalPipe.type) {
     case "add":
       modalContent = (
         <Add
           gameId={gameId}
-          localDocs={localDocs}
-          pipe={pipe}
-          setPipe={setPipe}
-          savePipe={savePipe}
+          avatarCache={avatarCache}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
+          pushModalPipe={pushModalPipe}
         />
       );
       break;
@@ -49,9 +59,9 @@ export default ({
       modalContent = (
         <Avatar
           gameId={gameId}
-          pipe={pipe}
-          setPipe={setPipe}
-          savePipe={savePipe}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
+          pushModalPipe={pushModalPipe}
         />
       );
       break;
@@ -60,9 +70,9 @@ export default ({
       modalContent = (
         <Equip
           gameId={gameId}
-          pipe={pipe}
-          setPipe={setPipe}
-          savePipe={savePipe}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
+          pushModalPipe={pushModalPipe}
         />
       );
       break;
@@ -72,8 +82,8 @@ export default ({
         <Load
           gameId={gameId}
           userId={userId}
-          setPipe={setPipe}
-          setLocalDocs={setLocalDocs}
+          setModalPipe={setModalPipe}
+          setAvatarCache={setAvatarCache}
         />
       );
       break;
@@ -82,7 +92,7 @@ export default ({
       modalContent = (
         <Rating
           gameId={gameId}
-          pipe={pipe}
+          modalPipe={modalPipe}
         />
       );
       break;
@@ -91,16 +101,16 @@ export default ({
       modalContent = (
         <Weapon
           gameId={gameId}
-          pipe={pipe}
-          setPipe={setPipe}
-          savePipe={savePipe}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
+          pushModalPipe={pushModalPipe}
         />
       );
       break;
   }
 
   return (
-    <Modal open={Boolean(pipe.type)} onClose={() => setPipe({})}>
+    <Modal open={Boolean(modalPipe.type)} onClose={() => setModalPipe({})}>
       <Box sx={{
         position: "absolute",
         top: "50%",
@@ -109,8 +119,8 @@ export default ({
         backgroundColor: "background.paper",
         p: 4,
         borderRadius: 2,
-        maxHeight: "80vh",
-        maxWidth: "80vw",
+        maxHeight: "90vh",
+        maxWidth: "90vw",
         overflow: "auto",
       }}>
         {modalContent}

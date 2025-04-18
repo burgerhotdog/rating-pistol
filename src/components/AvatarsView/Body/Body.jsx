@@ -7,7 +7,7 @@ import EquipCell from "./EquipCell";
 import RatingCell from "./RatingCell";
 import DeleteCell from "./DeleteCell";
 
-export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs, setPipe }) => {
+export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedDocs, setModalPipe }) => {
   if (isLoading) {
     return (
       <TableBody>
@@ -57,7 +57,7 @@ export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs
 
   return (
     <TableBody>
-      {sortedDocs.map(({ id, data, avatarRating, equipRatings }) => (
+      {sortedDocs.map(([id, { data, equipRatings, avatarRating }]) => (
         <TableRow
           key={id}
           sx={{
@@ -70,45 +70,45 @@ export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs
           <StarCell
             gameId={gameId}
             userId={userId}
-            setLocalDocs={setLocalDocs}
+            setAvatarCache={setAvatarCache}
             id={id}
             data={data}
           />
           
           <AvatarCell
             gameId={gameId}
-            setPipe={setPipe}
+            setModalPipe={setModalPipe}
             id={id}
             data={data}
           />
 
           <WeaponCell
             gameId={gameId}
-            setPipe={setPipe}
+            setModalPipe={setModalPipe}
             id={id}
             data={data}
           />
 
           <EquipCell
             gameId={gameId}
-            setPipe={setPipe}
+            setModalPipe={setModalPipe}
             id={id}
             data={data}
           />
 
           <RatingCell
-            setPipe={setPipe}
+            setModalPipe={setModalPipe}
             id={id}
             data={data}
-            avatarRating={avatarRating}
             equipRatings={equipRatings}
+            avatarRating={avatarRating}
           />
 
           <DeleteCell
             gameId={gameId}
             userId={userId}
             id={id}
-            setLocalDocs={setLocalDocs}
+            setAvatarCache={setAvatarCache}
           />
         </TableRow>
       ))}

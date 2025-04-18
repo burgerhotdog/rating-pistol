@@ -7,7 +7,7 @@ import { Star, StarBorder } from '@mui/icons-material';
 const StarCell = ({
   gameId,
   userId,
-  setLocalDocs,
+  setAvatarCache,
   id,
   data,
 }) => {
@@ -19,11 +19,14 @@ const StarCell = ({
       setDoc(infoDocRef, { isStar: newValue }, { merge: true });
     }
 
-    setLocalDocs((prev) => ({
+    setAvatarCache((prev) => ({
       ...prev,
       [id]: {
         ...prev[id],
-        isStar: newValue,
+        data: {
+          ...prev[id].data,
+          isStar: newValue,
+        },
       },
     }));
   }
