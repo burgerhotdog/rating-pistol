@@ -4,7 +4,7 @@ import { INFO_DATA, STAT_DATA } from "@data";
 const Mainstat = ({ gameId, modalPipe, setModalPipe, mainIndex }) => {
   const mainstatOptions = Object.keys(STAT_DATA[gameId])
     .filter((stat) => (
-      STAT_DATA[gameId][stat].index?.includes(mainIndex)
+      STAT_DATA[gameId][stat].mainIndex?.includes(mainIndex)
     ));
 
   const handleMainstat = (newValue) => {

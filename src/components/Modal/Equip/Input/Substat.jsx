@@ -16,7 +16,7 @@ const Substat = ({ gameId, modalPipe, setModalPipe, mainIndex, subIndex }) => {
       .filter((_, index) => index !== subIndex);
     
     return Object.keys(STAT_DATA[gameId]).filter((stat) => {
-      const isSubstat = STAT_DATA[gameId][stat].value;
+      const isSubstat = Boolean(STAT_DATA[gameId][stat].subValue);
       const isNotMainstat = gameId === "ww" || stat !== selectedMainstat;
       const isNotDuplicate = !selectedSubstats.includes(stat);
       return isSubstat && isNotDuplicate && isNotMainstat;
