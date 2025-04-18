@@ -11,10 +11,10 @@ import {
   Typography,
 } from "@mui/material";
 import template from "@config/template";
-import AVATAR_ASSETS from "@assets/dynamic/avatar";
-import STATS from "@data/static/stats";
-import AVATARS from "@data/dynamic/avatars";
+import { AVATAR_ASSETS } from "@assets";
+import { AVATAR_DATA, STAT_DATA } from "@data";
 import translate from "./translate";
+import { getEquipRatings, getAvatarRating } from "@utils";
 
 const errorMessages = {
   400: "Wrong UID format",
@@ -35,7 +35,7 @@ const suffixes = {
 
 const urlBase = "https://rating-pistol.vercel.app/api/proxy?suffix=";
 
-const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
+const Load = ({ gameId, userId, setModalPipe, setAvatarCache }) => {
   const [error, setError] = useState(null);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);
@@ -177,7 +177,7 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
         case "hsr": {
           const id = String(charObj.avatarId);
           const data = template(gameId);
-          if (AVATARS[gameId][id].type === "Remembrance") {
+          if (AVATAR_DATA[gameId][id].type === "Remembrance") {
             data.skillMap["005"] = 1;
             data.skillMap["006"] = 1;
           }
@@ -264,7 +264,7 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
               const key = STAT_CONVERT[String(subPropObj.PropertyId)];
               data.equipList[equipIndex].statList[subIndex].stat = key;
               const value = subPropObj.PropertyValue;
-              const valueRatio = STATS[gameId][key].percent ? 0.01 : 1;
+              const valueRatio = STAT_DATA[gameId][key].percent ? 0.01 : 1;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               const timesAppeared = subPropObj.PropertyLevel;
               data.equipList[equipIndex].statList[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
@@ -292,7 +292,10 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
     const localUpdates = {};
     const batch = userId ? writeBatch(db) : null;
     charBuffer.forEach(({ id, data }) => {
-      localUpdates[id] = data;
+      const equipRatings = getEquipRatings(gameId, id, data.equipList);
+      const avatarRating = getAvatarRating(gameId, equipRatings);
+      localUpdates[id] = { data, equipRatings, avatarRating };
+      
       if (userId) {
         const docRef = doc(db, "users", userId, gameId, id);
         batch.set(docRef, data, { merge: true });
@@ -300,17 +303,12 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
     });
     if (userId) await batch.commit();
 
-    setLocalDocs((prev) => ({
+    setAvatarCache((prev) => ({
       ...prev,
       ...localUpdates,
     }));
 
-    setPipe({});
-  };
-
-  const handleUid = (event) => {
-    const newValue = event.target.value;
-    setUid(newValue);
+    setModalPipe({});
   };
 
   if (!enkaList.length) {
@@ -320,7 +318,7 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
           <TextField
             label="Enter UID"
             value={uid ?? ""}
-            onChange={handleUid}
+            onChange={(e) => setUid(e.target.value)}
             error={!!error}
             helperText={error && errorMessages[error]}
           />
@@ -366,13 +364,13 @@ const Load = ({ gameId, userId, setPipe, setLocalDocs }) => {
                 <Box
                   component="img"
                   loading="lazy"
-                  src={AVATAR_ASSETS[`./${gameId}/${avatar.avatarId}.webp`]?.default}
+                  src={AVATAR_ASSETS[gameId][avatar.avatarId]}
                   alt={avatar.avatarId}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />
 
                 <Typography variant="body2">
-                  {AVATARS[gameId][avatar.avatarId].name}
+                  {AVATAR_DATA[gameId][avatar.avatarId].name}
                 </Typography>
               </Stack>
             }

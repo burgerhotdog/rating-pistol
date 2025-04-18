@@ -1,26 +1,25 @@
 import { Autocomplete, TextField, Box, Paper } from "@mui/material";
-import SET_ASSETS from "@assets/dynamic/set";
-import { LABELS } from "@data/static";
-import SETS from "@data/dynamic/sets";
+import { SET_ASSETS } from "@assets";
+import { SET_DATA, LABEL_DATA } from "@data";
 
-const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
-  const setOptions = Object.keys(SETS[gameId])
+const SetId = ({ gameId, modalPipe, setModalPipe, mainIndex }) => {
+  const setOptions = Object.keys(SET_DATA[gameId])
     .filter((id) => {
       if (gameId !== "hsr") return true;
       return mainIndex < 4
-        ? SETS[gameId][id].type === "Relic"
-        : SETS[gameId][id].type === "Planar";
+        ? SET_DATA[gameId][id].type === "Relic"
+        : SET_DATA[gameId][id].type === "Planar";
     })
     .sort((a, b) => {
-      const A = SETS[gameId][a];
-      const B = SETS[gameId][b];
+      const A = SET_DATA[gameId][a];
+      const B = SET_DATA[gameId][b];
       return A.rarity !== B.rarity
         ? B.rarity - A.rarity
         : A.name.localeCompare(B.name);
     });
 
   const handleSet = (newValue) => {
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -37,9 +36,9 @@ const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
 
   return (
     <Autocomplete
-      value={pipe.data.equipList[mainIndex].setId ?? ""}
+      value={modalPipe.data.equipList[mainIndex].setId ?? ""}
       options={setOptions}
-      getOptionLabel={(id) => SETS[gameId][id]?.name ?? ""}
+      getOptionLabel={(id) => SET_DATA[gameId][id]?.name ?? ""}
       onChange={(_, newValue) => handleSet(newValue)}
       slots={{
         paper: ({ children }) => (
@@ -50,7 +49,7 @@ const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
       }}
       renderOption={(props, id) => {
         const { key, ...idProps } = props;
-        const rarity = SETS[gameId][id]?.rarity;
+        const rarity = SET_DATA[gameId][id]?.rarity;
         return (
           <Box
             key={key}
@@ -65,15 +64,15 @@ const SetId = ({ gameId, pipe, setPipe, mainIndex }) => {
               component="img"
               loading="lazy"
               alt=""
-              src={SET_ASSETS[`./${gameId}/${id}.webp`]?.default}
+              src={SET_ASSETS[gameId][id]}
               sx={{ width: 24, height: 24, objectFit: "contain" }}
             />
-            {SETS[gameId][id]?.name ?? ""}
+            {SET_DATA[gameId][id]?.name ?? ""}
           </Box>
         );
       }}
       renderInput={(params) => (
-        <TextField {...params} label={`${LABELS[gameId].Equip} Set`} />
+        <TextField {...params} label={`${LABEL_DATA[gameId].Equip} Set`} />
       )}
     />
   )

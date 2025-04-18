@@ -1,27 +1,25 @@
 import React, { useState } from "react";
 import { Box, Stack, Paper } from "@mui/material";
-import PATH_ASSETS from "@assets/static/path";
-import INFO from "@data/static/info";
-import AVATARS from "@data/dynamic/avatars";
+import { PATH_ASSETS } from "@assets";
+import { AVATAR_DATA, INFO_DATA } from "@data";
 import Node from "./Node";
 import getNodeIcon from "./getNodeIcon";
 import configs from "./configs";
 import getRankBonus from "./getRankBonus";
 
-const InputSkills = ({ gameId, pipe, setPipe }) => {
+const InputSkills = ({ gameId, modalPipe, setModalPipe }) => {
   const config = configs[gameId];
-  const avatarId = pipe.id;
-  const rank = pipe.data.rank;
-  const skillMap = pipe.data.skillMap;
-  const SKILL_MAX_LEVEL = INFO[gameId].SKILL_MAX_LEVEL;
-  const type = AVATARS[gameId][avatarId].type;
-  const NODES = gameId === "hsr"
-    ? config.nodes[type]
-    : config.nodes;
+  const avatarId = modalPipe.id;
+  const { rank, skillMap } = modalPipe.data;
+  const { SKILL_MAX_LEVEL } = INFO_DATA[gameId];
+  const typeSrc = AVATAR_DATA[gameId][avatarId].type.replace(/ /g, "_");
+  const NODES = gameId !== "hsr"
+    ? config.nodes
+    : config.nodes[typeSrc];
   const [hoveredNode, setHoveredNode] = useState(null);
 
   const editSkillMap = (skill, newValue) => {
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -69,13 +67,13 @@ const InputSkills = ({ gameId, pipe, setPipe }) => {
 
   return (
     <Stack direction="row" spacing={2}>
-      <Paper sx={{ p: 3, borderRadius: 2 }}>
+      <Paper sx={{ p: 1, borderRadius: 2 }}>
         <Box sx={{ width: config.width, height: config.height, userSelect: "none" }}>
           <svg width="100%" height="100%" viewBox={viewBox}>
             {/* Background Image */}
             {gameId === "hsr" && (
               <image
-                href={PATH_ASSETS[`./${type.replace(/ /g, "_")}.webp`]?.default}
+                href={PATH_ASSETS[typeSrc]}
                 x="108"
                 y="108"
                 width="384"
@@ -114,6 +112,7 @@ const InputSkills = ({ gameId, pipe, setPipe }) => {
                 return (
                   <Node
                     key={index}
+                    gameId={gameId}
                     x={x}
                     y={y}
                     id={id}

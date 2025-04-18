@@ -1,16 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
-import { ICON, MENU_ASSETS } from "@assets/static";
-import INFO from "@data/static/info";
+import { ICON_ASSETS } from "@assets";
+import { INFO_DATA } from "@data";
 
 const gameIds = ["gi", "hsr", "ww", "zzz"];
 
 const update = {
-  date: "2025-04-14",
+  date: "2025-04-17",
   content: [
-    "Average artifact rating is now displayed in table (\"see details\" page will be available soon)",
-    "Fixed issue with manual substat entry",
+    {
+      title: "Enhanced Rating Simulations",
+      description: "Similar to the artifact rating system, the new character rating system now generates a dataset of 10,000 unique builds. For each build, artifacts are randomly generated based on rarity: rare pieces (Elemental DMG pieces) are only generated once per build, while common pieces (Fixed mainstat pieces) are generated multiple times with only the best scoring piece used in the each final build. This simulates players farming domains and only keeping their best rolled pieces, creating a more realistic data spread for more accurate percentile calculations. The number of retry attempts for each artifact is determined at the beginning of each build, classifying it as F2P, dolphin, or whale levels of investment. This creates a distribution where lower percentiles may show a wider data spread, while higher percentiles (representing dedicated players who farm extensively) may have a more tightly packed data spread due to builds approaching the maximum possible score. After generating the complete dataset, each build is scored using character-specific substat weights, including the player's build. Finally, the player's build score is ranked against the artificial score distribution to get a close approximation of where a player's build stands when compared with others."
+    },
+    {
+      title: "Performance Optimization",
+      description: "Rating recalculations now only trigger after artifact updates, significantly improving overall site performance and decreasing load times."
+    }
   ],
 };
 
@@ -25,7 +31,7 @@ const Menu = () => (
           <Box
             component="img"
             alt="icon"
-            src={ICON}
+            src={ICON_ASSETS.default}
             sx={{ 
               width: 120,
               height: 120,
@@ -36,9 +42,9 @@ const Menu = () => (
 
         <Stack direction="row" spacing={2}>
           {gameIds.map((gameId) => (
-            <Link key={gameId} to={INFO[gameId].PATH} style={{ textDecoration: "none" }}>
+            <Link key={gameId} to={INFO_DATA[gameId].PATH} style={{ textDecoration: "none" }}>
               <Tooltip 
-                title={INFO[gameId].TITLE}
+                title={INFO_DATA[gameId].TITLE}
                 placement="bottom"
                 slotProps={{
                   tooltip: {
@@ -54,7 +60,7 @@ const Menu = () => (
                 <Box
                   component="img"
                   alt={gameId}
-                  src={MENU_ASSETS[`./${gameId}.png`]?.default}
+                  src={ICON_ASSETS[gameId]}
                   sx={{ 
                     width: 160,
                     height: 160,
@@ -77,11 +83,16 @@ const Menu = () => (
         <Typography variant="h5" fontWeight="bold" gutterBottom>
           {`Latest Updates: ${update.date}`}
         </Typography>
-        <Stack mt={1}>
-          {update.content.map((content, index) => (
-            <Typography key={index} variant="body2" color="text.secondary">
-              {`- ${content}`}
-            </Typography>
+        <Stack mt={1} spacing={1.5}>
+          {update.content.map((item, index) => (
+            <Box key={index}>
+              <Typography variant="subtitle1" fontWeight="medium">
+                {item.title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {item.description}
+              </Typography>
+            </Box>
           ))}
         </Stack>
       </Box>

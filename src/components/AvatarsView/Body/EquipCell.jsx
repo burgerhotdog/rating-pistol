@@ -1,28 +1,22 @@
 import React, { useMemo } from "react";
 import { Tooltip, Badge, Avatar, Stack, TableCell } from "@mui/material";
-import Add from "@mui/icons-material/Add";
-import SET_ASSETS from "@assets/dynamic/set";
-import { LABELS } from "@data/static";
+import { Add } from "@mui/icons-material";
+import { SET_ASSETS } from "@assets";
+import { LABEL_DATA } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
-import sortSetBonuses from "@utils/sortSetBonuses";
 
-const EquipCell = ({ gameId, setPipe, id, data }) => {  
+const EquipCell = ({ gameId, setModalPipe, id, data }) => {  
   const setBonuses = useMemo(() =>
     getSetBonuses(gameId, data.equipList),
     [gameId, data.equipList]
   );
 
-  const sortedSetBonuses = useMemo(() =>
-    sortSetBonuses(gameId, setBonuses),
-    [gameId, setBonuses]
-  );
-
-  const openModal = () => setPipe({ type: "equip", id, data });
+  const openModal = () => setModalPipe({ type: "equip", id, data });
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <TableCell align="center">
-        <Tooltip title={`Add ${LABELS[gameId].Equips}`} arrow>
+      <TableCell>
+        <Tooltip title={`Add ${LABEL_DATA[gameId].Equips}`} arrow>
           <Add onClick={openModal} cursor="pointer" />
         </Tooltip>
       </TableCell>
@@ -30,8 +24,8 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
   }
 
   return (
-    <TableCell align="center">
-      <Tooltip title={`Edit ${LABELS[gameId].Equips}`} arrow>
+    <TableCell>
+      <Tooltip title={`Edit ${LABEL_DATA[gameId].Equips}`} arrow>
         <Stack
           onClick={openModal}
           display="inline-flex"
@@ -39,14 +33,14 @@ const EquipCell = ({ gameId, setPipe, id, data }) => {
           spacing={1}
           sx={{ cursor: "pointer" }}
         >
-          {sortedSetBonuses.map(([setId, numBonus]) => (
+          {setBonuses.map(([setId, numBonus]) => (
             <Badge
               key={setId}
               badgeContent={`x${numBonus}`}
             >
               <Avatar
                 alt={setId}
-                src={SET_ASSETS[`./${gameId}/${setId}.webp`]?.default}
+                src={SET_ASSETS[gameId][setId]}
               />
             </Badge>
           ))}

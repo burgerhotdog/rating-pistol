@@ -9,9 +9,9 @@ import {
   CircularProgress,
   TableCell,
 } from "@mui/material";
-import { Delete, Check } from '@mui/icons-material';
+import { Delete, Check } from "@mui/icons-material";
 
-const DeleteHead = ({ gameId, userId, localDocs, setLocalDocs }) => {
+const DeleteHead = ({ gameId, userId, avatarCache, setAvatarCache }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,19 +19,19 @@ const DeleteHead = ({ gameId, userId, localDocs, setLocalDocs }) => {
     setIsLoading(true);
     if (userId) {
       const batch = writeBatch(db);
-      Object.entries(localDocs).forEach(([id]) => {
+      Object.keys(avatarCache).forEach((id) => {
         const docRef = doc(db, "users", userId, gameId, id);
         batch.delete(docRef);
       });
       await batch.commit();
     }
-    setLocalDocs({});
+    setAvatarCache({});
     setOpen(false);
     setIsLoading(false);
   };
 
   return (
-    <TableCell align="center" width={50}>
+    <TableCell width={50}>
       <Tooltip
         open={open}
         title={
@@ -54,7 +54,6 @@ const DeleteHead = ({ gameId, userId, localDocs, setLocalDocs }) => {
             )}
           </Stack>
         }
-        arrow
       >
         <Delete
           onClick={() => setOpen(true)}

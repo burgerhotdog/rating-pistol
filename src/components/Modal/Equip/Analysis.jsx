@@ -1,13 +1,13 @@
 import React, { useMemo } from "react";
 import { Paper, Stack, Typography, Tooltip, IconButton } from "@mui/material";
-import HelpOutline from "@mui/icons-material/HelpOutline";
+import { HelpOutline } from "@mui/icons-material";
 import Plot from "react-plotly.js";
-import AVATARS from "@data/dynamic/avatars";
-import simulateData from "./simulateData";
+import { AVATAR_DATA } from "@data";
 import getRollValue from "@utils/getRollValue";
+import simulateData from "./simulateData";
 
 const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
-  const weights = AVATARS[gameId][avatarId].weights;
+  const weights = AVATAR_DATA[gameId][avatarId].weights;
   const mainstat = equipObj.stat;
   const substats = equipObj.statList;
 

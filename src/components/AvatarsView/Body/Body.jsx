@@ -7,44 +7,44 @@ import EquipCell from "./EquipCell";
 import RatingCell from "./RatingCell";
 import DeleteCell from "./DeleteCell";
 
-export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs, setPipe }) => {
+export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedDocs, setModalPipe }) => {
   if (isLoading) {
     return (
       <TableBody>
         {[...Array(5)].map((_, index) => (
           <TableRow key={index} sx={{ height: 60 }}>
-            <TableCell align="center" width={50}>
+            <TableCell width={50}>
               <Stack direction="row" display="inline-flex">
                 <Skeleton variant="circular" width={24} height={24} />
               </Stack>
             </TableCell>
 
-            <TableCell align="left">
+            <TableCell>
               <Stack direction="row" display="inline-flex" spacing={1}>
                 <Skeleton variant="circular" width={40} height={40} />
                 <Skeleton variant="text" width={120} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell align="center">
+            <TableCell>
               <Stack direction="row" display="inline-flex">
                 <Skeleton variant="rounded" width={80} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell align="center">
+            <TableCell width={200}>
               <Stack direction="row" display="inline-flex">
                 <Skeleton variant="text" width={80} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell align="center">
+            <TableCell width={200}>
               <Stack direction="row" display="inline-flex">
                 <Skeleton variant="rounded" width={60} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell align="center" width={50}>
+            <TableCell width={50}>
               <Stack direction="row" display="inline-flex">
                 <Skeleton variant="circular" width={24} height={24} />
               </Stack>
@@ -57,7 +57,7 @@ export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs
 
   return (
     <TableBody>
-      {sortedDocs.map(({ id, data, rating, rawRating }) => (
+      {sortedDocs.map(([id, { data, equipRatings, avatarRating }]) => (
         <TableRow
           key={id}
           sx={{
@@ -70,45 +70,45 @@ export default ({ gameId, userId, localDocs, setLocalDocs, isLoading, sortedDocs
           <StarCell
             gameId={gameId}
             userId={userId}
-            setLocalDocs={setLocalDocs}
+            setAvatarCache={setAvatarCache}
             id={id}
             data={data}
           />
           
           <AvatarCell
             gameId={gameId}
-            setPipe={setPipe}
+            setModalPipe={setModalPipe}
             id={id}
             data={data}
           />
 
           <WeaponCell
             gameId={gameId}
-            setPipe={setPipe}
+            setModalPipe={setModalPipe}
             id={id}
             data={data}
           />
 
           <EquipCell
             gameId={gameId}
-            setPipe={setPipe}
+            setModalPipe={setModalPipe}
             id={id}
             data={data}
           />
 
           <RatingCell
-            setPipe={setPipe}
+            setModalPipe={setModalPipe}
             id={id}
             data={data}
-            rating={rating}
-            rawRating={rawRating}
+            equipRatings={equipRatings}
+            avatarRating={avatarRating}
           />
 
           <DeleteCell
             gameId={gameId}
             userId={userId}
             id={id}
-            setLocalDocs={setLocalDocs}
+            setAvatarCache={setAvatarCache}
           />
         </TableRow>
       ))}

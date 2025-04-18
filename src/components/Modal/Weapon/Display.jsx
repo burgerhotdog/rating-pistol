@@ -1,17 +1,16 @@
 import React, { useMemo } from "react";
 import { Paper, Box, Stack, Typography } from "@mui/material";
-import WEAPON_ASSETS from "@assets/dynamic/weapon";
-import { STATS, LABELS } from "@data/static";
-import WEAPONS from "@data/dynamic/weapons";
+import { WEAPON_ASSETS } from "@assets";
+import { WEAPON_DATA, STAT_DATA, LABEL_DATA } from "@data";
 import getWeaponDescArr from "./getWeaponDescArr";
 
-const Display = ({ gameId, pipe }) => {
-  const weaponId = pipe.data.weaponId;
-  const weapon = WEAPONS[gameId][weaponId];
+const Display = ({ gameId, modalPipe }) => {
+  const weaponId = modalPipe.data.weaponId;
+  const weapon = WEAPON_DATA[gameId][weaponId];
 
   const weaponDescArr = useMemo(
-    () => getWeaponDescArr(weapon, pipe.data.weaponRank),
-    [weapon, pipe.data.weaponRank],
+    () => getWeaponDescArr(weapon, modalPipe.data.weaponRank),
+    [weapon, modalPipe.data.weaponRank],
   );
 
   if (!weapon) {
@@ -19,7 +18,7 @@ const Display = ({ gameId, pipe }) => {
       <Paper sx={{ p: 2, width: 700, height: 200 }}>
         <Stack justifyContent="center" alignItems="center" sx={{ height: "100%" }}>
           <Typography variant="h6" color="text.disabled">
-            No {LABELS[gameId].weapon} Selected
+            No {LABEL_DATA[gameId].weapon} Selected
           </Typography>
         </Stack>
       </Paper>
@@ -32,7 +31,7 @@ const Display = ({ gameId, pipe }) => {
         <Box
           component="img"
           alt={weaponId}
-          src={WEAPON_ASSETS[`./${gameId}/${weaponId}.webp`]?.default}
+          src={WEAPON_ASSETS[gameId][weaponId]}
           sx={{ width: 200, height: 200, objectFit: "contain" }}
         />
         
@@ -42,7 +41,7 @@ const Display = ({ gameId, pipe }) => {
           </Typography>
 
           {Object.entries(weapon.statBase).map(([key, value]) => {
-            const { name } = STATS[gameId][key] || {};
+            const { name } = STAT_DATA[gameId][key] || {};
             const base = gameId === "hsr" ? "" : "Base ";
             return (
               <Typography key={key} variant="body2">
@@ -53,7 +52,7 @@ const Display = ({ gameId, pipe }) => {
 
           {weapon.statSub && (
             Object.entries(weapon.statSub).map(([key, value]) => {
-              const { name, percent } = STATS[gameId][key] || {};
+              const { name, percent } = STAT_DATA[gameId][key] || {};
               return (
                 <Typography key={key} variant="body2">
                   {name}: {value}

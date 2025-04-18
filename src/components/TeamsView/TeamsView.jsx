@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Box, Grid, Typography, Stack, Button, Paper, IconButton, TextField, InputAdornment } from "@mui/material";
-import { Close, Edit, Analytics, Add } from "@mui/icons-material";
-import { AVATAR_ASSETS } from "@assets/dynamic";
-import { AVATARS } from "@data/dynamic";
 import { db } from "@config/firebase";
 import { doc, setDoc } from "firebase/firestore";
+import { Box, Grid, Typography, Stack, Button, Paper, IconButton, TextField, InputAdornment } from "@mui/material";
+import { Close, Edit, Analytics, Add } from "@mui/icons-material";
+import { AVATAR_ASSETS } from "@assets";
+import { AVATAR_DATA } from "@data";
 
-const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDocs }) => {
+const TeamsView = ({ gameId, userId, avatarCache, teamCache, setTeamCache, sortedDocs }) => {
   const [team, setTeam] = useState([null, null, null, null]);
   const [teamName, setTeamName] = useState("My Team");
   const [selectedSlot, setSelectedSlot] = useState(null);
@@ -15,7 +15,7 @@ const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDoc
   const [analyticsOpen, setAnalyticsOpen] = useState(false);
   
   const handleTeamChange = async (teamId, slot, characterId) => {
-    setTeamDocs(prev => ({
+    setTeamCache(prev => ({
       ...prev,
       [teamId]: {
         ...prev[teamId],
@@ -38,7 +38,7 @@ const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDoc
   };
 
   const CharacterSlot = ({ charId, index }) => {
-    const AVATAR = AVATARS[gameId][charId];
+    const AVATAR = AVATAR_DATA[gameId][charId];
     return (
       <Paper
         onClick={() => handleSlotClick(index)}
@@ -62,7 +62,7 @@ const TeamsView = ({ gameId, userId, localDocs, teamDocs, setTeamDocs, sortedDoc
             <Box
               component="img"
               alt={AVATAR?.name}
-              src={AVATAR_ASSETS[`./${gameId}/${charId}.webp`]?.default}
+              src={AVATAR_ASSETS[gameId][charId]}
               sx={{ width: 120, height: 120, objectFit: 'contain', p: 1 }}
             />
             <Box sx={{ 

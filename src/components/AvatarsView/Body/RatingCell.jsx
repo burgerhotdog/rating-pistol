@@ -1,7 +1,6 @@
 import React from "react";
 import { Stack, Badge, Avatar, Typography, Tooltip, TableCell } from "@mui/material";
-import RATING_ASSETS from "@assets/static/rating";
-
+import { RATING_ASSETS } from "@assets";
 
 const getIconSrc = (rating) => {
   if (rating <= 10) return "0";
@@ -10,18 +9,19 @@ const getIconSrc = (rating) => {
   return "3";
 };
 
-const RatingCell = ({ setPipe, id, data, rating, rawRating }) => {
-  const openModal = () => setPipe({ type: "rating", id, data, rating, rawRating });
-  const roundedRating = Math.ceil(rating);
+const RatingCell = ({ setModalPipe, id, data, equipRatings, avatarRating }) => {
+  const openModal = () => setModalPipe({ type: "rating", id, data, avatarRating, equipRatings });
+  const roundedRating = Math.ceil(avatarRating.percent);
+  const iconSrc = getIconSrc(roundedRating)
 
   return (
-    <TableCell align="center">
-      <Tooltip title="See Details" arrow>
+    <TableCell>
+      <Tooltip title="See Details">
         <Stack direction="row" display="inline-flex" alignItems="center" gap={1}>
-          <Badge onClick={openModal} sx={{ cursor: 'pointer' }}>
+          <Badge onClick={openModal} sx={{ cursor: "pointer" }}>
             <Avatar
-              alt={String(rating)}
-              src={RATING_ASSETS[`./${getIconSrc(rating)}.webp`]?.default}
+              alt={String(roundedRating)}
+              src={RATING_ASSETS[iconSrc]}
               sx={{ width: 32, height: 32 }}
             />
           </Badge>
@@ -29,7 +29,9 @@ const RatingCell = ({ setPipe, id, data, rating, rawRating }) => {
             onClick={openModal}
             sx={{ cursor: "pointer" }}
           >
-            {`Top ${roundedRating}%`}
+            {roundedRating <= 50
+              ? `Top ${roundedRating}%`
+              : `Bottom ${101 - roundedRating}%`}
           </Typography>
         </Stack>
       </Tooltip>

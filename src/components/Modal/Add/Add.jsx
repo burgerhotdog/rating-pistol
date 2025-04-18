@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
 import template from "@config/template";
-import AVATAR_ASSETS from "@assets/dynamic/avatar";
-import AVATARS from "@data/dynamic/avatars";
+import { AVATAR_ASSETS } from "@assets";
+import { AVATAR_DATA } from "@data";
 
-const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
+const Add = ({ gameId, avatarCache, modalPipe, setModalPipe, pushModalPipe }) => {
   const [isLoading, setIsLoading] = useState(false);
   
   const charOptions = () => {
-    return Object.keys(AVATARS[gameId])
-      .filter(id => !Object.keys(localDocs).includes(id))
+    return Object.keys(AVATAR_DATA[gameId])
+      .filter(id => !Object.keys(avatarCache).includes(id))
       .sort((a, b) => {
-        const A = AVATARS[gameId][a];
-        const B = AVATARS[gameId][b];
+        const A = AVATAR_DATA[gameId][a];
+        const B = AVATAR_DATA[gameId][b];
         return A.rarity !== B.rarity
           ? B.rarity - A.rarity
           : A.name.localeCompare(B.name);
@@ -22,12 +22,12 @@ const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
   const handleSelect = (newValue) => {
     const id = newValue;
     const data = template(gameId);
-    if (AVATARS[gameId][id].type === "Remembrance") {
+    if (AVATAR_DATA[gameId][id].type === "Remembrance") {
       data.skillMap["005"] = 1;
       data.skillMap["006"] = 1;
     }
 
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       id,
       data,
@@ -36,20 +36,20 @@ const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
 
   const handleAdd = async () => {
     setIsLoading(true);
-    await savePipe();
-    setPipe({});
+    await pushModalPipe(true);
+    setModalPipe({});
   };
 
   return (
     <Stack alignItems="center" spacing={2}>
       <Autocomplete
-        value={pipe.id ?? ""}
+        value={modalPipe.id ?? ""}
         options={charOptions()}
-        getOptionLabel={(id) => AVATARS[gameId][id]?.name ?? ""}
+        getOptionLabel={(id) => AVATAR_DATA[gameId][id]?.name ?? ""}
         onChange={(_, newValue) => handleSelect(newValue)}
         renderOption={(props, option) => {
           const { key, ...optionProps } = props;
-          const rarity = AVATARS[gameId][option]?.rarity;
+          const rarity = AVATAR_DATA[gameId][option]?.rarity;
           return (
             <Box
               key={key}
@@ -63,11 +63,11 @@ const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
               <Box
                 component="img"
                 loading="lazy"
-                src={AVATAR_ASSETS[`./${gameId}/${option}.webp`]?.default}
+                src={AVATAR_ASSETS[gameId][option]}
                 alt=""
                 sx={{ width: 24, height: 24, objectFit: "contain" }}
               />
-              {AVATARS[gameId][option].name}
+              {AVATAR_DATA[gameId][option].name}
             </Box>
           );
         }}
@@ -82,7 +82,7 @@ const Add = ({ gameId, localDocs, pipe, setPipe, savePipe }) => {
         variant="contained"
         color="primary"
         loading={isLoading}
-        disabled={!pipe.id}
+        disabled={!modalPipe.id}
       >
         Save
       </Button>

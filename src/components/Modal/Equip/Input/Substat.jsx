@@ -1,22 +1,22 @@
-import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
-import { STATS } from "@data/static";
 import { useState, useEffect } from "react";
+import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
+import { STAT_DATA } from "@data";
 
-const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
-  const [inputValue, setInputValue] = useState(String(pipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
+const Substat = ({ gameId, modalPipe, setModalPipe, mainIndex, subIndex }) => {
+  const [inputValue, setInputValue] = useState(String(modalPipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
 
   useEffect(() => {
-    setInputValue(String(pipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
-  }, [pipe.data.equipList[mainIndex].statList[subIndex].value]);
+    setInputValue(String(modalPipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
+  }, [modalPipe.data.equipList[mainIndex].statList[subIndex].value]);
 
   const substatOptions = (subIndex) => {
-    const selectedMainstat = pipe.data.equipList[mainIndex].stat;
-    const selectedSubstats = pipe.data.equipList[mainIndex].statList
+    const selectedMainstat = modalPipe.data.equipList[mainIndex].stat;
+    const selectedSubstats = modalPipe.data.equipList[mainIndex].statList
       .map((statObj) => statObj.stat)
       .filter((_, index) => index !== subIndex);
     
-    return Object.keys(STATS[gameId]).filter((stat) => {
-      const isSubstat = STATS[gameId][stat].value;
+    return Object.keys(STAT_DATA[gameId]).filter((stat) => {
+      const isSubstat = STAT_DATA[gameId][stat].value;
       const isNotMainstat = gameId === "ww" || stat !== selectedMainstat;
       const isNotDuplicate = !selectedSubstats.includes(stat);
       return isSubstat && isNotDuplicate && isNotMainstat;
@@ -24,7 +24,7 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
   };
 
   const handleStat = (newValue, subIndex) => {
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -47,11 +47,11 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
 
   const handleBlur = () => {
     if (isNaN(inputValue)) {
-      setInputValue(String(pipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
+      setInputValue(String(modalPipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
       return;
     }
 
-    setPipe((prev) => ({
+    setModalPipe((prev) => ({
       ...prev,
       data: {
         ...prev.data,
@@ -76,9 +76,9 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
     <Grid container spacing={1}>
       <Grid size={8}>
         <Autocomplete
-          value={pipe.data.equipList[mainIndex].statList[subIndex].stat}
+          value={modalPipe.data.equipList[mainIndex].statList[subIndex].stat}
           options={substatOptions(subIndex)}
-          getOptionLabel={(id) => STATS[gameId][id]?.name || ""}
+          getOptionLabel={(id) => STAT_DATA[gameId][id]?.name || ""}
           onChange={(_, newValue) => handleStat(newValue, subIndex)}
           slots={{
             paper: ({ children }) => (
@@ -90,7 +90,7 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
           renderInput={(params) => (
             <TextField {...params} label={"Substat"} />
           )}
-          disabled={!pipe.data.equipList[mainIndex].stat}
+          disabled={!modalPipe.data.equipList[mainIndex].stat}
         />
       </Grid>
 
@@ -104,12 +104,12 @@ const Substat = ({ gameId, pipe, setPipe, mainIndex, subIndex }) => {
           }}
           slotProps={{
             input: {
-              endAdornment: STATS[gameId][pipe.data.equipList[mainIndex].statList[subIndex].stat]?.percent && (
+              endAdornment: STAT_DATA[gameId][modalPipe.data.equipList[mainIndex].statList[subIndex].stat]?.percent && (
                 <InputAdornment position="end">%</InputAdornment>
               ),
             },
           }}
-          disabled={!pipe.data.equipList[mainIndex].statList[subIndex].stat}
+          disabled={!modalPipe.data.equipList[mainIndex].statList[subIndex].stat}
         />
       </Grid>
     </Grid>

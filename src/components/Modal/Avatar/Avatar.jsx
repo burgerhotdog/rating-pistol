@@ -3,13 +3,13 @@ import { Stack, Divider, Button } from "@mui/material";
 import InputLevels from "./InputLevels";
 import InputSkills from "./InputSkills";
 
-const Avatar = ({ gameId, pipe, setPipe, savePipe }) => {
+const Avatar = ({ gameId, modalPipe, setModalPipe, pushModalPipe }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
     setIsLoading(true);
-    await savePipe();
-    setPipe({});
+    await pushModalPipe();
+    setModalPipe({});
   };
 
   return (
@@ -17,16 +17,16 @@ const Avatar = ({ gameId, pipe, setPipe, savePipe }) => {
       <Stack direction="row" spacing={2}>
         <InputLevels
           gameId={gameId}
-          pipe={pipe}
-          setPipe={setPipe}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
         />
 
         <Divider orientation="vertical" flexItem />
 
         <InputSkills
           gameId={gameId}
-          pipe={pipe}
-          setPipe={setPipe}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
         />
       </Stack>
 

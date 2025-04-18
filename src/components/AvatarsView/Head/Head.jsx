@@ -1,34 +1,34 @@
 import React from "react";
 import { TableHead, TableRow, TableCell, Typography } from "@mui/material";
-import LABELS from "@data/static/labels";
+import { LABEL_DATA } from "@data";
 import StarHead from "./StarHead";
 import DeleteHead from "./DeleteHead";
 
-export default ({ gameId, userId, localDocs, setLocalDocs }) => {
+export default ({ gameId, userId, avatarCache, setAvatarCache }) => {
   return (
     <TableHead>
       <TableRow>
         <StarHead />
 
-        <TableCell align="left">
+        <TableCell>
           <Typography variant="body1" color="text.secondary">
-            {LABELS[gameId].Avatar}
+            {LABEL_DATA[gameId].Avatar}
           </Typography>
         </TableCell>
 
-        <TableCell align="center">
+        <TableCell>
           <Typography variant="body1" color="text.secondary">
-            {LABELS[gameId].Weapon}
+            {LABEL_DATA[gameId].Weapon}
           </Typography>
         </TableCell>
 
-        <TableCell align="center">
+        <TableCell width={250}>
           <Typography variant="body1" color="text.secondary">
-            {LABELS[gameId].Equips}
+            {LABEL_DATA[gameId].Equips}
           </Typography>
         </TableCell>
 
-        <TableCell align="center">
+        <TableCell width={200}>
           <Typography variant="body1" color="text.secondary">
             Rating
           </Typography>
@@ -37,8 +37,8 @@ export default ({ gameId, userId, localDocs, setLocalDocs }) => {
         <DeleteHead
           gameId={gameId}
           userId={userId}
-          localDocs={localDocs}
-          setLocalDocs={setLocalDocs}
+          avatarCache={avatarCache}
+          setAvatarCache={setAvatarCache}
         />
       </TableRow>
     </TableHead>

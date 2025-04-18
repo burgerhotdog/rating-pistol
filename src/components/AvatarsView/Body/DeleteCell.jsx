@@ -15,7 +15,7 @@ const DeleteCell = ({
   gameId,
   userId,
   id,
-  setLocalDocs,
+  setAvatarCache,
 }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -28,17 +28,18 @@ const DeleteCell = ({
       await deleteDoc(docRef);
     }
 
-    setLocalDocs((prev) => {
-      const newDocs = { ...prev };
-      delete newDocs[id];
-      return newDocs;
+    setAvatarCache((prev) => {
+      const newCache = { ...prev };
+      delete newCache[id];
+      return newCache;
     });
     
     setOpen(false);
+    setIsLoading(false);
   };
 
   return (
-    <TableCell align="center" width={50}>
+    <TableCell width={50}>
       <Tooltip
         open={open}
         title={
@@ -59,7 +60,6 @@ const DeleteCell = ({
             )}
           </Stack>
         }
-        arrow
       >
         <Delete
           onClick={() => setOpen(true)}

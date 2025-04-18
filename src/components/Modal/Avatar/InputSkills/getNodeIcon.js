@@ -1,13 +1,17 @@
-import STATS_ASSETS from "@assets/static/stats";
-import SKILL_ASSETS from "@assets/dynamic/skill";
-import AVATARS from "@data/dynamic/avatars";
+import { SKILL_ASSETS, STAT_ASSETS } from "@assets";
+import { AVATAR_DATA } from "@data";
 
 export default (gameId, avatarId, nodeId) => {
   const minorIndex = Number(nodeId.slice(1)) - 1;
 
   if (nodeId[0] === "2") {
-    const statId = AVATARS[gameId][avatarId].minor[minorIndex];
-    return STATS_ASSETS[`./${gameId}/${statId}.webp`]?.default;
+    const statId = AVATAR_DATA[gameId][avatarId].minor[minorIndex];
+    return STAT_ASSETS[gameId][statId];
   }
-  return SKILL_ASSETS[`./${gameId}/${avatarId}/${nodeId}.webp`]?.default;
+
+  if (gameId === "zzz") {
+    return SKILL_ASSETS[gameId][nodeId];
+  }
+  
+  return SKILL_ASSETS[gameId][avatarId]?.[nodeId];
 };

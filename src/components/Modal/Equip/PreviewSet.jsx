@@ -6,15 +6,15 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import SET_ASSETS from "@assets/dynamic/set";
-import SETS from "@data/dynamic/sets";
+import { SET_ASSETS } from "@assets";
+import { SET_DATA } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
-import sortSetBonuses from "@utils/sortSetBonuses";
 
-const PreviewSet = ({ gameId, pipe }) => {
+const PreviewSet = ({ gameId, modalPipe }) => {
 
-  const setBonuses = useMemo(() => getSetBonuses(gameId, pipe.data.equipList), [pipe.data.equipList]);
-  const sortedSetBonuses = useMemo(() => sortSetBonuses(gameId, setBonuses), [gameId, setBonuses]);
+  const setBonuses = useMemo(() => (
+    getSetBonuses(gameId, modalPipe.data.equipList)
+  ), [modalPipe.data.equipList]);
 
   if (!Object.keys(setBonuses).length) {
     return (
@@ -31,22 +31,22 @@ const PreviewSet = ({ gameId, pipe }) => {
   return (
     <Paper sx={{ p: 2 }}>
       <Grid container spacing={1}>
-        {sortedSetBonuses.map(([setId, numPc]) => (
+        {setBonuses.map(([setId, numPc]) => (
           <Grid key={setId} size="grow" sx={{ minHeight: 150 }}>
             <Stack direction="row" spacing={1}>
               <Box
                 component="img"
                 alt={setId}
-                src={SET_ASSETS[`./${gameId}/${setId}.webp`]?.default}
+                src={SET_ASSETS[gameId][setId]}
                 sx={{ width: 75, height: 75, objectFit: "contain" }}
               />
               
               <Stack>
                 <Typography variant="subtitle1" fontWeight="bold">
-                  {SETS[gameId][setId].name}
+                  {SET_DATA[gameId][setId].name}
                 </Typography>
 
-                {Object.entries(SETS[gameId][setId].desc)
+                {Object.entries(SET_DATA[gameId][setId].desc)
                   .filter(([numBonus]) => numPc >= numBonus)
                   .map(([numBonus, effect]) => (
                     <Typography key={numBonus} variant="body2" sx={{ whiteSpace: "pre-line" }}>

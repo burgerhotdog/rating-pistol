@@ -10,21 +10,21 @@ import {
   Card,
   Button,
 } from "@mui/material";
+import { EQUIP_ASSETS } from "@assets";
+import { INFO_DATA } from "@data";
 import Input from "./Input";
 import PreviewSet from "./PreviewSet";
 import Analysis from "./Analysis";
-import EQUIP_ASSETS from "@assets/static/equip";
-import INFO from "@data/static/info";
 
-const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {
+const EquipContent = ({ gameId, modalPipe, setModalPipe, pushModalPipe }) => {
   const [viewIndex, setViewIndex] = useState(0);
-  const equipSlots = [...Array(INFO[gameId].MAIN_LEN).keys()];
+  const equipSlots = [...Array(INFO_DATA[gameId].MAIN_LEN).keys()];
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
     setIsLoading(true);
-    await savePipe();
-    setPipe({});
+    await pushModalPipe(true);
+    setModalPipe({});
   };
 
   return (
@@ -43,10 +43,10 @@ const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {
                       <Stack direction="row" spacing={1}>
                         <Box
                           component="img"
-                          src={EQUIP_ASSETS[`./${gameId}/${index}.webp`]?.default}
+                          src={EQUIP_ASSETS[gameId][index]}
                           sx={{ width: 24, height: 24, objectFit: "contain" }}
                         />
-                        <ListItemText primary={INFO[gameId].EQUIP_NAMES[index]} />
+                        <ListItemText primary={INFO_DATA[gameId].EQUIP_NAMES[index]} />
                       </Stack>
                     </ListItemButton>
                   </ListItem>
@@ -56,8 +56,8 @@ const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {
 
             <Input
               gameId={gameId}
-              pipe={pipe}
-              setPipe={setPipe}
+              modalPipe={modalPipe}
+              setModalPipe={setModalPipe}
               mainIndex={viewIndex}
             />
           </Stack>
@@ -65,16 +65,16 @@ const EquipContent = ({ gameId, pipe, setPipe, savePipe }) => {
         <Grid size="grow">
           <Analysis
             gameId={gameId}
-            avatarId={pipe.id}
+            avatarId={modalPipe.id}
             equipIndex={viewIndex}
-            equipObj={pipe.data.equipList[viewIndex]}
+            equipObj={modalPipe.data.equipList[viewIndex]}
           />
         </Grid>
         
         <Grid size={12}>
           <PreviewSet
             gameId={gameId}
-            pipe={pipe}
+            modalPipe={modalPipe}
           />
         </Grid>
       </Grid>
