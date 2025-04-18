@@ -39,7 +39,7 @@ const DeleteCell = ({
   };
 
   return (
-    <TableCell align="center" width={50}>
+    <TableCell width={50}>
       <Tooltip
         open={open}
         title={
@@ -60,7 +60,6 @@ const DeleteCell = ({
             )}
           </Stack>
         }
-        arrow
       >
         <Delete
           onClick={() => setOpen(true)}

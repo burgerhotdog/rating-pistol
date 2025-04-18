@@ -15,7 +15,7 @@ const EquipCell = ({ gameId, setModalPipe, id, data }) => {
 
   if (!Object.keys(setBonuses).length) {
     return (
-      <TableCell align="center">
+      <TableCell>
         <Tooltip title={`Add ${LABEL_DATA[gameId].Equips}`} arrow>
           <Add onClick={openModal} cursor="pointer" />
         </Tooltip>
@@ -24,7 +24,7 @@ const EquipCell = ({ gameId, setModalPipe, id, data }) => {
   }
 
   return (
-    <TableCell align="center">
+    <TableCell>
       <Tooltip title={`Edit ${LABEL_DATA[gameId].Equips}`} arrow>
         <Stack
           onClick={openModal}

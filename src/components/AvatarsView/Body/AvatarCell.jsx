@@ -7,8 +7,8 @@ const AvatarCell = ({ gameId, setModalPipe, id, data }) => {
   const openModal = () => setModalPipe({ type: "avatar", id, data });
 
   return (
-    <TableCell align="left">
-      <Tooltip title={`Edit ${LABEL_DATA[gameId].Avatar}`} arrow>
+    <TableCell>
+      <Tooltip title={`Edit ${LABEL_DATA[gameId].Avatar}`}>
         <Stack
           onClick={openModal}
           display="inline-flex"
@@ -23,7 +23,6 @@ const AvatarCell = ({ gameId, setModalPipe, id, data }) => {
               src={AVATAR_ASSETS[gameId][id]}
             />
           </Badge>
-          
           <Typography variant="body2">
             {AVATAR_DATA[gameId][id].name}
           </Typography>

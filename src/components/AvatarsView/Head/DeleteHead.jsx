@@ -31,7 +31,7 @@ const DeleteHead = ({ gameId, userId, avatarCache, setAvatarCache }) => {
   };
 
   return (
-    <TableCell align="center" width={50}>
+    <TableCell width={50}>
       <Tooltip
         open={open}
         title={
@@ -54,7 +54,6 @@ const DeleteHead = ({ gameId, userId, avatarCache, setAvatarCache }) => {
             )}
           </Stack>
         }
-        arrow
       >
         <Delete
           onClick={() => setOpen(true)}

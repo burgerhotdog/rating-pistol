@@ -15,8 +15,8 @@ const RatingCell = ({ setModalPipe, id, data, equipRatings, avatarRating }) => {
   const iconSrc = getIconSrc(roundedRating)
 
   return (
-    <TableCell align="center">
-      <Tooltip title="See Details" arrow>
+    <TableCell>
+      <Tooltip title="See Details">
         <Stack direction="row" display="inline-flex" alignItems="center" gap={1}>
           <Badge onClick={openModal} sx={{ cursor: "pointer" }}>
             <Avatar

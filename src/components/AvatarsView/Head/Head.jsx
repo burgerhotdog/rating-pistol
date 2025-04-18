@@ -10,25 +10,25 @@ export default ({ gameId, userId, avatarCache, setAvatarCache }) => {
       <TableRow>
         <StarHead />
 
-        <TableCell align="left">
+        <TableCell>
           <Typography variant="body1" color="text.secondary">
             {LABEL_DATA[gameId].Avatar}
           </Typography>
         </TableCell>
 
-        <TableCell align="center">
+        <TableCell>
           <Typography variant="body1" color="text.secondary">
             {LABEL_DATA[gameId].Weapon}
           </Typography>
         </TableCell>
 
-        <TableCell align="center">
+        <TableCell width={250}>
           <Typography variant="body1" color="text.secondary">
             {LABEL_DATA[gameId].Equips}
           </Typography>
         </TableCell>
 
-        <TableCell align="center">
+        <TableCell width={200}>
           <Typography variant="body1" color="text.secondary">
             Rating
           </Typography>

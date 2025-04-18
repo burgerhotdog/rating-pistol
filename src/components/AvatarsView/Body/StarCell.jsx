@@ -33,7 +33,7 @@ const StarCell = ({
 
   if (data.isStar) {
     return (
-      <TableCell align="center" width={50}>
+      <TableCell width={50}>
         <Star 
           onClick={toggleStar} 
           cursor="pointer" 
@@ -44,7 +44,7 @@ const StarCell = ({
   }
 
   return (
-    <TableCell align="center" width={50}>
+    <TableCell width={50}>
       <StarBorder
         onClick={toggleStar}
         cursor="pointer"
