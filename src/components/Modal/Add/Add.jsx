@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
 import template from "@config/template";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA } from "@data";
 
-const Add = ({ gameId, avatarCache, modalPipe, setModalPipe, pushModalPipe }) => {
+const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [id, setId] = useState(null);
   
   const charOptions = () => {
     return Object.keys(AVATAR_DATA[gameId])
@@ -19,34 +20,24 @@ const Add = ({ gameId, avatarCache, modalPipe, setModalPipe, pushModalPipe }) =>
       });
   };
 
-  const handleSelect = (newValue) => {
-    const id = newValue;
+  const handleSave = async () => {
+    setIsLoading(true);
     const data = template(gameId);
     if (AVATAR_DATA[gameId][id].type === "Remembrance") {
-      data.skillMap["005"] = 1;
-      data.skillMap["006"] = 1;
+      data.skillMap["005"] = 6;
+      data.skillMap["006"] = 6;
     }
-
-    setModalPipe((prev) => ({
-      ...prev,
-      id,
-      data,
-    }));
-  };
-
-  const handleAdd = async () => {
-    setIsLoading(true);
-    await pushModalPipe(true);
-    setModalPipe({});
+    await saveAvatar(id, data);
+    closeModal();
   };
 
   return (
     <Stack alignItems="center" spacing={2}>
       <Autocomplete
-        value={modalPipe.id ?? ""}
+        value={id ?? ""}
         options={charOptions()}
         getOptionLabel={(id) => AVATAR_DATA[gameId][id]?.name ?? ""}
-        onChange={(_, newValue) => handleSelect(newValue)}
+        onChange={(_, newValue) => setId(newValue)}
         renderOption={(props, option) => {
           const { key, ...optionProps } = props;
           const rarity = AVATAR_DATA[gameId][option]?.rarity;
@@ -78,11 +69,11 @@ const Add = ({ gameId, avatarCache, modalPipe, setModalPipe, pushModalPipe }) =>
       />
       
       <Button
-        onClick={handleAdd}
+        onClick={handleSave}
         variant="contained"
         color="primary"
         loading={isLoading}
-        disabled={!modalPipe.id}
+        disabled={!id}
       >
         Save
       </Button>

@@ -1,9 +1,8 @@
-import React from "react";
 import { TableContainer, Table } from "@mui/material";
 import Head from "./Head";
 import Body from "./Body";
 
-const AvatarsView = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedDocs, setModalPipe }) => {
+const AvatarsView = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
   return (
     <TableContainer>
       <Table sx={{ tableLayout: "fixed", width: "100%" }}>
@@ -19,7 +18,7 @@ const AvatarsView = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
           avatarCache={avatarCache}
           setAvatarCache={setAvatarCache}
           isLoading={isLoading}
-          sortedDocs={sortedDocs}
+          sortedAvatars={sortedAvatars}
           setModalPipe={setModalPipe}
         />
       </Table>

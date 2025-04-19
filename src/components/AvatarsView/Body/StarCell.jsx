@@ -1,4 +1,3 @@
-import React from "react";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
 import TableCell from "@mui/material/TableCell";

@@ -1,42 +1,35 @@
+import { useMemo } from "react";
 import { Autocomplete, TextField, Box, Paper } from "@mui/material";
 import { SET_ASSETS } from "@assets";
 import { SET_DATA, LABEL_DATA } from "@data";
 
-const SetId = ({ gameId, modalPipe, setModalPipe, mainIndex }) => {
-  const setOptions = Object.keys(SET_DATA[gameId])
-    .filter((id) => {
-      if (gameId !== "hsr") return true;
-      return mainIndex < 4
-        ? SET_DATA[gameId][id].type === "Relic"
-        : SET_DATA[gameId][id].type === "Planar";
-    })
-    .sort((a, b) => {
-      const A = SET_DATA[gameId][a];
-      const B = SET_DATA[gameId][b];
-      return A.rarity !== B.rarity
-        ? B.rarity - A.rarity
-        : A.name.localeCompare(B.name);
-    });
+const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
+  const setOptions = useMemo(() =>
+    Object.keys(SET_DATA[gameId])
+      .filter((id) => {
+        if (gameId !== "hsr") return true;
+        return mainIndex < 4
+          ? SET_DATA[gameId][id].type === "Relic"
+          : SET_DATA[gameId][id].type === "Planar";
+      })
+      .sort((a, b) => {
+        const A = SET_DATA[gameId][a];
+        const B = SET_DATA[gameId][b];
+        return A.rarity !== B.rarity
+          ? B.rarity - A.rarity
+          : A.name.localeCompare(B.name);
+      }), [gameId, mainIndex]);
 
-  const handleSet = (newValue) => {
-    setModalPipe((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        equipList: prev.data.equipList.map((equipObj, index) => {
-          if (index !== mainIndex) return equipObj;
-          return {
-            ...equipObj,
-            setId: String(newValue),
-          };
-        }),
-      },
-    }));
-  };
+  const handleSet = (newValue) =>
+    setEquipList(prev => {
+      const newList = structuredClone(prev);
+      newList[mainIndex].setId = newValue;
+      return newList;
+    });
 
   return (
     <Autocomplete
-      value={modalPipe.data.equipList[mainIndex].setId ?? ""}
+      value={equipList[mainIndex].setId ?? ""}
       options={setOptions}
       getOptionLabel={(id) => SET_DATA[gameId][id]?.name ?? ""}
       onChange={(_, newValue) => handleSet(newValue)}

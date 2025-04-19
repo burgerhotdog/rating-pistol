@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import { VERSION_DATA, INFO_DATA, LABEL_DATA } from "@data";
-import { getEquipRatings, getAvatarRating } from "@utils";
+import { getRatings } from "@utils";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
 import AvatarsView from "@components/AvatarsView";
@@ -27,11 +27,10 @@ const Game = ({ gameId, userId }) => {
           const avatarDocs = await getDocs(avatarRef);
           const newAvatarCache = {};
           for (const doc of avatarDocs.docs) {
-            const id = doc.id;
-            const data = doc.data();
-            const equipRatings = getEquipRatings(gameId, id, data.equipList);
-            const avatarRating = getAvatarRating(gameId, equipRatings );
-            newAvatarCache[id] = { data, equipRatings, avatarRating };
+            newAvatarCache[doc.id] = {
+              data: doc.data(),
+              ratings: getRatings(gameId, doc.id, doc.data().equipList),
+            };
           }
           setAvatarCache(newAvatarCache);
 
@@ -39,9 +38,7 @@ const Game = ({ gameId, userId }) => {
           const teamDocs = await getDocs(teamRef);
           const newTeamCache = {};
           for (const doc of teamDocs.docs) {
-            const id = doc.id;
-            const data = doc.data();
-            newTeamCache[id] = data;
+            newTeamCache[doc.id] = doc.data();
           }
           setTeamCache(newTeamCache);
         } catch (error) {
@@ -58,13 +55,36 @@ const Game = ({ gameId, userId }) => {
   }, [userId, gameId]);
 
   // sort avatarCache for AvatarsView
-  const sortedDocs = useMemo(() => (  
-    Object.entries(avatarCache).sort(([, a], [, b]) => (
-      a.data.isStar === b.data.isStar
-        ? a.avatarRating.percent - b.avatarRating.percent
-        : a.data.isStar ? -1 : 1
-    ))
+  const sortedAvatars = useMemo(() => (  
+    Object.entries(avatarCache)
+      .sort(([, a], [, b]) => (
+        a.data.isStar === b.data.isStar
+          ? a.ratings.avatar.percent - b.ratings.avatar.percent
+          : a.data.isStar ? -1 : 1
+      ))
+      .map(([avatarId]) => avatarId)
   ), [avatarCache]);
+
+  // save avatar to firestore and cache
+  const saveAvatar = async (id, newData) => {
+    if (userId) {
+      const ref = doc(db, "users", userId, gameId, id);
+      await setDoc(ref, newData, { merge: true });
+    }
+
+    setAvatarCache((prev) => ({
+      ...prev,
+      [id]: {
+        data: {
+          ...(prev[id]?.data ?? {}),
+          ...newData,
+        },
+        ...(newData.equipList && {
+          ratings: getRatings(gameId, id, newData.equipList),
+        }),
+      },
+    }));
+  };
 
   const handleAdd = () => setModalPipe({ type: "add", id: null, data: null });
   const handleLoad = () => setModalPipe({ type: "load", id: null, data: null });
@@ -117,7 +137,7 @@ const Game = ({ gameId, userId }) => {
                 avatarCache={avatarCache}
                 setAvatarCache={setAvatarCache}
                 isLoading={isLoading}
-                sortedDocs={sortedDocs}
+                sortedAvatars={sortedAvatars}
                 setModalPipe={setModalPipe}
               />
 
@@ -149,7 +169,7 @@ const Game = ({ gameId, userId }) => {
               avatarCache={avatarCache}
               teamCache={teamCache}
               setTeamCache={setTeamCache}
-              sortedDocs={sortedDocs}
+              sortedAvatars={sortedAvatars}
             />
           )}
         </Stack>
@@ -162,6 +182,7 @@ const Game = ({ gameId, userId }) => {
         setModalPipe={setModalPipe}
         avatarCache={avatarCache}
         setAvatarCache={setAvatarCache}
+        saveAvatar={saveAvatar}
       />
     </Container>
   );

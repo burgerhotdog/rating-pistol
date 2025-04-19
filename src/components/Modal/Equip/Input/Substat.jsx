@@ -1,83 +1,58 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
 import { STAT_DATA } from "@data";
 
-const Substat = ({ gameId, modalPipe, setModalPipe, mainIndex, subIndex }) => {
-  const [inputValue, setInputValue] = useState(String(modalPipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
+const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
+  const { stat: mainstat, statList } = equipList[mainIndex];
+  const { stat, value } = statList[subIndex];
+  const [rawValue, setRawValue] = useState(String(value ?? ""));
 
-  useEffect(() => {
-    setInputValue(String(modalPipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
-  }, [modalPipe.data.equipList[mainIndex].statList[subIndex].value]);
+  useEffect(() => setRawValue(String(value ?? "")), [value]);
 
-  const substatOptions = (subIndex) => {
-    const selectedMainstat = modalPipe.data.equipList[mainIndex].stat;
-    const selectedSubstats = modalPipe.data.equipList[mainIndex].statList
-      .map((statObj) => statObj.stat)
+  const substatOptions = useMemo(() => {
+    const selectedSubstats = statList
+      .map(({ stat }) => stat)
       .filter((_, index) => index !== subIndex);
     
-    return Object.keys(STAT_DATA[gameId]).filter((stat) => {
-      const isSubstat = Boolean(STAT_DATA[gameId][stat].subValue);
-      const isNotMainstat = gameId === "ww" || stat !== selectedMainstat;
-      const isNotDuplicate = !selectedSubstats.includes(stat);
-      return isSubstat && isNotDuplicate && isNotMainstat;
+    return Object.entries(STAT_DATA[gameId])
+      .filter(([stat, { subValue }]) => {
+        const isSubstat = Boolean(subValue);
+        const isNotMainstat = gameId === "ww" || stat !== mainstat;
+        const isNotDuplicate = !selectedSubstats.includes(stat);
+        return isSubstat && isNotMainstat && isNotDuplicate;
+      })
+      .map(([stat]) => stat);
+  }, [gameId, mainIndex, subIndex, mainstat, statList]);
+
+  const handleStat = (newValue, subIndex) =>
+    setEquipList((prev) => {
+      const newList = structuredClone(prev);
+      newList[mainIndex].statList[subIndex].stat = newValue;
+      newList[mainIndex].statList[subIndex].value = null;
+      return newList;
     });
-  };
 
-  const handleStat = (newValue, subIndex) => {
-    setModalPipe((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        equipList: prev.data.equipList.map((equipObj, equipIndex) => {
-          if (equipIndex !== mainIndex) return equipObj;
-          return {
-            ...equipObj,
-            statList: equipObj.statList.map((statObj, statIndex) => {
-              if (statIndex !== subIndex) return statObj;
-              return {
-                stat: String(newValue),
-                value: null,
-              };
-            }),
-          };
-        }),
-      },
-    }));
-  };
-
-  const handleBlur = () => {
-    if (isNaN(inputValue)) {
-      setInputValue(String(modalPipe.data.equipList[mainIndex].statList[subIndex].value ?? ""));
+  const handleValue = () => {
+    if (isNaN(rawValue)) {
+      setRawValue(String(value ?? ""));
       return;
     }
 
-    setModalPipe((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        equipList: prev.data.equipList.map((equipObj, equipIndex) => {
-          if (equipIndex !== mainIndex) return equipObj;
-          return {
-            ...equipObj,
-            statList: equipObj.statList.map((statObj, statIndex) => {
-              if (statIndex !== subIndex) return statObj;
-              return {
-                ...statObj,
-                value: Number(inputValue)
-              };
-            })
-          };
-        })
-      }
-    }));
+    const newValue = Number(rawValue);
+
+    setEquipList((prev) => {
+      const newList = structuredClone(prev);
+      newList[mainIndex].statList[subIndex].value = newValue;
+      return newList;
+    });
   };
 
   return (
     <Grid container spacing={1}>
       <Grid size={8}>
         <Autocomplete
-          value={modalPipe.data.equipList[mainIndex].statList[subIndex].stat}
-          options={substatOptions(subIndex)}
+          value={stat ?? ""}
+          options={substatOptions}
           getOptionLabel={(id) => STAT_DATA[gameId][id]?.name || ""}
           onChange={(_, newValue) => handleStat(newValue, subIndex)}
           slots={{
@@ -90,26 +65,26 @@ const Substat = ({ gameId, modalPipe, setModalPipe, mainIndex, subIndex }) => {
           renderInput={(params) => (
             <TextField {...params} label={"Substat"} />
           )}
-          disabled={!modalPipe.data.equipList[mainIndex].stat}
+          disabled={!mainstat}
         />
       </Grid>
 
       <Grid size={4}>
         <TextField
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onBlur={handleBlur}
+          value={rawValue}
+          onChange={(e) => setRawValue(e.target.value)}
+          onBlur={handleValue}
           onKeyDown={(e) => {
-            if (e.key === "Enter") handleBlur();
+            if (e.key === "Enter") handleValue();
           }}
           slotProps={{
             input: {
-              endAdornment: STAT_DATA[gameId][modalPipe.data.equipList[mainIndex].statList[subIndex].stat]?.percent && (
+              endAdornment: STAT_DATA[gameId][stat]?.percent && (
                 <InputAdornment position="end">%</InputAdornment>
               ),
             },
           }}
-          disabled={!modalPipe.data.equipList[mainIndex].statList[subIndex].stat}
+          disabled={!stat}
         />
       </Grid>
     </Grid>

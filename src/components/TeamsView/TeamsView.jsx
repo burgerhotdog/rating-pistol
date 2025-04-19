@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { db } from "@config/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { Box, Grid, Typography, Stack, Button, Paper, IconButton, TextField, InputAdornment } from "@mui/material";
@@ -6,7 +6,7 @@ import { Close, Edit, Analytics, Add } from "@mui/icons-material";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA } from "@data";
 
-const TeamsView = ({ gameId, userId, avatarCache, teamCache, setTeamCache, sortedDocs }) => {
+const TeamsView = ({ gameId, userId, avatarCache, teamCache, setTeamCache, sortedAvatars }) => {
   const [team, setTeam] = useState([null, null, null, null]);
   const [teamName, setTeamName] = useState("My Team");
   const [selectedSlot, setSelectedSlot] = useState(null);

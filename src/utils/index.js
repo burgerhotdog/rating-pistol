@@ -5,3 +5,4 @@ export { default as simulateEquipRVs } from "./simulateEquipRVs";
 export { default as simulateAvatarRVs } from "./simulateAvatarRVs";
 export { default as getEquipRatings } from "./getEquipRatings";
 export { default as getAvatarRating } from "./getAvatarRating";
+export { default as getRatings } from "./getRatings";

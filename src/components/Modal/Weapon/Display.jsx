@@ -1,16 +1,15 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Paper, Box, Stack, Typography } from "@mui/material";
 import { WEAPON_ASSETS } from "@assets";
 import { WEAPON_DATA, STAT_DATA, LABEL_DATA } from "@data";
 import getWeaponDescArr from "./getWeaponDescArr";
 
-const Display = ({ gameId, modalPipe }) => {
-  const weaponId = modalPipe.data.weaponId;
+const Display = ({ gameId, weaponId, weaponRank }) => {
   const weapon = WEAPON_DATA[gameId][weaponId];
 
   const weaponDescArr = useMemo(
-    () => getWeaponDescArr(weapon, modalPipe.data.weaponRank),
-    [weapon, modalPipe.data.weaponRank],
+    () => getWeaponDescArr(weapon, weaponRank),
+    [weapon, weaponRank],
   );
 
   if (!weapon) {
