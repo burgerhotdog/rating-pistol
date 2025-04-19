@@ -13,8 +13,7 @@ const Avatar = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
 
   const handleSave = async () => {
     setIsLoading(true);
-    const newData = { ...data, level, rank, skillMap };
-    await saveAvatar(id, newData);
+    await saveAvatar(id, { level, rank, skillMap });
     closeModal();
   };
 

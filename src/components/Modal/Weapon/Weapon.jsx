@@ -12,12 +12,7 @@ const Weapon = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
 
   const handleSave = async () => {
     setIsLoading(true);
-    await saveAvatar(id, {
-      ...data,
-      weaponId,
-      weaponLevel,
-      weaponRank,
-    });
+    await saveAvatar(id, { weaponId, weaponLevel, weaponRank });
     closeModal();
   };
 

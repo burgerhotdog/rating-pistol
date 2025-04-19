@@ -2,8 +2,13 @@ import { Avatar, Badge, Tooltip, Stack, Typography, TableCell } from "@mui/mater
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA, INFO_DATA, LABEL_DATA } from "@data";
 
-const AvatarCell = ({ gameId, setModalPipe, id, data }) => {
-  const openModal = () => setModalPipe({ type: "avatar", id, data });
+const AvatarCell = ({ gameId, id, data, setModalPipe }) => {
+  const openModal = () =>
+    setModalPipe({
+      type: "avatar",
+      id,
+      data,
+    });
 
   return (
     <TableCell>

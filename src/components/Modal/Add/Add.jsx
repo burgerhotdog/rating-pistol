@@ -27,8 +27,7 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
       data.skillMap["005"] = 1;
       data.skillMap["006"] = 1;
     }
-
-    await saveAvatar(id, data, true);
+    await saveAvatar(id, data);
     closeModal();
   };
 

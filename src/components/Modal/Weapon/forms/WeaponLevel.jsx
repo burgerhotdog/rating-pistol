@@ -1,27 +1,22 @@
 import { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
-
-const MAX_LEVEL = { gi: 90, hsr: 80, ww: 90, zzz: 60 };
+import { INFO_DATA } from "@data";
 
 const WeaponLevel = ({ gameId, weaponId, weaponLevel, setWeaponLevel }) => {
-  const [rawLevel, setRawLevel] = useState(String(weaponLevel));
-  useEffect(() => setRawLevel(String(weaponLevel)), [weaponLevel]);
+  const [rawLevel, setRawLevel] = useState(String(weaponLevel ?? ""));
+  const resetRawLevel = () => setRawLevel(String(weaponLevel ?? ""));
+  useEffect(() => resetRawLevel(), [weaponLevel]);
 
   const handleWeaponLevel = () => {
     const newValue = Number(rawLevel);
-
     if (isNaN(newValue)) {
-      setRawLevel(String(weaponLevel));
+      resetRawLevel();
       return;
     }
 
-    if (newValue < 1 || newValue > MAX_LEVEL[gameId]) {
-      setRawLevel(String(weaponLevel));
-      return;
-    }
-
-    if (!Number.isInteger(newValue)) {
-      setRawLevel(String(weaponLevel));
+    const outOfBounds = newValue < 1 || newValue > INFO_DATA[gameId].MAX_LEVEL;
+    if (outOfBounds || !Number.isInteger(newValue)) {
+      resetRawLevel();
       return;
     }
 
@@ -34,6 +29,12 @@ const WeaponLevel = ({ gameId, weaponId, weaponLevel, setWeaponLevel }) => {
       label="Level"
       onChange={(e) => setRawLevel(e.target.value)}
       onBlur={handleWeaponLevel}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          handleWeaponLevel();
+          e.target.blur();
+        }
+      }}
       slotProps={{ htmlInput: { inputMode: "numeric" } }}
       sx={{ width: 75 }}
       disabled={!weaponId}

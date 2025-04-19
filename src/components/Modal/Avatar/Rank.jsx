@@ -1,17 +1,15 @@
+import { useMemo } from "react";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import { INFO_DATA } from "@data";
-
-const hasNoOptions = {
-  gi: ["10000062"], // Aloy
-  hsr: [],
-  ww: [],
-  zzz: [],
-};
+import noRankOptions from "./noRankOptions.json";
 
 const Rank = ({ gameId, id, rank, setRank }) => {
-  const options = hasNoOptions[gameId].includes(id)
-    ? [0]
-    : Array.from({ length: 7 }, (_, i) => i);
+  const options = useMemo(() =>
+    noRankOptions[gameId].includes(id)
+      ? [0]
+      : Array.from({ length: 7 }, (_, i) => i),
+    [gameId, id],
+  );
 
   return (
     <FormControl sx={{ width: 75 }}>

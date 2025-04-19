@@ -25,8 +25,7 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
 
   const handleSave = async () => {
     setIsLoading(true);
-    const newData = { ...data, equipList };
-    await saveAvatar(id, newData, true);
+    await saveAvatar(id, { equipList });
     closeModal();
   };
 

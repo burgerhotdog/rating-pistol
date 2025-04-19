@@ -1,21 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
 import { INFO_DATA } from "@data";
 
 const Level = ({ gameId, level, setLevel }) => {
-  const [rawLevel, setRawLevel] = useState(String(level));
+  const [rawLevel, setRawLevel] = useState(String(level ?? ""));
+  const resetRawLevel = () => setRawLevel(String(level ?? ""));
+  useEffect(() => resetRawLevel(), [level]);
 
   const handleLevel = () => {
-    if (isNaN(rawLevel)) {
-      setRawLevel(String(level));
+    const newValue = Number(rawLevel);
+    if (isNaN(newValue)) {
+      resetRawLevel();
       return;
     };
 
-    const newValue = Number(rawLevel);
-
     const outOfBounds = newValue < 1 || newValue > INFO_DATA[gameId].MAX_LEVEL;
     if (outOfBounds || !Number.isInteger(newValue)) {
-      setRawLevel(String(level));
+      resetRawLevel();
       return;
     };
 
@@ -24,12 +25,15 @@ const Level = ({ gameId, level, setLevel }) => {
 
   return (
     <TextField
-      value={rawLevel}
+      value={rawLevel ?? ""}
       label="Level"
       onChange={(e) => setRawLevel(e.target.value)}
       onBlur={handleLevel}
       onKeyDown={(e) => {
-        if (e.key === "Enter") handleLevel();
+        if (e.key === "Enter") {
+          handleLevel();
+          e.target.blur();
+        }
       }}
       slotProps={{ htmlInput: { inputMode: "numeric" } }}
       sx={{ width: 75 }}

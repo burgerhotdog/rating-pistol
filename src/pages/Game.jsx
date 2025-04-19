@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
@@ -55,28 +55,32 @@ const Game = ({ gameId, userId }) => {
   }, [userId, gameId]);
 
   // sort avatarCache for AvatarsView
-  const sortedDocs = useMemo(() => (  
-    Object.entries(avatarCache).sort(([, a], [, b]) => (
-      a.data.isStar === b.data.isStar
-        ? a.ratings.avatar.percent - b.ratings.avatar.percent
-        : a.data.isStar ? -1 : 1
-    ))
+  const sortedAvatars = useMemo(() => (  
+    Object.entries(avatarCache)
+      .sort(([, a], [, b]) => (
+        a.data.isStar === b.data.isStar
+          ? a.ratings.avatar.percent - b.ratings.avatar.percent
+          : a.data.isStar ? -1 : 1
+      ))
+      .map(([avatarId]) => avatarId)
   ), [avatarCache]);
 
   // save avatar to firestore and cache
-  const saveAvatar = async (id, data, updateRatings = false) => {
+  const saveAvatar = async (id, newData) => {
     if (userId) {
       const ref = doc(db, "users", userId, gameId, id);
-      await setDoc(ref, data, { merge: true });
+      await setDoc(ref, newData, { merge: true });
     }
 
     setAvatarCache((prev) => ({
       ...prev,
       [id]: {
-        ...prev[id],
-        data,
-        ...(updateRatings && {
-          ratings: getRatings(gameId, id, data.equipList),
+        data: {
+          ...(prev[id]?.data ?? {}),
+          ...newData,
+        },
+        ...(newData.equipList && {
+          ratings: getRatings(gameId, id, newData.equipList),
         }),
       },
     }));
@@ -133,7 +137,7 @@ const Game = ({ gameId, userId }) => {
                 avatarCache={avatarCache}
                 setAvatarCache={setAvatarCache}
                 isLoading={isLoading}
-                sortedDocs={sortedDocs}
+                sortedAvatars={sortedAvatars}
                 setModalPipe={setModalPipe}
               />
 
@@ -165,7 +169,7 @@ const Game = ({ gameId, userId }) => {
               avatarCache={avatarCache}
               teamCache={teamCache}
               setTeamCache={setTeamCache}
-              sortedDocs={sortedDocs}
+              sortedAvatars={sortedAvatars}
             />
           )}
         </Stack>

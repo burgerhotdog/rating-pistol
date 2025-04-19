@@ -6,7 +6,7 @@ import EquipCell from "./EquipCell";
 import RatingCell from "./RatingCell";
 import DeleteCell from "./DeleteCell";
 
-export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedDocs, setModalPipe }) => {
+export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
   if (isLoading) {
     return (
       <TableBody>
@@ -56,9 +56,9 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
 
   return (
     <TableBody>
-      {sortedDocs.map(([id, { data, ratings }]) => (
+      {sortedAvatars.map((avatarId) => (
         <TableRow
-          key={id}
+          key={avatarId}
           sx={{
             height: 60,
             "&:hover": {
@@ -70,42 +70,42 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
             gameId={gameId}
             userId={userId}
             setAvatarCache={setAvatarCache}
-            id={id}
-            data={data}
+            id={avatarId}
+            data={avatarCache[avatarId].data}
           />
           
           <AvatarCell
             gameId={gameId}
             setModalPipe={setModalPipe}
-            id={id}
-            data={data}
+            id={avatarId}
+            data={avatarCache[avatarId].data}
           />
 
           <WeaponCell
             gameId={gameId}
             setModalPipe={setModalPipe}
-            id={id}
-            data={data}
+            id={avatarId}
+            data={avatarCache[avatarId].data}
           />
 
           <EquipCell
             gameId={gameId}
             setModalPipe={setModalPipe}
-            id={id}
-            data={data}
+            id={avatarId}
+            data={avatarCache[avatarId].data}
           />
 
           <RatingCell
             setModalPipe={setModalPipe}
-            id={id}
-            data={data}
-            ratings={ratings}
+            id={avatarId}
+            data={avatarCache[avatarId].data}
+            ratings={avatarCache[avatarId].ratings}
           />
 
           <DeleteCell
             gameId={gameId}
             userId={userId}
-            id={id}
+            id={avatarId}
             setAvatarCache={setAvatarCache}
           />
         </TableRow>

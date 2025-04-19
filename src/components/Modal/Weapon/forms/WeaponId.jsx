@@ -1,9 +1,6 @@
 import { Box, Autocomplete, TextField, Typography } from "@mui/material";
 import { WEAPON_ASSETS } from "@assets";
-import { AVATAR_DATA, WEAPON_DATA } from "@data";
-
-const MAX_LEVEL = { gi: 90, hsr: 80, ww: 90, zzz: 60 };
-const LABEL = { gi: "Weapon", hsr: "Light Cone", ww: "W-Engine", zzz: "Weapon" };
+import { AVATAR_DATA, WEAPON_DATA, INFO_DATA, LABEL_DATA } from "@data";
 
 const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeaponRank }) => {
   const { sig, type } = AVATAR_DATA[gameId][id];
@@ -24,7 +21,7 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeapon
 
   const handleWeaponId = (newValue) => {
     setWeaponId(newValue);
-    setWeaponLevel(MAX_LEVEL[gameId]);
+    setWeaponLevel(INFO_DATA[gameId].MAX_LEVEL);
     setWeaponRank(1);
   };
 
@@ -66,7 +63,7 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeapon
       onChange={(_, newValue) => handleWeaponId(newValue)}
       renderOption={renderOptionWeaponId}
       renderInput={(params) => (
-        <TextField {...params} label={LABEL[gameId]} />
+        <TextField {...params} label={LABEL_DATA[gameId].Weapon} />
       )}
       sx={{ flex: 1 }}
     />
