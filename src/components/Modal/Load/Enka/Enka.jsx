@@ -220,7 +220,9 @@ const Enka = ({ gameId, userId, setAvatarCache, closeModal }) => {
           const skillsArr = charObj.skillTreeList;
           for (const { pointId, level } of skillsArr) {
             const skillId = String(pointId).slice(4);
-            if (skillId[0] === "3") {
+            if (skillId === "007") {
+              continue;
+            } else if (skillId[0] === "3") {
               data.skillMap[`00${Number(skillId[2]) + 4}`] = Number(level);
             } else {
               data.skillMap[skillId] = Number(level);
@@ -264,7 +266,7 @@ const Enka = ({ gameId, userId, setAvatarCache, closeModal }) => {
               const key = STAT_CONVERT[String(subPropObj.PropertyId)];
               data.equipList[equipIndex].statList[subIndex].stat = key;
               const value = subPropObj.PropertyValue;
-              const valueRatio = STAT_DATA[gameId][key].percent ? 0.01 : 1;
+              const valueRatio = STAT_DATA[gameId][key].showPercent ? 0.01 : 1;
               const roundAmount = valueRatio === 1 ? 1 : 10;
               const timesAppeared = subPropObj.PropertyLevel;
               data.equipList[equipIndex].statList[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
