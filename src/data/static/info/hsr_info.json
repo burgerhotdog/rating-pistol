@@ -4,7 +4,14 @@
   "MAX_LEVEL": 80,
   "PREFIX_AVATAR": "E",
   "PREFIX_WEAPON": "S",
-  "SKILL_MAX_LEVEL": [6, 10, 10, 10, 6, 6],
+  "SKILL_MAX_LEVEL": {
+    "001": 6,
+    "002": 10,
+    "003": 10,
+    "004": 10,
+    "005": 6,
+    "006": 6
+  },
   "EQUIP_NAMES": ["Head", "Hands", "Chest", "Boots", "Orb", "Rope"],
   "EQUIP_RARITY": [1, 1, 2, 2, 3, 2],
   "MAIN_LEN": 6,

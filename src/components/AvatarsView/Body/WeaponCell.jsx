@@ -1,4 +1,3 @@
-import React from "react";
 import { Badge, Avatar, Tooltip, Stack, Typography, TableCell } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import { WEAPON_ASSETS } from "@assets";

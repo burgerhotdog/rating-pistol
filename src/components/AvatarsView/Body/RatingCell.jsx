@@ -1,4 +1,3 @@
-import React from "react";
 import { Stack, Badge, Avatar, Typography, Tooltip, TableCell } from "@mui/material";
 import { RATING_ASSETS } from "@assets";
 
@@ -9,9 +8,9 @@ const getIconSrc = (rating) => {
   return "3";
 };
 
-const RatingCell = ({ setModalPipe, id, data, equipRatings, avatarRating }) => {
-  const openModal = () => setModalPipe({ type: "rating", id, data, avatarRating, equipRatings });
-  const roundedRating = Math.ceil(avatarRating.percent);
+const RatingCell = ({ setModalPipe, id, data, ratings }) => {
+  const openModal = () => setModalPipe({ type: "rating", id, data, ratings });
+  const roundedRating = Math.ceil(ratings.avatar.percent);
   const iconSrc = getIconSrc(roundedRating)
 
   return (

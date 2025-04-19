@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import {
   Paper,
   Grid,
@@ -10,11 +10,11 @@ import { SET_ASSETS } from "@assets";
 import { SET_DATA } from "@data";
 import getSetBonuses from "@utils/getSetBonuses";
 
-const PreviewSet = ({ gameId, modalPipe }) => {
-
-  const setBonuses = useMemo(() => (
-    getSetBonuses(gameId, modalPipe.data.equipList)
-  ), [modalPipe.data.equipList]);
+const PreviewSet = ({ gameId, equipList }) => {
+  const setBonuses = useMemo(
+    () => getSetBonuses(gameId, equipList),
+    [equipList],
+  );
 
   if (!Object.keys(setBonuses).length) {
     return (

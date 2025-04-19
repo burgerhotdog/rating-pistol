@@ -1,4 +1,3 @@
-import React from "react";
 import { TableCell } from "@mui/material";
 import { StarBorder } from "@mui/icons-material";
 

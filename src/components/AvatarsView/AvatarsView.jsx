@@ -1,4 +1,3 @@
-import React from "react";
 import { TableContainer, Table } from "@mui/material";
 import Head from "./Head";
 import Body from "./Body";

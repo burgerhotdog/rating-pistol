@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { doc, writeBatch } from "firebase/firestore";
 import { db } from "@config/firebase";
 import {

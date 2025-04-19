@@ -1,8 +1,4 @@
-import React from "react";
-import { doc, setDoc } from "firebase/firestore";
-import { db } from "@config/firebase";
 import { Modal, Box } from "@mui/material";
-import { getEquipRatings, getAvatarRating } from "@utils";
 import Add from "./Add";
 import Avatar from "./Avatar";
 import Equip from "./Equip";
@@ -10,37 +6,16 @@ import Load from "./Load";
 import Rating from "./Rating";
 import Weapon from "./Weapon";
 
-export default ({
+const CustomModal = ({
   gameId,
   userId,
   modalPipe,
   setModalPipe,
   avatarCache,
   setAvatarCache,
+  saveAvatar,
 }) => {
-  const pushModalPipe = async (updateRatings = false) => {
-    const { id, data } = modalPipe;
-    let equipRatings = {}, avatarRating = {};
-    if (updateRatings) {
-      equipRatings = getEquipRatings(gameId, id, data.equipList);
-      avatarRating = getAvatarRating(gameId, equipRatings);
-    }
-
-    if (userId) {
-      const ref = doc(db, "users", userId, gameId, id);
-      await setDoc(ref, data, { merge: true });
-    }
-
-    setAvatarCache((prev) => ({
-      ...prev,
-      [id]: {
-        ...prev[id],
-        data,
-        ...updateRatings ? { equipRatings, avatarRating } : {},
-      },
-    }));
-  };
-
+  const closeModal = () => setModalPipe({});
   let modalContent = null;
   switch (modalPipe.type) {
     case "add":
@@ -48,9 +23,8 @@ export default ({
         <Add
           gameId={gameId}
           avatarCache={avatarCache}
-          modalPipe={modalPipe}
-          setModalPipe={setModalPipe}
-          pushModalPipe={pushModalPipe}
+          saveAvatar={saveAvatar}
+          closeModal={closeModal}
         />
       );
       break;
@@ -60,8 +34,8 @@ export default ({
         <Avatar
           gameId={gameId}
           modalPipe={modalPipe}
-          setModalPipe={setModalPipe}
-          pushModalPipe={pushModalPipe}
+          saveAvatar={saveAvatar}
+          closeModal={closeModal}
         />
       );
       break;
@@ -71,8 +45,8 @@ export default ({
         <Equip
           gameId={gameId}
           modalPipe={modalPipe}
-          setModalPipe={setModalPipe}
-          pushModalPipe={pushModalPipe}
+          saveAvatar={saveAvatar}
+          closeModal={closeModal}
         />
       );
       break;
@@ -82,8 +56,9 @@ export default ({
         <Load
           gameId={gameId}
           userId={userId}
-          setModalPipe={setModalPipe}
           setAvatarCache={setAvatarCache}
+          saveAvatar={saveAvatar}
+          closeModal={closeModal}
         />
       );
       break;
@@ -102,15 +77,15 @@ export default ({
         <Weapon
           gameId={gameId}
           modalPipe={modalPipe}
-          setModalPipe={setModalPipe}
-          pushModalPipe={pushModalPipe}
+          saveAvatar={saveAvatar}
+          closeModal={closeModal}
         />
       );
       break;
   }
 
   return (
-    <Modal open={Boolean(modalPipe.type)} onClose={() => setModalPipe({})}>
+    <Modal open={Boolean(modalPipe.type)} onClose={closeModal}>
       <Box sx={{
         position: "absolute",
         top: "50%",
@@ -128,3 +103,5 @@ export default ({
     </Modal>
   );
 };
+
+export default CustomModal;

@@ -1,32 +1,49 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Stack, Divider, Button } from "@mui/material";
-import InputLevels from "./InputLevels";
-import InputSkills from "./InputSkills";
+import Level from "./Level";
+import Rank from "./Rank";
+import SkillMap from "./SkillMap";
 
-const Avatar = ({ gameId, modalPipe, setModalPipe, pushModalPipe }) => {
+const Avatar = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const { id, data } = modalPipe;
+  const [level, setLevel] = useState(data.level);
+  const [rank, setRank] = useState(data.rank);
+  const [skillMap, setSkillMap] = useState({ ...data.skillMap });
 
   const handleSave = async () => {
     setIsLoading(true);
-    await pushModalPipe();
-    setModalPipe({});
+    const newData = { ...data, level, rank, skillMap };
+    await saveAvatar(id, newData);
+    closeModal();
   };
 
   return (
     <Stack alignItems="center" spacing={2}>
       <Stack direction="row" spacing={2}>
-        <InputLevels
-          gameId={gameId}
-          modalPipe={modalPipe}
-          setModalPipe={setModalPipe}
-        />
+        <Stack direction="row" spacing={2}>
+          <Level
+            gameId={gameId}
+            level={level}
+            setLevel={setLevel}
+          />
+          
+          <Rank
+            gameId={gameId}
+            id={id}
+            rank={rank}
+            setRank={setRank}
+          />
+        </Stack>
 
         <Divider orientation="vertical" flexItem />
 
-        <InputSkills
+        <SkillMap
           gameId={gameId}
-          modalPipe={modalPipe}
-          setModalPipe={setModalPipe}
+          id={id}
+          rank={rank}
+          skillMap={skillMap}
+          setSkillMap={setSkillMap}
         />
       </Stack>
 

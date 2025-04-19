@@ -4,7 +4,13 @@
   "MAX_LEVEL": 90,
   "PREFIX_AVATAR": "S",
   "PREFIX_WEAPON": "R",
-  "SKILL_MAX_LEVEL": [10, 10, 10, 10, 10],
+  "SKILL_MAX_LEVEL": {
+    "001": 10,
+    "002": 10,
+    "003": 10,
+    "004": 10,
+    "005": 10
+  },
   "EQUIP_NAMES": ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"],
   "EQUIP_RARITY": [2, 3, 3, 1, 1],
   "MAIN_LEN": 5,

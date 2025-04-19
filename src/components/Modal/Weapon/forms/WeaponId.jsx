@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, Autocomplete, TextField, Typography } from "@mui/material";
 import { WEAPON_ASSETS } from "@assets";
 import { AVATAR_DATA, WEAPON_DATA } from "@data";
@@ -6,12 +5,12 @@ import { AVATAR_DATA, WEAPON_DATA } from "@data";
 const MAX_LEVEL = { gi: 90, hsr: 80, ww: 90, zzz: 60 };
 const LABEL = { gi: "Weapon", hsr: "Light Cone", ww: "W-Engine", zzz: "Weapon" };
 
-const WeaponId = ({ gameId, modalPipe, setModalPipe }) => {
-  const { sig, type } = AVATAR_DATA[gameId][modalPipe.id];
+const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeaponRank }) => {
+  const { sig, type } = AVATAR_DATA[gameId][id];
 
   const weaponIdOptions = () => {
     return Object.keys(WEAPON_DATA[gameId])
-      .filter(id => WEAPON_DATA[gameId][id].type === type)
+      .filter(weapon => WEAPON_DATA[gameId][weapon].type === type)
       .sort((a, b) => {
         if (a === sig) return -1;
         if (b === sig) return 1;
@@ -24,15 +23,9 @@ const WeaponId = ({ gameId, modalPipe, setModalPipe }) => {
   };
 
   const handleWeaponId = (newValue) => {
-    setModalPipe((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        weaponId: String(newValue),
-        weaponLevel: MAX_LEVEL[gameId],
-        weaponRank: 1,
-      },
-    }));
+    setWeaponId(newValue);
+    setWeaponLevel(MAX_LEVEL[gameId]);
+    setWeaponRank(1);
   };
 
   const renderOptionWeaponId = (props, option) => {
@@ -67,16 +60,13 @@ const WeaponId = ({ gameId, modalPipe, setModalPipe }) => {
 
   return (
     <Autocomplete
-      value={modalPipe.data.weaponId ?? ""}
+      value={weaponId ?? ""}
       options={weaponIdOptions()}
       getOptionLabel={(id) => WEAPON_DATA[gameId][id]?.name ?? ""}
       onChange={(_, newValue) => handleWeaponId(newValue)}
       renderOption={renderOptionWeaponId}
       renderInput={(params) => (
-        <TextField
-          {...params}
-          label={LABEL[gameId]}
-        />
+        <TextField {...params} label={LABEL[gameId]} />
       )}
       sx={{ flex: 1 }}
     />

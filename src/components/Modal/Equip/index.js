@@ -1,1 +1,1 @@
-export { default } from "./EquipContent";
+export { default } from "./Equip";

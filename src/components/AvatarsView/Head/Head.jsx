@@ -1,4 +1,3 @@
-import React from "react";
 import { TableHead, TableRow, TableCell, Typography } from "@mui/material";
 import { LABEL_DATA } from "@data";
 import StarHead from "./StarHead";

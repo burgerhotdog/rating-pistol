@@ -1,4 +1,3 @@
-import React from "react";
 import { TableBody, TableRow, TableCell, Skeleton, Stack } from "@mui/material";
 import StarCell from "./StarCell";
 import AvatarCell from "./AvatarCell";
@@ -57,7 +56,7 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
 
   return (
     <TableBody>
-      {sortedDocs.map(([id, { data, equipRatings, avatarRating }]) => (
+      {sortedDocs.map(([id, { data, ratings }]) => (
         <TableRow
           key={id}
           sx={{
@@ -100,8 +99,7 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
             setModalPipe={setModalPipe}
             id={id}
             data={data}
-            equipRatings={equipRatings}
-            avatarRating={avatarRating}
+            ratings={ratings}
           />
 
           <DeleteCell

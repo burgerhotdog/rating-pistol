@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Grid,
   Stack,
@@ -16,15 +16,18 @@ import Input from "./Input";
 import PreviewSet from "./PreviewSet";
 import Analysis from "./Analysis";
 
-const EquipContent = ({ gameId, modalPipe, setModalPipe, pushModalPipe }) => {
+const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
+  const { id, data } = modalPipe;
+  const [equipList, setEquipList] = useState(() => structuredClone(data.equipList));
   const [viewIndex, setViewIndex] = useState(0);
   const equipSlots = [...Array(INFO_DATA[gameId].MAIN_LEN).keys()];
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
     setIsLoading(true);
-    await pushModalPipe(true);
-    setModalPipe({});
+    const newData = { ...data, equipList };
+    await saveAvatar(id, newData, true);
+    closeModal();
   };
 
   return (
@@ -56,8 +59,8 @@ const EquipContent = ({ gameId, modalPipe, setModalPipe, pushModalPipe }) => {
 
             <Input
               gameId={gameId}
-              modalPipe={modalPipe}
-              setModalPipe={setModalPipe}
+              equipList={equipList}
+              setEquipList={setEquipList}
               mainIndex={viewIndex}
             />
           </Stack>
@@ -65,16 +68,16 @@ const EquipContent = ({ gameId, modalPipe, setModalPipe, pushModalPipe }) => {
         <Grid size="grow">
           <Analysis
             gameId={gameId}
-            avatarId={modalPipe.id}
+            avatarId={id}
             equipIndex={viewIndex}
-            equipObj={modalPipe.data.equipList[viewIndex]}
+            equipObj={equipList[viewIndex]}
           />
         </Grid>
         
         <Grid size={12}>
           <PreviewSet
             gameId={gameId}
-            modalPipe={modalPipe}
+            equipList={equipList}
           />
         </Grid>
       </Grid>
@@ -90,4 +93,4 @@ const EquipContent = ({ gameId, modalPipe, setModalPipe, pushModalPipe }) => {
   );
 };
 
-export default EquipContent;
+export default Equip;

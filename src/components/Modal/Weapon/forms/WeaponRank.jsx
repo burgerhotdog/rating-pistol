@@ -1,24 +1,23 @@
-import React from "react";
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 const PREFIX = { gi: "R", hsr: "R", ww: "R", zzz: "S" };
 
-const WeaponRank = ({ gameId, modalPipe, setModalPipe }) => {
+const WeaponRank = ({ gameId, weaponId, weaponRank, setWeaponRank }) => {
   const weaponRankOptions = () => {
     const giNoRankOpt = gameId === "gi" && (
-      modalPipe.data.weaponId === "11416" || // Kagotsurube Isshin
-      modalPipe.data.weaponId === "15415" || // Predator
-      modalPipe.data.weaponId === "11412" || // Sword of Descension
-      modalPipe.data.weaponId === "15201" || // Seasoned Hunter's Bow
-      modalPipe.data.weaponId === "14201" || // Pocket Grimoire
-      modalPipe.data.weaponId === "13201" || // Iron Point
-      modalPipe.data.weaponId === "12201" || // Old Merc's Pal
-      modalPipe.data.weaponId === "11201" || // Silver Sword
-      modalPipe.data.weaponId === "15101" || // Hunter's Bow
-      modalPipe.data.weaponId === "14101" || // Apprentice's Notes
-      modalPipe.data.weaponId === "13101" || // Beginner's Protector
-      modalPipe.data.weaponId === "12101" || // Waster Greatsword
-      modalPipe.data.weaponId === "11101" // Dull Blade
+      weaponId === "11416" || // Kagotsurube Isshin
+      weaponId === "15415" || // Predator
+      weaponId === "11412" || // Sword of Descension
+      weaponId === "15201" || // Seasoned Hunter's Bow
+      weaponId === "14201" || // Pocket Grimoire
+      weaponId === "13201" || // Iron Point
+      weaponId === "12201" || // Old Merc's Pal
+      weaponId === "11201" || // Silver Sword
+      weaponId === "15101" || // Hunter's Bow
+      weaponId === "14101" || // Apprentice's Notes
+      weaponId === "13101" || // Beginner's Protector
+      weaponId === "12101" || // Waster Greatsword
+      weaponId === "11101" // Dull Blade
     );
     
     const noRankOpt = giNoRankOpt;
@@ -26,27 +25,20 @@ const WeaponRank = ({ gameId, modalPipe, setModalPipe }) => {
     return noRankOpt ? [1] : [1, 2, 3, 4, 5];
   };
 
-  const handleWeaponRank = (e) => {
-    const newValue = e.target.value;
-    setModalPipe((prev) => ({
-      ...prev,
-      data: {
-        ...prev.data,
-        weaponRank: newValue,
-      },
-    }));
+  const handleWeaponRank = (newValue) => {
+    setWeaponRank(newValue);
   };
 
   return (
-    <FormControl sx={{ width: 75 }} disabled={!modalPipe.data.weaponId}>
+    <FormControl sx={{ width: 75 }} disabled={!weaponId}>
       <InputLabel id="weapon-rank-select" shrink>
         Rank
       </InputLabel>
       <Select
         labelId="weapon-rank-select"
         label="Rank"
-        value={modalPipe.data.weaponRank ?? ""}
-        onChange={handleWeaponRank}
+        value={weaponRank ?? ""}
+        onChange={(e) => handleWeaponRank(e.target.value)}
         notched
       >
         {weaponRankOptions().map((rank) => (
