@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Stack, Typography, Button, Checkbox, FormControlLabel, Box } from "@mui/material";
 import { UploadFile, ImageSearch } from "@mui/icons-material";
 import { AVATAR_ASSETS } from "@assets";
@@ -8,7 +8,6 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
   const [rawFileList, setRawFileList] = useState([]);
   const [importedIds, setImportedIds] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [croppedImage, setCroppedImage] = useState(null);
 
   const handleImport = (files) => {
     if (!files.length) return;
@@ -70,39 +69,81 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
   
     const data = await res.json();
     const text = data?.ParsedResults?.[0]?.ParsedText;
-    const firstLine = text?.split(/\r?\n/)[0]; // handles both \n and \r\n
-    return firstLine || "";
+    return text || "";
+  };
+
+  const combineImagesVertically = async (imageBlobs) => {
+    const images = await Promise.all(
+      imageBlobs.map((blob) =>
+        new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve(img);
+          img.src = URL.createObjectURL(blob);
+        })
+      )
+    );
+  
+    const width = 703;
+    const totalHeight = images.length * 90;
+  
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = totalHeight;
+    const ctx = canvas.getContext("2d");
+  
+    let y = 0;
+    for (const img of images) {
+      ctx.drawImage(img, 0, y);
+      y += 90;
+    }
+  
+    return new Promise((resolve) =>
+      canvas.toBlob((blob) => resolve(blob), "image/jpeg")
+    );
   };
 
   useEffect(() => {
     if (!rawFileList.length) return;
   
     const processImages = async () => {
-      const newImportedIds = [];
-  
+      const croppedImages = [];
       for (const dataUrl of rawFileList) {
-        try {
-          // 1. Create an <img> element from the Data URL
-          const img = await loadImage(dataUrl);
-  
-          // 2. Crop the image
-          const croppedBlob = await cropImage(img, { x1: 63, y1: 0, x2: 760, y2: 90 });
+        const img = await loadImage(dataUrl);
+        const croppedBlob = await cropImage(img, { x1: 63, y1: 0, x2: 760, y2: 90 });
+        croppedImages.push(croppedBlob);
+      }
 
-          // 3. Send to ocr.space API
-          const text = await sendToOCRSpace(croppedBlob);
-  
-          // 4. Push the parsed text to the result array
-          const newId = Object.entries(AVATAR_DATA[gameId])
-            .find(([_, { name }]) => name === text)?.[0];
-          if (!newId) throw new Error(`No match found for "${text}"`);
-          newImportedIds.push([newId, false]);
+      const newImportedIds = [];
+      if (croppedImages.length) {
+        try {
+          const combinedBlob = await combineImagesVertically(croppedImages);
+          const ocrText = await sendToOCRSpace(combinedBlob);
+          console.log(ocrText);
+          const lines = ocrText
+            .split(/\r?\n/)
+            .map(line => line.trim())
+            .filter(Boolean)
+            .filter((_, index) => index % 2 === 0)
+            .filter(line => line !== "Rover");
+          console.log(lines);
+          
+          for (const text of lines) {
+            try {
+              const newId = Object.entries(AVATAR_DATA[gameId])
+                .find(([_, { name }]) => name === text)?.[0];
+              if (!newId) throw new Error(`No match found for "${text}"`);
+              newImportedIds.push([newId, false]);
+            } catch (err) {
+              console.error("Error matching text:", err);
+            }
+          }
         } catch (err) {
-          console.error("Error processing image:", err);
-          newImportedIds.push(["", false]); // optional: placeholder for failed OCR
+          console.error("Error combining or sending to OCR:", err);
+          // Optional: fallback for when OCR call itself fails
+          newImportedIds.push(["", false]);
         }
       }
-  
-      setImportedIds(newImportedIds);
+      if (newImportedIds.length) setImportedIds(newImportedIds);
       setIsLoading(false);
     };
   
