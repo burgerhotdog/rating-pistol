@@ -154,7 +154,6 @@ const Game = ({ gameId, userId }) => {
                   onClick={handleLoad}
                   variant="outlined"
                   endIcon={<KeyboardArrowRight />}
-                  disabled={gameId === "ww"}
                 >
                   Lookup UID
                 </Button>
