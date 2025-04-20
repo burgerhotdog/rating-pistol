@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { writeBatch, doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
 import {
   Box,
@@ -14,7 +14,6 @@ import template from "@config/template";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA, STAT_DATA } from "@data";
 import translate from "./translate";
-import { getRatings } from "@utils";
 
 const errorMessages = {
   400: "Wrong UID format",
@@ -29,13 +28,12 @@ const errorMessages = {
 const suffixes = {
   gi: "uid/",
   hsr: "hsr/uid/",
-  ww: "",
   zzz: "zzz/uid/",
 };
 
 const urlBase = "https://rating-pistol.vercel.app/api/proxy?suffix=";
 
-const Enka = ({ gameId, userId, setAvatarCache, closeModal }) => {
+const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
   const [error, setError] = useState(null);
   const [uid, setUid] = useState(null);
   const [rememberUid, setRememberUid] = useState(false);
@@ -291,24 +289,7 @@ const Enka = ({ gameId, userId, setAvatarCache, closeModal }) => {
       }
     });
 
-    const localUpdates = {};
-    const batch = userId ? writeBatch(db) : null;
-    charBuffer.forEach(({ id, data }) => {
-      const ratings = getRatings(gameId, id, data.equipList);
-      localUpdates[id] = { data, ratings };
-      
-      if (userId) {
-        const docRef = doc(db, "users", userId, gameId, id);
-        batch.set(docRef, data, { merge: true });
-      }
-    });
-    if (userId) await batch.commit();
-
-    setAvatarCache((prev) => ({
-      ...prev,
-      ...localUpdates,
-    }));
-
+    saveAvatarBatch(charBuffer);
     closeModal();
   };
 

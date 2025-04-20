@@ -82,36 +82,6 @@ export default {
       "StatusResistance": "RES",
     },
   },
-
-  ww: {
-    maleToFemale: {
-      "1605": "1604", // havoc
-      "1501": "1502", // spectro
-      "1406": "1408", // spectro
-    },
-    STAT_CONVERT: {
-      "": "_HP",
-      "": "_ATK",
-      "": "_DEF",
-      "": "HP",
-      "": "ATK",
-      "": "DEF",
-      "": "CR",
-      "": "CD",
-      "": "HB",
-      "": "AERO",
-      "": "ELECTRO",
-      "": "FUSION",
-      "": "GLACIO",
-      "": "HAVOC",
-      "": "SPECTRO",
-      "": "ER",
-      "": "BA",
-      "": "HA",
-      "": "RS",
-      "": "RL",
-    },
-  },
   
   zzz: {
     STAT_CONVERT: {

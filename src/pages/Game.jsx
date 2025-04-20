@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { collection, getDocs, doc, setDoc } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc, writeBatch } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
@@ -83,6 +83,33 @@ const Game = ({ gameId, userId }) => {
           ratings: getRatings(gameId, id, newData.equipList),
         }),
       },
+    }));
+  };
+
+  const saveAvatarBatch = async (entries) => {
+    if (!entries.length) return;
+  
+    const batch = writeBatch(db);
+    const newCache = {};
+  
+    for (const [id, newData] of entries) {
+      if (userId) {
+        const ref = doc(db, "users", userId, gameId, id);
+        batch.set(ref, newData, { merge: true });
+      }
+  
+      newCache[id] = {
+        data: newData,
+        ratings: getRatings(gameId, id, newData.equipList),
+      };
+    }
+  
+    if (userId) await batch.commit();
+  
+    // Update cache
+    setAvatarCache((prev) => ({
+      ...prev,
+      ...newCache,
     }));
   };
 
@@ -182,6 +209,7 @@ const Game = ({ gameId, userId }) => {
         avatarCache={avatarCache}
         setAvatarCache={setAvatarCache}
         saveAvatar={saveAvatar}
+        saveAvatarBatch={saveAvatarBatch}
       />
     </Container>
   );

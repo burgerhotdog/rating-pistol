@@ -3,8 +3,9 @@ import { Stack, Typography, Button, Checkbox, FormControlLabel, Box } from "@mui
 import { UploadFile, ImageSearch } from "@mui/icons-material";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA } from "@data";
+import combineImages from "./combineImages";
 
-const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
+const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, closeModal }) => {
   const [rawFileList, setRawFileList] = useState([]);
   const [importedIds, setImportedIds] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -72,36 +73,6 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
     return text || "";
   };
 
-  const combineImagesVertically = async (imageBlobs) => {
-    const images = await Promise.all(
-      imageBlobs.map((blob) =>
-        new Promise((resolve) => {
-          const img = new Image();
-          img.onload = () => resolve(img);
-          img.src = URL.createObjectURL(blob);
-        })
-      )
-    );
-  
-    const width = 703;
-    const totalHeight = images.length * 90;
-  
-    const canvas = document.createElement("canvas");
-    canvas.width = width;
-    canvas.height = totalHeight;
-    const ctx = canvas.getContext("2d");
-  
-    let y = 0;
-    for (const img of images) {
-      ctx.drawImage(img, 0, y);
-      y += 90;
-    }
-  
-    return new Promise((resolve) =>
-      canvas.toBlob((blob) => resolve(blob), "image/jpeg")
-    );
-  };
-
   useEffect(() => {
     if (!rawFileList.length) return;
   
@@ -116,7 +87,7 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
       const newImportedIds = [];
       if (croppedImages.length) {
         try {
-          const combinedBlob = await combineImagesVertically(croppedImages);
+          const combinedBlob = await combineImages(croppedImages);
           const ocrText = await sendToOCRSpace(combinedBlob);
           console.log(ocrText);
           const lines = ocrText
@@ -153,7 +124,7 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
   const handleCheckbox = (index, newChecked) =>
     setImportedIds((prev) =>
       prev.map(([id, isChecked], i) =>
-        i === index
+        i === index 
           ? [id, newChecked]
           : [id, isChecked]
       )
