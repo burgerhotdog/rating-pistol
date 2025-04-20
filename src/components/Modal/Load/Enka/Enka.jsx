@@ -169,7 +169,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
           data.skillMap["002"] = Number(skillsArr[skillsArr.length - 2]);
           data.skillMap["003"] = Number(skillsArr[skillsArr.length - 1]);
 
-          return { id, data };
+          return [id, data];
         }
 
         case "hsr": {
@@ -227,7 +227,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
             }
           }
 
-          return { id, data };
+          return [id, data];
         }
 
         case "zzz": {
@@ -284,7 +284,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
             data.skillMap[`10${i}`] = 1;
           }
 
-          return { id, data };
+          return [id, data];
         }
       }
     });
