@@ -6,7 +6,6 @@ const Rating = ({ gameId, modalPipe }) => {
 
   return (
     <Box sx={{ width: 500 }}>
-      <Typography>This page is currently being redesigned. Please check back later</Typography>
       <Histogram
         gameId={gameId}
         avatarId={id}

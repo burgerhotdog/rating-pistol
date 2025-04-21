@@ -33,7 +33,7 @@ const Histogram = ({ gameId, avatarId, percentile, score, simScores }) => {
     <Paper sx={{ p: 2 }}>
       <Stack justifyContent="center" alignItems="center" spacing={1} sx={{ height: 300 }}>
         <Stack direction="row" alignItems="center" spacing={1}>
-          <Typography variant="h6">Substat Roll Value Distribution</Typography>
+          <Typography variant="h6">Score Distribution</Typography>
 
           <Tooltip title={helpText}>
             <IconButton size="small">
