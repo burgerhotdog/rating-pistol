@@ -4,6 +4,52 @@ import { UploadFile, ImageSearch } from "@mui/icons-material";
 import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA } from "@data";
 import combineImages from "./combineImages";
+import CROP from "./crop.json";
+import { template } from "@config/template";
+
+const loadImage = (dataUrl) =>
+  new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = dataUrl;
+  });
+  
+const cropImage = (img, crop) => {
+  const canvas = document.createElement("canvas");
+  canvas.width = crop.width;
+  canvas.height = crop.height;
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(
+    img,
+    crop.x,
+    crop.y,
+    crop.width,
+    crop.height,
+    0,
+    0,
+    crop.width,
+    crop.height,
+  );
+  return new Promise((resolve) =>
+    canvas.toBlob((blob) => resolve(blob), "image/jpeg")
+  );
+};
+  
+const sendToOCRSpace = async (blob) => {
+  const formData = new FormData();
+  formData.append("file", blob, "image.jpg");
+
+  const res = await fetch("https://api.ocr.space/parse/image", {
+    method: "POST",
+    headers: { "apikey": import.meta.env.VITE_OCR_KEY },
+    body: formData,
+  });
+
+  const data = await res.json();
+  const text = data?.ParsedResults?.[0]?.ParsedText;
+  return text || "";
+};
 
 const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, closeModal }) => {
   const [rawFileList, setRawFileList] = useState([]);
@@ -27,52 +73,6 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
     });
   };
 
-  const loadImage = (dataUrl) =>
-    new Promise((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = reject;
-      img.src = dataUrl;
-    });
-  
-  const cropImage = (img, crop) => {
-    const canvas = document.createElement("canvas");
-    const width = crop.x2 - crop.x1;
-    const height = crop.y2 - crop.y1;
-    canvas.width = width;
-    canvas.height = height;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(
-      img,
-      crop.x1,
-      crop.y1,
-      width,
-      height,
-      0,
-      0,
-      width,
-      height,
-    );
-    return new Promise((resolve) =>
-      canvas.toBlob((blob) => resolve(blob), "image/jpeg")
-    );
-  };
-  
-  const sendToOCRSpace = async (blob) => {
-    const formData = new FormData();
-    formData.append("file", blob, "image.jpg");
-  
-    const res = await fetch("https://api.ocr.space/parse/image", {
-      method: "POST",
-      headers: { "apikey": import.meta.env.VITE_OCR_KEY },
-      body: formData,
-    });
-  
-    const data = await res.json();
-    const text = data?.ParsedResults?.[0]?.ParsedText;
-    return text || "";
-  };
-
   useEffect(() => {
     if (!rawFileList.length) return;
   
@@ -80,7 +80,7 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
       const croppedImages = [];
       for (const dataUrl of rawFileList) {
         const img = await loadImage(dataUrl);
-        const croppedBlob = await cropImage(img, { x1: 63, y1: 0, x2: 760, y2: 90 });
+        const croppedBlob = await cropImage(img, CROP.avatar);
         croppedImages.push(croppedBlob);
       }
 
@@ -90,28 +90,38 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
           const combinedBlob = await combineImages(croppedImages);
           const ocrText = await sendToOCRSpace(combinedBlob);
           console.log(ocrText);
-          const lines = ocrText
+          
+          const allLines = ocrText
             .split(/\r?\n/)
             .map(line => line.trim())
-            .filter(Boolean)
-            .filter((_, index) => index % 2 === 0)
-            .filter(line => line !== "Rover");
-          console.log(lines);
+            .filter(Boolean);
+            
+          const nameLines = [];
+          const otherLines = [];
           
-          for (const text of lines) {
+          allLines.forEach((line, index) => {
+            if (index % 2 === 0) {
+              nameLines.push(line);
+            } else {
+              otherLines.push(line);
+            }
+          });
+          
+          for (const [index, text] of nameLines.entries()) {
             try {
               const newId = Object.entries(AVATAR_DATA[gameId])
                 .find(([_, { name }]) => name === text)?.[0];
               if (!newId) throw new Error(`No match found for "${text}"`);
-              newImportedIds.push([newId, false]);
+
+              const newLevel = parseInt(otherLines[index].match(/\d+/)?.[0] || "1");
+              newImportedIds.push([newId, newLevel, false]);
             } catch (err) {
-              console.error("Error matching text:", err);
+              console.error("No matching id found for:", err);
             }
           }
         } catch (err) {
           console.error("Error combining or sending to OCR:", err);
-          // Optional: fallback for when OCR call itself fails
-          newImportedIds.push(["", false]);
+          newImportedIds.push(["", 1, false]);
         }
       }
       if (newImportedIds.length) setImportedIds(newImportedIds);
@@ -123,12 +133,87 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
 
   const handleCheckbox = (index, newChecked) =>
     setImportedIds((prev) =>
-      prev.map(([id, isChecked], i) =>
+      prev.map(([id, level, isChecked], i) =>
         i === index 
-          ? [id, newChecked]
-          : [id, isChecked]
+          ? [id, level, newChecked]
+          : [id, level, isChecked]
       )
     );
+
+  const handleSave = () => {
+    const selectedIds = importedIds.filter(([_, __, isChecked]) => isChecked);
+    const processImages = async () => {
+      const croppedImages = [];
+      for (const dataUrl of rawFileList) {
+        const img = await loadImage(dataUrl);
+        const croppedBlob = await cropImage(img, CROP.avatar);
+        croppedImages.push(croppedBlob);
+      }
+
+      const newImportedIds = [];
+      if (croppedImages.length) {
+        try {
+          const combinedBlob = await combineImages(croppedImages);
+          const ocrText = await sendToOCRSpace(combinedBlob);
+          console.log(ocrText);
+          
+          const allLines = ocrText
+            .split(/\r?\n/)
+            .map(line => line.trim())
+            .filter(Boolean);
+            
+          const nameLines = [];
+          const otherLines = [];
+          
+          allLines.forEach((line, index) => {
+            if (index % 2 === 0) {
+              nameLines.push(line);
+            } else {
+              otherLines.push(line);
+            }
+          });
+          
+          for (const [index, text] of nameLines.entries()) {
+            try {
+              const newId = Object.entries(AVATAR_DATA[gameId])
+                .find(([_, { name }]) => name === text)?.[0];
+              if (!newId) throw new Error(`No match found for "${text}"`);
+
+              const newLevel = parseInt(otherLines[index].match(/\d+/)?.[0] || "1");
+              newImportedIds.push([newId, newLevel, false]);
+            } catch (err) {
+              console.error("No matching id found for:", err);
+            }
+          }
+        } catch (err) {
+          console.error("Error combining or sending to OCR:", err);
+          newImportedIds.push(["", 1, false]);
+        }
+      }
+      if (newImportedIds.length) setImportedIds(newImportedIds);
+      setIsLoading(false);
+    };
+    const selectedImageData = rawFileList
+      .filter((_, index) => importedIds[index][2])
+      .map(dataUrl => {
+        const img = await loadImage(dataUrl);
+        const croppedBlob = await cropImage(img, CROP.avatar);
+        croppedImages.push(croppedBlob);
+
+      });
+
+    const charBuffer = selectedIds
+      .map(([id, level]) => {
+        const data = template(gameId);
+        data.level = level;
+
+
+        return [id, data];
+      });
+
+    console.log(charBuffer);
+    return;
+  };
 
   if (!importedIds.length) {
     return (
@@ -165,7 +250,7 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
         <Typography variant="subtitle1">
           Select characters to add.
         </Typography>
-        {importedIds.map(([id, isChecked], index) => (
+        {importedIds.map(([id, level, isChecked], index) => (
           <FormControlLabel
             key={index}
             control={
@@ -185,6 +270,9 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
                 />
                 <Typography variant="body2">
                   {AVATAR_DATA[gameId][id].name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {`(lvl ${level})`}
                 </Typography>
               </Stack>
             }
