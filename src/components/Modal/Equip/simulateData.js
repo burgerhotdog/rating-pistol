@@ -1,10 +1,10 @@
 import { INFO_DATA, STAT_DATA } from "@data";
-import getRollValue from "@utils/getRollValue";
+import { getScore } from "@utils";
 import { getStatPool, getRandomMultiplier } from "./simulationConstants";
 
 const ITERATIONS = 10000;
 
-const simulateData = (gameId, mainstat, weights) => {
+const simulateData = (gameId, avatarId, mainstat) => {
   const scores = new Array(ITERATIONS).fill(0);
   // remove mainstat from substat pool
   const startingPool = getStatPool[gameId].filter(([stat]) =>
@@ -47,7 +47,7 @@ const simulateData = (gameId, mainstat, weights) => {
       }
     }
 
-    scores[i] = getRollValue(gameId, substats, weights);
+    scores[i] = getScore(gameId, avatarId, substats);
   }
   return scores;
 };

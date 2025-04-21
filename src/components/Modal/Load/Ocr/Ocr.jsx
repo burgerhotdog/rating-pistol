@@ -5,7 +5,7 @@ import { AVATAR_ASSETS } from "@assets";
 import { AVATAR_DATA } from "@data";
 import combineImages from "./combineImages";
 import CROP from "./crop.json";
-import { template } from "@config/template";
+import template from "@config/template";
 
 const loadImage = (dataUrl) =>
   new Promise((resolve, reject) => {
@@ -114,7 +114,7 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
               if (!newId) throw new Error(`No match found for "${text}"`);
 
               const newLevel = parseInt(otherLines[index].match(/\d+/)?.[0] || "1");
-              newImportedIds.push([newId, newLevel, false]);
+              newImportedIds.push([newId, newLevel, true]);
             } catch (err) {
               console.error("No matching id found for:", err);
             }
@@ -139,80 +139,84 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
           : [id, level, isChecked]
       )
     );
-
-  const handleSave = () => {
-    const selectedIds = importedIds.filter(([_, __, isChecked]) => isChecked);
-    const processImages = async () => {
-      const croppedImages = [];
-      for (const dataUrl of rawFileList) {
-        const img = await loadImage(dataUrl);
-        const croppedBlob = await cropImage(img, CROP.avatar);
-        croppedImages.push(croppedBlob);
-      }
-
-      const newImportedIds = [];
-      if (croppedImages.length) {
-        try {
-          const combinedBlob = await combineImages(croppedImages);
-          const ocrText = await sendToOCRSpace(combinedBlob);
-          console.log(ocrText);
-          
-          const allLines = ocrText
-            .split(/\r?\n/)
-            .map(line => line.trim())
-            .filter(Boolean);
-            
-          const nameLines = [];
-          const otherLines = [];
-          
-          allLines.forEach((line, index) => {
-            if (index % 2 === 0) {
-              nameLines.push(line);
-            } else {
-              otherLines.push(line);
-            }
-          });
-          
-          for (const [index, text] of nameLines.entries()) {
-            try {
-              const newId = Object.entries(AVATAR_DATA[gameId])
-                .find(([_, { name }]) => name === text)?.[0];
-              if (!newId) throw new Error(`No match found for "${text}"`);
-
-              const newLevel = parseInt(otherLines[index].match(/\d+/)?.[0] || "1");
-              newImportedIds.push([newId, newLevel, false]);
-            } catch (err) {
-              console.error("No matching id found for:", err);
-            }
-          }
-        } catch (err) {
-          console.error("Error combining or sending to OCR:", err);
-          newImportedIds.push(["", 1, false]);
+  
+  const combineAvatarParts = async (index) => {
+    try {
+      const img = await loadImage(rawFileList[index]);
+      const croppedParts = [];
+      for (const skillCrop of CROP.skills) {
+        const crop = await cropImage(img, skillCrop);
+        if (!(crop instanceof Blob)) {
+          console.error("cropImage didn't return a valid Blob");
+          throw new Error("Invalid crop result");
         }
+        croppedParts.push(crop);
       }
-      if (newImportedIds.length) setImportedIds(newImportedIds);
+      
+      if (croppedParts.length === 0) {
+        throw new Error("No crop parts were generated");
+      }
+
+      const combinedBlob = await combineImages(croppedParts);
+      if (!(combinedBlob instanceof Blob)) {
+        throw new Error("combineImages didn't return a valid Blob");
+      }
+      return combinedBlob;
+    } catch (error) {
+      console.error(`Error in combineAvatarParts for index ${index}:`, error);
+      // Create a fallback blank blob with minimum size
+      const canvas = document.createElement("canvas");
+      canvas.width = 100;
+      canvas.height = 100;
+      return new Promise(resolve => canvas.toBlob(resolve, "image/jpeg"));
+    }
+  };
+
+  const handleSave = async () => {
+    setIsLoading(true);
+    const selectedIndexes = importedIds
+      .map(([_, __, isChecked], index) => ([index, isChecked]))
+      .filter(([_, isChecked]) => isChecked);
+    
+    if (selectedIndexes.length === 0) {
       setIsLoading(false);
-    };
-    const selectedImageData = rawFileList
-      .filter((_, index) => importedIds[index][2])
-      .map(dataUrl => {
-        const img = await loadImage(dataUrl);
-        const croppedBlob = await cropImage(img, CROP.avatar);
-        croppedImages.push(croppedBlob);
+      return;
+    }
 
-      });
-
-    const charBuffer = selectedIds
-      .map(([id, level]) => {
+    const selectedImageData = await Promise.all(
+      selectedIndexes.map(([index]) => combineAvatarParts(index))
+    );
+    // Debugging to verify selectedImageData contains valid Blobs
+    console.log("Selected image data:", selectedImageData.map(img => img instanceof Blob));
+    
+    try {
+      const bigBlob = await combineImages(selectedImageData);
+      // Verify that bigBlob is a valid Blob before passing to sendToOCRSpace
+      if (!(bigBlob instanceof Blob)) {
+        throw new Error("Combined result is not a Blob");
+      }
+      const ocrText = await sendToOCRSpace(bigBlob);
+      console.log(ocrText);
+      const allLines = ocrText
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean);
+      const charBuffer = [];
+      let count = 0;
+      for (const [index, _] of selectedIndexes) {
+        const id = importedIds[index][0];
         const data = template(gameId);
-        data.level = level;
+        data.level = importedIds[index][1];
 
+        charBuffer.push([id, data]);
+      }
 
-        return [id, data];
-      });
-
-    console.log(charBuffer);
-    return;
+      console.log(charBuffer);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error in handleSave:", error);
+      setIsLoading(false);
+    }
   };
 
   if (!importedIds.length) {
@@ -281,7 +285,7 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
         ))}
       </Stack>
       
-      <Button onClick={closeModal} loading={isLoading} variant="contained">
+      <Button onClick={handleSave} loading={isLoading} variant="contained">
         Save
       </Button>
     </Stack>

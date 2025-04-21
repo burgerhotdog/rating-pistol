@@ -1,0 +1,27 @@
+import { getScore, simEquipScores, simAvatarScores } from "@utils";
+
+const calcPercentile = (score, simScores) => {
+  const countBelow = simScores.filter(simScore => simScore < score).length;
+  return (countBelow / simScores.length) * 100;
+};
+
+const getRating = (gameId, avatarId, equipList) => {
+  const equipRatings = equipList.map(({ stat, statList }) => {
+    const score = getScore(gameId, avatarId, statList);
+    const simScores = simEquipScores(gameId, avatarId, stat);
+    const percentile = calcPercentile(score, simScores);
+
+    return { percentile, score, simScores };
+  });
+
+  const score = equipRatings.reduce((acc, { score }) => acc + score, 0);
+  const simScores = simAvatarScores(gameId, equipRatings);
+  const percentile = calcPercentile(score, simScores);
+  
+  return {
+    avatar: { percentile, score, simScores },
+    equips: equipRatings,
+  };
+};
+
+export default getRating;

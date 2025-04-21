@@ -1,12 +1,12 @@
 {
-  "avatar": { "x": 62, "y": 0, "width": 697, "height": 90 },
-  "skills": {
-    "001": { "x": 1054, "y": 182, "width": 116, "height": 33 },
-    "002": { "x": 830, "y": 339, "width": 115, "height": 33 },
-    "003": { "x": 1246, "y": 338, "width": 131, "height": 35 },
-    "004": { "x": 1173, "y": 584, "width": 116, "height": 33 },
-    "005": { "x": 905, "y": 585, "width": 118, "height": 33 }
-  },
+  "avatar": { "x": 62, "y": 0, "width": 600, "height": 90 },
+  "skills": [
+    { "x": 1055, "y": 185, "width": 110, "height": 30 },
+    { "x": 840, "y": 340, "width": 110, "height": 30 },
+    { "x": 1255, "y": 340, "width": 110, "height": 30 },
+    { "x": 1175, "y": 585, "width": 110, "height": 30 },
+    { "x": 910, "y": 585, "width": 110, "height": 30 }
+  ],
   "weapon": {
     "name": { "x": 1600, "y": 450, "width": 282, "height": 53 },
     "level": { "x": 1640, "y": 506, "width": 69, "height": 34 }

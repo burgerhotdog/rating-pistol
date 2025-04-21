@@ -3,7 +3,7 @@ import { Paper, Stack, Typography, Tooltip, IconButton } from "@mui/material";
 import { HelpOutline } from "@mui/icons-material";
 import Plot from "react-plotly.js";
 import { AVATAR_DATA } from "@data";
-import getRollValue from "@utils/getRollValue";
+import getScore from "@utils/getScore";
 import simulateData from "./simulateData";
 
 const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
@@ -13,13 +13,13 @@ const Analysis = ({ gameId, avatarId, equipIndex, equipObj }) => {
 
   // Calculate substat score
   const rollValue = useMemo(
-    () => getRollValue(gameId, substats, weights),
+    () => getScore(gameId, avatarId, substats),
     [substats]
   );
 
   // Generate simulation data
   const simulationData = useMemo(
-    () => mainstat ? simulateData(gameId, mainstat, weights).sort((a, b) => a - b) : [],
+    () => mainstat ? simulateData(gameId, avatarId, mainstat).sort((a, b) => a - b) : [],
     [equipIndex, mainstat]
   );
 

@@ -4,7 +4,7 @@ import { db } from "@config/firebase";
 import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import { VERSION_DATA, INFO_DATA, LABEL_DATA } from "@data";
-import { getRatings } from "@utils";
+import { getRating } from "@utils";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
 import AvatarsView from "@components/AvatarsView";
@@ -29,10 +29,11 @@ const Game = ({ gameId, userId }) => {
           for (const doc of avatarDocs.docs) {
             newAvatarCache[doc.id] = {
               data: doc.data(),
-              ratings: getRatings(gameId, doc.id, doc.data().equipList),
+              rating: getRating(gameId, doc.id, doc.data().equipList),
             };
           }
           setAvatarCache(newAvatarCache);
+          console.log(newAvatarCache);
 
           const teamRef = collection(db, "users", userId, `${gameId}_teams`);
           const teamDocs = await getDocs(teamRef);
@@ -59,7 +60,7 @@ const Game = ({ gameId, userId }) => {
     Object.entries(avatarCache)
       .sort(([, a], [, b]) => (
         a.data.isStar === b.data.isStar
-          ? a.ratings.avatar.percent - b.ratings.avatar.percent
+          ? b.rating.avatar.percentile - a.rating.avatar.percentile
           : a.data.isStar ? -1 : 1
       ))
       .map(([avatarId]) => avatarId)
@@ -80,7 +81,7 @@ const Game = ({ gameId, userId }) => {
           ...newData,
         },
         ...(newData.equipList && {
-          ratings: getRatings(gameId, id, newData.equipList),
+          rating: getRating(gameId, id, newData.equipList),
         }),
       },
     }));
@@ -100,7 +101,7 @@ const Game = ({ gameId, userId }) => {
   
       newCache[id] = {
         data: newData,
-        ratings: getRatings(gameId, id, newData.equipList),
+        rating: getRating(gameId, id, newData.equipList),
       };
     }
   
@@ -179,6 +180,7 @@ const Game = ({ gameId, userId }) => {
                 </Button>
                 <Button
                   onClick={handleLoad}
+                  disabled={gameId === "ww"}
                   variant="outlined"
                   endIcon={<KeyboardArrowRight />}
                 >

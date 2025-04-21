@@ -99,7 +99,7 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
             setModalPipe={setModalPipe}
             id={avatarId}
             data={avatarCache[avatarId].data}
-            ratings={avatarCache[avatarId].ratings}
+            rating={avatarCache[avatarId].rating}
           />
 
           <DeleteCell
