@@ -14,7 +14,6 @@ import { EQUIP_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
 import Input from "./Input";
 import PreviewSet from "./PreviewSet";
-import Analysis from "./Analysis";
 
 const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
   const { id, data } = modalPipe;
@@ -65,12 +64,6 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
           </Stack>
         </Grid>
         <Grid size="grow">
-          <Analysis
-            gameId={gameId}
-            avatarId={id}
-            equipIndex={viewIndex}
-            equipObj={equipList[viewIndex]}
-          />
         </Grid>
         
         <Grid size={12}>

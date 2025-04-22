@@ -7,15 +7,12 @@
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "statBase": { "_HP": 11600, "_ATK": 400, "_DEF": 1100 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "ER": 0.3,
-      "BA": 0.3,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 5,
+      "CD": 5,
+      "ATK": 3,
+      "ER": 2,
+      "BA": 1,
+      "_ATK": 1
     }
   },
   "1408": {
@@ -26,15 +23,11 @@
     "minor": ["ATK", "ATK", "HB", "HB", "ATK", "ATK", "HB", "HB"],
     "statBase": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "ER": 0.3,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "ER": 2,
+      "_ATK": 1
     }
   },
   "1506": {
@@ -45,15 +38,11 @@
     "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     "statBase": { "_HP": 10825, "_ATK": 413, "_DEF": 1259 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "ER": 0.3,
-      "HA": 0.3,
-      "BA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 5,
+      "CD": 5,
+      "ATK": 3,
+      "ER": 2,
+      "HA": 1
     }
   },
   "1206": {
@@ -64,15 +53,11 @@
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "statBase": { "_HP": 11675, "_ATK": 375, "_DEF": 1308 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ER": 1,
-      "ATK": 0.6,
-      "BA": 0.3,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 5,
+      "CD": 5,
+      "ER": 4,
+      "ATK": 2,
+      "BA": 1
     }
   },
   "1606": {
@@ -445,33 +430,25 @@
     "minor": ["DEF", "DEF", "HAVOC", "HAVOC", "DEF", "DEF", "HAVOC", "HAVOC"],
     "statBase": { "_HP": 8950, "_ATK": 225, "_DEF": 1564 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "DEF": 0.6,
-      "ER": 0.3,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_DEF": 0.1
+      "CR": 5,
+      "CD": 5,
+      "DEF": 3,
+      "ER": 2,
+      "_DEF": 1
     }
   },
   "1403": {
     "name": "Aalto",
-    "rarity": 4,
+    "rarity": 4, 
     "type": "Pistols",
     "minor": ["ATK", "ATK", "AERO", "AERO", "ATK", "ATK", "AERO", "AERO"],
     "statBase": { "_HP": 9850, "_ATK": 263, "_DEF": 1075 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "ER": 0.3,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 5,
+      "CD": 5,
+      "ATK": 3,
+      "ER": 2,
+      "_ATK": 1
     }
   },
   "1402": {
@@ -481,15 +458,11 @@
     "minor": ["ATK", "ATK", "AERO", "AERO", "ATK", "ATK", "AERO", "AERO"],
     "statBase": { "_HP": 10200, "_ATK": 250, "_DEF": 1100 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "ER": 0.3,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 5,
+      "CD": 5,
+      "ATK": 3,
+      "ER": 2,
+      "_ATK": 1
     }
   },
   "1303": {
@@ -499,15 +472,11 @@
     "minor": ["DEF", "DEF", "ELECTRO", "ELECTRO", "DEF", "DEF", "ELECTRO", "ELECTRO"],
     "statBase": { "_HP": 8525, "_ATK": 225, "_DEF": 1637 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "DEF": 0.6,
-      "ER": 0.3,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_DEF": 0.1
+      "CR": 5,
+      "CD": 5,
+      "DEF": 3,
+      "ER": 2,
+      "_DEF": 1
     }
   },
   "1204": {
@@ -517,15 +486,11 @@
     "minor": ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
     "statBase": { "_HP": 10025, "_ATK": 250, "_DEF": 1136 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "ER": 0.6,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 5,
+      "CD": 5,
+      "ATK": 3,
+      "ER": 3,
+      "_ATK": 1
     }
   },
   "1202": {
@@ -535,15 +500,11 @@
     "minor": ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
     "statBase": { "_HP": 9088, "_ATK": 300, "_DEF": 953 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "ER": 0.3,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 5,
+      "CD": 5,
+      "ATK": 3,
+      "ER": 2,
+      "_ATK": 1
     }
   },
   "1103": {
@@ -553,9 +514,9 @@
     "minor": ["HP", "HP", "HB", "HB", "HP", "HP", "HB", "HB"],
     "statBase": { "_HP": 12813, "_ATK": 213, "_DEF": 1002 },
     "weights": {
-      "ER": 1,
-      "HP": 0.6,
-      "_HP": 0.1
+      "ER": 5,
+      "HP": 3,
+      "_HP": 1
     }
   },
   "1102": {
@@ -565,15 +526,11 @@
     "minor": ["ATK", "ATK", "GLACIO", "GLACIO", "ATK", "ATK", "GLACIO", "GLACIO"],
     "statBase": { "_HP": 10063, "_ATK": 275, "_DEF": 941 },
     "weights": {
-      "CR": 1,
-      "CD": 1,
-      "ATK": 0.6,
-      "ER": 0.3,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.1,
-      "_ATK": 0.1
+      "CR": 5,
+      "CD": 5,
+      "ATK": 3,
+      "ER": 2,
+      "_ATK": 1
     }
   }
 }
