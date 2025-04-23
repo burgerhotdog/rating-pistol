@@ -1,40 +1,57 @@
 import Plot from "react-plotly.js";
 
-const Histogram = ({ percentile, score, simScores }) => {
+const calculateMean = (scores) => {
+  const sum = scores.reduce((acc, score) => acc + score, 0);
+  return sum / scores.length;
+};
+
+const Relative = ({ percentile, score, simScores }) => {
+  const mean = calculateMean(simScores);
+  const relativeScore = score / mean;
+  const relativeScores = simScores.map(score => score / mean);
+
   return (
     <Plot
       data={[{
-        x: simScores,
+        x: relativeScores,
         type: "histogram",
       }]}
       layout={{
+        title: {
+          text: "Build Strength in relation to Average",
+          font: { color: "white" },
+        },
         xaxis: {
           title: { 
-            text: "Score",
+            text: "Relative Strength",
             font: { color: "grey" },
           },
           tickfont: { color: "grey" },
-          rangemode: "tozero",
+          range: [0, 2],
         },
         yaxis: {
+          title: { 
+            text: "Frequency",
+            font: { color: "grey" },
+          },
           tickfont: { color: "grey" },
-          rangemode: "tozero",
           gridcolor: "grey",
+          rangemode: "tozero",
         },
         shapes: [{
           type: "line",
-          x0: score,
-          x1: score,
+          x0: relativeScore,
+          x1: relativeScore,
           y0: 0,
           y1: 1,
-          line: { color: "red", width: 2 },
           yref: "paper",
+          line: { color: "red", width: 2 },
         }],
         annotations: [{
-          x: score,
+          x: relativeScore,
           y: 1,
           yref: "paper",
-          text: `You (${percentile.toFixed(2)}%)`,
+          text: `You (${relativeScore.toFixed(2)}x)`,
           font: { color: "white" },
           showarrow: true,
           arrowhead: 0,
@@ -53,4 +70,4 @@ const Histogram = ({ percentile, score, simScores }) => {
   );
 };
 
-export default Histogram;
+export default Relative;

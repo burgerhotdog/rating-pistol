@@ -3,13 +3,15 @@ import { Box, Stack, Typography, Tabs, Tab } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
 import { AVATAR_DATA, INFO_DATA } from "@data";
 import Histogram from "./Histogram";
+import Relative from "./Relative";
+import RelativeStrengthPlot from "./RelativeStrengthPlot";
 
 const Rating = ({ gameId, modalPipe }) => {
   const { id, data, rating } = modalPipe;
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <Stack spacing={2} sx={{ width: 800 }}>
+    <Stack spacing={2}>
       <Typography variant="h6" sx={{ fontWeight: "bold" }}>
         Rating Analysis
       </Typography>
@@ -38,11 +40,18 @@ const Rating = ({ gameId, modalPipe }) => {
       </Tabs>
 
       {activeTab === 0 ? (
-        <Histogram
-          percentile={rating.avatar.percentile}
-          score={rating.avatar.score}
-          simScores={rating.avatar.simScores}
-        />
+        <Stack direction="row" spacing={2}>
+          <Relative
+            percentile={rating.avatar.percentile}
+            score={rating.avatar.score}
+            simScores={rating.avatar.simScores}
+          />
+          <RelativeStrengthPlot
+            percentile={rating.avatar.percentile}
+            score={rating.avatar.score}
+            simScores={rating.avatar.simScores}
+          />
+        </Stack>
       ) : (
         <Histogram
           percentile={rating.equips[activeTab - 1].percentile}
