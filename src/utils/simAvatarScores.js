@@ -1,8 +1,7 @@
 import { INFO_DATA } from "@data";
-
 const ITERATIONS = 10000;
 
-const simulateAvatarRVs = (gameId, equipRatings) => {
+const simAvatarScores = (gameId, equipRatings) => {
   const scores = new Array(ITERATIONS).fill(0);
 
   for (let i = 0; i < ITERATIONS; i++) {
@@ -17,8 +16,8 @@ const simulateAvatarRVs = (gameId, equipRatings) => {
       const numTries = (4 - INFO_DATA[gameId].EQUIP_RARITY[j]) * numTriesMult;
       const rvs = [];
       for (let k = 0; k < numTries; k++) {
-        const random = Math.floor(Math.random() * equipRatings[j].simData.length);
-        const rv = equipRatings[j].simData[random];
+        const random = Math.floor(Math.random() * equipRatings[j].simScores.length);
+        const rv = equipRatings[j].simScores[random];
         rvs.push(rv);
       }
       const highest = Math.max(...rvs);
@@ -31,4 +30,4 @@ const simulateAvatarRVs = (gameId, equipRatings) => {
   return scores.sort((a, b) => a - b);
 };
 
-export default simulateAvatarRVs;
+export default simAvatarScores;

@@ -1,16 +1,16 @@
 import { Stack, Badge, Avatar, Typography, Tooltip, TableCell } from "@mui/material";
 import { RATING_ASSETS } from "@assets";
 
-const getIconSrc = (rating) => {
-  if (rating <= 10) return "0";
-  if (rating <= 25) return "1";
-  if (rating <= 50) return "2";
+const getIconSrc = (top) => {
+  if (top <= 10) return "0";
+  if (top <= 25) return "1";
+  if (top <= 50) return "2";
   return "3";
 };
 
-const RatingCell = ({ setModalPipe, id, data, ratings }) => {
-  const openModal = () => setModalPipe({ type: "rating", id, data, ratings });
-  const roundedRating = Math.ceil(ratings.avatar.percent);
+const RatingCell = ({ setModalPipe, id, data, rating }) => {
+  const openModal = () => setModalPipe({ type: "rating", id, data, rating });
+  const roundedRating = Math.max(1, 100 - Math.floor(rating.avatar.percentile));
   const iconSrc = getIconSrc(roundedRating)
 
   return (
@@ -28,9 +28,7 @@ const RatingCell = ({ setModalPipe, id, data, ratings }) => {
             onClick={openModal}
             sx={{ cursor: "pointer" }}
           >
-            {roundedRating <= 50
-              ? `Top ${roundedRating}%`
-              : `Bottom ${101 - roundedRating}%`}
+            {`Top ${roundedRating}%`}
           </Typography>
         </Stack>
       </Tooltip>

@@ -1,9 +1,9 @@
 import { INFO_DATA, STAT_DATA } from "@data";
-import { getMult, getRollValue } from "@utils";
+import { getMult, getScore } from "@utils";
 
 const ITERATIONS = 10000;
 
-const simulateEquipRVs = (gameId, mainstat, weights) => {
+const simEquipScores = (gameId, avatarId, mainstat) => {
   const scores = new Array(ITERATIONS).fill(0);
   const startingPool = Object.entries(STAT_DATA[gameId])
     .filter(([stat, { subValue }]) => {
@@ -54,10 +54,10 @@ const simulateEquipRVs = (gameId, mainstat, weights) => {
       }
     }
 
-    scores[i] = getRollValue(gameId, substats, weights);
+    scores[i] = getScore(gameId, avatarId, substats);
   }
 
   return scores.sort((a, b) => a - b);
 };
 
-export default simulateEquipRVs;
+export default simEquipScores;

@@ -1,0 +1,15 @@
+{
+  "avatar": { "x": 62, "y": 0, "width": 600, "height": 90 },
+  "skills": [
+    { "x": 1055, "y": 185, "width": 110, "height": 30 },
+    { "x": 840, "y": 340, "width": 110, "height": 30 },
+    { "x": 1255, "y": 340, "width": 110, "height": 30 },
+    { "x": 1175, "y": 585, "width": 110, "height": 30 },
+    { "x": 910, "y": 585, "width": 110, "height": 30 }
+  ],
+  "weapon": {
+    "name": { "x": 1600, "y": 450, "width": 282, "height": 53 },
+    "level": { "x": 1640, "y": 506, "width": 69, "height": 34 }
+  },
+  "equips": {}
+}

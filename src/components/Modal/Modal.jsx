@@ -14,6 +14,7 @@ const CustomModal = ({
   avatarCache,
   setAvatarCache,
   saveAvatar,
+  saveAvatarBatch,
 }) => {
   const closeModal = () => setModalPipe({});
   let modalContent = null;
@@ -58,6 +59,7 @@ const CustomModal = ({
           userId={userId}
           setAvatarCache={setAvatarCache}
           saveAvatar={saveAvatar}
+          saveAvatarBatch={saveAvatarBatch}
           closeModal={closeModal}
         />
       );

@@ -1,7 +1,8 @@
 import Ocr from "./Ocr";
 import Enka from "./Enka";
 
-const Load = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
+const Load = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, closeModal }) => {
+
   if (gameId === "ww") {
     return (
       <Ocr
@@ -9,6 +10,7 @@ const Load = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
         userId={userId}
         setAvatarCache={setAvatarCache}
         saveAvatar={saveAvatar}
+        saveAvatarBatch={saveAvatarBatch}
         closeModal={closeModal}
       />
     );
@@ -18,7 +20,7 @@ const Load = ({ gameId, userId, setAvatarCache, saveAvatar, closeModal }) => {
     <Enka
       gameId={gameId}
       userId={userId}
-      setAvatarCache={setAvatarCache}
+      saveAvatarBatch={saveAvatarBatch}
       closeModal={closeModal}
     />
   );
