@@ -1,4 +1,30 @@
 {
+  "14133": {
+    "name": "Flight of Fancy",
+    "rarity": 5,
+    "type": "Anomaly",
+    "statBase": { "_ATK": 713 },
+    "statSub": { "AP": 90 },
+    "descHead": "Silver Spiked Feathers",
+    "descBody": "Increases Anomaly Buildup Rate by {0}. When the equipper deals Ether DMG, their Anomaly Proficiency increases by {1} for 5s, stacking up to 6 times. This effect can trigger once every 0.5s, and repeated triggers reset the duration.",
+    "descVar": [
+      ["40%", "46%", "52%", "58%", "64%"],
+      ["20", "23", "26", "29", "32"]
+    ]
+  },
+  "14129": {
+    "name": "Myriad Eclipse",
+    "rarity": 5,
+    "type": "Attack",
+    "statBase": { "_ATK": 713 },
+    "statSub": { "CR": 24 },
+    "descHead": "False Personas",
+    "descBody": "Increases CRIT DMG by {0}. When using an EX Special Attack, Chain Attack, or Ultimate to deal Ice DMG, the equipper gains the Absolute Zero Death Sentence effect for 3s. While Absolute Zero Death Sentence is active, the character ignores {1} of the enemy's DEF when landing a hit.",
+    "descVar": [
+      ["45%", "52%", "59%", "65%", "72%"],
+      ["25%", "29%", "33%", "36%", "40%"]
+    ]
+  },
   "14138": {
     "name": "Severed Innocence",
     "rarity": 5,

@@ -80,9 +80,12 @@ const Game = ({ gameId, userId }) => {
           ...(prev[id]?.data ?? {}),
           ...newData,
         },
-        ...(newData.equipList && {
-          rating: getRating(gameId, id, newData.equipList),
-        }),
+        rating: {
+          ...(prev[id]?.rating ?? {}),
+          ...(newData.equipList
+            ? getRating(gameId, id, newData.equipList)
+            : {}),
+        },
       },
     }));
   };
