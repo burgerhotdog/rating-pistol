@@ -1,4 +1,31 @@
 {
+  "1331": {
+    "name": "Vivian",
+    "rarity": 5,
+    "type": "Anomaly",
+    "sig": "14133",
+    "statBase": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
+    "weights": {
+      "AP": 4,
+      "ATK": 3,
+      "PEN": 1,
+      "_ATK": 1
+    }
+  },
+  "1291": {
+    "name": "Hugo",
+    "rarity": 5,
+    "type": "Attack",
+    "sig": "14129",
+    "statBase": { "_HP": 7940, "_ATK": 919, "_DEF": 616 },
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "PEN": 1,
+      "_ATK": 1
+    }
+  },
   "1381": {
     "name": "Soldier 0 - Anby",
     "rarity": 5,

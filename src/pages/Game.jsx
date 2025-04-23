@@ -80,9 +80,12 @@ const Game = ({ gameId, userId }) => {
           ...(prev[id]?.data ?? {}),
           ...newData,
         },
-        ...(newData.equipList && {
-          rating: getRating(gameId, id, newData.equipList),
-        }),
+        rating: {
+          ...(prev[id]?.rating ?? {}),
+          ...(newData.equipList
+            ? getRating(gameId, id, newData.equipList)
+            : {}),
+        },
       },
     }));
   };
@@ -131,31 +134,16 @@ const Game = ({ gameId, userId }) => {
             </Typography>
           </Stack>
 
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs
-              value={activeTab}
-              onChange={(_, newValue) => setActiveTab(newValue)}
-              variant="fullWidth"
-              centered
-            >
-              <Tab 
-                label={
-                  <Typography variant="subtitle1" fontWeight="bold">
-                    {LABEL_DATA[gameId].Avatars}
-                  </Typography>
-                }
-                sx={{ textTransform: "none" }}
-              />
-              <Tab 
-                label={
-                  <Typography variant="subtitle1" fontWeight="bold">
-                    Teams (Unfinished)
-                  </Typography>
-                }
-                sx={{ textTransform: "none" }}
-              />
-            </Tabs>
-          </Box>
+          <Tabs
+            value={activeTab}
+            onChange={(_, newValue) => setActiveTab(newValue)}
+            variant="fullWidth"
+            centered
+            sx={{ borderBottom: 1, borderColor: "divider" }}
+          >
+            <Tab label={LABEL_DATA[gameId].Avatars} />
+            <Tab label="Teams (Coming Soon)" disabled />
+          </Tabs>
 
           {activeTab === 0 && (
             <Stack spacing={2}>
@@ -202,7 +190,6 @@ const Game = ({ gameId, userId }) => {
           )}
         </Stack>
       </Box>
-      
       <Modal
         gameId={gameId}
         userId={userId}

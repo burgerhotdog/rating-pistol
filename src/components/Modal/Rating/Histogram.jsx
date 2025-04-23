@@ -1,7 +1,7 @@
 import Plot from "react-plotly.js";
 const BIN_SIZE = 1;
 
-const Histogram = ({ gameId, avatarId, percentile, score, simScores }) => {
+const Histogram = ({ percentile, score, simScores }) => {
   return (
     <Plot
       data={[{

@@ -30,39 +30,9 @@ const theme = createTheme({
         disableClearable: true,
       },
     },
-    MuiTooltip: {
+    MuiAvatar: {
       defaultProps: {
-        arrow: true,
-      },
-    },
-    MuiTextField: {
-      defaultProps: {
-        size: "small",
-        slotProps: {
-          inputLabel: {
-            shrink: true,
-          },
-        },
-      },
-    },
-    MuiSelect: {
-      defaultProps: {
-        size: "small",
-        slotProps: {
-          inputLabel: {
-            shrink: true,
-          },
-        },
-      },
-    },
-    MuiCheckbox: {
-      defaultProps: {
-        size: "small",
-      },
-    },
-    MuiFormControl: {
-      defaultProps: {
-        size: "small",
+        variant: "square",
       },
     },
     MuiBadge: {
@@ -80,9 +50,39 @@ const theme = createTheme({
         },
       },
     },
-    MuiAvatar: {
+    MuiCheckbox: {
       defaultProps: {
-        variant: "square",
+        size: "small",
+      },
+    },
+    MuiFormControl: {
+      defaultProps: {
+        size: "small",
+      },
+    },
+    MuiSelect: {
+      defaultProps: {
+        size: "small",
+        slotProps: {
+          inputLabel: {
+            shrink: true,
+          },
+        },
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        size: "small",
+        slotProps: {
+          inputLabel: {
+            shrink: true,
+          },
+        },
+      },
+    },
+    MuiTooltip: {
+      defaultProps: {
+        arrow: true,
       },
     },
   },
