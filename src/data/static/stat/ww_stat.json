@@ -18,6 +18,7 @@
     "name": "HP%",
     "showPercent": true,
     "mainIndex": [0, 1, 2, 3, 4],
+    "mainTries": 3,
     "subValue": 11.6,
     "subChance": 10
   },
@@ -25,6 +26,7 @@
     "name": "ATK%",
     "showPercent": true,
     "mainIndex": [0, 1, 2, 3, 4],
+    "mainTries": 3,
     "subValue": 11.6,
     "subChance": 10
   },
@@ -32,6 +34,7 @@
     "name": "DEF%",
     "showPercent": true,
     "mainIndex": [0, 1, 2, 3, 4],
+    "mainTries": 3,
     "subValue": 14.7,
     "subChance": 10
   },
@@ -39,6 +42,7 @@
     "name": "CRIT Rate",
     "showPercent": true,
     "mainIndex": [0],
+    "mainTries": 2,
     "subValue": 10.5,
     "subChance": 6
   },
@@ -46,48 +50,57 @@
     "name": "CRIT DMG",
     "showPercent": true,
     "mainIndex": [0],
+    "mainTries": 2,
     "subValue": 21,
     "subChance": 6
   },
   "HB": {
     "name": "Healing Bonus",
     "showPercent": true,
-    "mainIndex": [0]
+    "mainIndex": [0],
+    "mainTries": 2
   },
   "AERO": {
     "name": "Aero DMG Bonus",
     "showPercent": true,
-    "mainIndex": [1, 2]
+    "mainIndex": [1, 2],
+    "mainTries": 1
   },
   "ELECTRO": {
     "name": "Electro DMG Bonus",
     "showPercent": true,
-    "mainIndex": [1, 2]
+    "mainIndex": [1, 2],
+    "mainTries": 1
   },
   "FUSION": {
     "name": "Fusion DMG Bonus",
     "showPercent": true,
-    "mainIndex": [1, 2]
+    "mainIndex": [1, 2],
+    "mainTries": 1
   },
   "GLACIO": {
     "name": "Glacio DMG Bonus",
     "showPercent": true,
-    "mainIndex": [1, 2]
+    "mainIndex": [1, 2],
+    "mainTries": 1
   },
   "HAVOC": {
     "name": "Havoc DMG Bonus",
     "showPercent": true,
-    "mainIndex": [1, 2]
+    "mainIndex": [1, 2],
+    "mainTries": 1
   },
   "SPECTRO": {
     "name": "Spectro DMG Bonus",
     "showPercent": true,
-    "mainIndex": [1, 2]
+    "mainIndex": [1, 2],
+    "mainTries": 1
   },
   "ER": {
     "name": "Energy Regen",
     "showPercent": true,
     "mainIndex": [1, 2],
+    "mainTries": 1,
     "subValue": 12.4,
     "subChance": 8
   },

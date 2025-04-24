@@ -2,18 +2,21 @@
   "_HP": {
     "name": "HP",
     "mainIndex": [0],
+    "mainTries": 4,
     "subValue": 112,
     "subChance": 10
   },
   "_ATK": {
     "name": "ATK",
     "mainIndex": [1],
+    "mainTries": 4,
     "subValue": 19,
     "subChance": 10
   },
   "_DEF": {
     "name": "DEF",
     "mainIndex": [2],
+    "mainTries": 4,
     "subValue": 15,
     "subChance": 10
   },
@@ -21,6 +24,7 @@
     "name": "HP%",
     "showPercent": true,
     "mainIndex": [3, 4, 5],
+    "mainTries": 3,
     "subValue": 3,
     "subChance": 10
   },
@@ -28,6 +32,7 @@
     "name": "ATK%",
     "showPercent": true,
     "mainIndex": [3, 4, 5],
+    "mainTries": 3,
     "subValue": 3,
     "subChance": 10
   },
@@ -35,6 +40,7 @@
     "name": "DEF%",
     "showPercent": true,
     "mainIndex": [3, 4, 5],
+    "mainTries": 3,
     "subValue": 4.8,
     "subChance": 10
   },
@@ -42,6 +48,7 @@
     "name": "CRIT Rate",
     "showPercent": true,
     "mainIndex": [3],
+    "mainTries": 2,
     "subValue": 2.4,
     "subChance": 6
   },
@@ -49,58 +56,69 @@
     "name": "CRIT DMG",
     "showPercent": true,
     "mainIndex": [3],
+    "mainTries": 2,
     "subValue": 4.8,
     "subChance": 6
   },
   "AP": {
     "name": "Anomaly Proficiency",
     "mainIndex": [3],
+    "mainTries": 2,
     "subValue": 9,
     "subChance": 8
   },
   "ETHER": {
     "name": "Ether DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4]
+    "mainIndex": [4],
+    "mainTries": 1
   },
   "ELECTRIC": {
     "name": "Electric DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4]
+    "mainIndex": [4],
+    "mainTries": 1
   },
   "FIRE": {
     "name": "Fire DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4]
+    "mainIndex": [4],
+    "mainTries": 1
   },
   "ICE": {
     "name": "Ice DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4]
+    "mainIndex": [4],
+    "mainTries": 1
   },
   "PHYSICAL": {
     "name": "Physical DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4]
+    "mainIndex": [4],
+    "mainTries": 1
   },
   "PR": {
     "name": "PEN Ratio",
     "showPercent": true,
-    "mainIndex": [4]
+    "mainIndex": [4],
+    "mainTries": 2
   },
   "AM": {
     "name": "Anomaly Mastery",
-    "mainIndex": [5]
+    "mainIndex": [5],
+    "mainTries": 1
   },
   "IMPACT": {
     "name": "Impact%",
     "showPercent": true,
-    "mainIndex": [5]
+    "mainIndex": [5],
+    "mainTries": 1
   },
   "ER": {
     "name": "Energy Regen%",
     "showPercent": true,
-    "mainIndex": [5]
+    "mainIndex": [5],
+    "mainTries": 1
   },
   "PEN": {
     "name": "PEN",

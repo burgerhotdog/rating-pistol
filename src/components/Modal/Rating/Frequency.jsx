@@ -22,14 +22,14 @@ const Frequency = ({ gameId, avatarId, score, simScores }) => {
             font: { color: "white" },
           },
           xaxis: {
-            title: { 
+            title: {
               text: "Relative Strength",
               font: { color: "grey" },
             },
             tickfont: { color: "grey" },
           },
           yaxis: {
-            title: { 
+            title: {
               text: "Frequency",
               font: { color: "grey" },
             },

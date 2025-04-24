@@ -15,7 +15,7 @@ const getRating = (gameId, avatarId, equipList) => {
   });
 
   const score = equipRatings.reduce((acc, { score }) => acc + score, 0);
-  const simScores = simAvatarScores(gameId, equipRatings);
+  const simScores = simAvatarScores(gameId, equipRatings, equipList.map(({ stat }) => stat));
   const percentile = calcPercentile(score, simScores);
   
   return {

@@ -5,6 +5,8 @@ const ITERATIONS = 10000;
 
 const simEquipScores = (gameId, avatarId, mainstat) => {
   const scores = new Array(ITERATIONS).fill(0);
+  if (!mainstat) return scores;
+  
   const startingPool = Object.entries(STAT_DATA[gameId])
     .filter(([stat, { subValue }]) => {
       if (!subValue) return false; // filter out mainstats
