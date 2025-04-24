@@ -2,20 +2,19 @@ import { STAT_DATA } from "@data";
 
 const ITERATIONS = 10000;
 
-const getPlayerType = () => {
+const getInvestmentLevel = () => {
   const random = Math.floor(Math.random() * 10);
-  if (random < 1) return 5;
-  if (random < 3) return 3;
-  if (random < 6) return 2;
+  if (random < 2) return 4;
+  if (random < 7) return 2;
   return 1;
 }
 
 const simAvatarScores = (gameId, equipRatings, mainstats) => {
-  const scores = new Array(ITERATIONS).fill(0);
+  const pairs = [];
 
   for (let i = 0; i < ITERATIONS; i++) {
     let scoreSum = 0;
-    const numTriesMult = getPlayerType();
+    const numTriesMult = getInvestmentLevel();
 
     for (let j = 0; j < equipRatings.length; j++) {
       if (!mainstats[j]) continue;
@@ -29,10 +28,15 @@ const simAvatarScores = (gameId, equipRatings, mainstats) => {
       scoreSum += highest;
     }
 
-    scores[i] = scoreSum;
+    pairs.push([scoreSum, numTriesMult]);
   }
 
-  return scores.sort((a, b) => a - b);
+  const sortedPairs = pairs.sort((a, b) => a[0] - b[0]);
+
+  return ([
+    sortedPairs.map((pair) => pair[0]),
+    sortedPairs.map((pair) => pair[1]),
+  ]);
 };
 
 export default simAvatarScores;

@@ -108,7 +108,6 @@ const Game = ({ gameId, userId }) => {
   
     if (userId) await batch.commit();
   
-    // Update cache
     setAvatarCache((prev) => ({
       ...prev,
       ...newCache,

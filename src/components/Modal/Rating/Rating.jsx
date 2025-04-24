@@ -53,12 +53,14 @@ const Rating = ({ gameId, modalPipe }) => {
             avatarId={id}
             score={rating.avatar.score}
             simScores={rating.avatar.simScores}
+            investmentLevels={rating.avatar.investmentLevels}
           />
           <Percentile
             gameId={gameId}
             avatarId={id}
             score={rating.avatar.score}
             simScores={rating.avatar.simScores}
+            investmentLevels={rating.avatar.investmentLevels}
           />
         </Stack>
       ) : (
