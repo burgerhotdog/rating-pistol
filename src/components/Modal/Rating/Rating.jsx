@@ -9,6 +9,14 @@ const Rating = ({ gameId, modalPipe }) => {
   const { id, data, rating } = modalPipe;
   const [activeTab, setActiveTab] = useState(0);
 
+  if (!rating) return (
+    <Stack spacing={2}>
+      <Typography>
+        No rating data found.
+      </Typography>
+    </Stack>
+  );
+
   return (
     <Stack spacing={2}>
       <Typography variant="h6" sx={{ fontWeight: "bold" }}>

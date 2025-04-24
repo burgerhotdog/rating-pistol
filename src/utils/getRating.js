@@ -9,10 +9,12 @@ const getRating = (gameId, avatarId, equipList) => {
   const equipRatings = equipList.map(({ stat, statList }) => {
     const score = getScore(gameId, avatarId, statList);
     const simScores = simEquipScores(gameId, avatarId, stat);
-    const percentile = calcPercentile(score, simScores);
+    if (!simScores) return null;
 
+    const percentile = calcPercentile(score, simScores);
     return { percentile, score, simScores };
   });
+  if (equipRatings.some(rating => !rating)) return null;
 
   const score = equipRatings.reduce((acc, { score }) => acc + score, 0);
   const simScores = simAvatarScores(gameId, equipRatings, equipList.map(({ stat }) => stat));

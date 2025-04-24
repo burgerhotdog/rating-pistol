@@ -10,8 +10,10 @@ const getIconSrc = (top) => {
 
 const RatingCell = ({ setModalPipe, id, data, rating }) => {
   const openModal = () => setModalPipe({ type: "rating", id, data, rating });
-  const roundedRating = Math.max(1, 100 - Math.floor(rating.avatar.percentile));
-  const iconSrc = getIconSrc(roundedRating)
+  const roundedRating = rating
+    ? Math.max(1, 100 - Math.floor(rating.avatar.percentile))
+    : 100;
+  const iconSrc = getIconSrc(roundedRating);
 
   return (
     <TableCell>
