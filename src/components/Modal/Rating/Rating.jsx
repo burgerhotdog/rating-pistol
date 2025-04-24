@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Box, Stack, Typography, Tabs, Tab } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
 import { AVATAR_DATA, INFO_DATA } from "@data";
-import Histogram from "./Histogram";
-import Relative from "./Relative";
-import RelativeStrengthPlot from "./RelativeStrengthPlot";
+import Frequency from "./Frequency";
+import Percentile from "./Percentile";
 
 const Rating = ({ gameId, modalPipe }) => {
   const { id, data, rating } = modalPipe;
@@ -41,23 +40,28 @@ const Rating = ({ gameId, modalPipe }) => {
 
       {activeTab === 0 ? (
         <Stack direction="row" spacing={2}>
-          <Relative
-            percentile={rating.avatar.percentile}
+          <Frequency
             score={rating.avatar.score}
             simScores={rating.avatar.simScores}
           />
-          <RelativeStrengthPlot
+          <Percentile
             percentile={rating.avatar.percentile}
             score={rating.avatar.score}
             simScores={rating.avatar.simScores}
           />
         </Stack>
       ) : (
-        <Histogram
-          percentile={rating.equips[activeTab - 1].percentile}
-          score={rating.equips[activeTab - 1].score}
-          simScores={rating.equips[activeTab - 1].simScores}
-        />
+        <Stack direction="row" spacing={2}>
+          <Frequency
+            score={rating.equips[activeTab - 1].score}
+            simScores={rating.equips[activeTab - 1].simScores}
+          />
+          <Percentile
+            percentile={rating.equips[activeTab - 1].percentile}
+            score={rating.equips[activeTab - 1].score}
+            simScores={rating.equips[activeTab - 1].simScores}
+          />
+        </Stack>
       )}
     </Stack>
   );

@@ -33,7 +33,6 @@ const Game = ({ gameId, userId }) => {
             };
           }
           setAvatarCache(newAvatarCache);
-          console.log(newAvatarCache);
 
           const teamRef = collection(db, "users", userId, `${gameId}_teams`);
           const teamDocs = await getDocs(teamRef);
