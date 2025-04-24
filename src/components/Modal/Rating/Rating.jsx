@@ -41,11 +41,14 @@ const Rating = ({ gameId, modalPipe }) => {
       {activeTab === 0 ? (
         <Stack direction="row" spacing={2}>
           <Frequency
+            gameId={gameId}
+            avatarId={id}
             score={rating.avatar.score}
             simScores={rating.avatar.simScores}
           />
           <Percentile
-            percentile={rating.avatar.percentile}
+            gameId={gameId}
+            avatarId={id}
             score={rating.avatar.score}
             simScores={rating.avatar.simScores}
           />
@@ -53,11 +56,14 @@ const Rating = ({ gameId, modalPipe }) => {
       ) : (
         <Stack direction="row" spacing={2}>
           <Frequency
+            gameId={gameId}
+            avatarId={id}
             score={rating.equips[activeTab - 1].score}
             simScores={rating.equips[activeTab - 1].simScores}
           />
           <Percentile
-            percentile={rating.equips[activeTab - 1].percentile}
+            gameId={gameId}
+            avatarId={id}
             score={rating.equips[activeTab - 1].score}
             simScores={rating.equips[activeTab - 1].simScores}
           />

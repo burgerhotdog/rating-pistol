@@ -1,30 +1,22 @@
-import { useMemo } from "react";
-import Plot from "react-plotly.js";
 import { Paper } from "@mui/material";
+import { AVATAR_DATA } from "@data";
+import { getStrength } from "@utils";
+import Plot from "react-plotly.js";
 
-const calculateMean = (scores) => {
-  const sum = scores.reduce((acc, score) => acc + score, 0);
-  return sum / scores.length;
-};
-
-const RelativeStrengthPlot = ({ percentile, score, simScores }) => {
-  const mean = calculateMean(simScores);
-  const scoreRelativeStrength = score / mean;
-  const relativeStrength = simScores.map((score) => (score / mean));
-  const percentileData = useMemo(
-    () => simScores.map((_, index) => (index + 1) / simScores.length),
-    [simScores]
-  );
+const RelativeStrengthPlot = ({ gameId, avatarId, score, simScores }) => {
+  const sum = simScores.reduce((acc, score) => acc + score, 0);
+  const mean = sum / simScores.length;
+  const power = AVATAR_DATA[gameId][avatarId].strength / 4;
+  const downsampled = simScores.filter((_, index) => index % 10 === 0);
 
   return (
     <Paper>
       <Plot
         data={[{
-          x: relativeStrength,
-          y: percentileData,
+          x: downsampled.map((score) => getStrength(score, mean, power)),
+          y: downsampled.map((_, index) => ((index + 1) / downsampled.length) * 100),
           type: "scatter",
           mode: "lines",
-          name: "Relative to Mean",
         }]}
         layout={{
           title: {
@@ -46,12 +38,13 @@ const RelativeStrengthPlot = ({ percentile, score, simScores }) => {
             },
             tickfont: { color: "grey" },
             gridcolor: "grey",
-            range: [0, 1],
+            range: [0, 100.5],
+            tickvals: [0, 25, 50, 75, 100],
           },
           shapes: [{
             type: "line",
-            x0: scoreRelativeStrength,
-            x1: scoreRelativeStrength,
+            x0: getStrength(score, mean, power),
+            x1: getStrength(score, mean, power),
             y0: 0,
             y1: 1,
             yref: "paper",

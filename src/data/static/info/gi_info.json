@@ -10,7 +10,7 @@
     "003": 10
   },
   "EQUIP_NAMES": ["Flower", "Plume", "Sands", "Goblet", "Circlet"],
-  "EQUIP_RARITY": [1, 1, 2, 3, 2],
+  "EQUIP_RARITY": [1, 1, 2, 4, 3],
   "MAIN_LEN": 5,
   "SUB_LEN": 4
 }

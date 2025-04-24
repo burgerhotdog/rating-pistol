@@ -12,7 +12,7 @@
     "005": 10
   },
   "EQUIP_NAMES": ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"],
-  "EQUIP_RARITY": [2, 3, 3, 1, 1],
+  "EQUIP_RARITY": [2, 4, 4, 1, 1],
   "MAIN_LEN": 5,
   "SUB_LEN": 5
 }

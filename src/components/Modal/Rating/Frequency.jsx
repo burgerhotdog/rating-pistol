@@ -1,22 +1,20 @@
-import Plot from "react-plotly.js";
 import { Paper } from "@mui/material";
+import { AVATAR_DATA } from "@data";
+import { getStrength } from "@utils";
+import Plot from "react-plotly.js";
 
-const calculateMean = (scores) => {
-  const sum = scores.reduce((acc, score) => acc + score, 0);
-  return sum / scores.length;
-};
-
-const Frequency = ({ score, simScores }) => {
-  const mean = calculateMean(simScores);
-  const relativeScore = score / mean;
-  const relativeScores = simScores.map(score => score / mean);
+const Frequency = ({ gameId, avatarId, score, simScores }) => {
+  const sum = simScores.reduce((acc, score) => acc + score, 0);
+  const mean = sum / simScores.length;
+  const power = AVATAR_DATA[gameId][avatarId].strength / 4;
 
   return (
     <Paper>
       <Plot
         data={[{
-          x: relativeScores,
+          x: simScores.map(score => getStrength(score, mean, power)),
           type: "histogram",
+          histnorm: "probability",
         }]}
         layout={{
           title: {
@@ -41,26 +39,12 @@ const Frequency = ({ score, simScores }) => {
           },
           shapes: [{
             type: "line",
-            x0: relativeScore,
-            x1: relativeScore,
+            x0: getStrength(score, mean, power),
+            x1: getStrength(score, mean, power),
             y0: 0,
             y1: 1,
             yref: "paper",
             line: { color: "red", width: 2 },
-          }],
-          annotations: [{
-            x: relativeScore,
-            y: 1,
-            yref: "paper",
-            text: `You (${relativeScore.toFixed(2)}x)`,
-            font: { color: "white" },
-            showarrow: true,
-            arrowhead: 0,
-            arrowcolor: "red",
-            ax: 0,
-            ay: 0,
-            bgcolor: "rgba(0, 0, 0, 0.5)",
-            borderpad: 4,
           }],
           showlegend: false,
           paper_bgcolor: "rgba(0, 0, 0, 0)",
