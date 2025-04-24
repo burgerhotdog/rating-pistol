@@ -10,7 +10,7 @@ const getInvestmentLevel = () => {
 }
 
 const simAvatarScores = (gameId, equipRatings, mainstats) => {
-  const pairs = [];
+  const scores = new Array(ITERATIONS).fill(0);
 
   for (let i = 0; i < ITERATIONS; i++) {
     let scoreSum = 0;
@@ -28,15 +28,10 @@ const simAvatarScores = (gameId, equipRatings, mainstats) => {
       scoreSum += highest;
     }
 
-    pairs.push([scoreSum, numTriesMult]);
+    scores[i] = scoreSum;
   }
 
-  const sortedPairs = pairs.sort((a, b) => a[0] - b[0]);
-
-  return ([
-    sortedPairs.map((pair) => pair[0]),
-    sortedPairs.map((pair) => pair[1]),
-  ]);
+  return scores.sort((a, b) => a - b);
 };
 
 export default simAvatarScores;

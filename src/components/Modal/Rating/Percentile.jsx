@@ -3,7 +3,7 @@ import { AVATAR_DATA } from "@data";
 import { getStrength } from "@utils";
 import Plot from "react-plotly.js";
 
-const RelativeStrengthPlot = ({ gameId, avatarId, score, simScores, investmentLevels }) => {
+const RelativeStrengthPlot = ({ gameId, avatarId, score, simScores }) => {
   const sum = simScores.reduce((acc, score) => acc + score, 0);
   const mean = sum / simScores.length;
   const power = AVATAR_DATA[gameId][avatarId].strength / 4;
