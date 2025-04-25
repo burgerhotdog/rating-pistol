@@ -6,9 +6,8 @@ const MULTS = {
 };
 
 const getMult = (gameId) => {
-  const mults = MULTS[gameId];
-  const random = Math.floor(Math.random() * mults.length);
-  return mults[random];
+  const random = Math.floor(Math.random() * MULTS[gameId].length);
+  return MULTS[gameId][random];
 };
 
 export default getMult;

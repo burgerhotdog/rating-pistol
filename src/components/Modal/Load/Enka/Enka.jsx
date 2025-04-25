@@ -87,9 +87,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
     avatarList.forEach((rawItem, index) => {
       if (gameId === "gi" && (rawItem.avatarId === 10000005 || rawItem.avatarId === 10000007)) {
         const { energyType } = rawEnka.playerInfo.showAvatarInfoList[index];
-        console.log(rawEnka.playerInfo.showAvatarInfoList);
         rawItem.avatarId = `${rawItem.avatarId}-${energyConvert[energyType]}`;
-        console.log(rawItem.avatarId);
       }
       if (gameId !== "zzz" && maleToFemale[rawItem.avatarId]) {
         rawItem.avatarId = maleToFemale[rawItem.avatarId];

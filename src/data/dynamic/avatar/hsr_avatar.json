@@ -7,6 +7,7 @@
     "minor": ["CR", "QUANTUM", "CR", "CD", "CR", "QUANTUM", "CR", "CD", "QUANTUM", "CR"],
     "skillRank": [3, 5, 3, 5, 5, 3],
     "statBase": { "_HP": 1630, "_ATK": 524, "_DEF": 485 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -23,6 +24,7 @@
     "minor": ["WIND", "CR", "WIND", "HP", "WIND", "CR", "WIND", "HP", "CR", "WIND"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 970, "_ATK": 757, "_DEF": 558 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -39,6 +41,7 @@
     "minor": ["CD", "HP", "CD", "SPD", "CD", "HP", "CD", "SPD", "HP", "CD"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1552, "_ATK": 427, "_DEF": 194 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -55,6 +58,7 @@
     "minor": ["CD", "CR", "CD", "HP", "CD", "CR", "CD", "HP", "CR", "CD"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1048, "_ATK": 524, "_DEF": 728 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -71,6 +75,7 @@
     "minor": ["CD", "ATK", "CD", "HP", "CD", "ATK", "CD", "HP", "ATK", "CD"],
     "skillRank": [5, 3, 5, 3, 5, 3],
     "statBase": { "_HP": 1047, "_ATK": 543, "_DEF": 630 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "CD": 3,
@@ -86,6 +91,7 @@
     "minor": ["LIGHTNING", "CR", "LIGHTNING", "DEF", "LIGHTNING", "CR", "LIGHTNING", "DEF", "CR", "LIGHTNING"],
     "skillRank": [3, 3, 5, 5, 5, 3],
     "statBase": { "_HP": 1242, "_ATK": 699, "_DEF": 485 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -102,6 +108,7 @@
     "minor": ["ICE", "ATK", "ICE", "SPD", "ICE", "ATK", "ICE", "SPD", "ATK", "ICE"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1164, "_ATK": 679, "_DEF": 485 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -118,6 +125,7 @@
     "minor": ["CD", "RES", "CD", "DEF", "CD", "RES", "CD", "DEF", "RES", "CD"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1241, "_ATK": 640, "_DEF": 533 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "CD": 3,
@@ -132,6 +140,7 @@
     "minor": ["SPD", "BE", "SPD", "HP", "SPD", "BE", "SPD", "HP", "BE", "SPD"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1125, "_ATK": 582, "_DEF": 557 },
+    "strength": 2,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -147,6 +156,7 @@
     "minor": ["ATK", "SPD", "ATK", "BE", "ATK", "SPD", "ATK", "BE", "SPD", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1086, "_ATK": 717, "_DEF": 460 },
+    "strength": 3,
     "weights": {
       "BE": 4,
       "ATK": 3,
@@ -162,6 +172,7 @@
     "minor": ["BE", "HP", "BE", "ATK", "BE", "HP", "BE", "ATK", "HP", "BE"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 1358, "_ATK": 679, "_DEF": 436 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "BE": 4,
@@ -178,6 +189,7 @@
     "minor": ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1047, "_ATK": 601, "_DEF": 388 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -193,6 +205,7 @@
     "minor": ["CD", "ATK", "CD", "HP", "CD", "ATK", "CD", "HP", "ATK", "CD"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 811, "_ATK": 599, "_DEF": 352 },
+    "strength": 3,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -209,6 +222,7 @@
     "minor": ["ATK", "HP", "ATK", "CR", "ATK", "HP", "ATK", "CR", "HP", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1358, "_ATK": 679, "_DEF": 460 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -225,6 +239,7 @@
     "minor": ["EHR", "FIRE", "EHR", "SPD", "EHR", "FIRE", "EHR", "SPD", "FIRE", "EHR"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
+    "strength": 3,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -239,6 +254,7 @@
     "minor": ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1058, "_ATK": 564, "_DEF": 441 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -255,6 +271,7 @@
     "minor": ["QUANTUM", "ATK", "QUANTUM", "RES", "QUANTUM", "ATK", "QUANTUM", "RES", "ATK", "QUANTUM"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1086, "_ATK": 659, "_DEF": 509 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -271,6 +288,7 @@
     "minor": ["BE", "RES", "BE", "SPD", "BE", "RES", "BE", "SPD", "RES", "BE"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 814, "_ATK": 523, "_DEF": 776 },
+    "strength": 3,
     "weights": {
       "BE": 4,
       "ATK": 3,
@@ -285,6 +303,7 @@
     "minor": ["BE", "IMAGINARY", "BE", "RES", "BE", "IMAGINARY", "BE", "RES", "IMAGINARY", "BE"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1086, "_ATK": 446, "_DEF": 679 },
+    "strength": 2,
     "weights": {
       "BE": 4,
       "SPD": 2,
@@ -299,6 +318,7 @@
     "minor": ["BE", "ATK", "BE", "HP", "BE", "ATK", "BE", "HP", "ATK", "BE"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1203, "_ATK": 620, "_DEF": 436 },
+    "strength": 2,
     "weights": {
       "BE": 4,
       "SPD": 3
@@ -312,6 +332,7 @@
     "minor": ["ATK", "HP", "ATK", "SPD", "ATK", "HP", "ATK", "SPD", "HP", "ATK"],
     "skillRank": [5, 3, 3, 5],
     "statBase": { "_HP": 1280, "_ATK": 640, "_DEF": 485 },
+    "strength": 2,
     "weights": {
       "ATK": 3,
       "SPD": 1,
@@ -327,6 +348,7 @@
     "minor": ["ATK", "CD", "ATK", "LIGHTNING", "ATK", "CD", "ATK", "LIGHTNING", "CD", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1125, "_ATK": 698, "_DEF": 436 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -343,6 +365,7 @@
     "minor": ["DEF", "IMAGINARY", "DEF", "RES", "DEF", "IMAGINARY", "DEF", "RES", "IMAGINARY", "DEF"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1203, "_ATK": 446, "_DEF": 654 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -359,6 +382,7 @@
     "minor": ["RES", "BE", "RES", "HP", "RES", "BE", "RES", "HP", "RES", "HP"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1305, "_ATK": 529, "_DEF": 441 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "BE": 4,
@@ -373,6 +397,7 @@
     "minor": ["ATK", "WIND", "ATK", "EHR", "ATK", "WIND", "ATK", "EHR", "WIND", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
+    "strength": 4,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -388,6 +413,7 @@
     "minor": ["HP", "CD", "HP", "RES", "HP", "CD", "HP", "RES", "CD", "HP"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1397, "_ATK": 523, "_DEF": 485 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "CD": 3,
@@ -401,6 +427,7 @@
     "minor": ["ICE", "DEF", "ICE", "CR", "ICE", "DEF", "ICE", "CR", "DEF", "ICE"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1270, "_ATK": 599, "_DEF": 396 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -417,6 +444,7 @@
     "minor": ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1047, "_ATK": 776, "_DEF": 460 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -433,6 +461,7 @@
     "minor": ["BE", "DEF", "BE", "SPD", "BE", "DEF", "BE", "SPD", "DEF", "BE"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "BE": 4,
@@ -446,6 +475,7 @@
     "minor": ["BE", "HP", "BE", "QUANTUM", "BE", "HP", "BE", "QUANTUM", "HP", "BE"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1058, "_ATK": 599, "_DEF": 396 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -463,6 +493,7 @@
     "minor": ["ATK", "PHYSICAL", "ATK", "HP", "ATK", "PHYSICAL", "ATK", "HP", "PHYSICAL", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1047, "_ATK": 737, "_DEF": 363 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -479,6 +510,7 @@
     "minor": ["HP", "RES", "HP", "SPD", "HP", "RES", "HP", "SPD", "RES", "HP"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "HP": 3,
@@ -493,6 +525,7 @@
     "minor": ["ATK", "SPD", "ATK", "HP", "ATK", "SPD", "ATK", "HP", "SPD", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 917, "_ATK": 564, "_DEF": 352 },
+    "strength": 1,
     "weights": {
       "SPD": 4,
       "RES": 1
@@ -506,6 +539,7 @@
     "minor": ["CD", "SPD", "CD", "HP", "CD", "SPD", "CD", "HP", "SPD", "CD"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 1435, "_ATK": 679, "_DEF": 485 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -522,6 +556,7 @@
     "minor": ["FIRE", "CR", "FIRE", "HP", "FIRE", "CR", "FIRE", "HP", "CR", "FIRE"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 931, "_ATK": 620, "_DEF": 412 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -537,6 +572,7 @@
     "minor": ["FIRE", "BE", "FIRE", "EHR", "FIRE", "BE", "FIRE", "EHR", "BE", "FIRE"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 882, "_ATK": 582, "_DEF": 441 },
+    "strength": 3,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -552,6 +588,7 @@
     "minor": ["IMAGINARY", "CR", "IMAGINARY", "HP", "IMAGINARY", "CR", "IMAGINARY", "HP", "CR", "IMAGINARY"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1241, "_ATK": 698, "_DEF": 363 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -568,6 +605,7 @@
     "minor": ["CR", "HP", "CR", "RES", "CR", "HP", "CR", "RES", "HP", "CR"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1474, "_ATK": 465, "_DEF": 606 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "HP": 3,
@@ -583,6 +621,7 @@
     "minor": ["HP", "DEF", "HP", "RES", "HP", "DEF", "HP", "RES", "DEF", "HP"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1058, "_ATK": 493, "_DEF": 551 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "HP": 3,
@@ -598,6 +637,7 @@
     "minor": ["HP", "CR", "HP", "RES", "HP", "CR", "HP", "RES", "CR", "HP"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 1358, "_ATK": 543, "_DEF": 485 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -615,6 +655,7 @@
     "minor": ["ATK", "EHR", "ATK", "HP", "ATK", "EHR", "ATK", "HP", "EHR", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1086, "_ATK": 679, "_DEF": 485 },
+    "strength": 3,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -629,6 +670,7 @@
     "minor": ["ATK", "EHR", "ATK", "DEF", "ATK", "EHR", "ATK", "DEF", "EHR", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 917, "_ATK": 582, "_DEF": 485 },
+    "strength": 2,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -644,6 +686,7 @@
     "minor": ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1280, "_ATK": 756, "_DEF": 363 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "ATK": 3,
@@ -659,6 +702,7 @@
     "minor": ["ATK", "EHR", "ATK", "QUANTUM", "ATK", "EHR", "ATK", "QUANTUM", "EHR", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1047, "_ATK": 640, "_DEF": 460 },
+    "strength": 3,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -672,6 +716,7 @@
     "minor": ["IMAGINARY", "HP", "IMAGINARY", "ATK", "IMAGINARY", "HP", "IMAGINARY", "ATK", "HP", "IMAGINARY"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 917, "_ATK": 599, "_DEF": 374 },
+    "strength": 1,
     "weights": {
       "SPD": 4,
       "RES": 1
@@ -684,6 +729,7 @@
     "minor": ["DEF", "ATK", "DEF", "HP", "DEF", "ATK", "DEF", "HP", "ATK", "DEF"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1241, "_ATK": 601, "_DEF": 606 },
+    "strength": 1,
     "weights": {
       "SPD": 4,
       "DEF": 3,
@@ -698,6 +744,7 @@
     "minor": ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1203, "_ATK": 620, "_DEF": 460 },
+    "strength": 3,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -714,6 +761,7 @@
     "minor": ["HP", "DEF", "HP", "RES", "HP", "DEF", "HP", "RES", "DEF", "HP"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1319, "_ATK": 562, "_DEF": 485 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "HP": 3,
@@ -729,6 +777,7 @@
     "minor": ["ATK", "ICE", "ATK", "HP", "ATK", "ICE", "ATK", "HP", "ICE", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 892, "_ATK": 679, "_DEF": 412 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -745,6 +794,7 @@
     "minor": ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1164, "_ATK": 698, "_DEF": 485 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -761,6 +811,7 @@
     "minor": ["ATK", "PHYSICAL", "ATK", "HP", "ATK", "PHYSICAL", "ATK", "HP", "PHYSICAL", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1241, "_ATK": 737, "_DEF": 485 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -777,6 +828,7 @@
     "minor": ["ICE", "RES", "ICE", "DEF", "ICE", "RES", "ICE", "DEF", "RES", "ICE"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 1397, "_ATK": 543, "_DEF": 654 },
+    "strength": 3,
     "weights": {
       "SPD": 4,
       "DEF": 3,
@@ -793,6 +845,7 @@
     "minor": ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 931, "_ATK": 640, "_DEF": 363 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -809,6 +862,7 @@
     "minor": ["WIND", "CD", "WIND", "RES", "WIND", "CD", "WIND", "RES", "CD", "WIND"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 1241, "_ATK": 582, "_DEF": 533 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "CD": 3,
@@ -823,6 +877,7 @@
     "minor": ["ATK", "IMAGINARY", "ATK", "RES", "ATK", "IMAGINARY", "ATK", "RES", "IMAGINARY", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1125, "_ATK": 620, "_DEF": 509 },
+    "strength": 3,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -840,6 +895,7 @@
     "minor": ["FIRE", "ATK", "FIRE", "RES", "FIRE", "ATK", "FIRE", "RES", "ATK", "FIRE"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1047, "_ATK": 756, "_DEF": 436 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -856,6 +912,7 @@
     "minor": ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 917, "_ATK": 564, "_DEF": 418 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -871,6 +928,7 @@
     "minor": ["ATK", "DEF", "ATK", "LIGHTNING", "ATK", "DEF", "ATK", "LIGHTNING", "DEF", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 846, "_ATK": 529, "_DEF": 396 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "ATK": 3,
@@ -885,6 +943,7 @@
     "minor": ["ATK", "QUANTUM", "ATK", "DEF", "ATK", "QUANTUM", "ATK", "DEF", "QUANTUM", "ATK"],
     "skillRank": [5, 5, 3, 3],
     "statBase": { "_HP": 1023, "_ATK": 652, "_DEF": 441 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -900,6 +959,7 @@
     "minor": ["ATK", "HP", "ATK", "CD", "ATK", "HP", "ATK", "CD", "HP", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1340, "_ATK": 617, "_DEF": 352 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -915,6 +975,7 @@
     "minor": ["ATK", "EHR", "ATK", "RES", "ATK", "EHR", "ATK", "RES", "EHR", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1023, "_ATK": 617, "_DEF": 396 },
+    "strength": 3,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -929,6 +990,7 @@
     "minor": ["ICE", "ATK", "ICE", "EHR", "ICE", "ATK", "ICE", "EHR", "ATK", "ICE"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 987, "_ATK": 546, "_DEF": 463 },
+    "strength": 2,
     "weights": {
       "EHR": 4,
       "SPD": 4,
@@ -942,6 +1004,7 @@
     "minor": ["HP", "RES", "HP", "DEF", "HP", "RES", "HP", "DEF", "RES", "HP"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1164, "_ATK": 476, "_DEF": 507 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "HP": 3,
@@ -956,6 +1019,7 @@
     "minor": ["CR", "EHR", "CR", "RES", "CR", "EHR", "CR", "RES", "EHR", "CR"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 917, "_ATK": 652, "_DEF": 374 },
+    "strength": 3,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -971,6 +1035,7 @@
     "minor": ["ICE", "DEF", "ICE", "CR", "ICE", "DEF", "ICE", "CR", "DEF", "ICE"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 952, "_ATK": 582, "_DEF": 396 },
+    "strength": 3,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -986,6 +1051,7 @@
     "minor": ["FIRE", "DEF", "FIRE", "CR", "FIRE", "DEF", "FIRE", "CR", "DEF", "FIRE"],
     "skillRank": [5, 3, 5, 3],
     "statBase": { "_HP": 1023, "_ATK": 511, "_DEF": 463 },
+    "strength": 1,
     "weights": {
       "SPD": 4,
       "EHR": 1,
@@ -999,6 +1065,7 @@
     "minor": ["ATK", "RES", "ATK", "HP", "ATK", "RES", "ATK", "HP", "RES", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 1199, "_ATK": 599, "_DEF": 330 },
+    "strength": 3,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -1014,6 +1081,7 @@
     "minor": ["WIND", "ATK", "WIND", "DEF", "WIND", "ATK", "WIND", "DEF", "ATK", "WIND"],
     "skillRank": [3, 3, 5, 5],
     "statBase": { "_HP": 882, "_ATK": 546, "_DEF": 396 },
+    "strength": 3,
     "weights": {
       "CR": 4,
       "CD": 4,
@@ -1029,6 +1097,7 @@
     "minor": ["ICE", "DEF", "ICE", "RES", "ICE", "RES", "DEF", "ICE", "ICE", "DEF"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1058, "_ATK": 511, "_DEF": 573 },
+    "strength": 2,
     "weights": {
       "SPD": 4,
       "EHR": 3,

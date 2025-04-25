@@ -5,6 +5,8 @@ const ITERATIONS = 10000;
 
 const simEquipScores = (gameId, avatarId, mainstat) => {
   const scores = new Array(ITERATIONS).fill(0);
+  if (!mainstat) return null;
+  
   const startingPool = Object.entries(STAT_DATA[gameId])
     .filter(([stat, { subValue }]) => {
       if (!subValue) return false; // filter out mainstats
@@ -22,7 +24,7 @@ const simEquipScores = (gameId, avatarId, mainstat) => {
     // adding the substat lines (weighted selection)
     let substats = [];
     for (let j = 0; j < INFO_DATA[gameId].SUB_LEN; j++) {
-      const totalChance = statPool.reduce((acc, [, , chance]) => (
+      const totalChance = statPool.reduce((acc, [_, __, chance]) => (
         acc + chance
       ), 0);
 

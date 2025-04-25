@@ -1,30 +1,34 @@
-import { INFO_DATA } from "@data";
+import { STAT_DATA } from "@data";
+
 const ITERATIONS = 10000;
 
-const simAvatarScores = (gameId, equipRatings) => {
+const getInvestmentLevel = () => {
+  const random = Math.floor(Math.random() * 10);
+  if (random < 2) return 4;
+  if (random < 7) return 2;
+  return 1;
+}
+
+const simAvatarScores = (gameId, equipRatings, mainstats) => {
   const scores = new Array(ITERATIONS).fill(0);
 
   for (let i = 0; i < ITERATIONS; i++) {
-    let sumValue = 0;
-
-    const playerType = Math.floor(Math.random() * 10);
-    const isWhale = playerType < 1;
-    const isDolphin = playerType < 2;
-    const numTriesMult = isWhale ? 8 : isDolphin ? 4 : 2;
+    let scoreSum = 0;
+    const numTriesMult = getInvestmentLevel();
 
     for (let j = 0; j < equipRatings.length; j++) {
-      const numTries = (4 - INFO_DATA[gameId].EQUIP_RARITY[j]) * numTriesMult;
-      const rvs = [];
+      if (!mainstats[j]) continue;
+      const numTries = STAT_DATA[gameId][mainstats[j]].mainTries * numTriesMult;
+      const scoreTries = [];
       for (let k = 0; k < numTries; k++) {
         const random = Math.floor(Math.random() * equipRatings[j].simScores.length);
-        const rv = equipRatings[j].simScores[random];
-        rvs.push(rv);
+        scoreTries.push(equipRatings[j].simScores[random]);
       }
-      const highest = Math.max(...rvs);
-      sumValue += highest;
+      const highest = Math.max(...scoreTries);
+      scoreSum += highest;
     }
 
-    scores[i] = sumValue;
+    scores[i] = scoreSum;
   }
 
   return scores.sort((a, b) => a - b);
