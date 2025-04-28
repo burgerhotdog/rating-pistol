@@ -12,21 +12,19 @@ const Rating = ({ gameId, modalPipe }) => {
   if (!rating) return (
     <Stack spacing={2}>
       <Typography>
-        No rating data found.
+        No rating data available.
       </Typography>
     </Stack>
   );
 
   return (
     <Stack spacing={2}>
-      <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-        Rating Analysis
-      </Typography>
       <Tabs
         value={activeTab}
         onChange={(_, newValue) => setActiveTab(newValue)}
         variant="fullWidth"
         centered
+        sx={{ borderBottom: 1, borderColor: "divider" }}
       >
         <Tab label="Total" sx={{ fontWeight: "bold" }} />
         {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
@@ -53,14 +51,12 @@ const Rating = ({ gameId, modalPipe }) => {
             avatarId={id}
             score={rating.avatar.score}
             simScores={rating.avatar.simScores}
-            investmentLevels={rating.avatar.investmentLevels}
           />
           <Percentile
             gameId={gameId}
             avatarId={id}
             score={rating.avatar.score}
             simScores={rating.avatar.simScores}
-            investmentLevels={rating.avatar.investmentLevels}
           />
         </Stack>
       ) : (

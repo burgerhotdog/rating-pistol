@@ -51,9 +51,9 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
     <Grid container spacing={1}>
       <Grid size={8}>
         <Autocomplete
-          value={stat ?? ""}
+          value={stat}
           options={substatOptions}
-          getOptionLabel={(id) => STAT_DATA[gameId][id]?.name || ""}
+          getOptionLabel={(id) => STAT_DATA[gameId][id]?.name ?? ""}
           onChange={(_, newValue) => handleStat(newValue, subIndex)}
           slots={{
             paper: ({ children }) => (

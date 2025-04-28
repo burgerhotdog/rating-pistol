@@ -27,7 +27,6 @@ const theme = createTheme({
     MuiAutocomplete: {
       defaultProps: {
         size: "small",
-        disableClearable: true,
       },
     },
     MuiAvatar: {
