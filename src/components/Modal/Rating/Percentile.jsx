@@ -20,16 +20,16 @@ const RelativeStrengthPlot = ({ gameId, avatarId, score, simScores }) => {
         }]}
         layout={{
           title: {
-            text: "Build Strength in relation to Average",
+            text: "Percentile",
             font: { color: "white" },
           },
           xaxis: {
             title: {
-              text: "Relative Strength",
+              text: "Relative Strength Index",
               font: { color: "grey" },
             },
             tickfont: { color: "grey" },
-            gridcolor: "grey",
+            gridcolor: "dimgrey",
           },
           yaxis: {
             title: {
@@ -37,7 +37,7 @@ const RelativeStrengthPlot = ({ gameId, avatarId, score, simScores }) => {
               font: { color: "grey" },
             },
             tickfont: { color: "grey" },
-            gridcolor: "grey",
+            gridcolor: "dimgrey",
             range: [0, 100.5],
             tickvals: [0, 25, 50, 75, 100],
           },

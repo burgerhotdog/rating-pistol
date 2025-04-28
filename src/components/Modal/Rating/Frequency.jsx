@@ -18,12 +18,12 @@ const Frequency = ({ gameId, avatarId, score, simScores }) => {
         }]}
         layout={{
           title: {
-            text: "Build Strength in relation to Average",
+            text: "Distribution",
             font: { color: "white" },
           },
           xaxis: {
             title: {
-              text: "Relative Strength",
+              text: "Relative Strength Index",
               font: { color: "grey" },
             },
             tickfont: { color: "grey" },
@@ -34,7 +34,7 @@ const Frequency = ({ gameId, avatarId, score, simScores }) => {
               font: { color: "grey" },
             },
             tickfont: { color: "grey" },
-            gridcolor: "grey",
+            gridcolor: "dimgrey",
             rangemode: "tozero",
           },
           shapes: [{
