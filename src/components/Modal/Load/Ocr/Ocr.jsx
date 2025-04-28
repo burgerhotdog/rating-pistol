@@ -268,7 +268,7 @@ const Ocr = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clos
                 <Box
                   component="img"
                   loading="lazy"
-                  src={AVATAR_ASSETS[gameId][id]}
+                  src={AVATAR_ASSETS[gameId][id].icon}
                   alt={id}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />

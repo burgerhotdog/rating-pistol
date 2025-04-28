@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Box, Autocomplete, TextField, Typography } from "@mui/material";
 import { WEAPON_ASSETS } from "@assets";
 import { AVATAR_DATA, WEAPON_DATA, INFO_DATA, LABEL_DATA } from "@data";
@@ -5,8 +6,8 @@ import { AVATAR_DATA, WEAPON_DATA, INFO_DATA, LABEL_DATA } from "@data";
 const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeaponRank }) => {
   const { sig, type } = AVATAR_DATA[gameId][id];
 
-  const weaponIdOptions = () => {
-    return Object.keys(WEAPON_DATA[gameId])
+  const weaponIdOptions = useMemo(() =>
+    Object.keys(WEAPON_DATA[gameId])
       .filter(weapon => WEAPON_DATA[gameId][weapon].type === type)
       .sort((a, b) => {
         if (a === sig) return -1;
@@ -16,13 +17,12 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeapon
         return rarityA !== rarityB
           ? rarityB - rarityA
           : WEAPON_DATA[gameId][a].name.localeCompare(WEAPON_DATA[gameId][b].name);
-      });
-  };
+      }), []);
 
   const handleWeaponId = (newValue) => {
     setWeaponId(newValue);
-    setWeaponLevel(INFO_DATA[gameId].MAX_LEVEL);
-    setWeaponRank(1);
+    setWeaponLevel(newValue ? INFO_DATA[gameId].MAX_LEVEL : null);
+    setWeaponRank(newValue ? 1 : null);
   };
 
   const renderOptionWeaponId = (props, option) => {
@@ -57,8 +57,8 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeapon
 
   return (
     <Autocomplete
-      value={weaponId ?? ""}
-      options={weaponIdOptions()}
+      value={weaponId}
+      options={weaponIdOptions}
       getOptionLabel={(id) => WEAPON_DATA[gameId][id]?.name ?? ""}
       onChange={(_, newValue) => handleWeaponId(newValue)}
       renderOption={renderOptionWeaponId}

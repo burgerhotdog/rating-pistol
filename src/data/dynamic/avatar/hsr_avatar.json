@@ -541,9 +541,9 @@
     "statBase": { "_HP": 1435, "_ATK": 679, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "SPD": 3,
+      "CR": 5,
+      "CD": 5,
+      "SPD": 4,
       "ATK": 3,
       "_ATK": 1
     }
@@ -574,8 +574,8 @@
     "statBase": { "_HP": 882, "_ATK": 582, "_DEF": 441 },
     "strength": 3,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
+      "EHR": 3,
+      "SPD": 3,
       "ATK": 3,
       "_ATK": 1
     }
@@ -607,7 +607,7 @@
     "statBase": { "_HP": 1474, "_ATK": 465, "_DEF": 606 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
+      "SPD": 3,
       "HP": 3,
       "RES": 2,
       "DEF": 1,
@@ -657,9 +657,9 @@
     "statBase": { "_HP": 1086, "_ATK": 679, "_DEF": 485 },
     "strength": 3,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
+      "SPD": 3,
       "ATK": 3,
+      "EHR": 2,
       "_ATK": 1
     }
   },

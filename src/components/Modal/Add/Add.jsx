@@ -8,17 +8,15 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [id, setId] = useState(null);
   
-  const charOptions = () => {
-    return Object.keys(AVATAR_DATA[gameId])
-      .filter(id => !Object.keys(avatarCache).includes(id))
-      .sort((a, b) => {
-        const A = AVATAR_DATA[gameId][a];
-        const B = AVATAR_DATA[gameId][b];
-        return A.rarity !== B.rarity
-          ? B.rarity - A.rarity
-          : A.name.localeCompare(B.name);
-      });
-  };
+  const charOptions = Object.keys(AVATAR_DATA[gameId])
+    .filter(id => !Object.keys(avatarCache).includes(id))
+    .sort((a, b) => {
+      const A = AVATAR_DATA[gameId][a];
+      const B = AVATAR_DATA[gameId][b];
+      return A.rarity !== B.rarity
+        ? B.rarity - A.rarity
+        : A.name.localeCompare(B.name);
+    });
 
   const handleSave = async () => {
     setIsLoading(true);
@@ -34,8 +32,8 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
   return (
     <Stack alignItems="center" spacing={2}>
       <Autocomplete
-        value={id ?? ""}
-        options={charOptions()}
+        value={id}
+        options={charOptions}
         getOptionLabel={(id) => AVATAR_DATA[gameId][id]?.name ?? ""}
         onChange={(_, newValue) => setId(newValue)}
         renderOption={(props, option) => {
@@ -54,7 +52,7 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
               <Box
                 component="img"
                 loading="lazy"
-                src={AVATAR_ASSETS[gameId][option]}
+                src={AVATAR_ASSETS[gameId][option].icon}
                 alt=""
                 sx={{ width: 24, height: 24, objectFit: "contain" }}
               />

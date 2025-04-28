@@ -20,7 +20,7 @@ const Mainstat = ({ gameId, equipList, setEquipList, mainIndex }) => {
 
   return (
     <Autocomplete
-      value={equipList[mainIndex].stat ?? ""}
+      value={equipList[mainIndex].stat}
       options={mainstatOptions}
       getOptionLabel={(stat) => STAT_DATA[gameId][stat]?.name ?? ""}
       onChange={(_, newValue) => handleMainstat(newValue)}

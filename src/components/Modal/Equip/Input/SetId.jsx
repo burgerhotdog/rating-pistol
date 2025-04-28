@@ -29,7 +29,7 @@ const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
 
   return (
     <Autocomplete
-      value={equipList[mainIndex].setId ?? ""}
+      value={equipList[mainIndex].setId}
       options={setOptions}
       getOptionLabel={(id) => SET_DATA[gameId][id]?.name ?? ""}
       onChange={(_, newValue) => handleSet(newValue)}

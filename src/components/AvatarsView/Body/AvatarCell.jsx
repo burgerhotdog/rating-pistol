@@ -24,7 +24,7 @@ const AvatarCell = ({ gameId, id, data, setModalPipe }) => {
           <Badge badgeContent={`${INFO_DATA[gameId].PREFIX_AVATAR}${data.rank}`}>
             <Avatar
               alt={AVATAR_DATA[gameId][id].name}
-              src={AVATAR_ASSETS[gameId][id]}
+              src={AVATAR_ASSETS[gameId][id].icon}
             />
           </Badge>
           <Typography variant="body2">
