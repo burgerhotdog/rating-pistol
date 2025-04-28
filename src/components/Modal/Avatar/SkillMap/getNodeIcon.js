@@ -1,4 +1,4 @@
-import { SKILL_ASSETS, STAT_ASSETS } from "@assets";
+import { AVATAR_ASSETS, STAT_ASSETS } from "@assets";
 import { AVATAR_DATA } from "@data";
 
 export default (gameId, avatarId, nodeId) => {
@@ -10,8 +10,8 @@ export default (gameId, avatarId, nodeId) => {
   }
 
   if (gameId === "zzz") {
-    return SKILL_ASSETS[gameId][nodeId];
+    return AVATAR_ASSETS[gameId].skill[nodeId];
   }
   
-  return SKILL_ASSETS[gameId][avatarId]?.[nodeId];
+  return AVATAR_ASSETS[gameId][avatarId]?.[nodeId];
 };

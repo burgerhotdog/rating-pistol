@@ -344,7 +344,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
                 <Box
                   component="img"
                   loading="lazy"
-                  src={AVATAR_ASSETS[gameId][avatar.avatarId]}
+                  src={AVATAR_ASSETS[gameId][avatar.avatarId].icon}
                   alt={avatar.avatarId}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />
