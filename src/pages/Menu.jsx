@@ -8,6 +8,14 @@ const gameIds = ["gi", "hsr", "ww", "zzz"];
 
 const updates = [
   {
+    date: "2025.04.29",
+    title: "Wuthering Waves Version 2.3",
+    topics: [
+      "New Resonators: Zani, Ciaconna",
+      "New Weapons: Blazing Justice, Woodland Aria",
+    ],
+  },
+  {
     date: "2025.04.23",
     title: "Zenless Zone Zero Version 1.7",
     topics: [
