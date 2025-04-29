@@ -1,4 +1,37 @@
 {
+  "1507": {
+    "name": "Zani",
+    "rarity": 5,
+    "type": "Gauntlets",
+    "sig": "21040036",
+    "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
+    "statBase": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
+    "strength": 4,
+    "weights": {
+      "CR": 10,
+      "CD": 10,
+      "ATK": 6,
+      "ER": 4,
+      "HA": 4,
+      "_ATK": 2
+    }
+  },
+  "1407": {
+    "name": "Ciaccona",
+    "rarity": 5,
+    "type": "Pistols",
+    "sig": "21030026",
+    "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
+    "statBase": { "_HP": 12238, "_ATK": 375, "_DEF": 1198 },
+    "strength": 4,
+    "weights": {
+      "CR": 10,
+      "CD": 10,
+      "ER": 6,
+      "ATK": 6,
+      "_ATK": 2
+    }
+  },
   "1607": {
     "name": "Cantarella",
     "rarity": 5,

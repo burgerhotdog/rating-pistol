@@ -1,4 +1,32 @@
 {
+  "21040036": {
+    "name": "Blazing Justice",
+    "rarity": 5,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 588 },
+    "statSub": { "CD": 48.6 },
+    "descHead": "Darkness Breaker",
+    "descBody": "Increases ATK by {0}. Casting Basic Attack grants the following effects: Dealing damage ignores {1} of the target's DEF and Amplifies Spectro Frazzle DMG dealt by {2} for 6s. Retriggering the effect resets its duration.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["50%", "62.5%", "75%", "87.5%", "100%"]
+    ]
+  },
+  "21030026": {
+    "name": "Woodland Aria",
+    "rarity": 5,
+    "type": "Pistols",
+    "statBase": { "_ATK": 500 },
+    "statSub": { "CR": 36 },
+    "descHead": "Lingering Summer Tune",
+    "descBody": "ATK is increased by {0}. Inflicting Aero Erosion on the target gives {1} Aero DMG Bonus for 10s. Hitting targets with Aero Erosion reduces their Aero RES by {2} for 20s.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["24%", "30%", "36%", "42%", "48%"],
+      ["10%", "11.5%", "13%", "14.5%", "16%"]
+    ]
+  },
   "21050056": {
     "name": "Whispers of Sirens",
     "rarity": 5,
