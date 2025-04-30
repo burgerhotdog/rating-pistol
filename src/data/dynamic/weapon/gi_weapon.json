@@ -13,7 +13,7 @@
       ["40%", "50%", "60%", "70%", "80%"]
     ]
   },
-  "14158": {
+  "14518": {
     "name": "Sunny Morning Sleep-In",
     "rarity": 5,
     "type": "Catalyst",
@@ -118,21 +118,6 @@
       ["8%", "10%", "12%", "14%", "16%"]
     ]
   },
-  "11516": {
-    "name": "Peak Patrol Song",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 542 },
-    "statSub": { "DEF": 82.7 },
-    "descHead": "Halcyon Years Unending",
-    "descBody": "Gain \"Ode to Flowers\" after Normal or Plunging Attacks hit an opponent: DEF increases by {0} and gain a {1} All Elemental DMG Bonus for 6s. Max 2 stacks. Can trigger once per 0.1s. When this effect reaches 2 stacks or the 2nd stack's duration is refreshed, increase all nearby party members' All Elemental DMG Bonus by {2} for every 1,000 DEF the equipping character has, up to a maximum of {3}, for 15s.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"],
-      ["10%", "12.5%", "15%", "17.5%", "20%"],
-      ["8%", "10%", "12%", "14%", "16%"],
-      ["25.6%", "32%", "38.4%", "44.8%", "51.2%"]
-    ]
-  },
   "13430": {
     "name": "Mountain-Bracing Bolt",
     "rarity": 4,
@@ -159,6 +144,21 @@
       ["16%", "20%", "24%", "28%", "32%"]
     ]
   },
+  "11516": {
+    "name": "Peak Patrol Song",
+    "rarity": 5,
+    "type": "Sword",
+    "statBase": { "_ATK": 542 },
+    "statSub": { "DEF": 82.7 },
+    "descHead": "Halcyon Years Unending",
+    "descBody": "Gain \"Ode to Flowers\" after Normal or Plunging Attacks hit an opponent: DEF increases by {0} and gain a {1} All Elemental DMG Bonus for 6s. Max 2 stacks. Can trigger once per 0.1s. When this effect reaches 2 stacks or the 2nd stack's duration is refreshed, increase all nearby party members' All Elemental DMG Bonus by {2} for every 1,000 DEF the equipping character has, up to a maximum of {3}, for 15s.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["10%", "12.5%", "15%", "17.5%", "20%"],
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["25.6%", "32%", "38.4%", "44.8%", "51.2%"]
+    ]
+  },
   "11430": {
     "name": "Sturdy Bone",
     "rarity": 4,
@@ -169,31 +169,6 @@
     "descBody": "Sprint or Alternate Sprint Stamina Consumption decreased by 15%. Additionally, after using Sprint or Alternate Sprint, Normal Attack DMG is increased by {0} of ATK. This effect expires after triggering 18 times or 7s.",
     "descVar": [
       ["16%", "20%", "24%", "28%", "32%"]
-    ]
-  },
-  "14516": {
-    "name": "Surf's Up",
-    "rarity": 5,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 542 },
-    "statSub": { "CD": 88.2 },
-    "descHead": "Aqua Remembrance",
-    "descBody": "Max HP increased by {0}. Once every 15s, for the 14s after using an Elemental Skill: Gain 4 Scorching Summer stacks. Each stack increases Normal Attack DMG by {1}. For the duration of the effect, once every 1.5s, lose 1 stack after a Normal Attack hits an opponent; once every 1.5s, gain 1 stack after triggering a Vaporize reaction on an opponent. Max 4 Scorching Summer stacks.",
-    "descVar": [
-      ["20%", "25%", "30%", "35%", "40%"],
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "12513": {
-    "name": "Fang of the Mountain King",
-    "rarity": 5,
-    "type": "Claymore",
-    "statBase": { "_ATK": 741 },
-    "statSub": { "CR": 11 },
-    "descHead": "Turquoise Hunt",
-    "descBody": "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by {0} for 6s. Max 6 stacks. Each stack is counted independently.",
-    "descVar": [
-      ["10%", "12.5%", "15%", "17.5%", "20%"]
     ]
   },
   "15431": {
@@ -207,6 +182,19 @@
     "descVar": [
       ["4.8%", "6%", "7.2%", "8.4%", "9.6%"],
       ["24", "30", "36", "42", "48"]
+    ]
+  },
+  "14516": {
+    "name": "Surf's Up",
+    "rarity": 5,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 542 },
+    "statSub": { "CD": 88.2 },
+    "descHead": "Aqua Remembrance",
+    "descBody": "Max HP increased by {0}. Once every 15s, for the 14s after using an Elemental Skill: Gain 4 Scorching Summer stacks. Each stack increases Normal Attack DMG by {1}. For the duration of the effect, once every 1.5s, lose 1 stack after a Normal Attack hits an opponent; once every 1.5s, gain 1 stack after triggering a Vaporize reaction on an opponent. Max 4 Scorching Summer stacks.",
+    "descVar": [
+      ["20%", "25%", "30%", "35%", "40%"],
+      ["12%", "15%", "18%", "21%", "24%"]
     ]
   },
   "14431": {
@@ -244,6 +232,18 @@
     "descBody": "Using an Elemental Skill increases DEF by {0} for 15s.",
     "descVar": [
       ["16%", "20%", "24%", "28%", "32%"]
+    ]
+  },
+  "12513": {
+    "name": "Fang of the Mountain King",
+    "rarity": 5,
+    "type": "Claymore",
+    "statBase": { "_ATK": 741 },
+    "statSub": { "CR": 11 },
+    "descHead": "Turquoise Hunt",
+    "descBody": "Gain 1 stack of Canopy's Favor after hitting an opponent with an Elemental Skill. This can be triggered once every 0.5s. After a nearby party member triggers a Burning or Burgeon reaction, the equipping character will gain 3 stacks. This effect can be triggered once every 2s and can be triggered even when the triggering party member is off-field. Canopy's Favor: Elemental Skill and Burst DMG is increased by {0} for 6s. Max 6 stacks. Each stack is counted independently.",
+    "descVar": [
+      ["10%", "12.5%", "15%", "17.5%", "20%"]
     ]
   },
   "12431": {
@@ -297,6 +297,18 @@
       ["28%", "35%", "42%", "49%", "56%"]
     ]
   },
+  "15426": {
+    "name": "Cloudforged",
+    "rarity": 4,
+    "type": "Bow",
+    "statBase": { "_ATK": 510 },
+    "statSub": { "EM": 165 },
+    "descHead": "Crag-Chiseled Forge",
+    "descBody": "After Elemental Energy is decreased, the equipping character's Elemental Mastery will increase by 40 for 18s. Max 2 stacks.",
+    "descVar": [
+      ["40", "50", "60", "70", "80"]
+    ]
+  },
   "11515": {
     "name": "Absolution",
     "rarity": 5,
@@ -308,18 +320,6 @@
     "descVar": [
       ["20%", "25%", "30%", "35%", "40%"],
       ["16%", "20%", "24%", "28%", "32%"]
-    ]
-  },
-  "15426": {
-    "name": "Cloudforged",
-    "rarity": 4,
-    "type": "Bow",
-    "statBase": { "_ATK": 510 },
-    "statSub": { "EM": 165 },
-    "descHead": "Crag-Chiseled Forge",
-    "descBody": "After Elemental Energy is decreased, the equipping character's Elemental Mastery will increase by 40 for 18s. Max 2 stacks.",
-    "descVar": [
-      ["40", "50", "60", "70", "80"]
     ]
   },
   "13512": {
@@ -335,6 +335,18 @@
       ["24%", "32%", "40%", "48%", "56%"]
     ]
   },
+  "13426": {
+    "name": "Dialogues of the Desert Sages",
+    "rarity": 4,
+    "type": "Polearm",
+    "statBase": { "_ATK": 510 },
+    "statSub": { "HP": 41.3 },
+    "descHead": "Principle of Equilibrium",
+    "descBody": "When the wielder performs healing, restore {0} Energy. This effect can be triggered once every 10s and can occur even when the character is not on the field.",
+    "descVar": [
+      ["8", "10", "12", "14", "16"]
+    ]
+  },
   "11514": {
     "name": "Uraku Misugiri",
     "rarity": 5,
@@ -347,18 +359,6 @@
       ["16%", "20%", "24%", "28%", "32%"],
       ["24%", "30%", "36%", "42%", "48%"],
       ["20%", "25%", "30%", "35%", "40%"]
-    ]
-  },
-  "13426": {
-    "name": "Dialogues of the Desert Sages",
-    "rarity": 4,
-    "type": "Polearm",
-    "statBase": { "_ATK": 510 },
-    "statSub": { "HP": 41.3 },
-    "descHead": "Principle of Equilibrium",
-    "descBody": "When the wielder performs healing, restore {0} Energy. This effect can be triggered once every 10s and can occur even when the character is not on the field.",
-    "descVar": [
-      ["8", "10", "12", "14", "16"]
     ]
   },
   "14515": {
@@ -425,6 +425,19 @@
       ["160%", "200%", "240%", "280%", "320%"]
     ]
   },
+  "15427": {
+    "name": "Range Gauge",
+    "rarity": 4,
+    "type": "Bow",
+    "statBase": { "_ATK": 565 },
+    "statSub": { "ATK": 27.6 },
+    "descHead": "Masons' Ditty",
+    "descBody": "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain {0} ATK and {1} All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
+    "descVar": [
+      ["3%", "4%", "5%", "6%", "7%"],
+      ["7%", "8.5%", "10%", "11.5%", "13%"]
+    ]
+  },
   "14514": {
     "name": "Tome of the Eternal Flow",
     "rarity": 5,
@@ -452,19 +465,6 @@
       ["16%", "20%", "24%", "28%", "32%"],
       ["14%", "17.5%", "21", "24.5%", "28%"],
       ["8%", "10%", "12%", "14%", "16%"]
-    ]
-  },
-  "15427": {
-    "name": "Range Gauge",
-    "rarity": 4,
-    "type": "Bow",
-    "statBase": { "_ATK": 565 },
-    "statSub": { "ATK": 27.6 },
-    "descHead": "Masons' Ditty",
-    "descBody": "When the wielder is healed or heals others, they will gain a Unity's Symbol that lasts 30s, up to a maximum of 3 Symbols. When using their Elemental Skill or Burst, all Symbols will be consumed and the Struggle effect will be granted for 10s. For each Symbol consumed, gain {0} ATK and {1} All Elemental DMG Bonus. The Struggle effect can be triggered once every 15s, and Symbols can be gained even when the character is not on the field.",
-    "descVar": [
-      ["3%", "4%", "5%", "6%", "7%"],
-      ["7%", "8.5%", "10%", "11.5%", "13%"]
     ]
   },
   "14426": {
@@ -782,6 +782,18 @@
       ["40", "42", "44", "46", "48"]
     ]
   },
+  "14416": {
+    "name": "Wandering Evenstar",
+    "rarity": 4,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 510 },
+    "statSub": { "EM": 165 },
+    "descHead": "Wildling Nightstar",
+    "descBody": "The following effect will trigger every 10s: The equipping character will gain {0} of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
+    "descVar": [
+      ["24%", "30%", "36%", "42%", "48%"]
+    ]
+  },
   "13511": {
     "name": "Staff of the Scarlet Sands",
     "rarity": 5,
@@ -793,32 +805,6 @@
     "descVar": [
       ["52%", "65%", "78%", "91%", "104%"],
       ["28%", "35%", "42%", "49%", "56%"]
-    ]
-  },
-  "11511": {
-    "name": "Key of Khaj-Nisut",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 542 },
-    "statSub": { "HP": 66.2 },
-    "descHead": "Sunken Song of the Sands",
-    "descBody": "HP increased by {0}. When an Elemental Skill hits opponents, you gain the Grand Hymn effect for 20s. This effect increases the equipping character's Elemental Mastery by {1} of their Max HP. This effect can trigger once every 0.3s. Max 3 stacks. When this effect gains 3 stacks, or when the third stack's duration is refreshed, the Elemental Mastery of all nearby party members will be increased by {2} of the equipping character's max HP for 20s.",
-    "descVar": [
-      ["20%", "25%", "30%", "35%", "40%"],
-      ["0.12%", "0.15%", "0.18%", "0.21%", "0.24%"],
-      ["0.2%", "0.25%", "0.3%", "0.35%", "0.4%"]
-    ]
-  },
-  "14416": {
-    "name": "Wandering Evenstar",
-    "rarity": 4,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 510 },
-    "statSub": { "EM": 165 },
-    "descHead": "Wildling Nightstar",
-    "descBody": "The following effect will trigger every 10s: The equipping character will gain {0} of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
-    "descVar": [
-      ["24%", "30%", "36%", "42%", "48%"]
     ]
   },
   "13419": {
@@ -844,6 +830,20 @@
     "descBody": "The following effect will trigger every 10s: The equipping character will gain {0} of their Elemental Mastery as bonus ATK for 12s, with nearby party members gaining 30% of this buff for the same duration. Multiple instances of this weapon can allow this buff to stack. This effect will still trigger even if the character is not on the field.",
     "descVar": [
       ["24%", "30%", "36%", "42%", "48%"]
+    ]
+  },
+  "11511": {
+    "name": "Key of Khaj-Nisut",
+    "rarity": 5,
+    "type": "Sword",
+    "statBase": { "_ATK": 542 },
+    "statSub": { "HP": 66.2 },
+    "descHead": "Sunken Song of the Sands",
+    "descBody": "HP increased by {0}. When an Elemental Skill hits opponents, you gain the Grand Hymn effect for 20s. This effect increases the equipping character's Elemental Mastery by {1} of their Max HP. This effect can trigger once every 0.3s. Max 3 stacks. When this effect gains 3 stacks, or when the third stack's duration is refreshed, the Elemental Mastery of all nearby party members will be increased by {2} of the equipping character's max HP for 20s.",
+    "descVar": [
+      ["20%", "25%", "30%", "35%", "40%"],
+      ["0.12%", "0.15%", "0.18%", "0.21%", "0.24%"],
+      ["0.2%", "0.25%", "0.3%", "0.35%", "0.4%"]
     ]
   },
   "11418": {
@@ -1106,6 +1106,19 @@
       ["40%", "50%", "60%", "70%", "80%"]
     ]
   },
+  "15415": {
+    "name": "Predator",
+    "rarity": 4,
+    "type": "Bow",
+    "statBase": { "_ATK": 510 },
+    "statSub": { "ATK": 41.3 },
+    "descHead": "Strong Strike",
+    "descBody": "{0}\n{1}\nDealing Cryo DMG to opponents increases this character's Normal and Charged Attack DMG by 10% for 6s. This effect can have a maximum of 2 stacks. Additionally, when Aloy equips Predator, ATK is increased by 66.",
+    "descVar": [
+      ["Effective only on the following platform:"],
+      ["\"PlayStation Network\""]
+    ]
+  },
   "14506": {
     "name": "Everlasting Moonglow",
     "rarity": 5,
@@ -1131,19 +1144,6 @@
       ["28%", "35%", "42%", "49%", "56%"],
       ["80%", "90%", "100%", "110%", "120%"],
       ["30%", "35%", "40%", "45%", "50%"]
-    ]
-  },
-  "15415": {
-    "name": "Predator",
-    "rarity": 4,
-    "type": "Bow",
-    "statBase": { "_ATK": 510 },
-    "statSub": { "ATK": 41.3 },
-    "descHead": "Strong Strike",
-    "descBody": "{0}\n{1}\nDealing Cryo DMG to opponents increases this character's Normal and Charged Attack DMG by 10% for 6s. This effect can have a maximum of 2 stacks. Additionally, when Aloy equips Predator, ATK is increased by 66.",
-    "descVar": [
-      ["Effective only on the following platform:"],
-      ["\"PlayStation Network\""]
     ]
   },
   "13415": {
@@ -1183,19 +1183,6 @@
     "descVar": [
       ["20%", "25%", "30%", "35%", "40%"],
       ["12/24/40%", "15/30/50%", "18/36/60%", "21/42/70%", "24/48/80%"]
-    ]
-  },
-  "11509": {
-    "name": "Mistsplitter Reforged",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 674 },
-    "statSub": { "CD": 44.1 },
-    "descHead": "Mistsplitter's Edge",
-    "descBody": "Gain a {0} Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, the Mistsplitter's Emblem provides a {1} Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"],
-      ["8/16/28%", "10/20/35%", "12/24/42%", "16/32/56%"]
     ]
   },
   "15414": {
@@ -1249,6 +1236,19 @@
       ["3", "3.5", "4", "4.5", "5"]
     ]
   },
+  "11509": {
+    "name": "Mistsplitter Reforged",
+    "rarity": 5,
+    "type": "Sword",
+    "statBase": { "_ATK": 674 },
+    "statSub": { "CD": 44.1 },
+    "descHead": "Mistsplitter's Edge",
+    "descBody": "Gain a {0} Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, the Mistsplitter's Emblem provides a {1} Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["8/16/28%", "10/20/35%", "12/24/42%", "16/32/56%"]
+    ]
+  },
   "11414": {
     "name": "Amenoma Kageuchi",
     "rarity": 4,
@@ -1259,20 +1259,6 @@
     "descBody": "After casting an Elemental Skill, gain 1 Succession Seed. This effect can be triggered once every 5s. The Succession Seed lasts for 30s. Up to 3 Succession Seeds may exist simultaneously. After using an Elemental Burst, all Succession Seeds are consumed and after 2s, the character regenerates {0} Energy for each seed consumed.",
     "descVar": [
       ["6", "7.5", "9", "10.5", "12"]
-    ]
-  },
-  "11503": {
-    "name": "Freedom-Sworn",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 608 },
-    "statSub": { "EM": 198 },
-    "descHead": "Revolutionary Chorale",
-    "descBody": "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases DMG by {0}. When the character wielding this weapon triggers Elemental Reactions, they gain a Sigil of Rebellion. This effect can be triggered once every 0.5s and can be triggered even if said character is not on the field. When you possess 2 Sigils of Rebellion, all of them will be consumed and all nearby party members will obtain \"Millennial Movement: Song of Resistance\" for 12s. \"Millennial Movement: Song of Resistance\" increases Normal, Charged and Plunging Attack DMG by {1} and increases ATK by {2}. Once this effect is triggered, you will not gain Sigils of Rebellion for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
-    "descVar": [
-      ["10%", "12.5%", "15%", "17.5%", "20%"],
-      ["16%", "20%", "24%", "28%", "32%"],
-      ["20%", "25%", "30%", "35%", "40%"]
     ]
   },
   "15412": {
@@ -1299,6 +1285,20 @@
     "descVar": [
       ["16%", "20%", "24%", "28%", "32%"],
       ["8%", "10%", "12%", "14%", "16%"]
+    ]
+  },
+  "11503": {
+    "name": "Freedom-Sworn",
+    "rarity": 5,
+    "type": "Sword",
+    "statBase": { "_ATK": 608 },
+    "statSub": { "EM": 198 },
+    "descHead": "Revolutionary Chorale",
+    "descBody": "A part of the \"Millennial Movement\" that wanders amidst the winds. Increases DMG by {0}. When the character wielding this weapon triggers Elemental Reactions, they gain a Sigil of Rebellion. This effect can be triggered once every 0.5s and can be triggered even if said character is not on the field. When you possess 2 Sigils of Rebellion, all of them will be consumed and all nearby party members will obtain \"Millennial Movement: Song of Resistance\" for 12s. \"Millennial Movement: Song of Resistance\" increases Normal, Charged and Plunging Attack DMG by {1} and increases ATK by {2}. Once this effect is triggered, you will not gain Sigils of Rebellion for 20s. Of the many effects of the \"Millennial Movement,\" buffs of the same type will not stack.",
+    "descVar": [
+      ["10%", "12.5%", "15%", "17.5%", "20%"],
+      ["16%", "20%", "24%", "28%", "32%"],
+      ["20%", "25%", "30%", "35%", "40%"]
     ]
   },
   "12503": {
@@ -1394,19 +1394,6 @@
       ["1%", "1.2%", "1.4%", "1.6%", "1.8%"]
     ]
   },
-  "11505": {
-    "name": "Primordial Jade Cutter",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 542 },
-    "statSub": { "CR": 44.1 },
-    "descHead": "Protector's Virtue",
-    "descBody": "HP increased by {0}. Additionally, provides an ATK Bonus based on {1} of the wielder's Max HP.",
-    "descVar": [
-      ["20%", "25%", "30%", "35%", "40%"],
-      ["1.2%", "1.5%", "1.8%", "2.1%", "2.4%"]
-    ]
-  },
   "13406": {
     "name": "Lithic Spear",
     "rarity": 4,
@@ -1433,17 +1420,17 @@
       ["3%", "4%", "5%", "6%", "7%"]
     ]
   },
-  "11504": {
-    "name": "Summit Shaper",
+  "11505": {
+    "name": "Primordial Jade Cutter",
     "rarity": 5,
     "type": "Sword",
-    "statBase": { "_ATK": 608 },
-    "statSub": { "ATK": 49.6 },
-    "descHead": "Golden Majesty",
-    "descBody": "Increases Shield Strength by {0}. Scoring hits on opponents increases ATK by {1} for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
+    "statBase": { "_ATK": 542 },
+    "statSub": { "CR": 44.1 },
+    "descHead": "Protector's Virtue",
+    "descBody": "HP increased by {0}. Additionally, provides an ATK Bonus based on {1} of the wielder's Max HP.",
     "descVar": [
       ["20%", "25%", "30%", "35%", "40%"],
-      ["4%", "5%", "6%", "7%", "8%"]
+      ["1.2%", "1.5%", "1.8%", "2.1%", "2.4%"]
     ]
   },
   "14412": {
@@ -1488,6 +1475,19 @@
       ["200%", "240%", "280%", "320%", "360%"]
     ]
   },
+  "11504": {
+    "name": "Summit Shaper",
+    "rarity": 5,
+    "type": "Sword",
+    "statBase": { "_ATK": 608 },
+    "statSub": { "ATK": 49.6 },
+    "descHead": "Golden Majesty",
+    "descBody": "Increases Shield Strength by {0}. Scoring hits on opponents increases ATK by {1} for 8s. Max 5 stacks. Can only occur once every 0.3s. While protected by a shield, this ATK increase effect is increased by 100%.",
+    "descVar": [
+      ["20%", "25%", "30%", "35%", "40%"],
+      ["4%", "5%", "6%", "7%", "8%"]
+    ]
+  },
   "11413": {
     "name": "Festering Desire",
     "rarity": 4,
@@ -1527,6 +1527,18 @@
       ["4%", "5%", "6%", "7%", "8%"]
     ]
   },
+  "13408": {
+    "name": "Royal Spear",
+    "rarity": 4,
+    "type": "Polearm",
+    "statBase": { "_ATK": 565 },
+    "statSub": { "ATK": 27.6 },
+    "descHead": "Focus",
+    "descBody": "Upon damaging an opponent, increases CRIT Rate by {0}. Max 5 stacks. A CRIT Hit removes all stacks.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"]
+    ]
+  },
   "12504": {
     "name": "The Unforged",
     "rarity": 5,
@@ -1538,18 +1550,6 @@
     "descVar": [
       ["20%", "25%", "30%", "35%", "40%"],
       ["4%", "5%", "6%", "7%", "8%"]
-    ]
-  },
-  "13408": {
-    "name": "Royal Spear",
-    "rarity": 4,
-    "type": "Polearm",
-    "statBase": { "_ATK": 565 },
-    "statSub": { "ATK": 27.6 },
-    "descHead": "Focus",
-    "descBody": "Upon damaging an opponent, increases CRIT Rate by {0}. Max 5 stacks. A CRIT Hit removes all stacks.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"]
     ]
   },
   "15502": {
@@ -1577,114 +1577,6 @@
       ["20%", "25%", "30%", "35%", "40%"],
       ["60%", "70%", "80%", "90%", "100%"],
       ["4", "3.5", "3", "2.5", "2"]
-    ]
-  },
-  "14502": {
-    "name": "Lost Prayer to the Sacred Winds",
-    "rarity": 5,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 608 },
-    "statSub": { "CR": 33.1 },
-    "descHead": "Boundless Blessing",
-    "descBody": "Increases Movement SPD by 10%. When in battle, gain an {0} Elemental DMG Bonus every 4s. Max 4 stacks. Lasts until the character falls or leaves combat.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"]
-    ]
-  },
-  "14501": {
-    "name": "Skyward Atlas",
-    "rarity": 5,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 674 },
-    "statSub": { "ATK": 33.1 },
-    "descHead": "Wandering Clouds",
-    "descBody": "Increases Elemental DMG Bonus by {0}. Normal Attack hits have a 50% chance to earn the favor of the clouds, which actively seek out nearby opponents to attack for 15s, dealing {1} ATK DMG. Can only occur once every 30s.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"],
-      ["160%", "200%", "240%", "280%", "320%"]
-    ]
-  },
-  "13505": {
-    "name": "Primordial Jade Winged-Spear",
-    "rarity": 5,
-    "type": "Polearm",
-    "statBase": { "_ATK": 674 },
-    "statSub": { "CR": 22.1 },
-    "descHead": "Eagle Spear of Justice",
-    "descBody": "On hit, increases ATK by {0} for 6s. Max 7 stacks. This effect can only occur once every 0.3s. While in possession of the maximum possible stacks, DMG dealt is increased by {1}.",
-    "descVar": [
-      ["3.2%", "3.9%", "4.6%", "5.3%", "6%"],
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "13502": {
-    "name": "Skyward Spine",
-    "rarity": 5,
-    "type": "Polearm",
-    "statBase": { "_ATK": 674 },
-    "statSub": { "ER": 36.8 },
-    "descHead": "Black Wing",
-    "descBody": "Increases CRIT Rate by {0} and increases Normal ATK SPD by {1}. Additionally, Normal and Charged Attacks hits on opponents have a {2} chance to trigger a vacuum blade that deals {3} of ATK as DMG in a small AoE. This effect can occur no more than once every 2s.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"],
-      ["12%"],
-      ["50%"],
-      ["40%", "55%", "70%", "85%", "100%"]
-    ]
-  },
-  "12502": {
-    "name": "Wolf's Gravestone",
-    "rarity": 5,
-    "type": "Claymore",
-    "statBase": { "_ATK": 608 },
-    "statSub": { "ATK": 49.6 },
-    "descHead": "Wolfish Tracker",
-    "descBody": "Increases ATK by {0}. On hit, attacks against opponents with less than 30% HP increase all party members' ATK by {1} for 12s. Can only occur once every 30s.",
-    "descVar": [
-      ["20%", "25%", "30%", "35%", "40%"],
-      ["40%", "50%", "60%", "70%", "80%"]
-    ]
-  },
-  "12501": {
-    "name": "Skyward Pride",
-    "rarity": 5,
-    "type": "Claymore",
-    "statBase": { "_ATK": 674 },
-    "statSub": { "ER": 36.8 },
-    "descHead": "Sky-ripping Dragon Spine",
-    "descBody": "Increases all DMG by {0}. After using an Elemental Burst, a vacuum blade that does {1} of ATK as DMG to opponents along its path will be created when Normal or Charged Attacks hit. Lasts for 20s or 8 vacuum blades.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"],
-      ["80%", "100%", "120%", "140%", "160%"]
-    ]
-  },
-  "11502": {
-    "name": "Skyward Blade",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 608 },
-    "statSub": { "ER": 55.1 },
-    "descHead": "Sky-Piercing Fang",
-    "descBody": "CRIT Rate increased by {0}. Gains Skypiercing Might upon using an Elemental Burst: Increases Movement SPD by {1}, increases ATK SPD by {2}, and Normal and Charged hits deal additional DMG equal to {3} of ATK. Skypiercing Might lasts for 12s.",
-    "descVar": [
-      ["4%", "5%", "6%", "7%", "8%"],
-      ["10%"],
-      ["10%"],
-      ["20%", "25%", "30%", "35%", "40%"]
-    ]
-  },
-  "11501": {
-    "name": "Aquila Favonia",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 674 },
-    "statSub": { "PHYSICAL": 41.3 },
-    "descHead": "Falcon's Defiance",
-    "descBody": "ATK is increased by {0}. Triggers on taking DMG: the soul of the Falcon of the West awakens, holding the banner of resistance aloft, regenerating HP equal to {1} of ATK and dealing {2} of ATK as DMG to surrounding opponents. This effect can only occur once every 15s.",
-    "descVar": [
-      ["20%", "25%", "30%", "35%", "40%"],
-      ["100%", "115%", "130%", "145%", "160%"],
-      ["200%", "230%", "260%", "290%", "320%"]
     ]
   },
   "15409": {
@@ -1797,6 +1689,103 @@
     "descVar": [
       ["60%", "70%", "80%", "90%", "100%"],
       ["12", "10.5", "9", "7.5", "6"]
+    ]
+  },
+  "15305": {
+    "name": "Messenger",
+    "rarity": 3,
+    "type": "Bow",
+    "statBase": { "_ATK": 448 },
+    "statSub": { "CR": 31.2 },
+    "descHead": "Archer's Message",
+    "descBody": "Charged Attack hits on weak points deal an additional {0} ATK DMG as CRIT DMG. Can only occur once every 10s.",
+    "descVar": [
+      ["100%", "125%", "150%", "175%", "200%"]
+    ]
+  },
+  "15304": {
+    "name": "Slingshot",
+    "rarity": 3,
+    "type": "Bow",
+    "statBase": { "_ATK": 354 },
+    "statSub": { "CR": 31.2 },
+    "descHead": "Slingshot",
+    "descBody": "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by {0}. Otherwise, decreases DMG by 10%.",
+    "descVar": [
+      ["36%", "42%", "48%", "54%", "60%"]
+    ]
+  },
+  "15303": {
+    "name": "Recurve Bow",
+    "rarity": 3,
+    "type": "Bow",
+    "statBase": { "_ATK": 354 },
+    "statSub": { "HP": 46.9 },
+    "descHead": "Cull the Weak",
+    "descBody": "Defeating an opponent restores {0} HP.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"]
+    ]
+  },
+  "15302": {
+    "name": "Sharpshooter's Oath",
+    "rarity": 3,
+    "type": "Bow",
+    "statBase": { "_ATK": 401 },
+    "statSub": { "CD": 46.9 },
+    "descHead": "Precise",
+    "descBody": "Increases DMG against weak spots by {0}.",
+    "descVar": [
+      ["24%", "30%", "36%", "42%", "48%"]
+    ]
+  },
+  "15301": {
+    "name": "Raven Bow",
+    "rarity": 3,
+    "type": "Bow",
+    "statBase": { "_ATK": 448 },
+    "statSub": { "EM": 94 },
+    "descHead": "Bane of Flame and Water",
+    "descBody": "Increases DMG against opponents affected by Hydro or Pyro by {0}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
+  "15201": {
+    "name": "Seasoned Hunter's Bow",
+    "rarity": 2,
+    "type": "Bow",
+    "statBase": { "_ATK": 243 }
+  },
+  "15101": {
+    "name": "Hunter's Bow",
+    "rarity": 1,
+    "type": "Bow",
+    "statBase": { "_ATK": 185 }
+  },
+  "14502": {
+    "name": "Lost Prayer to the Sacred Winds",
+    "rarity": 5,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 608 },
+    "statSub": { "CR": 33.1 },
+    "descHead": "Boundless Blessing",
+    "descBody": "Increases Movement SPD by 10%. When in battle, gain an {0} Elemental DMG Bonus every 4s. Max 4 stacks. Lasts until the character falls or leaves combat.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"]
+    ]
+  },
+  "14501": {
+    "name": "Skyward Atlas",
+    "rarity": 5,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 674 },
+    "statSub": { "ATK": 33.1 },
+    "descHead": "Wandering Clouds",
+    "descBody": "Increases Elemental DMG Bonus by {0}. Normal Attack hits have a 50% chance to earn the favor of the clouds, which actively seek out nearby opponents to attack for 15s, dealing {1} ATK DMG. Can only occur once every 30s.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["160%", "200%", "240%", "280%", "320%"]
     ]
   },
   "14409": {
@@ -1914,6 +1903,106 @@
       ["12", "10.5", "9", "7.5", "6"]
     ]
   },
+  "14305": {
+    "name": "Twin Nephrite",
+    "rarity": 3,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 448 },
+    "statSub": { "CR": 15.6 },
+    "descHead": "Guerilla Tactics",
+    "descBody": "Defeating an opponent increases Movement SPD and ATK by {0} for 15s.",
+    "descVar": [
+      ["12%", "14%", "16%", "18%", "20%"]
+    ]
+  },
+  "14304": {
+    "name": "Emerald Orb",
+    "rarity": 3,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 448 },
+    "statSub": { "EM": 94 },
+    "descHead": "Rapids",
+    "descBody": "Upon causing a Vaporize, Electro-Charged, Frozen, Bloom, or a Hydro-infused Swirl reaction, increases ATK by {0} for 12s.",
+    "descVar": [
+      ["20%", "25%", "30%", "35%", "40%"]
+    ]
+  },
+  "14303": {
+    "name": "Otherworldly Story",
+    "rarity": 3,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 401 },
+    "statSub": { "ER": 39 },
+    "descHead": "Energy Shower",
+    "descBody": "Picking up an Elemental Energy Orb/Particle recovers {0} HP.",
+    "descVar": [
+      ["1%", "1.25%", "1.5%", "1.75%", "2%"]
+    ]
+  },
+  "14302": {
+    "name": "Thrilling Tales of Dragon Slayers",
+    "rarity": 3,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 401 },
+    "statSub": { "HP": 35.2 },
+    "descHead": "Heritage",
+    "descBody": "When switching characters, the new character taking the field has their ATK increased by {0} for 10s. This effect can only occur once every 20s.",
+    "descVar": [
+      ["24%", "30%", "36%", "42%", "48%"]
+    ]
+  },
+  "14301": {
+    "name": "Magic Guide",
+    "rarity": 3,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 354 },
+    "statSub": { "EM": 187 },
+    "descHead": "Bane of Storm and Tide",
+    "descBody": "Increases DMG against opponents affected by Hydro or Electro by {0}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
+  "14201": {
+    "name": "Pocket Grimoire",
+    "rarity": 2,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 243 }
+  },
+  "14101": {
+    "name": "Apprentice's Notes",
+    "rarity": 1,
+    "type": "Catalyst",
+    "statBase": { "_ATK": 185 }
+  },
+  "13505": {
+    "name": "Primordial Jade Winged-Spear",
+    "rarity": 5,
+    "type": "Polearm",
+    "statBase": { "_ATK": 674 },
+    "statSub": { "CR": 22.1 },
+    "descHead": "Eagle Spear of Justice",
+    "descBody": "On hit, increases ATK by {0} for 6s. Max 7 stacks. This effect can only occur once every 0.3s. While in possession of the maximum possible stacks, DMG dealt is increased by {1}.",
+    "descVar": [
+      ["3.2%", "3.9%", "4.6%", "5.3%", "6%"],
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
+  "13502": {
+    "name": "Skyward Spine",
+    "rarity": 5,
+    "type": "Polearm",
+    "statBase": { "_ATK": 674 },
+    "statSub": { "ER": 36.8 },
+    "descHead": "Black Wing",
+    "descBody": "Increases CRIT Rate by {0} and increases Normal ATK SPD by {1}. Additionally, Normal and Charged Attacks hits on opponents have a {2} chance to trigger a vacuum blade that deals {3} of ATK as DMG in a small AoE. This effect can occur no more than once every 2s.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["12%"],
+      ["50%"],
+      ["40%", "55%", "70%", "85%", "100%"]
+    ]
+  },
   "13407": {
     "name": "Favonius Lance",
     "rarity": 4,
@@ -1987,6 +2076,80 @@
     "descBody": "Increases DMG against opponents affected by Hydro or Pyro by {0}.",
     "descVar": [
       ["20%", "24%", "28%", "32%", "36%"]
+    ]
+  },
+  "13303": {
+    "name": "Black Tassel",
+    "rarity": 3,
+    "type": "Polearm",
+    "statBase": { "_ATK": 354 },
+    "statSub": { "HP": 46.9 },
+    "descHead": "Bane of the Soft",
+    "descBody": "Increases DMG against slimes by {0}.",
+    "descVar": [
+      ["40%", "50%", "60%", "70%", "80%"]
+    ]
+  },
+  "13302": {
+    "name": "Halberd",
+    "rarity": 3,
+    "type": "Polearm",
+    "statBase": { "_ATK": 448 },
+    "statSub": { "ATK": 23.5 },
+    "descHead": "Heavy",
+    "descBody": "Normal Attacks deal an additional {0} ATK as DMG. Can only occur once every 10s.",
+    "descVar": [
+      ["160%", "200%", "240%", "280%", "320%"]
+    ]
+  },
+  "13301": {
+    "name": "White Tassel",
+    "rarity": 3,
+    "type": "Polearm",
+    "statBase": { "_ATK": 401 },
+    "statSub": { "CR": 23.4 },
+    "descHead": "Sharp",
+    "descBody": "Increases Normal Attack DMG by {0}.",
+    "descVar": [
+      ["24%", "30%", "36%", "42%", "48%"]
+    ]
+  },
+  "13201": {
+    "name": "Iron Point",
+    "rarity": 2,
+    "type": "Polearm",
+    "statBase": { "_ATK": 243 }
+  },
+  "13101": {
+    "name": "Beginner's Protector",
+    "rarity": 1,
+    "type": "Polearm",
+    "statBase": { "_ATK": 185 }
+  },
+  "12502": {
+    "name": "Wolf's Gravestone",
+    "rarity": 5,
+    "type": "Claymore",
+    "statBase": { "_ATK": 608 },
+    "statSub": { "ATK": 49.6 },
+    "descHead": "Wolfish Tracker",
+    "descBody": "Increases ATK by {0}. On hit, attacks against opponents with less than 30% HP increase all party members' ATK by {1} for 12s. Can only occur once every 30s.",
+    "descVar": [
+      ["20%", "25%", "30%", "35%", "40%"],
+      ["40%", "50%", "60%", "70%", "80%"]
+    ]
+  },
+  "12501": {
+    "name": "Skyward Pride",
+    "rarity": 5,
+    "type": "Claymore",
+    "statBase": { "_ATK": 674 },
+    "statSub": { "ER": 36.8 },
+    "descHead": "Sky-ripping Dragon Spine",
+    "descBody": "Increases all DMG by {0}. After using an Elemental Burst, a vacuum blade that does {1} of ATK as DMG to opponents along its path will be created when Normal or Charged Attacks hit. Lasts for 20s or 8 vacuum blades.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["80%", "100%", "120%", "140%", "160%"]
     ]
   },
   "12409": {
@@ -2100,6 +2263,108 @@
     "descVar": [
       ["60%", "70%", "80%", "90%", "100%"],
       ["12", "10.5", "9", "7.5", "6"]
+    ]
+  },
+  "12306": {
+    "name": "Skyrider Greatsword",
+    "rarity": 3,
+    "type": "Claymore",
+    "statBase": { "_ATK": 401 },
+    "statSub": { "PHYSICAL": 43.9 },
+    "descHead": "Courage",
+    "descBody": "On hit, Normal or Charged Attacks increase ATK by {0} for 6s. Max 4 stacks. Can occur once every 0.5s.",
+    "descVar": [
+      ["6%", "7%", "8%", "9%", "10%"]
+    ]
+  },
+  "12305": {
+    "name": "Debate Club",
+    "rarity": 3,
+    "type": "Claymore",
+    "statBase": { "_ATK": 401 },
+    "statSub": { "ATK": 35.2 },
+    "descHead": "Blunt Conclusion",
+    "descBody": "After using an Elemental Skill, on hit, Normal and Charged Attacks deal additional DMG equal to {0} of ATK in a small AoE. Effect lasts 15s. DMG can only occur once every 3s.",
+    "descVar": [
+      ["60%", "75%", "90%", "105%", "120%"]
+    ]
+  },
+  "12303": {
+    "name": "White Iron Greatsword",
+    "rarity": 3,
+    "type": "Claymore",
+    "statBase": { "_ATK": 401 },
+    "statSub": { "DEF": 43.9 },
+    "descHead": "Cull the Weak",
+    "descBody": "Defeating an opponent restores {0} HP.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"]
+    ]
+  },
+  "12302": {
+    "name": "Bloodtainted Greatsword",
+    "rarity": 3,
+    "type": "Claymore",
+    "statBase": { "_ATK": 354 },
+    "statSub": { "EM": 187 },
+    "descHead": "Bane of Fire and Thunder",
+    "descBody": "Increases DMG dealt against opponents affected by Pyro or Electro by {0}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
+  "12301": {
+    "name": "Ferrous Shadow",
+    "rarity": 3,
+    "type": "Claymore",
+    "statBase": { "_ATK": 401 },
+    "statSub": { "HP": 35.2 },
+    "descHead": "Unbending",
+    "descBody": "When HP falls below {0}, increases Charged Attack DMG by {1} and Charged Attacks become harder to interrupt.",
+    "descVar": [
+      ["70%", "75%", "80%", "85%", "90%"],
+      ["30%", "35%", "40%", "45%", "50%"]
+    ]
+  },
+  "12201": {
+    "name": "Old Merc's Pal",
+    "rarity": 2,
+    "type": "Claymore",
+    "statBase": { "_ATK": 243 }
+  },
+  "12101": {
+    "name": "Waster Greatsword",
+    "rarity": 1,
+    "type": "Claymore",
+    "statBase": { "_ATK": 185 }
+  },
+  "11502": {
+    "name": "Skyward Blade",
+    "rarity": 5,
+    "type": "Sword",
+    "statBase": { "_ATK": 608 },
+    "statSub": { "ER": 55.1 },
+    "descHead": "Sky-Piercing Fang",
+    "descBody": "CRIT Rate increased by {0}. Gains Skypiercing Might upon using an Elemental Burst: Increases Movement SPD by {1}, increases ATK SPD by {2}, and Normal and Charged hits deal additional DMG equal to {3} of ATK. Skypiercing Might lasts for 12s.",
+    "descVar": [
+      ["4%", "5%", "6%", "7%", "8%"],
+      ["10%"],
+      ["10%"],
+      ["20%", "25%", "30%", "35%", "40%"]
+    ]
+  },
+  "11501": {
+    "name": "Aquila Favonia",
+    "rarity": 5,
+    "type": "Sword",
+    "statBase": { "_ATK": 674 },
+    "statSub": { "PHYSICAL": 41.3 },
+    "descHead": "Falcon's Defiance",
+    "descBody": "ATK is increased by {0}. Triggers on taking DMG: the soul of the Falcon of the West awakens, holding the banner of resistance aloft, regenerating HP equal to {1} of ATK and dealing {2} of ATK as DMG to surrounding opponents. This effect can only occur once every 15s.",
+    "descVar": [
+      ["20%", "25%", "30%", "35%", "40%"],
+      ["100%", "115%", "130%", "145%", "160%"],
+      ["200%", "230%", "260%", "290%", "320%"]
     ]
   },
   "11412": {
@@ -2229,223 +2494,6 @@
       ["12", "10.5", "9", "7.5", "6"]
     ]
   },
-  "15305": {
-    "name": "Messenger",
-    "rarity": 3,
-    "type": "Bow",
-    "statBase": { "_ATK": 448 },
-    "statSub": { "CR": 31.2 },
-    "descHead": "Archer's Message",
-    "descBody": "Charged Attack hits on weak points deal an additional {0} ATK DMG as CRIT DMG. Can only occur once every 10s.",
-    "descVar": [
-      ["100%", "125%", "150%", "175%", "200%"]
-    ]
-  },
-  "15304": {
-    "name": "Slingshot",
-    "rarity": 3,
-    "type": "Bow",
-    "statBase": { "_ATK": 354 },
-    "statSub": { "CR": 31.2 },
-    "descHead": "Slingshot",
-    "descBody": "If a Normal or Charged Attack hits a target within 0.3s of being fired, increases DMG by {0}. Otherwise, decreases DMG by 10%.",
-    "descVar": [
-      ["36%", "42%", "48%", "54%", "60%"]
-    ]
-  },
-  "15303": {
-    "name": "Recurve Bow",
-    "rarity": 3,
-    "type": "Bow",
-    "statBase": { "_ATK": 354 },
-    "statSub": { "HP": 46.9 },
-    "descHead": "Cull the Weak",
-    "descBody": "Defeating an opponent restores {0} HP.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"]
-    ]
-  },
-  "15302": {
-    "name": "Sharpshooter's Oath",
-    "rarity": 3,
-    "type": "Bow",
-    "statBase": { "_ATK": 401 },
-    "statSub": { "CD": 46.9 },
-    "descHead": "Precise",
-    "descBody": "Increases DMG against weak spots by {0}.",
-    "descVar": [
-      ["24%", "30%", "36%", "42%", "48%"]
-    ]
-  },
-  "15301": {
-    "name": "Raven Bow",
-    "rarity": 3,
-    "type": "Bow",
-    "statBase": { "_ATK": 448 },
-    "statSub": { "EM": 94 },
-    "descHead": "Bane of Flame and Water",
-    "descBody": "Increases DMG against opponents affected by Hydro or Pyro by {0}.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "14305": {
-    "name": "Twin Nephrite",
-    "rarity": 3,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 448 },
-    "statSub": { "CR": 15.6 },
-    "descHead": "Guerilla Tactics",
-    "descBody": "Defeating an opponent increases Movement SPD and ATK by {0} for 15s.",
-    "descVar": [
-      ["12%", "14%", "16%", "18%", "20%"]
-    ]
-  },
-  "14304": {
-    "name": "Emerald Orb",
-    "rarity": 3,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 448 },
-    "statSub": { "EM": 94 },
-    "descHead": "Rapids",
-    "descBody": "Upon causing a Vaporize, Electro-Charged, Frozen, Bloom, or a Hydro-infused Swirl reaction, increases ATK by {0} for 12s.",
-    "descVar": [
-      ["20%", "25%", "30%", "35%", "40%"]
-    ]
-  },
-  "14303": {
-    "name": "Otherworldly Story",
-    "rarity": 3,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 401 },
-    "statSub": { "ER": 39 },
-    "descHead": "Energy Shower",
-    "descBody": "Picking up an Elemental Energy Orb/Particle recovers {0} HP.",
-    "descVar": [
-      ["1%", "1.25%", "1.5%", "1.75%", "2%"]
-    ]
-  },
-  "14302": {
-    "name": "Thrilling Tales of Dragon Slayers",
-    "rarity": 3,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 401 },
-    "statSub": { "HP": 35.2 },
-    "descHead": "Heritage",
-    "descBody": "When switching characters, the new character taking the field has their ATK increased by {0} for 10s. This effect can only occur once every 20s.",
-    "descVar": [
-      ["24%", "30%", "36%", "42%", "48%"]
-    ]
-  },
-  "14301": {
-    "name": "Magic Guide",
-    "rarity": 3,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 354 },
-    "statSub": { "EM": 187 },
-    "descHead": "Bane of Storm and Tide",
-    "descBody": "Increases DMG against opponents affected by Hydro or Electro by {0}.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "13303": {
-    "name": "Black Tassel",
-    "rarity": 3,
-    "type": "Polearm",
-    "statBase": { "_ATK": 354 },
-    "statSub": { "HP": 46.9 },
-    "descHead": "Bane of the Soft",
-    "descBody": "Increases DMG against slimes by {0}.",
-    "descVar": [
-      ["40%", "50%", "60%", "70%", "80%"]
-    ]
-  },
-  "13302": {
-    "name": "Halberd",
-    "rarity": 3,
-    "type": "Polearm",
-    "statBase": { "_ATK": 448 },
-    "statSub": { "ATK": 23.5 },
-    "descHead": "Heavy",
-    "descBody": "Normal Attacks deal an additional {0} ATK as DMG. Can only occur once every 10s.",
-    "descVar": [
-      ["160%", "200%", "240%", "280%", "320%"]
-    ]
-  },
-  "13301": {
-    "name": "White Tassel",
-    "rarity": 3,
-    "type": "Polearm",
-    "statBase": { "_ATK": 401 },
-    "statSub": { "CR": 23.4 },
-    "descHead": "Sharp",
-    "descBody": "Increases Normal Attack DMG by {0}.",
-    "descVar": [
-      ["24%", "30%", "36%", "42%", "48%"]
-    ]
-  },
-  "12306": {
-    "name": "Skyrider Greatsword",
-    "rarity": 3,
-    "type": "Claymore",
-    "statBase": { "_ATK": 401 },
-    "statSub": { "PHYSICAL": 43.9 },
-    "descHead": "Courage",
-    "descBody": "On hit, Normal or Charged Attacks increase ATK by {0} for 6s. Max 4 stacks. Can occur once every 0.5s.",
-    "descVar": [
-      ["6%", "7%", "8%", "9%", "10%"]
-    ]
-  },
-  "12305": {
-    "name": "Debate Club",
-    "rarity": 3,
-    "type": "Claymore",
-    "statBase": { "_ATK": 401 },
-    "statSub": { "ATK": 35.2 },
-    "descHead": "Blunt Conclusion",
-    "descBody": "After using an Elemental Skill, on hit, Normal and Charged Attacks deal additional DMG equal to {0} of ATK in a small AoE. Effect lasts 15s. DMG can only occur once every 3s.",
-    "descVar": [
-      ["60%", "75%", "90%", "105%", "120%"]
-    ]
-  },
-  "12303": {
-    "name": "White Iron Greatsword",
-    "rarity": 3,
-    "type": "Claymore",
-    "statBase": { "_ATK": 401 },
-    "statSub": { "DEF": 43.9 },
-    "descHead": "Cull the Weak",
-    "descBody": "Defeating an opponent restores {0} HP.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"]
-    ]
-  },
-  "12302": {
-    "name": "Bloodtainted Greatsword",
-    "rarity": 3,
-    "type": "Claymore",
-    "statBase": { "_ATK": 354 },
-    "statSub": { "EM": 187 },
-    "descHead": "Bane of Fire and Thunder",
-    "descBody": "Increases DMG dealt against opponents affected by Pyro or Electro by {0}.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "12301": {
-    "name": "Ferrous Shadow",
-    "rarity": 3,
-    "type": "Claymore",
-    "statBase": { "_ATK": 401 },
-    "statSub": { "HP": 35.2 },
-    "descHead": "Unbending",
-    "descBody": "When HP falls below {0}, increases Charged Attack DMG by {1} and Charged Attacks become harder to interrupt.",
-    "descVar": [
-      ["70%", "75%", "80%", "85%", "90%"],
-      ["30%", "35%", "40%", "45%", "50%"]
-    ]
-  },
   "11306": {
     "name": "Skyrider Sword",
     "rarity": 3,
@@ -2519,59 +2567,11 @@
       ["12%", "15%", "18%", "21%", "24%"]
     ]
   },
-  "15201": {
-    "name": "Seasoned Hunter's Bow",
-    "rarity": 2,
-    "type": "Bow",
-    "statBase": { "_ATK": 243 }
-  },
-  "14201": {
-    "name": "Pocket Grimoire",
-    "rarity": 2,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 243 }
-  },
-  "13201": {
-    "name": "Iron Point",
-    "rarity": 2,
-    "type": "Polearm",
-    "statBase": { "_ATK": 243 }
-  },
-  "12201": {
-    "name": "Old Merc's Pal",
-    "rarity": 2,
-    "type": "Claymore",
-    "statBase": { "_ATK": 243 }
-  },
   "11201": {
     "name": "Silver Sword",
     "rarity": 2,
     "type": "Sword",
     "statBase": { "_ATK": 243 }
-  },
-  "15101": {
-    "name": "Hunter's Bow",
-    "rarity": 1,
-    "type": "Bow",
-    "statBase": { "_ATK": 185 }
-  },
-  "14101": {
-    "name": "Apprentice's Notes",
-    "rarity": 1,
-    "type": "Catalyst",
-    "statBase": { "_ATK": 185 }
-  },
-  "13101": {
-    "name": "Beginner's Protector",
-    "rarity": 1,
-    "type": "Polearm",
-    "statBase": { "_ATK": 185 }
-  },
-  "12101": {
-    "name": "Waster Greatsword",
-    "rarity": 1,
-    "type": "Claymore",
-    "statBase": { "_ATK": 185 }
   },
   "11101": {
     "name": "Dull Blade",

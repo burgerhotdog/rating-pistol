@@ -69,20 +69,6 @@
       ["30%", "37.5%", "45%", "52.5%", "60%"]
     ]
   },
-  "21020036": {
-    "name": "Unflickering Valor",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 413 },
-    "statSub": { "ER": 77 },
-    "descHead": "Laughter Prevails",
-    "descBody": "Increase CRIT Rate by {0}. Casting Resonance Liberation gives {1} Basic Attack DMG Bonus for 10s. Dealing Basic Attack DMG gives {2} Basic Attack DMG Bonus for 4s.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"],
-      ["24%", "30%", "36%", "42%", "48%"],
-      ["24%", "30%", "36%", "42%", "48%"]
-    ]
-  },
   "21050027": {
     "name": "Ocean's Gift",
     "rarity": 4,
@@ -95,30 +81,18 @@
       ["6%", "7%", "8%", "9%", "10%"]
     ]
   },
-  "21040026": {
-    "name": "Tragicomedy",
+  "21020036": {
+    "name": "Unflickering Valor",
     "rarity": 5,
-    "type": "Gauntlets",
-    "statBase": { "_ATK": 587 },
-    "statSub": { "CR": 24.3 },
-    "descHead": "Fool's Warble",
-    "descBody": "Increases ATK by {0}. Every time Basic Attack or Intro Skill is cast, Heavy Attack DMG Bonus increases by {1} for 3s.",
+    "type": "Sword",
+    "statBase": { "_ATK": 413 },
+    "statSub": { "ER": 77 },
+    "descHead": "Laughter Prevails",
+    "descBody": "Increase CRIT Rate by {0}. Casting Resonance Liberation gives {1} Basic Attack DMG Bonus for 10s. Dealing Basic Attack DMG gives {2} Basic Attack DMG Bonus for 4s.",
     "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"],
-      ["48%", "60%", "72%", "84%", "96%"]
-    ]
-  },
-  "21030016": {
-    "name": "The Last Dance",
-    "rarity": 5,
-    "type": "Pistols",
-    "statBase": { "_ATK": 500 },
-    "statSub": { "CD": 72 },
-    "descHead": "Silent Eulogy",
-    "descBody": "Increases ATK by {0}. Every time Intro Skill or Resonance Liberation is cast, Resonance Skill DMG Bonus increases by {1} for 5s.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"],
-      ["48%", "60%", "72%", "84%", "96%"]
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["24%", "30%", "36%", "42%", "48%"],
+      ["24%", "30%", "36%", "42%", "48%"]
     ]
   },
   "21050094": {
@@ -157,6 +131,19 @@
       ["4%", "5%", "6%", "7%", "8%"]
     ]
   },
+  "21040026": {
+    "name": "Tragicomedy",
+    "rarity": 5,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 587 },
+    "statSub": { "CR": 24.3 },
+    "descHead": "Fool's Warble",
+    "descBody": "Increases ATK by {0}. Every time Basic Attack or Intro Skill is cast, Heavy Attack DMG Bonus increases by {1} for 3s.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["48%", "60%", "72%", "84%", "96%"]
+    ]
+  },
   "21030094": {
     "name": "Romance in Farewell",
     "rarity": 4,
@@ -167,6 +154,19 @@
     "descBody": "Dealing DMG to enemies with Negative Statuses increases the wielder's ATK by {0} for 10s. This effect can be triggered 1 time per second, stackable up to 4 times.",
     "descVar": [
       ["4%", "5%", "6%", "7%", "8%"]
+    ]
+  },
+  "21030016": {
+    "name": "The Last Dance",
+    "rarity": 5,
+    "type": "Pistols",
+    "statBase": { "_ATK": 500 },
+    "statSub": { "CD": 72 },
+    "descHead": "Silent Eulogy",
+    "descBody": "Increases ATK by {0}. Every time Intro Skill or Resonance Liberation is cast, Resonance Skill DMG Bonus increases by {1} for 5s.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["48%", "60%", "72%", "84%", "96%"]
     ]
   },
   "21020094": {
@@ -220,6 +220,19 @@
       ["6%", "7.5%", "9%", "10.5%", "12%"]
     ]
   },
+  "21050084": {
+    "name": "Fusion Accretion",
+    "rarity": 4,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 462 },
+    "statSub": { "ATK": 18.2 },
+    "descHead": "Intergalactic Gaze",
+    "descBody": "Casting the Resonance Skill grants {0} Resonance Energy and increases ATK by {1}, lasting for 16s. This effect can be triggered once every 20s.",
+    "descVar": [
+      ["6", "7", "8", "9", "10"],
+      ["10%", "12.5%", "15%", "17.5%", "20%"]
+    ]
+  },
   "21050036": {
     "name": "Stellar Symphony",
     "rarity": 5,
@@ -232,19 +245,6 @@
       ["12%", "15%", "18%", "21%", "24%"],
       ["8", "10", "12", "14", "16"],
       ["14%", "17.5%", "21%", "24.5%", "28%"]
-    ]
-  },
-  "21050084": {
-    "name": "Fusion Accretion",
-    "rarity": 4,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 462 },
-    "statSub": { "ATK": 18.2 },
-    "descHead": "Intergalactic Gaze",
-    "descBody": "Casting the Resonance Skill grants {0} Resonance Energy and increases ATK by {1}, lasting for 16s. This effect can be triggered once every 20s.",
-    "descVar": [
-      ["6", "7", "8", "9", "10"],
-      ["10%", "12.5%", "15%", "17.5%", "20%"]
     ]
   },
   "21040084": {
@@ -339,6 +339,19 @@
       ["4%", "5%", "6%", "7%", "8%"]
     ]
   },
+  "21010063": {
+    "name": "Beguiling Melody",
+    "rarity": 3,
+    "type": "Broadblade",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "ATK": 30.4 },
+    "descHead": "Graceful Touch",
+    "descBody": "When Intro Skill is cast, restores {0} Concerto Energy. When Outro Skill is cast, restores {1} Resonance Energy.",
+    "descVar": [
+      ["4", "5", "6", "7", "8"],
+      ["4", "5", "6", "7", "8"]
+    ]
+  },
   "21010026": {
     "name": "Ages of Harvest",
     "rarity": 5,
@@ -353,17 +366,102 @@
       ["24%", "30%", "36%", "42%", "48%"]
     ]
   },
-  "21010063": {
-    "name": "Beguiling Melody",
-    "rarity": 3,
-    "type": "Broadblade",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "ATK": 30.4 },
-    "descHead": "Graceful Touch",
-    "descBody": "When Intro Skill is cast, restores {0} Concerto Energy. When Outro Skill is cast, restores {1} Resonance Energy.",
+  "21050074": {
+    "name": "Augment",
+    "rarity": 4,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 412 },
+    "statSub": { "CR": 20.2 },
+    "descHead": "Forgiving Resilience",
+    "descBody": "Casting Resonance Liberation increases the wielder's ATK by {0}, lasting for 15s.",
     "descVar": [
-      ["4", "5", "6", "7", "8"],
-      ["4", "5", "6", "7", "8"]
+      ["15%", "23.25%", "31.5%", "39.75%", "48%"]
+    ]
+  },
+  "21050064": {
+    "name": "Comet Flare",
+    "rarity": 4,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 412 },
+    "statSub": { "HP": 30.3 },
+    "descHead": "Luminous Protection",
+    "descBody": "When dealing Basic Attack DMG or Heavy Attack DMG, increases Healing Bonus by {0}, stacking up to 3 time(s). This effect lasts for 8s and can be triggered 1 time(s) every 0.6s.",
+    "descVar": [
+      ["3%", "3.75%", "4.5%", "5.25%", "6%"]
+    ]
+  },
+  "21050053": {
+    "name": "Guardian Rectifier",
+    "rarity": 3,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Companionship",
+    "descBody": "Increases Basic Attack and Heavy Attack DMG Bonus by {0}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
+  "21050044": {
+    "name": "Jinzhou Keeper",
+    "rarity": 4,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 387 },
+    "statSub": { "ATK": 36.4 },
+    "descHead": "Guardian",
+    "descBody": "Casting Intro Skill increases the wielder's ATK by {0} and HP by {1}, lasting for 15s.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["10%", "12.5%", "15%", "17.5%", "20%"]
+    ]
+  },
+  "21050043": {
+    "name": "Rectifier of Voyager",
+    "rarity": 3,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "ER": 32.3 },
+    "descHead": "Crusade",
+    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
+    "descVar": [
+      ["8", "9", "10", "11", "12"]
+    ]
+  },
+  "21050034": {
+    "name": "Rectifier#25",
+    "rarity": 4,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 337 },
+    "statSub": { "ER": 51.8 },
+    "descHead": "Dawnbringer",
+    "descBody": "When Resonance Skill is cast, if the Resonator's HP is below 60%, heals {0} of their Max HP. This effect can be triggered 1 time(s) every 8s. If the Resonator's HP is above 60%, increases ATK by {1}, lasting for 10s.",
+    "descVar": [
+      ["5%", "6.25%", "7.5%", "8.75%", "10%"],
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
+  "21050024": {
+    "name": "Variation",
+    "rarity": 4,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 337 },
+    "statSub": { "ER": 51.8 },
+    "descHead": "Ceaseless Aria",
+    "descBody": "When Resonance Skill is cast, restores {0} Concerto Energy. This effect can be triggered 1 times every 20s.",
+    "descVar": [
+      ["8", "10", "12", "14", "16"]
+    ]
+  },
+  "21050023": {
+    "name": "Originite: Type V",
+    "rarity": 3,
+    "type": "Rectifier",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "ATK": 30.3 },
+    "descHead": "Augment",
+    "descBody": "When Intro Skill is cast, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 20s.",
+    "descVar": [
+      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
     ]
   },
   "21050016": {
@@ -393,132 +491,40 @@
       ["3.2%", "4%", "4.8%", "5.6%", "6.4%"]
     ]
   },
-  "21040015": {
-    "name": "Abyss Surges",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "statBase": { "_ATK": 587 },
-    "statSub": { "ATK": 36.4 },
-    "descHead": "Stormy Resolution",
-    "descBody": "Increases Energy Regen by {0}. When hitting a target with Resonance Skill, increases Basic Attack DMG Bonus by {1}, lasting for 8s. When hitting a target with Basic Attacks, increases Resonance Skill DMG Bonus by {2}, lasting for 8s.",
-    "descVar": [
-      ["12.8%", "16%", "19.2%", "22.4%", "25.6%"],
-      ["10%", "12.5%", "15%", "17.5%", "20%"],
-      ["10%", "12.5%", "15%", "17.5%", "20%"]
-    ]
-  },
-  "21030015": {
-    "name": "Static Mist",
-    "rarity": 5,
-    "type": "Pistols",
-    "statBase": { "_ATK": 587 },
-    "statSub": { "CR": 24.3 },
-    "descHead": "Stormy Resolution",
-    "descBody": "Increases Energy Regen by {0}. Incoming Resonator's ATK is increased by {1} for 14s, stackable for up to 1 times after the wielder casts Outro Skill.",
-    "descVar": [
-      ["12.8%", "16%", "19.2%", "22.4%", "25.6%"],
-      ["10%", "12.5%", "15%", "17.5%", "20%"]
-    ]
-  },
-  "21020015": {
-    "name": "Emerald of Genesis",
-    "rarity": 5,
-    "type": "Sword",
-    "statBase": { "_ATK": 587 },
-    "statSub": { "CR": 24.3 },
-    "descHead": "Stormy Resolution",
-    "descBody": "Increases Energy Regen by {0}. When Resonance Skill is cast, increases ATK by {1}, stacking up to 2 time(s). This effect lasts for 10s.",
-    "descVar": [
-      ["12.8%", "16%", "19.2%", "22.4%", "25.6%"],
-      ["6%", "7.5%", "9%", "10.5%", "12%"]
-    ]
-  },
-  "21010016": {
-    "name": "Verdant Summit",
-    "rarity": 5,
-    "type": "Broadblade",
-    "statBase": { "_ATK": 587 },
-    "statSub": { "CD": 48.6 },
-    "descHead": "Swordsworn",
-    "descBody": "Increases Attribute DMG Bonus by {0}. Every time Intro Skill or Resonance Liberation is cast, increases Heavy Attack DMG Bonus by {1}, stacking up to 2 time(s). This effect lasts for 14s.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"],
-      ["24%", "30%", "36%", "42%", "48%"]
-    ]
-  },
-  "21010015": {
-    "name": "Lustrous Razor",
-    "rarity": 5,
-    "type": "Broadblade",
-    "statBase": { "_ATK": 587 },
-    "statSub": { "ATK": 36.4 },
-    "descHead": "Stormy Resolution",
-    "descBody": "Increases Energy Regen by {0}. When Resonance Skill is cast, Resonance Liberation DMG Bonus is increased by {1}, stacking up to 3 times. This effect lasts for 12s.",
-    "descVar": [
-      ["12.8%", "16%", "19.2%", "22.4%", "25.6%"],
-      ["7%", "8.75%", "10.5%", "12.25%", "14%"]
-    ]
-  },
-  "21050074": {
-    "name": "Augment",
-    "rarity": 4,
+  "21050013": {
+    "name": "Rectifier of Night",
+    "rarity": 3,
     "type": "Rectifier",
-    "statBase": { "_ATK": 412 },
-    "statSub": { "CR": 20.2 },
-    "descHead": "Forgiving Resilience",
-    "descBody": "Casting Resonance Liberation increases the wielder's ATK by {0}, lasting for 15s.",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Valiance",
+    "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 10s.",
     "descVar": [
-      ["15%", "23.25%", "31.5%", "39.75%", "48%"]
+      ["8%", "10%", "12%", "14%", "16%"]
     ]
   },
-  "21050064": {
-    "name": "Comet Flare",
-    "rarity": 4,
+  "21050012": {
+    "name": "Tyro Rectifier",
+    "rarity": 2,
     "type": "Rectifier",
-    "statBase": { "_ATK": 412 },
-    "statSub": { "HP": 30.3 },
-    "descHead": "Luminous Protection",
-    "descBody": "When dealing Basic Attack DMG or Heavy Attack DMG, increases Healing Bonus by {0}, stacking up to 3 time(s). This effect lasts for 8s and can be triggered 1 time(s) every 0.6s.",
+    "statBase": { "_ATK": 275 },
+    "statSub": { "ATK": 14.8 },
+    "descHead": "Prologue",
+    "descBody": "Increases ATK by {0}.",
     "descVar": [
-      ["3%", "3.75%", "4.5%", "5.25%", "6%"]
+      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
     ]
   },
-  "21050044": {
-    "name": "Jinzhou Keeper",
-    "rarity": 4,
+  "21050011": {
+    "name": "Training Rectifier",
+    "rarity": 1,
     "type": "Rectifier",
-    "statBase": { "_ATK": 387 },
-    "statSub": { "ATK": 36.4 },
-    "descHead": "Guardian",
-    "descBody": "Casting Intro Skill increases the wielder's ATK by {0} and HP by {1}, lasting for 15s.",
+    "statBase": { "_ATK": 250 },
+    "statSub": { "ATK": 11.5 },
+    "descHead": "Persevere",
+    "descBody": "Increases ATK by {0}.",
     "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"],
-      ["10%", "12.5%", "15%", "17.5%", "20%"]
-    ]
-  },
-  "21050034": {
-    "name": "Rectifier#25",
-    "rarity": 4,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 337 },
-    "statSub": { "ER": 51.8 },
-    "descHead": "Dawnbringer",
-    "descBody": "When Resonance Skill is cast, if the Resonator's HP is below 60%, heals {0} of their Max HP. This effect can be triggered 1 time(s) every 8s. If the Resonator's HP is above 60%, increases ATK by {1}, lasting for 10s.",
-    "descVar": [
-      ["5%", "6.25%", "7.5%", "8.75%", "10%"],
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "21050024": {
-    "name": "Variation",
-    "rarity": 4,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 337 },
-    "statSub": { "ER": 51.8 },
-    "descHead": "Ceaseless Aria",
-    "descBody": "When Resonance Skill is cast, restores {0} Concerto Energy. This effect can be triggered 1 times every 20s.",
-    "descVar": [
-      ["8", "10", "12", "14", "16"]
+      ["4%", "5%", "6%", "7%", "8%"]
     ]
   },
   "21040074": {
@@ -545,6 +551,18 @@
       ["3%", "3.5%", "4%", "4.5%", "5%"]
     ]
   },
+  "21040053": {
+    "name": "Guardian Gauntlets",
+    "rarity": 3,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "DEF": 38.4 },
+    "descHead": "Collective Strength",
+    "descBody": "Increases Resonance Liberation DMG Bonus by {0}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
   "21040044": {
     "name": "Amity Accord",
     "rarity": 4,
@@ -555,6 +573,18 @@
     "descBody": "When Intro Skill is cast, increases Resonance Liberation DMG Bonus by {0}, lasting for 15s.",
     "descVar": [
       ["20%", "25%", "30%", "35%", "40%"]
+    ]
+  },
+  "21040043": {
+    "name": "Gauntlets of Voyager",
+    "rarity": 3,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ER": 30.7 },
+    "descHead": "Crusade",
+    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
+    "descVar": [
+      ["8", "9", "10", "11", "12"]
     ]
   },
   "21040034": {
@@ -583,6 +613,68 @@
       ["8", "10", "12", "14", "16"]
     ]
   },
+  "21040023": {
+    "name": "Originite: Type IV",
+    "rarity": 3,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "CD": 40.5 },
+    "descHead": "Rejuvinate",
+    "descBody": "When dealing Basic Attack DMG, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 3s.",
+    "descVar": [
+      ["0.5%", "0.65%", "0.8%", "0.95%", "1.1%"]
+    ]
+  },
+  "21040015": {
+    "name": "Abyss Surges",
+    "rarity": 5,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 587 },
+    "statSub": { "ATK": 36.4 },
+    "descHead": "Stormy Resolution",
+    "descBody": "Increases Energy Regen by {0}. When hitting a target with Resonance Skill, increases Basic Attack DMG Bonus by {1}, lasting for 8s. When hitting a target with Basic Attacks, increases Resonance Skill DMG Bonus by {2}, lasting for 8s.",
+    "descVar": [
+      ["12.8%", "16%", "19.2%", "22.4%", "25.6%"],
+      ["10%", "12.5%", "15%", "17.5%", "20%"],
+      ["10%", "12.5%", "15%", "17.5%", "20%"]
+    ]
+  },
+  "21040013": {
+    "name": "Gauntlets of Night",
+    "rarity": 3,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Valiance",
+    "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 10s.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"]
+    ]
+  },
+  "21040012": {
+    "name": "Tyro Gauntlets",
+    "rarity": 2,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 275 },
+    "statSub": { "ATK": 14.8 },
+    "descHead": "Prologue",
+    "descBody": "Increases ATK by {0}.",
+    "descVar": [
+      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
+    ]
+  },
+  "21040011": {
+    "name": "Training Gauntlets",
+    "rarity": 1,
+    "type": "Gauntlets",
+    "statBase": { "_ATK": 250 },
+    "statSub": { "ATK": 11.5 },
+    "descHead": "Persevere",
+    "descBody": "Increases ATK by {0}.",
+    "descVar": [
+      ["4%", "5%", "6%", "7%", "8%"]
+    ]
+  },
   "21030074": {
     "name": "Thunderbolt",
     "rarity": 4,
@@ -607,6 +699,18 @@
       ["4%", "5%", "6%", "7%", "8%"]
     ]
   },
+  "21030053": {
+    "name": "Guardian Pistols",
+    "rarity": 3,
+    "type": "Pistols",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Unity",
+    "descBody": "Resonance Skill DMG Bonus is increased by {0}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
   "21030044": {
     "name": "Undying Flame",
     "rarity": 4,
@@ -617,6 +721,18 @@
     "descBody": "When Intro Skill is cast, increases Resonance Skill DMG Bonus by {0} for 15s.",
     "descVar": [
       ["20%", "25%", "30%", "35%", "40%"]
+    ]
+  },
+  "21030043": {
+    "name": "Pistols of Voyager",
+    "rarity": 3,
+    "type": "Pistols",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "ATK": 30.3 },
+    "descHead": "Long Journey",
+    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
+    "descVar": [
+      ["8", "9", "10", "11", "12"]
     ]
   },
   "21030034": {
@@ -644,6 +760,67 @@
       ["8", "10", "12", "14", "16"]
     ]
   },
+  "21030023": {
+    "name": "Originite: Type III",
+    "rarity": 3,
+    "type": "Pistols",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Alarcrity",
+    "descBody": "When Dodge Counter is cast, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 6s.",
+    "descVar": [
+      ["1.6%", "2%", "2.4%", "2.8%", "3.2%"]
+    ]
+  },
+  "21030015": {
+    "name": "Static Mist",
+    "rarity": 5,
+    "type": "Pistols",
+    "statBase": { "_ATK": 587 },
+    "statSub": { "CR": 24.3 },
+    "descHead": "Stormy Resolution",
+    "descBody": "Increases Energy Regen by {0}. Incoming Resonator's ATK is increased by {1} for 14s, stackable for up to 1 times after the wielder casts Outro Skill.",
+    "descVar": [
+      ["12.8%", "16%", "19.2%", "22.4%", "25.6%"],
+      ["10%", "12.5%", "15%", "17.5%", "20%"]
+    ]
+  },
+  "21030013": {
+    "name": "Pistols of Night",
+    "rarity": 3,
+    "type": "Pistols",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Valiance",
+    "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 10s.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"]
+    ]
+  },
+  "21030012": {
+    "name": "Tyro Pistols",
+    "rarity": 2,
+    "type": "Pistols",
+    "statBase": { "_ATK": 275 },
+    "statSub": { "ATK": 14.8 },
+    "descHead": "Prologue",
+    "descBody": "Increases ATK by {0}.",
+    "descVar": [
+      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
+    ]
+  },
+  "21030011": {
+    "name": "Training Pistols",
+    "rarity": 1,
+    "type": "Pistols",
+    "statBase": { "_ATK": 250 },
+    "statSub": { "ATK": 11.5 },
+    "descHead": "Persevere",
+    "descBody": "Increases ATK by {0}.",
+    "descVar": [
+      ["4%", "5%", "6%", "7%", "8%"]
+    ]
+  },
   "21020074": {
     "name": "Lumingloss",
     "rarity": 4,
@@ -668,6 +845,18 @@
       ["2%", "2.5%", "3%", "3.5%", "4%"]
     ]
   },
+  "21020053": {
+    "name": "Guardian Sword",
+    "rarity": 3,
+    "type": "Sword",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "ATK": 30.3 },
+    "descHead": "Unified",
+    "descBody": "Resonance Skill DMG Bonus is increased by {0}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
   "21020044": {
     "name": "Commando of Conviction",
     "rarity": 4,
@@ -678,6 +867,18 @@
     "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 15s.",
     "descVar": [
       ["15%", "18.75%", "22.5%", "26.25%", "30%"]
+    ]
+  },
+  "21020043": {
+    "name": "Sword of Voyager",
+    "rarity": 3,
+    "type": "Sword",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "ER": 32.3 },
+    "descHead": "Crusade",
+    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
+    "descVar": [
+      ["8", "9", "10", "11", "12"]
     ]
   },
   "21020034": {
@@ -706,6 +907,67 @@
       ["8", "10", "12", "14", "16"]
     ]
   },
+  "21020023": {
+    "name": "Originite: Type II",
+    "rarity": 3,
+    "type": "Sword",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Vanquish",
+    "descBody": "When Resonance Liberation is cast, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 20s.",
+    "descVar": [
+      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
+    ]
+  },
+  "21020015": {
+    "name": "Emerald of Genesis",
+    "rarity": 5,
+    "type": "Sword",
+    "statBase": { "_ATK": 587 },
+    "statSub": { "CR": 24.3 },
+    "descHead": "Stormy Resolution",
+    "descBody": "Increases Energy Regen by {0}. When Resonance Skill is cast, increases ATK by {1}, stacking up to 2 time(s). This effect lasts for 10s.",
+    "descVar": [
+      ["12.8%", "16%", "19.2%", "22.4%", "25.6%"],
+      ["6%", "7.5%", "9%", "10.5%", "12%"]
+    ]
+  },
+  "21020013": {
+    "name": "Sword of Night",
+    "rarity": 3,
+    "type": "Sword",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Valiance",
+    "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 10s.",
+    "descVar": [
+      ["8%", "10%", "12%", "14%", "16%"]
+    ]
+  },
+  "21020012": {
+    "name": "Tyro Sword",
+    "rarity": 2,
+    "type": "Sword",
+    "statBase": { "_ATK": 275 },
+    "statSub": { "ATK": 14.8 },
+    "descHead": "Prologue",
+    "descBody": "Increases ATK by {0}.",
+    "descVar": [
+      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
+    ]
+  },
+  "21020011": {
+    "name": "Training Sword",
+    "rarity": 1,
+    "type": "Sword",
+    "statBase": { "_ATK": 250 },
+    "statSub": { "ATK": 11.5 },
+    "descHead": "Persevere",
+    "descBody": "Increases ATK by {0}.",
+    "descVar": [
+      ["4%", "5%", "6%", "7%", "8%"]
+    ]
+  },
   "21010074": {
     "name": "Autumntrace",
     "rarity": 4,
@@ -730,6 +992,18 @@
       ["3%", "3.75%", "4.5%", "5.25%", "6%"]
     ]
   },
+  "21010053": {
+    "name": "Guardian Broadblade",
+    "rarity": 3,
+    "type": "Broadblade",
+    "statBase": { "_ATK": 325 },
+    "statSub": { "ATK": 24.3 },
+    "descHead": "Consensus",
+    "descBody": "Increases Basic Attack DMG Bonus and Heavy Attack DMG Bonus by {0}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"]
+    ]
+  },
   "21010044": {
     "name": "Dauntless Evernight",
     "rarity": 4,
@@ -741,6 +1015,18 @@
     "descVar": [
       ["8%", "10%", "12%", "14%", "16%"],
       ["15%", "18.75%", "22.5%", "26.25%", "30%"]
+    ]
+  },
+  "21010043": {
+    "name": "Broadblade of Voyager",
+    "rarity": 3,
+    "type": "Broadblade",
+    "statBase": { "_ATK": 300 },
+    "statSub": { "ER": 32.3 },
+    "descHead": "Long Journey",
+    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
+    "descVar": [
+      ["8", "9", "10", "11", "12"]
     ]
   },
   "21010034": {
@@ -769,222 +1055,6 @@
       ["8", "10", "12", "14", "16"]
     ]
   },
-  "21050053": {
-    "name": "Guardian Rectifier",
-    "rarity": 3,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Companionship",
-    "descBody": "Increases Basic Attack and Heavy Attack DMG Bonus by {0}.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "21050043": {
-    "name": "Rectifier of Voyager",
-    "rarity": 3,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "ER": 32.3 },
-    "descHead": "Crusade",
-    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
-    "descVar": [
-      ["8", "9", "10", "11", "12"]
-    ]
-  },
-  "21050023": {
-    "name": "Originite: Type V",
-    "rarity": 3,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "ATK": 30.3 },
-    "descHead": "Augment",
-    "descBody": "When Intro Skill is cast, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 20s.",
-    "descVar": [
-      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
-    ]
-  },
-  "21050013": {
-    "name": "Rectifier of Night",
-    "rarity": 3,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Valiance",
-    "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 10s.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"]
-    ]
-  },
-  "21040053": {
-    "name": "Guardian Gauntlets",
-    "rarity": 3,
-    "type": "Gauntlets",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "DEF": 38.4 },
-    "descHead": "Collective Strength",
-    "descBody": "Increases Resonance Liberation DMG Bonus by {0}.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "21040043": {
-    "name": "Gauntlets of Voyager",
-    "rarity": 3,
-    "type": "Gauntlets",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ER": 30.7 },
-    "descHead": "Crusade",
-    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
-    "descVar": [
-      ["8", "9", "10", "11", "12"]
-    ]
-  },
-  "21040023": {
-    "name": "Originite: Type IV",
-    "rarity": 3,
-    "type": "Gauntlets",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "CD": 40.5 },
-    "descHead": "Rejuvinate",
-    "descBody": "When dealing Basic Attack DMG, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 3s.",
-    "descVar": [
-      ["0.5%", "0.65%", "0.8%", "0.95%", "1.1%"]
-    ]
-  },
-  "21040013": {
-    "name": "Gauntlets of Night",
-    "rarity": 3,
-    "type": "Gauntlets",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Valiance",
-    "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 10s.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"]
-    ]
-  },
-  "21030053": {
-    "name": "Guardian Pistols",
-    "rarity": 3,
-    "type": "Pistols",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Unity",
-    "descBody": "Resonance Skill DMG Bonus is increased by {0}.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "21030043": {
-    "name": "Pistols of Voyager",
-    "rarity": 3,
-    "type": "Pistols",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "ATK": 30.3 },
-    "descHead": "Long Journey",
-    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
-    "descVar": [
-      ["8", "9", "10", "11", "12"]
-    ]
-  },
-  "21030023": {
-    "name": "Originite: Type III",
-    "rarity": 3,
-    "type": "Pistols",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Alarcrity",
-    "descBody": "When Dodge Counter is cast, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 6s.",
-    "descVar": [
-      ["1.6%", "2%", "2.4%", "2.8%", "3.2%"]
-    ]
-  },
-  "21030013": {
-    "name": "Pistols of Night",
-    "rarity": 3,
-    "type": "Pistols",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Valiance",
-    "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 10s.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"]
-    ]
-  },
-  "21020053": {
-    "name": "Guardian Sword",
-    "rarity": 3,
-    "type": "Sword",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "ATK": 30.3 },
-    "descHead": "Unified",
-    "descBody": "Resonance Skill DMG Bonus is increased by {0}.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "21020043": {
-    "name": "Sword of Voyager",
-    "rarity": 3,
-    "type": "Sword",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "ER": 32.3 },
-    "descHead": "Crusade",
-    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
-    "descVar": [
-      ["8", "9", "10", "11", "12"]
-    ]
-  },
-  "21020023": {
-    "name": "Originite: Type II",
-    "rarity": 3,
-    "type": "Sword",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Vanquish",
-    "descBody": "When Resonance Liberation is cast, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 20s.",
-    "descVar": [
-      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
-    ]
-  },
-  "21020013": {
-    "name": "Sword of Night",
-    "rarity": 3,
-    "type": "Sword",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Valiance",
-    "descBody": "When Intro Skill is cast, increases ATK by {0}, lasting for 10s.",
-    "descVar": [
-      ["8%", "10%", "12%", "14%", "16%"]
-    ]
-  },
-  "21010053": {
-    "name": "Guardian Broadblade",
-    "rarity": 3,
-    "type": "Broadblade",
-    "statBase": { "_ATK": 325 },
-    "statSub": { "ATK": 24.3 },
-    "descHead": "Consensus",
-    "descBody": "Increases Basic Attack DMG Bonus and Heavy Attack DMG Bonus by {0}.",
-    "descVar": [
-      ["12%", "15%", "18%", "21%", "24%"]
-    ]
-  },
-  "21010043": {
-    "name": "Broadblade of Voyager",
-    "rarity": 3,
-    "type": "Broadblade",
-    "statBase": { "_ATK": 300 },
-    "statSub": { "ER": 32.3 },
-    "descHead": "Long Journey",
-    "descBody": "When Resonance Skill is cast, restores {0} Resonance Energy. This effect can be triggered 1 time(s) every 20s.",
-    "descVar": [
-      ["8", "9", "10", "11", "12"]
-    ]
-  },
   "21010023": {
     "name": "Originite: Type I",
     "rarity": 3,
@@ -995,6 +1065,32 @@
     "descBody": "When Resonance Skill is cast, heals {0} of the Resonator's Max HP. This effect can be triggered 1 time(s) every 12s.",
     "descVar": [
       ["3%", "3.75%", "4.5%", "5.25%", "6%"]
+    ]
+  },
+  "21010016": {
+    "name": "Verdant Summit",
+    "rarity": 5,
+    "type": "Broadblade",
+    "statBase": { "_ATK": 587 },
+    "statSub": { "CD": 48.6 },
+    "descHead": "Swordsworn",
+    "descBody": "Increases Attribute DMG Bonus by {0}. Every time Intro Skill or Resonance Liberation is cast, increases Heavy Attack DMG Bonus by {1}, stacking up to 2 time(s). This effect lasts for 14s.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["24%", "30%", "36%", "42%", "48%"]
+    ]
+  },
+  "21010015": {
+    "name": "Lustrous Razor",
+    "rarity": 5,
+    "type": "Broadblade",
+    "statBase": { "_ATK": 587 },
+    "statSub": { "ATK": 36.4 },
+    "descHead": "Stormy Resolution",
+    "descBody": "Increases Energy Regen by {0}. When Resonance Skill is cast, Resonance Liberation DMG Bonus is increased by {1}, stacking up to 3 times. This effect lasts for 12s.",
+    "descVar": [
+      ["12.8%", "16%", "19.2%", "22.4%", "25.6%"],
+      ["7%", "8.75%", "10.5%", "12.25%", "14%"]
     ]
   },
   "21010013": {
@@ -1009,54 +1105,6 @@
       ["8%", "10%", "12%", "14%", "16%"]
     ]
   },
-  "21050012": {
-    "name": "Tyro Rectifier",
-    "rarity": 2,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 275 },
-    "statSub": { "ATK": 14.8 },
-    "descHead": "Prologue",
-    "descBody": "Increases ATK by {0}.",
-    "descVar": [
-      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
-    ]
-  },
-  "21040012": {
-    "name": "Tyro Gauntlets",
-    "rarity": 2,
-    "type": "Gauntlets",
-    "statBase": { "_ATK": 275 },
-    "statSub": { "ATK": 14.8 },
-    "descHead": "Prologue",
-    "descBody": "Increases ATK by {0}.",
-    "descVar": [
-      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
-    ]
-  },
-  "21030012": {
-    "name": "Tyro Pistols",
-    "rarity": 2,
-    "type": "Pistols",
-    "statBase": { "_ATK": 275 },
-    "statSub": { "ATK": 14.8 },
-    "descHead": "Prologue",
-    "descBody": "Increases ATK by {0}.",
-    "descVar": [
-      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
-    ]
-  },
-  "21020012": {
-    "name": "Tyro Sword",
-    "rarity": 2,
-    "type": "Sword",
-    "statBase": { "_ATK": 275 },
-    "statSub": { "ATK": 14.8 },
-    "descHead": "Prologue",
-    "descBody": "Increases ATK by {0}.",
-    "descVar": [
-      ["5%", "6.25%", "7.5%", "8.75%", "10%"]
-    ]
-  },
   "21010012": {
     "name": "Tyro Broadblade",
     "rarity": 2,
@@ -1067,54 +1115,6 @@
     "descBody": "Increases ATK by {0}.",
     "descVar": [
       ["5%", "6.25%", "7.5%", "8.75%", "10%"]
-    ]
-  },
-  "21050011": {
-    "name": "Training Rectifier",
-    "rarity": 1,
-    "type": "Rectifier",
-    "statBase": { "_ATK": 250 },
-    "statSub": { "ATK": 11.5 },
-    "descHead": "Persevere",
-    "descBody": "Increases ATK by {0}.",
-    "descVar": [
-      ["4%", "5%", "6%", "7%", "8%"]
-    ]
-  },
-  "21040011": {
-    "name": "Training Gauntlets",
-    "rarity": 1,
-    "type": "Gauntlets",
-    "statBase": { "_ATK": 250 },
-    "statSub": { "ATK": 11.5 },
-    "descHead": "Persevere",
-    "descBody": "Increases ATK by {0}.",
-    "descVar": [
-      ["4%", "5%", "6%", "7%", "8%"]
-    ]
-  },
-  "21030011": {
-    "name": "Training Pistols",
-    "rarity": 1,
-    "type": "Pistols",
-    "statBase": { "_ATK": 250 },
-    "statSub": { "ATK": 11.5 },
-    "descHead": "Persevere",
-    "descBody": "Increases ATK by {0}.",
-    "descVar": [
-      ["4%", "5%", "6%", "7%", "8%"]
-    ]
-  },
-  "21020011": {
-    "name": "Training Sword",
-    "rarity": 1,
-    "type": "Sword",
-    "statBase": { "_ATK": 250 },
-    "statSub": { "ATK": 11.5 },
-    "descHead": "Persevere",
-    "descBody": "Increases ATK by {0}.",
-    "descVar": [
-      ["4%", "5%", "6%", "7%", "8%"]
     ]
   },
   "21010011": {

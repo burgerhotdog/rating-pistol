@@ -33,13 +33,27 @@
     "name": "Yumemizuki Mizuki",
     "rarity": 5,
     "type": "Catalyst",
-    "sig": "14158",
+    "sig": "14518",
     "skillRank": [null, 3, 5],
     "statBase": { "_HP": 12736, "_ATK": 215, "_DEF": 757 },
     "strength": 2,
     "weights": {
       "EM": 4,
       "ER": 4
+    }
+  },
+  "10000108": {
+    "name": "Lan Yan",
+    "rarity": 4,
+    "type": "Catalyst",
+    "skillRank": [null, 3, 5],
+    "statBase": { "_HP": 9243, "_ATK": 250, "_DEF": 580 },
+    "strength": 2,
+    "weights": {
+      "ER": 4,
+      "EM": 4,
+      "ATK": 3,
+      "_ATK": 1
     }
   },
   "10000107": {
@@ -87,17 +101,19 @@
       "_ATK": 1
     }
   },
-  "10000108": {
-    "name": "Lan Yan",
+  "10000105": {
+    "name": "Ororon",
     "rarity": 4,
-    "type": "Catalyst",
-    "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 9243, "_ATK": 250, "_DEF": 580 },
-    "strength": 2,
+    "type": "Bow",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 9243, "_ATK": 244, "_DEF": 586 },
+    "strength": 3,
     "weights": {
-      "ER": 4,
-      "EM": 4,
+      "CR": 4,
+      "CD": 4,
+      "ER": 3,
       "ATK": 3,
+      "EM": 1,
       "_ATK": 1
     }
   },
@@ -114,22 +130,6 @@
       "CD": 4,
       "ATK": 3,
       "ER": 2,
-      "_ATK": 1
-    }
-  },
-  "10000105": {
-    "name": "Ororon",
-    "rarity": 4,
-    "type": "Bow",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 9243, "_ATK": 244, "_DEF": 586 },
-    "strength": 3,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ER": 3,
-      "ATK": 3,
-      "EM": 1,
       "_ATK": 1
     }
   },
@@ -230,20 +230,6 @@
       "_ATK": 1
     }
   },
-  "10000095": {
-    "name": "Sigewinne",
-    "rarity": 5,
-    "type": "Bow",
-    "sig": "15513",
-    "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 13348, "_ATK": 192, "_DEF": 499 },
-    "strength": 2,
-    "weights": {
-      "HP": 3,
-      "ER": 2,
-      "_HP": 1
-    }
-  },
   "10000097": {
     "name": "Sethos",
     "rarity": 4,
@@ -258,6 +244,20 @@
       "ER": 2,
       "EM": 2,
       "_ATK": 1
+    }
+  },
+  "10000095": {
+    "name": "Sigewinne",
+    "rarity": 5,
+    "type": "Bow",
+    "sig": "15513",
+    "skillRank": [null, 3, 5],
+    "statBase": { "_HP": 13348, "_ATK": 192, "_DEF": 499 },
+    "strength": 2,
+    "weights": {
+      "HP": 3,
+      "ER": 2,
+      "_HP": 1
     }
   },
   "10000096": {
@@ -416,6 +416,21 @@
       "_ATK": 1
     }
   },
+  "10000085": {
+    "name": "Freminet",
+    "rarity": 4,
+    "type": "Claymore",
+    "skillRank": [3, 5, null],
+    "statBase": { "_HP": 12071, "_ATK": 254, "_DEF": 708 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "ER": 2,
+      "_ATK": 1
+    }
+  },
   "10000084": {
     "name": "Lyney",
     "rarity": 5,
@@ -433,6 +448,21 @@
       "_ATK": 1
     }
   },
+  "10000083": {
+    "name": "Lynette",
+    "rarity": 4,
+    "type": "Sword",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 12397, "_ATK": 231, "_DEF": 711 },
+    "strength": 3,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ER": 3,
+      "ATK": 3,
+      "_ATK": 1
+    }
+  },
   "10000007-3": {
     "name": "Traveler (Hydro)",
     "rarity": 5,
@@ -446,36 +476,6 @@
       "ATK": 3,
       "ER": 2,
       "HP": 1,
-      "_ATK": 1
-    }
-  },
-  "10000085": {
-    "name": "Freminet",
-    "rarity": 4,
-    "type": "Claymore",
-    "skillRank": [3, 5, null],
-    "statBase": { "_HP": 12071, "_ATK": 254, "_DEF": 708 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "ER": 2,
-      "_ATK": 1
-    }
-  },
-  "10000083": {
-    "name": "Lynette",
-    "rarity": 4,
-    "type": "Sword",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 12397, "_ATK": 231, "_DEF": 711 },
-    "strength": 3,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ER": 3,
-      "ATK": 3,
       "_ATK": 1
     }
   },
@@ -518,6 +518,19 @@
       "ER": 4
     }
   },
+  "10000080": {
+    "name": "Mika",
+    "rarity": 4,
+    "type": "Polearm",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 12506, "_ATK": 223, "_DEF": 713 },
+    "strength": 2,
+    "weights": {
+      "ER": 3,
+      "HP": 3,
+      "_HP": 1
+    }
+  },
   "10000079": {
     "name": "Dehya",
     "rarity": 5,
@@ -533,19 +546,6 @@
       "HP": 2,
       "ATK": 2,
       "EM": 1
-    }
-  },
-  "10000080": {
-    "name": "Mika",
-    "rarity": 4,
-    "type": "Polearm",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 12506, "_ATK": 223, "_DEF": 713 },
-    "strength": 2,
-    "weights": {
-      "ER": 3,
-      "HP": 3,
-      "_HP": 1
     }
   },
   "10000078": {
@@ -577,6 +577,17 @@
       "_HP": 1
     }
   },
+  "10000076": {
+    "name": "Faruzan",
+    "rarity": 4,
+    "type": "Bow",
+    "skillRank": [null, 3, 5],
+    "statBase": { "_HP": 9569, "_ATK": 196, "_DEF": 627 },
+    "strength": 1,
+    "weights": {
+      "ER": 4
+    }
+  },
   "10000075": {
     "name": "Wanderer",
     "rarity": 5,
@@ -593,15 +604,17 @@
       "_ATK": 1
     }
   },
-  "10000076": {
-    "name": "Faruzan",
+  "10000074": {
+    "name": "Layla",
     "rarity": 4,
-    "type": "Bow",
+    "type": "Sword",
     "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 9569, "_ATK": 196, "_DEF": 627 },
-    "strength": 1,
+    "statBase": { "_HP": 11092, "_ATK": 216, "_DEF": 655 },
+    "strength": 2,
     "weights": {
-      "ER": 4
+      "HP": 3,
+      "ER": 2,
+      "_HP": 1
     }
   },
   "10000073": {
@@ -620,16 +633,16 @@
       "ATK": 1
     }
   },
-  "10000074": {
-    "name": "Layla",
+  "10000072": {
+    "name": "Candace",
     "rarity": 4,
-    "type": "Sword",
-    "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 11092, "_ATK": 216, "_DEF": 655 },
+    "type": "Polearm",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 10874, "_ATK": 212, "_DEF": 682 },
     "strength": 2,
     "weights": {
+      "ER": 4,
       "HP": 3,
-      "ER": 2,
       "_HP": 1
     }
   },
@@ -664,19 +677,6 @@
       "_HP": 1
     }
   },
-  "10000072": {
-    "name": "Candace",
-    "rarity": 4,
-    "type": "Polearm",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 10874, "_ATK": 212, "_DEF": 682 },
-    "strength": 2,
-    "weights": {
-      "ER": 4,
-      "HP": 3,
-      "_HP": 1
-    }
-  },
   "10000069": {
     "name": "Tighnari",
     "rarity": 5,
@@ -691,22 +691,6 @@
       "EM": 3,
       "ATK": 3,
       "ER": 2,
-      "_ATK": 1
-    }
-  },
-  "10000007-8": {
-    "name": "Traveler (Dendro)",
-    "rarity": 5,
-    "type": "Sword",
-    "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
-    "strength": 2,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "EM": 3,
-      "ATK": 3,
-      "ER": 3,
       "_ATK": 1
     }
   },
@@ -739,6 +723,22 @@
       "_ATK": 1
     }
   },
+  "10000007-8": {
+    "name": "Traveler (Dendro)",
+    "rarity": 5,
+    "type": "Sword",
+    "skillRank": [null, 3, 5],
+    "statBase": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "strength": 2,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "EM": 3,
+      "ATK": 3,
+      "ER": 3,
+      "_ATK": 1
+    }
+  },
   "10000059": {
     "name": "Shikanoin Heizou",
     "rarity": 4,
@@ -752,6 +752,20 @@
       "ATK": 3,
       "ER": 2,
       "_ATK": 1
+    }
+  },
+  "10000065": {
+    "name": "Kuki Shinobu",
+    "rarity": 4,
+    "type": "Sword",
+    "skillRank": [null, 3, 5],
+    "statBase": { "_HP": 12288, "_ATK": 212, "_DEF": 750 },
+    "strength": 2,
+    "weights": {
+      "EM": 4,
+      "HP": 3,
+      "ER": 1,
+      "_HP": 1
     }
   },
   "10000060": {
@@ -768,20 +782,6 @@
       "ER": 3,
       "HP": 3,
       "EM": 1,
-      "_HP": 1
-    }
-  },
-  "10000065": {
-    "name": "Kuki Shinobu",
-    "rarity": 4,
-    "type": "Sword",
-    "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 12288, "_ATK": 212, "_DEF": 750 },
-    "strength": 2,
-    "weights": {
-      "EM": 4,
-      "HP": 3,
-      "ER": 1,
       "_HP": 1
     }
   },
@@ -820,6 +820,19 @@
       "_ATK": 1
     }
   },
+  "10000064": {
+    "name": "Yun Jin",
+    "rarity": 4,
+    "type": "Polearm",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 10657, "_ATK": 191, "_DEF": 734 },
+    "strength": 2,
+    "weights": {
+      "ER": 3,
+      "DEF": 3,
+      "_DEF": 1
+    }
+  },
   "10000063": {
     "name": "Shenhe",
     "rarity": 5,
@@ -832,19 +845,6 @@
       "ER": 3,
       "ATK": 3,
       "_ATK": 1
-    }
-  },
-  "10000064": {
-    "name": "Yun Jin",
-    "rarity": 4,
-    "type": "Polearm",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 10657, "_ATK": 191, "_DEF": 734 },
-    "strength": 2,
-    "weights": {
-      "ER": 3,
-      "DEF": 3,
-      "_DEF": 1
     }
   },
   "10000057": {
@@ -877,6 +877,22 @@
       "_DEF": 1
     }
   },
+  "10000062": {
+    "name": "Aloy",
+    "rarity": 5,
+    "type": "Bow",
+    "skillRank": [null, null, null],
+    "statBase": { "_HP": 10898, "_ATK": 233, "_DEF": 676 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "ER": 2,
+      "EM": 1,
+      "_ATK": 1
+    }
+  },
   "10000050": {
     "name": "Thoma",
     "rarity": 4,
@@ -890,18 +906,18 @@
       "_HP": 1
     }
   },
-  "10000062": {
-    "name": "Aloy",
-    "rarity": 5,
+  "10000056": {
+    "name": "Kujou Sara",
+    "rarity": 4,
     "type": "Bow",
-    "skillRank": [null, null, null],
-    "statBase": { "_HP": 10898, "_ATK": 233, "_DEF": 676 },
-    "strength": 4,
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 9569, "_ATK": 195, "_DEF": 627 },
+    "strength": 3,
     "weights": {
       "CR": 4,
       "CD": 4,
+      "ER": 3,
       "ATK": 3,
-      "ER": 2,
       "EM": 1,
       "_ATK": 1
     }
@@ -937,19 +953,17 @@
       "_ATK": 1
     }
   },
-  "10000056": {
-    "name": "Kujou Sara",
+  "10000053": {
+    "name": "Sayu",
     "rarity": 4,
-    "type": "Bow",
+    "type": "Claymore",
     "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 9569, "_ATK": 195, "_DEF": 627 },
-    "strength": 3,
+    "statBase": { "_HP": 11853, "_ATK": 244, "_DEF": 744 },
+    "strength": 2,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ER": 3,
+      "ER": 4,
+      "EM": 3,
       "ATK": 3,
-      "EM": 1,
       "_ATK": 1
     }
   },
@@ -960,23 +974,6 @@
     "sig": "15509",
     "skillRank": [null, 3, 5],
     "statBase": { "_HP": 10164, "_ATK": 322, "_DEF": 614 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "ER": 2,
-      "EM": 1,
-      "_ATK": 1
-    }
-  },
-  "10000002": {
-    "name": "Kamisato Ayaka",
-    "rarity": 5,
-    "type": "Sword",
-    "sig": "11509",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 12858, "_ATK": 342, "_DEF": 783 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -1003,17 +1000,20 @@
       "_ATK": 1
     }
   },
-  "10000053": {
-    "name": "Sayu",
-    "rarity": 4,
-    "type": "Claymore",
+  "10000002": {
+    "name": "Kamisato Ayaka",
+    "rarity": 5,
+    "type": "Sword",
+    "sig": "11509",
     "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 11853, "_ATK": 244, "_DEF": 744 },
-    "strength": 2,
+    "statBase": { "_HP": 12858, "_ATK": 342, "_DEF": 783 },
+    "strength": 4,
     "weights": {
-      "ER": 4,
-      "EM": 3,
+      "CR": 4,
+      "CD": 4,
       "ATK": 3,
+      "ER": 2,
+      "EM": 1,
       "_ATK": 1
     }
   },
@@ -1145,6 +1145,35 @@
       "_ATK": 1
     }
   },
+  "10000044": {
+    "name": "Xinyan",
+    "rarity": 4,
+    "type": "Claymore",
+    "skillRank": [null, 3, 5],
+    "statBase": { "_HP": 11201, "_ATK": 248, "_DEF": 798 },
+    "strength": 3,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "ER": 2,
+      "DEF": 1,
+      "_ATK": 1
+    }
+  },
+  "10000039": {
+    "name": "Diona",
+    "rarity": 4,
+    "type": "Bow",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 9569, "_ATK": 212, "_DEF": 600 },
+    "strength": 2,
+    "weights": {
+      "ER": 3,
+      "HP": 3,
+      "_HP": 1
+    }
+  },
   "10000033": {
     "name": "Tartaglia",
     "rarity": 5,
@@ -1176,33 +1205,16 @@
       "_HP": 1
     }
   },
-  "10000044": {
-    "name": "Xinyan",
+  "10000043": {
+    "name": "Sucrose",
     "rarity": 4,
-    "type": "Claymore",
+    "type": "Catalyst",
     "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 11201, "_ATK": 248, "_DEF": 798 },
-    "strength": 3,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "ER": 2,
-      "DEF": 1,
-      "_ATK": 1
-    }
-  },
-  "10000039": {
-    "name": "Diona",
-    "rarity": 4,
-    "type": "Bow",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 9569, "_ATK": 212, "_DEF": 600 },
+    "statBase": { "_HP": 9243, "_ATK": 169, "_DEF": 702 },
     "strength": 2,
     "weights": {
-      "ER": 3,
-      "HP": 3,
-      "_HP": 1
+      "EM": 4,
+      "ER": 3
     }
   },
   "10000042": {
@@ -1237,116 +1249,6 @@
       "_ATK": 1
     }
   },
-  "10000035": {
-    "name": "Qiqi",
-    "rarity": 5,
-    "type": "Sword",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 12368, "_ATK": 287, "_DEF": 922 },
-    "strength": 2,
-    "weights": {
-      "ER": 4,
-      "ATK": 3,
-      "_ATK": 1
-    }
-  },
-  "10000029": {
-    "name": "Klee",
-    "rarity": 5,
-    "type": "Catalyst",
-    "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 10286, "_ATK": 310, "_DEF": 614 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "ER": 2,
-      "EM": 1,
-      "_ATK": 1
-    }
-  },
-  "10000022": {
-    "name": "Venti",
-    "rarity": 5,
-    "type": "Bow",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 10531, "_ATK": 263, "_DEF": 668 },
-    "strength": 2,
-    "weights": {
-      "ER": 4,
-      "EM": 4
-    }
-  },
-  "10000016": {
-    "name": "Diluc",
-    "rarity": 5,
-    "type": "Claymore",
-    "sig": "12502",
-    "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 12980, "_ATK": 334, "_DEF": 783 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "ER": 2,
-      "EM": 1,
-      "_ATK": 1
-    }
-  },
-  "10000003": {
-    "name": "Jean",
-    "rarity": 5,
-    "type": "Sword",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 14695, "_ATK": 239, "_DEF": 768 },
-    "strength": 2,
-    "weights": {
-      "ER": 4,
-      "ATK": 3,
-      "_ATK": 1
-    }
-  },
-  "10000007-6": {
-    "name": "Traveler (Geo)",
-    "rarity": 5,
-    "type": "Sword",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
-    "strength": 3,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ER": 3,
-      "ATK": 3,
-      "_ATK": 1
-    }
-  },
-  "10000007-4": {
-    "name": "Traveler (Anemo)",
-    "rarity": 5,
-    "type": "Sword",
-    "skillRank": [null, 5, 3],
-    "statBase": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
-    "strength": 1,
-    "weights": {
-      "ER": 4,
-      "EM": 4
-    }
-  },
-  "10000043": {
-    "name": "Sucrose",
-    "rarity": 4,
-    "type": "Catalyst",
-    "skillRank": [null, 3, 5],
-    "statBase": { "_HP": 9243, "_ATK": 169, "_DEF": 702 },
-    "strength": 2,
-    "weights": {
-      "EM": 4,
-      "ER": 3
-    }
-  },
   "10000036": {
     "name": "Chongyun",
     "rarity": 4,
@@ -1360,6 +1262,19 @@
       "ATK": 3,
       "ER": 2,
       "EM": 1,
+      "_ATK": 1
+    }
+  },
+  "10000035": {
+    "name": "Qiqi",
+    "rarity": 5,
+    "type": "Sword",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 12368, "_ATK": 287, "_DEF": 922 },
+    "strength": 2,
+    "weights": {
+      "ER": 4,
+      "ATK": 3,
       "_ATK": 1
     }
   },
@@ -1405,6 +1320,22 @@
       "ATK": 3,
       "ER": 2,
       "EM": 2,
+      "_ATK": 1
+    }
+  },
+  "10000029": {
+    "name": "Klee",
+    "rarity": 5,
+    "type": "Catalyst",
+    "skillRank": [null, 3, 5],
+    "statBase": { "_HP": 10286, "_ATK": 310, "_DEF": 614 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "ER": 2,
+      "EM": 1,
       "_ATK": 1
     }
   },
@@ -1471,6 +1402,18 @@
       "_ATK": 1
     }
   },
+  "10000022": {
+    "name": "Venti",
+    "rarity": 5,
+    "type": "Bow",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 10531, "_ATK": 263, "_DEF": 668 },
+    "strength": 2,
+    "weights": {
+      "ER": 4,
+      "EM": 4
+    }
+  },
   "10000021": {
     "name": "Amber",
     "rarity": 4,
@@ -1499,6 +1442,23 @@
       "CD": 4,
       "ATK": 3,
       "ER": 2,
+      "_ATK": 1
+    }
+  },
+  "10000016": {
+    "name": "Diluc",
+    "rarity": 5,
+    "type": "Claymore",
+    "sig": "12502",
+    "skillRank": [null, 3, 5],
+    "statBase": { "_HP": 12980, "_ATK": 334, "_DEF": 783 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "ER": 2,
+      "EM": 1,
       "_ATK": 1
     }
   },
@@ -1531,6 +1491,33 @@
       "_HP": 1
     }
   },
+  "10000007-6": {
+    "name": "Traveler (Geo)",
+    "rarity": 5,
+    "type": "Sword",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "strength": 3,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ER": 3,
+      "ATK": 3,
+      "_ATK": 1
+    }
+  },
+  "10000007-4": {
+    "name": "Traveler (Anemo)",
+    "rarity": 5,
+    "type": "Sword",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "strength": 1,
+    "weights": {
+      "ER": 4,
+      "EM": 4
+    }
+  },
   "10000006": {
     "name": "Lisa",
     "rarity": 4,
@@ -1544,6 +1531,19 @@
       "ER": 3,
       "ATK": 3,
       "EM": 2,
+      "_ATK": 1
+    }
+  },
+  "10000003": {
+    "name": "Jean",
+    "rarity": 5,
+    "type": "Sword",
+    "skillRank": [null, 5, 3],
+    "statBase": { "_HP": 14695, "_ATK": 239, "_DEF": 768 },
+    "strength": 2,
+    "weights": {
+      "ER": 4,
+      "ATK": 3,
       "_ATK": 1
     }
   }

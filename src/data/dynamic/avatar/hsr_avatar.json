@@ -164,6 +164,22 @@
       "_ATK": 1
     }
   },
+  "1223": {
+    "name": "Moze",
+    "rarity": 4,
+    "type": "The Hunt",
+    "minor": ["CD", "ATK", "CD", "HP", "CD", "ATK", "CD", "HP", "ATK", "CD"],
+    "skillRank": [5, 5, 3, 3],
+    "statBase": { "_HP": 811, "_ATK": 599, "_DEF": 352 },
+    "strength": 3,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "SPD": 1,
+      "_ATK": 1
+    }
+  },
   "1222": {
     "name": "Lingsha",
     "rarity": 5,
@@ -198,19 +214,19 @@
       "_ATK": 1
     }
   },
-  "1223": {
-    "name": "Moze",
+  "1224": {
+    "name": "March 7th (The Hunt)",
     "rarity": 4,
     "type": "The Hunt",
-    "minor": ["CD", "ATK", "CD", "HP", "CD", "ATK", "CD", "HP", "ATK", "CD"],
-    "skillRank": [5, 5, 3, 3],
-    "statBase": { "_HP": 811, "_ATK": 599, "_DEF": 352 },
-    "strength": 3,
+    "minor": ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
+    "skillRank": [3, 3, 5, 5],
+    "statBase": { "_HP": 1058, "_ATK": 564, "_DEF": 441 },
+    "strength": 4,
     "weights": {
       "CR": 4,
       "CD": 4,
+      "SPD": 3,
       "ATK": 3,
-      "SPD": 1,
       "_ATK": 1
     }
   },
@@ -245,22 +261,6 @@
       "SPD": 4,
       "ATK": 2,
       "RES": 1
-    }
-  },
-  "1224": {
-    "name": "March 7th (The Hunt)",
-    "rarity": 4,
-    "type": "The Hunt",
-    "minor": ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
-    "skillRank": [3, 3, 5, 5],
-    "statBase": { "_HP": 1058, "_ATK": 564, "_DEF": 441 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "SPD": 3,
-      "ATK": 3,
-      "_ATK": 1
     }
   },
   "1314": {
@@ -389,6 +389,22 @@
       "RES": 2
     }
   },
+  "1312": {
+    "name": "Misha",
+    "rarity": 4,
+    "type": "Destruction",
+    "minor": ["ICE", "DEF", "ICE", "CR", "ICE", "DEF", "ICE", "CR", "DEF", "ICE"],
+    "skillRank": [3, 5, 3, 5],
+    "statBase": { "_HP": 1270, "_ATK": 599, "_DEF": 396 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "SPD": 2,
+      "_ATK": 1
+    }
+  },
   "1307": {
     "name": "Black Swan",
     "rarity": 5,
@@ -418,22 +434,6 @@
       "SPD": 4,
       "CD": 3,
       "RES": 1
-    }
-  },
-  "1312": {
-    "name": "Misha",
-    "rarity": 4,
-    "type": "Destruction",
-    "minor": ["ICE", "DEF", "ICE", "CR", "ICE", "DEF", "ICE", "CR", "DEF", "ICE"],
-    "skillRank": [3, 5, 3, 5],
-    "statBase": { "_HP": 1270, "_ATK": 599, "_DEF": 396 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
     }
   },
   "1305": {
@@ -548,6 +548,21 @@
       "_ATK": 1
     }
   },
+  "1210": {
+    "name": "Guinaifen",
+    "rarity": 4,
+    "type": "Nihility",
+    "minor": ["FIRE", "BE", "FIRE", "EHR", "FIRE", "BE", "FIRE", "EHR", "BE", "FIRE"],
+    "skillRank": [3, 3, 5, 5],
+    "statBase": { "_HP": 882, "_ATK": 582, "_DEF": 441 },
+    "strength": 3,
+    "weights": {
+      "EHR": 3,
+      "SPD": 3,
+      "ATK": 3,
+      "_ATK": 1
+    }
+  },
   "1112": {
     "name": "Topaz & Numby",
     "rarity": 5,
@@ -560,21 +575,6 @@
     "weights": {
       "CR": 4,
       "CD": 4,
-      "SPD": 3,
-      "ATK": 3,
-      "_ATK": 1
-    }
-  },
-  "1210": {
-    "name": "Guinaifen",
-    "rarity": 4,
-    "type": "Nihility",
-    "minor": ["FIRE", "BE", "FIRE", "EHR", "FIRE", "BE", "FIRE", "EHR", "BE", "FIRE"],
-    "skillRank": [3, 3, 5, 5],
-    "statBase": { "_HP": 882, "_ATK": 582, "_DEF": 441 },
-    "strength": 3,
-    "weights": {
-      "EHR": 3,
       "SPD": 3,
       "ATK": 3,
       "_ATK": 1
@@ -647,6 +647,21 @@
       "_HP": 1
     }
   },
+  "1111": {
+    "name": "Luka",
+    "rarity": 4,
+    "type": "Nihility",
+    "minor": ["ATK", "EHR", "ATK", "DEF", "ATK", "EHR", "ATK", "DEF", "EHR", "ATK"],
+    "skillRank": [5, 3, 5, 3],
+    "statBase": { "_HP": 917, "_ATK": 582, "_DEF": 485 },
+    "strength": 2,
+    "weights": {
+      "EHR": 4,
+      "SPD": 4,
+      "BE": 3,
+      "ATK": 2
+    }
+  },
   "1005": {
     "name": "Kafka",
     "rarity": 5,
@@ -663,19 +678,17 @@
       "_ATK": 1
     }
   },
-  "1111": {
-    "name": "Luka",
+  "1207": {
+    "name": "Yukong",
     "rarity": 4,
-    "type": "Nihility",
-    "minor": ["ATK", "EHR", "ATK", "DEF", "ATK", "EHR", "ATK", "DEF", "EHR", "ATK"],
-    "skillRank": [5, 3, 5, 3],
-    "statBase": { "_HP": 917, "_ATK": 582, "_DEF": 485 },
-    "strength": 2,
+    "type": "Harmony",
+    "minor": ["IMAGINARY", "HP", "IMAGINARY", "ATK", "IMAGINARY", "HP", "IMAGINARY", "ATK", "HP", "IMAGINARY"],
+    "skillRank": [3, 3, 5, 5],
+    "statBase": { "_HP": 917, "_ATK": 599, "_DEF": 374 },
+    "strength": 1,
     "weights": {
-      "EHR": 4,
       "SPD": 4,
-      "BE": 3,
-      "ATK": 2
+      "RES": 1
     }
   },
   "1203": {
@@ -705,19 +718,6 @@
     "strength": 3,
     "weights": {
       "EHR": 4,
-      "SPD": 4,
-      "RES": 1
-    }
-  },
-  "1207": {
-    "name": "Yukong",
-    "rarity": 4,
-    "type": "Harmony",
-    "minor": ["IMAGINARY", "HP", "IMAGINARY", "ATK", "IMAGINARY", "HP", "IMAGINARY", "ATK", "HP", "IMAGINARY"],
-    "skillRank": [3, 3, 5, 5],
-    "statBase": { "_HP": 917, "_ATK": 599, "_DEF": 374 },
-    "strength": 1,
-    "weights": {
       "SPD": 4,
       "RES": 1
     }
@@ -786,6 +786,22 @@
       "_ATK": 1
     }
   },
+  "1206": {
+    "name": "Sushang",
+    "rarity": 4,
+    "type": "The Hunt",
+    "minor": ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
+    "skillRank": [5, 5, 3, 3],
+    "statBase": { "_HP": 917, "_ATK": 564, "_DEF": 418 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "SPD": 2,
+      "_ATK": 1
+    }
+  },
   "1204": {
     "name": "Jing Yuan",
     "rarity": 5,
@@ -794,124 +810,6 @@
     "minor": ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "statBase": { "_HP": 1164, "_ATK": 698, "_DEF": 485 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
-    }
-  },
-  "1107": {
-    "name": "Clara",
-    "rarity": 5,
-    "type": "Destruction",
-    "sig": "23002",
-    "minor": ["ATK", "PHYSICAL", "ATK", "HP", "ATK", "PHYSICAL", "ATK", "HP", "PHYSICAL", "ATK"],
-    "skillRank": [3, 3, 5, 5],
-    "statBase": { "_HP": 1241, "_ATK": 737, "_DEF": 485 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 1,
-      "_ATK": 1
-    }
-  },
-  "1104": {
-    "name": "Gepard",
-    "rarity": 5,
-    "type": "Preservation",
-    "sig": "23005",
-    "minor": ["ICE", "RES", "ICE", "DEF", "ICE", "RES", "ICE", "DEF", "RES", "ICE"],
-    "skillRank": [5, 5, 3, 3],
-    "statBase": { "_HP": 1397, "_ATK": 543, "_DEF": 654 },
-    "strength": 3,
-    "weights": {
-      "SPD": 4,
-      "DEF": 3,
-      "EHR": 2,
-      "RES": 2,
-      "_DEF": 1
-    }
-  },
-  "1102": {
-    "name": "Seele",
-    "rarity": 5,
-    "type": "The Hunt",
-    "sig": "23001",
-    "minor": ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
-    "skillRank": [5, 3, 5, 3],
-    "statBase": { "_HP": 931, "_ATK": 640, "_DEF": 363 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
-    }
-  },
-  "1101": {
-    "name": "Bronya",
-    "rarity": 5,
-    "type": "Harmony",
-    "sig": "23003",
-    "minor": ["WIND", "CD", "WIND", "RES", "WIND", "CD", "WIND", "RES", "CD", "WIND"],
-    "skillRank": [5, 5, 3, 3],
-    "statBase": { "_HP": 1241, "_ATK": 582, "_DEF": 533 },
-    "strength": 2,
-    "weights": {
-      "SPD": 4,
-      "CD": 3,
-      "RES": 1
-    }
-  },
-  "1004": {
-    "name": "Welt",
-    "rarity": 5,
-    "type": "Nihility",
-    "sig": "23004",
-    "minor": ["ATK", "IMAGINARY", "ATK", "RES", "ATK", "IMAGINARY", "ATK", "RES", "IMAGINARY", "ATK"],
-    "skillRank": [3, 3, 5, 5],
-    "statBase": { "_HP": 1125, "_ATK": 620, "_DEF": 509 },
-    "strength": 3,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "EHR": 3,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
-    }
-  },
-  "1003": {
-    "name": "Himeko",
-    "rarity": 5,
-    "type": "Erudition",
-    "sig": "23000",
-    "minor": ["FIRE", "ATK", "FIRE", "RES", "FIRE", "ATK", "FIRE", "RES", "ATK", "FIRE"],
-    "skillRank": [3, 3, 5, 5],
-    "statBase": { "_HP": 1047, "_ATK": 756, "_DEF": 436 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "EHR": 1,
-      "_ATK": 1
-    }
-  },
-  "1206": {
-    "name": "Sushang",
-    "rarity": 4,
-    "type": "The Hunt",
-    "minor": ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
-    "skillRank": [5, 5, 3, 3],
-    "statBase": { "_HP": 917, "_ATK": 564, "_DEF": 418 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -983,6 +881,23 @@
       "_ATK": 1
     }
   },
+  "1107": {
+    "name": "Clara",
+    "rarity": 5,
+    "type": "Destruction",
+    "sig": "23002",
+    "minor": ["ATK", "PHYSICAL", "ATK", "HP", "ATK", "PHYSICAL", "ATK", "HP", "PHYSICAL", "ATK"],
+    "skillRank": [3, 3, 5, 5],
+    "statBase": { "_HP": 1241, "_ATK": 737, "_DEF": 485 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "SPD": 1,
+      "_ATK": 1
+    }
+  },
   "1106": {
     "name": "Pela",
     "rarity": 4,
@@ -1012,6 +927,23 @@
       "_HP": 1
     }
   },
+  "1104": {
+    "name": "Gepard",
+    "rarity": 5,
+    "type": "Preservation",
+    "sig": "23005",
+    "minor": ["ICE", "RES", "ICE", "DEF", "ICE", "RES", "ICE", "DEF", "RES", "ICE"],
+    "skillRank": [5, 5, 3, 3],
+    "statBase": { "_HP": 1397, "_ATK": 543, "_DEF": 654 },
+    "strength": 3,
+    "weights": {
+      "SPD": 4,
+      "DEF": 3,
+      "EHR": 2,
+      "RES": 2,
+      "_DEF": 1
+    }
+  },
   "1103": {
     "name": "Serval",
     "rarity": 4,
@@ -1026,6 +958,38 @@
       "ATK": 3,
       "SPD": 2,
       "_ATK": 1
+    }
+  },
+  "1102": {
+    "name": "Seele",
+    "rarity": 5,
+    "type": "The Hunt",
+    "sig": "23001",
+    "minor": ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
+    "skillRank": [5, 3, 5, 3],
+    "statBase": { "_HP": 931, "_ATK": 640, "_DEF": 363 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "SPD": 2,
+      "_ATK": 1
+    }
+  },
+  "1101": {
+    "name": "Bronya",
+    "rarity": 5,
+    "type": "Harmony",
+    "sig": "23003",
+    "minor": ["WIND", "CD", "WIND", "RES", "WIND", "CD", "WIND", "RES", "CD", "WIND"],
+    "skillRank": [5, 5, 3, 3],
+    "statBase": { "_HP": 1241, "_ATK": 582, "_DEF": 533 },
+    "strength": 2,
+    "weights": {
+      "SPD": 4,
+      "CD": 3,
+      "RES": 1
     }
   },
   "1013": {
@@ -1071,6 +1035,42 @@
       "CD": 4,
       "SPD": 3,
       "ATK": 3,
+      "_ATK": 1
+    }
+  },
+  "1004": {
+    "name": "Welt",
+    "rarity": 5,
+    "type": "Nihility",
+    "sig": "23004",
+    "minor": ["ATK", "IMAGINARY", "ATK", "RES", "ATK", "IMAGINARY", "ATK", "RES", "IMAGINARY", "ATK"],
+    "skillRank": [3, 3, 5, 5],
+    "statBase": { "_HP": 1125, "_ATK": 620, "_DEF": 509 },
+    "strength": 3,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "EHR": 3,
+      "ATK": 3,
+      "SPD": 2,
+      "_ATK": 1
+    }
+  },
+  "1003": {
+    "name": "Himeko",
+    "rarity": 5,
+    "type": "Erudition",
+    "sig": "23000",
+    "minor": ["FIRE", "ATK", "FIRE", "RES", "FIRE", "ATK", "FIRE", "RES", "ATK", "FIRE"],
+    "skillRank": [3, 3, 5, 5],
+    "statBase": { "_HP": 1047, "_ATK": 756, "_DEF": 436 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "SPD": 2,
+      "EHR": 1,
       "_ATK": 1
     }
   },

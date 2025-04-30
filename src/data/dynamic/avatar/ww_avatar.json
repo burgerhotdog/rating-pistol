@@ -275,6 +275,33 @@
       "_ATK": 2
     }
   },
+  "1602": {
+    "name": "Danjin",
+    "rarity": 4,
+    "type": "Sword",
+    "minor": ["ATK", "ATK", "HAVOC", "HAVOC", "ATK", "ATK", "HAVOC", "HAVOC"],
+    "statBase": { "_HP": 9438, "_ATK": 263, "_DEF": 1149 },
+    "strength": 4,
+    "weights": {
+      "CR": 10,
+      "CD": 10,
+      "ATK": 6,
+      "_ATK": 2
+    }
+  },
+  "1601": {
+    "name": "Taoqi",
+    "rarity": 4,
+    "type": "Broadblade",
+    "minor": ["DEF", "DEF", "HAVOC", "HAVOC", "DEF", "DEF", "HAVOC", "HAVOC"],
+    "statBase": { "_HP": 8950, "_ATK": 225, "_DEF": 1564 },
+    "strength": 2,
+    "weights": {
+      "ER": 10,
+      "DEF": 6,
+      "_DEF": 2
+    }
+  },
   "1503": {
     "name": "Verina",
     "rarity": 5,
@@ -335,99 +362,6 @@
       "_ATK": 2
     }
   },
-  "1302": {
-    "name": "Yinlin",
-    "rarity": 5,
-    "type": "Rectifier",
-    "sig": "21050016",
-    "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
-    "statBase": { "_HP": 11000, "_ATK": 400, "_DEF": 1283 },
-    "strength": 4,
-    "weights": {
-      "CR": 10,
-      "CD": 10,
-      "ATK": 6,
-      "ER": 2,
-      "RS": 2,
-      "_ATK": 2
-    }
-  },
-  "1301": {
-    "name": "Calcharo",
-    "rarity": 5,
-    "type": "Broadblade",
-    "sig": "21010015",
-    "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
-    "statBase": { "_HP": 10500, "_ATK": 438, "_DEF": 1185 },
-    "strength": 4,
-    "weights": {
-      "CR": 10,
-      "CD": 10,
-      "ATK": 6,
-      "ER": 4,
-      "RL": 2,
-      "_ATK": 2
-    }
-  },
-  "1203": {
-    "name": "Encore",
-    "rarity": 5,
-    "type": "Rectifier",
-    "sig": "21050015",
-    "minor": ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
-    "statBase": { "_HP": 10513, "_ATK": 425, "_DEF": 1246 },
-    "strength": 4,
-    "weights": {
-      "CR": 10,
-      "CD": 10,
-      "ATK": 6,
-      "ER": 2,
-      "_ATK": 2
-    }
-  },
-  "1104": {
-    "name": "Lingyang",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "sig": "21040015",
-    "minor": ["ATK", "ATK", "GLACIO", "GLACIO", "ATK", "ATK", "GLACIO", "GLACIO"],
-    "statBase": { "_HP": 10388, "_ATK": 438, "_DEF": 1210 },
-    "strength": 4,
-    "weights": {
-      "CR": 10,
-      "CD": 10,
-      "ATK": 6,
-      "ER": 2,
-      "_ATK": 2
-    }
-  },
-  "1602": {
-    "name": "Danjin",
-    "rarity": 4,
-    "type": "Sword",
-    "minor": ["ATK", "ATK", "HAVOC", "HAVOC", "ATK", "ATK", "HAVOC", "HAVOC"],
-    "statBase": { "_HP": 9438, "_ATK": 263, "_DEF": 1149 },
-    "strength": 4,
-    "weights": {
-      "CR": 10,
-      "CD": 10,
-      "ATK": 6,
-      "_ATK": 2
-    }
-  },
-  "1601": {
-    "name": "Taoqi",
-    "rarity": 4,
-    "type": "Broadblade",
-    "minor": ["DEF", "DEF", "HAVOC", "HAVOC", "DEF", "DEF", "HAVOC", "HAVOC"],
-    "statBase": { "_HP": 8950, "_ATK": 225, "_DEF": 1564 },
-    "strength": 2,
-    "weights": {
-      "ER": 10,
-      "DEF": 6,
-      "_DEF": 2
-    }
-  },
   "1403": {
     "name": "Aalto",
     "rarity": 4, 
@@ -472,6 +406,40 @@
       "_DEF": 2
     }
   },
+  "1302": {
+    "name": "Yinlin",
+    "rarity": 5,
+    "type": "Rectifier",
+    "sig": "21050016",
+    "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
+    "statBase": { "_HP": 11000, "_ATK": 400, "_DEF": 1283 },
+    "strength": 4,
+    "weights": {
+      "CR": 10,
+      "CD": 10,
+      "ATK": 6,
+      "ER": 2,
+      "RS": 2,
+      "_ATK": 2
+    }
+  },
+  "1301": {
+    "name": "Calcharo",
+    "rarity": 5,
+    "type": "Broadblade",
+    "sig": "21010015",
+    "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
+    "statBase": { "_HP": 10500, "_ATK": 438, "_DEF": 1185 },
+    "strength": 4,
+    "weights": {
+      "CR": 10,
+      "CD": 10,
+      "ATK": 6,
+      "ER": 4,
+      "RL": 2,
+      "_ATK": 2
+    }
+  },
   "1204": {
     "name": "Mortefi",
     "rarity": 4,
@@ -487,6 +455,22 @@
       "_ATK": 2
     }
   },
+  "1203": {
+    "name": "Encore",
+    "rarity": 5,
+    "type": "Rectifier",
+    "sig": "21050015",
+    "minor": ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
+    "statBase": { "_HP": 10513, "_ATK": 425, "_DEF": 1246 },
+    "strength": 4,
+    "weights": {
+      "CR": 10,
+      "CD": 10,
+      "ATK": 6,
+      "ER": 2,
+      "_ATK": 2
+    }
+  },
   "1202": {
     "name": "Chixia",
     "rarity": 4,
@@ -499,6 +483,22 @@
       "CD": 10,
       "ATK": 6,
       "ER": 4,
+      "_ATK": 2
+    }
+  },
+  "1104": {
+    "name": "Lingyang",
+    "rarity": 5,
+    "type": "Gauntlets",
+    "sig": "21040015",
+    "minor": ["ATK", "ATK", "GLACIO", "GLACIO", "ATK", "ATK", "GLACIO", "GLACIO"],
+    "statBase": { "_HP": 10388, "_ATK": 438, "_DEF": 1210 },
+    "strength": 4,
+    "weights": {
+      "CR": 10,
+      "CD": 10,
+      "ATK": 6,
+      "ER": 2,
       "_ATK": 2
     }
   },

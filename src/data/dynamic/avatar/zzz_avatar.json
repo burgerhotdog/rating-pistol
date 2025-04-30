@@ -193,6 +193,19 @@
       "_ATK": 1
     }
   },
+  "1271": {
+    "name": "Seth",
+    "rarity": 4,
+    "type": "Defense",
+    "sig": "13127",
+    "statBase": { "_HP": 8701, "_ATK": 643, "_DEF": 746 },
+    "strength": 2,
+    "weights": {
+      "ATK": 3,
+      "AP": 2,
+      "_ATK": 1
+    }
+  },
   "1261": {
     "name": "Jane",
     "rarity": 5,
@@ -222,16 +235,17 @@
       "_ATK": 1
     }
   },
-  "1271": {
-    "name": "Seth",
+  "1281": {
+    "name": "Piper",
     "rarity": 4,
-    "type": "Defense",
-    "sig": "13127",
-    "statBase": { "_HP": 8701, "_ATK": 643, "_DEF": 746 },
-    "strength": 2,
+    "type": "Anomaly",
+    "sig": "13128",
+    "statBase": { "_HP": 6977, "_ATK": 758, "_DEF": 613 },
+    "strength": 4,
     "weights": {
+      "AP": 4,
       "ATK": 3,
-      "AP": 2,
+      "PEN": 1,
       "_ATK": 1
     }
   },
@@ -293,6 +307,20 @@
       "_ATK": 1
     }
   },
+  "1151": {
+    "name": "Lucy",
+    "rarity": 4,
+    "type": "Support",
+    "sig": "13115",
+    "statBase": { "_HP": 8026, "_ATK": 659, "_DEF": 613 },
+    "strength": 2,
+    "weights": {
+      "CR": 3,
+      "CD": 3,
+      "ATK": 3,
+      "_ATK": 1
+    }
+  },
   "1141": {
     "name": "Lycaon",
     "rarity": 5,
@@ -305,79 +333,6 @@
       "CD": 4,
       "ATK": 3,
       "PEN": 1,
-      "_ATK": 1
-    }
-  },
-  "1101": {
-    "name": "Koleda",
-    "rarity": 5,
-    "type": "Stun",
-    "sig": "14110",
-    "statBase": { "_HP": 8127, "_ATK": 736, "_DEF": 595 },
-    "strength": 3,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
-    }
-  },
-  "1041": {
-    "name": "Soldier 11",
-    "rarity": 5,
-    "type": "Attack",
-    "sig": "14104",
-    "statBase": { "_HP": 7674, "_ATK": 889, "_DEF": 613 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
-    }
-  },
-  "1021": {
-    "name": "Nekomata",
-    "rarity": 5,
-    "type": "Attack",
-    "sig": "14102",
-    "statBase": { "_HP": 7560, "_ATK": 911, "_DEF": 588 },
-    "strength": 4,
-    "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
-    }
-  },
-  "1281": {
-    "name": "Piper",
-    "rarity": 4,
-    "type": "Anomaly",
-    "sig": "13128",
-    "statBase": { "_HP": 6977, "_ATK": 758, "_DEF": 613 },
-    "strength": 4,
-    "weights": {
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
-    }
-  },
-  "1151": {
-    "name": "Lucy",
-    "rarity": 4,
-    "type": "Support",
-    "sig": "13115",
-    "statBase": { "_HP": 8026, "_ATK": 659, "_DEF": 613 },
-    "strength": 2,
-    "weights": {
-      "CR": 3,
-      "CD": 3,
-      "ATK": 3,
       "_ATK": 1
     }
   },
@@ -425,6 +380,21 @@
       "_ATK": 1
     }
   },
+  "1101": {
+    "name": "Koleda",
+    "rarity": 5,
+    "type": "Stun",
+    "sig": "14110",
+    "statBase": { "_HP": 8127, "_ATK": 736, "_DEF": 595 },
+    "strength": 3,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "PEN": 1,
+      "_ATK": 1
+    }
+  },
   "1081": {
     "name": "Billy",
     "rarity": 4,
@@ -455,6 +425,21 @@
       "_ATK": 1
     }
   },
+  "1041": {
+    "name": "Soldier 11",
+    "rarity": 5,
+    "type": "Attack",
+    "sig": "14104",
+    "statBase": { "_HP": 7674, "_ATK": 889, "_DEF": 613 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
+      "ATK": 3,
+      "PEN": 1,
+      "_ATK": 1
+    }
+  },
   "1031": {
     "name": "Nicole",
     "rarity": 4,
@@ -464,6 +449,21 @@
     "strength": 2,
     "weights": {
       "AP": 3,
+      "ATK": 3,
+      "PEN": 1,
+      "_ATK": 1
+    }
+  },
+  "1021": {
+    "name": "Nekomata",
+    "rarity": 5,
+    "type": "Attack",
+    "sig": "14102",
+    "statBase": { "_HP": 7560, "_ATK": 911, "_DEF": 588 },
+    "strength": 4,
+    "weights": {
+      "CR": 4,
+      "CD": 4,
       "ATK": 3,
       "PEN": 1,
       "_ATK": 1

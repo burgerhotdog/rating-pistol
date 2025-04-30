@@ -13,11 +13,7 @@ const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
           : SET_DATA[gameId][id].type === "Planar";
       })
       .sort((a, b) => {
-        const A = SET_DATA[gameId][a];
-        const B = SET_DATA[gameId][b];
-        return A.rarity !== B.rarity
-          ? B.rarity - A.rarity
-          : A.name.localeCompare(B.name);
+        return SET_DATA[gameId][a].name.localeCompare(SET_DATA[gameId][b].name);
       }), [gameId, mainIndex]);
 
   const handleSet = (newValue) =>
@@ -42,14 +38,12 @@ const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
       }}
       renderOption={(props, id) => {
         const { key, ...idProps } = props;
-        const rarity = SET_DATA[gameId][id]?.rarity;
         return (
           <Box
             key={key}
             component="li"
             sx={{
               "& > img": { mr: 2, flexShrink: 0 },
-              color: `rarityColor.${rarity}`,
             }}
             {...idProps}
           >

@@ -1,7 +1,6 @@
 {
   "320": {
     "name": "Giant Tree of Rapt Brooding",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's SPD by 6%. When the wearer's SPD is 135/180 or higher, the wearer and their memosprite's Outgoing Healing increases by 12%/20%."
@@ -9,7 +8,6 @@
   },
   "319": {
     "name": "Bone Collection's Serene Demesne",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's Max HP by 12%. When the wearer's Max HP is 5000 or higher, increases the wearer's and their memosprite's CRIT DMG by 28%."
@@ -17,7 +15,6 @@
   },
   "124": {
     "name": "Poet of Mourning Collapse",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Quantum DMG by 10%.",
@@ -26,7 +23,6 @@
   },
   "123": {
     "name": "Hero of Triumphant Song",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases ATK by 12%.",
@@ -35,7 +31,6 @@
   },
   "122": {
     "name": "Scholar Lost in Erudition",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases CRIT Rate by 8%.",
@@ -44,7 +39,6 @@
   },
   "121": {
     "name": "Sacerdos' Relived Ordeal",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases SPD by 6%.",
@@ -53,7 +47,6 @@
   },
   "318": {
     "name": "The Wondrous BananAmusement Park",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's CRIT DMG by 16%. When a target summoned by the wearer is on the field, CRIT DMG additionally increases by 32%."
@@ -61,7 +54,6 @@
   },
   "317": {
     "name": "Lushaka, the Sunken Seas",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's Energy Regeneration Rate by 5%. If the wearer is not the first character in the team lineup, then increases the ATK of the first character in the team lineup by 12%."
@@ -69,7 +61,6 @@
   },
   "120": {
     "name": "The Wind-Soaring Valorous",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases ATK by 12%.",
@@ -78,7 +69,6 @@
   },
   "119": {
     "name": "Iron Cavalry Against the Scourge",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Break Effect by 16%.",
@@ -87,7 +77,6 @@
   },
   "316": {
     "name": "Forge of the Kalpagni Lantern",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's SPD by 6%. When the wearer hits an enemy target that has Fire Weakness, the wearer's Break Effect increases by 40%, lasting for 1 turn(s)."
@@ -95,7 +84,6 @@
   },
   "315": {
     "name": "Duran, Dynasty of Running Wolves",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "When an ally uses a follow-up attack, the wearer gains 1 stack of Merit, stacking up to 5 time(s). Each stack of Merit increases the DMG dealt by the wearer's follow-up attacks by 5%. When there are 5 stacks, additionally increases the wearer's CRIT DMG by 25%."
@@ -103,7 +91,6 @@
   },
   "314": {
     "name": "Izumo Gensei and Takama Divine Realm",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's ATK by 12%. When entering battle, if at least one teammate follows the same Path as the wearer, then the wearer's CRIT Rate increases by 12%."
@@ -111,7 +98,6 @@
   },
   "313": {
     "name": "Sigonia, the Unclaimed Desolation",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's CRIT Rate by 4%. When an enemy target gets defeated, the wearer's CRIT DMG increases by 4%, stacking up to 10 time(s)."
@@ -119,7 +105,6 @@
   },
   "118": {
     "name": "Watchmaker, Master of Dream Machinations",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Break Effect by 16%.",
@@ -128,7 +113,6 @@
   },
   "117": {
     "name": "Pioneer Diver of Dead Waters",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases DMG dealt to enemies with debuffs by 12%.",
@@ -137,7 +121,6 @@
   },
   "116": {
     "name": "Prisoner in Deep Confinement",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases ATK by 12%.",
@@ -146,7 +129,6 @@
   },
   "115": {
     "name": "The Ashblazing Grand Duke",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases the DMG dealt by follow-up attack by 20%.",
@@ -155,7 +137,6 @@
   },
   "312": {
     "name": "Penacony, Land of the Dreams",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases wearer's Energy Regeneration Rate by 5%. Increases DMG by 10% for all other allies that are of the same Type as the wearer."
@@ -163,7 +144,6 @@
   },
   "311": {
     "name": "Firmament Frontline: Glamoth",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's ATK by 12%. When the wearer's SPD is equal to or higher than 135/160, the wearer deals 12%/18% more DMG."
@@ -171,7 +151,6 @@
   },
   "114": {
     "name": "Messenger Traversing Hackerspace",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases SPD by 6%.",
@@ -180,7 +159,6 @@
   },
   "113": {
     "name": "Longevous Disciple",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Max HP by 12%.",
@@ -189,7 +167,6 @@
   },
   "310": {
     "name": "Broken Keel",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's Effect RES by 10%. When the wearer's Effect RES is at 30% or higher, all allies' CRIT DMG increases by 10%."
@@ -197,7 +174,6 @@
   },
   "309": {
     "name": "Rutilant Arena",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's CRIT Rate by 8%. When the wearer's current CRIT Rate reaches 70% or higher, DMG dealt by Basic ATK and Skill increases by 20%."
@@ -205,7 +181,6 @@
   },
   "110": {
     "name": "Eagle of Twilight Line",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Wind DMG by 10%.",
@@ -214,7 +189,6 @@
   },
   "109": {
     "name": "Band of Sizzling Thunder",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Lightning DMG by 10%.",
@@ -223,7 +197,6 @@
   },
   "108": {
     "name": "Genius of Brilliant Stars",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Quantum DMG by 10%.",
@@ -232,7 +205,6 @@
   },
   "107": {
     "name": "Firesmith of Lava-Forging",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Fire DMG by 10%.",
@@ -241,7 +213,6 @@
   },
   "106": {
     "name": "Guard of Wuthering Snow",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Reduces DMG taken by 8%.",
@@ -250,7 +221,6 @@
   },
   "105": {
     "name": "Champion of Streetwise Boxing",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Physical DMG by 10%.",
@@ -259,7 +229,6 @@
   },
   "104": {
     "name": "Hunter of Glacial Forest",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Ice DMG by 10%.",
@@ -268,7 +237,6 @@
   },
   "103": {
     "name": "Knight of Purity Palace",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases DEF by 15%.",
@@ -277,7 +245,6 @@
   },
   "102": {
     "name": "Musketeer of Wild Wheat",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases ATK by 12%.",
@@ -286,7 +253,6 @@
   },
   "101": {
     "name": "Passerby of Wandering Cloud",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Outgoing Healing by 10%.",
@@ -295,7 +261,6 @@
   },
   "111": {
     "name": "Thief of Shooting Meteor",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Break Effect by 16%.",
@@ -304,7 +269,6 @@
   },
   "112": {
     "name": "Wastelander of Banditry Desert",
-    "rarity": 5,
     "type": "Relic",
     "desc": {
       "2": "Increases Imaginary DMG by 10%.",
@@ -313,7 +277,6 @@
   },
   "308": {
     "name": "Sprightly Vonwacq",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's Energy Regeneration Rate by 5%. When the wearer's SPD reaches 120 or higher, the wearer's action is Advanced Forward by 40% immediately upon entering battle."
@@ -321,7 +284,6 @@
   },
   "307": {
     "name": "Talia: Kingdom of Banditry",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's Break Effect by 16%. When the wearer's SPD reaches 145 or higher, the wearer's Break Effect increases by an extra 20%."
@@ -329,7 +291,6 @@
   },
   "306": {
     "name": "Inert Salsotto",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's CRIT Rate by 8%. When the wearer's current CRIT Rate reaches 50% or higher, the DMG dealt by the wearer's Ultimate and follow-up attack increases by 15%."
@@ -337,7 +298,6 @@
   },
   "305": {
     "name": "Celestial Differentiator",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's CRIT DMG by 16%. When the wearer's current CRIT DMG reaches 120% or higher, after entering battle, the wearer's CRIT Rate increases by 60% until the end of their first attack."
@@ -345,7 +305,6 @@
   },
   "304": {
     "name": "Belobog of the Architects",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's DEF by 15%. When the wearer's Effect Hit Rate is 50% or higher, the wearer gains an extra 15% DEF."
@@ -353,7 +312,6 @@
   },
   "303": {
     "name": "Pan-Cosmic Commercial Enterprise",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's Effect Hit Rate by 10%. Meanwhile, the wearer's ATK increases by an amount that is equal to 25% of the current Effect Hit Rate, up to a maximum of 25%."
@@ -361,7 +319,6 @@
   },
   "302": {
     "name": "Fleet of the Ageless",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's Max HP by 12%. When the wearer's SPD reaches 120 or higher, all allies' ATK increases by 8%."
@@ -369,7 +326,6 @@
   },
   "301": {
     "name": "Space Sealing Station",
-    "rarity": 5,
     "type": "Planar",
     "desc": {
       "2": "Increases the wearer's ATK by 12%. When the wearer's SPD reaches 120 or higher, the wearer's ATK increases by an extra 12%."

@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import template from "@config/template";
 import { AVATAR_ASSETS } from "@assets";
-import { AVATAR_DATA, STAT_DATA } from "@data";
+import { AVATAR_DATA, SET_DATA, STAT_DATA } from "@data";
 import translate from "./translate";
 
 const errorMessages = {
@@ -147,6 +147,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
             const equipIndex = equipTypeToIndex[equipObj.flat.equipType];
 
             // set
+            if (!SET_DATA[gameId][equipObj.flat.icon.substring(13, 18)]) continue;
             data.equipList[equipIndex].setId = equipObj.flat.icon.substring(13, 18);
 
             // mainstat
