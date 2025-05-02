@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Box, Stack, Typography, Tabs, Tab } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
-import { AVATAR_DATA, INFO_DATA } from "@data";
-import Frequency from "./Frequency";
-import Percentile from "./Percentile";
+import { AVATAR_DATA, INFO_DATA, STAT_DATA } from "@data";
+import Info from "./Info";
+import Plot from "./Plot";
 
 const Rating = ({ gameId, modalPipe }) => {
   const { id, data, rating } = modalPipe;
@@ -26,7 +26,7 @@ const Rating = ({ gameId, modalPipe }) => {
         centered
         sx={{ borderBottom: 1, borderColor: "divider" }}
       >
-        <Tab label="Total" sx={{ fontWeight: "bold" }} />
+        <Tab label="Full Build" sx={{ fontWeight: "bold" }} />
         {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
           <Tab
             key={index}
@@ -44,37 +44,28 @@ const Rating = ({ gameId, modalPipe }) => {
         ))}
       </Tabs>
 
-      {activeTab === 0 ? (
-        <Stack direction="row" spacing={2}>
-          <Frequency
-            gameId={gameId}
-            avatarId={id}
-            score={rating.avatar.score}
-            simScores={rating.avatar.simScores}
-          />
-          <Percentile
-            gameId={gameId}
-            avatarId={id}
-            score={rating.avatar.score}
-            simScores={rating.avatar.simScores}
-          />
-        </Stack>
-      ) : (
-        <Stack direction="row" spacing={2}>
-          <Frequency
-            gameId={gameId}
-            avatarId={id}
-            score={rating.equips[activeTab - 1].score}
-            simScores={rating.equips[activeTab - 1].simScores}
-          />
-          <Percentile
-            gameId={gameId}
-            avatarId={id}
-            score={rating.equips[activeTab - 1].score}
-            simScores={rating.equips[activeTab - 1].simScores}
-          />
-        </Stack>
-      )}
+      <Stack direction="row" spacing={2}>
+        <Info
+          item={activeTab === 0
+            ? `${AVATAR_DATA[gameId][id].name} build`
+            : `${STAT_DATA[gameId][data.equipList[activeTab - 1].stat].name} ${INFO_DATA[gameId].EQUIP_NAMES[activeTab - 1]}`}
+          isPiece={activeTab !== 0}
+          percentile={activeTab === 0
+            ? rating.avatar.percentile
+            : rating.equips[activeTab - 1].percentile}
+          score={activeTab === 0
+            ? rating.avatar.score
+            : rating.equips[activeTab - 1].score}
+        />
+        <Plot
+          score={activeTab === 0
+            ? rating.avatar.score
+            : rating.equips[activeTab - 1].score}
+          simScores={activeTab === 0
+            ? rating.avatar.simScores
+            : rating.equips[activeTab - 1].simScores}
+        />
+      </Stack>
     </Stack>
   );
 };
