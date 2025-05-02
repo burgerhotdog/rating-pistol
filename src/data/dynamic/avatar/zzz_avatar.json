@@ -4,7 +4,7 @@
     "rarity": 5,
     "type": "Anomaly",
     "sig": "14133",
-    "statBase": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
+    "baseStats": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
     "strength": 4,
     "weights": {
       "AP": 4,
@@ -18,7 +18,7 @@
     "rarity": 5,
     "type": "Attack",
     "sig": "14129",
-    "statBase": { "_HP": 7940, "_ATK": 919, "_DEF": 616 },
+    "baseStats": { "_HP": 7940, "_ATK": 919, "_DEF": 616 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -33,7 +33,7 @@
     "rarity": 5,
     "type": "Attack",
     "sig": "14138",
-    "statBase": { "_HP": 7673, "_ATK": 929, "_DEF": 612 },
+    "baseStats": { "_HP": 7673, "_ATK": 929, "_DEF": 612 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -48,7 +48,7 @@
     "rarity": 5,
     "type": "Stun",
     "sig": "14136",
-    "statBase": { "_HP": 7923, "_ATK": 750, "_DEF": 600 },
+    "baseStats": { "_HP": 7923, "_ATK": 750, "_DEF": 600 },
     "strength": 3,
     "weights": {
       "CR": 4,
@@ -63,7 +63,7 @@
     "rarity": 4,
     "type": "Stun",
     "sig": "13135",
-    "statBase": { "_HP": 7612, "_ATK": 665, "_DEF": 606 },
+    "baseStats": { "_HP": 7612, "_ATK": 665, "_DEF": 606 },
     "strength": 3,
     "weights": {
       "CR": 4,
@@ -78,7 +78,7 @@
     "rarity": 5,
     "type": "Attack",
     "sig": "14132",
-    "statBase": { "_HP": 7788, "_ATK": 929, "_DEF": 612 },
+    "baseStats": { "_HP": 7788, "_ATK": 929, "_DEF": 612 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -93,7 +93,7 @@
     "rarity": 5,
     "type": "Support",
     "sig": "14131",
-    "statBase": { "_HP": 8609, "_ATK": 715, "_DEF": 600 },
+    "baseStats": { "_HP": 8609, "_ATK": 715, "_DEF": 600 },
     "strength": 2,
     "weights": {
       "ATK": 3,
@@ -108,7 +108,7 @@
     "rarity": 5,
     "type": "Attack",
     "sig": "14120",
-    "statBase": { "_HP": 7405, "_ATK": 915, "_DEF": 600 },
+    "baseStats": { "_HP": 7405, "_ATK": 915, "_DEF": 600 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -123,7 +123,7 @@
     "rarity": 5,
     "type": "Anomaly",
     "sig": "14109",
-    "statBase": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
+    "baseStats": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -139,7 +139,7 @@
     "rarity": 5,
     "type": "Anomaly",
     "sig": "14122",
-    "statBase": { "_HP": 7789, "_ATK": 873, "_DEF": 613 },
+    "baseStats": { "_HP": 7789, "_ATK": 873, "_DEF": 613 },
     "strength": 4,
     "weights": {
       "AP": 4,
@@ -153,7 +153,7 @@
     "rarity": 5,
     "type": "Stun",
     "sig": "14116",
-    "statBase": { "_HP": 8253, "_ATK": 797, "_DEF": 612 },
+    "baseStats": { "_HP": 8253, "_ATK": 797, "_DEF": 612 },
     "strength": 3,
     "weights": {
       "CR": 4,
@@ -168,7 +168,7 @@
     "rarity": 5,
     "type": "Anomaly",
     "sig": "14117",
-    "statBase": { "_HP": 7368, "_ATK": 863, "_DEF": 601 },
+    "baseStats": { "_HP": 7368, "_ATK": 863, "_DEF": 601 },
     "strength": 4,
     "weights": {
       "AP": 4,
@@ -182,7 +182,7 @@
     "rarity": 5,
     "type": "Defense",
     "sig": "14107",
-    "statBase": { "_HP": 9526, "_ATK": 712, "_DEF": 754 },
+    "baseStats": { "_HP": 9526, "_ATK": 712, "_DEF": 754 },
     "strength": 2,
     "weights": {
       "CR": 4,
@@ -198,7 +198,7 @@
     "rarity": 4,
     "type": "Defense",
     "sig": "13127",
-    "statBase": { "_HP": 8701, "_ATK": 643, "_DEF": 746 },
+    "baseStats": { "_HP": 8701, "_ATK": 643, "_DEF": 746 },
     "strength": 2,
     "weights": {
       "ATK": 3,
@@ -211,7 +211,7 @@
     "rarity": 5,
     "type": "Anomaly",
     "sig": "14126",
-    "statBase": { "_HP": 7789, "_ATK": 881, "_DEF": 607 },
+    "baseStats": { "_HP": 7789, "_ATK": 881, "_DEF": 607 },
     "strength": 4,
     "weights": {
       "AP": 4,
@@ -225,7 +225,7 @@
     "rarity": 5,
     "type": "Stun",
     "sig": "14125",
-    "statBase": { "_HP": 8251, "_ATK": 758, "_DEF": 613 },
+    "baseStats": { "_HP": 8251, "_ATK": 758, "_DEF": 613 },
     "strength": 3,
     "weights": {
       "CR": 4,
@@ -240,7 +240,7 @@
     "rarity": 4,
     "type": "Anomaly",
     "sig": "13128",
-    "statBase": { "_HP": 6977, "_ATK": 758, "_DEF": 613 },
+    "baseStats": { "_HP": 6977, "_ATK": 758, "_DEF": 613 },
     "strength": 4,
     "weights": {
       "AP": 4,
@@ -254,7 +254,7 @@
     "rarity": 5,
     "type": "Attack",
     "sig": "14124",
-    "statBase": { "_HP": 7483, "_ATK": 919, "_DEF": 601 },
+    "baseStats": { "_HP": 7483, "_ATK": 919, "_DEF": 601 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -269,7 +269,7 @@
     "rarity": 5,
     "type": "Support",
     "sig": "14121",
-    "statBase": { "_HP": 8609, "_ATK": 717, "_DEF": 601 },
+    "baseStats": { "_HP": 8609, "_ATK": 717, "_DEF": 601 },
     "strength": 2,
     "weights": {
       "AP": 4,
@@ -283,7 +283,7 @@
     "rarity": 5,
     "type": "Attack",
     "sig": "14119",
-    "statBase": { "_HP": 7674, "_ATK": 938, "_DEF": 607 },
+    "baseStats": { "_HP": 7674, "_ATK": 938, "_DEF": 607 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -298,7 +298,7 @@
     "rarity": 5,
     "type": "Anomaly",
     "sig": "14118",
-    "statBase": { "_HP": 7483, "_ATK": 826, "_DEF": 601 },
+    "baseStats": { "_HP": 7483, "_ATK": 826, "_DEF": 601 },
     "strength": 4,
     "weights": {
       "AP": 4,
@@ -312,7 +312,7 @@
     "rarity": 4,
     "type": "Support",
     "sig": "13115",
-    "statBase": { "_HP": 8026, "_ATK": 659, "_DEF": 613 },
+    "baseStats": { "_HP": 8026, "_ATK": 659, "_DEF": 613 },
     "strength": 2,
     "weights": {
       "CR": 3,
@@ -326,7 +326,7 @@
     "rarity": 5,
     "type": "Stun",
     "sig": "14114",
-    "statBase": { "_HP": 8416, "_ATK": 729, "_DEF": 607 },
+    "baseStats": { "_HP": 8416, "_ATK": 729, "_DEF": 607 },
     "strength": 3,
     "weights": {
       "CR": 4,
@@ -341,7 +341,7 @@
     "rarity": 4,
     "type": "Support",
     "sig": "13113",
-    "statBase": { "_HP": 8026, "_ATK": 666, "_DEF": 598 },
+    "baseStats": { "_HP": 8026, "_ATK": 666, "_DEF": 598 },
     "strength": 2,
     "weights": {
       "CR": 3,
@@ -355,7 +355,7 @@
     "rarity": 4,
     "type": "Defense",
     "sig": "13112",
-    "statBase": { "_HP": 8578, "_ATK": 653, "_DEF": 724 },
+    "baseStats": { "_HP": 8578, "_ATK": 653, "_DEF": 724 },
     "strength": 3,
     "weights": {
       "CR": 4,
@@ -370,7 +370,7 @@
     "rarity": 4,
     "type": "Attack",
     "sig": "13111",
-    "statBase": { "_HP": 7219, "_ATK": 792, "_DEF": 623 },
+    "baseStats": { "_HP": 7219, "_ATK": 792, "_DEF": 623 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -385,7 +385,7 @@
     "rarity": 5,
     "type": "Stun",
     "sig": "14110",
-    "statBase": { "_HP": 8127, "_ATK": 736, "_DEF": 595 },
+    "baseStats": { "_HP": 8127, "_ATK": 736, "_DEF": 595 },
     "strength": 3,
     "weights": {
       "CR": 4,
@@ -400,7 +400,7 @@
     "rarity": 4,
     "type": "Attack",
     "sig": "13108",
-    "statBase": { "_HP": 6907, "_ATK": 787, "_DEF": 607 },
+    "baseStats": { "_HP": 6907, "_ATK": 787, "_DEF": 607 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -415,7 +415,7 @@
     "rarity": 4,
     "type": "Attack",
     "sig": "13106",
-    "statBase": { "_HP": 6977, "_ATK": 807, "_DEF": 605 },
+    "baseStats": { "_HP": 6977, "_ATK": 807, "_DEF": 605 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -430,7 +430,7 @@
     "rarity": 5,
     "type": "Attack",
     "sig": "14104",
-    "statBase": { "_HP": 7674, "_ATK": 889, "_DEF": 613 },
+    "baseStats": { "_HP": 7674, "_ATK": 889, "_DEF": 613 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -445,7 +445,7 @@
     "rarity": 4,
     "type": "Support",
     "sig": "13103",
-    "statBase": { "_HP": 8146, "_ATK": 649, "_DEF": 623 },
+    "baseStats": { "_HP": 8146, "_ATK": 649, "_DEF": 623 },
     "strength": 2,
     "weights": {
       "AP": 3,
@@ -459,7 +459,7 @@
     "rarity": 5,
     "type": "Attack",
     "sig": "14102",
-    "statBase": { "_HP": 7560, "_ATK": 911, "_DEF": 588 },
+    "baseStats": { "_HP": 7560, "_ATK": 911, "_DEF": 588 },
     "strength": 4,
     "weights": {
       "CR": 4,
@@ -474,7 +474,7 @@
     "rarity": 4,
     "type": "Stun",
     "sig": "13101",
-    "statBase": { "_HP": 7501, "_ATK": 659, "_DEF": 613 },
+    "baseStats": { "_HP": 7501, "_ATK": 659, "_DEF": 613 },
     "strength": 3,
     "weights": {
       "CR": 4,

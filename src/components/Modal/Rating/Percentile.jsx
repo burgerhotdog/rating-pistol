@@ -1,19 +1,14 @@
 import { Paper } from "@mui/material";
-import { AVATAR_DATA } from "@data";
-import { getStrength } from "@utils";
 import Plot from "react-plotly.js";
 
 const RelativeStrengthPlot = ({ gameId, avatarId, score, simScores }) => {
-  const sum = simScores.reduce((acc, score) => acc + score, 0);
-  const mean = sum / simScores.length;
-  const power = AVATAR_DATA[gameId][avatarId].strength / 4;
   const downsampled = simScores.filter((_, index) => index % 10 === 0);
 
   return (
     <Paper>
       <Plot
         data={[{
-          x: downsampled.map((score) => getStrength(score, mean, power)),
+          x: downsampled,
           y: downsampled.map((_, index) => ((index + 1) / downsampled.length) * 100),
           type: "scatter",
           mode: "lines",
@@ -43,8 +38,8 @@ const RelativeStrengthPlot = ({ gameId, avatarId, score, simScores }) => {
           },
           shapes: [{
             type: "line",
-            x0: getStrength(score, mean, power),
-            x1: getStrength(score, mean, power),
+            x0: score,
+            x1: score,
             y0: 0,
             y1: 1,
             yref: "paper",

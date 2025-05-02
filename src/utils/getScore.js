@@ -1,14 +1,30 @@
-import { AVATAR_DATA, STAT_DATA } from "@data";
+import { AVATAR_DATA, WEAPON_DATA, STAT_DATA } from "@data";
 
-const getScore = (gameId, avatarId, statList) =>
-  statList.reduce((acc, { stat, value }) => {
+const getScore = (gameId, avatarId, weaponId, statList) => {
+  const avatarBaseStats = AVATAR_DATA[gameId][avatarId].baseStats;
+  const weaponBaseStats = WEAPON_DATA[gameId][weaponId].baseStats;
+  const baseStats = {
+    _HP: avatarBaseStats._HP + (weaponBaseStats._HP ?? 0),
+    _ATK: avatarBaseStats._ATK + (weaponBaseStats._ATK ?? 0),
+    _DEF: avatarBaseStats._DEF + (weaponBaseStats._DEF ?? 0),
+  };
+
+  const { weights } = AVATAR_DATA[gameId][avatarId];
+
+  return statList.reduce((acc, { stat, value }) => {
     if (!stat || !value) return acc;
 
-    const weight = AVATAR_DATA[gameId][avatarId].weights[stat];
+    const percentStat = stat[0] === "_" ? stat.slice(1) : stat;
+    const weight = weights[percentStat];
     if (!weight) return acc;
 
-    const rolls = value / STAT_DATA[gameId][stat].subValue;
+    const percentValue = stat[0] === "_"
+      ? (value / baseStats[stat]) * 100
+      : value;
+
+    const rolls = percentValue / STAT_DATA[gameId][percentStat].subValue;
     return acc + rolls * weight;
   }, 0);
+}
 
 export default getScore;

@@ -1,3 +1,4 @@
+import { AVATAR_DATA } from "@data";
 import { getScore, simEquipScores, simAvatarScores } from "@utils";
 
 const calcPercentile = (score, simScores) => {
@@ -5,23 +6,34 @@ const calcPercentile = (score, simScores) => {
   return (countBelow / simScores.length) * 100;
 };
 
-const getRating = (gameId, avatarId, equipList) => {
+const getRating = (gameId, avatarId, weaponId, equipList) => {
+  if (!weaponId) return null;
+  const power = AVATAR_DATA[gameId][avatarId].strength / 4;
+  
   const equipRatings = equipList.map(({ stat, statList }) => {
-    const score = getScore(gameId, avatarId, statList);
-    const simScores = simEquipScores(gameId, avatarId, stat);
-    if (!simScores) return null;
+    if (!stat) return null;
+    const rawSimScores = simEquipScores(gameId, avatarId, weaponId, stat);
+    const rawScore = getScore(gameId, avatarId, weaponId, statList);
+    const average = rawSimScores.reduce((acc, score) => acc + score, 0) / rawSimScores.length;
 
-    const percentile = calcPercentile(score, simScores);
-    return { percentile, score, simScores };
+    const simScores = rawSimScores.map(rawScore => Math.pow(rawScore / average, power));
+    const score = Math.pow(rawScore / average, power);
+    const percentile = calcPercentile(rawScore, rawSimScores);
+
+    return { percentile, score, simScores, rawScore, rawSimScores };
   });
   if (equipRatings.some(rating => !rating)) return null;
 
-  const score = equipRatings.reduce((acc, { score }) => acc + score, 0);
-  const simScores = simAvatarScores(gameId, equipRatings, equipList.map(({ stat }) => stat));
-  const percentile = calcPercentile(score, simScores);
-  
+  const rawSimScores = simAvatarScores(gameId, equipRatings, equipList.map(({ stat }) => stat));
+  const rawScore = equipRatings.reduce((acc, { rawScore }) => acc + rawScore, 0);
+  const average = rawSimScores.reduce((acc, score) => acc + score, 0) / rawSimScores.length;
+
+  const simScores = rawSimScores.map(rawScore => Math.pow(rawScore / average, power));
+  const score = Math.pow(rawScore / average, power);
+  const percentile = calcPercentile(rawScore, rawSimScores);
+
   return {
-    avatar: { percentile, score, simScores },
+    avatar: { percentile, score, simScores, rawScore, rawSimScores },
     equips: equipRatings,
   };
 };

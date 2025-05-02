@@ -21,8 +21,8 @@ const simAvatarScores = (gameId, equipRatings, mainstats) => {
       const numTries = STAT_DATA[gameId][mainstats[j]].mainTries * numTriesMult;
       const scoreTries = [];
       for (let k = 0; k < numTries; k++) {
-        const random = Math.floor(Math.random() * equipRatings[j].simScores.length);
-        scoreTries.push(equipRatings[j].simScores[random]);
+        const random = Math.floor(Math.random() * equipRatings[j].rawSimScores.length);
+        scoreTries.push(equipRatings[j].rawSimScores[random]);
       }
       const highest = Math.max(...scoreTries);
       scoreSum += highest;

@@ -39,7 +39,7 @@ const Display = ({ gameId, weaponId, weaponRank }) => {
             {weapon.name}
           </Typography>
 
-          {Object.entries(weapon.statBase).map(([key, value]) => {
+          {Object.entries(weapon.baseStats).map(([key, value]) => {
             const { name } = STAT_DATA[gameId][key] || {};
             const base = gameId === "hsr" ? "" : "Base ";
             return (

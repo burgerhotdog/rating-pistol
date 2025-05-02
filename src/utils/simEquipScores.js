@@ -3,9 +3,8 @@ import { getMult, getScore } from "@utils";
 
 const ITERATIONS = 10000;
 
-const simEquipScores = (gameId, avatarId, mainstat) => {
+const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
   const scores = new Array(ITERATIONS).fill(0);
-  if (!mainstat) return null;
   
   const startingPool = Object.entries(STAT_DATA[gameId])
     .filter(([stat, { subValue }]) => {
@@ -56,7 +55,7 @@ const simEquipScores = (gameId, avatarId, mainstat) => {
       }
     }
 
-    scores[i] = getScore(gameId, avatarId, substats);
+    scores[i] = getScore(gameId, avatarId, weaponId, substats);
   }
 
   return scores.sort((a, b) => a - b);

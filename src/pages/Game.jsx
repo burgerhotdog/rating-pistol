@@ -29,7 +29,7 @@ const Game = ({ gameId, userId }) => {
           for (const doc of avatarDocs.docs) {
             newAvatarCache[doc.id] = {
               data: doc.data(),
-              rating: getRating(gameId, doc.id, doc.data().equipList),
+              rating: getRating(gameId, doc.id, doc.data().weaponId, doc.data().equipList),
             };
           }
           setAvatarCache(newAvatarCache);
@@ -82,7 +82,7 @@ const Game = ({ gameId, userId }) => {
           ...newData,
         },
         rating: newData.equipList
-          ? getRating(gameId, id, newData.equipList)
+          ? getRating(gameId, id, newData.weaponId, newData.equipList)
           : prev[id]?.rating ?? null,
       },
     }));
@@ -102,7 +102,7 @@ const Game = ({ gameId, userId }) => {
   
       newCache[id] = {
         data: newData,
-        rating: getRating(gameId, id, newData.equipList),
+        rating: getRating(gameId, id, newData.weaponId, newData.equipList),
       };
     }
   

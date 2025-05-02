@@ -1,18 +1,12 @@
 import { Paper } from "@mui/material";
-import { AVATAR_DATA } from "@data";
-import { getStrength } from "@utils";
 import Plot from "react-plotly.js";
 
 const Frequency = ({ gameId, avatarId, score, simScores }) => {
-  const sum = simScores.reduce((acc, score) => acc + score, 0);
-  const mean = sum / simScores.length;
-  const power = AVATAR_DATA[gameId][avatarId].strength / 4;
-
   return (
     <Paper>
       <Plot
         data={[{
-          x: simScores.map(score => getStrength(score, mean, power)),
+          x: simScores,
           type: "histogram",
           histnorm: "probability",
         }]}
@@ -39,8 +33,8 @@ const Frequency = ({ gameId, avatarId, score, simScores }) => {
           },
           shapes: [{
             type: "line",
-            x0: getStrength(score, mean, power),
-            x1: getStrength(score, mean, power),
+            x0: score,
+            x1: score,
             y0: 0,
             y1: 1,
             yref: "paper",
