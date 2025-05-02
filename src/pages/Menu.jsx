@@ -15,30 +15,6 @@ const updates = [
       "New Weapons: Blazing Justice, Woodland Aria",
     ],
   },
-  {
-    date: "2025.04.23",
-    title: "Zenless Zone Zero Version 1.7",
-    topics: [
-      "New Agents: Vivian, Hugo",
-      "New W-Engines: Flight of Fancy, Myriad Eclipse",
-    ],
-  },
-  {
-    date: "2025.04.22",
-    title: "OCR Data Imports & Revised Substat Weights",
-    topics: [
-      "Currently working on echo imports for Wuthering Waves by importing character cards created by the official Wuthering Waves Discord bot: https://wutheringwaves.kurogames.com/en/main/news/detail/1959.",
-      "Substats have been reweighted across all games to for better scoring accuracy. Full scoring algorithms will be displayed in the rating tabs once completed."
-    ],
-  },
-  {
-    date: "2025.04.17",
-    title: "Improved Rating Simulations & Performance Optimizations",
-    topics: [
-      "Similar to the artifact rating system, the new character rating system now generates a dataset of 10,000 random unique builds. Each build is scored with character-specific substat weights and placed onto a frequency plot. The user's build is then evaluated against the score distribution to estimate its relative standing when compared with other builds.",
-      "Rating calculations now only trigger after artifact updates, significantly decreasing load times and improving overall site performance.",
-    ],
-  },
 ];
 
 const Menu = () => (
@@ -100,9 +76,9 @@ const Menu = () => (
         </Stack>
       </Stack>
 
-      <Stack spacing={2} maxWidth={800}>
+      <Stack spacing={2} width={800}>
         <Typography variant="h5" fontWeight="bold">
-          {`Latest Updates`}
+          {`Announcements`}
         </Typography>
         <Stack spacing={1.5} maxHeight={200} overflow="auto">
           {updates.map(({ date, title, topics }, index) => (

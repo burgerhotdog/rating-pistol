@@ -31,13 +31,13 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
               </Stack>
             </TableCell>
 
-            <TableCell width={200}>
+            <TableCell width={100}>
               <Stack direction="row" display="inline-flex">
                 <Skeleton variant="text" width={80} height={36} />
               </Stack>
             </TableCell>
 
-            <TableCell width={200}>
+            <TableCell width={100}>
               <Stack direction="row" display="inline-flex">
                 <Skeleton variant="rounded" width={60} height={36} />
               </Stack>

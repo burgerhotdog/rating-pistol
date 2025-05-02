@@ -39,8 +39,8 @@ export const WEAPON_ASSETS = {
 };
 
 export const SET_ASSETS = { 
-  gi: short(import.meta.glob("./dynamic/set/gi_set/*.webp", { eager: true })),
-  hsr: short(import.meta.glob("./dynamic/set/hsr_set/*.webp", { eager: true })),
+  gi: shorter(import.meta.glob("./dynamic/set/gi_set/*/*.webp", { eager: true })),
+  hsr: shorter(import.meta.glob("./dynamic/set/hsr_set/*/*.webp", { eager: true })),
   ww: short(import.meta.glob("./dynamic/set/ww_set/*.webp", { eager: true })),
   zzz: short(import.meta.glob("./dynamic/set/zzz_set/*.webp", { eager: true })),
 };
