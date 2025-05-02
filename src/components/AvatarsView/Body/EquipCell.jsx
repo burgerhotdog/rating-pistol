@@ -1,27 +1,10 @@
-import { useMemo } from "react";
-import { Tooltip, Badge, Avatar, Stack, TableCell } from "@mui/material";
+import { Tooltip, Avatar, Stack, TableCell } from "@mui/material";
 import { Add } from "@mui/icons-material";
 import { SET_ASSETS } from "@assets";
 import { LABEL_DATA } from "@data";
-import getSetBonuses from "@utils/getSetBonuses";
 
-const EquipCell = ({ gameId, setModalPipe, id, data }) => {  
-  const setBonuses = useMemo(() =>
-    getSetBonuses(gameId, data.equipList),
-    [gameId, data.equipList]
-  );
-
+const EquipCell = ({ gameId, setModalPipe, id, data }) => {
   const openModal = () => setModalPipe({ type: "equip", id, data });
-
-  if (!Object.keys(setBonuses).length) {
-    return (
-      <TableCell>
-        <Tooltip title={`Add ${LABEL_DATA[gameId].Equips}`} arrow>
-          <Add onClick={openModal} cursor="pointer" />
-        </Tooltip>
-      </TableCell>
-    );
-  }
 
   return (
     <TableCell>
@@ -33,17 +16,24 @@ const EquipCell = ({ gameId, setModalPipe, id, data }) => {
           spacing={1}
           sx={{ cursor: "pointer" }}
         >
-          {setBonuses.map(([setId, numBonus]) => (
-            <Badge
-              key={setId}
-              badgeContent={`x${numBonus}`}
-            >
+          {data.equipList.map(({ setId }, index) => {
+            if (!setId) return (
+              <Avatar key={index} sx={{ bgcolor: "action.hover" }}>
+                <Add />
+              </Avatar>
+            );
+            const srcFolder = SET_ASSETS[gameId][setId];
+            const src = (gameId === "gi" || gameId === "hsr")
+              ? srcFolder[index]
+              : srcFolder;
+            return (
               <Avatar
+                key={index}
                 alt={setId}
-                src={SET_ASSETS[gameId][setId]}
+                src={src}
               />
-            </Badge>
-          ))}
+            );
+          })}
         </Stack>
       </Tooltip>
     </TableCell>

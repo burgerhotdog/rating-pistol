@@ -31,33 +31,43 @@ const PreviewSet = ({ gameId, equipList }) => {
   return (
     <Paper sx={{ p: 2 }}>
       <Grid container spacing={1}>
-        {setBonuses.map(([setId, numPc]) => (
-          <Grid key={setId} size="grow" sx={{ minHeight: 150 }}>
-            <Stack direction="row" spacing={1}>
-              <Box
-                component="img"
-                alt={setId}
-                src={SET_ASSETS[gameId][setId]}
-                sx={{ width: 75, height: 75, objectFit: "contain" }}
-              />
-              
-              <Stack>
-                <Typography variant="subtitle1" fontWeight="bold">
-                  {SET_DATA[gameId][setId].name}
-                </Typography>
+        {setBonuses.map(([setId, numPc]) => {
+          const srcFolder = SET_ASSETS[gameId][setId];
+          const src = gameId === "gi"
+            ? srcFolder["0"]
+            : gameId === "hsr"
+              ? SET_DATA[gameId][setId].type === "Relic"
+                ? srcFolder["0"]
+                : srcFolder["4"]
+              : srcFolder;
+          return (
+            <Grid key={setId} size="grow" sx={{ minHeight: 150 }}>
+              <Stack direction="row" spacing={1}>
+                <Box
+                  component="img"
+                  alt={setId}
+                  src={src}
+                  sx={{ width: 75, height: 75, objectFit: "contain" }}
+                />
+                
+                <Stack>
+                  <Typography variant="subtitle1" fontWeight="bold">
+                    {SET_DATA[gameId][setId].name}
+                  </Typography>
 
-                {Object.entries(SET_DATA[gameId][setId].desc)
-                  .filter(([numBonus]) => numPc >= numBonus)
-                  .map(([numBonus, effect]) => (
-                    <Typography key={numBonus} variant="body2" sx={{ whiteSpace: "pre-line" }}>
-                      <strong>{`${numBonus}-pc: `}</strong>
-                      {effect}
-                    </Typography>
-                  ))}
+                  {Object.entries(SET_DATA[gameId][setId].desc)
+                    .filter(([numBonus]) => numPc >= numBonus)
+                    .map(([numBonus, effect]) => (
+                      <Typography key={numBonus} variant="body2" sx={{ whiteSpace: "pre-line" }}>
+                        <strong>{`${numBonus}-pc: `}</strong>
+                        {effect}
+                      </Typography>
+                    ))}
+                </Stack>
               </Stack>
-            </Stack>
-          </Grid>
-        ))}
+            </Grid>
+          );
+        })}
       </Grid>
     </Paper>
   );

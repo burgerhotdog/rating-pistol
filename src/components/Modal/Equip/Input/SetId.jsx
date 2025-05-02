@@ -38,6 +38,14 @@ const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
       }}
       renderOption={(props, id) => {
         const { key, ...idProps } = props;
+        const srcFolder = SET_ASSETS[gameId][id];
+        const src = gameId === "gi"
+          ? srcFolder["0"]
+          : gameId === "hsr"
+            ? mainIndex < 4
+              ? srcFolder["0"]
+              : srcFolder["4"]
+            : srcFolder;
         return (
           <Box
             key={key}
@@ -51,7 +59,7 @@ const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
               component="img"
               loading="lazy"
               alt=""
-              src={SET_ASSETS[gameId][id]}
+              src={src}
               sx={{ width: 24, height: 24, objectFit: "contain" }}
             />
             {SET_DATA[gameId][id]?.name ?? ""}
