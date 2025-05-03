@@ -21,7 +21,7 @@ export default ({ gameId, userId, avatarCache, setAvatarCache }) => {
           </Typography>
         </TableCell>
 
-        <TableCell width={300}>
+        <TableCell width={320}>
           <Typography variant="body1" color="text.secondary">
             {LABEL_DATA[gameId].Equips}
           </Typography>

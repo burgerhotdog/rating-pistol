@@ -12,10 +12,8 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
       <TableBody>
         {[...Array(5)].map((_, index) => (
           <TableRow key={index} sx={{ height: 60 }}>
-            <TableCell width={50}>
-              <Stack direction="row" display="inline-flex">
-                <Skeleton variant="circular" width={24} height={24} />
-              </Stack>
+            <TableCell>
+              <Skeleton variant="circular" width={24} height={24} />
             </TableCell>
 
             <TableCell>
@@ -26,27 +24,19 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
             </TableCell>
 
             <TableCell>
-              <Stack direction="row" display="inline-flex">
-                <Skeleton variant="rounded" width={80} height={36} />
-              </Stack>
+              <Skeleton variant="rounded" width={80} height={36} />
             </TableCell>
 
-            <TableCell width={100}>
-              <Stack direction="row" display="inline-flex">
-                <Skeleton variant="text" width={80} height={36} />
-              </Stack>
+            <TableCell>
+              <Skeleton variant="text" width={80} height={36} />
             </TableCell>
 
-            <TableCell width={100}>
-              <Stack direction="row" display="inline-flex">
-                <Skeleton variant="rounded" width={60} height={36} />
-              </Stack>
+            <TableCell>
+              <Skeleton variant="rounded" width={60} height={36} />
             </TableCell>
 
-            <TableCell width={50}>
-              <Stack direction="row" display="inline-flex">
-                <Skeleton variant="circular" width={24} height={24} />
-              </Stack>
+            <TableCell>
+              <Skeleton variant="circular" width={24} height={24} />
             </TableCell>
           </TableRow>
         ))}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Stack, Typography, Tabs, Tab } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
-import { AVATAR_DATA, INFO_DATA, STAT_DATA } from "@data";
+import { INFO_DATA } from "@data";
 import Info from "./Info";
 import Plot from "./Plot";
 
@@ -37,7 +37,9 @@ const Rating = ({ gameId, modalPipe }) => {
                   src={EQUIP_ASSETS[gameId][index]}
                   sx={{ width: 24, height: 24, objectFit: "contain" }}
                 />
-                <Typography>{name}</Typography>
+                <Typography variant="body2">
+                  {name}
+                </Typography>
               </Stack>
             )}
           />
@@ -46,10 +48,9 @@ const Rating = ({ gameId, modalPipe }) => {
 
       <Stack direction="row" spacing={2}>
         <Info
-          item={activeTab === 0
-            ? `${AVATAR_DATA[gameId][id].name} build`
-            : `${STAT_DATA[gameId][data.equipList[activeTab - 1].stat].name} ${INFO_DATA[gameId].EQUIP_NAMES[activeTab - 1]}`}
-          isPiece={activeTab !== 0}
+          gameId={gameId}
+          avatarId={id}
+          activeTab={activeTab}
           percentile={activeTab === 0
             ? rating.avatar.percentile
             : rating.equips[activeTab - 1].percentile}
