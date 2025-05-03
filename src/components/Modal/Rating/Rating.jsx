@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Stack, Typography, Tabs, Tab } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
-import { AVATAR_DATA, INFO_DATA, STAT_DATA } from "@data";
+import { INFO_DATA } from "@data";
 import Info from "./Info";
 import Plot from "./Plot";
 
