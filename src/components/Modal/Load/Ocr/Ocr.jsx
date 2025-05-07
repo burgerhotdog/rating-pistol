@@ -50,6 +50,9 @@ const Ocr = ({ gameId, saveAvatar, closeModal }) => {
             Upload Image
           </Typography>
         </Stack>
+        <Typography variant="body2">
+          This may take a moment.
+        </Typography>
         <Button
           variant="contained"
           loading={isLoading}
