@@ -165,7 +165,6 @@ const Game = ({ gameId, userId }) => {
                 </Button>
                 <Button
                   onClick={handleLoad}
-                  disabled={gameId === "ww"}
                   variant="outlined"
                   endIcon={<KeyboardArrowRight />}
                 >

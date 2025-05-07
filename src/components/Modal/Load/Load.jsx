@@ -7,10 +7,7 @@ const Load = ({ gameId, userId, setAvatarCache, saveAvatar, saveAvatarBatch, clo
     return (
       <Ocr
         gameId={gameId}
-        userId={userId}
-        setAvatarCache={setAvatarCache}
         saveAvatar={saveAvatar}
-        saveAvatarBatch={saveAvatarBatch}
         closeModal={closeModal}
       />
     );

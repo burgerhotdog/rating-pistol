@@ -79,7 +79,7 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
           }}
           slotProps={{
             input: {
-              endAdornment: STAT_DATA[gameId][stat]?.percent && (
+              endAdornment: STAT_DATA[gameId][stat]?.showPercent && (
                 <InputAdornment position="end">%</InputAdornment>
               ),
             },
