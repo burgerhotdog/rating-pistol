@@ -16,7 +16,7 @@ const Ocr = ({ gameId, saveAvatar, closeModal }) => {
     const formData = new FormData();
     formData.append("file", file);
 
-    fetch("http://localhost:8000/ocr/", {
+    fetch("https://rating-pistol-be-6a62d70a6b2f.herokuapp.com/ocr/", {
       method: "POST",
       body: formData,
     })
