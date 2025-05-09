@@ -5,12 +5,13 @@
     "type": "Anomaly",
     "sig": "14133",
     "baseStats": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
-    "strength": 4,
+    "strength": 3,
     "weights": {
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.2,
+      "CD": 0.2,
+      "AP": 1.6,
+      "PEN": 0.4
     }
   },
   "1291": {
@@ -21,11 +22,11 @@
     "baseStats": { "_HP": 7940, "_ATK": 919, "_DEF": 616 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1381": {
@@ -36,11 +37,11 @@
     "baseStats": { "_HP": 7673, "_ATK": 929, "_DEF": 612 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1361": {
@@ -51,11 +52,11 @@
     "baseStats": { "_HP": 7923, "_ATK": 750, "_DEF": 600 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1351": {
@@ -66,11 +67,11 @@
     "baseStats": { "_HP": 7612, "_ATK": 665, "_DEF": 606 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1321": {
@@ -81,11 +82,11 @@
     "baseStats": { "_HP": 7788, "_ATK": 929, "_DEF": 612 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1311": {
@@ -94,13 +95,13 @@
     "type": "Support",
     "sig": "14131",
     "baseStats": { "_HP": 8609, "_ATK": 715, "_DEF": 600 },
-    "strength": 2,
+    "strength": 1,
     "weights": {
-      "ATK": 3,
-      "CR": 1,
-      "CD": 1,
-      "AP": 1,
-      "_ATK": 1
+      "ATK": 1.2,
+      "CR": 0.8,
+      "CD": 0.8,
+      "AP": 0.8,
+      "PEN": 0.4
     }
   },
   "1201": {
@@ -111,11 +112,11 @@
     "baseStats": { "_HP": 7405, "_ATK": 915, "_DEF": 600 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1091": {
@@ -126,12 +127,11 @@
     "baseStats": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "AP": 1,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1221": {
@@ -140,12 +140,13 @@
     "type": "Anomaly",
     "sig": "14122",
     "baseStats": { "_HP": 7789, "_ATK": 873, "_DEF": 613 },
-    "strength": 4,
+    "strength": 3,
     "weights": {
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.2,
+      "CD": 0.2,
+      "AP": 1.6,
+      "PEN": 0.4
     }
   },
   "1161": {
@@ -156,11 +157,11 @@
     "baseStats": { "_HP": 8253, "_ATK": 797, "_DEF": 612 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1171": {
@@ -169,12 +170,13 @@
     "type": "Anomaly",
     "sig": "14117",
     "baseStats": { "_HP": 7368, "_ATK": 863, "_DEF": 601 },
-    "strength": 4,
+    "strength": 3,
     "weights": {
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.2,
+      "CD": 0.2,
+      "AP": 1.2,
+      "PEN": 0.4
     }
   },
   "1071": {
@@ -183,14 +185,13 @@
     "type": "Defense",
     "sig": "14107",
     "baseStats": { "_HP": 9526, "_ATK": 712, "_DEF": 754 },
-    "strength": 2,
+    "strength": 1,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.8,
+      "CD": 0.8,
+      "AP": 0.8,
+      "PEN": 0.4
     }
   },
   "1271": {
@@ -201,9 +202,11 @@
     "baseStats": { "_HP": 8701, "_ATK": 643, "_DEF": 746 },
     "strength": 2,
     "weights": {
-      "ATK": 3,
-      "AP": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.6,
+      "CD": 0.6,
+      "AP": 0.8,
+      "PEN": 0.4
     }
   },
   "1261": {
@@ -212,12 +215,13 @@
     "type": "Anomaly",
     "sig": "14126",
     "baseStats": { "_HP": 7789, "_ATK": 881, "_DEF": 607 },
-    "strength": 4,
+    "strength": 3,
     "weights": {
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.2,
+      "CD": 0.2,
+      "AP": 1.4,
+      "PEN": 0.4
     }
   },
   "1251": {
@@ -228,11 +232,11 @@
     "baseStats": { "_HP": 8251, "_ATK": 758, "_DEF": 613 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1281": {
@@ -241,12 +245,13 @@
     "type": "Anomaly",
     "sig": "13128",
     "baseStats": { "_HP": 6977, "_ATK": 758, "_DEF": 613 },
-    "strength": 4,
+    "strength": 3,
     "weights": {
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.2,
+      "CD": 0.2,
+      "AP": 1.4,
+      "PEN": 0.4
     }
   },
   "1241": {
@@ -257,11 +262,11 @@
     "baseStats": { "_HP": 7483, "_ATK": 919, "_DEF": 601 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1211": {
@@ -270,12 +275,13 @@
     "type": "Support",
     "sig": "14121",
     "baseStats": { "_HP": 8609, "_ATK": 717, "_DEF": 601 },
-    "strength": 2,
+    "strength": 1,
     "weights": {
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.2,
+      "CD": 0.2,
+      "AP": 1.2,
+      "PEN": 0.4
     }
   },
   "1191": {
@@ -286,11 +292,11 @@
     "baseStats": { "_HP": 7674, "_ATK": 938, "_DEF": 607 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1181": {
@@ -299,12 +305,13 @@
     "type": "Anomaly",
     "sig": "14118",
     "baseStats": { "_HP": 7483, "_ATK": 826, "_DEF": 601 },
-    "strength": 4,
+    "strength": 3,
     "weights": {
-      "AP": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.2,
+      "CD": 0.2,
+      "AP": 1.4,
+      "PEN": 0.4
     }
   },
   "1151": {
@@ -315,10 +322,11 @@
     "baseStats": { "_HP": 8026, "_ATK": 659, "_DEF": 613 },
     "strength": 2,
     "weights": {
-      "CR": 3,
-      "CD": 3,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.2,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1141": {
@@ -329,11 +337,11 @@
     "baseStats": { "_HP": 8416, "_ATK": 729, "_DEF": 607 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1131": {
@@ -344,10 +352,11 @@
     "baseStats": { "_HP": 8026, "_ATK": 666, "_DEF": 598 },
     "strength": 2,
     "weights": {
-      "CR": 3,
-      "CD": 3,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.2,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1121": {
@@ -356,13 +365,13 @@
     "type": "Defense",
     "sig": "13112",
     "baseStats": { "_HP": 8578, "_ATK": 653, "_DEF": 724 },
-    "strength": 3,
+    "strength": 2,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "DEF": 3,
-      "PEN": 1,
-      "_DEF": 1
+      "DEF": 1.2,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1111": {
@@ -373,11 +382,11 @@
     "baseStats": { "_HP": 7219, "_ATK": 792, "_DEF": 623 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1101": {
@@ -388,11 +397,11 @@
     "baseStats": { "_HP": 8127, "_ATK": 736, "_DEF": 595 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1081": {
@@ -403,11 +412,11 @@
     "baseStats": { "_HP": 6907, "_ATK": 787, "_DEF": 607 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1061": {
@@ -418,11 +427,11 @@
     "baseStats": { "_HP": 6977, "_ATK": 807, "_DEF": 605 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1041": {
@@ -433,11 +442,11 @@
     "baseStats": { "_HP": 7674, "_ATK": 889, "_DEF": 613 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1031": {
@@ -446,12 +455,13 @@
     "type": "Support",
     "sig": "13103",
     "baseStats": { "_HP": 8146, "_ATK": 649, "_DEF": 623 },
-    "strength": 2,
+    "strength": 1,
     "weights": {
-      "AP": 3,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 0.6,
+      "CD": 0.6,
+      "AP": 1.2,
+      "PEN": 0.4
     }
   },
   "1021": {
@@ -462,11 +472,11 @@
     "baseStats": { "_HP": 7560, "_ATK": 911, "_DEF": 588 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   },
   "1011": {
@@ -477,11 +487,11 @@
     "baseStats": { "_HP": 7501, "_ATK": 659, "_DEF": 613 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "PEN": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.2,
+      "CD": 1.2,
+      "AP": 0.2,
+      "PEN": 0.4
     }
   }
 }

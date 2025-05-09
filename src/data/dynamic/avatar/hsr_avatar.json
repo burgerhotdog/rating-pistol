@@ -9,11 +9,10 @@
     "baseStats": { "_HP": 1630, "_ATK": 524, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "HP": 3,
-      "SPD": 1,
-      "_HP": 1
+      "HP": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.2
     }
   },
   "1405": {
@@ -26,11 +25,10 @@
     "baseStats": { "_HP": 970, "_ATK": 757, "_DEF": 558 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.6
     }
   },
   "1404": {
@@ -43,11 +41,10 @@
     "baseStats": { "_HP": 1552, "_ATK": 427, "_DEF": 194 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "SPD": 3,
-      "HP": 3,
-      "_HP": 1
+      "HP": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8
     }
   },
   "1403": {
@@ -60,12 +57,10 @@
     "baseStats": { "_HP": 1048, "_ATK": 524, "_DEF": 728 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "HP": 3,
-      "SPD": 1,
-      "RES": 1,
-      "_HP": 1
+      "HP": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "8008": {
@@ -77,10 +72,9 @@
     "baseStats": { "_HP": 1047, "_ATK": 543, "_DEF": 630 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "CD": 3,
-      "ATK": 2,
-      "RES": 1
+      "ATK": 0.6,
+      "CD": 1.0,
+      "SPD": 1.4
     }
   },
   "1402": {
@@ -93,11 +87,10 @@
     "baseStats": { "_HP": 1242, "_ATK": 699, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "SPD": 3,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8
     }
   },
   "1401": {
@@ -110,11 +103,10 @@
     "baseStats": { "_HP": 1164, "_ATK": 679, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1313": {
@@ -127,9 +119,8 @@
     "baseStats": { "_HP": 1241, "_ATK": 640, "_DEF": 533 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "CD": 3,
-      "RES": 1
+      "CD": 1.0,
+      "SPD": 1.2
     }
   },
   "1225": {
@@ -142,10 +133,10 @@
     "baseStats": { "_HP": 1125, "_ATK": 582, "_DEF": 557 },
     "strength": 2,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
-      "BE": 3,
-      "RES": 1
+      "EHR": 1.2,
+      "SPD": 1.2,
+      "BE": 1.0,
+      "RES": 0.6
     }
   },
   "1317": {
@@ -158,10 +149,9 @@
     "baseStats": { "_HP": 1086, "_ATK": 717, "_DEF": 460 },
     "strength": 3,
     "weights": {
-      "BE": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "SPD": 0.6,
+      "BE": 1.2
     }
   },
   "1223": {
@@ -173,11 +163,10 @@
     "baseStats": { "_HP": 811, "_ATK": 599, "_DEF": 352 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.2
     }
   },
   "1222": {
@@ -190,11 +179,10 @@
     "baseStats": { "_HP": 1358, "_ATK": 679, "_DEF": 436 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "BE": 4,
-      "ATK": 3,
-      "RES": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "SPD": 1.2,
+      "BE": 1.2,
+      "RES": 0.6
     }
   },
   "1220": {
@@ -207,11 +195,10 @@
     "baseStats": { "_HP": 1047, "_ATK": 601, "_DEF": 388 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1224": {
@@ -223,11 +210,10 @@
     "baseStats": { "_HP": 1058, "_ATK": 564, "_DEF": 441 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "SPD": 3,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8
     }
   },
   "1221": {
@@ -240,11 +226,10 @@
     "baseStats": { "_HP": 1358, "_ATK": 679, "_DEF": 460 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.2
     }
   },
   "1218": {
@@ -257,10 +242,9 @@
     "baseStats": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
     "strength": 3,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
-      "ATK": 2,
-      "RES": 1
+      "ATK": 0.4,
+      "EHR": 1.0,
+      "SPD": 1.2
     }
   },
   "1314": {
@@ -273,11 +257,10 @@
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 509 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.2
     }
   },
   "1310": {
@@ -290,10 +273,9 @@
     "baseStats": { "_HP": 814, "_ATK": 523, "_DEF": 776 },
     "strength": 3,
     "weights": {
-      "BE": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 0.6,
+      "SPD": 0.6,
+      "BE": 1.0
     }
   },
   "8006": {
@@ -305,9 +287,8 @@
     "baseStats": { "_HP": 1086, "_ATK": 446, "_DEF": 679 },
     "strength": 2,
     "weights": {
-      "BE": 4,
-      "SPD": 2,
-      "RES": 1
+      "SPD": 0.6,
+      "BE": 1.0
     }
   },
   "1315": {
@@ -320,8 +301,8 @@
     "baseStats": { "_HP": 1203, "_ATK": 620, "_DEF": 436 },
     "strength": 2,
     "weights": {
-      "BE": 4,
-      "SPD": 3
+      "SPD": 0.6,
+      "BE": 1.0
     }
   },
   "1309": {
@@ -334,10 +315,8 @@
     "baseStats": { "_HP": 1280, "_ATK": 640, "_DEF": 485 },
     "strength": 2,
     "weights": {
-      "ATK": 3,
-      "SPD": 1,
-      "RES": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "SPD": 0.4
     }
   },
   "1308": {
@@ -350,11 +329,10 @@
     "baseStats": { "_HP": 1125, "_ATK": 698, "_DEF": 436 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1304": {
@@ -367,12 +345,11 @@
     "baseStats": { "_HP": 1203, "_ATK": 446, "_DEF": 654 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "DEF": 3,
-      "SPD": 2,
-      "RES": 2,
-      "_DEF": 1
+      "DEF": 1.2,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8,
+      "RES": 0.6
     }
   },
   "1301": {
@@ -384,9 +361,9 @@
     "baseStats": { "_HP": 1305, "_ATK": 529, "_DEF": 441 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "BE": 4,
-      "RES": 2
+      "SPD": 1.2,
+      "BE": 1.0,
+      "RES": 0.6
     }
   },
   "1312": {
@@ -398,11 +375,10 @@
     "baseStats": { "_HP": 1270, "_ATK": 599, "_DEF": 396 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1307": {
@@ -415,10 +391,9 @@
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.0,
+      "EHR": 1.2,
+      "SPD": 1.2
     }
   },
   "1306": {
@@ -431,9 +406,8 @@
     "baseStats": { "_HP": 1397, "_ATK": 523, "_DEF": 485 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "CD": 3,
-      "RES": 1
+      "CD": 1.0,
+      "SPD": 1.2
     }
   },
   "1305": {
@@ -446,11 +420,10 @@
     "baseStats": { "_HP": 1047, "_ATK": 776, "_DEF": 460 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1303": {
@@ -463,9 +436,8 @@
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "BE": 4,
-      "RES": 1
+      "SPD": 1.0,
+      "BE": 1.0
     }
   },
   "1214": {
@@ -477,12 +449,11 @@
     "baseStats": { "_HP": 1058, "_ATK": 599, "_DEF": 396 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "BE": 3,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4,
+      "BE": 1.0
     }
   },
   "1302": {
@@ -495,11 +466,10 @@
     "baseStats": { "_HP": 1047, "_ATK": 737, "_DEF": 363 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1217": {
@@ -512,10 +482,9 @@
     "baseStats": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "HP": 3,
-      "RES": 2,
-      "_HP": 1
+      "HP": 1.0,
+      "SPD": 1.2,
+      "RES": 0.6
     }
   },
   "1215": {
@@ -527,8 +496,7 @@
     "baseStats": { "_HP": 917, "_ATK": 564, "_DEF": 352 },
     "strength": 1,
     "weights": {
-      "SPD": 4,
-      "RES": 1
+      "SPD": 1.2
     }
   },
   "1212": {
@@ -541,11 +509,10 @@
     "baseStats": { "_HP": 1435, "_ATK": 679, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "CR": 5,
-      "CD": 5,
-      "SPD": 4,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8
     }
   },
   "1210": {
@@ -557,10 +524,9 @@
     "baseStats": { "_HP": 882, "_ATK": 582, "_DEF": 441 },
     "strength": 3,
     "weights": {
-      "EHR": 3,
-      "SPD": 3,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.0,
+      "EHR": 0.8,
+      "SPD": 1.2
     }
   },
   "1112": {
@@ -573,11 +539,10 @@
     "baseStats": { "_HP": 931, "_ATK": 620, "_DEF": 412 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "SPD": 3,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8
     }
   },
   "1213": {
@@ -590,11 +555,10 @@
     "baseStats": { "_HP": 1241, "_ATK": 698, "_DEF": 363 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.2
     }
   },
   "1208": {
@@ -607,11 +571,10 @@
     "baseStats": { "_HP": 1474, "_ATK": 465, "_DEF": 606 },
     "strength": 2,
     "weights": {
-      "SPD": 3,
-      "HP": 3,
-      "RES": 2,
-      "DEF": 1,
-      "_HP": 1
+      "HP": 1.0,
+      "DEF": 0.4,
+      "SPD": 1.2,
+      "RES": 0.6
     }
   },
   "1110": {
@@ -623,10 +586,9 @@
     "baseStats": { "_HP": 1058, "_ATK": 493, "_DEF": 551 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "HP": 3,
-      "RES": 2,
-      "_HP": 1
+      "HP": 1.0,
+      "SPD": 1.2,
+      "RES": 0.6
     }
   },
   "1205": {
@@ -639,12 +601,11 @@
     "baseStats": { "_HP": 1358, "_ATK": 543, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "SPD": 3,
-      "HP": 3,
-      "ATK": 1,
-      "_HP": 1
+      "HP": 0.8,
+      "ATK": 0.2,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8
     }
   },
   "1111": {
@@ -656,10 +617,10 @@
     "baseStats": { "_HP": 917, "_ATK": 582, "_DEF": 485 },
     "strength": 2,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
-      "BE": 3,
-      "ATK": 2
+      "ATK": 0.8,
+      "EHR": 1.0,
+      "SPD": 1.2,
+      "BE": 0.8
     }
   },
   "1005": {
@@ -672,10 +633,9 @@
     "baseStats": { "_HP": 1086, "_ATK": 679, "_DEF": 485 },
     "strength": 3,
     "weights": {
-      "SPD": 3,
-      "ATK": 3,
-      "EHR": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "EHR": 0.8,
+      "SPD": 1.2
     }
   },
   "1207": {
@@ -687,8 +647,7 @@
     "baseStats": { "_HP": 917, "_ATK": 599, "_DEF": 374 },
     "strength": 1,
     "weights": {
-      "SPD": 4,
-      "RES": 1
+      "SPD": 1.2
     }
   },
   "1203": {
@@ -701,10 +660,9 @@
     "baseStats": { "_HP": 1280, "_ATK": 756, "_DEF": 363 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "ATK": 3,
-      "RES": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "SPD": 1.2,
+      "RES": 0.6
     }
   },
   "1006": {
@@ -717,9 +675,8 @@
     "baseStats": { "_HP": 1047, "_ATK": 640, "_DEF": 460 },
     "strength": 3,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
-      "RES": 1
+      "EHR": 1.0,
+      "SPD": 1.2
     }
   },
   "8004": {
@@ -731,10 +688,9 @@
     "baseStats": { "_HP": 1241, "_ATK": 601, "_DEF": 606 },
     "strength": 1,
     "weights": {
-      "SPD": 4,
-      "DEF": 3,
-      "RES": 2,
-      "_DEF": 1
+      "DEF": 1.0,
+      "SPD": 1.2,
+      "RES": 0.6
     }
   },
   "8002": {
@@ -746,11 +702,10 @@
     "baseStats": { "_HP": 1203, "_ATK": 620, "_DEF": 460 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1211": {
@@ -763,10 +718,9 @@
     "baseStats": { "_HP": 1319, "_ATK": 562, "_DEF": 485 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "HP": 3,
-      "RES": 2,
-      "_HP": 1
+      "HP": 1.0,
+      "SPD": 1.2,
+      "RES": 0.6
     }
   },
   "1209": {
@@ -779,11 +733,10 @@
     "baseStats": { "_HP": 892, "_ATK": 679, "_DEF": 412 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.6
     }
   },
   "1206": {
@@ -795,11 +748,10 @@
     "baseStats": { "_HP": 917, "_ATK": 564, "_DEF": 418 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1204": {
@@ -812,11 +764,10 @@
     "baseStats": { "_HP": 1164, "_ATK": 698, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.2
     }
   },
   "1202": {
@@ -828,10 +779,8 @@
     "baseStats": { "_HP": 846, "_ATK": 529, "_DEF": 396 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "ATK": 3,
-      "RES": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "SPD": 1.2
     }
   },
   "1201": {
@@ -843,11 +792,10 @@
     "baseStats": { "_HP": 1023, "_ATK": 652, "_DEF": 441 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.2
     }
   },
   "1109": {
@@ -859,11 +807,10 @@
     "baseStats": { "_HP": 1340, "_ATK": 617, "_DEF": 352 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1108": {
@@ -875,10 +822,9 @@
     "baseStats": { "_HP": 1023, "_ATK": 617, "_DEF": 396 },
     "strength": 3,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.0,
+      "EHR": 0.8,
+      "SPD": 1.2
     }
   },
   "1107": {
@@ -891,11 +837,10 @@
     "baseStats": { "_HP": 1241, "_ATK": 737, "_DEF": 485 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.2
     }
   },
   "1106": {
@@ -907,9 +852,8 @@
     "baseStats": { "_HP": 987, "_ATK": 546, "_DEF": 463 },
     "strength": 2,
     "weights": {
-      "EHR": 4,
-      "SPD": 4,
-      "RES": 1
+      "EHR": 1.0,
+      "SPD": 1.2
     }
   },
   "1105": {
@@ -921,10 +865,9 @@
     "baseStats": { "_HP": 1164, "_ATK": 476, "_DEF": 507 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "HP": 3,
-      "RES": 2,
-      "_HP": 1
+      "HP": 1.0,
+      "SPD": 1.2,
+      "RES": 0.6
     }
   },
   "1104": {
@@ -937,11 +880,10 @@
     "baseStats": { "_HP": 1397, "_ATK": 543, "_DEF": 654 },
     "strength": 3,
     "weights": {
-      "SPD": 4,
-      "DEF": 3,
-      "EHR": 2,
-      "RES": 2,
-      "_DEF": 1
+      "DEF": 1.0,
+      "EHR": 0.6,
+      "SPD": 1.4,
+      "RES": 0.6
     }
   },
   "1103": {
@@ -953,11 +895,11 @@
     "baseStats": { "_HP": 917, "_ATK": 652, "_DEF": 374 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "EHR": 0.4,
+      "SPD": 0.6
     }
   },
   "1102": {
@@ -970,11 +912,10 @@
     "baseStats": { "_HP": 931, "_ATK": 640, "_DEF": 363 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8
     }
   },
   "1101": {
@@ -987,9 +928,8 @@
     "baseStats": { "_HP": 1241, "_ATK": 582, "_DEF": 533 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "CD": 3,
-      "RES": 1
+      "CD": 1.0,
+      "SPD": 1.4
     }
   },
   "1013": {
@@ -1001,11 +941,10 @@
     "baseStats": { "_HP": 952, "_ATK": 582, "_DEF": 396 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.4
     }
   },
   "1009": {
@@ -1017,9 +956,8 @@
     "baseStats": { "_HP": 1023, "_ATK": 511, "_DEF": 463 },
     "strength": 1,
     "weights": {
-      "SPD": 4,
-      "EHR": 1,
-      "RES": 1
+      "EHR": 0.2,
+      "SPD": 1.4
     }
   },
   "1008": {
@@ -1031,11 +969,10 @@
     "baseStats": { "_HP": 1199, "_ATK": 599, "_DEF": 330 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "SPD": 3,
-      "ATK": 3,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.8
     }
   },
   "1004": {
@@ -1048,12 +985,11 @@
     "baseStats": { "_HP": 1125, "_ATK": 620, "_DEF": 509 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "EHR": 3,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "EHR": 0.6,
+      "SPD": 0.4
     }
   },
   "1003": {
@@ -1066,12 +1002,11 @@
     "baseStats": { "_HP": 1047, "_ATK": 756, "_DEF": 436 },
     "strength": 4,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "EHR": 1,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "EHR": 0.2,
+      "SPD": 0.4
     }
   },
   "1002": {
@@ -1083,11 +1018,10 @@
     "baseStats": { "_HP": 882, "_ATK": 546, "_DEF": 396 },
     "strength": 3,
     "weights": {
-      "CR": 4,
-      "CD": 4,
-      "ATK": 3,
-      "SPD": 2,
-      "_ATK": 1
+      "ATK": 1.0,
+      "CR": 1.4,
+      "CD": 1.4,
+      "SPD": 0.6
     }
   },
   "1001": {
@@ -1099,11 +1033,10 @@
     "baseStats": { "_HP": 1058, "_ATK": 511, "_DEF": 573 },
     "strength": 2,
     "weights": {
-      "SPD": 4,
-      "EHR": 3,
-      "DEF": 3,
-      "RES": 2,
-      "_DEF": 1
+      "DEF": 1.0,
+      "EHR": 1.0,
+      "SPD": 1.4,
+      "RES": 0.6
     }
   }
 }
