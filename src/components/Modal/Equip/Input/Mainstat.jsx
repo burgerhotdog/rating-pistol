@@ -6,7 +6,7 @@ const Mainstat = ({ gameId, equipList, setEquipList, mainIndex }) => {
   const mainstatOptions = useMemo(() =>
     Object.keys(STAT_DATA[gameId])
       .filter((stat) =>
-        STAT_DATA[gameId][stat].mainIndex?.includes(mainIndex)
+        STAT_DATA[gameId][stat].mainChance?.[mainIndex]
       ), [gameId, mainIndex]);
 
   const handleMainstat = (newValue) =>

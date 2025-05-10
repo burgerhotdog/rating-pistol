@@ -1,24 +1,18 @@
 {
   "_HP": {
     "name": "HP",
-    "mainIndex": [0],
-    "mainTries": 4,
     "mainChance": [1, 0, 0, 0, 0, 0],
     "subValue": 112,
     "subChance": 10
   },
   "_ATK": {
     "name": "ATK",
-    "mainIndex": [1],
-    "mainTries": 4,
     "mainChance": [0, 1, 0, 0, 0, 0],
     "subValue": 19,
     "subChance": 10
   },
   "_DEF": {
     "name": "DEF",
-    "mainIndex": [2],
-    "mainTries": 4,
     "mainChance": [0, 0, 1, 0, 0, 0],
     "subValue": 15,
     "subChance": 10
@@ -26,8 +20,6 @@
   "HP": {
     "name": "HP%",
     "showPercent": true,
-    "mainIndex": [3, 4, 5],
-    "mainTries": 3,
     "mainChance": [0, 0, 0, 0.2, 0.2, 0.2],
     "subValue": 3,
     "subChance": 10
@@ -35,8 +27,6 @@
   "ATK": {
     "name": "ATK%",
     "showPercent": true,
-    "mainIndex": [3, 4, 5],
-    "mainTries": 3,
     "mainChance": [0, 0, 0, 0.2, 0.2, 0.2],
     "subValue": 3,
     "subChance": 10
@@ -44,8 +34,6 @@
   "DEF": {
     "name": "DEF%",
     "showPercent": true,
-    "mainIndex": [3, 4, 5],
-    "mainTries": 3,
     "mainChance": [0, 0, 0, 0.2, 0.2, 0.2],
     "subValue": 4.8,
     "subChance": 10
@@ -53,8 +41,6 @@
   "CR": {
     "name": "CRIT Rate",
     "showPercent": true,
-    "mainIndex": [3],
-    "mainTries": 2,
     "mainChance": [0, 0, 0, 0.125, 0, 0],
     "subValue": 2.4,
     "subChance": 6
@@ -62,16 +48,12 @@
   "CD": {
     "name": "CRIT DMG",
     "showPercent": true,
-    "mainIndex": [3],
-    "mainTries": 2,
     "mainChance": [0, 0, 0, 0.125, 0, 0],
     "subValue": 4.8,
     "subChance": 6
   },
   "AP": {
     "name": "Anomaly Proficiency",
-    "mainIndex": [3],
-    "mainTries": 2,
     "mainChance": [0, 0, 0, 0.15, 0, 0],
     "subValue": 9,
     "subChance": 8
@@ -79,63 +61,45 @@
   "ETHER": {
     "name": "Ether DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4],
-    "mainTries": 1,
     "mainChance": [0, 0, 0, 0, 0.06, 0]
   },
   "ELECTRIC": {
     "name": "Electric DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4],
-    "mainTries": 1,
     "mainChance": [0, 0, 0, 0, 0.06, 0]
   },
   "FIRE": {
     "name": "Fire DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4],
-    "mainTries": 1,
     "mainChance": [0, 0, 0, 0, 0.06, 0]
   },
   "ICE": {
     "name": "Ice DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4],
-    "mainTries": 1,
     "mainChance": [0, 0, 0, 0, 0.06, 0]
   },
   "PHYSICAL": {
     "name": "Physical DMG Bonus",
     "showPercent": true,
-    "mainIndex": [4],
-    "mainTries": 1,
     "mainChance": [0, 0, 0, 0, 0.06, 0]
   },
   "PR": {
     "name": "PEN Ratio",
     "showPercent": true,
-    "mainIndex": [4],
-    "mainTries": 2,
     "mainChance": [0, 0, 0, 0, 0.1, 0]
   },
   "AM": {
     "name": "Anomaly Mastery",
-    "mainIndex": [5],
-    "mainTries": 1,
     "mainChance": [0, 0, 0, 0, 0, 0.15]
   },
   "IMPACT": {
     "name": "Impact%",
     "showPercent": true,
-    "mainIndex": [5],
-    "mainTries": 1,
     "mainChance": [0, 0, 0, 0, 0, 0.15]
   },
   "ER": {
     "name": "Energy Regen%",
     "showPercent": true,
-    "mainIndex": [5],
-    "mainTries": 1,
     "mainChance": [0, 0, 0, 0, 0, 0.1]
   },
   "PEN": {

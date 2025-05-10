@@ -8,11 +8,11 @@ const gameIds = ["gi", "hsr", "ww", "zzz"];
 
 const updates = [
   {
-    date: "2025.04.29",
-    title: "Wuthering Waves Version 2.3",
+    date: "2025.05.10",
+    title: "Genshin Impact Version 5.6",
     topics: [
-      "New Resonators: Zani, Ciaconna",
-      "New Weapons: Blazing Justice, Woodland Aria",
+      "New Characters: Escoffier, Ifa",
+      "New Weapons: Symphonist of Scents, Sequence of Solitude",
     ],
   },
 ];
