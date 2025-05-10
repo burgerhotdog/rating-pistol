@@ -1,4 +1,30 @@
 {
+  "10000113": {
+    "name": "Ifa",
+    "rarity": 4,
+    "type": "Catalyst",
+    "skillRank": [null, 3, 5],
+    "baseStats": { "_HP": 10081, "_ATK": 178, "_DEF": 605 },
+    "weights": {
+      "EM": 1.0,
+      "ER": 0.6
+    }
+  },
+  "10000112": {
+    "name": "Escoffier",
+    "rarity": 5,
+    "type": "Polearm",
+    "sig": "13514",
+    "skillRank": [null, 3, 5],
+    "baseStats": { "_HP": 13348, "_ATK": 347, "_DEF": 732 },
+    "weights": {
+      "ATK": 1.0,
+      "EM": 0.4,
+      "ER": 0.8,
+      "CR": 1.4,
+      "CD": 1.4
+    }
+  },
   "10000111": {
     "name": "Varesa",
     "rarity": 5,
