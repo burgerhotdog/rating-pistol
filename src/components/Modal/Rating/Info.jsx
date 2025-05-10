@@ -4,7 +4,7 @@ import { AVATAR_DATA, LABEL_DATA } from "@data";
 const Info = ({ gameId, avatarId, activeTab, percentile, score }) => {
   const isFullBuild = activeTab === 0;
   const item = isFullBuild 
-    ? `Your ${AVATAR_DATA[gameId][avatarId].name}`
+    ? AVATAR_DATA[gameId][avatarId].name
     : `This ${LABEL_DATA[gameId].equip}`;
   const percentileText = <strong>{percentile.toFixed()}%</strong>;
   const scoreText = <strong>{Math.abs((score - 1) * 100).toFixed()}%</strong>;
@@ -16,7 +16,7 @@ const Info = ({ gameId, avatarId, activeTab, percentile, score }) => {
           Results
         </Typography>
         <Typography variant="body1" gutterBottom>
-          {item} outperformed {percentileText} of our {isFullBuild ? "build" : LABEL_DATA[gameId].equip} simulations, and performed {scoreText} {score > 1 ? "better" : "worse"} than the average {isFullBuild ? "build" : LABEL_DATA[gameId].equip}.
+          {item} outperformed {percentileText} of our simulated {isFullBuild ? "build" : LABEL_DATA[gameId].equip}s, and performed {scoreText} {score > 1 ? "better" : "worse"} than the average {isFullBuild ? "build" : LABEL_DATA[gameId].equip}.
         </Typography>
         <Divider sx={{ my: 2 }} />
         <Typography variant="h6" sx={{ color: 'primary.main' }} gutterBottom>

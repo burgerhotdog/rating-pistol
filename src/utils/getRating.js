@@ -1,4 +1,3 @@
-import { AVATAR_DATA } from "@data";
 import { getScore, simEquipScores, simAvatarScores } from "@utils";
 
 const calcPercentile = (score, simScores) => {
@@ -8,7 +7,6 @@ const calcPercentile = (score, simScores) => {
 
 const getRating = (gameId, avatarId, weaponId, equipList) => {
   if (!weaponId) return null;
-  const power = AVATAR_DATA[gameId][avatarId].strength / 4;
   
   const equipRatings = equipList.map(({ stat, statList }) => {
     if (!stat) return null;
@@ -16,8 +14,8 @@ const getRating = (gameId, avatarId, weaponId, equipList) => {
     const rawScore = getScore(gameId, avatarId, weaponId, statList);
     const average = rawSimScores.reduce((acc, score) => acc + score, 0) / rawSimScores.length;
 
-    const simScores = rawSimScores.map(rawScore => Math.pow(rawScore / average, power));
-    const score = Math.pow(rawScore / average, power);
+    const simScores = rawSimScores.map(rawScore => rawScore / average);
+    const score = rawScore / average;
     const percentile = calcPercentile(rawScore, rawSimScores);
 
     return { percentile, score, simScores, rawScore, rawSimScores };
@@ -28,8 +26,8 @@ const getRating = (gameId, avatarId, weaponId, equipList) => {
   const rawScore = equipRatings.reduce((acc, { rawScore }) => acc + rawScore, 0);
   const average = rawSimScores.reduce((acc, score) => acc + score, 0) / rawSimScores.length;
 
-  const simScores = rawSimScores.map(rawScore => Math.pow(rawScore / average, power));
-  const score = Math.pow(rawScore / average, power);
+  const simScores = rawSimScores.map(rawScore => rawScore / average);
+  const score = rawScore / average;
   const percentile = calcPercentile(rawScore, rawSimScores);
 
   return {

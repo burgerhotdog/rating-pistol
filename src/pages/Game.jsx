@@ -168,7 +168,7 @@ const Game = ({ gameId, userId }) => {
                   variant="outlined"
                   endIcon={<KeyboardArrowRight />}
                 >
-                  Lookup UID
+                  Load Data
                 </Button>
               </Stack>
             </Stack>
