@@ -1,19 +1,17 @@
 import { Stack, Badge, Avatar, Typography, Tooltip, TableCell } from "@mui/material";
 import { RATING_ASSETS } from "@assets";
 
-const getIconSrc = (top) => {
-  if (top <= 10) return "0";
-  if (top <= 25) return "1";
-  if (top <= 50) return "2";
-  return "3";
+const getCategory = (percentile) => {
+  if (percentile >= 95) return { src: "0", text: "Excellent" };
+  if (percentile >= 75) return { src: "1", text: "Great" };
+  if (percentile >= 25) return { src: "2", text: "Good" };
+  return { src: "3", text: "Poor" };
 };
 
 const RatingCell = ({ setModalPipe, id, data, rating }) => {
   const openModal = () => setModalPipe({ type: "rating", id, data, rating });
-  const roundedRating = rating
-    ? Math.max(1, 100 - Math.floor(rating.avatar.percentile))
-    : 100;
-  const iconSrc = getIconSrc(roundedRating);
+  const roundedRating = rating.avatar.percentile;
+  const category = getCategory(roundedRating);
 
   return (
     <TableCell>
@@ -22,7 +20,7 @@ const RatingCell = ({ setModalPipe, id, data, rating }) => {
           <Badge onClick={openModal} sx={{ cursor: "pointer" }}>
             <Avatar
               alt={String(roundedRating)}
-              src={RATING_ASSETS[iconSrc]}
+              src={RATING_ASSETS[category.src]}
               sx={{ width: 32, height: 32 }}
             />
           </Badge>
@@ -30,7 +28,7 @@ const RatingCell = ({ setModalPipe, id, data, rating }) => {
             onClick={openModal}
             sx={{ cursor: "pointer" }}
           >
-            {`Top ${roundedRating}%`}
+            {category.text}
           </Typography>
         </Stack>
       </Tooltip>

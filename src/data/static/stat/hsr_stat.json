@@ -3,6 +3,7 @@
     "name": "HP",
     "mainIndex": [0],
     "mainTries": 4,
+    "mainChance": [1, 0, 0, 0, 0, 0],
     "subValue": 42.34,
     "subChance": 10
   },
@@ -10,6 +11,7 @@
     "name": "ATK",
     "mainIndex": [1],
     "mainTries": 4,
+    "mainChance": [0, 1, 0, 0, 0, 0],
     "subValue": 21.17,
     "subChance": 10
   },
@@ -23,6 +25,7 @@
     "showPercent": true,
     "mainIndex": [2, 3, 4, 5],
     "mainTries": 3,
+    "mainChance": [0, 0, 0.2, 0.3, 0.1233, 0.26],
     "subValue": 4.32,
     "subChance": 10
   },
@@ -31,6 +34,7 @@
     "showPercent": true,
     "mainIndex": [2, 3, 4, 5],
     "mainTries": 3,
+    "mainChance": [0, 0, 0.2, 0.3, 0.1233, 0.26],
     "subValue": 4.32,
     "subChance": 10
   },
@@ -39,6 +43,7 @@
     "showPercent": true,
     "mainIndex": [2, 3, 4, 5],
     "mainTries": 3,
+    "mainChance": [0, 0, 0.2, 0.3, 0.1233, 0.26],
     "subValue": 5.4,
     "subChance": 10
   },
@@ -47,6 +52,7 @@
     "showPercent": true,
     "mainIndex": [2],
     "mainTries": 2,
+    "mainChance": [0, 0, 0.1, 0, 0, 0],
     "subValue": 3.24,
     "subChance": 6
   },
@@ -55,6 +61,7 @@
     "showPercent": true,
     "mainIndex": [2],
     "mainTries": 2,
+    "mainChance": [0, 0, 0.1, 0, 0, 0],
     "subValue": 6.48,
     "subChance": 6
   },
@@ -63,6 +70,7 @@
     "showPercent": true,
     "mainIndex": [2],
     "mainTries": 2,
+    "mainChance": [0, 0, 0.1, 0, 0, 0],
     "subValue": 4.32,
     "subChance": 8
   },
@@ -70,12 +78,14 @@
     "name": "Outgoing Healing Boost",
     "showPercent": true,
     "mainIndex": [2],
-    "mainTries": 2
+    "mainTries": 2,
+    "mainChance": [0, 0, 0.1, 0, 0, 0]
   },
   "SPD": {
     "name": "SPD",
     "mainIndex": [3],
     "mainTries": 1,
+    "mainChance": [0, 0, 0, 0.1, 0, 0],
     "subValue": 2.6,
     "subChance": 4
   },
@@ -83,49 +93,57 @@
     "name": "Fire DMG Bonus",
     "showPercent": true,
     "mainIndex": [4],
-    "mainTries": 1
+    "mainTries": 1,
+    "mainChance": [0, 0, 0, 0, 0.09, 0]
   },
   "ICE": {
     "name": "Ice DMG Bonus",
     "showPercent": true,
     "mainIndex": [4],
-    "mainTries": 1
+    "mainTries": 1,
+    "mainChance": [0, 0, 0, 0, 0.09, 0]
   },
   "IMAGINARY": { 
     "name": "Imaginary DMG Bonus",
     "showPercent": true,
     "mainIndex": [4],
-    "mainTries": 1
+    "mainTries": 1,
+    "mainChance": [0, 0, 0, 0, 0.09, 0]
   },
   "LIGHTNING": {
     "name": "Lightning DMG Bonus",
     "showPercent": true,
     "mainIndex": [4],
-    "mainTries": 1
+    "mainTries": 1,
+    "mainChance": [0, 0, 0, 0, 0.09, 0]
   },
   "PHYSICAL": {
     "name": "Physical DMG Bonus",
     "showPercent": true,
     "mainIndex": [4],
-    "mainTries": 1
+    "mainTries": 1,
+    "mainChance": [0, 0, 0, 0, 0.09, 0]
   },
   "QUANTUM": {
     "name": "Quantum DMG Bonus",
     "showPercent": true,
     "mainIndex": [4],
-    "mainTries": 1
+    "mainTries": 1,
+    "mainChance": [0, 0, 0, 0, 0.09, 0]
   },
   "WIND": {
     "name": "Wind DMG Bonus",
     "showPercent": true,
     "mainIndex": [4],
-    "mainTries": 1
+    "mainTries": 1,
+    "mainChance": [0, 0, 0, 0, 0.09, 0]
   },
   "BE": {
     "name": "Break Effect",
     "showPercent": true,
     "mainIndex": [5],
     "mainTries": 3,
+    "mainChance": [0, 0, 0, 0, 0, 0.16],
     "subValue": 6.48,
     "subChance": 8
   },
@@ -133,7 +151,8 @@
     "name": "Energy Regeneration Rate",
     "showPercent": true,
     "mainIndex": [5],
-    "mainTries": 1
+    "mainTries": 1,
+    "mainChance": [0, 0, 0, 0, 0, 0.06]
   },
   "RES": {
     "name": "Effect RES",
