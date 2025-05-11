@@ -4,104 +4,114 @@ import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
 import { ICON_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
 
-const gameIds = ["gi", "hsr", "ww", "zzz"];
-
-const updates = [
-  {
-    date: "2025.05.10",
-    title: "Genshin Impact Version 5.6",
-    topics: [
-      "New Characters: Escoffier, Ifa",
-      "New Weapons: Symphonist of Scents, Sequence of Solitude",
-    ],
-  },
+// Announcements
+const DATE = "2025.05.10";
+const TITLE = "Genshin Impact Version 5.6";
+const UPDATES = [
+  "New Characters: Escoffier, Ifa",
+  "New Weapons: Symphonist of Scents, Sequence of Solitude",
 ];
 
+const GameLink = ({ gameId }) => (
+  <Tooltip title={INFO_DATA[gameId].TITLE}>
+    <Link to={INFO_DATA[gameId].PATH}>
+      <Box
+        component="img"
+        alt={gameId}
+        src={ICON_ASSETS[gameId]}
+        sx={{ 
+          width: 160,
+          height: 160,
+          cursor: "pointer",
+          "&:hover": {
+            transform: "scale(1.1) rotate(-5deg)",
+            transition: "all 0.2s ease-in-out",
+          },
+        }}
+      />
+    </Link>
+  </Tooltip>
+);
+
 const Menu = () => (
-  <Container sx={{ minHeight: "100vh", display: "flex", alignItems: "center", py: 4 }}>
-    <Stack alignItems="center" spacing={8} sx={{ width: "100%" }}>
-      <Stack spacing={2}>
-        <Stack direction="row" alignItems="center" spacing={2}>
-          <Typography variant="h1" fontWeight="bold">
-            Rating Pistol
-          </Typography>
-          <Box
-            component="img"
-            alt="icon"
-            src={ICON_ASSETS.default}
-            sx={{ 
-              width: 120,
-              height: 120,
-              filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.1))",
-            }}
-          />
-        </Stack>
+  <Container
+    maxWidth="md"
+    sx={{
+      minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+    }}
+  >
+    <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing={2}
+      mb={4}
+    >
+      <Typography
+        variant="h1"
+        fontWeight="bold"
+        sx={{ fontSize: { xs: "4rem", md: "6rem" } }}
+      >
+        Rating Pistol
+      </Typography>
+      <Box
+        component="img"
+        alt="icon"
+        src={ICON_ASSETS.default}
+        sx={{ width: { xs: 80, md: 120 }, height: "auto" }}
+      />
+    </Stack>
 
-        <Stack direction="row" spacing={2}>
-          {gameIds.map((gameId) => (
-            <Link key={gameId} to={INFO_DATA[gameId].PATH} style={{ textDecoration: "none" }}>
-              <Tooltip 
-                title={INFO_DATA[gameId].TITLE}
-                placement="bottom"
-                slotProps={{
-                  tooltip: {
-                    sx: {
-                      backdropFilter: "blur(4px)",
-                      fontSize: "1rem",
-                      padding: "8px 16px",
-                      borderRadius: "8px",
-                    }
-                  }
-                }}
-              >
-                <Box
-                  component="img"
-                  alt={gameId}
-                  src={ICON_ASSETS[gameId]}
-                  sx={{ 
-                    width: 160,
-                    height: 160,
-                    cursor: "pointer",
-                    filter: "drop-shadow(0px 4px 8px rgba(0,0,0,0.2))",
-                    "&:hover": {
-                      transform: "scale(1.1) rotate(-5deg)",
-                      transition: "all 0.2s ease-in-out",
-                      filter: "drop-shadow(0px 6px 12px rgba(0,0,0,0.3))"
-                    }
-                  }}
-                />
-              </Tooltip>
-            </Link>
-          ))}
-        </Stack>
+    <Stack
+      display={{ xs: "none", md: "flex" }}
+      direction="row"
+      justifyContent="center"
+      spacing={2}
+      mb={6}
+    >
+      <GameLink gameId="gi" />
+      <GameLink gameId="hsr" />
+      <GameLink gameId="ww" />
+      <GameLink gameId="zzz" />
+    </Stack>
+
+    <Stack
+      display={{ xs: "flex", md: "none" }}
+      spacing={2}
+      mb={6}
+    >
+      <Stack direction="row" justifyContent="center" spacing={2}>
+        <GameLink gameId="gi" />
+        <GameLink gameId="hsr" />
       </Stack>
-
-      <Stack spacing={2} width={800}>
-        <Typography variant="h5" fontWeight="bold">
-          {`Announcements`}
-        </Typography>
-        <Stack spacing={1.5} maxHeight={200} overflow="auto">
-          {updates.map(({ date, title, topics }, index) => (
-            <Box key={index}>
-              <Typography variant="subtitle1">
-                {date} - {title}
-              </Typography>
-              <Stack spacing={0.5}>
-                {topics.map((topic, index) => (
-                  <Typography
-                    key={index}
-                    variant="body2"
-                    color="text.secondary"
-                  >
-                    {topic}
-                  </Typography>
-                ))}
-              </Stack>
-            </Box>
-          ))}
-        </Stack>
+      <Stack direction="row" justifyContent="center" spacing={2}>
+        <GameLink gameId="ww" />
+        <GameLink gameId="zzz" />
       </Stack>
     </Stack>
+
+    <Box>
+      <Typography variant="h5" fontWeight="bold" gutterBottom>
+        Announcements - {DATE}
+      </Typography>
+      <Typography variant="subtitle1">
+        {TITLE}
+      </Typography>
+      <Stack>
+        {UPDATES.map((topic, index) => (
+          <Typography
+            key={index}
+            variant="body2"
+            color="text.secondary"
+          >
+            {topic}
+          </Typography>
+        ))}
+      </Stack>
+    </Box>
   </Container>
 );
 
