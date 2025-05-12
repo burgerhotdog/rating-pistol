@@ -2,7 +2,7 @@ import { TableContainer, Table } from "@mui/material";
 import Head from "./Head";
 import Body from "./Body";
 
-const AvatarsView = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
+const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
   return (
     <TableContainer>
       <Table sx={{ tableLayout: "fixed", width: "100%" }}>
@@ -26,4 +26,4 @@ const AvatarsView = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
   );
 };
 
-export default AvatarsView;
+export default AvatarTable;

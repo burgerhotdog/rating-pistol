@@ -7,8 +7,8 @@ import { VERSION_DATA, INFO_DATA, LABEL_DATA } from "@data";
 import { getRating } from "@utils";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
-import AvatarsView from "@components/AvatarsView";
-import TeamsView from "@components/TeamsView";
+import AvatarTable from "@components/AvatarTable";
+import TeamTable from "@components/TeamTable";
 
 const Game = ({ gameId, userId }) => {
   const [avatarCache, setAvatarCache] = useState({});
@@ -150,7 +150,7 @@ const Game = ({ gameId, userId }) => {
 
           {activeTab === 0 && (
             <Stack spacing={2}>
-              <AvatarsView
+              <AvatarTable
                 gameId={gameId}
                 userId={userId}
                 avatarCache={avatarCache}
@@ -181,7 +181,7 @@ const Game = ({ gameId, userId }) => {
           )}
 
           {activeTab === 1 && (
-            <TeamsView
+            <TeamTable
               gameId={gameId}
               userId={userId}
               avatarCache={avatarCache}
