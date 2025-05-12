@@ -58,10 +58,18 @@ const Game = ({ gameId, userId }) => {
   const sortedAvatars = useMemo(() => (  
     Object.entries(avatarCache)
       .sort(([, a], [, b]) => {
-        if (a.data.isStar !== b.data.isStar) return a.data.isStar ? -1 : 1;
-        if (!a.rating && !b.rating) return 0;
+        if (a.data.isStar !== b.data.isStar) {
+          return a.data.isStar ? -1 : 1;
+        }
+
+        if (!a.rating && !b.rating) {
+          if ((a.rating === null) === (b.rating === null)) return 0;
+          return a.rating === null ? -1 : 1;
+        }
+
         if (!a.rating) return 1;
         if (!b.rating) return -1;
+
         return b.rating.avatar.percentile - a.rating.avatar.percentile;
       })
       .map(([avatarId]) => avatarId)
@@ -81,9 +89,7 @@ const Game = ({ gameId, userId }) => {
           ...(prev[id]?.data ?? {}),
           ...newData,
         },
-        rating: newData.equipList
-          ? getRating(gameId, id, newData.weaponId, newData.equipList)
-          : prev[id]?.rating ?? null,
+        rating: getRating(gameId, id, newData.weaponId, newData.equipList),
       },
     }));
   };

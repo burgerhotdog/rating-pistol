@@ -86,6 +86,7 @@ export default ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sorted
           />
 
           <RatingCell
+            gameId={gameId}
             setModalPipe={setModalPipe}
             id={avatarId}
             data={avatarCache[avatarId].data}

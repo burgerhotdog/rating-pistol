@@ -10,6 +10,7 @@ const getScore = (gameId, avatarId, weaponId, statList) => {
   };
 
   const { weights } = AVATAR_DATA[gameId][avatarId];
+  if (!weights) return null;
 
   return statList.reduce((acc, { stat, value }) => {
     if (!stat || !value) return acc;

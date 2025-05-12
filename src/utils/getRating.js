@@ -1,3 +1,4 @@
+import { AVATAR_DATA } from "@data";
 import { getScore, simEquipScores, simAvatarScores } from "@utils";
 
 const calcMean = (data) => {
@@ -14,8 +15,9 @@ const calcPercentile = (point, data) => {
 };
 
 const getRating = (gameId, avatarId, weaponId, equipList) => {
-  if (!weaponId) return null;
-  if (equipList.some(({ stat }) => !stat)) return null;
+  if (!AVATAR_DATA[gameId][avatarId].weights) return null;
+  if (!weaponId) return undefined;
+  if (equipList.some(({ stat }) => !stat)) return undefined;
 
   const equipRatings = equipList.map(({ stat, statList }) => {
     const scoreData = simEquipScores(gameId, avatarId, weaponId, stat);
