@@ -22,7 +22,7 @@ const getScore = (gameId, avatarId, weaponId, statList) => {
       ? (value / baseStats[stat]) * 100
       : value;
 
-    const rolls = percentValue / STAT_DATA[gameId][percentStat].subValue;
+    const rolls = (percentValue / STAT_DATA[gameId][percentStat].subValue) * 100;
     return acc + rolls * weight;
   }, 0);
 }

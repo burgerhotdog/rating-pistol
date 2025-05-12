@@ -50,21 +50,15 @@ const Rating = ({ gameId, modalPipe }) => {
         <Info
           gameId={gameId}
           avatarId={id}
-          activeTab={activeTab}
-          percentile={activeTab === 0
-            ? rating.avatar.percentile
-            : rating.equips[activeTab - 1].percentile}
-          score={activeTab === 0
-            ? rating.avatar.score
-            : rating.equips[activeTab - 1].score}
+          isFullBuild={activeTab === 0}
+          ratingData={activeTab === 0
+            ? rating.avatar
+            : rating.equips[activeTab - 1]}
         />
         <Plot
-          score={activeTab === 0
-            ? rating.avatar.score
-            : rating.equips[activeTab - 1].score}
-          simScores={activeTab === 0
-            ? rating.avatar.simScores
-            : rating.equips[activeTab - 1].simScores}
+          ratingData={activeTab === 0
+            ? rating.avatar
+            : rating.equips[activeTab - 1]}
         />
       </Stack>
     </Stack>

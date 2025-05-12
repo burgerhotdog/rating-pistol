@@ -4,7 +4,7 @@ import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
 import { ICON_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
 
-// Announcements
+// Updates
 const DATE = "May 11, 2025";
 const TITLE = "Genshin Impact Version 5.6";
 const UPDATES = [

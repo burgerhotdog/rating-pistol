@@ -1,17 +1,18 @@
 import { Paper } from "@mui/material";
 import Plot from "react-plotly.js";
 
-export default ({ score, simScores }) => {
-  const downsampled = simScores.filter((_, index) => index % 10 === 0);
+export default ({ ratingData }) => {
+  const { score, scoreData } = ratingData;
+  const downsampled = scoreData.filter((_, index) => index % 10 === 0);
   
   // Calculate histogram data manually
   const numBins = 50;
-  const min = Math.min(...simScores);
-  const max = Math.max(...simScores);
+  const min = Math.min(...scoreData);
+  const max = Math.max(...scoreData);
   const binSize = (max - min) / numBins;
   
   const bins = Array(numBins).fill(0);
-  simScores.forEach(score => {
+  scoreData.forEach(score => {
     const binIndex = Math.min(Math.floor((score - min) / binSize), numBins - 1);
     bins[binIndex]++;
   });
@@ -44,12 +45,12 @@ export default ({ score, simScores }) => {
         ]}
         layout={{
           title: {
-            text: "Percentile with Frequency Distribution",
+            text: "Percentile vs Frequency Distribution",
             font: { color: "white" },
           },
           xaxis: {
             title: {
-              text: "Relative Performance Index",
+              text: "Weighted Roll Value %",
               font: { color: "grey" },
             },
             tickfont: { color: "grey" },

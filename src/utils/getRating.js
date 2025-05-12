@@ -1,37 +1,41 @@
 import { getScore, simEquipScores, simAvatarScores } from "@utils";
 
-const calcPercentile = (score, simScores) => {
-  const countBelow = simScores.filter(simScore => simScore < score).length;
-  return (countBelow / simScores.length) * 100;
+const calcMean = (data) => {
+  return data.reduce((acc, curr) => acc + curr, 0) / data.length;
+};
+
+const calcStandardDeviation = (mean, data) => {
+  return Math.sqrt(data.reduce((acc, curr) => acc + (curr - mean) ** 2, 0) / data.length);
+};
+
+const calcPercentile = (point, data) => {
+  const countBelow = data.filter(curr => curr < point).length;
+  return (countBelow / data.length) * 100;
 };
 
 const getRating = (gameId, avatarId, weaponId, equipList) => {
   if (!weaponId) return null;
-  
+  if (equipList.some(({ stat }) => !stat)) return null;
+
   const equipRatings = equipList.map(({ stat, statList }) => {
-    if (!stat) return null;
-    const rawSimScores = simEquipScores(gameId, avatarId, weaponId, stat);
-    const rawScore = getScore(gameId, avatarId, weaponId, statList);
-    const average = rawSimScores.reduce((acc, score) => acc + score, 0) / rawSimScores.length;
-
-    const simScores = rawSimScores.map(rawScore => rawScore / average);
-    const score = rawScore / average;
-    const percentile = calcPercentile(rawScore, rawSimScores);
-
-    return { percentile, score, simScores, rawScore, rawSimScores };
+    const scoreData = simEquipScores(gameId, avatarId, weaponId, stat);
+    const sortedData = [...scoreData].sort((a, b) => a - b);
+    const q3Index = Math.floor(sortedData.length * 0.75);
+    const q3 = sortedData[q3Index];
+    const score = getScore(gameId, avatarId, weaponId, statList);
+    const percentile = calcPercentile(score, scoreData);
+    return { percentile, score, scoreData, q3 };
   });
-  if (equipRatings.some(rating => !rating)) return null;
 
-  const rawSimScores = simAvatarScores(gameId, equipRatings, equipList.map(({ stat }) => stat));
-  const rawScore = equipRatings.reduce((acc, { rawScore }) => acc + rawScore, 0);
-  const average = rawSimScores.reduce((acc, score) => acc + score, 0) / rawSimScores.length;
+  const scoreData = simAvatarScores(gameId, equipRatings, equipList.map(({ stat }) => stat));
+  const mean = calcMean(scoreData);
+  const sd = calcStandardDeviation(mean, scoreData);
+  const bounds = [mean + (2 * sd), mean + sd, mean - sd];
 
-  const simScores = rawSimScores.map(rawScore => rawScore / average);
-  const score = rawScore / average;
-  const percentile = calcPercentile(rawScore, rawSimScores);
-
+  const score = equipRatings.reduce((acc, { score }) => acc + score, 0);
+  const percentile = calcPercentile(score, scoreData);
   return {
-    avatar: { percentile, score, simScores, rawScore, rawSimScores },
+    avatar: { percentile, score, scoreData, mean, sd, bounds },
     equips: equipRatings,
   };
 };
