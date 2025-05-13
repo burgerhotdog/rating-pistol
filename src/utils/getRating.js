@@ -29,7 +29,7 @@ const getRating = (gameId, avatarId, weaponId, equipList) => {
     return { percentile, score, scoreData, q3 };
   });
 
-  const scoreData = simAvatarScores(gameId, equipRatings, equipList.map(({ stat }) => stat));
+  const scoreData = simAvatarScores(gameId, avatarId, equipRatings, equipList.map(({ stat }) => stat));
   const mean = calcMean(scoreData);
   const sd = calcStandardDeviation(mean, scoreData);
   const bounds = [mean + (2 * sd), mean + sd, mean - sd];
