@@ -127,70 +127,76 @@ const Game = ({ gameId, userId }) => {
     <Container maxWidth="lg">
       <Back />
       <Box sx={{ py: 4 }}>
-        <Stack spacing={2}>
-          <Stack alignItems="center" textAlign="center">
-            <Typography variant="h3" fontWeight="bold">
-              {INFO_DATA[gameId].TITLE}
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary">
-              Updated for Version {VERSION_DATA[gameId]}
-            </Typography>
-          </Stack>
+        <Typography
+          variant="h3"
+          textAlign="center"
+          fontWeight="bold"
+        >
+          {INFO_DATA[gameId].TITLE}
+        </Typography>
 
-          <Tabs
-            value={activeTab}
-            onChange={(_, newValue) => setActiveTab(newValue)}
-            variant="fullWidth"
-            centered
-            sx={{ borderBottom: 1, borderColor: "divider" }}
-          >
-            <Tab label={LABEL_DATA[gameId].Avatars} />
-            <Tab label="Teams (Coming Soon)" disabled />
-          </Tabs>
+        <Typography
+          variant="subtitle1"
+          textAlign="center"
+          color="text.secondary"
+          gutterBottom
+        >
+          Updated for Version {VERSION_DATA[gameId]}
+        </Typography>
 
-          {activeTab === 0 && (
-            <Stack spacing={2}>
-              <AvatarTable
-                gameId={gameId}
-                userId={userId}
-                avatarCache={avatarCache}
-                setAvatarCache={setAvatarCache}
-                isLoading={isLoading}
-                sortedAvatars={sortedAvatars}
-                setModalPipe={setModalPipe}
-              />
+        <Tabs
+          value={activeTab}
+          onChange={(_, newValue) => setActiveTab(newValue)}
+          variant="fullWidth"
+          centered
+          sx={{ borderBottom: 1, borderColor: "divider" }}
+        >
+          <Tab label={LABEL_DATA[gameId].Avatars} />
+          <Tab label="Teams (Coming Soon)" disabled />
+        </Tabs>
 
-              <Stack direction="row" justifyContent="center" spacing={2}>
-                <Button
-                  onClick={handleAdd}
-                  variant="contained"
-                  color="primary"
-                  startIcon={<Add />}
-                >
-                  New Build
-                </Button>
-                <Button
-                  onClick={handleLoad}
-                  variant="outlined"
-                  endIcon={<KeyboardArrowRight />}
-                >
-                  Load Data
-                </Button>
-              </Stack>
-            </Stack>
-          )}
-
-          {activeTab === 1 && (
-            <TeamTable
+        {activeTab === 0 && (
+          <Stack spacing={2}>
+            <AvatarTable
               gameId={gameId}
               userId={userId}
               avatarCache={avatarCache}
-              teamCache={teamCache}
-              setTeamCache={setTeamCache}
+              setAvatarCache={setAvatarCache}
+              isLoading={isLoading}
               sortedAvatars={sortedAvatars}
+              setModalPipe={setModalPipe}
             />
-          )}
-        </Stack>
+
+            <Stack direction="row" justifyContent="center" spacing={2}>
+              <Button
+                onClick={handleAdd}
+                variant="contained"
+                color="primary"
+                startIcon={<Add />}
+              >
+                New Build
+              </Button>
+              <Button
+                onClick={handleLoad}
+                variant="outlined"
+                endIcon={<KeyboardArrowRight />}
+              >
+                Load Data
+              </Button>
+            </Stack>
+          </Stack>
+        )}
+
+        {activeTab === 1 && (
+          <TeamTable
+            gameId={gameId}
+            userId={userId}
+            avatarCache={avatarCache}
+            teamCache={teamCache}
+            setTeamCache={setTeamCache}
+            sortedAvatars={sortedAvatars}
+          />
+        )}
       </Box>
       <Modal
         gameId={gameId}
