@@ -5,9 +5,10 @@
     "type": "Catalyst",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10081, "_ATK": 178, "_DEF": 605 },
+    "investmentLevel": 1,
     "weights": {
-      "EM": 1.0,
-      "ER": 0.6
+      "EM": 1.00,
+      "ER": 0.50
     }
   },
   "10000112": {
@@ -17,12 +18,13 @@
     "sig": "13514",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13348, "_ATK": 347, "_DEF": 732 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.4,
-      "ER": 0.8,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000111": {
@@ -32,12 +34,13 @@
     "sig": "14519",
     "skillRank": [5, null, 3],
     "baseStats": { "_HP": 12699, "_ATK": 356, "_DEF": 782 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.4,
-      "ER": 0.8,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000110": {
@@ -46,9 +49,10 @@
     "type": "Polearm",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10657, "_ATK": 257, "_DEF": 638 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.2
+      "ATK": 1.00,
+      "ER": 1.00
     }
   },
   "10000109": {
@@ -58,9 +62,10 @@
     "sig": "14518",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12736, "_ATK": 215, "_DEF": 757 },
+    "investmentLevel": 1,
     "weights": {
-      "EM": 1.0,
-      "ER": 1.0
+      "EM": 1.00,
+      "ER": 0.75
     }
   },
   "10000108": {
@@ -69,10 +74,11 @@
     "type": "Catalyst",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 9243, "_ATK": 250, "_DEF": 580 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "EM": 1.2,
-      "ER": 1.2
+      "ATK": 1.00,
+      "EM": 1.00,
+      "ER": 0.75
     }
   },
   "10000107": {
@@ -82,9 +88,10 @@
     "sig": "14517",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 11633, "_ATK": 126, "_DEF": 763 },
+    "investmentLevel": 1,
     "weights": {
-      "EM": 1.0,
-      "ER": 1.0
+      "EM": 1.00,
+      "ER": 1.00
     }
   },
   "10000106": {
@@ -94,11 +101,12 @@
     "sig": "12514",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 12552, "_ATK": 358, "_DEF": 791 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "EM": 0.25
     }
   },
   "10000007-2": {
@@ -107,12 +115,13 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000105": {
@@ -121,12 +130,13 @@
     "type": "Bow",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 9243, "_ATK": 244, "_DEF": 586 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.4,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.25,
+      "EM": 0.25
     }
   },
   "10000104": {
@@ -136,11 +146,12 @@
     "sig": "15514",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 9796, "_ATK": 346, "_DEF": 614 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000103": {
@@ -150,9 +161,10 @@
     "sig": "11516",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12405, "_ATK": 275, "_DEF": 929 },
+    "investmentLevel": 1,
     "weights": {
-      "DEF": 1.0,
-      "ER": 1.2
+      "ER": 1.00,
+      "DEF": 0.75
     }
   },
   "10000102": {
@@ -162,12 +174,13 @@
     "sig": "14516",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 15184, "_ATK": 181, "_DEF": 570 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 1.0,
-      "EM": 0.6,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "EM": 0.50,
+      "ER": 0.50
     }
   },
   "10000101": {
@@ -177,12 +190,13 @@
     "sig": "12513",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12858, "_ATK": 332, "_DEF": 801 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000100": {
@@ -191,11 +205,12 @@
     "type": "Polearm",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 11799, "_ATK": 216, "_DEF": 792 },
+    "investmentLevel": 2,
     "weights": {
-      "DEF": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "DEF": 0.75,
+      "ER": 0.50
     }
   },
   "10000099": {
@@ -205,12 +220,13 @@
     "sig": "13513",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13568, "_ATK": 334, "_DEF": 730 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000098": {
@@ -220,12 +236,13 @@
     "sig": "11515",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12956, "_ATK": 337, "_DEF": 783 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000097": {
@@ -234,12 +251,13 @@
     "type": "Bow",
     "skillRank": [3, null, 5],
     "baseStats": { "_HP": 9787, "_ATK": 227, "_DEF": 559 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.6,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "EM": 0.50,
+      "ER": 0.50
     }
   },
   "10000095": {
@@ -249,9 +267,10 @@
     "sig": "15513",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13348, "_ATK": 192, "_DEF": 499 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 0.7
+      "HP": 1.00,
+      "ER": 0.75
     }
   },
   "10000096": {
@@ -261,12 +280,13 @@
     "sig": "13512",
     "skillRank": [3, null, 5],
     "baseStats": { "_HP": 13103, "_ATK": 342, "_DEF": 764 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000094": {
@@ -276,12 +296,13 @@
     "sig": "11514",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 11437, "_ATK": 322, "_DEF": 953 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 0.3,
-      "DEF": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "DEF": 0.75,
+      "ER": 0.50,
+      "ATK": 0.25
     }
   },
   "10000093": {
@@ -291,9 +312,10 @@
     "sig": "14515",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10409, "_ATK": 334, "_DEF": 572 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.0
+      "ATK": 1.00,
+      "ER": 1.00
     }
   },
   "10000092": {
@@ -302,12 +324,13 @@
     "type": "Claymore",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 11418, "_ATK": 301, "_DEF": 702 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000091": {
@@ -317,11 +340,12 @@
     "sig": "12512",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12650, "_ATK": 351, "_DEF": 793 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000090": {
@@ -330,9 +354,10 @@
     "type": "Polearm",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 11962, "_ATK": 193, "_DEF": 604 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 0.6
+      "HP": 0.75,
+      "ER": 0.50
     }
   },
   "10000089": {
@@ -342,12 +367,13 @@
     "sig": "11513",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 15307, "_ATK": 243, "_DEF": 695 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 1.0,
-      "EM": 0.2,
-      "ER": 1.0,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000088": {
@@ -356,9 +382,10 @@
     "type": "Catalyst",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10766, "_ATK": 173, "_DEF": 546 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.2
+      "ER": 1.00,
+      "ATK": 0.75
     }
   },
   "10000087": {
@@ -368,11 +395,13 @@
     "sig": "14514",
     "skillRank": [3, null, 5],
     "baseStats": { "_HP": 14695, "_ATK": 208, "_DEF": 576 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000086": {
@@ -382,12 +411,13 @@
     "sig": "14513",
     "skillRank": [3, null, 5],
     "baseStats": { "_HP": 13592, "_ATK": 310, "_DEF": 763 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000085": {
@@ -396,11 +426,12 @@
     "type": "Claymore",
     "skillRank": [3, 5, null],
     "baseStats": { "_HP": 12071, "_ATK": 254, "_DEF": 708 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000084": {
@@ -410,12 +441,13 @@
     "sig": "15512",
     "skillRank": [3, null, 5],
     "baseStats": { "_HP": 11021, "_ATK": 231, "_DEF": 537 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000083": {
@@ -424,11 +456,12 @@
     "type": "Sword",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 12397, "_ATK": 231, "_DEF": 711 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.0,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75
     }
   },
   "10000007-3": {
@@ -437,12 +470,14 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 0.2,
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "HP": 0.25,
+      "EM": 0.25
     }
   },
   "10000061": {
@@ -451,9 +486,10 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12179, "_ATK": 223, "_DEF": 546 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 0.8
+      "HP": 1.00,
+      "ER": 0.75
     }
   },
   "10000082": {
@@ -463,9 +499,10 @@
     "sig": "14505",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 13348, "_ATK": 192, "_DEF": 499 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.0
+      "HP": 1.00,
+      "ER": 0.75
     }
   },
   "10000081": {
@@ -474,9 +511,10 @@
     "type": "Claymore",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 11962, "_ATK": 233, "_DEF": 750 },
+    "investmentLevel": 1,
     "weights": {
-      "EM": 1.0,
-      "ER": 1.0
+      "EM": 1.00,
+      "ER": 1.00
     }
   },
   "10000080": {
@@ -485,9 +523,10 @@
     "type": "Polearm",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 12506, "_ATK": 223, "_DEF": 713 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.0
+      "ER": 1.00,
+      "HP": 0.75
     }
   },
   "10000079": {
@@ -497,13 +536,14 @@
     "sig": "12511",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 15674, "_ATK": 265, "_DEF": 627 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 0.8,
-      "ATK": 0.8,
-      "EM": 0.2,
-      "ER": 0.9,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.50,
+      "ATK": 0.50,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000078": {
@@ -513,12 +553,13 @@
     "sig": "11512",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13348, "_ATK": 313, "_DEF": 781 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 0.2,
-      "EM": 0.8,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "EM": 0.75,
+      "ER": 0.50,
+      "ATK": 0.25
     }
   },
   "10000077": {
@@ -527,9 +568,10 @@
     "type": "Polearm",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12288, "_ATK": 212, "_DEF": 750 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 0.8
+      "HP": 0.75,
+      "ER": 0.75
     }
   },
   "10000076": {
@@ -538,8 +580,9 @@
     "type": "Bow",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 9569, "_ATK": 196, "_DEF": 627 },
+    "investmentLevel": 1,
     "weights": {
-      "ER": 1.0
+      "ER": 1.00
     }
   },
   "10000075": {
@@ -549,11 +592,12 @@
     "sig": "14512",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10164, "_ATK": 327, "_DEF": 607 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000074": {
@@ -562,9 +606,10 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 11092, "_ATK": 216, "_DEF": 655 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 0.8
+      "HP": 1.00,
+      "ER": 0.75
     }
   },
   "10000073": {
@@ -574,12 +619,13 @@
     "sig": "14511",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10360, "_ATK": 298, "_DEF": 630 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 0.2,
-      "EM": 1.0,
-      "ER": 0.4,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "EM": 0.75,
+      "ATK": 0.25,
+      "ER": 0.25
     }
   },
   "10000072": {
@@ -588,9 +634,10 @@
     "type": "Polearm",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10874, "_ATK": 212, "_DEF": 682 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.2
+      "HP": 1.00,
+      "ER": 1.00
     }
   },
   "10000071": {
@@ -600,12 +647,13 @@
     "sig": "13511",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 12490, "_ATK": 318, "_DEF": 859 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 1.0,
-      "ER": 1.0,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "EM": 0.75,
+      "ATK": 0.50,
+      "ER": 0.50
     }
   },
   "10000070": {
@@ -615,9 +663,10 @@
     "sig": "11511",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 15184, "_ATK": 229, "_DEF": 728 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 0.4
+      "HP": 1.00,
+      "ER": 0.25
     }
   },
   "10000069": {
@@ -627,12 +676,13 @@
     "sig": "15511",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10849, "_ATK": 267, "_DEF": 630 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "EM": 0.75,
+      "ATK": 0.50,
+      "ER": 0.50
     }
   },
   "10000068": {
@@ -641,9 +691,10 @@
     "type": "Claymore",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 12397, "_ATK": 223, "_DEF": 723 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.2
+      "ER": 1.00,
+      "HP": 0.75
     }
   },
   "10000067": {
@@ -652,12 +703,13 @@
     "type": "Bow",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 9787, "_ATK": 199, "_DEF": 600 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 1.0,
-      "ER": 1.0,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "EM": 0.50,
+      "ER": 0.50
     }
   },
   "10000007-8": {
@@ -666,12 +718,13 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 1.0,
-      "ER": 1.0,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "EM": 0.50,
+      "ER": 0.50
     }
   },
   "10000059": {
@@ -680,11 +733,12 @@
     "type": "Catalyst",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10657, "_ATK": 225, "_DEF": 683 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000065": {
@@ -693,10 +747,11 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12288, "_ATK": 212, "_DEF": 750 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "EM": 1.2,
-      "ER": 0.2
+      "EM": 1.00,
+      "HP": 0.75,
+      "ER": 0.25
     }
   },
   "10000060": {
@@ -706,12 +761,13 @@
     "sig": "15508",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 14450, "_ATK": 243, "_DEF": 547 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 1.0,
-      "EM": 0.2,
-      "ER": 0.8,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000066": {
@@ -721,13 +777,14 @@
     "sig": "11510",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13715, "_ATK": 298, "_DEF": 768 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 0.2,
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "HP": 0.25,
+      "EM": 0.25
     }
   },
   "10000058": {
@@ -737,12 +794,13 @@
     "sig": "14509",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10372, "_ATK": 339, "_DEF": 568 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.8,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "EM": 0.50,
+      "ER": 0.50
     }
   },
   "10000064": {
@@ -751,9 +809,10 @@
     "type": "Polearm",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10657, "_ATK": 191, "_DEF": 734 },
+    "investmentLevel": 1,
     "weights": {
-      "DEF": 1.0,
-      "ER": 1.0
+      "DEF": 1.00,
+      "ER": 1.00
     }
   },
   "10000063": {
@@ -763,9 +822,10 @@
     "sig": "13507",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12992, "_ATK": 303, "_DEF": 830 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.0
+      "ATK": 1.00,
+      "ER": 1.00
     }
   },
   "10000057": {
@@ -775,12 +835,13 @@
     "sig": "12510",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12858, "_ATK": 227, "_DEF": 959 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 0.2,
-      "DEF": 1.0,
-      "ER": 0.8,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "DEF": 0.75,
+      "ER": 0.50,
+      "ATK": 0.25
     }
   },
   "10000055": {
@@ -789,9 +850,10 @@
     "type": "Bow",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 9569, "_ATK": 182, "_DEF": 648 },
+    "investmentLevel": 1,
     "weights": {
-      "DEF": 1.0,
-      "ER": 1.0
+      "ER": 1.00,
+      "DEF": 0.75
     }
   },
   "10000062": {
@@ -800,12 +862,13 @@
     "type": "Bow",
     "skillRank": [null, null, null],
     "baseStats": { "_HP": 10898, "_ATK": 233, "_DEF": 676 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000050": {
@@ -814,9 +877,10 @@
     "type": "Polearm",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10331, "_ATK": 201, "_DEF": 750 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.0
+      "ER": 1.00,
+      "HP": 0.75
     }
   },
   "10000056": {
@@ -825,12 +889,13 @@
     "type": "Bow",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 9569, "_ATK": 195, "_DEF": 627 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.8,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75,
+      "EM": 0.25
     }
   },
   "10000054": {
@@ -840,9 +905,10 @@
     "sig": "14506",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 13470, "_ATK": 234, "_DEF": 657 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.0
+      "HP": 1.00,
+      "ER": 0.75
     }
   },
   "10000052": {
@@ -852,12 +918,13 @@
     "sig": "13509",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 12907, "_ATK": 337, "_DEF": 789 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.8,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75,
+      "EM": 0.25
     }
   },
   "10000053": {
@@ -866,10 +933,11 @@
     "type": "Claymore",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 11853, "_ATK": 244, "_DEF": 744 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.8,
-      "ER": 1.0
+      "ATK": 0.75,
+      "ER": 0.75,
+      "EM": 0.50
     }
   },
   "10000049": {
@@ -879,12 +947,13 @@
     "sig": "15509",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10164, "_ATK": 322, "_DEF": 614 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000007-7": {
@@ -893,12 +962,13 @@
     "type": "Sword",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000002": {
@@ -908,12 +978,12 @@
     "sig": "11509",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 12858, "_ATK": 342, "_DEF": 783 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.2,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000047": {
@@ -923,9 +993,10 @@
     "sig": "11503",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13348, "_ATK": 296, "_DEF": 806 },
+    "investmentLevel": 1,
     "weights": {
-      "EM": 1.0,
-      "ER": 0.8
+      "EM": 1.00,
+      "ER": 0.75
     }
   },
   "10000051": {
@@ -935,11 +1006,12 @@
     "sig": "12503",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 13225, "_ATK": 342, "_DEF": 750 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000048": {
@@ -948,12 +1020,13 @@
     "type": "Catalyst",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 9352, "_ATK": 240, "_DEF": 586 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000045": {
@@ -962,12 +1035,13 @@
     "type": "Polearm",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12288, "_ATK": 240, "_DEF": 709 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000046": {
@@ -977,13 +1051,14 @@
     "sig": "13501",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 15522, "_ATK": 106, "_DEF": 876 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 1.0,
-      "ATK": 0.2,
-      "EM": 0.6,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "EM": 0.50,
+      "ER": 0.50,
+      "ATK": 0.25
     }
   },
   "10000026": {
@@ -993,11 +1068,12 @@
     "sig": "13505",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12735, "_ATK": 349, "_DEF": 799 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000038": {
@@ -1006,12 +1082,13 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13225, "_ATK": 251, "_DEF": 876 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 0.2,
-      "DEF": 1.0,
-      "ER": 0.2,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "DEF": 0.75,
+      "ATK": 0.25,
+      "ER": 0.25
     }
   },
   "10000037": {
@@ -1021,12 +1098,13 @@
     "sig": "15502",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 9796, "_ATK": 334, "_DEF": 630 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.6,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000044": {
@@ -1035,12 +1113,12 @@
     "type": "Claymore",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 11201, "_ATK": 248, "_DEF": 798 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "DEF": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "DEF": 0.50,
+      "ER": 0.50
     }
   },
   "10000039": {
@@ -1049,9 +1127,10 @@
     "type": "Bow",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 9569, "_ATK": 212, "_DEF": 600 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.0
+      "HP": 0.75,
+      "ER": 0.75
     }
   },
   "10000033": {
@@ -1061,12 +1140,13 @@
     "sig": "15507",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13103, "_ATK": 301, "_DEF": 814 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.6,
-      "ER": 0.4,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000030": {
@@ -1076,9 +1156,10 @@
     "sig": "13504",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 14695, "_ATK": 251, "_DEF": 737 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 0.2
+      "HP": 0.75,
+      "ER": 0.25
     }
   },
   "10000043": {
@@ -1087,9 +1168,10 @@
     "type": "Catalyst",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 9243, "_ATK": 169, "_DEF": 702 },
+    "investmentLevel": 1,
     "weights": {
-      "EM": 1.0,
-      "ER": 1.0
+      "EM": 1.00,
+      "ER": 0.75
     }
   },
   "10000042": {
@@ -1098,12 +1180,13 @@
     "type": "Sword",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 13103, "_ATK": 322, "_DEF": 799 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.6,
-      "ER": 0.3,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "EM": 0.50,
+      "ER": 0.25
     }
   },
   "10000041": {
@@ -1112,12 +1195,13 @@
     "type": "Catalyst",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10409, "_ATK": 287, "_DEF": 653 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.4,
-      "ER": 1.0,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75,
+      "EM": 0.25
     }
   },
   "10000036": {
@@ -1126,12 +1210,13 @@
     "type": "Claymore",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10983, "_ATK": 223, "_DEF": 648 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000035": {
@@ -1140,9 +1225,10 @@
     "type": "Sword",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 12368, "_ATK": 287, "_DEF": 922 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.2
+      "ER": 1.00,
+      "ATK": 0.75
     }
   },
   "10000034": {
@@ -1151,12 +1237,13 @@
     "type": "Claymore",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12071, "_ATK": 191, "_DEF": 798 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 0.3,
-      "DEF": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "DEF": 0.75,
+      "ER": 0.50,
+      "ATK": 0.25
     }
   },
   "10000032": {
@@ -1165,9 +1252,10 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12397, "_ATK": 191, "_DEF": 771 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.2
+      "ER": 1.00,
+      "HP": 0.75
     }
   },
   "10000031": {
@@ -1176,12 +1264,13 @@
     "type": "Bow",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 9189, "_ATK": 244, "_DEF": 593 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.6,
-      "ER": 0.3,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "EM": 0.50,
+      "ER": 0.50
     }
   },
   "10000029": {
@@ -1190,12 +1279,13 @@
     "type": "Catalyst",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 10286, "_ATK": 310, "_DEF": 614 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000027": {
@@ -1204,11 +1294,12 @@
     "type": "Catalyst",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 9787, "_ATK": 212, "_DEF": 573 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.4,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000025": {
@@ -1217,12 +1308,13 @@
     "type": "Sword",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10222, "_ATK": 201, "_DEF": 757 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000024": {
@@ -1231,12 +1323,13 @@
     "type": "Claymore",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 13049, "_ATK": 225, "_DEF": 648 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 1.0,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75,
+      "EM": 0.25
     }
   },
   "10000023": {
@@ -1245,12 +1338,13 @@
     "type": "Polearm",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10874, "_ATK": 225, "_DEF": 668 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.6,
-      "ER": 1.0,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75,
+      "EM": 0.50
     }
   },
   "10000022": {
@@ -1259,9 +1353,10 @@
     "type": "Bow",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10531, "_ATK": 263, "_DEF": 668 },
+    "investmentLevel": 1,
     "weights": {
-      "EM": 1.0,
-      "ER": 1.2
+      "EM": 1.00,
+      "ER": 0.75
     }
   },
   "10000021": {
@@ -1270,12 +1365,13 @@
     "type": "Bow",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 9461, "_ATK": 223, "_DEF": 600 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000020": {
@@ -1284,11 +1380,12 @@
     "type": "Claymore",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 11962, "_ATK": 233, "_DEF": 750 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000016": {
@@ -1298,12 +1395,13 @@
     "sig": "12502",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 12980, "_ATK": 334, "_DEF": 783 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000015": {
@@ -1312,12 +1410,13 @@
     "type": "Sword",
     "skillRank": [null, 3, 5],
     "baseStats": { "_HP": 11636, "_ATK": 223, "_DEF": 791 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.3,
-      "ER": 0.6,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "EM": 0.25
     }
   },
   "10000014": {
@@ -1326,9 +1425,10 @@
     "type": "Catalyst",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 9787, "_ATK": 159, "_DEF": 668 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.2
+      "ER": 1.00,
+      "HP": 0.75
     }
   },
   "10000007-6": {
@@ -1337,11 +1437,12 @@
     "type": "Sword",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "ER": 0.8,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "10000007-4": {
@@ -1350,9 +1451,10 @@
     "type": "Sword",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 10875, "_ATK": 212, "_DEF": 683 },
+    "investmentLevel": 1,
     "weights": {
-      "EM": 1.0,
-      "ER": 1.2
+      "EM": 1.00,
+      "ER": 1.00
     }
   },
   "10000006": {
@@ -1361,12 +1463,13 @@
     "type": "Catalyst",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 9569, "_ATK": 231, "_DEF": 573 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EM": 0.8,
-      "ER": 0.8,
-      "CR": 1.4,
-      "CD": 1.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75,
+      "EM": 0.50
     }
   },
   "10000003": {
@@ -1375,9 +1478,10 @@
     "type": "Sword",
     "skillRank": [null, 5, 3],
     "baseStats": { "_HP": 14695, "_ATK": 239, "_DEF": 768 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.2
+      "ER": 1.00,
+      "ATK": 0.75
     }
   }
 }

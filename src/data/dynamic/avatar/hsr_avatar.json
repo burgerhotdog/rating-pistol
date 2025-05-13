@@ -7,11 +7,12 @@
     "minor": ["CR", "QUANTUM", "CR", "CD", "CR", "QUANTUM", "CR", "CD", "QUANTUM", "CR"],
     "skillRank": [3, 5, 3, 5, 5, 3],
     "baseStats": { "_HP": 1630, "_ATK": 524, "_DEF": 485 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "SPD": 0.25
     }
   },
   "1405": {
@@ -22,11 +23,12 @@
     "minor": ["WIND", "CR", "WIND", "HP", "WIND", "CR", "WIND", "HP", "CR", "WIND"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 970, "_ATK": 757, "_DEF": 558 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.6
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1404": {
@@ -37,11 +39,12 @@
     "minor": ["CD", "HP", "CD", "SPD", "CD", "HP", "CD", "SPD", "HP", "CD"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1552, "_ATK": 427, "_DEF": 194 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "SPD": 0.50
     }
   },
   "1403": {
@@ -52,11 +55,12 @@
     "minor": ["CD", "CR", "CD", "HP", "CD", "CR", "CD", "HP", "CR", "CD"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1048, "_ATK": 524, "_DEF": 728 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "SPD": 0.25
     }
   },
   "8008": {
@@ -66,10 +70,11 @@
     "minor": ["CD", "ATK", "CD", "HP", "CD", "ATK", "CD", "HP", "ATK", "CD"],
     "skillRank": [5, 3, 5, 3, 5, 3],
     "baseStats": { "_HP": 1047, "_ATK": 543, "_DEF": 630 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 0.6,
-      "CD": 1.0,
-      "SPD": 1.4
+      "SPD": 1.00,
+      "CD": 0.75,
+      "ATK": 0.25
     }
   },
   "1402": {
@@ -80,11 +85,12 @@
     "minor": ["LIGHTNING", "CR", "LIGHTNING", "DEF", "LIGHTNING", "CR", "LIGHTNING", "DEF", "CR", "LIGHTNING"],
     "skillRank": [3, 3, 5, 5, 5, 3],
     "baseStats": { "_HP": 1242, "_ATK": 699, "_DEF": 485 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1401": {
@@ -95,11 +101,12 @@
     "minor": ["ICE", "ATK", "ICE", "SPD", "ICE", "ATK", "ICE", "SPD", "ATK", "ICE"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1164, "_ATK": 679, "_DEF": 485 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1313": {
@@ -110,9 +117,10 @@
     "minor": ["CD", "RES", "CD", "DEF", "CD", "RES", "CD", "DEF", "RES", "CD"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1241, "_ATK": 640, "_DEF": 533 },
+    "investmentLevel": 1,
     "weights": {
-      "CD": 1.0,
-      "SPD": 1.2
+      "SPD": 1.00,
+      "CD": 0.75
     }
   },
   "1225": {
@@ -123,11 +131,11 @@
     "minor": ["SPD", "BE", "SPD", "HP", "SPD", "BE", "SPD", "HP", "BE", "SPD"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1125, "_ATK": 582, "_DEF": 557 },
+    "investmentLevel": 1,
     "weights": {
-      "EHR": 1.2,
-      "SPD": 1.2,
-      "BE": 1.0,
-      "RES": 0.6
+      "EHR": 1.00,
+      "SPD": 1.00,
+      "BE": 1.00
     }
   },
   "1317": {
@@ -138,10 +146,11 @@
     "minor": ["ATK", "SPD", "ATK", "BE", "ATK", "SPD", "ATK", "BE", "SPD", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1086, "_ATK": 717, "_DEF": 460 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "SPD": 0.6,
-      "BE": 1.2
+      "BE": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.75
     }
   },
   "1223": {
@@ -151,11 +160,12 @@
     "minor": ["CD", "ATK", "CD", "HP", "CD", "ATK", "CD", "HP", "ATK", "CD"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 811, "_ATK": 599, "_DEF": 352 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.25
     }
   },
   "1222": {
@@ -166,11 +176,12 @@
     "minor": ["BE", "HP", "BE", "ATK", "BE", "HP", "BE", "ATK", "HP", "BE"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 1358, "_ATK": 679, "_DEF": 436 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "SPD": 1.2,
-      "BE": 1.2,
-      "RES": 0.6
+      "SPD": 1.00,
+      "BE": 1.00,
+      "ATK": 0.75,
+      "RES": 0.50
     }
   },
   "1220": {
@@ -181,11 +192,12 @@
     "minor": ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1047, "_ATK": 601, "_DEF": 388 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1224": {
@@ -195,11 +207,12 @@
     "minor": ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1058, "_ATK": 564, "_DEF": 441 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1221": {
@@ -210,11 +223,12 @@
     "minor": ["ATK", "HP", "ATK", "CR", "ATK", "HP", "ATK", "CR", "HP", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1358, "_ATK": 679, "_DEF": 460 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1218": {
@@ -225,10 +239,11 @@
     "minor": ["EHR", "FIRE", "EHR", "SPD", "EHR", "FIRE", "EHR", "SPD", "FIRE", "EHR"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 0.4,
-      "EHR": 1.0,
-      "SPD": 1.2
+      "EHR": 1.00,
+      "SPD": 1.00,
+      "ATK": 0.25
     }
   },
   "1314": {
@@ -239,11 +254,12 @@
     "minor": ["QUANTUM", "ATK", "QUANTUM", "RES", "QUANTUM", "ATK", "QUANTUM", "RES", "ATK", "QUANTUM"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 509 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.25
     }
   },
   "1310": {
@@ -254,10 +270,11 @@
     "minor": ["BE", "RES", "BE", "SPD", "BE", "RES", "BE", "SPD", "RES", "BE"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 814, "_ATK": 523, "_DEF": 776 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 0.6,
-      "SPD": 0.6,
-      "BE": 1.0
+      "BE": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.75
     }
   },
   "8006": {
@@ -267,9 +284,10 @@
     "minor": ["BE", "IMAGINARY", "BE", "RES", "BE", "IMAGINARY", "BE", "RES", "IMAGINARY", "BE"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1086, "_ATK": 446, "_DEF": 679 },
+    "investmentLevel": 1,
     "weights": {
-      "SPD": 0.6,
-      "BE": 1.0
+      "BE": 1.00,
+      "SPD": 0.75
     }
   },
   "1315": {
@@ -280,9 +298,10 @@
     "minor": ["BE", "ATK", "BE", "HP", "BE", "ATK", "BE", "HP", "ATK", "BE"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1203, "_ATK": 620, "_DEF": 436 },
+    "investmentLevel": 1,
     "weights": {
-      "SPD": 0.6,
-      "BE": 1.0
+      "BE": 1.00,
+      "SPD": 0.75
     }
   },
   "1309": {
@@ -293,9 +312,10 @@
     "minor": ["ATK", "HP", "ATK", "SPD", "ATK", "HP", "ATK", "SPD", "HP", "ATK"],
     "skillRank": [5, 3, 3, 5],
     "baseStats": { "_HP": 1280, "_ATK": 640, "_DEF": 485 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "SPD": 0.4
+      "ATK": 1.00,
+      "SPD": 0.50
     }
   },
   "1308": {
@@ -306,11 +326,12 @@
     "minor": ["ATK", "CD", "ATK", "LIGHTNING", "ATK", "CD", "ATK", "LIGHTNING", "CD", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1125, "_ATK": 698, "_DEF": 436 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1304": {
@@ -321,12 +342,13 @@
     "minor": ["DEF", "IMAGINARY", "DEF", "RES", "DEF", "IMAGINARY", "DEF", "RES", "IMAGINARY", "DEF"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1203, "_ATK": 446, "_DEF": 654 },
+    "investmentLevel": 2,
     "weights": {
-      "DEF": 1.2,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8,
-      "RES": 0.6
+      "DEF": 1.00,
+      "CR": 1.00,
+      "CD": 1.00,
+      "SPD": 0.50,
+      "RES": 0.50
     }
   },
   "1301": {
@@ -336,10 +358,11 @@
     "minor": ["RES", "BE", "RES", "HP", "RES", "BE", "RES", "HP", "RES", "HP"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1305, "_ATK": 529, "_DEF": 441 },
+    "investmentLevel": 1,
     "weights": {
-      "SPD": 1.2,
-      "BE": 1.0,
-      "RES": 0.6
+      "SPD": 1.00,
+      "BE": 1.00,
+      "RES": 0.50
     }
   },
   "1312": {
@@ -349,11 +372,12 @@
     "minor": ["ICE", "DEF", "ICE", "CR", "ICE", "DEF", "ICE", "CR", "DEF", "ICE"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1270, "_ATK": 599, "_DEF": 396 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1307": {
@@ -364,10 +388,11 @@
     "minor": ["ATK", "WIND", "ATK", "EHR", "ATK", "WIND", "ATK", "EHR", "WIND", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "EHR": 1.2,
-      "SPD": 1.2
+      "EHR": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.75
     }
   },
   "1306": {
@@ -378,9 +403,10 @@
     "minor": ["HP", "CD", "HP", "RES", "HP", "CD", "HP", "RES", "CD", "HP"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1397, "_ATK": 523, "_DEF": 485 },
+    "investmentLevel": 1,
     "weights": {
-      "CD": 1.0,
-      "SPD": 1.2
+      "SPD": 1.00,
+      "CD": 0.75
     }
   },
   "1305": {
@@ -391,11 +417,12 @@
     "minor": ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1047, "_ATK": 776, "_DEF": 460 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1303": {
@@ -406,9 +433,10 @@
     "minor": ["BE", "DEF", "BE", "SPD", "BE", "DEF", "BE", "SPD", "DEF", "BE"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
+    "investmentLevel": 1,
     "weights": {
-      "SPD": 1.0,
-      "BE": 1.0
+      "SPD": 1.00,
+      "BE": 1.00
     }
   },
   "1214": {
@@ -418,12 +446,13 @@
     "minor": ["BE", "HP", "BE", "QUANTUM", "BE", "HP", "BE", "QUANTUM", "HP", "BE"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1058, "_ATK": 599, "_DEF": 396 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4,
-      "BE": 1.0
+      "CR": 1.00,
+      "CD": 1.00,
+      "BE": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1302": {
@@ -434,11 +463,12 @@
     "minor": ["ATK", "PHYSICAL", "ATK", "HP", "ATK", "PHYSICAL", "ATK", "HP", "PHYSICAL", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1047, "_ATK": 737, "_DEF": 363 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1217": {
@@ -449,10 +479,11 @@
     "minor": ["HP", "RES", "HP", "SPD", "HP", "RES", "HP", "SPD", "RES", "HP"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "SPD": 1.2,
-      "RES": 0.6
+      "SPD": 1.00,
+      "HP": 0.75,
+      "RES": 0.50
     }
   },
   "1215": {
@@ -462,8 +493,9 @@
     "minor": ["ATK", "SPD", "ATK", "HP", "ATK", "SPD", "ATK", "HP", "SPD", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 917, "_ATK": 564, "_DEF": 352 },
+    "investmentLevel": 1,
     "weights": {
-      "SPD": 1.2
+      "SPD": 1.00
     }
   },
   "1212": {
@@ -474,11 +506,12 @@
     "minor": ["CD", "SPD", "CD", "HP", "CD", "SPD", "CD", "HP", "SPD", "CD"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 1435, "_ATK": 679, "_DEF": 485 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1210": {
@@ -488,10 +521,11 @@
     "minor": ["FIRE", "BE", "FIRE", "EHR", "FIRE", "BE", "FIRE", "EHR", "BE", "FIRE"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 882, "_ATK": 582, "_DEF": 441 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "EHR": 0.8,
-      "SPD": 1.2
+      "ATK": 0.75,
+      "EHR": 0.75,
+      "SPD": 0.75
     }
   },
   "1112": {
@@ -502,11 +536,12 @@
     "minor": ["FIRE", "CR", "FIRE", "HP", "FIRE", "CR", "FIRE", "HP", "CR", "FIRE"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 931, "_ATK": 620, "_DEF": 412 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1213": {
@@ -517,11 +552,12 @@
     "minor": ["IMAGINARY", "CR", "IMAGINARY", "HP", "IMAGINARY", "CR", "IMAGINARY", "HP", "CR", "IMAGINARY"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1241, "_ATK": 698, "_DEF": 363 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.25
     }
   },
   "1208": {
@@ -532,11 +568,12 @@
     "minor": ["CR", "HP", "CR", "RES", "CR", "HP", "CR", "RES", "HP", "CR"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1474, "_ATK": 465, "_DEF": 606 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "DEF": 0.4,
-      "SPD": 1.2,
-      "RES": 0.6
+      "SPD": 1.00,
+      "HP": 0.75,
+      "DEF": 0.50,
+      "RES": 0.50
     }
   },
   "1110": {
@@ -546,10 +583,11 @@
     "minor": ["HP", "DEF", "HP", "RES", "HP", "DEF", "HP", "RES", "DEF", "HP"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1058, "_ATK": 493, "_DEF": 551 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "SPD": 1.2,
-      "RES": 0.6
+      "SPD": 1.00,
+      "HP": 0.75,
+      "RES": 0.50
     }
   },
   "1205": {
@@ -560,12 +598,13 @@
     "minor": ["HP", "CR", "HP", "RES", "HP", "CR", "HP", "RES", "CR", "HP"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 1358, "_ATK": 543, "_DEF": 485 },
+    "investmentLevel": 2,
     "weights": {
-      "HP": 0.8,
-      "ATK": 0.2,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "SPD": 0.50,
+      "ATK": 0.25
     }
   },
   "1111": {
@@ -575,11 +614,12 @@
     "minor": ["ATK", "EHR", "ATK", "DEF", "ATK", "EHR", "ATK", "DEF", "EHR", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 917, "_ATK": 582, "_DEF": 485 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 0.8,
-      "EHR": 1.0,
-      "SPD": 1.2,
-      "BE": 0.8
+      "BE": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.75,
+      "EHR": 0.50
     }
   },
   "1005": {
@@ -590,10 +630,11 @@
     "minor": ["ATK", "EHR", "ATK", "HP", "ATK", "EHR", "ATK", "HP", "EHR", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1086, "_ATK": 679, "_DEF": 485 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "EHR": 0.8,
-      "SPD": 1.2
+      "ATK": 0.75,
+      "SPD": 0.75,
+      "EHR": 0.25
     }
   },
   "1207": {
@@ -603,8 +644,9 @@
     "minor": ["IMAGINARY", "HP", "IMAGINARY", "ATK", "IMAGINARY", "HP", "IMAGINARY", "ATK", "HP", "IMAGINARY"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 917, "_ATK": 599, "_DEF": 374 },
+    "investmentLevel": 1,
     "weights": {
-      "SPD": 1.2
+      "SPD": 1.00
     }
   },
   "1203": {
@@ -615,10 +657,11 @@
     "minor": ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1280, "_ATK": 756, "_DEF": 363 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "SPD": 1.2,
-      "RES": 0.6
+      "SPD": 1.00,
+      "ATK": 0.75,
+      "RES": 0.50
     }
   },
   "1006": {
@@ -629,9 +672,10 @@
     "minor": ["ATK", "EHR", "ATK", "QUANTUM", "ATK", "EHR", "ATK", "QUANTUM", "EHR", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1047, "_ATK": 640, "_DEF": 460 },
+    "investmentLevel": 1,
     "weights": {
-      "EHR": 1.0,
-      "SPD": 1.2
+      "SPD": 1.00,
+      "EHR": 0.75
     }
   },
   "8004": {
@@ -641,10 +685,11 @@
     "minor": ["DEF", "ATK", "DEF", "HP", "DEF", "ATK", "DEF", "HP", "ATK", "DEF"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1241, "_ATK": 601, "_DEF": 606 },
+    "investmentLevel": 1,
     "weights": {
-      "DEF": 1.0,
-      "SPD": 1.2,
-      "RES": 0.6
+      "SPD": 1.00,
+      "DEF": 0.75,
+      "RES": 0.50
     }
   },
   "8002": {
@@ -654,11 +699,12 @@
     "minor": ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1203, "_ATK": 620, "_DEF": 460 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1211": {
@@ -669,10 +715,11 @@
     "minor": ["HP", "DEF", "HP", "RES", "HP", "DEF", "HP", "RES", "DEF", "HP"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1319, "_ATK": 562, "_DEF": 485 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "SPD": 1.2,
-      "RES": 0.6
+      "SPD": 1.00,
+      "HP": 0.75,
+      "RES": 0.50
     }
   },
   "1209": {
@@ -683,11 +730,12 @@
     "minor": ["ATK", "ICE", "ATK", "HP", "ATK", "ICE", "ATK", "HP", "ICE", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 892, "_ATK": 679, "_DEF": 412 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.6
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1206": {
@@ -697,11 +745,12 @@
     "minor": ["ATK", "HP", "ATK", "DEF", "ATK", "HP", "ATK", "DEF", "HP", "ATK"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 917, "_ATK": 564, "_DEF": 418 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1204": {
@@ -712,11 +761,12 @@
     "minor": ["ATK", "CR", "ATK", "DEF", "ATK", "CR", "ATK", "DEF", "CR", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1164, "_ATK": 698, "_DEF": 485 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.25
     }
   },
   "1202": {
@@ -726,9 +776,10 @@
     "minor": ["ATK", "DEF", "ATK", "LIGHTNING", "ATK", "DEF", "ATK", "LIGHTNING", "DEF", "ATK"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 846, "_ATK": 529, "_DEF": 396 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "SPD": 1.2
+      "SPD": 1.00,
+      "ATK": 0.75
     }
   },
   "1201": {
@@ -738,11 +789,12 @@
     "minor": ["ATK", "QUANTUM", "ATK", "DEF", "ATK", "QUANTUM", "ATK", "DEF", "QUANTUM", "ATK"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 1023, "_ATK": 652, "_DEF": 441 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.25
     }
   },
   "1109": {
@@ -752,11 +804,12 @@
     "minor": ["ATK", "HP", "ATK", "CD", "ATK", "HP", "ATK", "CD", "HP", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1340, "_ATK": 617, "_DEF": 352 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1108": {
@@ -766,10 +819,11 @@
     "minor": ["ATK", "EHR", "ATK", "RES", "ATK", "EHR", "ATK", "RES", "EHR", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1023, "_ATK": 617, "_DEF": 396 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "EHR": 0.8,
-      "SPD": 1.2
+      "ATK": 0.75,
+      "EHR": 0.75,
+      "SPD": 0.75
     }
   },
   "1107": {
@@ -780,11 +834,12 @@
     "minor": ["ATK", "PHYSICAL", "ATK", "HP", "ATK", "PHYSICAL", "ATK", "HP", "PHYSICAL", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1241, "_ATK": 737, "_DEF": 485 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.25
     }
   },
   "1106": {
@@ -794,9 +849,10 @@
     "minor": ["ICE", "ATK", "ICE", "EHR", "ICE", "ATK", "ICE", "EHR", "ATK", "ICE"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 987, "_ATK": 546, "_DEF": 463 },
+    "investmentLevel": 1,
     "weights": {
-      "EHR": 1.0,
-      "SPD": 1.2
+      "SPD": 1.00,
+      "EHR": 0.75
     }
   },
   "1105": {
@@ -806,10 +862,11 @@
     "minor": ["HP", "RES", "HP", "DEF", "HP", "RES", "HP", "DEF", "RES", "HP"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1164, "_ATK": 476, "_DEF": 507 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "SPD": 1.2,
-      "RES": 0.6
+      "SPD": 1.00,
+      "HP": 0.75,
+      "RES": 0.50
     }
   },
   "1104": {
@@ -820,11 +877,12 @@
     "minor": ["ICE", "RES", "ICE", "DEF", "ICE", "RES", "ICE", "DEF", "RES", "ICE"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 1397, "_ATK": 543, "_DEF": 654 },
+    "investmentLevel": 1,
     "weights": {
-      "DEF": 1.0,
-      "EHR": 0.6,
-      "SPD": 1.4,
-      "RES": 0.6
+      "SPD": 1.00,
+      "DEF": 0.75,
+      "RES": 0.50,
+      "EHR": 0.25
     }
   },
   "1103": {
@@ -834,12 +892,13 @@
     "minor": ["CR", "EHR", "CR", "RES", "CR", "EHR", "CR", "RES", "EHR", "CR"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 917, "_ATK": 652, "_DEF": 374 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "EHR": 0.4,
-      "SPD": 0.6
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50,
+      "EHR": 0.25
     }
   },
   "1102": {
@@ -850,11 +909,12 @@
     "minor": ["ATK", "CD", "ATK", "DEF", "ATK", "CD", "ATK", "DEF", "CD", "ATK"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 931, "_ATK": 640, "_DEF": 363 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1101": {
@@ -865,9 +925,10 @@
     "minor": ["WIND", "CD", "WIND", "RES", "WIND", "CD", "WIND", "RES", "CD", "WIND"],
     "skillRank": [5, 5, 3, 3],
     "baseStats": { "_HP": 1241, "_ATK": 582, "_DEF": 533 },
+    "investmentLevel": 1,
     "weights": {
-      "CD": 1.0,
-      "SPD": 1.4
+      "SPD": 1.00,
+      "CD": 0.75
     }
   },
   "1013": {
@@ -877,11 +938,12 @@
     "minor": ["ICE", "DEF", "ICE", "CR", "ICE", "DEF", "ICE", "CR", "DEF", "ICE"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 952, "_ATK": 582, "_DEF": 396 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1009": {
@@ -891,9 +953,9 @@
     "minor": ["FIRE", "DEF", "FIRE", "CR", "FIRE", "DEF", "FIRE", "CR", "DEF", "FIRE"],
     "skillRank": [5, 3, 5, 3],
     "baseStats": { "_HP": 1023, "_ATK": 511, "_DEF": 463 },
+    "investmentLevel": 1,
     "weights": {
-      "EHR": 0.2,
-      "SPD": 1.4
+      "SPD": 1.00
     }
   },
   "1008": {
@@ -903,11 +965,12 @@
     "minor": ["ATK", "RES", "ATK", "HP", "ATK", "RES", "ATK", "HP", "RES", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1199, "_ATK": 599, "_DEF": 330 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1004": {
@@ -918,12 +981,13 @@
     "minor": ["ATK", "IMAGINARY", "ATK", "RES", "ATK", "IMAGINARY", "ATK", "RES", "IMAGINARY", "ATK"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1125, "_ATK": 620, "_DEF": 509 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "EHR": 0.6,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50,
+      "EHR": 0.25
     }
   },
   "1003": {
@@ -934,12 +998,12 @@
     "minor": ["FIRE", "ATK", "FIRE", "RES", "FIRE", "ATK", "FIRE", "RES", "ATK", "FIRE"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 1047, "_ATK": 756, "_DEF": 436 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "EHR": 0.2,
-      "SPD": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1002": {
@@ -949,11 +1013,12 @@
     "minor": ["WIND", "ATK", "WIND", "DEF", "WIND", "ATK", "WIND", "DEF", "ATK", "WIND"],
     "skillRank": [3, 3, 5, 5],
     "baseStats": { "_HP": 882, "_ATK": 546, "_DEF": 396 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "SPD": 0.6
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
     }
   },
   "1001": {
@@ -963,11 +1028,12 @@
     "minor": ["ICE", "DEF", "ICE", "RES", "ICE", "RES", "DEF", "ICE", "ICE", "DEF"],
     "skillRank": [3, 5, 3, 5],
     "baseStats": { "_HP": 1058, "_ATK": 511, "_DEF": 573 },
+    "investmentLevel": 1,
     "weights": {
-      "DEF": 1.0,
-      "EHR": 1.0,
-      "SPD": 1.4,
-      "RES": 0.6
+      "SPD": 1.00,
+      "DEF": 0.75,
+      "EHR": 0.50,
+      "RES": 0.50
     }
   }
 }

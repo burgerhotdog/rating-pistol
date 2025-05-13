@@ -5,10 +5,11 @@
     "type": "Anomaly",
     "sig": "14133",
     "baseStats": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "AP": 1.6,
-      "PEN": 0.4
+      "AP": 1.25,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1291": {
@@ -17,11 +18,12 @@
     "type": "Attack",
     "sig": "14129",
     "baseStats": { "_HP": 7940, "_ATK": 919, "_DEF": 616 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1381": {
@@ -30,11 +32,12 @@
     "type": "Attack",
     "sig": "14138",
     "baseStats": { "_HP": 7673, "_ATK": 929, "_DEF": 612 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1361": {
@@ -43,11 +46,12 @@
     "type": "Stun",
     "sig": "14136",
     "baseStats": { "_HP": 7923, "_ATK": 750, "_DEF": 600 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1351": {
@@ -56,11 +60,12 @@
     "type": "Stun",
     "sig": "13135",
     "baseStats": { "_HP": 7612, "_ATK": 665, "_DEF": 606 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1321": {
@@ -69,11 +74,12 @@
     "type": "Attack",
     "sig": "14132",
     "baseStats": { "_HP": 7788, "_ATK": 929, "_DEF": 612 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1311": {
@@ -82,6 +88,7 @@
     "type": "Support",
     "sig": "14131",
     "baseStats": { "_HP": 8609, "_ATK": 715, "_DEF": 600 },
+    "investmentLevel": 1,
     "weights": {
       "ATK": 1.0
     }
@@ -92,11 +99,12 @@
     "type": "Attack",
     "sig": "14120",
     "baseStats": { "_HP": 7405, "_ATK": 915, "_DEF": 600 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1091": {
@@ -105,12 +113,13 @@
     "type": "Anomaly",
     "sig": "14109",
     "baseStats": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.2,
-      "CD": 1.2,
-      "AP": 0.2,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "AP": 0.50,
+      "PEN": 0.25
     }
   },
   "1221": {
@@ -119,10 +128,11 @@
     "type": "Anomaly",
     "sig": "14122",
     "baseStats": { "_HP": 7789, "_ATK": 873, "_DEF": 613 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "AP": 1.6,
-      "PEN": 0.4
+      "AP": 1.25,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1161": {
@@ -131,11 +141,12 @@
     "type": "Stun",
     "sig": "14116",
     "baseStats": { "_HP": 8253, "_ATK": 797, "_DEF": 612 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1171": {
@@ -144,10 +155,11 @@
     "type": "Anomaly",
     "sig": "14117",
     "baseStats": { "_HP": 7368, "_ATK": 863, "_DEF": 601 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "AP": 1.2,
-      "PEN": 0.4
+      "AP": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1071": {
@@ -156,13 +168,7 @@
     "type": "Defense",
     "sig": "14107",
     "baseStats": { "_HP": 9526, "_ATK": 712, "_DEF": 754 },
-    "weights": {
-      "ATK": 1.0,
-      "CR": 0.8,
-      "CD": 0.8,
-      "AP": 0.8,
-      "PEN": 0.4
-    }
+    "investmentLevel": 0
   },
   "1271": {
     "name": "Seth",
@@ -170,10 +176,9 @@
     "type": "Defense",
     "sig": "13127",
     "baseStats": { "_HP": 8701, "_ATK": 643, "_DEF": 746 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "AP": 0.8,
-      "PEN": 0.4
+      "ATK": 1.00
     }
   },
   "1261": {
@@ -182,10 +187,11 @@
     "type": "Anomaly",
     "sig": "14126",
     "baseStats": { "_HP": 7789, "_ATK": 881, "_DEF": 607 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "AP": 1.4,
-      "PEN": 0.4
+      "AP": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1251": {
@@ -194,11 +200,12 @@
     "type": "Stun",
     "sig": "14125",
     "baseStats": { "_HP": 8251, "_ATK": 758, "_DEF": 613 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1281": {
@@ -207,10 +214,11 @@
     "type": "Anomaly",
     "sig": "13128",
     "baseStats": { "_HP": 6977, "_ATK": 758, "_DEF": 613 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "AP": 1.4,
-      "PEN": 0.4
+      "AP": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1241": {
@@ -219,11 +227,12 @@
     "type": "Attack",
     "sig": "14124",
     "baseStats": { "_HP": 7483, "_ATK": 919, "_DEF": 601 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1211": {
@@ -232,11 +241,7 @@
     "type": "Support",
     "sig": "14121",
     "baseStats": { "_HP": 8609, "_ATK": 717, "_DEF": 601 },
-    "weights": {
-      "ATK": 1.0,
-      "AP": 1.2,
-      "PEN": 0.4
-    }
+    "investmentLevel": 0
   },
   "1191": {
     "name": "Ellen",
@@ -244,11 +249,12 @@
     "type": "Attack",
     "sig": "14119",
     "baseStats": { "_HP": 7674, "_ATK": 938, "_DEF": 607 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1181": {
@@ -257,10 +263,11 @@
     "type": "Anomaly",
     "sig": "14118",
     "baseStats": { "_HP": 7483, "_ATK": 826, "_DEF": 601 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "AP": 1.4,
-      "PEN": 0.4
+      "AP": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1151": {
@@ -269,11 +276,12 @@
     "type": "Support",
     "sig": "13115",
     "baseStats": { "_HP": 8026, "_ATK": 659, "_DEF": 613 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.2,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1141": {
@@ -282,11 +290,12 @@
     "type": "Stun",
     "sig": "14114",
     "baseStats": { "_HP": 8416, "_ATK": 729, "_DEF": 607 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1131": {
@@ -295,11 +304,9 @@
     "type": "Support",
     "sig": "13113",
     "baseStats": { "_HP": 8026, "_ATK": 666, "_DEF": 598 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.2,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "ATK": 1.00
     }
   },
   "1121": {
@@ -308,11 +315,9 @@
     "type": "Defense",
     "sig": "13112",
     "baseStats": { "_HP": 8578, "_ATK": 653, "_DEF": 724 },
+    "investmentLevel": 1,
     "weights": {
-      "DEF": 1.2,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "DEF": 1.00
     }
   },
   "1111": {
@@ -321,11 +326,12 @@
     "type": "Attack",
     "sig": "13111",
     "baseStats": { "_HP": 7219, "_ATK": 792, "_DEF": 623 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1101": {
@@ -334,11 +340,12 @@
     "type": "Stun",
     "sig": "14110",
     "baseStats": { "_HP": 8127, "_ATK": 736, "_DEF": 595 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1081": {
@@ -347,11 +354,12 @@
     "type": "Attack",
     "sig": "13108",
     "baseStats": { "_HP": 6907, "_ATK": 787, "_DEF": 607 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1061": {
@@ -360,11 +368,12 @@
     "type": "Attack",
     "sig": "13106",
     "baseStats": { "_HP": 6977, "_ATK": 807, "_DEF": 605 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1041": {
@@ -373,11 +382,12 @@
     "type": "Attack",
     "sig": "14104",
     "baseStats": { "_HP": 7674, "_ATK": 889, "_DEF": 613 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1031": {
@@ -386,11 +396,7 @@
     "type": "Support",
     "sig": "13103",
     "baseStats": { "_HP": 8146, "_ATK": 649, "_DEF": 623 },
-    "weights": {
-      "ATK": 1.0,
-      "AP": 1.2,
-      "PEN": 0.4
-    }
+    "investmentLevel": 0
   },
   "1021": {
     "name": "Nekomata",
@@ -398,11 +404,12 @@
     "type": "Attack",
     "sig": "14102",
     "baseStats": { "_HP": 7560, "_ATK": 911, "_DEF": 588 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.4,
-      "CD": 1.4,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   },
   "1011": {
@@ -411,11 +418,12 @@
     "type": "Stun",
     "sig": "13101",
     "baseStats": { "_HP": 7501, "_ATK": 659, "_DEF": 613 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.2,
-      "CD": 1.2,
-      "PEN": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
     }
   }
 }

@@ -4,8 +4,8 @@ import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
 import { ICON_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
 
-// Announcements
-const DATE = "2025.05.10";
+// Updates
+const DATE = "May 11, 2025";
 const TITLE = "Genshin Impact Version 5.6";
 const UPDATES = [
   "New Characters: Escoffier, Ifa",
@@ -53,7 +53,7 @@ const Menu = () => (
       <Typography
         variant="h1"
         fontWeight="bold"
-        sx={{ fontSize: { xs: "4rem", md: "6rem" } }}
+        sx={{ fontSize: { xs: "3rem", md: "6rem" } }}
       >
         Rating Pistol
       </Typography>
@@ -61,7 +61,7 @@ const Menu = () => (
         component="img"
         alt="icon"
         src={ICON_ASSETS.default}
-        sx={{ width: { xs: 80, md: 120 }, height: "auto" }}
+        sx={{ width: { xs: 60, md: 120 }, height: "auto" }}
       />
     </Stack>
 
@@ -95,7 +95,7 @@ const Menu = () => (
 
     <Box>
       <Typography variant="h5" fontWeight="bold" gutterBottom>
-        Announcements - {DATE}
+        Updates: {DATE}
       </Typography>
       <Typography variant="subtitle1">
         {TITLE}

@@ -6,14 +6,13 @@
     "sig": "21040036",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.3,
-      "HA": 0.7,
-      "RS": 0.1,
-      "RL": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "HA": 0.50,
+      "ER": 0.25
     }
   },
   "1407": {
@@ -23,15 +22,12 @@
     "sig": "21030026",
     "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     "baseStats": { "_HP": 12238, "_ATK": 375, "_DEF": 1198 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.6,
-      "BA": 0.2,
-      "HA": 0.2,
-      "RS": 0.2,
-      "RL": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
     }
   },
   "1607": {
@@ -41,13 +37,13 @@
     "sig": "21050056",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 11600, "_ATK": 400, "_DEF": 1100 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.7,
-      "BA": 0.7,
-      "RS": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75,
+      "BA": 0.50
     }
   },
   "1408": {
@@ -57,13 +53,12 @@
     "sig": "21020046",
     "minor": ["ATK", "ATK", "HB", "HB", "ATK", "ATK", "HB", "HB"],
     "baseStats": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "BA": 0.1,
-      "RS": 0.7,
-      "RL": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "RS": 0.50
     }
   },
   "1506": {
@@ -73,14 +68,13 @@
     "sig": "21050046",
     "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     "baseStats": { "_HP": 10825, "_ATK": 413, "_DEF": 1259 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.2,
-      "BA": 0.1,
-      "HA": 0.4,
-      "RL": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.25,
+      "HA": 0.25
     }
   },
   "1206": {
@@ -90,13 +84,13 @@
     "sig": "21020036",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 11675, "_ATK": 375, "_DEF": 1308 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 0.8,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 1.2,
-      "BA": 0.7,
-      "RL": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ER": 0.75,
+      "ATK": 0.50,
+      "BA": 0.50
     }
   },
   "1606": {
@@ -106,14 +100,13 @@
     "sig": "21040026",
     "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     "baseStats": { "_HP": 12250, "_ATK": 375, "_DEF": 1198 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.4,
-      "BA": 0.1,
-      "HA": 0.6,
-      "RS": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "HA": 0.50,
+      "ER": 0.25
     }
   },
   "1107": {
@@ -123,12 +116,13 @@
     "sig": "21030016",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 12450, "_ATK": 463, "_DEF": 1198 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.3,
-      "RS": 0.8
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "RS": 0.75,
+      "ER": 0.25
     }
   },
   "1603": {
@@ -138,13 +132,13 @@
     "sig": "21020026",
     "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     "baseStats": { "_HP": 10325, "_ATK": 450, "_DEF": 1161 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.3,
-      "BA": 0.7,
-      "RL": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "BA": 0.50,
+      "ER": 0.25
     }
   },
   "1504": {
@@ -153,14 +147,15 @@
     "type": "Broadblade",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 8500, "_ATK": 338, "_DEF": 880 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.9,
-      "BA": 0.4,
-      "RS": 0.3,
-      "RL": 0.3
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.75,
+      "BA": 0.25,
+      "RS": 0.25,
+      "RL": 0.25
     }
   },
   "1505": {
@@ -170,11 +165,12 @@
     "sig": "21050036",
     "minor": ["HP", "HP", "HB", "HB", "HP", "HP", "HB", "HB"],
     "baseStats": { "_HP": 16713, "_ATK": 288, "_DEF": 1100 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "CD": 1.0,
-      "ER": 1.6,
-      "RL": 0.8
+      "ER": 1.25,
+      "HP": 0.75,
+      "CD": 0.50,
+      "RL": 0.25
     }
   },
   "1106": {
@@ -183,9 +179,10 @@
     "type": "Gauntlets",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 9975, "_ATK": 263, "_DEF": 1051 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.0
+      "ER": 1.00,
+      "ATK": 0.75
     }
   },
   "1305": {
@@ -195,14 +192,14 @@
     "sig": "21040016",
     "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     "baseStats": { "_HP": 10625, "_ATK": 425, "_DEF": 1222 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.4,
-      "BA": 0.1,
-      "RS": 0.2,
-      "RL": 0.6
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "RL": 0.50,
+      "RS": 0.25
     }
   },
   "1105": {
@@ -212,14 +209,13 @@
     "sig": "21050026",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 12250, "_ATK": 375, "_DEF": 1198 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.4,
-      "BA": 0.8,
-      "HA": 0.1,
-      "RS": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "BA": 0.75,
+      "ER": 0.50
     }
   },
   "1304": {
@@ -229,13 +225,13 @@
     "sig": "21010026",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 10825, "_ATK": 413, "_DEF": 1259 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.3,
-      "RS": 0.8,
-      "RL": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "RS": 0.75,
+      "ER": 0.25
     }
   },
   "1205": {
@@ -245,13 +241,13 @@
     "sig": "21020016",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 10388, "_ATK": 463, "_DEF": 1100 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.3,
-      "RS": 0.6,
-      "RL": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "RS": 0.50,
+      "ER": 0.25
     }
   },
   "1604": {
@@ -260,14 +256,14 @@
     "type": "Sword",
     "minor": ["ATK", "ATK", "HAVOC", "HAVOC", "ATK", "ATK", "HAVOC", "HAVOC"],
     "baseStats": { "_HP": 10825, "_ATK": 413, "_DEF": 1259 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.2,
-      "BA": 0.3,
-      "RS": 0.2,
-      "RL": 0.3
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.25,
+      "BA": 0.25,
+      "RL": 0.25
     }
   },
   "1602": {
@@ -276,13 +272,13 @@
     "type": "Sword",
     "minor": ["ATK", "ATK", "HAVOC", "HAVOC", "ATK", "ATK", "HAVOC", "HAVOC"],
     "baseStats": { "_HP": 9438, "_ATK": 263, "_DEF": 1149 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "HA": 0.2,
-      "RS": 0.3,
-      "RL": 0.3
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "RS": 0.25,
+      "RL": 0.25
     }
   },
   "1601": {
@@ -291,14 +287,14 @@
     "type": "Broadblade",
     "minor": ["DEF", "DEF", "HAVOC", "HAVOC", "DEF", "DEF", "HAVOC", "HAVOC"],
     "baseStats": { "_HP": 8950, "_ATK": 225, "_DEF": 1564 },
+    "investmentLevel": 2,
     "weights": {
-      "DEF": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.8,
-      "BA": 0.4,
-      "RS": 0.1,
-      "RL": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "DEF": 0.75,
+      "ER": 0.50,
+      "BA": 0.25,
+      "RL": 0.25
     }
   },
   "1503": {
@@ -307,9 +303,10 @@
     "type": "Rectifier",
     "minor": ["ATK", "ATK", "HB", "HB", "ATK", "ATK", "HB", "HB"],
     "baseStats": { "_HP": 14238, "_ATK": 338, "_DEF": 1100 },
+    "investmentLevel": 1,
     "weights": {
-      "ATK": 1.0,
-      "ER": 1.6
+      "ER": 1.00,
+      "ATK": 0.75
     }
   },
   "1502": {
@@ -318,13 +315,13 @@
     "type": "Sword",
     "minor": ["ATK", "ATK", "SPECTRO", "SPECTRO", "ATK", "ATK", "SPECTRO", "SPECTRO"],
     "baseStats": { "_HP": 11400, "_ATK": 375, "_DEF": 1369 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "HA": 0.1,
-      "RS": 0.3,
-      "RL": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "RS": 0.25,
+      "RL": 0.25
     }
   },
   "1405": {
@@ -333,15 +330,14 @@
     "type": "Gauntlets",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 14113, "_ATK": 338, "_DEF": 1124 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.6,
-      "BA": 0.3,
-      "HA": 0.1,
-      "RS": 0.1,
-      "RL": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "BA": 0.25,
+      "RL": 0.25
     }
   },
   "1404": {
@@ -351,13 +347,13 @@
     "sig": "21010016",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 10488, "_ATK": 438, "_DEF": 1185 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.5,
-      "HA": 0.7,
-      "RS": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "HA": 0.50
     }
   },
   "1403": {
@@ -366,14 +362,14 @@
     "type": "Pistols",
     "minor": ["ATK", "ATK", "AERO", "AERO", "ATK", "ATK", "AERO", "AERO"],
     "baseStats": { "_HP": 9850, "_ATK": 263, "_DEF": 1075 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.6,
-      "BA": 0.4,
-      "RS": 0.3,
-      "RL": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "BA": 0.25,
+      "RS": 0.25
     }
   },
   "1402": {
@@ -382,13 +378,13 @@
     "type": "Sword",
     "minor": ["ATK", "ATK", "AERO", "AERO", "ATK", "ATK", "AERO", "AERO"],
     "baseStats": { "_HP": 10200, "_ATK": 250, "_DEF": 1100 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "BA": 0.3,
-      "RS": 0.1,
-      "RL": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "BA": 0.25,
+      "RL": 0.25
     }
   },
   "1303": {
@@ -397,13 +393,14 @@
     "type": "Gauntlets",
     "minor": ["DEF", "DEF", "ELECTRO", "ELECTRO", "DEF", "DEF", "ELECTRO", "ELECTRO"],
     "baseStats": { "_HP": 8525, "_ATK": 225, "_DEF": 1637 },
+    "investmentLevel": 2,
     "weights": {
-      "DEF": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.5,
-      "RS": 0.5,
-      "RL": 0.4
+      "CR": 1.00,
+      "CD": 1.00,
+      "DEF": 0.75,
+      "ER": 0.50,
+      "RS": 0.25,
+      "RL": 0.25
     }
   },
   "1302": {
@@ -413,15 +410,13 @@
     "sig": "21050016",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
     "baseStats": { "_HP": 11000, "_ATK": 400, "_DEF": 1283 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.4,
-      "BA": 0.1,
-      "HA": 0.1,
-      "RS": 0.5,
-      "RL": 0.2
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "RS": 0.50
     }
   },
   "1301": {
@@ -431,13 +426,14 @@
     "sig": "21010015",
     "minor": ["ATK", "ATK", "CD", "CD", "ATK", "ATK", "CD", "CD"],
     "baseStats": { "_HP": 10500, "_ATK": 438, "_DEF": 1185 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.6,
-      "BA": 0.3,
-      "RL": 0.5
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "RL": 0.50,
+      "BA": 0.25
     }
   },
   "1204": {
@@ -446,14 +442,13 @@
     "type": "Pistols",
     "minor": ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
     "baseStats": { "_HP": 10025, "_ATK": 250, "_DEF": 1136 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.3,
-      "BA": 0.1,
-      "RS": 0.2,
-      "RL": 0.7
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "RL": 0.50,
+      "ER": 0.25
     }
   },
   "1203": {
@@ -463,14 +458,13 @@
     "sig": "21050015",
     "minor": ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
     "baseStats": { "_HP": 10513, "_ATK": 425, "_DEF": 1246 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.3,
-      "BA": 0.5,
-      "RS": 0.2,
-      "RL": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "BA": 0.25
     }
   },
   "1202": {
@@ -479,13 +473,14 @@
     "type": "Pistols",
     "minor": ["ATK", "ATK", "FUSION", "FUSION", "ATK", "ATK", "FUSION", "FUSION"],
     "baseStats": { "_HP": 9088, "_ATK": 300, "_DEF": 953 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.6,
-      "RS": 0.5,
-      "RL": 0.3
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "RS": 0.25,
+      "RL": 0.25
     }
   },
   "1104": {
@@ -495,14 +490,14 @@
     "sig": "21040015",
     "minor": ["ATK", "ATK", "GLACIO", "GLACIO", "ATK", "ATK", "GLACIO", "GLACIO"],
     "baseStats": { "_HP": 10388, "_ATK": 438, "_DEF": 1210 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "ER": 0.3,
-      "BA": 0.4,
-      "RS": 0.3,
-      "RL": 0.1
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50,
+      "BA": 0.25,
+      "RS": 0.25
     }
   },
   "1103": {
@@ -511,9 +506,10 @@
     "type": "Rectifier",
     "minor": ["HP", "HP", "HB", "HB", "HP", "HP", "HB", "HB"],
     "baseStats": { "_HP": 12813, "_ATK": 213, "_DEF": 1002 },
+    "investmentLevel": 1,
     "weights": {
-      "HP": 1.0,
-      "ER": 1.6
+      "ER": 1.00,
+      "HP": 0.75
     }
   },
   "1102": {
@@ -522,13 +518,14 @@
     "type": "Sword",
     "minor": ["ATK", "ATK", "GLACIO", "GLACIO", "ATK", "ATK", "GLACIO", "GLACIO"],
     "baseStats": { "_HP": 10063, "_ATK": 275, "_DEF": 941 },
+    "investmentLevel": 2,
     "weights": {
-      "ATK": 1.0,
-      "CR": 1.6,
-      "CD": 1.6,
-      "HA": 0.3,
-      "RS": 0.3,
-      "RL": 0.3
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "HA": 0.25,
+      "RS": 0.25,
+      "RL": 0.25
     }
   }
 }
