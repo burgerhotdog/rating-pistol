@@ -1,13 +1,46 @@
-import { Paper, Box, Typography, Divider, Stack, Tooltip, IconButton } from "@mui/material";
+import { Paper, Box, Typography, Divider, Stack, Tooltip, IconButton, Avatar } from "@mui/material";
 import { HelpOutline } from "@mui/icons-material";
+import { AVATAR_ASSETS, RATING_ASSETS } from "@assets";
 import { AVATAR_DATA, LABEL_DATA } from "@data";
+const RATING_RANK = ["Excellent", "Great", "Good", "Poor"];
+const recommendation = [
+  "Further investment is unlikely to yield noticeable improvements.",
+  "While minor upgrades are possible, your resources may be better allocated elsewhere.",
+  "Additional investment may lead to improved performance and consistency.",
+  "Significant investment is recommended to improve this character's effectiveness.",
+];
 
 const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
   const { percentile, score, mean, sd, bounds, q3 } = ratingData;
+  const ratingRank = !isFullBuild ? null :
+    score >= bounds[0] ? 0 :
+    score >= bounds[1] ? 1 :
+    score >= bounds[2] ? 2 : 3;
 
   return (
     <Paper sx={{ padding: 3, width: 300 }}>
       <Box>
+        {isFullBuild && (
+          <>
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Typography variant="h6" sx={{ color: "primary.main" }}>
+                Rating:
+              </Typography>
+              <Avatar
+                alt={RATING_RANK[ratingRank]}
+                src={RATING_ASSETS[ratingRank]}
+                sx={{ width: 24, height: 24 }}
+              />
+              <Typography variant="h6">
+                {RATING_RANK[ratingRank]}
+              </Typography>
+            </Stack>
+            <Typography variant="body2">
+              <Avatar src={AVATAR_ASSETS[gameId][avatarId].icon} sx={{ width: 16, height: 16, verticalAlign: "text-bottom", display: "inline-block" }} /> {AVATAR_DATA[gameId][avatarId].name} has a roll value of {score.toFixed()}%, which is {ratingRank === 2 ? "slightly " : ratingRank === 0 ? "significantly " : ""}{score > mean ? "above" : "below"} average. {recommendation[ratingRank]}
+            </Typography>
+            <Divider sx={{ my: 2 }} />
+          </>
+        )}
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="h6" sx={{ color: "primary.main" }}>
             Simulation Results:
@@ -29,24 +62,20 @@ const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
               Thresholds:
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              Excellent: {bounds[0].toFixed()}%
+              Excellent (+2 SD): {bounds[0].toFixed()}%
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              Great: {bounds[1].toFixed()}%
+              Great (+1 SD): {bounds[1].toFixed()}%
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              Good: {bounds[2].toFixed()}%
+              Good (±1 SD): {bounds[2].toFixed()}%
             </Typography>
           </>
         ) : (
           <Typography variant="body2" sx={{ color: "text.secondary" }}>
-            Q3 Cutoff: {q3.toFixed()}%
+            Q3: {q3.toFixed()}%
           </Typography>
         )}
-        <Divider sx={{ my: 2 }} />
-        <Typography variant="h6" sx={{ color: "primary.main" }}>
-          Summary
-        </Typography>
       </Box>
     </Paper>
   );
