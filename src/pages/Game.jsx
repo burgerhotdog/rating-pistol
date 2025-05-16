@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { collection, getDocs, doc, setDoc, writeBatch } from "firebase/firestore";
 import { db } from "@config/firebase";
-import { Container, Stack, Button, Typography, Box, Tabs, Tab } from "@mui/material";
+import { Container, Stack, Button, Typography, Box, Tabs, Tab, Paper } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
 import { VERSION_DATA, INFO_DATA, LABEL_DATA } from "@data";
 import { getRating } from "@utils";
@@ -124,80 +124,76 @@ const Game = ({ gameId, userId }) => {
   const handleLoad = () => setModalPipe({ type: "load", id: null, data: null });
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" sx={{ py: 4 }}>
       <Back />
-      <Box sx={{ py: 4 }}>
-        <Typography
-          variant="h3"
-          textAlign="center"
-          fontWeight="bold"
-        >
-          {INFO_DATA[gameId].TITLE}
-        </Typography>
+      <Paper sx={{ p: 4, borderRadius: 2 }}>
+        <Stack spacing={3}>
+          <Box textAlign="center">
+            <Typography variant="h3" fontWeight="bold">
+              {INFO_DATA[gameId].TITLE}
+            </Typography>
 
-        <Typography
-          variant="subtitle1"
-          textAlign="center"
-          color="text.secondary"
-          gutterBottom
-        >
-          Updated for Version {VERSION_DATA[gameId]}
-        </Typography>
+            <Typography variant="subtitle1" color="text.secondary">
+              Updated for Version {VERSION_DATA[gameId]}
+            </Typography>
+          </Box>
 
-        <Tabs
-          value={activeTab}
-          onChange={(_, newValue) => setActiveTab(newValue)}
-          variant="fullWidth"
-          centered
-          sx={{ borderBottom: 1, borderColor: "divider" }}
-        >
-          <Tab label={LABEL_DATA[gameId].Avatars} />
-          <Tab label="Teams (Coming Soon)" disabled />
-        </Tabs>
+          <Tabs
+            value={activeTab}
+            onChange={(_, newValue) => setActiveTab(newValue)}
+            variant="fullWidth"
+            centered
+            sx={{ borderBottom: 1, borderColor: "divider" }}
+          >
+            <Tab label={LABEL_DATA[gameId].Avatars} />
+            <Tab label="Teams (Coming Soon)" disabled />
+          </Tabs>
 
-        {activeTab === 0 && (
-          <Stack spacing={2}>
-            <AvatarTable
+          {activeTab === 0 && (
+            <Stack spacing={3}>
+              <AvatarTable
+                gameId={gameId}
+                userId={userId}
+                avatarCache={avatarCache}
+                setAvatarCache={setAvatarCache}
+                isLoading={isLoading}
+                sortedAvatars={sortedAvatars}
+                setModalPipe={setModalPipe}
+              />
+
+              <Stack direction="row" justifyContent="center" spacing={2}>
+                <Button
+                  onClick={handleAdd}
+                  variant="contained"
+                  color="primary"
+                  startIcon={<Add />}
+                >
+                  New Build
+                </Button>
+
+                <Button
+                  onClick={handleLoad}
+                  variant="outlined"
+                  endIcon={<KeyboardArrowRight />}
+                >
+                  Load Data
+                </Button>
+              </Stack>
+            </Stack>
+          )}
+
+          {activeTab === 1 && (
+            <TeamTable
               gameId={gameId}
               userId={userId}
               avatarCache={avatarCache}
-              setAvatarCache={setAvatarCache}
-              isLoading={isLoading}
+              teamCache={teamCache}
+              setTeamCache={setTeamCache}
               sortedAvatars={sortedAvatars}
-              setModalPipe={setModalPipe}
             />
-
-            <Stack direction="row" justifyContent="center" spacing={2}>
-              <Button
-                onClick={handleAdd}
-                variant="contained"
-                color="primary"
-                startIcon={<Add />}
-              >
-                New Build
-              </Button>
-              <Button
-                onClick={handleLoad}
-                variant="outlined"
-                endIcon={<KeyboardArrowRight />}
-              >
-                Load Data
-              </Button>
-            </Stack>
-          </Stack>
-        )}
-
-        {activeTab === 1 && (
-          <TeamTable
-            gameId={gameId}
-            userId={userId}
-            avatarCache={avatarCache}
-            teamCache={teamCache}
-            setTeamCache={setTeamCache}
-            sortedAvatars={sortedAvatars}
-          />
-        )}
-      </Box>
+          )}
+        </Stack>
+      </Paper>
       <Modal
         gameId={gameId}
         userId={userId}

@@ -3,27 +3,62 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   palette: {
     mode: "dark",
+    primary: {
+      main: "#90CAF9",
+      light: "#E3F2FD",
+      dark: "#42A5F5",
+      contrastText: "#000",
+    },
+    secondary: {
+      main: "#CE93D8",
+      light: "#F3E5F5",
+      dark: "#AB47BC",
+      contrastText: "#000",
+    },
+    background: {
+      default: "#121212",
+      paper: "#1E1E1E",
+    },
     gold: {
       main: "#FFD700",
       light: "#FFEC8B",
       dark: "#B8860B",
       contrastText: "#000",
     },
-    grey: {
-      main: "#808080",
-      light: "#808080",
-      dark: "#808080",
-      contrastText: "#000",
-    },
     rarityColor: {
-      5: "goldenrod",
-      4: "orchid",
-      3: "cornflowerblue",
-      2: "green",
-      1: "slategrey",
+      5: "#FFD700",
+      4: "#DA70D6",
+      3: "#6495ED",
+      2: "#32CD32",
+      1: "#708090",
     },
   },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    button: {
+      textTransform: "none",
+      fontWeight: "bold",
+    },
+  },
+  shape: {
+    borderRadius: 8,
+  },
   components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundImage: "none",
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          padding: "8px 16px",
+        },
+      },
+    },
     MuiAutocomplete: {
       defaultProps: {
         size: "small",
@@ -82,6 +117,21 @@ const theme = createTheme({
     MuiTooltip: {
       defaultProps: {
         arrow: true,
+      },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        indicator: {
+          height: 3,
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          fontWeight: "bold",
+        },
       },
     },
   },
