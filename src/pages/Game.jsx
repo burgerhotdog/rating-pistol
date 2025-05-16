@@ -141,9 +141,7 @@ const Game = ({ gameId, userId }) => {
           <Tabs
             value={activeTab}
             onChange={(_, newValue) => setActiveTab(newValue)}
-            variant="fullWidth"
-            centered
-            sx={{ borderBottom: 1, borderColor: "divider" }}
+            sx={{ borderColor: "divider" }}
           >
             <Tab label={LABEL_DATA[gameId].Avatars} />
             <Tab label="Teams (Coming Soon)" disabled />
