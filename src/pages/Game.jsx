@@ -126,7 +126,7 @@ const Game = ({ gameId, userId }) => {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Back />
-      <Paper sx={{ p: 4, borderRadius: 2 }}>
+      <Box sx={{ p: 4, borderRadius: 2 }}>
         <Stack spacing={3}>
           <Box textAlign="center">
             <Typography variant="h3" fontWeight="bold">
@@ -191,7 +191,7 @@ const Game = ({ gameId, userId }) => {
             />
           )}
         </Stack>
-      </Paper>
+      </Box>
       <Modal
         gameId={gameId}
         userId={userId}

@@ -127,7 +127,6 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderBottom: "1px solid",
-          borderColor: "divider",
         },
         indicator: {
           height: 3,
