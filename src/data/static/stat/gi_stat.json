@@ -1,13 +1,13 @@
 {
   "_HP": {
     "name": "HP",
-    "mainChance": [5, 0, 0, 0, 0],
+    "mainChance": [8, 0, 0, 0, 0],
     "subValue": 298.75,
     "subChance": 6
   },
   "_ATK": {
     "name": "ATK",
-    "mainChance": [0, 5, 0, 0, 0],
+    "mainChance": [0, 8, 0, 0, 0],
     "subValue": 19.45,
     "subChance": 6
   },
@@ -19,94 +19,94 @@
   "HP": {
     "name": "HP%",
     "showPercent": true,
-    "mainChance": [0, 0, 3, 3, 3],
+    "mainChance": [0, 0, 4, 4, 4],
     "subValue": 5.83,
     "subChance": 4
   },
   "ATK": {
     "name": "ATK%",
     "showPercent": true,
-    "mainChance": [0, 0, 3, 3, 3],
+    "mainChance": [0, 0, 4, 4, 4],
     "subValue": 5.83,
     "subChance": 4
   },
   "DEF": {
     "name": "DEF%",
     "showPercent": true,
-    "mainChance": [0, 0, 3, 3, 3],
+    "mainChance": [0, 0, 4, 4, 4],
     "subValue": 7.29,
     "subChance": 4
   },
   "EM": {
     "name": "Elemental Mastery",
-    "mainChance": [0, 0, 2, 1, 1],
+    "mainChance": [0, 0, 3, 2, 2],
     "subValue": 23.31,
     "subChance": 4
   },
   "ER": {
     "name": "Energy Recharge",
     "showPercent": true,
-    "mainChance": [0, 0, 2, 0, 0],
+    "mainChance": [0, 0, 3, 0, 0],
     "subValue": 6.48,
     "subChance": 4
   },
   "ANEMO": {
     "name": "Anemo DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 2, 0]
   },
   "CRYO": {
     "name": "Cryo DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 2, 0]
   },
   "DENDRO": {
     "name": "Dendro DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 2, 0]
   },
   "ELECTRO": {
     "name": "Electro DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 2, 0]
   },
   "GEO": {
     "name": "Geo DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 2, 0]
   },
   "HYDRO": {
     "name": "Hydro DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 2, 0]
   },
   "PYRO": {
     "name": "Pyro DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 2, 0]
   },
   "PHYSICAL": {
     "name": "Physical DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 2, 0]
   },
   "CR": {
     "name": "CRIT Rate",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 2],
+    "mainChance": [0, 0, 0, 0, 3],
     "subValue": 3.89,
     "subChance": 3
   },
   "CD": {
     "name": "CRIT DMG",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 2],
+    "mainChance": [0, 0, 0, 0, 3],
     "subValue": 7.77,
     "subChance": 3
   },
   "HB": {
     "name": "Healing Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 2]
+    "mainChance": [0, 0, 0, 0, 3]
   }
 }
