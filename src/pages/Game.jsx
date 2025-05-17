@@ -126,7 +126,7 @@ const Game = ({ gameId, userId }) => {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Back />
-      <Paper sx={{ p: 4, borderRadius: 2 }}>
+      <Box sx={{ p: 4, borderRadius: 2 }}>
         <Stack spacing={3}>
           <Box textAlign="center">
             <Typography variant="h3" fontWeight="bold">
@@ -141,9 +141,7 @@ const Game = ({ gameId, userId }) => {
           <Tabs
             value={activeTab}
             onChange={(_, newValue) => setActiveTab(newValue)}
-            variant="fullWidth"
-            centered
-            sx={{ borderBottom: 1, borderColor: "divider" }}
+            sx={{ borderColor: "divider" }}
           >
             <Tab label={LABEL_DATA[gameId].Avatars} />
             <Tab label="Teams (Coming Soon)" disabled />
@@ -193,7 +191,7 @@ const Game = ({ gameId, userId }) => {
             />
           )}
         </Stack>
-      </Paper>
+      </Box>
       <Modal
         gameId={gameId}
         userId={userId}

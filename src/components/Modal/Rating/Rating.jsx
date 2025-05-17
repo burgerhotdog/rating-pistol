@@ -22,8 +22,6 @@ const Rating = ({ gameId, modalPipe }) => {
       <Tabs
         value={activeTab}
         onChange={(_, newValue) => setActiveTab(newValue)}
-        variant="fullWidth"
-        centered
         sx={{ borderBottom: 1, borderColor: "divider" }}
       >
         <Tab label="Full Build" sx={{ fontWeight: "bold" }} />

@@ -1,13 +1,13 @@
 {
   "_HP": {
     "name": "HP",
-    "mainChance": [5, 0, 0, 0, 0, 0],
+    "mainChance": [8, 0, 0, 0, 0, 0],
     "subValue": 42.34,
     "subChance": 10
   },
   "_ATK": {
     "name": "ATK",
-    "mainChance": [0, 5, 0, 0, 0, 0],
+    "mainChance": [0, 8, 0, 0, 0, 0],
     "subValue": 21.17,
     "subChance": 10
   },
@@ -19,102 +19,102 @@
   "HP": {
     "name": "HP%",
     "showPercent": true,
-    "mainChance": [0, 0, 3, 3, 2, 3],
+    "mainChance": [0, 0, 4, 4, 3, 4],
     "subValue": 4.32,
     "subChance": 10
   },
   "ATK": {
     "name": "ATK%",
     "showPercent": true,
-    "mainChance": [0, 0, 3, 3, 2, 3],
+    "mainChance": [0, 0, 4, 4, 3, 4],
     "subValue": 4.32,
     "subChance": 10
   },
   "DEF": {
     "name": "DEF%",
     "showPercent": true,
-    "mainChance": [0, 0, 3, 3, 2, 3],
+    "mainChance": [0, 0, 4, 4, 3, 4],
     "subValue": 5.4,
     "subChance": 10
   },
   "CR": {
     "name": "CRIT Rate",
     "showPercent": true,
-    "mainChance": [0, 0, 2, 0, 0, 0],
+    "mainChance": [0, 0, 3, 0, 0, 0],
     "subValue": 3.24,
     "subChance": 6
   },
   "CD": {
     "name": "CRIT DMG",
     "showPercent": true,
-    "mainChance": [0, 0, 2, 0, 0, 0],
+    "mainChance": [0, 0, 3, 0, 0, 0],
     "subValue": 6.48,
     "subChance": 6
   },
   "EHR": {
     "name": "Effect Hit Rate",
     "showPercent": true,
-    "mainChance": [0, 0, 2, 0, 0, 0],
+    "mainChance": [0, 0, 3, 0, 0, 0],
     "subValue": 4.32,
     "subChance": 8
   },
   "OHB": {
     "name": "Outgoing Healing Boost",
     "showPercent": true,
-    "mainChance": [0, 0, 2, 0, 0, 0]
+    "mainChance": [0, 0, 3, 0, 0, 0]
   },
   "SPD": {
     "name": "SPD",
-    "mainChance": [0, 0, 0, 2, 0, 0],
+    "mainChance": [0, 0, 0, 3, 0, 0],
     "subValue": 2.6,
     "subChance": 4
   },
   "FIRE": {
     "name": "Fire DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 0, 2, 0]
   },
   "ICE": {
     "name": "Ice DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 0, 2, 0]
   },
   "IMAGINARY": { 
     "name": "Imaginary DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 0, 2, 0]
   },
   "LIGHTNING": {
     "name": "Lightning DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 0, 2, 0]
   },
   "PHYSICAL": {
     "name": "Physical DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 0, 2, 0]
   },
   "QUANTUM": {
     "name": "Quantum DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 0, 2, 0]
   },
   "WIND": {
     "name": "Wind DMG Bonus",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 1, 0]
+    "mainChance": [0, 0, 0, 0, 2, 0]
   },
   "BE": {
     "name": "Break Effect",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 0, 2],
+    "mainChance": [0, 0, 0, 0, 0, 3],
     "subValue": 6.48,
     "subChance": 8
   },
   "ERR": {
     "name": "Energy Regeneration Rate",
     "showPercent": true,
-    "mainChance": [0, 0, 0, 0, 0, 1]
+    "mainChance": [0, 0, 0, 0, 0, 2]
   },
   "RES": {
     "name": "Effect RES",

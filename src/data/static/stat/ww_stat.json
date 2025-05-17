@@ -17,42 +17,42 @@
   "HP": {
     "name": "HP%",
     "showPercent": true,
-    "mainChance": [2, 1, 1, 3, 3],
+    "mainChance": [3, 2, 2, 4, 4],
     "subValue": 11.6,
     "subChance": 10
   },
   "ATK": {
     "name": "ATK%",
     "showPercent": true,
-    "mainChance": [2, 1, 1, 3, 3],
+    "mainChance": [3, 2, 2, 4, 4],
     "subValue": 11.6,
     "subChance": 10
   },
   "DEF": {
     "name": "DEF%",
     "showPercent": true,
-    "mainChance": [2, 1, 1, 3, 3],
+    "mainChance": [3, 2, 2, 4, 4],
     "subValue": 14.7,
     "subChance": 10
   },
   "CR": {
     "name": "CRIT Rate",
     "showPercent": true,
-    "mainChance": [3, 0, 0, 0, 0],
+    "mainChance": [4, 0, 0, 0, 0],
     "subValue": 10.5,
     "subChance": 6
   },
   "CD": {
     "name": "CRIT DMG",
     "showPercent": true,
-    "mainChance": [3, 0, 0, 0, 0],
+    "mainChance": [4, 0, 0, 0, 0],
     "subValue": 21,
     "subChance": 6
   },
   "HB": {
     "name": "Healing Bonus",
     "showPercent": true,
-    "mainChance": [2, 0, 0, 0, 0]
+    "mainChance": [3, 0, 0, 0, 0]
   },
   "AERO": {
     "name": "Aero DMG Bonus",
@@ -87,7 +87,7 @@
   "ER": {
     "name": "Energy Regen",
     "showPercent": true,
-    "mainChance": [0, 1, 1, 0, 0],
+    "mainChance": [0, 2, 2, 0, 0],
     "subValue": 12.4,
     "subChance": 8
   },

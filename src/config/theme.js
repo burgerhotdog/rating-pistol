@@ -120,7 +120,14 @@ const theme = createTheme({
       },
     },
     MuiTabs: {
+      defaultProps: {
+        variant: "fullWidth",
+        centered: true,
+      },
       styleOverrides: {
+        root: {
+          borderBottom: "1px solid",
+        },
         indicator: {
           height: 3,
         },
