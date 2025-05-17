@@ -3,10 +3,9 @@ import { AVATAR_DATA, STAT_DATA } from "@data";
 const ITERATIONS = 10000;
 
 const simAvatarScores = (gameId, avatarId, equipRatings, mainstats) => {
-  const { investmentLevel } = AVATAR_DATA[gameId][avatarId];
   const scores = new Array(ITERATIONS).fill(0);
   const numTries = mainstats.map((stat, index) =>
-    STAT_DATA[gameId][stat].mainChance[index] * investmentLevel
+    STAT_DATA[gameId][stat].mainChance[index]
   );
 
   for (let i = 0; i < ITERATIONS; i++) {
