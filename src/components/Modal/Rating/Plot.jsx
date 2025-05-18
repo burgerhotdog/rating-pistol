@@ -30,7 +30,7 @@ export default ({ ratingData }) => {
   const binCenters = Array(numBins).fill(0).map((_, i) => min + (i + 0.5) * binSize);
 
   return (
-    <Paper sx={{ padding: 3 }}>
+    <Paper sx={{ p: 3 }}>
       <Plot
         data={[
           {
