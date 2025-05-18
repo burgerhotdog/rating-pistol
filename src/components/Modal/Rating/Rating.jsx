@@ -17,12 +17,16 @@ const Rating = ({ gameId, modalPipe }) => {
     </Stack>
   );
 
+  const ratingData = activeTab === 0
+    ? rating.avatar
+    : rating.equips[activeTab - 1];
+
   return (
     <Stack spacing={2}>
       <Tabs
         value={activeTab}
         onChange={(_, newValue) => setActiveTab(newValue)}
-        sx={{ borderBottom: 1, borderColor: "divider" }}
+        sx={{ borderColor: "divider" }}
       >
         <Tab label="Full Build" sx={{ fontWeight: "bold" }} />
         {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
@@ -49,15 +53,9 @@ const Rating = ({ gameId, modalPipe }) => {
           gameId={gameId}
           avatarId={id}
           isFullBuild={activeTab === 0}
-          ratingData={activeTab === 0
-            ? rating.avatar
-            : rating.equips[activeTab - 1]}
+          ratingData={ratingData}
         />
-        <Plot
-          ratingData={activeTab === 0
-            ? rating.avatar
-            : rating.equips[activeTab - 1]}
-        />
+        <Plot ratingData={ratingData} />
       </Stack>
     </Stack>
   );
