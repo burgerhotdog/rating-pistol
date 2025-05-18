@@ -2,6 +2,7 @@ import { Paper, Box, Typography, Divider, Stack, Tooltip, IconButton, Avatar } f
 import { HelpOutline } from "@mui/icons-material";
 import { AVATAR_ASSETS, RATING_ASSETS } from "@assets";
 import { AVATAR_DATA, LABEL_DATA } from "@data";
+
 const RATING_RANK = ["Excellent", "Great", "Good", "Poor"];
 const recommendation = [
   "Further investment is unlikely to yield noticeable improvements.",
@@ -17,36 +18,49 @@ const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
     score >= bounds[1] ? 1 :
     score >= bounds[2] ? 2 : 3;
 
-  return (
-    <Paper sx={{ padding: 3, width: 300 }}>
-      <Box>
-        {isFullBuild && (
-          <>
-            <Stack direction="row" alignItems="center" spacing={1}>
-              <Typography variant="h6" sx={{ color: "primary.main" }}>
-                Rating:
-              </Typography>
-              <Avatar
-                alt={RATING_RANK[ratingRank]}
-                src={RATING_ASSETS[ratingRank]}
-                sx={{ width: 24, height: 24 }}
-              />
-              <Typography variant="h6">
-                {RATING_RANK[ratingRank]}
-              </Typography>
-            </Stack>
-            <Typography variant="body2">
-              <Avatar src={AVATAR_ASSETS[gameId][avatarId].icon} sx={{ width: 16, height: 16, verticalAlign: "text-bottom", display: "inline-block" }} /> {AVATAR_DATA[gameId][avatarId].name} has a roll value of {score.toFixed()}%, which is {ratingRank === 2 ? "slightly " : ratingRank === 0 ? "significantly " : ""}{score > mean ? "above" : "below"} average. {recommendation[ratingRank]}
-            </Typography>
-            <Divider sx={{ my: 2 }} />
-          </>
-        )}
+  const Rating = () => {
+    const Icon = () => {
+      return (
+        <Avatar
+          src={AVATAR_ASSETS[gameId][avatarId].icon}
+          sx={{
+            width: 16,
+            height: 16,
+            verticalAlign: "text-bottom",
+            display: "inline-block",
+          }}
+        />
+      );
+    };
+
+    return (
+      <>
         <Stack direction="row" alignItems="center" spacing={1}>
           <Typography variant="h6" sx={{ color: "primary.main" }}>
-            Simulation Results:
+            Rating:
           </Typography>
-          <HelpOutline fontSize="small" color="primary" />
+          <Avatar
+            alt={RATING_RANK[ratingRank]}
+            src={RATING_ASSETS[ratingRank]}
+            sx={{ width: 24, height: 24 }}
+          />
+          <Typography variant="h6">
+            {RATING_RANK[ratingRank]}
+          </Typography>
         </Stack>
+        <Typography variant="body2">
+          <Icon /> {AVATAR_DATA[gameId][avatarId].name} has a roll value of {score.toFixed()}%, which is {ratingRank === 2 ? "slightly " : ratingRank === 0 ? "significantly " : ""}{score > mean ? "above" : "below"} average. {recommendation[ratingRank]}
+        </Typography>
+      </>
+    );
+  };
+
+  const Results = () => {
+    return (
+      <>
+        <Typography variant="h6" sx={{ color: "primary.main" }}>
+          Simulation Results:
+        </Typography>
         <Typography variant="body2">
           Roll Value: {score.toFixed()}%
         </Typography>
@@ -76,7 +90,19 @@ const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
             Q3: {q3.toFixed()}%
           </Typography>
         )}
-      </Box>
+      </>
+    );
+  };
+
+  return (
+    <Paper sx={{ p: 3, width: 300 }}>
+      {isFullBuild && (
+        <>
+          <Rating />
+          <Divider sx={{ my: 2 }} />
+        </>
+      )}
+      <Results />
     </Paper>
   );
 };
