@@ -5,11 +5,11 @@ import { ICON_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
 
 // Updates
-const DATE = "May 11, 2025";
-const TITLE = "Genshin Impact Version 5.6";
+const DATE = "May 18, 2025";
+const TITLE = "Rating Changes";
 const UPDATES = [
-  "New Characters: Escoffier, Ifa",
-  "New Weapons: Symphonist of Scents, Sequence of Solitude",
+  "Smoothed out percentile graph",
+  "Minor scoring algorithm changes",
 ];
 
 const GameLink = ({ gameId }) => (
