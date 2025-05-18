@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TablePagination, TableBody } from "@mui/material";
-import { StarBorder } from "@mui/icons-material";
-import { LABEL_DATA } from "@data";
-import DeleteHead from "./DeleteHead";
-import { Star, Avatar, Weapon, Equip, Rating, Delete } from "./Cells";
+import {
+  StarHead, StarBody,
+  AvatarHead, AvatarBody,
+  WeaponHead, WeaponBody,
+  EquipHead, EquipBody,
+  RatingHead, RatingBody,
+  DeleteHead, DeleteBody,
+} from "./Cells";
 import CustomSkeleton from "./Skeleton";
 
 const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
@@ -20,44 +24,56 @@ const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, so
           key={avatarId}
           sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.03)" } }}
         >
-          <Star
-            gameId={gameId}
-            userId={userId}
-            setAvatarCache={setAvatarCache}
-            id={avatarId}
-            data={avatarCache[avatarId].data}
-          />
-          <Avatar
-            gameId={gameId}
-            setModalPipe={setModalPipe}
-            id={avatarId}
-            data={avatarCache[avatarId].data}
-          />
-          <Weapon
-            gameId={gameId}
-            setModalPipe={setModalPipe}
-            id={avatarId}
-            data={avatarCache[avatarId].data}
-          />
-          <Equip
-            gameId={gameId}
-            setModalPipe={setModalPipe}
-            id={avatarId}
-            data={avatarCache[avatarId].data}
-          />
-          <Rating
-            gameId={gameId}
-            setModalPipe={setModalPipe}
-            id={avatarId}
-            data={avatarCache[avatarId].data}
-            rating={avatarCache[avatarId].rating}
-          />
-          <Delete
-            gameId={gameId}
-            userId={userId}
-            id={avatarId}
-            setAvatarCache={setAvatarCache}
-          />
+          <TableCell>
+            <StarBody
+              gameId={gameId}
+              userId={userId}
+              setAvatarCache={setAvatarCache}
+              id={avatarId}
+              data={avatarCache[avatarId].data}
+            />
+          </TableCell>
+          <TableCell>
+            <AvatarBody
+              gameId={gameId}
+              setModalPipe={setModalPipe}
+              id={avatarId}
+              data={avatarCache[avatarId].data}
+            />
+          </TableCell>
+          <TableCell>
+            <WeaponBody
+              gameId={gameId}
+              setModalPipe={setModalPipe}
+              id={avatarId}
+              data={avatarCache[avatarId].data}
+            />
+          </TableCell>
+          <TableCell>
+            <EquipBody
+              gameId={gameId}
+              setModalPipe={setModalPipe}
+              id={avatarId}
+              data={avatarCache[avatarId].data}
+            />
+          </TableCell>
+          <TableCell>
+            <RatingBody
+              gameId={gameId}
+              setModalPipe={setModalPipe}
+              id={avatarId}
+              data={avatarCache[avatarId].data}
+              rating={avatarCache[avatarId].rating}
+            />
+          </TableCell>
+          <TableCell>
+            <DeleteBody
+              gameId={gameId}
+              userId={userId}
+              id={avatarId}
+              setAvatarCache={setAvatarCache}
+            />
+          </TableCell>
         </TableRow>
       ))}
     </TableBody>
@@ -65,6 +81,7 @@ const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, so
 };
 
 const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
+  const [onlyStarred, setOnlyStarred] = useState(false);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -85,9 +102,8 @@ const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
   return (
     <TableContainer 
       component={Paper} 
-      sx={{ 
+      sx={{
         overflowX: "auto",
-        borderRadius: 2,
         border: "1px solid rgba(255, 255, 255, 0.1)",
       }}
     >
@@ -95,38 +111,28 @@ const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         <TableHead>
           <TableRow>
             <TableCell width={50}>
-              <StarBorder color="disabled" />
+              <StarHead starOnly={onlyStarred} setStarOnly={setOnlyStarred} />
             </TableCell>
-            <TableCell 
-              width={200} 
-              sx={{ color: "text.secondary", fontWeight: "bold" }}
-            >
-              {LABEL_DATA[gameId].Avatar}
+            <TableCell width={200}>
+              <AvatarHead gameId={gameId} />
             </TableCell>
-            <TableCell 
-              width={250} 
-              sx={{ color: "text.secondary", fontWeight: "bold" }}
-            >
-              {LABEL_DATA[gameId].Weapon}
+            <TableCell width={250}>
+              <WeaponHead gameId={gameId} />
             </TableCell>
-            <TableCell 
-              width={300} 
-              sx={{ color: "text.secondary", fontWeight: "bold" }}
-            >
-              {LABEL_DATA[gameId].Equips}
+            <TableCell width={300}>
+              <EquipHead gameId={gameId} />
             </TableCell>
-            <TableCell 
-              width={150} 
-              sx={{ color: "text.secondary", fontWeight: "bold" }}
-            >
-              Rating
+            <TableCell width={150}>
+              <RatingHead />
             </TableCell>
-            <DeleteHead
-              gameId={gameId}
-              userId={userId}
-              avatarCache={avatarCache}
-              setAvatarCache={setAvatarCache}
-            />
+            <TableCell width={50}>
+              <DeleteHead
+                gameId={gameId}
+                userId={userId}
+                avatarCache={avatarCache}
+                setAvatarCache={setAvatarCache}
+              />
+            </TableCell>
           </TableRow>
         </TableHead>
         <CustomBody

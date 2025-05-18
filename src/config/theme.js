@@ -15,16 +15,6 @@ const theme = createTheme({
       dark: "#AB47BC",
       contrastText: "#000",
     },
-    background: {
-      default: "#121212",
-      paper: "#1E1E1E",
-    },
-    gold: {
-      main: "#FFD700",
-      light: "#FFEC8B",
-      dark: "#B8860B",
-      contrastText: "#000",
-    },
     rarityColor: {
       5: "#FFD700",
       4: "#DA70D6",
@@ -34,7 +24,6 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     button: {
       textTransform: "none",
       fontWeight: "bold",
@@ -44,21 +33,6 @@ const theme = createTheme({
     borderRadius: 8,
   },
   components: {
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundImage: "none",
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          borderRadius: 8,
-          padding: "8px 16px",
-        },
-      },
-    },
     MuiAutocomplete: {
       defaultProps: {
         size: "small",
