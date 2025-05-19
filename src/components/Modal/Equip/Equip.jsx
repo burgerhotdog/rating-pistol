@@ -1,5 +1,7 @@
 import { useState } from "react";
 import {
+  Paper,
+  Divider,
   Grid,
   Stack,
   Box,
@@ -12,7 +14,7 @@ import {
 } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
-import Input from "./Input";
+import { SetId, Mainstat, Substat } from "./Forms";
 import PreviewSet from "./PreviewSet";
 
 const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
@@ -47,7 +49,9 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
                           src={EQUIP_ASSETS[gameId][index]}
                           sx={{ width: 24, height: 24, objectFit: "contain" }}
                         />
-                        <ListItemText primary={INFO_DATA[gameId].EQUIP_NAMES[index]} />
+                        <ListItemText
+                          primary={INFO_DATA[gameId].EQUIP_NAMES[index]}
+                        />
                       </Stack>
                     </ListItemButton>
                   </ListItem>
@@ -55,30 +59,48 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
               </List>
             </Card>
 
-            <Input
-              gameId={gameId}
-              equipList={equipList}
-              setEquipList={setEquipList}
-              mainIndex={viewIndex}
-            />
+            <Paper sx={{ width: 350, p: 2 }}>
+              <Stack spacing={1}>
+                <SetId
+                  gameId={gameId}
+                  equipList={equipList}
+                  setEquipList={setEquipList}
+                  mainIndex={viewIndex}
+                />
+
+                <Mainstat
+                  gameId={gameId}
+                  equipList={equipList}
+                  setEquipList={setEquipList}
+                  mainIndex={viewIndex}
+                />
+
+                <Divider />
+
+                {equipList[viewIndex].statList.map((_, subIndex) => (
+                  <Substat
+                    key={subIndex}
+                    gameId={gameId}
+                    equipList={equipList}
+                    setEquipList={setEquipList}
+                    mainIndex={viewIndex}
+                    subIndex={subIndex}
+                  />
+                ))}
+              </Stack>
+            </Paper>
           </Stack>
         </Grid>
+
         <Grid size="grow">
         </Grid>
-        
+
         <Grid size={12}>
-          <PreviewSet
-            gameId={gameId}
-            equipList={equipList}
-          />
+          <PreviewSet gameId={gameId} equipList={equipList} />
         </Grid>
       </Grid>
 
-      <Button
-        onClick={handleSave}
-        loading={isLoading}
-        variant="contained"
-      >
+      <Button onClick={handleSave} loading={isLoading} variant="contained">
         Save
       </Button>
     </Stack>

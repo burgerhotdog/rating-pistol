@@ -9,14 +9,6 @@ const Rating = ({ gameId, modalPipe }) => {
   const { id, data, rating } = modalPipe;
   const [activeTab, setActiveTab] = useState(0);
 
-  if (!rating) return (
-    <Stack spacing={2}>
-      <Typography>
-        No rating data available.
-      </Typography>
-    </Stack>
-  );
-
   const ratingData = activeTab === 0
     ? rating.avatar
     : rating.equips[activeTab - 1];
@@ -26,9 +18,8 @@ const Rating = ({ gameId, modalPipe }) => {
       <Tabs
         value={activeTab}
         onChange={(_, newValue) => setActiveTab(newValue)}
-        sx={{ borderColor: "divider" }}
       >
-        <Tab label="Full Build" sx={{ fontWeight: "bold" }} />
+        <Tab label="Full Build" />
         {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
           <Tab
             key={index}

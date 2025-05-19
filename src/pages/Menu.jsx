@@ -78,11 +78,7 @@ const Menu = () => (
       <GameLink gameId="zzz" />
     </Stack>
 
-    <Stack
-      display={{ xs: "flex", md: "none" }}
-      spacing={2}
-      mb={6}
-    >
+    <Stack display={{ xs: "flex", md: "none" }} spacing={2} mb={6}>
       <Stack direction="row" justifyContent="center" spacing={2}>
         <GameLink gameId="gi" />
         <GameLink gameId="hsr" />
@@ -102,11 +98,7 @@ const Menu = () => (
       </Typography>
       <Stack>
         {UPDATES.map((topic, index) => (
-          <Typography
-            key={index}
-            variant="body2"
-            color="text.secondary"
-          >
+          <Typography key={index} variant="body2" color="text.secondary">
             {topic}
           </Typography>
         ))}

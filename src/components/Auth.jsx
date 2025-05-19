@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { auth, db } from "@config/firebase";
-import { Box, Stack, Button, Typography, Avatar } from "@mui/material";
+import { Box, Stack, Button, Typography } from "@mui/material";
 
 const Auth = ({ user, setUser }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -56,18 +56,9 @@ const Auth = ({ user, setUser }) => {
   
   return (
     <Box sx={{ position: "fixed", top: 16, right: 16, zIndex: 1000 }}>
-      <Stack direction="row" alignItems="center" spacing={2}>
+      <Stack direction="row" alignItems="center" spacing={1}>
         {user && (
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              color: "text.secondary",
-              maxWidth: 200,
-              overflow: "hidden",
-              textOverflow: "ellipsis",
-              whiteSpace: "nowrap",
-            }}
-          >
+          <Typography variant="body2" color="text.secondary">
             {user.email}
           </Typography>
         )}

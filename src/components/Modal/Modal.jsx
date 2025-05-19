@@ -1,10 +1,10 @@
 import { Modal, Box } from "@mui/material";
 import Add from "./Add";
-import Avatar from "./Avatar";
-import Equip from "./Equip";
 import Load from "./Load";
-import Rating from "./Rating";
+import Avatar from "./Avatar";
 import Weapon from "./Weapon";
+import Equip from "./Equip";
+import Rating from "./Rating";
 
 const ModalContent = ({
   type,
@@ -12,7 +12,6 @@ const ModalContent = ({
   userId,
   modalPipe,
   avatarCache,
-  setAvatarCache,
   saveAvatar,
   saveAvatarBatch,
   closeModal,
@@ -50,7 +49,6 @@ const ModalContent = ({
         <Load
           gameId={gameId}
           userId={userId}
-          setAvatarCache={setAvatarCache}
           saveAvatar={saveAvatar}
           saveAvatarBatch={saveAvatarBatch}
           closeModal={closeModal}
@@ -72,8 +70,6 @@ const ModalContent = ({
           closeModal={closeModal}
         />
       );
-    default:
-      return null;
   }
 };
 
@@ -87,31 +83,30 @@ const CustomModal = ({
   saveAvatar,
   saveAvatarBatch,
 }) => {
-  const closeModal = () => setModalPipe({});
+  const closeModal = () => {
+    setModalPipe({});
+  }
 
   return (
     <Modal 
-      open={Boolean(modalPipe.type)} 
+      open={Boolean(modalPipe.type)}
       onClose={closeModal}
-      aria-labelledby="modal-title"
       sx={{ backdropFilter: "blur(4px)" }}
     >
-      <Box 
-        sx={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          p: 4,
-          borderRadius: 2,
-          maxHeight: "90vh",
-          maxWidth: "90vw",
-          overflow: "auto",
-          outline: "none",
-          backgroundColor: "background.default",
-          border: "1px solid rgba(255, 255, 255, 0.1)",
-        }}
-      >
+      <Box sx={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        p: 4,
+        borderRadius: 2,
+        maxHeight: "90vh",
+        maxWidth: "90vw",
+        overflow: "auto",
+        outline: "none",
+        backgroundColor: "background.default",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+      }}>
         <ModalContent
           type={modalPipe.type}
           gameId={gameId}

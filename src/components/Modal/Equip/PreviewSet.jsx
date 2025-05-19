@@ -1,14 +1,8 @@
 import { useMemo } from "react";
-import {
-  Paper,
-  Grid,
-  Box,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Paper, Grid, Box, Stack, Typography } from "@mui/material";
 import { SET_ASSETS } from "@assets";
 import { SET_DATA } from "@data";
-import getSetBonuses from "@utils/getSetBonuses";
+import { getSetBonuses } from "@utils";
 
 const PreviewSet = ({ gameId, equipList }) => {
   const setBonuses = useMemo(

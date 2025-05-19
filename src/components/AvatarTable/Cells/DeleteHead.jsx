@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, writeBatch } from "firebase/firestore";
 import { db } from "@config/firebase";
 import {
   Backdrop,
@@ -9,42 +9,36 @@ import {
   CircularProgress,
   TableCell,
 } from "@mui/material";
-import { Delete, Check } from '@mui/icons-material';
+import { Delete, Check } from "@mui/icons-material";
 
-const DeleteCell = ({
-  gameId,
-  userId,
-  id,
-  setAvatarCache,
-}) => {
+const DeleteHead = ({ gameId, userId, avatarCache, setAvatarCache }) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = async () => {
     setIsLoading(true);
-
     if (userId) {
-      const docRef = doc(db, "users", userId, gameId, id);
-      await deleteDoc(docRef);
+      const batch = writeBatch(db);
+      Object.keys(avatarCache).forEach((id) => {
+        const docRef = doc(db, "users", userId, gameId, id);
+        batch.delete(docRef);
+      });
+      await batch.commit();
     }
-
-    setAvatarCache((prev) => {
-      const newCache = { ...prev };
-      delete newCache[id];
-      return newCache;
-    });
-    
+    setAvatarCache({});
     setOpen(false);
     setIsLoading(false);
   };
 
   return (
-    <TableCell width={50}>
+    <>
       <Tooltip
         open={open}
         title={
           <Stack direction="row" alignItems="center" spacing={1}>
-            <Typography variant="tooltip">Delete?</Typography>
+            <Typography variant="tooltip">
+              Delete All?
+            </Typography>
 
             {isLoading ? (
               <CircularProgress size={16} />
@@ -67,9 +61,7 @@ const DeleteCell = ({
           color="disabled"
           sx={{
             transition: "color 0.3s ease",
-            "&:hover": {
-              color: "secondary.main",
-            },
+            "&:hover": { color: "secondary.main" },
           }}
         />
       </Tooltip>
@@ -79,8 +71,8 @@ const DeleteCell = ({
         onClick={() => setOpen(false)}
         sx={{ zIndex: 1 }}
       />
-    </TableCell>
+    </>
   );
 };
 
-export default DeleteCell;
+export default DeleteHead;

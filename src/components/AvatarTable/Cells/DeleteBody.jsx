@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { doc, writeBatch } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
 import {
   Backdrop,
@@ -7,38 +7,43 @@ import {
   Stack,
   Typography,
   CircularProgress,
-  TableCell,
 } from "@mui/material";
-import { Delete, Check } from "@mui/icons-material";
+import { Delete, Check } from '@mui/icons-material';
 
-const DeleteHead = ({ gameId, userId, avatarCache, setAvatarCache }) => {
+const DeleteBody = ({
+  gameId,
+  userId,
+  id,
+  setAvatarCache,
+}) => {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = async () => {
     setIsLoading(true);
+
     if (userId) {
-      const batch = writeBatch(db);
-      Object.keys(avatarCache).forEach((id) => {
-        const docRef = doc(db, "users", userId, gameId, id);
-        batch.delete(docRef);
-      });
-      await batch.commit();
+      const docRef = doc(db, "users", userId, gameId, id);
+      await deleteDoc(docRef);
     }
-    setAvatarCache({});
+
+    setAvatarCache((prev) => {
+      const newCache = { ...prev };
+      delete newCache[id];
+      return newCache;
+    });
+    
     setOpen(false);
     setIsLoading(false);
   };
 
   return (
-    <TableCell width={50}>
+    <>
       <Tooltip
         open={open}
         title={
           <Stack direction="row" alignItems="center" spacing={1}>
-            <Typography variant="tooltip">
-              Delete All?
-            </Typography>
+            <Typography variant="tooltip">Delete?</Typography>
 
             {isLoading ? (
               <CircularProgress size={16} />
@@ -61,7 +66,9 @@ const DeleteHead = ({ gameId, userId, avatarCache, setAvatarCache }) => {
           color="disabled"
           sx={{
             transition: "color 0.3s ease",
-            "&:hover": { color: "secondary.main" },
+            "&:hover": {
+              color: "secondary.main",
+            },
           }}
         />
       </Tooltip>
@@ -71,8 +78,8 @@ const DeleteHead = ({ gameId, userId, avatarCache, setAvatarCache }) => {
         onClick={() => setOpen(false)}
         sx={{ zIndex: 1 }}
       />
-    </TableCell>
+    </>
   );
 };
 
-export default DeleteHead;
+export default DeleteBody;
