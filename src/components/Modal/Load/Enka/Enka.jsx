@@ -311,7 +311,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
               disabled={!userId}
             />
 
-            <Typography variant="body2" sx={{ color: "text.disabled" }}>
+            <Typography variant="body2" color="text.secondary">
               Remember UID (requires sign-in)
             </Typography>
           </Stack>

@@ -126,72 +126,66 @@ const Game = ({ gameId, userId }) => {
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Back />
-      <Box sx={{ p: 4, borderRadius: 2 }}>
-        <Stack spacing={3}>
-          <Box textAlign="center">
-            <Typography variant="h3" fontWeight="bold">
-              {INFO_DATA[gameId].TITLE}
-            </Typography>
-
-            <Typography variant="subtitle1" color="text.secondary">
-              Updated for Version {VERSION_DATA[gameId]}
-            </Typography>
-          </Box>
-
-          <Tabs
-            value={activeTab}
-            onChange={(_, newValue) => setActiveTab(newValue)}
-            sx={{ borderColor: "divider" }}
-          >
-            <Tab label={LABEL_DATA[gameId].Avatars} />
-            <Tab label="Teams (Coming Soon)" disabled />
-          </Tabs>
-
-          {activeTab === 0 && (
-            <Stack spacing={3}>
-              <AvatarTable
-                gameId={gameId}
-                userId={userId}
-                avatarCache={avatarCache}
-                setAvatarCache={setAvatarCache}
-                isLoading={isLoading}
-                sortedAvatars={sortedAvatars}
-                setModalPipe={setModalPipe}
-              />
-
-              <Stack direction="row" justifyContent="center" spacing={2}>
-                <Button
-                  onClick={handleAdd}
-                  variant="contained"
-                  color="primary"
-                  startIcon={<Add />}
-                >
-                  New Build
-                </Button>
-
-                <Button
-                  onClick={handleLoad}
-                  variant="outlined"
-                  endIcon={<KeyboardArrowRight />}
-                >
-                  Load Data
-                </Button>
-              </Stack>
-            </Stack>
-          )}
-
-          {activeTab === 1 && (
-            <TeamTable
-              gameId={gameId}
-              userId={userId}
-              avatarCache={avatarCache}
-              teamCache={teamCache}
-              setTeamCache={setTeamCache}
-              sortedAvatars={sortedAvatars}
-            />
-          )}
-        </Stack>
+      <Box textAlign="center" mb={3}>
+        <Typography variant="h3" fontWeight="bold">
+          {INFO_DATA[gameId].TITLE}
+        </Typography>
+        <Typography variant="subtitle1" color="text.secondary">
+          Updated for Version {VERSION_DATA[gameId]}
+        </Typography>
       </Box>
+
+      <Tabs
+        value={activeTab}
+        onChange={(_, newValue) => setActiveTab(newValue)}
+        sx={{ mb: 3 }}
+      >
+        <Tab label={LABEL_DATA[gameId].Avatars} />
+        <Tab label="Teams (Coming Soon)" disabled />
+      </Tabs>
+
+      {activeTab === 0 && (
+        <Stack spacing={3}>
+          <AvatarTable
+            gameId={gameId}
+            userId={userId}
+            avatarCache={avatarCache}
+            setAvatarCache={setAvatarCache}
+            isLoading={isLoading}
+            sortedAvatars={sortedAvatars}
+            setModalPipe={setModalPipe}
+          />
+          <Stack direction="row" justifyContent="center" spacing={2}>
+            <Button
+              onClick={handleAdd}
+              variant="contained"
+              color="primary"
+              startIcon={<Add />}
+            >
+              New Build
+            </Button>
+            <Button
+              onClick={handleLoad}
+              variant="outlined"
+              endIcon={<KeyboardArrowRight />}
+            >
+              Load Data
+            </Button>
+          </Stack>
+        </Stack>
+      )}
+
+      {activeTab === 1 && (
+        <TeamTable
+          gameId={gameId}
+          userId={userId}
+          avatarCache={avatarCache}
+          teamCache={teamCache}
+          setTeamCache={setTeamCache}
+          sortedAvatars={sortedAvatars}
+        />
+      )}
+
       <Modal
         gameId={gameId}
         userId={userId}

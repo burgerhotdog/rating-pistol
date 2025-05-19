@@ -7,7 +7,7 @@ import { AVATAR_DATA } from "@data";
 const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [id, setId] = useState(null);
-  
+
   const charOptions = Object.keys(AVATAR_DATA[gameId])
     .filter(id => !Object.keys(avatarCache).includes(id))
     .sort((a, b) => {
@@ -63,9 +63,9 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
         renderInput={(params) => (
           <TextField {...params} label="Select" />
         )}
-        sx={{ width: 300 }}
+        sx={{ width: 250 }}
       />
-      
+
       <Button
         onClick={handleSave}
         variant="contained"

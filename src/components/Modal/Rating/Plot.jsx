@@ -3,7 +3,9 @@ import Plot from "react-plotly.js";
 
 export default ({ ratingData }) => {
   const { percentile, score, scoreData } = ratingData;
-  const downsampled = scoreData.filter((_, index) => index % 10 === 0 || index === scoreData.length - 1);
+  const downsampled = scoreData.filter((_, index) =>
+    index % 10 === 0 || index === scoreData.length - 1
+  );
   
   // Add the score point to the line if it's not already included
   const lineData = [...downsampled];
@@ -23,11 +25,13 @@ export default ({ ratingData }) => {
     const binIndex = Math.min(Math.floor((score - min) / binSize), numBins - 1);
     bins[binIndex]++;
   });
-  
+
   // Scale the histogram to match percentile range (0-100)
   const maxCount = Math.max(...bins);
   const scaledBins = bins.map(count => (count / maxCount) * 100);
-  const binCenters = Array(numBins).fill(0).map((_, i) => min + (i + 0.5) * binSize);
+  const binCenters = Array(numBins).fill(0).map((_, i) =>
+    min + (i + 0.5) * binSize
+  );
 
   return (
     <Paper sx={{ p: 3 }}>
