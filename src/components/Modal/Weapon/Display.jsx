@@ -54,8 +54,7 @@ const Display = ({ gameId, weaponId, weaponRank }) => {
               const { name, showPercent } = STAT_DATA[gameId][key] || {};
               return (
                 <Typography key={key} variant="body2">
-                  {name}: {value}
-                  {showPercent ? "%" : ""}
+                  {name}: {value}{showPercent ? "%" : ""}
                 </Typography>
               );
             })

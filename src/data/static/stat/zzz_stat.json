@@ -93,12 +93,12 @@
     "mainChance": [0, 0, 0, 0, 0, 3]
   },
   "IMPACT": {
-    "name": "Impact%",
+    "name": "Impact",
     "showPercent": true,
     "mainChance": [0, 0, 0, 0, 0, 3]
   },
   "ER": {
-    "name": "Energy Regen%",
+    "name": "Energy Regen",
     "showPercent": true,
     "mainChance": [0, 0, 0, 0, 0, 3]
   },
