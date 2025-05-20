@@ -58,7 +58,7 @@
     "rarity": 4,
     "type": "Stun",
     "baseStats": { "_ATK": 624 },
-    "statSub": { "Impact": 15 },
+    "statSub": { "IMPACT": 15 },
     "descHead": "Watch Your Fingers",
     "descBody": "Upon launching an Aftershock, the equipper's Physical DMG increases by {0}, and Daze increases by {1}, lasting 10s.",
     "descVar": [
@@ -151,7 +151,7 @@
     "rarity": 5,
     "type": "Stun",
     "baseStats": { "_ATK": 713 },
-    "statSub": { "Impact": 18 },
+    "statSub": { "IMPACT": 18 },
     "descHead": "Flowing Flame",
     "descBody": "Upon launching a Quick Assist or Perfect Assist, the equipper's Impact increases by {0} for 8s. When the equipper launches and hits an enemy with a Basic Attack, apply Wilt to the target for 30s, stacking up to 20 times, repeated triggers reset the duration. When any squad member hits an enemy, for every stack of Wilt applied to the target, the CRIT DMG of the Ice DMG and Fire DMG dealt by that attack increases by {1}. Only one instance of this effect can exist in the same squad.",
     "descVar": [
@@ -178,7 +178,7 @@
     "rarity": 5,
     "type": "Defense",
     "baseStats": { "_ATK": 713 },
-    "statSub": { "Impact": 18 },
+    "statSub": { "IMPACT": 18 },
     "descHead": "Invincible Rider",
     "descBody": "The Shield value provided by the equipper increases by {0}. When any squad member triggers Interrupt or Perfect Dodge, all squad members' DMG increases by {1} and Daze dealt increases by {2} for 20s. Passive effects of the same name do not stack.",
     "descVar": [
@@ -205,7 +205,7 @@
     "rarity": 5,
     "type": "Stun",
     "baseStats": { "_ATK": 713 },
-    "statSub": { "Impact": 18 },
+    "statSub": { "IMPACT": 18 },
     "descHead": "Ringing Melody",
     "descBody": "When a Basic Attack hits an enemy, gain 1 stack of Tea-riffic. Each stack of Tea-riffic increases the user's Impact by {0}, stacking up to 30 times, and lasting for 8s. The duration of each stack is calculated separately. Upon acquiring Tea-riffic, if the equipper possesses stacks of Tea-riffic greater than or equal to 15, all squad members' DMG is increased by {1} for 10s. Passive effects of the same name do not stack.",
     "descVar": [
@@ -299,7 +299,7 @@
     "rarity": 5,
     "type": "Stun",
     "baseStats": { "_ATK": 684 },
-    "statSub": { "Impact": 18 },
+    "statSub": { "IMPACT": 18 },
     "descHead": "Binding Chains",
     "descBody": "When an attack hits an enemy, DMG and Daze from Basic Attacks increase by {0} for 8s, stacking up to 5 times. This effect can trigger at most once during each skill. The duration of each stack is calculated separately.",
     "descVar": [
@@ -311,7 +311,7 @@
     "rarity": 5,
     "type": "Stun",
     "baseStats": { "_ATK": 684 },
-    "statSub": { "Impact": 18 },
+    "statSub": { "IMPACT": 18 },
     "descHead": "Passionate Construction",
     "descBody": "While off-field, the equipper's Energy Regen increases by {0}/s.\nWhen using an EX Special Attack, the equipper's Impact is increased by {1} for 10s, stacking up to 2 times. The duration of each stack is calculated separately.",
     "descVar": [
@@ -349,7 +349,7 @@
     "rarity": 4,
     "type": "Stun",
     "baseStats": { "_ATK": 594 },
-    "statSub": { "Impact": 15 },
+    "statSub": { "IMPACT": 15 },
     "descHead": "Fire!",
     "descBody": "The equipper gains 1 Charge stack every 3s, stacking up to 6 times. When launching an EX Special Attack, consumes all Charge stacks and each stack consumed increases the skill's Daze inflicted by {0}.",
     "descVar": [
@@ -488,7 +488,7 @@
     "rarity": 4,
     "type": "Stun",
     "baseStats": { "_ATK": 624 },
-    "statSub": { "Impact": 15 },
+    "statSub": { "IMPACT": 15 },
     "descHead": "In a Flash of Light",
     "descBody": "Increases Electric DMG by {0}. When the equipper hits an enemy with a Dodge Counter or Assist Attack, their Energy Generation Rate increases by {1} for 8s.",
     "descVar": [
@@ -565,7 +565,7 @@
     "rarity": 4,
     "type": "Stun",
     "baseStats": { "_ATK": 594 },
-    "statSub": { "Impact": 15 },
+    "statSub": { "IMPACT": 15 },
     "descHead": "Behemoth Hunter",
     "descBody": "When the target's HP is no lower than 50%, the equipper inflicts {0} more Daze to the target. When the target's HP is no lower than 75%, this bonus is further increased by {1}.",
     "descVar": [
@@ -714,7 +714,7 @@
     "rarity": 3,
     "type": "Stun",
     "baseStats": { "_ATK": 475 },
-    "statSub": { "Impact": 12 },
+    "statSub": { "IMPACT": 12 },
     "descHead": "Tsunami",
     "descBody": "The equipper's attacks inflict {0} more Daze on their main target.",
     "descVar": [
