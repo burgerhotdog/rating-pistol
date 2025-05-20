@@ -580,7 +580,7 @@
     "baseStats": { "_ATK": 594 },
     "statSub": { "ER": 50 },
     "descHead": "Thick Broth",
-    "descBody": "For every 10 Energy accumulated, the equipper's Impact is increased by {1}, stacking up to 8 times. After Energy is consumed, this bonus remains for 8 more seconds. The duration of each stack is calculated separately.",
+    "descBody": "For every 10 Energy accumulated, the equipper's Impact is increased by {0}, stacking up to 8 times. After Energy is consumed, this bonus remains for 8 more seconds. The duration of each stack is calculated separately.",
     "descVar": [
       ["2%", "2.3%", "2.6%", "2.9%", "3.2%"]
     ]
