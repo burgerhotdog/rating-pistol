@@ -51,11 +51,11 @@ const Display = ({ gameId, weaponId, weaponRank }) => {
 
           {weapon.statSub && (
             Object.entries(weapon.statSub).map(([key, value]) => {
-              const { name, percent } = STAT_DATA[gameId][key] || {};
+              const { name, showPercent } = STAT_DATA[gameId][key] || {};
               return (
                 <Typography key={key} variant="body2">
                   {name}: {value}
-                  {percent ? "%" : ""}
+                  {showPercent ? "%" : ""}
                 </Typography>
               );
             })
