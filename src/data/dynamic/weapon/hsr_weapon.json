@@ -1,4 +1,31 @@
 {
+  "23043": {
+    "name": "Lies Dance on the Breeze",
+    "rarity": 5,
+    "type": "Nihility",
+    "baseStats": { "_HP": 953, "_ATK": 582, "_DEF": 529 },
+    "descHead": "Deceit",
+    "descBody": "Increases the wearer's SPD by {0}. After the wearer uses an attack, there is a 120% base chance to inflict the \"Bamboozle\" state on every enemy target. While under the \"Bamboozle\" state, enemy target's DEF decreases by {1} for 2 turn(s). If the wearer's SPD is higher than or equal to 170, there is a 120% base chance to inflict the \"Theft\" state on every enemy target. While under the \"Theft\" state, enemy target's DEF decreases by {2} for 2 turn(s). When \"Bamboozle\" or \"Theft\" is inflicted repeatedly, only the latest effect inflicted can be active.",
+    "descVar": [
+      ["18%", "21%", "24%", "27%", "30%"],
+      ["16%", "18%", "20%", "22%", "24%"],
+      ["8%", "9%", "10%", "11%", "12%"]
+    ]
+  },
+  "23042": {
+    "name": "Long May Rainbows Adorn the Sky",
+    "rarity": 5,
+    "type": "Remembrance",
+    "baseStats": { "_HP": 1164, "_ATK": 476, "_DEF": 529 },
+    "descHead": "Tolerant",
+    "descBody": "Increases the wearer's SPD by {0}. When the wearer uses Basic ATK, Skill, or Ultimate, consumes all allies' HP equal to {1} of their current HP and additionally deals 1 instance of Additional DMG of the wearer's memosprite Type equal to {2} of the total consumed HP to the attacked target after the next attack launched by the wearer's memosprite. The total HP consumed is then reset. When the wearer's memosprite uses Memosprite Skill, increases the DMG taken by all enemies by {3} for 2 turn(s). The same types of effects cannot stack.",
+    "descVar": [
+      ["18%", "21%", "24%", "27%", "30%"],
+      ["1%", "1.3%", "1.5%", "1.7%", "2%"],
+      ["250%", "312.5%", "375%", "437.5%", "500%"],
+      ["18%", "22.5%", "27%", "31.5%", "36%"]
+    ]
+  },
   "23041": {
     "name": "Life Should Be Cast to Flames",
     "rarity": 5,

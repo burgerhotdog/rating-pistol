@@ -85,10 +85,7 @@ const Game = ({ gameId, userId }) => {
     setAvatarCache((prev) => ({
       ...prev,
       [id]: {
-        data: {
-          ...(prev[id]?.data ?? {}),
-          ...newData,
-        },
+        data: { ...newData },
         rating: getRating(gameId, id, newData.weaponId, newData.equipList),
       },
     }));

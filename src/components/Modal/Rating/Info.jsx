@@ -1,4 +1,4 @@
-import { Paper, Box, Typography, Divider, Stack, Tooltip, IconButton, Avatar } from "@mui/material";
+import { Paper, Box, Typography, Divider, Stack, Tooltip, IconButton } from "@mui/material";
 import { HelpOutline } from "@mui/icons-material";
 import { AVATAR_ASSETS, RATING_ASSETS } from "@assets";
 import { AVATAR_DATA, LABEL_DATA } from "@data";
@@ -21,13 +21,14 @@ const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
   const Rating = () => {
     const Icon = () => {
       return (
-        <Avatar
+        <Box
+          component="img"
+          alt={avatarId}
           src={AVATAR_ASSETS[gameId][avatarId].icon}
           sx={{
             width: 16,
             height: 16,
             verticalAlign: "text-bottom",
-            display: "inline-block",
           }}
         />
       );
@@ -36,10 +37,11 @@ const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
     return (
       <>
         <Stack direction="row" alignItems="center" spacing={1}>
-          <Typography variant="h6" sx={{ color: "primary.main" }}>
+          <Typography variant="h6" color="primary">
             Rating:
           </Typography>
-          <Avatar
+          <Box
+            component="img"
             alt={RATING_RANK[ratingRank]}
             src={RATING_ASSETS[ratingRank]}
             sx={{ width: 24, height: 24 }}
@@ -58,7 +60,7 @@ const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
   const Results = () => {
     return (
       <>
-        <Typography variant="h6" sx={{ color: "primary.main" }}>
+        <Typography variant="h6" color="primary">
           Simulation Results:
         </Typography>
         <Typography variant="body2">
