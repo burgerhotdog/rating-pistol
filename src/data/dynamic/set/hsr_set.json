@@ -1,6 +1,6 @@
 {
   "126": {
-    "name": "Captain's Navigator Hat",
+    "name": "Wavestrider Captain",
     "type": "Relic",
     "desc": {
       "2": "Increases CRIT DMG by 16%.",
@@ -8,7 +8,7 @@
     }
   },
   "125": {
-    "name": "Warrior Goddess's Winged Helm",
+    "name": "Warrior Goddess of Sun and Thunder",
     "type": "Relic",
     "desc": {
       "2": "Increases SPD by 6%.",
