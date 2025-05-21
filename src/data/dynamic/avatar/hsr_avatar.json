@@ -1,4 +1,35 @@
 {
+  "1409": {
+    "name": "Hyacine",
+    "rarity": 5,
+    "type": "Remembrance",
+    "sig": "23042",
+    "minor": ["SPD", "RES", "SPD", "HP", "SPD", "RES", "SPD", "HP", "RES", "SPD"],
+    "skillRank": [3, 5, 3, 5, 3, 5],
+    "baseStats": { "_HP": 1087, "_ATK": 388, "_DEF": 631 },
+    "weights": {
+      "SPD": 1.00,
+      "HP": 0.75,
+      "CD": 0.50,
+      "RES": 0.50
+    }
+  },
+  "1406": {
+    "name": "Cipher",
+    "rarity": 5,
+    "type": "Nihility",
+    "sig": "23043",
+    "minor": ["SPD", "QUANTUM", "SPD", "EHR", "SPD", "QUANTUM", "SPD", "EHR", "QUANTUM", "SPD"],
+    "skillRank": [3, 5, 3, 5],
+    "baseStats": { "_HP": 931, "_ATK": 640, "_DEF": 509 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50,
+      "EHR": 0.25
+    }
+  },
   "1407": {
     "name": "Castorice",
     "rarity": 5,

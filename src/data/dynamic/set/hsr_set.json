@@ -1,4 +1,20 @@
 {
+  "126": {
+    "name": "Captain's Navigator Hat",
+    "type": "Relic",
+    "desc": {
+      "2": "Increases CRIT DMG by 16%.",
+      "4": "When the wearer becomes the target of another ally target's ability, gains 1 stack of \"Help,\" stacking up to 2 time(s). If there are 2 stack(s) of \"Help\" when the wearer uses their Ultimate, consumes all \"Help\" to increase the wearer's ATK by 48% for 1 turn(s)."
+    }
+  },
+  "125": {
+    "name": "Warrior Goddess's Winged Helm",
+    "type": "Relic",
+    "desc": {
+      "2": "Increases SPD by 6%.",
+      "4": "When the wearer and their memosprite provide healing to ally targets aside from themselves, the wearer gains \"Gentle Rain,\" which can be triggered up to 1 time per turn, lasting for 2 turn(s). While the wearer has \"Gentle Rain,\" increases their SPD by 6% and all allies' CRIT DMG by 15%. This effect cannot be stacked."
+    }
+  },
   "320": {
     "name": "Giant Tree of Rapt Brooding",
     "type": "Planar",
