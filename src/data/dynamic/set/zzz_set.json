@@ -1,4 +1,18 @@
 {
+  "33200": {
+    "name": "King of the Summit",
+    "desc": {
+      "2": "Increases Daze of attacks by 6%.",
+      "4": "When the equipper is a Stun character and uses an EX Special Attack or Chain Attack, increases CRIT DMG of all squad members by 15%, and when the equipper's CRIT Rate is more than or equal to 50%, further increases CRIT DMG by 15%, lasting 15s. Repeated triggers reset the duration. Passive effects of the same name do not stack."
+    }
+  },
+  "33100": {
+    "name": "Yunkui Tales",
+    "desc": {
+      "2": "HP +10%.",
+      "4": "When using EX Special Attack, Chain Attack, or Ultimate, CRIT Rate increases by 4%, stacking up to 3 times and lasting 15s. Repeated triggers reset the duration. When having 3 stacks of this effect, Sheer DMG increases by 10%."
+    }
+  },
   "33000": {
     "name": "Phaethon's Melody",
     "desc": {

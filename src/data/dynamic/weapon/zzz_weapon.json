@@ -1,4 +1,94 @@
 {
+  "14139": {
+    "name": "Roaring Fur-nace",
+    "rarity": 5,
+    "type": "Stun",
+    "baseStats": { "_ATK": 713 },
+    "statSub": { "ATK": 30 },
+    "descHead": "Tiger Spirit Rising",
+    "descBody": "The Daze dealt by the equipper's EX Special Attack, Chain Attack, and Ultimate increases by {0}.\nWhen using a Chain Attack or Ultimate to deal Fire DMG, the DMG dealt by all squad members increases by {1}, stacking up to 2 times and lasting 30s. The duration of each stack is calculated separately. Triggers once per use of a skill. Only one instance of this effect can exist in the same squad.",
+    "descVar": [
+      ["28%", "32.2%", "36.4%", "40.6%", "44.8%"],
+      ["10%", "11.5%", "13%", "14.5%", "16%"]
+    ]
+  },
+  "14137": {
+    "name": "Qingming Birdcage",
+    "rarity": 5,
+    "type": "Rupture",
+    "baseStats": { "_ATK": 743 },
+    "statSub": { "HP": 30 },
+    "descHead": "Cloud Flow",
+    "descBody": "CRIT Rate increases by {0}. When the equipper launches an EX Special Attack, the character gains the Qingming Companion effect, stacking up to 2 times and lasting 15s. On entering combat, immediately gain 2 stacks. Repeated triggers reset the duration. Each stack of the Qingming Companion effect increases the equipper's Ether DMG by {1}, and increases Ultimate and EX Special Attack Ether Sheer DMG by {2}.",
+    "descVar": [
+      ["20%", "23%", "26%", "29%", "32%"],
+      ["8%", "9.2%", "10.4%", "11.6%", "12.8%"],
+      ["10%", "11.5%", "13%", "14.5%", "16%"]
+    ]
+  },
+  "13142": {
+    "name": "Tremor Trigram Vessel",
+    "rarity": 4,
+    "type": "Defense",
+    "baseStats": { "_ATK": 624 },
+    "statSub": { "ATK": 25 },
+    "descHead": "Meridian Mapping",
+    "descBody": "The equipper's EX Special Attack and Ultimate DMG increases by {0}. Whenever any squad member takes DMG or heals, the equipper gains {1} Energy. This effect can trigger once every 5s.",
+    "descVar": [
+      ["25%", "28.7%", "32.5%", "36.2%", "40%"],
+      ["2", "2.3", "2.6", "2.9", "3.2"]
+    ]
+  },
+  "13016": {
+    "name": "Reel Projector",
+    "rarity": 4,
+    "type": "Defense",
+    "baseStats": { "_ATK": 594 },
+    "statSub": { "IMPACT": 15 },
+    "descHead": "Flash Engraving",
+    "descBody": "When a squad member's HP is greater than or equal to 50%, they take {0} less DMG, and {1} less Miasma Contamination. Only one instance of this effect can exist in the same squad.",
+    "descVar": [
+      ["7.5%", "8.6%", "9.7%", "10.8%", "12%"],
+      ["10%", "11.5%", "13%", "14.5%", "16%"]
+    ]
+  },
+  "13014": {
+    "name": "Radiowave Journey",
+    "rarity": 4,
+    "type": "Rupture",
+    "baseStats": { "_ATK": 594 },
+    "statSub": { "HP": 25 },
+    "descHead": "Easy Strides",
+    "descBody": "When launching a Chain Attack or Ultimate, the equipper gains 1 stack of a buff effect. Each stack increases the equipper's Sheer Force by {0}, stacking up to 3 times, and lasting 12s. The duration of each stack is calculated separately.",
+    "descVar": [
+      ["80", "92", "104", "116", "128"]
+    ]
+  },
+  "13012": {
+    "name": "Puzzle Sphere",
+    "rarity": 4,
+    "type": "Rupture",
+    "baseStats": { "_ATK": 594 },
+    "statSub": { "ATK": 25 },
+    "descHead": "Ingenious Craft",
+    "descBody": "Upon launching an EX Special Attack, the equipper's CRIT DMG increases by {0} for 12s. Additionally, if the target's current HP is below 50% of their Max HP, EX Special Attack DMG increases by {1}.",
+    "descVar": [
+      ["16%", "18.4%", "20.8%", "23.2%", "25.6%"],
+      ["20%", "23%", "26%", "29%", "32%"]
+    ]
+  },
+  "12015": {
+    "name": "[Cinder] Cobalt",
+    "rarity": 3,
+    "type": "Rupture",
+    "baseStats": { "_ATK": 475 },
+    "statSub": { "HP": 20 },
+    "descHead": "Dim Flame",
+    "descBody": "Upon entering combat or switching in, the equipper's ATK increases by {0} for 10s. This effect can trigger once every 20s.",
+    "descVar": [
+      ["7.2%", "8.2%", "9.3%", "10.4%", "11.5%"]
+    ]
+  },
   "14133": {
     "name": "Flight of Fancy",
     "rarity": 5,
