@@ -1,4 +1,44 @@
 {
+  "1421": {
+    "name": "Pan Yinhu",
+    "rarity": 4,
+    "type": "Defense",
+    "sig": "13142",
+    "baseStats": { "_HP": 8453, "_ATK": 661, "_DEF": 712 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
+    }
+  },
+  "1391": {
+    "name": "Ju Fufu",
+    "rarity": 5,
+    "type": "Stun",
+    "sig": "14139",
+    "baseStats": { "_HP": 8250, "_ATK": 765, "_DEF": 597 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
+    }
+  },
+  "1371": {
+    "name": "Yixuan",
+    "rarity": 5,
+    "type": "Rupture",
+    "sig": "14137",
+    "baseStats": { "_HP": 8373, "_ATK": 872, "_DEF": 441 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "ATK": 0.25,
+      "PEN": 0.25
+    }
+  },
   "1331": {
     "name": "Vivian",
     "rarity": 5,
