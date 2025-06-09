@@ -12,9 +12,7 @@ import CustomSkeleton from "./Skeleton";
 
 const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
   if (isLoading) {
-    return (
-      <CustomSkeleton />
-    )
+    return (<CustomSkeleton />)
   }
 
   return (
@@ -83,7 +81,7 @@ const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, so
 const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
   const [onlyStarred, setOnlyStarred] = useState(false);
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
 
   const handleChangePage = (_, newPage) => {
     setPage(newPage);
