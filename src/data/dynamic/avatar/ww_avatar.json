@@ -1,17 +1,30 @@
 {
-  "1507": {
-    "name": "Zani",
+  "1409": {
+    "name": "Cartethyia",
     "rarity": 5,
-    "type": "Gauntlets",
-    "sig": "21040036",
+    "type": "Sword",
+    "sig": "21020056",
+    "minor": ["HP", "HP", "CR", "CR", "HP", "HP", "CR", "CR"],
+    "baseStats": { "_HP": 14800, "_ATK": 313, "_DEF": 611 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "HP": 0.75,
+      "ER": 0.50
+    }
+  },
+  "1207": {
+    "name": "Lupa",
+    "rarity": 5,
+    "type": "Broadblade",
+    "sig": "21010036",
     "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
-    "baseStats": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
+    "baseStats": { "_HP": 11913, "_ATK": 388, "_DEF": 1186 },
     "weights": {
       "CR": 1.00,
       "CD": 1.00,
       "ATK": 0.75,
-      "HA": 0.50,
-      "ER": 0.25
+      "ER": 0.50
     }
   },
   "1407": {
