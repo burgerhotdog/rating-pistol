@@ -1,4 +1,32 @@
 {
+  "21020056": {
+    "name": "Defier's Thorn",
+    "rarity": 5,
+    "type": "Sword",
+    "baseStats": { "_ATK": 413 },
+    "statSub": { "HP": 72.2 },
+    "descHead": "A Free Knight's Tarantella",
+    "descBody": "Max HP is increased by {0}. 15s after casting Intro Skill or Basic Attacks, ignore {1} of the target's DEF when dealing damage. If the target has at least 1 stack of Aero Erosion, the DMG taken by the target is Amplified by {2}.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["8%", "10%", "12%", "14%", "16%"],
+      ["20%", "25%", "30%", "35%", "40%"]
+    ]
+  },
+  "21010036": {
+    "name": "Wildfire Mark",
+    "rarity": 5,
+    "type": "Broadblade",
+    "baseStats": { "_ATK": 588 },
+    "statSub": { "CD": 48.6 },
+    "descHead": "Blazing Starfire",
+    "descBody": "Increases ATK by {0}. Performing Intro Skill or Resonance Liberation increases Resonance Liberation DMG by {1} for 6s. Dealing Heavy Attack DMG extends this effect by 4s, up to 1 time. Each successful extension gives {2} Fusion DMG Bonus to all Resonators in the team for 30s. Effects of the same name cannot be stacked.",
+    "descVar": [
+      ["12%", "15%", "18%", "21%", "24%"],
+      ["24%", "30%", "36%", "42%", "48%"],
+      ["24%", "30%", "36%", "42%", "48%"]
+    ]
+  },
   "21040036": {
     "name": "Blazing Justice",
     "rarity": 5,

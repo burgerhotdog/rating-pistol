@@ -1,35 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
-import { AVATAR_ASSETS, WEAPON_ASSETS, SET_ASSETS, ICON_ASSETS } from "@assets";
+import { ICON_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
-
-// Updates
-const DATE = "May 21, 2025";
-const TITLE = "Honkai Star Rail Version 3.3";
-const UPDATES = [
-  <span>
-    New Characters:{" "}
-    <Box component="img" src={AVATAR_ASSETS.hsr["1409"].icon} sx={{ display: "inline", width: 16, height: 16, verticalAlign: "text-bottom" }} />
-    {" "}Hyacine,{" "}
-    <Box component="img" src={AVATAR_ASSETS.hsr["1406"].icon} sx={{ display: "inline", width: 16, height: 16, verticalAlign: "text-bottom" }} />
-    {" "}Cipher
-  </span>,
-  <span>
-    New Weapons:{" "}
-    <Box component="img" src={WEAPON_ASSETS.hsr["23042"]} sx={{ display: "inline", width: 16, height: 16, verticalAlign: "text-bottom" }} />
-    {" "}Long May Rainbows Adorn the Sky,{" "}
-    <Box component="img" src={WEAPON_ASSETS.hsr["23043"]} sx={{ display: "inline", width: 16, height: 16, verticalAlign: "text-bottom" }} />
-    {" "}Lies Dance on the Breeze
-  </span>,
-  <span>
-    New Relics:{" "}
-    <Box component="img" src={SET_ASSETS.hsr["125"]["0"]} sx={{ display: "inline", width: 16, height: 16, verticalAlign: "text-bottom" }} />
-    {" "}Warrior Goddess of Sun and Thunder,{" "}
-    <Box component="img" src={SET_ASSETS.hsr["126"]["0"]} sx={{ display: "inline", width: 16, height: 16, verticalAlign: "text-bottom" }} />
-    {" "}Wavestrider Captain
-  </span>,
-];
 
 const GameLink = ({ gameId }) => (
   <Tooltip title={INFO_DATA[gameId].TITLE}>
@@ -107,22 +80,6 @@ const Menu = () => (
         <GameLink gameId="zzz" />
       </Stack>
     </Stack>
-
-    <Box>
-      <Typography variant="h5" fontWeight="bold" gutterBottom>
-        Updates: {DATE}
-      </Typography>
-      <Typography variant="subtitle1">
-        {TITLE}
-      </Typography>
-      <Stack>
-        {UPDATES.map((topic, index) => (
-          <Typography key={index} variant="body2" color="text.secondary">
-            {topic}
-          </Typography>
-        ))}
-      </Stack>
-    </Box>
   </Container>
 );
 
