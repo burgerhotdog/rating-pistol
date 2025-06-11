@@ -27,6 +27,21 @@
       "ER": 0.50
     }
   },
+  "1507": {
+    "name": "Zani",
+    "rarity": 5,
+    "type": "Gauntlets",
+    "sig": "21040036",
+    "minor": ["ATK", "ATK", "CR", "CR", "ATK", "ATK", "CR", "CR"],
+    "baseStats": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "HA": 0.50,
+      "ER": 0.25
+    }
+  },
   "1407": {
     "name": "Ciaccona",
     "rarity": 5,
