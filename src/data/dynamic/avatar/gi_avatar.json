@@ -1,4 +1,28 @@
 {
+  "10000115": {
+    "name": "Dahlia",
+    "rarity": 4,
+    "type": "Sword",
+    "skillRank": [null, 5, 3],
+    "baseStats": { "_HP": 12506, "_ATK": 189, "_DEF": 560 },
+    "weights": {
+      "HP": 0.75,
+      "ER": 0.50
+    }
+  },
+  "10000114": {
+    "name": "Skirk",
+    "rarity": 5,
+    "type": "Sword",
+    "sig": "11517",
+    "skillRank": [null, 5, 3],
+    "baseStats": { "_HP": 12417, "_ATK": 359, "_DEF": 806 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75
+    }
+  },
   "10000113": {
     "name": "Ifa",
     "rarity": 4,

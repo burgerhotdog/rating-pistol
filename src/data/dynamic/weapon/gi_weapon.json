@@ -1,4 +1,18 @@
 {
+  "11517": {
+    "name": "Azurelight",
+    "rarity": 5,
+    "type": "Sword",
+    "baseStats": { "_ATK": 674 },
+    "statSub": { "CR": 22.1 },
+    "descHead": "Whitehill's Bestowal",
+    "descBody": "Within 12s after an Elemental Skill is used, ATK is increased by {0}. During this time, when the equipping character has 0 Energy, ATK will be further increased by {1}, and CRIT DMG will be increased by {2}.",
+    "descVar": [
+      ["24%", "30%", "36%", "42%", "48%"],
+      ["24%", "30%", "36%", "42%", "48%"],
+      ["40%", "50%", "60%", "70%", "80%"]
+    ]
+  },
   "15432": {
     "name": "Sequence of Solitude",
     "rarity": 4,
