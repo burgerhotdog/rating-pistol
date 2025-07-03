@@ -1,4 +1,18 @@
 {
+  "322": {
+    "name": "Revelry by the Sea",
+    "type": "Planar",
+    "desc": {
+      "2": "Increases the wearer's ATK by 12%. When the wearer's ATK is higher than or equal to 2400/3600, increases the DoT DMG dealt by 12%/24%."
+    }
+  },
+  "321": {
+    "name": "Arcadia of Woven Dreams",
+    "type": "Planar",
+    "desc": {
+      "2": "When there are currently more or less than 4 ally targets in battle, each additional/missing ally target increases the wearer and their memosprite's DMG by 9%/12%, up to a maximum of 4/3 stacks."
+    }
+  },
   "126": {
     "name": "Wavestrider Captain",
     "type": "Relic",
