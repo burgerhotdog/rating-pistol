@@ -1,4 +1,49 @@
 {
+  "1408": {
+    "name": "Phainon",
+    "rarity": 5,
+    "type": "Destruction",
+    "sig": "23044",
+    "minor": ["CD", "CR", "CD", "SPD", "CD", "CR", "CD", "SPD", "CR", "CD"],
+    "skillRank": [3, 5, 3, 5, null, null],
+    "baseStats": { "_HP": 1436, "_ATK": 582, "_DEF": 703 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
+    }
+  },
+  "1015": {
+    "name": "Archer",
+    "rarity": 5,
+    "type": "The Hunt",
+    "sig": "23046",
+    "minor": ["QUANTUM", "ATK", "QUANTUM", "CR", "QUANTUM", "ATK", "QUANTUM", "CR", "ATK", "QUANTUM"],
+    "skillRank": [3, 3, 5, 5, null, null],
+    "baseStats": { "_HP": 1164, "_ATK": 621, "_DEF": 485 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
+    }
+  },
+  "1014": {
+    "name": "Saber",
+    "rarity": 5,
+    "type": "Destruction",
+    "sig": "23045",
+    "minor": ["WIND", "CR", "WIND", "HP", "WIND", "CR", "WIND", "HP", "CR", "WIND"],
+    "skillRank": [3, 5, 3, 5, null, null],
+    "baseStats": { "_HP": 1242, "_ATK": 602, "_DEF": 655 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "SPD": 0.50
+    }
+  },
   "1409": {
     "name": "Hyacine",
     "rarity": 5,
@@ -507,7 +552,7 @@
     "weights": {
       "CR": 1.00,
       "CD": 1.00,
-      "ATK": 0.75,
+      "HP": 0.75,
       "SPD": 0.50
     }
   },

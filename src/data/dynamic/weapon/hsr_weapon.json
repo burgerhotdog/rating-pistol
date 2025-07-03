@@ -1,4 +1,136 @@
 {
+  "23046": {
+    "name": "The Hell Where Ideals Burn",
+    "rarity": 5,
+    "type": "The Hunt",
+    "baseStats": { "_HP": 953, "_ATK": 582, "_DEF": 529 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "23045": {
+    "name": "A Thankless Coronation",
+    "rarity": 5,
+    "type": "Destruction",
+    "baseStats": { "_HP": 953, "_ATK": 582, "_DEF": 529 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "23044": {
+    "name": "Thus Burns the Dawn",
+    "rarity": 5,
+    "type": "Destruction",
+    "baseStats": { "_HP": 953, "_ATK": 688, "_DEF": 397 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21062": {
+    "name": "See You at the End",
+    "rarity": 4,
+    "type": "The Hunt",
+    "baseStats": { "_HP": 953, "_ATK": 529, "_DEF": 397 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21061": {
+    "name": "Holiday Thermae Escapade",
+    "rarity": 4,
+    "type": "Nihility",
+    "baseStats": { "_HP": 1058, "_ATK": 529, "_DEF": 331 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21060": {
+    "name": "A Dream Scented in Wheat",
+    "rarity": 4,
+    "type": "Erudition",
+    "baseStats": { "_HP": 953, "_ATK": 529, "_DEF": 397 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21058": {
+    "name": "A Trail of Bygone Blood",
+    "rarity": 4,
+    "type": "Destruction",
+    "baseStats": { "_HP": 1058, "_ATK": 529, "_DEF": 331 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21057": {
+    "name": "The Flower Remembers",
+    "rarity": 4,
+    "type": "Remembrance",
+    "baseStats": { "_HP": 1058, "_ATK": 529, "_DEF": 331 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21056": {
+    "name": "In Pursuit of the Wind",
+    "rarity": 4,
+    "type": "Harmony",
+    "baseStats": { "_HP": 1058, "_ATK": 476, "_DEF": 397 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21055": {
+    "name": "Unto Tomorrow's Morrow",
+    "rarity": 4,
+    "type": "Abundance",
+    "baseStats": { "_HP": 1058, "_ATK": 476, "_DEF": 397 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21054": {
+    "name": "The Story's Next Page",
+    "rarity": 4,
+    "type": "Remembrance",
+    "baseStats": { "_HP": 1058, "_ATK": 370, "_DEF": 397 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
+  "21053": {
+    "name": "Journey, Forever Peaceful",
+    "rarity": 4,
+    "type": "Preservation",
+    "baseStats": { "_HP": 1058, "_ATK": 370, "_DEF": 529 },
+    "descHead": "test",
+    "descBody": "test{0}",
+    "descVar": [
+      ["1", "2", "3", "4", "5"]
+    ]
+  },
   "23043": {
     "name": "Lies Dance on the Breeze",
     "rarity": 5,
