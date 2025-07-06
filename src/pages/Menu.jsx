@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Stack, Box, Typography, Tooltip } from "@mui/material";
 import { ICON_ASSETS } from "@assets";

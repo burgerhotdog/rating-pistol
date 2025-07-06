@@ -1,21 +1,18 @@
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { collection, getDocs, doc, setDoc, writeBatch } from "firebase/firestore";
 import { db } from "@config/firebase";
-import { Container, Stack, Button, Typography, Box, Tabs, Tab, Paper } from "@mui/material";
+import { Container, Stack, Button, Typography, Box } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
-import { VERSION_DATA, INFO_DATA, LABEL_DATA } from "@data";
+import { VERSION_DATA, INFO_DATA } from "@data";
 import { getRating } from "@utils";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
 import AvatarTable from "@components/AvatarTable";
-import TeamTable from "@components/TeamTable";
 
 const Game = ({ gameId, userId }) => {
   const [avatarCache, setAvatarCache] = useState({});
-  const [teamCache, setTeamCache] = useState({});
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState(0);
 
   // load firestore data
   useEffect(() => {
@@ -33,14 +30,6 @@ const Game = ({ gameId, userId }) => {
             };
           }
           setAvatarCache(newAvatarCache);
-
-          const teamRef = collection(db, "users", userId, `${gameId}_teams`);
-          const teamDocs = await getDocs(teamRef);
-          const newTeamCache = {};
-          for (const doc of teamDocs.docs) {
-            newTeamCache[doc.id] = doc.data();
-          }
-          setTeamCache(newTeamCache);
         } catch (error) {
           console.log(error);
         } finally {
@@ -48,7 +37,6 @@ const Game = ({ gameId, userId }) => {
         }
       } else {
         setAvatarCache({});
-        setTeamCache({});
       }
     };
     fetchDB();
@@ -132,56 +120,34 @@ const Game = ({ gameId, userId }) => {
         </Typography>
       </Box>
 
-      <Tabs
-        value={activeTab}
-        onChange={(_, newValue) => setActiveTab(newValue)}
-        sx={{ mb: 3 }}
-      >
-        <Tab label={LABEL_DATA[gameId].Avatars} />
-        <Tab label="Teams (Coming Soon)" disabled />
-      </Tabs>
-
-      {activeTab === 0 && (
-        <Stack spacing={3}>
-          <AvatarTable
-            gameId={gameId}
-            userId={userId}
-            avatarCache={avatarCache}
-            setAvatarCache={setAvatarCache}
-            isLoading={isLoading}
-            sortedAvatars={sortedAvatars}
-            setModalPipe={setModalPipe}
-          />
-          <Stack direction="row" justifyContent="center" spacing={2}>
-            <Button
-              onClick={handleAdd}
-              variant="contained"
-              color="primary"
-              startIcon={<Add />}
-            >
-              New Build
-            </Button>
-            <Button
-              onClick={handleLoad}
-              variant="outlined"
-              endIcon={<KeyboardArrowRight />}
-            >
-              Load Data
-            </Button>
-          </Stack>
-        </Stack>
-      )}
-
-      {activeTab === 1 && (
-        <TeamTable
+      <Stack spacing={3}>
+        <AvatarTable
           gameId={gameId}
           userId={userId}
           avatarCache={avatarCache}
-          teamCache={teamCache}
-          setTeamCache={setTeamCache}
+          setAvatarCache={setAvatarCache}
+          isLoading={isLoading}
           sortedAvatars={sortedAvatars}
+          setModalPipe={setModalPipe}
         />
-      )}
+        <Stack direction="row" justifyContent="center" spacing={2}>
+          <Button
+            onClick={handleAdd}
+            variant="contained"
+            color="primary"
+            startIcon={<Add />}
+          >
+            New Build
+          </Button>
+          <Button
+            onClick={handleLoad}
+            variant="outlined"
+            endIcon={<KeyboardArrowRight />}
+          >
+            Load Data
+          </Button>
+        </Stack>
+      </Stack>
 
       <Modal
         gameId={gameId}
