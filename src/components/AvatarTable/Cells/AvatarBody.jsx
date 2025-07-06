@@ -5,7 +5,7 @@ import { AVATAR_DATA, INFO_DATA, LABEL_DATA } from "@data";
 const AvatarBody = ({ gameId, id, data, setModalPipe }) => {
   const openModal = () =>
     setModalPipe({
-      type: "avatar",
+      type: "equip",
       id,
       data,
     });
