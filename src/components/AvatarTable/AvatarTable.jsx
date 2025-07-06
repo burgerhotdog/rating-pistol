@@ -40,36 +40,12 @@ const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, so
             />
           </TableCell>
           <TableCell>
-            <WeaponBody
-              gameId={gameId}
-              setModalPipe={setModalPipe}
-              id={avatarId}
-              data={avatarCache[avatarId].data}
-            />
-          </TableCell>
-          <TableCell>
-            <EquipBody
-              gameId={gameId}
-              setModalPipe={setModalPipe}
-              id={avatarId}
-              data={avatarCache[avatarId].data}
-            />
-          </TableCell>
-          <TableCell>
             <RatingBody
               gameId={gameId}
               setModalPipe={setModalPipe}
               id={avatarId}
               data={avatarCache[avatarId].data}
               rating={avatarCache[avatarId].rating}
-            />
-          </TableCell>
-          <TableCell>
-            <DeleteBody
-              gameId={gameId}
-              userId={userId}
-              id={avatarId}
-              setAvatarCache={setAvatarCache}
             />
           </TableCell>
         </TableRow>
@@ -80,56 +56,27 @@ const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, so
 
 const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
   const [onlyStarred, setOnlyStarred] = useState(false);
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
-
-  const handleChangePage = (_, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-
-  const paginatedAvatars = sortedAvatars.slice(
-    page * rowsPerPage,
-    page * rowsPerPage + rowsPerPage
-  );
 
   return (
     <TableContainer 
       component={Paper} 
       sx={{
-        overflowX: "auto",
+        maxHeight: 600,
+        overflow: "auto",
         border: "1px solid rgba(255, 255, 255, 0.1)",
       }}
     >
-      <Table sx={{ tableLayout: "fixed", width: "100%" }}>
+      <Table stickyHeader sx={{ tableLayout: "fixed", width: "100%" }}>
         <TableHead>
           <TableRow>
-            <TableCell width={50}>
+            <TableCell>
               <StarHead starOnly={onlyStarred} setStarOnly={setOnlyStarred} />
             </TableCell>
-            <TableCell width={200}>
+            <TableCell>
               <AvatarHead gameId={gameId} />
             </TableCell>
-            <TableCell width={250}>
-              <WeaponHead gameId={gameId} />
-            </TableCell>
-            <TableCell width={300}>
-              <EquipHead gameId={gameId} />
-            </TableCell>
-            <TableCell width={150}>
+            <TableCell>
               <RatingHead />
-            </TableCell>
-            <TableCell width={50}>
-              <DeleteHead
-                gameId={gameId}
-                userId={userId}
-                avatarCache={avatarCache}
-                setAvatarCache={setAvatarCache}
-              />
             </TableCell>
           </TableRow>
         </TableHead>
@@ -139,34 +86,10 @@ const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
           avatarCache={avatarCache}
           setAvatarCache={setAvatarCache}
           isLoading={isLoading}
-          sortedAvatars={paginatedAvatars}
+          sortedAvatars={sortedAvatars}
           setModalPipe={setModalPipe}
         />
       </Table>
-      <TablePagination
-        component="div"
-        count={sortedAvatars.length}
-        page={page}
-        onPageChange={handleChangePage}
-        rowsPerPage={rowsPerPage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-        rowsPerPageOptions={[5, 10, 25]}
-        sx={{
-          color: "text.secondary",
-          ".MuiTablePagination-select": {
-            color: "text.secondary",
-          },
-          ".MuiTablePagination-selectIcon": {
-            color: "text.secondary",
-          },
-          ".MuiTablePagination-displayedRows": {
-            color: "text.secondary",
-          },
-          ".MuiTablePagination-actions": {
-            color: "text.secondary",
-          },
-        }}
-      />
     </TableContainer>
   );
 };

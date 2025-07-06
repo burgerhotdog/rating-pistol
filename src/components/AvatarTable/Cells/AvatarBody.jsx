@@ -11,7 +11,7 @@ const AvatarBody = ({ gameId, id, data, setModalPipe }) => {
     });
 
   return (
-    <Tooltip title={`Edit ${LABEL_DATA[gameId].Avatar}`}>
+    <Tooltip title="Edit Build">
       <Stack
         onClick={openModal}
         display="inline-flex"
