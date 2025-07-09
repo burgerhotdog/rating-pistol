@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { collection, getDocs, doc, setDoc, writeBatch } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc, writeBatch, deleteDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
 import { Container, Stack, Button, Typography, Box } from "@mui/material";
 import { Add, KeyboardArrowRight } from "@mui/icons-material";
@@ -105,6 +105,19 @@ const Game = ({ gameId, userId }) => {
     }));
   };
 
+  const deleteAvatar = async (id) => {
+    if (userId) {
+      const ref = doc(db, "users", userId, gameId, id);
+      await deleteDoc(ref);
+    }
+
+    setAvatarCache((prev) => {
+      const newCache = { ...prev };
+      delete newCache[id];
+      return newCache;
+    });
+  };
+
   const handleAdd = () => setModalPipe({ type: "add", id: null, data: null });
   const handleLoad = () => setModalPipe({ type: "load", id: null, data: null });
 
@@ -158,6 +171,7 @@ const Game = ({ gameId, userId }) => {
         setAvatarCache={setAvatarCache}
         saveAvatar={saveAvatar}
         saveAvatarBatch={saveAvatarBatch}
+        deleteAvatar={deleteAvatar}
       />
     </Container>
   );

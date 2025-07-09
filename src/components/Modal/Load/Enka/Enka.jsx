@@ -128,17 +128,10 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
         case "gi": {
           const id = String(charObj.avatarId);
           const data = template(gameId);
-
-          // avatar
-          data.level = Number(charObj.propMap["4001"].val);
-          data.rank = Number(charObj.talentIdList?.length ?? 0);
     
           // weapon
           const weaponObj = charObj.equipList[charObj.equipList.length - 1];
           data.weaponId = String(weaponObj.itemId);
-          data.weaponLevel = Number(weaponObj.weapon.level);
-          const weaponRank = Object.values(weaponObj.weapon.affixMap ?? { rank: 0 })[0] + 1;
-          data.weaponRank = Number(weaponRank);
 
           // equipList
           const { equipTypeToIndex } = translate[gameId];
@@ -162,33 +155,17 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
             }
           }
 
-          // skillMap
-          const skillsArr = Object.values(charObj.skillLevelMap);
-          data.skillMap["001"] = Number(skillsArr[skillsArr.length - 3]);
-          data.skillMap["002"] = Number(skillsArr[skillsArr.length - 2]);
-          data.skillMap["003"] = Number(skillsArr[skillsArr.length - 1]);
-
           return [id, data];
         }
 
         case "hsr": {
           const id = String(charObj.avatarId);
           const data = template(gameId);
-          if (AVATAR_DATA[gameId][id].type === "Remembrance") {
-            data.skillMap["005"] = 1;
-            data.skillMap["006"] = 1;
-          }
-
-          // avatar
-          data.level = Number(charObj.level);
-          data.rank = Number(charObj.rank ?? 0);
 
           // weapon
           const weaponObj = charObj.equipment;
           if (weaponObj?.tid) {
             data.weaponId = String(weaponObj.tid);
-            data.weaponLevel = Number(weaponObj.level);
-            data.weaponRank = Number(weaponObj.rank);
           }
 
           // equipList
@@ -213,19 +190,6 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
             }
           }
 
-          // skillMap
-          const skillsArr = charObj.skillTreeList;
-          for (const { pointId, level } of skillsArr) {
-            const skillId = String(pointId).slice(4);
-            if (skillId === "007") {
-              continue;
-            } else if (skillId[0] === "3") {
-              data.skillMap[`00${Number(skillId[2]) + 4}`] = Number(level);
-            } else {
-              data.skillMap[skillId] = Number(level);
-            }
-          }
-
           return [id, data];
         }
 
@@ -233,16 +197,10 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
           const id = String(charObj.Id);
           const data = template(gameId);
 
-          // avatar
-          data.level = Number(charObj.Level);
-          data.rank = Number(charObj.TalentLevel);
-
           // weapon
           const weaponObj = charObj.Weapon;
           if (weaponObj?.Id) {
             data.weaponId = String(weaponObj.Id);
-            data.weaponLevel = Number(weaponObj.Level);
-            data.weaponRank = Number(weaponObj.UpgradeLevel);
           }
 
           // equipList
@@ -268,19 +226,6 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
               const timesAppeared = subPropObj.PropertyLevel;
               data.equipList[equipIndex].statList[subIndex].value = Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
             }
-          }
-
-          // skillMap
-          const skillsArr = charObj.SkillLevelList;
-          data.skillMap["001"] = Number(skillsArr[0].Level);
-          data.skillMap["002"] = Number(skillsArr[1].Level);
-          data.skillMap["003"] = Number(skillsArr[3].Level);
-          data.skillMap["004"] = Number(skillsArr[2].Level);
-          data.skillMap["005"] = Number(skillsArr[5].Level);
-
-          const coreLevel = Number(skillsArr[4].Level);
-          for (let i = 1; i < coreLevel; i++) {
-            data.skillMap[`10${i}`] = 1;
           }
 
           return [id, data];

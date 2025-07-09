@@ -1,4 +1,4 @@
-import { Stack, Badge, Avatar, Typography, Tooltip } from "@mui/material";
+import { Stack, Avatar, Typography, Tooltip } from "@mui/material";
 import { ErrorOutline, InfoOutlined } from "@mui/icons-material";
 import { RATING_ASSETS } from "@assets";
 import { LABEL_DATA } from "@data";
@@ -30,19 +30,19 @@ const RatingBody = ({ gameId, setModalPipe, id, data, rating }) => {
   return (
     <Tooltip title="Show Details">
       <Stack
+        onClick={openModal}
         display="inline-flex"
         direction="row"
         alignItems="center"
         spacing={1}
+        sx={{ cursor: "pointer" }}
       >
-        <Badge onClick={openModal} sx={{ cursor: "pointer" }}>
-          <Avatar
-            alt={RATING_RANK[ratingRank]}
-            src={RATING_ASSETS[ratingRank]}
-            sx={{ width: 32, height: 32 }}
-          />
-        </Badge>
-        <Typography onClick={openModal} sx={{ cursor: "pointer" }}>
+        <Avatar
+          alt={RATING_RANK[ratingRank]}
+          src={RATING_ASSETS[ratingRank]}
+          sx={{ width: 32, height: 32 }}
+        />
+        <Typography variant="body2">
           {RATING_RANK[ratingRank]}
         </Typography>
       </Stack>

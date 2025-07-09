@@ -21,10 +21,6 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
   const handleSave = async () => {
     setIsLoading(true);
     const data = template(gameId);
-    if (AVATAR_DATA[gameId][id].type === "Remembrance") {
-      data.skillMap["005"] = 6;
-      data.skillMap["006"] = 6;
-    }
     await saveAvatar(id, data);
     closeModal();
   };

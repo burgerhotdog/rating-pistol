@@ -14,11 +14,12 @@ import {
 } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
-import { SetId, Mainstat, Substat } from "./Forms";
+import { WeaponId, SetId, Mainstat, Substat } from "./Forms";
 import PreviewSet from "./PreviewSet";
 
-const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
+const Equip = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
   const { id, data } = modalPipe;
+  const [weaponId, setWeaponId] = useState(data.weaponId);
   const [equipList, setEquipList] = useState(() => structuredClone(data.equipList));
   const [viewIndex, setViewIndex] = useState(0);
   const equipSlots = [...Array(INFO_DATA[gameId].MAIN_LEN).keys()];
@@ -26,13 +27,27 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
 
   const handleSave = async () => {
     setIsLoading(true);
-    await saveAvatar(id, { ...data, equipList });
+    await saveAvatar(id, { ...data, weaponId, equipList });
     closeModal();
   };
+
+  const handleDelete = async () => {
+    setIsLoading(true);
+    await deleteAvatar(id);
+    closeModal();
+  }
 
   return (
     <Stack alignItems="center" spacing={2}>
       <Grid container spacing={2} minWidth={950}>
+        <Grid size={12}>
+          <WeaponId
+            gameId={gameId}
+            id={id}
+            weaponId={weaponId}
+            setWeaponId={setWeaponId}
+          />
+        </Grid>
         <Grid size="auto">
           <Stack direction="row" spacing={2}>
             <Card sx={{ width: 125 }}>
@@ -102,6 +117,9 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal }) => {
 
       <Button onClick={handleSave} loading={isLoading} variant="contained">
         Save
+      </Button>
+      <Button onClick={handleDelete} loading={isLoading} variant="contained">
+        Delete
       </Button>
     </Stack>
   );

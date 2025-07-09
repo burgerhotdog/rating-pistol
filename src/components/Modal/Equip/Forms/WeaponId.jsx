@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import { Box, Autocomplete, TextField, Typography } from "@mui/material";
 import { WEAPON_ASSETS } from "@assets";
-import { AVATAR_DATA, WEAPON_DATA, INFO_DATA, LABEL_DATA } from "@data";
+import { AVATAR_DATA, WEAPON_DATA, LABEL_DATA } from "@data";
 
-const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeaponRank }) => {
+const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
   const { sig, type } = AVATAR_DATA[gameId][id];
 
   const weaponIdOptions = useMemo(() =>
@@ -21,8 +21,6 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId, setWeaponLevel, setWeapon
 
   const handleWeaponId = (newValue) => {
     setWeaponId(newValue);
-    setWeaponLevel(newValue ? INFO_DATA[gameId].MAX_LEVEL : null);
-    setWeaponRank(newValue ? 1 : null);
   };
 
   const renderOptionWeaponId = (props, option) => {

@@ -1,20 +1,11 @@
 import { useState } from "react";
-import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TablePagination, TableBody } from "@mui/material";
-import {
-  StarHead, StarBody,
-  AvatarHead, AvatarBody,
-  WeaponHead, WeaponBody,
-  EquipHead, EquipBody,
-  RatingHead, RatingBody,
-  DeleteHead, DeleteBody,
-} from "./Cells";
+import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography } from "@mui/material";
+import { StarHead, StarBody, AvatarBody, RatingBody } from "./Cells";
+import { LABEL_DATA } from "@data";
 import CustomSkeleton from "./Skeleton";
 
 const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
-  if (isLoading) {
-    return (<CustomSkeleton />)
-  }
-
+  if (isLoading) return (<CustomSkeleton />);
   return (
     <TableBody>
       {sortedAvatars.map((avatarId) => (
@@ -61,7 +52,7 @@ const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
     <TableContainer 
       component={Paper} 
       sx={{
-        maxHeight: 600,
+        maxHeight: 650,
         overflow: "auto",
         border: "1px solid rgba(255, 255, 255, 0.1)",
       }}
@@ -73,10 +64,14 @@ const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
               <StarHead starOnly={onlyStarred} setStarOnly={setOnlyStarred} />
             </TableCell>
             <TableCell>
-              <AvatarHead gameId={gameId} />
+              <Typography variant="body1" fontWeight="bold">
+                {LABEL_DATA[gameId].Avatar}
+              </Typography>
             </TableCell>
             <TableCell>
-              <RatingHead />
+              <Typography variant="body1" fontWeight="bold">
+                Rating
+              </Typography>
             </TableCell>
           </TableRow>
         </TableHead>
