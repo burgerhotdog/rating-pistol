@@ -5,12 +5,10 @@ import {
   Grid,
   Stack,
   Box,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Card,
   Button,
+  Tabs,
+  Tab,
+  Typography,
 } from "@mui/material";
 import { EQUIP_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
@@ -22,7 +20,6 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
   const [weaponId, setWeaponId] = useState(data.weaponId);
   const [equipList, setEquipList] = useState(() => structuredClone(data.equipList));
   const [viewIndex, setViewIndex] = useState(0);
-  const equipSlots = [...Array(INFO_DATA[gameId].MAIN_LEN).keys()];
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
@@ -48,41 +45,38 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
             setWeaponId={setWeaponId}
           />
         </Grid>
-        <Grid size="auto">
-          <Stack direction="row" spacing={2}>
-            <Card sx={{ width: 125 }}>
-              <List>
-                {equipSlots.map((index) => (
-                  <ListItem key={index} disablePadding>
-                    <ListItemButton
-                      onClick={() => setViewIndex(index)}
-                      selected={viewIndex === index}
-                    >
-                      <Stack direction="row" spacing={1}>
-                        <Box
-                          component="img"
-                          src={EQUIP_ASSETS[gameId][index]}
-                          sx={{ width: 24, height: 24, objectFit: "contain" }}
-                        />
-                        <ListItemText
-                          primary={INFO_DATA[gameId].EQUIP_NAMES[index]}
-                        />
-                      </Stack>
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </Card>
-
-            <Paper sx={{ width: 350, p: 2 }}>
+        <Grid size={12}>
+          <Tabs
+            value={viewIndex}
+            onChange={(_, newValue) => setViewIndex(newValue)}
+          >
+            {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
+              <Tab
+                key={index}
+                label={(
+                  <Stack direction="row" alignItems="center" spacing={1}>
+                    <Box
+                      component="img"
+                      src={EQUIP_ASSETS[gameId][index]}
+                      sx={{ width: 24, height: 24, objectFit: "contain" }}
+                    />
+                    <Typography variant="body2">
+                      {name}
+                    </Typography>
+                  </Stack>
+                )}
+              />
+            ))}
+          </Tabs>
+          <Paper sx={{ width: 700, p: 2 }}>
+            <Stack direction="row" justifyContent="center" spacing={2}>
+              <SetId
+                gameId={gameId}
+                equipList={equipList}
+                setEquipList={setEquipList}
+                mainIndex={viewIndex}
+              />
               <Stack spacing={1}>
-                <SetId
-                  gameId={gameId}
-                  equipList={equipList}
-                  setEquipList={setEquipList}
-                  mainIndex={viewIndex}
-                />
-
                 <Mainstat
                   gameId={gameId}
                   equipList={equipList}
@@ -103,8 +97,8 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
                   />
                 ))}
               </Stack>
-            </Paper>
-          </Stack>
+            </Stack>
+          </Paper>
         </Grid>
 
         <Grid size="grow">
@@ -115,12 +109,23 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
         </Grid>
       </Grid>
 
-      <Button onClick={handleSave} loading={isLoading} variant="contained">
-        Save
-      </Button>
-      <Button onClick={handleDelete} loading={isLoading} variant="contained">
-        Delete
-      </Button>
+      <Stack direction="row" spacing={2}>
+        <Button
+          onClick={handleSave}
+          loading={isLoading}
+          variant="contained"
+        >
+          Save
+        </Button>
+        <Button
+          onClick={handleDelete}
+          loading={isLoading}
+          variant="outlined"
+          color="secondary"
+        >
+          Delete
+        </Button>
+      </Stack>
     </Stack>
   );
 };

@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography } from "@mui/material";
-import { StarHead, StarBody, AvatarBody, RatingBody } from "./Cells";
+import { StarBody, AvatarBody, RatingBody } from "./Cells";
 import { LABEL_DATA } from "@data";
 import CustomSkeleton from "./Skeleton";
 
@@ -46,8 +45,6 @@ const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, so
 };
 
 const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
-  const [onlyStarred, setOnlyStarred] = useState(false);
-
   return (
     <TableContainer 
       component={Paper} 
@@ -60,9 +57,7 @@ const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
       <Table stickyHeader sx={{ tableLayout: "fixed", width: "100%" }}>
         <TableHead>
           <TableRow>
-            <TableCell>
-              <StarHead starOnly={onlyStarred} setStarOnly={setOnlyStarred} />
-            </TableCell>
+            <TableCell />
             <TableCell>
               <Typography variant="body1" fontWeight="bold">
                 {LABEL_DATA[gameId].Avatar}

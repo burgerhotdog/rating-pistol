@@ -61,8 +61,6 @@ export const EQUIP_ASSETS = {
   zzz: short(import.meta.glob("./static/equip/zzz_equip/*.webp", { eager: true })),
 };
 
-export const PATH_ASSETS = short(import.meta.glob("./static/path/*.webp", { eager: true }));
-
 export const RATING_ASSETS = short(import.meta.glob("./static/rating/*.webp", { eager: true }));
 
 export const STAT_ASSETS = { 
