@@ -1,6 +1,5 @@
 import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography } from "@mui/material";
 import { StarBody, AvatarBody, RatingBody } from "./Cells";
-import { LABEL_DATA } from "@data";
 import CustomSkeleton from "./Skeleton";
 
 const CustomBody = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
@@ -60,7 +59,7 @@ const AvatarTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
             <TableCell />
             <TableCell>
               <Typography variant="body1" fontWeight="bold">
-                {LABEL_DATA[gameId].Avatar}
+                Character
               </Typography>
             </TableCell>
             <TableCell>

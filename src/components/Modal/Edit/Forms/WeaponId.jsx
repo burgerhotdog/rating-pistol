@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Box, Autocomplete, TextField, Typography } from "@mui/material";
 import { WEAPON_ASSETS } from "@assets";
-import { AVATAR_DATA, WEAPON_DATA, LABEL_DATA } from "@data";
+import { AVATAR_DATA, WEAPON_DATA } from "@data";
 
 const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
   const { sig, type } = AVATAR_DATA[gameId][id];
@@ -61,7 +61,7 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
       onChange={(_, newValue) => handleWeaponId(newValue)}
       renderOption={renderOptionWeaponId}
       renderInput={(params) => (
-        <TextField {...params} label={LABEL_DATA[gameId].Weapon} />
+        <TextField {...params} label="Weapon" />
       )}
       sx={{ flex: 1 }}
     />

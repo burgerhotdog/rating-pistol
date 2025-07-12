@@ -1,7 +1,6 @@
 import { Stack, Avatar, Typography, Tooltip } from "@mui/material";
 import { ErrorOutline, InfoOutlined } from "@mui/icons-material";
 import { RATING_ASSETS } from "@assets";
-import { LABEL_DATA } from "@data";
 
 const RATING_RANK = ["Excellent", "Great", "Good", "Poor"];
 
@@ -14,7 +13,7 @@ const RatingBody = ({ gameId, setModalPipe, id, data, rating }) => {
 
   if (rating === null) {
     return (
-      <Tooltip title={`This ${LABEL_DATA[gameId].avatar} is not affected by substats and thus cannot be rated`}>
+      <Tooltip title={`This character is not affected by substats and thus cannot be rated`}>
         <InfoOutlined sx={{ color: "text.disabled" }} />
       </Tooltip>
     );

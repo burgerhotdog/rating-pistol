@@ -15,7 +15,7 @@ import { INFO_DATA } from "@data";
 import { WeaponId, SetId, Mainstat, Substat } from "./Forms";
 import PreviewSet from "./PreviewSet";
 
-const Equip = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
+const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
   const { id, data } = modalPipe;
   const [weaponId, setWeaponId] = useState(data.weaponId);
   const [equipList, setEquipList] = useState(() => structuredClone(data.equipList));
@@ -130,4 +130,4 @@ const Equip = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
   );
 };
 
-export default Equip;
+export default Edit;

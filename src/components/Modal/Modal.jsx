@@ -1,7 +1,7 @@
 import { Modal, Box } from "@mui/material";
 import Add from "./Add";
 import Load from "./Load";
-import Equip from "./Equip";
+import Edit from "./Edit";
 import Rating from "./Rating";
 
 const ModalContent = ({
@@ -25,9 +25,9 @@ const ModalContent = ({
           closeModal={closeModal}
         />
       );
-    case "equip":
+    case "edit":
       return (
-        <Equip
+        <Edit
           gameId={gameId}
           modalPipe={modalPipe}
           saveAvatar={saveAvatar}

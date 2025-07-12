@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { Autocomplete, TextField, Box, Paper } from "@mui/material";
 import { SET_ASSETS } from "@assets";
-import { SET_DATA, LABEL_DATA } from "@data";
+import { SET_DATA } from "@data";
 
 const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
   const setOptions = useMemo(() =>
@@ -67,7 +67,7 @@ const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
         );
       }}
       renderInput={(params) => (
-        <TextField {...params} label={`${LABEL_DATA[gameId].Equip} Set`} />
+        <TextField {...params} label="Set" />
       )}
     />
   )
