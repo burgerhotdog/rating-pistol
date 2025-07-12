@@ -7,7 +7,7 @@ import { VERSION_DATA, INFO_DATA } from "@data";
 import { getRating } from "@utils";
 import Back from "@components/Back";
 import Modal from "@components/Modal";
-import AvatarTable from "@components/AvatarTable";
+import Table from "@components/Table";
 
 const Game = ({ gameId, userId }) => {
   const [avatarCache, setAvatarCache] = useState({});
@@ -134,7 +134,7 @@ const Game = ({ gameId, userId }) => {
       </Box>
 
       <Stack spacing={3}>
-        <AvatarTable
+        <Table
           gameId={gameId}
           userId={userId}
           avatarCache={avatarCache}
