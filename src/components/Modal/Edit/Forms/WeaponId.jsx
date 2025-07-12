@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Box, Autocomplete, TextField, Typography } from "@mui/material";
+import { Box, Autocomplete, TextField, Typography, Paper } from "@mui/material";
 import { WEAPON_ASSETS } from "@assets";
 import { AVATAR_DATA, WEAPON_DATA } from "@data";
 
@@ -63,7 +63,14 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
       renderInput={(params) => (
         <TextField {...params} label="Weapon" />
       )}
-      sx={{ flex: 1 }}
+      slots={{
+        paper: ({ children }) => (
+          <Paper elevation={3}>
+            {children}
+          </Paper>
+        )
+      }}
+      fullWidth
     />
   );
 };

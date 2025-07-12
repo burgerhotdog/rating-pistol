@@ -32,8 +32,9 @@ const Mainstat = ({ gameId, equipList, setEquipList, mainIndex }) => {
           <Paper elevation={3}>
             {children}
           </Paper>
-        ),
+        )
       }}
+      fullWidth
     />
   )
 };

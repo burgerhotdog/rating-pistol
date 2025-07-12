@@ -69,6 +69,7 @@ const SetId = ({ gameId, equipList, setEquipList, mainIndex }) => {
       renderInput={(params) => (
         <TextField {...params} label="Set" />
       )}
+      fullWidth
     />
   )
 };

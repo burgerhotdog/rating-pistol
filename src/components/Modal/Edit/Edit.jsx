@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Paper,
   Divider,
-  Grid,
   Stack,
   Box,
   Button,
@@ -10,16 +9,15 @@ import {
   Tab,
   Typography,
 } from "@mui/material";
-import { EQUIP_ASSETS } from "@assets";
+import { SET_ASSETS, EQUIP_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
 import { WeaponId, SetId, Mainstat, Substat } from "./Forms";
-import PreviewSet from "./PreviewSet";
 
 const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
   const { id, data } = modalPipe;
   const [weaponId, setWeaponId] = useState(data.weaponId);
   const [equipList, setEquipList] = useState(() => structuredClone(data.equipList));
-  const [viewIndex, setViewIndex] = useState(0);
+  const [tabIndex, setTabIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = async () => {
@@ -36,78 +34,74 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
 
   return (
     <Stack alignItems="center" spacing={2}>
-      <Grid container spacing={2} minWidth={950}>
-        <Grid size={12}>
-          <WeaponId
-            gameId={gameId}
-            id={id}
-            weaponId={weaponId}
-            setWeaponId={setWeaponId}
+      <WeaponId
+        gameId={gameId}
+        id={id}
+        weaponId={weaponId}
+        setWeaponId={setWeaponId}
+      />
+
+      <Tabs
+        value={tabIndex}
+        onChange={(_, newValue) => setTabIndex(newValue)}
+      >
+        {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
+          <Tab
+            key={index}
+            label={(
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <Box
+                  component="img"
+                  src={EQUIP_ASSETS[gameId][index]}
+                  sx={{ width: 24, height: 24, objectFit: "contain" }}
+                />
+                <Typography variant="body2">
+                  {name}
+                </Typography>
+              </Stack>
+            )}
           />
-        </Grid>
-        <Grid size={12}>
-          <Tabs
-            value={viewIndex}
-            onChange={(_, newValue) => setViewIndex(newValue)}
-          >
-            {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
-              <Tab
-                key={index}
-                label={(
-                  <Stack direction="row" alignItems="center" spacing={1}>
-                    <Box
-                      component="img"
-                      src={EQUIP_ASSETS[gameId][index]}
-                      sx={{ width: 24, height: 24, objectFit: "contain" }}
-                    />
-                    <Typography variant="body2">
-                      {name}
-                    </Typography>
-                  </Stack>
-                )}
-              />
-            ))}
-          </Tabs>
-          <Paper sx={{ width: 700, p: 2 }}>
-            <Stack direction="row" justifyContent="center" spacing={2}>
-              <SetId
+        ))}
+      </Tabs>
+
+      <Paper sx={{ p: 2 }}>
+        <Stack direction="row" justifyContent="center" spacing={2}>
+          <Stack spacing={1}>
+            <SetId
+              gameId={gameId}
+              equipList={equipList}
+              setEquipList={setEquipList}
+              mainIndex={tabIndex}
+            />
+            <Box
+              component="img"
+              src={SET_ASSETS[gameId][equipList[tabIndex].setId]?.[tabIndex]}
+              sx={{ width: 150, height: 150, objectFit: "contain" }}
+            />
+          </Stack>
+          <Stack spacing={1}>
+            <Mainstat
+              gameId={gameId}
+              equipList={equipList}
+              setEquipList={setEquipList}
+              mainIndex={tabIndex}
+            />
+
+            <Divider />
+
+            {equipList[tabIndex].statList.map((_, subIndex) => (
+              <Substat
+                key={subIndex}
                 gameId={gameId}
                 equipList={equipList}
                 setEquipList={setEquipList}
-                mainIndex={viewIndex}
+                mainIndex={tabIndex}
+                subIndex={subIndex}
               />
-              <Stack spacing={1}>
-                <Mainstat
-                  gameId={gameId}
-                  equipList={equipList}
-                  setEquipList={setEquipList}
-                  mainIndex={viewIndex}
-                />
-
-                <Divider />
-
-                {equipList[viewIndex].statList.map((_, subIndex) => (
-                  <Substat
-                    key={subIndex}
-                    gameId={gameId}
-                    equipList={equipList}
-                    setEquipList={setEquipList}
-                    mainIndex={viewIndex}
-                    subIndex={subIndex}
-                  />
-                ))}
-              </Stack>
-            </Stack>
-          </Paper>
-        </Grid>
-
-        <Grid size="grow">
-        </Grid>
-
-        <Grid size={12}>
-          <PreviewSet gameId={gameId} equipList={equipList} />
-        </Grid>
-      </Grid>
+            ))}
+          </Stack>
+        </Stack>
+      </Paper>
 
       <Stack direction="row" spacing={2}>
         <Button
