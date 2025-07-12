@@ -23,7 +23,7 @@ const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
         <Box
           component="img"
           alt={avatarId}
-          src={AVATAR_ASSETS[gameId][avatarId].icon}
+          src={AVATAR_ASSETS[gameId][avatarId]}
           sx={{
             width: 16,
             height: 16,

@@ -48,7 +48,7 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
               <Box
                 component="img"
                 loading="lazy"
-                src={AVATAR_ASSETS[gameId][option].icon}
+                src={AVATAR_ASSETS[gameId][option]}
                 alt=""
                 sx={{ width: 24, height: 24, objectFit: "contain" }}
               />

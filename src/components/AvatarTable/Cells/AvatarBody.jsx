@@ -22,7 +22,7 @@ const AvatarBody = ({ gameId, id, data, setModalPipe }) => {
       >
         <Avatar
           alt={AVATAR_DATA[gameId][id].name}
-          src={AVATAR_ASSETS[gameId][id].icon}
+          src={AVATAR_ASSETS[gameId][id]}
         />
         <Typography variant="body2">
           {AVATAR_DATA[gameId][id].name}
