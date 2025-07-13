@@ -9,9 +9,10 @@ import {
   Tab,
   Typography,
 } from "@mui/material";
-import { SET_ASSETS, EQUIP_ASSETS } from "@assets";
+import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import { EQUIP_ASSETS } from "@assets";
 import { INFO_DATA } from "@data";
-import { WeaponId, SetId, Mainstat, Substat } from "./Forms";
+import { WeaponId, Mainstat, Substat } from "./Forms";
 
 const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
   const { id, data } = modalPipe;
@@ -63,22 +64,16 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
           />
         ))}
       </Tabs>
-
-      <Paper sx={{ p: 2 }}>
-        <Stack direction="row" justifyContent="center" spacing={2}>
-          <Stack spacing={1}>
-            <SetId
-              gameId={gameId}
-              equipList={equipList}
-              setEquipList={setEquipList}
-              mainIndex={tabIndex}
-            />
-            <Box
-              component="img"
-              src={SET_ASSETS[gameId][equipList[tabIndex].setId]?.[tabIndex]}
-              sx={{ width: 150, height: 150, objectFit: "contain" }}
-            />
-          </Stack>
+      
+      <Stack direction="row" spacing={1}>
+        <Button
+          onClick={() => setTabIndex(tabIndex - 1)}
+          color="inherit"
+          sx={{ visibility: tabIndex === 0 ? "hidden" : "visible" }}
+        >
+          <ChevronLeft />
+        </Button>
+        <Paper sx={{ p: 2 }}>
           <Stack spacing={1}>
             <Mainstat
               gameId={gameId}
@@ -86,9 +81,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
               setEquipList={setEquipList}
               mainIndex={tabIndex}
             />
-
             <Divider />
-
             {equipList[tabIndex].statList.map((_, subIndex) => (
               <Substat
                 key={subIndex}
@@ -100,25 +93,50 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
               />
             ))}
           </Stack>
-        </Stack>
-      </Paper>
-
-      <Stack direction="row" spacing={2}>
+        </Paper>
         <Button
-          onClick={handleSave}
-          loading={isLoading}
-          variant="contained"
+          onClick={() => setTabIndex(tabIndex + 1)}
+          color="inherit"
+          sx={{ visibility: tabIndex === INFO_DATA[gameId].EQUIP_NAMES.length - 1 ? "hidden" : "visible" }}
         >
-          Save
+          <ChevronRight />
         </Button>
+      </Stack>
+
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        width="100%"
+      >
         <Button
           onClick={handleDelete}
           loading={isLoading}
           variant="outlined"
-          color="secondary"
+          color="error"
         >
           Delete
         </Button>
+
+        <Stack direction="row" spacing={2} justifyContent="center">
+          <Button
+            onClick={closeModal}
+            variant="outlined"
+            color="secondary"
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={handleSave}
+            loading={isLoading}
+            variant="contained"
+          >
+            Save
+          </Button>
+        </Stack>
+
+        {/* Empty space on the right to balance layout */}
+        <Box width={75} />
       </Stack>
     </Stack>
   );
