@@ -13,12 +13,6 @@ import ww_weapon from "./dynamic/weapon/ww_weapon.json";
 import zzz_weapon from "./dynamic/weapon/zzz_weapon.json";
 export const WEAPON_DATA = { gi: gi_weapon, hsr: hsr_weapon, ww: ww_weapon, zzz: zzz_weapon };
 
-import gi_set from "./dynamic/set/gi_set.json";
-import hsr_set from "./dynamic/set/hsr_set.json";
-import ww_set from "./dynamic/set/ww_set.json";
-import zzz_set from "./dynamic/set/zzz_set.json";
-export const SET_DATA = { gi: gi_set, hsr: hsr_set, ww: ww_set, zzz: zzz_set };
-
 // static exports
 import gi_info from "./static/info/gi_info.json";
 import hsr_info from "./static/info/hsr_info.json";

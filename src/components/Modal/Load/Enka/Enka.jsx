@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import template from "@config/template";
 import { AVATAR_ASSETS } from "@assets";
-import { AVATAR_DATA, SET_DATA, STAT_DATA } from "@data";
+import { AVATAR_DATA, STAT_DATA } from "@data";
 import translate from "./translate";
 
 const errorMessages = {
@@ -139,10 +139,6 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
           for (const equipObj of equipListArr) {
             const equipIndex = equipTypeToIndex[equipObj.flat.equipType];
 
-            // set
-            if (!SET_DATA[gameId][equipObj.flat.icon.substring(13, 18)]) continue;
-            data.equipList[equipIndex].setId = equipObj.flat.icon.substring(13, 18);
-
             // mainstat
             data.equipList[equipIndex].stat = STAT_CONVERT[equipObj.flat.reliquaryMainstat.mainPropId];
 
@@ -172,9 +168,6 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
           const relicListArr = charObj.relicList;
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.type - 1;
-
-            // set
-            data.equipList[equipIndex].setId = String(relicObj._flat.setID);
 
             // mainstat
             data.equipList[equipIndex].stat = STAT_CONVERT[relicObj._flat.props[0].type];
@@ -207,9 +200,6 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
           const relicListArr = charObj.EquippedList;
           for (const relicObj of relicListArr) {
             const equipIndex = relicObj.Slot - 1;
-
-            // set
-            data.equipList[equipIndex].setId = `${Math.floor(relicObj.Equipment.Id / 100)}00`;
 
             // mainstat
             data.equipList[equipIndex].stat = STAT_CONVERT[relicObj.Equipment.MainPropertyList[0].PropertyId];
