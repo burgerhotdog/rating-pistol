@@ -1,4 +1,16 @@
 {
+  "14141": {
+    "name": "Metanukimorphosis",
+    "rarity": 5,
+    "type": "Support",
+    "baseStats": { "_ATK": 713 }
+  },
+  "14140": {
+    "name": "Practiced Perfection",
+    "rarity": 5,
+    "type": "Anomaly",
+    "baseStats": { "_ATK": 713 }
+  },
   "14139": {
     "name": "Roaring Fur-nace",
     "rarity": 5,

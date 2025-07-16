@@ -1,4 +1,28 @@
 {
+  "1411": {
+    "name": "Yuzuha",
+    "rarity": 5,
+    "type": "Support",
+    "sig": "14141",
+    "baseStats": { "_HP": 8829, "_ATK": 758, "_DEF": 612 },
+    "weights": {
+      "ATK": 1.00,
+      "AP": 0.75,
+      "PEN": 0.25
+    }
+  },
+  "1401": {
+    "name": "Alice",
+    "rarity": 5,
+    "type": "Anomaly",
+    "sig": "14140",
+    "baseStats": { "_HP": 7673, "_ATK": 880, "_DEF": 606 },
+    "weights": {
+      "AP": 1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
+    }
+  },
   "1421": {
     "name": "Pan Yinhu",
     "rarity": 4,
