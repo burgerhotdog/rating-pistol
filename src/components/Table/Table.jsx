@@ -11,10 +11,10 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         border: "1px solid rgba(255, 255, 255, 0.1)",
       }}
     >
-      <Table stickyHeader sx={{ tableLayout: "fixed", width: "100%" }}>
+      <Table stickyHeader sx={{ tableLayout: "fixed" }}>
         <TableHead>
           <TableRow>
-            <TableCell />
+            <TableCell width={50} />
             <TableCell>
               <Typography variant="body1" fontWeight="bold">
                 Character

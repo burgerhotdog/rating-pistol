@@ -122,7 +122,7 @@ const Game = ({ gameId, userId }) => {
   const handleLoad = () => setModalPipe({ type: "load", id: null, data: null });
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <Container maxWidth="md" sx={{ py: 4 }}>
       <Back />
       <Box textAlign="center" mb={3}>
         <Typography variant="h3" fontWeight="bold">
