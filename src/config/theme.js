@@ -16,9 +16,6 @@ const theme = createTheme({
   },
   shape: { borderRadius: 8 },
   components: {
-    MuiAutocomplete: {
-      defaultProps: { size: "small" }
-    },
     MuiAvatar: {
       defaultProps: { variant: "square" },
     },
@@ -30,7 +27,6 @@ const theme = createTheme({
     },
     MuiSelect: {
       defaultProps: {
-        size: "small",
         slotProps: { inputLabel: { shrink: true } },
       },
     },
@@ -50,7 +46,6 @@ const theme = createTheme({
     },
     MuiTextField: {
       defaultProps: {
-        size: "small",
         slotProps: { inputLabel: { shrink: true } },
       },
     },
