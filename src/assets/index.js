@@ -25,10 +25,10 @@ const shorter = (assets) => {
 
 // dynamic exports
 export const AVATAR_ASSETS = { 
-  gi: shorter(import.meta.glob("./dynamic/avatar/gi_avatar/*/*.webp", { eager: true })),
-  hsr: shorter(import.meta.glob("./dynamic/avatar/hsr_avatar/*/*.webp", { eager: true })),
-  ww: shorter(import.meta.glob("./dynamic/avatar/ww_avatar/*/*.webp", { eager: true })),
-  zzz: shorter(import.meta.glob("./dynamic/avatar/zzz_avatar/*/*.webp", { eager: true })),
+  gi: short(import.meta.glob("./dynamic/avatar/gi_avatar/*.webp", { eager: true })),
+  hsr: short(import.meta.glob("./dynamic/avatar/hsr_avatar/*.webp", { eager: true })),
+  ww: short(import.meta.glob("./dynamic/avatar/ww_avatar/*.webp", { eager: true })),
+  zzz: short(import.meta.glob("./dynamic/avatar/zzz_avatar/*.webp", { eager: true })),
 };
 
 export const WEAPON_ASSETS = { 
@@ -36,13 +36,6 @@ export const WEAPON_ASSETS = {
   hsr: short(import.meta.glob("./dynamic/weapon/hsr_weapon/*.webp", { eager: true })),
   ww: short(import.meta.glob("./dynamic/weapon/ww_weapon/*.webp", { eager: true })),
   zzz: short(import.meta.glob("./dynamic/weapon/zzz_weapon/*.webp", { eager: true })),
-};
-
-export const SET_ASSETS = { 
-  gi: shorter(import.meta.glob("./dynamic/set/gi_set/*/*.webp", { eager: true })),
-  hsr: shorter(import.meta.glob("./dynamic/set/hsr_set/*/*.webp", { eager: true })),
-  ww: short(import.meta.glob("./dynamic/set/ww_set/*.webp", { eager: true })),
-  zzz: short(import.meta.glob("./dynamic/set/zzz_set/*.webp", { eager: true })),
 };
 
 // static exports
@@ -60,8 +53,6 @@ export const EQUIP_ASSETS = {
   ww: short(import.meta.glob("./static/equip/ww_equip/*.webp", { eager: true })),
   zzz: short(import.meta.glob("./static/equip/zzz_equip/*.webp", { eager: true })),
 };
-
-export const PATH_ASSETS = short(import.meta.glob("./static/path/*.webp", { eager: true }));
 
 export const RATING_ASSETS = short(import.meta.glob("./static/rating/*.webp", { eager: true }));
 

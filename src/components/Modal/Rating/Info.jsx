@@ -1,7 +1,6 @@
-import { Paper, Box, Typography, Divider, Stack, Tooltip, IconButton } from "@mui/material";
-import { HelpOutline } from "@mui/icons-material";
+import { Paper, Box, Typography, Divider, Stack } from "@mui/material";
 import { AVATAR_ASSETS, RATING_ASSETS } from "@assets";
-import { AVATAR_DATA, LABEL_DATA } from "@data";
+import { AVATAR_DATA } from "@data";
 
 const RATING_RANK = ["Excellent", "Great", "Good", "Poor"];
 const recommendation = [
@@ -24,7 +23,7 @@ const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
         <Box
           component="img"
           alt={avatarId}
-          src={AVATAR_ASSETS[gameId][avatarId].icon}
+          src={AVATAR_ASSETS[gameId][avatarId]}
           sx={{
             width: 16,
             height: 16,

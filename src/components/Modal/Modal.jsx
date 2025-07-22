@@ -1,9 +1,7 @@
 import { Modal, Box } from "@mui/material";
 import Add from "./Add";
 import Load from "./Load";
-import Avatar from "./Avatar";
-import Weapon from "./Weapon";
-import Equip from "./Equip";
+import Edit from "./Edit";
 import Rating from "./Rating";
 
 const ModalContent = ({
@@ -14,6 +12,7 @@ const ModalContent = ({
   avatarCache,
   saveAvatar,
   saveAvatarBatch,
+  deleteAvatar,
   closeModal,
 }) => {
   switch (type) {
@@ -26,22 +25,14 @@ const ModalContent = ({
           closeModal={closeModal}
         />
       );
-    case "avatar":
+    case "edit":
       return (
-        <Avatar
+        <Edit
           gameId={gameId}
           modalPipe={modalPipe}
           saveAvatar={saveAvatar}
           closeModal={closeModal}
-        />
-      );
-    case "equip":
-      return (
-        <Equip
-          gameId={gameId}
-          modalPipe={modalPipe}
-          saveAvatar={saveAvatar}
-          closeModal={closeModal}
+          deleteAvatar={deleteAvatar}
         />
       );
     case "load":
@@ -61,15 +52,6 @@ const ModalContent = ({
           modalPipe={modalPipe}
         />
       );
-    case "weapon":
-      return (
-        <Weapon
-          gameId={gameId}
-          modalPipe={modalPipe}
-          saveAvatar={saveAvatar}
-          closeModal={closeModal}
-        />
-      );
   }
 };
 
@@ -82,6 +64,7 @@ const CustomModal = ({
   setAvatarCache,
   saveAvatar,
   saveAvatarBatch,
+  deleteAvatar,
 }) => {
   const closeModal = () => {
     setModalPipe({});
@@ -116,6 +99,7 @@ const CustomModal = ({
           setAvatarCache={setAvatarCache}
           saveAvatar={saveAvatar}
           saveAvatarBatch={saveAvatarBatch}
+          deleteAvatar={deleteAvatar}
           closeModal={closeModal}
         />
       </Box>

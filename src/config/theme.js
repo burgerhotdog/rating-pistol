@@ -22,19 +22,6 @@ const theme = createTheme({
     MuiAvatar: {
       defaultProps: { variant: "square" },
     },
-    MuiBadge: {
-      defaultProps: {
-        overlap: "circular",
-        anchorOrigin: { vertical: "bottom", horizontal: "right" },
-      },
-      styleOverrides: {
-        root: { cursor: "pointer" },
-        badge: {
-          fontWeight: "bold",
-          textShadow: "0 0 8px rgba(0, 0, 0, 1)",
-        },
-      },
-    },
     MuiCheckbox: {
       defaultProps: { size: "small" },
     },
