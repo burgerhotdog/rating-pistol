@@ -1,4 +1,17 @@
 {
+  "1608": {
+    "name": "Phrolova",
+    "rarity": 5,
+    "type": "Rectifier",
+    "sig": "21050066",
+    "baseStats": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
+    }
+  },
   "1409": {
     "name": "Cartethyia",
     "rarity": 5,

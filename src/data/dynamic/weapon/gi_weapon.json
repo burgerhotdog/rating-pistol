@@ -1,4 +1,10 @@
 {
+  "13515": {
+    "name": "Fractured Halo",
+    "rarity": 5,
+    "type": "Polearm",
+    "baseStats": { "_ATK": 608 }
+  },
   "11517": {
     "name": "Azurelight",
     "rarity": 5,

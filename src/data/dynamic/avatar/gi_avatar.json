@@ -1,4 +1,17 @@
 {
+  "10000116": {
+    "name": "Ineffa",
+    "rarity": 5,
+    "type": "Polearm",
+    "sig": "13515",
+    "baseStats": { "_HP": 12613, "_ATK": 330, "_DEF": 828 },
+    "weights": {
+      "CR": 1.00,
+      "CD": 1.00,
+      "ATK": 0.75,
+      "ER": 0.50
+    }
+  },
   "10000115": {
     "name": "Dahlia",
     "rarity": 4,

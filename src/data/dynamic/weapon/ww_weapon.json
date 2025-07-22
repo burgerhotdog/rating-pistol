@@ -1,4 +1,10 @@
 {
+  "21050066": {
+    "name": "Lethean Elegy",
+    "rarity": 5,
+    "type": "Rectifier",
+    "baseStats": { "_ATK": 588 }
+  },
   "21020056": {
     "name": "Defier's Thorn",
     "rarity": 5,
