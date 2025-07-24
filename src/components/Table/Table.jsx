@@ -1,4 +1,5 @@
-import { Skeleton, Stack, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography } from "@mui/material";
+import { Skeleton, Stack, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton } from "@mui/material";
+import { FilterList } from "@mui/icons-material";
 import { StarBody, AvatarBody, RatingBody } from "./Cells";
 
 const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
@@ -14,7 +15,19 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
       <Table stickyHeader sx={{ tableLayout: "fixed" }}>
         <TableHead>
           <TableRow>
-            <TableCell width={50} />
+            <TableCell width={50}>
+              <IconButton
+                size="small"
+                sx={{
+                  padding: 0.5,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <FilterList fontSize="small" />
+              </IconButton>
+            </TableCell>
             <TableCell>
               <Typography variant="body1" fontWeight="bold">
                 Character
