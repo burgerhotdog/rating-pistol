@@ -20,9 +20,9 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
                 size="small"
                 sx={{
                   padding: 0.5,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <FilterList fontSize="small" />
