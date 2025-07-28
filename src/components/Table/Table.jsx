@@ -1,5 +1,5 @@
 import { Skeleton, Stack, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton } from "@mui/material";
-import { FilterList } from "@mui/icons-material";
+import { FilterAlt } from "@mui/icons-material";
 import { StarBody, AvatarBody, RatingBody } from "./Cells";
 
 const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
@@ -25,7 +25,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
                   justifyContent: "center",
                 }}
               >
-                <FilterList fontSize="small" />
+                <FilterAlt fontSize="small" />
               </IconButton>
             </TableCell>
             <TableCell>
