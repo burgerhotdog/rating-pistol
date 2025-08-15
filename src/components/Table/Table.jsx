@@ -104,7 +104,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
                 disableHoverListener
                 disableFocusListener
                 disableTouchListener
-                componentsProps={{
+                slotProps={{
                   tooltip: {
                     sx: {
                       bgcolor: 'background.paper',
@@ -112,25 +112,15 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
                       border: '1px solid',
                       borderColor: 'divider',
                       boxShadow: 3,
-                      '& .MuiTooltip-arrow': {
-                        color: 'background.paper',
-                      },
                     },
                   },
                 }}
-                arrow
               >
                 <IconButton
                   size="small"
                   onClick={() => setFilterOpen(!filterOpen)}
-                  sx={{
-                    padding: 0.5,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
                 >
-                  <FilterAlt fontSize="small" />
+                  <FilterAlt />
                 </IconButton>
               </Tooltip>
             </TableCell>

@@ -1,6 +1,7 @@
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "@config/firebase";
-import { Star } from "@mui/icons-material";
+import { IconButton } from '@mui/material';
+import { Star, StarOutline } from "@mui/icons-material";
 
 const StarBody = ({ gameId, userId, setAvatarCache, id, data }) => {
   const { isStar } = data;
@@ -24,18 +25,13 @@ const StarBody = ({ gameId, userId, setAvatarCache, id, data }) => {
   }
 
   return (
-    <Star
-      onClick={toggleStar}
-      cursor="pointer"
-      fontSize="small"
-      sx={{
-        color: isStar ? "gold !important" : "rgba(0, 0, 0, 0)",
-        stroke: isStar ? "gold !important" : "rgba(255, 255, 255, 0.3)",
-        strokeWidth: 2,
-        transition: "color 0.25s ease-in-out, stroke 0.25s ease-in-out",
-        "&:hover": { stroke: "gold !important" },
-      }}
-    />
+    <IconButton size="small" onClick={toggleStar}>
+      {isStar ? (
+        <Star sx={{color: "gold !important" }} />
+      ) : (
+        <StarOutline sx={{color: "rgba(255, 255, 255, 0.3)" }} />
+      )}
+    </IconButton>
   );
 };
 
