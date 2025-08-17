@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 import {
   Paper,
   Divider,
@@ -8,11 +8,11 @@ import {
   Tabs,
   Tab,
   Typography,
-} from "@mui/material";
-import { ChevronLeft, ChevronRight } from "@mui/icons-material";
-import { EQUIP_ASSETS } from "@assets";
-import { INFO_DATA } from "@data";
-import { WeaponId, Mainstat, Substat } from "./Forms";
+} from '@mui/material';
+import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import { EQUIP_ASSETS } from '@assets';
+import { INFO_DATA } from '@data';
+import { WeaponId, Mainstat, Substat } from './Forms';
 
 const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
   const { id, data } = modalPipe;
@@ -54,7 +54,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
                 <Box
                   component="img"
                   src={EQUIP_ASSETS[gameId][index]}
-                  sx={{ width: 24, height: 24, objectFit: "contain" }}
+                  sx={{ width: 24, height: 24, objectFit: 'contain' }}
                 />
                 <Typography variant="body2">
                   {name}
@@ -69,7 +69,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
         <Button
           onClick={() => setTabIndex(tabIndex - 1)}
           color="inherit"
-          sx={{ visibility: tabIndex === 0 ? "hidden" : "visible" }}
+          sx={{ visibility: tabIndex === 0 ? 'hidden' : 'visible' }}
         >
           <ChevronLeft />
         </Button>
@@ -97,7 +97,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
         <Button
           onClick={() => setTabIndex(tabIndex + 1)}
           color="inherit"
-          sx={{ visibility: tabIndex === INFO_DATA[gameId].EQUIP_NAMES.length - 1 ? "hidden" : "visible" }}
+          sx={{ visibility: tabIndex === INFO_DATA[gameId].EQUIP_NAMES.length - 1 ? 'hidden' : 'visible' }}
         >
           <ChevronRight />
         </Button>

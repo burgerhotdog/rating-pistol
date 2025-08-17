@@ -1,13 +1,13 @@
-import { useState, useEffect, useMemo } from "react";
-import { Grid, Autocomplete, TextField, Paper, InputAdornment } from "@mui/material";
-import { STAT_DATA } from "@data";
+import { useState, useEffect, useMemo } from 'react';
+import { Grid, Autocomplete, TextField, Paper, InputAdornment } from '@mui/material';
+import { STAT_DATA } from '@data';
 
 const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
   const { stat: mainstat, statList } = equipList[mainIndex];
   const { stat, value } = statList[subIndex];
-  const [rawValue, setRawValue] = useState(String(value ?? ""));
+  const [rawValue, setRawValue] = useState(String(value ?? ''));
 
-  useEffect(() => setRawValue(String(value ?? "")), [value]);
+  useEffect(() => setRawValue(String(value ?? '')), [value]);
 
   const substatOptions = useMemo(() => {
     const selectedSubstats = statList
@@ -17,7 +17,7 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
     return Object.entries(STAT_DATA[gameId])
       .filter(([stat, { subValue }]) => {
         const isSubstat = Boolean(subValue);
-        const isNotMainstat = gameId === "ww" || stat !== mainstat;
+        const isNotMainstat = gameId === 'ww' || stat !== mainstat;
         const isNotDuplicate = !selectedSubstats.includes(stat);
         return isSubstat && isNotMainstat && isNotDuplicate;
       })
@@ -34,7 +34,7 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
 
   const handleValue = () => {
     if (isNaN(rawValue)) {
-      setRawValue(String(value ?? ""));
+      setRawValue(String(value ?? ''));
       return;
     }
 
@@ -53,7 +53,7 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
         <Autocomplete
           value={stat}
           options={substatOptions}
-          getOptionLabel={(id) => STAT_DATA[gameId][id]?.name ?? ""}
+          getOptionLabel={(id) => STAT_DATA[gameId][id]?.name ?? ''}
           onChange={(_, newValue) => handleStat(newValue, subIndex)}
           slots={{
             paper: ({ children }) => (
@@ -63,7 +63,7 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
             ),
           }}
           renderInput={(params) => (
-            <TextField {...params} label={"Substat"} />
+            <TextField {...params} label="Substat" />
           )}
           disabled={!mainstat}
         />
@@ -75,7 +75,7 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
           onChange={(e) => setRawValue(e.target.value)}
           onBlur={handleValue}
           onKeyDown={(e) => {
-            if (e.key === "Enter") handleValue();
+            if (e.key === 'Enter') handleValue();
           }}
           slotProps={{
             input: {

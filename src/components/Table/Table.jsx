@@ -1,38 +1,36 @@
-import { Skeleton, Stack, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton, Tooltip, Box, FormGroup, FormControlLabel, Checkbox, Divider } from "@mui/material";
-import { FilterAlt } from "@mui/icons-material";
-import { useState, useMemo } from "react";
-import { StarBody, AvatarBody, RatingBody } from "./Cells";
-import { AVATAR_DATA, INFO_DATA } from "@data";
+import { useState, useMemo } from 'react';
+import { Skeleton, Stack, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton, Tooltip, Box, FormGroup, FormControlLabel, Checkbox, Divider } from '@mui/material';
+import { FilterAlt } from '@mui/icons-material';
+import { AVATAR_DATA, INFO_DATA } from '@data';
+import StarCell from './StarCell';
+import AvatarCell from './AvatarCell';
+import RatingCell from './RatingCell';
 
 const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
   const [filterOpen, setFilterOpen] = useState(false);
-  const [selectedElements, setSelectedElements] = useState(new Set(INFO_DATA[gameId].ELEMENTS));
-  const [selectedTypes, setSelectedTypes] = useState(new Set(INFO_DATA[gameId].TYPES));
+  const [selectedElements, setSelectedElements] = useState([...INFO_DATA[gameId].ELEMENTS]);
+  const [selectedTypes, setSelectedTypes] = useState([...INFO_DATA[gameId].TYPES]);
 
   const handleElementChange = (element) => {
-    const newSelected = new Set(selectedElements);
-    if (newSelected.has(element)) {
-      newSelected.delete(element);
+    if (selectedElements.includes(element)) {
+      setSelectedElements(selectedElements.filter(e => e !== element));
     } else {
-      newSelected.add(element);
+      setSelectedElements([...selectedElements, element]);
     }
-    setSelectedElements(newSelected);
   };
 
   const handleTypeChange = (type) => {
-    const newSelected = new Set(selectedTypes);
-    if (newSelected.has(type)) {
-      newSelected.delete(type);
+    if (selectedTypes.includes(type)) {
+      setSelectedTypes(selectedTypes.filter(t => t !== type));
     } else {
-      newSelected.add(type);
+      setSelectedTypes([...selectedTypes, type]);
     }
-    setSelectedTypes(newSelected);
   };
 
   const filteredAvatars = useMemo(() => {
     return sortedAvatars.filter(avatarId => {
       const avatarData = AVATAR_DATA[gameId][avatarId];
-      return selectedElements.has(avatarData.element) && selectedTypes.has(avatarData.type);
+      return selectedElements.includes(avatarData.element) && selectedTypes.includes(avatarData.type);
     });
   }, [sortedAvatars, selectedElements, selectedTypes, gameId]);
 
@@ -47,13 +45,13 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
             key={element}
             control={
               <Checkbox
-                checked={selectedElements.has(element)}
+                checked={selectedElements.includes(element)}
                 onChange={() => handleElementChange(element)}
                 size="small"
               />
             }
             label={element}
-            sx={{ "& .MuiFormControlLabel-label": { fontSize: "0.875rem" } }}
+            sx={{ '& .MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
           />
         ))}
       </FormGroup>
@@ -69,13 +67,13 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
             key={type}
             control={
               <Checkbox
-                checked={selectedTypes.has(type)}
+                checked={selectedTypes.includes(type)}
                 onChange={() => handleTypeChange(type)}
                 size="small"
               />
             }
             label={type}
-            sx={{ "& .MuiFormControlLabel-label": { fontSize: "0.875rem" } }}
+            sx={{ '& .MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
           />
         ))}
       </FormGroup>
@@ -87,11 +85,11 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
       component={Paper}
       sx={{
         maxHeight: 650,
-        overflow: "auto",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        overflow: 'auto',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
       }}
     >
-      <Table stickyHeader sx={{ tableLayout: "fixed" }}>
+      <Table stickyHeader sx={{ tableLayout: 'fixed' }}>
         <TableHead>
           <TableRow>
             <TableCell width={50}>
@@ -158,34 +156,28 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
             filteredAvatars.map((avatarId) => (
               <TableRow
                 key={avatarId}
-                sx={{ "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.03)" } }}
+                sx={{ '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.03)' } }}
               >
-                <TableCell>
-                  <StarBody
-                    gameId={gameId}
-                    userId={userId}
-                    setAvatarCache={setAvatarCache}
-                    id={avatarId}
-                    data={avatarCache[avatarId].data}
-                  />
-                </TableCell>
-                <TableCell>
-                  <AvatarBody
-                    gameId={gameId}
-                    setModalPipe={setModalPipe}
-                    id={avatarId}
-                    data={avatarCache[avatarId].data}
-                  />
-                </TableCell>
-                <TableCell>
-                  <RatingBody
-                    gameId={gameId}
-                    setModalPipe={setModalPipe}
-                    id={avatarId}
-                    data={avatarCache[avatarId].data}
-                    rating={avatarCache[avatarId].rating}
-                  />
-                </TableCell>
+                <StarCell
+                  gameId={gameId}
+                  userId={userId}
+                  setAvatarCache={setAvatarCache}
+                  id={avatarId}
+                  data={avatarCache[avatarId].data}
+                />
+                <AvatarCell
+                  gameId={gameId}
+                  setModalPipe={setModalPipe}
+                  id={avatarId}
+                  data={avatarCache[avatarId].data}
+                />
+                <RatingCell
+                  gameId={gameId}
+                  setModalPipe={setModalPipe}
+                  id={avatarId}
+                  data={avatarCache[avatarId].data}
+                  rating={avatarCache[avatarId].rating}
+                />
               </TableRow>
             ))
           )}

@@ -1,1 +1,1 @@
-export { default } from "./Ocr";
+export { default } from './Ocr';

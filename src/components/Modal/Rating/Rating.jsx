@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { Box, Stack, Typography, Tabs, Tab } from "@mui/material";
-import { EQUIP_ASSETS } from "@assets";
-import { INFO_DATA } from "@data";
-import Info from "./Info";
-import Plot from "./Plot";
+import { useState } from 'react';
+import { Box, Stack, Typography, Tabs, Tab } from '@mui/material';
+import { EQUIP_ASSETS } from '@assets';
+import { INFO_DATA } from '@data';
+import Info from './Info';
+import Plot from './Plot';
 
 const Rating = ({ gameId, modalPipe }) => {
   const { id, data, rating } = modalPipe;
@@ -28,7 +28,7 @@ const Rating = ({ gameId, modalPipe }) => {
                 <Box
                   component="img"
                   src={EQUIP_ASSETS[gameId][index]}
-                  sx={{ width: 24, height: 24, objectFit: "contain" }}
+                  sx={{ width: 24, height: 24, objectFit: 'contain' }}
                 />
                 <Typography variant="body2">
                   {name}

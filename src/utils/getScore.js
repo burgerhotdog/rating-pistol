@@ -1,4 +1,4 @@
-import { AVATAR_DATA, WEAPON_DATA, STAT_DATA } from "@data";
+import { AVATAR_DATA, WEAPON_DATA, STAT_DATA } from '@data';
 
 const getScore = (gameId, avatarId, weaponId, statList) => {
   const avatarBaseStats = AVATAR_DATA[gameId][avatarId].baseStats;
@@ -15,11 +15,11 @@ const getScore = (gameId, avatarId, weaponId, statList) => {
   return statList.reduce((acc, { stat, value }) => {
     if (!stat || !value) return acc;
 
-    const percentStat = stat[0] === "_" ? stat.slice(1) : stat;
+    const percentStat = stat[0] === '_' ? stat.slice(1) : stat;
     const weight = weights[percentStat];
     if (!weight) return acc;
 
-    const percentValue = stat[0] === "_"
+    const percentValue = stat[0] === '_'
       ? (value / baseStats[stat]) * 100
       : value;
 

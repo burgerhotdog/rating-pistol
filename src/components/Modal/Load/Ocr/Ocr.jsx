@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Stack, Typography, Button, Box } from "@mui/material";
-import { UploadFile, ImageSearch } from "@mui/icons-material";
-import { AVATAR_ASSETS } from "@assets";
-import { AVATAR_DATA } from "@data";
+import { useState } from 'react';
+import { Stack, Typography, Button, Box } from '@mui/material';
+import { UploadFile, ImageSearch } from '@mui/icons-material';
+import { AVATAR_ASSETS } from '@assets';
+import { AVATAR_DATA } from '@data';
 
 const Ocr = ({ gameId, saveAvatar, closeModal }) => {
   const [uploadedId, setUploadedId] = useState(null);
@@ -14,14 +14,14 @@ const Ocr = ({ gameId, saveAvatar, closeModal }) => {
     setIsLoading(true);
     
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append('file', file);
 
-    fetch("https://rating-pistol-be-6a62d70a6b2f.herokuapp.com/ocr/", {
-      method: "POST",
+    fetch('https://rating-pistol-be-6a62d70a6b2f.herokuapp.com/ocr/', {
+      method: 'POST',
       body: formData,
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Server error");
+        if (!res.ok) throw new Error('Server error');
         return res.json();
       })
       .then(({ id, data }) => {
@@ -30,7 +30,7 @@ const Ocr = ({ gameId, saveAvatar, closeModal }) => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error uploading image:", error);
+        console.error('Error uploading image:', error);
         setIsLoading(false);
       });
   };
@@ -84,7 +84,7 @@ const Ocr = ({ gameId, saveAvatar, closeModal }) => {
             loading="lazy"
             src={AVATAR_ASSETS[gameId][uploadedId]}
             alt={uploadedId}
-            sx={{ width: 24, height: 24, objectFit: "contain" }}
+            sx={{ width: 24, height: 24, objectFit: 'contain' }}
           />
           <Typography variant="body2">
             {AVATAR_DATA[gameId][uploadedId].name}

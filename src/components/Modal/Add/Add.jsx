@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Box, Stack, Autocomplete, TextField, Button } from "@mui/material";
-import template from "@config/template";
-import { AVATAR_ASSETS } from "@assets";
-import { AVATAR_DATA } from "@data";
+import { useState } from 'react';
+import { Box, Stack, Autocomplete, TextField, Button } from '@mui/material';
+import template from '@config/template';
+import { AVATAR_ASSETS } from '@assets';
+import { AVATAR_DATA } from '@data';
 
 const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +30,7 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
       <Autocomplete
         value={id}
         options={charOptions}
-        getOptionLabel={(id) => AVATAR_DATA[gameId][id]?.name ?? ""}
+        getOptionLabel={(id) => AVATAR_DATA[gameId][id]?.name ?? ''}
         onChange={(_, newValue) => setId(newValue)}
         renderOption={(props, option) => {
           const { key, ...optionProps } = props;
@@ -40,7 +40,7 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
               key={key}
               component="li"
               sx={{
-                "& > img": { mr: 2, flexShrink: 0 },
+                '& > img': { mr: 2, flexShrink: 0 },
                 color: `rarityColor.${rarity}`,
               }}
               {...optionProps}
@@ -50,7 +50,7 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
                 loading="lazy"
                 src={AVATAR_ASSETS[gameId][option]}
                 alt=""
-                sx={{ width: 24, height: 24, objectFit: "contain" }}
+                sx={{ width: 24, height: 24, objectFit: 'contain' }}
               />
               {AVATAR_DATA[gameId][option].name}
             </Box>

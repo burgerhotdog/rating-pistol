@@ -1,4 +1,4 @@
-import { AVATAR_DATA, STAT_DATA } from "@data";
+import { AVATAR_DATA, STAT_DATA } from '@data';
 
 const ITERATIONS = 10000;
 

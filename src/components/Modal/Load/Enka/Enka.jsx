@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "@config/firebase";
+import { useEffect, useState } from 'react';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { db } from '@config/firebase';
 import {
   Box,
   Stack,
@@ -9,29 +9,29 @@ import {
   Checkbox,
   TextField,
   Typography,
-} from "@mui/material";
-import template from "@config/template";
-import { AVATAR_ASSETS } from "@assets";
-import { AVATAR_DATA, STAT_DATA } from "@data";
-import translate from "./translate";
+} from '@mui/material';
+import template from '@config/template';
+import { AVATAR_ASSETS } from '@assets';
+import { AVATAR_DATA, STAT_DATA } from '@data';
+import translate from './translate';
 
 const errorMessages = {
-  400: "Wrong UID format",
-  404: "Player does not exist",
-  424: "Game maintenance",
-  429: "Rate-limited",
-  500: "General server error",
-  503: "Server error",
-  600: "Profile showcase empty",
+  400: 'Wrong UID format',
+  404: 'Player does not exist',
+  424: 'Game maintenance',
+  429: 'Rate-limited',
+  500: 'General server error',
+  503: 'Server error',
+  600: 'Profile showcase empty',
 };
 
 const suffixes = {
-  gi: "uid/",
-  hsr: "hsr/uid/",
-  zzz: "zzz/uid/",
+  gi: 'uid/',
+  hsr: 'hsr/uid/',
+  zzz: 'zzz/uid/',
 };
 
-const urlBase = "https://rating-pistol.vercel.app/api/proxy?suffix=";
+const urlBase = 'https://rating-pistol.vercel.app/api/proxy?suffix=';
 
 const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
   const [error, setError] = useState(null);
@@ -49,7 +49,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
     const fetchSavedUid = async () => {
       if (!userId) return;
       
-      const userRef = doc(db, "users", userId);
+      const userRef = doc(db, 'users', userId);
       const userDoc = await getDoc(userRef);
       const savedUid = userDoc.exists() ? userDoc.data()?.[`${gameId}_uid`] : null;
 
@@ -82,18 +82,18 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
     
     avatarList.forEach((rawItem, index) => {
       // Handle Genshin Impact traveler element conversion
-      if (gameId === "gi" && (rawItem.avatarId === 10000005 || rawItem.avatarId === 10000007)) {
+      if (gameId === 'gi' && (rawItem.avatarId === 10000005 || rawItem.avatarId === 10000007)) {
         const { energyType } = rawEnka.playerInfo.showAvatarInfoList[index];
         rawItem.avatarId = `${rawItem.avatarId}-${energyConvert[energyType]}`;
       }
       
       // Convert male MC to female MC for GI and HSR
-      if (gameId !== "zzz" && maleToFemale[rawItem.avatarId]) {
+      if (gameId !== 'zzz' && maleToFemale[rawItem.avatarId]) {
         rawItem.avatarId = maleToFemale[rawItem.avatarId];
       }
       
       // Handle ZZZ ID format
-      if (gameId === "zzz") {
+      if (gameId === 'zzz') {
         rawItem.avatarId = rawItem.Id;
       }
     });
@@ -147,7 +147,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
     const fetchSuccess = await fetchEnkaData();
     
     if (fetchSuccess && userId && rememberUid) {
-      const userDocRef = doc(db, "users", userId);
+      const userDocRef = doc(db, 'users', userId);
       await setDoc(userDocRef, { [`${gameId}_uid`]: uid }, { merge: true });
     }
   };
@@ -164,7 +164,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
 
   const processCharacterData = (charObj) => {
     switch (gameId) {
-      case "gi": {
+      case 'gi': {
         const id = String(charObj.avatarId);
         const data = template(gameId);
   
@@ -193,7 +193,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
         return [id, data];
       }
 
-      case "hsr": {
+      case 'hsr': {
         const id = String(charObj.avatarId);
         const data = template(gameId);
 
@@ -216,7 +216,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
           if (!subPropsArr) continue;
           for (const [subIndex, subPropObj] of subPropsArr.entries()) {
             data.equipList[equipIndex].statList[subIndex].stat = STAT_CONVERT[subPropObj.type];
-            const valueRatio = subPropObj.type.slice(-5) === "Delta" ? 1 : 100;
+            const valueRatio = subPropObj.type.slice(-5) === 'Delta' ? 1 : 100;
             const roundAmount = valueRatio === 1 ? 1 : 10;
             data.equipList[equipIndex].statList[subIndex].value = Math.round((subPropObj.value * valueRatio) * roundAmount) / roundAmount;
           }
@@ -225,7 +225,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
         return [id, data];
       }
 
-      case "zzz": {
+      case 'zzz': {
         const id = String(charObj.Id);
         const data = template(gameId);
 
@@ -281,7 +281,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
         <Stack>
           <TextField
             label="Enter UID"
-            value={uid ?? ""}
+            value={uid ?? ''}
             onChange={(e) => setUid(e.target.value)}
             error={!!error}
             helperText={error && errorMessages[error]}
@@ -334,7 +334,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
                   loading="lazy"
                   src={AVATAR_ASSETS[gameId][avatar.avatarId]}
                   alt={avatar.avatarId}
-                  sx={{ width: 24, height: 24, objectFit: "contain" }}
+                  sx={{ width: 24, height: 24, objectFit: 'contain' }}
                 />
                 <Typography variant="body2">
                   {AVATAR_DATA[gameId][avatar.avatarId].name}

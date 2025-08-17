@@ -1,13 +1,13 @@
-import { useState, useEffect, useMemo } from "react";
-import { collection, getDocs, doc, setDoc, writeBatch, deleteDoc } from "firebase/firestore";
-import { db } from "@config/firebase";
-import { Container, Stack, Button, Typography, Box } from "@mui/material";
-import { Add, KeyboardArrowRight } from "@mui/icons-material";
-import { VERSION_DATA, INFO_DATA } from "@data";
-import { getRating } from "@utils";
-import Back from "@components/Back";
-import Modal from "@components/Modal";
-import Table from "@components/Table";
+import { useState, useEffect, useMemo } from 'react';
+import { collection, getDocs, doc, setDoc, writeBatch, deleteDoc } from 'firebase/firestore';
+import { db } from '@config/firebase';
+import { Container, Stack, Button, Typography, Box } from '@mui/material';
+import { Add, KeyboardArrowRight } from '@mui/icons-material';
+import { VERSION_DATA, INFO_DATA } from '@data';
+import { getRating } from '@utils';
+import Back from '@components/Back';
+import Modal from '@components/Modal';
+import Table from '@components/Table';
 
 const Game = ({ gameId, userId }) => {
   const [avatarCache, setAvatarCache] = useState({});
@@ -20,7 +20,7 @@ const Game = ({ gameId, userId }) => {
       if (userId) {
         try {
           setIsLoading(true);
-          const avatarRef = collection(db, "users", userId, gameId);
+          const avatarRef = collection(db, 'users', userId, gameId);
           const avatarDocs = await getDocs(avatarRef);
           const newAvatarCache = {};
           for (const doc of avatarDocs.docs) {
@@ -66,7 +66,7 @@ const Game = ({ gameId, userId }) => {
   // save avatar to firestore and cache
   const saveAvatar = async (id, newData) => {
     if (userId) {
-      const ref = doc(db, "users", userId, gameId, id);
+      const ref = doc(db, 'users', userId, gameId, id);
       await setDoc(ref, newData, { merge: true });
     }
 
@@ -87,7 +87,7 @@ const Game = ({ gameId, userId }) => {
   
     for (const [id, newData] of entries) {
       if (userId) {
-        const ref = doc(db, "users", userId, gameId, id);
+        const ref = doc(db, 'users', userId, gameId, id);
         batch.set(ref, newData, { merge: true });
       }
   
@@ -107,7 +107,7 @@ const Game = ({ gameId, userId }) => {
 
   const deleteAvatar = async (id) => {
     if (userId) {
-      const ref = doc(db, "users", userId, gameId, id);
+      const ref = doc(db, 'users', userId, gameId, id);
       await deleteDoc(ref);
     }
 
@@ -118,8 +118,8 @@ const Game = ({ gameId, userId }) => {
     });
   };
 
-  const handleAdd = () => setModalPipe({ type: "add", id: null, data: null });
-  const handleLoad = () => setModalPipe({ type: "load", id: null, data: null });
+  const handleAdd = () => setModalPipe({ type: 'add', id: null, data: null });
+  const handleLoad = () => setModalPipe({ type: 'load', id: null, data: null });
 
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
