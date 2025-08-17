@@ -1,7 +1,7 @@
-import { useMemo } from "react";
-import { Box, Autocomplete, TextField, Typography, Paper } from "@mui/material";
-import { WEAPON_ASSETS } from "@assets";
-import { AVATAR_DATA, WEAPON_DATA } from "@data";
+import { useMemo } from 'react';
+import { Box, Autocomplete, TextField, Typography, Paper } from '@mui/material';
+import { WEAPON_ASSETS } from '@assets';
+import { AVATAR_DATA, WEAPON_DATA } from '@data';
 
 const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
   const { sig, type } = AVATAR_DATA[gameId][id];
@@ -31,7 +31,7 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
         key={key}
         component="li"
         sx={{
-          "& > img": { mr: 2, flexShrink: 0 },
+          '& > img': { mr: 2, flexShrink: 0 },
           color: `rarityColor.${rarity}`,
         }}
         {...optionProps}
@@ -39,13 +39,13 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
         <Box
           component="img"
           loading="lazy"
-          alt={""}
+          alt=""
           src={WEAPON_ASSETS[gameId][option]}
-          sx={{ width: 24, height: 24, objectFit: "contain" }}
+          sx={{ width: 24, height: 24, objectFit: 'contain' }}
         />
         {WEAPON_DATA[gameId][option]?.name}
         {option === sig && (
-          <Typography sx={{ color: "text.disabled", ml: 1 }}>
+          <Typography sx={{ color: 'text.disabled', ml: 1 }}>
             (signature)
           </Typography>
         )}
@@ -57,7 +57,7 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
     <Autocomplete
       value={weaponId}
       options={weaponIdOptions}
-      getOptionLabel={(id) => WEAPON_DATA[gameId][id]?.name ?? ""}
+      getOptionLabel={(id) => WEAPON_DATA[gameId][id]?.name ?? ''}
       onChange={(_, newValue) => handleWeaponId(newValue)}
       renderOption={renderOptionWeaponId}
       renderInput={(params) => (

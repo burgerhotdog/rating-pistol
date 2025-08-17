@@ -1,6 +1,6 @@
-import { useMemo } from "react";
-import { Autocomplete, TextField, Paper } from "@mui/material";
-import { INFO_DATA, STAT_DATA } from "@data";
+import { useMemo } from 'react';
+import { Autocomplete, TextField, Paper } from '@mui/material';
+import { INFO_DATA, STAT_DATA } from '@data';
 
 const Mainstat = ({ gameId, equipList, setEquipList, mainIndex }) => {
   const mainstatOptions = useMemo(() =>
@@ -22,7 +22,7 @@ const Mainstat = ({ gameId, equipList, setEquipList, mainIndex }) => {
     <Autocomplete
       value={equipList[mainIndex].stat}
       options={mainstatOptions}
-      getOptionLabel={(stat) => STAT_DATA[gameId][stat]?.name ?? ""}
+      getOptionLabel={(stat) => STAT_DATA[gameId][stat]?.name ?? ''}
       onChange={(_, newValue) => handleMainstat(newValue)}
       renderInput={(params) => (
         <TextField {...params} label="Mainstat" />

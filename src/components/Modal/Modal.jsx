@@ -1,8 +1,8 @@
-import { Modal, Box } from "@mui/material";
-import Add from "./Add";
-import Load from "./Load";
-import Edit from "./Edit";
-import Rating from "./Rating";
+import { Modal, Box } from '@mui/material';
+import Add from './Add';
+import Load from './Load';
+import Edit from './Edit';
+import Rating from './Rating';
 
 const ModalContent = ({
   type,
@@ -16,7 +16,7 @@ const ModalContent = ({
   closeModal,
 }) => {
   switch (type) {
-    case "add":
+    case 'add':
       return (
         <Add
           gameId={gameId}
@@ -25,7 +25,7 @@ const ModalContent = ({
           closeModal={closeModal}
         />
       );
-    case "edit":
+    case 'edit':
       return (
         <Edit
           gameId={gameId}
@@ -35,7 +35,7 @@ const ModalContent = ({
           deleteAvatar={deleteAvatar}
         />
       );
-    case "load":
+    case 'load':
       return (
         <Load
           gameId={gameId}
@@ -45,7 +45,7 @@ const ModalContent = ({
           closeModal={closeModal}
         />
       );
-    case "rating":
+    case 'rating':
       return (
         <Rating
           gameId={gameId}
@@ -74,21 +74,21 @@ const CustomModal = ({
     <Modal 
       open={Boolean(modalPipe.type)}
       onClose={closeModal}
-      sx={{ backdropFilter: "blur(4px)" }}
+      sx={{ backdropFilter: 'blur(4px)' }}
     >
       <Box sx={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
         p: 4,
         borderRadius: 2,
-        maxHeight: "90vh",
-        maxWidth: "90vw",
-        overflow: "auto",
-        outline: "none",
-        backgroundColor: "background.default",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        maxHeight: '90vh',
+        maxWidth: '90vw',
+        overflow: 'auto',
+        outline: 'none',
+        backgroundColor: 'background.default',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
       }}>
         <ModalContent
           type={modalPipe.type}

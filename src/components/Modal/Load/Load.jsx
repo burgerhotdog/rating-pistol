@@ -1,8 +1,8 @@
-import Ocr from "./Ocr";
-import Enka from "./Enka";
+import Ocr from './Ocr';
+import Enka from './Enka';
 
 const Load = ({ gameId, userId, saveAvatar, saveAvatarBatch, closeModal }) => {
-  if (gameId === "ww") return (
+  if (gameId === 'ww') return (
     <Ocr
       gameId={gameId}
       saveAvatar={saveAvatar}

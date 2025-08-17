@@ -1,5 +1,5 @@
-import { AVATAR_DATA } from "@data";
-import { getScore, simEquipScores, simAvatarScores } from "@utils";
+import { AVATAR_DATA } from '@data';
+import { getScore, simEquipScores, simAvatarScores } from '@utils';
 
 const calcMean = (data) => {
   return data.reduce((acc, curr) => acc + curr, 0) / data.length;

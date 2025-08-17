@@ -1,5 +1,5 @@
-import { Paper } from "@mui/material";
-import Plot from "react-plotly.js";
+import { Paper } from '@mui/material';
+import Plot from 'react-plotly.js';
 
 export default ({ ratingData }) => {
   const { percentile, score, scoreData } = ratingData;
@@ -40,42 +40,42 @@ export default ({ ratingData }) => {
           {
             x: lineData,
             y: lineData.map((_, index) => ((index + 1) / lineData.length) * 100),
-            type: "scatter",
-            mode: "lines",
+            type: 'scatter',
+            mode: 'lines',
           },
           {
             x: binCenters,
             y: scaledBins,
-            type: "bar",
+            type: 'bar',
             opacity: 0.3,
-            marker: { color: "grey" },
+            marker: { color: 'grey' },
           },
           {
             x: [score],
             y: [percentile],
-            type: "scatter",
-            mode: "markers",
-            marker: { color: "red", size: 10 },
+            type: 'scatter',
+            mode: 'markers',
+            marker: { color: 'red', size: 10 },
           }
         ]}
         layout={{
           xaxis: {
-            title: { text: "Weighted Roll Value %", font: { color: "grey" } },
-            tickfont: { color: "grey" },
-            gridcolor: "rgba(100, 100, 100, 0.4)",
+            title: { text: 'Weighted Roll Value %', font: { color: 'grey' } },
+            tickfont: { color: 'grey' },
+            gridcolor: 'rgba(100, 100, 100, 0.4)',
             range: [Math.min(min, score), Math.max(max, score)],
             autorange: false,
           },
           yaxis: {
-            title: { text: "Percentile", font: { color: "grey" } },
-            tickfont: { color: "grey" },
-            gridcolor: "rgba(100, 100, 100, 0.4)",
+            title: { text: 'Percentile', font: { color: 'grey' } },
+            tickfont: { color: 'grey' },
+            gridcolor: 'rgba(100, 100, 100, 0.4)',
             range: [0, 100.5],
             tickvals: [0, 25, 50, 75, 100],
           },
           showlegend: false,
-          paper_bgcolor: "rgba(0, 0, 0, 0)",
-          plot_bgcolor: "rgba(0, 0, 0, 0)",
+          paper_bgcolor: 'rgba(0, 0, 0, 0)',
+          plot_bgcolor: 'rgba(0, 0, 0, 0)',
           margin: { t: 10, b: 40, l: 40, r: 10 }
         }}
         config={{ staticPlot: true }}

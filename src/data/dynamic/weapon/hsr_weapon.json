@@ -1,4 +1,22 @@
 {
+  "23048": {
+    "name": "Epoch Etched in Golden Blood",
+    "rarity": 5,
+    "type": "Harmony",
+    "baseStats": { "_HP": 953, "_ATK": 635, "_DEF": 463 }
+  },
+  "23047": {
+    "name": "Why Does the Ocean Sing",
+    "rarity": 5,
+    "type": "Nihility",
+    "baseStats": { "_HP": 953, "_ATK": 635, "_DEF": 463 }
+  },
+  "22005": {
+    "name": "The Forever Victual",
+    "rarity": 4,
+    "type": "Harmony",
+    "baseStats": { "_HP": 953, "_ATK": 476, "_DEF": 331 }
+  },
   "23046": {
     "name": "The Hell Where Ideals Burn",
     "rarity": 5,

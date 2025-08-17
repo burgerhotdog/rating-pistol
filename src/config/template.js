@@ -1,4 +1,4 @@
-import { INFO_DATA } from "@data";
+import { INFO_DATA } from '@data';
 
 export default (gameId) => ({
   isStar: false,

@@ -1,5 +1,5 @@
-import { INFO_DATA, STAT_DATA } from "@data";
-import { getMult, getScore } from "@utils";
+import { INFO_DATA, STAT_DATA } from '@data';
+import { getMult, getScore } from '@utils';
 
 const ITERATIONS = 10000;
 
@@ -9,7 +9,7 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
   const startingPool = Object.entries(STAT_DATA[gameId])
     .filter(([stat, { subValue }]) => {
       if (!subValue) return false; // filter out mainstats
-      if (gameId === "ww") return true; // ww can match selected mainstat
+      if (gameId === 'ww') return true; // ww can match selected mainstat
       if (stat === mainstat) return false; // filter out selected mainstat
       return true; // keep the rest
     })
@@ -43,7 +43,7 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
     }
 
     // adding the rest of the rolls
-    if (gameId !== "ww") {
+    if (gameId !== 'ww') {
       // 1 in 4 artifacts gets an extra upgrade
       const upgradeCount = Math.floor(Math.random() * 4) ? 4 : 5;
       for (let j = 0; j < upgradeCount; j++) {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import {
   onAuthStateChanged,
   GoogleAuthProvider,
@@ -6,10 +6,10 @@ import {
   setPersistence,
   signInWithPopup,
   signOut,
-} from "firebase/auth";
-import { doc, getDoc, setDoc } from "firebase/firestore";
-import { auth, db } from "@config/firebase";
-import { Box, Stack, Button, Typography } from "@mui/material";
+} from 'firebase/auth';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { auth, db } from '@config/firebase';
+import { Box, Stack, Button, Typography } from '@mui/material';
 
 const Auth = ({ user, setUser }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,7 @@ const Auth = ({ user, setUser }) => {
         if (newUser) {
           const { uid, email } = newUser;
 
-          const userDocRef = doc(db, "users", uid);
+          const userDocRef = doc(db, 'users', uid);
           const userDoc = await getDoc(userDocRef);
           if (!userDoc.exists()) {
             await setDoc(userDocRef, { email }, { merge: true });
@@ -55,7 +55,7 @@ const Auth = ({ user, setUser }) => {
   };
   
   return (
-    <Box sx={{ position: "fixed", top: 16, right: 16, zIndex: 1000 }}>
+    <Box sx={{ position: 'fixed', top: 16, right: 16, zIndex: 1000 }}>
       <Stack direction="row" alignItems="center" spacing={1}>
         {user && (
           <Typography variant="body2" color="text.secondary">
@@ -66,9 +66,9 @@ const Auth = ({ user, setUser }) => {
         <Button
           onClick={handleAuth}
           disabled={isLoading}
-          sx={{ filter: "grayscale(100%)" }}
+          sx={{ filter: 'grayscale(100%)' }}
         >
-          {user ? "Sign Out" : "Sign In"}
+          {user ? 'Sign Out' : 'Sign In'}
         </Button>
       </Stack>
     </Box>
