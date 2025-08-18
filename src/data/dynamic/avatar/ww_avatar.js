@@ -1,6 +1,6 @@
 export default {
   // 2.5
-  '1608': {
+  1608: {
     name: 'Phrolova',
     rarity: 5,
     element: 'Havoc',
@@ -19,7 +19,7 @@ export default {
     },
   },
   // 2.4
-  '1409': {
+  1409: {
     name: 'Cartethyia',
     rarity: 5,
     element: 'Aero',
@@ -38,7 +38,7 @@ export default {
       ER: 0.50
     },
   },
-  '1207': {
+  1207: {
     name: 'Lupa',
     rarity: 5,
     element: 'Fusion',
@@ -58,7 +58,7 @@ export default {
     },
   },
   // 2.3
-  '1507': {
+  1507: {
     name: 'Zani',
     rarity: 5,
     element: 'Spectro',
@@ -77,7 +77,7 @@ export default {
       ER: 0.25
     },
   },
-  '1407': {
+  1407: {
     name: 'Ciaccona',
     rarity: 5,
     element: 'Aero',
@@ -97,7 +97,7 @@ export default {
     },
   },
   // 2.2
-  '1607': {
+  1607: {
     name: 'Cantarella',
     rarity: 5,
     element: 'Havoc',
@@ -116,26 +116,8 @@ export default {
       BA: 0.50
     },
   },
-  '1408': {
-    name: 'Rover (Aero)',
-    rarity: 5,
-    element: 'Aero',
-    type: 'Sword',
-    sig: 21020046,
-    baseStats: {
-      _HP: 10775,
-      _ATK: 438,
-      _DEF: 1137,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      RS: 0.50
-    },
-  },
   // 2.1
-  '1506': {
+  1506: {
     name: 'Phoebe',
     rarity: 5,
     element: 'Spectro',
@@ -154,7 +136,7 @@ export default {
       HA: 0.25
     },
   },
-  '1206': {
+  1206: {
     name: 'Brant',
     rarity: 5,
     element: 'Fusion',
@@ -174,7 +156,7 @@ export default {
     },
   },
   // 2.0
-  '1606': {
+  1606: {
     name: 'Roccia',
     rarity: 5,
     element: 'Havoc',
@@ -193,7 +175,7 @@ export default {
       ER: 0.25
     },
   },
-  '1107': {
+  1107: {
     name: 'Carlotta',
     rarity: 5,
     element: 'Glacio',
@@ -213,7 +195,7 @@ export default {
     },
   },
   // 1.4
-  '1603': {
+  1603: {
     name: 'Camellya',
     rarity: 5,
     element: 'Havoc',
@@ -232,7 +214,7 @@ export default {
       ER: 0.25
     },
   },
-  '1504': {
+  1504: {
     name: 'Lumi',
     rarity: 4,
     element: 'Electro',
@@ -253,7 +235,7 @@ export default {
     },
   },
   // 1.3
-  '1505': {
+  1505: {
     name: 'The Shorekeeper',
     rarity: 5,
     element: 'Spectro',
@@ -271,7 +253,7 @@ export default {
       RL: 0.50
     },
   },
-  '1106': {
+  1106: {
     name: 'Youhu',
     rarity: 4,
     element: 'Glacio',
@@ -287,7 +269,7 @@ export default {
     },
   },
   // 1.2
-  '1305': {
+  1305: {
     name: 'Xiangli Yao',
     rarity: 5,
     element: 'Electro',
@@ -307,7 +289,7 @@ export default {
       RS: 0.25
     },
   },
-  '1105': {
+  1105: {
     name: 'Zhezhi',
     rarity: 5,
     element: 'Glacio',
@@ -327,7 +309,7 @@ export default {
     },
   },
   // 1.1
-  '1304': {
+  1304: {
     name: 'Jinhsi',
     rarity: 5,
     element: 'Spectro',
@@ -346,7 +328,7 @@ export default {
       ER: 0.25
     },
   },
-  '1205': {
+  1205: {
     name: 'Changli',
     rarity: 5,
     element: 'Fusion',
@@ -366,26 +348,7 @@ export default {
     },
   },
   // 1.0
-  '1604': {
-    name: 'Rover (Havoc)',
-    rarity: 5,
-    element: 'Havoc',
-    type: 'Sword',
-    baseStats: {
-      _HP: 10825,
-      _ATK: 413,
-      _DEF: 1259,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      ER: 0.25,
-      BA: 0.25,
-      RL: 0.25
-    },
-  },
-  '1602': {
+  1602: {
     name: 'Danjin',
     rarity: 4,
     element: 'Havoc',
@@ -403,7 +366,7 @@ export default {
       RL: 0.25
     },
   },
-  '1601': {
+  1601: {
     name: 'Taoqi',
     rarity: 4,
     element: 'Havoc',
@@ -422,7 +385,7 @@ export default {
       RL: 0.25
     },
   },
-  '1503': {
+  1503: {
     name: 'Verina',
     rarity: 5,
     element: 'Spectro',
@@ -437,25 +400,7 @@ export default {
       ATK: 0.50
     },
   },
-  '1502': {
-    name: 'Rover (Spectro)',
-    rarity: 5,
-    element: 'Spectro',
-    type: 'Sword',
-    baseStats: {
-      _HP: 11400,
-      _ATK: 375,
-      _DEF: 1369,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      RS: 0.25,
-      RL: 0.25
-    },
-  },
-  '1405': {
+  1405: {
     name: 'Jianxin',
     rarity: 5,
     element: 'Aero',
@@ -474,7 +419,7 @@ export default {
       RL: 0.25
     },
   },
-  '1404': {
+  1404: {
     name: 'Jiyan',
     rarity: 5,
     element: 'Aero',
@@ -493,7 +438,7 @@ export default {
       HA: 0.50
     },
   },
-  '1403': {
+  1403: {
     name: 'Aalto',
     rarity: 4,
     element: 'Aero',
@@ -512,7 +457,7 @@ export default {
       RS: 0.25
     },
   },
-  '1402': {
+  1402: {
     name: 'Yangyang',
     rarity: 4,
     element: 'Aero',
@@ -530,7 +475,7 @@ export default {
       RL: 0.25
     },
   },
-  '1303': {
+  1303: {
     name: 'Yuanwu',
     rarity: 4,
     element: 'Electro',
@@ -549,7 +494,7 @@ export default {
       RL: 0.25
     },
   },
-  '1302': {
+  1302: {
     name: 'Yinlin',
     rarity: 5,
     element: 'Electro',
@@ -568,7 +513,7 @@ export default {
       RS: 0.50
     },
   },
-  '1301': {
+  1301: {
     name: 'Calcharo',
     rarity: 5,
     element: 'Electro',
@@ -588,7 +533,7 @@ export default {
       BA: 0.25
     },
   },
-  '1204': {
+  1204: {
     name: 'Mortefi',
     rarity: 4,
     element: 'Fusion',
@@ -606,7 +551,7 @@ export default {
       ER: 0.25
     },
   },
-  '1203': {
+  1203: {
     name: 'Encore',
     rarity: 5,
     element: 'Fusion',
@@ -625,7 +570,7 @@ export default {
       BA: 0.25
     },
   },
-  '1202': {
+  1202: {
     name: 'Chixia',
     rarity: 4,
     element: 'Fusion',
@@ -644,7 +589,7 @@ export default {
       RL: 0.25
     },
   },
-  '1104': {
+  1104: {
     name: 'Lingyang',
     rarity: 5,
     element: 'Glacio',
@@ -664,7 +609,7 @@ export default {
       RS: 0.25
     },
   },
-  '1103': {
+  1103: {
     name: 'Baizhi',
     rarity: 4,
     element: 'Glacio',
@@ -679,7 +624,7 @@ export default {
       HP: 0.50
     },
   },
-  '1102': {
+  1102: {
     name: 'Sanhua',
     rarity: 4,
     element: 'Glacio',

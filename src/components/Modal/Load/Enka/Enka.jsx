@@ -77,35 +77,6 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
     return avatarListMap[gameId];
   };
 
-  const convertAvatarIds = (avatarList, rawEnka) => {
-    const { energyConvert, maleToFemale } = translate[gameId];
-    
-    avatarList.forEach((rawItem, index) => {
-      // Handle Genshin Impact traveler element conversion
-      if (gameId === 'gi' && (rawItem.avatarId === 10000005 || rawItem.avatarId === 10000007)) {
-        const { energyType } = rawEnka.playerInfo.showAvatarInfoList[index];
-        rawItem.avatarId = `${rawItem.avatarId}-${energyConvert[energyType]}`;
-      }
-      
-      // Convert male MC to female MC for GI and HSR
-      if (gameId !== 'zzz' && maleToFemale[rawItem.avatarId]) {
-        rawItem.avatarId = maleToFemale[rawItem.avatarId];
-      }
-      
-      // Handle ZZZ ID format
-      if (gameId === 'zzz') {
-        rawItem.avatarId = rawItem.Id;
-      }
-    });
-  };
-
-  const filterValidAvatars = (avatarList) => {
-    return avatarList.filter(avatar => {
-      const avatarId = avatar.avatarId;
-      return AVATAR_DATA[gameId] && AVATAR_DATA[gameId][avatarId];
-    });
-  };
-
   const fetchEnkaData = async () => {
     setError(null);
     setIsLoading(true);
@@ -121,17 +92,22 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
       // Parse and validate avatar list
       const rawEnka = await response.json();
       const avatarList = parseAvatarList(rawEnka);
-      
+
       if (!avatarList) {
         setError(600);
         return false;
       }
 
-      // Convert avatar IDs based on game-specific rules
-      convertAvatarIds(avatarList, rawEnka);
-      
+      // Handle ZZZ ID format
+      if (gameId === 'zzz') {
+        avatarList.forEach(rawItem => rawItem.avatarId = rawItem.Id);
+      }
+
       // Filter out avatars that don't exist in AVATAR_DATA
-      const validAvatars = filterValidAvatars(avatarList);
+      const validAvatars = avatarList.filter(avatar => {
+        const avatarId = avatar.avatarId;
+        return AVATAR_DATA[gameId][avatarId];
+      });
       
       setEnkaList(validAvatars);
       return true;
@@ -145,7 +121,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
 
   const handleFetchAndSaveUid = async () => {
     const fetchSuccess = await fetchEnkaData();
-    
+
     if (fetchSuccess && userId && rememberUid) {
       const userDocRef = doc(db, 'users', userId);
       await setDoc(userDocRef, { [`${gameId}_uid`]: uid }, { merge: true });
@@ -167,7 +143,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
       case 'gi': {
         const id = String(charObj.avatarId);
         const data = template(gameId);
-  
+
         // weapon
         const weaponObj = charObj.equipList[charObj.equipList.length - 1];
         data.weaponId = String(weaponObj.itemId);

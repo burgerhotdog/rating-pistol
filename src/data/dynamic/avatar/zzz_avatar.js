@@ -1,6 +1,6 @@
 export default {
   // 2.1
-  '1411': {
+  1411: {
     name: 'Yuzuha',
     rarity: 5,
     element: 'Physical',
@@ -16,7 +16,7 @@ export default {
       AP: 0.1,
     },
   },
-  '1401': {
+  1401: {
     name: 'Alice',
     rarity: 5,
     element: 'Physical',
@@ -36,7 +36,7 @@ export default {
     },
   },
   // 2.0
-  '1421': {
+  1421: {
     name: 'Pan Yinhu',
     rarity: 4,
     element: 'Physical',
@@ -51,7 +51,7 @@ export default {
       ATK: 0.5,
     },
   },
-  '1391': {
+  1391: {
     name: 'Ju Fufu',
     rarity: 5,
     element: 'Fire',
@@ -69,7 +69,7 @@ export default {
       PEN: 0.1,
     },
   },
-  '1371': {
+  1371: {
     name: 'Yixuan',
     rarity: 5,
     element: 'Ether',
@@ -88,7 +88,7 @@ export default {
     },
   },
   // 1.7
-  '1331': {
+  1331: {
     name: 'Vivian',
     rarity: 5,
     element: 'Ether',
@@ -107,7 +107,7 @@ export default {
       CD: 0.1,
     },
   },
-  '1291': {
+  1291: {
     name: 'Hugo',
     rarity: 5,
     element: 'Ice',
@@ -126,7 +126,7 @@ export default {
     },
   },
   // 1.6
-  '1381': {
+  1381: {
     name: 'Soldier 0 - Anby',
     rarity: 5,
     element: 'Electric',
@@ -144,7 +144,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1361': {
+  1361: {
     name: 'Trigger',
     rarity: 5,
     element: 'Electric',
@@ -162,7 +162,7 @@ export default {
       PEN: 0.3,
     },
   },
-  '1351': {
+  1351: {
     name: 'Pulchra',
     rarity: 4,
     element: 'Physical',
@@ -181,7 +181,7 @@ export default {
     },
   },
   // 1.5
-  '1321': {
+  1321: {
     name: 'Evelyn',
     rarity: 5,
     element: 'Fire',
@@ -199,7 +199,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1311': {
+  1311: {
     name: 'Astra',
     rarity: 5,
     element: 'Ether',
@@ -215,7 +215,7 @@ export default {
     },
   },
   // 1.4
-  '1201': {
+  1201: {
     name: 'Harumasa',
     rarity: 5,
     element: 'Electric',
@@ -233,7 +233,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1091': {
+  1091: {
     name: 'Miyabi',
     rarity: 5,
     element: 'Ice',
@@ -253,7 +253,7 @@ export default {
     },
   },
   // 1.3
-  '1221': {
+  1221: {
     name: 'Yanagi',
     rarity: 5,
     element: 'Electric',
@@ -272,7 +272,7 @@ export default {
       CD: 0.2,
     },
   },
-  '1161': {
+  1161: {
     name: 'Lighter',
     rarity: 5,
     element: 'Fire',
@@ -291,7 +291,7 @@ export default {
     },
   },
   // 1.2
-  '1171': {
+  1171: {
     name: 'Burnice',
     rarity: 5,
     element: 'Fire',
@@ -310,7 +310,7 @@ export default {
       CD: 0.5,
     },
   },
-  '1071': {
+  1071: {
     name: 'Caesar',
     rarity: 5,
     element: 'Physical',
@@ -323,7 +323,7 @@ export default {
     },
   },
   // 1.1
-  '1271': {
+  1271: {
     name: 'Seth',
     rarity: 4,
     element: 'Electric',
@@ -338,7 +338,7 @@ export default {
       ATK: 0.5,
     },
   },
-  '1261': {
+  1261: {
     name: 'Jane',
     rarity: 5,
     element: 'Physical',
@@ -357,7 +357,7 @@ export default {
       CD: 0.3,
     },
   },
-  '1251': {
+  1251: {
     name: 'Qingyi',
     rarity: 5,
     element: 'Electric',
@@ -376,7 +376,7 @@ export default {
     },
   },
   // 1.0
-  '1281': {
+  1281: {
     name: 'Piper',
     rarity: 4,
     element: 'Physical',
@@ -395,7 +395,7 @@ export default {
       CD: 0.3,
     },
   },
-  '1241': {
+  1241: {
     name: 'Zhu Yuan',
     rarity: 5,
     element: 'Ether',
@@ -413,7 +413,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1211': {
+  1211: {
     name: 'Rina',
     rarity: 5,
     element: 'Electric',
@@ -425,7 +425,7 @@ export default {
       _DEF: 601,
     },
   },
-  '1191': {
+  1191: {
     name: 'Ellen',
     rarity: 5,
     element: 'Ice',
@@ -443,7 +443,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1181': {
+  1181: {
     name: 'Grace',
     rarity: 5,
     element: 'Electric',
@@ -460,7 +460,7 @@ export default {
       PEN: 0.3,
     },
   },
-  '1151': {
+  1151: {
     name: 'Lucy',
     rarity: 4,
     element: 'Fire',
@@ -478,7 +478,7 @@ export default {
       PEN: 0.3,
     },
   },
-  '1141': {
+  1141: {
     name: 'Lycaon',
     rarity: 5,
     element: 'Ice',
@@ -496,7 +496,7 @@ export default {
       PEN: 0.3,
     },
   },
-  '1131': {
+  1131: {
     name: 'Soukaku',
     rarity: 4,
     element: 'Ice',
@@ -511,7 +511,7 @@ export default {
       ATK: 0.5,
     },
   },
-  '1121': {
+  1121: {
     name: 'Ben',
     rarity: 4,
     element: 'Fire',
@@ -526,7 +526,7 @@ export default {
       DEF: 0.5,
     },
   },
-  '1111': {
+  1111: {
     name: 'Anton',
     rarity: 4,
     element: 'Electric',
@@ -544,7 +544,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1101': {
+  1101: {
     name: 'Koleda',
     rarity: 5,
     element: 'Fire',
@@ -562,7 +562,7 @@ export default {
       PEN: 0.3,
     },
   },
-  '1081': {
+  1081: {
     name: 'Billy',
     rarity: 4,
     element: 'Physical',
@@ -580,7 +580,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1061': {
+  1061: {
     name: 'Corin',
     rarity: 4,
     element: 'Physical',
@@ -598,7 +598,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1041': {
+  1041: {
     name: 'Soldier 11',
     rarity: 5,
     element: 'Fire',
@@ -616,7 +616,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1031': {
+  1031: {
     name: 'Nicole',
     rarity: 4,
     element: 'Ether',
@@ -628,7 +628,7 @@ export default {
       _DEF: 623,
     },
   },
-  '1021': {
+  1021: {
     name: 'Nekomata',
     rarity: 5,
     element: 'Physical',
@@ -646,7 +646,7 @@ export default {
       PEN: 0.5,
     },
   },
-  '1011': {
+  1011: {
     name: 'Anby',
     rarity: 4,
     element: 'Electric',

@@ -1,6 +1,6 @@
 export default {
   // 5.8
-  '10000116': {
+  10000116: {
     name: 'Ineffa',
     rarity: 5,
     element: 'Electro',
@@ -20,7 +20,7 @@ export default {
     },
   },
   // 5.7
-  '10000115': {
+  10000115: {
     name: 'Dahlia',
     rarity: 4,
     element: 'Hydro',
@@ -35,7 +35,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000114': {
+  10000114: {
     name: 'Skirk',
     rarity: 5,
     element: 'Cryo',
@@ -53,7 +53,7 @@ export default {
     },
   },
   // 5.6
-  '10000113': {
+  10000113: {
     name: 'Ifa',
     rarity: 4,
     element: 'Anemo',
@@ -68,7 +68,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000112': {
+  10000112: {
     name: 'Escoffier',
     rarity: 5,
     element: 'Cryo',
@@ -87,7 +87,7 @@ export default {
     },
   },
   // 5.5
-  '10000111': {
+  10000111: {
     name: 'Varesa',
     rarity: 5,
     element: 'Electro',
@@ -105,7 +105,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000110': {
+  10000110: {
     name: 'Iansan',
     rarity: 4,
     element: 'Electro',
@@ -121,7 +121,7 @@ export default {
     },
   },
   // 5.4
-  '10000109': {
+  10000109: {
     name: 'Yumemizuki Mizuki',
     rarity: 5,
     element: 'Anemo',
@@ -138,7 +138,7 @@ export default {
     },
   },
   // 5.3
-  '10000108': {
+  10000108: {
     name: 'Lan Yan',
     rarity: 4,
     element: 'Anemo',
@@ -154,7 +154,7 @@ export default {
       EM: 0.50
     },
   },
-  '10000107': {
+  10000107: {
     name: 'Citlali',
     rarity: 5,
     element: 'Cryo',
@@ -170,7 +170,7 @@ export default {
       ER: 0.75
     },
   },
-  '10000106': {
+  10000106: {
     name: 'Mavuika',
     rarity: 5,
     element: 'Pyro',
@@ -188,26 +188,8 @@ export default {
       EM: 0.25
     },
   },
-  '10000007-2': {
-    name: 'Traveler (Pyro)',
-    rarity: 5,
-    element: 'Pyro',
-    type: 'Sword',
-    baseStats: {
-      _HP: 10875,
-      _ATK: 212,
-      _DEF: 683,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      ER: 0.50,
-      EM: 0.25
-    },
-  },
   // 5.2
-  '10000105': {
+  10000105: {
     name: 'Ororon',
     rarity: 4,
     element: 'Electro',
@@ -225,7 +207,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000104': {
+  10000104: {
     name: 'Chasca',
     rarity: 5,
     element: 'Anemo',
@@ -244,7 +226,7 @@ export default {
     },
   },
   // 5.1
-  '10000103': {
+  10000103: {
     name: 'Xilonen',
     rarity: 5,
     element: 'Geo',
@@ -261,7 +243,7 @@ export default {
     },
   },
   // 5.0
-  '10000102': {
+  10000102: {
     name: 'Mualani',
     rarity: 5,
     element: 'Hydro',
@@ -280,7 +262,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000101': {
+  10000101: {
     name: 'Kinich',
     rarity: 5,
     element: 'Dendro',
@@ -299,7 +281,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000100': {
+  10000100: {
     name: 'Kachina',
     rarity: 4,
     element: 'Geo',
@@ -317,7 +299,7 @@ export default {
     },
   },
   // 4.8
-  '10000099': {
+  10000099: {
     name: 'Emilie',
     rarity: 5,
     element: 'Dendro',
@@ -337,7 +319,7 @@ export default {
     },
   },
   // 4.7
-  '10000098': {
+  10000098: {
     name: 'Clorinde',
     rarity: 5,
     element: 'Electro',
@@ -356,7 +338,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000097': {
+  10000097: {
     name: 'Sethos',
     rarity: 4,
     element: 'Electro',
@@ -375,7 +357,7 @@ export default {
     },
   },
   // 4.6
-  '10000095': {
+  10000095: {
     name: 'Sigewinne',
     rarity: 5,
     element: 'Hydro',
@@ -391,7 +373,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000096': {
+  10000096: {
     name: 'Arlecchino',
     rarity: 5,
     element: 'Pyro',
@@ -411,7 +393,7 @@ export default {
     },
   },
   // 4.5
-  '10000094': {
+  10000094: {
     name: 'Chiori',
     rarity: 5,
     element: 'Geo',
@@ -431,7 +413,7 @@ export default {
     },
   },
   // 4.4
-  '10000093': {
+  10000093: {
     name: 'Xianyun',
     rarity: 5,
     element: 'Anemo',
@@ -447,7 +429,7 @@ export default {
       ER: 0.75
     },
   },
-  '10000092': {
+  10000092: {
     name: 'Gaming',
     rarity: 4,
     element: 'Pyro',
@@ -466,7 +448,7 @@ export default {
     },
   },
   // 4.3
-  '10000091': {
+  10000091: {
     name: 'Navia',
     rarity: 5,
     element: 'Geo',
@@ -484,7 +466,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000090': {
+  10000090: {
     name: 'Chevreuse',
     rarity: 4,
     element: 'Pyro',
@@ -500,7 +482,7 @@ export default {
     },
   },
   // 4.2
-  '10000089': {
+  10000089: {
     name: 'Furina',
     rarity: 5,
     element: 'Hydro',
@@ -519,7 +501,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000088': {
+  10000088: {
     name: 'Charlotte',
     rarity: 4,
     element: 'Cryo',
@@ -535,7 +517,7 @@ export default {
     },
   },
   // 4.1
-  '10000087': {
+  10000087: {
     name: 'Neuvillette',
     rarity: 5,
     element: 'Hydro',
@@ -554,7 +536,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000086': {
+  10000086: {
     name: 'Wriothesley',
     rarity: 5,
     element: 'Cryo',
@@ -574,7 +556,7 @@ export default {
     },
   },
   // 4.0
-  '10000085': {
+  10000085: {
     name: 'Freminet',
     rarity: 4,
     element: 'Cryo',
@@ -591,7 +573,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000084': {
+  10000084: {
     name: 'Lyney',
     rarity: 5,
     element: 'Pyro',
@@ -610,7 +592,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000083': {
+  10000083: {
     name: 'Lynette',
     rarity: 4,
     element: 'Anemo',
@@ -627,28 +609,9 @@ export default {
       ER: 0.75
     },
   },
-  '10000007-3': {
-    name: 'Traveler (Hydro)',
-    rarity: 5,
-    element: 'Hydro',
-    type: 'Sword',
-    baseStats: {
-      _HP: 10875,
-      _ATK: 212,
-      _DEF: 683,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      ER: 0.50,
-      HP: 0.25,
-      EM: 0.25
-    },
-  },
   // 3.8
   // 3.7
-  '10000061': {
+  10000061: {
     name: 'Kirara',
     rarity: 4,
     element: 'Dendro',
@@ -664,7 +627,7 @@ export default {
     },
   },
   // 3.6
-  '10000082': {
+  10000082: {
     name: 'Baizhu',
     rarity: 5,
     element: 'Dendro',
@@ -680,7 +643,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000081': {
+  10000081: {
     name: 'Kaveh',
     rarity: 4,
     element: 'Dendro',
@@ -696,7 +659,7 @@ export default {
     },
   },
   // 3.5
-  '10000080': {
+  10000080: {
     name: 'Mika',
     rarity: 4,
     element: 'Cryo',
@@ -711,7 +674,7 @@ export default {
       HP: 0.75
     },
   },
-  '10000079': {
+  10000079: {
     name: 'Dehya',
     rarity: 5,
     element: 'Pyro',
@@ -732,7 +695,7 @@ export default {
     },
   },
   // 3.4
-  '10000078': {
+  10000078: {
     name: 'Alhaitham',
     rarity: 5,
     element: 'Dendro',
@@ -751,7 +714,7 @@ export default {
       ATK: 0.25
     },
   },
-  '10000077': {
+  10000077: {
     name: 'Yaoyao',
     rarity: 4,
     element: 'Dendro',
@@ -767,7 +730,7 @@ export default {
     },
   },
   // 3.3
-  '10000076': {
+  10000076: {
     name: 'Faruzan',
     rarity: 4,
     element: 'Anemo',
@@ -781,7 +744,7 @@ export default {
       ER: 1.00
     },
   },
-  '10000075': {
+  10000075: {
     name: 'Wanderer',
     rarity: 5,
     element: 'Anemo',
@@ -800,7 +763,7 @@ export default {
     },
   },
   // 3.2
-  '10000074': {
+  10000074: {
     name: 'Layla',
     rarity: 4,
     element: 'Cryo',
@@ -815,7 +778,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000073': {
+  10000073: {
     name: 'Nahida',
     rarity: 5,
     element: 'Dendro',
@@ -835,7 +798,7 @@ export default {
     },
   },
   // 3.1
-  '10000072': {
+  10000072: {
     name: 'Candace',
     rarity: 4,
     element: 'Hydro',
@@ -850,7 +813,7 @@ export default {
       ER: 0.75
     },
   },
-  '10000071': {
+  10000071: {
     name: 'Cyno',
     rarity: 5,
     element: 'Electro',
@@ -869,7 +832,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000070': {
+  10000070: {
     name: 'Nilou',
     rarity: 5,
     element: 'Hydro',
@@ -886,7 +849,7 @@ export default {
     },
   },
   // 3.0
-  '10000069': {
+  10000069: {
     name: 'Tighnari',
     rarity: 5,
     element: 'Dendro',
@@ -905,7 +868,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000068': {
+  10000068: {
     name: 'Dori',
     rarity: 4,
     element: 'Electro',
@@ -920,7 +883,7 @@ export default {
       HP: 0.75
     },
   },
-  '10000067': {
+  10000067: {
     name: 'Collei',
     rarity: 4,
     element: 'Dendro',
@@ -938,26 +901,8 @@ export default {
       ER: 0.50
     },
   },
-  '10000007-8': {
-    name: 'Traveler (Dendro)',
-    rarity: 5,
-    element: 'Dendro',
-    type: 'Sword',
-    baseStats: {
-      _HP: 10875,
-      _ATK: 212,
-      _DEF: 683,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      EM: 0.50,
-      ER: 0.50
-    },
-  },
   // 2.8
-  '10000059': {
+  10000059: {
     name: 'Shikanoin Heizou',
     rarity: 4,
     element: 'Anemo',
@@ -975,7 +920,7 @@ export default {
     },
   },
   // 2.7
-  '10000065': {
+  10000065: {
     name: 'Kuki Shinobu',
     rarity: 4,
     element: 'Electro',
@@ -991,7 +936,7 @@ export default {
       ER: 0.25
     },
   },
-  '10000060': {
+  10000060: {
     name: 'Yelan',
     rarity: 5,
     element: 'Hydro',
@@ -1011,7 +956,7 @@ export default {
     },
   },
   // 2.6
-  '10000066': {
+  10000066: {
     name: 'Kamisato Ayato',
     rarity: 5,
     element: 'Hydro',
@@ -1032,7 +977,7 @@ export default {
     },
   },
   // 2.5
-  '10000058': {
+  10000058: {
     name: 'Yae Miko',
     rarity: 5,
     element: 'Electro',
@@ -1052,7 +997,7 @@ export default {
     },
   },
   // 2.4
-  '10000064': {
+  10000064: {
     name: 'Yun Jin',
     rarity: 4,
     element: 'Geo',
@@ -1067,7 +1012,7 @@ export default {
       ER: 0.75
     },
   },
-  '10000063': {
+  10000063: {
     name: 'Shenhe',
     rarity: 5,
     element: 'Cryo',
@@ -1084,7 +1029,7 @@ export default {
     },
   },
   // 2.3
-  '10000057': {
+  10000057: {
     name: 'Arataki Itto',
     rarity: 5,
     element: 'Geo',
@@ -1103,7 +1048,7 @@ export default {
       ATK: 0.25
     },
   },
-  '10000055': {
+  10000055: {
     name: 'Gorou',
     rarity: 4,
     element: 'Geo',
@@ -1119,7 +1064,7 @@ export default {
     },
   },
   // 2.2
-  '10000062': {
+  10000062: {
     name: 'Aloy',
     rarity: 5,
     element: 'Cryo',
@@ -1137,7 +1082,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000050': {
+  10000050: {
     name: 'Thoma',
     rarity: 4,
     element: 'Pyro',
@@ -1153,7 +1098,7 @@ export default {
     },
   },
   // 2.1
-  '10000056': {
+  10000056: {
     name: 'Kujou Sara',
     rarity: 4,
     element: 'Electro',
@@ -1171,7 +1116,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000054': {
+  10000054: {
     name: 'Sangonomiya Kokomi',
     rarity: 5,
     element: 'Hydro',
@@ -1187,7 +1132,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000052': {
+  10000052: {
     name: 'Raiden Shogun',
     rarity: 5,
     element: 'Electro',
@@ -1207,7 +1152,7 @@ export default {
     },
   },
   // 2.0
-  '10000053': {
+  10000053: {
     name: 'Sayu',
     rarity: 4,
     element: 'Anemo',
@@ -1223,7 +1168,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000049': {
+  10000049: {
     name: 'Yoimiya',
     rarity: 5,
     element: 'Pyro',
@@ -1242,25 +1187,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000007-7': {
-    name: 'Traveler (Electro)',
-    rarity: 5,
-    element: 'Electro',
-    type: 'Sword',
-    baseStats: {
-      _HP: 10875,
-      _ATK: 212,
-      _DEF: 683,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      ER: 0.50,
-      EM: 0.25
-    },
-  },
-  '10000002': {
+  10000002: {
     name: 'Kamisato Ayaka',
     rarity: 5,
     element: 'Cryo',
@@ -1279,7 +1206,7 @@ export default {
     },
   },
   // 1.6
-  '10000047': {
+  10000047: {
     name: 'Kaedehara Kazuha',
     rarity: 5,
     element: 'Anemo',
@@ -1296,7 +1223,7 @@ export default {
     },
   },
   // 1.5
-  '10000051': {
+  10000051: {
     name: 'Eula',
     rarity: 5,
     element: 'Cryo',
@@ -1314,7 +1241,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000048': {
+  10000048: {
     name: 'Yanfei',
     rarity: 4,
     element: 'Pyro',
@@ -1333,7 +1260,7 @@ export default {
     },
   },
   // 1.4
-  '10000045': {
+  10000045: {
     name: 'Rosaria',
     rarity: 4,
     element: 'Cryo',
@@ -1352,7 +1279,7 @@ export default {
     },
   },
   // 1.3
-  '10000046': {
+  10000046: {
     name: 'Hu Tao',
     rarity: 5,
     element: 'Pyro',
@@ -1372,7 +1299,7 @@ export default {
       ATK: 0.25
     },
   },
-  '10000026': {
+  10000026: {
     name: 'Xiao',
     rarity: 5,
     element: 'Anemo',
@@ -1391,7 +1318,7 @@ export default {
     },
   },
   // 1.2
-  '10000038': {
+  10000038: {
     name: 'Albedo',
     rarity: 5,
     element: 'Geo',
@@ -1409,7 +1336,7 @@ export default {
       ER: 0.25
     },
   },
-  '10000037': {
+  10000037: {
     name: 'Ganyu',
     rarity: 5,
     element: 'Cryo',
@@ -1429,7 +1356,7 @@ export default {
     },
   },
   // 1.1
-  '10000044': {
+  10000044: {
     name: 'Xinyan',
     rarity: 4,
     element: 'Pyro',
@@ -1446,7 +1373,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000039': {
+  10000039: {
     name: 'Diona',
     rarity: 4,
     element: 'Cryo',
@@ -1461,7 +1388,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000033': {
+  10000033: {
     name: 'Tartaglia',
     rarity: 5,
     element: 'Hydro',
@@ -1480,7 +1407,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000030': {
+  10000030: {
     name: 'Zhongli',
     rarity: 5,
     element: 'Geo',
@@ -1497,7 +1424,7 @@ export default {
     },
   },
   // 1.0
-  '10000043': {
+  10000043: {
     name: 'Sucrose',
     rarity: 4,
     element: 'Anemo',
@@ -1512,7 +1439,7 @@ export default {
       ER: 0.75
     },
   },
-  '10000042': {
+  10000042: {
     name: 'Keqing',
     rarity: 5,
     element: 'Electro',
@@ -1530,7 +1457,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000041': {
+  10000041: {
     name: 'Mona',
     rarity: 5,
     element: 'Hydro',
@@ -1548,7 +1475,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000036': {
+  10000036: {
     name: 'Chongyun',
     rarity: 4,
     element: 'Cryo',
@@ -1566,7 +1493,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000035': {
+  10000035: {
     name: 'Qiqi',
     rarity: 5,
     element: 'Cryo',
@@ -1581,7 +1508,7 @@ export default {
       ATK: 0.75
     },
   },
-  '10000034': {
+  10000034: {
     name: 'Noelle',
     rarity: 4,
     element: 'Geo',
@@ -1599,7 +1526,7 @@ export default {
       ATK: 0.25
     },
   },
-  '10000032': {
+  10000032: {
     name: 'Bennett',
     rarity: 4,
     element: 'Pyro',
@@ -1614,7 +1541,7 @@ export default {
       HP: 0.75
     },
   },
-  '10000031': {
+  10000031: {
     name: 'Fischl',
     rarity: 4,
     element: 'Electro',
@@ -1632,7 +1559,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000029': {
+  10000029: {
     name: 'Klee',
     rarity: 5,
     element: 'Pyro',
@@ -1650,7 +1577,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000027': {
+  10000027: {
     name: 'Ningguang',
     rarity: 4,
     element: 'Geo',
@@ -1667,7 +1594,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000025': {
+  10000025: {
     name: 'Xingqiu',
     rarity: 4,
     element: 'Hydro',
@@ -1685,7 +1612,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000024': {
+  10000024: {
     name: 'Beidou',
     rarity: 4,
     element: 'Electro',
@@ -1703,7 +1630,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000023': {
+  10000023: {
     name: 'Xiangling',
     rarity: 4,
     element: 'Pyro',
@@ -1721,7 +1648,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000022': {
+  10000022: {
     name: 'Venti',
     rarity: 5,
     element: 'Anemo',
@@ -1736,7 +1663,7 @@ export default {
       ER: 0.75
     },
   },
-  '10000021': {
+  10000021: {
     name: 'Amber',
     rarity: 4,
     element: 'Pyro',
@@ -1754,7 +1681,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000020': {
+  10000020: {
     name: 'Razor',
     rarity: 4,
     element: 'Electro',
@@ -1771,7 +1698,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000016': {
+  10000016: {
     name: 'Diluc',
     rarity: 5,
     element: 'Pyro',
@@ -1790,7 +1717,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000015': {
+  10000015: {
     name: 'Kaeya',
     rarity: 4,
     element: 'Cryo',
@@ -1808,7 +1735,7 @@ export default {
       EM: 0.25
     },
   },
-  '10000014': {
+  10000014: {
     name: 'Barbara',
     rarity: 4,
     element: 'Hydro',
@@ -1823,38 +1750,7 @@ export default {
       HP: 0.75
     },
   },
-  '10000007-6': {
-    name: 'Traveler (Geo)',
-    rarity: 5,
-    element: 'Geo',
-    type: 'Sword',
-    baseStats: {
-      _HP: 10875,
-      _ATK: 212,
-      _DEF: 683,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      ER: 0.50
-    },
-  },
-  '10000007-4': {
-    name: 'Traveler (Anemo)',
-    rarity: 5,
-    element: 'Anemo',
-    type: 'Sword',
-    baseStats: {
-      _HP: 10875,
-      _ATK: 212,
-      _DEF: 683,
-    },
-    weights: {
-      ER: 1.00
-    },
-  },
-  '10000006': {
+  10000006: {
     name: 'Lisa',
     rarity: 4,
     element: 'Electro',
@@ -1872,7 +1768,7 @@ export default {
       ER: 0.50
     },
   },
-  '10000003': {
+  10000003: {
     name: 'Jean',
     rarity: 5,
     element: 'Anemo',

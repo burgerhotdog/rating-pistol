@@ -7,23 +7,6 @@ export default {
       EQUIP_RING: 3,
       EQUIP_DRESS: 4,
     },
-    energyConvert: {
-      5: 0, // cryo
-      1: 2, // pyro
-      2: 3, // hydro
-      3: 8, // dendro
-      4: 7, // electro
-      8: 6, // geo
-      7: 4, // anemo
-    },
-    maleToFemale: {
-      '10000005-2': '10000007-2', // pyro
-      '10000005-3': '10000007-3', // hydro
-      '10000005-8': '10000007-8', // dendro
-      '10000005-7': '10000007-7', // electro
-      '10000005-6': '10000007-6', // geo
-      '10000005-4': '10000007-4', // anemo
-    },
     STAT_CONVERT: {
       'FIGHT_PROP_HP': '_HP',
       'FIGHT_PROP_ATTACK': '_ATK',
@@ -46,14 +29,7 @@ export default {
       'FIGHT_PROP_HEAL_ADD': 'HB',
     },
   },
-
   hsr: {
-    maleToFemale: {
-      '8007': '8008', // remembrance
-      '8005': '8006', // harmony
-      '8003': '8004', // preservation
-      '8001': '8002', // destruction
-    },
     STAT_CONVERT: {
       'HPDelta': '_HP',
       'AttackDelta': '_ATK',
@@ -82,7 +58,6 @@ export default {
       'StatusResistance': 'RES',
     },
   },
-  
   zzz: {
     STAT_CONVERT: {
       '11103': '_HP',

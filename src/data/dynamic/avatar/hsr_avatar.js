@@ -1,6 +1,6 @@
 export default {
   // 3.5
-  '1412': {
+  1412: {
     name: 'Cerydra',
     rarity: 5,
     element: 'Wind',
@@ -18,7 +18,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1410': {
+  1410: {
     name: 'Hysilens',
     rarity: 5,
     element: 'Physical',
@@ -36,7 +36,7 @@ export default {
     },
   },
   // 3.4
-  '1408': {
+  1408: {
     name: 'Phainon',
     rarity: 5,
     element: 'Physical',
@@ -54,7 +54,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1015': {
+  1015: {
     name: 'Archer',
     rarity: 5,
     element: 'Quantum',
@@ -72,7 +72,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1014': {
+  1014: {
     name: 'Saber',
     rarity: 5,
     element: 'Wind',
@@ -91,7 +91,7 @@ export default {
     },
   },
   // 3.3
-  '1409': {
+  1409: {
     name: 'Hyacine',
     rarity: 5,
     element: 'Wind',
@@ -109,7 +109,7 @@ export default {
       RES: 0.50
     },
   },
-  '1406': {
+  1406: {
     name: 'Cipher',
     rarity: 5,
     element: 'Quantum',
@@ -129,7 +129,7 @@ export default {
     },
   },
   // 3.2
-  '1407': {
+  1407: {
     name: 'Castorice',
     rarity: 5,
     element: 'Quantum',
@@ -147,7 +147,7 @@ export default {
       SPD: 0.25
     },
   },
-  '1405': {
+  1405: {
     name: 'Anaxa',
     rarity: 5,
     element: 'Wind',
@@ -166,7 +166,7 @@ export default {
     },
   },
   // 3.1
-  '1404': {
+  1404: {
     name: 'Mydei',
     rarity: 5,
     element: 'Imaginary',
@@ -184,7 +184,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1403': {
+  1403: {
     name: 'Tribbie',
     rarity: 5,
     element: 'Quantum',
@@ -203,23 +203,7 @@ export default {
     },
   },
   // 3.0
-  '8008': {
-    name: 'Trailblazer (Remembrance)',
-    rarity: 5,
-    element: 'Ice',
-    type: 'Remembrance',
-    baseStats: {
-      _HP: 1047,
-      _ATK: 543,
-      _DEF: 630,
-    },
-    weights: {
-      SPD: 1.00,
-      CD: 0.75,
-      ATK: 0.25
-    },
-  },
-  '1402': {
+  1402: {
     name: 'Aglaea',
     rarity: 5,
     element: 'Lightning',
@@ -237,7 +221,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1401': {
+  1401: {
     name: 'The Herta',
     rarity: 5,
     element: 'Ice',
@@ -256,7 +240,7 @@ export default {
     },
   },
   // 2.7
-  '1313': {
+  1313: {
     name: 'Sunday',
     rarity: 5,
     element: 'Imaginary',
@@ -272,7 +256,7 @@ export default {
       CD: 0.75
     },
   },
-  '1225': {
+  1225: {
     name: 'Fugue',
     rarity: 5,
     element: 'Fire',
@@ -290,7 +274,7 @@ export default {
     },
   },
   // 2.6
-  '1317': {
+  1317: {
     name: 'Rappa',
     rarity: 5,
     element: 'Imaginary',
@@ -308,7 +292,7 @@ export default {
     },
   },
   // 2.5
-  '1223': {
+  1223: {
     name: 'Moze',
     rarity: 4,
     element: 'Lightning',
@@ -325,7 +309,7 @@ export default {
       SPD: 0.25
     },
   },
-  '1222': {
+  1222: {
     name: 'Lingsha',
     rarity: 5,
     element: 'Fire',
@@ -343,7 +327,7 @@ export default {
       RES: 0.50
     },
   },
-  '1220': {
+  1220: {
     name: 'Feixiao',
     rarity: 5,
     element: 'Wind',
@@ -362,7 +346,7 @@ export default {
     },
   },
   // 2.4
-  '1224': {
+  1224: {
     name: 'March 7th (The Hunt)',
     rarity: 4,
     element: 'Imaginary',
@@ -379,7 +363,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1221': {
+  1221: {
     name: 'Yunli',
     rarity: 5,
     element: 'Physical',
@@ -397,7 +381,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1218': {
+  1218: {
     name: 'Jiaoqiu',
     rarity: 5,
     element: 'Fire',
@@ -415,7 +399,7 @@ export default {
     },
   },
   // 2.3
-  '1314': {
+  1314: {
     name: 'Jade',
     rarity: 5,
     element: 'Quantum',
@@ -433,7 +417,7 @@ export default {
       SPD: 0.25
     },
   },
-  '1310': {
+  1310: {
     name: 'Firefly',
     rarity: 5,
     element: 'Fire',
@@ -451,22 +435,7 @@ export default {
     },
   },
   // 2.2
-  '8006': {
-    name: 'Trailblazer (Harmony)',
-    rarity: 5,
-    element: 'Imaginary',
-    type: 'Harmony',
-    baseStats: {
-      _HP: 1086,
-      _ATK: 446,
-      _DEF: 679,
-    },
-    weights: {
-      'BE': 1.00,
-      SPD: 0.75
-    },
-  },
-  '1315': {
+  1315: {
     name: 'Boothill',
     rarity: 5,
     element: 'Physical',
@@ -482,7 +451,7 @@ export default {
       SPD: 0.75
     },
   },
-  '1309': {
+  1309: {
     name: 'Robin',
     rarity: 5,
     element: 'Physical',
@@ -499,7 +468,7 @@ export default {
     },
   },
   // 2.1
-  '1308': {
+  1308: {
     name: 'Acheron',
     rarity: 5,
     element: 'Lightning',
@@ -517,7 +486,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1304': {
+  1304: {
     name: 'Aventurine',
     rarity: 5,
     element: 'Imaginary',
@@ -536,7 +505,7 @@ export default {
       RES: 0.50
     },
   },
-  '1301': {
+  1301: {
     name: 'Gallagher',
     rarity: 4,
     element: 'Fire',
@@ -553,7 +522,7 @@ export default {
     },
   },
   // 2.0
-  '1312': {
+  1312: {
     name: 'Misha',
     rarity: 4,
     element: 'Ice',
@@ -570,7 +539,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1307': {
+  1307: {
     name: 'Black Swan',
     rarity: 5,
     element: 'Wind',
@@ -587,7 +556,7 @@ export default {
       SPD: 0.75
     },
   },
-  '1306': {
+  1306: {
     name: 'Sparkle',
     rarity: 5,
     element: 'Quantum',
@@ -604,7 +573,7 @@ export default {
     },
   },
   // 1.6
-  '1305': {
+  1305: {
     name: 'Dr. Ratio',
     rarity: 5,
     element: 'Imaginary',
@@ -622,7 +591,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1303': {
+  1303: {
     name: 'Ruan Mei',
     rarity: 5,
     element: 'Ice',
@@ -638,7 +607,7 @@ export default {
       'BE': 1.00
     },
   },
-  '1214': {
+  1214: {
     name: 'Xueyi',
     rarity: 4,
     element: 'Quantum',
@@ -657,7 +626,7 @@ export default {
     },
   },
   // 1.5
-  '1302': {
+  1302: {
     name: 'Argenti',
     rarity: 5,
     element: 'Physical',
@@ -675,7 +644,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1217': {
+  1217: {
     name: 'Huohuo',
     rarity: 5,
     element: 'Wind',
@@ -692,7 +661,7 @@ export default {
       RES: 0.50
     },
   },
-  '1215': {
+  1215: {
     name: 'Hanya',
     rarity: 4,
     element: 'Physical',
@@ -707,7 +676,7 @@ export default {
     },
   },
   // 1.4
-  '1212': {
+  1212: {
     name: 'Jingliu',
     rarity: 5,
     element: 'Ice',
@@ -725,7 +694,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1210': {
+  1210: {
     name: 'Guinaifen',
     rarity: 4,
     element: 'Fire',
@@ -741,7 +710,7 @@ export default {
       SPD: 0.75
     },
   },
-  '1112': {
+  1112: {
     name: 'Topaz & Numby',
     rarity: 5,
     element: 'Fire',
@@ -760,7 +729,7 @@ export default {
     },
   },
   // 1.3
-  '1213': {
+  1213: {
     name: 'Dan Heng • Imbibitor Lunae',
     rarity: 5,
     element: 'Imaginary',
@@ -778,7 +747,7 @@ export default {
       SPD: 0.25
     },
   },
-  '1208': {
+  1208: {
     name: 'Fu Xuan',
     rarity: 5,
     element: 'Quantum',
@@ -796,7 +765,7 @@ export default {
       RES: 0.50
     },
   },
-  '1110': {
+  1110: {
     name: 'Lynx',
     rarity: 4,
     element: 'Quantum',
@@ -813,7 +782,7 @@ export default {
     },
   },
   // 1.2
-  '1205': {
+  1205: {
     name: 'Blade',
     rarity: 5,
     element: 'Wind',
@@ -832,7 +801,7 @@ export default {
       ATK: 0.25
     },
   },
-  '1111': {
+  1111: {
     name: 'Luka',
     rarity: 4,
     element: 'Physical',
@@ -849,7 +818,7 @@ export default {
       EHR: 0.50
     },
   },
-  '1005': {
+  1005: {
     name: 'Kafka',
     rarity: 5,
     element: 'Lightning',
@@ -867,7 +836,7 @@ export default {
     },
   },
   // 1.1
-  '1207': {
+  1207: {
     name: 'Yukong',
     rarity: 4,
     element: 'Imaginary',
@@ -881,7 +850,7 @@ export default {
       SPD: 1.00
     },
   },
-  '1203': {
+  1203: {
     name: 'Luocha',
     rarity: 5,
     element: 'Imaginary',
@@ -898,7 +867,7 @@ export default {
       RES: 0.50
     },
   },
-  '1006': {
+  1006: {
     name: 'Silver Wolf',
     rarity: 5,
     element: 'Quantum',
@@ -915,40 +884,7 @@ export default {
     },
   },
   // 1.0
-  '8004': {
-    name: 'Trailblazer (Preservation)',
-    rarity: 5,
-    element: 'Fire',
-    type: 'Preservation',
-    baseStats: {
-      _HP: 1241,
-      _ATK: 601,
-      _DEF: 606,
-    },
-    weights: {
-      SPD: 1.00,
-      DEF: 0.75,
-      RES: 0.50
-    },
-  },
-  '8002': {
-    name: 'Trailblazer (Destruction)',
-    rarity: 5,
-    element: 'Physical',
-    type: 'Destruction',
-    baseStats: {
-      _HP: 1203,
-      _ATK: 620,
-      _DEF: 460,
-    },
-    weights: {
-      CR: 1.00,
-      CD: 1.00,
-      ATK: 0.75,
-      SPD: 0.50
-    },
-  },
-  '1211': {
+  1211: {
     name: 'Bailu',
     rarity: 5,
     element: 'Lightning',
@@ -965,7 +901,7 @@ export default {
       RES: 0.50
     },
   },
-  '1209': {
+  1209: {
     name: 'Yanqing',
     rarity: 5,
     element: 'Ice',
@@ -983,7 +919,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1206': {
+  1206: {
     name: 'Sushang',
     rarity: 4,
     element: 'Physical',
@@ -1000,7 +936,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1204': {
+  1204: {
     name: 'Jing Yuan',
     rarity: 5,
     element: 'Lightning',
@@ -1018,7 +954,7 @@ export default {
       SPD: 0.25
     },
   },
-  '1202': {
+  1202: {
     name: 'Tingyun',
     rarity: 4,
     element: 'Lightning',
@@ -1033,7 +969,7 @@ export default {
       ATK: 0.75
     },
   },
-  '1201': {
+  1201: {
     name: 'Qingque',
     rarity: 4,
     element: 'Quantum',
@@ -1050,7 +986,7 @@ export default {
       SPD: 0.25
     },
   },
-  '1109': {
+  1109: {
     name: 'Hook',
     rarity: 4,
     element: 'Fire',
@@ -1067,7 +1003,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1108': {
+  1108: {
     name: 'Sampo',
     rarity: 4,
     element: 'Wind',
@@ -1083,7 +1019,7 @@ export default {
       SPD: 0.75
     },
   },
-  '1107': {
+  1107: {
     name: 'Clara',
     rarity: 5,
     element: 'Physical',
@@ -1101,7 +1037,7 @@ export default {
       SPD: 0.25
     },
   },
-  '1106': {
+  1106: {
     name: 'Pela',
     rarity: 4,
     element: 'Ice',
@@ -1116,7 +1052,7 @@ export default {
       EHR: 0.75
     },
   },
-  '1105': {
+  1105: {
     name: 'Natasha',
     rarity: 4,
     element: 'Physical',
@@ -1132,7 +1068,7 @@ export default {
       RES: 0.50
     },
   },
-  '1104': {
+  1104: {
     name: 'Gepard',
     rarity: 5,
     element: 'Ice',
@@ -1150,7 +1086,7 @@ export default {
       EHR: 0.25
     },
   },
-  '1103': {
+  1103: {
     name: 'Serval',
     rarity: 4,
     element: 'Lightning',
@@ -1168,7 +1104,7 @@ export default {
       EHR: 0.25
     },
   },
-  '1102': {
+  1102: {
     name: 'Seele',
     rarity: 5,
     element: 'Quantum',
@@ -1186,7 +1122,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1101': {
+  1101: {
     name: 'Bronya',
     rarity: 5,
     element: 'Wind',
@@ -1202,7 +1138,7 @@ export default {
       CD: 0.75
     },
   },
-  '1013': {
+  1013: {
     name: 'Herta',
     rarity: 4,
     element: 'Ice',
@@ -1219,7 +1155,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1009': {
+  1009: {
     name: 'Asta',
     rarity: 4,
     element: 'Fire',
@@ -1233,7 +1169,7 @@ export default {
       SPD: 1.00
     },
   },
-  '1008': {
+  1008: {
     name: 'Arlan',
     rarity: 4,
     element: 'Lightning',
@@ -1250,7 +1186,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1004': {
+  1004: {
     name: 'Welt',
     rarity: 5,
     element: 'Imaginary',
@@ -1269,7 +1205,7 @@ export default {
       EHR: 0.25
     },
   },
-  '1003': {
+  1003: {
     name: 'Himeko',
     rarity: 5,
     element: 'Fire',
@@ -1287,7 +1223,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1002': {
+  1002: {
     name: 'Dan Heng',
     rarity: 4,
     element: 'Wind',
@@ -1304,7 +1240,7 @@ export default {
       SPD: 0.50
     },
   },
-  '1001': {
+  1001: {
     name: 'March 7th (Preservation)',
     rarity: 4,
     element: 'Ice',
