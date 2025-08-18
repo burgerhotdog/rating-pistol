@@ -7,7 +7,7 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
   const { sig, type } = AVATAR_DATA[gameId][id];
 
   const weaponIdOptions = useMemo(() =>
-    Object.keys(WEAPON_DATA[gameId])
+    Object.keys(WEAPON_DATA[gameId]).map(Number)
       .filter(weapon => WEAPON_DATA[gameId][weapon].type === type)
       .sort((a, b) => {
         if (a === sig) return -1;

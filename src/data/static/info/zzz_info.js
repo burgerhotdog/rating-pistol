@@ -1,0 +1,29 @@
+export default {
+  TITLE: 'Zenless Zone Zero',
+  PATH: '/zenless-zone-zero',
+  EQUIP_NAMES: [
+    'Disk 1',
+    'Disk 2',
+    'Disk 3',
+    'Disk 4',
+    'Disk 5',
+    'Disk 6',
+  ],
+  MAIN_LEN: 6,
+  SUB_LEN: 4,
+  ELEMENTS: [
+    'Electric',
+    'Ether',
+    'Fire',
+    'Ice',
+    'Physical',
+  ],
+  TYPES: [
+    'Attack',
+    'Support',
+    'Stun',
+    'Anomaly',
+    'Defense',
+    'Rupture',
+  ],
+};

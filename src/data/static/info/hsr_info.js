@@ -1,0 +1,33 @@
+export default {
+  TITLE: 'Honkai Star Rail',
+  PATH: '/honkai-star-rail',
+  EQUIP_NAMES: [
+    'Head',
+    'Hands',
+    'Chest',
+    'Boots',
+    'Orb',
+    'Rope',
+  ],
+  MAIN_LEN: 6,
+  SUB_LEN: 4,
+  ELEMENTS: [
+    'Fire',
+    'Ice',
+    'Imaginary',
+    'Lightning',
+    'Physical',
+    'Quantum',
+    'Wind',
+  ],
+  TYPES: [
+    'The Hunt',
+    'Abundance',
+    'Destruction',
+    'Preservation',
+    'Nihility',
+    'Harmony',
+    'Erudition',
+    'Remembrance',
+  ],
+};
