@@ -4,7 +4,7 @@ require 'json'
 require 'open-uri'
 
 BASE_URL = "https://gi20.hakush.in/character/"
-ELEMENTS = ["Anemo", "Cryo", "Dendro", "Electro", "Geo", "Hydro", "Pyro"]
+ELEMENTS = ['Anemo', 'Cryo', 'Dendro', 'Electro', 'Geo', 'Hydro', 'Pyro']
 CHAR_IDS = [10000119, 10000120, 10000121]
 GAME_ID = 'gi'
 
