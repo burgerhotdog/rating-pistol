@@ -6,6 +6,7 @@ require 'open-uri'
 BASE_URL = "https://gi20.hakush.in/character/"
 ELEMENTS = ["Anemo", "Cryo", "Dendro", "Electro", "Geo", "Hydro", "Pyro"]
 CHAR_IDS = [10000119, 10000120, 10000121]
+GAME_ID = 'gi'
 
 options = Selenium::WebDriver::Chrome::Options.new
 options.add_argument('--headless')
@@ -87,7 +88,7 @@ CHAR_IDS.each do |id|
     if img_tag
       img_url = img_tag['src']
       puts "Downloading image: #{img_url}"
-      filename = "#{id}.webp"
+      filename = File.join('src', 'assets', 'dynamic', 'avatar', "#{GAME_ID}_avatar", "#{id}.webp")
       URI.open(img_url) do |image|
         File.open(filename, 'wb') { |file| file.write(image.read) }
       end
