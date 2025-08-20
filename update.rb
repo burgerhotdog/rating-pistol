@@ -2,7 +2,6 @@ require 'selenium-webdriver'
 require 'nokogiri'
 require 'json'
 require 'open-uri'
-# LAUMA = 10000119
 
 VALID_GAME_IDS = ['gi', 'hsr', 'ww', 'zzz']
 unless ARGV.length == 1 && VALID_GAME_IDS.include?(ARGV[0])
@@ -19,7 +18,7 @@ BASE_URL = {
 
 ELEMENTS = {
   gi: ['Anemo', 'Cryo', 'Dendro', 'Electro', 'Geo', 'Hydro', 'Pyro'],
-  hsr: [],
+  hsr: ['Fire', 'Wind', 'Physical', 'Lightning', 'Quantum', 'Imaginary'],
 }
 
 options = Selenium::WebDriver::Chrome::Options.new
@@ -27,18 +26,6 @@ options.add_argument('--headless')
 options.add_argument('--disable-gpu')
 options.add_argument('--window-size=1920,1080')
 options.add_argument('--log-level=3')
-
-def load_html(url, selector)
-  wait = Selenium::WebDriver::Wait.new(timeout: 10)
-  driver.get(url)
-  begin
-    wait.until { driver.find_element(css: selector) }
-  rescue Selenium::WebDriver::Error::TimeoutError
-    puts "Timeout Error"
-    return nil
-  end
-  Nokogiri::HTML(driver.page_source)
-end
 
 loop do
   puts "Enter <a|w> for avatar|weapon, or <q> to quit:"
@@ -50,12 +37,14 @@ loop do
     id = STDIN.gets.strip
 
     driver = Selenium::WebDriver.for :chrome, options: options
+    wait = Selenium::WebDriver::Wait.new(timeout: 10)
     url_tag = GAME_ID == 'hsr' ? 'char/' : 'character/'
     url = "#{BASE_URL[GAME_ID.to_sym]}#{url_tag}"
 
     # icon
-    doc_icon = load_html(url, 'div.grid.grid-cols-4')
-    next unless doc_icon
+    driver.get(url)
+    wait.until { driver.find_element(css: "a[href='/#{url_tag}#{id}'] > img.avatar-icon-front") }
+    doc_icon = Nokogiri::HTML(driver.page_source)
 
     img_url = doc_icon.at_css("a[href='/#{url_tag}#{id}'] > img.avatar-icon-front")&.[]('src')
     puts "Downloading image: #{img_url}"
@@ -66,8 +55,10 @@ loop do
     puts "Saved as #{filename}"
 
     # data
-    doc_data = load_html("#{url}#{id}", '#character-kit')
-    next unless doc_data
+    driver.get("#{url}#{id}/")
+    wait.until { driver.find_element(css: '#char-name-info > span.char-name > div.stars img.star-icon') }
+    wait.until { driver.find_element(css: '#character-kit > .grid:first-child .grid-cols-2') }
+    doc_data = Nokogiri::HTML(driver.page_source)
 
     data = {
       name: '',
@@ -83,15 +74,15 @@ loop do
       weights: {},
     }
 
-    title = doc.at_css('#char-name-info')
+    title = doc_data.at_css('#char-name-info')
     data[:name] = title.at_css('div.char-name-text')&.text&.strip
     data[:rarity] = title.css('span.char-name > div.stars img.star-icon').size
     data.delete(:sig) if data[:rarity] == 4
     if GAME_ID == 'ww' || GAME_ID == 'zzz'
-      data[:element] = title.css('span.char-name > div.base-type-text')&.text&.strip
+      data[:element] = title.css('span.char-name > div.base-type-text')&.text&.tr("\u00A0", "")&.strip
     end
 
-    doc.css('#character-kit > .grid:first-child .grid-cols-2').each do |row|
+    doc_data.css('#character-kit > .grid:first-child .grid-cols-2').each do |row|
       divs = row.css('div')
       next unless divs.size == 2
 
