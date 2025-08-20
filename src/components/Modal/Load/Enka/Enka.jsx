@@ -146,7 +146,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
 
         // weapon
         const weaponObj = charObj.equipList[charObj.equipList.length - 1];
-        data.weaponId = String(weaponObj.itemId);
+        data.weaponId = Number(weaponObj.itemId);
 
         // equipList
         const { equipTypeToIndex } = translate[gameId];
@@ -176,7 +176,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
         // weapon
         const weaponObj = charObj.equipment;
         if (weaponObj?.tid) {
-          data.weaponId = String(weaponObj.tid);
+          data.weaponId = Number(weaponObj.tid);
         }
 
         // equipList
@@ -208,7 +208,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
         // weapon
         const weaponObj = charObj.Weapon;
         if (weaponObj?.Id) {
-          data.weaponId = String(weaponObj.Id);
+          data.weaponId = Number(weaponObj.Id);
         }
 
         // equipList

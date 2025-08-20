@@ -4,7 +4,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "Harmony",
-    "sig": "23048",
+    "sig": 23048,
     "baseStats": { "_HP": 1358, "_ATK": 621, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -18,7 +18,7 @@
     "rarity": 5,
     "element": "Physical",
     "type": "Nihility",
-    "sig": "23047",
+    "sig": 23047,
     "baseStats": { "_HP": 1203, "_ATK": 602, "_DEF": 485 },
     "weights": {
       "EHR": 1.00,
@@ -31,7 +31,7 @@
     "rarity": 5,
     "element": "Physical",
     "type": "Destruction",
-    "sig": "23044",
+    "sig": 23044,
     "baseStats": { "_HP": 1436, "_ATK": 582, "_DEF": 703 },
     "weights": {
       "CR": 1.00,
@@ -45,7 +45,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "The Hunt",
-    "sig": "23046",
+    "sig": 23046,
     "baseStats": { "_HP": 1164, "_ATK": 621, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -59,7 +59,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "Destruction",
-    "sig": "23045",
+    "sig": 23045,
     "baseStats": { "_HP": 1242, "_ATK": 602, "_DEF": 655 },
     "weights": {
       "CR": 1.00,
@@ -73,7 +73,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "Remembrance",
-    "sig": "23042",
+    "sig": 23042,
     "baseStats": { "_HP": 1087, "_ATK": 388, "_DEF": 631 },
     "weights": {
       "SPD": 1.00,
@@ -87,7 +87,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "Nihility",
-    "sig": "23043",
+    "sig": 23043,
     "baseStats": { "_HP": 931, "_ATK": 640, "_DEF": 509 },
     "weights": {
       "CR": 1.00,
@@ -102,7 +102,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "Remembrance",
-    "sig": "23040",
+    "sig": 23040,
     "baseStats": { "_HP": 1630, "_ATK": 524, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -116,7 +116,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "Erudition",
-    "sig": "23041",
+    "sig": 23041,
     "baseStats": { "_HP": 970, "_ATK": 757, "_DEF": 558 },
     "weights": {
       "CR": 1.00,
@@ -130,7 +130,7 @@
     "rarity": 5,
     "element": "Imaginary",
     "type": "Destruction",
-    "sig": "23039",
+    "sig": 23039,
     "baseStats": { "_HP": 1552, "_ATK": 427, "_DEF": 194 },
     "weights": {
       "CR": 1.00,
@@ -144,7 +144,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "Harmony",
-    "sig": "23038",
+    "sig": 23038,
     "baseStats": { "_HP": 1048, "_ATK": 524, "_DEF": 728 },
     "weights": {
       "CR": 1.00,
@@ -170,7 +170,7 @@
     "rarity": 5,
     "element": "Lightning",
     "type": "Remembrance",
-    "sig": "23036",
+    "sig": 23036,
     "baseStats": { "_HP": 1242, "_ATK": 699, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -184,7 +184,7 @@
     "rarity": 5,
     "element": "Ice",
     "type": "Erudition",
-    "sig": "23037",
+    "sig": 23037,
     "baseStats": { "_HP": 1164, "_ATK": 679, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -198,7 +198,7 @@
     "rarity": 5,
     "element": "Imaginary",
     "type": "Harmony",
-    "sig": "23034",
+    "sig": 23034,
     "baseStats": { "_HP": 1241, "_ATK": 640, "_DEF": 533 },
     "weights": {
       "SPD": 1.00,
@@ -210,7 +210,7 @@
     "rarity": 5,
     "element": "Fire",
     "type": "Nihility",
-    "sig": "23035",
+    "sig": 23035,
     "baseStats": { "_HP": 1125, "_ATK": 582, "_DEF": 557 },
     "weights": {
       "EHR": 1.00,
@@ -223,7 +223,7 @@
     "rarity": 5,
     "element": "Imaginary",
     "type": "Erudition",
-    "sig": "23033",
+    "sig": 23033,
     "baseStats": { "_HP": 1086, "_ATK": 717, "_DEF": 460 },
     "weights": {
       "BE": 1.00,
@@ -249,7 +249,7 @@
     "rarity": 5,
     "element": "Fire",
     "type": "Abundance",
-    "sig": "23032",
+    "sig": 23032,
     "baseStats": { "_HP": 1358, "_ATK": 679, "_DEF": 436 },
     "weights": {
       "SPD": 1.00,
@@ -263,7 +263,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "The Hunt",
-    "sig": "23031",
+    "sig": 23031,
     "baseStats": { "_HP": 1047, "_ATK": 601, "_DEF": 388 },
     "weights": {
       "CR": 1.00,
@@ -290,7 +290,7 @@
     "rarity": 5,
     "element": "Physical",
     "type": "Destruction",
-    "sig": "23030",
+    "sig": 23030,
     "baseStats": { "_HP": 1358, "_ATK": 679, "_DEF": 460 },
     "weights": {
       "CR": 1.00,
@@ -304,7 +304,7 @@
     "rarity": 5,
     "element": "Fire",
     "type": "Nihility",
-    "sig": "23029",
+    "sig": 23029,
     "baseStats": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
     "weights": {
       "EHR": 1.00,
@@ -317,7 +317,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "Erudition",
-    "sig": "23028",
+    "sig": 23028,
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 509 },
     "weights": {
       "CR": 1.00,
@@ -331,7 +331,7 @@
     "rarity": 5,
     "element": "Fire",
     "type": "Destruction",
-    "sig": "23025",
+    "sig": 23025,
     "baseStats": { "_HP": 814, "_ATK": 523, "_DEF": 776 },
     "weights": {
       "BE": 1.00,
@@ -355,7 +355,7 @@
     "rarity": 5,
     "element": "Physical",
     "type": "The Hunt",
-    "sig": "23027",
+    "sig": 23027,
     "baseStats": { "_HP": 1203, "_ATK": 620, "_DEF": 436 },
     "weights": {
       "BE": 1.00,
@@ -367,7 +367,7 @@
     "rarity": 5,
     "element": "Physical",
     "type": "Harmony",
-    "sig": "23026",
+    "sig": 23026,
     "baseStats": { "_HP": 1280, "_ATK": 640, "_DEF": 485 },
     "weights": {
       "ATK": 1.00,
@@ -379,7 +379,7 @@
     "rarity": 5,
     "element": "Lightning",
     "type": "Nihility",
-    "sig": "23024",
+    "sig": 23024,
     "baseStats": { "_HP": 1125, "_ATK": 698, "_DEF": 436 },
     "weights": {
       "CR": 1.00,
@@ -393,7 +393,7 @@
     "rarity": 5,
     "element": "Imaginary",
     "type": "Preservation",
-    "sig": "23023",
+    "sig": 23023,
     "baseStats": { "_HP": 1203, "_ATK": 446, "_DEF": 654 },
     "weights": {
       "DEF": 1.00,
@@ -433,7 +433,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "Nihility",
-    "sig": "23022",
+    "sig": 23022,
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
     "weights": {
       "EHR": 1.00,
@@ -446,7 +446,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "Harmony",
-    "sig": "23021",
+    "sig": 23021,
     "baseStats": { "_HP": 1397, "_ATK": 523, "_DEF": 485 },
     "weights": {
       "SPD": 1.00,
@@ -458,7 +458,7 @@
     "rarity": 5,
     "element": "Imaginary",
     "type": "The Hunt",
-    "sig": "23020",
+    "sig": 23020,
     "baseStats": { "_HP": 1047, "_ATK": 776, "_DEF": 460 },
     "weights": {
       "CR": 1.00,
@@ -472,7 +472,7 @@
     "rarity": 5,
     "element": "Ice",
     "type": "Harmony",
-    "sig": "23019",
+    "sig": 23019,
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
     "weights": {
       "SPD": 1.00,
@@ -498,7 +498,7 @@
     "rarity": 5,
     "element": "Physical",
     "type": "Erudition",
-    "sig": "23018",
+    "sig": 23018,
     "baseStats": { "_HP": 1047, "_ATK": 737, "_DEF": 363 },
     "weights": {
       "CR": 1.00,
@@ -512,7 +512,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "Abundance",
-    "sig": "23017",
+    "sig": 23017,
     "baseStats": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
     "weights": {
       "SPD": 1.00,
@@ -535,7 +535,7 @@
     "rarity": 5,
     "element": "Ice",
     "type": "Destruction",
-    "sig": "23014",
+    "sig": 23014,
     "baseStats": { "_HP": 1435, "_ATK": 679, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -561,7 +561,7 @@
     "rarity": 5,
     "element": "Fire",
     "type": "The Hunt",
-    "sig": "23016",
+    "sig": 23016,
     "baseStats": { "_HP": 931, "_ATK": 620, "_DEF": 412 },
     "weights": {
       "CR": 1.00,
@@ -575,7 +575,7 @@
     "rarity": 5,
     "element": "Imaginary",
     "type": "Destruction",
-    "sig": "23015",
+    "sig": 23015,
     "baseStats": { "_HP": 1241, "_ATK": 698, "_DEF": 363 },
     "weights": {
       "CR": 1.00,
@@ -589,7 +589,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "Preservation",
-    "sig": "23011",
+    "sig": 23011,
     "baseStats": { "_HP": 1474, "_ATK": 465, "_DEF": 606 },
     "weights": {
       "SPD": 1.00,
@@ -615,7 +615,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "Destruction",
-    "sig": "23009",
+    "sig": 23009,
     "baseStats": { "_HP": 1358, "_ATK": 543, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -643,7 +643,7 @@
     "rarity": 5,
     "element": "Lightning",
     "type": "Nihility",
-    "sig": "23006",
+    "sig": 23006,
     "baseStats": { "_HP": 1086, "_ATK": 679, "_DEF": 485 },
     "weights": {
       "ATK": 0.75,
@@ -666,7 +666,7 @@
     "rarity": 5,
     "element": "Imaginary",
     "type": "Abundance",
-    "sig": "23008",
+    "sig": 23008,
     "baseStats": { "_HP": 1280, "_ATK": 756, "_DEF": 363 },
     "weights": {
       "SPD": 1.00,
@@ -679,7 +679,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "Nihility",
-    "sig": "23007",
+    "sig": 23007,
     "baseStats": { "_HP": 1047, "_ATK": 640, "_DEF": 460 },
     "weights": {
       "SPD": 1.00,
@@ -716,7 +716,7 @@
     "rarity": 5,
     "element": "Lightning",
     "type": "Abundance",
-    "sig": "23013",
+    "sig": 23013,
     "baseStats": { "_HP": 1319, "_ATK": 562, "_DEF": 485 },
     "weights": {
       "SPD": 1.00,
@@ -729,7 +729,7 @@
     "rarity": 5,
     "element": "Ice",
     "type": "The Hunt",
-    "sig": "23012",
+    "sig": 23012,
     "baseStats": { "_HP": 892, "_ATK": 679, "_DEF": 412 },
     "weights": {
       "CR": 1.00,
@@ -756,7 +756,7 @@
     "rarity": 5,
     "element": "Lightning",
     "type": "Erudition",
-    "sig": "23010",
+    "sig": 23010,
     "baseStats": { "_HP": 1164, "_ATK": 698, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -819,7 +819,7 @@
     "rarity": 5,
     "element": "Physical",
     "type": "Destruction",
-    "sig": "23002",
+    "sig": 23002,
     "baseStats": { "_HP": 1241, "_ATK": 737, "_DEF": 485 },
     "weights": {
       "CR": 1.00,
@@ -856,7 +856,7 @@
     "rarity": 5,
     "element": "Ice",
     "type": "Preservation",
-    "sig": "23005",
+    "sig": 23005,
     "baseStats": { "_HP": 1397, "_ATK": 543, "_DEF": 654 },
     "weights": {
       "SPD": 1.00,
@@ -884,7 +884,7 @@
     "rarity": 5,
     "element": "Quantum",
     "type": "The Hunt",
-    "sig": "23001",
+    "sig": 23001,
     "baseStats": { "_HP": 931, "_ATK": 640, "_DEF": 363 },
     "weights": {
       "CR": 1.00,
@@ -898,7 +898,7 @@
     "rarity": 5,
     "element": "Wind",
     "type": "Harmony",
-    "sig": "23003",
+    "sig": 23003,
     "baseStats": { "_HP": 1241, "_ATK": 582, "_DEF": 533 },
     "weights": {
       "SPD": 1.00,
@@ -946,7 +946,7 @@
     "rarity": 5,
     "element": "Imaginary",
     "type": "Nihility",
-    "sig": "23004",
+    "sig": 23004,
     "baseStats": { "_HP": 1125, "_ATK": 620, "_DEF": 509 },
     "weights": {
       "CR": 1.00,
@@ -961,7 +961,7 @@
     "rarity": 5,
     "element": "Fire",
     "type": "Erudition",
-    "sig": "23000",
+    "sig": 23000,
     "baseStats": { "_HP": 1047, "_ATK": 756, "_DEF": 436 },
     "weights": {
       "CR": 1.00,
