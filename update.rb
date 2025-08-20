@@ -3,12 +3,6 @@ require 'nokogiri'
 require 'json'
 require 'open-uri'
 
-VALID_GAME_IDS = ['gi', 'hsr', 'ww', 'zzz']
-unless ARGV.length == 1 && VALID_GAME_IDS.include?(ARGV[0])
-  abort "Usage: ruby update.rb <#{VALID_GAME_IDS.join('|')}>"
-end
-
-GAME_ID = ARGV[0]
 BASE_URL = {
   gi: "https://gi20.hakush.in/",
   hsr: "https://hsr20.hakush.in/",
@@ -21,100 +15,137 @@ ELEMENTS = {
   hsr: ['Fire', 'Wind', 'Physical', 'Lightning', 'Quantum', 'Imaginary'],
 }
 
+VALID_GAME_IDS = ['gi', 'hsr', 'ww', 'zzz']
+VALID_IMPORT_TYPES = ['avatar', 'weapon']
+
+unless ARGV.length == 3 && VALID_GAME_IDS.include?(ARGV[0]) && VALID_IMPORT_TYPES.include?(ARGV[1])
+  abort "Usage: ruby update.rb <#{VALID_GAME_IDS.join('|')}> <#{VALID_IMPORT_TYPES.join('|')}> <id>"
+end
+GAME_ID = ARGV[0]
+IMPORT_TYPE = ARGV[1]
+ID = ARGV[2]
+
+url_tag = (GAME_ID == 'hsr' ? 'char/' : 'character/') if IMPORT_TYPE == 'avatar'
+url_tag = (GAME_ID == 'hsr' ? 'lightcone/' : 'weapon/') if IMPORT_TYPE == 'weapon'
+
+# selenium
 options = Selenium::WebDriver::Chrome::Options.new
 options.add_argument('--headless')
 options.add_argument('--disable-gpu')
 options.add_argument('--window-size=1920,1080')
 options.add_argument('--log-level=3')
+driver = Selenium::WebDriver.for :chrome, options: options
+wait = Selenium::WebDriver::Wait.new(timeout: 10)
+puts "Loading #{BASE_URL[GAME_ID.to_sym]}#{url_tag}..."
+driver.get("#{BASE_URL[GAME_ID.to_sym]}#{url_tag}")
+wait.until { driver.find_element(css: "a[href='/#{url_tag}#{ID}'] > img.avatar-icon-front") }
+puts "Complete"
+doc_icon = Nokogiri::HTML(driver.page_source)
+puts "Loading #{BASE_URL[GAME_ID.to_sym]}#{url_tag}#{ID}..."
+driver.get("#{BASE_URL[GAME_ID.to_sym]}#{url_tag}#{ID}/")
+wait.until { driver.find_element(css: '#char-name-info > span.char-name > div.stars img.star-icon') }
+wait.until { driver.find_element(css: 'div.col-span-2 > div.grid > div.grid.grid-cols-2') }
+puts "Complete"
+doc_data = Nokogiri::HTML(driver.page_source)
+driver.quit
 
-loop do
-  puts "Enter <a|w> for avatar|weapon, or <q> to quit:"
-  input = STDIN.gets.strip
+# nokogiri
+# icon
+img_url = doc_icon.at_css("a[href='/#{url_tag}#{ID}'] > img.avatar-icon-front")&.[]('src')
+img_url.insert(-6, "_Awaken") if IMPORT_TYPE == 'weapon' && GAME_ID == 'gi'
+puts "Downloading image: #{img_url}"
+filename = File.join('src', 'assets', 'dynamic', "#{IMPORT_TYPE}", "#{GAME_ID}_#{IMPORT_TYPE}", "#{ID}.webp")
+URI.open(img_url) do |image|
+  File.open(filename, 'wb') { |file| file.write(image.read) }
+end
+puts "Saved at #{filename}"
 
-  case input
-  when 'a'
-    puts "Enter avatar id:"
-    id = STDIN.gets.strip
+# data
+data = {
+  name: '',
+  rarity: '',
+  element: '',
+  type: '',
+  sig: 0,
+  baseStats: {
+    _HP: 0,
+    _ATK: 0,
+    _DEF: 0,
+  },
+  weights: {},
+}
 
-    driver = Selenium::WebDriver.for :chrome, options: options
-    wait = Selenium::WebDriver::Wait.new(timeout: 10)
-    url_tag = GAME_ID == 'hsr' ? 'char/' : 'character/'
-    url = "#{BASE_URL[GAME_ID.to_sym]}#{url_tag}"
+puts "Compiling data for: #{ID}..."
+title = doc_data.at_css('#char-name-info')
+data[:name] = title.at_css('div.char-name-text')&.text&.strip
+data[:rarity] = title.css('span.char-name > div.stars img.star-icon').size
 
-    # icon
-    driver.get(url)
-    wait.until { driver.find_element(css: "a[href='/#{url_tag}#{id}'] > img.avatar-icon-front") }
-    doc_icon = Nokogiri::HTML(driver.page_source)
+if IMPORT_TYPE == 'avatar' && (GAME_ID == 'ww' || GAME_ID == 'zzz')
+  data[:element] = title.css('span.char-name > div.base-type-text')&.text&.tr("\u00A0", "")&.strip
+end
 
-    img_url = doc_icon.at_css("a[href='/#{url_tag}#{id}'] > img.avatar-icon-front")&.[]('src')
-    puts "Downloading image: #{img_url}"
-    filename = File.join('src', 'assets', 'dynamic', 'avatar', "#{GAME_ID}_avatar", "#{id}.webp")
-    URI.open(img_url) do |image|
-      File.open(filename, 'wb') { |file| file.write(image.read) }
-    end
-    puts "Saved as #{filename}"
+doc_data.css('div.col-span-2 > div.grid > div.grid.grid-cols-2').each do |row|
+  divs = row.css('div')
+  next unless divs.size == 2
 
-    # data
-    driver.get("#{url}#{id}/")
-    wait.until { driver.find_element(css: '#char-name-info > span.char-name > div.stars img.star-icon') }
-    wait.until { driver.find_element(css: '#character-kit > .grid:first-child .grid-cols-2') }
-    doc_data = Nokogiri::HTML(driver.page_source)
+  key = divs[0]&.text&.strip
+  value = divs[1]&.text&.strip
 
-    data = {
-      name: '',
-      rarity: '',
-      element: '',
-      type: '',
-      sig: 0,
-      baseStats: {
-        _HP: 0,
-        _ATK: 0,
-        _DEF: 0,
-      },
-      weights: {},
-    }
-
-    title = doc_data.at_css('#char-name-info')
-    data[:name] = title.at_css('div.char-name-text')&.text&.strip
-    data[:rarity] = title.css('span.char-name > div.stars img.star-icon').size
-    data.delete(:sig) if data[:rarity] == 4
-    if GAME_ID == 'ww' || GAME_ID == 'zzz'
-      data[:element] = title.css('span.char-name > div.base-type-text')&.text&.tr("\u00A0", "")&.strip
-    end
-
-    doc_data.css('#character-kit > .grid:first-child .grid-cols-2').each do |row|
-      divs = row.css('div')
-      next unless divs.size == 2
-
-      key = divs[0]&.text&.strip
-      value = divs[1]&.text&.strip
-
-      case key
-      when "Base HP" then data[:baseStats][:_HP] = value.to_i
-      when "Base ATK" then data[:baseStats][:_ATK] = value.to_i
-      when "Base DEF" then data[:baseStats][:_DEF] = value.to_i
-      when "Weapon" then data[:type] = value if GAME_ID != 'hsr'
-      when "Path" then data[:type] = value.split[1] if GAME_ID == 'hsr'
-      else
-        if GAME_ID == 'gi' || GAME_ID == 'hsr'
-          if ELEMENTS[GAME_ID.to_sym].include?(value)
-            data[:element] = value
-          end
-        end
-      end
-    end
-
-    puts JSON.pretty_generate(data)
-
-    driver.quit
-    puts
-  when 'w'
-    break
-  when 'q'
-    break
+  case key
+  when "Base HP" then data[:baseStats][:_HP] = value.to_i
+  when "Base ATK" then data[:baseStats][:_ATK] = value.to_i
+  when "Base DEF" then data[:baseStats][:_DEF] = value.to_i
+  when "Weapon" 
+    data[:type] = value if IMPORT_TYPE == 'avatar' && GAME_ID != 'hsr'
+  when "Type" 
+    data[:type] = value if IMPORT_TYPE == 'weapon' && GAME_ID != 'hsr'
+  when "Path"
+    data[:type] = value.split[1] if GAME_ID == 'hsr'
   else
-    puts "Invalid input, please try again."
+    if IMPORT_TYPE == 'avatar' && (GAME_ID == 'gi' || GAME_ID == 'hsr')
+      data[:element] = value if ELEMENTS[GAME_ID.to_sym].include?(value)
+    end
   end
 end
+
+data.delete(:sig) unless GAME_ID == 'zzz' || data[:rarity] == 5
+
+data.delete(:element) if IMPORT_TYPE == 'weapon'
+data.delete(:sig) if IMPORT_TYPE == 'weapon'
+data.delete(:weights) if IMPORT_TYPE == 'weapon'
+
+if IMPORT_TYPE == 'weapon' && GAME_ID == 'gi'
+  case data[:rarity]
+  when 1 then data[:baseStats][:_ATK] = 185
+  when 2 then data[:baseStats][:_ATK] = 243
+  when 3
+    case data[:baseStats][:_ATK]
+    when 38 then data[:baseStats][:_ATK] = 354
+    when 39 then data[:baseStats][:_ATK] = 401
+    when 40 then data[:baseStats][:_ATK] = 448
+    end
+  when 4
+    case data[:baseStats][:_ATK]
+    when 39 then data[:baseStats][:_ATK] = 440
+    when 41 then data[:baseStats][:_ATK] = 454
+    when 42 then data[:baseStats][:_ATK] = 510
+    when 44 then data[:baseStats][:_ATK] = 565
+    when 45 then data[:baseStats][:_ATK] = 620
+    end
+  when 5
+    case data[:baseStats][:_ATK]
+    when 44 then data[:baseStats][:_ATK] = 542
+    when 46 then data[:baseStats][:_ATK] = 608
+    when 48 then data[:baseStats][:_ATK] = 674
+    when 49 then data[:baseStats][:_ATK] = 741
+    end
+  end
+end
+
+data[:baseStats].delete(:_HP) if IMPORT_TYPE == 'weapon' && GAME_ID != 'hsr'
+data[:baseStats].delete(:_DEF) if IMPORT_TYPE == 'weapon' && GAME_ID != 'hsr'
+
+puts JSON.pretty_generate(data)
+puts
 
 exit 1
