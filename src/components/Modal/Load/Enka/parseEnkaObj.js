@@ -58,7 +58,7 @@ const PARSE_SUB_VALUE = {
 };
 
 export default (gameId, enkaObj) => {
-  const id = String(enkaObj.avatarId);
+  const id = Number(enkaObj.avatarId);
   const data = template(gameId);
 
   // weapon

@@ -66,7 +66,7 @@ const Game = ({ gameId, userId }) => {
   // save avatar to firestore and cache
   const saveAvatar = async (id, newData) => {
     if (userId) {
-      const ref = doc(db, 'users', userId, gameId, id);
+      const ref = doc(db, 'users', userId, gameId, String(id));
       await setDoc(ref, newData, { merge: true });
     }
 
@@ -87,7 +87,7 @@ const Game = ({ gameId, userId }) => {
   
     for (const [id, newData] of entries) {
       if (userId) {
-        const ref = doc(db, 'users', userId, gameId, id);
+        const ref = doc(db, 'users', userId, gameId, String(id));
         batch.set(ref, newData);
       }
   
@@ -107,7 +107,7 @@ const Game = ({ gameId, userId }) => {
 
   const deleteAvatar = async (id) => {
     if (userId) {
-      const ref = doc(db, 'users', userId, gameId, id);
+      const ref = doc(db, 'users', userId, gameId, String(id));
       await deleteDoc(ref);
     }
 
