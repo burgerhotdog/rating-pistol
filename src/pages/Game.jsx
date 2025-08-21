@@ -88,7 +88,7 @@ const Game = ({ gameId, userId }) => {
     for (const [id, newData] of entries) {
       if (userId) {
         const ref = doc(db, 'users', userId, gameId, id);
-        batch.set(ref, newData, { merge: true });
+        batch.set(ref, newData);
       }
   
       newCache[id] = {
