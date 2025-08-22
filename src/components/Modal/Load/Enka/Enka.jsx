@@ -70,12 +70,9 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
 
   const handleSaveCharacters = async () => {
     setIsLoading(true);
-
     const charBuffer = selectedAvatars.map((selectedIndex) => {
-      const charObj = enkaList[selectedIndex];
-      return parseEnkaObj(gameId, charObj);
+      return parseEnkaObj(gameId, enkaList[selectedIndex]);
     });
-
     saveAvatarBatch(charBuffer);
     closeModal();
   };

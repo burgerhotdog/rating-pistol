@@ -6,10 +6,32 @@ import StarCell from './StarCell';
 import AvatarCell from './AvatarCell';
 import RatingCell from './RatingCell';
 
-const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
+const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, setModalPipe }) => {
   const [filterOpen, setFilterOpen] = useState(false);
   const [selectedElements, setSelectedElements] = useState([...INFO_DATA[gameId].ELEMENTS]);
   const [selectedTypes, setSelectedTypes] = useState([...INFO_DATA[gameId].TYPES]);
+
+  const sortedAvatars = useMemo(() => (  
+    Object.entries(avatarCache)
+      .sort(([, a], [, b]) => {
+        if (a.data.isStar !== b.data.isStar)
+          return a.data.isStar ? -1 : 1;
+
+        if (!a.rating && !b.rating) {
+          if ((a.rating === null) === (b.rating === null))
+            return 0;
+          return a.rating === null ? -1 : 1;
+        }
+
+        if (!a.rating)
+          return 1;
+        if (!b.rating)
+          return -1;
+
+        return b.rating.avatar.score - a.rating.avatar.score;
+      })
+      .map(([avatarId]) => avatarId)
+  ), [avatarCache]);
 
   const handleElementChange = (element) => {
     if (selectedElements.includes(element)) {
@@ -129,7 +151,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
             </TableCell>
             <TableCell>
               <Typography variant="body1" fontWeight="bold">
-                Rating
+                Substat Score
               </Typography>
             </TableCell>
           </TableRow>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { collection, getDocs, doc, setDoc, writeBatch, deleteDoc } from 'firebase/firestore';
 import { db } from '@config/firebase';
 import { Container, Stack, Button, Typography, Box } from '@mui/material';
@@ -41,27 +41,6 @@ const Game = ({ gameId, userId }) => {
     };
     fetchDB();
   }, [userId, gameId]);
-
-  // sort avatarCache for AvatarsView
-  const sortedAvatars = useMemo(() => (  
-    Object.entries(avatarCache)
-      .sort(([, a], [, b]) => {
-        if (a.data.isStar !== b.data.isStar) {
-          return a.data.isStar ? -1 : 1;
-        }
-
-        if (!a.rating && !b.rating) {
-          if ((a.rating === null) === (b.rating === null)) return 0;
-          return a.rating === null ? -1 : 1;
-        }
-
-        if (!a.rating) return 1;
-        if (!b.rating) return -1;
-
-        return b.rating.avatar.percentile - a.rating.avatar.percentile;
-      })
-      .map(([avatarId]) => avatarId)
-  ), [avatarCache]);
 
   // save avatar to firestore and cache
   const saveAvatar = async (id, newData) => {
@@ -140,7 +119,6 @@ const Game = ({ gameId, userId }) => {
           avatarCache={avatarCache}
           setAvatarCache={setAvatarCache}
           isLoading={isLoading}
-          sortedAvatars={sortedAvatars}
           setModalPipe={setModalPipe}
         />
         <Stack direction="row" justifyContent="center" spacing={2}>

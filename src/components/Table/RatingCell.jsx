@@ -43,7 +43,7 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
             sx={{ width: 32, height: 32 }}
           />
           <Typography variant="body2">
-            {RATING_RANK[ratingRank]}
+            {rating.avatar.score.toFixed()}
           </Typography>
         </Stack>
       </Tooltip>
