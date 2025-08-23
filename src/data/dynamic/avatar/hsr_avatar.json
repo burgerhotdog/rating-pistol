@@ -7,10 +7,10 @@
     "sig": 23048,
     "baseStats": { "_HP": 1358, "_ATK": 621, "_DEF": 485 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "SPD": 0.50,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75
     }
   },
   "1410": {
@@ -21,9 +21,9 @@
     "sig": 23047,
     "baseStats": { "_HP": 1203, "_ATK": 602, "_DEF": 485 },
     "weights": {
-      "EHR": 1.00,
+      "SPD": 0.75,
       "ATK": 0.75,
-      "SPD": 0.75
+      "EHR": 0.75
     }
   },
   "1408": {
@@ -34,24 +34,24 @@
     "sig": 23044,
     "baseStats": { "_HP": 1436, "_ATK": 582, "_DEF": 703 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1015": {
     "name": "Archer",
     "rarity": 5,
     "element": "Quantum",
-    "type": "The Hunt",
+    "type": "Hunt",
     "sig": 23046,
     "baseStats": { "_HP": 1164, "_ATK": 621, "_DEF": 485 },
     "weights": {
+      "SPD": 0.25,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1014": {
@@ -62,10 +62,10 @@
     "sig": 23045,
     "baseStats": { "_HP": 1242, "_ATK": 602, "_DEF": 655 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1409": {
@@ -78,8 +78,7 @@
     "weights": {
       "SPD": 1.00,
       "HP":  0.75,
-      "CD":  0.50,
-      "RES": 0.50
+      "CD":  0.50
     }
   },
   "1406": {
@@ -90,10 +89,10 @@
     "sig": 23043,
     "baseStats": { "_HP": 931, "_ATK": 640, "_DEF": 509 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50,
+      "SPD": 0.75,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.50,
       "EHR": 0.25
     }
   },
@@ -105,10 +104,10 @@
     "sig": 23040,
     "baseStats": { "_HP": 1630, "_ATK": 524, "_DEF": 485 },
     "weights": {
+      "SPD": 0.25,
       "CR":  1.25,
       "CD":  1.25,
-      "HP":  0.75,
-      "SPD": 0.25
+      "HP":  0.75
     }
   },
   "1405": {
@@ -119,10 +118,10 @@
     "sig": 23041,
     "baseStats": { "_HP": 970, "_ATK": 757, "_DEF": 558 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "SPD": 0.50,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75
     }
   },
   "1404": {
@@ -133,10 +132,10 @@
     "sig": 23039,
     "baseStats": { "_HP": 1552, "_ATK": 427, "_DEF": 194 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "HP":  0.75,
-      "SPD": 0.50
+      "HP":  0.75
     }
   },
   "1403": {
@@ -147,22 +146,10 @@
     "sig": 23038,
     "baseStats": { "_HP": 1048, "_ATK": 524, "_DEF": 728 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "HP":  0.75,
-      "SPD": 0.25
-    }
-  },
-  "8008": {
-    "name": "Trailblazer (Remembrance)",
-    "rarity": 5,
-    "element": "Ice",
-    "type": "Remembrance",
-    "baseStats": { "_HP": 1047, "_ATK": 543, "_DEF": 630 },
-    "weights": {
-      "SPD": 1.00,
-      "CD":  0.75,
-      "ATK": 0.25
+      "SPD": 0.25,
+      "CR":  1.00,
+      "CD":  1.00,
+      "HP":  0.75
     }
   },
   "1402": {
@@ -173,10 +160,10 @@
     "sig": 23036,
     "baseStats": { "_HP": 1242, "_ATK": 699, "_DEF": 485 },
     "weights": {
+      "SPD": 0.75,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.50
     }
   },
   "1401": {
@@ -187,10 +174,10 @@
     "sig": 23037,
     "baseStats": { "_HP": 1164, "_ATK": 679, "_DEF": 485 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1313": {
@@ -213,9 +200,9 @@
     "sig": 23035,
     "baseStats": { "_HP": 1125, "_ATK": 582, "_DEF": 557 },
     "weights": {
-      "EHR": 1.00,
       "SPD": 1.00,
-      "BE":  1.00
+      "BE":  1.00,
+      "EHR": 1.00
     }
   },
   "1317": {
@@ -226,22 +213,22 @@
     "sig": 23033,
     "baseStats": { "_HP": 1086, "_ATK": 717, "_DEF": 460 },
     "weights": {
-      "BE":  1.00,
-      "ATK": 0.75,
-      "SPD": 0.75
+      "SPD": 0.75,
+      "BE":  1.25,
+      "ATK": 0.75
     }
   },
   "1223": {
     "name": "Moze",
     "rarity": 4,
     "element": "Lightning",
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 811, "_ATK": 599, "_DEF": 352 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.25
+      "SPD": 0.25,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75
     }
   },
   "1222": {
@@ -252,37 +239,36 @@
     "sig": 23032,
     "baseStats": { "_HP": 1358, "_ATK": 679, "_DEF": 436 },
     "weights": {
-      "SPD": 1.00,
+      "SPD": 0.75,
       "BE":  1.00,
-      "ATK": 0.75,
-      "RES": 0.50
+      "ATK": 0.75
     }
   },
   "1220": {
     "name": "Feixiao",
     "rarity": 5,
     "element": "Wind",
-    "type": "The Hunt",
+    "type": "Hunt",
     "sig": 23031,
     "baseStats": { "_HP": 1047, "_ATK": 601, "_DEF": 388 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1224": {
     "name": "March 7th (The Hunt)",
     "rarity": 4,
     "element": "Imaginary",
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 1058, "_ATK": 564, "_DEF": 441 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "SPD": 0.50,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75
     }
   },
   "1221": {
@@ -293,10 +279,10 @@
     "sig": 23030,
     "baseStats": { "_HP": 1358, "_ATK": 679, "_DEF": 460 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1218": {
@@ -307,9 +293,8 @@
     "sig": 23029,
     "baseStats": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
     "weights": {
-      "EHR": 1.00,
       "SPD": 1.00,
-      "ATK": 0.25
+      "EHR": 1.00
     }
   },
   "1314": {
@@ -320,10 +305,10 @@
     "sig": 23028,
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 509 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.25
+      "SPD": 0.25,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75
     }
   },
   "1310": {
@@ -334,32 +319,21 @@
     "sig": 23025,
     "baseStats": { "_HP": 814, "_ATK": 523, "_DEF": 776 },
     "weights": {
-      "BE":  1.00,
-      "ATK": 0.75,
-      "SPD": 0.75
-    }
-  },
-  "8006": {
-    "name": "Trailblazer (Harmony)",
-    "rarity": 5,
-    "element": "Imaginary",
-    "type": "Harmony",
-    "baseStats": { "_HP": 1086, "_ATK": 446, "_DEF": 679 },
-    "weights": {
-      "BE":  1.00,
-      "SPD": 0.75
+      "SPD": 0.75,
+      "BE":  1.25,
+      "ATK": 0.75
     }
   },
   "1315": {
     "name": "Boothill",
     "rarity": 5,
     "element": "Physical",
-    "type": "The Hunt",
+    "type": "Hunt",
     "sig": 23027,
     "baseStats": { "_HP": 1203, "_ATK": 620, "_DEF": 436 },
     "weights": {
-      "BE":  1.00,
-      "SPD": 0.75
+      "SPD": 0.75,
+      "BE":  1.25
     }
   },
   "1309": {
@@ -370,8 +344,8 @@
     "sig": 23026,
     "baseStats": { "_HP": 1280, "_ATK": 640, "_DEF": 485 },
     "weights": {
-      "ATK": 1.00,
-      "SPD": 0.50
+      "SPD": 0.50,
+      "ATK": 1.00
     }
   },
   "1308": {
@@ -382,10 +356,10 @@
     "sig": 23024,
     "baseStats": { "_HP": 1125, "_ATK": 698, "_DEF": 436 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1304": {
@@ -396,11 +370,10 @@
     "sig": 23023,
     "baseStats": { "_HP": 1203, "_ATK": 446, "_DEF": 654 },
     "weights": {
-      "DEF": 1.00,
-      "CR":  1.25,
-      "CD":  1.25,
       "SPD": 0.50,
-      "RES": 0.50
+      "CR":  1.00,
+      "CD":  1.00,
+      "DEF": 1.00
     }
   },
   "1301": {
@@ -411,8 +384,7 @@
     "baseStats": { "_HP": 1305, "_ATK": 529, "_DEF": 441 },
     "weights": {
       "SPD": 1.00,
-      "BE":  1.00,
-      "RES": 0.50
+      "BE":  1.00
     }
   },
   "1312": {
@@ -422,10 +394,10 @@
     "type": "Destruction",
     "baseStats": { "_HP": 1270, "_ATK": 599, "_DEF": 396 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1307": {
@@ -436,9 +408,9 @@
     "sig": 23022,
     "baseStats": { "_HP": 1086, "_ATK": 659, "_DEF": 485 },
     "weights": {
-      "EHR": 1.00,
+      "SPD": 0.75,
       "ATK": 0.75,
-      "SPD": 0.75
+      "EHR": 1.00
     }
   },
   "1306": {
@@ -457,14 +429,14 @@
     "name": "Dr. Ratio",
     "rarity": 5,
     "element": "Imaginary",
-    "type": "The Hunt",
+    "type": "Hunt",
     "sig": 23020,
     "baseStats": { "_HP": 1047, "_ATK": 776, "_DEF": 460 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1303": {
@@ -486,11 +458,11 @@
     "type": "Destruction",
     "baseStats": { "_HP": 1058, "_ATK": 599, "_DEF": 396 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
       "BE":  1.00,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1302": {
@@ -501,10 +473,10 @@
     "sig": 23018,
     "baseStats": { "_HP": 1047, "_ATK": 737, "_DEF": 363 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1217": {
@@ -515,9 +487,8 @@
     "sig": 23017,
     "baseStats": { "_HP": 1358, "_ATK": 601, "_DEF": 509 },
     "weights": {
-      "SPD": 1.00,
-      "HP":  0.75,
-      "RES": 0.50
+      "SPD": 0.75,
+      "HP":  0.75
     }
   },
   "1215": {
@@ -538,10 +509,10 @@
     "sig": 23014,
     "baseStats": { "_HP": 1435, "_ATK": 679, "_DEF": 485 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "HP":  0.75,
-      "SPD": 0.50
+      "HP":  0.75
     }
   },
   "1210": {
@@ -551,23 +522,23 @@
     "type": "Nihility",
     "baseStats": { "_HP": 882, "_ATK": 582, "_DEF": 441 },
     "weights": {
+      "SPD": 0.75,
       "ATK": 0.75,
-      "EHR": 0.75,
-      "SPD": 0.75
+      "EHR": 0.75
     }
   },
   "1112": {
     "name": "Topaz & Numby",
     "rarity": 5,
     "element": "Fire",
-    "type": "The Hunt",
+    "type": "Hunt",
     "sig": 23016,
     "baseStats": { "_HP": 931, "_ATK": 620, "_DEF": 412 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "SPD": 0.50,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75
     }
   },
   "1213": {
@@ -578,10 +549,10 @@
     "sig": 23015,
     "baseStats": { "_HP": 1241, "_ATK": 698, "_DEF": 363 },
     "weights": {
+      "SPD": 0.25,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.25
+      "ATK": 0.75
     }
   },
   "1208": {
@@ -592,10 +563,9 @@
     "sig": 23011,
     "baseStats": { "_HP": 1474, "_ATK": 465, "_DEF": 606 },
     "weights": {
-      "SPD": 1.00,
+      "SPD": 0.75,
       "HP":  0.75,
-      "DEF": 0.50,
-      "RES": 0.50
+      "DEF": 0.50
     }
   },
   "1110": {
@@ -606,8 +576,7 @@
     "baseStats": { "_HP": 1058, "_ATK": 493, "_DEF": 551 },
     "weights": {
       "SPD": 1.00,
-      "HP":  0.75,
-      "RES": 0.50
+      "HP":  0.75
     }
   },
   "1205": {
@@ -618,11 +587,10 @@
     "sig": 23009,
     "baseStats": { "_HP": 1358, "_ATK": 543, "_DEF": 485 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "HP":  0.75,
-      "SPD": 0.50,
-      "ATK": 0.25
+      "HP":  0.75
     }
   },
   "1111": {
@@ -632,9 +600,9 @@
     "type": "Nihility",
     "baseStats": { "_HP": 917, "_ATK": 582, "_DEF": 485 },
     "weights": {
-      "BE":  1.00,
-      "ATK": 0.75,
       "SPD": 0.75,
+      "BE":  1.25,
+      "ATK": 0.75,
       "EHR": 0.50
     }
   },
@@ -646,9 +614,9 @@
     "sig": 23006,
     "baseStats": { "_HP": 1086, "_ATK": 679, "_DEF": 485 },
     "weights": {
-      "ATK": 0.75,
       "SPD": 0.75,
-      "EHR": 0.25
+      "ATK": 0.75,
+      "EHR": 0.75
     }
   },
   "1207": {
@@ -670,8 +638,7 @@
     "baseStats": { "_HP": 1280, "_ATK": 756, "_DEF": 363 },
     "weights": {
       "SPD": 1.00,
-      "ATK": 0.75,
-      "RES": 0.50
+      "ATK": 0.75
     }
   },
   "1006": {
@@ -682,33 +649,11 @@
     "sig": 23007,
     "baseStats": { "_HP": 1047, "_ATK": 640, "_DEF": 460 },
     "weights": {
-      "SPD": 1.00,
-      "EHR": 0.75
-    }
-  },
-  "8004": {
-    "name": "Trailblazer (Preservation)",
-    "rarity": 5,
-    "element": "Fire",
-    "type": "Preservation",
-    "baseStats": { "_HP": 1241, "_ATK": 601, "_DEF": 606 },
-    "weights": {
-      "SPD": 1.00,
-      "DEF": 0.75,
-      "RES": 0.50
-    }
-  },
-  "8002": {
-    "name": "Trailblazer (Destruction)",
-    "rarity": 5,
-    "element": "Physical",
-    "type": "Destruction",
-    "baseStats": { "_HP": 1203, "_ATK": 620, "_DEF": 460 },
-    "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "SPD": 0.75,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.50,
+      "EHR": 0.50
     }
   },
   "1211": {
@@ -720,35 +665,34 @@
     "baseStats": { "_HP": 1319, "_ATK": 562, "_DEF": 485 },
     "weights": {
       "SPD": 1.00,
-      "HP":  0.75,
-      "RES": 0.50
+      "HP":  0.75
     }
   },
   "1209": {
     "name": "Yanqing",
     "rarity": 5,
     "element": "Ice",
-    "type": "The Hunt",
+    "type": "Hunt",
     "sig": 23012,
     "baseStats": { "_HP": 892, "_ATK": 679, "_DEF": 412 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1206": {
     "name": "Sushang",
     "rarity": 4,
     "element": "Physical",
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 917, "_ATK": 564, "_DEF": 418 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1204": {
@@ -759,10 +703,10 @@
     "sig": 23010,
     "baseStats": { "_HP": 1164, "_ATK": 698, "_DEF": 485 },
     "weights": {
+      "SPD": 0.25,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.25
+      "ATK": 0.75
     }
   },
   "1202": {
@@ -783,10 +727,10 @@
     "type": "Erudition",
     "baseStats": { "_HP": 1023, "_ATK": 652, "_DEF": 441 },
     "weights": {
+      "SPD": 0.25,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.25
+      "ATK": 0.75
     }
   },
   "1109": {
@@ -796,10 +740,10 @@
     "type": "Destruction",
     "baseStats": { "_HP": 1340, "_ATK": 617, "_DEF": 352 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1108": {
@@ -809,9 +753,9 @@
     "type": "Nihility",
     "baseStats": { "_HP": 1023, "_ATK": 617, "_DEF": 396 },
     "weights": {
+      "SPD": 0.75,
       "ATK": 0.75,
-      "EHR": 0.75,
-      "SPD": 0.75
+      "EHR": 0.75
     }
   },
   "1107": {
@@ -822,10 +766,10 @@
     "sig": 23002,
     "baseStats": { "_HP": 1241, "_ATK": 737, "_DEF": 485 },
     "weights": {
+      "SPD": 0.25,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.25
+      "ATK": 0.75
     }
   },
   "1106": {
@@ -836,7 +780,7 @@
     "baseStats": { "_HP": 987, "_ATK": 546, "_DEF": 463 },
     "weights": {
       "SPD": 1.00,
-      "EHR": 0.75
+      "EHR": 1.00
     }
   },
   "1105": {
@@ -847,8 +791,7 @@
     "baseStats": { "_HP": 1164, "_ATK": 476, "_DEF": 507 },
     "weights": {
       "SPD": 1.00,
-      "HP":  0.75,
-      "RES": 0.50
+      "HP":  0.75
     }
   },
   "1104": {
@@ -861,7 +804,6 @@
     "weights": {
       "SPD": 1.00,
       "DEF": 0.75,
-      "RES": 0.50,
       "EHR": 0.25
     }
   },
@@ -872,10 +814,10 @@
     "type": "Erudition",
     "baseStats": { "_HP": 917, "_ATK": 652, "_DEF": 374 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
       "SPD": 0.50,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
       "EHR": 0.25
     }
   },
@@ -883,14 +825,14 @@
     "name": "Seele",
     "rarity": 5,
     "element": "Quantum",
-    "type": "The Hunt",
+    "type": "Hunt",
     "sig": 23001,
     "baseStats": { "_HP": 931, "_ATK": 640, "_DEF": 363 },
     "weights": {
+      "SPD": 0.75,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1101": {
@@ -912,10 +854,10 @@
     "type": "Erudition",
     "baseStats": { "_HP": 952, "_ATK": 582, "_DEF": 396 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "SPD": 0.25,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75
     }
   },
   "1009": {
@@ -935,10 +877,10 @@
     "type": "Destruction",
     "baseStats": { "_HP": 1199, "_ATK": 599, "_DEF": 330 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1004": {
@@ -949,10 +891,10 @@
     "sig": 23004,
     "baseStats": { "_HP": 1125, "_ATK": 620, "_DEF": 509 },
     "weights": {
-      "CR":  1.25,
-      "CD":  1.25,
-      "ATK": 0.75,
       "SPD": 0.50,
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
       "EHR": 0.25
     }
   },
@@ -964,23 +906,23 @@
     "sig": 23000,
     "baseStats": { "_HP": 1047, "_ATK": 756, "_DEF": 436 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1002": {
     "name": "Dan Heng",
     "rarity": 4,
     "element": "Wind",
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 882, "_ATK": 546, "_DEF": 396 },
     "weights": {
+      "SPD": 0.50,
       "CR":  1.25,
       "CD":  1.25,
-      "ATK": 0.75,
-      "SPD": 0.50
+      "ATK": 0.75
     }
   },
   "1001": {
@@ -992,8 +934,7 @@
     "weights": {
       "SPD": 1.00,
       "DEF": 0.75,
-      "EHR": 0.50,
-      "RES": 0.50
+      "EHR": 0.50
     }
   }
 }
