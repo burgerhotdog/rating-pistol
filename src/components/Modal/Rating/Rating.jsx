@@ -64,7 +64,12 @@ const Rating = ({ gameId, modalPipe }) => {
           ratingData={ratingData}
           stat={data.equipList[activeTab].stat}
         />
-        <Plot ratingData={ratingData} />
+        <Plot
+          gameId={gameId}
+          stat={data.equipList[activeTab].stat}
+          index={activeTab}
+          ratingData={ratingData}
+        />
       </Stack>
     </Stack>
   );

@@ -1,10 +1,19 @@
 {
   "TITLE": "Genshin Impact",
   "PATH": "/genshin-impact",
-  "EQUIP_NAMES": ["Flower", "Plume", "Sands", "Goblet", "Circlet"],
-  "MAIN_LEN": 5,
-  "SUB_LEN": 4,
-  "ELEMENTS": [
+  "RESIN_PER_DAY": 180,
+  "RESIN_PER_RUN": 20,
+  "DROPS_PER_RUN": 1.25,
+  "NUM_MAINSTATS": 5,
+  "NUM_SUBSTATS": 4,
+  "EQUIP_NAMES": [
+    "Flower",
+    "Plume",
+    "Sands",
+    "Goblet",
+    "Circlet"
+  ],
+  "ELEMENT_TYPES": [
     "Anemo",
     "Cryo",
     "Dendro",
@@ -13,11 +22,11 @@
     "Hydro",
     "Pyro"
   ],
-  "TYPES": [
-    "Sword",
+  "WEAPON_TYPES": [
+    "Bow",
+    "Catalyst",
     "Claymore",
     "Polearm",
-    "Catalyst",
-    "Bow"
+    "Sword"
   ]
 }

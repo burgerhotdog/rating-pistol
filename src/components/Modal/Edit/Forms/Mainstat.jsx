@@ -13,7 +13,7 @@ const Mainstat = ({ gameId, equipList, setEquipList, mainIndex }) => {
     setEquipList((prev) => {
       const newList = structuredClone(prev);
       newList[mainIndex].stat = newValue;
-      newList[mainIndex].statList = Array(INFO_DATA[gameId].SUB_LEN).fill()
+      newList[mainIndex].statList = Array(INFO_DATA[gameId].NUM_SUBSTATS).fill()
         .map(() => ({ stat: null, value: null }));
       return newList;
     });

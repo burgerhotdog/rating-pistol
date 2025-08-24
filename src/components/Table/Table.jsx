@@ -8,8 +8,8 @@ import RatingCell from './RatingCell';
 
 const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, setModalPipe }) => {
   const [filterOpen, setFilterOpen] = useState(false);
-  const [selectedElements, setSelectedElements] = useState([...INFO_DATA[gameId].ELEMENTS]);
-  const [selectedTypes, setSelectedTypes] = useState([...INFO_DATA[gameId].TYPES]);
+  const [selectedElements, setSelectedElements] = useState([...INFO_DATA[gameId].ELEMENT_TYPES]);
+  const [selectedTypes, setSelectedTypes] = useState([...INFO_DATA[gameId].WEAPON_TYPES]);
 
   const sortedAvatars = useMemo(() => (  
     Object.entries(avatarCache)

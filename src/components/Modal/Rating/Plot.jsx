@@ -1,7 +1,8 @@
 import { Paper } from '@mui/material';
 import Plot from 'react-plotly.js';
+import { INFO_DATA, STAT_DATA } from '@data';
 
-export default ({ ratingData }) => {
+export default ({ gameId, stat, index, ratingData }) => {
   const { percentile, score, scoreData } = ratingData;
   const downsampled = scoreData.filter((_, index) =>
     index % 10 === 0 || index === scoreData.length - 1
@@ -13,6 +14,17 @@ export default ({ ratingData }) => {
     lineData.push(score);
     lineData.sort((a, b) => a - b);
   }
+
+  const percentileData = lineData.map((_, index) => ((index + 1) / lineData.length) * 100);
+
+  const daysData = percentileData.map((percentile) => {
+    const times = 10000 / (10000 - percentile * 100)
+    const spec_times = times / STAT_DATA[gameId][stat].mainChance[index];
+    const types_it_could_be = gameId === 'hsr' ? (index < 4 ? 4 : 2) : INFO_DATA[gameId].NUM_MAINSTATS;
+    const runs = (spec_times * types_it_could_be) / (INFO_DATA[gameId].DROPS_PER_RUN / 2);
+    const days = (runs * INFO_DATA[gameId].RESIN_PER_RUN) / INFO_DATA[gameId].RESIN_PER_DAY;
+    return days;
+  });
   
   // Calculate histogram data manually
   const numBins = 50;
@@ -39,7 +51,13 @@ export default ({ ratingData }) => {
         data={[
           {
             x: lineData,
-            y: lineData.map((_, index) => ((index + 1) / lineData.length) * 100),
+            y: percentileData,
+            type: 'scatter',
+            mode: 'lines',
+          },
+          {
+            x: lineData,
+            y: daysData,
             type: 'scatter',
             mode: 'lines',
           },
@@ -59,6 +77,8 @@ export default ({ ratingData }) => {
           }
         ]}
         layout={{
+          width: 500,
+          height: 300,
           xaxis: {
             title: { text: 'Weighted Roll Value %', font: { color: 'grey' } },
             tickfont: { color: 'grey' },

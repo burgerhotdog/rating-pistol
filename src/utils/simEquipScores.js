@@ -22,7 +22,7 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
 
     // adding the substat lines (weighted selection)
     let substats = [];
-    for (let j = 0; j < INFO_DATA[gameId].SUB_LEN; j++) {
+    for (let j = 0; j < INFO_DATA[gameId].NUM_SUBSTATS; j++) {
       const totalChance = statPool.reduce((acc, [_, chance]) => (
         acc + chance
       ), 0);
