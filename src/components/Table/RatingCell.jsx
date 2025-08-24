@@ -19,12 +19,8 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
     );
   }
 
-  const { score, bounds } = rating.avatar;
+  const { score } = rating.avatar;
   const openModal = () => setModalPipe({ type: 'rating', id, data, rating });
-  const ratingRank =
-    score >= bounds[0] ? 0 :
-    score >= bounds[1] ? 1 :
-    score >= bounds[2] ? 2 : 3;
 
   return (
     <TableCell>
@@ -38,12 +34,12 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
           sx={{ cursor: 'pointer' }}
         >
           <Avatar
-            alt={RATING_RANK[ratingRank]}
-            src={RATING_ASSETS[ratingRank]}
+            alt={RATING_RANK['']}
+            src={RATING_ASSETS['']}
             sx={{ width: 32, height: 32 }}
           />
           <Typography variant="body2">
-            {rating.avatar.score.toFixed()}
+            {score.toFixed()}
           </Typography>
         </Stack>
       </Tooltip>

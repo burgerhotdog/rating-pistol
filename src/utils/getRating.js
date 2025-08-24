@@ -1,5 +1,5 @@
 import { AVATAR_DATA } from '@data';
-import { getScore, simEquipScores, simAvatarScores } from '@utils';
+import { getScore, simEquipScores } from '@utils';
 
 const calcMean = (data) => {
   return data.reduce((acc, curr) => acc + curr, 0) / data.length;
@@ -29,15 +29,9 @@ const getRating = (gameId, avatarId, weaponId, equipList) => {
     return { percentile, score, scoreData, q3 };
   });
 
-  const scoreData = simAvatarScores(gameId, avatarId, equipRatings, equipList.map(({ stat }) => stat));
-  const mean = calcMean(scoreData);
-  const sd = calcStandardDeviation(mean, scoreData);
-  const bounds = [mean + (2 * sd), mean + sd, mean - sd];
-
   const score = equipRatings.reduce((acc, { score }) => acc + score, 0);
-  const percentile = calcPercentile(score, scoreData);
   return {
-    avatar: { percentile, score, scoreData, mean, sd, bounds },
+    avatar: { score },
     equips: equipRatings,
   };
 };

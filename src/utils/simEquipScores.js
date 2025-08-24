@@ -1,5 +1,5 @@
 import { INFO_DATA, STAT_DATA } from '@data';
-import { getMult, getScore } from '@utils';
+import { rollStat, getScore } from '@utils';
 
 const ITERATIONS = 10000;
 
@@ -13,8 +13,8 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
       if (stat === mainstat) return false; // filter out selected mainstat
       return true; // keep the rest
     })
-    .map(([stat, { subValue, subChance }]) => {
-      return [stat, subValue, subChance];
+    .map(([stat, { lotteryChance }]) => {
+      return [stat, lotteryChance];
     });
 
   for (let i = 0; i < ITERATIONS; i++) {
@@ -23,7 +23,7 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
     // adding the substat lines (weighted selection)
     let substats = [];
     for (let j = 0; j < INFO_DATA[gameId].SUB_LEN; j++) {
-      const totalChance = statPool.reduce((acc, [_, __, chance]) => (
+      const totalChance = statPool.reduce((acc, [_, chance]) => (
         acc + chance
       ), 0);
 
@@ -31,11 +31,10 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
 
       let cumulative = 0;
       for (let k = 0; k < statPool.length; k++) {
-        const [stat, value, chance] = statPool[k];
+        const [stat, chance] = statPool[k];
         cumulative += chance;
         if (random <= cumulative) {
-          const mult = getMult(gameId);
-          substats.push({ stat, value: value * mult });
+          substats.push({ stat, value: rollStat(gameId, stat) });
           statPool.splice(k, 1);
           break;
         }
@@ -49,9 +48,7 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
       for (let j = 0; j < upgradeCount; j++) {
         const random = Math.floor(Math.random() * 4);
         const stat = substats[random].stat;
-        const subValue = STAT_DATA[gameId][stat].subValue;
-        const mult = getMult(gameId);
-        substats[random].value += subValue * mult;
+        substats[random].value += rollStat(gameId, stat);
       }
     }
 

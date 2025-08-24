@@ -1,104 +1,31 @@
 import { Paper, Box, Typography, Divider, Stack } from '@mui/material';
 import { AVATAR_ASSETS, RATING_ASSETS } from '@assets';
-import { AVATAR_DATA } from '@data';
+import { AVATAR_DATA, INFO_DATA, STAT_DATA } from '@data';
 
-const RATING_RANK = ['Excellent', 'Great', 'Good', 'Poor'];
-const recommendation = ['Great', 'Good', 'Okay', 'Weak'];
+const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
+  const { score, q3, percentile } = ratingData;
 
-const Info = ({ gameId, avatarId, isFullBuild, ratingData }) => {
-  const { percentile, score, mean, sd, bounds, q3 } = ratingData;
-  const ratingRank = !isFullBuild ? null :
-    score >= bounds[0] ? 0 :
-    score >= bounds[1] ? 1 :
-    score >= bounds[2] ? 2 : 3;
-
-  const Rating = () => {
-    const Icon = () => {
-      return (
-        <Box
-          component="img"
-          alt={avatarId}
-          src={AVATAR_ASSETS[gameId][avatarId]}
-          sx={{
-            width: 16,
-            height: 16,
-            verticalAlign: 'text-bottom',
-          }}
-        />
-      );
-    };
-
-    return (
-      <>
-        <Stack direction="row" alignItems="center" spacing={1}>
-          <Typography variant="h6" color="primary">
-            Rating:
-          </Typography>
-          <Box
-            component="img"
-            alt={RATING_RANK[ratingRank]}
-            src={RATING_ASSETS[ratingRank]}
-            sx={{ width: 24, height: 24 }}
-          />
-          <Typography variant="h6">
-            {RATING_RANK[ratingRank]}
-          </Typography>
-        </Stack>
-        <Typography variant="body2">
-          <Icon /> {AVATAR_DATA[gameId][avatarId].name} has a roll value of {score.toFixed()}%, which is {ratingRank === 2 ? 'slightly ' : ratingRank === 0 ? 'significantly ' : ''}{score > mean ? 'above' : 'below'} average. {recommendation[ratingRank]}
-        </Typography>
-      </>
-    );
-  };
-
-  const Results = () => {
-    return (
-      <>
-        <Typography variant="h6" color="primary">
-          Simulation Results:
-        </Typography>
-        <Typography variant="body2">
-          Roll Value: {score.toFixed()}%
-        </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }} >
-          Percentile: {percentile.toFixed(2)}
-        </Typography>
-        {isFullBuild ? (
-          <>
-            <Typography variant="body2" gutterBottom sx={{ color: 'text.secondary' }}>
-              Mean: {mean.toFixed()}% / SD: {sd.toFixed()}%
-            </Typography>
-            <Typography variant="body2">
-              Thresholds:
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              Excellent (+2 SD): {bounds[0].toFixed()}%
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              Great (+1 SD): {bounds[1].toFixed()}%
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              Good (±1 SD): {bounds[2].toFixed()}%
-            </Typography>
-          </>
-        ) : (
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Q3: {q3.toFixed()}%
-          </Typography>
-        )}
-      </>
-    );
-  };
+  const times_for_specific_piece = (10000 / (10000 - (percentile * 100)));
+  const times_for_piece = (times_for_specific_piece / STAT_DATA[gameId][stat].mainChance[index]);
+  const domain_runs = times_for_piece * INFO_DATA[gameId].MAIN_LEN * 2;
 
   return (
     <Paper sx={{ p: 3, width: 300 }}>
-      {isFullBuild && (
-        <>
-          <Rating />
-          <Divider sx={{ my: 2 }} />
-        </>
-      )}
-      <Results />
+      <Typography variant="h6" color="primary">
+        Simulation Results:
+      </Typography>
+      <Typography variant="body2">
+        Total Score: {score.toFixed()}
+      </Typography>
+      <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        Percentile: {percentile.toFixed(2)}%
+      </Typography>
+      <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        Q3: {q3.toFixed()}%
+      </Typography>
+      <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        It will take approximately {domain_runs.toFixed()} domain runs to get a better {INFO_DATA[gameId].EQUIP_NAMES[index]}. ({(domain_runs / 6).toFixed()} days)
+      </Typography>
     </Paper>
   );
 };
