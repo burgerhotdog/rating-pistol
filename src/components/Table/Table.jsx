@@ -14,21 +14,17 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
   const sortedAvatars = useMemo(() => (  
     Object.entries(avatarCache)
       .sort(([, a], [, b]) => {
-        if (a.data.isStar !== b.data.isStar)
-          return a.data.isStar ? -1 : 1;
+        if (a.data.isStar !== b.data.isStar) return a.data.isStar ? -1 : 1;
 
         if (!a.rating && !b.rating) {
-          if ((a.rating === null) === (b.rating === null))
-            return 0;
+          if ((a.rating === null) === (b.rating === null)) return 0;
           return a.rating === null ? -1 : 1;
         }
 
-        if (!a.rating)
-          return 1;
-        if (!b.rating)
-          return -1;
+        if (!a.rating) return 1;
+        if (!b.rating) return -1;
 
-        return b.rating.avatar.score - a.rating.avatar.score;
+        return ((b.rating.score / (b.rating.scoreMax / 2)) * 100) - ((a.rating.score / (a.rating.scoreMax / 2)) * 100);
       })
       .map(([avatarId]) => avatarId)
   ), [avatarCache]);

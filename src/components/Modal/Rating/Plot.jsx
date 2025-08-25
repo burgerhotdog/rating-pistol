@@ -80,7 +80,7 @@ export default ({ gameId, stat, index, ratingData }) => {
           width: 500,
           height: 300,
           xaxis: {
-            title: { text: 'Weighted Roll Value %', font: { color: 'grey' } },
+            title: { text: 'Weighted Substat Score', font: { color: 'grey' } },
             tickfont: { color: 'grey' },
             gridcolor: 'rgba(100, 100, 100, 0.4)',
             range: [Math.min(min, score), Math.max(max, score)],

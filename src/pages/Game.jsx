@@ -4,7 +4,7 @@ import { db } from '@config/firebase';
 import { Container, Stack, Button, Typography, Box } from '@mui/material';
 import { Add, KeyboardArrowRight } from '@mui/icons-material';
 import { VERSION_DATA, INFO_DATA } from '@data';
-import { getRating } from '@utils';
+import { calculateRating } from '@utils';
 import Back from '@components/Back';
 import Modal from '@components/Modal';
 import Table from '@components/Table';
@@ -26,7 +26,7 @@ const Game = ({ gameId, userId }) => {
           for (const doc of avatarDocs.docs) {
             newAvatarCache[doc.id] = {
               data: doc.data(),
-              rating: getRating(gameId, doc.id, doc.data().weaponId, doc.data().equipList),
+              rating: calculateRating(gameId, doc.id, doc.data().weaponId, doc.data().equipList),
             };
           }
           setAvatarCache(newAvatarCache);
@@ -53,7 +53,7 @@ const Game = ({ gameId, userId }) => {
       ...prev,
       [id]: {
         data: { ...newData },
-        rating: getRating(gameId, id, newData.weaponId, newData.equipList),
+        rating: calculateRating(gameId, id, newData.weaponId, newData.equipList),
       },
     }));
   };
@@ -72,7 +72,7 @@ const Game = ({ gameId, userId }) => {
   
       newCache[id] = {
         data: newData,
-        rating: getRating(gameId, id, newData.weaponId, newData.equipList),
+        rating: calculateRating(gameId, id, newData.weaponId, newData.equipList),
       };
     }
   

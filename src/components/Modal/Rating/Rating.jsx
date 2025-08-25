@@ -30,7 +30,7 @@ const Rating = ({ gameId, modalPipe }) => {
         </Typography>
       </Stack>
       <Typography variant="body2">
-        {AVATAR_DATA[gameId][id].name} has a roll value of {rating.avatar.score.toFixed()}%
+        {AVATAR_DATA[gameId][id].name} has a substat score of {rating.score.toFixed()}
       </Typography>
 
       <Tabs

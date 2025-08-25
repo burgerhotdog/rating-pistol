@@ -13,13 +13,13 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
 
   if (rating === null) {
     return (
-      <Tooltip title={`This character is not affected by substats and thus cannot be rated`}>
+      <Tooltip title={`This character is not affected by substats and cannot be rated`}>
         <InfoOutlined sx={{ color: 'text.disabled' }} />
       </Tooltip>
     );
   }
 
-  const { score } = rating.avatar;
+  const { score, scoreMax } = rating;
   const openModal = () => setModalPipe({ type: 'rating', id, data, rating });
 
   return (
@@ -39,7 +39,7 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
             sx={{ width: 32, height: 32 }}
           />
           <Typography variant="body2">
-            {score.toFixed()}
+            {((score / (scoreMax / 2)) * 100).toFixed()}%
           </Typography>
         </Stack>
       </Tooltip>

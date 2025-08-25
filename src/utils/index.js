@@ -1,5 +1,5 @@
-export { default as getScore } from './getScore';
+export { default as calculateScore } from './calculateScore';
 export { default as rollStat } from './rollStat';
-export { default as simEquipScores } from './simEquipScores';
-export { default as simAvatarScores } from './simAvatarScores';
-export { default as getRating } from './getRating';
+export { default as simulateScores } from './simulateScores';
+export { default as simulateMax } from './simulateMax';
+export { default as calculateRating } from './calculateRating';

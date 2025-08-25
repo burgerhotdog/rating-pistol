@@ -42,7 +42,7 @@ const how_many_days = {
 };
 
 const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
-  const { score, q3, percentile } = ratingData;
+  const { score, percentile } = ratingData;
 
   const times_for_specific_piece = (10000 / (10000 - (percentile * 100)));
   const times_for_piece = (times_for_specific_piece / STAT_DATA[gameId][stat].mainChance[index]);
@@ -57,9 +57,6 @@ const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
       </Typography>
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
         Percentile: {percentile.toFixed(2)}%
-      </Typography>
-      <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-        Q3: {q3.toFixed()}%
       </Typography>
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
         It will take approximately {how_many_days[gameId](times_for_piece)[0].toFixed()} domain runs to get a better {INFO_DATA[gameId].EQUIP_NAMES[index]}. ({how_many_days[gameId](times_for_piece)[1].toFixed()} days)

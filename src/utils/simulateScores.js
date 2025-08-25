@@ -1,26 +1,27 @@
 import { INFO_DATA, STAT_DATA } from '@data';
-import { rollStat, getScore } from '@utils';
+import { rollStat, calculateScore } from '@utils';
 
 const ITERATIONS = 10000;
 
-const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
+export default (gameId, avatarId, weaponId, mainstat) => {
   const scores = new Array(ITERATIONS).fill(0);
-  
+
+  // substat pool
   const startingPool = Object.entries(STAT_DATA[gameId])
     .filter(([stat, { subValue }]) => {
-      if (!subValue) return false; // filter out mainstats
-      if (gameId === 'ww') return true; // ww can match selected mainstat
-      if (stat === mainstat) return false; // filter out selected mainstat
-      return true; // keep the rest
+      if (!subValue) return false; // remove non-substats
+      if (gameId === 'ww') return true; // wuwa subs can match mainstat
+      return stat !== mainstat;
     })
     .map(([stat, { lotteryChance }]) => {
       return [stat, lotteryChance];
     });
 
+  // simulation loop
   for (let i = 0; i < ITERATIONS; i++) {
     let statPool = [...startingPool];
 
-    // adding the substat lines (weighted selection)
+    // adding the substat lines (weighted lottery)
     let substats = [];
     for (let j = 0; j < INFO_DATA[gameId].NUM_SUBSTATS; j++) {
       const totalChance = statPool.reduce((acc, [_, chance]) => (
@@ -44,7 +45,7 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
     // adding the rest of the rolls
     if (gameId !== 'ww') {
       // 1 in 4 artifacts gets an extra upgrade
-      const upgradeCount = Math.floor(Math.random() * 4) ? 4 : 5;
+      const upgradeCount = !Math.floor(Math.random() * 4) ? 5 : 4;
       for (let j = 0; j < upgradeCount; j++) {
         const random = Math.floor(Math.random() * 4);
         const stat = substats[random].stat;
@@ -52,10 +53,7 @@ const simEquipScores = (gameId, avatarId, weaponId, mainstat) => {
       }
     }
 
-    scores[i] = getScore(gameId, avatarId, weaponId, substats);
+    scores[i] = calculateScore(gameId, avatarId, weaponId, substats);
   }
-
   return scores.sort((a, b) => a - b);
 };
-
-export default simEquipScores;
