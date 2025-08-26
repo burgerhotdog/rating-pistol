@@ -1,6 +1,6 @@
 import { Paper } from '@mui/material';
 import Plot from 'react-plotly.js';
-import { INFO_DATA, STAT_DATA } from '@data';
+import daysToFarm from './daysToFarm';
 
 export default ({ gameId, stat, index, ratingData }) => {
   const { percentile, score, scoreData } = ratingData;
@@ -18,12 +18,7 @@ export default ({ gameId, stat, index, ratingData }) => {
   const percentileData = lineData.map((_, index) => ((index + 1) / lineData.length) * 100);
 
   const daysData = percentileData.map((percentile) => {
-    const times = 10000 / (10000 - percentile * 100)
-    const spec_times = times / STAT_DATA[gameId][stat].mainChance[index];
-    const types_it_could_be = gameId === 'hsr' ? (index < 4 ? 4 : 2) : INFO_DATA[gameId].NUM_MAINSTATS;
-    const runs = (spec_times * types_it_could_be) / (INFO_DATA[gameId].DROPS_PER_RUN / 2);
-    const days = (runs * INFO_DATA[gameId].RESIN_PER_RUN) / INFO_DATA[gameId].RESIN_PER_DAY;
-    return days;
+    return daysToFarm(gameId, percentile, stat, index);
   });
   
   // Calculate histogram data manually
@@ -80,7 +75,7 @@ export default ({ gameId, stat, index, ratingData }) => {
           width: 500,
           height: 300,
           xaxis: {
-            title: { text: 'Weighted Substat Score', font: { color: 'grey' } },
+            title: { text: 'Substat Score', font: { color: 'grey' } },
             tickfont: { color: 'grey' },
             gridcolor: 'rgba(100, 100, 100, 0.4)',
             range: [Math.min(min, score), Math.max(max, score)],

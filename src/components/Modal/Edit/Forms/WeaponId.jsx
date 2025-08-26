@@ -45,7 +45,7 @@ const WeaponId = ({ gameId, id, weaponId, setWeaponId }) => {
         />
         {WEAPON_DATA[gameId][option]?.name}
         {option === sig && (
-          <Typography sx={{ color: 'text.disabled', ml: 1 }}>
+          <Typography color="text.secondary" sx={{ ml: 1 }}>
             (signature)
           </Typography>
         )}

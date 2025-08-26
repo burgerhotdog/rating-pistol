@@ -55,10 +55,10 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
   const FilterTooltip = () => (
     <Box sx={{ p: 2, minWidth: 200 }}>
       <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
-        Elements
+        Element Types
       </Typography>
       <FormGroup>
-        {INFO_DATA[gameId].ELEMENTS.map((element) => (
+        {INFO_DATA[gameId].ELEMENT_TYPES.map((element) => (
           <FormControlLabel
             key={element}
             control={
@@ -80,7 +80,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         Weapon Types
       </Typography>
       <FormGroup>
-        {INFO_DATA[gameId].TYPES.map((type) => (
+        {INFO_DATA[gameId].WEAPON_TYPES.map((type) => (
           <FormControlLabel
             key={type}
             control={
@@ -116,10 +116,6 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
                 open={filterOpen}
                 onClose={() => setFilterOpen(false)}
                 onOpen={() => setFilterOpen(true)}
-                placement="bottom-start"
-                disableHoverListener
-                disableFocusListener
-                disableTouchListener
                 slotProps={{
                   tooltip: {
                     sx: {
@@ -147,7 +143,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
             </TableCell>
             <TableCell>
               <Typography variant="body1" fontWeight="bold">
-                Substat Score
+                Rating
               </Typography>
             </TableCell>
           </TableRow>

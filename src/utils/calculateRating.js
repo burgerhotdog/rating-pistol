@@ -1,5 +1,5 @@
 import { AVATAR_DATA } from '@data';
-import { calculateScore, simulateScores, simulateMax } from '@utils';
+import { calculateScore, simulateScores, calculateMax } from '@utils';
 
 const calculateMean = (data) => {
   return data.reduce((acc, curr) => acc + curr, 0) / data.length;
@@ -25,7 +25,7 @@ export default (gameId, avatarId, weaponId, equipList) => {
     const mean = calculateMean(scoreData);
 
     // generate maximum possible score
-    const scoreMax = simulateMax(gameId, avatarId, weaponId, stat);
+    const scoreMax = calculateMax(gameId, avatarId, weaponId, stat);
 
     const score = calculateScore(gameId, avatarId, weaponId, statList);
     const percentile = calculatePercentile(score, scoreData);

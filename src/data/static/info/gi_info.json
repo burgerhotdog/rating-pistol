@@ -3,7 +3,7 @@
   "PATH": "/genshin-impact",
   "RESIN_PER_DAY": 180,
   "RESIN_PER_RUN": 20,
-  "DROPS_PER_RUN": 1.25,
+  "DROPS_PER_RUN": 1.065,
   "NUM_MAINSTATS": 5,
   "NUM_SUBSTATS": 4,
   "EQUIP_NAMES": [

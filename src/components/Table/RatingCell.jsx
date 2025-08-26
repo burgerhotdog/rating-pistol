@@ -1,47 +1,42 @@
-import { Stack, Avatar, Typography, Tooltip, TableCell } from '@mui/material';
+import { Stack, Avatar, Typography, Tooltip, TableCell, ButtonBase } from '@mui/material';
 import { ErrorOutline, InfoOutlined } from '@mui/icons-material';
 import { RATING_ASSETS } from '@assets';
-
-const RATING_RANK = ['Excellent', 'Great', 'Good', 'Poor'];
+import { getBenchmarkSrc, getLetter } from '@utils';
 
 const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
   if (rating === undefined) return (
-    <Tooltip title="Unable to calculate rating due to missing data">
-      <ErrorOutline sx={{ color: 'error.main' }} />
-    </Tooltip>
+    <TableCell>
+      <Tooltip title="Unable to calculate rating due to missing data">
+        <ErrorOutline color="error" />
+      </Tooltip>
+    </TableCell>
   );
 
   if (rating === null) {
     return (
-      <Tooltip title={`This character is not affected by substats and cannot be rated`}>
-        <InfoOutlined sx={{ color: 'text.disabled' }} />
-      </Tooltip>
+      <TableCell>
+        <Tooltip title={`This character is not affected by substats and cannot be rated`}>
+          <InfoOutlined color="disabled" />
+        </Tooltip>
+      </TableCell>
     );
   }
 
   const { score, scoreMax } = rating;
+  const benchmark = (score / scoreMax) * 200;
   const openModal = () => setModalPipe({ type: 'rating', id, data, rating });
 
   return (
     <TableCell>
       <Tooltip title="Show Details">
-        <Stack
-          onClick={openModal}
-          display="inline-flex"
-          direction="row"
-          alignItems="center"
-          spacing={1}
-          sx={{ cursor: 'pointer' }}
-        >
-          <Avatar
-            alt={RATING_RANK['']}
-            src={RATING_ASSETS['']}
-            sx={{ width: 32, height: 32 }}
-          />
-          <Typography variant="body2">
-            {((score / (scoreMax / 2)) * 100).toFixed()}%
-          </Typography>
-        </Stack>
+        <ButtonBase onClick={openModal}>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Avatar src={RATING_ASSETS[getBenchmarkSrc(benchmark)]} />
+            <Typography variant="body2">
+              {benchmark.toFixed()}% ({getLetter(benchmark)})
+            </Typography>
+          </Stack>
+        </ButtonBase>
       </Tooltip>
     </TableCell>
   );
