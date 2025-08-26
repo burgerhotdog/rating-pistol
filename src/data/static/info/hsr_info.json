@@ -1,10 +1,20 @@
 {
   "TITLE": "Honkai Star Rail",
   "PATH": "/honkai-star-rail",
-  "EQUIP_NAMES": ["Head", "Hands", "Chest", "Boots", "Orb", "Rope"],
-  "MAIN_LEN": 6,
-  "SUB_LEN": 4,
-  "ELEMENTS": [
+  "RESIN_PER_DAY": 240,
+  "RESIN_PER_RUN": 40,
+  "DROPS_PER_RUN": 2.1,
+  "NUM_MAINSTATS": 6,
+  "NUM_SUBSTATS": 4,
+  "EQUIP_NAMES": [
+    "Head",
+    "Hands",
+    "Chest",
+    "Boots",
+    "Orb",
+    "Rope"
+  ],
+  "ELEMENT_TYPES": [
     "Fire",
     "Ice",
     "Imaginary",
@@ -13,14 +23,14 @@
     "Quantum",
     "Wind"
   ],
-  "TYPES": [
-    "The Hunt",
+  "WEAPON_TYPES": [
     "Abundance",
     "Destruction",
-    "Preservation",
-    "Nihility",
-    "Harmony",
     "Erudition",
+    "Harmony",
+    "Hunt",
+    "Nihility",
+    "Preservation",
     "Remembrance"
   ]
 }

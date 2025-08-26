@@ -1,22 +1,32 @@
 {
   "TITLE": "Zenless Zone Zero",
   "PATH": "/zenless-zone-zero",
-  "EQUIP_NAMES": ["Disk 1", "Disk 2", "Disk 3", "Disk 4", "Disk 5", "Disk 6"],
-  "MAIN_LEN": 6,
-  "SUB_LEN": 4,
-  "ELEMENTS": [
+  "RESIN_PER_DAY": 320,
+  "RESIN_PER_RUN": 60,
+  "DROPS_PER_RUN": 2.5,
+  "NUM_MAINSTATS": 6,
+  "NUM_SUBSTATS": 4,
+  "EQUIP_NAMES": [
+    "Disk 1",
+    "Disk 2",
+    "Disk 3",
+    "Disk 4",
+    "Disk 5",
+    "Disk 6"
+  ],
+  "ELEMENT_TYPES": [
     "Electric",
     "Ether",
     "Fire",
     "Ice",
     "Physical"
   ],
-  "TYPES": [
-    "Attack",
-    "Support",
-    "Stun",
+  "WEAPON_TYPES": [
     "Anomaly",
+    "Attack",
     "Defense",
-    "Rupture"
+    "Rupture",
+    "Stun",
+    "Support"
   ]
 }

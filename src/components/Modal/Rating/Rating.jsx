@@ -1,41 +1,34 @@
 import { useState } from 'react';
-import { Box, Stack, Typography, Tabs, Tab } from '@mui/material';
-import { EQUIP_ASSETS } from '@assets';
+import { Stack, Typography, Tabs, Tab } from '@mui/material';
 import { INFO_DATA } from '@data';
+import { getLetter, TabLabel } from '@utils';
 import Info from './Info';
 import Plot from './Plot';
 
 const Rating = ({ gameId, modalPipe }) => {
+  const { EQUIP_NAMES } = INFO_DATA[gameId];
   const { id, data, rating } = modalPipe;
   const [activeTab, setActiveTab] = useState(0);
-
-  const ratingData = activeTab === 0
-    ? rating.avatar
-    : rating.equips[activeTab - 1];
+  const benchmark = (rating.score / rating.scoreMax) * 200;
+  const ratingData = rating.equips[activeTab];
 
   return (
     <Stack spacing={2}>
+      <Stack direction="row" alignItems="center" spacing={1}>
+        <Typography variant="h6" color="primary">
+          Overall Rating:
+        </Typography>
+        <Typography variant="h6">
+          {benchmark.toFixed()}% ({getLetter(benchmark)})
+        </Typography>
+      </Stack>
+
       <Tabs
         value={activeTab}
         onChange={(_, newValue) => setActiveTab(newValue)}
       >
-        <Tab label="Full Build" />
-        {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
-          <Tab
-            key={index}
-            label={(
-              <Stack direction="row" alignItems="center" spacing={1}>
-                <Box
-                  component="img"
-                  src={EQUIP_ASSETS[gameId][index]}
-                  sx={{ width: 24, height: 24, objectFit: 'contain' }}
-                />
-                <Typography variant="body2">
-                  {name}
-                </Typography>
-              </Stack>
-            )}
-          />
+        {EQUIP_NAMES.map((name, index) => (
+          <Tab key={index} label={TabLabel(gameId, name, index)} />
         ))}
       </Tabs>
 
@@ -43,10 +36,16 @@ const Rating = ({ gameId, modalPipe }) => {
         <Info
           gameId={gameId}
           avatarId={id}
-          isFullBuild={activeTab === 0}
+          index={activeTab}
+          ratingData={ratingData}
+          stat={data.equipList[activeTab].stat}
+        />
+        <Plot
+          gameId={gameId}
+          stat={data.equipList[activeTab].stat}
+          index={activeTab}
           ratingData={ratingData}
         />
-        <Plot ratingData={ratingData} />
       </Stack>
     </Stack>
   );

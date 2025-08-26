@@ -20,7 +20,7 @@
   "23046": {
     "name": "The Hell Where Ideals Burn",
     "rarity": 5,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 953, "_ATK": 582, "_DEF": 529 }
   },
   "23045": {
@@ -38,7 +38,7 @@
   "21062": {
     "name": "See You at the End",
     "rarity": 4,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 953, "_ATK": 529, "_DEF": 397 }
   },
   "21061": {
@@ -218,13 +218,13 @@
   "23031": {
     "name": "I Venture Forth to Hunt",
     "rarity": 5,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 952, "_ATK": 635, "_DEF": 463 }
   },
   "21047": {
     "name": "Shadowed by Night",
     "rarity": 4,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 846, "_ATK": 476, "_DEF": 396 }
   },
   "23030": {
@@ -272,7 +272,7 @@
   "23027": {
     "name": "Sailing Towards A Second Life",
     "rarity": 5,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 1058, "_ATK": 582, "_DEF": 463 }
   },
   "23026": {
@@ -356,7 +356,7 @@
   "21037": {
     "name": "Final Victor",
     "rarity": 4,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 952, "_ATK": 476, "_DEF": 330 }
   },
   "21036": {
@@ -374,7 +374,7 @@
   "23020": {
     "name": "Baptism of Pure Thought",
     "rarity": 5,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 952, "_ATK": 582, "_DEF": 529 }
   },
   "23019": {
@@ -404,7 +404,7 @@
   "23016": {
     "name": "Worrisome, Blissful",
     "rarity": 5,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 1058, "_ATK": 582, "_DEF": 463 }
   },
   "23014": {
@@ -470,7 +470,7 @@
   "24001": {
     "name": "Cruising in the Stellar Sea",
     "rarity": 5,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 952, "_ATK": 529, "_DEF": 463 }
   },
   "24000": {
@@ -488,7 +488,7 @@
   "23012": {
     "name": "Sleep Like the Dead",
     "rarity": 5,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 1058, "_ATK": 582, "_DEF": 463 }
   },
   "23010": {
@@ -524,7 +524,7 @@
   "23001": {
     "name": "In the Night",
     "rarity": 5,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 1058, "_ATK": 582, "_DEF": 463 }
   },
   "23000": {
@@ -554,7 +554,7 @@
   "21031": {
     "name": "Return to Darkness",
     "rarity": 4,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 846, "_ATK": 529, "_DEF": 330 }
   },
   "21030": {
@@ -596,7 +596,7 @@
   "21024": {
     "name": "River Flows in Spring",
     "rarity": 4,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 846, "_ATK": 476, "_DEF": 396 }
   },
   "21023": {
@@ -638,7 +638,7 @@
   "21017": {
     "name": "Subscribe for More!",
     "rarity": 4,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 952, "_ATK": 476, "_DEF": 330 }
   },
   "21016": {
@@ -680,7 +680,7 @@
   "21010": {
     "name": "Swordplay",
     "rarity": 4,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 952, "_ATK": 476, "_DEF": 330 }
   },
   "21009": {
@@ -722,7 +722,7 @@
   "21003": {
     "name": "Only Silence Remains",
     "rarity": 4,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 952, "_ATK": 476, "_DEF": 330 }
   },
   "21002": {
@@ -782,7 +782,7 @@
   "20014": {
     "name": "Adversarial",
     "rarity": 3,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 740, "_ATK": 370, "_DEF": 264 }
   },
   "20013": {
@@ -824,7 +824,7 @@
   "20007": {
     "name": "Darting Arrow",
     "rarity": 3,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 740, "_ATK": 370, "_DEF": 264 }
   },
   "20006": {
@@ -866,7 +866,7 @@
   "20000": {
     "name": "Arrows",
     "rarity": 3,
-    "type": "The Hunt",
+    "type": "Hunt",
     "baseStats": { "_HP": 846, "_ATK": 317, "_DEF": 264 }
   }
 }

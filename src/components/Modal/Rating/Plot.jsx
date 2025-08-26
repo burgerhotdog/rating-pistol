@@ -1,7 +1,8 @@
 import { Paper } from '@mui/material';
 import Plot from 'react-plotly.js';
+import daysToFarm from './daysToFarm';
 
-export default ({ ratingData }) => {
+export default ({ gameId, stat, index, ratingData }) => {
   const { percentile, score, scoreData } = ratingData;
   const downsampled = scoreData.filter((_, index) =>
     index % 10 === 0 || index === scoreData.length - 1
@@ -13,6 +14,12 @@ export default ({ ratingData }) => {
     lineData.push(score);
     lineData.sort((a, b) => a - b);
   }
+
+  const percentileData = lineData.map((_, index) => ((index + 1) / lineData.length) * 100);
+
+  const daysData = percentileData.map((percentile) => {
+    return daysToFarm(gameId, percentile, stat, index);
+  });
   
   // Calculate histogram data manually
   const numBins = 50;
@@ -39,7 +46,13 @@ export default ({ ratingData }) => {
         data={[
           {
             x: lineData,
-            y: lineData.map((_, index) => ((index + 1) / lineData.length) * 100),
+            y: percentileData,
+            type: 'scatter',
+            mode: 'lines',
+          },
+          {
+            x: lineData,
+            y: daysData,
             type: 'scatter',
             mode: 'lines',
           },
@@ -59,8 +72,10 @@ export default ({ ratingData }) => {
           }
         ]}
         layout={{
+          width: 500,
+          height: 300,
           xaxis: {
-            title: { text: 'Weighted Roll Value %', font: { color: 'grey' } },
+            title: { text: 'Substat Score', font: { color: 'grey' } },
             tickfont: { color: 'grey' },
             gridcolor: 'rgba(100, 100, 100, 0.4)',
             range: [Math.min(min, score), Math.max(max, score)],

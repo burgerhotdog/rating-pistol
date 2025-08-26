@@ -1,20 +1,12 @@
 import { useState } from 'react';
-import {
-  Paper,
-  Divider,
-  Stack,
-  Box,
-  Button,
-  Tabs,
-  Tab,
-  Typography,
-} from '@mui/material';
+import { Stack, Tabs, Tab, Paper, Divider, Box, Button } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
-import { EQUIP_ASSETS } from '@assets';
 import { INFO_DATA } from '@data';
+import { TabLabel } from '@utils';
 import { WeaponId, Mainstat, Substat } from './Forms';
 
 const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
+  const { EQUIP_NAMES } = INFO_DATA[gameId];
   const { id, data } = modalPipe;
   const [weaponId, setWeaponId] = useState(data.weaponId);
   const [equipList, setEquipList] = useState(() => structuredClone(data.equipList));
@@ -46,22 +38,8 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
         value={tabIndex}
         onChange={(_, newValue) => setTabIndex(newValue)}
       >
-        {INFO_DATA[gameId].EQUIP_NAMES.map((name, index) => (
-          <Tab
-            key={index}
-            label={(
-              <Stack direction="row" alignItems="center" spacing={1}>
-                <Box
-                  component="img"
-                  src={EQUIP_ASSETS[gameId][index]}
-                  sx={{ width: 24, height: 24, objectFit: 'contain' }}
-                />
-                <Typography variant="body2">
-                  {name}
-                </Typography>
-              </Stack>
-            )}
-          />
+        {EQUIP_NAMES.map((name, index) => (
+          <Tab key={index} label={TabLabel(gameId, name, index)} />
         ))}
       </Tabs>
       

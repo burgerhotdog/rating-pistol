@@ -6,10 +6,28 @@ import StarCell from './StarCell';
 import AvatarCell from './AvatarCell';
 import RatingCell from './RatingCell';
 
-const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, sortedAvatars, setModalPipe }) => {
+const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, setModalPipe }) => {
   const [filterOpen, setFilterOpen] = useState(false);
-  const [selectedElements, setSelectedElements] = useState([...INFO_DATA[gameId].ELEMENTS]);
-  const [selectedTypes, setSelectedTypes] = useState([...INFO_DATA[gameId].TYPES]);
+  const [selectedElements, setSelectedElements] = useState([...INFO_DATA[gameId].ELEMENT_TYPES]);
+  const [selectedTypes, setSelectedTypes] = useState([...INFO_DATA[gameId].WEAPON_TYPES]);
+
+  const sortedAvatars = useMemo(() => (  
+    Object.entries(avatarCache)
+      .sort(([, a], [, b]) => {
+        if (a.data.isStar !== b.data.isStar) return a.data.isStar ? -1 : 1;
+
+        if (!a.rating && !b.rating) {
+          if ((a.rating === null) === (b.rating === null)) return 0;
+          return a.rating === null ? -1 : 1;
+        }
+
+        if (!a.rating) return 1;
+        if (!b.rating) return -1;
+
+        return ((b.rating.score / (b.rating.scoreMax / 2)) * 100) - ((a.rating.score / (a.rating.scoreMax / 2)) * 100);
+      })
+      .map(([avatarId]) => avatarId)
+  ), [avatarCache]);
 
   const handleElementChange = (element) => {
     if (selectedElements.includes(element)) {
@@ -37,10 +55,10 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
   const FilterTooltip = () => (
     <Box sx={{ p: 2, minWidth: 200 }}>
       <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
-        Elements
+        Element Types
       </Typography>
       <FormGroup>
-        {INFO_DATA[gameId].ELEMENTS.map((element) => (
+        {INFO_DATA[gameId].ELEMENT_TYPES.map((element) => (
           <FormControlLabel
             key={element}
             control={
@@ -62,7 +80,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         Weapon Types
       </Typography>
       <FormGroup>
-        {INFO_DATA[gameId].TYPES.map((type) => (
+        {INFO_DATA[gameId].WEAPON_TYPES.map((type) => (
           <FormControlLabel
             key={type}
             control={
@@ -98,10 +116,6 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
                 open={filterOpen}
                 onClose={() => setFilterOpen(false)}
                 onOpen={() => setFilterOpen(true)}
-                placement="bottom-start"
-                disableHoverListener
-                disableFocusListener
-                disableTouchListener
                 slotProps={{
                   tooltip: {
                     sx: {

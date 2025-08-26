@@ -1,22 +1,31 @@
 {
   "TITLE": "Wuthering Waves",
   "PATH": "/wuthering-waves",
-  "EQUIP_NAMES": ["4-Cost", "3-Cost", "3-Cost", "1-Cost", "1-Cost"],
-  "MAIN_LEN": 5,
-  "SUB_LEN": 5,
-  "ELEMENTS": [
-    "Glacio",
-    "Fusion",
-    "Electro",
-    "Aero",
-    "Spectro",
-    "Havoc"
+  "RESIN_PER_DAY": 240,
+  "RESIN_PER_RUN": 60,
+  "DROPS_PER_RUN": 4.125,
+  "NUM_MAINSTATS": 5,
+  "NUM_SUBSTATS": 5,
+  "EQUIP_NAMES": [
+    "4-Cost",
+    "3-Cost",
+    "3-Cost",
+    "1-Cost",
+    "1-Cost"
   ],
-  "TYPES": [
+  "ELEMENT_TYPES": [
+    "Aero",
+    "Electro",
+    "Fusion",
+    "Glacio",
+    "Havoc",
+    "Spectro"
+  ],
+  "WEAPON_TYPES": [
     "Broadblade",
-    "Sword",
-    "Pistols",
     "Gauntlets",
-    "Rectifier"
+    "Pistols",
+    "Rectifier",
+    "Sword"
   ]
 }

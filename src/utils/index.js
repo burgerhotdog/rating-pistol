@@ -1,5 +1,8 @@
-export { default as getScore } from './getScore';
-export { default as getMult } from './getMult';
-export { default as simEquipScores } from './simEquipScores';
-export { default as simAvatarScores } from './simAvatarScores';
-export { default as getRating } from './getRating';
+export { default as calculateScore } from './calculateScore';
+export { default as rollStat } from './rollStat';
+export { default as simulateScores } from './simulateScores';
+export { default as calculateMax } from './calculateMax';
+export { default as calculateRating } from './calculateRating';
+export { default as getBenchmarkSrc } from './getBenchmarkSrc';
+export { default as getLetter } from './getLetter';
+export { default as TabLabel } from './TabLabel';
