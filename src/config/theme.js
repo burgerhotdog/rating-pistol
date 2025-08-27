@@ -11,20 +11,12 @@ const theme = createTheme({
       1: '#708090',
     },
   },
-  typography: {
-    button: { textTransform: 'none', fontWeight: 'bold' }
-  },
+  typography: { button: { textTransform: 'none', fontWeight: 'bold' } },
   shape: { borderRadius: 8 },
   components: {
-    MuiAvatar: {
-      defaultProps: { variant: 'square' },
-    },
-    MuiCheckbox: {
-      defaultProps: { size: 'small' },
-    },
-    MuiFormControl: {
-      defaultProps: { size: 'small' },
-    },
+    MuiAvatar: { defaultProps: { variant: 'square' } },
+    MuiCheckbox: { defaultProps: { size: 'small' } },
+    MuiFormControl: { defaultProps: { size: 'small' } },
     MuiSelect: {
       defaultProps: {
         slotProps: { inputLabel: { shrink: true } },
@@ -50,7 +42,17 @@ const theme = createTheme({
       },
     },
     MuiTooltip: {
-      defaultProps: { arrow: true },
+      defaultProps: {
+        arrow: true,
+        slotProps: {
+          popper: {
+            modifiers: [{
+              name: 'preventOverflow',
+              options: { altAxis: true, tether: false },
+            }],
+          },
+        },
+      },
     },
   },
 });

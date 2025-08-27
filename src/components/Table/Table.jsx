@@ -102,8 +102,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
     <TableContainer 
       component={Paper}
       sx={{
-        maxHeight: 650,
-        overflow: 'auto',
+        flex: 1,
         border: '1px solid rgba(255, 255, 255, 0.1)',
       }}
     >

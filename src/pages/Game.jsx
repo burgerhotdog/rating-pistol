@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { collection, getDocs, doc, setDoc, writeBatch, deleteDoc } from 'firebase/firestore';
 import { db } from '@config/firebase';
-import { Container, Stack, Button, Typography, Box } from '@mui/material';
+import { Container, Box, Button, Typography } from '@mui/material';
 import { Add, KeyboardArrowRight } from '@mui/icons-material';
 import { VERSION_DATA, INFO_DATA } from '@data';
 import { calculateRating } from '@utils';
@@ -101,9 +101,18 @@ const Game = ({ gameId, userId }) => {
   const handleLoad = () => setModalPipe({ type: 'load', id: null, data: null });
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
+    <Container
+      maxWidth="md"
+      sx={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        py: 4,
+        gap: 3,
+      }}
+    >
       <Back />
-      <Box textAlign="center" mb={3}>
+      <Box textAlign="center">
         <Typography variant="h3" fontWeight="bold">
           {INFO_DATA[gameId].TITLE}
         </Typography>
@@ -112,33 +121,32 @@ const Game = ({ gameId, userId }) => {
         </Typography>
       </Box>
 
-      <Stack spacing={3}>
-        <Table
-          gameId={gameId}
-          userId={userId}
-          avatarCache={avatarCache}
-          setAvatarCache={setAvatarCache}
-          isLoading={isLoading}
-          setModalPipe={setModalPipe}
-        />
-        <Stack direction="row" justifyContent="center" spacing={2}>
-          <Button
-            onClick={handleAdd}
-            variant="contained"
-            color="primary"
-            startIcon={<Add />}
-          >
-            New Build
-          </Button>
-          <Button
-            onClick={handleLoad}
-            variant="outlined"
-            endIcon={<KeyboardArrowRight />}
-          >
-            Load Data
-          </Button>
-        </Stack>
-      </Stack>
+      <Table
+        gameId={gameId}
+        userId={userId}
+        avatarCache={avatarCache}
+        setAvatarCache={setAvatarCache}
+        isLoading={isLoading}
+        setModalPipe={setModalPipe}
+      />
+
+      <Box display="flex" justifyContent="center" gap={2}>
+        <Button
+          onClick={handleAdd}
+          variant="contained"
+          color="primary"
+          startIcon={<Add />}
+        >
+          New Build
+        </Button>
+        <Button
+          onClick={handleLoad}
+          variant="outlined"
+          endIcon={<KeyboardArrowRight />}
+        >
+          Load Data
+        </Button>
+      </Box>
 
       <Modal
         gameId={gameId}
