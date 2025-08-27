@@ -18,6 +18,9 @@ const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
       <Typography variant="body2">
         Substat Score: {score.toFixed()}
       </Typography>
+      <Typography variant="body2"color="text.secondary">
+        Benchmark Score: {scoreMax.toFixed()}
+      </Typography>
       <Typography variant="body2" color="text.secondary">
         Percentile: {percentile.toFixed(2)}%
       </Typography>

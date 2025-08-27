@@ -23,7 +23,7 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
   }
 
   const { score, scoreMax } = rating;
-  const benchmark = (score / scoreMax) * 200;
+  const benchmark = Math.round((score / scoreMax) * 100);
   const openModal = () => setModalPipe({ type: 'rating', id, data, rating });
 
   return (
