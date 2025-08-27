@@ -1,13 +1,9 @@
 import { Paper, Box, Typography, Divider, Stack } from '@mui/material';
-import { AVATAR_ASSETS, RATING_ASSETS } from '@assets';
 import { AVATAR_DATA, INFO_DATA, STAT_DATA } from '@data';
 import daysToFarm from './daysToFarm';
 
 const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
   const { score, percentile, scoreMax } = ratingData;
-
-  const times_for_specific_piece = (10000 / (10000 - (percentile * 100)));
-  const times_for_piece = (times_for_specific_piece / STAT_DATA[gameId][stat].mainChance[index]);
   const days = daysToFarm(gameId, percentile, stat, index);
 
   return (

@@ -15,7 +15,7 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
   if (rating === null) {
     return (
       <TableCell>
-        <Tooltip title={`This character is not affected by substats and cannot be rated`}>
+        <Tooltip title="This character is not affected by substats and cannot be rated">
           <InfoOutlined color="disabled" />
         </Tooltip>
       </TableCell>
