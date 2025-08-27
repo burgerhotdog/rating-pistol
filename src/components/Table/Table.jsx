@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Skeleton, Stack, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton, Tooltip, Box, FormGroup, FormControlLabel, Checkbox, Divider } from '@mui/material';
+import { Skeleton, Stack, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton, Tooltip, Box, FormGroup, FormControlLabel, Checkbox, Divider, CircularProgress } from '@mui/material';
 import { FilterAlt } from '@mui/icons-material';
 import { AVATAR_DATA, INFO_DATA } from '@data';
 import StarCell from './StarCell';
@@ -101,12 +101,9 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
   return (
     <TableContainer 
       component={Paper}
-      sx={{
-        flex: 1,
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-      }}
+      sx={{ border: '1px solid rgba(255, 255, 255, 0.1)' }}
     >
-      <Table stickyHeader sx={{ tableLayout: 'fixed' }}>
+      <Table stickyHeader sx={{ minWidth: 650 }}>
         <TableHead>
           <TableRow>
             <TableCell width={50}>
@@ -149,22 +146,9 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         </TableHead>
         <TableBody>
           {isLoading ? (
-            [...Array(10)].map((_, index) => (
-              <TableRow key={index}>
-                <TableCell>
-                  <Skeleton variant="circular" width={24} height={24} />
-                </TableCell>
-                <TableCell>
-                  <Stack direction="row" display="inline-flex" spacing={1}>
-                    <Skeleton variant="circular" width={40} height={40} />
-                    <Skeleton variant="text" width={120} height={36} />
-                  </Stack>
-                </TableCell>
-                <TableCell>
-                  <Skeleton variant="rounded" width={60} height={36} />
-                </TableCell>
-              </TableRow>
-            ))
+            <TableCell colSpan={3} align="center">
+              <CircularProgress />
+            </TableCell>
           ) : (
             filteredAvatars.map((avatarId) => (
               <TableRow

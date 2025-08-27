@@ -1,4 +1,4 @@
-import { createTheme } from '@mui/material';
+import { createTheme, alpha } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -14,6 +14,31 @@ const theme = createTheme({
   typography: { button: { textTransform: 'none', fontWeight: 'bold' } },
   shape: { borderRadius: 8 },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: (theme) => ({
+        body: {
+          // Webkit (Chrome, Edge, Safari)
+          '&::-webkit-scrollbar': {
+            width: 8,
+            height: 8,
+          },
+          '&::-webkit-scrollbar-track': {
+            backgroundColor: 'transparent',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: alpha(theme.palette.text.disabled, 0.5),
+            borderRadius: 4,
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            backgroundColor: alpha(theme.palette.text.secondary, 0.7),
+          },
+
+          // Firefox
+          scrollbarWidth: 'thin',
+          scrollbarColor: `${alpha(theme.palette.text.disabled, 0.5)} transparent`,
+        },
+      }),
+    },
     MuiAvatar: { defaultProps: { variant: 'square' } },
     MuiCheckbox: { defaultProps: { size: 'small' } },
     MuiFormControl: { defaultProps: { size: 'small' } },
