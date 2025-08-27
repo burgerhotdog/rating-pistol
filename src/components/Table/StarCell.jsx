@@ -1,6 +1,6 @@
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '@config/firebase';
-import { IconButton, TableCell } from '@mui/material';
+import { TableCell, IconButton } from '@mui/material';
 import { Star, StarOutline } from '@mui/icons-material';
 
 const StarCell = ({ gameId, userId, setAvatarCache, id, data }) => {

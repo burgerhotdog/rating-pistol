@@ -1,4 +1,4 @@
-import { Stack, Avatar, Typography, Tooltip, TableCell, ButtonBase } from '@mui/material';
+import { TableCell, Tooltip, ButtonBase, Box, Avatar, Typography } from '@mui/material';
 import { ErrorOutline, InfoOutlined } from '@mui/icons-material';
 import { RATING_ASSETS } from '@assets';
 import { getBenchmarkSrc, getLetter } from '@utils';
@@ -30,12 +30,12 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
     <TableCell>
       <Tooltip title="Show Details">
         <ButtonBase onClick={openModal}>
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Box display="flex" alignItems="center" gap={1}>
             <Avatar src={RATING_ASSETS[getBenchmarkSrc(benchmark)]} />
-            <Typography variant="body2">
+            <Typography variant="body2" align="left">
               {benchmark.toFixed()}% ({getLetter(benchmark)})
             </Typography>
-          </Stack>
+          </Box>
         </ButtonBase>
       </Tooltip>
     </TableCell>

@@ -103,7 +103,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
       component={Paper}
       sx={{ border: '1px solid rgba(255, 255, 255, 0.1)' }}
     >
-      <Table stickyHeader sx={{ minWidth: 650 }}>
+      <Table stickyHeader sx={{ tableLayout: 'fixed' }}>
         <TableHead>
           <TableRow>
             <TableCell width={50}>

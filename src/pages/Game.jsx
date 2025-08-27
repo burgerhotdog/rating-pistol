@@ -102,7 +102,7 @@ const Game = ({ gameId, userId }) => {
 
   return (
     <Container
-      maxWidth="md"
+      maxWidth="sm"
       sx={{
         maxHeight: '100vh',
         display: 'flex',
