@@ -1,11 +1,52 @@
 {
+  "1410": {
+    "name": "Iuno",
+    "rarity": 5,
+    "element": "Aero",
+    "type": "Gauntlets",
+    "sig": 21040046,
+    "baseStats": {
+      "_HP":  10525,
+      "_ATK": 450,
+      "_DEF": 1124
+    },
+    "weights": {
+      "ER":  0.50,
+      "CR":  1.25,
+      "CD":  1.25,
+      "ATK": 0.75
+    }
+  },
+  "1306": {
+    "name": "Augusta",
+    "rarity": 5,
+    "element": "Electro",
+    "type": "Broadblade",
+    "sig": 21010046,
+    "baseStats": {
+      "_HP":  10300,
+      "_ATK": 463,
+      "_DEF": 1112
+    },
+    "weights": {
+      "ER":  0.50,
+      "CR":  1.25,
+      "CD":  1.25,
+      "ATK": 0.75,
+      "HA":  0.25
+    }
+  },
   "1608": {
     "name": "Phrolova",
     "rarity": 5,
     "element": "Havoc",
     "type": "Rectifier",
     "sig": 21050066,
-    "baseStats": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
+    "baseStats": {
+      "_HP":  10775,
+      "_ATK": 438,
+      "_DEF": 1137
+    },
     "weights": {
       "CR":  1.25,
       "CD":  1.25,
@@ -20,7 +61,11 @@
     "element": "Aero",
     "type": "Sword",
     "sig": 21020056,
-    "baseStats": { "_HP": 14800, "_ATK": 313, "_DEF": 611 },
+    "baseStats": {
+      "_HP":  14800,
+      "_ATK": 313,
+      "_DEF": 611
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -35,7 +80,11 @@
     "element": "Fusion",
     "type": "Broadblade",
     "sig": 21010036,
-    "baseStats": { "_HP": 11913, "_ATK": 388, "_DEF": 1186 },
+    "baseStats": {
+      "_HP":  11913,
+      "_ATK": 388,
+      "_DEF": 1186
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -50,7 +99,11 @@
     "element": "Spectro",
     "type": "Gauntlets",
     "sig": 21040036,
-    "baseStats": { "_HP": 10775, "_ATK": 438, "_DEF": 1137 },
+    "baseStats": {
+      "_HP":  10775,
+      "_ATK": 438,
+      "_DEF": 1137
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -65,7 +118,11 @@
     "element": "Aero",
     "type": "Pistols",
     "sig": 21030026,
-    "baseStats": { "_HP": 12238, "_ATK": 375, "_DEF": 1198 },
+    "baseStats": {
+      "_HP":  12238,
+      "_ATK": 375,
+      "_DEF": 1198
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -80,7 +137,11 @@
     "element": "Havoc",
     "type": "Rectifier",
     "sig": 21050056,
-    "baseStats": { "_HP": 11600, "_ATK": 400, "_DEF": 1100 },
+    "baseStats": {
+      "_HP":  11600,
+      "_ATK": 400,
+      "_DEF": 1100
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -95,7 +156,11 @@
     "element": "Spectro",
     "type": "Rectifier",
     "sig": 21050046,
-    "baseStats": { "_HP": 10825, "_ATK": 413, "_DEF": 1259 },
+    "baseStats": {
+      "_HP":  10825,
+      "_ATK": 413,
+      "_DEF": 1259
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.00,
@@ -110,7 +175,11 @@
     "element": "Fusion",
     "type": "Sword",
     "sig": 21020036,
-    "baseStats": { "_HP": 11675, "_ATK": 375, "_DEF": 1308 },
+    "baseStats": {
+      "_HP":  11675,
+      "_ATK": 375,
+      "_DEF": 1308
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -125,7 +194,11 @@
     "element": "Havoc",
     "type": "Gauntlets",
     "sig": 21040026,
-    "baseStats": { "_HP": 12250, "_ATK": 375, "_DEF": 1198 },
+    "baseStats": {
+      "_HP":  12250,
+      "_ATK": 375,
+      "_DEF": 1198
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.00,
@@ -140,7 +213,11 @@
     "element": "Glacio",
     "type": "Pistols",
     "sig": 21030016,
-    "baseStats": { "_HP": 12450, "_ATK": 463, "_DEF": 1198 },
+    "baseStats": {
+      "_HP":  12450,
+      "_ATK": 463,
+      "_DEF": 1198
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -155,7 +232,11 @@
     "element": "Havoc",
     "type": "Sword",
     "sig": 21020026,
-    "baseStats": { "_HP": 10325, "_ATK": 450, "_DEF": 1161 },
+    "baseStats": {
+      "_HP":  10325,
+      "_ATK": 450,
+      "_DEF": 1161
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -169,7 +250,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Broadblade",
-    "baseStats": { "_HP": 8500, "_ATK": 338, "_DEF": 880 },
+    "baseStats": {
+      "_HP":  8500,
+      "_ATK": 338,
+      "_DEF": 880
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -183,7 +268,11 @@
     "element": "Spectro",
     "type": "Rectifier",
     "sig": 21050036,
-    "baseStats": { "_HP": 16713, "_ATK": 288, "_DEF": 1100 },
+    "baseStats": {
+      "_HP":  16713,
+      "_ATK": 288,
+      "_DEF": 1100
+    },
     "weights": {
       "ER":  1.00,
       "HP":  0.75
@@ -194,7 +283,11 @@
     "rarity": 4,
     "element": "Glacio",
     "type": "Gauntlets",
-    "baseStats": { "_HP": 9975, "_ATK": 263, "_DEF": 1051 },
+    "baseStats": {
+      "_HP":  9975,
+      "_ATK": 263,
+      "_DEF": 1051
+    },
     "weights": {
       "ER":  1.00,
       "ATK": 0.75
@@ -206,7 +299,11 @@
     "element": "Electro",
     "type": "Gauntlets",
     "sig": 21040016,
-    "baseStats": { "_HP": 10625, "_ATK": 425, "_DEF": 1222 },
+    "baseStats": {
+      "_HP":  10625,
+      "_ATK": 425,
+      "_DEF": 1222
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -221,7 +318,11 @@
     "element": "Glacio",
     "type": "Rectifier",
     "sig": 21050026,
-    "baseStats": { "_HP": 12250, "_ATK": 375, "_DEF": 1198 },
+    "baseStats": {
+      "_HP":  12250,
+      "_ATK": 375,
+      "_DEF": 1198
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.00,
@@ -236,7 +337,11 @@
     "element": "Spectro",
     "type": "Broadblade",
     "sig": 21010026,
-    "baseStats": { "_HP": 10825, "_ATK": 413, "_DEF": 1259 },
+    "baseStats": {
+      "_HP":  10825,
+      "_ATK": 413,
+      "_DEF": 1259
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -251,7 +356,11 @@
     "element": "Fusion",
     "type": "Sword",
     "sig": 21020016,
-    "baseStats": { "_HP": 10388, "_ATK": 463, "_DEF": 1100 },
+    "baseStats": {
+      "_HP":  10388,
+      "_ATK": 463,
+      "_DEF": 1100
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -265,7 +374,11 @@
     "rarity": 4,
     "element": "Havoc",
     "type": "Sword",
-    "baseStats": { "_HP": 9438, "_ATK": 263, "_DEF": 1149 },
+    "baseStats": {
+      "_HP":  9438,
+      "_ATK": 263,
+      "_DEF": 1149
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -279,7 +392,11 @@
     "rarity": 4,
     "element": "Havoc",
     "type": "Broadblade",
-    "baseStats": { "_HP": 8950, "_ATK": 225, "_DEF": 1564 },
+    "baseStats": {
+      "_HP":  8950,
+      "_ATK": 225,
+      "_DEF": 1564
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -293,7 +410,11 @@
     "rarity": 5,
     "element": "Spectro",
     "type": "Rectifier",
-    "baseStats": { "_HP": 14238, "_ATK": 338, "_DEF": 1100 },
+    "baseStats": {
+      "_HP":  14238,
+      "_ATK": 338,
+      "_DEF": 1100
+    },
     "weights": {
       "ER":  1.00,
       "ATK": 0.75
@@ -304,7 +425,11 @@
     "rarity": 5,
     "element": "Aero",
     "type": "Gauntlets",
-    "baseStats": { "_HP": 14113, "_ATK": 338, "_DEF": 1124 },
+    "baseStats": {
+      "_HP":  14113,
+      "_ATK": 338,
+      "_DEF": 1124
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -319,7 +444,11 @@
     "element": "Aero",
     "type": "Broadblade",
     "sig": 21010016,
-    "baseStats": { "_HP": 10488, "_ATK": 438, "_DEF": 1185 },
+    "baseStats": {
+      "_HP":  10488,
+      "_ATK": 438,
+      "_DEF": 1185
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -333,7 +462,11 @@
     "rarity": 4,
     "element": "Aero",
     "type": "Pistols",
-    "baseStats": { "_HP": 9850, "_ATK": 263, "_DEF": 1075 },
+    "baseStats": {
+      "_HP":  9850,
+      "_ATK": 263,
+      "_DEF": 1075
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -347,7 +480,11 @@
     "rarity": 4,
     "element": "Aero",
     "type": "Sword",
-    "baseStats": { "_HP": 10200, "_ATK": 250, "_DEF": 1100 },
+    "baseStats": {
+      "_HP":  10200,
+      "_ATK": 250,
+      "_DEF": 1100
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -361,7 +498,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Gauntlets",
-    "baseStats": { "_HP": 8525, "_ATK": 225, "_DEF": 1637 },
+    "baseStats": {
+      "_HP":  8525,
+      "_ATK": 225,
+      "_DEF": 1637
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -376,7 +517,11 @@
     "element": "Electro",
     "type": "Rectifier",
     "sig": 21050016,
-    "baseStats": { "_HP": 11000, "_ATK": 400, "_DEF": 1283 },
+    "baseStats": {
+      "_HP":  11000,
+      "_ATK": 400,
+      "_DEF": 1283
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.00,
@@ -391,7 +536,11 @@
     "element": "Electro",
     "type": "Broadblade",
     "sig": 21010015,
-    "baseStats": { "_HP": 10500, "_ATK": 438, "_DEF": 1185 },
+    "baseStats": {
+      "_HP":  10500,
+      "_ATK": 438,
+      "_DEF": 1185
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -405,7 +554,11 @@
     "rarity": 4,
     "element": "Fusion",
     "type": "Pistols",
-    "baseStats": { "_HP": 10025, "_ATK": 250, "_DEF": 1136 },
+    "baseStats": {
+      "_HP":  10025,
+      "_ATK": 250,
+      "_DEF": 1136
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.00,
@@ -420,7 +573,11 @@
     "element": "Fusion",
     "type": "Rectifier",
     "sig": 21050015,
-    "baseStats": { "_HP": 10513, "_ATK": 425, "_DEF": 1246 },
+    "baseStats": {
+      "_HP":  10513,
+      "_ATK": 425,
+      "_DEF": 1246
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -434,7 +591,11 @@
     "rarity": 4,
     "element": "Fusion",
     "type": "Pistols",
-    "baseStats": { "_HP": 9088, "_ATK": 300, "_DEF": 953 },
+    "baseStats": {
+      "_HP":  9088,
+      "_ATK": 300,
+      "_DEF": 953
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -449,7 +610,11 @@
     "element": "Glacio",
     "type": "Gauntlets",
     "sig": 21040015,
-    "baseStats": { "_HP": 10388, "_ATK": 438, "_DEF": 1210 },
+    "baseStats": {
+      "_HP":  10388,
+      "_ATK": 438,
+      "_DEF": 1210
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -463,7 +628,11 @@
     "rarity": 4,
     "element": "Glacio",
     "type": "Rectifier",
-    "baseStats": { "_HP": 12813, "_ATK": 213, "_DEF": 1002 },
+    "baseStats": {
+      "_HP":  12813,
+      "_ATK": 213,
+      "_DEF": 1002
+    },
     "weights": {
       "ER":  1.00,
       "HP":  0.75
@@ -474,7 +643,11 @@
     "rarity": 4,
     "element": "Glacio",
     "type": "Sword",
-    "baseStats": { "_HP": 10063, "_ATK": 275, "_DEF": 941 },
+    "baseStats": {
+      "_HP":  10063,
+      "_ATK": 275,
+      "_DEF": 941
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.00,

@@ -101,6 +101,8 @@ doc_data.css('div.col-span-2 > div.grid > div.grid.grid-cols-2').each do |row|
   when "Base HP" then data[:baseStats][:_HP] = value.to_i
   when "Base ATK" then data[:baseStats][:_ATK] = value.to_i
   when "Base DEF" then data[:baseStats][:_DEF] = value.to_i
+  when "ATK"
+    data[:baseStats][:_ATK] = value.to_i if GAME_ID == 'ww'
   when "Weapon"
     data[:type] = value if IMPORT_TYPE == 'avatar' && GAME_ID != 'hsr'
   when "Type"

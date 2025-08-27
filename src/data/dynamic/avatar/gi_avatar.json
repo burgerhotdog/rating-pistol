@@ -5,7 +5,11 @@
     "element": "Electro",
     "type": "Polearm",
     "sig": 13515,
-    "baseStats": { "_HP": 12613, "_ATK": 330, "_DEF": 828 },
+    "baseStats": {
+      "_HP":  12613,
+      "_ATK": 330,
+      "_DEF": 828
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -19,7 +23,11 @@
     "rarity": 4,
     "element": "Hydro",
     "type": "Sword",
-    "baseStats": { "_HP": 12506, "_ATK": 189, "_DEF": 560 },
+    "baseStats": {
+      "_HP":  12506,
+      "_ATK": 189,
+      "_DEF": 560
+    },
     "weights": {
       "ER":  1.00,
       "HP":  0.75
@@ -31,7 +39,11 @@
     "element": "Cryo",
     "type": "Sword",
     "sig": 11517,
-    "baseStats": { "_HP": 12417, "_ATK": 359, "_DEF": 806 },
+    "baseStats": {
+      "_HP":  12417,
+      "_ATK": 359,
+      "_DEF": 806
+    },
     "weights": {
       "CR":  1.25,
       "CD":  1.25,
@@ -43,7 +55,11 @@
     "rarity": 4,
     "element": "Anemo",
     "type": "Catalyst",
-    "baseStats": { "_HP": 10081, "_ATK": 178, "_DEF": 605 },
+    "baseStats": {
+      "_HP":  10081,
+      "_ATK": 178,
+      "_DEF": 605
+    },
     "weights": {
       "ER":  0.75,
       "EM":  0.75
@@ -55,7 +71,11 @@
     "element": "Cryo",
     "type": "Polearm",
     "sig": 13514,
-    "baseStats": { "_HP": 13348, "_ATK": 347, "_DEF": 732 },
+    "baseStats": {
+      "_HP":  13348,
+      "_ATK": 347,
+      "_DEF": 732
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -70,7 +90,11 @@
     "element": "Electro",
     "type": "Catalyst",
     "sig": 14519,
-    "baseStats": { "_HP": 12699, "_ATK": 356, "_DEF": 782 },
+    "baseStats": {
+      "_HP":  12699,
+      "_ATK": 356,
+      "_DEF": 782
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -84,7 +108,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Polearm",
-    "baseStats": { "_HP": 10657, "_ATK": 257, "_DEF": 638 },
+    "baseStats": {
+      "_HP":  10657,
+      "_ATK": 257,
+      "_DEF": 638
+    },
     "weights": {
       "ER":  0.75,
       "ATK": 1.00
@@ -96,7 +124,11 @@
     "element": "Anemo",
     "type": "Catalyst",
     "sig": 14518,
-    "baseStats": { "_HP": 12736, "_ATK": 215, "_DEF": 757 },
+    "baseStats": {
+      "_HP":  12736,
+      "_ATK": 215,
+      "_DEF": 757
+    },
     "weights": {
       "ER":  0.50,
       "EM":  1.00
@@ -107,7 +139,11 @@
     "rarity": 4,
     "element": "Anemo",
     "type": "Catalyst",
-    "baseStats": { "_HP": 9243, "_ATK": 250, "_DEF": 580 },
+    "baseStats": {
+      "_HP":  9243,
+      "_ATK": 250,
+      "_DEF": 580
+    },
     "weights": {
       "ER":  0.75,
       "ATK": 0.75,
@@ -120,7 +156,11 @@
     "element": "Cryo",
     "type": "Catalyst",
     "sig": 14517,
-    "baseStats": { "_HP": 11633, "_ATK": 126, "_DEF": 763 },
+    "baseStats": {
+      "_HP":  11633,
+      "_ATK": 126,
+      "_DEF": 763
+    },
     "weights": {
       "ER":  0.75,
       "EM":  0.75
@@ -132,7 +172,11 @@
     "element": "Pyro",
     "type": "Claymore",
     "sig": 12514,
-    "baseStats": { "_HP": 12552, "_ATK": 358, "_DEF": 791 },
+    "baseStats": {
+      "_HP":  12552,
+      "_ATK": 358,
+      "_DEF": 791
+    },
     "weights": {
       "CR":  1.25,
       "CD":  1.25,
@@ -145,7 +189,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Bow",
-    "baseStats": { "_HP": 9243, "_ATK": 244, "_DEF": 586 },
+    "baseStats": {
+      "_HP":  9243,
+      "_ATK": 244,
+      "_DEF": 586
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -160,7 +208,11 @@
     "element": "Anemo",
     "type": "Bow",
     "sig": 15514,
-    "baseStats": { "_HP": 9796, "_ATK": 346, "_DEF": 614 },
+    "baseStats": {
+      "_HP":  9796,
+      "_ATK": 346,
+      "_DEF": 614
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -174,7 +226,11 @@
     "element": "Geo",
     "type": "Sword",
     "sig": 11516,
-    "baseStats": { "_HP": 12405, "_ATK": 275, "_DEF": 929 },
+    "baseStats": {
+      "_HP":  12405,
+      "_ATK": 275,
+      "_DEF": 929
+    },
     "weights": {
       "ER":  0.50,
       "DEF": 1.00
@@ -186,7 +242,11 @@
     "element": "Hydro",
     "type": "Catalyst",
     "sig": 14516,
-    "baseStats": { "_HP": 15184, "_ATK": 181, "_DEF": 570 },
+    "baseStats": {
+      "_HP":  15184,
+      "_ATK": 181,
+      "_DEF": 570
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -201,7 +261,11 @@
     "element": "Dendro",
     "type": "Claymore",
     "sig": 12513,
-    "baseStats": { "_HP": 12858, "_ATK": 332, "_DEF": 801 },
+    "baseStats": {
+      "_HP":  12858,
+      "_ATK": 332,
+      "_DEF": 801
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -215,7 +279,11 @@
     "rarity": 4,
     "element": "Geo",
     "type": "Polearm",
-    "baseStats": { "_HP": 11799, "_ATK": 216, "_DEF": 792 },
+    "baseStats": {
+      "_HP":  11799,
+      "_ATK": 216,
+      "_DEF": 792
+    },
     "weights": {
       "ER":  1.00
     }
@@ -226,7 +294,11 @@
     "element": "Dendro",
     "type": "Polearm",
     "sig": 13513,
-    "baseStats": { "_HP": 13568, "_ATK": 334, "_DEF": 730 },
+    "baseStats": {
+      "_HP":  13568,
+      "_ATK": 334,
+      "_DEF": 730
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -241,7 +313,11 @@
     "element": "Electro",
     "type": "Sword",
     "sig": 11515,
-    "baseStats": { "_HP": 12956, "_ATK": 337, "_DEF": 783 },
+    "baseStats": {
+      "_HP":  12956,
+      "_ATK": 337,
+      "_DEF": 783
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -255,7 +331,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Bow",
-    "baseStats": { "_HP": 9787, "_ATK": 227, "_DEF": 559 },
+    "baseStats": {
+      "_HP":  9787,
+      "_ATK": 227,
+      "_DEF": 559
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -270,7 +350,11 @@
     "element": "Hydro",
     "type": "Bow",
     "sig": 15513,
-    "baseStats": { "_HP": 13348, "_ATK": 192, "_DEF": 499 },
+    "baseStats": {
+      "_HP":  13348,
+      "_ATK": 192,
+      "_DEF": 499
+    },
     "weights": {
       "ER":  0.25,
       "HP":  1.00
@@ -282,7 +366,11 @@
     "element": "Pyro",
     "type": "Polearm",
     "sig": 13512,
-    "baseStats": { "_HP": 13103, "_ATK": 342, "_DEF": 764 },
+    "baseStats": {
+      "_HP":  13103,
+      "_ATK": 342,
+      "_DEF": 764
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -297,7 +385,11 @@
     "element": "Geo",
     "type": "Sword",
     "sig": 11514,
-    "baseStats": { "_HP": 11437, "_ATK": 322, "_DEF": 953 },
+    "baseStats": {
+      "_HP":  11437,
+      "_ATK": 322,
+      "_DEF": 953
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -312,7 +404,11 @@
     "element": "Anemo",
     "type": "Catalyst",
     "sig": 14515,
-    "baseStats": { "_HP": 10409, "_ATK": 334, "_DEF": 572 },
+    "baseStats": {
+      "_HP":  10409,
+      "_ATK": 334,
+      "_DEF": 572
+    },
     "weights": {
       "ER":  1.00,
       "ATK": 1.00
@@ -323,7 +419,11 @@
     "rarity": 4,
     "element": "Pyro",
     "type": "Claymore",
-    "baseStats": { "_HP": 11418, "_ATK": 301, "_DEF": 702 },
+    "baseStats": {
+      "_HP":  11418,
+      "_ATK": 301,
+      "_DEF": 702
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.25,
@@ -338,7 +438,11 @@
     "element": "Geo",
     "type": "Claymore",
     "sig": 12512,
-    "baseStats": { "_HP": 12650, "_ATK": 351, "_DEF": 793 },
+    "baseStats": {
+      "_HP":  12650,
+      "_ATK": 351,
+      "_DEF": 793
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -351,7 +455,11 @@
     "rarity": 4,
     "element": "Pyro",
     "type": "Polearm",
-    "baseStats": { "_HP": 11962, "_ATK": 193, "_DEF": 604 },
+    "baseStats": {
+      "_HP":  11962,
+      "_ATK": 193,
+      "_DEF": 604
+    },
     "weights": {
       "ER":  0.50,
       "HP":  1.00
@@ -363,7 +471,11 @@
     "element": "Hydro",
     "type": "Sword",
     "sig": 11513,
-    "baseStats": { "_HP": 15307, "_ATK": 243, "_DEF": 695 },
+    "baseStats": {
+      "_HP":  15307,
+      "_ATK": 243,
+      "_DEF": 695
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -377,7 +489,11 @@
     "rarity": 4,
     "element": "Cryo",
     "type": "Catalyst",
-    "baseStats": { "_HP": 10766, "_ATK": 173, "_DEF": 546 },
+    "baseStats": {
+      "_HP":  10766,
+      "_ATK": 173,
+      "_DEF": 546
+    },
     "weights": {
       "ER":  1.00,
       "ATK": 0.75
@@ -389,7 +505,11 @@
     "element": "Hydro",
     "type": "Catalyst",
     "sig": 14514,
-    "baseStats": { "_HP": 14695, "_ATK": 208, "_DEF": 576 },
+    "baseStats": {
+      "_HP":  14695,
+      "_ATK": 208,
+      "_DEF": 576
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -404,7 +524,11 @@
     "element": "Cryo",
     "type": "Catalyst",
     "sig": 14513,
-    "baseStats": { "_HP": 13592, "_ATK": 310, "_DEF": 763 },
+    "baseStats": {
+      "_HP":  13592,
+      "_ATK": 310,
+      "_DEF": 763
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -418,7 +542,11 @@
     "rarity": 4,
     "element": "Cryo",
     "type": "Claymore",
-    "baseStats": { "_HP": 12071, "_ATK": 254, "_DEF": 708 },
+    "baseStats": {
+      "_HP":  12071,
+      "_ATK": 254,
+      "_DEF": 708
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -432,7 +560,11 @@
     "element": "Pyro",
     "type": "Bow",
     "sig": 15512,
-    "baseStats": { "_HP": 11021, "_ATK": 231, "_DEF": 537 },
+    "baseStats": {
+      "_HP":  11021,
+      "_ATK": 231,
+      "_DEF": 537
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -446,7 +578,11 @@
     "rarity": 4,
     "element": "Anemo",
     "type": "Sword",
-    "baseStats": { "_HP": 12397, "_ATK": 231, "_DEF": 711 },
+    "baseStats": {
+      "_HP":  12397,
+      "_ATK": 231,
+      "_DEF": 711
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -459,7 +595,11 @@
     "rarity": 4,
     "element": "Dendro",
     "type": "Sword",
-    "baseStats": { "_HP": 12179, "_ATK": 223, "_DEF": 546 },
+    "baseStats": {
+      "_HP":  12179,
+      "_ATK": 223,
+      "_DEF": 546
+    },
     "weights": {
       "ER":  0.50,
       "HP":  0.75
@@ -471,7 +611,11 @@
     "element": "Dendro",
     "type": "Catalyst",
     "sig": 14505,
-    "baseStats": { "_HP": 13348, "_ATK": 192, "_DEF": 499 },
+    "baseStats": {
+      "_HP":  13348,
+      "_ATK": 192,
+      "_DEF": 499
+    },
     "weights": {
       "ER":  1.00,
       "HP":  1.00
@@ -482,7 +626,11 @@
     "rarity": 4,
     "element": "Dendro",
     "type": "Claymore",
-    "baseStats": { "_HP": 11962, "_ATK": 233, "_DEF": 750 },
+    "baseStats": {
+      "_HP":  11962,
+      "_ATK": 233,
+      "_DEF": 750
+    },
     "weights": {
       "ER":  0.75,
       "EM":  0.75
@@ -493,7 +641,11 @@
     "rarity": 4,
     "element": "Cryo",
     "type": "Polearm",
-    "baseStats": { "_HP": 12506, "_ATK": 223, "_DEF": 713 },
+    "baseStats": {
+      "_HP":  12506,
+      "_ATK": 223,
+      "_DEF": 713
+    },
     "weights": {
       "ER":  1.00,
       "HP":  0.75
@@ -505,7 +657,11 @@
     "element": "Pyro",
     "type": "Claymore",
     "sig": 12511,
-    "baseStats": { "_HP": 15674, "_ATK": 265, "_DEF": 627 },
+    "baseStats": {
+      "_HP":  15674,
+      "_ATK": 265,
+      "_DEF": 627
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.25,
@@ -521,7 +677,11 @@
     "element": "Dendro",
     "type": "Sword",
     "sig": 11512,
-    "baseStats": { "_HP": 13348, "_ATK": 313, "_DEF": 781 },
+    "baseStats": {
+      "_HP":  13348,
+      "_ATK": 313,
+      "_DEF": 781
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -535,7 +695,11 @@
     "rarity": 4,
     "element": "Dendro",
     "type": "Polearm",
-    "baseStats": { "_HP": 12288, "_ATK": 212, "_DEF": 750 },
+    "baseStats": {
+      "_HP":  12288,
+      "_ATK": 212,
+      "_DEF": 750
+    },
     "weights": {
       "ER":  0.50,
       "HP":  0.75
@@ -546,7 +710,11 @@
     "rarity": 4,
     "element": "Anemo",
     "type": "Bow",
-    "baseStats": { "_HP": 9569, "_ATK": 196, "_DEF": 627 },
+    "baseStats": {
+      "_HP":  9569,
+      "_ATK": 196,
+      "_DEF": 627
+    },
     "weights": {
       "ER":  1.00
     }
@@ -557,7 +725,11 @@
     "element": "Anemo",
     "type": "Catalyst",
     "sig": 14512,
-    "baseStats": { "_HP": 10164, "_ATK": 327, "_DEF": 607 },
+    "baseStats": {
+      "_HP":  10164,
+      "_ATK": 327,
+      "_DEF": 607
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -570,7 +742,11 @@
     "rarity": 4,
     "element": "Cryo",
     "type": "Sword",
-    "baseStats": { "_HP": 11092, "_ATK": 216, "_DEF": 655 },
+    "baseStats": {
+      "_HP":  11092,
+      "_ATK": 216,
+      "_DEF": 655
+    },
     "weights": {
       "ER":  0.50,
       "HP":  1.00
@@ -582,7 +758,11 @@
     "element": "Dendro",
     "type": "Catalyst",
     "sig": 14511,
-    "baseStats": { "_HP": 10360, "_ATK": 298, "_DEF": 630 },
+    "baseStats": {
+      "_HP":  10360,
+      "_ATK": 298,
+      "_DEF": 630
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -596,7 +776,11 @@
     "rarity": 4,
     "element": "Hydro",
     "type": "Polearm",
-    "baseStats": { "_HP": 10874, "_ATK": 212, "_DEF": 682 },
+    "baseStats": {
+      "_HP":  10874,
+      "_ATK": 212,
+      "_DEF": 682
+    },
     "weights": {
       "ER":  1.00,
       "HP":  1.00
@@ -608,7 +792,11 @@
     "element": "Electro",
     "type": "Polearm",
     "sig": 13511,
-    "baseStats": { "_HP": 12490, "_ATK": 318, "_DEF": 859 },
+    "baseStats": {
+      "_HP":  12490,
+      "_ATK": 318,
+      "_DEF": 859
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -623,7 +811,11 @@
     "element": "Hydro",
     "type": "Sword",
     "sig": 11511,
-    "baseStats": { "_HP": 15184, "_ATK": 229, "_DEF": 728 },
+    "baseStats": {
+      "_HP":  15184,
+      "_ATK": 229,
+      "_DEF": 728
+    },
     "weights": {
       "ER":  0.50,
       "HP":  1.00,
@@ -636,7 +828,11 @@
     "element": "Dendro",
     "type": "Bow",
     "sig": 15511,
-    "baseStats": { "_HP": 10849, "_ATK": 267, "_DEF": 630 },
+    "baseStats": {
+      "_HP":  10849,
+      "_ATK": 267,
+      "_DEF": 630
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -650,7 +846,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Claymore",
-    "baseStats": { "_HP": 12397, "_ATK": 223, "_DEF": 723 },
+    "baseStats": {
+      "_HP":  12397,
+      "_ATK": 223,
+      "_DEF": 723
+    },
     "weights": {
       "ER":  1.00,
       "HP":  0.75
@@ -661,7 +861,11 @@
     "rarity": 4,
     "element": "Dendro",
     "type": "Bow",
-    "baseStats": { "_HP": 9787, "_ATK": 199, "_DEF": 600 },
+    "baseStats": {
+      "_HP":  9787,
+      "_ATK": 199,
+      "_DEF": 600
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -675,7 +879,11 @@
     "rarity": 4,
     "element": "Anemo",
     "type": "Catalyst",
-    "baseStats": { "_HP": 10657, "_ATK": 225, "_DEF": 683 },
+    "baseStats": {
+      "_HP":  10657,
+      "_ATK": 225,
+      "_DEF": 683
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -688,7 +896,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Sword",
-    "baseStats": { "_HP": 12288, "_ATK": 212, "_DEF": 750 },
+    "baseStats": {
+      "_HP":  12288,
+      "_ATK": 212,
+      "_DEF": 750
+    },
     "weights": {
       "ER":  0.25,
       "EM":  0.75,
@@ -701,7 +913,11 @@
     "element": "Hydro",
     "type": "Bow",
     "sig": 15508,
-    "baseStats": { "_HP": 14450, "_ATK": 243, "_DEF": 547 },
+    "baseStats": {
+      "_HP":  14450,
+      "_ATK": 243,
+      "_DEF": 547
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -716,7 +932,11 @@
     "element": "Hydro",
     "type": "Sword",
     "sig": 11510,
-    "baseStats": { "_HP": 13715, "_ATK": 298, "_DEF": 768 },
+    "baseStats": {
+      "_HP":  13715,
+      "_ATK": 298,
+      "_DEF": 768
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -732,7 +952,11 @@
     "element": "Electro",
     "type": "Catalyst",
     "sig": 14509,
-    "baseStats": { "_HP": 10372, "_ATK": 339, "_DEF": 568 },
+    "baseStats": {
+      "_HP":  10372,
+      "_ATK": 339,
+      "_DEF": 568
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -746,7 +970,11 @@
     "rarity": 4,
     "element": "Geo",
     "type": "Polearm",
-    "baseStats": { "_HP": 10657, "_ATK": 191, "_DEF": 734 },
+    "baseStats": {
+      "_HP":  10657,
+      "_ATK": 191,
+      "_DEF": 734
+    },
     "weights": {
       "ER":  1.00,
       "DEF": 0.75
@@ -758,7 +986,11 @@
     "element": "Cryo",
     "type": "Polearm",
     "sig": 13507,
-    "baseStats": { "_HP": 12992, "_ATK": 303, "_DEF": 830 },
+    "baseStats": {
+      "_HP":  12992,
+      "_ATK": 303,
+      "_DEF": 830
+    },
     "weights": {
       "ER":  0.75,
       "ATK": 0.75
@@ -770,7 +1002,11 @@
     "element": "Geo",
     "type": "Claymore",
     "sig": 12510,
-    "baseStats": { "_HP": 12858, "_ATK": 227, "_DEF": 959 },
+    "baseStats": {
+      "_HP":  12858,
+      "_ATK": 227,
+      "_DEF": 959
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -784,7 +1020,11 @@
     "rarity": 4,
     "element": "Geo",
     "type": "Bow",
-    "baseStats": { "_HP": 9569, "_ATK": 182, "_DEF": 648 },
+    "baseStats": {
+      "_HP":  9569,
+      "_ATK": 182,
+      "_DEF": 648
+    },
     "weights": {
       "ER":  1.00,
       "DEF": 0.75
@@ -795,7 +1035,11 @@
     "rarity": 5,
     "element": "Cryo",
     "type": "Bow",
-    "baseStats": { "_HP": 10898, "_ATK": 233, "_DEF": 676 },
+    "baseStats": {
+      "_HP":  10898,
+      "_ATK": 233,
+      "_DEF": 676
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -809,7 +1053,11 @@
     "rarity": 4,
     "element": "Pyro",
     "type": "Polearm",
-    "baseStats": { "_HP": 10331, "_ATK": 201, "_DEF": 750 },
+    "baseStats": {
+      "_HP":  10331,
+      "_ATK": 201,
+      "_DEF": 750
+    },
     "weights": {
       "ER":  1.00,
       "HP":  0.75
@@ -820,7 +1068,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Bow",
-    "baseStats": { "_HP": 9569, "_ATK": 195, "_DEF": 627 },
+    "baseStats": {
+      "_HP":  9569,
+      "_ATK": 195,
+      "_DEF": 627
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -835,7 +1087,11 @@
     "element": "Hydro",
     "type": "Catalyst",
     "sig": 14506,
-    "baseStats": { "_HP": 13470, "_ATK": 234, "_DEF": 657 },
+    "baseStats": {
+      "_HP":  13470,
+      "_ATK": 234,
+      "_DEF": 657
+    },
     "weights": {
       "ER":  0.75,
       "HP":  0.75
@@ -847,7 +1103,11 @@
     "element": "Electro",
     "type": "Polearm",
     "sig": 13509,
-    "baseStats": { "_HP": 12907, "_ATK": 337, "_DEF": 789 },
+    "baseStats": {
+      "_HP":  12907,
+      "_ATK": 337,
+      "_DEF": 789
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.25,
@@ -861,7 +1121,11 @@
     "rarity": 4,
     "element": "Anemo",
     "type": "Claymore",
-    "baseStats": { "_HP": 11853, "_ATK": 244, "_DEF": 744 },
+    "baseStats": {
+      "_HP":  11853,
+      "_ATK": 244,
+      "_DEF": 744
+    },
     "weights": {
       "ER":  0.75,
       "ATK": 0.75,
@@ -874,7 +1138,11 @@
     "element": "Pyro",
     "type": "Bow",
     "sig": 15509,
-    "baseStats": { "_HP": 10164, "_ATK": 322, "_DEF": 614 },
+    "baseStats": {
+      "_HP":  10164,
+      "_ATK": 322,
+      "_DEF": 614
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -889,7 +1157,11 @@
     "element": "Cryo",
     "type": "Sword",
     "sig": 11509,
-    "baseStats": { "_HP": 12858, "_ATK": 342, "_DEF": 783 },
+    "baseStats": {
+      "_HP":  12858,
+      "_ATK": 342,
+      "_DEF": 783
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -903,7 +1175,11 @@
     "element": "Anemo",
     "type": "Sword",
     "sig": 11503,
-    "baseStats": { "_HP": 13348, "_ATK": 296, "_DEF": 806 },
+    "baseStats": {
+      "_HP":  13348,
+      "_ATK": 296,
+      "_DEF": 806
+    },
     "weights": {
       "ER":  0.75,
       "EM":  1.00
@@ -915,7 +1191,11 @@
     "element": "Cryo",
     "type": "Claymore",
     "sig": 12503,
-    "baseStats": { "_HP": 13225, "_ATK": 342, "_DEF": 750 },
+    "baseStats": {
+      "_HP":  13225,
+      "_ATK": 342,
+      "_DEF": 750
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -928,7 +1208,11 @@
     "rarity": 4,
     "element": "Pyro",
     "type": "Catalyst",
-    "baseStats": { "_HP": 9352, "_ATK": 240, "_DEF": 586 },
+    "baseStats": {
+      "_HP":  9352,
+      "_ATK": 240,
+      "_DEF": 586
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -942,7 +1226,11 @@
     "rarity": 4,
     "element": "Cryo",
     "type": "Polearm",
-    "baseStats": { "_HP": 12288, "_ATK": 240, "_DEF": 709 },
+    "baseStats": {
+      "_HP":  12288,
+      "_ATK": 240,
+      "_DEF": 709
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -957,7 +1245,11 @@
     "element": "Pyro",
     "type": "Polearm",
     "sig": 13501,
-    "baseStats": { "_HP": 15522, "_ATK": 106, "_DEF": 876 },
+    "baseStats": {
+      "_HP":  15522,
+      "_ATK": 106,
+      "_DEF": 876
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -973,7 +1265,11 @@
     "element": "Anemo",
     "type": "Polearm",
     "sig": 13505,
-    "baseStats": { "_HP": 12735, "_ATK": 349, "_DEF": 799 },
+    "baseStats": {
+      "_HP":  12735,
+      "_ATK": 349,
+      "_DEF": 799
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -986,7 +1282,11 @@
     "rarity": 5,
     "element": "Geo",
     "type": "Sword",
-    "baseStats": { "_HP": 13225, "_ATK": 251, "_DEF": 876 },
+    "baseStats": {
+      "_HP":  13225,
+      "_ATK": 251,
+      "_DEF": 876
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.00,
@@ -1000,7 +1300,11 @@
     "element": "Cryo",
     "type": "Bow",
     "sig": 15502,
-    "baseStats": { "_HP": 9796, "_ATK": 334, "_DEF": 630 },
+    "baseStats": {
+      "_HP":  9796,
+      "_ATK": 334,
+      "_DEF": 630
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1014,7 +1318,11 @@
     "rarity": 4,
     "element": "Pyro",
     "type": "Claymore",
-    "baseStats": { "_HP": 11201, "_ATK": 248, "_DEF": 798 },
+    "baseStats": {
+      "_HP":  11201,
+      "_ATK": 248,
+      "_DEF": 798
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1028,7 +1336,11 @@
     "rarity": 4,
     "element": "Cryo",
     "type": "Bow",
-    "baseStats": { "_HP": 9569, "_ATK": 212, "_DEF": 600 },
+    "baseStats": {
+      "_HP":  9569,
+      "_ATK": 212,
+      "_DEF": 600
+    },
     "weights": {
       "ER":  0.75,
       "HP":  0.75
@@ -1040,7 +1352,11 @@
     "element": "Hydro",
     "type": "Bow",
     "sig": 15507,
-    "baseStats": { "_HP": 13103, "_ATK": 301, "_DEF": 814 },
+    "baseStats": {
+      "_HP":  13103,
+      "_ATK": 301,
+      "_DEF": 814
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1055,7 +1371,11 @@
     "element": "Geo",
     "type": "Polearm",
     "sig": 13504,
-    "baseStats": { "_HP": 14695, "_ATK": 251, "_DEF": 737 },
+    "baseStats": {
+      "_HP":  14695,
+      "_ATK": 251,
+      "_DEF": 737
+    },
     "weights": {
       "ER":  0.25,
       "HP":  0.75
@@ -1066,7 +1386,11 @@
     "rarity": 4,
     "element": "Anemo",
     "type": "Catalyst",
-    "baseStats": { "_HP": 9243, "_ATK": 169, "_DEF": 702 },
+    "baseStats": {
+      "_HP":  9243,
+      "_ATK": 169,
+      "_DEF": 702
+    },
     "weights": {
       "ER":  0.75,
       "EM":  1.00
@@ -1077,7 +1401,11 @@
     "rarity": 5,
     "element": "Electro",
     "type": "Sword",
-    "baseStats": { "_HP": 13103, "_ATK": 322, "_DEF": 799 },
+    "baseStats": {
+      "_HP":  13103,
+      "_ATK": 322,
+      "_DEF": 799
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1091,7 +1419,11 @@
     "rarity": 5,
     "element": "Hydro",
     "type": "Catalyst",
-    "baseStats": { "_HP": 10409, "_ATK": 287, "_DEF": 653 },
+    "baseStats": {
+      "_HP":  10409,
+      "_ATK": 287,
+      "_DEF": 653
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -1105,7 +1437,11 @@
     "rarity": 4,
     "element": "Cryo",
     "type": "Claymore",
-    "baseStats": { "_HP": 10983, "_ATK": 223, "_DEF": 648 },
+    "baseStats": {
+      "_HP":  10983,
+      "_ATK": 223,
+      "_DEF": 648
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -1119,7 +1455,11 @@
     "rarity": 5,
     "element": "Cryo",
     "type": "Sword",
-    "baseStats": { "_HP": 12368, "_ATK": 287, "_DEF": 922 },
+    "baseStats": {
+      "_HP":  12368,
+      "_ATK": 287,
+      "_DEF": 922
+    },
     "weights": {
       "ER":  1.00,
       "ATK": 0.75
@@ -1130,7 +1470,11 @@
     "rarity": 4,
     "element": "Geo",
     "type": "Claymore",
-    "baseStats": { "_HP": 12071, "_ATK": 191, "_DEF": 798 },
+    "baseStats": {
+      "_HP":  12071,
+      "_ATK": 191,
+      "_DEF": 798
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.00,
@@ -1144,7 +1488,11 @@
     "rarity": 4,
     "element": "Pyro",
     "type": "Sword",
-    "baseStats": { "_HP": 12397, "_ATK": 191, "_DEF": 771 },
+    "baseStats": {
+      "_HP":  12397,
+      "_ATK": 191,
+      "_DEF": 771
+    },
     "weights": {
       "ER":  1.00,
       "HP":  0.75
@@ -1155,7 +1503,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Bow",
-    "baseStats": { "_HP": 9189, "_ATK": 244, "_DEF": 593 },
+    "baseStats": {
+      "_HP":  9189,
+      "_ATK": 244,
+      "_DEF": 593
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1169,7 +1521,11 @@
     "rarity": 5,
     "element": "Pyro",
     "type": "Catalyst",
-    "baseStats": { "_HP": 10286, "_ATK": 310, "_DEF": 614 },
+    "baseStats": {
+      "_HP":  10286,
+      "_ATK": 310,
+      "_DEF": 614
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1183,7 +1539,11 @@
     "rarity": 4,
     "element": "Geo",
     "type": "Catalyst",
-    "baseStats": { "_HP": 9787, "_ATK": 212, "_DEF": 573 },
+    "baseStats": {
+      "_HP":  9787,
+      "_ATK": 212,
+      "_DEF": 573
+    },
     "weights": {
       "ER":  0.25,
       "CR":  1.25,
@@ -1196,7 +1556,11 @@
     "rarity": 4,
     "element": "Hydro",
     "type": "Sword",
-    "baseStats": { "_HP": 10222, "_ATK": 201, "_DEF": 757 },
+    "baseStats": {
+      "_HP":  10222,
+      "_ATK": 201,
+      "_DEF": 757
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -1210,7 +1574,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Claymore",
-    "baseStats": { "_HP": 13049, "_ATK": 225, "_DEF": 648 },
+    "baseStats": {
+      "_HP":  13049,
+      "_ATK": 225,
+      "_DEF": 648
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -1224,7 +1592,11 @@
     "rarity": 4,
     "element": "Pyro",
     "type": "Polearm",
-    "baseStats": { "_HP": 10874, "_ATK": 225, "_DEF": 668 },
+    "baseStats": {
+      "_HP":  10874,
+      "_ATK": 225,
+      "_DEF": 668
+    },
     "weights": {
       "ER":  1.00,
       "CR":  1.00,
@@ -1238,7 +1610,11 @@
     "rarity": 5,
     "element": "Anemo",
     "type": "Bow",
-    "baseStats": { "_HP": 10531, "_ATK": 263, "_DEF": 668 },
+    "baseStats": {
+      "_HP":  10531,
+      "_ATK": 263,
+      "_DEF": 668
+    },
     "weights": {
       "ER":  0.75,
       "EM":  0.75
@@ -1249,7 +1625,11 @@
     "rarity": 4,
     "element": "Pyro",
     "type": "Bow",
-    "baseStats": { "_HP": 9461, "_ATK": 223, "_DEF": 600 },
+    "baseStats": {
+      "_HP":  9461,
+      "_ATK": 223,
+      "_DEF": 600
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1263,7 +1643,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Claymore",
-    "baseStats": { "_HP": 11962, "_ATK": 233, "_DEF": 750 },
+    "baseStats": {
+      "_HP":  11962,
+      "_ATK": 233,
+      "_DEF": 750
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1277,7 +1661,11 @@
     "element": "Pyro",
     "type": "Claymore",
     "sig": 12502,
-    "baseStats": { "_HP": 12980, "_ATK": 334, "_DEF": 783 },
+    "baseStats": {
+      "_HP":  12980,
+      "_ATK": 334,
+      "_DEF": 783
+    },
     "weights": {
       "ER":  0.50,
       "CR":  1.25,
@@ -1291,7 +1679,11 @@
     "rarity": 4,
     "element": "Cryo",
     "type": "Sword",
-    "baseStats": { "_HP": 11636, "_ATK": 223, "_DEF": 791 },
+    "baseStats": {
+      "_HP":  11636,
+      "_ATK": 223,
+      "_DEF": 791
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -1305,7 +1697,11 @@
     "rarity": 4,
     "element": "Hydro",
     "type": "Catalyst",
-    "baseStats": { "_HP": 9787, "_ATK": 159, "_DEF": 668 },
+    "baseStats": {
+      "_HP":  9787,
+      "_ATK": 159,
+      "_DEF": 668
+    },
     "weights": {
       "ER":  1.00,
       "HP":  0.75
@@ -1316,7 +1712,11 @@
     "rarity": 4,
     "element": "Electro",
     "type": "Catalyst",
-    "baseStats": { "_HP": 9569, "_ATK": 231, "_DEF": 573 },
+    "baseStats": {
+      "_HP":  9569,
+      "_ATK": 231,
+      "_DEF": 573
+    },
     "weights": {
       "ER":  0.75,
       "CR":  1.00,
@@ -1330,7 +1730,11 @@
     "rarity": 5,
     "element": "Anemo",
     "type": "Sword",
-    "baseStats": { "_HP": 14695, "_ATK": 239, "_DEF": 768 },
+    "baseStats": {
+      "_HP":  14695,
+      "_ATK": 239,
+      "_DEF": 768
+    },
     "weights": {
       "ER":  0.75,
       "ATK": 0.75
