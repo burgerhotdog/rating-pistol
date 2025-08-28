@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { collection, getDocs, doc, setDoc, writeBatch, deleteDoc } from 'firebase/firestore';
 import { db } from '@config/firebase';
-import { Container, Stack, Button, Typography, Box } from '@mui/material';
+import { Container, Stack, Box, Button, Typography } from '@mui/material';
 import { Add, KeyboardArrowRight } from '@mui/icons-material';
+import { Modal, Table } from '@components';
 import { VERSION_DATA, INFO_DATA } from '@data';
 import { calculateRating } from '@utils';
-import Back from '@components/Back';
-import Modal from '@components/Modal';
-import Table from '@components/Table';
 
 const Game = ({ gameId, userId }) => {
   const [avatarCache, setAvatarCache] = useState({});
@@ -101,18 +99,17 @@ const Game = ({ gameId, userId }) => {
   const handleLoad = () => setModalPipe({ type: 'load', id: null, data: null });
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Back />
-      <Box textAlign="center" mb={3}>
-        <Typography variant="h3" fontWeight="bold">
-          {INFO_DATA[gameId].TITLE}
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary">
-          Updated for Version {VERSION_DATA[gameId]}
-        </Typography>
-      </Box>
+    <Container maxWidth="sm">
+      <Stack maxHeight="100vh" py={4} gap={3}>
+        <Box textAlign="center">
+          <Typography variant="h3" fontWeight="bold">
+            {INFO_DATA[gameId].TITLE}
+          </Typography>
+          <Typography variant="subtitle1" color="text.secondary">
+            Updated for Version {VERSION_DATA[gameId]}
+          </Typography>
+        </Box>
 
-      <Stack spacing={3}>
         <Table
           gameId={gameId}
           userId={userId}
@@ -121,7 +118,8 @@ const Game = ({ gameId, userId }) => {
           isLoading={isLoading}
           setModalPipe={setModalPipe}
         />
-        <Stack direction="row" justifyContent="center" spacing={2}>
+
+        <Box display="flex" justifyContent="center" gap={2}>
           <Button
             onClick={handleAdd}
             variant="contained"
@@ -137,20 +135,20 @@ const Game = ({ gameId, userId }) => {
           >
             Load Data
           </Button>
-        </Stack>
-      </Stack>
+        </Box>
 
-      <Modal
-        gameId={gameId}
-        userId={userId}
-        modalPipe={modalPipe}
-        setModalPipe={setModalPipe}
-        avatarCache={avatarCache}
-        setAvatarCache={setAvatarCache}
-        saveAvatar={saveAvatar}
-        saveAvatarBatch={saveAvatarBatch}
-        deleteAvatar={deleteAvatar}
-      />
+        <Modal
+          gameId={gameId}
+          userId={userId}
+          modalPipe={modalPipe}
+          setModalPipe={setModalPipe}
+          avatarCache={avatarCache}
+          setAvatarCache={setAvatarCache}
+          saveAvatar={saveAvatar}
+          saveAvatarBatch={saveAvatarBatch}
+          deleteAvatar={deleteAvatar}
+        />
+      </Stack>
     </Container>
   );
 };

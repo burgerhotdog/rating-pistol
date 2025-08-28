@@ -1,4 +1,4 @@
-import { Avatar, Tooltip, Stack, Typography, TableCell, ButtonBase } from '@mui/material';
+import { TableCell, Tooltip, ButtonBase, Box, Avatar, Typography } from '@mui/material';
 import { AVATAR_ASSETS } from '@assets';
 import { AVATAR_DATA } from '@data';
 
@@ -9,12 +9,12 @@ const AvatarCell = ({ gameId, id, data, setModalPipe }) => {
     <TableCell>
       <Tooltip title="Edit Build">
         <ButtonBase onClick={openModal}>
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Box display="flex" alignItems="center" gap={1}>
             <Avatar src={AVATAR_ASSETS[gameId][id]} />
-            <Typography variant="body2">
+            <Typography variant="body2" align="left">
               {AVATAR_DATA[gameId][id].name}
             </Typography>
-          </Stack>
+          </Box>
         </ButtonBase>
       </Tooltip>
     </TableCell>

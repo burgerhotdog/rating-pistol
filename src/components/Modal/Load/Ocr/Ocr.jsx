@@ -43,13 +43,13 @@ const Ocr = ({ gameId, saveAvatar, closeModal }) => {
 
   if (!uploadedId) {
     return (
-      <Stack spacing={2}>
-        <Stack direction="row" alignItems="center" spacing={1}>
+      <Stack gap={2}>
+        <Box display="flex" alignItems="center" gap={1}>
           <UploadFile color="primary" />
           <Typography variant="h6">
             Upload Image
           </Typography>
-        </Stack>
+        </Box>
         <Typography variant="body2">
           This may take a moment.
         </Typography>
@@ -73,12 +73,12 @@ const Ocr = ({ gameId, saveAvatar, closeModal }) => {
   }
 
   return (
-    <Stack alignItems="center" spacing={2}>
+    <Stack alignItems="center" gap={2}>
       <Box>
         <Typography variant="subtitle1" gutterBottom>
           Confirm Import
         </Typography>
-        <Stack direction="row" alignItems="center" spacing={1}>
+        <Box display="flex" alignItems="center" gap={1}>
           <Box
             component="img"
             loading="lazy"
@@ -89,7 +89,7 @@ const Ocr = ({ gameId, saveAvatar, closeModal }) => {
           <Typography variant="body2">
             {AVATAR_DATA[gameId][uploadedId].name}
           </Typography>
-        </Stack>
+        </Box>
       </Box>
       
       <Button onClick={handleSave} loading={isLoading} variant="contained">

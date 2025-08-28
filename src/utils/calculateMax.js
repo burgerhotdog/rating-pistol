@@ -35,6 +35,7 @@ export default (gameId, avatarId, weaponId, mainstat) => {
   const { NUM_SUBSTATS } = INFO_DATA[gameId];
   let substats = [];
   for (let i = 0; i < NUM_SUBSTATS; i++) {
+    if (i > 1) break;
     const stat = statPool[i];
     if (!stat) break;
     const { subValue } = STAT_DATA[gameId][stat]
@@ -43,8 +44,9 @@ export default (gameId, avatarId, weaponId, mainstat) => {
 
   // adding the rest of the rolls
   if (gameId !== 'ww') {
-    const { stat } = substats[0];
-    substats[0].value += STAT_DATA[gameId][stat].subValue * 5;
+    for (const line of substats.slice(0, 2)) {
+      line.value += STAT_DATA[gameId][line.stat].subValue;
+    }
   }
 
   return calculateScore(gameId, avatarId, weaponId, substats);

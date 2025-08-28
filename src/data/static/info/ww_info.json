@@ -3,7 +3,7 @@
   "PATH": "/wuthering-waves",
   "RESIN_PER_DAY": 240,
   "RESIN_PER_RUN": 60,
-  "DROPS_PER_RUN": 4.125,
+  "DROPS_PER_RUN": 4.33,
   "NUM_MAINSTATS": 5,
   "NUM_SUBSTATS": 5,
   "EQUIP_NAMES": [

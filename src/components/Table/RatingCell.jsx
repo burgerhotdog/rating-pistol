@@ -1,4 +1,4 @@
-import { Stack, Avatar, Typography, Tooltip, TableCell, ButtonBase } from '@mui/material';
+import { TableCell, Tooltip, ButtonBase, Box, Avatar, Typography } from '@mui/material';
 import { ErrorOutline, InfoOutlined } from '@mui/icons-material';
 import { RATING_ASSETS } from '@assets';
 import { getBenchmarkSrc, getLetter } from '@utils';
@@ -15,7 +15,7 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
   if (rating === null) {
     return (
       <TableCell>
-        <Tooltip title={`This character is not affected by substats and cannot be rated`}>
+        <Tooltip title="This character is not affected by substats and cannot be rated">
           <InfoOutlined color="disabled" />
         </Tooltip>
       </TableCell>
@@ -23,19 +23,19 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
   }
 
   const { score, scoreMax } = rating;
-  const benchmark = (score / scoreMax) * 200;
+  const benchmark = Math.round((score / scoreMax) * 100);
   const openModal = () => setModalPipe({ type: 'rating', id, data, rating });
 
   return (
     <TableCell>
       <Tooltip title="Show Details">
         <ButtonBase onClick={openModal}>
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Box display="flex" alignItems="center" gap={1}>
             <Avatar src={RATING_ASSETS[getBenchmarkSrc(benchmark)]} />
-            <Typography variant="body2">
+            <Typography variant="body2" align="left">
               {benchmark.toFixed()}% ({getLetter(benchmark)})
             </Typography>
-          </Stack>
+          </Box>
         </ButtonBase>
       </Tooltip>
     </TableCell>

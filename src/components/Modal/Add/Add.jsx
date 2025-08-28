@@ -26,7 +26,7 @@ const Add = ({ gameId, avatarCache, saveAvatar, closeModal }) => {
   };
 
   return (
-    <Stack alignItems="center" spacing={2}>
+    <Stack alignItems="center" gap={2}>
       <Autocomplete
         value={id}
         options={charOptions}

@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Grid, Autocomplete, TextField, Paper, InputAdornment } from '@mui/material';
+import { Box, Autocomplete, TextField, Paper, InputAdornment } from '@mui/material';
 import { STAT_DATA } from '@data';
 
 const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
@@ -48,8 +48,8 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
   };
 
   return (
-    <Grid container spacing={1}>
-      <Grid size={8}>
+    <Box display="flex" gap={1}>
+      <Box flex="2 1 0">
         <Autocomplete
           value={stat}
           options={substatOptions}
@@ -67,9 +67,9 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
           )}
           disabled={!mainstat}
         />
-      </Grid>
+      </Box>
 
-      <Grid size={4}>
+      <Box flex="1 1 0">
         <TextField
           value={rawValue}
           onChange={(e) => setRawValue(e.target.value)}
@@ -86,8 +86,8 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
           }}
           disabled={!stat}
         />
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   )
 };
 

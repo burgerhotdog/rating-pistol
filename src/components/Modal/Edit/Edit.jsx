@@ -26,7 +26,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
   }
 
   return (
-    <Stack alignItems="center" spacing={2}>
+    <Stack alignItems="center" gap={2}>
       <WeaponId
         gameId={gameId}
         id={id}
@@ -43,7 +43,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
         ))}
       </Tabs>
       
-      <Stack direction="row" spacing={1}>
+      <Box display="flex" gap={1}>
         <Button
           onClick={() => setTabIndex(tabIndex - 1)}
           color="inherit"
@@ -52,7 +52,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
           <ChevronLeft />
         </Button>
         <Paper sx={{ p: 2 }}>
-          <Stack spacing={1}>
+          <Stack gap={1}>
             <Mainstat
               gameId={gameId}
               equipList={equipList}
@@ -79,10 +79,10 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
         >
           <ChevronRight />
         </Button>
-      </Stack>
+      </Box>
 
-      <Stack
-        direction="row"
+      <Box
+        display="flex"
         justifyContent="space-between"
         alignItems="center"
         width="100%"
@@ -96,7 +96,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
           Delete
         </Button>
 
-        <Stack direction="row" spacing={2} justifyContent="center">
+        <Box display="flex" justifyContent="center" gap={2}>
           <Button
             onClick={closeModal}
             variant="outlined"
@@ -111,11 +111,11 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
           >
             Save
           </Button>
-        </Stack>
+        </Box>
 
         {/* Empty space on the right to balance layout */}
         <Box width={75} />
-      </Stack>
+      </Box>
     </Stack>
   );
 };

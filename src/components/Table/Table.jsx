@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Skeleton, Stack, TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton, Tooltip, Box, FormGroup, FormControlLabel, Checkbox, Divider } from '@mui/material';
+import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton, Tooltip, Box, Stack, FormGroup, FormControlLabel, Checkbox, Divider, CircularProgress } from '@mui/material';
 import { FilterAlt } from '@mui/icons-material';
 import { AVATAR_DATA, INFO_DATA } from '@data';
 import StarCell from './StarCell';
@@ -53,11 +53,11 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
   }, [sortedAvatars, selectedElements, selectedTypes, gameId]);
 
   const FilterTooltip = () => (
-    <Box sx={{ p: 2, minWidth: 200 }}>
-      <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
+    <Stack minWidth={200} p={2} gap={2}>
+      <Typography variant="subtitle2" fontWeight="bold">
         Element Types
       </Typography>
-      <FormGroup>
+      <FormGroup row>
         {INFO_DATA[gameId].ELEMENT_TYPES.map((element) => (
           <FormControlLabel
             key={element}
@@ -73,13 +73,11 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
           />
         ))}
       </FormGroup>
-      
-      <Divider sx={{ my: 2 }} />
-      
-      <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1 }}>
+      <Divider />
+      <Typography variant="subtitle2" fontWeight="bold">
         Weapon Types
       </Typography>
-      <FormGroup>
+      <FormGroup row>
         {INFO_DATA[gameId].WEAPON_TYPES.map((type) => (
           <FormControlLabel
             key={type}
@@ -95,19 +93,12 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
           />
         ))}
       </FormGroup>
-    </Box>
+    </Stack>
   );
 
   return (
-    <TableContainer 
-      component={Paper}
-      sx={{
-        maxHeight: 650,
-        overflow: 'auto',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-      }}
-    >
-      <Table stickyHeader sx={{ tableLayout: 'fixed' }}>
+    <TableContainer component={Paper}>
+      <Table>
         <TableHead>
           <TableRow>
             <TableCell width={50}>
@@ -128,10 +119,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
                   },
                 }}
               >
-                <IconButton
-                  size="small"
-                  onClick={() => setFilterOpen(!filterOpen)}
-                >
+                <IconButton size="small">
                   <FilterAlt />
                 </IconButton>
               </Tooltip>
@@ -150,28 +138,12 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         </TableHead>
         <TableBody>
           {isLoading ? (
-            [...Array(10)].map((_, index) => (
-              <TableRow key={index}>
-                <TableCell>
-                  <Skeleton variant="circular" width={24} height={24} />
-                </TableCell>
-                <TableCell>
-                  <Stack direction="row" display="inline-flex" spacing={1}>
-                    <Skeleton variant="circular" width={40} height={40} />
-                    <Skeleton variant="text" width={120} height={36} />
-                  </Stack>
-                </TableCell>
-                <TableCell>
-                  <Skeleton variant="rounded" width={60} height={36} />
-                </TableCell>
-              </TableRow>
-            ))
+            <TableCell colSpan={3} align="center">
+              <CircularProgress />
+            </TableCell>
           ) : (
             filteredAvatars.map((avatarId) => (
-              <TableRow
-                key={avatarId}
-                sx={{ '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.03)' } }}
-              >
+              <TableRow key={avatarId}>
                 <StarCell
                   gameId={gameId}
                   userId={userId}

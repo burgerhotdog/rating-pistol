@@ -3,7 +3,7 @@
   "PATH": "/zenless-zone-zero",
   "RESIN_PER_DAY": 320,
   "RESIN_PER_RUN": 60,
-  "DROPS_PER_RUN": 2.5,
+  "DROPS_PER_RUN": 2.25,
   "NUM_MAINSTATS": 6,
   "NUM_SUBSTATS": 4,
   "EQUIP_NAMES": [
