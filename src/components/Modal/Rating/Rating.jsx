@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Stack, Typography, Tabs, Tab } from '@mui/material';
+import { Stack, Box, Typography, Tabs, Tab } from '@mui/material';
 import { INFO_DATA } from '@data';
 import { getLetter, TabLabel } from '@utils';
 import Info from './Info';
@@ -13,15 +13,15 @@ const Rating = ({ gameId, modalPipe }) => {
   const ratingData = rating.equips[activeTab];
 
   return (
-    <Stack spacing={2}>
-      <Stack direction="row" alignItems="center" spacing={1}>
+    <Stack gap={2}>
+      <Box display="flex" alignItems="center" gap={1}>
         <Typography variant="h6" color="primary">
           Overall Rating:
         </Typography>
         <Typography variant="h6">
           {benchmark.toFixed()}% ({getLetter(benchmark)})
         </Typography>
-      </Stack>
+      </Box>
 
       <Tabs
         value={activeTab}
@@ -32,7 +32,7 @@ const Rating = ({ gameId, modalPipe }) => {
         ))}
       </Tabs>
 
-      <Stack direction="row" spacing={2}>
+      <Box display="flex" gap={2}>
         <Info
           gameId={gameId}
           avatarId={id}
@@ -46,7 +46,7 @@ const Rating = ({ gameId, modalPipe }) => {
           index={activeTab}
           ratingData={ratingData}
         />
-      </Stack>
+      </Box>
     </Stack>
   );
 };

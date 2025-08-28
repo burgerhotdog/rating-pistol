@@ -9,9 +9,9 @@ import {
 } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { auth, db } from '@config/firebase';
-import { Box, Stack, Button, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 
-const Auth = ({ user, setUser }) => {
+export default ({ user, setUser }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -55,24 +55,28 @@ const Auth = ({ user, setUser }) => {
   };
   
   return (
-    <Box sx={{ position: 'fixed', top: 16, right: 16, zIndex: 1000 }}>
-      <Stack direction="row" alignItems="center" spacing={1}>
-        {user && (
-          <Typography variant="body2" color="text.secondary">
-            {user.email}
-          </Typography>
-        )}
-        
-        <Button
-          onClick={handleAuth}
-          disabled={isLoading}
-          sx={{ filter: 'grayscale(100%)' }}
-        >
-          {user ? 'Sign Out' : 'Sign In'}
-        </Button>
-      </Stack>
+    <Box
+      display="flex"
+      alignItems="center"
+      position="fixed"
+      top={16}
+      right={16}
+      zIndex={1000}
+      gap={1}
+    >
+      {user && (
+        <Typography variant="body2" color="text.secondary">
+          {user.email}
+        </Typography>
+      )}
+
+      <Button
+        onClick={handleAuth}
+        disabled={isLoading}
+        sx={{ filter: 'grayscale(100%)' }}
+      >
+        {user ? 'Sign Out' : 'Sign In'}
+      </Button>
     </Box>
   );
 };
-  
-export default Auth;

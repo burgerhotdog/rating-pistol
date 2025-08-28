@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { auth } from '@config/firebase';
+import { Auth, Back } from '@components';
 import { Menu, Game } from '@pages';
-import Auth from '@components/Auth';
 
 class ErrorBoundary extends React.Component {
   state = { hasError: false };
@@ -24,6 +24,7 @@ function App() {
     <ErrorBoundary>
       <HashRouter>
         <Auth user={user} setUser={setUser} />
+        <Back />
         <Routes>
           <Route path="/" element={<Menu />} />
           <Route

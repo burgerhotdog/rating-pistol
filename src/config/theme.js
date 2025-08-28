@@ -43,27 +43,32 @@ const theme = createTheme({
     MuiCheckbox: { defaultProps: { size: 'small' } },
     MuiFormControl: { defaultProps: { size: 'small' } },
     MuiSelect: {
-      defaultProps: {
-        slotProps: { inputLabel: { shrink: true } },
-      },
+      defaultProps: { slotProps: { inputLabel: { shrink: true } } },
     },
     MuiTab: {
-      styleOverrides: {
-        root: { textTransform: 'none', fontWeight: 'bold' },
-      },
+      styleOverrides: { root: { textTransform: 'none', fontWeight: 'bold' } },
     },
     MuiTabs: {
-      defaultProps: {
-        variant: 'fullWidth',
-        centered: true,
-      },
+      defaultProps: { variant: 'fullWidth', centered: true },
       styleOverrides: {
         root: { borderBottom: '1px solid rgba(255, 255, 255, 0.1)' },
       },
     },
     MuiTextField: {
-      defaultProps: {
-        slotProps: { inputLabel: { shrink: true } },
+      defaultProps: { slotProps: { inputLabel: { shrink: true } } },
+    },
+    MuiTableContainer: {
+      styleOverrides: {
+        root: { border: '1px solid rgba(255, 255, 255, 0.1)' },
+      },
+    },
+    MuiTable: {
+      defaultProps: { stickyHeader: true },
+      styleOverrides: { root: { tableLayout: 'fixed' } },
+    },
+    MuiTableRow: {
+      styleOverrides: {
+        root: { '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.05)' } },
       },
     },
     MuiTooltip: {

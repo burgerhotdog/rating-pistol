@@ -80,7 +80,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
   // Render UID input form
   if (!enkaList.length) {
     return (
-      <Stack alignItems="center" spacing={2}>
+      <Stack alignItems="center" gap={2}>
         <Stack>
           <TextField
             type="number"
@@ -93,7 +93,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
             helperText={error}
           />
 
-          <Stack direction="row" alignItems="center">
+          <Box display="flex" alignItems="center">
             <Checkbox
               onChange={() => setRememberUid(!rememberUid)}
               checked={rememberUid}
@@ -102,7 +102,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
             <Typography variant="body2" color="text.secondary">
               Remember UID (requires sign-in)
             </Typography>
-          </Stack>
+          </Box>
         </Stack>
 
         <Button 
@@ -118,7 +118,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
 
   // Render character selection form
   return (
-    <Stack alignItems="center" spacing={2}>
+    <Stack alignItems="center" gap={2}>
       <Stack>
         <Typography variant="subtitle1">
           Select characters to add.
@@ -134,7 +134,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
               />
             }
             label={
-              <Stack direction="row" alignItems="center" spacing={1}>
+              <Box display="flex" alignItems="center" gap={1}>
                 <Box
                   component="img"
                   loading="lazy"
@@ -145,7 +145,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
                 <Typography variant="body2">
                   {AVATAR_DATA[gameId][avatar.avatarId].name}
                 </Typography>
-              </Stack>
+              </Box>
             }
             onClick={(e) => e.stopPropagation()}
           />

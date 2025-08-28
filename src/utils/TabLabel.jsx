@@ -1,9 +1,9 @@
-import { Stack, Box, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { EQUIP_ASSETS } from '@assets';
 
 export default (gameId, name, index) => {
   return (
-    <Stack direction="row" alignItems="center" spacing={1}>
+    <Box display="flex" alignItems="center" gap={1}>
       <Box
         component="img"
         src={EQUIP_ASSETS[gameId][index]}
@@ -12,6 +12,6 @@ export default (gameId, name, index) => {
       <Typography variant="body2">
         {name}
       </Typography>
-    </Stack>
+    </Box>
   );
 };
