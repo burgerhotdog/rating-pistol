@@ -1,15 +1,16 @@
 import { useState, useMemo } from 'react';
-import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, IconButton, Tooltip, Box, Stack, FormGroup, FormControlLabel, Checkbox, Divider, CircularProgress } from '@mui/material';
-import { FilterAlt } from '@mui/icons-material';
-import { AVATAR_DATA, INFO_DATA } from '@data';
+import { TableContainer, Table, TableHead, TableRow, TableCell, Paper, TableBody, Typography, CircularProgress } from '@mui/material';
+import { AVATAR_DATA } from '@data';
 import StarCell from './StarCell';
 import AvatarCell from './AvatarCell';
 import RatingCell from './RatingCell';
+import FilterCell from './FilterCell';
 
 const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, setModalPipe }) => {
-  const [filterOpen, setFilterOpen] = useState(false);
-  const [selectedElements, setSelectedElements] = useState([...INFO_DATA[gameId].ELEMENT_TYPES]);
-  const [selectedTypes, setSelectedTypes] = useState([...INFO_DATA[gameId].WEAPON_TYPES]);
+  // filter lists
+  const [fRaritys, setFRaritys] = useState([]);
+  const [fElements, setFElements] = useState([]);
+  const [fTypes, setFTypes] = useState([]);
 
   const sortedAvatars = useMemo(() => (  
     Object.entries(avatarCache)
@@ -29,72 +30,15 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
       .map(([avatarId]) => avatarId)
   ), [avatarCache]);
 
-  const handleElementChange = (element) => {
-    if (selectedElements.includes(element)) {
-      setSelectedElements(selectedElements.filter(e => e !== element));
-    } else {
-      setSelectedElements([...selectedElements, element]);
-    }
-  };
-
-  const handleTypeChange = (type) => {
-    if (selectedTypes.includes(type)) {
-      setSelectedTypes(selectedTypes.filter(t => t !== type));
-    } else {
-      setSelectedTypes([...selectedTypes, type]);
-    }
-  };
-
   const filteredAvatars = useMemo(() => {
     return sortedAvatars.filter(avatarId => {
-      const avatarData = AVATAR_DATA[gameId][avatarId];
-      return selectedElements.includes(avatarData.element) && selectedTypes.includes(avatarData.type);
+      const { rarity, element, type } = AVATAR_DATA[gameId][avatarId];
+      const rarityMatch = !fRaritys.length || fRaritys.includes(rarity);
+      const elementMatch = !fElements.length || fElements.includes(element);
+      const typeMatch = !fTypes.length || fTypes.includes(type);
+      return rarityMatch && elementMatch && typeMatch;
     });
-  }, [sortedAvatars, selectedElements, selectedTypes, gameId]);
-
-  const FilterTooltip = () => (
-    <Stack minWidth={200} p={2} gap={2}>
-      <Typography variant="subtitle2" fontWeight="bold">
-        Element Types
-      </Typography>
-      <FormGroup row>
-        {INFO_DATA[gameId].ELEMENT_TYPES.map((element) => (
-          <FormControlLabel
-            key={element}
-            control={
-              <Checkbox
-                checked={selectedElements.includes(element)}
-                onChange={() => handleElementChange(element)}
-                size="small"
-              />
-            }
-            label={element}
-            sx={{ '& .MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
-          />
-        ))}
-      </FormGroup>
-      <Divider />
-      <Typography variant="subtitle2" fontWeight="bold">
-        Weapon Types
-      </Typography>
-      <FormGroup row>
-        {INFO_DATA[gameId].WEAPON_TYPES.map((type) => (
-          <FormControlLabel
-            key={type}
-            control={
-              <Checkbox
-                checked={selectedTypes.includes(type)}
-                onChange={() => handleTypeChange(type)}
-                size="small"
-              />
-            }
-            label={type}
-            sx={{ '& .MuiFormControlLabel-label': { fontSize: '0.875rem' } }}
-          />
-        ))}
-      </FormGroup>
-    </Stack>
-  );
+  }, [sortedAvatars, fRaritys, fElements, fTypes, gameId]);
 
   return (
     <TableContainer component={Paper}>
@@ -102,27 +46,15 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         <TableHead>
           <TableRow>
             <TableCell width={50}>
-              <Tooltip
-                title={<FilterTooltip />}
-                open={filterOpen}
-                onClose={() => setFilterOpen(false)}
-                onOpen={() => setFilterOpen(true)}
-                slotProps={{
-                  tooltip: {
-                    sx: {
-                      bgcolor: 'background.paper',
-                      color: 'text.primary',
-                      border: '1px solid',
-                      borderColor: 'divider',
-                      boxShadow: 3,
-                    },
-                  },
-                }}
-              >
-                <IconButton size="small">
-                  <FilterAlt />
-                </IconButton>
-              </Tooltip>
+              <FilterCell
+                gameId={gameId}
+                fRaritys={fRaritys}
+                setFRaritys={setFRaritys}
+                fElements={fElements}
+                setFElements={setFElements}
+                fTypes={fTypes}
+                setFTypes={setFTypes}
+              />
             </TableCell>
             <TableCell>
               <Typography variant="body1" fontWeight="bold">
@@ -138,9 +70,11 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         </TableHead>
         <TableBody>
           {isLoading ? (
-            <TableCell colSpan={3} align="center">
-              <CircularProgress />
-            </TableCell>
+            <TableRow>
+              <TableCell colSpan={3} align="center">
+                <CircularProgress />
+              </TableCell>
+            </TableRow>
           ) : (
             filteredAvatars.map((avatarId) => (
               <TableRow key={avatarId}>
