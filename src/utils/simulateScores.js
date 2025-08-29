@@ -44,8 +44,8 @@ export default (gameId, avatarId, weaponId, mainstat) => {
 
     // adding the rest of the rolls
     if (gameId !== 'ww') {
-      // 1 in 4 artifacts gets an extra upgrade
-      const upgradeCount = !Math.floor(Math.random() * 4) ? 5 : 4;
+      // 1 in 5 artifacts gets an extra upgrade
+      const upgradeCount = !Math.floor(Math.random() * 5) ? 5 : 4;
       for (let j = 0; j < upgradeCount; j++) {
         const random = Math.floor(Math.random() * 4);
         const stat = substats[random].stat;
