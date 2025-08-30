@@ -3,15 +3,15 @@ import Plot from 'react-plotly.js';
 import daysToFarm from './daysToFarm';
 
 export default ({ gameId, stat, index, ratingData }) => {
-  const { percentile, score, scoreData } = ratingData;
-  const downsampled = scoreData.filter((_, index) =>
-    index % 10 === 0 || index === scoreData.length - 1
+  const { percentile, rolls, dataset } = ratingData;
+  const downsampled = dataset.filter((_, index) =>
+    index % 10 === 0 || index === dataset.length - 1
   );
   
   // Add the score point to the line if it's not already included
   const lineData = [...downsampled];
-  if (!lineData.includes(score)) {
-    lineData.push(score);
+  if (!lineData.includes(rolls)) {
+    lineData.push(rolls);
     lineData.sort((a, b) => a - b);
   }
 
@@ -23,13 +23,13 @@ export default ({ gameId, stat, index, ratingData }) => {
   
   // Calculate histogram data manually
   const numBins = 50;
-  const min = Math.min(...scoreData);
-  const max = Math.max(...scoreData);
+  const min = Math.min(...dataset);
+  const max = Math.max(...dataset);
   const binSize = (max - min) / numBins;
   
   const bins = Array(numBins).fill(0);
-  scoreData.forEach(score => {
-    const binIndex = Math.min(Math.floor((score - min) / binSize), numBins - 1);
+  dataset.forEach(rolls => {
+    const binIndex = Math.min(Math.floor((rolls - min) / binSize), numBins - 1);
     bins[binIndex]++;
   });
 
@@ -64,7 +64,7 @@ export default ({ gameId, stat, index, ratingData }) => {
             marker: { color: 'grey' },
           },
           {
-            x: [score],
+            x: [rolls],
             y: [percentile],
             type: 'scatter',
             mode: 'markers',
@@ -75,11 +75,12 @@ export default ({ gameId, stat, index, ratingData }) => {
           width: 500,
           height: 300,
           xaxis: {
-            title: { text: 'Substat Score', font: { color: 'grey' } },
+            title: { text: 'Weighted Rolls', font: { color: 'grey' } },
             tickfont: { color: 'grey' },
             gridcolor: 'rgba(100, 100, 100, 0.4)',
-            range: [Math.min(min, score), Math.max(max, score)],
+            range: [0, Math.max(max, rolls)],
             autorange: false,
+            dtick: 1,
           },
           yaxis: {
             title: { text: 'Percentile', font: { color: 'grey' } },
