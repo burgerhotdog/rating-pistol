@@ -1,5 +1,5 @@
 import { AVATAR_DATA } from '@data';
-import { calculateScore, simulateScores, calculateMax } from '@utils';
+import { calculateRolls, generateDataset, calculateMax, calculateBench, getBaseStats } from '@utils';
 
 const calculateMean = (data) => {
   return data.reduce((acc, curr) => acc + curr, 0) / data.length;
@@ -11,28 +11,31 @@ const calculatePercentile = (point, data) => {
 };
 
 export default (gameId, avatarId, weaponId, equipList) => {
-  // character has no weights
+  // ensure character has weights
   if (!AVATAR_DATA[gameId][avatarId].weights) return null;
 
-  // build is incomplete
+  // ensure build is complete
   if (!weaponId) return undefined;
   if (equipList.some(({ stat }) => !stat)) return undefined;
 
-  // calculate scores and simulation data for equips
+  // prepare base stats for future calculations
+  const baseStats = getBaseStats(gameId, avatarId, weaponId);
+
+  // calculate rolls and generate dataset for each equip
   const equipRatings = equipList.map(({ stat, statList }) => {
-    // generate simulated scores
-    const scoreData = simulateScores(gameId, avatarId, weaponId, stat);
-    const mean = calculateMean(scoreData);
+    // generate dataset of roll counts
+    const dataset = generateDataset(gameId, avatarId, baseStats, stat);
 
-    // generate maximum possible score
-    const scoreMax = calculateMax(gameId, avatarId, weaponId, stat);
+    // calculate realistic benchmark and maximum possible rolls
+    const rollsBench = calculateBench(gameId, avatarId, baseStats, stat);
+    const rollsMax = calculateMax(gameId, avatarId, baseStats, stat);
 
-    const score = calculateScore(gameId, avatarId, weaponId, statList);
-    const percentile = calculatePercentile(score, scoreData);
-    return { score, percentile, scoreMax, scoreData, mean };
+    const rolls = calculateRolls(gameId, avatarId, baseStats, statList);
+    const percentile = calculatePercentile(rolls, dataset);
+    return { rolls, percentile, rollsBench, rollsMax, dataset };
   });
 
-  const score = equipRatings.reduce((acc, { score }) => acc + score, 0);
-  const scoreMax = equipRatings.reduce((acc, { scoreMax }) => acc + scoreMax, 0);
-  return { score, scoreMax, equips: equipRatings };
+  const rolls = equipRatings.reduce((sum, { rolls }) => sum + rolls, 0);
+  const rollsBench = equipRatings.reduce((sum, { rollsBench }) => sum + rollsBench, 0);
+  return { rolls, rollsBench, equips: equipRatings };
 };

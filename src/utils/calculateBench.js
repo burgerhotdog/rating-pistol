@@ -1,4 +1,5 @@
 import { AVATAR_DATA, INFO_DATA, STAT_DATA } from '@data';
+import { lowQuality } from '@utils';
 
 export default (gameId, avatarId, baseStats, mainstat) => {
   const { weights } = AVATAR_DATA[gameId][avatarId];
@@ -28,13 +29,13 @@ export default (gameId, avatarId, baseStats, mainstat) => {
   for (let i = 0; i < NUM_SUBSTATS; i++) {
     const stat = statPool[i];
     if (!stat) break;
-    substats.push({ stat, rolls: 1 });
+    substats.push({ stat, rolls: lowQuality(gameId, stat) });
   }
 
   // adding the rest of the rolls
   if (gameId !== 'ww') {
     for (const line of substats.slice(0, 1)) {
-      line.rolls += 5;
+      line.rolls += lowQuality(gameId, line.stat) * 2;
     }
   }
 

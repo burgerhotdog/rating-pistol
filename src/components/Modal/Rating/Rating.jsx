@@ -9,7 +9,7 @@ const Rating = ({ gameId, modalPipe }) => {
   const { EQUIP_NAMES } = INFO_DATA[gameId];
   const { id, data, rating } = modalPipe;
   const [activeTab, setActiveTab] = useState(0);
-  const benchmark = Math.round((rating.score / rating.scoreMax) * 100);
+  const benchmark = Math.round(rating.rolls / rating.rollsBench * 100);
   const ratingData = rating.equips[activeTab];
 
   return (

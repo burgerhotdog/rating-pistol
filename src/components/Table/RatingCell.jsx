@@ -22,8 +22,8 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
     );
   }
 
-  const { score, scoreMax } = rating;
-  const benchmark = Math.round((score / scoreMax) * 100);
+  const { rolls, rollsBench } = rating;
+  const benchmark = Math.round(rolls / rollsBench * 100);
   const openModal = () => setModalPipe({ type: 'rating', id, data, rating });
 
   return (
@@ -33,7 +33,7 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
           <Box display="flex" alignItems="center" gap={1}>
             <Avatar src={RATING_ASSETS[getBenchmarkSrc(benchmark)]} />
             <Typography variant="body2" align="left">
-              {benchmark.toFixed()}% ({getLetter(benchmark)})
+              {benchmark}% ({getLetter(benchmark)})
             </Typography>
           </Box>
         </ButtonBase>

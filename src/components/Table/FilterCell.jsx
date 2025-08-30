@@ -50,9 +50,8 @@ export default ({ gameId, fRaritys, setFRaritys, fElements, setFElements, fTypes
         <Stack minWidth={200} p={2} gap={1} sx={{ backgroundColor: 'background.default' }}>
           <Box display="flex" gap={1}>
             {[5, 4].map((rarity) => (
-              <Tooltip title={`${rarity}-Star`}>
+              <Tooltip key={rarity} title={`${rarity}-Star`}>
                 <IconButton
-                  key={rarity}
                   onClick={() => handleRarity(rarity)}
                   sx={{
                     p: 0.5,
@@ -71,9 +70,8 @@ export default ({ gameId, fRaritys, setFRaritys, fElements, setFElements, fTypes
           <Divider />
           <Box display="flex" gap={1}>
             {ELEMENT_TYPES.map((element) => (
-              <Tooltip title={element}>
+              <Tooltip key={element} title={element}>
                 <IconButton
-                  key={element}
                   onClick={() => handleElement(element)}
                   sx={{
                     p: 0.5,
@@ -97,9 +95,8 @@ export default ({ gameId, fRaritys, setFRaritys, fElements, setFElements, fTypes
           <Divider />
           <Box display="flex" gap={1}>
             {WEAPON_TYPES.map((type) => (
-              <Tooltip title={type}>
+              <Tooltip key={type} title={type}>
                 <IconButton
-                  key={type}
                   onClick={() => handleType(type)}
                   sx={{
                     p: 0.5,

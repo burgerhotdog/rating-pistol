@@ -3,7 +3,7 @@ import { AVATAR_DATA, INFO_DATA, STAT_DATA } from '@data';
 import daysToFarm from './daysToFarm';
 
 const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
-  const { score, percentile, scoreMax } = ratingData;
+  const { rolls, percentile, rollsBench, rollsMax } = ratingData;
   const days = daysToFarm(gameId, percentile, stat, index);
 
   return (
@@ -12,16 +12,19 @@ const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
         Simulation Results:
       </Typography>
       <Typography variant="body2">
-        Substat Score: {score.toFixed()}
+        Weighted Rolls: {rolls.toFixed(1)}
       </Typography>
       <Typography variant="body2"color="text.secondary">
-        Benchmark Score: {scoreMax.toFixed()}
+        Benchmark Rolls: {rollsBench.toFixed(1)}
+      </Typography>
+      <Typography variant="body2"color="text.secondary">
+        Max Rolls: {rollsMax.toFixed(1)}
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Percentile: {percentile.toFixed(2)}%
       </Typography>
       <Typography variant="body2" color="text.secondary">
-        It would take approximately {days.toFixed()} days to farm a better {INFO_DATA[gameId].EQUIP_NAMES[index]}.
+        Refarm time: {days.toFixed()} days
       </Typography>
     </Paper>
   );
