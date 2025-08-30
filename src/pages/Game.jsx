@@ -104,7 +104,7 @@ const Game = ({ gameId, userId }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        maxHeight: '100vh',
+        maxHeight: '100dvh',
         py: 4,
         gap: 3,
       }}

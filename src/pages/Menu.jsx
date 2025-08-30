@@ -31,7 +31,7 @@ const Menu = () => (
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      height: '100vh',
+      height: '100dvh',
       gap: 3,
     }}
   >
