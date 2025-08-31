@@ -11,6 +11,8 @@ const Game = ({ gameId, userId }) => {
   const [avatarCache, setAvatarCache] = useState({});
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const { TITLE } = INFO_DATA[gameId];
+  const VERSION = VERSION_DATA[gameId];
 
   // load firestore data
   useEffect(() => {
@@ -111,10 +113,10 @@ const Game = ({ gameId, userId }) => {
     >
       <Box textAlign="center">
         <Typography variant="h3" fontWeight="bold">
-          {INFO_DATA[gameId].TITLE}
+          {TITLE}
         </Typography>
         <Typography variant="subtitle1" color="text.secondary">
-          Updated for Version {VERSION_DATA[gameId]}
+          Updated for Version {VERSION}
         </Typography>
       </Box>
 
