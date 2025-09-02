@@ -22,8 +22,8 @@ const RatingCell = ({ gameId, setModalPipe, id, data, rating }) => {
     );
   }
 
-  const { rolls, rollsBench } = rating;
-  const benchmark = Math.round(rolls / rollsBench * 100);
+  const { rolls, bench } = rating;
+  const benchmark = Math.round(rolls / bench * 100);
   const openModal = () => setModalPipe({ type: 'rating', id, data, rating });
 
   return (

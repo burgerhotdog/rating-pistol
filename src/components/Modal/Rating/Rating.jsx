@@ -9,7 +9,7 @@ const Rating = ({ gameId, modalPipe }) => {
   const { EQUIP_NAMES } = INFO_DATA[gameId];
   const { id, data, rating } = modalPipe;
   const [activeTab, setActiveTab] = useState(0);
-  const benchmark = Math.round(rating.rolls / rating.rollsBench * 100);
+  const benchmark = Math.round(rating.rolls / rating.bench * 100);
   const ratingData = rating.equips[activeTab];
 
   return (
@@ -19,7 +19,7 @@ const Rating = ({ gameId, modalPipe }) => {
           Overall Rating:
         </Typography>
         <Typography variant="h6">
-          {benchmark.toFixed()}% ({getLetter(benchmark)})
+          {benchmark.toFixed()}% ({getLetter(benchmark)}) ({rating.rolls.toFixed(2)} / {rating.bench.toFixed(2)})
         </Typography>
       </Box>
 

@@ -1,58 +1,33 @@
-import { AVATAR_DATA, INFO_DATA, STAT_DATA } from '@data';
-import { lowQuality } from '@utils';
+import { INFO_DATA, STAT_DATA } from '@data';
 
-export default (gameId, avatarId, baseStats, mainstat) => {
-  const { weights } = AVATAR_DATA[gameId][avatarId];
-  const { NUM_SUBSTATS } = INFO_DATA[gameId];
+export default (gameId, fullWeights, mainstats) => {
+  const { NUM_MAINSTATS } = INFO_DATA[gameId];
+  let toAllocate = NUM_MAINSTATS * (gameId === 'ww' ? 5 : 8);
 
-  // create substat pool
-  const weightsWithFlats = { ...weights };
-  for (const [baseStat, baseValue] of Object.entries(baseStats)) {
-    if (baseStat.slice(1) in weightsWithFlats) {
-      const subValue = STAT_DATA[gameId][baseStat].subValue;
-      const pSubValue = STAT_DATA[gameId][baseStat.slice(1)].subValue
-      const valueRatio = subValue / baseValue * 100 / pSubValue;
-      weightsWithFlats[baseStat] = valueRatio * weights[baseStat.slice(1)];
-    }
+  // allocate 2 substats to each possible different substat (1 for wuwa)
+  const substats = Object.entries(STAT_DATA[gameId])
+    .filter(([, { subValue }]) => subValue)
+    .map(([stat]) => ({ stat, rolls: (gameId === 'ww' ? 0 : 1) }));
+
+  toAllocate -= Object.entries(substats).length * (gameId === 'ww' ? 1 : 2);
+
+  // divide the remaining rolls among the weighted substats
+  const totalWeights = Object.values(fullWeights)
+    .reduce((acc, weight) => acc + weight, 0);
+  const rollsPerUnit = toAllocate / totalWeights;
+
+  for (const line of substats) {
+    const weight = fullWeights[line.stat];
+    if (!weight) continue;
+
+    const statFreq = gameId !== 'ww'
+      ? mainstats.filter(stat => stat === line.stat).length
+      : 0;
+    const threshold = (NUM_MAINSTATS - statFreq) * (gameId === 'ww' ? 1 : 2);
+    line.rolls += Math.min(rollsPerUnit * weight, threshold);
   }
 
-  const statPool = Object.entries(weightsWithFlats)
-    .filter(([stat]) => {
-      if (gameId === 'ww') return true; // wuwa subs can match mainstat
-      return stat !== mainstat;
-    })
-    .sort((a, b) => b[1] - a[1]) // order by weight
-    .map(([stat]) => stat);
-  
-  // picking initial substats
-  let substats = [];
-  for (let i = 0; i < NUM_SUBSTATS; i++) {
-    const stat = statPool[i];
-    if (!stat) break;
-    substats.push({ stat, rolls: lowQuality(gameId, stat) });
-  }
-
-  // adding the rest of the rolls
-  if (gameId !== 'ww') {
-    for (const line of substats.slice(0, 1)) {
-      line.rolls += lowQuality(gameId, line.stat) * 2;
-    }
-  }
-
-  return substats.reduce((total, { stat, rolls }) => {
-    // check if stat is a flat stat and convert it to a percent stat
-    const isFlat = stat[0] === '_';
-    const pStat = isFlat ? stat.slice(1) : stat;
-
-    // ensure percent stat has a weight
-    const weight = weights[pStat];
-    if (!weight) return total;
-
-    // convert flat value to percent value if needed
-    const subValue = STAT_DATA[gameId][stat].subValue;
-    const pSubValue = STAT_DATA[gameId][pStat].subValue
-    const valueRatio = subValue / baseStats[stat] * 100 / pSubValue;
-    const pRolls = isFlat ? rolls * valueRatio : rolls;
-    return total + pRolls * weight;
+  return substats.reduce((acc, { stat, rolls }) => {
+    return acc + rolls * (fullWeights[stat] ?? 0);
   }, 0);
 };

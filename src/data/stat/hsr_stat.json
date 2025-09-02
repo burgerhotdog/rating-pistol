@@ -3,60 +3,60 @@
     "name": "HP",
     "mainChance": [1, 0, 0, 0, 0, 0],
     "subValue": 42.34,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "_ATK": {
     "name": "ATK",
     "mainChance": [0, 1, 0, 0, 0, 0],
     "subValue": 21.17,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "_DEF": {
     "name": "DEF",
     "subValue": 21.17,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "HP": {
     "name": "HP%",
     "showPercent": true,
     "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
     "subValue": 4.32,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "ATK": {
     "name": "ATK%",
     "showPercent": true,
     "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
     "subValue": 4.32,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "DEF": {
     "name": "DEF%",
     "showPercent": true,
     "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
     "subValue": 5.4,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "CR": {
     "name": "CRIT Rate",
     "showPercent": true,
     "mainChance": [0, 0, 0.1, 0, 0, 0],
     "subValue": 3.24,
-    "lotteryChance": 6
+    "subChance": 6
   },
   "CD": {
     "name": "CRIT DMG",
     "showPercent": true,
     "mainChance": [0, 0, 0.1, 0, 0, 0],
     "subValue": 6.48,
-    "lotteryChance": 6
+    "subChance": 6
   },
   "EHR": {
     "name": "Effect Hit Rate",
     "showPercent": true,
     "mainChance": [0, 0, 0.1, 0, 0, 0],
     "subValue": 4.32,
-    "lotteryChance": 8
+    "subChance": 8
   },
   "OHB": {
     "name": "Outgoing Healing Boost",
@@ -67,7 +67,7 @@
     "name": "SPD",
     "mainChance": [0, 0, 0, 0.1, 0, 0],
     "subValue": 2.6,
-    "lotteryChance": 4
+    "subChance": 4
   },
   "FIRE": {
     "name": "Fire DMG Bonus",
@@ -109,7 +109,7 @@
     "showPercent": true,
     "mainChance": [0, 0, 0, 0, 0, 0.15],
     "subValue": 6.48,
-    "lotteryChance": 8
+    "subChance": 8
   },
   "ERR": {
     "name": "Energy Regeneration Rate",
@@ -120,6 +120,6 @@
     "name": "Effect RES",
     "showPercent": true,
     "subValue": 4.32,
-    "lotteryChance": 8
+    "subChance": 8
   }
 }
