@@ -1,4 +1,20 @@
 {
+  "14146": {
+    "name": "Cordis Germina",
+    "rarity": 5,
+    "type": "Attack",
+    "baseStats": {
+      "_ATK": 713
+    }
+  },
+  "14130": {
+    "name": "Bellicose Blaze",
+    "rarity": 5,
+    "type": "Attack",
+    "baseStats": {
+      "_ATK": 713
+    }
+  },
   "14141": {
     "name": "Metanukimorphosis",
     "rarity": 5,

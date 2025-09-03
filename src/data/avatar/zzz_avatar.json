@@ -1,4 +1,40 @@
 {
+  "1461": {
+    "name": "Seed",
+    "rarity": 5,
+    "element": "Electric",
+    "type": "Attack",
+    "sig": 14146,
+    "baseStats": {
+      "_HP": 7673,
+      "_ATK": 929,
+      "_DEF": 612
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
+    }
+  },
+  "1301": {
+    "name": "Orphie & Magus",
+    "rarity": 5,
+    "element": "Fire",
+    "type": "Attack",
+    "sig": 14130,
+    "baseStats": {
+      "_HP": 7788,
+      "_ATK": 929,
+      "_DEF": 612
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
+    }
+  },
   "1411": {
     "name": "Yuzuha",
     "rarity": 5,
