@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Stack, Box, Typography, Tabs, Tab } from '@mui/material';
 import { INFO_DATA } from '@data';
 import { getLetter, TabLabel } from '@utils';
-import Info from './Info';
+import Breakdown from './Breakdown';
+import Analysis from './Analysis';
 import Plot from './Plot';
 
 const Rating = ({ gameId, modalPipe }) => {
@@ -19,7 +20,7 @@ const Rating = ({ gameId, modalPipe }) => {
           Overall Rating:
         </Typography>
         <Typography variant="h6">
-          {benchmark.toFixed()}% ({getLetter(benchmark)}) ({rating.rolls.toFixed(2)} / {rating.bench.toFixed(2)})
+          {benchmark.toFixed()}% ({getLetter(benchmark)})
         </Typography>
       </Box>
 
@@ -33,13 +34,21 @@ const Rating = ({ gameId, modalPipe }) => {
       </Tabs>
 
       <Box display="flex" gap={2}>
-        <Info
-          gameId={gameId}
-          avatarId={id}
-          index={activeTab}
-          ratingData={ratingData}
-          stat={data.equipList[activeTab].stat}
-        />
+        <Stack gap={2}>
+          <Breakdown
+            gameId={gameId}
+            avatarId={id}
+            ratingData={ratingData}
+            mainstat={data.equipList[activeTab].stat}
+            statList={data.equipList[activeTab].statList}
+          />
+          <Analysis
+            gameId={gameId}
+            index={activeTab}
+            ratingData={ratingData}
+            stat={data.equipList[activeTab].stat}
+          />
+        </Stack>
         <Plot
           gameId={gameId}
           stat={data.equipList[activeTab].stat}
