@@ -25,7 +25,7 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
         if (!a.rating) return 1;
         if (!b.rating) return -1;
 
-        return (b.rating.rolls / b.rating.rollsBench) - (a.rating.rolls / a.rating.rollsBench);
+        return (b.rating.rolls / b.rating.bench) - (a.rating.rolls / a.rating.bench);
       })
       .map(([avatarId]) => avatarId)
   ), [avatarCache]);

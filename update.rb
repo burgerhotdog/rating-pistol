@@ -61,7 +61,7 @@ img_url = doc_icon.at_css("a[href='/#{url_tag}#{ID}'] > img.avatar-icon-front")&
 # Special case for Genshin Impact weapons, append "_Awaken"
 img_url.insert(-6, "_Awaken") if IMPORT_TYPE == 'weapon' && GAME_ID == 'gi'
 puts "Downloading image: #{img_url}"
-filename = File.join('src', 'assets', 'dynamic', "#{IMPORT_TYPE}", "#{GAME_ID}_#{IMPORT_TYPE}", "#{ID}.webp")
+filename = File.join('src', 'assets', "#{IMPORT_TYPE}", "#{GAME_ID}", "#{ID}.webp")
 URI.open(img_url) do |image|
   File.open(filename, 'wb') { |file| file.write(image.read) }
 end

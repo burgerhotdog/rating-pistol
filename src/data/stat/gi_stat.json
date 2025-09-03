@@ -3,52 +3,52 @@
     "name": "HP",
     "mainChance": [1, 0, 0, 0, 0],
     "subValue": 298.75,
-    "lotteryChance": 6
+    "subChance": 6
   },
   "_ATK": {
     "name": "ATK",
     "mainChance": [0, 1, 0, 0, 0],
     "subValue": 19.45,
-    "lotteryChance": 6
+    "subChance": 6
   },
   "_DEF": {
     "name": "DEF",
     "subValue": 23.15,
-    "lotteryChance": 6
+    "subChance": 6
   },
   "HP": {
     "name": "HP%",
     "showPercent": true,
     "mainChance": [0, 0, 0.266667, 0.191667, 0.22],
     "subValue": 5.83,
-    "lotteryChance": 4
+    "subChance": 4
   },
   "ATK": {
     "name": "ATK%",
     "showPercent": true,
     "mainChance": [0, 0, 0.266667, 0.191667, 0.22],
     "subValue": 5.83,
-    "lotteryChance": 4
+    "subChance": 4
   },
   "DEF": {
     "name": "DEF%",
     "showPercent": true,
     "mainChance": [0, 0, 0.266667, 0.191667, 0.22],
     "subValue": 7.29,
-    "lotteryChance": 4
+    "subChance": 4
   },
   "EM": {
     "name": "Elemental Mastery",
     "mainChance": [0, 0, 0.1, 0.025, 0.04],
     "subValue": 23.31,
-    "lotteryChance": 4
+    "subChance": 4
   },
   "ER": {
     "name": "Energy Recharge",
     "showPercent": true,
     "mainChance": [0, 0, 0.1, 0, 0],
     "subValue": 6.48,
-    "lotteryChance": 4
+    "subChance": 4
   },
   "ANEMO": {
     "name": "Anemo DMG Bonus",
@@ -95,14 +95,14 @@
     "showPercent": true,
     "mainChance": [0, 0, 0, 0, 0.1],
     "subValue": 3.89,
-    "lotteryChance": 3
+    "subChance": 3
   },
   "CD": {
     "name": "CRIT DMG",
     "showPercent": true,
     "mainChance": [0, 0, 0, 0, 0.1],
     "subValue": 7.77,
-    "lotteryChance": 3
+    "subChance": 3
   },
   "HB": {
     "name": "Healing Bonus",

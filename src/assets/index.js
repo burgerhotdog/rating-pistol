@@ -1,55 +1,52 @@
-const short = (assets) => {
-  const shortened = {};
-  Object.entries(assets).forEach(([path, module]) => {
-    const filename = path.split('/').pop().replace('.webp', '');
-    shortened[filename] = module.default;
-  });
-  return shortened;
-};
+const short = (assets) =>
+  Object.fromEntries(
+    Object.entries(assets).map(([path, module]) => [
+      path.split('/').pop().replace('.webp', ''),
+      module.default,
+    ])
+  );
 
-// dynamic exports
 export const AVATAR_ASSETS = { 
-  gi: short(import.meta.glob('./dynamic/avatar/gi_avatar/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./dynamic/avatar/hsr_avatar/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./dynamic/avatar/ww_avatar/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./dynamic/avatar/zzz_avatar/*.webp', { eager: true })),
+  gi: short(import.meta.glob('./avatar/gi/*.webp', { eager: true })),
+  hsr: short(import.meta.glob('./avatar/hsr/*.webp', { eager: true })),
+  ww: short(import.meta.glob('./avatar/ww/*.webp', { eager: true })),
+  zzz: short(import.meta.glob('./avatar/zzz/*.webp', { eager: true })),
 };
 
 export const WEAPON_ASSETS = { 
-  gi: short(import.meta.glob('./dynamic/weapon/gi_weapon/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./dynamic/weapon/hsr_weapon/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./dynamic/weapon/ww_weapon/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./dynamic/weapon/zzz_weapon/*.webp', { eager: true })),
+  gi: short(import.meta.glob('./weapon/gi/*.webp', { eager: true })),
+  hsr: short(import.meta.glob('./weapon/hsr/*.webp', { eager: true })),
+  ww: short(import.meta.glob('./weapon/ww/*.webp', { eager: true })),
+  zzz: short(import.meta.glob('./weapon/zzz/*.webp', { eager: true })),
 };
 
-// static exports
 export const EQUIP_ASSETS = { 
-  gi: short(import.meta.glob('./static/equip/gi_equip/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./static/equip/hsr_equip/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./static/equip/ww_equip/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./static/equip/zzz_equip/*.webp', { eager: true })),
+  gi: short(import.meta.glob('./equip/gi/*.webp', { eager: true })),
+  hsr: short(import.meta.glob('./equip/hsr/*.webp', { eager: true })),
+  ww: short(import.meta.glob('./equip/ww/*.webp', { eager: true })),
+  zzz: short(import.meta.glob('./equip/zzz/*.webp', { eager: true })),
 };
 
 export const FILTER_ASSETS = { 
-  gi: short(import.meta.glob('./static/filter/gi/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./static/filter/hsr/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./static/filter/ww/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./static/filter/zzz/*.webp', { eager: true })),
+  gi: short(import.meta.glob('./filter/gi/*.webp', { eager: true })),
+  hsr: short(import.meta.glob('./filter/hsr/*.webp', { eager: true })),
+  ww: short(import.meta.glob('./filter/ww/*.webp', { eager: true })),
+  zzz: short(import.meta.glob('./filter/zzz/*.webp', { eager: true })),
+};
+
+export const STAT_ASSETS = { 
+  gi: short(import.meta.glob('./stat/gi/*.webp', { eager: true })),
+  hsr: short(import.meta.glob('./stat/hsr/*.webp', { eager: true })),
+  ww: short(import.meta.glob('./stat/ww/*.webp', { eager: true })),
+  zzz: short(import.meta.glob('./stat/zzz/*.webp', { eager: true })),
 };
 
 export const ICON_ASSETS = { 
-  default: Object.values(import.meta.glob('./static/icon/default_icon.webp', { eager: true }))[0].default,
-  gi: Object.values(import.meta.glob('./static/icon/gi_icon.webp', { eager: true }))[0].default,
-  hsr: Object.values(import.meta.glob('./static/icon/hsr_icon.webp', { eager: true }))[0].default,
-  ww: Object.values(import.meta.glob('./static/icon/ww_icon.webp', { eager: true }))[0].default,
-  zzz: Object.values(import.meta.glob('./static/icon/zzz_icon.webp', { eager: true }))[0].default,
+  default: Object.values(import.meta.glob('./icon/default_icon.webp', { eager: true }))[0].default,
+  gi: Object.values(import.meta.glob('./icon/gi_icon.webp', { eager: true }))[0].default,
+  hsr: Object.values(import.meta.glob('./icon/hsr_icon.webp', { eager: true }))[0].default,
+  ww: Object.values(import.meta.glob('./icon/ww_icon.webp', { eager: true }))[0].default,
+  zzz: Object.values(import.meta.glob('./icon/zzz_icon.webp', { eager: true }))[0].default,
 };
 
-export const RATING_ASSETS = short(import.meta.glob('./static/rating/*.webp', { eager: true }));
-
-export const STAT_ASSETS = { 
-  gi: short(import.meta.glob('./static/stat/gi_stat/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./static/stat/hsr_stat/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./static/stat/ww_stat/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./static/stat/zzz_stat/*.webp', { eager: true })),
-};
+export const RATING_ASSETS = short(import.meta.glob('./rating/*.webp', { eager: true }));

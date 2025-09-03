@@ -1,9 +1,11 @@
 import { Paper, Box, Typography, Divider, Stack } from '@mui/material';
 import { AVATAR_DATA, INFO_DATA, STAT_DATA } from '@data';
+import { getPercentile } from '@utils';
 import daysToFarm from './daysToFarm';
 
 const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
-  const { rolls, percentile, rollsBench, rollsMax } = ratingData;
+  const { rolls, max, dataset } = ratingData;
+  const percentile = getPercentile(rolls, dataset);
   const days = daysToFarm(gameId, percentile, stat, index);
 
   return (
@@ -12,13 +14,10 @@ const Info = ({ gameId, avatarId, index, ratingData, stat }) => {
         Simulation Results:
       </Typography>
       <Typography variant="body2">
-        Weighted Rolls: {rolls.toFixed(1)}
+        Weighted Rolls: {rolls.toFixed(2)}
       </Typography>
       <Typography variant="body2"color="text.secondary">
-        Benchmark Rolls: {rollsBench.toFixed(1)}
-      </Typography>
-      <Typography variant="body2"color="text.secondary">
-        Max Rolls: {rollsMax.toFixed(1)}
+        Max Rolls: {max.toFixed(2)}
       </Typography>
       <Typography variant="body2" color="text.secondary">
         Percentile: {percentile.toFixed(2)}%

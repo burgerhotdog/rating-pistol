@@ -2,52 +2,52 @@
   "_HP": {
     "name": "HP",
     "subValue": 580,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "_ATK": {
     "name": "ATK",
     "subValue": 60,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "_DEF": {
     "name": "DEF",
     "subValue": 70,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "HP": {
     "name": "HP%",
     "showPercent": true,
     "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
     "subValue": 11.6,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "ATK": {
     "name": "ATK%",
     "showPercent": true,
     "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
     "subValue": 11.6,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "DEF": {
     "name": "DEF%",
     "showPercent": true,
     "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
     "subValue": 14.7,
-    "lotteryChance": 10
+    "subChance": 10
   },
   "CR": {
     "name": "CRIT Rate",
     "showPercent": true,
     "mainChance": [0.2, 0, 0, 0, 0],
     "subValue": 10.5,
-    "lotteryChance": 6
+    "subChance": 6
   },
   "CD": {
     "name": "CRIT DMG",
     "showPercent": true,
     "mainChance": [0.2, 0, 0, 0, 0],
     "subValue": 21,
-    "lotteryChance": 6
+    "subChance": 6
   },
   "HB": {
     "name": "Healing Bonus",
@@ -89,30 +89,30 @@
     "showPercent": true,
     "mainChance": [0, 0.05875, 0.05875, 0, 0],
     "subValue": 12.4,
-    "lotteryChance": 8
+    "subChance": 8
   },
   "BA": {
     "name": "Basic Attack DMG Bonus",
     "showPercent": true,
     "subValue": 11.6,
-    "lotteryChance": 8
+    "subChance": 8
   },
   "HA": {
     "name": "Heavy Attack DMG Bonus",
     "showPercent": true,
     "subValue": 11.6,
-    "lotteryChance": 8
+    "subChance": 8
   },
   "RS": {
     "name": "Resonance Skill DMG Bonus",
     "showPercent": true,
     "subValue": 11.6,
-    "lotteryChance": 8
+    "subChance": 8
   },
   "RL": {
     "name": "Resonance Liberation DMG Bonus",
     "showPercent": true,
     "subValue": 11.6,
-    "lotteryChance": 8
+    "subChance": 8
   }
 }

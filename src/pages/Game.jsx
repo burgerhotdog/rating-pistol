@@ -5,12 +5,14 @@ import { Container, Box, Button, Typography } from '@mui/material';
 import { Add, KeyboardArrowRight } from '@mui/icons-material';
 import { Modal, Table } from '@components';
 import { VERSION_DATA, INFO_DATA } from '@data';
-import { calculateRating } from '@utils';
+import { rateBuild } from '@utils';
 
 const Game = ({ gameId, userId }) => {
   const [avatarCache, setAvatarCache] = useState({});
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const { TITLE } = INFO_DATA[gameId];
+  const VERSION = VERSION_DATA[gameId];
 
   // load firestore data
   useEffect(() => {
@@ -24,7 +26,7 @@ const Game = ({ gameId, userId }) => {
           for (const doc of avatarDocs.docs) {
             newAvatarCache[doc.id] = {
               data: doc.data(),
-              rating: calculateRating(gameId, doc.id, doc.data().weaponId, doc.data().equipList),
+              rating: rateBuild(gameId, doc.id, doc.data().weaponId, doc.data().equipList),
             };
           }
           setAvatarCache(newAvatarCache);
@@ -51,7 +53,7 @@ const Game = ({ gameId, userId }) => {
       ...prev,
       [id]: {
         data: { ...newData },
-        rating: calculateRating(gameId, id, newData.weaponId, newData.equipList),
+        rating: rateBuild(gameId, id, newData.weaponId, newData.equipList),
       },
     }));
   };
@@ -70,7 +72,7 @@ const Game = ({ gameId, userId }) => {
   
       newCache[id] = {
         data: newData,
-        rating: calculateRating(gameId, id, newData.weaponId, newData.equipList),
+        rating: rateBuild(gameId, id, newData.weaponId, newData.equipList),
       };
     }
   
@@ -111,10 +113,10 @@ const Game = ({ gameId, userId }) => {
     >
       <Box textAlign="center">
         <Typography variant="h3" fontWeight="bold">
-          {INFO_DATA[gameId].TITLE}
+          {TITLE}
         </Typography>
         <Typography variant="subtitle1" color="text.secondary">
-          Updated for Version {VERSION_DATA[gameId]}
+          Updated for Version {VERSION}
         </Typography>
       </Box>
 
