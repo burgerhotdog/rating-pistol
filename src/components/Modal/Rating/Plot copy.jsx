@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
-import { Paper, useTheme } from '@mui/material';
+import { Paper } from '@mui/material';
 import Plot from 'react-plotly.js';
 import Plotly from 'plotly.js-dist-min';
 import { getPercentile } from '@utils';
 
-const NUM_BINS = 25;
+const NUM_BINS = 40;
 
 export default ({ rolls, dataset }) => {
-  const theme = useTheme();
   const max = Math.ceil(Math.max(...dataset, rolls) * 10) / 10;
   const binSize = max / NUM_BINS;
 
@@ -20,15 +19,15 @@ export default ({ rolls, dataset }) => {
   const binCenters = binCounts.map((_, i) => (i + 0.5) * binSize);
   const maxCount = Math.max(...binCounts);
   const scaledBins = binCounts.map(count => count / maxCount * 100);
-  const histogramTrace = useRef({
+  const histogramTrace = {
     x: binCenters,
     y: scaledBins,
     type: 'bar',
     opacity: 0.3,
-    marker: { color: theme.palette.text.disabled },
+    marker: { color: 'grey' },
     name: '',
     hoverinfo: 'skip'
-  });
+  };
 
   // line
   const lineX = Array.from({ length: max * 10 + 1 }, (_, i) => i * 0.1);
@@ -40,7 +39,6 @@ export default ({ rolls, dataset }) => {
     y: lineY,
     type: 'scatter',
     mode: 'lines',
-    marker: { color: theme.palette.primary.dark },
     name: '',
     hovertemplate: 'Rolls: %{x:.1f}, Percentile: %{y:.1f}<extra></extra>',
   };
@@ -63,17 +61,27 @@ export default ({ rolls, dataset }) => {
   
   useEffect(() => {
     if (!plotEl) return;
+
     Plotly.animate(plotEl, {
-      data: [{ x: binCenters, y: scaledBins }, {}, {}],
+      data: [
+        { x: binCenters, y: scaledBins },
+        { x: lineX, y: lineY },
+        { x: [rolls], y: [percentile] },
+      ],
       traces: [0, 1, 2],
-    }, { transition: { duration: 500 } });
-  }, [rolls, dataset, plotEl]);
+    }, {
+      transition: { duration: 500, easing: 'cubic-in-out' },
+      frame: { duration: 1000 }
+    });
+
+    Plotly.relayout(plotEl, { 'xaxis.range': [0, max] });
+  }, [dataset, plotEl]);
 
   return (
     <Paper sx={{ p: 3 }}>
       <Plot
         ref={plotRef}
-        data={[histogramTrace.current, lineTrace, pointTrace]}
+        data={[histogramTrace, lineTrace, pointTrace]}
         layout={{
           width: 500,
           height: 300,
