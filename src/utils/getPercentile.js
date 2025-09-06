@@ -1,4 +1,4 @@
-export default (item, array) => {
-  const countBelow = array.filter(cur => cur < item).length;
-  return countBelow / array.length * 100;
+export default (number, array) => {
+  const countBelowOrEqual = array.filter(item => item <= number).length;
+  return countBelowOrEqual / array.length * 100;
 };
