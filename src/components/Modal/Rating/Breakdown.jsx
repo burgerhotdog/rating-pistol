@@ -42,9 +42,13 @@ export default ({ gameId, avatarId, ratingData, mainstat, statList }) => {
       flexDirection: 'column',
       width: 250,
       p: 3,
-      gap: 0.5,
+      gap: 1,
     }}>
-      <Typography variant="h6" color="primary">
+      <Typography variant="h6" color="primary" sx={{
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+      }}>
         {statData[mainstat].name}
       </Typography>
       <Divider />
