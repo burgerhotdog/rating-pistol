@@ -1,5 +1,5 @@
 import { doc, setDoc } from 'firebase/firestore';
-import { db } from '@config/firebase';
+import { db } from '@/firebase';
 import { TableCell, IconButton } from '@mui/material';
 import { Star, StarOutline } from '@mui/icons-material';
 

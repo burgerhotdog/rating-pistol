@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { auth } from '@config/firebase';
+import { auth } from '@/firebase';
 import { Auth, Back } from '@components';
 import { Menu, Game } from '@pages';
 
