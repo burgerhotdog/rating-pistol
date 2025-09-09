@@ -27,7 +27,7 @@ export default ({ gameId, avatarId, ratingData, mainstat, statList }) => {
               variant="body2"
               color="text.secondary"
             >
-              {weight.toFixed(2)}{' x '}
+              {weight.toFixed(1)}{' x '}
             </Typography>
           )}
           {(value / statData[stat].subValue).toFixed(1)}

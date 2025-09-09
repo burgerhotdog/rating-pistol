@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { db } from '@config/firebase';
-import { Box, Stack, Button, FormControlLabel,
-  Checkbox, TextField, Typography } from '@mui/material';
+import { Box, Stack, Button, FormControlLabel, Checkbox, TextField, Typography } from '@mui/material';
+import { fbGetUser, fbSetUser } from '@/firebase';
 import { AVATAR_ASSETS } from '@assets';
 import { AVATAR_DATA } from '@data';
 import fetchEnka from './fetchEnka';
@@ -12,33 +10,29 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [uid, setUid] = useState(null);
-  const [rememberUid, setRememberUid] = useState(false);
+  const [remUid, setRemUid] = useState(false);
   const [enkaList, setEnkaList] = useState([]);
-  const [selectedAvatars, setSelectedAvatars] = useState([]);
+  const [selected, setSelected] = useState([]);
 
-  // Fetch saved UID on component mount
+  // initialize uid on mount
   useEffect(() => {
-    const fetchSavedUid = async () => {
-      if (!userId) return;
-      
-      const userRef = doc(db, 'users', userId);
-      const userDoc = await getDoc(userRef);
-      const savedUid = userDoc.exists()
-        ? userDoc.data()?.[`${gameId}_uid`]
-        : null;
+    const initUid = async () => {
+      const snapshot = await fbGetUser(userId);
+      if (!snapshot) return;
 
-      setUid(savedUid ?? null);
-      setRememberUid(!!savedUid);
+      const savedUid = snapshot.data()?.[`${gameId}_uid`];
+      if (!savedUid) return;
+
+      setUid(savedUid);
+      setRemUid(true);
     };
 
-    fetchSavedUid();
+    if (userId) initUid();
   }, [userId, gameId]);
 
   // Select all characters by default when enkaList is populated
   useEffect(() => {
-    if (enkaList.length > 0) {
-      setSelectedAvatars(enkaList.map((_, index) => index));
-    }
+    if (enkaList.length > 0) setSelected(enkaList.map((_, index) => index));
   }, [enkaList]);
 
   const handleNext = async () => {
@@ -47,10 +41,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
     const response = await fetchEnka(gameId, uid);
     if (Array.isArray(response)) {
       // save uid if checked
-      if (userId && rememberUid) {
-        const userDocRef = doc(db, 'users', userId);
-        await setDoc(userDocRef, { [`${gameId}_uid`]: uid }, { merge: true });
-      }
+      if (userId && remUid) fbSetUser(userId, `${gameId}_uid`, uid);
       setEnkaList(response);
     } else {
       setError(response);
@@ -59,7 +50,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
   };
 
   const handleCharacterToggle = (event, index) => {
-    setSelectedAvatars((prevSelected) => {
+    setSelected(prevSelected => {
       if (event.target.checked) {
         return [...prevSelected, index];
       } else {
@@ -70,10 +61,10 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
 
   const handleSaveCharacters = async () => {
     setIsLoading(true);
-    const charBuffer = selectedAvatars.map((selectedIndex) => {
+    const charBuffer = selected.map(selectedIndex => {
       return parseEnkaObj(gameId, enkaList[selectedIndex]);
     });
-    saveAvatarBatch(charBuffer);
+    if (charBuffer.length) saveAvatarBatch(charBuffer);
     closeModal();
   };
 
@@ -95,8 +86,8 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
 
           <Box display="flex" alignItems="center">
             <Checkbox
-              onChange={() => setRememberUid(!rememberUid)}
-              checked={rememberUid}
+              onChange={() => setRemUid(!remUid)}
+              checked={remUid}
               disabled={!userId}
             />
             <Typography variant="body2" color="text.secondary">
@@ -130,7 +121,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
             control={
               <Checkbox
                 onChange={(e) => handleCharacterToggle(e, index)}
-                checked={selectedAvatars.includes(index)}
+                checked={selected.includes(index)}
               />
             }
             label={

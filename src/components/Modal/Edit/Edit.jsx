@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Stack, Tabs, Tab, Paper, Divider, Box, Button } from '@mui/material';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
 import { INFO_DATA } from '@data';
 import { TabLabel } from '@utils';
 import { WeaponId, Mainstat, Substat } from './Forms';
@@ -44,13 +43,6 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
       </Tabs>
       
       <Box display="flex" gap={1}>
-        <Button
-          onClick={() => setTabIndex(tabIndex - 1)}
-          color="inherit"
-          sx={{ visibility: tabIndex === 0 ? 'hidden' : 'visible' }}
-        >
-          <ChevronLeft />
-        </Button>
         <Paper sx={{ p: 2 }}>
           <Stack gap={1}>
             <Mainstat
@@ -72,13 +64,6 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
             ))}
           </Stack>
         </Paper>
-        <Button
-          onClick={() => setTabIndex(tabIndex + 1)}
-          color="inherit"
-          sx={{ visibility: tabIndex === INFO_DATA[gameId].EQUIP_NAMES.length - 1 ? 'hidden' : 'visible' }}
-        >
-          <ChevronRight />
-        </Button>
       </Box>
 
       <Box

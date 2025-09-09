@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, Stack, Autocomplete, TextField, Button } from '@mui/material';
-import template from '@config/template';
+import template from '@/template';
 import { AVATAR_ASSETS } from '@assets';
 import { AVATAR_DATA } from '@data';
 

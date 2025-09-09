@@ -1,4 +1,4 @@
-import template from '@config/template';
+import template from '@/template';
 import { WEAPON_DATA, STAT_DATA } from '@data';
 import STAT_MAP from './STAT_MAP.json';
 

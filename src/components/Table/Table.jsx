@@ -6,29 +6,25 @@ import AvatarCell from './AvatarCell';
 import RatingCell from './RatingCell';
 import FilterCell from './FilterCell';
 
-const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, setModalPipe }) => {
+const CustomTable = ({ gameId, userId, starred, setStarred, avatarCache, isLoading, setModalPipe }) => {
   // filter lists
   const [fRaritys, setFRaritys] = useState([]);
   const [fElements, setFElements] = useState([]);
   const [fTypes, setFTypes] = useState([]);
 
-  const sortedAvatars = useMemo(() => (  
-    Object.entries(avatarCache)
-      .sort(([, a], [, b]) => {
-        if (a.data.isStar !== b.data.isStar) return a.data.isStar ? -1 : 1;
+  const sortedAvatars = useMemo(() => {
+    return Object.entries(avatarCache)
+      .sort(([aId, { rating: aRating }], [bId, { rating: bRating }]) => {
+        const aIsStar = starred.includes(Number(aId));
+        const bIsStar = starred.includes(Number(bId));
+        if (aIsStar !== bIsStar) return bIsStar - aIsStar;
 
-        if (!a.rating && !b.rating) {
-          if ((a.rating === null) === (b.rating === null)) return 0;
-          return a.rating === null ? -1 : 1;
-        }
-
-        if (!a.rating) return 1;
-        if (!b.rating) return -1;
-
-        return (b.rating.rolls / b.rating.bench) - (a.rating.rolls / a.rating.bench);
+        const aScore = aRating ? aRating.rolls / aRating.bench : -1;
+        const bScore = bRating ? bRating.rolls / bRating.bench : -1;
+        return bScore - aScore;
       })
-      .map(([avatarId]) => avatarId)
-  ), [avatarCache]);
+      .map(([avatarId]) => Number(avatarId));
+  }, [avatarCache, starred]);
 
   const filteredAvatars = useMemo(() => {
     return sortedAvatars.filter(avatarId => {
@@ -76,14 +72,14 @@ const CustomTable = ({ gameId, userId, avatarCache, setAvatarCache, isLoading, s
               </TableCell>
             </TableRow>
           ) : (
-            filteredAvatars.map((avatarId) => (
+            filteredAvatars.map(avatarId => (
               <TableRow key={avatarId}>
                 <StarCell
                   gameId={gameId}
                   userId={userId}
-                  setAvatarCache={setAvatarCache}
                   id={avatarId}
-                  data={avatarCache[avatarId].data}
+                  starred={starred}
+                  setStarred={setStarred}
                 />
                 <AvatarCell
                   gameId={gameId}
