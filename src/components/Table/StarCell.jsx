@@ -1,33 +1,22 @@
-import { doc, setDoc } from 'firebase/firestore';
-import { db } from '@/firebase';
+import { fbAddStar, fbDelStar } from '@/firebase';
 import { TableCell, IconButton } from '@mui/material';
 import { Star, StarOutline } from '@mui/icons-material';
 
-const StarCell = ({ gameId, userId, setAvatarCache, id, data }) => {
-  const { isStar } = data;
-
-  const toggleStar = async () => {
-    if (userId) {
-      const infoDocRef = doc(db, 'users', userId, gameId, id);
-      setDoc(infoDocRef, { isStar: !Boolean(isStar) }, { merge: true });
+const StarCell = ({ gameId, userId, id, starred, setStarred }) => {
+  const toggleStar = () => {
+    if (starred.includes(id)) {
+      if (userId) fbDelStar(userId, gameId, id);
+      setStarred(prev => prev.filter(item => item !== id));
+    } else {
+      if (userId) fbAddStar(userId, gameId, id);
+      setStarred(prev => [...prev, id]);
     }
-
-    setAvatarCache((prev) => ({
-      ...prev,
-      [id]: {
-        ...prev[id],
-        data: {
-          ...prev[id].data,
-          isStar: !Boolean(isStar),
-        },
-      },
-    }));
-  }
+  };
 
   return (
     <TableCell>
       <IconButton size="small" onClick={toggleStar}>
-        {isStar ? (
+        {starred.includes(id) ? (
           <Star color="warning" />
         ) : (
           <StarOutline color="disabled" />

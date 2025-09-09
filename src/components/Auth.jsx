@@ -1,57 +1,31 @@
 import { useState, useEffect } from 'react';
-import {
-  onAuthStateChanged,
-  GoogleAuthProvider,
-  browserLocalPersistence,
-  setPersistence,
-  signInWithPopup,
-  signOut,
-} from 'firebase/auth';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
-import { auth, db } from '@/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 import { Box, Button, Typography } from '@mui/material';
+import { auth, fbSignIn, fbSignOut, fbGetUser, fbSetUser } from '@/firebase';
 
 export default ({ user, setUser }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (newUser) => {
-      try {
-        if (newUser) {
-          const { uid, email } = newUser;
-
-          const userDocRef = doc(db, 'users', uid);
-          const userDoc = await getDoc(userDocRef);
-          if (!userDoc.exists()) {
-            await setDoc(userDocRef, { email }, { merge: true });
-          }
-  
-          setUser(newUser);
-        } else {
-          setUser(null);
-        }
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
+      if (newUser) {
+        const { uid, email } = newUser;
+        const snapshot = await fbGetUser(uid);
+        if (!snapshot.exists()) fbSetUser(uid, 'email', email);
+        setUser(newUser);
+      } else {
+        setUser(null);
       }
+      setIsLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
 
-  const handleAuth = async () => {
+  const handleAuth = () => {
     setIsLoading(true);
-    try {
-      if (user) {
-        await signOut(auth);
-      } else {
-        await setPersistence(auth, browserLocalPersistence);
-        await signInWithPopup(auth, new GoogleAuthProvider());
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    if (user) fbSignOut();
+    else fbSignIn();
   };
   
   return (

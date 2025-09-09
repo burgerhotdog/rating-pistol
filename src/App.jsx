@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { auth } from '@/firebase';
 import { Auth, Back } from '@components';
 import { Menu, Game } from '@pages';
 
@@ -18,7 +17,7 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
-  const [user, setUser] = useState(auth.currentUser);
+  const [user, setUser] = useState(null);
 
   return (
     <ErrorBoundary>

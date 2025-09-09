@@ -1,18 +1,29 @@
 import { useState, useEffect } from 'react';
 import { Container, Box, Button, Typography } from '@mui/material';
 import { Add, KeyboardArrowRight } from '@mui/icons-material';
-import { fbGetAvatars, fbSetAvatar, fbSetAvatarBatch, fbDeleteAvatar } from '@/firebase';
+import { fbGetUser, fbGetAvatars, fbSetAvatar, fbSetAvatarBatch, fbDeleteAvatar } from '@/firebase';
 import { Modal, Table } from '@components';
 import { VERSION_DATA, INFO_DATA } from '@data';
 import { rateBuild } from '@utils';
 
 const Game = ({ gameId, userId }) => {
+  const [starred, setStarred] = useState([]);
   const [avatarCache, setAvatarCache] = useState({});
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
-  // initialize avatarCache on mount or auth
+  // initialize starred and avatarCache on mount or auth
   useEffect(() => {
+    const initStarred = async () => {
+      const snapshot = await fbGetUser(userId);
+      if (!snapshot) return;
+
+      const savedStarred = snapshot.data()?.[`${gameId}_starred`];
+      if (!savedStarred) return;
+
+      setStarred(savedStarred);
+    };
+
     const initAvatarCache = async () => {
       setIsLoading(true);
       const snapshot = await fbGetAvatars(userId, gameId);
@@ -32,8 +43,13 @@ const Game = ({ gameId, userId }) => {
       setIsLoading(false);
     };
 
-    if (userId) initAvatarCache();
-    else setAvatarCache({});
+    if (userId) {
+      initStarred();
+      initAvatarCache();
+    } else {
+      setStarred([]);
+      setAvatarCache({});
+    }
   }, [userId, gameId]);
 
   // save avatar to firestore and cache
@@ -87,8 +103,9 @@ const Game = ({ gameId, userId }) => {
       <Table
         gameId={gameId}
         userId={userId}
+        starred={starred}
+        setStarred={setStarred}
         avatarCache={avatarCache}
-        setAvatarCache={setAvatarCache}
         isLoading={isLoading}
         setModalPipe={setModalPipe}
       />

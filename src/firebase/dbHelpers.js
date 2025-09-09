@@ -1,4 +1,15 @@
-import { doc, collection, getDoc, getDocs, setDoc, deleteDoc, writeBatch } from 'firebase/firestore';
+import {
+  doc,
+  collection,
+  getDoc,
+  getDocs,
+  setDoc,
+  updateDoc,
+  arrayUnion,
+  arrayRemove,
+  deleteDoc,
+  writeBatch,
+} from 'firebase/firestore';
 import { db } from './firebase';
 import safeCall from './safeCall';
 
@@ -11,6 +22,17 @@ export const fbGetUser = (userId) => {
 export const fbSetUser = (userId, key, value) => {
   const ref = doc(db, 'users', userId);
   return safeCall(setDoc(ref, { [key]: value }, { merge: true }));
+};
+
+// star
+export const fbAddStar = (userId, gameId, avatarId) => {
+  const ref = doc(db, "users", userId);
+  return safeCall(updateDoc(ref, { [`${gameId}_starred`]: arrayUnion(avatarId) }));
+};
+
+export const fbDelStar = (userId, gameId, avatarId) => {
+  const ref = doc(db, "users", userId);
+  return safeCall(updateDoc(ref, { [`${gameId}_starred`]: arrayRemove(avatarId) }));
 };
 
 // avatar
