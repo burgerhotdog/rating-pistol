@@ -1,4 +1,54 @@
 {
+  "10000121": {
+    "name": "Aino",
+    "rarity": 4,
+    "element": "Hydro",
+    "type": "Claymore",
+    "baseStats": {
+      "_HP": 11201,
+      "_ATK": 242,
+      "_DEF": 607
+    },
+    "weights": {
+      "ER":  1.00,
+      "EM":  1.00
+    }
+  },
+  "10000120": {
+    "name": "Flins",
+    "rarity": 5,
+    "element": "Electro",
+    "type": "Polearm",
+    "sig": 13516,
+    "baseStats": {
+      "_HP": 12491,
+      "_ATK": 352,
+      "_DEF": 809
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "ER":  0.50,
+      "EM":  0.25
+    }
+  },
+  "10000119": {
+    "name": "Lauma",
+    "rarity": 5,
+    "element": "Dendro",
+    "type": "Catalyst",
+    "sig": 14520,
+    "baseStats": {
+      "_HP": 10654,
+      "_ATK": 255,
+      "_DEF": 669
+    },
+    "weights": {
+      "ER":  1.00,
+      "EM":  1.00
+    }
+  },
   "10000116": {
     "name": "Ineffa",
     "rarity": 5,
