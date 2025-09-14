@@ -1,4 +1,68 @@
 {
+  "15433": {
+    "name": "Snare Hook",
+    "rarity": 4,
+    "type": "Bow",
+    "baseStats": {
+      "_ATK": 454
+    }
+  },
+  "14520": {
+    "name": "Nightweaver's Looking Glass",
+    "rarity": 5,
+    "type": "Catalyst",
+    "baseStats": {
+      "_ATK": 542
+    }
+  },
+  "14433": {
+    "name": "Blackmarrow Lantern",
+    "rarity": 4,
+    "type": "Catalyst",
+    "baseStats": {
+      "_ATK": 454
+    }
+  },
+  "14432": {
+    "name": "Etherlight Spindlelute",
+    "rarity": 4,
+    "type": "Catalyst",
+    "baseStats": {
+      "_ATK": 510
+    }
+  },
+  "13516": {
+    "name": "Bloodsoaked Ruins",
+    "rarity": 5,
+    "type": "Polearm",
+    "baseStats": {
+      "_ATK": 674
+    }
+  },
+  "13433": {
+    "name": "Prospector's Shovel",
+    "rarity": 4,
+    "type": "Polearm",
+    "baseStats": {
+      "_ATK": 510
+    }
+  },
+  "12433": {
+    "name": "Master Key",
+    "rarity": 4,
+    "type": "Claymore",
+    "baseStats": {
+      "_ATK": 454
+    }
+  },
+  "11433": {
+  "name": "Serenity's Call",
+    "rarity": 4,
+    "type": "Sword",
+    "baseStats": {
+      "_ATK": 454
+    }
+  },
   "13515": {
     "name": "Fractured Halo",
     "rarity": 5,
