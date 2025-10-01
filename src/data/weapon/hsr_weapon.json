@@ -1,4 +1,24 @@
 {
+  "23051": {
+    "name": "Though Worlds Apart",
+    "rarity": 5,
+    "type": "Preservation",
+    "baseStats": {
+      "_HP": 1058,
+      "_ATK": 582,
+      "_DEF": 463
+    }
+  },
+  "23049": {
+    "name": "To Evernight's Stars",
+    "rarity": 5,
+    "type": "Remembrance",
+    "baseStats": {
+      "_HP": 1164,
+      "_ATK": 529,
+      "_DEF": 463
+    }
+  },
   "23048": {
     "name": "Epoch Etched in Golden Blood",
     "rarity": 5,

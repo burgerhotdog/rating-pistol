@@ -1,4 +1,38 @@
 {
+  "1414": {
+    "name": "Dan Heng • Permansor Terrae",
+    "rarity": 5,
+    "element": "Physical",
+    "type": "Preservation",
+    "sig": 23051,
+    "baseStats": {
+      "_HP": 1048,
+      "_ATK": 582,
+      "_DEF": 776
+    },
+    "weights": {
+      "ATK": 1.0,
+      "SPD": 0.8
+    }
+  },
+  "1413": {
+    "name": "Evernight",
+    "rarity": 5,
+    "element": "Ice",
+    "type": "Remembrance",
+    "sig": 23049,
+    "baseStats": {
+      "_HP": 1319,
+      "_ATK": 543,
+      "_DEF": 582
+    },
+    "weights": {
+      "CR":  1.0,
+      "CD":  1.0,
+      "HP":  0.8,
+      "SPD": 0.2
+    }
+  },
   "1412": {
     "name": "Cerydra",
     "rarity": 5,
