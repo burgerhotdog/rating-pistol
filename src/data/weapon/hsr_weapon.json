@@ -1,4 +1,24 @@
 {
+  "23052": {
+    "name": "This Love, Forever",
+    "rarity": 5,
+    "type": "Remembrance",
+    "baseStats": {
+      "_HP": 1270,
+      "_ATK": 476,
+      "_DEF": 463
+    }
+  },
+  "22006": {
+    "name": "Fly Into a Pink Tomorrow",
+    "rarity": 4,
+    "type": "Remembrance",
+    "baseStats": {
+      "_HP": 847,
+      "_ATK": 476,
+      "_DEF": 397
+    }
+  },
   "23051": {
     "name": "Though Worlds Apart",
     "rarity": 5,

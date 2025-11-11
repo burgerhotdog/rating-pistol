@@ -1,4 +1,20 @@
 {
+  "21030036": {
+    "name": "Lux & Umbra",
+    "rarity": 5,
+    "type": "Pistols",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
+  "21020066": {
+    "name": "Emerald Sentence",
+    "rarity": 5,
+    "type": "Sword",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
   "21050104": {
     "name": "Radiant Dawn",
     "rarity": 4,

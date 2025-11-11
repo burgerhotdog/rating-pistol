@@ -1,4 +1,53 @@
 {
+  "1451": {
+    "name": "Lucia",
+    "rarity": 5,
+    "element": "Ether",
+    "type": "Support",
+    "sig": 14145,
+    "baseStats": {
+      "_HP": 8477,
+      "_ATK": 758,
+      "_DEF": 594
+    },
+    "weights": {
+      "HP":  1.00
+    }
+  },
+  "1441": {
+    "name": "Manato",
+    "rarity": 4,
+    "element": "Fire",
+    "type": "Rupture",
+    "sig": 13144,
+    "baseStats": {
+      "_HP": 7724,
+      "_ATK": 755,
+      "_DEF": 443
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "HP":  0.75
+    }
+  },
+  "1051": {
+    "name": "Yidhari",
+    "rarity": 5,
+    "element": "Ice",
+    "type": "Rupture",
+    "sig": 14105,
+    "baseStats": {
+      "_HP": 8497,
+      "_ATK": 859,
+      "_DEF": 448
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "HP":  0.75
+    }
+  },
   "1461": {
     "name": "Seed",
     "rarity": 5,
