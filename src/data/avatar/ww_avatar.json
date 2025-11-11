@@ -1,4 +1,41 @@
 {
+  "1411": {
+    "name": "Qiuyuan",
+    "rarity": 5,
+    "element": "Aero",
+    "type": "Sword",
+    "sig": 21020066,
+    "baseStats": {
+      "_HP": 12238,
+      "_ATK": 375,
+      "_DEF": 1198
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "HA":  0.50,
+      "ER":  0.50
+    }
+  },
+  "1208": {
+    "name": "Galbrena",
+    "rarity": 5,
+    "element": "Fusion",
+    "type": "Pistols",
+    "sig": 21030036,
+    "baseStats": {
+      "_HP": 10300,
+      "_ATK": 463,
+      "_DEF": 1112
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "ER":  0.50
+    }
+  },
   "1410": {
     "name": "Iuno",
     "rarity": 5,

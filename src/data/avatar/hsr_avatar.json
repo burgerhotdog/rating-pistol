@@ -1,4 +1,22 @@
 {
+  "1415": {
+    "name": "Cyrene",
+    "rarity": 5,
+    "element": "Ice",
+    "type": "Remembrance",
+    "sig": 23052,
+    "baseStats": {
+      "_HP": 1397,
+      "_ATK": 446,
+      "_DEF": 582
+    },
+    "weights": {
+      "SPD": 1.0,
+      "CR":  0.75,
+      "CD":  0.75,
+      "HP":  0.75
+    }
+  },
   "1414": {
     "name": "Dan Heng • Permansor Terrae",
     "rarity": 5,

@@ -1,4 +1,28 @@
 {
+  "14521": {
+    "name": "Reliquary of Truth",
+    "rarity": 5,
+    "type": "Catalyst",
+    "baseStats": {
+      "_ATK": 542
+    }
+  },
+  "14434": {
+    "name": "Dawning Frost",
+    "rarity": 4,
+    "type": "Catalyst",
+    "baseStats": {
+      "_ATK": 510
+    }
+  },
+  "13434": {
+    "name": "Sacrificer's Staff",
+    "rarity": 4,
+    "type": "Polearm",
+    "baseStats": {
+      "_ATK": 620
+    }
+  },
   "15433": {
     "name": "Snare Hook",
     "rarity": 4,

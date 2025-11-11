@@ -1,4 +1,22 @@
 {
+  "10000122": {
+    "name": "Nefer",
+    "rarity": 5,
+    "element": "Dendro",
+    "type": "Catalyst",
+    "sig": 14521,
+    "baseStats": {
+      "_HP": 12704,
+      "_ATK": 344,
+      "_DEF": 799
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "EM":  0.75,
+      "ER":  0.50
+    }
+  },
   "10000121": {
     "name": "Aino",
     "rarity": 4,
