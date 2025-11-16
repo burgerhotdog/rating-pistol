@@ -1,6 +1,7 @@
 import { INFO_DATA } from '@data';
 
 export default (gameId) => ({
+  updatedAt: null,
   weaponId: null,
   equipList: Array(INFO_DATA[gameId].NUM_MAINSTATS).fill().map(() => ({
     stat: null,

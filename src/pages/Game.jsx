@@ -54,14 +54,27 @@ const Game = ({ gameId, userId }) => {
 
   // save avatar to firestore and cache
   const saveAvatar = async (id, data) => {
-    if (userId) fbSetAvatar(userId, gameId, id, data);
+    const dataWithTimestamp = {
+      ...data,
+      updatedAt: new Date().toISOString(),
+    };
+
+    if (userId) fbSetAvatar(userId, gameId, id, dataWithTimestamp);
     const rating = rateBuild(gameId, id, data.weaponId, data.equipList);
-    setAvatarCache(prev => ({ ...prev, [id]: { data, rating } }));
+    setAvatarCache(prev => ({ ...prev, [id]: { data: dataWithTimestamp, rating } }));
   };
 
   const saveAvatarBatch = async (entries) => {
-    if (userId) fbSetAvatarBatch(userId, gameId, entries);
-    const newCache = Object.fromEntries(entries.map(([id, data]) => {
+    const entriesWithTimestamps = entries.map(([id, data]) => [
+      id,
+      {
+        ...data,
+        updatedAt: new Date().toISOString(),
+      }
+    ]);
+
+    if (userId) fbSetAvatarBatch(userId, gameId, entriesWithTimestamps);
+    const newCache = Object.fromEntries(entriesWithTimestamps.map(([id, data]) => {
       const rating = rateBuild(gameId, id, data.weaponId, data.equipList);
       return [id, { data, rating }];
     }));
