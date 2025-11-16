@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Stack, Box, Typography, Tabs, Tab } from '@mui/material';
+import { Stack, Box, Typography, Tabs, Tab, Tooltip } from '@mui/material';
 import { INFO_DATA } from '@data';
 import { getLetter, TabLabel } from '@utils';
 import Breakdown from './Breakdown';
 import Analysis from './Analysis';
 import Plot from './Plot';
+import useTimeAgo from "./useTimeAgo";
 
 const Rating = ({ gameId, modalPipe }) => {
   const { EQUIP_NAMES } = INFO_DATA[gameId];
@@ -15,12 +16,23 @@ const Rating = ({ gameId, modalPipe }) => {
 
   return (
     <Stack gap={2}>
-      <Box display="flex" alignItems="center" gap={1}>
+      <Box display="flex" alignItems="flex-end" gap={1}>
         <Typography variant="h6" color="primary">
           Overall Rating:
         </Typography>
         <Typography variant="h6">
           {benchmark.toFixed()}% ({getLetter(benchmark)})
+        </Typography>
+        <Box flexGrow={1} />
+        <Typography variant="body1" color="text.secondary">
+          Last Updated: {
+            <Tooltip
+              title={new Date(data.updatedAt).toLocaleString()}
+              arrow
+            >
+              {useTimeAgo(data.updatedAt)}
+            </Tooltip>
+          }
         </Typography>
       </Box>
 
