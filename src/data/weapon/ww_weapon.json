@@ -1,4 +1,12 @@
 {
+  "21010056": {
+    "name": "Kumokiri",
+    "rarity": 5,
+    "type": "Broadblade",
+    "baseStats": {
+      "_ATK": 500
+    }
+  },
   "21030036": {
     "name": "Lux & Umbra",
     "rarity": 5,
