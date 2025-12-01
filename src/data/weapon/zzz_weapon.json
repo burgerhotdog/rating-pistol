@@ -1,4 +1,20 @@
 {
+  "14148": {
+    "name": "Yesterday Calls",
+    "rarity": 5,
+    "type": "Stun",
+    "baseStats": {
+      "_ATK": 713
+    }
+  },
+  "14147": {
+    "name": "Wrathful Vajra",
+    "rarity": 5,
+    "type": "Rupture",
+    "baseStats": {
+      "_ATK": 713
+    }
+  },
   "14145": {
     "name": "Dreamlit Hearth",
     "rarity": 5,
