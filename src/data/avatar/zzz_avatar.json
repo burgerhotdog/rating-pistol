@@ -1,4 +1,39 @@
 {
+  "1481": {
+    "name": "Dialyn",
+    "rarity": 5,
+    "element": "Physical",
+    "type": "Stun",
+    "sig": 14148,
+    "baseStats": {
+      "_HP": 8250,
+      "_ATK": 758,
+      "_DEF": 612
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
+    }
+  },
+  "1471": {
+    "name": "Banyue",
+    "rarity": 5,
+    "element": "Fire",
+    "type": "Rupture",
+    "sig": 14147,
+    "baseStats": {
+      "_HP": 8497,
+      "_ATK": 859,
+      "_DEF": 445
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "HP":  0.75
+    }
+  },
   "1451": {
     "name": "Lucia",
     "rarity": 5,
