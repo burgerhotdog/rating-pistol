@@ -1,4 +1,28 @@
 {
+  "15515": {
+    "name": "The Daybreak Chronicles",
+    "rarity": 5,
+    "type": "Bow",
+    "baseStats": {
+      "_ATK": 674
+    }
+  },
+  "15434": {
+    "name": "Rainbow Serpent's Rain Bow",
+    "rarity": 4,
+    "type": "Bow",
+    "baseStats": {
+      "_ATK": 510
+    }
+  },
+  "11518": {
+    "name": "Athame Artis",
+    "rarity": 5,
+    "type": "Sword",
+    "baseStats": {
+      "_ATK": 608
+    }
+  },
   "14521": {
     "name": "Reliquary of Truth",
     "rarity": 5,
