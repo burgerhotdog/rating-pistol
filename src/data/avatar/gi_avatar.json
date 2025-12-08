@@ -1,4 +1,37 @@
 {
+  "10000124": {
+    "name": "Jahoda",
+    "rarity": 4,
+    "element": "Anemo",
+    "type": "Bow",
+    "baseStats": {
+      "_HP": 9646,
+      "_ATK": 223,
+      "_DEF": 580
+    },
+    "weights": {
+      "ATK": 1.00,
+      "ER":  1.00
+    }
+  },
+  "10000123": {
+    "name": "Durin",
+    "rarity": 5,
+    "element": "Pyro",
+    "type": "Sword",
+    "sig": 11518,
+    "baseStats": {
+      "_HP": 12430,
+      "_ATK": 347,
+      "_DEF": 822
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "ER":  0.50
+    }
+  },
   "10000122": {
     "name": "Nefer",
     "rarity": 5,
