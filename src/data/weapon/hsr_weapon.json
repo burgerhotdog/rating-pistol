@@ -1,4 +1,14 @@
 {
+  "23050": {
+    "name": "Never Forget Her Flame",
+    "rarity": 5,
+    "type": "Nihility",
+    "baseStats": {
+      "_HP": 1164,
+      "_ATK": 529,
+      "_DEF": 463
+    }
+  },
   "23052": {
     "name": "This Love, Forever",
     "rarity": 5,

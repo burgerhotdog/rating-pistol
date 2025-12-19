@@ -1,4 +1,20 @@
 {
+  "1321": {
+    "name": "The Dahlia",
+    "rarity": 5,
+    "element": "Fire",
+    "type": "Nihility",
+    "sig": 23050,
+    "baseStats": {
+      "_HP": 1087,
+      "_ATK": 679,
+      "_DEF": 606
+    },
+    "weights": {
+      "SPD": 1.00,
+      "BE":  1.00
+    }
+  },
   "1415": {
     "name": "Cyrene",
     "rarity": 5,
