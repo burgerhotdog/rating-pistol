@@ -1,4 +1,60 @@
 {
+  "21050045": {
+    "name": "Boson Astrolabe",
+    "rarity": 5,
+    "type": "Rectifier",
+    "baseStats": {
+      "_ATK": 525
+    }
+  },
+  "21040045": {
+    "name": "Pulsation Bracer",
+    "rarity": 5,
+    "type": "Gauntlets",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
+  "21030046": {
+    "name": "Spectrum Blaster",
+    "rarity": 5,
+    "type": "Pistols",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
+  "21030045": {
+    "name": "Phasic Homogenizer",
+    "rarity": 5,
+    "type": "Pistols",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
+  "21020045": {
+    "name": "Laser Shearer",
+    "rarity": 5,
+    "type": "Sword",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
+  "21010066": {
+    "name": "Starfield Calibrator",
+    "rarity": 5,
+    "type": "Broadblade",
+    "baseStats": {
+      "_ATK": 413
+    }
+  },
+  "21010045": {
+    "name": "Radiance Cleaver",
+    "rarity": 5,
+    "type": "Broadblade",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
   "21010056": {
     "name": "Kumokiri",
     "rarity": 5,

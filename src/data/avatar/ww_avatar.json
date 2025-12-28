@@ -1,4 +1,39 @@
 {
+  "1509": {
+    "name": "Lynae",
+    "rarity": 5,
+    "element": "Spectro",
+    "type": "Pistols",
+    "sig": 21030046,
+    "baseStats": {
+      "_HP": 12238,
+      "_ATK": 375,
+      "_DEF": 1198
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "BA":  0.50,
+      "ER":  0.50
+    }
+  },
+  "1209": {
+    "name": "Mornye",
+    "rarity": 5,
+    "element": "Fusion",
+    "type": "Broadblade",
+    "sig": 21010066,
+    "baseStats": {
+      "_HP": 15375,
+      "_ATK": 288,
+      "_DEF": 1357
+    },
+    "weights": {
+      "DEF": 1.00,
+      "ER":  1.00
+    }
+  },
   "1508": {
     "name": "Chisa",
     "rarity": 5,
