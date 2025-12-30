@@ -1,4 +1,37 @@
 {
+  "1431": {
+    "name": "Ye Shunguang",
+    "rarity": 5,
+    "element": "Honed Edge",
+    "type": "Attack",
+    "sig": 14143,
+    "baseStats": {
+      "_HP": 7673,
+      "_ATK": 938,
+      "_DEF": 606
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
+    }
+  },
+  "1341": {
+    "name": "Zhao",
+    "rarity": 5,
+    "element": "Ice",
+    "type": "Defense",
+    "sig": 14134,
+    "baseStats": {
+      "_HP": 9117,
+      "_ATK": 765,
+      "_DEF": 701
+    },
+    "weights": {
+      "HP":  1.00
+    }
+  },
   "1481": {
     "name": "Dialyn",
     "rarity": 5,
