@@ -1,4 +1,28 @@
 {
+  "14143": {
+    "name": "Cloudcleave Radiance",
+    "rarity": 5,
+    "type": "Attack",
+    "baseStats": {
+      "_ATK": 743
+    }
+  },
+  "14134": {
+    "name": "Half-Sugar Bunny",
+    "rarity": 5,
+    "type": "Defense",
+    "baseStats": {
+      "_ATK": 713
+    }
+  },
+  "13019": {
+    "name": "Cauldron of Clarity",
+    "rarity": 4,
+    "type": "Rupture",
+    "baseStats": {
+      "_ATK": 594
+    }
+  },
   "14148": {
     "name": "Yesterday Calls",
     "rarity": 5,
