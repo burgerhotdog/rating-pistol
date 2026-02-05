@@ -1,4 +1,56 @@
 {
+  "10000127": {
+    "name": "Illuga",
+    "rarity": 4,
+    "element": "Geo",
+    "type": "Polearm",
+    "baseStats": {
+      "_HP": 11962,
+      "_ATK": 191,
+      "_DEF": 814
+    },
+    "weights": {
+      "EM":  1.00,
+      "ER":  1.00
+    }
+  },
+  "10000126": {
+    "name": "Zibai",
+    "rarity": 5,
+    "element": "Geo",
+    "type": "Sword",
+    "sig": 11519,
+    "baseStats": {
+      "_HP": 12919,
+      "_ATK": 225,
+      "_DEF": 957
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "DEF": 0.75,
+      "ER":  0.50
+    }
+  },
+  "10000125": {
+    "name": "Columbina",
+    "rarity": 5,
+    "element": "Hydro",
+    "type": "Catalyst",
+    "sig": 14522,
+    "baseStats": {
+      "_HP": 14695,
+      "_ATK": 96,
+      "_DEF": 515
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "HP":  0.75,
+      "EM":  0.75,
+      "ER":  0.50
+    }
+  },
   "10000124": {
     "name": "Jahoda",
     "rarity": 4,

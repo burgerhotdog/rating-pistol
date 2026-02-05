@@ -1,4 +1,20 @@
 {
+  "21040056": {
+    "name": "Daybreaker's Spine",
+    "rarity": 5,
+    "type": "Gauntlets",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
+  "21020076": {
+    "name": "Everbright Polestar",
+    "rarity": 5,
+    "type": "Sword",
+    "baseStats": {
+      "_ATK": 588
+    }
+  },
   "21050045": {
     "name": "Boson Astrolabe",
     "rarity": 5,

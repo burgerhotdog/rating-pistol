@@ -1,4 +1,42 @@
 {
+  "1510": {
+    "name": "Luuk Herssen",
+    "rarity": 5,
+    "element": "Spectro",
+    "type": "Gauntlets",
+    "sig": 21040056,
+    "baseStats": {
+      "_HP": 10300,
+      "_ATK": 463,
+      "_DEF": 1112
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "BA":  0.50,
+      "ER":  0.50
+    }
+  },
+  "1210": {
+    "name": "Aemeath",
+    "rarity": 5,
+    "element": "Fusion",
+    "type": "Sword",
+    "sig": 21020076,
+    "baseStats": {
+      "_HP": 11025,
+      "_ATK": 425,
+      "_DEF": 1149
+    },
+    "weights": {
+      "CR":  1.00,
+      "CD":  1.00,
+      "ATK": 0.75,
+      "RS":  0.50,
+      "ER":  0.50
+    }
+  },
   "1509": {
     "name": "Lynae",
     "rarity": 5,

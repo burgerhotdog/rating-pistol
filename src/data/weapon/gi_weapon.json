@@ -1,4 +1,20 @@
 {
+  "14522": {
+    "name": "Nocturne's Curtain Call",
+    "rarity": 5,
+    "type": "Catalyst",
+    "baseStats": {
+      "_ATK": 542
+    }
+  },
+  "11519": {
+    "name": "Lightbearing Moonshard",
+    "rarity": 5,
+    "type": "Sword",
+    "baseStats": {
+      "_ATK": 542
+    }
+  },
   "15515": {
     "name": "The Daybreak Chronicles",
     "rarity": 5,
