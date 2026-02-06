@@ -1,4 +1,20 @@
 {
+  "14150": {
+    "name": "Angel in the Shell",
+    "rarity": 5,
+    "type": "Anomaly",
+    "baseStats": {
+      "_ATK": 713
+    }
+  },
+  "14149": {
+    "name": "Thoughtbop",
+    "rarity": 5,
+    "type": "Support",
+    "baseStats": {
+      "_ATK": 713
+    }
+  },
   "14143": {
     "name": "Cloudcleave Radiance",
     "rarity": 5,
