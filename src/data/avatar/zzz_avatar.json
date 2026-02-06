@@ -1,4 +1,36 @@
 {
+  "1501": {
+    "name": "Aria",
+    "rarity": 5,
+    "element": "Ether",
+    "type": "Anomaly",
+    "sig": 14150,
+    "baseStats": {
+      "_HP": 7749,
+      "_ATK": 863,
+      "_DEF": 619
+    },
+    "weights": {
+      "AP":  1.00,
+      "ATK": 0.75,
+      "PEN": 0.25
+    }
+  },
+  "1491": {
+    "name": "Sunna",
+    "rarity": 5,
+    "element": "Physical",
+    "type": "Support",
+    "sig": 14149,
+    "baseStats": {
+      "_HP": 8477,
+      "_ATK": 750,
+      "_DEF": 600
+    },
+    "weights": {
+      "ATK": 1.00
+    }
+  },
   "1431": {
     "name": "Ye Shunguang",
     "rarity": 5,
