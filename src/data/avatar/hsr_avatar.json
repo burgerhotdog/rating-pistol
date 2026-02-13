@@ -1,4 +1,38 @@
 {
+  "1502": {
+    "name": "Yao Guang",
+    "rarity": 5,
+    "element": "Physical",
+    "type": "Elation",
+    "sig": 23054,
+    "baseStats": {
+      "_HP": 1242,
+      "_ATK": 466,
+      "_DEF": 655
+    },
+    "weights": {
+      "SPD": 1.00,
+      "CR":  1.00,
+      "CD":  1.00
+    }
+  },
+  "1501": {
+    "name": "Sparxie",
+    "rarity": 5,
+    "element": "Fire",
+    "type": "Elation",
+    "sig": 23053,
+    "baseStats": {
+      "_HP": 1048,
+      "_ATK": 640,
+      "_DEF": 461
+    },
+    "weights": {
+      "ATK": 1.00,
+      "CR":  1.00,
+      "CD":  1.00
+    }
+  },
   "1321": {
     "name": "The Dahlia",
     "rarity": 5,

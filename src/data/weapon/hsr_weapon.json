@@ -1,4 +1,74 @@
 {
+  "24006": {
+    "name": "Elation Brimming With Blessings",
+    "rarity": 5,
+    "type": "Elation",
+    "baseStats": {
+      "_HP": 953,
+      "_ATK": 529,
+      "_DEF": 463
+    }
+  },
+  "23054": {
+    "name": "When She Decided to See",
+    "rarity": 5,
+    "type": "Elation",
+    "baseStats": {
+      "_HP": 1058,
+      "_ATK": 529,
+      "_DEF": 529
+    }
+  },
+  "23053": {
+    "name": "Dazzled by a Flowery World",
+    "rarity": 5,
+    "type": "Elation",
+    "baseStats": {
+      "_HP": 1058,
+      "_ATK": 582,
+      "_DEF": 463
+    }
+  },
+  "21065": {
+    "name": "Today's Good Luck",
+    "rarity": 4,
+    "type": "Elation",
+    "baseStats": {
+      "_HP": 953,
+      "_ATK": 529,
+      "_DEF": 397
+    }
+  },
+  "21064": {
+    "name": "Mushy Shroomy's Adventures",
+    "rarity": 4,
+    "type": "Elation",
+    "baseStats": {
+      "_HP": 847,
+      "_ATK": 476,
+      "_DEF": 397
+    }
+  },
+  "20024": {
+    "name": "Lingering Tear",
+    "rarity": 3,
+    "type": "Elation",
+    "baseStats": {
+      "_HP": 847,
+      "_ATK": 318,
+      "_DEF": 265
+    }
+  },
+  "20023": {
+    "name": "Sneering",
+    "rarity": 3,
+    "type": "Elation",
+    "baseStats": {
+      "_HP": 741,
+      "_ATK": 370,
+      "_DEF": 265
+    }
+  },
   "23050": {
     "name": "Never Forget Her Flame",
     "rarity": 5,
