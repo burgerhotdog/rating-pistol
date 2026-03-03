@@ -4,10 +4,8 @@ import {
   Typography,
   Chip,
   Divider,
-  Grid,
-  Paper,
+  Card,
   IconButton,
-  LinearProgress,
   Stack,
 } from "@mui/material";
 
@@ -138,25 +136,6 @@ const PATH_ICONS = {
   Destruction:  "💥",
 };
 
-const SLOT_ICONS = {
-  "Head":          "👤",
-  "Hands":         "🤲",
-  "Body":          "🥋",
-  "Feet":          "👟",
-  "Planar Sphere": "🔮",
-  "Link Rope":     "🔗",
-};
-
-// ─── Small helpers ────────────────────────────────────────────────────────────
-
-function SectionLabel({ children }) {
-  return (
-    <Typography sx={{ fontSize: "10px", color: "#475569", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 700, mb: 1.5 }}>
-      {children}
-    </Typography>
-  );
-}
-
 function StatRow({ label, value, accentColor }) {
   const isCrit = label.includes("CRIT");
   return (
@@ -206,8 +185,6 @@ function CharIconButton({ char, isActive, onClick }) {
   );
 }
 
-// ─── Main ─────────────────────────────────────────────────────────────────────
-
 export default function HSRShowcase() {
   const [selected, setSelected] = useState(0);
   const char = CHARACTERS[selected];
@@ -215,86 +192,75 @@ export default function HSRShowcase() {
   const elemColor = ELEMENT_COLORS[char.element] || accentColor;
 
   return (
-      <Box sx={{ minHeight: "100vh", background: "#020817", display: "flex", position: "relative", overflow: "hidden" }}>
-        {/* ── LEFT: Roster sidebar ── */}
-        <Box sx={{
-          width: 72, flexShrink: 0,
-          background: "rgba(2,8,23,0.95)",
-          borderRight: "1px solid rgba(255,255,255,0.06)",
-          display: "flex", flexDirection: "column", alignItems: "center",
-          pt: 2.5, gap: 1, position: "relative", zIndex: 10,
-        }}>
-          {CHARACTERS.map((c, i) => (
-            <CharIconButton key={c.id} char={c} isActive={i === selected} onClick={() => setSelected(i)} />
+    <Box sx={{ display: "flex", position: "relative", overflow: "hidden" }}>
+      {/* ── LEFT: Roster sidebar ── */}
+      <Box sx={{
+        width: 72, flexShrink: 0,
+        display: "flex", flexDirection: "column", alignItems: "center",
+        pt: 2.5, gap: 1, position: "relative", zIndex: 10,
+      }}>
+        {CHARACTERS.map((c, i) => (
+          <CharIconButton key={c.id} char={c} isActive={i === selected} onClick={() => setSelected(i)} />
+        ))}
+      </Box>
+
+      {/* ── CENTER: Stats panel ── */}
+      <Card sx={{
+        flex: "0 0 340px",
+        background: char.bgGradient,
+        p: 2,
+        position: "relative", zIndex: 10,
+        overflowY: "auto",
+      }}>
+        {/* Header */}
+        <Box sx={{ mb: 3 }}>
+          <Stack direction="row" alignItems="flex-end" gap={1}>
+            <Typography sx={{ fontSize: "26px", fontWeight: 900, color: "#f8fafc", lineHeight: 1 }}>
+              {char.name}
+            </Typography>
+            <Stack direction="row" gap={1}>
+              <Chip
+                label={char.element}
+                size="small"
+                sx={{
+                  height: 20, fontSize: "11px", fontWeight: 700,
+                  background: `${elemColor}25`, border: `1px solid ${elemColor}50`, color: elemColor,
+                  "& .MuiChip-label": { px: "8px" },
+                }}
+              />
+              <Chip
+                label={`${PATH_ICONS[char.path]} ${char.path}`}
+                size="small"
+                sx={{
+                  height: 20, fontSize: "11px", fontWeight: 700,
+                  background: "rgba(255,255,255,0.08)", color: "#94a3b8",
+                  "& .MuiChip-label": { px: "8px" },
+                }}
+              />
+            </Stack>
+          </Stack>
+          <Stack direction="row" gap={1}>
+            <Typography sx={{ fontSize: "12px", color: "#64748b" }}>Lv.{char.level}</Typography>
+            <Typography sx={{ fontSize: "12px", color: accentColor }}>E{char.eidolon}</Typography>
+          </Stack>
+        </Box>
+
+        <Divider sx={{ borderColor: `${accentColor}40` }} />
+
+        <Box sx={{ mb: 2.5 }}>
+          {Object.entries(char.stats).map(([k, { value, max }]) =>
+            <StatRow key={k} label={k} value={String(value)} accentColor={accentColor} />
+          )}
+        </Box>
+
+        <Divider sx={{ borderColor: `${accentColor}20` }} />
+
+        <Box>
+          {Object.entries(char.extraStats).map(([k, v]) => (
+            <BonusRow key={k} label={k} value={v} />
           ))}
         </Box>
-
-        {/* ── CENTER: Stats panel ── */}
-        <Box sx={{
-          flex: "0 0 340px",
-          background: char.bgGradient,
-          borderRight: "1px solid rgba(255,255,255,0.06)",
-          p: "28px 24px",
-          position: "relative", zIndex: 10,
-          overflowY: "auto",
-        }}>
-          {/* Header */}
-          <Box sx={{ mb: 3 }}>
-            <Stack direction="row" alignItems="flex-end" gap={1.25} sx={{ mb: 0.75 }}>
-              <Typography sx={{ fontSize: "26px", fontWeight: 900, color: "#f8fafc", letterSpacing: "0.05em", lineHeight: 1 }}>
-                {char.name}
-              </Typography>
-              <Stack direction="row" gap={0.75} sx={{ mb: "2px" }}>
-                <Chip
-                  label={char.element}
-                  size="small"
-                  sx={{
-                    height: 20, fontSize: "11px", fontWeight: 700, letterSpacing: "0.08em",
-                    background: `${elemColor}25`, border: `1px solid ${elemColor}50`, color: elemColor,
-                    "& .MuiChip-label": { px: "8px" },
-                  }}
-                />
-                <Chip
-                  label={`${PATH_ICONS[char.path]} ${char.path}`}
-                  size="small"
-                  sx={{
-                    height: 20, fontSize: "11px", fontWeight: 700,
-                    background: "rgba(255,255,255,0.08)", color: "#94a3b8",
-                    "& .MuiChip-label": { px: "8px" },
-                  }}
-                />
-              </Stack>
-            </Stack>
-            <Stack direction="row" gap={1.5}>
-              <Typography sx={{ fontSize: "12px", color: "#64748b" }}>Lv.{char.level}</Typography>
-              <Typography sx={{ fontSize: "12px", color: accentColor }}>E{char.eidolon}</Typography>
-            </Stack>
-          </Box>
-
-          <Divider sx={{ borderColor: `${accentColor}40`, mb: 2.5 }} />
-
-          {/* Combat stats */}
-          <Box sx={{ mb: 2.5 }}>
-            <SectionLabel>Combat Stats</SectionLabel>
-            {Object.entries(char.stats).map(([k, { value, max }]) =>
-              <StatRow key={k} label={k} value={String(value)} accentColor={accentColor} />
-            )}
-          </Box>
-
-          <Divider sx={{ borderColor: `${accentColor}20`, mb: 2 }} />
-
-          {/* DMG bonuses */}
-          <Box>
-            <SectionLabel>DMG Bonuses</SectionLabel>
-            {Object.entries(char.extraStats).map(([k, v]) => (
-              <BonusRow key={k} label={k} value={v} />
-            ))}
-          </Box>
-        </Box>
-
-        {/* ── RIGHT: Relics grid ── */}
-        <Box sx={{ flex: 1, background: "rgba(2,8,23,0.98)", p: "28px 24px", position: "relative", zIndex: 10, overflowY: "auto" }}>
-        </Box>
-      </Box>
+      </Card>
+    </Box>
   );
 }

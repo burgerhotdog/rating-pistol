@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
-import { Container, Box, Button, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Container, Box, Button, Stack, IconButton, Typography } from '@mui/material';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import { Add, KeyboardArrowRight } from '@mui/icons-material';
 import { fbGetUser, fbGetAvatars, fbSetAvatar, fbSetAvatarBatch, fbDeleteAvatar } from '@/firebase';
 import { Modal, Table, Test } from '@components';
 import { VERSION_DATA, INFO_DATA } from '@data';
 import { rateBuild } from '@utils';
+import { ICON_ASSETS } from '@assets';
 
 const Game = ({ gameId, userId }) => {
   const [starred, setStarred] = useState([]);
@@ -99,10 +102,79 @@ const Game = ({ gameId, userId }) => {
         display: 'flex',
         flexDirection: 'column',
         maxHeight: '100dvh',
-        py: 4,
-        gap: 3,
+        maxWidth: 'lg',
+        py: 2,
+        gap: 2,
       }}
     >
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <Box
+            component={Link}
+            to="/"
+            sx={{
+              display: 'inline-flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 1,
+              textDecoration: 'none',
+              color: 'inherit',
+              borderBottom: '2px solid transparent',
+              '&:hover': {
+                borderBottomColor: 'currentColor',
+              }
+            }}
+          >
+            <Box
+              component="img"
+              alt="icon"
+              src={ICON_ASSETS.default}
+              sx={{ width: 40, height: 'auto' }}
+            />
+            <Typography variant="h6" fontWeight="bold">
+              Rating Pistol
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              position: 'relative',
+              height: 40,
+              width: 40,
+              '&:hover .fan-icon': {
+                transform: 'translateX(var(--spread))',
+              },
+            }}
+          >
+            {[0, 1, 2, 3].map((i) => (
+              <IconButton
+                key={i}
+                size="small"
+                className="fan-icon"
+                sx={{
+                  position: 'absolute',
+                  left: 0,
+                  top: 0,
+                  transition: 'transform 0.25s ease',
+                  '--spread': `${i * 40}px`,
+                  zIndex: 4 - i,
+                }}
+              >
+                <SportsEsportsIcon />
+              </IconButton>
+            ))}
+          </Box>
+        </Stack>
+
+        <Typography variant="body2" color="text.secondary">
+          {userId ? "Signed In" : "Not Signed In"}
+        </Typography>
+      </Box>
+
       <Box textAlign="center">
         <Typography variant="h3" fontWeight="bold">
           {INFO_DATA[gameId].TITLE}
