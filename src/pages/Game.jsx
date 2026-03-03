@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Container, Box, Button, Typography } from '@mui/material';
 import { Add, KeyboardArrowRight } from '@mui/icons-material';
 import { fbGetUser, fbGetAvatars, fbSetAvatar, fbSetAvatarBatch, fbDeleteAvatar } from '@/firebase';
-import { Modal, Table } from '@components';
+import { Modal, Table, Test } from '@components';
 import { VERSION_DATA, INFO_DATA } from '@data';
 import { rateBuild } from '@utils';
 
@@ -95,7 +95,6 @@ const Game = ({ gameId, userId }) => {
 
   return (
     <Container
-      maxWidth="sm"
       sx={{
         display: 'flex',
         flexDirection: 'column',
@@ -112,16 +111,6 @@ const Game = ({ gameId, userId }) => {
           Updated for Version {VERSION_DATA[gameId]}
         </Typography>
       </Box>
-
-      <Table
-        gameId={gameId}
-        userId={userId}
-        starred={starred}
-        setStarred={setStarred}
-        avatarCache={avatarCache}
-        isLoading={isLoading}
-        setModalPipe={setModalPipe}
-      />
 
       <Box display="flex" justifyContent="center" gap={2}>
         <Button
@@ -140,6 +129,7 @@ const Game = ({ gameId, userId }) => {
           Load Data
         </Button>
       </Box>
+      <Test />
 
       <Modal
         gameId={gameId}
