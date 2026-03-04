@@ -1,19 +1,31 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Box, Button, Stack, IconButton, Typography } from '@mui/material';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import { useState, useEffect, useMemo, useContext } from 'react';
+import { useParams } from 'react-router-dom';
+import { Container, Box, Stack, Button, Card, Divider, Typography } from '@mui/material';
 import { Add, KeyboardArrowRight } from '@mui/icons-material';
 import { fbGetUser, fbGetAvatars, fbSetAvatar, fbSetAvatarBatch, fbDeleteAvatar } from '@/firebase';
 import { Modal, Table, Test } from '@components';
 import { VERSION_DATA, INFO_DATA } from '@data';
 import { rateBuild } from '@utils';
 import { ICON_ASSETS } from '@assets';
+import { AuthContext } from '@contexts';
 
-const Game = ({ gameId, userId }) => {
+const temp = {
+  'genshin-impact': 'gi',
+  'honkai-star-rail': 'hsr',
+  'wuthering-waves': 'ww',
+  'zenless-zone-zero': 'zzz',
+};
+
+const Game = () => {
+  const { gamePath } = useParams();
+  const gameId = temp[gamePath];
+  const { user } = useContext(AuthContext);
+  const userId = user?.uid;
   const [starred, setStarred] = useState([]);
   const [avatarCache, setAvatarCache] = useState({});
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [selected, setSelected] = useState(0);
 
   // initialize starred and avatarCache on mount or auth
   useEffect(() => {
@@ -96,94 +108,31 @@ const Game = ({ gameId, userId }) => {
   const handleAdd = () => setModalPipe({ type: 'add', id: null, data: null });
   const handleLoad = () => setModalPipe({ type: 'load', id: null, data: null });
 
+  const sortedAvatars = useMemo(() => {
+    return Object.entries(avatarCache)
+      .sort(([aId, { rating: aRating }], [bId, { rating: bRating }]) => {
+        const aIsStar = starred.includes(Number(aId));
+        const bIsStar = starred.includes(Number(bId));
+        if (aIsStar !== bIsStar) return bIsStar - aIsStar;
+
+        const aScore = aRating ? aRating.rolls / aRating.bench : -1;
+        const bScore = bRating ? bRating.rolls / bRating.bench : -1;
+        return bScore - aScore;
+      })
+      .map(([avatarId]) => Number(avatarId));
+  }, [avatarCache, starred]);
+
   return (
     <Container
+      maxWidth='lg'
       sx={{
         display: 'flex',
         flexDirection: 'column',
         maxHeight: '100dvh',
-        maxWidth: 'lg',
         py: 2,
         gap: 2,
       }}
     >
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Stack direction="row" alignItems="center" spacing={1}>
-          <Box
-            component={Link}
-            to="/"
-            sx={{
-              display: 'inline-flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 1,
-              textDecoration: 'none',
-              color: 'inherit',
-              borderBottom: '2px solid transparent',
-              '&:hover': {
-                borderBottomColor: 'currentColor',
-              }
-            }}
-          >
-            <Box
-              component="img"
-              alt="icon"
-              src={ICON_ASSETS.default}
-              sx={{ width: 40, height: 'auto' }}
-            />
-            <Typography variant="h6" fontWeight="bold">
-              Rating Pistol
-            </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              position: 'relative',
-              height: 40,
-              width: 40,
-              '&:hover .fan-icon': {
-                transform: 'translateX(var(--spread))',
-              },
-            }}
-          >
-            {[0, 1, 2, 3].map((i) => (
-              <IconButton
-                key={i}
-                size="small"
-                className="fan-icon"
-                sx={{
-                  position: 'absolute',
-                  left: 0,
-                  top: 0,
-                  transition: 'transform 0.25s ease',
-                  '--spread': `${i * 40}px`,
-                  zIndex: 4 - i,
-                }}
-              >
-                <SportsEsportsIcon />
-              </IconButton>
-            ))}
-          </Box>
-        </Stack>
-
-        <Typography variant="body2" color="text.secondary">
-          {userId ? "Signed In" : "Not Signed In"}
-        </Typography>
-      </Box>
-
-      <Box textAlign="center">
-        <Typography variant="h3" fontWeight="bold">
-          {INFO_DATA[gameId].TITLE}
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary">
-          Updated for Version {VERSION_DATA[gameId]}
-        </Typography>
-      </Box>
-
       <Box display="flex" justifyContent="center" gap={2}>
         <Button
           onClick={handleAdd}
@@ -201,7 +150,38 @@ const Game = ({ gameId, userId }) => {
           Load Data
         </Button>
       </Box>
-      <Test />
+
+      <Box sx={{ display: "flex", position: "relative", overflow: "hidden" }}>
+        {/* ── LEFT: Roster sidebar ── */}
+        <Box sx={{
+          width: 72, flexShrink: 0,
+          display: "flex", flexDirection: "column", alignItems: "center",
+          pt: 2.5, gap: 1, position: "relative", zIndex: 10,
+        }}>
+          {sortedAvatars.map((c, index) => (
+            <CharIconButton key={c.id} char={c} isActive={index === selected} onClick={() => setSelected(index)} />
+          ))}
+        </Box>
+
+        {/* ── CENTER: Stats panel ── */}
+        <Card sx={{
+          flex: "0 0 340px",
+          p: 2,
+          position: "relative", zIndex: 10,
+          overflowY: "auto",
+        }}>
+          {/* Header */}
+          <Box sx={{ mb: 3 }}>
+            <Stack direction="row" alignItems="flex-end" gap={1}>
+              <Typography sx={{ fontSize: "26px", fontWeight: 900, color: "#f8fafc", lineHeight: 1 }}>
+                {sortedAvatars[selected]?.[0] ?? "none"}
+              </Typography>
+            </Stack>
+          </Box>
+
+          <Divider />
+        </Card>
+      </Box>
 
       <Modal
         gameId={gameId}

@@ -43,10 +43,10 @@ export const STAT_ASSETS = {
 
 export const ICON_ASSETS = { 
   default: Object.values(import.meta.glob('./icon/default_icon.webp', { eager: true }))[0].default,
-  gi: Object.values(import.meta.glob('./icon/gi_icon.webp', { eager: true }))[0].default,
-  hsr: Object.values(import.meta.glob('./icon/hsr_icon.webp', { eager: true }))[0].default,
-  ww: Object.values(import.meta.glob('./icon/ww_icon.webp', { eager: true }))[0].default,
-  zzz: Object.values(import.meta.glob('./icon/zzz_icon.webp', { eager: true }))[0].default,
+  'genshin-impact': Object.values(import.meta.glob('./icon/gi_icon.webp', { eager: true }))[0].default,
+  'honkai-star-rail': Object.values(import.meta.glob('./icon/hsr_icon.webp', { eager: true }))[0].default,
+  'wuthering-waves': Object.values(import.meta.glob('./icon/ww_icon.webp', { eager: true }))[0].default,
+  'zenless-zone-zero': Object.values(import.meta.glob('./icon/zzz_icon.webp', { eager: true }))[0].default,
 };
 
 export const RATING_ASSETS = short(import.meta.glob('./rating/*.webp', { eager: true }));

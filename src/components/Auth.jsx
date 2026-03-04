@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Box, Button, Typography } from '@mui/material';
 import { auth, fbSignIn, fbSignOut, fbGetUser, fbSetUser } from '@/firebase';
+import { AuthContext } from '@contexts';
 
-export default ({ user, setUser }) => {
+export default () => {
+  const { user, setUser } = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
