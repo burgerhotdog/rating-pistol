@@ -27,10 +27,10 @@ const Rating = ({ gameId, modalPipe }) => {
         <Typography variant="body1" color="text.secondary">
           Last Updated: {
             <Tooltip
-              title={new Date(data.updatedAt).toLocaleString()}
+              title={new Date(data.lastUpdated).toLocaleString()}
               arrow
             >
-              {useTimeAgo(data.updatedAt)}
+              {useTimeAgo(data.lastUpdated)}
             </Tooltip>
           }
         </Typography>
@@ -51,14 +51,14 @@ const Rating = ({ gameId, modalPipe }) => {
             gameId={gameId}
             avatarId={id}
             ratingData={ratingData}
-            mainstat={data.equipList[activeTab].stat}
-            statList={data.equipList[activeTab].statList}
+            mainstat={data.equipList[activeTab].mainStatId}
+            subStatList={data.equipList[activeTab].subStatList}
           />
           <Analysis
             gameId={gameId}
             index={activeTab}
             ratingData={ratingData}
-            stat={data.equipList[activeTab].stat}
+            stat={data.equipList[activeTab].mainStatId}
           />
         </Stack>
         <Plot rolls={ratingData.rolls} dataset={ratingData.dataset} />

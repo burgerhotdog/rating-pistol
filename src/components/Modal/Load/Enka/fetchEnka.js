@@ -1,7 +1,7 @@
 import { AVATAR_DATA } from '@data';
 
 const BASE_URL = 'https://rating-pistol.vercel.app/api/proxy?suffix=';
-const SUFFIX = { gi: 'uid/', hsr: 'hsr/uid/', zzz: 'zzz/uid/' };
+const SUFFIX = { 'genshin-impact': 'uid/', 'honkai-star-rail': 'hsr/uid/', 'zenless-zone-zero': 'zzz/uid/' };
 const ERROR_CODES = {
   400: 'Wrong UID format',
   404: 'Player does not exist',
@@ -23,13 +23,13 @@ export default async (gameId, uid) => {
     const rawEnka = await response.json();
     let avatarList;
     switch (gameId) {
-      case 'gi':
+      case 'genshin-impact':
         avatarList = rawEnka.avatarInfoList;
         break;
-      case 'hsr':
+      case 'honkai-star-rail':
         avatarList = rawEnka.detailInfo?.avatarDetailList;
         break;
-      case 'zzz':
+      case 'zenless-zone-zero':
         avatarList = rawEnka.PlayerInfo?.ShowcaseDetail?.AvatarList;
         avatarList?.forEach(entry => entry.avatarId = entry.Id);
         break;

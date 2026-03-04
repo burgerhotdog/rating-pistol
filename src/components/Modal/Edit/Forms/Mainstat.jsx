@@ -5,24 +5,24 @@ import { INFO_DATA, STAT_DATA } from '@data';
 const Mainstat = ({ gameId, equipList, setEquipList, mainIndex }) => {
   const mainstatOptions = useMemo(() =>
     Object.keys(STAT_DATA[gameId])
-      .filter((stat) =>
-        STAT_DATA[gameId][stat].mainChance?.[mainIndex]
+      .filter((statId) =>
+        STAT_DATA[gameId][statId].mainChance?.[mainIndex]
       ), [gameId, mainIndex]);
 
   const handleMainstat = (newValue) =>
     setEquipList((prev) => {
       const newList = structuredClone(prev);
-      newList[mainIndex].stat = newValue;
-      newList[mainIndex].statList = Array(INFO_DATA[gameId].NUM_SUBSTATS).fill()
+      newList[mainIndex].mainStatId = newValue;
+      newList[mainIndex].subStatList = Array(INFO_DATA[gameId].NUM_SUBSTATS).fill()
         .map(() => ({ stat: null, value: null }));
       return newList;
     });
 
   return (
     <Autocomplete
-      value={equipList[mainIndex].stat}
+      value={equipList[mainIndex].mainStatId}
       options={mainstatOptions}
-      getOptionLabel={(stat) => STAT_DATA[gameId][stat]?.name ?? ''}
+      getOptionLabel={(statId) => STAT_DATA[gameId][statId]?.name ?? ''}
       onChange={(_, newValue) => handleMainstat(newValue)}
       renderInput={(params) => (
         <TextField {...params} label="Mainstat" />

@@ -3,32 +3,32 @@ import { Box, Autocomplete, TextField, Paper, InputAdornment } from '@mui/materi
 import { STAT_DATA } from '@data';
 
 const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
-  const { stat: mainstat, statList } = equipList[mainIndex];
-  const { stat, value } = statList[subIndex];
+  const { mainStatId: mainstat, subStatList } = equipList[mainIndex];
+  const { subStatId, value } = subStatList[subIndex];
   const [rawValue, setRawValue] = useState(String(value ?? ''));
 
   useEffect(() => setRawValue(String(value ?? '')), [value]);
 
   const substatOptions = useMemo(() => {
-    const selectedSubstats = statList
-      .map(({ stat }) => stat)
+    const selectedSubstats = subStatList
+      .map(({ subStatId }) => subStatId)
       .filter((_, index) => index !== subIndex);
     
     return Object.entries(STAT_DATA[gameId])
-      .filter(([stat, { subValue }]) => {
+      .filter(([statId, { subValue }]) => {
         const isSubstat = Boolean(subValue);
-        const isNotMainstat = gameId === 'ww' || stat !== mainstat;
-        const isNotDuplicate = !selectedSubstats.includes(stat);
+        const isNotMainstat = gameId === 'wuthering-waves' || statId !== mainstat;
+        const isNotDuplicate = !selectedSubstats.includes(statId);
         return isSubstat && isNotMainstat && isNotDuplicate;
       })
-      .map(([stat]) => stat);
-  }, [gameId, mainIndex, subIndex, mainstat, statList]);
+      .map(([statId]) => statId);
+  }, [gameId, mainIndex, subIndex, mainstat, subStatList]);
 
   const handleStat = (newValue, subIndex) =>
     setEquipList((prev) => {
       const newList = structuredClone(prev);
-      newList[mainIndex].statList[subIndex].stat = newValue;
-      newList[mainIndex].statList[subIndex].value = null;
+      newList[mainIndex].subStatList[subIndex].subStatId = newValue;
+      newList[mainIndex].subStatList[subIndex].value = null;
       return newList;
     });
 
@@ -42,7 +42,7 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
 
     setEquipList((prev) => {
       const newList = structuredClone(prev);
-      newList[mainIndex].statList[subIndex].value = newValue;
+      newList[mainIndex].subStatList[subIndex].value = newValue;
       return newList;
     });
   };
@@ -51,9 +51,9 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
     <Box display="flex" gap={1}>
       <Box flex="2 1 0">
         <Autocomplete
-          value={stat}
+          value={subStatId}
           options={substatOptions}
-          getOptionLabel={(id) => STAT_DATA[gameId][id]?.name ?? ''}
+          getOptionLabel={(statId) => STAT_DATA[gameId][statId]?.name ?? ''}
           onChange={(_, newValue) => handleStat(newValue, subIndex)}
           slots={{
             paper: ({ children }) => (
@@ -79,12 +79,12 @@ const Substat = ({ gameId, equipList, setEquipList, mainIndex, subIndex }) => {
           }}
           slotProps={{
             input: {
-              endAdornment: STAT_DATA[gameId][stat]?.showPercent && (
+              endAdornment: STAT_DATA[gameId][subStatId]?.showPercent && (
                 <InputAdornment position="end">%</InputAdornment>
               ),
             },
           }}
-          disabled={!stat}
+          disabled={!subStatId}
         />
       </Box>
     </Box>

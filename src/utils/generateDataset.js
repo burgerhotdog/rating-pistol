@@ -33,37 +33,37 @@ const drawLottery = (chances) => {
   }
 };
 
-const randomQuality = (gameId, stat) => {
-  if (gameId === 'zzz') return 1;
-  if (gameId === 'hsr') {
+const randomQuality = (gameId, statId) => {
+  if (gameId === 'zenless-zone-zero') return 1;
+  if (gameId === 'honkai-star-rail') {
     const options = [1, 0.9, 0.8];
     return options[Math.floor(Math.random() * 3)];
   }
-  if (gameId === 'gi') {
+  if (gameId === 'genshin-impact') {
     const options = [1, 0.9, 0.8, 0.7];
     return options[Math.floor(Math.random() * 4)];
   }
-  const { subValue } = STAT_DATA[gameId][stat];
-  if (stat === '_ATK' || stat === '_DEF') {
+  const { subValue } = STAT_DATA[gameId][statId];
+  if (statId === '_ATK' || statId === '_DEF') {
     const winnerIndex = drawLottery([4, 19, 14, 1]);
-    return WW_ATKDEF[stat][winnerIndex] / subValue;
+    return WW_ATKDEF[statId][winnerIndex] / subValue;
   }
-  if (stat === 'CR' || stat === 'CD') {
+  if (statId === 'CR' || statId === 'CD') {
     const winnerIndex = drawLottery([6, 6, 6, 2, 2, 2, 1, 1]);
-    return WW_CRIT[stat][winnerIndex] / subValue;
+    return WW_CRIT[statId][winnerIndex] / subValue;
   }
   const winnerIndex = drawLottery([2, 2, 7, 8, 6, 5, 2, 1]);
-  return WW_OTHER[stat][winnerIndex] / subValue;
+  return WW_OTHER[statId][winnerIndex] / subValue;
 };
 
 export default (gameId, fullWeights, mainstat) => {
   const scores = new Array(ITERATIONS).fill(0);
   const startingPool = Object.entries(STAT_DATA[gameId])
-    .filter(([stat, { subValue }]) => {
+    .filter(([statId, { subValue }]) => {
       if (!subValue) return false; // remove non-substats
-      return gameId === 'ww' || stat !== mainstat;
+      return gameId === 'wuthering-waves' || statId !== mainstat;
     })
-    .map(([stat, { subChance }]) => [stat, subChance]);
+    .map(([statId, { subChance }]) => [statId, subChance]);
 
   for (let i = 0; i < ITERATIONS; i++) {
     let substats = [];
@@ -72,25 +72,25 @@ export default (gameId, fullWeights, mainstat) => {
     let statPool = [...startingPool];
     for (let j = 0; j < INFO_DATA[gameId].NUM_SUBSTATS; j++) {
       const winnerIndex = drawLottery(statPool.map(item => item[1]));
-      const [stat] = statPool[winnerIndex];
-      substats.push({ stat, rolls: randomQuality(gameId, stat) });
+      const [statId] = statPool[winnerIndex];
+      substats.push({ statId, rolls: randomQuality(gameId, statId) });
       statPool.splice(winnerIndex, 1);
     }
 
     // add additional rolls
-    if (gameId !== 'ww') {
+    if (gameId !== 'wuthering-waves') {
       // 1 in 5 artifacts gets an extra roll
       const upgradeCount = Math.random() < 0.2 ? 5 : 4;
       for (let j = 0; j < upgradeCount; j++) {
         const lineIndex = Math.floor(Math.random() * 4);
-        const { stat } = substats[lineIndex];
-        substats[lineIndex].rolls += randomQuality(gameId, stat);
+        const { statId } = substats[lineIndex];
+        substats[lineIndex].rolls += randomQuality(gameId, statId);
       }
     }
 
     // multiply rolls by weights and sum all lines
-    scores[i] = substats.reduce((acc, { stat, rolls }) => {
-      return acc + rolls * (fullWeights[stat] ?? 0);
+    scores[i] = substats.reduce((acc, { statId, rolls }) => {
+      return acc + rolls * (fullWeights[statId] ?? 0);
     }, 0);
   }
   return scores.sort((a, b) => a - b);

@@ -24,39 +24,30 @@ const GameLink = ({ gameId }) => (
   </Tooltip>
 );
 
-const Menu = () => (
-  <Container
-    maxWidth="md"
-    sx={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      height: '100dvh',
-      gap: 3,
-    }}
-  >
+const HomePage = () => (
+  <>
     <Box
       display={{ xs: 'none', md: 'flex' }}
       justifyContent="center"
       gap={2}
     >
-      <GameLink gameId="gi" />
-      <GameLink gameId="hsr" />
-      <GameLink gameId="ww" />
-      <GameLink gameId="zzz" />
+      <GameLink gameId="genshin-impact" />
+      <GameLink gameId="honkai-star-rail" />
+      <GameLink gameId="wuthering-waves" />
+      <GameLink gameId="zenless-zone-zero" />
     </Box>
 
     <Stack display={{ xs: 'flex', md: 'none' }} gap={2}>
       <Box display="flex" justifyContent="center" gap={2}>
-        <GameLink gameId="gi" />
-        <GameLink gameId="hsr" />
+        <GameLink gameId="genshin-impact" />
+        <GameLink gameId="honkai-star-rail" />
       </Box>
       <Box display="flex" justifyContent="center" gap={2}>
-        <GameLink gameId="ww" />
-        <GameLink gameId="zzz" />
+        <GameLink gameId="wuthering-waves" />
+        <GameLink gameId="zenless-zone-zero" />
       </Box>
     </Stack>
-  </Container>
+  </>
 );
 
-export default Menu;
+export default HomePage;

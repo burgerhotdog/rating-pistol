@@ -1,14 +1,14 @@
 import { Paper, Box, Typography, Divider, Stack } from '@mui/material';
 import { AVATAR_DATA, STAT_DATA } from '@data';
 
-export default ({ gameId, avatarId, ratingData, mainstat, statList }) => {
+export default ({ gameId, avatarId, ratingData, mainstat, subStatList }) => {
   const { rolls } = ratingData;
   const { weights } = AVATAR_DATA[gameId][avatarId];
   const statData = STAT_DATA[gameId];
 
-  const Row = ({ stat, value }) => {
-    const isFlat = stat[0] === '_';
-    const weight = weights[isFlat ? stat.slice(1) : stat];
+  const Row = ({ subStatId, value }) => {
+    const isFlat = subStatId[0] === '_';
+    const weight = weights[isFlat ? subStatId.slice(1) : subStatId];
     const color = !!weight ? 'text.primary' : 'text.disabled';
     return (
       <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -18,7 +18,7 @@ export default ({ gameId, avatarId, ratingData, mainstat, statList }) => {
           whiteSpace: 'nowrap',
           maxWidth: '130px',
         }}>
-          {statData[stat].name}
+          {statData[subStatId].name}
         </Typography>
         <Typography variant="body2" color={color}>
           {!!weight && (
@@ -30,7 +30,7 @@ export default ({ gameId, avatarId, ratingData, mainstat, statList }) => {
               {weight.toFixed(1)}{' x '}
             </Typography>
           )}
-          {(value / statData[stat].subValue).toFixed(1)}
+          {(value / statData[subStatId].subValue).toFixed(1)}
         </Typography>
       </Box>
     );
@@ -53,8 +53,8 @@ export default ({ gameId, avatarId, ratingData, mainstat, statList }) => {
       </Typography>
       <Divider />
       <Stack>
-        {statList.map(({ stat, value }, index) => (
-          <Row key={index} stat={stat} value={value} />
+        {subStatList.map(({ subStatId, value }, index) => (
+          <Row key={index} subStatId={subStatId} value={value} />
         ))}
       </Stack>
       <Divider />

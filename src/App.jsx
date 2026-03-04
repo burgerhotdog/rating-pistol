@@ -1,7 +1,8 @@
 import { useLocation, Navigate, Route, Routes } from 'react-router-dom';
-import { Auth, Header } from '@components';
+import { Container } from '@mui/material';
+import { Header } from '@components';
 import { AuthProvider } from '@contexts';
-import { Menu, Game } from '@pages';
+import { GamePage, HomePage } from '@pages';
 
 const VALID_PATHS = new Set([
   '/',
@@ -19,11 +20,19 @@ export default function App() {
 
   return (
     <AuthProvider>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Menu />} />
-        <Route path="/:gamePath" element={<Game />} />
-      </Routes>
+      <Container
+        maxWidth='lg'
+        sx={{
+          display: 'flex', flexDirection: 'column',
+          maxHeight: '100dvh',
+        }}
+      >
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/:gameId" element={<GamePage />} />
+        </Routes>
+      </Container>
     </AuthProvider>
   );
 };

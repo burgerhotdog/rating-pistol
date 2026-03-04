@@ -52,7 +52,7 @@ const Edit = ({ gameId, modalPipe, saveAvatar, closeModal, deleteAvatar }) => {
               mainIndex={tabIndex}
             />
             <Divider />
-            {equipList[tabIndex].statList.map((_, subIndex) => (
+            {equipList[tabIndex].subStatList.map((_, subIndex) => (
               <Substat
                 key={subIndex}
                 gameId={gameId}

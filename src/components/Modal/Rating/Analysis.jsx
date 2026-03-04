@@ -24,10 +24,10 @@ const colorDays = (days) => {
   return 100;
 };
 
-export default ({ gameId, index, ratingData, stat }) => {
+export default ({ gameId, index, ratingData, mainStatId }) => {
   const { rolls, dataset } = ratingData;
   const percentile = getPercentile(rolls, dataset);
-  const days = daysToFarm(gameId, percentile, stat, index);
+  const days = daysToFarm(gameId, percentile, mainStatId, index);
 
   return (
     <Paper sx={{ display: 'flex', flexDirection: 'column', p: 3, gap: 2 }}>

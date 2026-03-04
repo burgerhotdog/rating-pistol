@@ -1,12 +1,15 @@
 import { INFO_DATA } from '@data';
 
 export default (gameId) => ({
-  updatedAt: null,
+  isPinned: false,
+  lastUpdated: null,
   weaponId: null,
   equipList: Array(INFO_DATA[gameId].NUM_MAINSTATS).fill().map(() => ({
-    stat: null,
-    statList: Array(INFO_DATA[gameId].NUM_SUBSTATS).fill().map(() => ({
-      stat: null,
+    ...(gameId === 'wuthering-waves' && { cost: null }),
+    setId: null,
+    mainStatId: null,
+    subStatList: Array(INFO_DATA[gameId].NUM_SUBSTATS).fill().map(() => ({
+      subStatId: null,
       value: null
     }))
   })),

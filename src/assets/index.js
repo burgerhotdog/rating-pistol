@@ -7,38 +7,38 @@ const short = (assets) =>
   );
 
 export const AVATAR_ASSETS = { 
-  gi: short(import.meta.glob('./avatar/gi/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./avatar/hsr/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./avatar/ww/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./avatar/zzz/*.webp', { eager: true })),
+  'genshin-impact': short(import.meta.glob('./avatar/gi/*.webp', { eager: true })),
+  'honkai-star-rail': short(import.meta.glob('./avatar/hsr/*.webp', { eager: true })),
+  'wuthering-waves': short(import.meta.glob('./avatar/ww/*.webp', { eager: true })),
+  'zenless-zone-zero': short(import.meta.glob('./avatar/zzz/*.webp', { eager: true })),
 };
 
 export const WEAPON_ASSETS = { 
-  gi: short(import.meta.glob('./weapon/gi/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./weapon/hsr/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./weapon/ww/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./weapon/zzz/*.webp', { eager: true })),
+  'genshin-impact': short(import.meta.glob('./weapon/gi/*.webp', { eager: true })),
+  'honkai-star-rail': short(import.meta.glob('./weapon/hsr/*.webp', { eager: true })),
+  'wuthering-waves': short(import.meta.glob('./weapon/ww/*.webp', { eager: true })),
+  'zenless-zone-zero': short(import.meta.glob('./weapon/zzz/*.webp', { eager: true })),
 };
 
 export const EQUIP_ASSETS = { 
-  gi: short(import.meta.glob('./equip/gi/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./equip/hsr/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./equip/ww/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./equip/zzz/*.webp', { eager: true })),
+  'genshin-impact': short(import.meta.glob('./equip/gi/*.webp', { eager: true })),
+  'honkai-star-rail': short(import.meta.glob('./equip/hsr/*.webp', { eager: true })),
+  'wuthering-waves': short(import.meta.glob('./equip/ww/*.webp', { eager: true })),
+  'zenless-zone-zero': short(import.meta.glob('./equip/zzz/*.webp', { eager: true })),
 };
 
 export const FILTER_ASSETS = { 
-  gi: short(import.meta.glob('./filter/gi/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./filter/hsr/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./filter/ww/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./filter/zzz/*.webp', { eager: true })),
+  'genshin-impact': short(import.meta.glob('./filter/gi/*.webp', { eager: true })),
+  'honkai-star-rail': short(import.meta.glob('./filter/hsr/*.webp', { eager: true })),
+  'wuthering-waves': short(import.meta.glob('./filter/ww/*.webp', { eager: true })),
+  'zenless-zone-zero': short(import.meta.glob('./filter/zzz/*.webp', { eager: true })),
 };
 
 export const STAT_ASSETS = { 
-  gi: short(import.meta.glob('./stat/gi/*.webp', { eager: true })),
-  hsr: short(import.meta.glob('./stat/hsr/*.webp', { eager: true })),
-  ww: short(import.meta.glob('./stat/ww/*.webp', { eager: true })),
-  zzz: short(import.meta.glob('./stat/zzz/*.webp', { eager: true })),
+  'genshin-impact': short(import.meta.glob('./stat/gi/*.webp', { eager: true })),
+  'honkai-star-rail': short(import.meta.glob('./stat/hsr/*.webp', { eager: true })),
+  'wuthering-waves': short(import.meta.glob('./stat/ww/*.webp', { eager: true })),
+  'zenless-zone-zero': short(import.meta.glob('./stat/zzz/*.webp', { eager: true })),
 };
 
 export const ICON_ASSETS = { 

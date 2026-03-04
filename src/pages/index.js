@@ -1,2 +1,2 @@
-export { default as Game } from './Game';
-export { default as Menu } from './Menu';
+export { default as GamePage } from './GamePage';
+export { default as HomePage } from './HomePage';

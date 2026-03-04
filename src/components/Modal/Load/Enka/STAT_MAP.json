@@ -1,5 +1,5 @@
 {
-  "gi": {
+  "genshin-impact": {
     "FIGHT_PROP_HP": "_HP",
     "FIGHT_PROP_ATTACK": "_ATK",
     "FIGHT_PROP_DEFENSE": "_DEF",
@@ -20,7 +20,7 @@
     "FIGHT_PROP_CRITICAL_HURT": "CD",
     "FIGHT_PROP_HEAL_ADD": "HB"
   },
-  "hsr": {
+  "honkai-star-rail": {
     "HPDelta": "_HP",
     "AttackDelta": "_ATK",
     "DefenceDelta": "_DEF",
@@ -47,7 +47,7 @@
     "SPRatioBase": "ERR",
     "StatusResistance": "RES"
   },
-  "zzz": {
+  "zenless-zone-zero": {
     "11103": "_HP",
     "12103": "_ATK",
     "13103": "_DEF",
