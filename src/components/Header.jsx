@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
-import { Stack, Box, Button, Typography, Tooltip } from '@mui/material';
+import { Stack, Box, Button, Divider, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
+import SyncIcon from '@mui/icons-material/Sync';
 import { Link } from 'react-router-dom';
 import { ICON_ASSETS } from '@assets';
 import { INFO_DATA } from '@data';
@@ -17,6 +18,7 @@ export default () => {
   const { user, handleAuth, isLoading } = useContext(AuthContext);
   const location = useLocation();
   const currentGame = location.pathname.slice(1);
+  const [uid, setUid] = useState('');
 
   return (
     <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ p: 2 }}>
@@ -41,7 +43,7 @@ export default () => {
             src={ICON_ASSETS.default}
             sx={{ width: 40, height: 'auto' }}
           />
-          <Typography variant="h6" fontWeight="bold">
+          <Typography variant="h5" fontWeight="bold">
             Rating Pistol
           </Typography>
         </Box>
@@ -81,6 +83,32 @@ export default () => {
       </Stack>
 
       <Stack direction="row" alignItems="center" spacing={1}>
+        <TextField
+          label="Enter UID"
+          size="small"
+          value={uid}
+          slotProps={{
+            input: {
+              inputMode: 'numeric',
+              onBeforeInput: (e) => {
+                if (!/^\d*$/.test(e.data)) {
+                  e.preventDefault();
+                }
+              },
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton size="small">
+                    <SyncIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            },
+          }}
+          onChange={(e) => setUid(e.target.value)}
+        />
+
+        <Divider orientation="vertical" flexItem />
+
         {user && (
           <Typography variant="body2" color="text.secondary">
             {user.email}

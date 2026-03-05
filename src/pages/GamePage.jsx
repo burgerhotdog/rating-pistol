@@ -7,48 +7,20 @@ import { Modal, Table, Test } from '@components';
 import { AVATAR_DATA, VERSION_DATA, INFO_DATA } from '@data';
 import { rateBuild } from '@utils';
 import { AVATAR_ASSETS, ICON_ASSETS } from '@assets';
-import { AuthContext } from '@contexts';
+import { AuthContext, BuildContext } from '@contexts';
 
 const Game = () => {
   const { gameId } = useParams();
   const { user } = useContext(AuthContext);
+  const { buildCache } = useContext(BuildContext);
   const userId = user?.uid;
   const [avatarCache, setAvatarCache] = useState({});
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState(0);
 
-  // initialize starred and avatarCache on mount or auth
-  useEffect(() => {
-    const initAvatarCache = async () => {
-      setIsLoading(true);
-      const snapshot = await fbGetAvatars(userId, gameId);
-      if (!snapshot) {
-        setAvatarCache({});
-        setIsLoading(false);
-        return;
-      };
-
-      const newCache = Object.fromEntries(snapshot.docs.map(doc => {
-        const id = doc.id;
-        const data = doc.data();
-        return [id, data];
-      }))
-      setAvatarCache(newCache);
-      setIsLoading(false);
-    };
-
-    if (userId) {
-      initAvatarCache();
-      setSelected(0);
-    } else {
-      setAvatarCache({});
-      setSelected(0);
-    }
-  }, [userId, gameId]);
-
   // save avatar to firestore and cache
-  const saveAvatar = async (id, data) => {
+  /* const saveAvatar = async (id, data) => {
     const dataWithTimestamp = {
       ...data,
       lastUpdated: new Date().toISOString(),
@@ -78,10 +50,10 @@ const Game = () => {
       delete newCache[id];
       return newCache;
     });
-  };
+  }; */
 
   const sortedAvatars = useMemo(() => {
-    return Object.entries(avatarCache)
+    return Object.entries(buildCache[gameId])
       .sort(([aId, { isPinned: aIsPinned }], [bId, { isPinned: bIsPinned }]) => {
         if (aIsPinned !== bIsPinned) return bIsPinned - aIsPinned;
 
@@ -90,7 +62,7 @@ const Game = () => {
         return aName.localeCompare(bName);
       })
       .map(([avatarId]) => Number(avatarId));
-  }, [avatarCache]);
+  }, [buildCache[gameId]]);
 
   return (
     <>
@@ -103,9 +75,25 @@ const Game = () => {
           display: "flex", flexDirection: "column", alignItems: "center",
           pt: 2.5, gap: 1, position: "relative", zIndex: 10,
           overflowY: "auto",
+          scrollbarWidth: "thin",
+          scrollbarColor: "transparent transparent",
+          "&::-webkit-scrollbar": { width: 6 },
+          "&::-webkit-scrollbar-track": { background: "transparent" },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "transparent",
+            borderRadius: 8,
+            transition: "background-color 0.2s ease",
+          },
+          "&:hover": { scrollbarColor: "rgba(255,255,255,0.2) transparent" },
+          "&:hover::-webkit-scrollbar-thumb": { backgroundColor: "rgba(255,255,255,0.2)" },
         }}>
           {sortedAvatars.map((avatarId, index) => (
-            <Avatar key={index} src={AVATAR_ASSETS[gameId][avatarId]} onClick={() => setSelected(index)} />
+            <Avatar
+              key={index}
+              src={AVATAR_ASSETS[gameId][avatarId]}
+              onClick={() => setSelected(index)}
+              sx={{ cursor: 'pointer' }}
+            />
           ))}
         </Box>
 
@@ -129,7 +117,7 @@ const Game = () => {
         </Card>
       </Box>
 
-      <Modal
+      {/* <Modal
         gameId={gameId}
         userId={userId}
         modalPipe={modalPipe}
@@ -139,7 +127,7 @@ const Game = () => {
         saveAvatar={saveAvatar}
         saveAvatarBatch={saveAvatarBatch}
         deleteAvatar={deleteAvatar}
-      />
+      /> */}
     </>
   );
 };
