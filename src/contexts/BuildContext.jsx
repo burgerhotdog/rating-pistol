@@ -2,7 +2,6 @@ import { createContext, useState, useEffect, useContext } from 'react';
 import { AuthContext } from '@contexts';
 import { fbGetUser, fbGetAvatars, fbSetAvatar, fbSetAvatarBatch, fbDeleteAvatar } from '@/firebase';
 
-
 const GAME_IDS = [
   'genshin-impact',
   'honkai-star-rail',
@@ -10,16 +9,15 @@ const GAME_IDS = [
   'zenless-zone-zero',
 ];
 
+const createBuildCacheTemplate = () => {
+  return Object.fromEntries(GAME_IDS.map(id => [id, {}]));
+};
+
 export const BuildContext = createContext(null);
 
 export const BuildProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
-  const [buildCache, setBuildCache] = useState({
-    'genshin-impact': {},
-    'honkai-star-rail': {},
-    'wuthering-waves': {},
-    'zenless-zone-zero': {},
-  });
+  const [buildCache, setBuildCache] = useState(createBuildCacheTemplate);
   const [isBuildCacheLoading, setIsBuildCacheLoading] = useState(false);
 
   useEffect(() => {
@@ -49,7 +47,7 @@ export const BuildProvider = ({ children }) => {
         setBuildCache(newBuildCache);
       } catch (err) {
         console.error('Failed to initialize buildCache:', err);
-        setBuildCache({});
+        setBuildCache(createBuildCacheTemplate());
       } finally {
         setIsBuildCacheLoading(false);
       }
@@ -58,12 +56,7 @@ export const BuildProvider = ({ children }) => {
     if (user) {
       initBuildCache();
     } else {
-      setBuildCache({
-        'genshin-impact': {},
-        'honkai-star-rail': {},
-        'wuthering-waves': {},
-        'zenless-zone-zero': {},
-      });
+      setBuildCache(createBuildCacheTemplate());
     }
   }, [user]);
 
