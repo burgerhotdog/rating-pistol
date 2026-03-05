@@ -6,32 +6,45 @@ export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isAuthLoading, setIsAuthLoading] = useState(false);
   
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (newUser) => {
       if (newUser) {
         const { uid, email } = newUser;
         const snapshot = await fbGetUser(uid);
-        if (!snapshot.exists()) fbSetUser(uid, 'email', email);
+        if (!snapshot.exists()) {
+          fbSetUser(uid, 'email', email);
+          fbSetUser(uid, 'savedUids', {});
+        }
         setUser(newUser);
       } else {
         setUser(null);
       }
-      setIsLoading(false);
+      setIsAuthLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
   
   const handleAuth = () => {
-    setIsLoading(true);
+    setIsAuthLoading(true);
     if (user) fbSignOut();
     else fbSignIn();
   };
 
+  const userId = user?.uid ?? null;
+  const userEmail = user?.email ?? null;
+
   return (
-    <AuthContext.Provider value={{ user, handleAuth, isLoading }}>
+    <AuthContext.Provider
+      value={{
+        userId,
+        userEmail,
+        handleAuth,
+        isAuthLoading,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

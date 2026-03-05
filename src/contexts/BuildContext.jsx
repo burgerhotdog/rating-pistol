@@ -16,7 +16,7 @@ const createBuildCacheTemplate = () => {
 export const BuildContext = createContext(null);
 
 export const BuildProvider = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { userId } = useContext(AuthContext);
   const [buildCache, setBuildCache] = useState(createBuildCacheTemplate);
   const [isBuildCacheLoading, setIsBuildCacheLoading] = useState(false);
 
@@ -27,7 +27,7 @@ export const BuildProvider = ({ children }) => {
       try {
         const results = await Promise.all(
           GAME_IDS.map(async (gameId) => {
-            const snapshot = await fbGetAvatars(user.uid, gameId);
+            const snapshot = await fbGetAvatars(userId, gameId);
 
             if (!snapshot) {
               return [gameId, {}];
@@ -53,12 +53,12 @@ export const BuildProvider = ({ children }) => {
       }
     };
 
-    if (user) {
+    if (userId) {
       initBuildCache();
     } else {
       setBuildCache(createBuildCacheTemplate());
     }
-  }, [user]);
+  }, [userId]);
 
   return (
     <BuildContext.Provider

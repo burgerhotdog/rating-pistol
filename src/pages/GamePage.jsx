@@ -11,9 +11,8 @@ import { AuthContext, BuildContext } from '@contexts';
 
 const Game = () => {
   const { gameId } = useParams();
-  const { user } = useContext(AuthContext);
+  const { userId } = useContext(AuthContext);
   const { buildCache } = useContext(BuildContext);
-  const userId = user?.uid;
   const [avatarCache, setAvatarCache] = useState({});
   const [modalPipe, setModalPipe] = useState({});
   const [isLoading, setIsLoading] = useState(false);
