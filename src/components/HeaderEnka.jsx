@@ -1,13 +1,18 @@
 import { useContext, useEffect, useState } from 'react';
-import { Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
+import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
 import { UserDataContext } from '@contexts';
+import { fetchEnka } from './enkaHelpers';
+import { AVATAR_DATA } from '@data';
 
-const HeaderEnka= ({ activeGameId }) => {
+const HeaderEnka = ({ activeGameId }) => {
   const { savedUids, updateSavedUids } = useContext(UserDataContext);
   const [uid, setUid] = useState('');
   const [isSyncLoading, setIsSyncLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [enkaList, setEnkaList] = useState([]);
+  const [selectedCharacters, setSelectedCharacters] = useState([]);
 
   useEffect(() => {
     setUid(savedUids[activeGameId] ?? '');
@@ -23,13 +28,32 @@ const HeaderEnka= ({ activeGameId }) => {
     return false;
   };
 
-  const handleSync = () => {
+  const handleSync = async () => {
     setIsSyncLoading(true);
-    setTimeout(() => {
-      console.log('Waited 5 seconds');
+    const [status, result] = await fetchEnka(activeGameId, uid);
+    if (status !== 200) {
+      setError(result);
+      setIsSyncLoading(false);
+      return;
+    } else {
+      setEnkaList(result);
+      setSelectedCharacters(result.map(() => true));
+      setDialogOpen(true);
       updateSavedUids(activeGameId, uid);
       setIsSyncLoading(false);
-    }, 5000);
+    }
+  };
+
+  const handleSave = async () => {
+    const selectedList = enkaList.filter((_, index) => selectedCharacters[index]);
+    console.log('Selected characters to save:', selectedList);
+    closeDialog();
+  };
+
+  const closeDialog = () => {
+    setDialogOpen(false);
+    setSelectedCharacters([]);
+    setEnkaList([]);
   };
 
   return (
@@ -106,6 +130,34 @@ const HeaderEnka= ({ activeGameId }) => {
           {error}
         </Typography>
       )}
+
+      <Dialog open={dialogOpen} onClose={closeDialog}>
+        <DialogTitle>Select Characters to Import</DialogTitle>
+        <DialogContent>
+          {enkaList.map((char, index) => (
+            <FormControlLabel
+              key={char.avatarId}
+              control={
+                <Checkbox
+                  checked={selectedCharacters[index]}
+                  onChange={() => setSelectedCharacters(prev => {
+                    const newSelected = [...prev];
+                    newSelected[index] = !newSelected[index];
+                    return newSelected;
+                  })}
+                />
+              }
+              label={AVATAR_DATA[activeGameId][char.avatarId].name}
+            />
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeDialog}>Cancel</Button>
+          <Button onClick={handleSave} variant="contained" color="primary">
+            Save
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   )
 };

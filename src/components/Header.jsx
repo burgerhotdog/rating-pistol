@@ -4,8 +4,9 @@ import { AuthContext } from '@contexts';
 import { useLocation } from 'react-router-dom';
 import HeaderNav from './HeaderNav';
 import HeaderEnka from './HeaderEnka';
+import HeaderOcr from './HeaderOcr';
 
-export default () => {
+const Header = () => {
   const { userEmail, handleAuth } = useContext(AuthContext);
   const location = useLocation();
   const activeGameId = location.pathname.slice(1);
@@ -20,7 +21,13 @@ export default () => {
       <HeaderNav activeGameId={activeGameId} />
 
       <Stack direction="row" alignItems="center" spacing={1}>
-        <HeaderEnka activeGameId={activeGameId} />
+        {!activeGameId ? (
+          null
+        ) : activeGameId === 'wuthering-waves' ? (
+          <HeaderOcr />
+        ) : (
+          <HeaderEnka activeGameId={activeGameId} />
+        )}
 
         <Divider orientation="vertical" flexItem />
 
@@ -56,3 +63,5 @@ export default () => {
     </Box>
   );
 };
+
+export default Header;
