@@ -54,7 +54,7 @@ const Game = () => {
   const sortedAvatars = useMemo(() => {
     return Object.entries(buildCache[gameId])
       .sort(([aId, { isPinned: aIsPinned }], [bId, { isPinned: bIsPinned }]) => {
-        if (aIsPinned !== bIsPinned) return bIsPinned - aIsPinned;
+        if ((aIsPinned ?? false) !== (bIsPinned ?? false)) return (bIsPinned ?? false) - (aIsPinned ?? false);
 
         const aName = AVATAR_DATA[gameId][aId].name;
         const bName = AVATAR_DATA[gameId][bId].name;

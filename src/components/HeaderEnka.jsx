@@ -1,18 +1,19 @@
 import { useContext, useEffect, useState } from 'react';
 import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
-import { UserDataContext } from '@contexts';
-import { fetchEnka } from './enkaHelpers';
+import { UserDataContext, BuildContext } from '@contexts';
+import { fetchEnka, parseEnkaObj } from './enkaHelpers';
 import { AVATAR_DATA } from '@data';
 
 const HeaderEnka = ({ activeGameId }) => {
   const { savedUids, updateSavedUids } = useContext(UserDataContext);
+  const { saveAvatarBatch } = useContext(BuildContext);
   const [uid, setUid] = useState('');
   const [isSyncLoading, setIsSyncLoading] = useState(false);
   const [error, setError] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [enkaList, setEnkaList] = useState([]);
-  const [selectedCharacters, setSelectedCharacters] = useState([]);
+  const [selectedList, setSelectedList] = useState([]);
 
   useEffect(() => {
     setUid(savedUids[activeGameId] ?? '');
@@ -37,7 +38,7 @@ const HeaderEnka = ({ activeGameId }) => {
       return;
     } else {
       setEnkaList(result);
-      setSelectedCharacters(result.map(() => true));
+      setSelectedList(result.map(() => true));
       setDialogOpen(true);
       updateSavedUids(activeGameId, uid);
       setIsSyncLoading(false);
@@ -45,14 +46,21 @@ const HeaderEnka = ({ activeGameId }) => {
   };
 
   const handleSave = async () => {
-    const selectedList = enkaList.filter((_, index) => selectedCharacters[index]);
-    console.log('Selected characters to save:', selectedList);
+    const charBuffer = selectedList.map((verdict, index) => {
+      if (!verdict) return null;
+      return parseEnkaObj(activeGameId, enkaList[index]);
+    }).filter(Boolean);
+
+    if (charBuffer.length) {
+      saveAvatarBatch(activeGameId, charBuffer);
+    }
+
     closeDialog();
   };
 
   const closeDialog = () => {
     setDialogOpen(false);
-    setSelectedCharacters([]);
+    setSelectedList([]);
     setEnkaList([]);
   };
 
@@ -139,8 +147,8 @@ const HeaderEnka = ({ activeGameId }) => {
               key={char.avatarId}
               control={
                 <Checkbox
-                  checked={selectedCharacters[index]}
-                  onChange={() => setSelectedCharacters(prev => {
+                  checked={selectedList[index]}
+                  onChange={() => setSelectedList(prev => {
                     const newSelected = [...prev];
                     newSelected[index] = !newSelected[index];
                     return newSelected;

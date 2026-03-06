@@ -60,10 +60,30 @@ export const BuildProvider = ({ children }) => {
     }
   }, [userId]);
 
+  const saveAvatarBatch = async (gameId, entries) => {
+    const entriesWithTimestamps = entries.map(([id, data]) => [
+      id,
+      {
+        ...data,
+        lastUpdated: new Date().toISOString(),
+      }
+    ]);
+
+    if (userId) fbSetAvatarBatch(userId, gameId, entriesWithTimestamps);
+    setBuildCache(prev => ({
+      ...prev,
+      [gameId]: {
+        ...prev[gameId],
+        ...Object.fromEntries(entriesWithTimestamps),
+      },
+    }));
+  };
+
   return (
     <BuildContext.Provider
       value={{
         buildCache,
+        saveAvatarBatch,
         isBuildCacheLoading,
       }}
     >
