@@ -7,44 +7,60 @@ export const UserDataContext = createContext(null);
 export const UserDataProvider = ({ children }) => {
   const { userId } = useContext(AuthContext);
   const [savedUids, setSavedUids] = useState({});
+  const [pinnedIds, setPinnedIds] = useState({});
 
   useEffect(() => {
-    const importSavedUids = async () => {
+    const importUserData = async () => {
       const snapshot = await firebaseGetUser(userId);
-      if (!snapshot) {
-        return;
-      }
+      if (!snapshot) return;
 
-      const newSavedUids = snapshot.data()?.savedUids;
-      if (!newSavedUids) {
-        return;
-      }
+      const data = snapshot.data();
+      if (!data) return;
+
+      const newSavedUids = data.savedUids || {};
+      const newPinnedIds = data.pinnedIds || {};
 
       setSavedUids(newSavedUids);
+      setPinnedIds(newPinnedIds);
     };
 
     if (userId) {
-      importSavedUids();
+      importUserData();
     } else {
       setSavedUids({});
+      setPinnedIds({});
     }
   }, [userId]);
 
   const updateSavedUids = async (gameId, newUid) => {
-    if (savedUids[gameId] === newUid) {
+    if (savedUids[gameId] === newUid)
       return;
-    }
 
     const newSavedUids = { ...savedUids, [gameId]: newUid };
     setSavedUids(newSavedUids);
+    if (userId) firebaseSetUser(userId, 'savedUids', newSavedUids);
+  };
 
-    if (userId) {
-      firebaseSetUser(userId, 'savedUids', newSavedUids);
+  const updatePinnedIds = async (gameId, newAvatarId) => {
+    if (pinnedIds[gameId] === newAvatarId) return;
+
+    const newPinnedIds = { ...pinnedIds };
+    if (!newAvatarId){
+      delete newPinnedIds[gameId];
+    } else {
+      newPinnedIds[gameId] = newAvatarId;
     }
+
+    setPinnedIds(newPinnedIds);
+    if (userId)
+      firebaseSetUser(userId, 'pinnedIds', newPinnedIds);
   };
 
   return (
-    <UserDataContext.Provider value={{ savedUids, updateSavedUids }}>
+    <UserDataContext.Provider value={{
+      savedUids, updateSavedUids,
+      pinnedIds, updatePinnedIds,
+    }}>
       {children}
     </UserDataContext.Provider>
   );
