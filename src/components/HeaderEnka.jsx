@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
-import { UserDataContext, BuildContext } from '@contexts';
+import { UserDataContext, BuildDataContext } from '@contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
 import { AVATAR_DATA } from '@data';
 
 const HeaderEnka = ({ activeGameId }) => {
   const { savedUids, updateSavedUids } = useContext(UserDataContext);
-  const { saveAvatarBatch } = useContext(BuildContext);
+  const { saveBuildEntries } = useContext(BuildDataContext);
   const [uid, setUid] = useState('');
   const [isSyncLoading, setIsSyncLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -52,7 +52,7 @@ const HeaderEnka = ({ activeGameId }) => {
     }).filter(Boolean);
 
     if (charBuffer.length) {
-      saveAvatarBatch(activeGameId, charBuffer);
+      saveBuildEntries(activeGameId, charBuffer);
     }
 
     closeDialog();

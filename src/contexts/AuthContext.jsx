@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth, fbSignIn, fbSignOut, fbGetUser, fbSetUser } from '@/firebase';
+import { auth, firebaseSignIn, firebaseSignOut, firebaseGetUser, firebaseSetUser } from '@/firebase';
 
 export const AuthContext = createContext(null);
 
@@ -12,10 +12,10 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, async (newUser) => {
       if (newUser) {
         const { uid, email } = newUser;
-        const snapshot = await fbGetUser(uid);
+        const snapshot = await firebaseGetUser(uid);
         if (!snapshot.exists()) {
-          fbSetUser(uid, 'email', email);
-          fbSetUser(uid, 'savedUids', {});
+          firebaseSetUser(uid, 'email', email);
+          firebaseSetUser(uid, 'savedUids', {});
         }
         setUser(newUser);
       } else {
@@ -29,8 +29,8 @@ export const AuthProvider = ({ children }) => {
   
   const handleAuth = () => {
     setIsAuthLoading(true);
-    if (user) fbSignOut();
-    else fbSignIn();
+    if (user) firebaseSignOut();
+    else firebaseSignIn();
   };
 
   const userId = user?.uid ?? null;

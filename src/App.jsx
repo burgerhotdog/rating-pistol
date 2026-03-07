@@ -1,7 +1,7 @@
 import { useLocation, Navigate, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 import { Header } from '@components';
-import { AuthProvider, BuildProvider, UserDataProvider } from '@contexts';
+import { AuthProvider, BuildDataProvider, UserDataProvider } from '@contexts';
 import { GamePage, HomePage } from '@pages';
 
 const VALID_PATHS = new Set([
@@ -21,7 +21,7 @@ export default function App() {
   return (
     <AuthProvider>
       <UserDataProvider>
-        <BuildProvider>
+        <BuildDataProvider>
           <Container
             maxWidth='lg'
             sx={{
@@ -36,7 +36,7 @@ export default function App() {
               <Route path="/:gameId" element={<GamePage />} />
             </Routes>
           </Container>
-        </BuildProvider>
+        </BuildDataProvider>
       </UserDataProvider>
     </AuthProvider>
   );

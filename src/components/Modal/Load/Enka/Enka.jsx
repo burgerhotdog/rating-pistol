@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Box, Stack, Button, FormControlLabel, Checkbox, TextField, Typography } from '@mui/material';
-import { fbGetUser, fbSetUser } from '@/firebase';
+import { firebaseGetUser, firebaseSetUser } from '@/firebase';
 import { AVATAR_ASSETS } from '@assets';
 import { AVATAR_DATA } from '@data';
 import fetchEnka from './fetchEnka';
@@ -17,7 +17,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
   // initialize uid on mount
   useEffect(() => {
     const initUid = async () => {
-      const snapshot = await fbGetUser(userId);
+      const snapshot = await firebaseGetUser(userId);
       if (!snapshot) return;
 
       const savedUid = snapshot.data()?.[`${gameId}_uid`];
@@ -41,7 +41,7 @@ const Enka = ({ gameId, userId, saveAvatarBatch, closeModal }) => {
     const response = await fetchEnka(gameId, uid);
     if (Array.isArray(response)) {
       // save uid if checked
-      if (userId && remUid) fbSetUser(userId, `${gameId}_uid`, uid);
+      if (userId && remUid) firebaseSetUser(userId, `${gameId}_uid`, uid);
       setEnkaList(response);
     } else {
       setError(response);

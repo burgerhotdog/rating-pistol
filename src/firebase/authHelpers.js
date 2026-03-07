@@ -8,11 +8,11 @@ import {
 import { auth } from './firebase';
 import safeCall from './safeCall';
 
-export const fbSignIn = async () => {
+export async function firebaseSignIn() {
   await safeCall(setPersistence(auth, browserLocalPersistence));
   return safeCall(signInWithPopup(auth, new GoogleAuthProvider()));
 };
 
-export const fbSignOut = () => {
+export async function firebaseSignOut() {
   return safeCall(signOut(auth));
 };

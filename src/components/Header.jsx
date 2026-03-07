@@ -21,15 +21,15 @@ const Header = () => {
       <HeaderNav activeGameId={activeGameId} />
 
       <Stack direction="row" alignItems="center" spacing={1}>
-        {!activeGameId ? (
-          null
-        ) : activeGameId === 'wuthering-waves' ? (
-          <HeaderOcr />
-        ) : (
-          <HeaderEnka activeGameId={activeGameId} />
+        {activeGameId && (
+          <>
+            {activeGameId === 'wuthering-waves'
+              ? <HeaderOcr />
+              : <HeaderEnka activeGameId={activeGameId} />
+            }
+            <Divider orientation="vertical" flexItem />
+          </>
         )}
-
-        <Divider orientation="vertical" flexItem />
 
         {userEmail && (
           <Typography variant="body2" color="text.secondary">

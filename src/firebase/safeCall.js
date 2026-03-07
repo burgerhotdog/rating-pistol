@@ -1,4 +1,4 @@
-export default async (promise) => {
+export default async function safeCall(promise) {
   try {
     return await promise;
   } catch (err) {

@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import { AuthContext } from '@contexts';
-import { fbGetUser, fbSetUser } from '@/firebase';
+import { firebaseGetUser, firebaseSetUser } from '@/firebase';
 
 export const UserDataContext = createContext(null);
 
@@ -10,7 +10,7 @@ export const UserDataProvider = ({ children }) => {
 
   useEffect(() => {
     const importSavedUids = async () => {
-      const snapshot = await fbGetUser(userId);
+      const snapshot = await firebaseGetUser(userId);
       if (!snapshot) {
         return;
       }
@@ -39,7 +39,7 @@ export const UserDataProvider = ({ children }) => {
     setSavedUids(newSavedUids);
 
     if (userId) {
-      fbSetUser(userId, 'savedUids', newSavedUids);
+      firebaseSetUser(userId, 'savedUids', newSavedUids);
     }
   };
 

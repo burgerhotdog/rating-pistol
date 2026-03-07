@@ -14,39 +14,40 @@ import { db } from './firebase';
 import safeCall from './safeCall';
 
 // user
-export const fbGetUser = (userId) => {
+export const firebaseGetUser = (userId) => {
   const ref = doc(db, 'users', userId);
   return safeCall(getDoc(ref));
 };
 
-export const fbSetUser = (userId, key, value) => {
+export const firebaseSetUser = (userId, key, value) => {
   const ref = doc(db, 'users', userId);
   return safeCall(setDoc(ref, { [key]: value }, { merge: true }));
 };
 
 // star
-export const fbAddStar = (userId, gameId, avatarId) => {
+export const firebaseAddStar = (userId, gameId, avatarId) => {
   const ref = doc(db, "users", userId);
   return safeCall(updateDoc(ref, { [`${gameId}_starred`]: arrayUnion(avatarId) }));
 };
 
-export const fbDelStar = (userId, gameId, avatarId) => {
+export const firebaseDelStar = (userId, gameId, avatarId) => {
   const ref = doc(db, "users", userId);
   return safeCall(updateDoc(ref, { [`${gameId}_starred`]: arrayRemove(avatarId) }));
 };
 
 // avatar
-export const fbGetAvatars = (userId, gameId) => {
+export const firebaseGetAvatars = (userId, gameId) => {
   const ref = collection(db, 'users', userId, gameId);
   return safeCall(getDocs(ref));
 };
 
-export const fbSetAvatar = (userId, gameId, avatarId, avatarData) => {
-  const ref = doc(db, 'users', userId, gameId, String(avatarId));
-  return safeCall(setDoc(ref, avatarData, { merge: true }));
-};
+export const firebaseSetEntries = (userId, gameId, entries) => {
+  if (entries.length === 1) {
+    const [avatarId, avatarData] = entries[0];
+    const ref = doc(db, 'users', userId, gameId, String(avatarId));
+    return safeCall(setDoc(ref, avatarData));
+  }
 
-export const fbSetAvatarBatch = (userId, gameId, entries) => {
   const batch = writeBatch(db);
   entries.forEach(([avatarId, avatarData]) => {
     const ref = doc(db, 'users', userId, gameId, String(avatarId));
@@ -55,7 +56,7 @@ export const fbSetAvatarBatch = (userId, gameId, entries) => {
   return safeCall(batch.commit());
 };
 
-export const fbDeleteAvatar = (userId, gameId, avatarId) => {
+export const firebaseDeleteAvatar = (userId, gameId, avatarId) => {
   const ref = doc(db, 'users', userId, gameId, String(avatarId));
   return safeCall(deleteDoc(ref));
 };
