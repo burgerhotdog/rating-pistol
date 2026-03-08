@@ -50,7 +50,7 @@ export async function fetchEnka(gameId, uid) {
 
     // prune unrecognized avatars
     const validList = avatarList?.filter(({ avatarId }) => {
-      AVATAR_DATA[gameId][avatarId];
+      return AVATAR_DATA[gameId][avatarId];
     });
 
     // empty list case
@@ -109,9 +109,9 @@ const PARSE_MAIN_STAT = {
   'zenless-zone-zero': (equip) => equip.Equipment.MainPropertyList[0].PropertyId,
 };
 
-const PARSE_SET_ID = {
+const PARSE_SETID = {
   'genshin-impact': (equip) => String(equip.flat.setId),
-  'honkai-star-rail': (equip) => String(equip._flat.setId),
+  'honkai-star-rail': (equip) => String(equip._flat.setID),
   'zenless-zone-zero': (equip) => String(equip.Equipment.Id).slice(0, 3),
 };
 
@@ -154,8 +154,12 @@ export function parseEnkaObj(gameId, enkaObj) {
   // equipList
   const equipList = PARSE_EQUIPLIST[gameId](enkaObj) ?? [];
   for (const equipObj of equipList) {
-    // main stat
     const indexMain = PARSE_MAIN_INDEX[gameId](equipObj);
+
+    // set id
+    avatarData.equipList[indexMain].setId = PARSE_SETID[gameId](equipObj);
+
+    // main stat
     const mainStat = PARSE_MAIN_STAT[gameId](equipObj);
     avatarData.equipList[indexMain].mainStatId = ENKA_STAT_MAP[gameId][mainStat];
 
