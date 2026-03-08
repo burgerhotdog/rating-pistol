@@ -1,6 +1,14 @@
 import { createContext, useState, useEffect, useContext } from 'react';
+import {
+  doc,
+  collection,
+  onSnapshot,
+  setDoc,
+  deleteDoc,
+  writeBatch,
+} from 'firebase/firestore';
 import { AuthContext } from '@contexts';
-import { firebaseGetAvatars, firebaseSetEntries, firebaseDeleteAvatar } from '@/firebase';
+import { db } from '@/firebase';
 
 const GAME_IDS = [
   'genshin-impact',
@@ -20,58 +28,52 @@ export const BuildDataProvider = ({ children }) => {
   const [buildData, setBuildData] = useState(buildDataTemplate);
   const [isBuildDataLoading, setIsBuildDataLoading] = useState(false);
 
-  // load buildData from Firestore on userId change
   useEffect(() => {
-    const initBuildData = async () => {
-      setIsBuildDataLoading(true);
-
-      try {
-        const results = await Promise.all(
-          GAME_IDS.map(async (gameId) => {
-            // fetch builds for this gameId
-            const snapshot = await firebaseGetAvatars(userId, gameId);
-            if (!snapshot) {
-              return [gameId, {}];
-            }
-
-            // format builds
-            const buildsMap = Object.fromEntries(
-              snapshot.docs.map(doc => [doc.id, doc.data()])
-            );
-
-            return [gameId, buildsMap];
-          })
-        );
-
-        // convert array into object
-        const newBuildData = Object.fromEntries(results);
-
-        setBuildData(newBuildData);
-      } catch (err) {
-        console.error('Failed to initialize buildData:', err);
-        setBuildData(buildDataTemplate());
-      } finally {
-        setIsBuildDataLoading(false);
-      }
-    };
-
-    if (userId) {
-      initBuildData();
-    } else {
-      setBuildData(buildDataTemplate());
+    if (!userId) {
+      setBuildData({});
+      return;
     }
+
+    const unsubscribes = GAME_IDS.map(gameId => {
+      const ref = collection(db, 'users', userId, gameId);
+
+      return onSnapshot(ref, snapshot => {
+        const buildsMap = Object.fromEntries(snapshot.docs.map(doc => [doc.id, doc.data()]));
+
+        setBuildData(prev => ({ ...prev, [gameId]: buildsMap }));
+      });
+    });
+
+    return () => unsubscribes.forEach(fn => fn());
   }, [userId]);
+
 
   const saveBuildEntries = async (gameId, entries) => {
     const entriesWithTimestamps = entries.map(([avatarId, avatarData]) => [
       avatarId,
-      {
-        ...avatarData,
-        lastUpdated: new Date().toISOString(),
-      }
+      { ...avatarData, lastUpdated: new Date().toISOString() },
     ]);
 
-    if (userId) firebaseSetEntries(userId, gameId, entriesWithTimestamps);
+    if (userId) {
+      if (entriesWithTimestamps.length === 1) {
+        const [avatarId, avatarData] = entriesWithTimestamps[0];
+        const ref = doc(db, 'users', userId, gameId, String(avatarId));
+        setDoc(ref, avatarData).catch(err =>
+          console.error('Failed to save build: ', err)
+        );
+      } else {
+        const batch = writeBatch(db);
+        entriesWithTimestamps.forEach(([avatarId, avatarData]) => {
+          const ref = doc(db, 'users', userId, gameId, String(avatarId));
+          batch.set(ref, avatarData);
+        });
+        batch.commit().catch(err =>
+          console.error('Failed to save builds: ', err)
+        );
+      }
+      return;
+    }
+
     setBuildData(prev => ({
       ...prev,
       [gameId]: {
@@ -82,11 +84,18 @@ export const BuildDataProvider = ({ children }) => {
   };
 
   const deleteBuildEntry = async (gameId, avatarId) => {
-    if (userId) firebaseDeleteAvatar(userId, gameId, avatarId);
+    if (userId) {
+      const ref = doc(db, 'users', userId, gameId, String(avatarId));
+      deleteDoc(ref).catch(err =>
+        console.error('Failed to delete build: ', err)
+      );
+      return;
+    }
+
     setBuildData(prev => {
-      const newBuildData = { ...prev };
-      delete newBuildData[gameId][avatarId];
-      return newBuildData;
+      const newGameData = { ...prev[gameId] };
+      delete newGameData[avatarId];
+      return { ...prev, [gameId]: newGameData };
     });
   };
 

@@ -1,6 +1,15 @@
-import { createContext, useState, useEffect } from 'react';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth, firebaseSignIn, firebaseSignOut, firebaseGetUser, firebaseSetUser } from '@/firebase';
+import { createContext, useEffect, useState } from 'react';
+import {
+  GoogleAuthProvider,
+  browserLocalPersistence,
+  onAuthStateChanged,
+  setPersistence,
+  signInWithPopup,
+  signOut as firebaseSignOut,
+} from 'firebase/auth';
+import { auth } from '@/firebase';
+
+const provider = new GoogleAuthProvider();
 
 export const AuthContext = createContext(null);
 
@@ -9,28 +18,32 @@ export const AuthProvider = ({ children }) => {
   const [isAuthLoading, setIsAuthLoading] = useState(false);
   
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (newUser) => {
-      if (newUser) {
-        const { uid, email } = newUser;
-        const snapshot = await firebaseGetUser(uid);
-        if (!snapshot.exists()) {
-          firebaseSetUser(uid, 'email', email);
-          firebaseSetUser(uid, 'savedUids', {});
-        }
-        setUser(newUser);
-      } else {
-        setUser(null);
-      }
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setUser(user || null);
       setIsAuthLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
-  
-  const handleAuth = () => {
+
+  async function signIn() {
     setIsAuthLoading(true);
-    if (user) firebaseSignOut();
-    else firebaseSignIn();
+
+    try {
+      await setPersistence(auth, browserLocalPersistence);
+      await signInWithPopup(auth, provider);
+    } catch (err) {
+      console.error('Sign-in failed', err);
+    }
+  };
+
+  async function signOut() {
+    setIsAuthLoading(true);
+    try {
+      await firebaseSignOut(auth);
+    } catch (err) {
+      console.error('Sign-out failed', err);
+    }
   };
 
   const userId = user?.uid ?? null;
@@ -41,7 +54,8 @@ export const AuthProvider = ({ children }) => {
       value={{
         userId,
         userEmail,
-        handleAuth,
+        signIn,
+        signOut,
         isAuthLoading,
       }}
     >

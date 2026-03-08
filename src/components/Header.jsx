@@ -7,7 +7,7 @@ import HeaderEnka from './HeaderEnka';
 import HeaderOcr from './HeaderOcr';
 
 const Header = () => {
-  const { userEmail, handleAuth } = useContext(AuthContext);
+  const { userEmail, signIn, signOut } = useContext(AuthContext);
   const location = useLocation();
   const activeGameId = location.pathname.slice(1);
 
@@ -44,7 +44,7 @@ const Header = () => {
           },
         }}>
           <Button
-            onClick={handleAuth}
+            onClick={userEmail ? signOut : signIn}
             variant="text"
             sx={{
               textTransform: 'none',
