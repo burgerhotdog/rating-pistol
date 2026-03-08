@@ -1,13 +1,11 @@
-import { useContext } from 'react';
-import { Stack, Box, Button, Divider, Typography } from '@mui/material';
-import { AuthContext } from '@contexts';
 import { useLocation } from 'react-router-dom';
-import HeaderNav from './HeaderNav';
+import { Box, Divider, Stack } from '@mui/material';
 import HeaderEnka from './HeaderEnka';
+import HeaderNav from './HeaderNav';
 import HeaderOcr from './HeaderOcr';
+import HeaderUser from './HeaderUser';
 
 const Header = () => {
-  const { userEmail, signIn, signOut } = useContext(AuthContext);
   const location = useLocation();
   const activeGameId = location.pathname.slice(1);
 
@@ -31,34 +29,7 @@ const Header = () => {
           </>
         )}
 
-        {userEmail && (
-          <Typography variant="body2" color="text.secondary">
-            {userEmail}
-          </Typography>
-        )}
-
-        <Box sx={{
-          borderBottom: '1px solid transparent',
-          '&:hover': {
-            borderBottomColor: 'currentColor',
-          },
-        }}>
-          <Button
-            onClick={userEmail ? signOut : signIn}
-            variant="text"
-            sx={{
-              textTransform: 'none',
-              textDecoration: 'none',
-              '&:hover': {
-                backgroundColor: 'transparent',
-              },
-            }}
-          >
-            <Typography variant="body2" color="text.secondary">
-              {userEmail ? "Sign Out" : "Sign In"}
-            </Typography>
-          </Button>
-        </Box>
+        <HeaderUser />
       </Stack>
     </Box>
   );

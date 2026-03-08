@@ -31,6 +31,7 @@ const HeaderEnka = ({ activeGameId }) => {
 
   const handleSync = async () => {
     setIsSyncLoading(true);
+    setError(null);
     const [status, result] = await fetchEnka(activeGameId, uid);
     if (status !== 200) {
       setError(result);
@@ -60,6 +61,9 @@ const HeaderEnka = ({ activeGameId }) => {
 
   const closeDialog = () => {
     setDialogOpen(false);
+  };
+
+  const handleDialogExited = () => {
     setSelectedList([]);
     setEnkaList([]);
   };
@@ -139,7 +143,15 @@ const HeaderEnka = ({ activeGameId }) => {
         </Typography>
       )}
 
-      <Dialog open={dialogOpen} onClose={closeDialog}>
+      <Dialog
+        open={dialogOpen}
+        onClose={closeDialog}
+        slotProps={{
+          transition: {
+            onExited: handleDialogExited,
+          },
+        }}
+      >
         <DialogTitle>Select Characters to Import</DialogTitle>
         <DialogContent>
           {enkaList.map((char, index) => (
@@ -167,7 +179,7 @@ const HeaderEnka = ({ activeGameId }) => {
         </DialogActions>
       </Dialog>
     </Box>
-  )
+  );
 };
 
 export default HeaderEnka;
