@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Container, Stack, Box, Typography, Tooltip } from '@mui/material';
+import { Stack, Box, Tooltip } from '@mui/material';
 import { ICON_ASSETS } from '@assets';
 import { INFO_DATA } from '@data';
 

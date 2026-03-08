@@ -38,7 +38,7 @@ export const UserDataProvider = ({ children }) => {
       }
     });
 
-    return unsubscribe;
+    return () => unsubscribe();
   }, [userId]);
 
   const updateSavedUids = async (gameId, uid) => {

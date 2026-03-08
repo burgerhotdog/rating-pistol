@@ -21,7 +21,7 @@ const ERROR_CODES = {
 };
 
 // returns list if valid, otherwise returns error message string
-export const fetchEnka = async (gameId, uid) => {
+export async function fetchEnka(gameId, uid) {
   try {
     // fetch response
     const response = await fetch(`${BASE_URL}${SUFFIX[gameId]}${uid}`);
@@ -41,13 +41,16 @@ export const fetchEnka = async (gameId, uid) => {
         break;
       case 'zenless-zone-zero':
         avatarList = rawEnka.PlayerInfo?.ShowcaseDetail?.AvatarList;
-        avatarList?.forEach(entry => entry.avatarId = entry.Id);
+        avatarList = avatarList?.map(entry => ({
+          ...entry,
+          avatarId: entry.Id
+        }));
         break;
     }
 
     // prune unrecognized avatars
     const validList = avatarList?.filter(({ avatarId }) => {
-      return AVATAR_DATA[gameId][avatarId];
+      AVATAR_DATA[gameId][avatarId];
     });
 
     // empty list case
@@ -106,6 +109,12 @@ const PARSE_MAIN_STAT = {
   'zenless-zone-zero': (equip) => equip.Equipment.MainPropertyList[0].PropertyId,
 };
 
+const PARSE_SET_ID = {
+  'genshin-impact': (equip) => String(equip.flat.setId),
+  'honkai-star-rail': (equip) => String(equip._flat.setId),
+  'zenless-zone-zero': (equip) => String(equip.Equipment.Id).slice(0, 3),
+};
+
 const PARSE_SUBLIST = {
   'genshin-impact': (equip) => equip.flat.reliquarySubstats,
   'honkai-star-rail': (equip) => equip._flat.props.slice(1),
@@ -135,7 +144,7 @@ const PARSE_SUB_VALUE = {
   },
 };
 
-export const parseEnkaObj = (gameId, enkaObj) => {
+export function parseEnkaObj(gameId, enkaObj) {
   const avatarId = String(enkaObj.avatarId);
   const avatarData = template(gameId);
 
