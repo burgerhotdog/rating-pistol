@@ -64,7 +64,7 @@ const GamePage = () => {
   const currentBuild = buildData[currentId];
 
   return (
-    <Box sx={{ display: 'flex', height: '75dvh', gap: 2, pb: 2, overflow: 'hidden' }}>
+    <Box sx={{ display: 'flex', flex: 1, minHeight: 0, gap: 2, pb: 2, overflow: 'hidden' }}>
 
       {/* ── Roster sidebar ── */}
       <Box sx={{
@@ -87,6 +87,19 @@ const GamePage = () => {
           px: 0.5,
           scrollbarWidth: 'none',
           '&::-webkit-scrollbar': { display: 'none' },
+          position: 'relative',
+          '&::after': {
+            content: '""',
+            position: 'sticky',
+            bottom: 0,
+            display: 'block',
+            width: '100%',
+            height: 40,
+            flexShrink: 0,
+            background: (theme) =>
+              `linear-gradient(transparent, ${theme.palette.background.default})`,
+            pointerEvents: 'none',
+          },
         }}>
           {sortedAvatars.map((avatarId, index) => (
             <Avatar
@@ -107,11 +120,15 @@ const GamePage = () => {
                   : 'transparent',
                 outlineOffset: 2,
                 opacity: selected === index ? 1 : 0.55,
-                '&:hover': { opacity: 1 },
+                filter: selected === index ? 'none' : 'grayscale(0.4)',
+                '&:hover': {
+                  opacity: 1,
+                  filter: 'none',
+                  transform: 'scale(1.05)',
+                },
               }}
             />
           ))}
-          <Box sx={{ minHeight: 40, flexShrink: 0 }} />
         </Box>
       </Box>
 
@@ -119,7 +136,7 @@ const GamePage = () => {
       <Card
         variant="outlined"
         sx={{
-          flex: '0 0 300px',
+          flex: '0 0 clamp(220px, 20vw, 300px)',
           display: 'flex',
           flexDirection: 'column',
           p: 2.5,
