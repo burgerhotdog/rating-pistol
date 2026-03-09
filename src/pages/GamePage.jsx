@@ -1,9 +1,9 @@
 import { useContext, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Avatar, Box, Card, Divider, Stack, Typography } from '@mui/material';
-import { AVATAR_ASSETS } from '@assets';
-import { BuildDataContext, UserDataContext } from '@contexts';
-import { AVATAR_DATA, WEAPON_DATA } from '@data';
+import { AVATAR_ASSETS } from '@/assets';
+import { BuildDataContext, UserDataContext } from '@/contexts';
+import { AVATAR_DATA, WEAPON_DATA } from '@/data';
 
 const PlaceholderGraph = ({ title, sx, ...props }) => (
   <Box

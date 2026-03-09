@@ -1,8 +1,8 @@
 import { useLocation, Navigate, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
-import { Header } from '@components';
-import { AuthProvider, BuildDataProvider, UserDataProvider } from '@contexts';
-import { GamePage, HomePage } from '@pages';
+import { Header } from '@/components';
+import { AuthProvider, BuildDataProvider, UserDataProvider } from '@/contexts';
+import { GamePage, HomePage } from '@/pages';
 
 const VALID_PATHS = new Set([
   '/',

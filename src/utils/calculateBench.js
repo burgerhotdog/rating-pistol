@@ -1,4 +1,4 @@
-import { INFO_DATA, STAT_DATA } from '@data';
+import { INFO_DATA, STAT_DATA } from '@/data';
 
 export default (gameId, fullWeights, mainstats) => {
   const { NUM_MAINSTATS } = INFO_DATA[gameId];

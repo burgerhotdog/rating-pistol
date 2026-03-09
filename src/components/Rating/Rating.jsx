@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Stack, Box, Typography, Tabs, Tab, Tooltip } from '@mui/material';
-import { INFO_DATA } from '@data';
-import { getLetter, TabLabel } from '@utils';
+import { INFO_DATA } from '@/data';
+import { getLetter, TabLabel } from '@/utils';
 import Breakdown from './Breakdown';
 import Analysis from './Analysis';
 import Plot from './Plot';

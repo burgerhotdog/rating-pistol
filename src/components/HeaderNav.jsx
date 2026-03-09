@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Stack, Box, Typography } from '@mui/material';
-import { ICON_ASSETS } from '@assets';
+import { ICON_ASSETS } from '@/assets';
 
 const GAME_IDS = [
   'genshin-impact',

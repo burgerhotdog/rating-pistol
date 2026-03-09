@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { EQUIP_ASSETS } from '@assets';
+import { EQUIP_ASSETS } from '@/assets';
 
 export default (gameId, name, index) => {
   return (

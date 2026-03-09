@@ -7,7 +7,7 @@ import {
   Typography,
   Box
 } from '@mui/material';
-import { AuthContext } from '@contexts';
+import { AuthContext } from '@/contexts';
 
 const HeaderUser = () => {
   const { user, signIn, signOut } = useContext(AuthContext);

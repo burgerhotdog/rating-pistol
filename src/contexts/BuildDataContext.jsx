@@ -7,7 +7,7 @@ import {
   deleteDoc,
   writeBatch,
 } from 'firebase/firestore';
-import { AuthContext } from '@contexts';
+import { AuthContext } from '@/contexts';
 import { db } from '@/firebase';
 
 const GAME_IDS = [

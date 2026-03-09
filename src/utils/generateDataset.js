@@ -1,4 +1,4 @@
-import { INFO_DATA, STAT_DATA } from '@data';
+import { INFO_DATA, STAT_DATA } from '@/data';
 
 const ITERATIONS = 10000;
 

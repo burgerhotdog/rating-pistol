@@ -1,5 +1,5 @@
-import { AVATAR_DATA, WEAPON_DATA, INFO_DATA, STAT_DATA } from '@data';
-import { generateDataset, calculateBench } from '@utils';
+import { AVATAR_DATA, WEAPON_DATA, INFO_DATA, STAT_DATA } from '@/data';
+import { generateDataset, calculateBench } from '@/utils';
 
 const calculateRolls = (gameId, fullWeights, subStatList) => {
   return subStatList.reduce((acc, { subStatId, value }) => {

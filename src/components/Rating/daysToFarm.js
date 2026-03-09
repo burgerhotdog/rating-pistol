@@ -1,4 +1,4 @@
-import { INFO_DATA, STAT_DATA } from '@data';
+import { INFO_DATA, STAT_DATA } from '@/data';
 
 const index_chance = (gameId, index) => {
   if (gameId === 'honkai-star-rail') {

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Paper, useTheme } from '@mui/material';
 import Plot from 'react-plotly.js';
 import Plotly from 'plotly.js-dist-min';
-import { getPercentile } from '@utils';
+import { getPercentile } from '@/utils';
 
 const NUM_BINS = 25;
 

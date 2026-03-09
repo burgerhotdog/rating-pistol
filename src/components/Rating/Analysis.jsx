@@ -1,5 +1,5 @@
 import { Paper, Stack, Box, Typography } from '@mui/material';
-import { getPercentile } from '@utils';
+import { getPercentile } from '@/utils';
 import daysToFarm from './daysToFarm';
 import ColorBar from './ColorBar';
 

@@ -1,5 +1,5 @@
 import { Paper, Box, Typography, Divider, Stack } from '@mui/material';
-import { AVATAR_DATA, STAT_DATA } from '@data';
+import { AVATAR_DATA, STAT_DATA } from '@/data';
 
 export default ({ gameId, avatarId, ratingData, mainstat, subStatList }) => {
   const { rolls } = ratingData;

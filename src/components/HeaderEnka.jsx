@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
-import { UserDataContext, BuildDataContext } from '@contexts';
+import { UserDataContext, BuildDataContext } from '@/contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
-import { AVATAR_DATA } from '@data';
+import { AVATAR_DATA } from '@/data';
 
 const HeaderEnka = ({ activeGameId }) => {
   const { savedUids, updateSavedUids } = useContext(UserDataContext);

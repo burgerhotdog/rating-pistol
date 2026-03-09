@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Stack, Box, Tooltip } from '@mui/material';
-import { ICON_ASSETS } from '@assets';
-import { INFO_DATA } from '@data';
+import { ICON_ASSETS } from '@/assets';
+import { INFO_DATA } from '@/data';
 
 const GameLink = ({ gameId }) => (
   <Tooltip title={INFO_DATA[gameId].TITLE}>

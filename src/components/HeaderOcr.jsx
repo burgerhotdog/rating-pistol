@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import { Autocomplete, Button, Dialog, DialogContent, DialogActions, DialogTitle, Box, Typography, TextField } from '@mui/material';
-import { BuildDataContext } from '@contexts';
-import { AVATAR_DATA } from '@data';
-import { AVATAR_ASSETS } from '@assets';
+import { BuildDataContext } from '@/contexts';
+import { AVATAR_DATA } from '@/data';
+import { AVATAR_ASSETS } from '@/assets';
 
 const WUWA_DATA = AVATAR_DATA['wuthering-waves'];
 const WUWA_ASSETS = AVATAR_ASSETS['wuthering-waves'];
