@@ -46,14 +46,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const userId = user?.uid ?? null;
-  const userEmail = user?.email ?? null;
-
   return (
     <AuthContext.Provider
       value={{
-        userId,
-        userEmail,
+        user,
         signIn,
         signOut,
         isAuthLoading,
