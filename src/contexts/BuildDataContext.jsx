@@ -17,7 +17,7 @@ const GAME_IDS = [
   'zenless-zone-zero',
 ];
 
-const buildDatasTemplate = () => {
+const allBuildDataTemplate = () => {
   return Object.fromEntries(GAME_IDS.map(id => [id, {}]));
 };
 
@@ -25,12 +25,12 @@ export const BuildDataContext = createContext(null);
 
 export const BuildDataProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
-  const [buildDatas, setBuildDatas] = useState(buildDatasTemplate);
+  const [allBuildData, setAllBuildData] = useState(allBuildDataTemplate);
   const [isBuildDatasLoading, setIsBuildDatasLoading] = useState(false);
 
   useEffect(() => {
     if (!user) {
-      setBuildDatas(buildDatasTemplate());
+      setAllBuildData(allBuildDataTemplate());
       return;
     }
 
@@ -40,7 +40,7 @@ export const BuildDataProvider = ({ children }) => {
       return onSnapshot(ref, snapshot => {
         const buildsMap = Object.fromEntries(snapshot.docs.map(doc => [doc.id, doc.data()]));
 
-        setBuildDatas(prev => ({ ...prev, [gameId]: buildsMap }));
+        setAllBuildData(prev => ({ ...prev, [gameId]: buildsMap }));
       });
     });
 
@@ -74,7 +74,7 @@ export const BuildDataProvider = ({ children }) => {
       return;
     }
 
-    setBuildDatas(prev => ({
+    setAllBuildData(prev => ({
       ...prev,
       [gameId]: {
         ...prev[gameId],
@@ -92,7 +92,7 @@ export const BuildDataProvider = ({ children }) => {
       return;
     }
 
-    setBuildDatas(prev => {
+    setAllBuildData(prev => {
       const newGameData = { ...prev[gameId] };
       delete newGameData[avatarId];
       return { ...prev, [gameId]: newGameData };
@@ -102,7 +102,7 @@ export const BuildDataProvider = ({ children }) => {
   return (
     <BuildDataContext.Provider
       value={{
-        buildDatas,
+        allBuildData,
         saveBuildEntries,
         deleteBuildEntry,
         isBuildDatasLoading,

@@ -1,17 +1,19 @@
+import { useContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box } from '@mui/material';
-import { buildsContext } from '@/contexts';
+import { Avatar, Box } from '@mui/material';
 import { ALL_CHARACTER_ASSETS } from '@/assets';
+import { BuildDataContext, UserDataContext } from '@/contexts';
 import { ALL_CHARACTER_LOOKUP } from '@/lookups';
 
-const CharacterSidebar = () => {
+export const CharacterSidebar = ({ selectedId, setSelectedId }) => {
   const { gameId } = useParams();
-  const { buildDatas } = useContext(buildsContext);
-  const buildData = buildDatas[gameId] ?? {};
-  const CHARACTER_LOOKUP = ALL_CHARACTER_LOOKUP[gameId] ?? {};
-  const CHARACTER_ASSETS = ALL_CHARACTER_ASSETS[gameId] ?? {};
+  const buildData = useContext(BuildDataContext).allBuildData[gameId];
+  const pinnedId = useContext(UserDataContext).allPinnedId[gameId];
 
-  const sortedChars = useMemo(() => {
+  const CHARACTER_ASSETS = ALL_CHARACTER_ASSETS[gameId];
+  const CHARACTER_LOOKUP = ALL_CHARACTER_LOOKUP[gameId];
+
+  const sortedCharacters = useMemo(() => {
     return Object.keys(buildData).sort((aId, bId) => {
       // Prioritize pinned character
       if (aId === pinnedId) return -1;
@@ -59,26 +61,26 @@ const CharacterSidebar = () => {
           pointerEvents: 'none',
         },
       }}>
-        {sortedChars.map((charId, index) => (
+        {sortedCharacters.map((characterId) => (
           <Avatar
-            key={charId}
-            src={CHARACTER_ASSETS[charId]}
-            onClick={() => setSelected(index)}
+            key={characterId}
+            src={CHARACTER_ASSETS[characterId]}
+            onClick={() => setSelectedId(characterId)}
             sx={{
               width: 46,
               height: 46,
               cursor: 'pointer',
               flexShrink: 0,
               transition: 'all 0.15s ease',
-              outline: selected === index
+              outline: selectedId === characterId
                 ? '2px solid'
                 : '2px solid transparent',
-              outlineColor: selected === index
+              outlineColor: selectedId === characterId
                 ? 'primary.main'
                 : 'transparent',
               outlineOffset: 2,
-              opacity: selected === index ? 1 : 0.55,
-              filter: selected === index ? 'none' : 'grayscale(0.4)',
+              opacity: selectedId === characterId ? 1 : 0.55,
+              filter: selectedId === characterId ? 'none' : 'grayscale(0.4)',
               '&:hover': {
                 opacity: 1,
                 filter: 'none',
@@ -91,5 +93,3 @@ const CharacterSidebar = () => {
     </Box>
   );
 };
-
-export default CharacterSidebar;

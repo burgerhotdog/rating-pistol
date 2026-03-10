@@ -47,6 +47,14 @@ const HeaderUser = () => {
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
       >
         <Box sx={{ px: 2, py: 1 }}>
           <Typography variant="body2" fontWeight={500}>
