@@ -1,9 +1,9 @@
 import { useContext, useMemo, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Avatar, Box, Card, Divider, Stack, Typography } from '@mui/material';
-import { AVATAR_ASSETS } from '@/assets';
+import { ALL_CHARACTER_ASSETS } from '@/assets';
 import { BuildDataContext, UserDataContext } from '@/contexts';
-import { AVATAR_DATA, WEAPON_DATA } from '@/data';
+import { ALL_CHARACTER_LOOKUP, ALL_WEAPON_LOOKUP } from '@/lookups';
 
 const PlaceholderGraph = ({ title, sx, ...props }) => (
   <Box
@@ -42,9 +42,9 @@ const GamePage = () => {
   const { gameId } = useParams();
   const buildData = useContext(BuildDataContext)?.buildDatas[gameId] ?? {};
   const pinnedId = useContext(UserDataContext)?.pinnedIds[gameId] ?? null;
-  const avatarData = AVATAR_DATA[gameId] ?? {};
-  const weaponData = WEAPON_DATA[gameId] ?? {};
-  const avatarAssets = AVATAR_ASSETS[gameId] ?? {};
+  const avatarData = ALL_CHARACTER_LOOKUP[gameId] ?? {};
+  const weaponData = ALL_WEAPON_LOOKUP[gameId] ?? {};
+  const avatarAssets = ALL_CHARACTER_ASSETS[gameId] ?? {};
   const [selected, setSelected] = useState(0);
 
   const sortedAvatars = useMemo(() => {

@@ -6,7 +6,7 @@ const short = (assets) =>
     ])
   );
 
-export const AVATAR_ASSETS = { 
+export const ALL_CHARACTER_ASSETS = { 
   'genshin-impact': short(import.meta.glob('./avatar/gi/*.webp', { eager: true })),
   'honkai-star-rail': short(import.meta.glob('./avatar/hsr/*.webp', { eager: true })),
   'wuthering-waves': short(import.meta.glob('./avatar/ww/*.webp', { eager: true })),

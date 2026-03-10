@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react';
 import { Autocomplete, Button, Dialog, DialogContent, DialogActions, DialogTitle, Box, Typography, TextField } from '@mui/material';
 import { BuildDataContext } from '@/contexts';
-import { AVATAR_DATA } from '@/data';
-import { AVATAR_ASSETS } from '@/assets';
+import { ALL_CHARACTER_LOOKUP } from '@/lookups';
+import { ALL_CHARACTER_ASSETS } from '@/assets';
 
-const WUWA_DATA = AVATAR_DATA['wuthering-waves'];
-const WUWA_ASSETS = AVATAR_ASSETS['wuthering-waves'];
+const WUWA_DATA = ALL_CHARACTER_LOOKUP['wuthering-waves'];
+const WUWA_ASSETS = ALL_CHARACTER_ASSETS['wuthering-waves'];
 
 const CHAR_OPTIONS = Object.keys(WUWA_DATA)
   .sort((a, b) => WUWA_DATA[a].name.localeCompare(WUWA_DATA[b].name));

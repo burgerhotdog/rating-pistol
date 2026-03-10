@@ -1,4 +1,4 @@
-import { INFO_DATA, STAT_DATA } from '@/data';
+import { ALL_GENERAL_LOOKUP, ALL_GENERAL_LOOKUP } from '@/lookups';
 
 const ITERATIONS = 10000;
 
@@ -43,7 +43,7 @@ const randomQuality = (gameId, statId) => {
     const options = [1, 0.9, 0.8, 0.7];
     return options[Math.floor(Math.random() * 4)];
   }
-  const { subValue } = STAT_DATA[gameId][statId];
+  const { subValue } = ALL_GENERAL_LOOKUP[gameId].STATS[statId];
   if (statId === '_ATK' || statId === '_DEF') {
     const winnerIndex = drawLottery([4, 19, 14, 1]);
     return WW_ATKDEF[statId][winnerIndex] / subValue;
@@ -58,7 +58,7 @@ const randomQuality = (gameId, statId) => {
 
 export default (gameId, fullWeights, mainstat) => {
   const scores = new Array(ITERATIONS).fill(0);
-  const startingPool = Object.entries(STAT_DATA[gameId])
+  const startingPool = Object.entries(ALL_GENERAL_LOOKUP[gameId].STATS)
     .filter(([statId, { subValue }]) => {
       if (!subValue) return false; // remove non-substats
       return gameId === 'wuthering-waves' || statId !== mainstat;
@@ -70,7 +70,7 @@ export default (gameId, fullWeights, mainstat) => {
 
     // add initial substats
     let statPool = [...startingPool];
-    for (let j = 0; j < INFO_DATA[gameId].NUM_SUBSTATS; j++) {
+    for (let j = 0; j < ALL_GENERAL_LOOKUP[gameId].NUM_SUBSTATS; j++) {
       const winnerIndex = drawLottery(statPool.map(item => item[1]));
       const [statId] = statPool[winnerIndex];
       substats.push({ statId, rolls: randomQuality(gameId, statId) });

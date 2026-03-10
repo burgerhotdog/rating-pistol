@@ -1,4 +1,4 @@
-{
+export default {
   "24006": {
     "name": "Elation Brimming With Blessings",
     "rarity": 5,
@@ -6,8 +6,8 @@
     "baseStats": {
       "_HP": 953,
       "_ATK": 529,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23054": {
     "name": "When She Decided to See",
@@ -16,8 +16,8 @@
     "baseStats": {
       "_HP": 1058,
       "_ATK": 529,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23053": {
     "name": "Dazzled by a Flowery World",
@@ -26,8 +26,8 @@
     "baseStats": {
       "_HP": 1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "21065": {
     "name": "Today's Good Luck",
@@ -36,8 +36,8 @@
     "baseStats": {
       "_HP": 953,
       "_ATK": 529,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "21064": {
     "name": "Mushy Shroomy's Adventures",
@@ -46,8 +46,8 @@
     "baseStats": {
       "_HP": 847,
       "_ATK": 476,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "20024": {
     "name": "Lingering Tear",
@@ -56,8 +56,8 @@
     "baseStats": {
       "_HP": 847,
       "_ATK": 318,
-      "_DEF": 265
-    }
+      "_DEF": 265,
+    },
   },
   "20023": {
     "name": "Sneering",
@@ -66,8 +66,8 @@
     "baseStats": {
       "_HP": 741,
       "_ATK": 370,
-      "_DEF": 265
-    }
+      "_DEF": 265,
+    },
   },
   "23050": {
     "name": "Never Forget Her Flame",
@@ -76,8 +76,8 @@
     "baseStats": {
       "_HP": 1164,
       "_ATK": 529,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23052": {
     "name": "This Love, Forever",
@@ -86,8 +86,8 @@
     "baseStats": {
       "_HP": 1270,
       "_ATK": 476,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "22006": {
     "name": "Fly Into a Pink Tomorrow",
@@ -96,8 +96,8 @@
     "baseStats": {
       "_HP": 847,
       "_ATK": 476,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "23051": {
     "name": "Though Worlds Apart",
@@ -106,8 +106,8 @@
     "baseStats": {
       "_HP": 1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23049": {
     "name": "To Evernight's Stars",
@@ -116,8 +116,8 @@
     "baseStats": {
       "_HP": 1164,
       "_ATK": 529,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23048": {
     "name": "Epoch Etched in Golden Blood",
@@ -126,8 +126,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 635,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23047": {
     "name": "Why Does the Ocean Sing",
@@ -136,8 +136,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 635,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "22005": {
     "name": "The Forever Victual",
@@ -146,8 +146,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 476,
-      "_DEF": 331
-    }
+      "_DEF": 331,
+    },
   },
   "23046": {
     "name": "The Hell Where Ideals Burn",
@@ -156,8 +156,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 582,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23045": {
     "name": "A Thankless Coronation",
@@ -166,8 +166,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 582,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23044": {
     "name": "Thus Burns the Dawn",
@@ -176,8 +176,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 688,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "21062": {
     "name": "See You at the End",
@@ -186,8 +186,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 529,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "21061": {
     "name": "Holiday Thermae Escapade",
@@ -196,8 +196,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 331
-    }
+      "_DEF": 331,
+    },
   },
   "21060": {
     "name": "A Dream Scented in Wheat",
@@ -206,8 +206,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 529,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "21058": {
     "name": "A Trail of Bygone Blood",
@@ -216,8 +216,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 331
-    }
+      "_DEF": 331,
+    },
   },
   "21057": {
     "name": "The Flower Remembers",
@@ -226,8 +226,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 331
-    }
+      "_DEF": 331,
+    },
   },
   "21056": {
     "name": "In Pursuit of the Wind",
@@ -236,8 +236,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 476,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "21055": {
     "name": "Unto Tomorrow's Morrow",
@@ -246,8 +246,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 476,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "21054": {
     "name": "The Story's Next Page",
@@ -256,8 +256,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 370,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "21053": {
     "name": "Journey, Forever Peaceful",
@@ -266,8 +266,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 370,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23043": {
     "name": "Lies Dance on the Breeze",
@@ -276,8 +276,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 582,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23042": {
     "name": "Long May Rainbows Adorn the Sky",
@@ -286,8 +286,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 476,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23041": {
     "name": "Life Should Be Cast to Flames",
@@ -296,8 +296,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 582,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23040": {
     "name": "Make Farewells More Beautiful",
@@ -306,8 +306,8 @@
     "baseStats": {
       "_HP":  1270,
       "_ATK": 529,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "22004": {
     "name": "The Great Cosmic Enterprise",
@@ -316,8 +316,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 476,
-      "_DEF": 331
-    }
+      "_DEF": 331,
+    },
   },
   "24005": {
     "name": "Memory's Curtain Never Falls",
@@ -326,8 +326,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "23039": {
     "name": "Flame of Blood, Blaze My Path",
@@ -336,8 +336,8 @@
     "baseStats": {
       "_HP":  1376,
       "_ATK": 476,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "23038": {
     "name": "If Time Were a Flower",
@@ -346,8 +346,8 @@
     "baseStats": {
       "_HP":  1270,
       "_ATK": 529,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "23037": {
     "name": "Into the Unreachable Veil",
@@ -356,8 +356,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 635,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23036": {
     "name": "Time Woven Into Gold",
@@ -366,8 +366,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 635,
-      "_DEF": 397
-    }
+      "_DEF": 397,
+    },
   },
   "21052": {
     "name": "Sweat Now, Cry Less",
@@ -376,8 +376,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 198
-    }
+      "_DEF": 198,
+    },
   },
   "21051": {
     "name": "Geniuses' Greetings",
@@ -386,8 +386,8 @@
     "baseStats": {
       "_HP":  953,
       "_ATK": 476,
-      "_DEF": 331
-    }
+      "_DEF": 331,
+    },
   },
   "21050": {
     "name": "Victory In a Blink",
@@ -396,8 +396,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "20022": {
     "name": "Reminiscence",
@@ -406,8 +406,8 @@
     "baseStats": {
       "_HP":  635,
       "_ATK": 423,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20021": {
     "name": "Shadowburn",
@@ -416,8 +416,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 317,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "23035": {
     "name": "Long Road Leads Home",
@@ -426,8 +426,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 661
-    }
+      "_DEF": 661,
+    },
   },
   "23034": {
     "name": "A Grounded Ascent",
@@ -436,8 +436,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 476,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23033": {
     "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
@@ -446,8 +446,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 582,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "22003": {
     "name": "Ninja Record: Sound Hunt",
@@ -456,8 +456,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 476,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "21048": {
     "name": "Dream's Montage",
@@ -466,8 +466,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23032": {
     "name": "Scent Alone Stays True",
@@ -476,8 +476,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23031": {
     "name": "I Venture Forth to Hunt",
@@ -486,8 +486,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 635,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "21047": {
     "name": "Shadowed by Night",
@@ -496,8 +496,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 476,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23030": {
     "name": "Dance at Sunset",
@@ -506,8 +506,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23029": {
     "name": "Those Many Springs",
@@ -516,8 +516,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 582,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "21046": {
     "name": "Poised to Bloom",
@@ -526,8 +526,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "24004": {
     "name": "Eternal Calculus",
@@ -536,8 +536,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23028": {
     "name": "Yet Hope Is Priceless",
@@ -546,8 +546,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 582,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23025": {
     "name": "Whereabouts Should Dreams Rest",
@@ -556,8 +556,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 476,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "21045": {
     "name": "After the Charmony Fall",
@@ -566,8 +566,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 476,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23027": {
     "name": "Sailing Towards A Second Life",
@@ -576,8 +576,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23026": {
     "name": "Flowing Nightglow",
@@ -586,8 +586,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 635,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "22002": {
     "name": "For Tomorrow's Journey",
@@ -596,8 +596,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21044": {
     "name": "Boundless Choreo",
@@ -606,8 +606,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "23024": {
     "name": "Along the Passing Shore",
@@ -616,8 +616,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 635,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23023": {
     "name": "Inherently Unjust Destiny",
@@ -626,8 +626,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 423,
-      "_DEF": 661
-    }
+      "_DEF": 661,
+    },
   },
   "21043": {
     "name": "Concert for Two",
@@ -636,8 +636,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 370,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23022": {
     "name": "Reforged Remembrance",
@@ -646,8 +646,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23021": {
     "name": "Earthly Escapade",
@@ -656,8 +656,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 529,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "21042": {
     "name": "Indelible Promise",
@@ -666,8 +666,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21041": {
     "name": "It's Showtime",
@@ -676,8 +676,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 476,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "21040": {
     "name": "The Day The Cosmos Fell",
@@ -686,8 +686,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21039": {
     "name": "Destiny's Threads Forewoven",
@@ -696,8 +696,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 370,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "21038": {
     "name": "Flames Afar",
@@ -706,8 +706,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 476,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "21037": {
     "name": "Final Victor",
@@ -716,8 +716,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21036": {
     "name": "Dreamville Adventure",
@@ -726,8 +726,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21035": {
     "name": "What Is Real?",
@@ -736,8 +736,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 423,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "23020": {
     "name": "Baptism of Pure Thought",
@@ -746,8 +746,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 582,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23019": {
     "name": "Past Self in Mirror",
@@ -756,8 +756,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23018": {
     "name": "An Instant Before A Gaze",
@@ -766,8 +766,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23017": {
     "name": "Night of Fright",
@@ -776,8 +776,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 476,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "22001": {
     "name": "Hey, Over Here",
@@ -786,8 +786,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23016": {
     "name": "Worrisome, Blissful",
@@ -796,8 +796,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23014": {
     "name": "I Shall Be My Own Sword",
@@ -806,8 +806,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 582,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "24003": {
     "name": "Solitary Healing",
@@ -816,8 +816,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23015": {
     "name": "Brighter Than the Sun",
@@ -826,8 +826,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 635,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23011": {
     "name": "She Already Shut Her Eyes",
@@ -836,8 +836,8 @@
     "baseStats": {
       "_HP":  1270,
       "_ATK": 423,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "23009": {
     "name": "The Unreachable Side",
@@ -846,8 +846,8 @@
     "baseStats": {
       "_HP":  1270,
       "_ATK": 582,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "23006": {
     "name": "Patience Is All You Need",
@@ -856,8 +856,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23008": {
     "name": "Echoes of the Coffin",
@@ -866,8 +866,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 582,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23007": {
     "name": "Incessant Rain",
@@ -876,8 +876,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "22000": {
     "name": "Before the Tutorial Mission Starts",
@@ -886,8 +886,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "24002": {
     "name": "Texture of Memories",
@@ -896,8 +896,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 423,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "24001": {
     "name": "Cruising in the Stellar Sea",
@@ -906,8 +906,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 529,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "24000": {
     "name": "On the Fall of an Aeon",
@@ -916,8 +916,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 529,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23013": {
     "name": "Time Waits for No One",
@@ -926,8 +926,8 @@
     "baseStats": {
       "_HP":  1270,
       "_ATK": 476,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23012": {
     "name": "Sleep Like the Dead",
@@ -936,8 +936,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23010": {
     "name": "Before Dawn",
@@ -946,8 +946,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23005": {
     "name": "Moment of Victory",
@@ -956,8 +956,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 476,
-      "_DEF": 595
-    }
+      "_DEF": 595,
+    },
   },
   "23004": {
     "name": "In the Name of the World",
@@ -966,8 +966,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23003": {
     "name": "But the Battle Isn't Over",
@@ -976,8 +976,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 529,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23002": {
     "name": "Something Irreplaceable",
@@ -986,8 +986,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 582,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "23001": {
     "name": "In the Night",
@@ -996,8 +996,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 582,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "23000": {
     "name": "Night on the Milky Way",
@@ -1006,8 +1006,8 @@
     "baseStats": {
       "_HP":  1164,
       "_ATK": 582,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21034": {
     "name": "Today Is Another Peaceful Day",
@@ -1016,8 +1016,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 529,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21033": {
     "name": "Nowhere to Run",
@@ -1026,8 +1026,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 529,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "21032": {
     "name": "Carve the Moon, Weave the Clouds",
@@ -1036,8 +1036,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21031": {
     "name": "Return to Darkness",
@@ -1046,8 +1046,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 529,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21030": {
     "name": "This Is Me!",
@@ -1056,8 +1056,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 370,
-      "_DEF": 529
-    }
+      "_DEF": 529,
+    },
   },
   "21029": {
     "name": "We Will Meet Again",
@@ -1066,8 +1066,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 529,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21028": {
     "name": "Warmth Shortens Cold Nights",
@@ -1076,8 +1076,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 370,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21027": {
     "name": "The Seriousness of Breakfast",
@@ -1086,8 +1086,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 476,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21026": {
     "name": "Woof! Walk Time!",
@@ -1096,8 +1096,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21025": {
     "name": "Past and Future",
@@ -1106,8 +1106,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21024": {
     "name": "River Flows in Spring",
@@ -1116,8 +1116,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 476,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21023": {
     "name": "We Are Wildfire",
@@ -1126,8 +1126,8 @@
     "baseStats": {
       "_HP":  740,
       "_ATK": 476,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "21022": {
     "name": "Fermata",
@@ -1136,8 +1136,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21021": {
     "name": "Quid Pro Quo",
@@ -1146,8 +1146,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21020": {
     "name": "Geniuses' Repose",
@@ -1156,8 +1156,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 476,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21019": {
     "name": "Under the Blue Sky",
@@ -1166,8 +1166,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21018": {
     "name": "Dance! Dance! Dance!",
@@ -1176,8 +1176,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21017": {
     "name": "Subscribe for More!",
@@ -1186,8 +1186,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21016": {
     "name": "Trend of the Universal Market",
@@ -1196,8 +1196,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 370,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21015": {
     "name": "Resolution Shines As Pearls of Sweat",
@@ -1206,8 +1206,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21014": {
     "name": "Perfect Timing",
@@ -1216,8 +1216,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21013": {
     "name": "Make the World Clamor",
@@ -1226,8 +1226,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 476,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21012": {
     "name": "A Secret Vow",
@@ -1236,8 +1236,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 476,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "21011": {
     "name": "Planetary Rendezvous",
@@ -1246,8 +1246,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 423,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21010": {
     "name": "Swordplay",
@@ -1256,8 +1256,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21009": {
     "name": "Landau's Choice",
@@ -1266,8 +1266,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21008": {
     "name": "Eyes of the Prey",
@@ -1276,8 +1276,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21007": {
     "name": "Shared Feeling",
@@ -1286,8 +1286,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21006": {
     "name": "The Birth of the Self",
@@ -1296,8 +1296,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21005": {
     "name": "The Moles Welcome You",
@@ -1306,8 +1306,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 476,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "21004": {
     "name": "Memories of the Past",
@@ -1316,8 +1316,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 423,
-      "_DEF": 396
-    }
+      "_DEF": 396,
+    },
   },
   "21003": {
     "name": "Only Silence Remains",
@@ -1326,8 +1326,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21002": {
     "name": "Day One of My New Life",
@@ -1336,8 +1336,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 370,
-      "_DEF": 463
-    }
+      "_DEF": 463,
+    },
   },
   "21001": {
     "name": "Good Night and Sleep Well",
@@ -1346,8 +1346,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 476,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "21000": {
     "name": "Post-Op Conversation",
@@ -1356,8 +1356,8 @@
     "baseStats": {
       "_HP":  1058,
       "_ATK": 423,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "20020": {
     "name": "Sagacity",
@@ -1366,8 +1366,8 @@
     "baseStats": {
       "_HP":  740,
       "_ATK": 370,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20019": {
     "name": "Mediation",
@@ -1376,8 +1376,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 317,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20018": {
     "name": "Hidden Shadow",
@@ -1386,8 +1386,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 317,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20017": {
     "name": "Pioneering",
@@ -1396,8 +1396,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 264,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20016": {
     "name": "Mutual Demise",
@@ -1406,8 +1406,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 370,
-      "_DEF": 198
-    }
+      "_DEF": 198,
+    },
   },
   "20015": {
     "name": "Multiplication",
@@ -1416,8 +1416,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 317,
-      "_DEF": 198
-    }
+      "_DEF": 198,
+    },
   },
   "20014": {
     "name": "Adversarial",
@@ -1426,8 +1426,8 @@
     "baseStats": {
       "_HP":  740,
       "_ATK": 370,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20013": {
     "name": "Passkey",
@@ -1436,8 +1436,8 @@
     "baseStats": {
       "_HP":  740,
       "_ATK": 370,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20012": {
     "name": "Meshing Cogs",
@@ -1446,8 +1446,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 317,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20011": {
     "name": "Loop",
@@ -1456,8 +1456,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 317,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20010": {
     "name": "Defense",
@@ -1466,8 +1466,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 264,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20009": {
     "name": "Shattered Home",
@@ -1476,8 +1476,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 370,
-      "_DEF": 198
-    }
+      "_DEF": 198,
+    },
   },
   "20008": {
     "name": "Fine Fruit",
@@ -1486,8 +1486,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 317,
-      "_DEF": 198
-    }
+      "_DEF": 198,
+    },
   },
   "20007": {
     "name": "Darting Arrow",
@@ -1496,8 +1496,8 @@
     "baseStats": {
       "_HP":  740,
       "_ATK": 370,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20006": {
     "name": "Data Bank",
@@ -1506,8 +1506,8 @@
     "baseStats": {
       "_HP":  740,
       "_ATK": 370,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20005": {
     "name": "Chorus",
@@ -1516,8 +1516,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 317,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20004": {
     "name": "Void",
@@ -1526,8 +1526,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 317,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20003": {
     "name": "Amber",
@@ -1536,8 +1536,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 264,
-      "_DEF": 330
-    }
+      "_DEF": 330,
+    },
   },
   "20002": {
     "name": "Collapsing Sky",
@@ -1546,8 +1546,8 @@
     "baseStats": {
       "_HP":  846,
       "_ATK": 370,
-      "_DEF": 198
-    }
+      "_DEF": 198,
+    },
   },
   "20001": {
     "name": "Cornucopia",
@@ -1556,8 +1556,8 @@
     "baseStats": {
       "_HP":  952,
       "_ATK": 264,
-      "_DEF": 264
-    }
+      "_DEF": 264,
+    },
   },
   "20000": {
     "name": "Arrows",
@@ -1569,4 +1569,4 @@
       "_DEF": 264
     }
   }
-}
+};

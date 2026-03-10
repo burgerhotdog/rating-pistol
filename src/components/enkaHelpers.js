@@ -1,4 +1,4 @@
-import { AVATAR_DATA, WEAPON_DATA, STAT_DATA } from '@/data';
+import { ALL_CHARACTER_LOOKUP, ALL_WEAPON_LOOKUP, ALL_GENERAL_LOOKUP } from '@/lookups';
 import template from '@/template';
 import ENKA_STAT_MAP from './ENKA_STAT_MAP.json';
 
@@ -50,7 +50,7 @@ export async function fetchEnka(gameId, uid) {
 
     // prune unrecognized avatars
     const validList = avatarList?.filter(({ avatarId }) => {
-      return AVATAR_DATA[gameId][avatarId];
+      return ALL_CHARACTER_LOOKUP[gameId][avatarId];
     });
 
     // empty list case
@@ -69,17 +69,17 @@ const PARSE_WEAPONID = {
   'genshin-impact': (enka) => {
     const weaponObj = enka.equipList[enka.equipList.length - 1];
     const weaponId = String(weaponObj.itemId);
-    return WEAPON_DATA['genshin-impact'][weaponId] ? weaponId : null;
+    return ALL_WEAPON_LOOKUP['genshin-impact'][weaponId] ? weaponId : null;
   },
   'honkai-star-rail': (enka) => {
     const weaponObj = enka.equipment;
     const weaponId = weaponObj?.tid;
-    return WEAPON_DATA['honkai-star-rail'][weaponId] ? String(weaponId) : null;
+    return ALL_WEAPON_LOOKUP['honkai-star-rail'][weaponId] ? String(weaponId) : null;
   },
   'zenless-zone-zero': (enka) => {
     const weaponObj = enka.Weapon;
     const weaponId = weaponObj?.Id;
-    return WEAPON_DATA['zenless-zone-zero'][weaponId] ? String(weaponId) : null;
+    return ALL_WEAPON_LOOKUP['zenless-zone-zero'][weaponId] ? String(weaponId) : null;
   },
 };
 
@@ -137,7 +137,7 @@ const PARSE_SUB_VALUE = {
   'zenless-zone-zero': (sub) => {
     const key = ENKA_STAT_MAP['zenless-zone-zero'][sub.PropertyId];
     const value = sub.PropertyValue;
-    const valueRatio = STAT_DATA['zenless-zone-zero'][key].showPercent ? 0.01 : 1;
+    const valueRatio = ALL_GENERAL_LOOKUP['zenless-zone-zero'].STATS[key].showPercent ? 0.01 : 1;
     const roundAmount = valueRatio === 1 ? 1 : 10;
     const timesAppeared = sub.PropertyLevel;
     return Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;

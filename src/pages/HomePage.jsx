@@ -1,28 +1,31 @@
 import { Link } from 'react-router-dom';
 import { Stack, Box, Tooltip } from '@mui/material';
 import { ICON_ASSETS } from '@/assets';
-import { INFO_DATA } from '@/data';
+import { ALL_GENERAL_LOOKUP } from '@/lookups';
 
-const GameLink = ({ gameId }) => (
-  <Tooltip title={INFO_DATA[gameId].TITLE}>
-    <Link to={INFO_DATA[gameId].PATH}>
-      <Box
-        component="img"
-        alt={gameId}
-        src={ICON_ASSETS[gameId]}
-        width={160}
-        height={160}
-        sx={{
-          cursor: 'pointer',
-          '&:hover': {
-            transform: 'scale(1.1) rotate(-5deg)',
-            transition: 'all 0.2s ease-in-out',
-          },
-        }}
-      />
-    </Link>
-  </Tooltip>
-);
+const GameLink = ({ gameId }) => {
+  const { TITLE } = ALL_GENERAL_LOOKUP[gameId];
+  return (
+    <Tooltip title={TITLE}>
+      <Link to={`/${gameId}`}>
+        <Box
+          component="img"
+          alt={TITLE}
+          src={ICON_ASSETS[gameId]}
+          width={160}
+          height={160}
+          sx={{
+            cursor: 'pointer',
+            '&:hover': {
+              transform: 'scale(1.1) rotate(-5deg)',
+              transition: 'all 0.2s ease-in-out',
+            },
+          }}
+        />
+      </Link>
+    </Tooltip>
+  );
+};
 
 const HomePage = () => (
   <>

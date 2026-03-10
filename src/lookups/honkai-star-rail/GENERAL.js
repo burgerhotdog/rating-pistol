@@ -1,0 +1,163 @@
+export default {
+  TITLE: "Honkai Star Rail",
+  VERSION: "4.0",
+  PATH: "/honkai-star-rail",
+  RESIN_PER_DAY: 240,
+  RESIN_PER_RUN: 40,
+  DROPS_PER_RUN: 2.1,
+  NUM_MAINSTATS: 6,
+  NUM_SUBSTATS: 4,
+  EQUIP_NAMES: [
+    "Head",
+    "Hands",
+    "Chest",
+    "Boots",
+    "Orb",
+    "Rope"
+  ],
+  ELEMENT_TYPES: [
+    "Fire",
+    "Ice",
+    "Imaginary",
+    "Lightning",
+    "Physical",
+    "Quantum",
+    "Wind"
+  ],
+  WEAPON_TYPES: [
+    "Abundance",
+    "Destruction",
+    "Elation",
+    "Erudition",
+    "Harmony",
+    "Hunt",
+    "Nihility",
+    "Preservation",
+    "Remembrance"
+  ],
+  STATS: {
+    "_HP": {
+      "name": "HP",
+      "mainChance": [1, 0, 0, 0, 0, 0],
+      "subValue": 42.34,
+      "subChance": 10
+    },
+    "_ATK": {
+      "name": "ATK",
+      "mainChance": [0, 1, 0, 0, 0, 0],
+      "subValue": 21.17,
+      "subChance": 10
+    },
+    "_DEF": {
+      "name": "DEF",
+      "subValue": 21.17,
+      "subChance": 10
+    },
+    "HP": {
+      "name": "HP%",
+      "showPercent": true,
+      "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
+      "subValue": 4.32,
+      "subChance": 10
+    },
+    "ATK": {
+      "name": "ATK%",
+      "showPercent": true,
+      "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
+      "subValue": 4.32,
+      "subChance": 10
+    },
+    "DEF": {
+      "name": "DEF%",
+      "showPercent": true,
+      "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
+      "subValue": 5.4,
+      "subChance": 10
+    },
+    "CR": {
+      "name": "CRIT Rate",
+      "showPercent": true,
+      "mainChance": [0, 0, 0.1, 0, 0, 0],
+      "subValue": 3.24,
+      "subChance": 6
+    },
+    "CD": {
+      "name": "CRIT DMG",
+      "showPercent": true,
+      "mainChance": [0, 0, 0.1, 0, 0, 0],
+      "subValue": 6.48,
+      "subChance": 6
+    },
+    "EHR": {
+      "name": "Effect Hit Rate",
+      "showPercent": true,
+      "mainChance": [0, 0, 0.1, 0, 0, 0],
+      "subValue": 4.32,
+      "subChance": 8
+    },
+    "OHB": {
+      "name": "Outgoing Healing Boost",
+      "showPercent": true,
+      "mainChance": [0, 0, 0.1, 0, 0, 0]
+    },
+    "SPD": {
+      "name": "SPD",
+      "mainChance": [0, 0, 0, 0.1, 0, 0],
+      "subValue": 2.6,
+      "subChance": 4
+    },
+    "FIRE": {
+      "name": "Fire DMG Bonus",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0.09, 0]
+    },
+    "ICE": {
+      "name": "Ice DMG Bonus",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0.09, 0]
+    },
+    "IMAGINARY": { 
+      "name": "Imaginary DMG Bonus",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0.09, 0]
+    },
+    "LIGHTNING": {
+      "name": "Lightning DMG Bonus",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0.09, 0]
+    },
+    "PHYSICAL": {
+      "name": "Physical DMG Bonus",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0.09, 0]
+    },
+    "QUANTUM": {
+      "name": "Quantum DMG Bonus",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0.09, 0]
+    },
+    "WIND": {
+      "name": "Wind DMG Bonus",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0.09, 0]
+    },
+    "BE": {
+      "name": "Break Effect",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0, 0.15],
+      "subValue": 6.48,
+      "subChance": 8
+    },
+    "ERR": {
+      "name": "Energy Regeneration Rate",
+      "showPercent": true,
+      "mainChance": [0, 0, 0, 0, 0, 0.05]
+    },
+    "RES": {
+      "name": "Effect RES",
+      "showPercent": true,
+      "subValue": 4.32,
+      "subChance": 8
+    },
+  },
+};
