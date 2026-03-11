@@ -6,7 +6,7 @@ import {
   StatsPanel,
   CustomLineChart,
   CustomRadarChart,
-  ComparisonTable,
+  CustomTable,
 } from '@/components';
 import { BuildDataContext } from '@/contexts';
 import { ALL_CHARACTER_LOOKUP, ALL_WEAPON_LOOKUP, ALL_GENERAL_LOOKUP } from '@/lookups';
@@ -77,7 +77,7 @@ const GamePage = () => {
 
         <Box sx={{ flex: 2, display: 'flex', gap: 2, minHeight: 0 }}>
           <CustomRadarChart />
-          <ComparisonTable />
+          <CustomTable />
         </Box>
       </Box>
     </Box>

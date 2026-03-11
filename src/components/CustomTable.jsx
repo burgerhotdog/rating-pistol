@@ -1,14 +1,12 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
 
-export const ComparisonTable = () => {
+export const CustomTable = () => {
   const rows = [
-    { name: 'Base', values: ['496388', '499694', '507118', '511609', '508441'] },
-    { name: 'DMG/Result gain over base', values: ['-', '+3307', '+10730', '+15222', '+12053'] },
-    { name: '% gain over base', values: ['-', '+0.67%', '+2.16%', '+3.07%', '+2.43%'] },
-    { name: 'New leaderboard ranking', values: ['1698', '1462 (+236)', '1021 (+677)', '826 (+872)', '951 (+747)'] },
+    { name: 'CRIT', diff: 2.9 },
+    { name: 'ATK', diff: 1.7 },
   ];
 
-  const headers = ['Substat name', 'Flat ATK', 'ATK%', 'Crit RATE', 'Crit DMG'];
+  const headers = ['Substat', '%diff'];
 
   return (
     <TableContainer component={Paper} sx={{ maxHeight: 300 }}>
@@ -35,11 +33,9 @@ export const ComparisonTable = () => {
               <TableCell>
                 <Typography variant="body2">{row.name}</Typography>
               </TableCell>
-              {row.values.map((value, idx) => (
-                <TableCell key={idx} align="center">
-                  <Typography variant="body2">{value}</Typography>
-                </TableCell>
-              ))}
+              <TableCell align="center">
+                <Typography variant="body2">{row.diff}</Typography>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

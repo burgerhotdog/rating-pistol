@@ -4,6 +4,60 @@ import { Box, Card, Divider, Stack, Typography } from '@mui/material';
 import { BuildDataContext } from '@/contexts';
 import { ALL_CHARACTER_LOOKUP, ALL_WEAPON_LOOKUP } from '@/lookups';
 
+const ALL_STAT_ORDER = {
+  'genshin-impact': [
+    '_HP',
+    '_ATK',
+    '_DEF',
+    'EM',
+    'CR',
+    'CD',
+    'HB',
+    'ER',
+    'PYRO',
+    'HYDRO',
+    'DENDRO',
+    'ELECTRO',
+    'ANEMO',
+    'CRYO',
+    'GEO',
+    'PHYSICAL',
+  ],
+  'honkai-star-rail': [
+    '_HP',
+    '_ATK',
+    '_DEF',
+    'SPD',
+    'CR',
+    'CD',
+    'BE',
+    'OHB',
+    'ERR',
+    'RES',
+    'DMG',
+  ],
+  'wuthering-waves': [
+    '_HP',
+    '_ATK',
+    '_DEF',
+    'ER',
+    'CR',
+    'CD',
+  ],
+  'zenless-zone-zero': [
+    '_HP',
+    '_ATK',
+    '_DEF',
+    'IMPACT',
+    'CR',
+    'CD',
+    'AM',
+    'AP',
+    'PR',
+    'ER',
+  ],
+};
+
 const StatRow = ({ label, value }) => (
   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
     <Typography variant="body2" color="text.secondary">
@@ -17,29 +71,24 @@ const StatRow = ({ label, value }) => (
 
 export const StatsPanel = ({ selectedId, baseStats, buildStats }) => {
   const { gameId } = useParams();
-  const allBuildData = useContext(BuildDataContext);
+  const { allBuildData } = useContext(BuildDataContext);
 
-  const characterName = useMemo(() => {
-    return ALL_CHARACTER_LOOKUP[gameId][selectedId]?.name ?? 'Select a character';
+  const [selectedBuild, selectedLookup, STAT_ORDER] = useMemo(() => {
+    if (!selectedId) return [{}, {}, []];
+    return [
+      allBuildData[gameId][selectedId],
+      ALL_CHARACTER_LOOKUP[gameId][selectedId],
+      ALL_STAT_ORDER[gameId],
+    ];
   }, [selectedId]);
+
+  const characterName = selectedLookup.name ?? 'Select a character';
 
   const weaponName = useMemo(() => {
-    const currentBuild = allBuildData[gameId]?.[selectedId];
-    return ALL_WEAPON_LOOKUP[gameId][currentBuild?.weaponId]?.name ?? '-';
-  }, [selectedId]);
+    return ALL_WEAPON_LOOKUP[gameId][selectedBuild.weaponId]?.name ?? '-';
+  }, [selectedBuild]);
 
-  const lastUpdated = useMemo(() => {
-    const currentBuild = allBuildData[gameId]?.[selectedId];
-    return currentBuild?.lastUpdated ?? 'n/a';
-  }, [selectedId]);
-
-  const totalHP = ((baseStats._HP || 0) * (1 + ((buildStats.HP || 0) / 100))) + (buildStats._HP || 0);
-  const totalATK = ((baseStats._ATK || 0) * (1 + ((buildStats.ATK || 0) / 100))) + (buildStats._ATK || 0);
-  const totalDEF = ((baseStats._DEF || 0) * (1 + ((buildStats.DEF || 0) / 100))) + (buildStats._DEF || 0);
-  const totalCR = (buildStats.CR ?? 0);
-  const totalCD = (buildStats.CD ?? 0);
-  const totalER = 100 + (buildStats.ER ?? 0);
-  const totalEM = (buildStats.EM ?? 0);
+  const lastUpdated = selectedBuild.lastUpdated ?? 'Unknown';
 
   return (
     <Card
@@ -60,18 +109,44 @@ export const StatsPanel = ({ selectedId, baseStats, buildStats }) => {
       <Divider sx={{ mb: 2 }} />
 
       <Stack gap={1.5} sx={{ flex: 1 }}>
-        <StatRow
-          label="Weapon"
-          value={weaponName}
-        />
-        <StatRow label="HP" value={Math.round(totalHP)} />
-        <StatRow label="ATK" value={Math.round(totalATK)} />
-        <StatRow label="DEF" value={Math.round(totalDEF)} />
-        <StatRow label="CRIT Rate" value={Math.round(totalCR)} />
-        <StatRow label="CRIT DMG" value={Math.round(totalCD)} />
-        <StatRow label="Energy Recharge" value={Math.round(totalER)} />
-        <StatRow label="Elemental Mastery" value={Math.round(totalEM)} />
+        {STAT_ORDER.map((statId) => {
+          const isBaseStat = statId.startsWith('_');
+          const value = isBaseStat
+            ? baseStats[statId] * (1 + ((buildStats[statId.slice(1)] || 0) / 100)) + (buildStats[statId] || 0)
+            : buildStats[statId] ?? 0;
+          const offsetValue =
+            statId === 'CR' ? 5 :
+            statId === 'CD' ? 50 :
+            statId === 'ER' ? 100 : 0;
+          const finalValue = value + offsetValue;
+          const toFixedValue = isBaseStat || statId === 'EM' ? 0 : 1;
+          if (statId !== 'EM' && finalValue === 0) return;
+          return (
+            <Box
+              key={statId}
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <Typography variant="body2" color="text.secondary">
+                {statId}
+              </Typography>
+              <Typography variant="body2" fontWeight={600}>
+                {finalValue.toFixed(toFixedValue) + (toFixedValue ? '%' : '')}
+              </Typography>
+            </Box>
+          );
+        })}
       </Stack>
+
+      <Divider sx={{ mb: 2 }} />
+
+      <StatRow
+        label="Weapon"
+        value={weaponName}
+      />
 
       <Divider sx={{ mt: 'auto', pt: 2 }} />
       <Typography variant="caption" color="text.secondary" sx={{ pt: 1 }}>
