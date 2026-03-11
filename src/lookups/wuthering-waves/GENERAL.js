@@ -48,6 +48,7 @@ export default {
     "HP": {
       "name": "HP%",
       "showPercent": true,
+      mainValue: [33, 30, 22.8],
       "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
       "subValue": 11.6,
       "subChance": 10
@@ -55,6 +56,7 @@ export default {
     "ATK": {
       "name": "ATK%",
       "showPercent": true,
+      mainValue: [33, 30, 18],
       "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
       "subValue": 11.6,
       "subChance": 10
@@ -62,6 +64,7 @@ export default {
     "DEF": {
       "name": "DEF%",
       "showPercent": true,
+      mainValue: [41.5, 38, 18],
       "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
       "subValue": 14.7,
       "subChance": 10
@@ -69,6 +72,7 @@ export default {
     "CR": {
       "name": "CRIT Rate",
       "showPercent": true,
+      mainValue: [22, null, null],
       "mainChance": [0.2, 0, 0, 0, 0],
       "subValue": 10.5,
       "subChance": 6
@@ -76,6 +80,7 @@ export default {
     "CD": {
       "name": "CRIT DMG",
       "showPercent": true,
+      mainValue: [44, null, null],
       "mainChance": [0.2, 0, 0, 0, 0],
       "subValue": 21,
       "subChance": 6
@@ -83,41 +88,49 @@ export default {
     "HB": {
       "name": "Healing Bonus",
       "showPercent": true,
+      mainValue: [26, null, null],
       "mainChance": [0.1154, 0, 0, 0, 0]
     },
     "AERO": {
       "name": "Aero DMG Bonus",
       "showPercent": true,
+      mainValue: [null, 30, null],
       "mainChance": [0, 0.1275, 0.1275, 0, 0]
     },
     "ELECTRO": {
       "name": "Electro DMG Bonus",
       "showPercent": true,
+      mainValue: [null, 30, null],
       "mainChance": [0, 0.1275, 0.1275, 0, 0]
     },
     "FUSION": {
       "name": "Fusion DMG Bonus",
       "showPercent": true,
+      mainValue: [null, 30, null],
       "mainChance": [0, 0.1275, 0.1275, 0, 0]
     },
     "GLACIO": {
       "name": "Glacio DMG Bonus",
       "showPercent": true,
+      mainValue: [null, 30, null],
       "mainChance": [0, 0.1275, 0.1275, 0, 0]
     },
     "HAVOC": {
       "name": "Havoc DMG Bonus",
       "showPercent": true,
+      mainValue: [null, 30, null],
       "mainChance": [0, 0.1275, 0.1275, 0, 0]
     },
     "SPECTRO": {
       "name": "Spectro DMG Bonus",
       "showPercent": true,
+      mainValue: [null, 30, null],
       "mainChance": [0, 0.1275, 0.1275, 0, 0]
     },
     "ER": {
       "name": "Energy Regen",
       "showPercent": true,
+      mainValue: [null, 32, null],
       "mainChance": [0, 0.05875, 0.05875, 0, 0],
       "subValue": 12.4,
       "subChance": 8
@@ -146,5 +159,10 @@ export default {
       "subValue": 11.6,
       "subChance": 8
     },
+  },
+  FLATCOSTSTAT: {
+    4: { _ATK: 150 },
+    3: { _ATK: 100 },
+    1: { _HP: 2280 },
   },
 };

@@ -3,20 +3,20 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Legend } from 'recharts';
 
 // Mock data for the radar chart
 const rawData = [
-  { stat: 'HP', character: 1000, top1Percent: 2000 },
-  { stat: 'ATK', character: 120, top1Percent: 140 },
-  { stat: 'DEF', character: 98, top1Percent: 130 },
-  { stat: 'SPD', character: 99, top1Percent: 140 },
-  { stat: 'CRIT Rate', character: 85, top1Percent: 145 },
+  { stat: 'HP', character: 1000, week20: 2000 },
+  { stat: 'ATK', character: 120, week20: 140 },
+  { stat: 'DEF', character: 98, week20: 130 },
+  { stat: 'SPD', character: 99, week20: 140 },
+  { stat: 'CRIT Rate', character: 85, week20: 145 },
 ];
 
 const radarData = rawData.map((entry) => ({
   stat: entry.stat,
-  character: (entry.character / entry.top1Percent) * 100,
-  top1Percent: 100,
+  character: (entry.character / entry.week20) * 100,
+  week20: 100,
 }));
 
-export const RadarChartTest = () => {
+export const CustomRadarChart = () => {
   return (
     <Box sx={{ flex: 3, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <RadarChart
@@ -35,8 +35,8 @@ export const RadarChartTest = () => {
           fillOpacity={0.6}
         />
         <Radar
-          name="Top 1% Builds"
-          dataKey="top1Percent"
+          name="Week 20 Builds"
+          dataKey="week20"
           stroke="#ffffff"
           fillOpacity={0.3}
           dot={false}

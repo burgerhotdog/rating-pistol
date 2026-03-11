@@ -185,7 +185,7 @@ function CharIconButton({ char, isActive, onClick }) {
   );
 }
 
-export default function HSRShowcase() {
+export function Test() {
   const [selected, setSelected] = useState(0);
   const char = CHARACTERS[selected];
   const { accentColor } = char;
@@ -263,4 +263,4 @@ export default function HSRShowcase() {
       </Card>
     </Box>
   );
-}
+};

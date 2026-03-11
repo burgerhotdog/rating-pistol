@@ -1,11 +1,11 @@
-import { useContext, useMemo } from 'react';
+import { useContext, useEffect, useMemo, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Avatar, Box } from '@mui/material';
 import { ALL_CHARACTER_ASSETS } from '@/assets';
 import { BuildDataContext, UserDataContext } from '@/contexts';
 import { ALL_CHARACTER_LOOKUP } from '@/lookups';
 
-export const CharacterSidebar = ({ selectedId, setSelectedId }) => {
+export const Sidebar = ({ selectedId, setSelectedId }) => {
   const { gameId } = useParams();
   const buildData = useContext(BuildDataContext).allBuildData[gameId];
   const pinnedId = useContext(UserDataContext).allPinnedId[gameId];
@@ -13,7 +13,7 @@ export const CharacterSidebar = ({ selectedId, setSelectedId }) => {
   const CHARACTER_ASSETS = ALL_CHARACTER_ASSETS[gameId];
   const CHARACTER_LOOKUP = ALL_CHARACTER_LOOKUP[gameId];
 
-  const sortedCharacters = useMemo(() => {
+  const sortedIds = useMemo(() => {
     return Object.keys(buildData).sort((aId, bId) => {
       // Prioritize pinned character
       if (aId === pinnedId) return -1;
@@ -25,6 +25,24 @@ export const CharacterSidebar = ({ selectedId, setSelectedId }) => {
       return aName.localeCompare(bName);
     });
   }, [buildData, pinnedId]);
+
+  const prevGameId = useRef(gameId);
+
+  useEffect(() => {
+    // if no characters, reset selectedId to null
+    if (!sortedIds.length) return setSelectedId(null);
+
+    // if gameId changed, reset selectedId to first character
+    if (prevGameId.current !== gameId) {
+      prevGameId.current = gameId;
+      return setSelectedId(sortedIds[0]);
+    }
+
+    // if selectedId no longer exists, reset to first character
+    if (!sortedIds.includes(selectedId)) {
+      return setSelectedId(sortedIds[0]);
+    }
+  }, [sortedIds]);
 
   return (
     <Box sx={{
@@ -61,7 +79,7 @@ export const CharacterSidebar = ({ selectedId, setSelectedId }) => {
           pointerEvents: 'none',
         },
       }}>
-        {sortedCharacters.map((characterId) => (
+        {sortedIds.map((characterId) => (
           <Avatar
             key={characterId}
             src={CHARACTER_ASSETS[characterId]}

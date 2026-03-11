@@ -5,7 +5,7 @@ import HeaderNav from './HeaderNav';
 import HeaderOcr from './HeaderOcr';
 import HeaderUser from './HeaderUser';
 
-const Header = () => {
+export const Header = () => {
   const location = useLocation();
   const activeGameId = location.pathname.slice(1);
 
@@ -34,5 +34,3 @@ const Header = () => {
     </Box>
   );
 };
-
-export default Header;

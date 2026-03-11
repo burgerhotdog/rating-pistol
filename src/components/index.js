@@ -1,5 +1,7 @@
-export { default as Header } from './Header';
-export { default as Test } from './test';
-export * from './CharacterSidebar';
+export * from './Header';
+export * from './Sidebar';
 export * from './StatsPanel';
 export * from './RadarChart';
+export * from './LineChart';
+export * from './ComparisonTable';
+export * from './test';

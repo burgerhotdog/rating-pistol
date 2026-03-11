@@ -38,12 +38,14 @@ export default {
   STATS: {
     "_HP": {
       "name": "HP",
+      mainValue: 705.6,
       "mainChance": [1, 0, 0, 0, 0, 0],
       "subValue": 42.34,
       "subChance": 10
     },
     "_ATK": {
       "name": "ATK",
+      mainValue: 352.8,
       "mainChance": [0, 1, 0, 0, 0, 0],
       "subValue": 21.17,
       "subChance": 10
@@ -56,6 +58,7 @@ export default {
     "HP": {
       "name": "HP%",
       "showPercent": true,
+      mainValue: 43.2,
       "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
       "subValue": 4.32,
       "subChance": 10
@@ -63,6 +66,7 @@ export default {
     "ATK": {
       "name": "ATK%",
       "showPercent": true,
+      mainValue: 43.2,
       "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
       "subValue": 4.32,
       "subChance": 10
@@ -70,6 +74,7 @@ export default {
     "DEF": {
       "name": "DEF%",
       "showPercent": true,
+      mainValue: 54,
       "mainChance": [0, 0, 0.2, 0.3, 0.123333, 0.266666],
       "subValue": 5.4,
       "subChance": 10
@@ -77,6 +82,7 @@ export default {
     "CR": {
       "name": "CRIT Rate",
       "showPercent": true,
+      mainValue: 32.4,
       "mainChance": [0, 0, 0.1, 0, 0, 0],
       "subValue": 3.24,
       "subChance": 6
@@ -84,6 +90,7 @@ export default {
     "CD": {
       "name": "CRIT DMG",
       "showPercent": true,
+      mainValue: 64.8,
       "mainChance": [0, 0, 0.1, 0, 0, 0],
       "subValue": 6.48,
       "subChance": 6
@@ -91,6 +98,7 @@ export default {
     "EHR": {
       "name": "Effect Hit Rate",
       "showPercent": true,
+      mainValue: 43.2,
       "mainChance": [0, 0, 0.1, 0, 0, 0],
       "subValue": 4.32,
       "subChance": 8
@@ -98,10 +106,12 @@ export default {
     "OHB": {
       "name": "Outgoing Healing Boost",
       "showPercent": true,
+      mainValue: 34.5606,
       "mainChance": [0, 0, 0.1, 0, 0, 0]
     },
     "SPD": {
       "name": "SPD",
+      mainValue: 25.032,
       "mainChance": [0, 0, 0, 0.1, 0, 0],
       "subValue": 2.6,
       "subChance": 4
@@ -109,41 +119,49 @@ export default {
     "FIRE": {
       "name": "Fire DMG Bonus",
       "showPercent": true,
+      mainValue: 38.8803,
       "mainChance": [0, 0, 0, 0, 0.09, 0]
     },
     "ICE": {
       "name": "Ice DMG Bonus",
       "showPercent": true,
+      mainValue: 38.8803,
       "mainChance": [0, 0, 0, 0, 0.09, 0]
     },
     "IMAGINARY": { 
       "name": "Imaginary DMG Bonus",
       "showPercent": true,
+      mainValue: 38.8803,
       "mainChance": [0, 0, 0, 0, 0.09, 0]
     },
     "LIGHTNING": {
       "name": "Lightning DMG Bonus",
       "showPercent": true,
+      mainValue: 38.8803,
       "mainChance": [0, 0, 0, 0, 0.09, 0]
     },
     "PHYSICAL": {
       "name": "Physical DMG Bonus",
       "showPercent": true,
+      mainValue: 38.8803,
       "mainChance": [0, 0, 0, 0, 0.09, 0]
     },
     "QUANTUM": {
       "name": "Quantum DMG Bonus",
       "showPercent": true,
+      mainValue: 38.8803,
       "mainChance": [0, 0, 0, 0, 0.09, 0]
     },
     "WIND": {
       "name": "Wind DMG Bonus",
       "showPercent": true,
+      mainValue: 38.8803,
       "mainChance": [0, 0, 0, 0, 0.09, 0]
     },
     "BE": {
       "name": "Break Effect",
       "showPercent": true,
+      mainValue: 64.8,
       "mainChance": [0, 0, 0, 0, 0, 0.15],
       "subValue": 6.48,
       "subChance": 8
@@ -151,6 +169,7 @@ export default {
     "ERR": {
       "name": "Energy Regeneration Rate",
       "showPercent": true,
+      mainValue: 19.4394,
       "mainChance": [0, 0, 0, 0, 0, 0.05]
     },
     "RES": {
