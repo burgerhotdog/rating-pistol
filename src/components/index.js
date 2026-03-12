@@ -4,4 +4,3 @@ export * from './StatsPanel';
 export * from './RadarChart';
 export * from './LineChart';
 export * from './CustomTable';
-export * from './test';

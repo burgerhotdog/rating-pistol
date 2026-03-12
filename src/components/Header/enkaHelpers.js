@@ -109,6 +109,20 @@ const PARSE_MAIN_STAT = {
   'zenless-zone-zero': (equip) => equip.Equipment.MainPropertyList[0].PropertyId,
 };
 
+const PARSE_MAIN_VALUE = {
+  'genshin-impact': (equip) => {
+    const key = equip.flat.reliquaryMainstat.mainPropId;
+    const valueRatio = ALL_GENERAL_LOOKUP['genshin-impact'].STATS[ENKA_STAT_MAP['genshin-impact'][key]].showPercent ? 0.01 : 1;
+    return equip.flat.reliquaryMainstat.statValue * valueRatio;
+  },
+  'honkai-star-rail': (equip) => equip._flat.props[0].value,
+  'zenless-zone-zero': (equip) => {
+    const key = ENKA_STAT_MAP['zenless-zone-zero'][equip.Equipment.MainPropertyList[0].PropertyId];
+    const valueRatio = ALL_GENERAL_LOOKUP['zenless-zone-zero'].STATS[key].showPercent ? 0.0001 : 1;
+    return equip.Equipment.MainPropertyList[0].PropertyValue * 4 * valueRatio;
+  },
+};
+
 const PARSE_SETID = {
   'genshin-impact': (equip) => String(equip.flat.setId),
   'honkai-star-rail': (equip) => String(equip._flat.setID),
@@ -128,19 +142,18 @@ const PARSE_SUB_STAT = {
 };
 
 const PARSE_SUB_VALUE = {
-  'genshin-impact': (sub) => sub.statValue,
-  'honkai-star-rail': (sub) => {
-    const valueRatio = sub.type.slice(-5) === 'Delta' ? 1 : 100;
-    const roundAmount = valueRatio === 1 ? 1 : 10;
-    return Math.round((sub.value * valueRatio) * roundAmount) / roundAmount;
+  'genshin-impact': (sub) => {
+    const key = sub.appendPropId;
+    const valueRatio = ALL_GENERAL_LOOKUP['genshin-impact'].STATS[ENKA_STAT_MAP['genshin-impact'][key]].showPercent ? 0.01 : 1;
+    return sub.statValue * valueRatio;
   },
+  'honkai-star-rail': (sub) => sub.value,
   'zenless-zone-zero': (sub) => {
     const key = ENKA_STAT_MAP['zenless-zone-zero'][sub.PropertyId];
     const value = sub.PropertyValue;
-    const valueRatio = ALL_GENERAL_LOOKUP['zenless-zone-zero'].STATS[key].showPercent ? 0.01 : 1;
-    const roundAmount = valueRatio === 1 ? 1 : 10;
+    const valueRatio = ALL_GENERAL_LOOKUP['zenless-zone-zero'].STATS[key].showPercent ? 0.0001 : 1;
     const timesAppeared = sub.PropertyLevel;
-    return Math.round(((value * valueRatio) * timesAppeared) * roundAmount) / roundAmount;
+    return value * valueRatio * timesAppeared;
   },
 };
 
@@ -163,6 +176,10 @@ export function parseEnkaObj(gameId, enkaObj) {
     const mainStat = PARSE_MAIN_STAT[gameId](equipObj);
     avatarData.equipList[indexMain].mainStatId = ENKA_STAT_MAP[gameId][mainStat];
 
+    // main value
+    const mainValue = PARSE_MAIN_VALUE[gameId](equipObj);
+    avatarData.equipList[indexMain].mainStatValue = Number(mainValue);
+
     // sub stats
     const subStatList = PARSE_SUBLIST[gameId](equipObj);
     if (!subStatList) continue;
@@ -173,7 +190,7 @@ export function parseEnkaObj(gameId, enkaObj) {
 
       // value
       const subValue = PARSE_SUB_VALUE[gameId](subObj);
-      avatarData.equipList[indexMain].subStatList[indexSub].value = Number(subValue);
+      avatarData.equipList[indexMain].subStatList[indexSub].subStatValue = Number(subValue);
     }
   }
 

@@ -1,4 +1,4 @@
-import { useContext, useState, useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Card, Divider, Stack, Typography } from '@mui/material';
 import { BuildDataContext } from '@/contexts';
@@ -69,7 +69,7 @@ const StatRow = ({ label, value }) => (
   </Box>
 );
 
-export const StatsPanel = ({ selectedId, baseStats, buildStats }) => {
+export const StatsPanel = ({ selectedId, baseStats, equipStats }) => {
   const { gameId } = useParams();
   const { allBuildData } = useContext(BuildDataContext);
 
@@ -111,14 +111,15 @@ export const StatsPanel = ({ selectedId, baseStats, buildStats }) => {
       <Stack gap={1.5} sx={{ flex: 1 }}>
         {STAT_ORDER.map((statId) => {
           const isBaseStat = statId.startsWith('_');
+          const isPercentStat = ['CR', 'CD', 'ER'].includes(statId);
           const value = isBaseStat
-            ? baseStats[statId] * (1 + ((buildStats[statId.slice(1)] || 0) / 100)) + (buildStats[statId] || 0)
-            : buildStats[statId] ?? 0;
+            ? baseStats[statId] * (1 + (equipStats[statId.slice(1)] || 0)) + (equipStats[statId] || 0)
+            : equipStats[statId] ?? 0;
           const offsetValue =
-            statId === 'CR' ? 5 :
-            statId === 'CD' ? 50 :
-            statId === 'ER' ? 100 : 0;
-          const finalValue = value + offsetValue;
+            statId === 'CR' ? 0.05 :
+            statId === 'CD' ? 0.5 :
+            statId === 'ER' ? 1 : 0;
+          const finalValue = (value + offsetValue) * (isPercentStat ? 100 : 1);
           const toFixedValue = isBaseStat || statId === 'EM' ? 0 : 1;
           if (statId !== 'EM' && finalValue === 0) return;
           return (
