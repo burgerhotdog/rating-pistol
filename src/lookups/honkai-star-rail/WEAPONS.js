@@ -1,1572 +1,1572 @@
 export default {
-  "24006": {
-    "name": "Elation Brimming With Blessings",
-    "rarity": 5,
-    "type": "Elation",
-    "baseStats": {
-      "_HP": 953,
-      "_ATK": 529,
-      "_DEF": 463,
-    },
-  },
-  "23054": {
-    "name": "When She Decided to See",
-    "rarity": 5,
-    "type": "Elation",
-    "baseStats": {
-      "_HP": 1058,
-      "_ATK": 529,
-      "_DEF": 529,
-    },
-  },
-  "23053": {
-    "name": "Dazzled by a Flowery World",
-    "rarity": 5,
-    "type": "Elation",
-    "baseStats": {
-      "_HP": 1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "21065": {
-    "name": "Today's Good Luck",
-    "rarity": 4,
-    "type": "Elation",
-    "baseStats": {
-      "_HP": 953,
-      "_ATK": 529,
-      "_DEF": 397,
-    },
-  },
-  "21064": {
-    "name": "Mushy Shroomy's Adventures",
-    "rarity": 4,
-    "type": "Elation",
-    "baseStats": {
-      "_HP": 847,
-      "_ATK": 476,
-      "_DEF": 397,
-    },
-  },
-  "20024": {
-    "name": "Lingering Tear",
-    "rarity": 3,
-    "type": "Elation",
-    "baseStats": {
-      "_HP": 847,
-      "_ATK": 318,
-      "_DEF": 265,
-    },
-  },
-  "20023": {
-    "name": "Sneering",
-    "rarity": 3,
-    "type": "Elation",
-    "baseStats": {
-      "_HP": 741,
-      "_ATK": 370,
-      "_DEF": 265,
-    },
-  },
-  "23050": {
-    "name": "Never Forget Her Flame",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP": 1164,
-      "_ATK": 529,
-      "_DEF": 463,
-    },
-  },
-  "23052": {
-    "name": "This Love, Forever",
-    "rarity": 5,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP": 1270,
-      "_ATK": 476,
-      "_DEF": 463,
-    },
-  },
-  "22006": {
-    "name": "Fly Into a Pink Tomorrow",
-    "rarity": 4,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP": 847,
-      "_ATK": 476,
-      "_DEF": 397,
-    },
-  },
-  "23051": {
-    "name": "Though Worlds Apart",
-    "rarity": 5,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP": 1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23049": {
-    "name": "To Evernight's Stars",
-    "rarity": 5,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP": 1164,
-      "_ATK": 529,
-      "_DEF": 463,
-    },
-  },
-  "23048": {
-    "name": "Epoch Etched in Golden Blood",
-    "rarity": 5,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 635,
-      "_DEF": 463,
-    },
-  },
-  "23047": {
-    "name": "Why Does the Ocean Sing",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 635,
-      "_DEF": 463,
-    },
-  },
-  "22005": {
-    "name": "The Forever Victual",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 476,
-      "_DEF": 331,
-    },
-  },
-  "23046": {
-    "name": "The Hell Where Ideals Burn",
-    "rarity": 5,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 582,
-      "_DEF": 529,
-    },
-  },
-  "23045": {
-    "name": "A Thankless Coronation",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 582,
-      "_DEF": 529,
-    },
-  },
-  "23044": {
-    "name": "Thus Burns the Dawn",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 688,
-      "_DEF": 397,
-    },
-  },
-  "21062": {
-    "name": "See You at the End",
-    "rarity": 4,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 529,
-      "_DEF": 397,
-    },
-  },
-  "21061": {
-    "name": "Holiday Thermae Escapade",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 331,
-    },
-  },
-  "21060": {
-    "name": "A Dream Scented in Wheat",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 529,
-      "_DEF": 397,
-    },
-  },
-  "21058": {
-    "name": "A Trail of Bygone Blood",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 331,
-    },
-  },
-  "21057": {
-    "name": "The Flower Remembers",
-    "rarity": 4,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 331,
-    },
-  },
-  "21056": {
-    "name": "In Pursuit of the Wind",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 476,
-      "_DEF": 397,
-    },
-  },
-  "21055": {
-    "name": "Unto Tomorrow's Morrow",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 476,
-      "_DEF": 397,
-    },
-  },
-  "21054": {
-    "name": "The Story's Next Page",
-    "rarity": 4,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 370,
-      "_DEF": 397,
-    },
-  },
-  "21053": {
-    "name": "Journey, Forever Peaceful",
-    "rarity": 4,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 370,
-      "_DEF": 529,
-    },
-  },
-  "23043": {
-    "name": "Lies Dance on the Breeze",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 582,
-      "_DEF": 529,
-    },
-  },
-  "23042": {
-    "name": "Long May Rainbows Adorn the Sky",
-    "rarity": 5,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 476,
-      "_DEF": 529,
-    },
-  },
-  "23041": {
-    "name": "Life Should Be Cast to Flames",
-    "rarity": 5,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 582,
-      "_DEF": 529,
-    },
-  },
-  "23040": {
-    "name": "Make Farewells More Beautiful",
-    "rarity": 5,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  1270,
-      "_ATK": 529,
-      "_DEF": 397,
-    },
-  },
-  "22004": {
-    "name": "The Great Cosmic Enterprise",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 476,
-      "_DEF": 331,
-    },
-  },
-  "24005": {
-    "name": "Memory's Curtain Never Falls",
-    "rarity": 5,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 397,
-    },
-  },
-  "23039": {
-    "name": "Flame of Blood, Blaze My Path",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1376,
-      "_ATK": 476,
-      "_DEF": 397,
-    },
-  },
-  "23038": {
-    "name": "If Time Were a Flower",
-    "rarity": 5,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  1270,
-      "_ATK": 529,
-      "_DEF": 397,
-    },
-  },
-  "23037": {
-    "name": "Into the Unreachable Veil",
-    "rarity": 5,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 635,
-      "_DEF": 463,
-    },
-  },
-  "23036": {
-    "name": "Time Woven Into Gold",
-    "rarity": 5,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 635,
-      "_DEF": 397,
-    },
-  },
-  "21052": {
-    "name": "Sweat Now, Cry Less",
-    "rarity": 4,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 198,
-    },
-  },
-  "21051": {
-    "name": "Geniuses' Greetings",
-    "rarity": 4,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  953,
-      "_ATK": 476,
-      "_DEF": 331,
-    },
-  },
-  "21050": {
-    "name": "Victory In a Blink",
-    "rarity": 4,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 396,
-    },
-  },
-  "20022": {
-    "name": "Reminiscence",
-    "rarity": 3,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  635,
-      "_ATK": 423,
-      "_DEF": 264,
-    },
-  },
-  "20021": {
-    "name": "Shadowburn",
-    "rarity": 3,
-    "type": "Remembrance",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 317,
-      "_DEF": 264,
-    },
-  },
-  "23035": {
-    "name": "Long Road Leads Home",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 661,
-    },
-  },
-  "23034": {
-    "name": "A Grounded Ascent",
-    "rarity": 5,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 476,
-      "_DEF": 529,
-    },
-  },
-  "23033": {
-    "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
-    "rarity": 5,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 582,
-      "_DEF": 529,
-    },
-  },
-  "22003": {
-    "name": "Ninja Record: Sound Hunt",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 476,
-      "_DEF": 264,
-    },
-  },
-  "21048": {
-    "name": "Dream's Montage",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "23032": {
-    "name": "Scent Alone Stays True",
-    "rarity": 5,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 529,
-    },
-  },
-  "23031": {
-    "name": "I Venture Forth to Hunt",
-    "rarity": 5,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 635,
-      "_DEF": 463,
-    },
-  },
-  "21047": {
-    "name": "Shadowed by Night",
-    "rarity": 4,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 476,
-      "_DEF": 396,
-    },
-  },
-  "23030": {
-    "name": "Dance at Sunset",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23029": {
-    "name": "Those Many Springs",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 582,
-      "_DEF": 529,
-    },
-  },
-  "21046": {
-    "name": "Poised to Bloom",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "24004": {
-    "name": "Eternal Calculus",
-    "rarity": 5,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 396,
-    },
-  },
-  "23028": {
-    "name": "Yet Hope Is Priceless",
-    "rarity": 5,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 582,
-      "_DEF": 529,
-    },
-  },
-  "23025": {
-    "name": "Whereabouts Should Dreams Rest",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 476,
-      "_DEF": 529,
-    },
-  },
-  "21045": {
-    "name": "After the Charmony Fall",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 476,
-      "_DEF": 396,
-    },
-  },
-  "23027": {
-    "name": "Sailing Towards A Second Life",
-    "rarity": 5,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23026": {
-    "name": "Flowing Nightglow",
-    "rarity": 5,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 635,
-      "_DEF": 463,
-    },
-  },
-  "22002": {
-    "name": "For Tomorrow's Journey",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21044": {
-    "name": "Boundless Choreo",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "23024": {
-    "name": "Along the Passing Shore",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 635,
-      "_DEF": 396,
-    },
-  },
-  "23023": {
-    "name": "Inherently Unjust Destiny",
-    "rarity": 5,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 423,
-      "_DEF": 661,
-    },
-  },
-  "21043": {
-    "name": "Concert for Two",
-    "rarity": 4,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 370,
-      "_DEF": 463,
-    },
-  },
-  "23022": {
-    "name": "Reforged Remembrance",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23021": {
-    "name": "Earthly Escapade",
-    "rarity": 5,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 529,
-      "_DEF": 463,
-    },
-  },
-  "21042": {
-    "name": "Indelible Promise",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21041": {
-    "name": "It's Showtime",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 476,
-      "_DEF": 264,
-    },
-  },
-  "21040": {
-    "name": "The Day The Cosmos Fell",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21039": {
-    "name": "Destiny's Threads Forewoven",
-    "rarity": 4,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 370,
-      "_DEF": 463,
-    },
-  },
-  "21038": {
-    "name": "Flames Afar",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 476,
-      "_DEF": 264,
-    },
-  },
-  "21037": {
-    "name": "Final Victor",
-    "rarity": 4,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21036": {
-    "name": "Dreamville Adventure",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "21035": {
-    "name": "What Is Real?",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 423,
-      "_DEF": 330,
-    },
-  },
-  "23020": {
-    "name": "Baptism of Pure Thought",
-    "rarity": 5,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 582,
-      "_DEF": 529,
-    },
-  },
-  "23019": {
-    "name": "Past Self in Mirror",
-    "rarity": 5,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 529,
-    },
-  },
-  "23018": {
-    "name": "An Instant Before A Gaze",
-    "rarity": 5,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23017": {
-    "name": "Night of Fright",
-    "rarity": 5,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 476,
-      "_DEF": 529,
-    },
-  },
-  "22001": {
-    "name": "Hey, Over Here",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "23016": {
-    "name": "Worrisome, Blissful",
-    "rarity": 5,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23014": {
-    "name": "I Shall Be My Own Sword",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 582,
-      "_DEF": 396,
-    },
-  },
-  "24003": {
-    "name": "Solitary Healing",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 396,
-    },
-  },
-  "23015": {
-    "name": "Brighter Than the Sun",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 635,
-      "_DEF": 396,
-    },
-  },
-  "23011": {
-    "name": "She Already Shut Her Eyes",
-    "rarity": 5,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  1270,
-      "_ATK": 423,
-      "_DEF": 529,
-    },
-  },
-  "23009": {
-    "name": "The Unreachable Side",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1270,
-      "_ATK": 582,
-      "_DEF": 330,
-    },
-  },
-  "23006": {
-    "name": "Patience Is All You Need",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23008": {
-    "name": "Echoes of the Coffin",
-    "rarity": 5,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 582,
-      "_DEF": 396,
-    },
-  },
-  "23007": {
-    "name": "Incessant Rain",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "22000": {
-    "name": "Before the Tutorial Mission Starts",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "24002": {
-    "name": "Texture of Memories",
-    "rarity": 5,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 423,
-      "_DEF": 529,
-    },
-  },
-  "24001": {
-    "name": "Cruising in the Stellar Sea",
-    "rarity": 5,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 529,
-      "_DEF": 463,
-    },
-  },
-  "24000": {
-    "name": "On the Fall of an Aeon",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 529,
-      "_DEF": 396,
-    },
-  },
-  "23013": {
-    "name": "Time Waits for No One",
-    "rarity": 5,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  1270,
-      "_ATK": 476,
-      "_DEF": 463,
-    },
-  },
-  "23012": {
-    "name": "Sleep Like the Dead",
-    "rarity": 5,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23010": {
-    "name": "Before Dawn",
-    "rarity": 5,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23005": {
-    "name": "Moment of Victory",
-    "rarity": 5,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 476,
-      "_DEF": 595,
-    },
-  },
-  "23004": {
-    "name": "In the Name of the World",
-    "rarity": 5,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23003": {
-    "name": "But the Battle Isn't Over",
-    "rarity": 5,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 529,
-      "_DEF": 463,
-    },
-  },
-  "23002": {
-    "name": "Something Irreplaceable",
-    "rarity": 5,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 582,
-      "_DEF": 396,
-    },
-  },
-  "23001": {
-    "name": "In the Night",
-    "rarity": 5,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 582,
-      "_DEF": 463,
-    },
-  },
-  "23000": {
-    "name": "Night on the Milky Way",
-    "rarity": 5,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  1164,
-      "_ATK": 582,
-      "_DEF": 396,
-    },
-  },
-  "21034": {
-    "name": "Today Is Another Peaceful Day",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 529,
-      "_DEF": 330,
-    },
-  },
-  "21033": {
-    "name": "Nowhere to Run",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 529,
-      "_DEF": 264,
-    },
-  },
-  "21032": {
-    "name": "Carve the Moon, Weave the Clouds",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21031": {
-    "name": "Return to Darkness",
-    "rarity": 4,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 529,
-      "_DEF": 330,
-    },
-  },
-  "21030": {
-    "name": "This Is Me!",
-    "rarity": 4,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 370,
-      "_DEF": 529,
-    },
-  },
-  "21029": {
-    "name": "We Will Meet Again",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 529,
-      "_DEF": 330,
-    },
-  },
-  "21028": {
-    "name": "Warmth Shortens Cold Nights",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 370,
-      "_DEF": 396,
-    },
-  },
-  "21027": {
-    "name": "The Seriousness of Breakfast",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 476,
-      "_DEF": 396,
-    },
-  },
-  "21026": {
-    "name": "Woof! Walk Time!",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21025": {
-    "name": "Past and Future",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "21024": {
-    "name": "River Flows in Spring",
-    "rarity": 4,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 476,
-      "_DEF": 396,
-    },
-  },
-  "21023": {
-    "name": "We Are Wildfire",
-    "rarity": 4,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  740,
-      "_ATK": 476,
-      "_DEF": 463,
-    },
-  },
-  "21022": {
-    "name": "Fermata",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21021": {
-    "name": "Quid Pro Quo",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "21020": {
-    "name": "Geniuses' Repose",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 476,
-      "_DEF": 396,
-    },
-  },
-  "21019": {
-    "name": "Under the Blue Sky",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21018": {
-    "name": "Dance! Dance! Dance!",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "21017": {
-    "name": "Subscribe for More!",
-    "rarity": 4,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21016": {
-    "name": "Trend of the Universal Market",
-    "rarity": 4,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 370,
-      "_DEF": 396,
-    },
-  },
-  "21015": {
-    "name": "Resolution Shines As Pearls of Sweat",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21014": {
-    "name": "Perfect Timing",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "21013": {
-    "name": "Make the World Clamor",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 476,
-      "_DEF": 396,
-    },
-  },
-  "21012": {
-    "name": "A Secret Vow",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 476,
-      "_DEF": 264,
-    },
-  },
-  "21011": {
-    "name": "Planetary Rendezvous",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 423,
-      "_DEF": 330,
-    },
-  },
-  "21010": {
-    "name": "Swordplay",
-    "rarity": 4,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21009": {
-    "name": "Landau's Choice",
-    "rarity": 4,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "21008": {
-    "name": "Eyes of the Prey",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21007": {
-    "name": "Shared Feeling",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "21006": {
-    "name": "The Birth of the Self",
-    "rarity": 4,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21005": {
-    "name": "The Moles Welcome You",
-    "rarity": 4,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 476,
-      "_DEF": 264,
-    },
-  },
-  "21004": {
-    "name": "Memories of the Past",
-    "rarity": 4,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 423,
-      "_DEF": 396,
-    },
-  },
-  "21003": {
-    "name": "Only Silence Remains",
-    "rarity": 4,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21002": {
-    "name": "Day One of My New Life",
-    "rarity": 4,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 370,
-      "_DEF": 463,
-    },
-  },
-  "21001": {
-    "name": "Good Night and Sleep Well",
-    "rarity": 4,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 476,
-      "_DEF": 330,
-    },
-  },
-  "21000": {
-    "name": "Post-Op Conversation",
-    "rarity": 4,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  1058,
-      "_ATK": 423,
-      "_DEF": 330,
-    },
-  },
-  "20020": {
-    "name": "Sagacity",
-    "rarity": 3,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  740,
-      "_ATK": 370,
-      "_DEF": 264,
-    },
-  },
-  "20019": {
-    "name": "Mediation",
-    "rarity": 3,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 317,
-      "_DEF": 264,
-    },
-  },
-  "20018": {
-    "name": "Hidden Shadow",
-    "rarity": 3,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 317,
-      "_DEF": 264,
-    },
-  },
-  "20017": {
-    "name": "Pioneering",
-    "rarity": 3,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 264,
-      "_DEF": 264,
-    },
-  },
-  "20016": {
-    "name": "Mutual Demise",
-    "rarity": 3,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 370,
-      "_DEF": 198,
-    },
-  },
-  "20015": {
-    "name": "Multiplication",
-    "rarity": 3,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 317,
-      "_DEF": 198,
-    },
-  },
-  "20014": {
-    "name": "Adversarial",
-    "rarity": 3,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  740,
-      "_ATK": 370,
-      "_DEF": 264,
-    },
-  },
-  "20013": {
-    "name": "Passkey",
-    "rarity": 3,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  740,
-      "_ATK": 370,
-      "_DEF": 264,
-    },
-  },
-  "20012": {
-    "name": "Meshing Cogs",
-    "rarity": 3,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 317,
-      "_DEF": 264,
-    },
-  },
-  "20011": {
-    "name": "Loop",
-    "rarity": 3,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 317,
-      "_DEF": 264,
-    },
-  },
-  "20010": {
-    "name": "Defense",
-    "rarity": 3,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 264,
-      "_DEF": 264,
-    },
-  },
-  "20009": {
-    "name": "Shattered Home",
-    "rarity": 3,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 370,
-      "_DEF": 198,
-    },
-  },
-  "20008": {
-    "name": "Fine Fruit",
-    "rarity": 3,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 317,
-      "_DEF": 198,
-    },
-  },
-  "20007": {
-    "name": "Darting Arrow",
-    "rarity": 3,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  740,
-      "_ATK": 370,
-      "_DEF": 264,
-    },
-  },
-  "20006": {
-    "name": "Data Bank",
-    "rarity": 3,
-    "type": "Erudition",
-    "baseStats": {
-      "_HP":  740,
-      "_ATK": 370,
-      "_DEF": 264,
-    },
-  },
-  "20005": {
-    "name": "Chorus",
-    "rarity": 3,
-    "type": "Harmony",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 317,
-      "_DEF": 264,
-    },
-  },
-  "20004": {
-    "name": "Void",
-    "rarity": 3,
-    "type": "Nihility",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 317,
-      "_DEF": 264,
-    },
-  },
-  "20003": {
-    "name": "Amber",
-    "rarity": 3,
-    "type": "Preservation",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 264,
-      "_DEF": 330,
-    },
-  },
-  "20002": {
-    "name": "Collapsing Sky",
-    "rarity": 3,
-    "type": "Destruction",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 370,
-      "_DEF": 198,
-    },
-  },
-  "20001": {
-    "name": "Cornucopia",
-    "rarity": 3,
-    "type": "Abundance",
-    "baseStats": {
-      "_HP":  952,
-      "_ATK": 264,
-      "_DEF": 264,
-    },
-  },
-  "20000": {
-    "name": "Arrows",
-    "rarity": 3,
-    "type": "Hunt",
-    "baseStats": {
-      "_HP":  846,
-      "_ATK": 317,
-      "_DEF": 264
+  24006: {
+    NAME: 'Elation Brimming With Blessings',
+    RARITY: 5,
+    TYPE: 'Elation',
+    BASE_STATS: {
+      BASE_HP: 953,
+      BASE_ATK: 529,
+      BASE_DEF: 463,
+    },
+  },
+  23054: {
+    NAME: 'When She Decided to See',
+    RARITY: 5,
+    TYPE: 'Elation',
+    BASE_STATS: {
+      BASE_HP: 1058,
+      BASE_ATK: 529,
+      BASE_DEF: 529,
+    },
+  },
+  23053: {
+    NAME: 'Dazzled by a Flowery World',
+    RARITY: 5,
+    TYPE: 'Elation',
+    BASE_STATS: {
+      BASE_HP: 1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  21065: {
+    NAME: 'Today\'s Good Luck',
+    RARITY: 4,
+    TYPE: 'Elation',
+    BASE_STATS: {
+      BASE_HP: 953,
+      BASE_ATK: 529,
+      BASE_DEF: 397,
+    },
+  },
+  21064: {
+    NAME: 'Mushy Shroomy\'s Adventures',
+    RARITY: 4,
+    TYPE: 'Elation',
+    BASE_STATS: {
+      BASE_HP: 847,
+      BASE_ATK: 476,
+      BASE_DEF: 397,
+    },
+  },
+  20024: {
+    NAME: 'Lingering Tear',
+    RARITY: 3,
+    TYPE: 'Elation',
+    BASE_STATS: {
+      BASE_HP: 847,
+      BASE_ATK: 318,
+      BASE_DEF: 265,
+    },
+  },
+  20023: {
+    NAME: 'Sneering',
+    RARITY: 3,
+    TYPE: 'Elation',
+    BASE_STATS: {
+      BASE_HP: 741,
+      BASE_ATK: 370,
+      BASE_DEF: 265,
+    },
+  },
+  23050: {
+    NAME: 'Never Forget Her Flame',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP: 1164,
+      BASE_ATK: 529,
+      BASE_DEF: 463,
+    },
+  },
+  23052: {
+    NAME: 'This Love, Forever',
+    RARITY: 5,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP: 1270,
+      BASE_ATK: 476,
+      BASE_DEF: 463,
+    },
+  },
+  22006: {
+    NAME: 'Fly Into a Pink Tomorrow',
+    RARITY: 4,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP: 847,
+      BASE_ATK: 476,
+      BASE_DEF: 397,
+    },
+  },
+  23051: {
+    NAME: 'Though Worlds Apart',
+    RARITY: 5,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP: 1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23049: {
+    NAME: 'To Evernight\'s Stars',
+    RARITY: 5,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP: 1164,
+      BASE_ATK: 529,
+      BASE_DEF: 463,
+    },
+  },
+  23048: {
+    NAME: 'Epoch Etched in Golden Blood',
+    RARITY: 5,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 635,
+      BASE_DEF: 463,
+    },
+  },
+  23047: {
+    NAME: 'Why Does the Ocean Sing',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 635,
+      BASE_DEF: 463,
+    },
+  },
+  22005: {
+    NAME: 'The Forever Victual',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 476,
+      BASE_DEF: 331,
+    },
+  },
+  23046: {
+    NAME: 'The Hell Where Ideals Burn',
+    RARITY: 5,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 582,
+      BASE_DEF: 529,
+    },
+  },
+  23045: {
+    NAME: 'A Thankless Coronation',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 582,
+      BASE_DEF: 529,
+    },
+  },
+  23044: {
+    NAME: 'Thus Burns the Dawn',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 688,
+      BASE_DEF: 397,
+    },
+  },
+  21062: {
+    NAME: 'See You at the End',
+    RARITY: 4,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 529,
+      BASE_DEF: 397,
+    },
+  },
+  21061: {
+    NAME: 'Holiday Thermae Escapade',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 331,
+    },
+  },
+  21060: {
+    NAME: 'A Dream Scented in Wheat',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 529,
+      BASE_DEF: 397,
+    },
+  },
+  21058: {
+    NAME: 'A Trail of Bygone Blood',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 331,
+    },
+  },
+  21057: {
+    NAME: 'The Flower Remembers',
+    RARITY: 4,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 331,
+    },
+  },
+  21056: {
+    NAME: 'In Pursuit of the Wind',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 476,
+      BASE_DEF: 397,
+    },
+  },
+  21055: {
+    NAME: 'Unto Tomorrow\'s Morrow',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 476,
+      BASE_DEF: 397,
+    },
+  },
+  21054: {
+    NAME: 'The Story\'s Next Page',
+    RARITY: 4,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 370,
+      BASE_DEF: 397,
+    },
+  },
+  21053: {
+    NAME: 'Journey, Forever Peaceful',
+    RARITY: 4,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 370,
+      BASE_DEF: 529,
+    },
+  },
+  23043: {
+    NAME: 'Lies Dance on the Breeze',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 582,
+      BASE_DEF: 529,
+    },
+  },
+  23042: {
+    NAME: 'Long May Rainbows Adorn the Sky',
+    RARITY: 5,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 476,
+      BASE_DEF: 529,
+    },
+  },
+  23041: {
+    NAME: 'Life Should Be Cast to Flames',
+    RARITY: 5,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 582,
+      BASE_DEF: 529,
+    },
+  },
+  23040: {
+    NAME: 'Make Farewells More Beautiful',
+    RARITY: 5,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  1270,
+      BASE_ATK: 529,
+      BASE_DEF: 397,
+    },
+  },
+  22004: {
+    NAME: 'The Great Cosmic Enterprise',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 476,
+      BASE_DEF: 331,
+    },
+  },
+  24005: {
+    NAME: 'Memory\'s Curtain Never Falls',
+    RARITY: 5,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 397,
+    },
+  },
+  23039: {
+    NAME: 'Flame of Blood, Blaze My Path',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1376,
+      BASE_ATK: 476,
+      BASE_DEF: 397,
+    },
+  },
+  23038: {
+    NAME: 'If Time Were a Flower',
+    RARITY: 5,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  1270,
+      BASE_ATK: 529,
+      BASE_DEF: 397,
+    },
+  },
+  23037: {
+    NAME: 'Into the Unreachable Veil',
+    RARITY: 5,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 635,
+      BASE_DEF: 463,
+    },
+  },
+  23036: {
+    NAME: 'Time Woven Into Gold',
+    RARITY: 5,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 635,
+      BASE_DEF: 397,
+    },
+  },
+  21052: {
+    NAME: 'Sweat Now, Cry Less',
+    RARITY: 4,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 198,
+    },
+  },
+  21051: {
+    NAME: 'Geniuses\' Greetings',
+    RARITY: 4,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  953,
+      BASE_ATK: 476,
+      BASE_DEF: 331,
+    },
+  },
+  21050: {
+    NAME: 'Victory In a Blink',
+    RARITY: 4,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 396,
+    },
+  },
+  20022: {
+    NAME: 'Reminiscence',
+    RARITY: 3,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  635,
+      BASE_ATK: 423,
+      BASE_DEF: 264,
+    },
+  },
+  20021: {
+    NAME: 'Shadowburn',
+    RARITY: 3,
+    TYPE: 'Remembrance',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 317,
+      BASE_DEF: 264,
+    },
+  },
+  23035: {
+    NAME: 'Long Road Leads Home',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 661,
+    },
+  },
+  23034: {
+    NAME: 'A Grounded Ascent',
+    RARITY: 5,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 476,
+      BASE_DEF: 529,
+    },
+  },
+  23033: {
+    NAME: 'Ninjutsu Inscription: Dazzling Evilbreaker',
+    RARITY: 5,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 582,
+      BASE_DEF: 529,
+    },
+  },
+  22003: {
+    NAME: 'Ninja Record: Sound Hunt',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 476,
+      BASE_DEF: 264,
+    },
+  },
+  21048: {
+    NAME: 'Dream\'s Montage',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  23032: {
+    NAME: 'Scent Alone Stays True',
+    RARITY: 5,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 529,
+    },
+  },
+  23031: {
+    NAME: 'I Venture Forth to Hunt',
+    RARITY: 5,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 635,
+      BASE_DEF: 463,
+    },
+  },
+  21047: {
+    NAME: 'Shadowed by Night',
+    RARITY: 4,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 476,
+      BASE_DEF: 396,
+    },
+  },
+  23030: {
+    NAME: 'Dance at Sunset',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23029: {
+    NAME: 'Those Many Springs',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 582,
+      BASE_DEF: 529,
+    },
+  },
+  21046: {
+    NAME: 'Poised to Bloom',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  24004: {
+    NAME: 'Eternal Calculus',
+    RARITY: 5,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 396,
+    },
+  },
+  23028: {
+    NAME: 'Yet Hope Is Priceless',
+    RARITY: 5,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 582,
+      BASE_DEF: 529,
+    },
+  },
+  23025: {
+    NAME: 'Whereabouts Should Dreams Rest',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 476,
+      BASE_DEF: 529,
+    },
+  },
+  21045: {
+    NAME: 'After the Charmony Fall',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 476,
+      BASE_DEF: 396,
+    },
+  },
+  23027: {
+    NAME: 'Sailing Towards A Second Life',
+    RARITY: 5,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23026: {
+    NAME: 'Flowing Nightglow',
+    RARITY: 5,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 635,
+      BASE_DEF: 463,
+    },
+  },
+  22002: {
+    NAME: 'For Tomorrow\'s Journey',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21044: {
+    NAME: 'Boundless Choreo',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  23024: {
+    NAME: 'Along the Passing Shore',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 635,
+      BASE_DEF: 396,
+    },
+  },
+  23023: {
+    NAME: 'Inherently Unjust Destiny',
+    RARITY: 5,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 423,
+      BASE_DEF: 661,
+    },
+  },
+  21043: {
+    NAME: 'Concert for Two',
+    RARITY: 4,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 370,
+      BASE_DEF: 463,
+    },
+  },
+  23022: {
+    NAME: 'Reforged Remembrance',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23021: {
+    NAME: 'Earthly Escapade',
+    RARITY: 5,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 529,
+      BASE_DEF: 463,
+    },
+  },
+  21042: {
+    NAME: 'Indelible Promise',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21041: {
+    NAME: 'It\'s Showtime',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 476,
+      BASE_DEF: 264,
+    },
+  },
+  21040: {
+    NAME: 'The Day The Cosmos Fell',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21039: {
+    NAME: 'Destiny\'s Threads Forewoven',
+    RARITY: 4,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 370,
+      BASE_DEF: 463,
+    },
+  },
+  21038: {
+    NAME: 'Flames Afar',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 476,
+      BASE_DEF: 264,
+    },
+  },
+  21037: {
+    NAME: 'Final Victor',
+    RARITY: 4,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21036: {
+    NAME: 'Dreamville Adventure',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  21035: {
+    NAME: 'What Is Real?',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 423,
+      BASE_DEF: 330,
+    },
+  },
+  23020: {
+    NAME: 'Baptism of Pure Thought',
+    RARITY: 5,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 582,
+      BASE_DEF: 529,
+    },
+  },
+  23019: {
+    NAME: 'Past Self in Mirror',
+    RARITY: 5,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 529,
+    },
+  },
+  23018: {
+    NAME: 'An Instant Before A Gaze',
+    RARITY: 5,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23017: {
+    NAME: 'Night of Fright',
+    RARITY: 5,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 476,
+      BASE_DEF: 529,
+    },
+  },
+  22001: {
+    NAME: 'Hey, Over Here',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  23016: {
+    NAME: 'Worrisome, Blissful',
+    RARITY: 5,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23014: {
+    NAME: 'I Shall Be My Own Sword',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 582,
+      BASE_DEF: 396,
+    },
+  },
+  24003: {
+    NAME: 'Solitary Healing',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 396,
+    },
+  },
+  23015: {
+    NAME: 'Brighter Than the Sun',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 635,
+      BASE_DEF: 396,
+    },
+  },
+  23011: {
+    NAME: 'She Already Shut Her Eyes',
+    RARITY: 5,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  1270,
+      BASE_ATK: 423,
+      BASE_DEF: 529,
+    },
+  },
+  23009: {
+    NAME: 'The Unreachable Side',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1270,
+      BASE_ATK: 582,
+      BASE_DEF: 330,
+    },
+  },
+  23006: {
+    NAME: 'Patience Is All You Need',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23008: {
+    NAME: 'Echoes of the Coffin',
+    RARITY: 5,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 582,
+      BASE_DEF: 396,
+    },
+  },
+  23007: {
+    NAME: 'Incessant Rain',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  22000: {
+    NAME: 'Before the Tutorial Mission Starts',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  24002: {
+    NAME: 'Texture of Memories',
+    RARITY: 5,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 423,
+      BASE_DEF: 529,
+    },
+  },
+  24001: {
+    NAME: 'Cruising in the Stellar Sea',
+    RARITY: 5,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 529,
+      BASE_DEF: 463,
+    },
+  },
+  24000: {
+    NAME: 'On the Fall of an Aeon',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 529,
+      BASE_DEF: 396,
+    },
+  },
+  23013: {
+    NAME: 'Time Waits for No One',
+    RARITY: 5,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  1270,
+      BASE_ATK: 476,
+      BASE_DEF: 463,
+    },
+  },
+  23012: {
+    NAME: 'Sleep Like the Dead',
+    RARITY: 5,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23010: {
+    NAME: 'Before Dawn',
+    RARITY: 5,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23005: {
+    NAME: 'Moment of Victory',
+    RARITY: 5,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 476,
+      BASE_DEF: 595,
+    },
+  },
+  23004: {
+    NAME: 'In the Name of the World',
+    RARITY: 5,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23003: {
+    NAME: 'But the Battle Isn\'t Over',
+    RARITY: 5,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 529,
+      BASE_DEF: 463,
+    },
+  },
+  23002: {
+    NAME: 'Something Irreplaceable',
+    RARITY: 5,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 582,
+      BASE_DEF: 396,
+    },
+  },
+  23001: {
+    NAME: 'In the Night',
+    RARITY: 5,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 582,
+      BASE_DEF: 463,
+    },
+  },
+  23000: {
+    NAME: 'Night on the Milky Way',
+    RARITY: 5,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  1164,
+      BASE_ATK: 582,
+      BASE_DEF: 396,
+    },
+  },
+  21034: {
+    NAME: 'Today Is Another Peaceful Day',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 529,
+      BASE_DEF: 330,
+    },
+  },
+  21033: {
+    NAME: 'Nowhere to Run',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 529,
+      BASE_DEF: 264,
+    },
+  },
+  21032: {
+    NAME: 'Carve the Moon, Weave the Clouds',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21031: {
+    NAME: 'Return to Darkness',
+    RARITY: 4,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 529,
+      BASE_DEF: 330,
+    },
+  },
+  21030: {
+    NAME: 'This Is Me!',
+    RARITY: 4,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 370,
+      BASE_DEF: 529,
+    },
+  },
+  21029: {
+    NAME: 'We Will Meet Again',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 529,
+      BASE_DEF: 330,
+    },
+  },
+  21028: {
+    NAME: 'Warmth Shortens Cold Nights',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 370,
+      BASE_DEF: 396,
+    },
+  },
+  21027: {
+    NAME: 'The Seriousness of Breakfast',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 476,
+      BASE_DEF: 396,
+    },
+  },
+  21026: {
+    NAME: 'Woof! Walk Time!',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21025: {
+    NAME: 'Past and Future',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  21024: {
+    NAME: 'River Flows in Spring',
+    RARITY: 4,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 476,
+      BASE_DEF: 396,
+    },
+  },
+  21023: {
+    NAME: 'We Are Wildfire',
+    RARITY: 4,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  740,
+      BASE_ATK: 476,
+      BASE_DEF: 463,
+    },
+  },
+  21022: {
+    NAME: 'Fermata',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21021: {
+    NAME: 'Quid Pro Quo',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  21020: {
+    NAME: 'Geniuses\' Repose',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 476,
+      BASE_DEF: 396,
+    },
+  },
+  21019: {
+    NAME: 'Under the Blue Sky',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21018: {
+    NAME: 'Dance! Dance! Dance!',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  21017: {
+    NAME: 'Subscribe for More!',
+    RARITY: 4,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21016: {
+    NAME: 'Trend of the Universal Market',
+    RARITY: 4,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 370,
+      BASE_DEF: 396,
+    },
+  },
+  21015: {
+    NAME: 'Resolution Shines As Pearls of Sweat',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21014: {
+    NAME: 'Perfect Timing',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  21013: {
+    NAME: 'Make the World Clamor',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 476,
+      BASE_DEF: 396,
+    },
+  },
+  21012: {
+    NAME: 'A Secret Vow',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 476,
+      BASE_DEF: 264,
+    },
+  },
+  21011: {
+    NAME: 'Planetary Rendezvous',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 423,
+      BASE_DEF: 330,
+    },
+  },
+  21010: {
+    NAME: 'Swordplay',
+    RARITY: 4,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21009: {
+    NAME: 'Landau\'s Choice',
+    RARITY: 4,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  21008: {
+    NAME: 'Eyes of the Prey',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21007: {
+    NAME: 'Shared Feeling',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  21006: {
+    NAME: 'The Birth of the Self',
+    RARITY: 4,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21005: {
+    NAME: 'The Moles Welcome You',
+    RARITY: 4,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 476,
+      BASE_DEF: 264,
+    },
+  },
+  21004: {
+    NAME: 'Memories of the Past',
+    RARITY: 4,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 423,
+      BASE_DEF: 396,
+    },
+  },
+  21003: {
+    NAME: 'Only Silence Remains',
+    RARITY: 4,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21002: {
+    NAME: 'Day One of My New Life',
+    RARITY: 4,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 370,
+      BASE_DEF: 463,
+    },
+  },
+  21001: {
+    NAME: 'Good Night and Sleep Well',
+    RARITY: 4,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 476,
+      BASE_DEF: 330,
+    },
+  },
+  21000: {
+    NAME: 'Post-Op Conversation',
+    RARITY: 4,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  1058,
+      BASE_ATK: 423,
+      BASE_DEF: 330,
+    },
+  },
+  20020: {
+    NAME: 'Sagacity',
+    RARITY: 3,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  740,
+      BASE_ATK: 370,
+      BASE_DEF: 264,
+    },
+  },
+  20019: {
+    NAME: 'Mediation',
+    RARITY: 3,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 317,
+      BASE_DEF: 264,
+    },
+  },
+  20018: {
+    NAME: 'Hidden Shadow',
+    RARITY: 3,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 317,
+      BASE_DEF: 264,
+    },
+  },
+  20017: {
+    NAME: 'Pioneering',
+    RARITY: 3,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 264,
+      BASE_DEF: 264,
+    },
+  },
+  20016: {
+    NAME: 'Mutual Demise',
+    RARITY: 3,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 370,
+      BASE_DEF: 198,
+    },
+  },
+  20015: {
+    NAME: 'Multiplication',
+    RARITY: 3,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 317,
+      BASE_DEF: 198,
+    },
+  },
+  20014: {
+    NAME: 'Adversarial',
+    RARITY: 3,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  740,
+      BASE_ATK: 370,
+      BASE_DEF: 264,
+    },
+  },
+  20013: {
+    NAME: 'Passkey',
+    RARITY: 3,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  740,
+      BASE_ATK: 370,
+      BASE_DEF: 264,
+    },
+  },
+  20012: {
+    NAME: 'Meshing Cogs',
+    RARITY: 3,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 317,
+      BASE_DEF: 264,
+    },
+  },
+  20011: {
+    NAME: 'Loop',
+    RARITY: 3,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 317,
+      BASE_DEF: 264,
+    },
+  },
+  20010: {
+    NAME: 'Defense',
+    RARITY: 3,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 264,
+      BASE_DEF: 264,
+    },
+  },
+  20009: {
+    NAME: 'Shattered Home',
+    RARITY: 3,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 370,
+      BASE_DEF: 198,
+    },
+  },
+  20008: {
+    NAME: 'Fine Fruit',
+    RARITY: 3,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 317,
+      BASE_DEF: 198,
+    },
+  },
+  20007: {
+    NAME: 'Darting Arrow',
+    RARITY: 3,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  740,
+      BASE_ATK: 370,
+      BASE_DEF: 264,
+    },
+  },
+  20006: {
+    NAME: 'Data Bank',
+    RARITY: 3,
+    TYPE: 'Erudition',
+    BASE_STATS: {
+      BASE_HP:  740,
+      BASE_ATK: 370,
+      BASE_DEF: 264,
+    },
+  },
+  20005: {
+    NAME: 'Chorus',
+    RARITY: 3,
+    TYPE: 'Harmony',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 317,
+      BASE_DEF: 264,
+    },
+  },
+  20004: {
+    NAME: 'Void',
+    RARITY: 3,
+    TYPE: 'Nihility',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 317,
+      BASE_DEF: 264,
+    },
+  },
+  20003: {
+    NAME: 'Amber',
+    RARITY: 3,
+    TYPE: 'Preservation',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 264,
+      BASE_DEF: 330,
+    },
+  },
+  20002: {
+    NAME: 'Collapsing Sky',
+    RARITY: 3,
+    TYPE: 'Destruction',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 370,
+      BASE_DEF: 198,
+    },
+  },
+  20001: {
+    NAME: 'Cornucopia',
+    RARITY: 3,
+    TYPE: 'Abundance',
+    BASE_STATS: {
+      BASE_HP:  952,
+      BASE_ATK: 264,
+      BASE_DEF: 264,
+    },
+  },
+  20000: {
+    NAME: 'Arrows',
+    RARITY: 3,
+    TYPE: 'Hunt',
+    BASE_STATS: {
+      BASE_HP:  846,
+      BASE_ATK: 317,
+      BASE_DEF: 264
     }
   }
 };

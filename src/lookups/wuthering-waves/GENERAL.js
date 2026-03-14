@@ -1,168 +1,245 @@
 export default {
-  TITLE: "Wuthering Waves",
-  VERSION: "3.1",
-  PATH: "/wuthering-waves",
+  TITLE: 'Wuthering Waves',
+  VERSION: '3.1',
   RESIN_PER_DAY: 240,
   RESIN_PER_RUN: 60,
   DROPS_PER_RUN: 4.33,
   NUM_MAINSTATS: 5,
   NUM_SUBSTATS: 5,
   EQUIP_NAMES: [
-    "4-Cost",
-    "3-Cost",
-    "3-Cost",
-    "1-Cost",
-    "1-Cost"
+    '4-Cost',
+    '3-Cost',
+    '3-Cost',
+    '1-Cost',
+    '1-Cost'
   ],
   ELEMENT_TYPES: [
-    "Aero",
-    "Electro",
-    "Fusion",
-    "Glacio",
-    "Havoc",
-    "Spectro"
+    'Aero',
+    'Electro',
+    'Fusion',
+    'Glacio',
+    'Havoc',
+    'Spectro'
   ],
   WEAPON_TYPES: [
-    "Broadblade",
-    "Gauntlets",
-    "Pistols",
-    "Rectifier",
-    "Sword"
+    'Broadblade',
+    'Gauntlets',
+    'Pistols',
+    'Rectifier',
+    'Sword'
   ],
-  STATS: {
-    "_HP": {
-      "name": "HP",
-      "subValue": 580,
-      "subChance": 10
+  DEFAULT_STATS: {
+    PERCENT_ER: 1,
+    PERCENT_CR: 0.05,
+    PERCENT_CD: 1.5,
+  },
+  MAIN_STAT_FLATS: [
+    {
+      FLAT_HP: {
+        NAME: 'HP',
+        VALUE: 2280,
+      },
     },
-    "_ATK": {
-      "name": "ATK",
-      "subValue": 60,
-      "subChance": 10
+    {
+      FLAT_ATK: {
+        NAME: 'ATK',
+        VALUE: 100,
+      },
     },
-    "_DEF": {
-      "name": "DEF",
-      "subValue": 70,
-      "subChance": 10
+    {
+      FLAT_ATK: {
+        NAME: 'ATK',
+        VALUE: 150,
+      },
     },
-    "HP": {
-      "name": "HP%",
-      "showPercent": true,
-      mainValue: [33, 30, 22.8],
-      "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
-      "subValue": 11.6,
-      "subChance": 10
+  ],
+  MAIN_STAT_TYPES: [
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.228,
+        WEIGHT: 1,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.18,
+        WEIGHT: 1,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.18,
+        WEIGHT: 1,
+      },
     },
-    "ATK": {
-      "name": "ATK%",
-      "showPercent": true,
-      mainValue: [33, 30, 18],
-      "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
-      "subValue": 11.6,
-      "subChance": 10
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.3,
+        WEIGHT: 1,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.3,
+        WEIGHT: 1,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.38,
+        WEIGHT: 1,
+      },
+      PERCENT_GLACIO: {
+        NAME: 'Glacio DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_FUSION: {
+        NAME: 'Fusion DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_ELECTRO: {
+        NAME: 'Electro DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_AERO: {
+        NAME: 'Aero DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_SPECTRO: {
+        NAME: 'Spectro DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_HAVOC: {
+        NAME: 'Havoc DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_ER: {
+        NAME: 'Energy Regen',
+        VALUE: 0.32,
+        WEIGHT: 1,
+      },
     },
-    "DEF": {
-      "name": "DEF%",
-      "showPercent": true,
-      mainValue: [41.5, 38, 18],
-      "mainChance": [0.161667, 0.05875, 0.05875, 0.333333, 0.333333],
-      "subValue": 14.7,
-      "subChance": 10
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.33,
+        WEIGHT: 3,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.33,
+        WEIGHT: 3,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.415,
+        WEIGHT: 3,
+      },
+      PERCENT_CR: {
+        NAME: 'CRIT Rate',
+        VALUE: 0.22,
+        WEIGHT: 4,
+      },
+      PERCENT_CD: {
+        NAME: 'CRIT DMG',
+        VALUE: 0.44,
+        WEIGHT: 4,
+      },
+      PERCENT_HB: {
+        NAME: 'Healing Bonus',
+        VALUE: 0.26,
+        WEIGHT: 2,
+      },
     },
-    "CR": {
-      "name": "CRIT Rate",
-      "showPercent": true,
-      mainValue: [22, null, null],
-      "mainChance": [0.2, 0, 0, 0, 0],
-      "subValue": 10.5,
-      "subChance": 6
+  ],
+  SUB_STAT_TYPES: {
+    FLAT_HP: {
+      NAME: 'HP',
+      VALUE: 580,
+      WEIGHT: 1,
     },
-    "CD": {
-      "name": "CRIT DMG",
-      "showPercent": true,
-      mainValue: [44, null, null],
-      "mainChance": [0.2, 0, 0, 0, 0],
-      "subValue": 21,
-      "subChance": 6
+    FLAT_ATK: {
+      NAME: 'ATK',
+      VALUE: 60,
+      WEIGHT: 1,
     },
-    "HB": {
-      "name": "Healing Bonus",
-      "showPercent": true,
-      mainValue: [26, null, null],
-      "mainChance": [0.1154, 0, 0, 0, 0]
+    FLAT_DEF: {
+      NAME: 'DEF',
+      VALUE: 70,
+      WEIGHT: 1,
     },
-    "AERO": {
-      "name": "Aero DMG Bonus",
-      "showPercent": true,
-      mainValue: [null, 30, null],
-      "mainChance": [0, 0.1275, 0.1275, 0, 0]
+    PERCENT_HP: {
+      NAME: 'HP%',
+      VALUE: 0.116,
+      WEIGHT: 1,
     },
-    "ELECTRO": {
-      "name": "Electro DMG Bonus",
-      "showPercent": true,
-      mainValue: [null, 30, null],
-      "mainChance": [0, 0.1275, 0.1275, 0, 0]
+    PERCENT_ATK: {
+      NAME: 'ATK%',
+      VALUE: 0.116,
+      WEIGHT: 1,
     },
-    "FUSION": {
-      "name": "Fusion DMG Bonus",
-      "showPercent": true,
-      mainValue: [null, 30, null],
-      "mainChance": [0, 0.1275, 0.1275, 0, 0]
+    PERCENT_DEF: {
+      NAME: 'DEF%',
+      VALUE: 0.147,
+      WEIGHT: 1,
     },
-    "GLACIO": {
-      "name": "Glacio DMG Bonus",
-      "showPercent": true,
-      mainValue: [null, 30, null],
-      "mainChance": [0, 0.1275, 0.1275, 0, 0]
+    PERCENT_ER: {
+      NAME: 'Energy Regen',
+      VALUE: 0.124,
+      WEIGHT: 1,
     },
-    "HAVOC": {
-      "name": "Havoc DMG Bonus",
-      "showPercent": true,
-      mainValue: [null, 30, null],
-      "mainChance": [0, 0.1275, 0.1275, 0, 0]
+    PERCENT_CR: {
+      NAME: 'CRIT Rate',
+      VALUE: 0.105,
+      WEIGHT: 1,
     },
-    "SPECTRO": {
-      "name": "Spectro DMG Bonus",
-      "showPercent": true,
-      mainValue: [null, 30, null],
-      "mainChance": [0, 0.1275, 0.1275, 0, 0]
+    PERCENT_CD: {
+      NAME: 'CRIT DMG',
+      VALUE: 0.21,
+      WEIGHT: 1,
     },
-    "ER": {
-      "name": "Energy Regen",
-      "showPercent": true,
-      mainValue: [null, 32, null],
-      "mainChance": [0, 0.05875, 0.05875, 0, 0],
-      "subValue": 12.4,
-      "subChance": 8
+    PERCENT_BA: {
+      NAME: 'Basic Attack DMG Bonus',
+      VALUE: 0.116,
+      WEIGHT: 1,
     },
-    "BA": {
-      "name": "Basic Attack DMG Bonus",
-      "showPercent": true,
-      "subValue": 11.6,
-      "subChance": 8
+    PERCENT_HA: {
+      NAME: 'Heavy Attack DMG Bonus',
+      VALUE: 0.116,
+      WEIGHT: 1,
     },
-    "HA": {
-      "name": "Heavy Attack DMG Bonus",
-      "showPercent": true,
-      "subValue": 11.6,
-      "subChance": 8
+    PERCENT_RS: {
+      NAME: 'Resonance Skill DMG Bonus',
+      VALUE: 0.116,
+      WEIGHT: 1,
     },
-    "RS": {
-      "name": "Resonance Skill DMG Bonus",
-      "showPercent": true,
-      "subValue": 11.6,
-      "subChance": 8
-    },
-    "RL": {
-      "name": "Resonance Liberation DMG Bonus",
-      "showPercent": true,
-      "subValue": 11.6,
-      "subChance": 8
+    PERCENT_RL: {
+      NAME: 'Resonance Liberation DMG Bonus',
+      VALUE: 0.116,
+      WEIGHT: 1,
     },
   },
-  FLATCOSTSTAT: {
-    4: { _ATK: 150 },
-    3: { _ATK: 100 },
-    1: { _HP: 2280 },
-  },
+  MENU_STAT_TYPES: [
+    ['HP', 'HP'],
+    ['ATK', 'ATK'],
+    ['DEF', 'DEF'],
+    ['ER', 'Energy Regen'],
+    ['CR', 'CRIT Rate'],
+    ['CD', 'CRIT DMG'],
+    ['RS', 'Resonance Skill DMG Bonus'],
+    ['BA', 'Basic Attack DMG Bonus'],
+    ['HA', 'Heavy Attack DMG Bonus'],
+    ['RL', 'Resonance Liberation DMG Bonus'],
+    ['GLACIO', 'Glacio DMG Bonus'],
+    ['FUSION', 'Fusion DMG Bonus'],
+    ['ELECTRO', 'Electro DMG Bonus'],
+    ['AERO', 'Aero DMG Bonus'],
+    ['SPECTRO', 'Spectro DMG Bonus'],
+    ['HAVOC', 'Havoc DMG Bonus'],
+    ['HB', 'Healing Bonus'],
+  ],
 };

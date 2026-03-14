@@ -167,7 +167,7 @@ const HeaderEnka = ({ activeGameId }) => {
                   })}
                 />
               }
-              label={ALL_CHARACTER_LOOKUP[activeGameId][char.avatarId].name}
+              label={ALL_CHARACTER_LOOKUP[activeGameId][char.avatarId].NAME}
             />
           ))}
         </DialogContent>

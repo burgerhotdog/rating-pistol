@@ -14,6 +14,7 @@ export function useComputedStats(selectedId) {
 
     const baseStats = combineBaseStats(gameId, selectedId, weaponId);
     const equipStats = combineEquipStats(equipList);
+    console.log(baseStats, equipStats);
 
     return { baseStats, equipStats };
   }, [selectedId]);

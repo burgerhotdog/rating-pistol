@@ -1,161 +1,235 @@
 export default {
-  TITLE: "Zenless Zone Zero",
-  VERSION: "2.6",
-  PATH: "/zenless-zone-zero",
+  TITLE: 'Zenless Zone Zero',
+  VERSION: '2.6',
   RESIN_PER_DAY: 320,
   RESIN_PER_RUN: 60,
   DROPS_PER_RUN: 2.25,
   NUM_MAINSTATS: 6,
   NUM_SUBSTATS: 4,
   EQUIP_NAMES: [
-    "Disk 1",
-    "Disk 2",
-    "Disk 3",
-    "Disk 4",
-    "Disk 5",
-    "Disk 6"
+    'Disk 1',
+    'Disk 2',
+    'Disk 3',
+    'Disk 4',
+    'Disk 5',
+    'Disk 6'
   ],
   ELEMENT_TYPES: [
-    "Electric",
-    "Ether",
-    "Fire",
-    "Ice",
-    "Physical"
+    'Electric',
+    'Ether',
+    'Fire',
+    'Ice',
+    'Physical'
   ],
   WEAPON_TYPES: [
-    "Anomaly",
-    "Attack",
-    "Defense",
-    "Rupture",
-    "Stun",
-    "Support"
+    'Anomaly',
+    'Attack',
+    'Defense',
+    'Rupture',
+    'Stun',
+    'Support'
   ],
-  STATS: {
-    "_HP": {
-      "name": "HP",
-      mainValue: 2200,
-      "mainChance": [1, 0, 0, 0, 0, 0],
-      "subValue": 112,
-      "subChance": 10
+  DEFAULT_STATS: {
+    PERCENT_CR: 0.05,
+    PERCENT_CD: 0.5,
+    PERCENT_ER: 1.2,
+  },
+  MAIN_STAT_TYPES: [
+    {
+      FLAT_HP: {
+        NAME: 'HP',
+        VALUE: 2200,
+        WEIGHT: 1,
+      },
     },
-    "_ATK": {
-      "name": "ATK",
-      mainValue: 316,
-      "mainChance": [0, 1, 0, 0, 0, 0],
-      "subValue": 19,
-      "subChance": 10
+    {
+      FLAT_ATK: {
+        NAME: 'ATK',
+        VALUE: 316,
+        WEIGHT: 1,
+      },
     },
-    "_DEF": {
-      "name": "DEF",
-      mainValue: 184,
-      "mainChance": [0, 0, 1, 0, 0, 0],
-      "subValue": 15,
-      "subChance": 10
+    {
+      FLAT_DEF: {
+        NAME: 'DEF',
+        VALUE: 184,
+        WEIGHT: 1,
+      },
     },
-    "HP": {
-      "name": "HP%",
-      "showPercent": true,
-      mainValue: 30,
-      "mainChance": [0, 0, 0, 0.233333, 0.133333, 0.233333],
-      "subValue": 3,
-      "subChance": 10
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.3,
+        WEIGHT: 7,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.3,
+        WEIGHT: 6,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.48,
+        WEIGHT: 7,
+      },
+      PERCENT_CR: {
+        NAME: 'CRIT Rate',
+        VALUE: 0.24,
+        WEIGHT: 4,
+      },
+      PERCENT_CD: {
+        NAME: 'CRIT DMG',
+        VALUE: 0.48,
+        WEIGHT: 4,
+      },
+      FLAT_AP: {
+        NAME: 'Anomaly Proficiency',
+        VALUE: 92,
+        WEIGHT: 5,
+      },
     },
-    "ATK": {
-      "name": "ATK%",
-      "showPercent": true,
-      mainValue: 30,
-      "mainChance": [0, 0, 0, 0.223333, 0.133333, 0.233333],
-      "subValue": 3,
-      "subChance": 10
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.3,
+        WEIGHT: 7,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.3,
+        WEIGHT: 6,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.48,
+        WEIGHT: 7,
+      },
+      PERCENT_PR: {
+        NAME: 'PEN Ratio',
+        VALUE: 0.24,
+        WEIGHT: 3,
+      },
+      PERCENT_PHYSICAL: {
+        NAME: 'Physical DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_FIRE: {
+        NAME: 'Fire DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_ICE: {
+        NAME: 'Ice DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_ELECTRIC: {
+        NAME: 'Electric DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_ETHER: {
+        NAME: 'Ether DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
     },
-    "DEF": {
-      "name": "DEF%",
-      "showPercent": true,
-      mainValue: 48,
-      "mainChance": [0, 0, 0, 0.223333, 0.133333, 0.233333],
-      "subValue": 4.8,
-      "subChance": 10
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.3,
+        WEIGHT: 7,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.3,
+        WEIGHT: 6,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.48,
+        WEIGHT: 7,
+      },
+      PERCENT_AM: {
+        NAME: 'Anomaly Mastery',
+        VALUE: 0.3,
+        WEIGHT: 5,
+      },
+      PERCENT_IMPACT: {
+        NAME: 'Impact',
+        VALUE: 0.18,
+        WEIGHT: 5,
+      },
+      PERCENT_ER: {
+        NAME: 'Energy Regen',
+        VALUE: 0.6,
+        WEIGHT: 3,
+      },
     },
-    "CR": {
-      "name": "CRIT Rate",
-      "showPercent": true,
-      mainValue: 24,
-      "mainChance": [0, 0, 0, 0.1, 0, 0],
-      "subValue": 2.4,
-      "subChance": 6
+  ],
+  SUB_STAT_TYPES: {
+    FLAT_HP: {
+      NAME: 'HP',
+      VALUE: 112,
+      WEIGHT: 6,
     },
-    "CD": {
-      "name": "CRIT DMG",
-      "showPercent": true,
-      mainValue: 48,
-      "mainChance": [0, 0, 0, 0.1, 0, 0],
-      "subValue": 4.8,
-      "subChance": 6
+    FLAT_ATK: {
+      NAME: 'ATK',
+      VALUE: 19,
+      WEIGHT: 5,
     },
-    "AP": {
-      "name": "Anomaly Proficiency",
-      mainValue: 92,
-      "mainChance": [0, 0, 0, 0.1, 0, 0],
-      "subValue": 9,
-      "subChance": 8
+    FLAT_DEF: {
+      NAME: 'DEF',
+      VALUE: 15,
+      WEIGHT: 6,
     },
-    "ETHER": {
-      "name": "Ether DMG Bonus",
-      "showPercent": true,
-      mainValue: 30,
-      "mainChance": [0, 0, 0, 0, 0.1, 0]
+    PERCENT_HP: {
+      NAME: 'HP%',
+      VALUE: 0.03,
+      WEIGHT: 6,
     },
-    "ELECTRIC": {
-      "name": "Electric DMG Bonus",
-      "showPercent": true,
-      mainValue: 30,
-      "mainChance": [0, 0, 0, 0, 0.1, 0]
+    PERCENT_ATK: {
+      NAME: 'ATK%',
+      VALUE: 0.03,
+      WEIGHT: 5,
     },
-    "FIRE": {
-      "name": "Fire DMG Bonus",
-      "showPercent": true,
-      mainValue: 30,
-      "mainChance": [0, 0, 0, 0, 0.1, 0]
+    PERCENT_DEF: {
+      NAME: 'DEF%',
+      VALUE: 0.048,
+      WEIGHT: 6,
     },
-    "ICE": {
-      "name": "Ice DMG Bonus",
-      "showPercent": true,
-      mainValue: 30,
-      "mainChance": [0, 0, 0, 0, 0.1, 0]
+    FLAT_PEN: {
+      NAME: 'PEN',
+      VALUE: 9,
+      WEIGHT: 5,
     },
-    "PHYSICAL": {
-      "name": "Physical DMG Bonus",
-      "showPercent": true,
-      mainValue: 30,
-      "mainChance": [0, 0, 0, 0, 0.1, 0]
+    PERCENT_CR: {
+      NAME: 'CRIT Rate',
+      VALUE: 0.024,
+      WEIGHT: 5,
     },
-    "PR": {
-      "name": "PEN Ratio",
-      "showPercent": true,
-      mainValue: 24,
-      "mainChance": [0, 0, 0, 0, 0.1, 0]
+    PERCENT_CD: {
+      NAME: 'CRIT DMG',
+      VALUE: 0.048,
+      WEIGHT: 5,
     },
-    "AM": {
-      "name": "Anomaly Mastery",
-      mainValue: 30,
-      "mainChance": [0, 0, 0, 0, 0, 0.1]
-    },
-    "IMPACT": {
-      "name": "Impact",
-      "showPercent": true,
-      mainValue: 18,
-      "mainChance": [0, 0, 0, 0, 0, 0.1]
-    },
-    "ER": {
-      "name": "Energy Regen",
-      "showPercent": true,
-      mainValue: 60,
-      "mainChance": [0, 0, 0, 0, 0, 0.1]
-    },
-    "PEN": {
-      "name": "PEN",
-      "subValue": 9,
-      "subChance": 8
+    FLAT_AP: {
+      NAME: 'Anomaly Proficiency',
+      VALUE: 9,
+      WEIGHT: 5,
     },
   },
+  MENU_STAT_TYPES: [
+    ['HP', 'HP'],
+    ['ATK', 'ATK'],
+    ['DEF', 'DEF'],
+    ['IMPACT', 'Impact'],
+    ['CR', 'CRIT Rate'],
+    ['CD', 'CRIT DMG'],
+    ['AM', 'Anomaly Mastery'],
+    ['AP', 'Anomaly Proficiency'],
+    ['PR', 'PEN Ratio'],
+    ['ER', 'Energy Regen'],
+  ],
 };

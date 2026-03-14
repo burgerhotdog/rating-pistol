@@ -1,674 +1,674 @@
 export default {
-  "14150": {
-    "name": "Angel in the Shell",
-    "rarity": 5,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "14149": {
-    "name": "Thoughtbop",
-    "rarity": 5,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "14143": {
-    "name": "Cloudcleave Radiance",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 743,
-    },
-  },
-  "14134": {
-    "name": "Half-Sugar Bunny",
-    "rarity": 5,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "13019": {
-    "name": "Cauldron of Clarity",
-    "rarity": 4,
-    "type": "Rupture",
-    "baseStats": {
-      "_ATK": 594,
-    },
-  },
-  "14148": {
-    "name": "Yesterday Calls",
-    "rarity": 5,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "14147": {
-    "name": "Wrathful Vajra",
-    "rarity": 5,
-    "type": "Rupture",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "14145": {
-    "name": "Dreamlit Hearth",
-    "rarity": 5,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "14105": {
-    "name": "Kraken's Cradle",
-    "rarity": 5,
-    "type": "Rupture",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "13144": {
-    "name": "Grill O'Wisp",
-    "rarity": 4,
-    "type": "Rupture",
-    "baseStats": {
-      "_ATK": 624,
-    },
-  },
-  "14146": {
-    "name": "Cordis Germina",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "14130": {
-    "name": "Bellicose Blaze",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 713,
-    },
-  },
-  "14141": {
-    "name": "Metanukimorphosis",
-    "rarity": 5,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 713,
+  14150: {
+    NAME: 'Angel in the Shell',
+    RARITY: 5,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  14149: {
+    NAME: 'Thoughtbop',
+    RARITY: 5,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  14143: {
+    NAME: 'Cloudcleave Radiance',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 743,
+    },
+  },
+  14134: {
+    NAME: 'Half-Sugar Bunny',
+    RARITY: 5,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  13019: {
+    NAME: 'Cauldron of Clarity',
+    RARITY: 4,
+    TYPE: 'Rupture',
+    BASE_STATS: {
+      BASE_ATK: 594,
+    },
+  },
+  14148: {
+    NAME: 'Yesterday Calls',
+    RARITY: 5,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  14147: {
+    NAME: 'Wrathful Vajra',
+    RARITY: 5,
+    TYPE: 'Rupture',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  14145: {
+    NAME: 'Dreamlit Hearth',
+    RARITY: 5,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  14105: {
+    NAME: 'Kraken\'s Cradle',
+    RARITY: 5,
+    TYPE: 'Rupture',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  13144: {
+    NAME: 'Grill O\'Wisp',
+    RARITY: 4,
+    TYPE: 'Rupture',
+    BASE_STATS: {
+      BASE_ATK: 624,
+    },
+  },
+  14146: {
+    NAME: 'Cordis Germina',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  14130: {
+    NAME: 'Bellicose Blaze',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 713,
+    },
+  },
+  14141: {
+    NAME: 'Metanukimorphosis',
+    RARITY: 5,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14140": {
-    "name": "Practiced Perfection",
-    "rarity": 5,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 713,
+  14140: {
+    NAME: 'Practiced Perfection',
+    RARITY: 5,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14139": {
-    "name": "Roaring Fur-nace",
-    "rarity": 5,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 713,
+  14139: {
+    NAME: 'Roaring Fur-nace',
+    RARITY: 5,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14137": {
-    "name": "Qingming Birdcage",
-    "rarity": 5,
-    "type": "Rupture",
-    "baseStats": {
-      "_ATK": 743,
+  14137: {
+    NAME: 'Qingming Birdcage',
+    RARITY: 5,
+    TYPE: 'Rupture',
+    BASE_STATS: {
+      BASE_ATK: 743,
     },
   },
-  "13142": {
-    "name": "Tremor Trigram Vessel",
-    "rarity": 4,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 624,
+  13142: {
+    NAME: 'Tremor Trigram Vessel',
+    RARITY: 4,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13016": {
-    "name": "Reel Projector",
-    "rarity": 4,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 594,
+  13016: {
+    NAME: 'Reel Projector',
+    RARITY: 4,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13014": {
-    "name": "Radiowave Journey",
-    "rarity": 4,
-    "type": "Rupture",
-    "baseStats": {
-      "_ATK": 594,
+  13014: {
+    NAME: 'Radiowave Journey',
+    RARITY: 4,
+    TYPE: 'Rupture',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13012": {
-    "name": "Puzzle Sphere",
-    "rarity": 4,
-    "type": "Rupture",
-    "baseStats": {
-      "_ATK": 594,
+  13012: {
+    NAME: 'Puzzle Sphere',
+    RARITY: 4,
+    TYPE: 'Rupture',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "12015": {
-    "name": "[Cinder] Cobalt",
-    "rarity": 3,
-    "type": "Rupture",
-    "baseStats": {
-      "_ATK": 475,
+  12015: {
+    NAME: '[Cinder] Cobalt',
+    RARITY: 3,
+    TYPE: 'Rupture',
+    BASE_STATS: {
+      BASE_ATK: 475,
     },
   },
-  "14133": {
-    "name": "Flight of Fancy",
-    "rarity": 5,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 713,
+  14133: {
+    NAME: 'Flight of Fancy',
+    RARITY: 5,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14129": {
-    "name": "Myriad Eclipse",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 713,
+  14129: {
+    NAME: 'Myriad Eclipse',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14138": {
-    "name": "Severed Innocence",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 713,
+  14138: {
+    NAME: 'Severed Innocence',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14136": {
-    "name": "Spectral Gaze",
-    "rarity": 5,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 713,
+  14136: {
+    NAME: 'Spectral Gaze',
+    RARITY: 5,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "13135": {
-    "name": "Box Cutter",
-    "rarity": 4,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 624,
+  13135: {
+    NAME: 'Box Cutter',
+    RARITY: 4,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "14132": {
-    "name": "Heartstring Nocturne",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 713,
+  14132: {
+    NAME: 'Heartstring Nocturne',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14131": {
-    "name": "Elegant Vanity",
-    "rarity": 5,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 713,
+  14131: {
+    NAME: 'Elegant Vanity',
+    RARITY: 5,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14120": {
-    "name": "Zanshin Herb Case",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 713,
+  14120: {
+    NAME: 'Zanshin Herb Case',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14109": {
-    "name": "Hailstorm Shrine",
-    "rarity": 5,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 743,
+  14109: {
+    NAME: 'Hailstorm Shrine',
+    RARITY: 5,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 743,
     },
   },
-  "13015": {
-    "name": "Marcato Desire",
-    "rarity": 4,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 594,
+  13015: {
+    NAME: 'Marcato Desire',
+    RARITY: 4,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "14122": {
-    "name": "Timeweaver",
-    "rarity": 5,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 713,
+  14122: {
+    NAME: 'Timeweaver',
+    RARITY: 5,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14116": {
-    "name": "Blazing Laurel",
-    "rarity": 5,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 713,
+  14116: {
+    NAME: 'Blazing Laurel',
+    RARITY: 5,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14117": {
-    "name": "Flamemaker Shaker",
-    "rarity": 5,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 713,
+  14117: {
+    NAME: 'Flamemaker Shaker',
+    RARITY: 5,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14107": {
-    "name": "Tusks of Fury",
-    "rarity": 5,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 713,
+  14107: {
+    NAME: 'Tusks of Fury',
+    RARITY: 5,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14126": {
-    "name": "Sharpened Stinger",
-    "rarity": 5,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 713,
+  14126: {
+    NAME: 'Sharpened Stinger',
+    RARITY: 5,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14125": {
-    "name": "Ice-Jade Teapot",
-    "rarity": 5,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 713,
+  14125: {
+    NAME: 'Ice-Jade Teapot',
+    RARITY: 5,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "13127": {
-    "name": "Peacekeeper - Specialized",
-    "rarity": 4,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 624,
+  13127: {
+    NAME: 'Peacekeeper - Specialized',
+    RARITY: 4,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13013": {
-    "name": "Gilded Blossom",
-    "rarity": 4,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 594,
+  13013: {
+    NAME: 'Gilded Blossom',
+    RARITY: 4,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "14124": {
-    "name": "Riot Suppressor Mark VI",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 713,
+  14124: {
+    NAME: 'Riot Suppressor Mark VI',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14121": {
-    "name": "Weeping Cradle",
-    "rarity": 5,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 684,
+  14121: {
+    NAME: 'Weeping Cradle',
+    RARITY: 5,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 684,
     },
   },
-  "14119": {
-    "name": "Deep Sea Visitor",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 713,
+  14119: {
+    NAME: 'Deep Sea Visitor',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 713,
     },
   },
-  "14118": {
-    "name": "Fusion Compiler",
-    "rarity": 5,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 684,
+  14118: {
+    NAME: 'Fusion Compiler',
+    RARITY: 5,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 684,
     },
   },
-  "14114": {
-    "name": "The Restrained",
-    "rarity": 5,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 684,
+  14114: {
+    NAME: 'The Restrained',
+    RARITY: 5,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 684,
     },
   },
-  "14110": {
-    "name": "Hellfire Gears",
-    "rarity": 5,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 684,
+  14110: {
+    NAME: 'Hellfire Gears',
+    RARITY: 5,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 684,
     },
   },
-  "14104": {
-    "name": "The Brimstone",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 684,
+  14104: {
+    NAME: 'The Brimstone',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 684,
     },
   },
-  "14102": {
-    "name": "Steel Cushion",
-    "rarity": 5,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 684,
+  14102: {
+    NAME: 'Steel Cushion',
+    RARITY: 5,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 684,
     },
   },
-  "14003": {
-    "name": "Six Shooter",
-    "rarity": 4,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 594,
+  14003: {
+    NAME: 'Six Shooter',
+    RARITY: 4,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "14002": {
-    "name": "Unfettered Game Ball",
-    "rarity": 4,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 594,
+  14002: {
+    NAME: 'Unfettered Game Ball',
+    RARITY: 4,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "14001": {
-    "name": "Cannon Rotor",
-    "rarity": 4,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 594,
+  14001: {
+    NAME: 'Cannon Rotor',
+    RARITY: 4,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13128": {
-    "name": "Roaring Ride",
-    "rarity": 4,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 624,
+  13128: {
+    NAME: 'Roaring Ride',
+    RARITY: 4,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13115": {
-    "name": "Kaboom the Cannon",
-    "rarity": 4,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 624,
+  13115: {
+    NAME: 'Kaboom the Cannon',
+    RARITY: 4,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13113": {
-    "name": "Bashful Demon",
-    "rarity": 4,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 624,
+  13113: {
+    NAME: 'Bashful Demon',
+    RARITY: 4,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13112": {
-    "name": "Big Cylinder",
-    "rarity": 4,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 624,
+  13112: {
+    NAME: 'Big Cylinder',
+    RARITY: 4,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13111": {
-    "name": "Drill Rig - Red Axis",
-    "rarity": 4,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 624,
+  13111: {
+    NAME: 'Drill Rig - Red Axis',
+    RARITY: 4,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13108": {
-    "name": "Starlight Engine Replica",
-    "rarity": 4,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 624,
+  13108: {
+    NAME: 'Starlight Engine Replica',
+    RARITY: 4,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13106": {
-    "name": "Housekeeper",
-    "rarity": 4,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 624,
+  13106: {
+    NAME: 'Housekeeper',
+    RARITY: 4,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13103": {
-    "name": "The Vault",
-    "rarity": 4,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 624,
+  13103: {
+    NAME: 'The Vault',
+    RARITY: 4,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13101": {
-    "name": "Demara Battery Mark II",
-    "rarity": 4,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 624,
+  13101: {
+    NAME: 'Demara Battery Mark II',
+    RARITY: 4,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 624,
     },
   },
-  "13011": {
-    "name": "Spring Embrace",
-    "rarity": 4,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 594,
+  13011: {
+    NAME: 'Spring Embrace',
+    RARITY: 4,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13010": {
-    "name": "Bunny Band",
-    "rarity": 4,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 594,
+  13010: {
+    NAME: 'Bunny Band',
+    RARITY: 4,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13009": {
-    "name": "Electro-Lip Gloss",
-    "rarity": 4,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 594,
+  13009: {
+    NAME: 'Electro-Lip Gloss',
+    RARITY: 4,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13008": {
-    "name": "Weeping Gemini",
-    "rarity": 4,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 594,
+  13008: {
+    NAME: 'Weeping Gemini',
+    RARITY: 4,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13007": {
-    "name": "Original Transmorpher",
-    "rarity": 4,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 594,
+  13007: {
+    NAME: 'Original Transmorpher',
+    RARITY: 4,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13006": {
-    "name": "Precious Fossilized Core",
-    "rarity": 4,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 594,
+  13006: {
+    NAME: 'Precious Fossilized Core',
+    RARITY: 4,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13005": {
-    "name": "Steam Oven",
-    "rarity": 4,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 594,
+  13005: {
+    NAME: 'Steam Oven',
+    RARITY: 4,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13004": {
-    "name": "Starlight Engine",
-    "rarity": 4,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 594,
+  13004: {
+    NAME: 'Starlight Engine',
+    RARITY: 4,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13003": {
-    "name": "Rainforest Gourmet",
-    "rarity": 4,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 594,
+  13003: {
+    NAME: 'Rainforest Gourmet',
+    RARITY: 4,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13002": {
-    "name": "Slice of Time",
-    "rarity": 4,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 594,
+  13002: {
+    NAME: 'Slice of Time',
+    RARITY: 4,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "13001": {
-    "name": "Street Superstar",
-    "rarity": 4,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 594,
+  13001: {
+    NAME: 'Street Superstar',
+    RARITY: 4,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 594,
     },
   },
-  "12014": {
-    "name": "[Identity] Inflection",
-    "rarity": 3,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 475,
+  12014: {
+    NAME: '[Identity] Inflection',
+    RARITY: 3,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 475,
     },
   },
-  "12013": {
-    "name": "[Identity] Base",
-    "rarity": 3,
-    "type": "Defense",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12012": {
-    "name": "[Magnetic Storm] Charlie",
-    "rarity": 3,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12011": {
-    "name": "[Magnetic Storm] Bravo",
-    "rarity": 3,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12010": {
-    "name": "[Magnetic Storm] Alpha",
-    "rarity": 3,
-    "type": "Anomaly",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12009": {
-    "name": "[Vortex] Hatchet",
-    "rarity": 3,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12008": {
-    "name": "[Vortex] Arrow",
-    "rarity": 3,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12007": {
-    "name": "[Vortex] Revolver",
-    "rarity": 3,
-    "type": "Stun",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12006": {
-    "name": "[Reverb] Mark III",
-    "rarity": 3,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12005": {
-    "name": "[Reverb] Mark II",
-    "rarity": 3,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12004": {
-    "name": "[Reverb] Mark I",
-    "rarity": 3,
-    "type": "Support",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12003": {
-    "name": "[Lunar] Noviluna",
-    "rarity": 3,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12002": {
-    "name": "[Lunar] Decrescent",
-    "rarity": 3,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 475,
-    },
-  },
-  "12001": {
-    "name": "[Lunar] Pleniluna",
-    "rarity": 3,
-    "type": "Attack",
-    "baseStats": {
-      "_ATK": 475
+  12013: {
+    NAME: '[Identity] Base',
+    RARITY: 3,
+    TYPE: 'Defense',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12012: {
+    NAME: '[Magnetic Storm] Charlie',
+    RARITY: 3,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12011: {
+    NAME: '[Magnetic Storm] Bravo',
+    RARITY: 3,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12010: {
+    NAME: '[Magnetic Storm] Alpha',
+    RARITY: 3,
+    TYPE: 'Anomaly',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12009: {
+    NAME: '[Vortex] Hatchet',
+    RARITY: 3,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12008: {
+    NAME: '[Vortex] Arrow',
+    RARITY: 3,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12007: {
+    NAME: '[Vortex] Revolver',
+    RARITY: 3,
+    TYPE: 'Stun',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12006: {
+    NAME: '[Reverb] Mark III',
+    RARITY: 3,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12005: {
+    NAME: '[Reverb] Mark II',
+    RARITY: 3,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12004: {
+    NAME: '[Reverb] Mark I',
+    RARITY: 3,
+    TYPE: 'Support',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12003: {
+    NAME: '[Lunar] Noviluna',
+    RARITY: 3,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12002: {
+    NAME: '[Lunar] Decrescent',
+    RARITY: 3,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 475,
+    },
+  },
+  12001: {
+    NAME: '[Lunar] Pleniluna',
+    RARITY: 3,
+    TYPE: 'Attack',
+    BASE_STATS: {
+      BASE_ATK: 475
     }
   }
 };

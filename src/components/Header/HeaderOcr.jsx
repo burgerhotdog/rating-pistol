@@ -8,7 +8,7 @@ const WUWA_DATA = ALL_CHARACTER_LOOKUP['wuthering-waves'];
 const WUWA_ASSETS = ALL_CHARACTER_ASSETS['wuthering-waves'];
 
 const CHAR_OPTIONS = Object.keys(WUWA_DATA)
-  .sort((a, b) => WUWA_DATA[a].name.localeCompare(WUWA_DATA[b].name));
+  .sort((a, b) => WUWA_DATA[a].NAME.localeCompare(WUWA_DATA[b].NAME));
 
 const HeaderOcr = () => {
   const { saveBuildEntries } = useContext(BuildDataContext);
@@ -66,11 +66,11 @@ const HeaderOcr = () => {
           <Autocomplete
             value={selectedAvatarId}
             options={CHAR_OPTIONS}
-            getOptionLabel={(avatarId) => WUWA_DATA[avatarId]?.name ?? ''}
+            getOptionLabel={(avatarId) => WUWA_DATA[avatarId]?.NAME ?? ''}
             onChange={(_, newValue) => setSelectedAvatarId(newValue)}
             renderOption={(props, optionId) => {
               const { key, ...optionProps } = props;
-              const rarity = WUWA_DATA[optionId]?.rarity;
+              const rarity = WUWA_DATA[optionId]?.RARITY;
               return (
                 <Box
                   key={key}
@@ -88,7 +88,7 @@ const HeaderOcr = () => {
                     alt=""
                     sx={{ width: 24, height: 24, objectFit: 'contain' }}
                   />
-                  {WUWA_DATA[optionId].name}
+                  {WUWA_DATA[optionId].NAME}
                 </Box>
               );
             }}

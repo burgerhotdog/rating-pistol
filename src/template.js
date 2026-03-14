@@ -7,9 +7,10 @@ export default (gameId) => ({
     ...(gameId === 'wuthering-waves' && { cost: null }),
     setId: null,
     mainStatId: null,
+    mainStatValue: null,
     subStatList: Array(ALL_GENERAL_LOOKUP[gameId].NUM_SUBSTATS).fill().map(() => ({
       subStatId: null,
-      value: null
+      subStatValue: null
     }))
   })),
 });

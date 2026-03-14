@@ -1,1818 +1,1818 @@
 export default {
-  "14522": {
-    "name": "Nocturne's Curtain Call",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 542,
-    },
-  },
-  "11519": {
-    "name": "Lightbearing Moonshard",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 542,
-    },
-  },
-  "15515": {
-    "name": "The Daybreak Chronicles",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 674,
-    },
-  },
-  "15434": {
-    "name": "Rainbow Serpent's Rain Bow",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
-    },
-  },
-  "11518": {
-    "name": "Athame Artis",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 608,
-    },
-  },
-  "14521": {
-    "name": "Reliquary of Truth",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 542,
-    },
-  },
-  "14434": {
-    "name": "Dawning Frost",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
-    },
-  },
-  "13434": {
-    "name": "Sacrificer's Staff",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 620,
-    },
-  },
-  "15433": {
-    "name": "Snare Hook",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 454,
-    },
-  },
-  "14520": {
-    "name": "Nightweaver's Looking Glass",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 542,
-    },
-  },
-  "14433": {
-    "name": "Blackmarrow Lantern",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 454,
-    },
-  },
-  "14432": {
-    "name": "Etherlight Spindlelute",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
-    },
-  },
-  "13516": {
-    "name": "Bloodsoaked Ruins",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 674,
+  14522: {
+    NAME: 'Nocturne\'s Curtain Call',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 542,
+    },
+  },
+  11519: {
+    NAME: 'Lightbearing Moonshard',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 542,
+    },
+  },
+  15515: {
+    NAME: 'The Daybreak Chronicles',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 674,
+    },
+  },
+  15434: {
+    NAME: 'Rainbow Serpent\'s Rain Bow',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
+    },
+  },
+  11518: {
+    NAME: 'Athame Artis',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 608,
+    },
+  },
+  14521: {
+    NAME: 'Reliquary of Truth',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 542,
+    },
+  },
+  14434: {
+    NAME: 'Dawning Frost',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
+    },
+  },
+  13434: {
+    NAME: 'Sacrificer\'s Staff',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 620,
+    },
+  },
+  15433: {
+    NAME: 'Snare Hook',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 454,
+    },
+  },
+  14520: {
+    NAME: 'Nightweaver\'s Looking Glass',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 542,
+    },
+  },
+  14433: {
+    NAME: 'Blackmarrow Lantern',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 454,
+    },
+  },
+  14432: {
+    NAME: 'Etherlight Spindlelute',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
+    },
+  },
+  13516: {
+    NAME: 'Bloodsoaked Ruins',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "13433": {
-    "name": "Prospector's Shovel",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  13433: {
+    NAME: 'Prospector\'s Shovel',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12433": {
-    "name": "Master Key",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 454,
+  12433: {
+    NAME: 'Master Key',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "11433": {
-  "name": "Serenity's Call",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 454,
+  11433: {
+    NAME: 'Serenity\'s Call',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "13515": {
-    "name": "Fractured Halo",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 608,
+  13515: {
+    NAME: 'Fractured Halo',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "11517": {
-    "name": "Azurelight",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 674,
+  11517: {
+    NAME: 'Azurelight',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "15432": {
-    "name": "Sequence of Solitude",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  15432: {
+    NAME: 'Sequence of Solitude',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "13514": {
-    "name": "Symphonist of Scents",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 608,
+  13514: {
+    NAME: 'Symphonist of Scents',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "14519": {
-    "name": "Vivid Notions",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 674,
+  14519: {
+    NAME: 'Vivid Notions',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "14518": {
-    "name": "Sunny Morning Sleep-In",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 542,
+  14518: {
+    NAME: 'Sunny Morning Sleep-In',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "13432": {
-    "name": "Tamayuratei no Ohanashi",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13432: {
+    NAME: 'Tamayuratei no Ohanashi',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14517": {
-    "name": "Starcaller's Watch",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 542,
+  14517: {
+    NAME: 'Starcaller\'s Watch',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "12514": {
-    "name": "A Thousand Blazing Suns",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 741,
+  12514: {
+    NAME: 'A Thousand Blazing Suns',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 741,
     },
   },
-  "15514": {
-    "name": "Astral Vulture's Crimson Plumage",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 608,
+  15514: {
+    NAME: 'Astral Vulture\'s Crimson Plumage',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "15430": {
-    "name": "Flower-Wreathed Feathers",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15430: {
+    NAME: 'Flower-Wreathed Feathers',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14430": {
-    "name": "Waveriding Whirl",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 454,
+  14430: {
+    NAME: 'Waveriding Whirl',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "11432": {
-    "name": "Calamity of Eshu",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 565,
+  11432: {
+    NAME: 'Calamity of Eshu',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "13430": {
-    "name": "Mountain-Bracing Bolt",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13430: {
+    NAME: 'Mountain-Bracing Bolt',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12430": {
-    "name": "Fruitful Hook",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12430: {
+    NAME: 'Fruitful Hook',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11516": {
-    "name": "Peak Patrol Song",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 542,
+  11516: {
+    NAME: 'Peak Patrol Song',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "11430": {
-    "name": "Sturdy Bone",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 565,
+  11430: {
+    NAME: 'Sturdy Bone',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "15431": {
-    "name": "Chain Breaker",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15431: {
+    NAME: 'Chain Breaker',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14516": {
-    "name": "Surf's Up",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 542,
+  14516: {
+    NAME: 'Surf\'s Up',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "14431": {
-    "name": "Ring of Yaxche",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14431: {
+    NAME: 'Ring of Yaxche',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14427": {
-    "name": "Ash-Graven Drinking Horn",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14427: {
+    NAME: 'Ash-Graven Drinking Horn',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "13431": {
-    "name": "Footprint of the Rainbow",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  13431: {
+    NAME: 'Footprint of the Rainbow',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12513": {
-    "name": "Fang of the Mountain King",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 741,
+  12513: {
+    NAME: 'Fang of the Mountain King',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 741,
     },
   },
-  "12431": {
-    "name": "Earth Shaker",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12431: {
+    NAME: 'Earth Shaker',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11431": {
-    "name": "Flute of Ezpitzal",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 454,
+  11431: {
+    NAME: 'Flute of Ezpitzal',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "13513": {
-    "name": "Lumidouce Elegy",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 608,
+  13513: {
+    NAME: 'Lumidouce Elegy',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "15513": {
-    "name": "Silvershower Heartstrings",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 542,
+  15513: {
+    NAME: 'Silvershower Heartstrings',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "15426": {
-    "name": "Cloudforged",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15426: {
+    NAME: 'Cloudforged',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "11515": {
-    "name": "Absolution",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 674,
+  11515: {
+    NAME: 'Absolution',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "13512": {
-    "name": "Crimson Moon's Semblance",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 674,
+  13512: {
+    NAME: 'Crimson Moon\'s Semblance',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "13426": {
-    "name": "Dialogues of the Desert Sages",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  13426: {
+    NAME: 'Dialogues of the Desert Sages',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "11514": {
-    "name": "Uraku Misugiri",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 542,
+  11514: {
+    NAME: 'Uraku Misugiri',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "14515": {
-    "name": "Crane's Echoing Call",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 741,
+  14515: {
+    NAME: 'Crane\'s Echoing Call',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 741,
     },
   },
-  "12512": {
-    "name": "Verdict",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 674,
+  12512: {
+    NAME: 'Verdict',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "12426": {
-    "name": "\"Ultimate Overlord's Mega Magic Sword\"",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12426: {
+    NAME: '\'Ultimate Overlord\'s Mega Magic Sword\'',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11513": {
-    "name": "Splendor of Tranquil Waters",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 542,
+  11513: {
+    NAME: 'Splendor of Tranquil Waters',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "11428": {
-    "name": "Sword of Narzissenkreuz",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11428: {
+    NAME: 'Sword of Narzissenkreuz',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15427": {
-    "name": "Range Gauge",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15427: {
+    NAME: 'Range Gauge',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14514": {
-    "name": "Tome of the Eternal Flow",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 542,
+  14514: {
+    NAME: 'Tome of the Eternal Flow',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "14513": {
-    "name": "Cashflow Supervision",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 674,
+  14513: {
+    NAME: 'Cashflow Supervision',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "14426": {
-    "name": "Ballad of the Boundless Blue",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 565,
+  14426: {
+    NAME: 'Ballad of the Boundless Blue',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "13427": {
-    "name": "Prospector's Drill",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13427: {
+    NAME: 'Prospector\'s Drill',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12427": {
-    "name": "Portable Power Saw",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 454,
+  12427: {
+    NAME: 'Portable Power Saw',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "11427": {
-    "name": "The Dockhand's Assistant",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11427: {
+    NAME: 'The Dockhand\'s Assistant',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15512": {
-    "name": "The First Great Magic",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 608,
+  15512: {
+    NAME: 'The First Great Magic',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "15425": {
-    "name": "Song of Stillness",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15425: {
+    NAME: 'Song of Stillness',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15424": {
-    "name": "Scion of the Blazing Sun",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15424: {
+    NAME: 'Scion of the Blazing Sun',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14425": {
-    "name": "Flowing Purity",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 565,
+  14425: {
+    NAME: 'Flowing Purity',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14424": {
-    "name": "Sacrificial Jade",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 454,
+  14424: {
+    NAME: 'Sacrificial Jade',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "13425": {
-    "name": "Rightful Reward",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13425: {
+    NAME: 'Rightful Reward',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "13424": {
-    "name": "Ballad of the Fjords",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  13424: {
+    NAME: 'Ballad of the Fjords',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12425": {
-    "name": "Tidal Shadow",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12425: {
+    NAME: 'Tidal Shadow',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12424": {
-    "name": "Talking Stick",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12424: {
+    NAME: 'Talking Stick',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11426": {
-    "name": "Fleuve Cendre Ferryman",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11426: {
+    NAME: 'Fleuve Cendre Ferryman',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "11425": {
-    "name": "Finale of the Deep",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 565,
+  11425: {
+    NAME: 'Finale of the Deep',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11424": {
-    "name": "Wolf-Fang",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11424: {
+    NAME: 'Wolf-Fang',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15419": {
-    "name": "Ibis Piercer",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15419: {
+    NAME: 'Ibis Piercer',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14505": {
-    "name": "Jadefall's Splendor",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 608,
+  14505: {
+    NAME: 'Jadefall\'s Splendor',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "12511": {
-    "name": "Beacon of the Reed Sea",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 608,
+  12511: {
+    NAME: 'Beacon of the Reed Sea',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "12418": {
-    "name": "Mailed Flower",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12418: {
+    NAME: 'Mailed Flower',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11512": {
-    "name": "Light of Foliar Incision",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 542,
+  11512: {
+    NAME: 'Light of Foliar Incision',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "14512": {
-    "name": "Tulaytullah's Remembrance",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 674,
+  14512: {
+    NAME: 'Tulaytullah\'s Remembrance',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "11422": {
-    "name": "Toukabou Shigure",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11422: {
+    NAME: 'Toukabou Shigure',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14511": {
-    "name": "A Thousand Floating Dreams",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 542,
+  14511: {
+    NAME: 'A Thousand Floating Dreams',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "14416": {
-    "name": "Wandering Evenstar",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14416: {
+    NAME: 'Wandering Evenstar',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "13511": {
-    "name": "Staff of the Scarlet Sands",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 542,
+  13511: {
+    NAME: 'Staff of the Scarlet Sands',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "13419": {
-    "name": "Missive Windspear",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  13419: {
+    NAME: 'Missive Windspear',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12415": {
-    "name": "Makhaira Aquamarine",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12415: {
+    NAME: 'Makhaira Aquamarine',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "11511": {
-    "name": "Key of Khaj-Nisut",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 542,
+  11511: {
+    NAME: 'Key of Khaj-Nisut',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "11418": {
-    "name": "Xiphos' Moonlight",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11418: {
+    NAME: 'Xiphos\' Moonlight',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15511": {
-    "name": "Hunter's Path",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 542,
+  15511: {
+    NAME: 'Hunter\'s Path',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "15418": {
-    "name": "End of the Line",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15418: {
+    NAME: 'End of the Line',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15417": {
-    "name": "King's Squire",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 454,
+  15417: {
+    NAME: 'King\'s Squire',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "14417": {
-    "name": "Fruit of Fulfillment",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14417: {
+    NAME: 'Fruit of Fulfillment',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "13417": {
-    "name": "Moonpiercer",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13417: {
+    NAME: 'Moonpiercer',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12417": {
-    "name": "Forest Regalia",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12417: {
+    NAME: 'Forest Regalia',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11417": {
-    "name": "Sapwood Blade",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 565,
+  11417: {
+    NAME: 'Sapwood Blade',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11416": {
-    "name": "Kagotsurube Isshin",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11416: {
+    NAME: 'Kagotsurube Isshin',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15508": {
-    "name": "Aqua Simulacra",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 542,
+  15508: {
+    NAME: 'Aqua Simulacra',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "15411": {
-    "name": "Fading Twilight",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15411: {
+    NAME: 'Fading Twilight',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11510": {
-    "name": "Haran Geppaku Futsu",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 608,
+  11510: {
+    NAME: 'Haran Geppaku Futsu',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "14509": {
-    "name": "Kagura's Verity",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 608,
+  14509: {
+    NAME: 'Kagura\'s Verity',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "14415": {
-    "name": "Oathsworn Eye",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 565,
+  14415: {
+    NAME: 'Oathsworn Eye',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "13507": {
-    "name": "Calamity Queller",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 741,
+  13507: {
+    NAME: 'Calamity Queller',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 741,
     },
   },
-  "12510": {
-    "name": "Redhorn Stonethresher",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 542,
+  12510: {
+    NAME: 'Redhorn Stonethresher',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "11415": {
-    "name": "Cinnabar Spindle",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 454,
+  11415: {
+    NAME: 'Cinnabar Spindle',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "15507": {
-    "name": "Polar Star",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 608,
+  15507: {
+    NAME: 'Polar Star',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "15416": {
-    "name": "Mouun's Moon",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15416: {
+    NAME: 'Mouun\'s Moon',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "13416": {
-    "name": "Wavebreaker's Fin",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 620,
+  13416: {
+    NAME: 'Wavebreaker\'s Fin',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 620,
     },
   },
-  "12416": {
-    "name": "Akuoumaru",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12416: {
+    NAME: 'Akuoumaru',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15415": {
-    "name": "Predator",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15415: {
+    NAME: 'Predator',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14506": {
-    "name": "Everlasting Moonglow",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 608,
+  14506: {
+    NAME: 'Everlasting Moonglow',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "13509": {
-    "name": "Engulfing Lightning",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 608,
+  13509: {
+    NAME: 'Engulfing Lightning',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "13415": {
-    "name": "\"The Catch\"",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  13415: {
+    NAME: '\'The Catch\'',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12412": {
-    "name": "Luxurious Sea-Lord",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 454,
+  12412: {
+    NAME: 'Luxurious Sea-Lord',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "15509": {
-    "name": "Thundering Pulse",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 608,
+  15509: {
+    NAME: 'Thundering Pulse',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "15414": {
-    "name": "Hamayumi",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 454,
+  15414: {
+    NAME: 'Hamayumi',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "14414": {
-    "name": "Hakushin Ring",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 565,
+  14414: {
+    NAME: 'Hakushin Ring',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "13414": {
-    "name": "Kitain Cross Spear",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13414: {
+    NAME: 'Kitain Cross Spear',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12414": {
-    "name": "Katsuragikiri Nagamasa",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12414: {
+    NAME: 'Katsuragikiri Nagamasa',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "11509": {
-    "name": "Mistsplitter Reforged",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 674,
+  11509: {
+    NAME: 'Mistsplitter Reforged',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "11414": {
-    "name": "Amenoma Kageuchi",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 454,
+  11414: {
+    NAME: 'Amenoma Kageuchi',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "15412": {
-    "name": "Mitternachts Waltz",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15412: {
+    NAME: 'Mitternachts Waltz',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14413": {
-    "name": "Dodoco Tales",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 454,
+  14413: {
+    NAME: 'Dodoco Tales',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "11503": {
-    "name": "Freedom-Sworn",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 608,
+  11503: {
+    NAME: 'Freedom-Sworn',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "12503": {
-    "name": "Song of Broken Pines",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 741,
+  12503: {
+    NAME: 'Song of Broken Pines',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 741,
     },
   },
-  "15503": {
-    "name": "Elegy for the End",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 608,
+  15503: {
+    NAME: 'Elegy for the End',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "15413": {
-    "name": "Windblume Ode",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15413: {
+    NAME: 'Windblume Ode',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15410": {
-    "name": "Alley Hunter",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15410: {
+    NAME: 'Alley Hunter',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14410": {
-    "name": "Wine and Song",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 565,
+  14410: {
+    NAME: 'Wine and Song',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11410": {
-    "name": "The Alley Flash",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 620,
+  11410: {
+    NAME: 'The Alley Flash',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 620,
     },
   },
-  "13501": {
-    "name": "Staff of Homa",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 608,
+  13501: {
+    NAME: 'Staff of Homa',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "13406": {
-    "name": "Lithic Spear",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13406: {
+    NAME: 'Lithic Spear',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12410": {
-    "name": "Lithic Blade",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12410: {
+    NAME: 'Lithic Blade',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "11505": {
-    "name": "Primordial Jade Cutter",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 542,
+  11505: {
+    NAME: 'Primordial Jade Cutter',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 542,
     },
   },
-  "14412": {
-    "name": "Frostbearer",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14412: {
+    NAME: 'Frostbearer',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "13409": {
-    "name": "Dragonspine Spear",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 454,
+  13409: {
+    NAME: 'Dragonspine Spear',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "12411": {
-    "name": "Snow-Tombed Starsilver",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12411: {
+    NAME: 'Snow-Tombed Starsilver',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11504": {
-    "name": "Summit Shaper",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 608,
+  11504: {
+    NAME: 'Summit Shaper',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "11413": {
-    "name": "Festering Desire",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11413: {
+    NAME: 'Festering Desire',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14504": {
-    "name": "Memory of Dust",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 608,
+  14504: {
+    NAME: 'Memory of Dust',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "13504": {
-    "name": "Vortex Vanquisher",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 608,
+  13504: {
+    NAME: 'Vortex Vanquisher',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "13408": {
-    "name": "Royal Spear",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13408: {
+    NAME: 'Royal Spear',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12504": {
-    "name": "The Unforged",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 608,
+  12504: {
+    NAME: 'The Unforged',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "15502": {
-    "name": "Amos' Bow",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 608,
+  15502: {
+    NAME: 'Amos\' Bow',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "15501": {
-    "name": "Skyward Harp",
-    "rarity": 5,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 674,
+  15501: {
+    NAME: 'Skyward Harp',
+    RARITY: 5,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "15409": {
-    "name": "The Viridescent Hunt",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15409: {
+    NAME: 'The Viridescent Hunt',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15408": {
-    "name": "Blackcliff Warbow",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15408: {
+    NAME: 'Blackcliff Warbow',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "15407": {
-    "name": "Compound Bow",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 454,
+  15407: {
+    NAME: 'Compound Bow',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "15406": {
-    "name": "Prototype Crescent",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15406: {
+    NAME: 'Prototype Crescent',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15405": {
-    "name": "Rust",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15405: {
+    NAME: 'Rust',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15404": {
-    "name": "Royal Bow",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15404: {
+    NAME: 'Royal Bow',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15403": {
-    "name": "Sacrificial Bow",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 565,
+  15403: {
+    NAME: 'Sacrificial Bow',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "15402": {
-    "name": "The Stringless",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 510,
+  15402: {
+    NAME: 'The Stringless',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "15401": {
-    "name": "Favonius Warbow",
-    "rarity": 4,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 454,
+  15401: {
+    NAME: 'Favonius Warbow',
+    RARITY: 4,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "15305": {
-    "name": "Messenger",
-    "rarity": 3,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 448,
+  15305: {
+    NAME: 'Messenger',
+    RARITY: 3,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 448,
     },
   },
-  "15304": {
-    "name": "Slingshot",
-    "rarity": 3,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 354,
+  15304: {
+    NAME: 'Slingshot',
+    RARITY: 3,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 354,
     },
   },
-  "15303": {
-    "name": "Recurve Bow",
-    "rarity": 3,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 354,
+  15303: {
+    NAME: 'Recurve Bow',
+    RARITY: 3,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 354,
     },
   },
-  "15302": {
-    "name": "Sharpshooter's Oath",
-    "rarity": 3,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 401,
+  15302: {
+    NAME: 'Sharpshooter\'s Oath',
+    RARITY: 3,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 401,
     },
   },
-  "15301": {
-    "name": "Raven Bow",
-    "rarity": 3,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 448,
+  15301: {
+    NAME: 'Raven Bow',
+    RARITY: 3,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 448,
     },
   },
-  "15201": {
-    "name": "Seasoned Hunter's Bow",
-    "rarity": 2,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 243,
+  15201: {
+    NAME: 'Seasoned Hunter\'s Bow',
+    RARITY: 2,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 243,
     },
   },
-  "15101": {
-    "name": "Hunter's Bow",
-    "rarity": 1,
-    "type": "Bow",
-    "baseStats": {
-      "_ATK": 185,
+  15101: {
+    NAME: 'Hunter\'s Bow',
+    RARITY: 1,
+    TYPE: 'Bow',
+    BASE_STATS: {
+      BASE_ATK: 185,
     },
   },
-  "14502": {
-    "name": "Lost Prayer to the Sacred Winds",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 608,
+  14502: {
+    NAME: 'Lost Prayer to the Sacred Winds',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "14501": {
-    "name": "Skyward Atlas",
-    "rarity": 5,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 674,
+  14501: {
+    NAME: 'Skyward Atlas',
+    RARITY: 5,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "14409": {
-    "name": "Eye of Perception",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 454,
+  14409: {
+    NAME: 'Eye of Perception',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "14408": {
-    "name": "Blackcliff Agate",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14408: {
+    NAME: 'Blackcliff Agate',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14407": {
-    "name": "Mappa Mare",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 565,
+  14407: {
+    NAME: 'Mappa Mare',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14406": {
-    "name": "Prototype Amber",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14406: {
+    NAME: 'Prototype Amber',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14405": {
-    "name": "Solar Pearl",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14405: {
+    NAME: 'Solar Pearl',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14404": {
-    "name": "Royal Grimoire",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 565,
+  14404: {
+    NAME: 'Royal Grimoire',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "14403": {
-    "name": "Sacrificial Fragments",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 454,
+  14403: {
+    NAME: 'Sacrificial Fragments',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "14402": {
-    "name": "The Widsith",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14402: {
+    NAME: 'The Widsith',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14401": {
-    "name": "Favonius Codex",
-    "rarity": 4,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 510,
+  14401: {
+    NAME: 'Favonius Codex',
+    RARITY: 4,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "14305": {
-    "name": "Twin Nephrite",
-    "rarity": 3,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 448,
+  14305: {
+    NAME: 'Twin Nephrite',
+    RARITY: 3,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 448,
     },
   },
-  "14304": {
-    "name": "Emerald Orb",
-    "rarity": 3,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 448,
+  14304: {
+    NAME: 'Emerald Orb',
+    RARITY: 3,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 448,
     },
   },
-  "14303": {
-    "name": "Otherworldly Story",
-    "rarity": 3,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 401,
+  14303: {
+    NAME: 'Otherworldly Story',
+    RARITY: 3,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 401,
     },
   },
-  "14302": {
-    "name": "Thrilling Tales of Dragon Slayers",
-    "rarity": 3,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 401,
+  14302: {
+    NAME: 'Thrilling Tales of Dragon Slayers',
+    RARITY: 3,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 401,
     },
   },
-  "14301": {
-    "name": "Magic Guide",
-    "rarity": 3,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 354,
+  14301: {
+    NAME: 'Magic Guide',
+    RARITY: 3,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 354,
     },
   },
-  "14201": {
-    "name": "Pocket Grimoire",
-    "rarity": 2,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 243,
+  14201: {
+    NAME: 'Pocket Grimoire',
+    RARITY: 2,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 243,
     },
   },
-  "14101": {
-    "name": "Apprentice's Notes",
-    "rarity": 1,
-    "type": "Catalyst",
-    "baseStats": {
-      "_ATK": 185,
+  14101: {
+    NAME: 'Apprentice\'s Notes',
+    RARITY: 1,
+    TYPE: 'Catalyst',
+    BASE_STATS: {
+      BASE_ATK: 185,
     },
   },
-  "13505": {
-    "name": "Primordial Jade Winged-Spear",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 674,
+  13505: {
+    NAME: 'Primordial Jade Winged-Spear',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "13502": {
-    "name": "Skyward Spine",
-    "rarity": 5,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 674,
+  13502: {
+    NAME: 'Skyward Spine',
+    RARITY: 5,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "13407": {
-    "name": "Favonius Lance",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13407: {
+    NAME: 'Favonius Lance',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "13405": {
-    "name": "Deathmatch",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 454,
+  13405: {
+    NAME: 'Deathmatch',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "13404": {
-    "name": "Blackcliff Pole",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  13404: {
+    NAME: 'Blackcliff Pole',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "13403": {
-    "name": "Crescent Pike",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 565,
+  13403: {
+    NAME: 'Crescent Pike',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "13402": {
-    "name": "Prototype Starglitter",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 510,
+  13402: {
+    NAME: 'Prototype Starglitter',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "13401": {
-    "name": "Dragon's Bane",
-    "rarity": 4,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 454,
+  13401: {
+    NAME: 'Dragon\'s Bane',
+    RARITY: 4,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "13303": {
-    "name": "Black Tassel",
-    "rarity": 3,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 354,
+  13303: {
+    NAME: 'Black Tassel',
+    RARITY: 3,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 354,
     },
   },
-  "13302": {
-    "name": "Halberd",
-    "rarity": 3,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 448,
+  13302: {
+    NAME: 'Halberd',
+    RARITY: 3,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 448,
     },
   },
-  "13301": {
-    "name": "White Tassel",
-    "rarity": 3,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 401,
+  13301: {
+    NAME: 'White Tassel',
+    RARITY: 3,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 401,
     },
   },
-  "13201": {
-    "name": "Iron Point",
-    "rarity": 2,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 243,
+  13201: {
+    NAME: 'Iron Point',
+    RARITY: 2,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 243,
     },
   },
-  "13101": {
-    "name": "Beginner's Protector",
-    "rarity": 1,
-    "type": "Polearm",
-    "baseStats": {
-      "_ATK": 185,
+  13101: {
+    NAME: 'Beginner\'s Protector',
+    RARITY: 1,
+    TYPE: 'Polearm',
+    BASE_STATS: {
+      BASE_ATK: 185,
     },
   },
-  "12502": {
-    "name": "Wolf's Gravestone",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 608,
+  12502: {
+    NAME: 'Wolf\'s Gravestone',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "12501": {
-    "name": "Skyward Pride",
-    "rarity": 5,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 674,
+  12501: {
+    NAME: 'Skyward Pride',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "12409": {
-    "name": "Serpent Spine",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12409: {
+    NAME: 'Serpent Spine',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12408": {
-    "name": "Blackcliff Slasher",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12408: {
+    NAME: 'Blackcliff Slasher',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12407": {
-    "name": "Whiteblind",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12407: {
+    NAME: 'Whiteblind',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12406": {
-    "name": "Prototype Archaic",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12406: {
+    NAME: 'Prototype Archaic',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12405": {
-    "name": "Rainslasher",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12405: {
+    NAME: 'Rainslasher',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12404": {
-    "name": "Royal Greatsword",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12404: {
+    NAME: 'Royal Greatsword',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12403": {
-    "name": "Sacrificial Greatsword",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 565,
+  12403: {
+    NAME: 'Sacrificial Greatsword',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "12402": {
-    "name": "The Bell",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 510,
+  12402: {
+    NAME: 'The Bell',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "12401": {
-    "name": "Favonius Greatsword",
-    "rarity": 4,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 454,
+  12401: {
+    NAME: 'Favonius Greatsword',
+    RARITY: 4,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 454,
     },
   },
-  "12306": {
-    "name": "Skyrider Greatsword",
-    "rarity": 3,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 401,
+  12306: {
+    NAME: 'Skyrider Greatsword',
+    RARITY: 3,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 401,
     },
   },
-  "12305": {
-    "name": "Debate Club",
-    "rarity": 3,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 401,
+  12305: {
+    NAME: 'Debate Club',
+    RARITY: 3,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 401,
     },
   },
-  "12303": {
-    "name": "White Iron Greatsword",
-    "rarity": 3,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 401,
+  12303: {
+    NAME: 'White Iron Greatsword',
+    RARITY: 3,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 401,
     },
   },
-  "12302": {
-    "name": "Bloodtainted Greatsword",
-    "rarity": 3,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 354,
+  12302: {
+    NAME: 'Bloodtainted Greatsword',
+    RARITY: 3,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 354,
     },
   },
-  "12301": {
-    "name": "Ferrous Shadow",
-    "rarity": 3,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 401,
+  12301: {
+    NAME: 'Ferrous Shadow',
+    RARITY: 3,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 401,
     },
   },
-  "12201": {
-    "name": "Old Merc's Pal",
-    "rarity": 2,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 243,
+  12201: {
+    NAME: 'Old Merc\'s Pal',
+    RARITY: 2,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 243,
     },
   },
-  "12101": {
-    "name": "Waster Greatsword",
-    "rarity": 1,
-    "type": "Claymore",
-    "baseStats": {
-      "_ATK": 185,
+  12101: {
+    NAME: 'Waster Greatsword',
+    RARITY: 1,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 185,
     },
   },
-  "11502": {
-    "name": "Skyward Blade",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 608,
+  11502: {
+    NAME: 'Skyward Blade',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 608,
     },
   },
-  "11501": {
-    "name": "Aquila Favonia",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 674,
+  11501: {
+    NAME: 'Aquila Favonia',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 674,
     },
   },
-  "11412": {
-    "name": "Sword of Descension",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 440,
+  11412: {
+    NAME: 'Sword of Descension',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 440,
     },
   },
-  "11409": {
-    "name": "The Black Sword",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11409: {
+    NAME: 'The Black Sword',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "11408": {
-    "name": "Blackcliff Longsword",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 565,
+  11408: {
+    NAME: 'Blackcliff Longsword',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11407": {
-    "name": "Iron Sting",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
+  11407: {
+    NAME: 'Iron Sting',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
     },
   },
-  "11406": {
-    "name": "Prototype Rancour",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 565,
+  11406: {
+    NAME: 'Prototype Rancour',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 565,
     },
   },
-  "11405": {
-    "name": "Lion's Roar",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
-    },
-  },
-  "11404": {
-    "name": "Royal Longsword",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
-    },
-  },
-  "11403": {
-    "name": "Sacrificial Sword",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 454,
-    },
-  },
-  "11402": {
-    "name": "The Flute",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 510,
-    },
-  },
-  "11401": {
-    "name": "Favonius Sword",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 454,
-    },
-  },
-  "11306": {
-    "name": "Skyrider Sword",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 354,
-    },
-  },
-  "11305": {
-    "name": "Fillet Blade",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 401,
-    },
-  },
-  "11304": {
-    "name": "Dark Iron Sword",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 401,
-    },
-  },
-  "11303": {
-    "name": "Traveler's Handy Sword",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 448,
-    },
-  },
-  "11302": {
-    "name": "Harbinger of Dawn",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 401,
-    },
-  },
-  "11301": {
-    "name": "Cool Steel",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 401,
-    },
-  },
-  "11201": {
-    "name": "Silver Sword",
-    "rarity": 2,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 243,
-    },
-  },
-  "11101": {
-    "name": "Dull Blade",
-    "rarity": 1,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 185,
+  11405: {
+    NAME: 'Lion\'s Roar',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
+    },
+  },
+  11404: {
+    NAME: 'Royal Longsword',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
+    },
+  },
+  11403: {
+    NAME: 'Sacrificial Sword',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 454,
+    },
+  },
+  11402: {
+    NAME: 'The Flute',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 510,
+    },
+  },
+  11401: {
+    NAME: 'Favonius Sword',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 454,
+    },
+  },
+  11306: {
+    NAME: 'Skyrider Sword',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 354,
+    },
+  },
+  11305: {
+    NAME: 'Fillet Blade',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 401,
+    },
+  },
+  11304: {
+    NAME: 'Dark Iron Sword',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 401,
+    },
+  },
+  11303: {
+    NAME: 'Traveler\'s Handy Sword',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 448,
+    },
+  },
+  11302: {
+    NAME: 'Harbinger of Dawn',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 401,
+    },
+  },
+  11301: {
+    NAME: 'Cool Steel',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 401,
+    },
+  },
+  11201: {
+    NAME: 'Silver Sword',
+    RARITY: 2,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 243,
+    },
+  },
+  11101: {
+    NAME: 'Dull Blade',
+    RARITY: 1,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 185,
     },
   },
 };

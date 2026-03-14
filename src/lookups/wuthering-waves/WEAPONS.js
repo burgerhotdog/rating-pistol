@@ -1,898 +1,898 @@
 export default {
-  "21040056": {
-    "name": "Daybreaker's Spine",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21020076": {
-    "name": "Everbright Polestar",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21050045": {
-    "name": "Boson Astrolabe",
-    "rarity": 5,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 525,
-    },
-  },
-  "21040045": {
-    "name": "Pulsation Bracer",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21030046": {
-    "name": "Spectrum Blaster",
-    "rarity": 5,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21030045": {
-    "name": "Phasic Homogenizer",
-    "rarity": 5,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21020045": {
-    "name": "Laser Shearer",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21010066": {
-    "name": "Starfield Calibrator",
-    "rarity": 5,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 413,
-    },
-  },
-  "21010045": {
-    "name": "Radiance Cleaver",
-    "rarity": 5,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21010056": {
-    "name": "Kumokiri",
-    "rarity": 5,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 500,
-    },
-  },
-  "21030036": {
-    "name": "Lux & Umbra",
-    "rarity": 5,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21020066": {
-    "name": "Emerald Sentence",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 588,
-    },
-  },
-  "21050104": {
-    "name": "Radiant Dawn",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 413,
+  21040056: {
+    NAME: 'Daybreaker\'s Spine',
+    RARITY: 5,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21020076: {
+    NAME: 'Everbright Polestar',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21050045: {
+    NAME: 'Boson Astrolabe',
+    RARITY: 5,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 525,
+    },
+  },
+  21040045: {
+    NAME: 'Pulsation Bracer',
+    RARITY: 5,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21030046: {
+    NAME: 'Spectrum Blaster',
+    RARITY: 5,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21030045: {
+    NAME: 'Phasic Homogenizer',
+    RARITY: 5,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21020045: {
+    NAME: 'Laser Shearer',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21010066: {
+    NAME: 'Starfield Calibrator',
+    RARITY: 5,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 413,
+    },
+  },
+  21010045: {
+    NAME: 'Radiance Cleaver',
+    RARITY: 5,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21010056: {
+    NAME: 'Kumokiri',
+    RARITY: 5,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 500,
+    },
+  },
+  21030036: {
+    NAME: 'Lux & Umbra',
+    RARITY: 5,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21020066: {
+    NAME: 'Emerald Sentence',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 588,
+    },
+  },
+  21050104: {
+    NAME: 'Radiant Dawn',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 413,
     },
   },
-  "21040104": {
-    "name": "Aether Strike",
-    "rarity": 4,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 413,
+  21040104: {
+    NAME: 'Aether Strike',
+    RARITY: 4,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 413,
     },
   },
-  "21040046": {
-    "name": "Moongazer's Sigil",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 500,
+  21040046: {
+    NAME: 'Moongazer\'s Sigil',
+    RARITY: 5,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 500,
     },
   },
-  "21030104": {
-    "name": "Solar Flame",
-    "rarity": 4,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 413,
+  21030104: {
+    NAME: 'Solar Flame',
+    RARITY: 4,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 413,
     },
   },
-  "21020104": {
-    "name": "Feather Edge",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 413,
+  21020104: {
+    NAME: 'Feather Edge',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 413,
     },
   },
-  "21010104": {
-    "name": "Aureate Zenith",
-    "rarity": 4,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 413,
+  21010104: {
+    NAME: 'Aureate Zenith',
+    RARITY: 4,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 413,
     },
   },
-  "21010046": {
-    "name": "Thunderflare Dominion",
-    "rarity": 5,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 675,
+  21010046: {
+    NAME: 'Thunderflare Dominion',
+    RARITY: 5,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 675,
     },
   },
-  "21050066": {
-    "name": "Lethean Elegy",
-    "rarity": 5,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 588,
+  21050066: {
+    NAME: 'Lethean Elegy',
+    RARITY: 5,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 588,
     },
   },
-  "21020056": {
-    "name": "Defier's Thorn",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 413,
+  21020056: {
+    NAME: 'Defier\'s Thorn',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 413,
     },
   },
-  "21010036": {
-    "name": "Wildfire Mark",
-    "rarity": 5,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 588,
+  21010036: {
+    NAME: 'Wildfire Mark',
+    RARITY: 5,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 588,
     },
   },
-  "21040036": {
-    "name": "Blazing Justice",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 588,
+  21040036: {
+    NAME: 'Blazing Justice',
+    RARITY: 5,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 588,
     },
   },
-  "21030026": {
-    "name": "Woodland Aria",
-    "rarity": 5,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 500,
+  21030026: {
+    NAME: 'Woodland Aria',
+    RARITY: 5,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 500,
     },
   },
-  "21050056": {
-    "name": "Whispers of Sirens",
-    "rarity": 5,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 500,
+  21050056: {
+    NAME: 'Whispers of Sirens',
+    RARITY: 5,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 500,
     },
   },
-  "21020046": {
-    "name": "Bloodpact's Pledge",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 588,
+  21020046: {
+    NAME: 'Bloodpact\'s Pledge',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 588,
     },
   },
-  "21050046": {
-    "name": "Luminous Hymn",
-    "rarity": 5,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 500,
+  21050046: {
+    NAME: 'Luminous Hymn',
+    RARITY: 5,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 500,
     },
   },
-  "21050027": {
-    "name": "Ocean's Gift",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 463,
+  21050027: {
+    NAME: 'Ocean\'s Gift',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 463,
     },
   },
-  "21020036": {
-    "name": "Unflickering Valor",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 413,
+  21020036: {
+    NAME: 'Unflickering Valor',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 413,
     },
   },
-  "21050094": {
-    "name": "Waltz in Masquerade",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 462,
+  21050094: {
+    NAME: 'Waltz in Masquerade',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21050017": {
-    "name": "Call of the Abyss",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 338,
+  21050017: {
+    NAME: 'Call of the Abyss',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 338,
     },
   },
-  "21040094": {
-    "name": "Legend of Drunken Hero",
-    "rarity": 4,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 462,
+  21040094: {
+    NAME: 'Legend of Drunken Hero',
+    RARITY: 4,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21040026": {
-    "name": "Tragicomedy",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 587,
+  21040026: {
+    NAME: 'Tragicomedy',
+    RARITY: 5,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 587,
     },
   },
-  "21030094": {
-    "name": "Romance in Farewell",
-    "rarity": 4,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 462,
+  21030094: {
+    NAME: 'Romance in Farewell',
+    RARITY: 4,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21030016": {
-    "name": "The Last Dance",
-    "rarity": 5,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 500,
+  21030016: {
+    NAME: 'The Last Dance',
+    RARITY: 5,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 500,
     },
   },
-  "21020094": {
-    "name": "Fables of Wisdom",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 462,
+  21020094: {
+    NAME: 'Fables of Wisdom',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21010094": {
-    "name": "Meditations on Mercy",
-    "rarity": 4,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 462,
+  21010094: {
+    NAME: 'Meditations on Mercy',
+    RARITY: 4,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21020026": {
-    "name": "Red Spring",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 587,
+  21020026: {
+    NAME: 'Red Spring',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 587,
     },
   },
-  "21020017": {
-    "name": "Somnoire Anchor",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 462,
+  21020017: {
+    NAME: 'Somnoire Anchor',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21050084": {
-    "name": "Fusion Accretion",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 462,
+  21050084: {
+    NAME: 'Fusion Accretion',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21050036": {
-    "name": "Stellar Symphony",
-    "rarity": 5,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 412,
+  21050036: {
+    NAME: 'Stellar Symphony',
+    RARITY: 5,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21040084": {
-    "name": "Celestial Spiral",
-    "rarity": 4,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 462,
+  21040084: {
+    NAME: 'Celestial Spiral',
+    RARITY: 4,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21030084": {
-    "name": "Relativistic Jet",
-    "rarity": 4,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 462,
+  21030084: {
+    NAME: 'Relativistic Jet',
+    RARITY: 4,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21020084": {
-    "name": "Endless Collapse",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 462,
+  21020084: {
+    NAME: 'Endless Collapse',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21010084": {
-    "name": "Waning Redshift",
-    "rarity": 4,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 462,
+  21010084: {
+    NAME: 'Waning Redshift',
+    RARITY: 4,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 462,
     },
   },
-  "21050026": {
-    "name": "Rime-Draped Sprouts",
-    "rarity": 5,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 500,
+  21050026: {
+    NAME: 'Rime-Draped Sprouts',
+    RARITY: 5,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 500,
     },
   },
-  "21040016": {
-    "name": "Verity's Handle",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 587,
+  21040016: {
+    NAME: 'Verity\'s Handle',
+    RARITY: 5,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 587,
     },
   },
-  "21020016": {
-    "name": "Blazing Brilliance",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 587,
+  21020016: {
+    NAME: 'Blazing Brilliance',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 587,
     },
   },
-  "21010063": {
-    "name": "Beguiling Melody",
-    "rarity": 3,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 300,
+  21010063: {
+    NAME: 'Beguiling Melody',
+    RARITY: 3,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 300,
     },
   },
-  "21010026": {
-    "name": "Ages of Harvest",
-    "rarity": 5,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 587,
+  21010026: {
+    NAME: 'Ages of Harvest',
+    RARITY: 5,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 587,
     },
   },
-  "21050074": {
-    "name": "Augment",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 412,
+  21050074: {
+    NAME: 'Augment',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21050064": {
-    "name": "Comet Flare",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 412,
+  21050064: {
+    NAME: 'Comet Flare',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21050053": {
-    "name": "Guardian Rectifier",
-    "rarity": 3,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 325,
+  21050053: {
+    NAME: 'Guardian Rectifier',
+    RARITY: 3,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21050044": {
-    "name": "Jinzhou Keeper",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 387,
+  21050044: {
+    NAME: 'Jinzhou Keeper',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 387,
     },
   },
-  "21050043": {
-    "name": "Rectifier of Voyager",
-    "rarity": 3,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 300,
+  21050043: {
+    NAME: 'Rectifier of Voyager',
+    RARITY: 3,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 300,
     },
   },
-  "21050034": {
-    "name": "Rectifier#25",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 337,
+  21050034: {
+    NAME: 'Rectifier#25',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 337,
     },
   },
-  "21050024": {
-    "name": "Variation",
-    "rarity": 4,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 337,
+  21050024: {
+    NAME: 'Variation',
+    RARITY: 4,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 337,
     },
   },
-  "21050023": {
-    "name": "Originite: Type V",
-    "rarity": 3,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 300,
+  21050023: {
+    NAME: 'Originite: Type V',
+    RARITY: 3,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 300,
     },
   },
-  "21050016": {
-    "name": "Stringmaster",
-    "rarity": 5,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 500,
+  21050016: {
+    NAME: 'Stringmaster',
+    RARITY: 5,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 500,
     },
   },
-  "21050015": {
-    "name": "Cosmic Ripples",
-    "rarity": 5,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 500,
+  21050015: {
+    NAME: 'Cosmic Ripples',
+    RARITY: 5,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 500,
     },
   },
-  "21050013": {
-    "name": "Rectifier of Night",
-    "rarity": 3,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 325,
+  21050013: {
+    NAME: 'Rectifier of Night',
+    RARITY: 3,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21050012": {
-    "name": "Tyro Rectifier",
-    "rarity": 2,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 275,
+  21050012: {
+    NAME: 'Tyro Rectifier',
+    RARITY: 2,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 275,
     },
   },
-  "21050011": {
-    "name": "Training Rectifier",
-    "rarity": 1,
-    "type": "Rectifier",
-    "baseStats": {
-      "_ATK": 250,
+  21050011: {
+    NAME: 'Training Rectifier',
+    RARITY: 1,
+    TYPE: 'Rectifier',
+    BASE_STATS: {
+      BASE_ATK: 250,
     },
   },
-  "21040074": {
-    "name": "Stonard",
-    "rarity": 4,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 412,
+  21040074: {
+    NAME: 'Stonard',
+    RARITY: 4,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21040064": {
-    "name": "Hollow Mirage",
-    "rarity": 4,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 412,
+  21040064: {
+    NAME: 'Hollow Mirage',
+    RARITY: 4,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21040053": {
-    "name": "Guardian Gauntlets",
-    "rarity": 3,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 300,
+  21040053: {
+    NAME: 'Guardian Gauntlets',
+    RARITY: 3,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 300,
     },
   },
-  "21040044": {
-    "name": "Amity Accord",
-    "rarity": 4,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 337,
+  21040044: {
+    NAME: 'Amity Accord',
+    RARITY: 4,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 337,
     },
   },
-  "21040043": {
-    "name": "Gauntlets of Voyager",
-    "rarity": 3,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 325,
+  21040043: {
+    NAME: 'Gauntlets of Voyager',
+    RARITY: 3,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21040034": {
-    "name": "Gauntlets#21D",
-    "rarity": 4,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 387,
+  21040034: {
+    NAME: 'Gauntlets#21D',
+    RARITY: 4,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 387,
     },
   },
-  "21040024": {
-    "name": "Marcato",
-    "rarity": 4,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 337,
+  21040024: {
+    NAME: 'Marcato',
+    RARITY: 4,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 337,
     },
   },
-  "21040023": {
-    "name": "Originite: Type IV",
-    "rarity": 3,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 300,
+  21040023: {
+    NAME: 'Originite: Type IV',
+    RARITY: 3,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 300,
     },
   },
-  "21040015": {
-    "name": "Abyss Surges",
-    "rarity": 5,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 587,
+  21040015: {
+    NAME: 'Abyss Surges',
+    RARITY: 5,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 587,
     },
   },
-  "21040013": {
-    "name": "Gauntlets of Night",
-    "rarity": 3,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 325,
+  21040013: {
+    NAME: 'Gauntlets of Night',
+    RARITY: 3,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21040012": {
-    "name": "Tyro Gauntlets",
-    "rarity": 2,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 275,
+  21040012: {
+    NAME: 'Tyro Gauntlets',
+    RARITY: 2,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 275,
     },
   },
-  "21040011": {
-    "name": "Training Gauntlets",
-    "rarity": 1,
-    "type": "Gauntlets",
-    "baseStats": {
-      "_ATK": 250,
+  21040011: {
+    NAME: 'Training Gauntlets',
+    RARITY: 1,
+    TYPE: 'Gauntlets',
+    BASE_STATS: {
+      BASE_ATK: 250,
     },
   },
-  "21030074": {
-    "name": "Thunderbolt",
-    "rarity": 4,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 387,
+  21030074: {
+    NAME: 'Thunderbolt',
+    RARITY: 4,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 387,
     },
   },
-  "21030064": {
-    "name": "Novaburst",
-    "rarity": 4,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 412,
+  21030064: {
+    NAME: 'Novaburst',
+    RARITY: 4,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21030053": {
-    "name": "Guardian Pistols",
-    "rarity": 3,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 325,
+  21030053: {
+    NAME: 'Guardian Pistols',
+    RARITY: 3,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21030044": {
-    "name": "Undying Flame",
-    "rarity": 4,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 412,
+  21030044: {
+    NAME: 'Undying Flame',
+    RARITY: 4,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21030043": {
-    "name": "Pistols of Voyager",
-    "rarity": 3,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 300,
+  21030043: {
+    NAME: 'Pistols of Voyager',
+    RARITY: 3,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 300,
     },
   },
-  "21030034": {
-    "name": "Pistols#26",
-    "rarity": 4,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 387,
+  21030034: {
+    NAME: 'Pistols#26',
+    RARITY: 4,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 387,
     },
   },
-  "21030024": {
-    "name": "Cadenza",
-    "rarity": 4,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 337,
+  21030024: {
+    NAME: 'Cadenza',
+    RARITY: 4,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 337,
     },
   },
-  "21030023": {
-    "name": "Originite: Type III",
-    "rarity": 3,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 325,
+  21030023: {
+    NAME: 'Originite: Type III',
+    RARITY: 3,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21030015": {
-    "name": "Static Mist",
-    "rarity": 5,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 587,
+  21030015: {
+    NAME: 'Static Mist',
+    RARITY: 5,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 587,
     },
   },
-  "21030013": {
-    "name": "Pistols of Night",
-    "rarity": 3,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 325,
+  21030013: {
+    NAME: 'Pistols of Night',
+    RARITY: 3,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21030012": {
-    "name": "Tyro Pistols",
-    "rarity": 2,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 275,
+  21030012: {
+    NAME: 'Tyro Pistols',
+    RARITY: 2,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 275,
     },
   },
-  "21030011": {
-    "name": "Training Pistols",
-    "rarity": 1,
-    "type": "Pistols",
-    "baseStats": {
-      "_ATK": 250,
+  21030011: {
+    NAME: 'Training Pistols',
+    RARITY: 1,
+    TYPE: 'Pistols',
+    BASE_STATS: {
+      BASE_ATK: 250,
     },
   },
-  "21020074": {
-    "name": "Lumingloss",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 387,
+  21020074: {
+    NAME: 'Lumingloss',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 387,
     },
   },
-  "21020064": {
-    "name": "Lunar Cutter",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 412,
+  21020064: {
+    NAME: 'Lunar Cutter',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21020053": {
-    "name": "Guardian Sword",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 300,
+  21020053: {
+    NAME: 'Guardian Sword',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 300,
     },
   },
-  "21020044": {
-    "name": "Commando of Conviction",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 412,
+  21020044: {
+    NAME: 'Commando of Conviction',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 412,
     },
   },
-  "21020043": {
-    "name": "Sword of Voyager",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 300,
+  21020043: {
+    NAME: 'Sword of Voyager',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 300,
     },
   },
-  "21020034": {
-    "name": "Sword#18",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 387,
+  21020034: {
+    NAME: 'Sword#18',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 387,
     },
   },
-  "21020024": {
-    "name": "Overture",
-    "rarity": 4,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 337,
+  21020024: {
+    NAME: 'Overture',
+    RARITY: 4,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 337,
     },
   },
-  "21020023": {
-    "name": "Originite: Type II",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 325,
+  21020023: {
+    NAME: 'Originite: Type II',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21020015": {
-    "name": "Emerald of Genesis",
-    "rarity": 5,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 587,
+  21020015: {
+    NAME: 'Emerald of Genesis',
+    RARITY: 5,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 587,
     },
   },
-  "21020013": {
-    "name": "Sword of Night",
-    "rarity": 3,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 325,
+  21020013: {
+    NAME: 'Sword of Night',
+    RARITY: 3,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 325,
     },
   },
-  "21020012": {
-    "name": "Tyro Sword",
-    "rarity": 2,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 275,
+  21020012: {
+    NAME: 'Tyro Sword',
+    RARITY: 2,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 275,
     },
   },
-  "21020011": {
-    "name": "Training Sword",
-    "rarity": 1,
-    "type": "Sword",
-    "baseStats": {
-      "_ATK": 250,
+  21020011: {
+    NAME: 'Training Sword',
+    RARITY: 1,
+    TYPE: 'Sword',
+    BASE_STATS: {
+      BASE_ATK: 250,
     },
   },
-  "21010074": {
-    "name": "Autumntrace",
-    "rarity": 4,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 412,
-    },
-  },
-  "21010064": {
-    "name": "Helios Cleaver",
-    "rarity": 4,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 412,
-    },
-  },
-  "21010053": {
-    "name": "Guardian Broadblade",
-    "rarity": 3,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 325,
-    },
-  },
-  "21010044": {
-    "name": "Dauntless Evernight",
-    "rarity": 4,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 337,
-    },
-  },
-  "21010043": {
-    "name": "Broadblade of Voyager",
-    "rarity": 3,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 300,
-    },
-  },
-  "21010034": {
-    "name": "Broadblade#41",
-    "rarity": 4,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 412,
-    },
-  },
-  "21010024": {
-    "name": "Discord",
-    "rarity": 4,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 337,
-    },
-  },
-  "21010023": {
-    "name": "Originite: Type I",
-    "rarity": 3,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 300,
-    },
-  },
-  "21010016": {
-    "name": "Verdant Summit",
-    "rarity": 5,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 587,
-    },
-  },
-  "21010015": {
-    "name": "Lustrous Razor",
-    "rarity": 5,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 587,
-    },
-  },
-  "21010013": {
-    "name": "Broadblade of Night",
-    "rarity": 3,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 325,
-    },
-  },
-  "21010012": {
-    "name": "Tyro Broadblade",
-    "rarity": 2,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 275,
-    },
-  },
-  "21010011": {
-    "name": "Training Broadblade",
-    "rarity": 1,
-    "type": "Broadblade",
-    "baseStats": {
-      "_ATK": 250
+  21010074: {
+    NAME: 'Autumntrace',
+    RARITY: 4,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 412,
+    },
+  },
+  21010064: {
+    NAME: 'Helios Cleaver',
+    RARITY: 4,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 412,
+    },
+  },
+  21010053: {
+    NAME: 'Guardian Broadblade',
+    RARITY: 3,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 325,
+    },
+  },
+  21010044: {
+    NAME: 'Dauntless Evernight',
+    RARITY: 4,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 337,
+    },
+  },
+  21010043: {
+    NAME: 'Broadblade of Voyager',
+    RARITY: 3,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 300,
+    },
+  },
+  21010034: {
+    NAME: 'Broadblade#41',
+    RARITY: 4,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 412,
+    },
+  },
+  21010024: {
+    NAME: 'Discord',
+    RARITY: 4,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 337,
+    },
+  },
+  21010023: {
+    NAME: 'Originite: Type I',
+    RARITY: 3,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 300,
+    },
+  },
+  21010016: {
+    NAME: 'Verdant Summit',
+    RARITY: 5,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 587,
+    },
+  },
+  21010015: {
+    NAME: 'Lustrous Razor',
+    RARITY: 5,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 587,
+    },
+  },
+  21010013: {
+    NAME: 'Broadblade of Night',
+    RARITY: 3,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 325,
+    },
+  },
+  21010012: {
+    NAME: 'Tyro Broadblade',
+    RARITY: 2,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 275,
+    },
+  },
+  21010011: {
+    NAME: 'Training Broadblade',
+    RARITY: 1,
+    TYPE: 'Broadblade',
+    BASE_STATS: {
+      BASE_ATK: 250
     }
   }
 };

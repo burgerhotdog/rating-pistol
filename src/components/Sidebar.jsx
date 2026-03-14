@@ -20,8 +20,8 @@ export const Sidebar = ({ selectedId, setSelectedId }) => {
       if (bId === pinnedId) return 1;
 
       // Sort alphabetically by name
-      const aName = CHARACTER_LOOKUP[aId]?.name || '';
-      const bName = CHARACTER_LOOKUP[bId]?.name || '';
+      const aName = CHARACTER_LOOKUP[aId]?.NAME || '';
+      const bName = CHARACTER_LOOKUP[bId]?.NAME || '';
       return aName.localeCompare(bName);
     });
   }, [buildData, pinnedId]);

@@ -112,13 +112,13 @@ const PARSE_MAIN_STAT = {
 const PARSE_MAIN_VALUE = {
   'genshin-impact': (equip) => {
     const key = equip.flat.reliquaryMainstat.mainPropId;
-    const valueRatio = ALL_GENERAL_LOOKUP['genshin-impact'].STATS[ENKA_STAT_MAP['genshin-impact'][key]].showPercent ? 0.01 : 1;
+    const valueRatio = ENKA_STAT_MAP['genshin-impact'][key].startsWith('PERCENT') ? 0.01 : 1;
     return equip.flat.reliquaryMainstat.statValue * valueRatio;
   },
   'honkai-star-rail': (equip) => equip._flat.props[0].value,
   'zenless-zone-zero': (equip) => {
     const key = ENKA_STAT_MAP['zenless-zone-zero'][equip.Equipment.MainPropertyList[0].PropertyId];
-    const valueRatio = ALL_GENERAL_LOOKUP['zenless-zone-zero'].STATS[key].showPercent ? 0.0001 : 1;
+    const valueRatio = key.startsWith('PERCENT') ? 0.0001 : 1;
     return equip.Equipment.MainPropertyList[0].PropertyValue * 4 * valueRatio;
   },
 };
@@ -144,14 +144,14 @@ const PARSE_SUB_STAT = {
 const PARSE_SUB_VALUE = {
   'genshin-impact': (sub) => {
     const key = sub.appendPropId;
-    const valueRatio = ALL_GENERAL_LOOKUP['genshin-impact'].STATS[ENKA_STAT_MAP['genshin-impact'][key]].showPercent ? 0.01 : 1;
+    const valueRatio = ENKA_STAT_MAP['genshin-impact'][key].startsWith('PERCENT') ? 0.01 : 1;
     return sub.statValue * valueRatio;
   },
   'honkai-star-rail': (sub) => sub.value,
   'zenless-zone-zero': (sub) => {
     const key = ENKA_STAT_MAP['zenless-zone-zero'][sub.PropertyId];
     const value = sub.PropertyValue;
-    const valueRatio = ALL_GENERAL_LOOKUP['zenless-zone-zero'].STATS[key].showPercent ? 0.0001 : 1;
+    const valueRatio = key.startsWith('PERCENT') ? 0.0001 : 1;
     const timesAppeared = sub.PropertyLevel;
     return value * valueRatio * timesAppeared;
   },
