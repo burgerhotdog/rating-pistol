@@ -43,7 +43,7 @@ const HeaderOcr = () => {
         if (!res.ok) throw new Error('Server error');
         return res.json();
       })
-      .then(({ data }) => {
+      .then(data => {
         saveBuildEntries('wuthering-waves', [[selectedAvatarId, data]]);
         closeDialog();
       })
