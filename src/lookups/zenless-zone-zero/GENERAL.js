@@ -1,0 +1,235 @@
+export default {
+  TITLE: 'Zenless Zone Zero',
+  VERSION: '2.6',
+  RESIN_PER_DAY: 320,
+  RESIN_PER_RUN: 60,
+  DROPS_PER_RUN: 2.25,
+  NUM_MAINSTATS: 6,
+  NUM_SUBSTATS: 4,
+  EQUIP_NAMES: [
+    'Disk 1',
+    'Disk 2',
+    'Disk 3',
+    'Disk 4',
+    'Disk 5',
+    'Disk 6'
+  ],
+  ELEMENT_TYPES: [
+    'Electric',
+    'Ether',
+    'Fire',
+    'Ice',
+    'Physical'
+  ],
+  WEAPON_TYPES: [
+    'Anomaly',
+    'Attack',
+    'Defense',
+    'Rupture',
+    'Stun',
+    'Support'
+  ],
+  DEFAULT_STATS: {
+    PERCENT_CR: 0.05,
+    PERCENT_CD: 0.5,
+    PERCENT_ER: 1.2,
+  },
+  MAIN_STAT_TYPES: [
+    {
+      FLAT_HP: {
+        NAME: 'HP',
+        VALUE: 2200,
+        WEIGHT: 1,
+      },
+    },
+    {
+      FLAT_ATK: {
+        NAME: 'ATK',
+        VALUE: 316,
+        WEIGHT: 1,
+      },
+    },
+    {
+      FLAT_DEF: {
+        NAME: 'DEF',
+        VALUE: 184,
+        WEIGHT: 1,
+      },
+    },
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.3,
+        WEIGHT: 7,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.3,
+        WEIGHT: 6,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.48,
+        WEIGHT: 7,
+      },
+      PERCENT_CR: {
+        NAME: 'CRIT Rate',
+        VALUE: 0.24,
+        WEIGHT: 4,
+      },
+      PERCENT_CD: {
+        NAME: 'CRIT DMG',
+        VALUE: 0.48,
+        WEIGHT: 4,
+      },
+      FLAT_AP: {
+        NAME: 'Anomaly Proficiency',
+        VALUE: 92,
+        WEIGHT: 5,
+      },
+    },
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.3,
+        WEIGHT: 7,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.3,
+        WEIGHT: 6,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.48,
+        WEIGHT: 7,
+      },
+      PERCENT_PR: {
+        NAME: 'PEN Ratio',
+        VALUE: 0.24,
+        WEIGHT: 3,
+      },
+      PERCENT_PHYSICAL: {
+        NAME: 'Physical DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_FIRE: {
+        NAME: 'Fire DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_ICE: {
+        NAME: 'Ice DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_ELECTRIC: {
+        NAME: 'Electric DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+      PERCENT_ETHER: {
+        NAME: 'Ether DMG Bonus',
+        VALUE: 0.3,
+        WEIGHT: 2,
+      },
+    },
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.3,
+        WEIGHT: 7,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.3,
+        WEIGHT: 6,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.48,
+        WEIGHT: 7,
+      },
+      PERCENT_AM: {
+        NAME: 'Anomaly Mastery',
+        VALUE: 0.3,
+        WEIGHT: 5,
+      },
+      PERCENT_IMPACT: {
+        NAME: 'Impact',
+        VALUE: 0.18,
+        WEIGHT: 5,
+      },
+      PERCENT_ER: {
+        NAME: 'Energy Regen',
+        VALUE: 0.6,
+        WEIGHT: 3,
+      },
+    },
+  ],
+  SUB_STAT_TYPES: {
+    FLAT_HP: {
+      NAME: 'HP',
+      VALUE: 112,
+      WEIGHT: 6,
+    },
+    FLAT_ATK: {
+      NAME: 'ATK',
+      VALUE: 19,
+      WEIGHT: 5,
+    },
+    FLAT_DEF: {
+      NAME: 'DEF',
+      VALUE: 15,
+      WEIGHT: 6,
+    },
+    PERCENT_HP: {
+      NAME: 'HP%',
+      VALUE: 0.03,
+      WEIGHT: 6,
+    },
+    PERCENT_ATK: {
+      NAME: 'ATK%',
+      VALUE: 0.03,
+      WEIGHT: 5,
+    },
+    PERCENT_DEF: {
+      NAME: 'DEF%',
+      VALUE: 0.048,
+      WEIGHT: 6,
+    },
+    FLAT_PEN: {
+      NAME: 'PEN',
+      VALUE: 9,
+      WEIGHT: 5,
+    },
+    PERCENT_CR: {
+      NAME: 'CRIT Rate',
+      VALUE: 0.024,
+      WEIGHT: 5,
+    },
+    PERCENT_CD: {
+      NAME: 'CRIT DMG',
+      VALUE: 0.048,
+      WEIGHT: 5,
+    },
+    FLAT_AP: {
+      NAME: 'Anomaly Proficiency',
+      VALUE: 9,
+      WEIGHT: 5,
+    },
+  },
+  MENU_STAT_TYPES: [
+    ['HP', 'HP'],
+    ['ATK', 'ATK'],
+    ['DEF', 'DEF'],
+    ['IMPACT', 'Impact'],
+    ['CR', 'CRIT Rate'],
+    ['CD', 'CRIT DMG'],
+    ['AM', 'Anomaly Mastery'],
+    ['AP', 'Anomaly Proficiency'],
+    ['PR', 'PEN Ratio'],
+    ['ER', 'Energy Regen'],
+  ],
+};

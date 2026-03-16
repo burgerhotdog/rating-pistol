@@ -1,4 +1,6 @@
-export { default as Auth } from './Auth';
-export { default as Back } from './Back';
-export { default as Modal } from './Modal';
-export { default as Table } from './Table';
+export * from './Header';
+export * from './Sidebar';
+export * from './StatsPanel';
+export * from './RadarChart';
+export * from './LineChart';
+export * from './CustomTable';

@@ -1,0 +1,278 @@
+export default {
+  TITLE: 'Honkai Star Rail',
+  VERSION: '4.0',
+  RESIN_PER_DAY: 240,
+  RESIN_PER_RUN: 40,
+  DROPS_PER_RUN: 2.1,
+  NUM_MAINSTATS: 6,
+  NUM_SUBSTATS: 4,
+  EQUIP_NAMES: [
+    'Head',
+    'Hands',
+    'Chest',
+    'Boots',
+    'Orb',
+    'Rope'
+  ],
+  ELEMENT_TYPES: [
+    'Fire',
+    'Ice',
+    'Imaginary',
+    'Lightning',
+    'Physical',
+    'Quantum',
+    'Wind'
+  ],
+  WEAPON_TYPES: [
+    'Abundance',
+    'Destruction',
+    'Elation',
+    'Erudition',
+    'Harmony',
+    'Hunt',
+    'Nihility',
+    'Preservation',
+    'Remembrance'
+  ],
+  DEFAULT_STATS: {
+    PERCENT_CR: 0.05,
+    PERCENT_CD: 0.5,
+    PERCENT_ERR: 1,
+  },
+  MAIN_STAT_TYPES: [
+    {
+      FLAT_HP: {
+        NAME: 'HP',
+        VALUE: 705.6,
+        WEIGHT: 1,
+      },
+    },
+    {
+      FLAT_ATK: {
+        NAME: 'ATK',
+        VALUE: 352.8,
+        WEIGHT: 1,
+      },
+    },
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.432,
+        WEIGHT: 2,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.432,
+        WEIGHT: 2,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.54,
+        WEIGHT: 2,
+      },
+      PERCENT_CR: {
+        NAME: 'CRIT Rate',
+        VALUE: 0.324,
+        WEIGHT: 1,
+      },
+      PERCENT_CD: {
+        NAME: 'CRIT DMG',
+        VALUE: 0.648,
+        WEIGHT: 1,
+      },
+      PERCENT_OHB: {
+        NAME: 'Outgoing Healing Boost',
+        VALUE: 0.345606,
+        WEIGHT: 1,
+      },
+      PERCENT_EHR: {
+        NAME: 'Effect Hit Rate',
+        VALUE: 0.432,
+        WEIGHT: 1,
+      },
+    },
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.432,
+        WEIGHT: 3,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.432,
+        WEIGHT: 3,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.54,
+        WEIGHT: 3,
+      },
+      FLAT_SPD: {
+        NAME: 'SPD',
+        VALUE: 25.032,
+        WEIGHT: 1,
+      },
+    },
+    {
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.432,
+        WEIGHT: 4,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.432,
+        WEIGHT: 4,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.54,
+        WEIGHT: 4,
+      },
+      PERCENT_PHYSICAL: {
+        NAME: 'Physical DMG Bonus',
+        VALUE: 0.388803,
+        WEIGHT: 3,
+      },
+      PERCENT_FIRE: {
+        NAME: 'Fire DMG Bonus',
+        VALUE: 0.388803,
+        WEIGHT: 3,
+      },
+      PERCENT_ICE: {
+        NAME: 'Ice DMG Bonus',
+        VALUE: 0.388803,
+        WEIGHT: 3,
+      },
+      PERCENT_LIGHTNING: {
+        NAME: 'Lightning DMG Bonus',
+        VALUE: 0.388803,
+        WEIGHT: 3,
+      },
+      PERCENT_WIND: {
+        NAME: 'Wind DMG Bonus',
+        VALUE: 0.388803,
+        WEIGHT: 3,
+      },
+      PERCENT_QUANTUM: {
+        NAME: 'Quantum DMG Bonus',
+        VALUE: 0.388803,
+        WEIGHT: 3,
+      },
+      PERCENT_IMAGINARY: {
+        NAME: 'Imaginary DMG Bonus',
+        VALUE: 0.388803,
+        WEIGHT: 3,
+      },
+    },
+    {
+      PERCENT_BE: {
+        NAME: 'Break Effect',
+        VALUE: 0.648,
+        WEIGHT: 3,
+      },
+      PERCENT_ERR: {
+        NAME: 'Energy Regeneration Rate',
+        VALUE: 0.194394,
+        WEIGHT: 1,
+      },
+      PERCENT_HP: {
+        NAME: 'HP%',
+        VALUE: 0.432,
+        WEIGHT: 5,
+      },
+      PERCENT_ATK: {
+        NAME: 'ATK%',
+        VALUE: 0.432,
+        WEIGHT: 5,
+      },
+      PERCENT_DEF: {
+        NAME: 'DEF%',
+        VALUE: 0.54,
+        WEIGHT: 5,
+      },
+    },
+  ],
+  SUB_STAT_TYPES: {
+    FLAT_HP: {
+      NAME: 'HP',
+      VALUE: 42.33751,
+      WEIGHT: 10,
+    },
+    FLAT_ATK: {
+      NAME: 'ATK',
+      VALUE: 21.168754,
+      WEIGHT: 10,
+    },
+    FLAT_DEF: {
+      NAME: 'DEF',
+      VALUE: 21.168754,
+      WEIGHT: 10,
+    },
+    PERCENT_HP: {
+      NAME: 'HP%',
+      VALUE: 0.0432,
+      WEIGHT: 10,
+    },
+    PERCENT_ATK: {
+      NAME: 'ATK%',
+      VALUE: 0.0432,
+      WEIGHT: 10,
+    },
+    PERCENT_DEF: {
+      NAME: 'DEF%',
+      VALUE: 0.054,
+      WEIGHT: 10,
+    },
+    FLAT_SPD: {
+      NAME: 'SPD',
+      VALUE: 2.6,
+      WEIGHT: 4,
+    },
+    PERCENT_CR: {
+      NAME: 'CRIT Rate',
+      VALUE: 0.0324,
+      WEIGHT: 6,
+    },
+    PERCENT_CD: {
+      NAME: 'CRIT DMG',
+      VALUE: 0.0648,
+      WEIGHT: 6,
+    },
+    PERCENT_EHR: {
+      NAME: 'Effect Hit Rate',
+      VALUE: 0.0432,
+      WEIGHT: 8,
+    },
+    PERCENT_RES: {
+      NAME: 'Effect RES',
+      VALUE: 0.0432,
+      WEIGHT: 8,
+    },
+    PERCENT_BE: {
+      NAME: 'Break Effect',
+      VALUE: 0.0648,
+      WEIGHT: 8,
+    },
+  },
+  MENU_STAT_TYPES: [
+    ['HP', 'HP'],
+    ['ATK', 'ATK'],
+    ['DEF', 'DEF'],
+    ['SPD', 'SPD'],
+    ['CR', 'CRIT Rate'],
+    ['CD', 'CRIT DMG'],
+    ['BE', 'Break Effect'],
+    ['OHB', 'Outgoing Healing Boost'],
+    ['ERR', 'Energy Regeneration Rate'],
+    ['EHR', 'Effect Hit Rate'],
+    ['RES', 'Effect RES'],
+    ['PHYSICAL', 'Physical DMG Boost'],
+    ['FIRE', 'Fire DMG Boost'],
+    ['ICE', 'Ice DMG Boost'],
+    ['LIGHTNING', 'Lightning DMG Boost'],
+    ['WIND', 'Wind DMG Boost'],
+    ['QUANTUM', 'Quantum DMG Boost'],
+    ['IMAGINARY', 'Imaginary DMG Boost'],
+  ],
+};

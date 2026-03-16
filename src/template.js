@@ -1,13 +1,16 @@
-import { INFO_DATA } from '@data';
+import { ALL_GENERAL_LOOKUP } from '@/lookups';
 
 export default (gameId) => ({
-  updatedAt: null,
+  lastUpdated: null,
   weaponId: null,
-  equipList: Array(INFO_DATA[gameId].NUM_MAINSTATS).fill().map(() => ({
-    stat: null,
-    statList: Array(INFO_DATA[gameId].NUM_SUBSTATS).fill().map(() => ({
-      stat: null,
-      value: null
+  equipList: Array(ALL_GENERAL_LOOKUP[gameId].NUM_MAINSTATS).fill().map(() => ({
+    ...(gameId === 'wuthering-waves' && { cost: null }),
+    setId: null,
+    mainStatId: null,
+    mainStatValue: null,
+    subStatList: Array(ALL_GENERAL_LOOKUP[gameId].NUM_SUBSTATS).fill().map(() => ({
+      subStatId: null,
+      subStatValue: null
     }))
   })),
 });
