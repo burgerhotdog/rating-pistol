@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import {
   Sidebar,
   StatsPanel,
@@ -14,14 +14,12 @@ const GamePage = () => {
   const { baseStats, equipStats } = useComputedStats(selectedId);
 
   return (
-    <Box sx={{
-      display: 'flex',
-      flex: 1,
-      minHeight: 0,
-      gap: 2,
-      pb: 2,
-      overflow: 'hidden',
-    }}>
+    <Stack
+      direction="row"
+      overflow="hidden"
+      gap={2}
+      pb={2}
+    >
       <Sidebar
         selectedId={selectedId}
         setSelectedId={setSelectedId}
@@ -32,23 +30,24 @@ const GamePage = () => {
         baseStats={baseStats}
         equipStats={equipStats}
       />
+      <Typography variant="h6" fontWeight={700}>
+        Work in Progress. Stats may not reflect actual in-game values.
+      </Typography>
 
       {/* ── Graphs panel ── */}
-      <Box sx={{
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 2,
-        minWidth: 0,
-      }}>
-        <CustomLineChart />
+      <Stack gap={2}>
+        {false && (
+          <>
+            <CustomLineChart />
 
-        <Box sx={{ flex: 2, display: 'flex', gap: 2, minHeight: 0 }}>
-          <CustomRadarChart />
-          <CustomTable />
-        </Box>
-      </Box>
-    </Box>
+            <Stack direction="row" gap={2}>
+              <CustomRadarChart />
+              <CustomTable />
+            </Stack>
+          </>
+        )}
+      </Stack>
+    </Stack>
   );
 };
 
