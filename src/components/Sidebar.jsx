@@ -8,7 +8,7 @@ import { ALL_CHARACTER_LOOKUP } from '@/lookups';
 export const Sidebar = ({ selectedId, setSelectedId }) => {
   const { gameId } = useParams();
   const buildData = useContext(BuildDataContext).allBuildData[gameId];
-  const pinnedId = useContext(UserDataContext).allPinnedId[gameId];
+  const pinnedId = useContext(UserDataContext).pinnedIds[gameId];
 
   const CHARACTER_ASSETS = ALL_CHARACTER_ASSETS[gameId];
   const CHARACTER_LOOKUP = ALL_CHARACTER_LOOKUP[gameId];

@@ -9,12 +9,12 @@ export const UserDataProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
   const userRef = user ? doc(db, 'users', user.uid) : null;
   const [savedUids, setSavedUids] = useState({});
-  const [allPinnedId, setAllPinnedId] = useState({});
+  const [pinnedIds, setPinnedIds] = useState({});
 
   useEffect(() => {
     if (!user) {
       setSavedUids({});
-      setAllPinnedId({});
+      setPinnedIds({});
       return;
     };
 
@@ -22,13 +22,13 @@ export const UserDataProvider = ({ children }) => {
       const userData = snapshot.data() || {};
 
       setSavedUids(userData.savedUids || {});
-      setAllPinnedId(userData.allPinnedId || {});
+      setPinnedIds(userData.pinnedIds || {});
 
       // write back missing fields to Firestore
       const missingFields = {};
       if (!userData.email) missingFields.email = String(user.email);
       if (!userData.savedUids) missingFields.savedUids = {};
-      if (!userData.allPinnedId) missingFields.allPinnedId = {};
+      if (!userData.pinnedIds) missingFields.pinnedIds = {};
 
       if (Object.keys(missingFields).length) {
         setDoc(userRef, missingFields, { merge: true })
@@ -59,17 +59,17 @@ export const UserDataProvider = ({ children }) => {
   };
 
   const updatePinnedIds = async (gameId, avatarId) => {
-    const isAvatarPinned = allPinnedId[gameId] === avatarId;
+    const isAvatarPinned = pinnedIds[gameId] === avatarId;
 
     if (user) {
-      updateDoc(userRef, { [`allPinnedId.${gameId}`]: isAvatarPinned ? deleteField() : String(avatarId) })
+      updateDoc(userRef, { [`pinnedIds.${gameId}`]: isAvatarPinned ? deleteField() : String(avatarId) })
         .catch(err => {
-          console.error('Failed to update allPinnedId', err);
+          console.error('Failed to update pinnedIds', err);
         });
       return;
     }
 
-    setAllPinnedId(prev => {
+    setPinnedIds(prev => {
       const newState = { ...prev };
       if (isAvatarPinned) delete newState[gameId];
       else newState[gameId] = avatarId;
@@ -81,7 +81,7 @@ export const UserDataProvider = ({ children }) => {
     <UserDataContext.Provider
       value={{
         savedUids, updateSavedUids,
-        allPinnedId, updatePinnedIds,
+        pinnedIds, updatePinnedIds,
       }}
     >
       {children}
