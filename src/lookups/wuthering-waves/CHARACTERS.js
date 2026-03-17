@@ -1,4 +1,5 @@
 export default {
+  // Version 3.1
   1510: {
     NAME: 'Luuk Herssen',
     RARITY: 5,
@@ -23,6 +24,8 @@ export default {
       BASE_DEF: 1149,
     },
   },
+
+  // Version 3.0
   1509: {
     NAME: 'Lynae',
     RARITY: 5,
@@ -47,6 +50,8 @@ export default {
       BASE_DEF: 1357,
     },
   },
+
+  // Version 2.8
   1508: {
     NAME: 'Chisa',
     RARITY: 5,
@@ -70,6 +75,8 @@ export default {
       BASE_DEF: 1259,
     },
   },
+
+  // Version 2.7
   1411: {
     NAME: 'Qiuyuan',
     RARITY: 5,
@@ -94,6 +101,8 @@ export default {
       BASE_DEF: 1112,
     },
   },
+
+  // Version 2.6
   1410: {
     NAME: 'Iuno',
     RARITY: 5,
@@ -118,6 +127,8 @@ export default {
       BASE_DEF: 1112,
     },
   },
+
+  // Version 2.5
   1608: {
     NAME: 'Phrolova',
     RARITY: 5,
@@ -130,6 +141,8 @@ export default {
       BASE_DEF: 1137,
     },
   },
+
+  // Version 2.4
   1409: {
     NAME: 'Cartethyia',
     RARITY: 5,
@@ -154,6 +167,8 @@ export default {
       BASE_DEF: 1186,
     },
   },
+
+  // Version 2.3
   1507: {
     NAME: 'Zani',
     RARITY: 5,
@@ -178,6 +193,8 @@ export default {
       BASE_DEF: 1198,
     },
   },
+
+  // Version 2.2
   1607: {
     NAME: 'Cantarella',
     RARITY: 5,
@@ -190,6 +207,8 @@ export default {
       BASE_DEF: 1100,
     },
   },
+
+  // Version 2.1
   1506: {
     NAME: 'Phoebe',
     RARITY: 5,
@@ -214,6 +233,8 @@ export default {
       BASE_DEF: 1308,
     },
   },
+
+  // Version 2.0
   1606: {
     NAME: 'Roccia',
     RARITY: 5,
@@ -238,6 +259,8 @@ export default {
       BASE_DEF: 1198,
     },
   },
+
+  // Version 1.4
   1603: {
     NAME: 'Camellya',
     RARITY: 5,
@@ -261,6 +284,8 @@ export default {
       BASE_DEF: 880,
     },
   },
+
+  // Version 1.3
   1505: {
     NAME: 'The Shorekeeper',
     RARITY: 5,
@@ -284,6 +309,8 @@ export default {
       BASE_DEF: 1051,
     },
   },
+
+  // Version 1.2
   1305: {
     NAME: 'Xiangli Yao',
     RARITY: 5,
@@ -308,6 +335,8 @@ export default {
       BASE_DEF: 1198,
     },
   },
+
+  // Version 1.1
   1304: {
     NAME: 'Jinhsi',
     RARITY: 5,
@@ -332,6 +361,8 @@ export default {
       BASE_DEF: 1100,
     },
   },
+
+  // Version 1.0
   1602: {
     NAME: 'Danjin',
     RARITY: 4,

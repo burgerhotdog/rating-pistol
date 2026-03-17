@@ -1,4 +1,5 @@
 export default {
+  // Version 2.6
   1501: {
     NAME: 'Aria',
     RARITY: 5,
@@ -23,6 +24,8 @@ export default {
       BASE_DEF: 600,
     },
   },
+
+  // Version 2.5
   1431: {
     NAME: 'Ye Shunguang',
     RARITY: 5,
@@ -47,6 +50,8 @@ export default {
       BASE_DEF: 701,
     },
   },
+
+  // Version 2.4
   1481: {
     NAME: 'Dialyn',
     RARITY: 5,
@@ -71,6 +76,8 @@ export default {
       BASE_DEF: 445,
     },
   },
+
+  // Version 2.3
   1451: {
     NAME: 'Lucia',
     RARITY: 5,
@@ -107,6 +114,8 @@ export default {
       BASE_DEF: 448,
     },
   },
+
+  // Version 2.2
   1461: {
     NAME: 'Seed',
     RARITY: 5,
@@ -131,6 +140,8 @@ export default {
       BASE_DEF: 612,
     },
   },
+
+  // Version 2.1
   1411: {
     NAME: 'Yuzuha',
     RARITY: 5,
@@ -155,6 +166,8 @@ export default {
       BASE_DEF: 606,
     },
   },
+
+  // Version 2.0
   1421: {
     NAME: 'Pan Yinhu',
     RARITY: 4,
@@ -191,6 +204,8 @@ export default {
       BASE_DEF: 441,
     },
   },
+
+  // Version 1.7
   1331: {
     NAME: 'Vivian',
     RARITY: 5,
@@ -215,6 +230,8 @@ export default {
       BASE_DEF: 616,
     },
   },
+
+  // Version 1.6
   1381: {
     NAME: 'Soldier 0 - Anby',
     RARITY: 5,
@@ -251,6 +268,8 @@ export default {
       BASE_DEF: 606,
     },
   },
+
+  // Version 1.5
   1321: {
     NAME: 'Evelyn',
     RARITY: 5,
@@ -275,6 +294,8 @@ export default {
       BASE_DEF: 600,
     },
   },
+
+  // Version 1.4
   1201: {
     NAME: 'Harumasa',
     RARITY: 5,
@@ -299,6 +320,8 @@ export default {
       BASE_DEF: 606,
     },
   },
+
+  // Version 1.3
   1221: {
     NAME: 'Yanagi',
     RARITY: 5,
@@ -323,6 +346,8 @@ export default {
       BASE_DEF: 612,
     },
   },
+
+  // Version 1.2
   1171: {
     NAME: 'Burnice',
     RARITY: 5,
@@ -347,6 +372,8 @@ export default {
       BASE_DEF: 754,
     },
   },
+
+  // Version 1.1
   1271: {
     NAME: 'Seth',
     RARITY: 4,
@@ -383,6 +410,8 @@ export default {
       BASE_DEF: 613,
     },
   },
+
+  // Version 1.0
   1281: {
     NAME: 'Piper',
     RARITY: 4,

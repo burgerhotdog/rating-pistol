@@ -1,4 +1,5 @@
 export default {
+  // Version 2.6
   14150: {
     NAME: 'Angel in the Shell',
     RARITY: 5,
@@ -15,6 +16,8 @@ export default {
       BASE_ATK: 713,
     },
   },
+
+  // Version 2.5
   14143: {
     NAME: 'Cloudcleave Radiance',
     RARITY: 5,
@@ -39,6 +42,8 @@ export default {
       BASE_ATK: 594,
     },
   },
+
+  // Version 2.4
   14148: {
     NAME: 'Yesterday Calls',
     RARITY: 5,
@@ -55,6 +60,8 @@ export default {
       BASE_ATK: 713,
     },
   },
+
+  // Version 2.3
   14145: {
     NAME: 'Dreamlit Hearth',
     RARITY: 5,
@@ -79,6 +86,8 @@ export default {
       BASE_ATK: 624,
     },
   },
+
+  // Version 2.2
   14146: {
     NAME: 'Cordis Germina',
     RARITY: 5,
@@ -95,6 +104,8 @@ export default {
       BASE_ATK: 713,
     },
   },
+
+  // Version 2.1
   14141: {
     NAME: 'Metanukimorphosis',
     RARITY: 5,
@@ -111,6 +122,8 @@ export default {
       BASE_ATK: 713,
     },
   },
+
+  // Version 2.0
   14139: {
     NAME: 'Roaring Fur-nace',
     RARITY: 5,
@@ -167,6 +180,8 @@ export default {
       BASE_ATK: 475,
     },
   },
+
+  // Version 1.7
   14133: {
     NAME: 'Flight of Fancy',
     RARITY: 5,
@@ -183,6 +198,8 @@ export default {
       BASE_ATK: 713,
     },
   },
+
+  // Version 1.6
   14138: {
     NAME: 'Severed Innocence',
     RARITY: 5,
@@ -207,6 +224,8 @@ export default {
       BASE_ATK: 624,
     },
   },
+
+  // Version 1.5
   14132: {
     NAME: 'Heartstring Nocturne',
     RARITY: 5,
@@ -223,6 +242,8 @@ export default {
       BASE_ATK: 713,
     },
   },
+
+  // Version 1.4
   14120: {
     NAME: 'Zanshin Herb Case',
     RARITY: 5,
@@ -247,6 +268,8 @@ export default {
       BASE_ATK: 594,
     },
   },
+
+  // Version 1.3
   14122: {
     NAME: 'Timeweaver',
     RARITY: 5,
@@ -263,6 +286,8 @@ export default {
       BASE_ATK: 713,
     },
   },
+
+  // Version 1.2
   14117: {
     NAME: 'Flamemaker Shaker',
     RARITY: 5,
@@ -279,6 +304,8 @@ export default {
       BASE_ATK: 713,
     },
   },
+
+  // Version 1.1
   14126: {
     NAME: 'Sharpened Stinger',
     RARITY: 5,
@@ -311,6 +338,8 @@ export default {
       BASE_ATK: 594,
     },
   },
+
+  // Version 1.0
   14124: {
     NAME: 'Riot Suppressor Mark VI',
     RARITY: 5,

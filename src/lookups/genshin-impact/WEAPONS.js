@@ -1,4 +1,5 @@
 export default {
+  // Version 6.3
   14522: {
     NAME: 'Nocturne\'s Curtain Call',
     RARITY: 5,
@@ -15,6 +16,8 @@ export default {
       BASE_ATK: 542,
     },
   },
+
+  // Version 6.2
   15515: {
     NAME: 'The Daybreak Chronicles',
     RARITY: 5,
@@ -39,6 +42,8 @@ export default {
       BASE_ATK: 608,
     },
   },
+
+  // Version 6.1
   14521: {
     NAME: 'Reliquary of Truth',
     RARITY: 5,
@@ -63,6 +68,8 @@ export default {
       BASE_ATK: 620,
     },
   },
+
+  // Version 6.0
   15433: {
     NAME: 'Snare Hook',
     RARITY: 4,
@@ -127,6 +134,8 @@ export default {
       BASE_ATK: 454,
     },
   },
+
+  // Version 5.8
   13515: {
     NAME: 'Fractured Halo',
     RARITY: 5,
@@ -135,6 +144,8 @@ export default {
       BASE_ATK: 608,
     },
   },
+
+  // Version 5.7
   11517: {
     NAME: 'Azurelight',
     RARITY: 5,
@@ -143,6 +154,8 @@ export default {
       BASE_ATK: 674,
     },
   },
+
+  // Version 5.6
   15432: {
     NAME: 'Sequence of Solitude',
     RARITY: 4,
@@ -159,6 +172,8 @@ export default {
       BASE_ATK: 608,
     },
   },
+
+  // Version 5.5
   14519: {
     NAME: 'Vivid Notions',
     RARITY: 5,
@@ -167,6 +182,8 @@ export default {
       BASE_ATK: 674,
     },
   },
+
+  // Version 5.4
   14518: {
     NAME: 'Sunny Morning Sleep-In',
     RARITY: 5,
@@ -183,6 +200,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 5.3
   14517: {
     NAME: 'Starcaller\'s Watch',
     RARITY: 5,
@@ -199,6 +218,8 @@ export default {
       BASE_ATK: 741,
     },
   },
+
+  // Version 5.2
   15514: {
     NAME: 'Astral Vulture\'s Crimson Plumage',
     RARITY: 5,
@@ -231,6 +252,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 5.1
   13430: {
     NAME: 'Mountain-Bracing Bolt',
     RARITY: 4,
@@ -263,6 +286,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 5.0
   15431: {
     NAME: 'Chain Breaker',
     RARITY: 4,
@@ -327,6 +352,8 @@ export default {
       BASE_ATK: 454,
     },
   },
+
+  // Version 4.8
   13513: {
     NAME: 'Lumidouce Elegy',
     RARITY: 5,
@@ -335,6 +362,8 @@ export default {
       BASE_ATK: 608,
     },
   },
+
+  // Version 4.7
   15513: {
     NAME: 'Silvershower Heartstrings',
     RARITY: 5,
@@ -359,6 +388,8 @@ export default {
       BASE_ATK: 674,
     },
   },
+
+  // Version 4.6
   13512: {
     NAME: 'Crimson Moon\'s Semblance',
     RARITY: 5,
@@ -367,6 +398,8 @@ export default {
       BASE_ATK: 674,
     },
   },
+
+  // Version 4.5
   13426: {
     NAME: 'Dialogues of the Desert Sages',
     RARITY: 4,
@@ -383,6 +416,8 @@ export default {
       BASE_ATK: 542,
     },
   },
+
+  // Version 4.4
   14515: {
     NAME: 'Crane\'s Echoing Call',
     RARITY: 5,
@@ -391,6 +426,8 @@ export default {
       BASE_ATK: 741,
     },
   },
+
+  // Version 4.3
   12512: {
     NAME: 'Verdict',
     RARITY: 5,
@@ -407,6 +444,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 4.2
   11513: {
     NAME: 'Splendor of Tranquil Waters',
     RARITY: 5,
@@ -423,6 +462,8 @@ export default {
       BASE_ATK: 510,
     },
   },
+
+  // Version 4.1
   15427: {
     NAME: 'Range Gauge',
     RARITY: 4,
@@ -479,6 +520,8 @@ export default {
       BASE_ATK: 510,
     },
   },
+
+  // Version 4.0
   15512: {
     NAME: 'The First Great Magic',
     RARITY: 5,
@@ -575,6 +618,8 @@ export default {
       BASE_ATK: 510,
     },
   },
+
+  // Version 3.7
   15419: {
     NAME: 'Ibis Piercer',
     RARITY: 4,
@@ -583,6 +628,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 3.6
   14505: {
     NAME: 'Jadefall\'s Splendor',
     RARITY: 5,
@@ -591,6 +638,8 @@ export default {
       BASE_ATK: 608,
     },
   },
+
+  // Version 3.5
   12511: {
     NAME: 'Beacon of the Reed Sea',
     RARITY: 5,
@@ -607,6 +656,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 3.4
   11512: {
     NAME: 'Light of Foliar Incision',
     RARITY: 5,
@@ -615,6 +666,8 @@ export default {
       BASE_ATK: 542,
     },
   },
+
+  // Version 3.3
   14512: {
     NAME: 'Tulaytullah\'s Remembrance',
     RARITY: 5,
@@ -631,6 +684,8 @@ export default {
       BASE_ATK: 510,
     },
   },
+
+  // Version 3.2
   14511: {
     NAME: 'A Thousand Floating Dreams',
     RARITY: 5,
@@ -639,6 +694,8 @@ export default {
       BASE_ATK: 542,
     },
   },
+
+  // Version 3.1
   14416: {
     NAME: 'Wandering Evenstar',
     RARITY: 4,
@@ -687,6 +744,8 @@ export default {
       BASE_ATK: 510,
     },
   },
+
+  // Version 3.0
   15511: {
     NAME: 'Hunter\'s Path',
     RARITY: 5,
@@ -743,6 +802,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 2.8
   11416: {
     NAME: 'Kagotsurube Isshin',
     RARITY: 4,
@@ -751,6 +812,8 @@ export default {
       BASE_ATK: 510,
     },
   },
+
+  // Version 2.7
   15508: {
     NAME: 'Aqua Simulacra',
     RARITY: 5,
@@ -767,6 +830,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 2.6
   11510: {
     NAME: 'Haran Geppaku Futsu',
     RARITY: 5,
@@ -775,6 +840,8 @@ export default {
       BASE_ATK: 608,
     },
   },
+
+  // Version 2.5
   14509: {
     NAME: 'Kagura\'s Verity',
     RARITY: 5,
@@ -791,6 +858,8 @@ export default {
       BASE_ATK: 565,
     },
   },
+
+  // Version 2.4
   13507: {
     NAME: 'Calamity Queller',
     RARITY: 5,
@@ -799,6 +868,8 @@ export default {
       BASE_ATK: 741,
     },
   },
+
+  // Version 2.3
   12510: {
     NAME: 'Redhorn Stonethresher',
     RARITY: 5,
@@ -815,6 +886,8 @@ export default {
       BASE_ATK: 454,
     },
   },
+
+  // Version 2.2
   15507: {
     NAME: 'Polar Star',
     RARITY: 5,
@@ -847,6 +920,8 @@ export default {
       BASE_ATK: 510,
     },
   },
+
+  // Version 2.1
   15415: {
     NAME: 'Predator',
     RARITY: 4,
@@ -887,6 +962,8 @@ export default {
       BASE_ATK: 454,
     },
   },
+
+  // Version 2.0
   15509: {
     NAME: 'Thundering Pulse',
     RARITY: 5,
@@ -943,6 +1020,8 @@ export default {
       BASE_ATK: 454,
     },
   },
+
+  // Version 1.6
   15412: {
     NAME: 'Mitternachts Waltz',
     RARITY: 4,
@@ -967,6 +1046,8 @@ export default {
       BASE_ATK: 608,
     },
   },
+
+  // Version 1.5
   12503: {
     NAME: 'Song of Broken Pines',
     RARITY: 5,
@@ -975,6 +1056,8 @@ export default {
       BASE_ATK: 741,
     },
   },
+
+  // Version 1.4
   15503: {
     NAME: 'Elegy for the End',
     RARITY: 5,
@@ -1015,6 +1098,8 @@ export default {
       BASE_ATK: 620,
     },
   },
+
+  // Version 1.3
   13501: {
     NAME: 'Staff of Homa',
     RARITY: 5,
@@ -1047,6 +1132,8 @@ export default {
       BASE_ATK: 542,
     },
   },
+
+  // Version 1.2
   14412: {
     NAME: 'Frostbearer',
     RARITY: 4,
@@ -1087,6 +1174,8 @@ export default {
       BASE_ATK: 510,
     },
   },
+
+  // Version 1.1
   14504: {
     NAME: 'Memory of Dust',
     RARITY: 5,
@@ -1119,6 +1208,8 @@ export default {
       BASE_ATK: 608,
     },
   },
+
+  // Version 1.0
   15502: {
     NAME: 'Amos\' Bow',
     RARITY: 5,

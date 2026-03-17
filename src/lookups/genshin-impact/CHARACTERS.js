@@ -1,4 +1,5 @@
 export default {
+  // 6.3
   10000127: {
     NAME: 'Illuga',
     RARITY: 4,
@@ -34,6 +35,8 @@ export default {
       BASE_DEF: 515,
     },
   },
+
+  // Version 6.2
   10000124: {
     NAME: 'Jahoda',
     RARITY: 4,
@@ -57,6 +60,8 @@ export default {
       BASE_DEF: 822,
     },
   },
+
+  // Version 6.1
   10000122: {
     NAME: 'Nefer',
     RARITY: 5,
@@ -69,6 +74,8 @@ export default {
       BASE_DEF: 799,
     },
   },
+
+  // Version 6.0
   10000121: {
     NAME: 'Aino',
     RARITY: 4,
@@ -104,6 +111,8 @@ export default {
       BASE_DEF: 669,
     },
   },
+
+  // Version 5.8
   10000116: {
     NAME: 'Ineffa',
     RARITY: 5,
@@ -116,6 +125,8 @@ export default {
       BASE_DEF: 828,
     },
   },
+
+  // Version 5.7
   10000115: {
     NAME: 'Dahlia',
     RARITY: 4,
@@ -139,6 +150,8 @@ export default {
       BASE_DEF: 806,
     },
   },
+
+  // Version 5.6
   10000113: {
     NAME: 'Ifa',
     RARITY: 4,
@@ -162,6 +175,8 @@ export default {
       BASE_DEF: 732,
     },
   },
+
+  // Version 5.5
   10000111: {
     NAME: 'Varesa',
     RARITY: 5,
@@ -185,6 +200,8 @@ export default {
       BASE_DEF: 638,
     },
   },
+
+  // Version 5.4
   10000109: {
     NAME: 'Yumemizuki Mizuki',
     RARITY: 5,
@@ -197,6 +214,8 @@ export default {
       BASE_DEF: 757,
     },
   },
+
+  // Version 5.3
   10000108: {
     NAME: 'Lan Yan',
     RARITY: 4,
@@ -232,6 +251,8 @@ export default {
       BASE_DEF: 791,
     },
   },
+
+  // Version 5.2
   10000105: {
     NAME: 'Ororon',
     RARITY: 4,
@@ -255,6 +276,8 @@ export default {
       BASE_DEF: 614,
     },
   },
+
+  // Version 5.1
   10000103: {
     NAME: 'Xilonen',
     RARITY: 5,
@@ -267,6 +290,8 @@ export default {
       BASE_DEF: 929,
     },
   },
+
+  // Version 5.0
   10000102: {
     NAME: 'Mualani',
     RARITY: 5,
@@ -302,6 +327,8 @@ export default {
       BASE_DEF: 792,
     },
   },
+
+  // Version 4.8
   10000099: {
     NAME: 'Emilie',
     RARITY: 5,
@@ -314,6 +341,8 @@ export default {
       BASE_DEF: 730,
     },
   },
+
+  // Version 4.7
   10000098: {
     NAME: 'Clorinde',
     RARITY: 5,
@@ -349,6 +378,8 @@ export default {
       BASE_DEF: 499,
     },
   },
+
+  // Version 4.6
   10000096: {
     NAME: 'Arlecchino',
     RARITY: 5,
@@ -361,6 +392,8 @@ export default {
       BASE_DEF: 764,
     },
   },
+
+  // Version 4.5
   10000094: {
     NAME: 'Chiori',
     RARITY: 5,
@@ -373,6 +406,8 @@ export default {
       BASE_DEF: 953,
     },
   },
+
+  // Version 4.4
   10000093: {
     NAME: 'Xianyun',
     RARITY: 5,
@@ -396,6 +431,8 @@ export default {
       BASE_DEF: 702,
     },
   },
+
+  // Version 4.3
   10000091: {
     NAME: 'Navia',
     RARITY: 5,
@@ -419,6 +456,8 @@ export default {
       BASE_DEF: 604,
     },
   },
+
+  // Version 4.2
   10000089: {
     NAME: 'Furina',
     RARITY: 5,
@@ -442,6 +481,8 @@ export default {
       BASE_DEF: 546,
     },
   },
+
+  // Version 4.1
   10000087: {
     NAME: 'Neuvillette',
     RARITY: 5,
@@ -466,6 +507,8 @@ export default {
       BASE_DEF: 763,
     },
   },
+
+  // Version 4.0
   10000085: {
     NAME: 'Freminet',
     RARITY: 4,
@@ -500,6 +543,8 @@ export default {
       BASE_DEF: 711,
     },
   },
+
+  // Version 3.7
   10000061: {
     NAME: 'Kirara',
     RARITY: 4,
@@ -511,6 +556,8 @@ export default {
       BASE_DEF: 546,
     },
   },
+
+  // Version 3.6
   10000082: {
     NAME: 'Baizhu',
     RARITY: 5,
@@ -534,6 +581,8 @@ export default {
       BASE_DEF: 750,
     },
   },
+
+  // Version 3.5
   10000080: {
     NAME: 'Mika',
     RARITY: 4,
@@ -557,6 +606,8 @@ export default {
       BASE_DEF: 627,
     },
   },
+
+  // Version 3.4
   10000078: {
     NAME: 'Alhaitham',
     RARITY: 5,
@@ -580,6 +631,8 @@ export default {
       BASE_DEF: 750,
     },
   },
+
+  // Version 3.3
   10000076: {
     NAME: 'Faruzan',
     RARITY: 4,
@@ -603,6 +656,8 @@ export default {
       BASE_DEF: 607,
     },
   },
+
+  // Version 3.2
   10000074: {
     NAME: 'Layla',
     RARITY: 4,
@@ -626,6 +681,8 @@ export default {
       BASE_DEF: 630,
     },
   },
+
+  // Version 3.1
   10000072: {
     NAME: 'Candace',
     RARITY: 4,
@@ -661,6 +718,8 @@ export default {
       BASE_DEF: 728,
     },
   },
+
+  // Version 3.0
   10000069: {
     NAME: 'Tighnari',
     RARITY: 5,
@@ -695,6 +754,8 @@ export default {
       BASE_DEF: 600,
     },
   },
+
+  // Version 2.8
   10000059: {
     NAME: 'Shikanoin Heizou',
     RARITY: 4,
@@ -706,6 +767,8 @@ export default {
       BASE_DEF: 683,
     },
   },
+
+  // Version 2.7
   10000065: {
     NAME: 'Kuki Shinobu',
     RARITY: 4,
@@ -729,6 +792,8 @@ export default {
       BASE_DEF: 547,
     },
   },
+
+  // Version 2.6
   10000066: {
     NAME: 'Kamisato Ayato',
     RARITY: 5,
@@ -741,6 +806,8 @@ export default {
       BASE_DEF: 768,
     },
   },
+
+  // Version 2.5
   10000058: {
     NAME: 'Yae Miko',
     RARITY: 5,
@@ -753,6 +820,8 @@ export default {
       BASE_DEF: 568,
     },
   },
+
+  // Version 2.4
   10000064: {
     NAME: 'Yun Jin',
     RARITY: 4,
@@ -776,6 +845,8 @@ export default {
       BASE_DEF: 830,
     },
   },
+
+  // Version 2.3
   10000057: {
     NAME: 'Arataki Itto',
     RARITY: 5,
@@ -799,6 +870,8 @@ export default {
       BASE_DEF: 648,
     },
   },
+
+  // Version 2.2
   10000062: {
     NAME: 'Aloy',
     RARITY: 5,
@@ -821,6 +894,8 @@ export default {
       BASE_DEF: 750,
     },
   },
+
+  // Version 2.1
   10000056: {
     NAME: 'Kujou Sara',
     RARITY: 4,
@@ -856,6 +931,8 @@ export default {
       BASE_DEF: 789,
     },
   },
+
+  // Version 2.0
   10000053: {
     NAME: 'Sayu',
     RARITY: 4,
@@ -891,6 +968,8 @@ export default {
       BASE_DEF: 783,
     },
   },
+
+  // Version 1.6
   10000047: {
     NAME: 'Kaedehara Kazuha',
     RARITY: 5,
@@ -903,6 +982,8 @@ export default {
       BASE_DEF: 806,
     },
   },
+
+  // Version 1.5
   10000051: {
     NAME: 'Eula',
     RARITY: 5,
@@ -926,6 +1007,8 @@ export default {
       BASE_DEF: 586,
     },
   },
+
+  // Version 1.4
   10000045: {
     NAME: 'Rosaria',
     RARITY: 4,
@@ -937,6 +1020,8 @@ export default {
       BASE_DEF: 709,
     },
   },
+
+  // Version 1.3
   10000046: {
     NAME: 'Hu Tao',
     RARITY: 5,
@@ -961,6 +1046,8 @@ export default {
       BASE_DEF: 799,
     },
   },
+
+  // Version 1.2
   10000038: {
     NAME: 'Albedo',
     RARITY: 5,
@@ -984,6 +1071,8 @@ export default {
       BASE_DEF: 630,
     },
   },
+
+  // Version 1.1
   10000044: {
     NAME: 'Xinyan',
     RARITY: 4,
@@ -1030,6 +1119,8 @@ export default {
       BASE_DEF: 737,
     },
   },
+
+  // Version 1.0
   10000043: {
     NAME: 'Sucrose',
     RARITY: 4,

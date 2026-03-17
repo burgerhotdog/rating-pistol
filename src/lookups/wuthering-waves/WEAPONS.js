@@ -1,4 +1,5 @@
 export default {
+  // Version 3.1
   21040056: {
     NAME: 'Daybreaker\'s Spine',
     RARITY: 5,
@@ -15,6 +16,8 @@ export default {
       BASE_ATK: 588,
     },
   },
+
+  // Version 3.0
   21050045: {
     NAME: 'Boson Astrolabe',
     RARITY: 5,
@@ -71,6 +74,8 @@ export default {
       BASE_ATK: 588,
     },
   },
+
+  // Version 2.8
   21010056: {
     NAME: 'Kumokiri',
     RARITY: 5,
@@ -79,6 +84,8 @@ export default {
       BASE_ATK: 500,
     },
   },
+
+  // Version 2.7
   21030036: {
     NAME: 'Lux & Umbra',
     RARITY: 5,
@@ -95,6 +102,8 @@ export default {
       BASE_ATK: 588,
     },
   },
+
+  // Version 2.6
   21050104: {
     NAME: 'Radiant Dawn',
     RARITY: 4,
@@ -151,6 +160,8 @@ export default {
       BASE_ATK: 675,
     },
   },
+
+  // Version 2.5
   21050066: {
     NAME: 'Lethean Elegy',
     RARITY: 5,
@@ -159,6 +170,8 @@ export default {
       BASE_ATK: 588,
     },
   },
+
+  // Version 2.4
   21020056: {
     NAME: 'Defier\'s Thorn',
     RARITY: 5,
@@ -175,6 +188,8 @@ export default {
       BASE_ATK: 588,
     },
   },
+
+  // Version 2.3
   21040036: {
     NAME: 'Blazing Justice',
     RARITY: 5,
@@ -191,6 +206,8 @@ export default {
       BASE_ATK: 500,
     },
   },
+
+  // Version 2.2
   21050056: {
     NAME: 'Whispers of Sirens',
     RARITY: 5,
@@ -207,6 +224,8 @@ export default {
       BASE_ATK: 588,
     },
   },
+
+  // Version 2.1
   21050046: {
     NAME: 'Luminous Hymn',
     RARITY: 5,
@@ -231,6 +250,8 @@ export default {
       BASE_ATK: 413,
     },
   },
+
+  // Version 2.0
   21050094: {
     NAME: 'Waltz in Masquerade',
     RARITY: 4,
@@ -295,6 +316,8 @@ export default {
       BASE_ATK: 462,
     },
   },
+
+  // Version 1.4
   21020026: {
     NAME: 'Red Spring',
     RARITY: 5,
@@ -311,6 +334,8 @@ export default {
       BASE_ATK: 462,
     },
   },
+
+  // Version 1.3
   21050084: {
     NAME: 'Fusion Accretion',
     RARITY: 4,
@@ -359,6 +384,8 @@ export default {
       BASE_ATK: 462,
     },
   },
+
+  // Version 1.2
   21050026: {
     NAME: 'Rime-Draped Sprouts',
     RARITY: 5,
@@ -375,6 +402,8 @@ export default {
       BASE_ATK: 587,
     },
   },
+
+  // Version 1.1
   21020016: {
     NAME: 'Blazing Brilliance',
     RARITY: 5,
@@ -399,6 +428,8 @@ export default {
       BASE_ATK: 587,
     },
   },
+
+  // Version 1.0
   21050074: {
     NAME: 'Augment',
     RARITY: 4,

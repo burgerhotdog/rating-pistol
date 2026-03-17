@@ -1,4 +1,5 @@
 export default {
+  // Version 4.0
   1502: {
     NAME: 'Yao Guang',
     RARITY: 5,
@@ -23,6 +24,8 @@ export default {
       BASE_DEF: 461,
     },
   },
+
+  // Version 3.8
   1321: {
     NAME: 'The Dahlia',
     RARITY: 5,
@@ -35,6 +38,8 @@ export default {
       BASE_DEF: 606,
     },
   },
+
+  // Version 3.7
   1415: {
     NAME: 'Cyrene',
     RARITY: 5,
@@ -47,6 +52,8 @@ export default {
       BASE_DEF: 582,
     },
   },
+
+  // Version 3.6
   1414: {
     NAME: 'Dan Heng • Permansor Terrae',
     RARITY: 5,
@@ -71,6 +78,8 @@ export default {
       BASE_DEF: 582,
     },
   },
+
+  // Version 3.5
   1412: {
     NAME: 'Cerydra',
     RARITY: 5,
@@ -95,6 +104,8 @@ export default {
       BASE_DEF: 485,
     },
   },
+
+  // Version 3.4
   1408: {
     NAME: 'Phainon',
     RARITY: 5,
@@ -131,6 +142,8 @@ export default {
       BASE_DEF: 655,
     },
   },
+
+  // Version 3.3
   1409: {
     NAME: 'Hyacine',
     RARITY: 5,
@@ -155,6 +168,8 @@ export default {
       BASE_DEF: 509,
     },
   },
+
+  // Version 3.2
   1407: {
     NAME: 'Castorice',
     RARITY: 5,
@@ -179,6 +194,8 @@ export default {
       BASE_DEF: 558,
     },
   },
+
+  // Version 3.1
   1404: {
     NAME: 'Mydei',
     RARITY: 5,
@@ -203,6 +220,8 @@ export default {
       BASE_DEF: 728,
     },
   },
+
+  // Version 3.0
   1402: {
     NAME: 'Aglaea',
     RARITY: 5,
@@ -227,6 +246,8 @@ export default {
       BASE_DEF: 485,
     },
   },
+
+  // Version 2.7
   1313: {
     NAME: 'Sunday',
     RARITY: 5,
@@ -251,6 +272,8 @@ export default {
       BASE_DEF: 557,
     },
   },
+
+  // Version 2.6
   1317: {
     NAME: 'Rappa',
     RARITY: 5,
@@ -263,6 +286,8 @@ export default {
       BASE_DEF: 460,
     },
   },
+
+  // Version 2.5
   1223: {
     NAME: 'Moze',
     RARITY: 4,
@@ -298,6 +323,8 @@ export default {
       BASE_DEF: 388,
     },
   },
+
+  // Version 2.4
   1224: {
     NAME: 'March 7th (The Hunt)',
     RARITY: 4,
@@ -333,6 +360,8 @@ export default {
       BASE_DEF: 509,
     },
   },
+
+  // Version 2.3
   1314: {
     NAME: 'Jade',
     RARITY: 5,
@@ -357,6 +386,8 @@ export default {
       BASE_DEF: 776,
     },
   },
+
+  // Version 2.2
   1315: {
     NAME: 'Boothill',
     RARITY: 5,
@@ -381,6 +412,8 @@ export default {
       BASE_DEF: 485,
     },
   },
+
+  // Version 2.1
   1308: {
     NAME: 'Acheron',
     RARITY: 5,
@@ -416,6 +449,8 @@ export default {
       BASE_DEF: 441,
     },
   },
+
+  // Version 2.0
   1312: {
     NAME: 'Misha',
     RARITY: 4,
@@ -451,6 +486,8 @@ export default {
       BASE_DEF: 485,
     },
   },
+
+  // Version 1.6
   1305: {
     NAME: 'Dr. Ratio',
     RARITY: 5,
@@ -486,6 +523,8 @@ export default {
       BASE_DEF: 396,
     },
   },
+
+  // Version 1.5
   1302: {
     NAME: 'Argenti',
     RARITY: 5,
@@ -521,6 +560,8 @@ export default {
       BASE_DEF: 352,
     },
   },
+
+  // Version 1.4
   1212: {
     NAME: 'Jingliu',
     RARITY: 5,
@@ -556,6 +597,8 @@ export default {
       BASE_DEF: 412,
     },
   },
+
+  // Version 1.3
   1213: {
     NAME: 'Dan Heng • Imbibitor Lunae',
     RARITY: 5,
@@ -591,6 +634,8 @@ export default {
       BASE_DEF: 551,
     },
   },
+
+  // Version 1.2
   1205: {
     NAME: 'Blade',
     RARITY: 5,
@@ -626,6 +671,8 @@ export default {
       BASE_DEF: 485,
     },
   },
+
+  // Version 1.1
   1207: {
     NAME: 'Yukong',
     RARITY: 4,
@@ -661,6 +708,8 @@ export default {
       BASE_DEF: 460,
     },
   },
+
+  // Version 1.0
   1211: {
     NAME: 'Bailu',
     RARITY: 5,

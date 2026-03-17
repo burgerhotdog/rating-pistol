@@ -1,4 +1,5 @@
 export default {
+  // Version 4.0
   24006: {
     NAME: 'Elation Brimming With Blessings',
     RARITY: 5,
@@ -69,6 +70,8 @@ export default {
       BASE_DEF: 265,
     },
   },
+
+  // Version 3.8
   23050: {
     NAME: 'Never Forget Her Flame',
     RARITY: 5,
@@ -79,6 +82,8 @@ export default {
       BASE_DEF: 463,
     },
   },
+
+  // Version 3.7
   23052: {
     NAME: 'This Love, Forever',
     RARITY: 5,
@@ -99,6 +104,8 @@ export default {
       BASE_DEF: 397,
     },
   },
+
+  // Version 3.6
   23051: {
     NAME: 'Though Worlds Apart',
     RARITY: 5,
@@ -119,6 +126,8 @@ export default {
       BASE_DEF: 463,
     },
   },
+
+  // Version 3.5
   23048: {
     NAME: 'Epoch Etched in Golden Blood',
     RARITY: 5,
@@ -149,6 +158,8 @@ export default {
       BASE_DEF: 331,
     },
   },
+
+  // Version 3.4
   23046: {
     NAME: 'The Hell Where Ideals Burn',
     RARITY: 5,
@@ -269,6 +280,8 @@ export default {
       BASE_DEF: 529,
     },
   },
+
+  // Version 3.3
   23043: {
     NAME: 'Lies Dance on the Breeze',
     RARITY: 5,
@@ -289,6 +302,8 @@ export default {
       BASE_DEF: 529,
     },
   },
+
+  // Version 3.2
   23041: {
     NAME: 'Life Should Be Cast to Flames',
     RARITY: 5,
@@ -319,6 +334,8 @@ export default {
       BASE_DEF: 331,
     },
   },
+
+  // Version 3.1
   24005: {
     NAME: 'Memory\'s Curtain Never Falls',
     RARITY: 5,
@@ -349,6 +366,8 @@ export default {
       BASE_DEF: 397,
     },
   },
+
+  // Version 3.0
   23037: {
     NAME: 'Into the Unreachable Veil',
     RARITY: 5,
@@ -419,6 +438,8 @@ export default {
       BASE_DEF: 264,
     },
   },
+
+  // Version 2.7
   23035: {
     NAME: 'Long Road Leads Home',
     RARITY: 5,
@@ -439,6 +460,8 @@ export default {
       BASE_DEF: 529,
     },
   },
+
+  // Version 2.6
   23033: {
     NAME: 'Ninjutsu Inscription: Dazzling Evilbreaker',
     RARITY: 5,
@@ -469,6 +492,8 @@ export default {
       BASE_DEF: 396,
     },
   },
+
+  // Version 2.5
   23032: {
     NAME: 'Scent Alone Stays True',
     RARITY: 5,
@@ -499,6 +524,8 @@ export default {
       BASE_DEF: 396,
     },
   },
+
+  // Version 2.4
   23030: {
     NAME: 'Dance at Sunset',
     RARITY: 5,
@@ -529,6 +556,8 @@ export default {
       BASE_DEF: 396,
     },
   },
+
+  // Version 2.3
   24004: {
     NAME: 'Eternal Calculus',
     RARITY: 5,
@@ -569,6 +598,8 @@ export default {
       BASE_DEF: 396,
     },
   },
+
+  // Version 2.2
   23027: {
     NAME: 'Sailing Towards A Second Life',
     RARITY: 5,
@@ -609,6 +640,8 @@ export default {
       BASE_DEF: 330,
     },
   },
+
+  // Version 2.1
   23024: {
     NAME: 'Along the Passing Shore',
     RARITY: 5,
@@ -639,6 +672,8 @@ export default {
       BASE_DEF: 463,
     },
   },
+
+  // Version 2.0
   23022: {
     NAME: 'Reforged Remembrance',
     RARITY: 5,
@@ -739,6 +774,8 @@ export default {
       BASE_DEF: 330,
     },
   },
+
+  // Version 1.6
   23020: {
     NAME: 'Baptism of Pure Thought',
     RARITY: 5,
@@ -759,6 +796,8 @@ export default {
       BASE_DEF: 529,
     },
   },
+
+  // Version 1.5
   23018: {
     NAME: 'An Instant Before A Gaze',
     RARITY: 5,
@@ -789,6 +828,8 @@ export default {
       BASE_DEF: 396,
     },
   },
+
+  // Version 1.4
   23016: {
     NAME: 'Worrisome, Blissful',
     RARITY: 5,
@@ -809,6 +850,8 @@ export default {
       BASE_DEF: 396,
     },
   },
+
+  // Version 1.3
   24003: {
     NAME: 'Solitary Healing',
     RARITY: 5,
@@ -839,6 +882,8 @@ export default {
       BASE_DEF: 529,
     },
   },
+
+  // Version 1.2
   23009: {
     NAME: 'The Unreachable Side',
     RARITY: 5,
@@ -859,6 +904,8 @@ export default {
       BASE_DEF: 463,
     },
   },
+
+  // Version 1.1
   23008: {
     NAME: 'Echoes of the Coffin',
     RARITY: 5,
@@ -889,6 +936,8 @@ export default {
       BASE_DEF: 330,
     },
   },
+
+  // Version 1.0
   24002: {
     NAME: 'Texture of Memories',
     RARITY: 5,
