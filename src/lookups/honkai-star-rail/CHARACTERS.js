@@ -5,11 +5,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Elation',
-    SIGNATURE: 23054,
+    SIGNATURE: '23054',
     BASE_STATS: {
       BASE_HP: 1242,
       BASE_ATK: 466,
       BASE_DEF: 655,
+      BASE_SPD: 101,
     },
   },
   1501: {
@@ -17,11 +18,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fire',
     TYPE: 'Elation',
-    SIGNATURE: 23053,
+    SIGNATURE: '23053',
     BASE_STATS: {
       BASE_HP: 1048,
       BASE_ATK: 640,
       BASE_DEF: 461,
+      BASE_SPD: 107,
     },
   },
 
@@ -31,11 +33,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
-    SIGNATURE: 23050,
+    SIGNATURE: '23050',
     BASE_STATS: {
       BASE_HP: 1087,
       BASE_ATK: 679,
       BASE_DEF: 606,
+      BASE_SPD: 96,
     },
   },
 
@@ -45,11 +48,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Ice',
     TYPE: 'Remembrance',
-    SIGNATURE: 23052,
+    SIGNATURE: '23052',
     BASE_STATS: {
       BASE_HP: 1397,
       BASE_ATK: 446,
       BASE_DEF: 582,
+      BASE_SPD: 101,
     },
   },
 
@@ -59,11 +63,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Preservation',
-    SIGNATURE: 23051,
+    SIGNATURE: '23051',
     BASE_STATS: {
       BASE_HP: 1048,
       BASE_ATK: 582,
       BASE_DEF: 776,
+      BASE_SPD: 97,
     },
   },
   1413: {
@@ -71,11 +76,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Ice',
     TYPE: 'Remembrance',
-    SIGNATURE: 23049,
+    SIGNATURE: '23049',
     BASE_STATS: {
       BASE_HP: 1319,
       BASE_ATK: 543,
       BASE_DEF: 582,
+      BASE_SPD: 99,
     },
   },
 
@@ -85,11 +91,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Harmony',
-    SIGNATURE: 23048,
+    SIGNATURE: '23048',
     BASE_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 621,
       BASE_DEF: 485,
+      BASE_SPD: 99,
     },
   },
   1410: {
@@ -97,11 +104,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Nihility',
-    SIGNATURE: 23047,
+    SIGNATURE: '23047',
     BASE_STATS: {
       BASE_HP:  1203,
       BASE_ATK: 602,
       BASE_DEF: 485,
+      BASE_SPD: 102,
     },
   },
 
@@ -111,11 +119,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
-    SIGNATURE: 23044,
+    SIGNATURE: '23044',
     BASE_STATS: {
       BASE_HP:  1436,
       BASE_ATK: 582,
       BASE_DEF: 703,
+      BASE_SPD: 94,
     },
   },
   1015: {
@@ -123,11 +132,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Hunt',
-    SIGNATURE: 23046,
+    SIGNATURE: '23046',
     BASE_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 621,
       BASE_DEF: 485,
+      BASE_SPD: 105,
     },
   },
   1014: {
@@ -135,11 +145,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Destruction',
-    SIGNATURE: 23045,
+    SIGNATURE: '23045',
     BASE_STATS: {
       BASE_HP:  1242,
       BASE_ATK: 602,
       BASE_DEF: 655,
+      BASE_SPD: 101,
     },
   },
 
@@ -149,11 +160,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Remembrance',
-    SIGNATURE: 23042,
+    SIGNATURE: '23042',
     BASE_STATS: {
       BASE_HP:  1087,
       BASE_ATK: 388,
       BASE_DEF: 631,
+      BASE_SPD: 110,
     },
   },
   1406: {
@@ -161,11 +173,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Nihility',
-    SIGNATURE: 23043,
+    SIGNATURE: '23043',
     BASE_STATS: {
       BASE_HP:  931,
       BASE_ATK: 640,
       BASE_DEF: 509,
+      BASE_SPD: 106,
     },
   },
 
@@ -175,11 +188,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Remembrance',
-    SIGNATURE: 23040,
+    SIGNATURE: '23040',
     BASE_STATS: {
       BASE_HP:  1630,
       BASE_ATK: 524,
       BASE_DEF: 485,
+      BASE_SPD: 95,
     },
   },
   1405: {
@@ -187,11 +201,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Erudition',
-    SIGNATURE: 23041,
+    SIGNATURE: '23041',
     BASE_STATS: {
       BASE_HP:  970,
       BASE_ATK: 757,
       BASE_DEF: 558,
+      BASE_SPD: 97,
     },
   },
 
@@ -201,11 +216,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Imaginary',
     TYPE: 'Destruction',
-    SIGNATURE: 23039,
+    SIGNATURE: '23039',
     BASE_STATS: {
       BASE_HP:  1552,
       BASE_ATK: 427,
       BASE_DEF: 194,
+      BASE_SPD: 95,
     },
   },
   1403: {
@@ -213,11 +229,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Harmony',
-    SIGNATURE: 23038,
+    SIGNATURE: '23038',
     BASE_STATS: {
       BASE_HP:  1048,
       BASE_ATK: 524,
       BASE_DEF: 728,
+      BASE_SPD: 96,
     },
   },
 
@@ -227,11 +244,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Lightning',
     TYPE: 'Remembrance',
-    SIGNATURE: 23036,
+    SIGNATURE: '23036',
     BASE_STATS: {
       BASE_HP:  1242,
       BASE_ATK: 699,
       BASE_DEF: 485,
+      BASE_SPD: 102,
     },
   },
   1401: {
@@ -239,11 +257,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Ice',
     TYPE: 'Erudition',
-    SIGNATURE: 23037,
+    SIGNATURE: '23037',
     BASE_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 679,
       BASE_DEF: 485,
+      BASE_SPD: 99,
     },
   },
 
@@ -253,11 +272,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Imaginary',
     TYPE: 'Harmony',
-    SIGNATURE: 23034,
+    SIGNATURE: '23034',
     BASE_STATS: {
       BASE_HP:  1241,
       BASE_ATK: 640,
       BASE_DEF: 533,
+      BASE_SPD: 96,
     },
   },
   1225: {
@@ -265,11 +285,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
-    SIGNATURE: 23035,
+    SIGNATURE: '23035',
     BASE_STATS: {
       BASE_HP:  1125,
       BASE_ATK: 582,
       BASE_DEF: 557,
+      BASE_SPD: 102,
     },
   },
 
@@ -279,11 +300,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Imaginary',
     TYPE: 'Erudition',
-    SIGNATURE: 23033,
+    SIGNATURE: '23033',
     BASE_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 717,
       BASE_DEF: 460,
+      BASE_SPD: 96,
     },
   },
 
@@ -297,6 +319,7 @@ export default {
       BASE_HP:  811,
       BASE_ATK: 599,
       BASE_DEF: 352,
+      BASE_SPD: 111,
     },
   },
   1222: {
@@ -304,11 +327,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fire',
     TYPE: 'Abundance',
-    SIGNATURE: 23032,
+    SIGNATURE: '23032',
     BASE_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 679,
       BASE_DEF: 436,
+      BASE_SPD: 98,
     },
   },
   1220: {
@@ -316,11 +340,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Hunt',
-    SIGNATURE: 23031,
+    SIGNATURE: '23031',
     BASE_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 601,
       BASE_DEF: 388,
+      BASE_SPD: 112,
     },
   },
 
@@ -334,6 +359,7 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 564,
       BASE_DEF: 441,
+      BASE_SPD: 102,
     },
   },
   1221: {
@@ -341,11 +367,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
-    SIGNATURE: 23030,
+    SIGNATURE: '23030',
     BASE_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 679,
       BASE_DEF: 460,
+      BASE_SPD: 94,
     },
   },
   1218: {
@@ -353,11 +380,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
-    SIGNATURE: 23029,
+    SIGNATURE: '23029',
     BASE_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 601,
       BASE_DEF: 509,
+      BASE_SPD: 98,
     },
   },
 
@@ -367,11 +395,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Erudition',
-    SIGNATURE: 23028,
+    SIGNATURE: '23028',
     BASE_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 659,
       BASE_DEF: 509,
+      BASE_SPD: 103,
     },
   },
   1310: {
@@ -379,11 +408,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fire',
     TYPE: 'Destruction',
-    SIGNATURE: 23025,
+    SIGNATURE: '23025',
     BASE_STATS: {
       BASE_HP:  814,
       BASE_ATK: 523,
       BASE_DEF: 776,
+      BASE_SPD: 104,
     },
   },
 
@@ -393,11 +423,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Hunt',
-    SIGNATURE: 23027,
+    SIGNATURE: '23027',
     BASE_STATS: {
       BASE_HP:  1203,
       BASE_ATK: 620,
       BASE_DEF: 436,
+      BASE_SPD: 107,
     },
   },
   1309: {
@@ -405,11 +436,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Harmony',
-    SIGNATURE: 23026,
+    SIGNATURE: '23026',
     BASE_STATS: {
       BASE_HP:  1280,
       BASE_ATK: 640,
       BASE_DEF: 485,
+      BASE_SPD: 102,
     },
   },
 
@@ -419,11 +451,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Lightning',
     TYPE: 'Nihility',
-    SIGNATURE: 23024,
+    SIGNATURE: '23024',
     BASE_STATS: {
       BASE_HP:  1125,
       BASE_ATK: 698,
       BASE_DEF: 436,
+      BASE_SPD: 101,
     },
   },
   1304: {
@@ -431,11 +464,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Imaginary',
     TYPE: 'Preservation',
-    SIGNATURE: 23023,
+    SIGNATURE: '23023',
     BASE_STATS: {
       BASE_HP:  1203,
       BASE_ATK: 446,
       BASE_DEF: 654,
+      BASE_SPD: 106,
     },
   },
   1301: {
@@ -447,6 +481,7 @@ export default {
       BASE_HP:  1305,
       BASE_ATK: 529,
       BASE_DEF: 441,
+      BASE_SPD: 98,
     },
   },
 
@@ -460,6 +495,7 @@ export default {
       BASE_HP:  1270,
       BASE_ATK: 599,
       BASE_DEF: 396,
+      BASE_SPD: 96,
     },
   },
   1307: {
@@ -467,11 +503,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Nihility',
-    SIGNATURE: 23022,
+    SIGNATURE: '23022',
     BASE_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 659,
       BASE_DEF: 485,
+      BASE_SPD: 102,
     },
   },
   1306: {
@@ -479,11 +516,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Harmony',
-    SIGNATURE: 23021,
+    SIGNATURE: '23021',
     BASE_STATS: {
       BASE_HP:  1397,
       BASE_ATK: 523,
       BASE_DEF: 485,
+      BASE_SPD: 101,
     },
   },
 
@@ -493,11 +531,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Imaginary',
     TYPE: 'Hunt',
-    SIGNATURE: 23020,
+    SIGNATURE: '23020',
     BASE_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 776,
       BASE_DEF: 460,
+      BASE_SPD: 103,
     },
   },
   1303: {
@@ -505,11 +544,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Ice',
     TYPE: 'Harmony',
-    SIGNATURE: 23019,
+    SIGNATURE: '23019',
     BASE_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 659,
       BASE_DEF: 485,
+      BASE_SPD: 104,
     },
   },
   1214: {
@@ -521,6 +561,7 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 599,
       BASE_DEF: 396,
+      BASE_SPD: 103,
     },
   },
 
@@ -530,11 +571,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Erudition',
-    SIGNATURE: 23018,
+    SIGNATURE: '23018',
     BASE_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 737,
       BASE_DEF: 363,
+      BASE_SPD: 103,
     },
   },
   1217: {
@@ -542,11 +584,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Abundance',
-    SIGNATURE: 23017,
+    SIGNATURE: '23017',
     BASE_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 601,
       BASE_DEF: 509,
+      BASE_SPD: 98,
     },
   },
   1215: {
@@ -558,6 +601,7 @@ export default {
       BASE_HP:  917,
       BASE_ATK: 564,
       BASE_DEF: 352,
+      BASE_SPD: 110,
     },
   },
 
@@ -567,11 +611,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Ice',
     TYPE: 'Destruction',
-    SIGNATURE: 23014,
+    SIGNATURE: '23014',
     BASE_STATS: {
       BASE_HP:  1435,
       BASE_ATK: 679,
       BASE_DEF: 485,
+      BASE_SPD: 96,
     },
   },
   1210: {
@@ -583,6 +628,7 @@ export default {
       BASE_HP:  882,
       BASE_ATK: 582,
       BASE_DEF: 441,
+      BASE_SPD: 106,
     },
   },
   1112: {
@@ -590,11 +636,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fire',
     TYPE: 'Hunt',
-    SIGNATURE: 23016,
+    SIGNATURE: '23016',
     BASE_STATS: {
       BASE_HP:  931,
       BASE_ATK: 620,
       BASE_DEF: 412,
+      BASE_SPD: 110,
     },
   },
 
@@ -604,11 +651,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Imaginary',
     TYPE: 'Destruction',
-    SIGNATURE: 23015,
+    SIGNATURE: '23015',
     BASE_STATS: {
       BASE_HP:  1241,
       BASE_ATK: 698,
       BASE_DEF: 363,
+      BASE_SPD: 102,
     },
   },
   1208: {
@@ -616,11 +664,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Preservation',
-    SIGNATURE: 23011,
+    SIGNATURE: '23011',
     BASE_STATS: {
       BASE_HP:  1474,
       BASE_ATK: 465,
       BASE_DEF: 606,
+      BASE_SPD: 100,
     },
   },
   1110: {
@@ -632,6 +681,7 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 493,
       BASE_DEF: 551,
+      BASE_SPD: 100,
     },
   },
 
@@ -641,11 +691,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Destruction',
-    SIGNATURE: 23009,
+    SIGNATURE: '23009',
     BASE_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 543,
       BASE_DEF: 485,
+      BASE_SPD: 97,
     },
   },
   1111: {
@@ -657,6 +708,7 @@ export default {
       BASE_HP:  917,
       BASE_ATK: 582,
       BASE_DEF: 485,
+      BASE_SPD: 103,
     },
   },
   1005: {
@@ -664,11 +716,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Lightning',
     TYPE: 'Nihility',
-    SIGNATURE: 23006,
+    SIGNATURE: '23006',
     BASE_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 679,
       BASE_DEF: 485,
+      BASE_SPD: 100,
     },
   },
 
@@ -682,6 +735,7 @@ export default {
       BASE_HP:  917,
       BASE_ATK: 599,
       BASE_DEF: 374,
+      BASE_SPD: 107,
     },
   },
   1203: {
@@ -689,11 +743,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Imaginary',
     TYPE: 'Abundance',
-    SIGNATURE: 23008,
+    SIGNATURE: '23008',
     BASE_STATS: {
       BASE_HP:  1280,
       BASE_ATK: 756,
       BASE_DEF: 363,
+      BASE_SPD: 101,
     },
   },
   1006: {
@@ -701,11 +756,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Nihility',
-    SIGNATURE: 23007,
+    SIGNATURE: '23007',
     BASE_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 640,
       BASE_DEF: 460,
+      BASE_SPD: 107,
     },
   },
 
@@ -715,11 +771,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Lightning',
     TYPE: 'Abundance',
-    SIGNATURE: 23013,
+    SIGNATURE: '23013',
     BASE_STATS: {
       BASE_HP:  1319,
       BASE_ATK: 562,
       BASE_DEF: 485,
+      BASE_SPD: 98,
     },
   },
   1209: {
@@ -727,11 +784,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Ice',
     TYPE: 'Hunt',
-    SIGNATURE: 23012,
+    SIGNATURE: '23012',
     BASE_STATS: {
       BASE_HP:  892,
       BASE_ATK: 679,
       BASE_DEF: 412,
+      BASE_SPD: 109,
     },
   },
   1206: {
@@ -743,6 +801,7 @@ export default {
       BASE_HP:  917,
       BASE_ATK: 564,
       BASE_DEF: 418,
+      BASE_SPD: 107,
     },
   },
   1204: {
@@ -750,11 +809,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Lightning',
     TYPE: 'Erudition',
-    SIGNATURE: 23010,
+    SIGNATURE: '23010',
     BASE_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 698,
       BASE_DEF: 485,
+      BASE_SPD: 99,
     },
   },
   1202: {
@@ -766,6 +826,7 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 529,
       BASE_DEF: 396,
+      BASE_SPD: 112,
     },
   },
   1201: {
@@ -777,6 +838,7 @@ export default {
       BASE_HP:  1023,
       BASE_ATK: 652,
       BASE_DEF: 441,
+      BASE_SPD: 98,
     },
   },
   1109: {
@@ -788,6 +850,7 @@ export default {
       BASE_HP:  1340,
       BASE_ATK: 617,
       BASE_DEF: 352,
+      BASE_SPD: 94,
     },
   },
   1108: {
@@ -799,6 +862,7 @@ export default {
       BASE_HP:  1023,
       BASE_ATK: 617,
       BASE_DEF: 396,
+      BASE_SPD: 102,
     },
   },
   1107: {
@@ -806,11 +870,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
-    SIGNATURE: 23002,
+    SIGNATURE: '23002',
     BASE_STATS: {
       BASE_HP:  1241,
       BASE_ATK: 737,
       BASE_DEF: 485,
+      BASE_SPD: 90,
     },
   },
   1106: {
@@ -822,6 +887,7 @@ export default {
       BASE_HP:  987,
       BASE_ATK: 546,
       BASE_DEF: 463,
+      BASE_SPD: 105,
     },
   },
   1105: {
@@ -833,6 +899,7 @@ export default {
       BASE_HP:  1164,
       BASE_ATK: 476,
       BASE_DEF: 507,
+      BASE_SPD: 98,
     },
   },
   1104: {
@@ -840,11 +907,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Ice',
     TYPE: 'Preservation',
-    SIGNATURE: 23005,
+    SIGNATURE: '23005',
     BASE_STATS: {
       BASE_HP:  1397,
       BASE_ATK: 543,
       BASE_DEF: 654,
+      BASE_SPD: 92,
     },
   },
   1103: {
@@ -856,6 +924,7 @@ export default {
       BASE_HP:  917,
       BASE_ATK: 652,
       BASE_DEF: 374,
+      BASE_SPD: 104,
     },
   },
   1102: {
@@ -863,11 +932,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Quantum',
     TYPE: 'Hunt',
-    SIGNATURE: 23001,
+    SIGNATURE: '23001',
     BASE_STATS: {
       BASE_HP:  931,
       BASE_ATK: 640,
       BASE_DEF: 363,
+      BASE_SPD: 115,
     },
   },
   1101: {
@@ -875,11 +945,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Wind',
     TYPE: 'Harmony',
-    SIGNATURE: 23003,
+    SIGNATURE: '23003',
     BASE_STATS: {
       BASE_HP:  1241,
       BASE_ATK: 582,
       BASE_DEF: 533,
+      BASE_SPD: 99,
     },
   },
   1013: {
@@ -891,6 +962,7 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 582,
       BASE_DEF: 396,
+      BASE_SPD: 100,
     },
   },
   1009: {
@@ -902,6 +974,7 @@ export default {
       BASE_HP:  1023,
       BASE_ATK: 511,
       BASE_DEF: 463,
+      BASE_SPD: 106,
     },
   },
   1008: {
@@ -913,6 +986,7 @@ export default {
       BASE_HP:  1199,
       BASE_ATK: 599,
       BASE_DEF: 330,
+      BASE_SPD: 102,
     },
   },
   1004: {
@@ -920,11 +994,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Imaginary',
     TYPE: 'Nihility',
-    SIGNATURE: 23004,
+    SIGNATURE: '23004',
     BASE_STATS: {
       BASE_HP:  1125,
       BASE_ATK: 620,
       BASE_DEF: 509,
+      BASE_SPD: 102,
     },
   },
   1003: {
@@ -932,11 +1007,12 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fire',
     TYPE: 'Erudition',
-    SIGNATURE: 23000,
+    SIGNATURE: '23000',
     BASE_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 756,
       BASE_DEF: 436,
+      BASE_SPD: 96,
     },
   },
   1002: {
@@ -948,6 +1024,7 @@ export default {
       BASE_HP:  882,
       BASE_ATK: 546,
       BASE_DEF: 396,
+      BASE_SPD: 110,
     },
   },
   1001: {
@@ -959,6 +1036,7 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 511,
       BASE_DEF: 573,
+      BASE_SPD: 101,
     },
   },
 };

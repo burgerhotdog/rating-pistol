@@ -7,6 +7,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14149: {
     NAME: 'Thoughtbop',
@@ -14,6 +20,12 @@ export default {
     TYPE: 'Support',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -25,6 +37,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 743,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14134: {
     NAME: 'Half-Sugar Bunny',
@@ -33,6 +51,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13019: {
     NAME: 'Cauldron of Clarity',
@@ -40,6 +64,12 @@ export default {
     TYPE: 'Rupture',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -51,6 +81,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14147: {
     NAME: 'Wrathful Vajra',
@@ -58,6 +94,12 @@ export default {
     TYPE: 'Rupture',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -69,6 +111,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14105: {
     NAME: 'Kraken\'s Cradle',
@@ -77,6 +125,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13144: {
     NAME: 'Grill O\'Wisp',
@@ -84,6 +138,12 @@ export default {
     TYPE: 'Rupture',
     BASE_STATS: {
       BASE_ATK: 624,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -95,6 +155,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14130: {
     NAME: 'Bellicose Blaze',
@@ -102,6 +168,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -113,6 +185,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14140: {
     NAME: 'Practiced Perfection',
@@ -120,6 +198,12 @@ export default {
     TYPE: 'Anomaly',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -131,6 +215,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14137: {
     NAME: 'Qingming Birdcage',
@@ -138,6 +228,12 @@ export default {
     TYPE: 'Rupture',
     BASE_STATS: {
       BASE_ATK: 743,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13142: {
@@ -147,6 +243,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 624,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13016: {
     NAME: 'Reel Projector',
@@ -154,6 +256,12 @@ export default {
     TYPE: 'Defense',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13014: {
@@ -163,6 +271,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13012: {
     NAME: 'Puzzle Sphere',
@@ -171,6 +285,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12015: {
     NAME: '[Cinder] Cobalt',
@@ -178,6 +298,12 @@ export default {
     TYPE: 'Rupture',
     BASE_STATS: {
       BASE_ATK: 475,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -189,6 +315,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14129: {
     NAME: 'Myriad Eclipse',
@@ -196,6 +328,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -207,6 +345,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14136: {
     NAME: 'Spectral Gaze',
@@ -215,6 +359,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13135: {
     NAME: 'Box Cutter',
@@ -222,6 +372,12 @@ export default {
     TYPE: 'Stun',
     BASE_STATS: {
       BASE_ATK: 624,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -233,6 +389,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14131: {
     NAME: 'Elegant Vanity',
@@ -240,6 +402,12 @@ export default {
     TYPE: 'Support',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -251,6 +419,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14109: {
     NAME: 'Hailstorm Shrine',
@@ -259,6 +433,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 743,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13015: {
     NAME: 'Marcato Desire',
@@ -266,6 +446,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -277,6 +463,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14116: {
     NAME: 'Blazing Laurel',
@@ -284,6 +476,12 @@ export default {
     TYPE: 'Stun',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -295,6 +493,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14107: {
     NAME: 'Tusks of Fury',
@@ -302,6 +506,12 @@ export default {
     TYPE: 'Defense',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -313,6 +523,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14125: {
     NAME: 'Ice-Jade Teapot',
@@ -320,6 +536,12 @@ export default {
     TYPE: 'Stun',
     BASE_STATS: {
       BASE_ATK: 713,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13127: {
@@ -329,6 +551,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 624,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13013: {
     NAME: 'Gilded Blossom',
@@ -336,6 +564,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -347,6 +581,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14121: {
     NAME: 'Weeping Cradle',
@@ -354,6 +594,12 @@ export default {
     TYPE: 'Support',
     BASE_STATS: {
       BASE_ATK: 684,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14119: {
@@ -363,6 +609,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 713,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14118: {
     NAME: 'Fusion Compiler',
@@ -370,6 +622,12 @@ export default {
     TYPE: 'Anomaly',
     BASE_STATS: {
       BASE_ATK: 684,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14114: {
@@ -379,6 +637,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 684,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14110: {
     NAME: 'Hellfire Gears',
@@ -386,6 +650,12 @@ export default {
     TYPE: 'Stun',
     BASE_STATS: {
       BASE_ATK: 684,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14104: {
@@ -395,6 +665,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 684,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14102: {
     NAME: 'Steel Cushion',
@@ -402,6 +678,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 684,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14003: {
@@ -411,6 +693,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14002: {
     NAME: 'Unfettered Game Ball',
@@ -418,6 +706,12 @@ export default {
     TYPE: 'Support',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14001: {
@@ -427,6 +721,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13128: {
     NAME: 'Roaring Ride',
@@ -434,6 +734,12 @@ export default {
     TYPE: 'Anomaly',
     BASE_STATS: {
       BASE_ATK: 624,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13115: {
@@ -443,6 +749,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 624,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13113: {
     NAME: 'Bashful Demon',
@@ -450,6 +762,12 @@ export default {
     TYPE: 'Support',
     BASE_STATS: {
       BASE_ATK: 624,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13112: {
@@ -459,6 +777,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 624,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13111: {
     NAME: 'Drill Rig - Red Axis',
@@ -466,6 +790,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 624,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13108: {
@@ -475,6 +805,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 624,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13106: {
     NAME: 'Housekeeper',
@@ -482,6 +818,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 624,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13103: {
@@ -491,6 +833,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 624,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13101: {
     NAME: 'Demara Battery Mark II',
@@ -498,6 +846,12 @@ export default {
     TYPE: 'Stun',
     BASE_STATS: {
       BASE_ATK: 624,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13011: {
@@ -507,6 +861,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13010: {
     NAME: 'Bunny Band',
@@ -514,6 +874,12 @@ export default {
     TYPE: 'Defense',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13009: {
@@ -523,6 +889,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13008: {
     NAME: 'Weeping Gemini',
@@ -530,6 +902,12 @@ export default {
     TYPE: 'Anomaly',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13007: {
@@ -539,6 +917,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13006: {
     NAME: 'Precious Fossilized Core',
@@ -546,6 +930,12 @@ export default {
     TYPE: 'Stun',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13005: {
@@ -555,6 +945,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13004: {
     NAME: 'Starlight Engine',
@@ -562,6 +958,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13003: {
@@ -571,6 +973,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13002: {
     NAME: 'Slice of Time',
@@ -578,6 +986,12 @@ export default {
     TYPE: 'Support',
     BASE_STATS: {
       BASE_ATK: 594,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13001: {
@@ -587,6 +1001,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 594,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12014: {
     NAME: '[Identity] Inflection',
@@ -594,6 +1014,12 @@ export default {
     TYPE: 'Defense',
     BASE_STATS: {
       BASE_ATK: 475,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12013: {
@@ -603,6 +1029,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 475,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12012: {
     NAME: '[Magnetic Storm] Charlie',
@@ -610,6 +1042,12 @@ export default {
     TYPE: 'Anomaly',
     BASE_STATS: {
       BASE_ATK: 475,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12011: {
@@ -619,6 +1057,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 475,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12010: {
     NAME: '[Magnetic Storm] Alpha',
@@ -626,6 +1070,12 @@ export default {
     TYPE: 'Anomaly',
     BASE_STATS: {
       BASE_ATK: 475,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12009: {
@@ -635,6 +1085,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 475,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12008: {
     NAME: '[Vortex] Arrow',
@@ -642,6 +1098,12 @@ export default {
     TYPE: 'Stun',
     BASE_STATS: {
       BASE_ATK: 475,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12007: {
@@ -651,6 +1113,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 475,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12006: {
     NAME: '[Reverb] Mark III',
@@ -658,6 +1126,12 @@ export default {
     TYPE: 'Support',
     BASE_STATS: {
       BASE_ATK: 475,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12005: {
@@ -667,6 +1141,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 475,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12004: {
     NAME: '[Reverb] Mark I',
@@ -674,6 +1154,12 @@ export default {
     TYPE: 'Support',
     BASE_STATS: {
       BASE_ATK: 475,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12003: {
@@ -683,6 +1169,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 475,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12002: {
     NAME: '[Lunar] Decrescent',
@@ -690,6 +1182,12 @@ export default {
     TYPE: 'Attack',
     BASE_STATS: {
       BASE_ATK: 475,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12001: {

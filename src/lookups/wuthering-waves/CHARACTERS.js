@@ -5,7 +5,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Spectro',
     TYPE: 'Gauntlets',
-    SIGNATURE: 21040056,
+    SIGNATURE: '21040056',
     BASE_STATS: {
       BASE_HP: 10300,
       BASE_ATK: 463,
@@ -17,7 +17,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
-    SIGNATURE: 21020076,
+    SIGNATURE: '21020076',
     BASE_STATS: {
       BASE_HP: 11025,
       BASE_ATK: 425,
@@ -31,7 +31,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Spectro',
     TYPE: 'Pistols',
-    SIGNATURE: 21030046,
+    SIGNATURE: '21030046',
     BASE_STATS: {
       BASE_HP: 12238,
       BASE_ATK: 375,
@@ -43,7 +43,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fusion',
     TYPE: 'Broadblade',
-    SIGNATURE: 21010066,
+    SIGNATURE: '21010066',
     BASE_STATS: {
       BASE_HP: 15375,
       BASE_ATK: 288,
@@ -57,7 +57,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Havoc',
     TYPE: 'Broadblade',
-    SIGNATURE: 21010056,
+    SIGNATURE: '21010056',
     BASE_STATS: {
       BASE_HP: 10775,
       BASE_ATK: 438,
@@ -82,7 +82,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Aero',
     TYPE: 'Sword',
-    SIGNATURE: 21020066,
+    SIGNATURE: '21020066',
     BASE_STATS: {
       BASE_HP: 12238,
       BASE_ATK: 375,
@@ -94,7 +94,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fusion',
     TYPE: 'Pistols',
-    SIGNATURE: 21030036,
+    SIGNATURE: '21030036',
     BASE_STATS: {
       BASE_HP: 10300,
       BASE_ATK: 463,
@@ -108,7 +108,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Aero',
     TYPE: 'Gauntlets',
-    SIGNATURE: 21040046,
+    SIGNATURE: '21040046',
     BASE_STATS: {
       BASE_HP:  10525,
       BASE_ATK: 450,
@@ -120,7 +120,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Broadblade',
-    SIGNATURE: 21010046,
+    SIGNATURE: '21010046',
     BASE_STATS: {
       BASE_HP:  10300,
       BASE_ATK: 463,
@@ -134,7 +134,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Havoc',
     TYPE: 'Rectifier',
-    SIGNATURE: 21050066,
+    SIGNATURE: '21050066',
     BASE_STATS: {
       BASE_HP:  10775,
       BASE_ATK: 438,
@@ -148,7 +148,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Aero',
     TYPE: 'Sword',
-    SIGNATURE: 21020056,
+    SIGNATURE: '21020056',
     BASE_STATS: {
       BASE_HP:  14800,
       BASE_ATK: 313,
@@ -160,7 +160,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fusion',
     TYPE: 'Broadblade',
-    SIGNATURE: 21010036,
+    SIGNATURE: '21010036',
     BASE_STATS: {
       BASE_HP:  11913,
       BASE_ATK: 388,
@@ -174,7 +174,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Spectro',
     TYPE: 'Gauntlets',
-    SIGNATURE: 21040036,
+    SIGNATURE: '21040036',
     BASE_STATS: {
       BASE_HP:  10775,
       BASE_ATK: 438,
@@ -186,7 +186,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Aero',
     TYPE: 'Pistols',
-    SIGNATURE: 21030026,
+    SIGNATURE: '21030026',
     BASE_STATS: {
       BASE_HP:  12238,
       BASE_ATK: 375,
@@ -200,7 +200,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Havoc',
     TYPE: 'Rectifier',
-    SIGNATURE: 21050056,
+    SIGNATURE: '21050056',
     BASE_STATS: {
       BASE_HP:  11600,
       BASE_ATK: 400,
@@ -214,7 +214,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Spectro',
     TYPE: 'Rectifier',
-    SIGNATURE: 21050046,
+    SIGNATURE: '21050046',
     BASE_STATS: {
       BASE_HP:  10825,
       BASE_ATK: 413,
@@ -226,7 +226,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
-    SIGNATURE: 21020036,
+    SIGNATURE: '21020036',
     BASE_STATS: {
       BASE_HP:  11675,
       BASE_ATK: 375,
@@ -240,7 +240,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Havoc',
     TYPE: 'Gauntlets',
-    SIGNATURE: 21040026,
+    SIGNATURE: '21040026',
     BASE_STATS: {
       BASE_HP:  12250,
       BASE_ATK: 375,
@@ -252,7 +252,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Glacio',
     TYPE: 'Pistols',
-    SIGNATURE: 21030016,
+    SIGNATURE: '21030016',
     BASE_STATS: {
       BASE_HP:  12450,
       BASE_ATK: 463,
@@ -266,7 +266,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Havoc',
     TYPE: 'Sword',
-    SIGNATURE: 21020026,
+    SIGNATURE: '21020026',
     BASE_STATS: {
       BASE_HP:  10325,
       BASE_ATK: 450,
@@ -291,7 +291,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Spectro',
     TYPE: 'Rectifier',
-    SIGNATURE: 21050036,
+    SIGNATURE: '21050036',
     BASE_STATS: {
       BASE_HP:  16713,
       BASE_ATK: 288,
@@ -316,7 +316,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Gauntlets',
-    SIGNATURE: 21040016,
+    SIGNATURE: '21040016',
     BASE_STATS: {
       BASE_HP:  10625,
       BASE_ATK: 425,
@@ -328,7 +328,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Glacio',
     TYPE: 'Rectifier',
-    SIGNATURE: 21050026,
+    SIGNATURE: '21050026',
     BASE_STATS: {
       BASE_HP:  12250,
       BASE_ATK: 375,
@@ -342,7 +342,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Spectro',
     TYPE: 'Broadblade',
-    SIGNATURE: 21010026,
+    SIGNATURE: '21010026',
     BASE_STATS: {
       BASE_HP:  10825,
       BASE_ATK: 413,
@@ -354,7 +354,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
-    SIGNATURE: 21020016,
+    SIGNATURE: '21020016',
     BASE_STATS: {
       BASE_HP:  10388,
       BASE_ATK: 463,
@@ -412,7 +412,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Aero',
     TYPE: 'Broadblade',
-    SIGNATURE: 21010016,
+    SIGNATURE: '21010016',
     BASE_STATS: {
       BASE_HP:  10488,
       BASE_ATK: 438,
@@ -457,7 +457,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Rectifier',
-    SIGNATURE: 21050016,
+    SIGNATURE: '21050016',
     BASE_STATS: {
       BASE_HP:  11000,
       BASE_ATK: 400,
@@ -469,7 +469,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Broadblade',
-    SIGNATURE: 21010015,
+    SIGNATURE: '21010015',
     BASE_STATS: {
       BASE_HP:  10500,
       BASE_ATK: 438,
@@ -492,7 +492,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Fusion',
     TYPE: 'Rectifier',
-    SIGNATURE: 21050015,
+    SIGNATURE: '21050015',
     BASE_STATS: {
       BASE_HP:  10513,
       BASE_ATK: 425,
@@ -515,7 +515,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Glacio',
     TYPE: 'Gauntlets',
-    SIGNATURE: 21040015,
+    SIGNATURE: '21040015',
     BASE_STATS: {
       BASE_HP:  10388,
       BASE_ATK: 438,

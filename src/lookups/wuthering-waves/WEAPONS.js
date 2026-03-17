@@ -7,6 +7,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020076: {
     NAME: 'Everbright Polestar',
@@ -14,6 +20,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -25,6 +37,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 525,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040045: {
     NAME: 'Pulsation Bracer',
@@ -32,6 +50,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030046: {
@@ -41,6 +65,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030045: {
     NAME: 'Phasic Homogenizer',
@@ -48,6 +78,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020045: {
@@ -57,6 +93,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010066: {
     NAME: 'Starfield Calibrator',
@@ -65,6 +107,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010045: {
     NAME: 'Radiance Cleaver',
@@ -72,6 +120,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -83,6 +137,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
 
   // Version 2.7
@@ -93,6 +153,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020066: {
     NAME: 'Emerald Sentence',
@@ -100,6 +166,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -111,6 +183,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040104: {
     NAME: 'Aether Strike',
@@ -118,6 +196,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 413,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040046: {
@@ -127,6 +211,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030104: {
     NAME: 'Solar Flame',
@@ -134,6 +224,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 413,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020104: {
@@ -143,6 +239,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010104: {
     NAME: 'Aureate Zenith',
@@ -151,6 +253,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010046: {
     NAME: 'Thunderflare Dominion',
@@ -158,6 +266,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 675,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -169,6 +283,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
 
   // Version 2.4
@@ -179,6 +299,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010036: {
     NAME: 'Wildfire Mark',
@@ -186,6 +312,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -197,6 +329,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030026: {
     NAME: 'Woodland Aria',
@@ -204,6 +342,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 500,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -215,6 +359,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020046: {
     NAME: 'Bloodpact\'s Pledge',
@@ -222,6 +372,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -233,6 +389,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050027: {
     NAME: 'Ocean\'s Gift',
@@ -241,6 +403,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020036: {
     NAME: 'Unflickering Valor',
@@ -248,6 +416,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 413,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -259,6 +433,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050017: {
     NAME: 'Call of the Abyss',
@@ -266,6 +446,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 338,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040094: {
@@ -275,6 +461,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040026: {
     NAME: 'Tragicomedy',
@@ -282,6 +474,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030094: {
@@ -291,6 +489,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030016: {
     NAME: 'The Last Dance',
@@ -298,6 +502,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 500,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020094: {
@@ -307,6 +517,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010094: {
     NAME: 'Meditations on Mercy',
@@ -314,6 +530,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -325,6 +547,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020017: {
     NAME: 'Somnoire Anchor',
@@ -332,6 +560,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -343,6 +577,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050036: {
     NAME: 'Stellar Symphony',
@@ -350,6 +590,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040084: {
@@ -359,6 +605,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030084: {
     NAME: 'Relativistic Jet',
@@ -366,6 +618,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020084: {
@@ -375,6 +633,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010084: {
     NAME: 'Waning Redshift',
@@ -382,6 +646,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -393,6 +663,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040016: {
     NAME: 'Verity\'s Handle',
@@ -400,6 +676,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -411,6 +693,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010063: {
     NAME: 'Beguiling Melody',
@@ -419,6 +707,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010026: {
     NAME: 'Ages of Harvest',
@@ -426,6 +720,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 
@@ -437,6 +737,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050064: {
     NAME: 'Comet Flare',
@@ -444,6 +750,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050053: {
@@ -453,6 +765,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050044: {
     NAME: 'Jinzhou Keeper',
@@ -460,6 +778,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 387,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050043: {
@@ -469,6 +793,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050034: {
     NAME: 'Rectifier#25',
@@ -476,6 +806,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 337,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050024: {
@@ -485,6 +821,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 337,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050023: {
     NAME: 'Originite: Type V',
@@ -492,6 +834,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050016: {
@@ -501,6 +849,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050015: {
     NAME: 'Cosmic Ripples',
@@ -508,6 +862,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050013: {
@@ -517,6 +877,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050012: {
     NAME: 'Tyro Rectifier',
@@ -524,6 +890,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 275,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050011: {
@@ -533,6 +905,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 250,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040074: {
     NAME: 'Stonard',
@@ -540,6 +918,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040064: {
@@ -549,6 +933,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040053: {
     NAME: 'Guardian Gauntlets',
@@ -556,6 +946,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040044: {
@@ -565,6 +961,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 337,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040043: {
     NAME: 'Gauntlets of Voyager',
@@ -572,6 +974,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040034: {
@@ -581,6 +989,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 387,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040024: {
     NAME: 'Marcato',
@@ -588,6 +1002,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 337,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040023: {
@@ -597,6 +1017,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040015: {
     NAME: 'Abyss Surges',
@@ -604,6 +1030,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040013: {
@@ -613,6 +1045,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040012: {
     NAME: 'Tyro Gauntlets',
@@ -620,6 +1058,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 275,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040011: {
@@ -629,6 +1073,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 250,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030074: {
     NAME: 'Thunderbolt',
@@ -636,6 +1086,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 387,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030064: {
@@ -645,6 +1101,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030053: {
     NAME: 'Guardian Pistols',
@@ -652,6 +1114,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030044: {
@@ -661,6 +1129,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030043: {
     NAME: 'Pistols of Voyager',
@@ -668,6 +1142,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030034: {
@@ -677,6 +1157,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 387,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030024: {
     NAME: 'Cadenza',
@@ -684,6 +1170,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 337,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030023: {
@@ -693,6 +1185,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030015: {
     NAME: 'Static Mist',
@@ -700,6 +1198,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030013: {
@@ -709,6 +1213,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030012: {
     NAME: 'Tyro Pistols',
@@ -716,6 +1226,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 275,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030011: {
@@ -725,6 +1241,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 250,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020074: {
     NAME: 'Lumingloss',
@@ -732,6 +1254,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 387,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020064: {
@@ -741,6 +1269,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020053: {
     NAME: 'Guardian Sword',
@@ -748,6 +1282,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020044: {
@@ -757,6 +1297,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020043: {
     NAME: 'Sword of Voyager',
@@ -764,6 +1310,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020034: {
@@ -773,6 +1325,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 387,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020024: {
     NAME: 'Overture',
@@ -780,6 +1338,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 337,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020023: {
@@ -789,6 +1353,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020015: {
     NAME: 'Emerald of Genesis',
@@ -796,6 +1366,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020013: {
@@ -805,6 +1381,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020012: {
     NAME: 'Tyro Sword',
@@ -812,6 +1394,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 275,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020011: {
@@ -821,6 +1409,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 250,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010074: {
     NAME: 'Autumntrace',
@@ -828,6 +1422,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010064: {
@@ -837,6 +1437,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010053: {
     NAME: 'Guardian Broadblade',
@@ -844,6 +1450,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010044: {
@@ -853,6 +1465,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 337,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010043: {
     NAME: 'Broadblade of Voyager',
@@ -860,6 +1478,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010034: {
@@ -869,6 +1493,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010024: {
     NAME: 'Discord',
@@ -876,6 +1506,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 337,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010023: {
@@ -885,6 +1521,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010016: {
     NAME: 'Verdant Summit',
@@ -892,6 +1534,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010015: {
@@ -901,6 +1549,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010013: {
     NAME: 'Broadblade of Night',
@@ -909,6 +1563,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010012: {
     NAME: 'Tyro Broadblade',
@@ -916,6 +1576,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 275,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010011: {

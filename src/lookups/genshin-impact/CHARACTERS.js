@@ -1,5 +1,5 @@
 export default {
-  // 6.3
+  // Version 6.3
   10000127: {
     NAME: 'Illuga',
     RARITY: 4,
@@ -16,7 +16,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Sword',
-    SIGNATURE: 11519,
+    SIGNATURE: '11519',
     BASE_STATS: {
       BASE_HP: 12919,
       BASE_ATK: 225,
@@ -28,7 +28,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14522,
+    SIGNATURE: '14522',
     BASE_STATS: {
       BASE_HP: 14695,
       BASE_ATK: 96,
@@ -53,7 +53,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Sword',
-    SIGNATURE: 11518,
+    SIGNATURE: '11518',
     BASE_STATS: {
       BASE_HP: 12430,
       BASE_ATK: 347,
@@ -67,7 +67,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14521,
+    SIGNATURE: '14521',
     BASE_STATS: {
       BASE_HP: 12704,
       BASE_ATK: 344,
@@ -92,7 +92,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    SIGNATURE: 13516,
+    SIGNATURE: '13516',
     BASE_STATS: {
       BASE_HP: 12491,
       BASE_ATK: 352,
@@ -104,7 +104,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14520,
+    SIGNATURE: '14520',
     BASE_STATS: {
       BASE_HP: 10654,
       BASE_ATK: 255,
@@ -118,7 +118,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    SIGNATURE: 13515,
+    SIGNATURE: '13515',
     BASE_STATS: {
       BASE_HP:  12613,
       BASE_ATK: 330,
@@ -143,7 +143,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
-    SIGNATURE: 11517,
+    SIGNATURE: '11517',
     BASE_STATS: {
       BASE_HP:  12417,
       BASE_ATK: 359,
@@ -168,7 +168,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Polearm',
-    SIGNATURE: 13514,
+    SIGNATURE: '13514',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 347,
@@ -182,7 +182,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14519,
+    SIGNATURE: '14519',
     BASE_STATS: {
       BASE_HP:  12699,
       BASE_ATK: 356,
@@ -207,7 +207,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14518,
+    SIGNATURE: '14518',
     BASE_STATS: {
       BASE_HP:  12736,
       BASE_ATK: 215,
@@ -232,7 +232,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14517,
+    SIGNATURE: '14517',
     BASE_STATS: {
       BASE_HP:  11633,
       BASE_ATK: 126,
@@ -244,7 +244,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
-    SIGNATURE: 12514,
+    SIGNATURE: '12514',
     BASE_STATS: {
       BASE_HP:  12552,
       BASE_ATK: 358,
@@ -269,7 +269,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Bow',
-    SIGNATURE: 15514,
+    SIGNATURE: '15514',
     BASE_STATS: {
       BASE_HP:  9796,
       BASE_ATK: 346,
@@ -283,7 +283,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Sword',
-    SIGNATURE: 11516,
+    SIGNATURE: '11516',
     BASE_STATS: {
       BASE_HP:  12405,
       BASE_ATK: 275,
@@ -297,7 +297,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14516,
+    SIGNATURE: '14516',
     BASE_STATS: {
       BASE_HP:  15184,
       BASE_ATK: 181,
@@ -309,7 +309,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Claymore',
-    SIGNATURE: 12513,
+    SIGNATURE: '12513',
     BASE_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 332,
@@ -334,7 +334,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Polearm',
-    SIGNATURE: 13513,
+    SIGNATURE: '13513',
     BASE_STATS: {
       BASE_HP:  13568,
       BASE_ATK: 334,
@@ -348,7 +348,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Sword',
-    SIGNATURE: 11515,
+    SIGNATURE: '11515',
     BASE_STATS: {
       BASE_HP:  12956,
       BASE_ATK: 337,
@@ -371,7 +371,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
-    SIGNATURE: 15513,
+    SIGNATURE: '15513',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 192,
@@ -385,7 +385,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
-    SIGNATURE: 13512,
+    SIGNATURE: '13512',
     BASE_STATS: {
       BASE_HP:  13103,
       BASE_ATK: 342,
@@ -399,7 +399,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Sword',
-    SIGNATURE: 11514,
+    SIGNATURE: '11514',
     BASE_STATS: {
       BASE_HP:  11437,
       BASE_ATK: 322,
@@ -413,7 +413,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14515,
+    SIGNATURE: '14515',
     BASE_STATS: {
       BASE_HP:  10409,
       BASE_ATK: 334,
@@ -438,7 +438,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Claymore',
-    SIGNATURE: 12512,
+    SIGNATURE: '12512',
     BASE_STATS: {
       BASE_HP:  12650,
       BASE_ATK: 351,
@@ -463,7 +463,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
-    SIGNATURE: 11513,
+    SIGNATURE: '11513',
     BASE_STATS: {
       BASE_HP:  15307,
       BASE_ATK: 243,
@@ -488,7 +488,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14514,
+    SIGNATURE: '14514',
     BASE_STATS: {
       BASE_HP:  14695,
       BASE_ATK: 208,
@@ -500,7 +500,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14513,
+    SIGNATURE: '14513',
     BASE_STATS: {
       BASE_HP:  13592,
       BASE_ATK: 310,
@@ -525,7 +525,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Bow',
-    SIGNATURE: 15512,
+    SIGNATURE: '15512',
     BASE_STATS: {
       BASE_HP:  11021,
       BASE_ATK: 231,
@@ -563,7 +563,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14505,
+    SIGNATURE: '14505',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 192,
@@ -599,7 +599,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
-    SIGNATURE: 12511,
+    SIGNATURE: '12511',
     BASE_STATS: {
       BASE_HP:  15674,
       BASE_ATK: 265,
@@ -613,7 +613,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Sword',
-    SIGNATURE: 11512,
+    SIGNATURE: '11512',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 313,
@@ -649,7 +649,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14512,
+    SIGNATURE: '14512',
     BASE_STATS: {
       BASE_HP:  10164,
       BASE_ATK: 327,
@@ -674,7 +674,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14511,
+    SIGNATURE: '14511',
     BASE_STATS: {
       BASE_HP:  10360,
       BASE_ATK: 298,
@@ -699,7 +699,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    SIGNATURE: 13511,
+    SIGNATURE: '13511',
     BASE_STATS: {
       BASE_HP:  12490,
       BASE_ATK: 318,
@@ -711,7 +711,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
-    SIGNATURE: 11511,
+    SIGNATURE: '11511',
     BASE_STATS: {
       BASE_HP:  15184,
       BASE_ATK: 229,
@@ -725,7 +725,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Bow',
-    SIGNATURE: 15511,
+    SIGNATURE: '15511',
     BASE_STATS: {
       BASE_HP:  10849,
       BASE_ATK: 267,
@@ -785,7 +785,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
-    SIGNATURE: 15508,
+    SIGNATURE: '15508',
     BASE_STATS: {
       BASE_HP:  14450,
       BASE_ATK: 243,
@@ -799,7 +799,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
-    SIGNATURE: 11510,
+    SIGNATURE: '11510',
     BASE_STATS: {
       BASE_HP:  13715,
       BASE_ATK: 298,
@@ -813,7 +813,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14509,
+    SIGNATURE: '14509',
     BASE_STATS: {
       BASE_HP:  10372,
       BASE_ATK: 339,
@@ -838,7 +838,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Polearm',
-    SIGNATURE: 13507,
+    SIGNATURE: '13507',
     BASE_STATS: {
       BASE_HP:  12992,
       BASE_ATK: 303,
@@ -852,7 +852,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Claymore',
-    SIGNATURE: 12510,
+    SIGNATURE: '12510',
     BASE_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 227,
@@ -912,7 +912,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14506,
+    SIGNATURE: '14506',
     BASE_STATS: {
       BASE_HP:  13470,
       BASE_ATK: 234,
@@ -924,7 +924,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    SIGNATURE: 13509,
+    SIGNATURE: '13509',
     BASE_STATS: {
       BASE_HP:  12907,
       BASE_ATK: 337,
@@ -949,7 +949,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Bow',
-    SIGNATURE: 15509,
+    SIGNATURE: '15509',
     BASE_STATS: {
       BASE_HP:  10164,
       BASE_ATK: 322,
@@ -961,7 +961,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
-    SIGNATURE: 11509,
+    SIGNATURE: '11509',
     BASE_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 342,
@@ -975,7 +975,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Sword',
-    SIGNATURE: 11503,
+    SIGNATURE: '11503',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 296,
@@ -989,7 +989,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Claymore',
-    SIGNATURE: 12503,
+    SIGNATURE: '12503',
     BASE_STATS: {
       BASE_HP:  13225,
       BASE_ATK: 342,
@@ -1027,7 +1027,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
-    SIGNATURE: 13501,
+    SIGNATURE: '13501',
     BASE_STATS: {
       BASE_HP:  15522,
       BASE_ATK: 106,
@@ -1039,7 +1039,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Polearm',
-    SIGNATURE: 13505,
+    SIGNATURE: '13505',
     BASE_STATS: {
       BASE_HP:  12735,
       BASE_ATK: 349,
@@ -1064,7 +1064,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Bow',
-    SIGNATURE: 15502,
+    SIGNATURE: '15502',
     BASE_STATS: {
       BASE_HP:  9796,
       BASE_ATK: 334,
@@ -1100,7 +1100,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
-    SIGNATURE: 15507,
+    SIGNATURE: '15507',
     BASE_STATS: {
       BASE_HP:  13103,
       BASE_ATK: 301,
@@ -1112,7 +1112,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Polearm',
-    SIGNATURE: 13504,
+    SIGNATURE: '13504',
     BASE_STATS: {
       BASE_HP:  14695,
       BASE_ATK: 251,
@@ -1302,7 +1302,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
-    SIGNATURE: 12502,
+    SIGNATURE: '12502',
     BASE_STATS: {
       BASE_HP:  12980,
       BASE_ATK: 334,
