@@ -1,31 +1,11 @@
-import { useContext, useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Avatar, Box } from '@mui/material';
 import { ALL_CHARACTER_ASSETS } from '@/assets';
-import { BuildDataContext, UserDataContext } from '@/contexts';
-import { ALL_CHARACTER_LOOKUP } from '@/lookups';
 
-export const Sidebar = ({ selectedId, setSelectedId }) => {
+export const Sidebar = ({ sortedIds, selectedId, setSelectedId }) => {
   const { gameId } = useParams();
-  const buildData = useContext(BuildDataContext).allBuildData[gameId];
-  const pinnedId = useContext(UserDataContext).pinnedIds[gameId];
-
   const CHARACTER_ASSETS = ALL_CHARACTER_ASSETS[gameId];
-  const CHARACTER_LOOKUP = ALL_CHARACTER_LOOKUP[gameId];
-
-  const sortedIds = useMemo(() => {
-    return Object.keys(buildData).sort((aId, bId) => {
-      // Prioritize pinned character
-      if (aId === pinnedId) return -1;
-      if (bId === pinnedId) return 1;
-
-      // Sort alphabetically by name
-      const aName = CHARACTER_LOOKUP[aId]?.NAME || '';
-      const bName = CHARACTER_LOOKUP[bId]?.NAME || '';
-      return aName.localeCompare(bName);
-    });
-  }, [buildData, pinnedId]);
-
   const prevGameId = useRef(gameId);
 
   useEffect(() => {

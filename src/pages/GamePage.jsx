@@ -7,10 +7,11 @@ import {
   CustomRadarChart,
   CustomTable,
 } from '@/components';
-import { useComputedStats } from '@/hooks';
+import { useSortCharacterIds, useComputedStats } from '@/hooks';
 
-const GamePage = () => {
-  const [selectedId, setSelectedId] = useState(null);
+const GamePage = ({ gameId }) => {
+  const sortedIds = useSortCharacterIds();
+  const [selectedId, setSelectedId] = useState(sortedIds[0] ?? null);
   const { baseStats, equipStats } = useComputedStats(selectedId);
 
   return (
@@ -21,6 +22,7 @@ const GamePage = () => {
       pb={2}
     >
       <Sidebar
+        sortedIds={sortedIds}
         selectedId={selectedId}
         setSelectedId={setSelectedId}
       />

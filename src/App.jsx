@@ -33,7 +33,12 @@ export default function App() {
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/:gameId" element={<GamePage />} />
+              <Route path="/:gameId" element={() => {
+                const { gameId } = useParams();
+                return (
+                  <GamePage gameId={gameId} />
+                );
+              }} />
             </Routes>
           </Container>
         </BuildDataProvider>
