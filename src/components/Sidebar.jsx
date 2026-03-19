@@ -1,9 +1,15 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Avatar, Box } from '@mui/material';
 import { CHARACTER_ASSETS } from '@/assets';
 
-export const Sidebar = ({ charList, onSelectId }) => {
+export const Sidebar = ({ charList }) => {
+  const navigate = useNavigate();
   const { gameId, charId } = useParams();
+
+  const handleSelectId = (id) => {
+    if (charId === id) return;
+    navigate(`/${gameId}/${nextCharacterId}`, { replace: true });
+  };
 
   return (
     <Box sx={{
@@ -44,7 +50,7 @@ export const Sidebar = ({ charList, onSelectId }) => {
           <Avatar
             key={id}
             src={CHARACTER_ASSETS[gameId][id]}
-            onClick={() => onSelectId(id)}
+            onClick={() => handleSelectId(id)}
             sx={{
               width: 46,
               height: 46,

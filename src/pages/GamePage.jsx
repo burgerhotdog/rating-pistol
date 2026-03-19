@@ -16,25 +16,17 @@ const GamePage = () => {
   const { gameId, charId } = useParams();
   const charList = useSortCharIds(gameId);
 
-  const [selectedIds, setSelectedIds] = useState({});
-
   useEffect(() => {
-    if (!gameId || charList.length === 0) return;
-    if (charId && charList.includes(charId)) return;
-
-    const fallbackId = charList.includes(selectedIds[gameId]) ? selectedIds[gameId] : charList[0];
-    navigate(`/${gameId}/${fallbackId}`, { replace: true });
-  }, [charId, gameId, navigate, selectedIds[gameId], charList]);
+    if (charList.length === 0) return;
+    if (charList.includes(charId)) return;
+    navigate(`/${gameId}/${charList[0]}`, { replace: true });
+  }, [gameId, charId, charList, navigate]);
 
   const selectedId = charList.includes(charId) ? charId : null;
   const { baseStats, equipStats } = useComputedStats(selectedId);
 
   const handleSelectId = useCallback((nextCharacterId) => {
     if (!nextCharacterId || nextCharacterId === selectedId) return;
-    setSelectedIds((prev) => ({
-      ...prev,
-      [gameId]: nextCharacterId,
-    }));
     navigate(`/${gameId}/${nextCharacterId}`, { replace: true });
   }, [gameId, navigate, selectedId]);
 
@@ -53,7 +45,6 @@ const GamePage = () => {
     >
       <Sidebar
         charList={charList}
-        onSelectId={handleSelectId}
       />
 
       <StatsPanel
