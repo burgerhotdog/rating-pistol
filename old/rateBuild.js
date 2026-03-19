@@ -1,4 +1,4 @@
-import { ALL_CHARACTER_LOOKUP, ALL_WEAPON_LOOKUP, ALL_GENERAL_LOOKUP, ALL_GENERAL_LOOKUP } from '@/lookups';
+import { CHARACTER_LOOKUP, WEAPON_LOOKUP, ALL_GENERAL_LOOKUP, ALL_GENERAL_LOOKUP } from '@/lookups';
 import { generateDataset, calculateBench } from '@/utils';
 
 const calculateRolls = (gameId, fullWeights, subStatList) => {
@@ -36,11 +36,11 @@ const calculateMax = (gameId, fullWeights, mainstat) => {
 export default (gameId, avatarId, weaponId, equipList) => {
   if (!weaponId) return undefined;
   if (equipList.some(({ mainStatId }) => !mainStatId)) return undefined;
-  if (!ALL_CHARACTER_LOOKUP[gameId][avatarId].weights) return null;
+  if (!CHARACTER_LOOKUP[gameId][avatarId].weights) return null;
 
   // combine avatar and weapon base stat values
-  const avatarBaseStats = ALL_CHARACTER_LOOKUP[gameId][avatarId].baseStats;
-  const weaponBaseStats = ALL_WEAPON_LOOKUP[gameId][weaponId].baseStats;
+  const avatarBaseStats = CHARACTER_LOOKUP[gameId][avatarId].baseStats;
+  const weaponBaseStats = WEAPON_LOOKUP[gameId][weaponId].baseStats;
   const baseStats = {
     _HP: avatarBaseStats._HP + (weaponBaseStats._HP ?? 0),
     _ATK: avatarBaseStats._ATK + (weaponBaseStats._ATK ?? 0),
@@ -48,7 +48,7 @@ export default (gameId, avatarId, weaponId, equipList) => {
   };
 
   // calculate flat stat weights
-  const fullWeights = { ...ALL_CHARACTER_LOOKUP[gameId][avatarId].weights };
+  const fullWeights = { ...CHARACTER_LOOKUP[gameId][avatarId].weights };
   for (const [baseStat, baseValue] of Object.entries(baseStats)) {
     const pWeight = fullWeights[baseStat.slice(1)];
     if (!pWeight) continue;

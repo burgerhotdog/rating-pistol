@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Stack, Typography } from '@mui/material';
 import {
   Sidebar,
@@ -7,12 +8,41 @@ import {
   CustomRadarChart,
   CustomTable,
 } from '@/components';
-import { useSortCharacterIds, useComputedStats } from '@/hooks';
+import { UserDataContext } from '@/contexts';
+import { useSortCharIds, useComputedStats } from '@/hooks';
 
-const GamePage = ({ gameId }) => {
-  const sortedIds = useSortCharacterIds();
-  const [selectedId, setSelectedId] = useState(sortedIds[0] ?? null);
+const GamePage = () => {
+  const navigate = useNavigate();
+  const { gameId, charId } = useParams();
+  const charList = useSortCharIds(gameId);
+
+  const [selectedIds, setSelectedIds] = useState({});
+
+  useEffect(() => {
+    if (!gameId || charList.length === 0) return;
+    if (charId && charList.includes(charId)) return;
+
+    const fallbackId = charList.includes(selectedIds[gameId]) ? selectedIds[gameId] : charList[0];
+    navigate(`/${gameId}/${fallbackId}`, { replace: true });
+  }, [charId, gameId, navigate, selectedIds[gameId], charList]);
+
+  const selectedId = charList.includes(charId) ? charId : null;
   const { baseStats, equipStats } = useComputedStats(selectedId);
+
+  const handleSelectId = useCallback((nextCharacterId) => {
+    if (!nextCharacterId || nextCharacterId === selectedId) return;
+    setSelectedIds((prev) => ({
+      ...prev,
+      [gameId]: nextCharacterId,
+    }));
+    navigate(`/${gameId}/${nextCharacterId}`, { replace: true });
+  }, [gameId, navigate, selectedId]);
+
+  if (!charList.includes(charId)) {
+    return (
+      <Typography>wait</Typography>
+    );
+  }
 
   return (
     <Stack
@@ -22,19 +52,14 @@ const GamePage = ({ gameId }) => {
       pb={2}
     >
       <Sidebar
-        sortedIds={sortedIds}
-        selectedId={selectedId}
-        setSelectedId={setSelectedId}
+        charList={charList}
+        onSelectId={handleSelectId}
       />
 
       <StatsPanel
-        selectedId={selectedId}
         baseStats={baseStats}
         equipStats={equipStats}
       />
-      <Typography variant="h6" fontWeight={700}>
-        Work in Progress. Stats may not reflect actual in-game values.
-      </Typography>
 
       {/* ── Graphs panel ── */}
       <Stack gap={2}>

@@ -1,11 +1,10 @@
 import { useContext, useState } from 'react';
 import { Autocomplete, Button, Dialog, DialogContent, DialogActions, DialogTitle, Box, Typography, TextField } from '@mui/material';
 import { BuildDataContext } from '@/contexts';
-import { ALL_CHARACTER_LOOKUP } from '@/lookups';
-import { ALL_CHARACTER_ASSETS } from '@/assets';
+import { CHARACTER_LOOKUP } from '@/lookups';
+import { CHARACTER_ASSETS } from '@/assets';
 
-const WUWA_DATA = ALL_CHARACTER_LOOKUP['wuthering-waves'];
-const WUWA_ASSETS = ALL_CHARACTER_ASSETS['wuthering-waves'];
+const WUWA_DATA = CHARACTER_LOOKUP['wuthering-waves'];
 
 const CHAR_OPTIONS = Object.keys(WUWA_DATA)
   .sort((a, b) => WUWA_DATA[a].NAME.localeCompare(WUWA_DATA[b].NAME));
@@ -84,7 +83,7 @@ const HeaderOcr = () => {
                   <Box
                     component="img"
                     loading="lazy"
-                    src={WUWA_ASSETS[optionId]}
+                    src={CHARACTER_ASSETS['wuthering-waves'][optionId]}
                     alt=""
                     sx={{ width: 24, height: 24, objectFit: 'contain' }}
                   />

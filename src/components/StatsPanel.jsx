@@ -2,8 +2,7 @@ import { useContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Card, Divider, Stack, Typography } from '@mui/material';
 import { BuildDataContext } from '@/contexts';
-import { useCharacterLookup, useWeaponLookup } from '@/hooks';
-import { ALL_GENERAL_LOOKUP } from '@/lookups';
+import { ALL_GENERAL_LOOKUP, CHARACTER_LOOKUP, WEAPON_LOOKUP } from '@/lookups';
 
 const StatRow = ({ label, value }) => (
   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -16,24 +15,18 @@ const StatRow = ({ label, value }) => (
   </Box>
 );
 
-export const StatsPanel = ({ selectedId, baseStats, equipStats }) => {
-  const { gameId } = useParams();
+export const StatsPanel = ({ baseStats, equipStats }) => {
+  const { gameId, charId } = useParams();
   const { allBuildData } = useContext(BuildDataContext);
+  const selectedBuild = allBuildData[gameId][charId];
+  const STAT_ORDER = ALL_GENERAL_LOOKUP[gameId].MENU_STAT_TYPES;
 
-  const [selectedBuild, STAT_ORDER] = useMemo(() => {
-    if (!selectedId) return [{}, []];
-    return [
-      allBuildData[gameId][selectedId],
-      ALL_GENERAL_LOOKUP[gameId].MENU_STAT_TYPES,
-    ];
-  }, [selectedId]);
-
-  const selectedLookup = useCharacterLookup(selectedId);
+  const selectedLookup = CHARACTER_LOOKUP[gameId][charId];
 
   const characterName = selectedLookup.NAME ?? 'Select a character';
-  const weaponName = useWeaponLookup(selectedBuild.weaponId).NAME;
+  const weaponName = WEAPON_LOOKUP[gameId][selectedBuild?.weaponId]?.NAME;
 
-  const lastUpdated = selectedBuild.lastUpdated ?? 'Unknown';
+  const lastUpdated = selectedBuild?.lastUpdated ?? 'Unknown';
 
   return (
     <Card

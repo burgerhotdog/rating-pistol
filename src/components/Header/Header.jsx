@@ -7,7 +7,7 @@ import HeaderUser from './HeaderUser';
 
 export const Header = () => {
   const location = useLocation();
-  const activeGameId = location.pathname.slice(1);
+  const activeGameId = location.pathname.split('/').filter(Boolean)[0] ?? '';
 
   return (
     <Box
