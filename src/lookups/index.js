@@ -24,7 +24,7 @@ import GI_GENERAL from './genshin-impact/GENERAL';
 import HSR_GENERAL from './honkai-star-rail/GENERAL';
 import WW_GENERAL from './wuthering-waves/GENERAL';
 import ZZZ_GENERAL from './zenless-zone-zero/GENERAL';
-export const ALL_GENERAL_LOOKUP = {
+export const GENERAL_LOOKUP = {
   'genshin-impact': GI_GENERAL,
   'honkai-star-rail': HSR_GENERAL,
   'wuthering-waves': WW_GENERAL,

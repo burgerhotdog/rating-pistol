@@ -17,20 +17,20 @@ const GAME_IDS = [
   'zenless-zone-zero',
 ];
 
-const allBuildDataTemplate = () => {
+const buildCollectionsTemplate = () => {
   return Object.fromEntries(GAME_IDS.map(id => [id, {}]));
 };
 
-export const BuildDataContext = createContext(null);
+export const BuildContext = createContext(null);
 
-export const BuildDataProvider = ({ children }) => {
+export const BuildProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
-  const [allBuildData, setAllBuildData] = useState(allBuildDataTemplate);
-  const [isBuildDatasLoading, setIsBuildDatasLoading] = useState(false);
+  const [buildCollections, setBuildCollections] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!user) {
-      setAllBuildData(allBuildDataTemplate());
+      setBuildCollections({});
       return;
     }
 
@@ -40,7 +40,7 @@ export const BuildDataProvider = ({ children }) => {
       return onSnapshot(ref, snapshot => {
         const buildsMap = Object.fromEntries(snapshot.docs.map(doc => [doc.id, doc.data()]));
 
-        setAllBuildData(prev => ({ ...prev, [gameId]: buildsMap }));
+        setBuildCollections(prev => ({ ...prev, [gameId]: buildsMap }));
       });
     });
 
@@ -74,7 +74,7 @@ export const BuildDataProvider = ({ children }) => {
       return;
     }
 
-    setAllBuildData(prev => ({
+    setBuildCollections(prev => ({
       ...prev,
       [gameId]: {
         ...prev[gameId],
@@ -92,7 +92,7 @@ export const BuildDataProvider = ({ children }) => {
       return;
     }
 
-    setAllBuildData(prev => {
+    setBuildCollections(prev => {
       const newGameData = { ...prev[gameId] };
       delete newGameData[avatarId];
       return { ...prev, [gameId]: newGameData };
@@ -100,15 +100,15 @@ export const BuildDataProvider = ({ children }) => {
   };
 
   return (
-    <BuildDataContext.Provider
+    <BuildContext.Provider
       value={{
-        allBuildData,
+        buildCollections,
         saveBuildEntries,
         deleteBuildEntry,
-        isBuildDatasLoading,
+        isLoading,
       }}
     >
       {children}
-    </BuildDataContext.Provider>
+    </BuildContext.Provider>
   );
 };

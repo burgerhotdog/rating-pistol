@@ -1,7 +1,7 @@
 import { useLocation, Navigate, Route, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 import { Header } from '@/components';
-import { AuthProvider, BuildDataProvider, UserDataProvider } from '@/contexts';
+import { AuthProvider, BuildProvider, UserDataProvider } from '@/contexts';
 import { GamePage, HomePage } from '@/pages';
 
 const GAME_IDS = new Set([
@@ -26,13 +26,13 @@ export default function App() {
   return (
     <AuthProvider>
       <UserDataProvider>
-        <BuildDataProvider>
+        <BuildProvider>
           <Container
-            maxWidth='lg'
+            maxWidth="lg"
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              maxHeight: '100dvh',
+              height: '100dvh',
             }}
           >
             <Header />
@@ -42,7 +42,7 @@ export default function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Container>
-        </BuildDataProvider>
+        </BuildProvider>
       </UserDataProvider>
     </AuthProvider>
   );

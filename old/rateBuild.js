@@ -1,11 +1,11 @@
-import { CHARACTER_LOOKUP, WEAPON_LOOKUP, ALL_GENERAL_LOOKUP, ALL_GENERAL_LOOKUP } from '@/lookups';
+import { CHARACTER_LOOKUP, WEAPON_LOOKUP, GENERAL_LOOKUP, GENERAL_LOOKUP } from '@/lookups';
 import { generateDataset, calculateBench } from '@/utils';
 
 const calculateRolls = (gameId, fullWeights, subStatList) => {
   return subStatList.reduce((acc, { subStatId, value }) => {
     const weight = fullWeights[subStatId];
     if (!subStatId || !value || !weight) return acc;
-    const { subValue } = ALL_GENERAL_LOOKUP[gameId].STATS[subStatId];
+    const { subValue } = GENERAL_LOOKUP[gameId].STATS[subStatId];
     return acc + value / subValue * weight;
   }, 0);
 };
@@ -19,7 +19,7 @@ const calculateMax = (gameId, fullWeights, mainstat) => {
     .sort((a, b) => b[1] - a[1])
     .map(([statId]) => statId);
 
-  for (let i = 0; i < ALL_GENERAL_LOOKUP[gameId].NUM_SUBSTATS; i++) {
+  for (let i = 0; i < GENERAL_LOOKUP[gameId].NUM_SUBSTATS; i++) {
     const statId = orderedStatPool[i];
     if (!statId) break; // stop if run out of weighted stats
     substats.push({ statId, rolls: 1 });
@@ -52,8 +52,8 @@ export default (gameId, avatarId, weaponId, equipList) => {
   for (const [baseStat, baseValue] of Object.entries(baseStats)) {
     const pWeight = fullWeights[baseStat.slice(1)];
     if (!pWeight) continue;
-    const fSubValue = ALL_GENERAL_LOOKUP[gameId].STATS[baseStat].subValue;
-    const pSubValue = ALL_GENERAL_LOOKUP[gameId].STATS[baseStat.slice(1)].subValue;
+    const fSubValue = GENERAL_LOOKUP[gameId].STATS[baseStat].subValue;
+    const pSubValue = GENERAL_LOOKUP[gameId].STATS[baseStat.slice(1)].subValue;
     const flatRatio = fSubValue / baseValue * 100 / pSubValue;
     fullWeights[baseStat] = flatRatio * pWeight;
   }

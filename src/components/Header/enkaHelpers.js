@@ -1,4 +1,4 @@
-import { CHARACTER_LOOKUP, WEAPON_LOOKUP, ALL_GENERAL_LOOKUP } from '@/lookups';
+import { CHARACTER_LOOKUP, WEAPON_LOOKUP, GENERAL_LOOKUP } from '@/lookups';
 import template from '@/template';
 import ENKA_STAT_MAP from './ENKA_STAT_MAP.json';
 

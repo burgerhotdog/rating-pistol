@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import { Autocomplete, Button, Dialog, DialogContent, DialogActions, DialogTitle, Box, Typography, TextField } from '@mui/material';
-import { BuildDataContext } from '@/contexts';
+import { BuildContext } from '@/contexts';
 import { CHARACTER_LOOKUP } from '@/lookups';
 import { CHARACTER_ASSETS } from '@/assets';
 
@@ -10,7 +10,7 @@ const CHAR_OPTIONS = Object.keys(WUWA_DATA)
   .sort((a, b) => WUWA_DATA[a].NAME.localeCompare(WUWA_DATA[b].NAME));
 
 const HeaderOcr = () => {
-  const { saveBuildEntries } = useContext(BuildDataContext);
+  const { saveBuildEntries } = useContext(BuildContext);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedAvatarId, setSelectedAvatarId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);

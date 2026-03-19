@@ -1,14 +1,29 @@
+import { useContext, useEffect, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Avatar, Box } from '@mui/material';
 import { CHARACTER_ASSETS } from '@/assets';
+import { BuildContext, UserDataContext } from '@/contexts';
+import { sortCharIds } from '@/utils';
 
-export const Sidebar = ({ charList }) => {
+export const Sidebar = () => {
   const navigate = useNavigate();
   const { gameId, charId } = useParams();
+  const { buildCollections } = useContext(BuildContext);
+  const { pinnedIds } = useContext(UserDataContext);
+
+  const charList = useMemo(() => {
+    return sortCharIds(gameId, pinnedIds[gameId], Object.keys(buildCollections[gameId] ?? {}))
+  }, [gameId, pinnedIds, buildCollections]);
+
+  useEffect(() => {
+    if (charList.length === 0) return;
+    if (charList.includes(charId)) return;
+    navigate(`/${gameId}/${charList[0]}`, { replace: true });
+  }, [gameId, charId, charList, navigate]);
 
   const handleSelectId = (id) => {
     if (charId === id) return;
-    navigate(`/${gameId}/${nextCharacterId}`, { replace: true });
+    navigate(`/${gameId}/${id}`, { replace: true });
   };
 
   return (
