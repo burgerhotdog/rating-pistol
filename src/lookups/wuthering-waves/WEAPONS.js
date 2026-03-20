@@ -2,7 +2,7 @@ export default {
   // Version 3.1
   21040056: {
     NAME: 'Daybreaker\'s Spine',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -16,7 +16,7 @@ export default {
   },
   21020076: {
     NAME: 'Everbright Polestar',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -32,7 +32,7 @@ export default {
   // Version 3.0
   21050045: {
     NAME: 'Boson Astrolabe',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 525,
@@ -46,7 +46,7 @@ export default {
   },
   21040045: {
     NAME: 'Pulsation Bracer',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -60,7 +60,7 @@ export default {
   },
   21030046: {
     NAME: 'Spectrum Blaster',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -74,7 +74,7 @@ export default {
   },
   21030045: {
     NAME: 'Phasic Homogenizer',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -88,7 +88,7 @@ export default {
   },
   21020045: {
     NAME: 'Laser Shearer',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -102,7 +102,7 @@ export default {
   },
   21010066: {
     NAME: 'Starfield Calibrator',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 413,
@@ -116,7 +116,7 @@ export default {
   },
   21010045: {
     NAME: 'Radiance Cleaver',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -132,7 +132,7 @@ export default {
   // Version 2.8
   21010056: {
     NAME: 'Kumokiri',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -148,7 +148,7 @@ export default {
   // Version 2.7
   21030036: {
     NAME: 'Lux & Umbra',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -162,7 +162,7 @@ export default {
   },
   21020066: {
     NAME: 'Emerald Sentence',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -178,7 +178,7 @@ export default {
   // Version 2.6
   21050104: {
     NAME: 'Radiant Dawn',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 413,
@@ -192,7 +192,7 @@ export default {
   },
   21040104: {
     NAME: 'Aether Strike',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 413,
@@ -206,7 +206,7 @@ export default {
   },
   21040046: {
     NAME: 'Moongazer\'s Sigil',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -220,7 +220,7 @@ export default {
   },
   21030104: {
     NAME: 'Solar Flame',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 413,
@@ -234,7 +234,7 @@ export default {
   },
   21020104: {
     NAME: 'Feather Edge',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 413,
@@ -248,7 +248,7 @@ export default {
   },
   21010104: {
     NAME: 'Aureate Zenith',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 413,
@@ -262,7 +262,7 @@ export default {
   },
   21010046: {
     NAME: 'Thunderflare Dominion',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 675,
@@ -278,7 +278,7 @@ export default {
   // Version 2.5
   21050066: {
     NAME: 'Lethean Elegy',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -294,7 +294,7 @@ export default {
   // Version 2.4
   21020056: {
     NAME: 'Defier\'s Thorn',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 413,
@@ -308,7 +308,7 @@ export default {
   },
   21010036: {
     NAME: 'Wildfire Mark',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -324,7 +324,7 @@ export default {
   // Version 2.3
   21040036: {
     NAME: 'Blazing Justice',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -338,7 +338,7 @@ export default {
   },
   21030026: {
     NAME: 'Woodland Aria',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -354,7 +354,7 @@ export default {
   // Version 2.2
   21050056: {
     NAME: 'Whispers of Sirens',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -368,7 +368,7 @@ export default {
   },
   21020046: {
     NAME: 'Bloodpact\'s Pledge',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 588,
@@ -384,7 +384,7 @@ export default {
   // Version 2.1
   21050046: {
     NAME: 'Luminous Hymn',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -398,7 +398,7 @@ export default {
   },
   21050027: {
     NAME: 'Ocean\'s Gift',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 463,
@@ -412,7 +412,7 @@ export default {
   },
   21020036: {
     NAME: 'Unflickering Valor',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 413,
@@ -428,7 +428,7 @@ export default {
   // Version 2.0
   21050094: {
     NAME: 'Waltz in Masquerade',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -442,7 +442,7 @@ export default {
   },
   21050017: {
     NAME: 'Call of the Abyss',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 338,
@@ -456,7 +456,7 @@ export default {
   },
   21040094: {
     NAME: 'Legend of Drunken Hero',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -470,7 +470,7 @@ export default {
   },
   21040026: {
     NAME: 'Tragicomedy',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -484,7 +484,7 @@ export default {
   },
   21030094: {
     NAME: 'Romance in Farewell',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -498,7 +498,7 @@ export default {
   },
   21030016: {
     NAME: 'The Last Dance',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -512,7 +512,7 @@ export default {
   },
   21020094: {
     NAME: 'Fables of Wisdom',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -526,7 +526,7 @@ export default {
   },
   21010094: {
     NAME: 'Meditations on Mercy',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -542,7 +542,7 @@ export default {
   // Version 1.4
   21020026: {
     NAME: 'Red Spring',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -556,7 +556,7 @@ export default {
   },
   21020017: {
     NAME: 'Somnoire Anchor',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -572,7 +572,7 @@ export default {
   // Version 1.3
   21050084: {
     NAME: 'Fusion Accretion',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -586,7 +586,7 @@ export default {
   },
   21050036: {
     NAME: 'Stellar Symphony',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -600,7 +600,7 @@ export default {
   },
   21040084: {
     NAME: 'Celestial Spiral',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -614,7 +614,7 @@ export default {
   },
   21030084: {
     NAME: 'Relativistic Jet',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -628,7 +628,7 @@ export default {
   },
   21020084: {
     NAME: 'Endless Collapse',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -642,7 +642,7 @@ export default {
   },
   21010084: {
     NAME: 'Waning Redshift',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 462,
@@ -658,7 +658,7 @@ export default {
   // Version 1.2
   21050026: {
     NAME: 'Rime-Draped Sprouts',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -672,7 +672,7 @@ export default {
   },
   21040016: {
     NAME: 'Verity\'s Handle',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -688,7 +688,7 @@ export default {
   // Version 1.1
   21020016: {
     NAME: 'Blazing Brilliance',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -716,7 +716,7 @@ export default {
   },
   21010026: {
     NAME: 'Ages of Harvest',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -732,7 +732,7 @@ export default {
   // Version 1.0
   21050074: {
     NAME: 'Augment',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -746,7 +746,7 @@ export default {
   },
   21050064: {
     NAME: 'Comet Flare',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -774,7 +774,7 @@ export default {
   },
   21050044: {
     NAME: 'Jinzhou Keeper',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 387,
@@ -802,7 +802,7 @@ export default {
   },
   21050034: {
     NAME: 'Rectifier#25',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 337,
@@ -816,7 +816,7 @@ export default {
   },
   21050024: {
     NAME: 'Variation',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 337,
@@ -844,7 +844,7 @@ export default {
   },
   21050016: {
     NAME: 'Stringmaster',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -858,7 +858,7 @@ export default {
   },
   21050015: {
     NAME: 'Cosmic Ripples',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
@@ -914,7 +914,7 @@ export default {
   },
   21040074: {
     NAME: 'Stonard',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -928,7 +928,7 @@ export default {
   },
   21040064: {
     NAME: 'Hollow Mirage',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -956,7 +956,7 @@ export default {
   },
   21040044: {
     NAME: 'Amity Accord',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 337,
@@ -984,7 +984,7 @@ export default {
   },
   21040034: {
     NAME: 'Gauntlets#21D',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 387,
@@ -998,7 +998,7 @@ export default {
   },
   21040024: {
     NAME: 'Marcato',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 337,
@@ -1026,7 +1026,7 @@ export default {
   },
   21040015: {
     NAME: 'Abyss Surges',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -1082,7 +1082,7 @@ export default {
   },
   21030074: {
     NAME: 'Thunderbolt',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 387,
@@ -1096,7 +1096,7 @@ export default {
   },
   21030064: {
     NAME: 'Novaburst',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -1124,7 +1124,7 @@ export default {
   },
   21030044: {
     NAME: 'Undying Flame',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -1152,7 +1152,7 @@ export default {
   },
   21030034: {
     NAME: 'Pistols#26',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 387,
@@ -1166,7 +1166,7 @@ export default {
   },
   21030024: {
     NAME: 'Cadenza',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 337,
@@ -1194,7 +1194,7 @@ export default {
   },
   21030015: {
     NAME: 'Static Mist',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -1250,7 +1250,7 @@ export default {
   },
   21020074: {
     NAME: 'Lumingloss',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 387,
@@ -1264,7 +1264,7 @@ export default {
   },
   21020064: {
     NAME: 'Lunar Cutter',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -1292,7 +1292,7 @@ export default {
   },
   21020044: {
     NAME: 'Commando of Conviction',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -1320,7 +1320,7 @@ export default {
   },
   21020034: {
     NAME: 'Sword#18',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 387,
@@ -1334,7 +1334,7 @@ export default {
   },
   21020024: {
     NAME: 'Overture',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 337,
@@ -1362,7 +1362,7 @@ export default {
   },
   21020015: {
     NAME: 'Emerald of Genesis',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -1418,7 +1418,7 @@ export default {
   },
   21010074: {
     NAME: 'Autumntrace',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -1432,7 +1432,7 @@ export default {
   },
   21010064: {
     NAME: 'Helios Cleaver',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -1460,7 +1460,7 @@ export default {
   },
   21010044: {
     NAME: 'Dauntless Evernight',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 337,
@@ -1488,7 +1488,7 @@ export default {
   },
   21010034: {
     NAME: 'Broadblade#41',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 412,
@@ -1502,7 +1502,7 @@ export default {
   },
   21010024: {
     NAME: 'Discord',
-    RARITY: 4,
+    QUALITY: '4',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 337,
@@ -1530,7 +1530,7 @@ export default {
   },
   21010016: {
     NAME: 'Verdant Summit',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 587,
@@ -1544,7 +1544,7 @@ export default {
   },
   21010015: {
     NAME: 'Lustrous Razor',
-    RARITY: 5,
+    QUALITY: '5',
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 587,

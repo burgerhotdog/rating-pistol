@@ -2,7 +2,7 @@ export default {
   // Version 4.0
   1502: {
     NAME: 'Yao Guang',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Elation',
     SIGNATURE: '23054',
@@ -15,7 +15,7 @@ export default {
   },
   1501: {
     NAME: 'Sparxie',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Elation',
     SIGNATURE: '23053',
@@ -30,7 +30,7 @@ export default {
   // Version 3.8
   1321: {
     NAME: 'The Dahlia',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
     SIGNATURE: '23050',
@@ -45,7 +45,7 @@ export default {
   // Version 3.7
   1415: {
     NAME: 'Cyrene',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Remembrance',
     SIGNATURE: '23052',
@@ -60,7 +60,7 @@ export default {
   // Version 3.6
   1414: {
     NAME: 'Dan Heng • Permansor Terrae',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Preservation',
     SIGNATURE: '23051',
@@ -73,7 +73,7 @@ export default {
   },
   1413: {
     NAME: 'Evernight',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Remembrance',
     SIGNATURE: '23049',
@@ -88,7 +88,7 @@ export default {
   // Version 3.5
   1412: {
     NAME: 'Cerydra',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Harmony',
     SIGNATURE: '23048',
@@ -101,7 +101,7 @@ export default {
   },
   1410: {
     NAME: 'Hysilens',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Nihility',
     SIGNATURE: '23047',
@@ -116,7 +116,7 @@ export default {
   // Version 3.4
   1408: {
     NAME: 'Phainon',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
     SIGNATURE: '23044',
@@ -129,7 +129,7 @@ export default {
   },
   1015: {
     NAME: 'Archer',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Hunt',
     SIGNATURE: '23046',
@@ -142,7 +142,7 @@ export default {
   },
   1014: {
     NAME: 'Saber',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Destruction',
     SIGNATURE: '23045',
@@ -157,7 +157,7 @@ export default {
   // Version 3.3
   1409: {
     NAME: 'Hyacine',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Remembrance',
     SIGNATURE: '23042',
@@ -170,7 +170,7 @@ export default {
   },
   1406: {
     NAME: 'Cipher',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Nihility',
     SIGNATURE: '23043',
@@ -185,7 +185,7 @@ export default {
   // Version 3.2
   1407: {
     NAME: 'Castorice',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Remembrance',
     SIGNATURE: '23040',
@@ -198,7 +198,7 @@ export default {
   },
   1405: {
     NAME: 'Anaxa',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Erudition',
     SIGNATURE: '23041',
@@ -213,7 +213,7 @@ export default {
   // Version 3.1
   1404: {
     NAME: 'Mydei',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Imaginary',
     TYPE: 'Destruction',
     SIGNATURE: '23039',
@@ -226,7 +226,7 @@ export default {
   },
   1403: {
     NAME: 'Tribbie',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Harmony',
     SIGNATURE: '23038',
@@ -241,7 +241,7 @@ export default {
   // Version 3.0
   1402: {
     NAME: 'Aglaea',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Lightning',
     TYPE: 'Remembrance',
     SIGNATURE: '23036',
@@ -254,7 +254,7 @@ export default {
   },
   1401: {
     NAME: 'The Herta',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Erudition',
     SIGNATURE: '23037',
@@ -269,7 +269,7 @@ export default {
   // Version 2.7
   1313: {
     NAME: 'Sunday',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Imaginary',
     TYPE: 'Harmony',
     SIGNATURE: '23034',
@@ -282,7 +282,7 @@ export default {
   },
   1225: {
     NAME: 'Fugue',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
     SIGNATURE: '23035',
@@ -297,7 +297,7 @@ export default {
   // Version 2.6
   1317: {
     NAME: 'Rappa',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Imaginary',
     TYPE: 'Erudition',
     SIGNATURE: '23033',
@@ -312,7 +312,7 @@ export default {
   // Version 2.5
   1223: {
     NAME: 'Moze',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Lightning',
     TYPE: 'Hunt',
     BASE_STATS: {
@@ -324,7 +324,7 @@ export default {
   },
   1222: {
     NAME: 'Lingsha',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Abundance',
     SIGNATURE: '23032',
@@ -337,7 +337,7 @@ export default {
   },
   1220: {
     NAME: 'Feixiao',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Hunt',
     SIGNATURE: '23031',
@@ -352,7 +352,7 @@ export default {
   // Version 2.4
   1224: {
     NAME: 'March 7th (The Hunt)',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Imaginary',
     TYPE: 'Hunt',
     BASE_STATS: {
@@ -364,7 +364,7 @@ export default {
   },
   1221: {
     NAME: 'Yunli',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
     SIGNATURE: '23030',
@@ -377,7 +377,7 @@ export default {
   },
   1218: {
     NAME: 'Jiaoqiu',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
     SIGNATURE: '23029',
@@ -392,7 +392,7 @@ export default {
   // Version 2.3
   1314: {
     NAME: 'Jade',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Erudition',
     SIGNATURE: '23028',
@@ -405,7 +405,7 @@ export default {
   },
   1310: {
     NAME: 'Firefly',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Destruction',
     SIGNATURE: '23025',
@@ -420,7 +420,7 @@ export default {
   // Version 2.2
   1315: {
     NAME: 'Boothill',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Hunt',
     SIGNATURE: '23027',
@@ -433,7 +433,7 @@ export default {
   },
   1309: {
     NAME: 'Robin',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Harmony',
     SIGNATURE: '23026',
@@ -448,7 +448,7 @@ export default {
   // Version 2.1
   1308: {
     NAME: 'Acheron',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Lightning',
     TYPE: 'Nihility',
     SIGNATURE: '23024',
@@ -461,7 +461,7 @@ export default {
   },
   1304: {
     NAME: 'Aventurine',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Imaginary',
     TYPE: 'Preservation',
     SIGNATURE: '23023',
@@ -474,7 +474,7 @@ export default {
   },
   1301: {
     NAME: 'Gallagher',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Fire',
     TYPE: 'Abundance',
     BASE_STATS: {
@@ -488,7 +488,7 @@ export default {
   // Version 2.0
   1312: {
     NAME: 'Misha',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Ice',
     TYPE: 'Destruction',
     BASE_STATS: {
@@ -500,7 +500,7 @@ export default {
   },
   1307: {
     NAME: 'Black Swan',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Nihility',
     SIGNATURE: '23022',
@@ -513,7 +513,7 @@ export default {
   },
   1306: {
     NAME: 'Sparkle',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Harmony',
     SIGNATURE: '23021',
@@ -528,7 +528,7 @@ export default {
   // Version 1.6
   1305: {
     NAME: 'Dr. Ratio',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Imaginary',
     TYPE: 'Hunt',
     SIGNATURE: '23020',
@@ -541,7 +541,7 @@ export default {
   },
   1303: {
     NAME: 'Ruan Mei',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Harmony',
     SIGNATURE: '23019',
@@ -554,7 +554,7 @@ export default {
   },
   1214: {
     NAME: 'Xueyi',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Quantum',
     TYPE: 'Destruction',
     BASE_STATS: {
@@ -568,7 +568,7 @@ export default {
   // Version 1.5
   1302: {
     NAME: 'Argenti',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Erudition',
     SIGNATURE: '23018',
@@ -581,7 +581,7 @@ export default {
   },
   1217: {
     NAME: 'Huohuo',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Abundance',
     SIGNATURE: '23017',
@@ -594,7 +594,7 @@ export default {
   },
   1215: {
     NAME: 'Hanya',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Physical',
     TYPE: 'Harmony',
     BASE_STATS: {
@@ -608,7 +608,7 @@ export default {
   // Version 1.4
   1212: {
     NAME: 'Jingliu',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Destruction',
     SIGNATURE: '23014',
@@ -621,7 +621,7 @@ export default {
   },
   1210: {
     NAME: 'Guinaifen',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
     BASE_STATS: {
@@ -633,7 +633,7 @@ export default {
   },
   1112: {
     NAME: 'Topaz & Numby',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Hunt',
     SIGNATURE: '23016',
@@ -648,7 +648,7 @@ export default {
   // Version 1.3
   1213: {
     NAME: 'Dan Heng • Imbibitor Lunae',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Imaginary',
     TYPE: 'Destruction',
     SIGNATURE: '23015',
@@ -661,7 +661,7 @@ export default {
   },
   1208: {
     NAME: 'Fu Xuan',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Preservation',
     SIGNATURE: '23011',
@@ -674,7 +674,7 @@ export default {
   },
   1110: {
     NAME: 'Lynx',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Quantum',
     TYPE: 'Abundance',
     BASE_STATS: {
@@ -688,7 +688,7 @@ export default {
   // Version 1.2
   1205: {
     NAME: 'Blade',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Destruction',
     SIGNATURE: '23009',
@@ -701,7 +701,7 @@ export default {
   },
   1111: {
     NAME: 'Luka',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Physical',
     TYPE: 'Nihility',
     BASE_STATS: {
@@ -713,7 +713,7 @@ export default {
   },
   1005: {
     NAME: 'Kafka',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Lightning',
     TYPE: 'Nihility',
     SIGNATURE: '23006',
@@ -728,7 +728,7 @@ export default {
   // Version 1.1
   1207: {
     NAME: 'Yukong',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Imaginary',
     TYPE: 'Harmony',
     BASE_STATS: {
@@ -740,7 +740,7 @@ export default {
   },
   1203: {
     NAME: 'Luocha',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Imaginary',
     TYPE: 'Abundance',
     SIGNATURE: '23008',
@@ -753,7 +753,7 @@ export default {
   },
   1006: {
     NAME: 'Silver Wolf',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Nihility',
     SIGNATURE: '23007',
@@ -768,7 +768,7 @@ export default {
   // Version 1.0
   1211: {
     NAME: 'Bailu',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Lightning',
     TYPE: 'Abundance',
     SIGNATURE: '23013',
@@ -781,7 +781,7 @@ export default {
   },
   1209: {
     NAME: 'Yanqing',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Hunt',
     SIGNATURE: '23012',
@@ -794,7 +794,7 @@ export default {
   },
   1206: {
     NAME: 'Sushang',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Physical',
     TYPE: 'Hunt',
     BASE_STATS: {
@@ -806,7 +806,7 @@ export default {
   },
   1204: {
     NAME: 'Jing Yuan',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Lightning',
     TYPE: 'Erudition',
     SIGNATURE: '23010',
@@ -819,7 +819,7 @@ export default {
   },
   1202: {
     NAME: 'Tingyun',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Lightning',
     TYPE: 'Harmony',
     BASE_STATS: {
@@ -831,7 +831,7 @@ export default {
   },
   1201: {
     NAME: 'Qingque',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Quantum',
     TYPE: 'Erudition',
     BASE_STATS: {
@@ -843,7 +843,7 @@ export default {
   },
   1109: {
     NAME: 'Hook',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Fire',
     TYPE: 'Destruction',
     BASE_STATS: {
@@ -855,7 +855,7 @@ export default {
   },
   1108: {
     NAME: 'Sampo',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Wind',
     TYPE: 'Nihility',
     BASE_STATS: {
@@ -867,7 +867,7 @@ export default {
   },
   1107: {
     NAME: 'Clara',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
     SIGNATURE: '23002',
@@ -880,7 +880,7 @@ export default {
   },
   1106: {
     NAME: 'Pela',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Ice',
     TYPE: 'Nihility',
     BASE_STATS: {
@@ -892,7 +892,7 @@ export default {
   },
   1105: {
     NAME: 'Natasha',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Physical',
     TYPE: 'Abundance',
     BASE_STATS: {
@@ -904,7 +904,7 @@ export default {
   },
   1104: {
     NAME: 'Gepard',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Preservation',
     SIGNATURE: '23005',
@@ -917,7 +917,7 @@ export default {
   },
   1103: {
     NAME: 'Serval',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Lightning',
     TYPE: 'Erudition',
     BASE_STATS: {
@@ -929,7 +929,7 @@ export default {
   },
   1102: {
     NAME: 'Seele',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Quantum',
     TYPE: 'Hunt',
     SIGNATURE: '23001',
@@ -942,7 +942,7 @@ export default {
   },
   1101: {
     NAME: 'Bronya',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Wind',
     TYPE: 'Harmony',
     SIGNATURE: '23003',
@@ -955,7 +955,7 @@ export default {
   },
   1013: {
     NAME: 'Herta',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Ice',
     TYPE: 'Erudition',
     BASE_STATS: {
@@ -967,7 +967,7 @@ export default {
   },
   1009: {
     NAME: 'Asta',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Fire',
     TYPE: 'Harmony',
     BASE_STATS: {
@@ -979,7 +979,7 @@ export default {
   },
   1008: {
     NAME: 'Arlan',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Lightning',
     TYPE: 'Destruction',
     BASE_STATS: {
@@ -991,7 +991,7 @@ export default {
   },
   1004: {
     NAME: 'Welt',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Imaginary',
     TYPE: 'Nihility',
     SIGNATURE: '23004',
@@ -1004,7 +1004,7 @@ export default {
   },
   1003: {
     NAME: 'Himeko',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Erudition',
     SIGNATURE: '23000',
@@ -1017,7 +1017,7 @@ export default {
   },
   1002: {
     NAME: 'Dan Heng',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Wind',
     TYPE: 'Hunt',
     BASE_STATS: {
@@ -1029,7 +1029,7 @@ export default {
   },
   1001: {
     NAME: 'March 7th (Preservation)',
-    RARITY: 4,
+    QUALITY: 4,
     ELEMENT: 'Ice',
     TYPE: 'Preservation',
     BASE_STATS: {

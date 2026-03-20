@@ -2,7 +2,7 @@ export default {
   // Version 2.6
   1501: {
     NAME: 'Aria',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ether',
     TYPE: 'Anomaly',
     SIGNATURE: '14150',
@@ -18,7 +18,7 @@ export default {
   },
   1491: {
     NAME: 'Sunna',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Support',
     SIGNATURE: '14149',
@@ -36,7 +36,7 @@ export default {
   // Version 2.5
   1431: {
     NAME: 'Ye Shunguang',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Attack',
     SIGNATURE: '14143',
@@ -52,7 +52,7 @@ export default {
   },
   1341: {
     NAME: 'Zhao',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Defense',
     SIGNATURE: '14134',
@@ -70,7 +70,7 @@ export default {
   // Version 2.4
   1481: {
     NAME: 'Dialyn',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Stun',
     SIGNATURE: '14148',
@@ -86,7 +86,7 @@ export default {
   },
   1471: {
     NAME: 'Banyue',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Rupture',
     SIGNATURE: '14147',
@@ -104,7 +104,7 @@ export default {
   // Version 2.3
   1451: {
     NAME: 'Lucia',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ether',
     TYPE: 'Support',
     SIGNATURE: '14145',
@@ -120,7 +120,7 @@ export default {
   },
   1441: {
     NAME: 'Manato',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Fire',
     TYPE: 'Rupture',
     SIGNATURE: '13144',
@@ -136,7 +136,7 @@ export default {
   },
   1051: {
     NAME: 'Yidhari',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Rupture',
     SIGNATURE: '14105',
@@ -154,7 +154,7 @@ export default {
   // Version 2.2
   1461: {
     NAME: 'Seed',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electric',
     TYPE: 'Attack',
     SIGNATURE: '14146',
@@ -170,7 +170,7 @@ export default {
   },
   1301: {
     NAME: 'Orphie & Magus',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Attack',
     SIGNATURE: '14130',
@@ -188,7 +188,7 @@ export default {
   // Version 2.1
   1411: {
     NAME: 'Yuzuha',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Support',
     SIGNATURE: '14141',
@@ -204,7 +204,7 @@ export default {
   },
   1401: {
     NAME: 'Alice',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Anomaly',
     SIGNATURE: '14140',
@@ -222,7 +222,7 @@ export default {
   // Version 2.0
   1421: {
     NAME: 'Pan Yinhu',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Physical',
     TYPE: 'Defense',
     SIGNATURE: '13142',
@@ -238,7 +238,7 @@ export default {
   },
   1391: {
     NAME: 'Ju Fufu',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Stun',
     SIGNATURE: '14139',
@@ -254,7 +254,7 @@ export default {
   },
   1371: {
     NAME: 'Yixuan',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ether',
     TYPE: 'Rupture',
     SIGNATURE: '14137',
@@ -272,7 +272,7 @@ export default {
   // Version 1.7
   1331: {
     NAME: 'Vivian',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ether',
     TYPE: 'Anomaly',
     SIGNATURE: '14133',
@@ -288,7 +288,7 @@ export default {
   },
   1291: {
     NAME: 'Hugo',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Attack',
     SIGNATURE: '14129',
@@ -306,7 +306,7 @@ export default {
   // Version 1.6
   1381: {
     NAME: 'Soldier 0 - Anby',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electric',
     TYPE: 'Attack',
     SIGNATURE: '14138',
@@ -322,7 +322,7 @@ export default {
   },
   1361: {
     NAME: 'Trigger',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electric',
     TYPE: 'Stun',
     SIGNATURE: '14136',
@@ -338,7 +338,7 @@ export default {
   },
   1351: {
     NAME: 'Pulchra',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Physical',
     TYPE: 'Stun',
     SIGNATURE: '13135',
@@ -356,7 +356,7 @@ export default {
   // Version 1.5
   1321: {
     NAME: 'Evelyn',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Attack',
     SIGNATURE: '14132',
@@ -372,7 +372,7 @@ export default {
   },
   1311: {
     NAME: 'Astra',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ether',
     TYPE: 'Support',
     SIGNATURE: '14131',
@@ -390,7 +390,7 @@ export default {
   // Version 1.4
   1201: {
     NAME: 'Harumasa',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electric',
     TYPE: 'Attack',
     SIGNATURE: '14120',
@@ -406,7 +406,7 @@ export default {
   },
   1091: {
     NAME: 'Miyabi',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Anomaly',
     SIGNATURE: '14109',
@@ -424,7 +424,7 @@ export default {
   // Version 1.3
   1221: {
     NAME: 'Yanagi',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electric',
     TYPE: 'Anomaly',
     SIGNATURE: '14122',
@@ -440,7 +440,7 @@ export default {
   },
   1161: {
     NAME: 'Lighter',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Stun',
     SIGNATURE: '14116',
@@ -458,7 +458,7 @@ export default {
   // Version 1.2
   1171: {
     NAME: 'Burnice',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Anomaly',
     SIGNATURE: '14117',
@@ -474,7 +474,7 @@ export default {
   },
   1071: {
     NAME: 'Caesar',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Defense',
     SIGNATURE: '14107',
@@ -492,7 +492,7 @@ export default {
   // Version 1.1
   1271: {
     NAME: 'Seth',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Electric',
     TYPE: 'Defense',
     SIGNATURE: '13127',
@@ -508,7 +508,7 @@ export default {
   },
   1261: {
     NAME: 'Jane',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Anomaly',
     SIGNATURE: '14126',
@@ -524,7 +524,7 @@ export default {
   },
   1251: {
     NAME: 'Qingyi',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electric',
     TYPE: 'Stun',
     SIGNATURE: '14125',
@@ -542,7 +542,7 @@ export default {
   // Version 1.0
   1281: {
     NAME: 'Piper',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Physical',
     TYPE: 'Anomaly',
     SIGNATURE: '13128',
@@ -558,7 +558,7 @@ export default {
   },
   1241: {
     NAME: 'Zhu Yuan',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ether',
     TYPE: 'Attack',
     SIGNATURE: '14124',
@@ -574,7 +574,7 @@ export default {
   },
   1211: {
     NAME: 'Rina',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electric',
     TYPE: 'Support',
     SIGNATURE: '14121',
@@ -590,7 +590,7 @@ export default {
   },
   1191: {
     NAME: 'Ellen',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Attack',
     SIGNATURE: '14119',
@@ -606,7 +606,7 @@ export default {
   },
   1181: {
     NAME: 'Grace',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electric',
     TYPE: 'Anomaly',
     SIGNATURE: '14118',
@@ -622,7 +622,7 @@ export default {
   },
   1151: {
     NAME: 'Lucy',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Fire',
     TYPE: 'Support',
     SIGNATURE: '13115',
@@ -638,7 +638,7 @@ export default {
   },
   1141: {
     NAME: 'Lycaon',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Ice',
     TYPE: 'Stun',
     SIGNATURE: '14114',
@@ -654,7 +654,7 @@ export default {
   },
   1131: {
     NAME: 'Soukaku',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Ice',
     TYPE: 'Support',
     SIGNATURE: '13113',
@@ -670,7 +670,7 @@ export default {
   },
   1121: {
     NAME: 'Ben',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Fire',
     TYPE: 'Defense',
     SIGNATURE: '13112',
@@ -686,7 +686,7 @@ export default {
   },
   1111: {
     NAME: 'Anton',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Electric',
     TYPE: 'Attack',
     SIGNATURE: '13111',
@@ -702,7 +702,7 @@ export default {
   },
   1101: {
     NAME: 'Koleda',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Stun',
     SIGNATURE: '14110',
@@ -718,7 +718,7 @@ export default {
   },
   1081: {
     NAME: 'Billy',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Physical',
     TYPE: 'Attack',
     SIGNATURE: '13108',
@@ -734,7 +734,7 @@ export default {
   },
   1061: {
     NAME: 'Corin',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Physical',
     TYPE: 'Attack',
     SIGNATURE: '13106',
@@ -750,7 +750,7 @@ export default {
   },
   1041: {
     NAME: 'Soldier 11',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fire',
     TYPE: 'Attack',
     SIGNATURE: '14104',
@@ -766,7 +766,7 @@ export default {
   },
   1031: {
     NAME: 'Nicole',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Ether',
     TYPE: 'Support',
     SIGNATURE: '13103',
@@ -782,7 +782,7 @@ export default {
   },
   1021: {
     NAME: 'Nekomata',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Physical',
     TYPE: 'Attack',
     SIGNATURE: '14102',
@@ -798,7 +798,7 @@ export default {
   },
   1011: {
     NAME: 'Anby',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Electric',
     TYPE: 'Stun',
     SIGNATURE: '13101',
