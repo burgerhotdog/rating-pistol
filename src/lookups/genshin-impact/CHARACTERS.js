@@ -1,4 +1,18 @@
 export default {
+  // Version 6.4
+  10000128: {
+    NAME: 'Varka',
+    RARITY: 5,
+    ELEMENT: 'Anemo',
+    TYPE: 'Claymore',
+    SIGNATURE: '12515',
+    BASE_STATS: {
+      BASE_HP: 12613,
+      BASE_ATK: 353,
+      BASE_DEF: 795,      
+    },
+  },
+
   // Version 6.3
   10000127: {
     NAME: 'Illuga',

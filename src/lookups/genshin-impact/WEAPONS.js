@@ -1,4 +1,20 @@
 export default {
+  // Version 6.4
+  12515: {
+    NAME: 'Gest of the Mighty Wolf',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      PERCENT_CR: 0.331,
+    },
+    EFFECT_STATS: {
+      
+    },
+  },
+
   // Version 6.3
   14522: {
     NAME: 'Nocturne\'s Curtain Call',

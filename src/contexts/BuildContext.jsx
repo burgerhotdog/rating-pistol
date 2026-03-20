@@ -17,10 +17,6 @@ const GAME_IDS = [
   'zenless-zone-zero',
 ];
 
-const buildCollectionsTemplate = () => {
-  return Object.fromEntries(GAME_IDS.map(id => [id, {}]));
-};
-
 export const BuildContext = createContext(null);
 
 export const BuildProvider = ({ children }) => {
@@ -85,13 +81,10 @@ export const BuildProvider = ({ children }) => {
 
   const deleteBuildEntry = async (gameId, avatarId) => {
     if (user) {
-      const ref = doc(db, 'users', user.uid, gameId, String(avatarId));
-      deleteDoc(ref).catch(err =>
-        console.error('Failed to delete build: ', err)
-      );
-      return;
+      return deleteDoc(doc(db, 'users', user.uid, gameId, String(avatarId)))
+        .catch(err => console.error('Failed to delete build: ', err));
     }
-
+  
     setBuildCollections(prev => {
       const newGameData = { ...prev[gameId] };
       delete newGameData[avatarId];
