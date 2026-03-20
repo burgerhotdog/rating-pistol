@@ -36,7 +36,7 @@ export const StatsPanel = () => {
               const baseId = `BASE_${statId}`;
               const flatId = `FLAT_${statId}`;
               const percentId = `PERCENT_${statId}`;
-              const value = (baseStats[baseId] ?? 0) + (baseStats[baseId] ? baseStats[baseId] : 1) * (equipStats[percentId] ?? 0) + (equipStats[flatId] ?? 0) + (GENERAL_LOOKUP[gameId].DEFAULT_STATS[percentId] ?? 0);
+              const value = (baseStats[baseId] ?? 0) + (baseStats[baseId] ? baseStats[baseId] : 1) * ((equipStats[percentId] ?? 0) + (CHARACTER_LOOKUP[gameId][charId].ASCENSION_STATS?.[percentId] ?? 0) + (WEAPON_LOOKUP[gameId][charBuild.weaponId].MAIN_STAT?.[percentId] ?? 0)) + ((equipStats[flatId] ?? 0) + (CHARACTER_LOOKUP[gameId][charId].ASCENSION_STATS?.[flatId] ?? 0) + (WEAPON_LOOKUP[gameId][charBuild.weaponId].MAIN_STAT?.[flatId] ?? 0)) + (GENERAL_LOOKUP[gameId].DEFAULT_STATS[percentId] ?? 0);
               const isFlatStat = GENERAL_LOOKUP[gameId].MAIN_STAT_TYPES.some(typeObj => typeObj[flatId]) || GENERAL_LOOKUP[gameId].SUB_STAT_TYPES[flatId] || baseStats[baseId];
               const finalValue = value * (isFlatStat ? 1 : 100);
               const toFixedValue = isFlatStat ? 0 : 1;

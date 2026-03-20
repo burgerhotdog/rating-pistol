@@ -2,7 +2,7 @@ export default {
   // Version 3.1
   1510: {
     NAME: 'Luuk Herssen',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Spectro',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040056',
@@ -14,7 +14,7 @@ export default {
   },
   1210: {
     NAME: 'Aemeath',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
     SIGNATURE: '21020076',
@@ -28,7 +28,7 @@ export default {
   // Version 3.0
   1509: {
     NAME: 'Lynae',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Spectro',
     TYPE: 'Pistols',
     SIGNATURE: '21030046',
@@ -40,7 +40,7 @@ export default {
   },
   1209: {
     NAME: 'Mornye',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fusion',
     TYPE: 'Broadblade',
     SIGNATURE: '21010066',
@@ -54,7 +54,7 @@ export default {
   // Version 2.8
   1508: {
     NAME: 'Chisa',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Havoc',
     TYPE: 'Broadblade',
     SIGNATURE: '21010056',
@@ -66,7 +66,7 @@ export default {
   },
   1307: {
     NAME: 'Buling',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Rectifier',
     BASE_STATS: {
@@ -79,7 +79,7 @@ export default {
   // Version 2.7
   1411: {
     NAME: 'Qiuyuan',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Aero',
     TYPE: 'Sword',
     SIGNATURE: '21020066',
@@ -91,7 +91,7 @@ export default {
   },
   1208: {
     NAME: 'Galbrena',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fusion',
     TYPE: 'Pistols',
     SIGNATURE: '21030036',
@@ -105,7 +105,7 @@ export default {
   // Version 2.6
   1410: {
     NAME: 'Iuno',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Aero',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040046',
@@ -117,7 +117,7 @@ export default {
   },
   1306: {
     NAME: 'Augusta',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electro',
     TYPE: 'Broadblade',
     SIGNATURE: '21010046',
@@ -131,7 +131,7 @@ export default {
   // Version 2.5
   1608: {
     NAME: 'Phrolova',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Havoc',
     TYPE: 'Rectifier',
     SIGNATURE: '21050066',
@@ -145,7 +145,7 @@ export default {
   // Version 2.4
   1409: {
     NAME: 'Cartethyia',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Aero',
     TYPE: 'Sword',
     SIGNATURE: '21020056',
@@ -157,7 +157,7 @@ export default {
   },
   1207: {
     NAME: 'Lupa',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fusion',
     TYPE: 'Broadblade',
     SIGNATURE: '21010036',
@@ -171,7 +171,7 @@ export default {
   // Version 2.3
   1507: {
     NAME: 'Zani',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Spectro',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040036',
@@ -183,7 +183,7 @@ export default {
   },
   1407: {
     NAME: 'Ciaccona',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Aero',
     TYPE: 'Pistols',
     SIGNATURE: '21030026',
@@ -197,7 +197,7 @@ export default {
   // Version 2.2
   1607: {
     NAME: 'Cantarella',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Havoc',
     TYPE: 'Rectifier',
     SIGNATURE: '21050056',
@@ -211,7 +211,7 @@ export default {
   // Version 2.1
   1506: {
     NAME: 'Phoebe',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Spectro',
     TYPE: 'Rectifier',
     SIGNATURE: '21050046',
@@ -223,7 +223,7 @@ export default {
   },
   1206: {
     NAME: 'Brant',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
     SIGNATURE: '21020036',
@@ -237,7 +237,7 @@ export default {
   // Version 2.0
   1606: {
     NAME: 'Roccia',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Havoc',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040026',
@@ -249,7 +249,7 @@ export default {
   },
   1107: {
     NAME: 'Carlotta',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Glacio',
     TYPE: 'Pistols',
     SIGNATURE: '21030016',
@@ -263,7 +263,7 @@ export default {
   // Version 1.4
   1603: {
     NAME: 'Camellya',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Havoc',
     TYPE: 'Sword',
     SIGNATURE: '21020026',
@@ -275,7 +275,7 @@ export default {
   },
   1504: {
     NAME: 'Lumi',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Broadblade',
     BASE_STATS: {
@@ -288,7 +288,7 @@ export default {
   // Version 1.3
   1505: {
     NAME: 'The Shorekeeper',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Spectro',
     TYPE: 'Rectifier',
     SIGNATURE: '21050036',
@@ -300,7 +300,7 @@ export default {
   },
   1106: {
     NAME: 'Youhu',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Glacio',
     TYPE: 'Gauntlets',
     BASE_STATS: {
@@ -313,7 +313,7 @@ export default {
   // Version 1.2
   1305: {
     NAME: 'Xiangli Yao',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electro',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040016',
@@ -325,7 +325,7 @@ export default {
   },
   1105: {
     NAME: 'Zhezhi',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Glacio',
     TYPE: 'Rectifier',
     SIGNATURE: '21050026',
@@ -339,7 +339,7 @@ export default {
   // Version 1.1
   1304: {
     NAME: 'Jinhsi',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Spectro',
     TYPE: 'Broadblade',
     SIGNATURE: '21010026',
@@ -351,7 +351,7 @@ export default {
   },
   1205: {
     NAME: 'Changli',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
     SIGNATURE: '21020016',
@@ -365,7 +365,7 @@ export default {
   // Version 1.0
   1602: {
     NAME: 'Danjin',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Havoc',
     TYPE: 'Sword',
     BASE_STATS: {
@@ -376,7 +376,7 @@ export default {
   },
   1601: {
     NAME: 'Taoqi',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Havoc',
     TYPE: 'Broadblade',
     BASE_STATS: {
@@ -387,7 +387,7 @@ export default {
   },
   1503: {
     NAME: 'Verina',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Spectro',
     TYPE: 'Rectifier',
     BASE_STATS: {
@@ -398,7 +398,7 @@ export default {
   },
   1405: {
     NAME: 'Jianxin',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Aero',
     TYPE: 'Gauntlets',
     BASE_STATS: {
@@ -409,7 +409,7 @@ export default {
   },
   1404: {
     NAME: 'Jiyan',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Aero',
     TYPE: 'Broadblade',
     SIGNATURE: '21010016',
@@ -421,7 +421,7 @@ export default {
   },
   1403: {
     NAME: 'Aalto',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Aero',
     TYPE: 'Pistols',
     BASE_STATS: {
@@ -432,7 +432,7 @@ export default {
   },
   1402: {
     NAME: 'Yangyang',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Aero',
     TYPE: 'Sword',
     BASE_STATS: {
@@ -443,7 +443,7 @@ export default {
   },
   1303: {
     NAME: 'Yuanwu',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Gauntlets',
     BASE_STATS: {
@@ -454,7 +454,7 @@ export default {
   },
   1302: {
     NAME: 'Yinlin',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electro',
     TYPE: 'Rectifier',
     SIGNATURE: '21050016',
@@ -466,7 +466,7 @@ export default {
   },
   1301: {
     NAME: 'Calcharo',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Electro',
     TYPE: 'Broadblade',
     SIGNATURE: '21010015',
@@ -478,7 +478,7 @@ export default {
   },
   1204: {
     NAME: 'Mortefi',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Fusion',
     TYPE: 'Pistols',
     BASE_STATS: {
@@ -489,7 +489,7 @@ export default {
   },
   1203: {
     NAME: 'Encore',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Fusion',
     TYPE: 'Rectifier',
     SIGNATURE: '21050015',
@@ -501,7 +501,7 @@ export default {
   },
   1202: {
     NAME: 'Chixia',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Fusion',
     TYPE: 'Pistols',
     BASE_STATS: {
@@ -512,7 +512,7 @@ export default {
   },
   1104: {
     NAME: 'Lingyang',
-    RARITY: 5,
+    QUALITY: '5',
     ELEMENT: 'Glacio',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040015',
@@ -524,7 +524,7 @@ export default {
   },
   1103: {
     NAME: 'Baizhi',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Glacio',
     TYPE: 'Rectifier',
     BASE_STATS: {
@@ -535,7 +535,7 @@ export default {
   },
   1102: {
     NAME: 'Sanhua',
-    RARITY: 4,
+    QUALITY: '4',
     ELEMENT: 'Glacio',
     TYPE: 'Sword',
     BASE_STATS: {
