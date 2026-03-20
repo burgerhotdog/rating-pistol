@@ -1,10 +1,33 @@
 export default {
+  // Version 6.4
+  12515: {
+    NAME: 'Gest of the Mighty Wolf',
+    RARITY: 5,
+    TYPE: 'Claymore',
+    BASE_STATS: {
+      BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      PERCENT_CR: 0.331,
+    },
+    EFFECT_STATS: {
+      
+    },
+  },
+
+  // Version 6.3
   14522: {
     NAME: 'Nocturne\'s Curtain Call',
     RARITY: 5,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11519: {
@@ -14,13 +37,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 6.2
   15515: {
     NAME: 'The Daybreak Chronicles',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 674,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15434: {
@@ -30,6 +67,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11518: {
     NAME: 'Athame Artis',
@@ -38,13 +81,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 6.1
   14521: {
     NAME: 'Reliquary of Truth',
     RARITY: 5,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14434: {
@@ -54,6 +111,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13434: {
     NAME: 'Sacrificer\'s Staff',
@@ -62,13 +125,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 620,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 6.0
   15433: {
     NAME: 'Snare Hook',
     RARITY: 4,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14520: {
@@ -78,6 +155,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14433: {
     NAME: 'Blackmarrow Lantern',
@@ -85,6 +168,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14432: {
@@ -94,6 +183,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13516: {
     NAME: 'Bloodsoaked Ruins',
@@ -101,6 +196,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 674,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13433: {
@@ -110,6 +211,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12433: {
     NAME: 'Master Key',
@@ -117,6 +224,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11433: {
@@ -126,7 +239,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.8
   13515: {
     NAME: 'Fractured Halo',
     RARITY: 5,
@@ -134,7 +255,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.7
   11517: {
     NAME: 'Azurelight',
     RARITY: 5,
@@ -142,13 +271,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 674,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.6
   15432: {
     NAME: 'Sequence of Solitude',
     RARITY: 4,
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13514: {
@@ -158,7 +301,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.5
   14519: {
     NAME: 'Vivid Notions',
     RARITY: 5,
@@ -166,13 +317,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 674,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.4
   14518: {
     NAME: 'Sunny Morning Sleep-In',
     RARITY: 5,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13432: {
@@ -182,13 +347,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.3
   14517: {
     NAME: 'Starcaller\'s Watch',
     RARITY: 5,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12514: {
@@ -198,13 +377,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 741,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.2
   15514: {
     NAME: 'Astral Vulture\'s Crimson Plumage',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15430: {
@@ -214,6 +407,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14430: {
     NAME: 'Waveriding Whirl',
@@ -221,6 +420,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11432: {
@@ -230,13 +435,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.1
   13430: {
     NAME: 'Mountain-Bracing Bolt',
     RARITY: 4,
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12430: {
@@ -246,6 +465,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11516: {
     NAME: 'Peak Patrol Song',
@@ -253,6 +478,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11430: {
@@ -262,13 +493,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 5.0
   15431: {
     NAME: 'Chain Breaker',
     RARITY: 4,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14516: {
@@ -278,6 +523,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14431: {
     NAME: 'Ring of Yaxche',
@@ -285,6 +536,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14427: {
@@ -294,6 +551,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13431: {
     NAME: 'Footprint of the Rainbow',
@@ -301,6 +564,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12513: {
@@ -310,6 +579,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 741,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12431: {
     NAME: 'Earth Shaker',
@@ -317,6 +592,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11431: {
@@ -326,7 +607,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.8
   13513: {
     NAME: 'Lumidouce Elegy',
     RARITY: 5,
@@ -334,13 +623,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.7
   15513: {
     NAME: 'Silvershower Heartstrings',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15426: {
@@ -350,6 +653,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11515: {
     NAME: 'Absolution',
@@ -358,7 +667,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 674,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.6
   13512: {
     NAME: 'Crimson Moon\'s Semblance',
     RARITY: 5,
@@ -366,13 +683,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 674,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.5
   13426: {
     NAME: 'Dialogues of the Desert Sages',
     RARITY: 4,
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11514: {
@@ -382,7 +713,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.4
   14515: {
     NAME: 'Crane\'s Echoing Call',
     RARITY: 5,
@@ -390,13 +729,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 741,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.3
   12512: {
     NAME: 'Verdict',
     RARITY: 5,
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 674,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12426: {
@@ -406,13 +759,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.2
   11513: {
     NAME: 'Splendor of Tranquil Waters',
     RARITY: 5,
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11428: {
@@ -422,13 +789,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.1
   15427: {
     NAME: 'Range Gauge',
     RARITY: 4,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14514: {
@@ -438,6 +819,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14513: {
     NAME: 'Cashflow Supervision',
@@ -445,6 +832,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 674,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14426: {
@@ -454,6 +847,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13427: {
     NAME: 'Prospector\'s Drill',
@@ -461,6 +860,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12427: {
@@ -470,6 +875,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11427: {
     NAME: 'The Dockhand\'s Assistant',
@@ -478,13 +889,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 4.0
   15512: {
     NAME: 'The First Great Magic',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15425: {
@@ -494,6 +919,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15424: {
     NAME: 'Scion of the Blazing Sun',
@@ -501,6 +932,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14425: {
@@ -510,6 +947,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14424: {
     NAME: 'Sacrificial Jade',
@@ -517,6 +960,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13425: {
@@ -526,6 +975,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13424: {
     NAME: 'Ballad of the Fjords',
@@ -533,6 +988,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12425: {
@@ -542,6 +1003,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12424: {
     NAME: 'Talking Stick',
@@ -549,6 +1016,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11426: {
@@ -558,6 +1031,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11425: {
     NAME: 'Finale of the Deep',
@@ -565,6 +1044,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11424: {
@@ -574,7 +1059,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.7
   15419: {
     NAME: 'Ibis Piercer',
     RARITY: 4,
@@ -582,7 +1075,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.6
   14505: {
     NAME: 'Jadefall\'s Splendor',
     RARITY: 5,
@@ -590,13 +1091,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.5
   12511: {
     NAME: 'Beacon of the Reed Sea',
     RARITY: 5,
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12418: {
@@ -606,7 +1121,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.4
   11512: {
     NAME: 'Light of Foliar Incision',
     RARITY: 5,
@@ -614,13 +1137,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.3
   14512: {
     NAME: 'Tulaytullah\'s Remembrance',
     RARITY: 5,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 674,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11422: {
@@ -630,7 +1167,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.2
   14511: {
     NAME: 'A Thousand Floating Dreams',
     RARITY: 5,
@@ -638,13 +1183,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.1
   14416: {
     NAME: 'Wandering Evenstar',
     RARITY: 4,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13511: {
@@ -654,6 +1213,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13419: {
     NAME: 'Missive Windspear',
@@ -661,6 +1226,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12415: {
@@ -670,6 +1241,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11511: {
     NAME: 'Key of Khaj-Nisut',
@@ -677,6 +1254,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11418: {
@@ -686,13 +1269,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.0
   15511: {
     NAME: 'Hunter\'s Path',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15418: {
@@ -702,6 +1299,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15417: {
     NAME: 'King\'s Squire',
@@ -709,6 +1312,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14417: {
@@ -718,6 +1327,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13417: {
     NAME: 'Moonpiercer',
@@ -725,6 +1340,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12417: {
@@ -734,6 +1355,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11417: {
     NAME: 'Sapwood Blade',
@@ -742,7 +1369,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.8
   11416: {
     NAME: 'Kagotsurube Isshin',
     RARITY: 4,
@@ -750,13 +1385,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.7
   15508: {
     NAME: 'Aqua Simulacra',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15411: {
@@ -766,7 +1415,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.6
   11510: {
     NAME: 'Haran Geppaku Futsu',
     RARITY: 5,
@@ -774,13 +1431,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.5
   14509: {
     NAME: 'Kagura\'s Verity',
     RARITY: 5,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14415: {
@@ -790,7 +1461,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.4
   13507: {
     NAME: 'Calamity Queller',
     RARITY: 5,
@@ -798,13 +1477,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 741,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.3
   12510: {
     NAME: 'Redhorn Stonethresher',
     RARITY: 5,
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 542,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11415: {
@@ -814,13 +1507,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.2
   15507: {
     NAME: 'Polar Star',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15416: {
@@ -830,6 +1537,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13416: {
     NAME: 'Wavebreaker\'s Fin',
@@ -837,6 +1550,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 620,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12416: {
@@ -846,13 +1565,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.1
   15415: {
     NAME: 'Predator',
     RARITY: 4,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14506: {
@@ -862,6 +1595,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13509: {
     NAME: 'Engulfing Lightning',
@@ -869,6 +1608,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13415: {
@@ -878,6 +1623,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12412: {
     NAME: 'Luxurious Sea-Lord',
@@ -886,13 +1637,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.0
   15509: {
     NAME: 'Thundering Pulse',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15414: {
@@ -902,6 +1667,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14414: {
     NAME: 'Hakushin Ring',
@@ -909,6 +1680,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13414: {
@@ -918,6 +1695,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12414: {
     NAME: 'Katsuragikiri Nagamasa',
@@ -925,6 +1708,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11509: {
@@ -934,6 +1723,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 674,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11414: {
     NAME: 'Amenoma Kageuchi',
@@ -942,13 +1737,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.6
   15412: {
     NAME: 'Mitternachts Waltz',
     RARITY: 4,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14413: {
@@ -958,6 +1767,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11503: {
     NAME: 'Freedom-Sworn',
@@ -966,7 +1781,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.5
   12503: {
     NAME: 'Song of Broken Pines',
     RARITY: 5,
@@ -974,13 +1797,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 741,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.4
   15503: {
     NAME: 'Elegy for the End',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15413: {
@@ -990,6 +1827,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15410: {
     NAME: 'Alley Hunter',
@@ -997,6 +1840,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14410: {
@@ -1006,6 +1855,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11410: {
     NAME: 'The Alley Flash',
@@ -1014,13 +1869,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 620,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.3
   13501: {
     NAME: 'Staff of Homa',
     RARITY: 5,
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13406: {
@@ -1030,6 +1899,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12410: {
     NAME: 'Lithic Blade',
@@ -1037,6 +1912,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11505: {
@@ -1046,13 +1927,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 542,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.2
   14412: {
     NAME: 'Frostbearer',
     RARITY: 4,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13409: {
@@ -1062,6 +1957,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12411: {
     NAME: 'Snow-Tombed Starsilver',
@@ -1069,6 +1970,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11504: {
@@ -1078,6 +1985,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11413: {
     NAME: 'Festering Desire',
@@ -1086,13 +1999,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.1
   14504: {
     NAME: 'Memory of Dust',
     RARITY: 5,
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13504: {
@@ -1102,6 +2029,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13408: {
     NAME: 'Royal Spear',
@@ -1109,6 +2042,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12504: {
@@ -1118,13 +2057,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.0
   15502: {
     NAME: 'Amos\' Bow',
     RARITY: 5,
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15501: {
@@ -1134,6 +2087,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 674,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15409: {
     NAME: 'The Viridescent Hunt',
@@ -1141,6 +2100,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15408: {
@@ -1150,6 +2115,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15407: {
     NAME: 'Compound Bow',
@@ -1157,6 +2128,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15406: {
@@ -1166,6 +2143,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15405: {
     NAME: 'Rust',
@@ -1173,6 +2156,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15404: {
@@ -1182,6 +2171,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15403: {
     NAME: 'Sacrificial Bow',
@@ -1189,6 +2184,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15402: {
@@ -1198,6 +2199,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15401: {
     NAME: 'Favonius Warbow',
@@ -1205,6 +2212,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15305: {
@@ -1214,6 +2227,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 448,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15304: {
     NAME: 'Slingshot',
@@ -1221,6 +2240,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 354,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15303: {
@@ -1230,6 +2255,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 354,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15302: {
     NAME: 'Sharpshooter\'s Oath',
@@ -1237,6 +2268,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 401,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15301: {
@@ -1246,6 +2283,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 448,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   15201: {
     NAME: 'Seasoned Hunter\'s Bow',
@@ -1253,6 +2296,12 @@ export default {
     TYPE: 'Bow',
     BASE_STATS: {
       BASE_ATK: 243,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   15101: {
@@ -1262,6 +2311,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 185,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14502: {
     NAME: 'Lost Prayer to the Sacred Winds',
@@ -1269,6 +2324,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 608,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14501: {
@@ -1278,6 +2339,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 674,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14409: {
     NAME: 'Eye of Perception',
@@ -1285,6 +2352,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14408: {
@@ -1294,6 +2367,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14407: {
     NAME: 'Mappa Mare',
@@ -1301,6 +2380,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14406: {
@@ -1310,6 +2395,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14405: {
     NAME: 'Solar Pearl',
@@ -1317,6 +2408,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14404: {
@@ -1326,6 +2423,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14403: {
     NAME: 'Sacrificial Fragments',
@@ -1333,6 +2436,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14402: {
@@ -1342,6 +2451,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14401: {
     NAME: 'Favonius Codex',
@@ -1349,6 +2464,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14305: {
@@ -1358,6 +2479,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 448,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14304: {
     NAME: 'Emerald Orb',
@@ -1365,6 +2492,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 448,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14303: {
@@ -1374,6 +2507,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 401,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14302: {
     NAME: 'Thrilling Tales of Dragon Slayers',
@@ -1381,6 +2520,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 401,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14301: {
@@ -1390,6 +2535,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 354,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   14201: {
     NAME: 'Pocket Grimoire',
@@ -1397,6 +2548,12 @@ export default {
     TYPE: 'Catalyst',
     BASE_STATS: {
       BASE_ATK: 243,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   14101: {
@@ -1406,6 +2563,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 185,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13505: {
     NAME: 'Primordial Jade Winged-Spear',
@@ -1413,6 +2576,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 674,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13502: {
@@ -1422,6 +2591,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 674,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13407: {
     NAME: 'Favonius Lance',
@@ -1429,6 +2604,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13405: {
@@ -1438,6 +2619,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13404: {
     NAME: 'Blackcliff Pole',
@@ -1445,6 +2632,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13403: {
@@ -1454,6 +2647,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13402: {
     NAME: 'Prototype Starglitter',
@@ -1461,6 +2660,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13401: {
@@ -1470,6 +2675,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13303: {
     NAME: 'Black Tassel',
@@ -1477,6 +2688,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 354,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13302: {
@@ -1486,6 +2703,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 448,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13301: {
     NAME: 'White Tassel',
@@ -1493,6 +2716,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 401,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   13201: {
@@ -1502,6 +2731,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 243,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   13101: {
     NAME: 'Beginner\'s Protector',
@@ -1509,6 +2744,12 @@ export default {
     TYPE: 'Polearm',
     BASE_STATS: {
       BASE_ATK: 185,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12502: {
@@ -1518,6 +2759,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12501: {
     NAME: 'Skyward Pride',
@@ -1525,6 +2772,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 674,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12409: {
@@ -1534,6 +2787,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12408: {
     NAME: 'Blackcliff Slasher',
@@ -1541,6 +2800,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12407: {
@@ -1550,6 +2815,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12406: {
     NAME: 'Prototype Archaic',
@@ -1557,6 +2828,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12405: {
@@ -1566,6 +2843,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12404: {
     NAME: 'Royal Greatsword',
@@ -1573,6 +2856,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 565,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12403: {
@@ -1582,6 +2871,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12402: {
     NAME: 'The Bell',
@@ -1589,6 +2884,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12401: {
@@ -1598,6 +2899,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 454,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12306: {
     NAME: 'Skyrider Greatsword',
@@ -1605,6 +2912,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 401,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12305: {
@@ -1614,6 +2927,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 401,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12303: {
     NAME: 'White Iron Greatsword',
@@ -1621,6 +2940,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 401,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12302: {
@@ -1630,6 +2955,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 354,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12301: {
     NAME: 'Ferrous Shadow',
@@ -1637,6 +2968,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 401,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   12201: {
@@ -1646,6 +2983,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 243,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   12101: {
     NAME: 'Waster Greatsword',
@@ -1653,6 +2996,12 @@ export default {
     TYPE: 'Claymore',
     BASE_STATS: {
       BASE_ATK: 185,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11502: {
@@ -1662,6 +3011,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 608,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11501: {
     NAME: 'Aquila Favonia',
@@ -1669,6 +3024,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 674,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11412: {
@@ -1678,6 +3039,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 440,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11409: {
     NAME: 'The Black Sword',
@@ -1685,6 +3052,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11408: {
@@ -1694,6 +3067,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11407: {
     NAME: 'Iron Sting',
@@ -1701,6 +3080,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11406: {
@@ -1710,6 +3095,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 565,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11405: {
     NAME: 'Lion\'s Roar',
@@ -1717,6 +3108,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 510,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11404: {
@@ -1726,6 +3123,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11403: {
     NAME: 'Sacrificial Sword',
@@ -1733,6 +3136,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11402: {
@@ -1742,6 +3151,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 510,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11401: {
     NAME: 'Favonius Sword',
@@ -1749,6 +3164,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 454,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11306: {
@@ -1758,6 +3179,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 354,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11305: {
     NAME: 'Fillet Blade',
@@ -1765,6 +3192,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 401,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11304: {
@@ -1774,6 +3207,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 401,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11303: {
     NAME: 'Traveler\'s Handy Sword',
@@ -1781,6 +3220,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 448,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11302: {
@@ -1790,6 +3235,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 401,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11301: {
     NAME: 'Cool Steel',
@@ -1797,6 +3248,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 401,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   11201: {
@@ -1806,6 +3263,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 243,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   11101: {
     NAME: 'Dull Blade',
@@ -1813,6 +3276,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 185,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
 };

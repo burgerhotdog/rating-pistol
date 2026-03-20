@@ -1,4 +1,5 @@
 export default {
+  // Version 4.0
   24006: {
     NAME: 'Elation Brimming With Blessings',
     RARITY: 5,
@@ -7,6 +8,12 @@ export default {
       BASE_HP: 953,
       BASE_ATK: 529,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23054: {
@@ -18,6 +25,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23053: {
     NAME: 'Dazzled by a Flowery World',
@@ -27,6 +40,12 @@ export default {
       BASE_HP: 1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21065: {
@@ -38,6 +57,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21064: {
     NAME: 'Mushy Shroomy\'s Adventures',
@@ -47,6 +72,12 @@ export default {
       BASE_HP: 847,
       BASE_ATK: 476,
       BASE_DEF: 397,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20024: {
@@ -58,6 +89,12 @@ export default {
       BASE_ATK: 318,
       BASE_DEF: 265,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20023: {
     NAME: 'Sneering',
@@ -68,7 +105,15 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 265,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.8
   23050: {
     NAME: 'Never Forget Her Flame',
     RARITY: 5,
@@ -78,7 +123,15 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.7
   23052: {
     NAME: 'This Love, Forever',
     RARITY: 5,
@@ -87,6 +140,12 @@ export default {
       BASE_HP: 1270,
       BASE_ATK: 476,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   22006: {
@@ -98,7 +157,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.6
   23051: {
     NAME: 'Though Worlds Apart',
     RARITY: 5,
@@ -107,6 +174,12 @@ export default {
       BASE_HP: 1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23049: {
@@ -118,7 +191,15 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.5
   23048: {
     NAME: 'Epoch Etched in Golden Blood',
     RARITY: 5,
@@ -127,6 +208,12 @@ export default {
       BASE_HP:  953,
       BASE_ATK: 635,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23047: {
@@ -138,6 +225,12 @@ export default {
       BASE_ATK: 635,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   22005: {
     NAME: 'The Forever Victual',
@@ -148,7 +241,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 331,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.4
   23046: {
     NAME: 'The Hell Where Ideals Burn',
     RARITY: 5,
@@ -157,6 +258,12 @@ export default {
       BASE_HP:  953,
       BASE_ATK: 582,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23045: {
@@ -168,6 +275,12 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23044: {
     NAME: 'Thus Burns the Dawn',
@@ -177,6 +290,12 @@ export default {
       BASE_HP:  953,
       BASE_ATK: 688,
       BASE_DEF: 397,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21062: {
@@ -188,6 +307,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21061: {
     NAME: 'Holiday Thermae Escapade',
@@ -197,6 +322,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 331,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21060: {
@@ -208,6 +339,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21058: {
     NAME: 'A Trail of Bygone Blood',
@@ -217,6 +354,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 331,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21057: {
@@ -228,6 +371,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 331,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21056: {
     NAME: 'In Pursuit of the Wind',
@@ -237,6 +386,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 397,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21055: {
@@ -248,6 +403,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21054: {
     NAME: 'The Story\'s Next Page',
@@ -257,6 +418,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 370,
       BASE_DEF: 397,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21053: {
@@ -268,7 +435,15 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.3
   23043: {
     NAME: 'Lies Dance on the Breeze',
     RARITY: 5,
@@ -277,6 +452,12 @@ export default {
       BASE_HP:  953,
       BASE_ATK: 582,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23042: {
@@ -288,7 +469,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.2
   23041: {
     NAME: 'Life Should Be Cast to Flames',
     RARITY: 5,
@@ -297,6 +486,12 @@ export default {
       BASE_HP:  953,
       BASE_ATK: 582,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23040: {
@@ -308,6 +503,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   22004: {
     NAME: 'The Great Cosmic Enterprise',
@@ -318,7 +519,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 331,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.1
   24005: {
     NAME: 'Memory\'s Curtain Never Falls',
     RARITY: 5,
@@ -327,6 +536,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 397,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23039: {
@@ -338,6 +553,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23038: {
     NAME: 'If Time Were a Flower',
@@ -348,7 +569,15 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.0
   23037: {
     NAME: 'Into the Unreachable Veil',
     RARITY: 5,
@@ -357,6 +586,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 635,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23036: {
@@ -368,6 +603,12 @@ export default {
       BASE_ATK: 635,
       BASE_DEF: 397,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21052: {
     NAME: 'Sweat Now, Cry Less',
@@ -377,6 +618,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 198,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21051: {
@@ -388,6 +635,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 331,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050: {
     NAME: 'Victory In a Blink',
@@ -397,6 +650,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20022: {
@@ -408,6 +667,12 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20021: {
     NAME: 'Shadowburn',
@@ -418,7 +683,15 @@ export default {
       BASE_ATK: 317,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.7
   23035: {
     NAME: 'Long Road Leads Home',
     RARITY: 5,
@@ -427,6 +700,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 661,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23034: {
@@ -438,7 +717,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.6
   23033: {
     NAME: 'Ninjutsu Inscription: Dazzling Evilbreaker',
     RARITY: 5,
@@ -447,6 +734,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 582,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   22003: {
@@ -458,6 +751,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21048: {
     NAME: 'Dream\'s Montage',
@@ -468,7 +767,15 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.5
   23032: {
     NAME: 'Scent Alone Stays True',
     RARITY: 5,
@@ -477,6 +784,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23031: {
@@ -488,6 +801,12 @@ export default {
       BASE_ATK: 635,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21047: {
     NAME: 'Shadowed by Night',
@@ -498,7 +817,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.4
   23030: {
     NAME: 'Dance at Sunset',
     RARITY: 5,
@@ -507,6 +834,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23029: {
@@ -518,6 +851,12 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21046: {
     NAME: 'Poised to Bloom',
@@ -528,7 +867,15 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.3
   24004: {
     NAME: 'Eternal Calculus',
     RARITY: 5,
@@ -537,6 +884,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23028: {
@@ -548,6 +901,12 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23025: {
     NAME: 'Whereabouts Should Dreams Rest',
@@ -557,6 +916,12 @@ export default {
       BASE_HP:  1164,
       BASE_ATK: 476,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21045: {
@@ -568,7 +933,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.2
   23027: {
     NAME: 'Sailing Towards A Second Life',
     RARITY: 5,
@@ -577,6 +950,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23026: {
@@ -588,6 +967,12 @@ export default {
       BASE_ATK: 635,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   22002: {
     NAME: 'For Tomorrow\'s Journey',
@@ -597,6 +982,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21044: {
@@ -608,7 +999,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.1
   23024: {
     NAME: 'Along the Passing Shore',
     RARITY: 5,
@@ -617,6 +1016,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 635,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23023: {
@@ -628,6 +1033,12 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 661,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21043: {
     NAME: 'Concert for Two',
@@ -638,7 +1049,15 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.0
   23022: {
     NAME: 'Reforged Remembrance',
     RARITY: 5,
@@ -647,6 +1066,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23021: {
@@ -658,6 +1083,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21042: {
     NAME: 'Indelible Promise',
@@ -667,6 +1098,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21041: {
@@ -678,6 +1115,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040: {
     NAME: 'The Day The Cosmos Fell',
@@ -687,6 +1130,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21039: {
@@ -698,6 +1147,12 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21038: {
     NAME: 'Flames Afar',
@@ -707,6 +1162,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21037: {
@@ -718,6 +1179,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21036: {
     NAME: 'Dreamville Adventure',
@@ -727,6 +1194,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21035: {
@@ -738,7 +1211,15 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.6
   23020: {
     NAME: 'Baptism of Pure Thought',
     RARITY: 5,
@@ -747,6 +1228,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 582,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23019: {
@@ -758,7 +1245,15 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.5
   23018: {
     NAME: 'An Instant Before A Gaze',
     RARITY: 5,
@@ -767,6 +1262,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23017: {
@@ -778,6 +1279,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   22001: {
     NAME: 'Hey, Over Here',
@@ -788,7 +1295,15 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.4
   23016: {
     NAME: 'Worrisome, Blissful',
     RARITY: 5,
@@ -797,6 +1312,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23014: {
@@ -808,7 +1329,15 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.3
   24003: {
     NAME: 'Solitary Healing',
     RARITY: 5,
@@ -817,6 +1346,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23015: {
@@ -828,6 +1363,12 @@ export default {
       BASE_ATK: 635,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23011: {
     NAME: 'She Already Shut Her Eyes',
@@ -838,7 +1379,15 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 529,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.2
   23009: {
     NAME: 'The Unreachable Side',
     RARITY: 5,
@@ -847,6 +1396,12 @@ export default {
       BASE_HP:  1270,
       BASE_ATK: 582,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23006: {
@@ -858,7 +1413,15 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.1
   23008: {
     NAME: 'Echoes of the Coffin',
     RARITY: 5,
@@ -867,6 +1430,12 @@ export default {
       BASE_HP:  1164,
       BASE_ATK: 582,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23007: {
@@ -878,6 +1447,12 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   22000: {
     NAME: 'Before the Tutorial Mission Starts',
@@ -888,7 +1463,15 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.0
   24002: {
     NAME: 'Texture of Memories',
     RARITY: 5,
@@ -897,6 +1480,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 423,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   24001: {
@@ -908,6 +1497,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   24000: {
     NAME: 'On the Fall of an Aeon',
@@ -917,6 +1512,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23013: {
@@ -928,6 +1529,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23012: {
     NAME: 'Sleep Like the Dead',
@@ -937,6 +1544,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23010: {
@@ -948,6 +1561,12 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23005: {
     NAME: 'Moment of Victory',
@@ -957,6 +1576,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 595,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23004: {
@@ -968,6 +1593,12 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23003: {
     NAME: 'But the Battle Isn\'t Over',
@@ -977,6 +1608,12 @@ export default {
       BASE_HP:  1164,
       BASE_ATK: 529,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23002: {
@@ -988,6 +1625,12 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   23001: {
     NAME: 'In the Night',
@@ -997,6 +1640,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   23000: {
@@ -1008,6 +1657,12 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21034: {
     NAME: 'Today Is Another Peaceful Day',
@@ -1017,6 +1672,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 529,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21033: {
@@ -1028,6 +1689,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21032: {
     NAME: 'Carve the Moon, Weave the Clouds',
@@ -1037,6 +1704,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21031: {
@@ -1048,6 +1721,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030: {
     NAME: 'This Is Me!',
@@ -1057,6 +1736,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 370,
       BASE_DEF: 529,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21029: {
@@ -1068,6 +1753,12 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21028: {
     NAME: 'Warmth Shortens Cold Nights',
@@ -1077,6 +1768,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 370,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21027: {
@@ -1088,6 +1785,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21026: {
     NAME: 'Woof! Walk Time!',
@@ -1097,6 +1800,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21025: {
@@ -1108,6 +1817,12 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21024: {
     NAME: 'River Flows in Spring',
@@ -1117,6 +1832,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 476,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21023: {
@@ -1128,6 +1849,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21022: {
     NAME: 'Fermata',
@@ -1137,6 +1864,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21021: {
@@ -1148,6 +1881,12 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020: {
     NAME: 'Geniuses\' Repose',
@@ -1157,6 +1896,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 476,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21019: {
@@ -1168,6 +1913,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21018: {
     NAME: 'Dance! Dance! Dance!',
@@ -1177,6 +1928,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21017: {
@@ -1188,6 +1945,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21016: {
     NAME: 'Trend of the Universal Market',
@@ -1197,6 +1960,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 370,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21015: {
@@ -1208,6 +1977,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21014: {
     NAME: 'Perfect Timing',
@@ -1217,6 +1992,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21013: {
@@ -1228,6 +2009,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21012: {
     NAME: 'A Secret Vow',
@@ -1237,6 +2024,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21011: {
@@ -1248,6 +2041,12 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010: {
     NAME: 'Swordplay',
@@ -1257,6 +2056,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21009: {
@@ -1268,6 +2073,12 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21008: {
     NAME: 'Eyes of the Prey',
@@ -1277,6 +2088,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21007: {
@@ -1288,6 +2105,12 @@ export default {
       BASE_ATK: 423,
       BASE_DEF: 396,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21006: {
     NAME: 'The Birth of the Self',
@@ -1297,6 +2120,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21005: {
@@ -1308,6 +2137,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21004: {
     NAME: 'Memories of the Past',
@@ -1317,6 +2152,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21003: {
@@ -1328,6 +2169,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21002: {
     NAME: 'Day One of My New Life',
@@ -1337,6 +2184,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 370,
       BASE_DEF: 463,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21001: {
@@ -1348,6 +2201,12 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 330,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21000: {
     NAME: 'Post-Op Conversation',
@@ -1357,6 +2216,12 @@ export default {
       BASE_HP:  1058,
       BASE_ATK: 423,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20020: {
@@ -1368,6 +2233,12 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20019: {
     NAME: 'Mediation',
@@ -1377,6 +2248,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20018: {
@@ -1388,6 +2265,12 @@ export default {
       BASE_ATK: 317,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20017: {
     NAME: 'Pioneering',
@@ -1397,6 +2280,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 264,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20016: {
@@ -1408,6 +2297,12 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 198,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20015: {
     NAME: 'Multiplication',
@@ -1417,6 +2312,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 317,
       BASE_DEF: 198,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20014: {
@@ -1428,6 +2329,12 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20013: {
     NAME: 'Passkey',
@@ -1437,6 +2344,12 @@ export default {
       BASE_HP:  740,
       BASE_ATK: 370,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20012: {
@@ -1448,6 +2361,12 @@ export default {
       BASE_ATK: 317,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20011: {
     NAME: 'Loop',
@@ -1457,6 +2376,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20010: {
@@ -1468,6 +2393,12 @@ export default {
       BASE_ATK: 264,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20009: {
     NAME: 'Shattered Home',
@@ -1477,6 +2408,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 370,
       BASE_DEF: 198,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20008: {
@@ -1488,6 +2425,12 @@ export default {
       BASE_ATK: 317,
       BASE_DEF: 198,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20007: {
     NAME: 'Darting Arrow',
@@ -1497,6 +2440,12 @@ export default {
       BASE_HP:  740,
       BASE_ATK: 370,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20006: {
@@ -1508,6 +2457,12 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20005: {
     NAME: 'Chorus',
@@ -1517,6 +2472,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20004: {
@@ -1528,6 +2489,12 @@ export default {
       BASE_ATK: 317,
       BASE_DEF: 264,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20003: {
     NAME: 'Amber',
@@ -1537,6 +2504,12 @@ export default {
       BASE_HP:  846,
       BASE_ATK: 264,
       BASE_DEF: 330,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20002: {
@@ -1548,6 +2521,12 @@ export default {
       BASE_ATK: 370,
       BASE_DEF: 198,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   20001: {
     NAME: 'Cornucopia',
@@ -1557,6 +2536,12 @@ export default {
       BASE_HP:  952,
       BASE_ATK: 264,
       BASE_DEF: 264,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   20000: {

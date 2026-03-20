@@ -1,99 +1,89 @@
 import { useContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Card, Divider, Stack, Typography } from '@mui/material';
-import { BuildDataContext } from '@/contexts';
-import { useCharacterLookup, useWeaponLookup } from '@/hooks';
-import { ALL_GENERAL_LOOKUP } from '@/lookups';
+import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
+import { BuildContext } from '@/contexts';
+import { GENERAL_LOOKUP, CHARACTER_LOOKUP, WEAPON_LOOKUP } from '@/lookups';
+import { combineBaseStats, combineEquipStats } from '@/utils';
 
-const StatRow = ({ label, value }) => (
-  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-    <Typography variant="body2" color="text.secondary">
-      {label}
-    </Typography>
-    <Typography variant="body2" fontWeight={600}>
-      {value}
-    </Typography>
-  </Box>
-);
+export const StatsPanel = () => {
+  const { gameId, charId } = useParams();
+  const { buildCollections } = useContext(BuildContext);
+  const charBuild = buildCollections[gameId]?.[charId] ?? null;
 
-export const StatsPanel = ({ selectedId, baseStats, equipStats }) => {
-  const { gameId } = useParams();
-  const { allBuildData } = useContext(BuildDataContext);
+  const { baseStats, equipStats } = useMemo(() => {
+    if (!charBuild) return { baseStats: {}, equipStats: {} };
 
-  const [selectedBuild, STAT_ORDER] = useMemo(() => {
-    if (!selectedId) return [{}, []];
-    return [
-      allBuildData[gameId][selectedId],
-      ALL_GENERAL_LOOKUP[gameId].MENU_STAT_TYPES,
-    ];
-  }, [selectedId]);
-
-  const selectedLookup = useCharacterLookup(selectedId);
-
-  const characterName = selectedLookup.NAME ?? 'Select a character';
-  const weaponName = useWeaponLookup(selectedBuild.weaponId).NAME;
-
-  const lastUpdated = selectedBuild.lastUpdated ?? 'Unknown';
+    const baseStats = combineBaseStats(gameId, charId, charBuild.weaponId);
+    const equipStats = combineEquipStats(charBuild.equipList);
+    return { baseStats, equipStats };
+  }, [gameId, charId, charBuild]);
 
   return (
     <Card
       variant="outlined"
-      sx={{
-        flex: '0 0 clamp(220px, 20vw, 300px)',
-        display: 'flex',
-        flexDirection: 'column',
-        p: 2.5,
-        borderRadius: 3,
-        overflowY: 'auto',
-      }}
+      sx={{ width: 300 }}
     >
-      <Typography variant="h6" fontWeight={700} gutterBottom>
-        {characterName}
-      </Typography>
+      {charBuild ? (
+        <Stack p={2} sx={{ height: '100%', overflowY: 'auto' }}>
+          <Typography variant="h6" fontWeight={700} gutterBottom>
+            {CHARACTER_LOOKUP[gameId][charId].NAME}
+          </Typography>
 
-      <Divider sx={{ mb: 2 }} />
+          <Divider sx={{ mb: 2 }} />
 
-      <Stack gap={1.5} sx={{ flex: 1 }}>
-        {STAT_ORDER.map(([statId, statLabel]) => {
-          const baseId = `BASE_${statId}`;
-          const flatId = `FLAT_${statId}`;
-          const percentId = `PERCENT_${statId}`;
-          const value = (baseStats[baseId] ?? 0) + (baseStats[baseId] ? baseStats[baseId] : 1) * (equipStats[percentId] ?? 0) + (equipStats[flatId] ?? 0) + (ALL_GENERAL_LOOKUP[gameId].DEFAULT_STATS[percentId] ?? 0);
-          const isFlatStat = ALL_GENERAL_LOOKUP[gameId].MAIN_STAT_TYPES.some(typeObj => typeObj[flatId]) || ALL_GENERAL_LOOKUP[gameId].SUB_STAT_TYPES[flatId] || baseStats[baseId];
-          const finalValue = value * (isFlatStat ? 1 : 100);
-          const toFixedValue = isFlatStat ? 0 : 1;
-          if (statId !== 'EM' && finalValue === 0) return;
-          return (
-            <Box
-              key={statId}
-              sx={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
-              <Typography variant="body2" color="text.secondary">
-                {statLabel}
-              </Typography>
-              <Typography variant="body2" fontWeight={600}>
-                {finalValue.toFixed(toFixedValue) + (isFlatStat ? '' : '%')}
-              </Typography>
-            </Box>
-          );
-        })}
-      </Stack>
+          <Stack gap={1.5} sx={{ flex: 1 }}>
+            {GENERAL_LOOKUP[gameId].MENU_STAT_TYPES.map(([statId, statLabel]) => {
+              const baseId = `BASE_${statId}`;
+              const flatId = `FLAT_${statId}`;
+              const percentId = `PERCENT_${statId}`;
+              const value = (baseStats[baseId] ?? 0) + (baseStats[baseId] ? baseStats[baseId] : 1) * (equipStats[percentId] ?? 0) + (equipStats[flatId] ?? 0) + (GENERAL_LOOKUP[gameId].DEFAULT_STATS[percentId] ?? 0);
+              const isFlatStat = GENERAL_LOOKUP[gameId].MAIN_STAT_TYPES.some(typeObj => typeObj[flatId]) || GENERAL_LOOKUP[gameId].SUB_STAT_TYPES[flatId] || baseStats[baseId];
+              const finalValue = value * (isFlatStat ? 1 : 100);
+              const toFixedValue = isFlatStat ? 0 : 1;
+              if (statId !== 'EM' && finalValue === 0) return;
+              return (
+                <Box
+                  key={statId}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Typography variant="body2" color="text.secondary">
+                    {statLabel}
+                  </Typography>
+                  <Typography variant="body2" fontWeight={600}>
+                    {finalValue.toFixed(toFixedValue) + (isFlatStat ? '' : '%')}
+                  </Typography>
+                </Box>
+              );
+            })}
+          </Stack>
 
-      <Divider sx={{ mb: 2 }} />
+          <Divider sx={{ mb: 2 }} />
 
-      <StatRow
-        label="Weapon"
-        value={weaponName}
-      />
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Typography variant="body2" color="text.secondary">
+              Weapon
+            </Typography>
+            <Typography variant="body2" fontWeight={600}>
+              {WEAPON_LOOKUP[gameId][charBuild.weaponId]?.NAME}
+            </Typography>
+          </Box>
 
-      <Divider sx={{ mt: 'auto', pt: 2 }} />
-      <Typography variant="caption" color="text.secondary" sx={{ pt: 1 }}>
-        Last Updated: {lastUpdated}
-      </Typography>
+          <Divider sx={{ mt: 'auto', pt: 2 }} />
+          <Typography variant="caption" color="text.secondary" sx={{ pt: 1 }}>
+            Last Updated: {charBuild.lastUpdated ?? 'Unknown'}
+          </Typography>
+        </Stack>
+      ) : (
+        <Skeleton
+          variant="rectangular"
+          width="100%"
+          height="100%"
+        />
+      )}
     </Card>
   );
 };

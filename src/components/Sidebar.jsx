@@ -1,48 +1,30 @@
-import { useContext, useEffect, useMemo, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useContext, useEffect, useMemo } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Avatar, Box } from '@mui/material';
-import { ALL_CHARACTER_ASSETS } from '@/assets';
-import { BuildDataContext, UserDataContext } from '@/contexts';
-import { ALL_CHARACTER_LOOKUP } from '@/lookups';
+import { CHARACTER_ASSETS } from '@/assets';
+import { BuildContext, UserDataContext } from '@/contexts';
+import { sortCharIds } from '@/utils';
 
-export const Sidebar = ({ selectedId, setSelectedId }) => {
-  const { gameId } = useParams();
-  const buildData = useContext(BuildDataContext).allBuildData[gameId];
-  const pinnedId = useContext(UserDataContext).pinnedIds[gameId];
+export const Sidebar = () => {
+  const navigate = useNavigate();
+  const { gameId, charId } = useParams();
+  const { buildCollections } = useContext(BuildContext);
+  const { pinnedIds } = useContext(UserDataContext);
 
-  const CHARACTER_ASSETS = ALL_CHARACTER_ASSETS[gameId];
-  const CHARACTER_LOOKUP = ALL_CHARACTER_LOOKUP[gameId];
-
-  const sortedIds = useMemo(() => {
-    return Object.keys(buildData).sort((aId, bId) => {
-      // Prioritize pinned character
-      if (aId === pinnedId) return -1;
-      if (bId === pinnedId) return 1;
-
-      // Sort alphabetically by name
-      const aName = CHARACTER_LOOKUP[aId]?.NAME || '';
-      const bName = CHARACTER_LOOKUP[bId]?.NAME || '';
-      return aName.localeCompare(bName);
-    });
-  }, [buildData, pinnedId]);
-
-  const prevGameId = useRef(gameId);
+  const charList = useMemo(() => {
+    return sortCharIds(gameId, pinnedIds[gameId], Object.keys(buildCollections[gameId] ?? {}))
+  }, [gameId, pinnedIds, buildCollections]);
 
   useEffect(() => {
-    // if no characters, reset selectedId to null
-    if (!sortedIds.length) return setSelectedId(null);
+    if (charList.length === 0) return;
+    if (charList.includes(charId)) return;
+    navigate(`/${gameId}/${charList[0]}`, { replace: true });
+  }, [gameId, charId, charList, navigate]);
 
-    // if gameId changed, reset selectedId to first character
-    if (prevGameId.current !== gameId) {
-      prevGameId.current = gameId;
-      return setSelectedId(sortedIds[0]);
-    }
-
-    // if selectedId no longer exists, reset to first character
-    if (!sortedIds.includes(selectedId)) {
-      return setSelectedId(sortedIds[0]);
-    }
-  }, [sortedIds]);
+  const handleSelectId = (id) => {
+    if (charId === id) return;
+    navigate(`/${gameId}/${id}`, { replace: true });
+  };
 
   return (
     <Box sx={{
@@ -79,26 +61,26 @@ export const Sidebar = ({ selectedId, setSelectedId }) => {
           pointerEvents: 'none',
         },
       }}>
-        {sortedIds.map((characterId) => (
+        {charList.map((id) => (
           <Avatar
-            key={characterId}
-            src={CHARACTER_ASSETS[characterId]}
-            onClick={() => setSelectedId(characterId)}
+            key={id}
+            src={CHARACTER_ASSETS[gameId][id]}
+            onClick={() => handleSelectId(id)}
             sx={{
               width: 46,
               height: 46,
               cursor: 'pointer',
               flexShrink: 0,
               transition: 'all 0.15s ease',
-              outline: selectedId === characterId
+              outline: charId === id
                 ? '2px solid'
                 : '2px solid transparent',
-              outlineColor: selectedId === characterId
+              outlineColor: charId === id
                 ? 'primary.main'
                 : 'transparent',
               outlineOffset: 2,
-              opacity: selectedId === characterId ? 1 : 0.55,
-              filter: selectedId === characterId ? 'none' : 'grayscale(0.4)',
+              opacity: charId === id ? 1 : 0.55,
+              filter: charId === id ? 'none' : 'grayscale(0.4)',
               '&:hover': {
                 opacity: 1,
                 filter: 'none',

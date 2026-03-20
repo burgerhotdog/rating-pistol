@@ -1,4 +1,19 @@
 export default {
+  // Version 6.4
+  10000128: {
+    NAME: 'Varka',
+    RARITY: 5,
+    ELEMENT: 'Anemo',
+    TYPE: 'Claymore',
+    SIGNATURE: '12515',
+    BASE_STATS: {
+      BASE_HP: 12613,
+      BASE_ATK: 353,
+      BASE_DEF: 795,      
+    },
+  },
+
+  // Version 6.3
   10000127: {
     NAME: 'Illuga',
     RARITY: 4,
@@ -15,7 +30,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Sword',
-    SIGNATURE: 11519,
+    SIGNATURE: '11519',
     BASE_STATS: {
       BASE_HP: 12919,
       BASE_ATK: 225,
@@ -27,13 +42,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14522,
+    SIGNATURE: '14522',
     BASE_STATS: {
       BASE_HP: 14695,
       BASE_ATK: 96,
       BASE_DEF: 515,
     },
   },
+
+  // Version 6.2
   10000124: {
     NAME: 'Jahoda',
     RARITY: 4,
@@ -50,25 +67,29 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Sword',
-    SIGNATURE: 11518,
+    SIGNATURE: '11518',
     BASE_STATS: {
       BASE_HP: 12430,
       BASE_ATK: 347,
       BASE_DEF: 822,
     },
   },
+
+  // Version 6.1
   10000122: {
     NAME: 'Nefer',
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14521,
+    SIGNATURE: '14521',
     BASE_STATS: {
       BASE_HP: 12704,
       BASE_ATK: 344,
       BASE_DEF: 799,
     },
   },
+
+  // Version 6.0
   10000121: {
     NAME: 'Aino',
     RARITY: 4,
@@ -85,7 +106,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    SIGNATURE: 13516,
+    SIGNATURE: '13516',
     BASE_STATS: {
       BASE_HP: 12491,
       BASE_ATK: 352,
@@ -97,25 +118,29 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14520,
+    SIGNATURE: '14520',
     BASE_STATS: {
       BASE_HP: 10654,
       BASE_ATK: 255,
       BASE_DEF: 669,
     },
   },
+
+  // Version 5.8
   10000116: {
     NAME: 'Ineffa',
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    SIGNATURE: 13515,
+    SIGNATURE: '13515',
     BASE_STATS: {
       BASE_HP:  12613,
       BASE_ATK: 330,
       BASE_DEF: 828,
     },
   },
+
+  // Version 5.7
   10000115: {
     NAME: 'Dahlia',
     RARITY: 4,
@@ -132,13 +157,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
-    SIGNATURE: 11517,
+    SIGNATURE: '11517',
     BASE_STATS: {
       BASE_HP:  12417,
       BASE_ATK: 359,
       BASE_DEF: 806,
     },
   },
+
+  // Version 5.6
   10000113: {
     NAME: 'Ifa',
     RARITY: 4,
@@ -155,19 +182,21 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Polearm',
-    SIGNATURE: 13514,
+    SIGNATURE: '13514',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 347,
       BASE_DEF: 732,
     },
   },
+
+  // Version 5.5
   10000111: {
     NAME: 'Varesa',
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14519,
+    SIGNATURE: '14519',
     BASE_STATS: {
       BASE_HP:  12699,
       BASE_ATK: 356,
@@ -185,18 +214,22 @@ export default {
       BASE_DEF: 638,
     },
   },
+
+  // Version 5.4
   10000109: {
     NAME: 'Yumemizuki Mizuki',
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14518,
+    SIGNATURE: '14518',
     BASE_STATS: {
       BASE_HP:  12736,
       BASE_ATK: 215,
       BASE_DEF: 757,
     },
   },
+
+  // Version 5.3
   10000108: {
     NAME: 'Lan Yan',
     RARITY: 4,
@@ -213,7 +246,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14517,
+    SIGNATURE: '14517',
     BASE_STATS: {
       BASE_HP:  11633,
       BASE_ATK: 126,
@@ -225,13 +258,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
-    SIGNATURE: 12514,
+    SIGNATURE: '12514',
     BASE_STATS: {
       BASE_HP:  12552,
       BASE_ATK: 358,
       BASE_DEF: 791,
     },
   },
+
+  // Version 5.2
   10000105: {
     NAME: 'Ororon',
     RARITY: 4,
@@ -248,31 +283,35 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Bow',
-    SIGNATURE: 15514,
+    SIGNATURE: '15514',
     BASE_STATS: {
       BASE_HP:  9796,
       BASE_ATK: 346,
       BASE_DEF: 614,
     },
   },
+
+  // Version 5.1
   10000103: {
     NAME: 'Xilonen',
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Sword',
-    SIGNATURE: 11516,
+    SIGNATURE: '11516',
     BASE_STATS: {
       BASE_HP:  12405,
       BASE_ATK: 275,
       BASE_DEF: 929,
     },
   },
+
+  // Version 5.0
   10000102: {
     NAME: 'Mualani',
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14516,
+    SIGNATURE: '14516',
     BASE_STATS: {
       BASE_HP:  15184,
       BASE_ATK: 181,
@@ -284,7 +323,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Claymore',
-    SIGNATURE: 12513,
+    SIGNATURE: '12513',
     BASE_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 332,
@@ -302,24 +341,28 @@ export default {
       BASE_DEF: 792,
     },
   },
+
+  // Version 4.8
   10000099: {
     NAME: 'Emilie',
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Polearm',
-    SIGNATURE: 13513,
+    SIGNATURE: '13513',
     BASE_STATS: {
       BASE_HP:  13568,
       BASE_ATK: 334,
       BASE_DEF: 730,
     },
   },
+
+  // Version 4.7
   10000098: {
     NAME: 'Clorinde',
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Sword',
-    SIGNATURE: 11515,
+    SIGNATURE: '11515',
     BASE_STATS: {
       BASE_HP:  12956,
       BASE_ATK: 337,
@@ -342,43 +385,49 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
-    SIGNATURE: 15513,
+    SIGNATURE: '15513',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 192,
       BASE_DEF: 499,
     },
   },
+
+  // Version 4.6
   10000096: {
     NAME: 'Arlecchino',
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
-    SIGNATURE: 13512,
+    SIGNATURE: '13512',
     BASE_STATS: {
       BASE_HP:  13103,
       BASE_ATK: 342,
       BASE_DEF: 764,
     },
   },
+
+  // Version 4.5
   10000094: {
     NAME: 'Chiori',
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Sword',
-    SIGNATURE: 11514,
+    SIGNATURE: '11514',
     BASE_STATS: {
       BASE_HP:  11437,
       BASE_ATK: 322,
       BASE_DEF: 953,
     },
   },
+
+  // Version 4.4
   10000093: {
     NAME: 'Xianyun',
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14515,
+    SIGNATURE: '14515',
     BASE_STATS: {
       BASE_HP:  10409,
       BASE_ATK: 334,
@@ -396,12 +445,14 @@ export default {
       BASE_DEF: 702,
     },
   },
+
+  // Version 4.3
   10000091: {
     NAME: 'Navia',
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Claymore',
-    SIGNATURE: 12512,
+    SIGNATURE: '12512',
     BASE_STATS: {
       BASE_HP:  12650,
       BASE_ATK: 351,
@@ -419,12 +470,14 @@ export default {
       BASE_DEF: 604,
     },
   },
+
+  // Version 4.2
   10000089: {
     NAME: 'Furina',
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
-    SIGNATURE: 11513,
+    SIGNATURE: '11513',
     BASE_STATS: {
       BASE_HP:  15307,
       BASE_ATK: 243,
@@ -442,12 +495,14 @@ export default {
       BASE_DEF: 546,
     },
   },
+
+  // Version 4.1
   10000087: {
     NAME: 'Neuvillette',
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14514,
+    SIGNATURE: '14514',
     BASE_STATS: {
       BASE_HP:  14695,
       BASE_ATK: 208,
@@ -459,13 +514,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14513,
+    SIGNATURE: '14513',
     BASE_STATS: {
       BASE_HP:  13592,
       BASE_ATK: 310,
       BASE_DEF: 763,
     },
   },
+
+  // Version 4.0
   10000085: {
     NAME: 'Freminet',
     RARITY: 4,
@@ -482,7 +539,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Bow',
-    SIGNATURE: 15512,
+    SIGNATURE: '15512',
     BASE_STATS: {
       BASE_HP:  11021,
       BASE_ATK: 231,
@@ -500,6 +557,8 @@ export default {
       BASE_DEF: 711,
     },
   },
+
+  // Version 3.7
   10000061: {
     NAME: 'Kirara',
     RARITY: 4,
@@ -511,12 +570,14 @@ export default {
       BASE_DEF: 546,
     },
   },
+
+  // Version 3.6
   10000082: {
     NAME: 'Baizhu',
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14505,
+    SIGNATURE: '14505',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 192,
@@ -534,6 +595,8 @@ export default {
       BASE_DEF: 750,
     },
   },
+
+  // Version 3.5
   10000080: {
     NAME: 'Mika',
     RARITY: 4,
@@ -550,19 +613,21 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
-    SIGNATURE: 12511,
+    SIGNATURE: '12511',
     BASE_STATS: {
       BASE_HP:  15674,
       BASE_ATK: 265,
       BASE_DEF: 627,
     },
   },
+
+  // Version 3.4
   10000078: {
     NAME: 'Alhaitham',
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Sword',
-    SIGNATURE: 11512,
+    SIGNATURE: '11512',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 313,
@@ -580,6 +645,8 @@ export default {
       BASE_DEF: 750,
     },
   },
+
+  // Version 3.3
   10000076: {
     NAME: 'Faruzan',
     RARITY: 4,
@@ -596,13 +663,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    SIGNATURE: 14512,
+    SIGNATURE: '14512',
     BASE_STATS: {
       BASE_HP:  10164,
       BASE_ATK: 327,
       BASE_DEF: 607,
     },
   },
+
+  // Version 3.2
   10000074: {
     NAME: 'Layla',
     RARITY: 4,
@@ -619,13 +688,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14511,
+    SIGNATURE: '14511',
     BASE_STATS: {
       BASE_HP:  10360,
       BASE_ATK: 298,
       BASE_DEF: 630,
     },
   },
+
+  // Version 3.1
   10000072: {
     NAME: 'Candace',
     RARITY: 4,
@@ -642,7 +713,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    SIGNATURE: 13511,
+    SIGNATURE: '13511',
     BASE_STATS: {
       BASE_HP:  12490,
       BASE_ATK: 318,
@@ -654,19 +725,21 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
-    SIGNATURE: 11511,
+    SIGNATURE: '11511',
     BASE_STATS: {
       BASE_HP:  15184,
       BASE_ATK: 229,
       BASE_DEF: 728,
     },
   },
+
+  // Version 3.0
   10000069: {
     NAME: 'Tighnari',
     RARITY: 5,
     ELEMENT: 'Dendro',
     TYPE: 'Bow',
-    SIGNATURE: 15511,
+    SIGNATURE: '15511',
     BASE_STATS: {
       BASE_HP:  10849,
       BASE_ATK: 267,
@@ -695,6 +768,8 @@ export default {
       BASE_DEF: 600,
     },
   },
+
+  // Version 2.8
   10000059: {
     NAME: 'Shikanoin Heizou',
     RARITY: 4,
@@ -706,6 +781,8 @@ export default {
       BASE_DEF: 683,
     },
   },
+
+  // Version 2.7
   10000065: {
     NAME: 'Kuki Shinobu',
     RARITY: 4,
@@ -722,37 +799,43 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
-    SIGNATURE: 15508,
+    SIGNATURE: '15508',
     BASE_STATS: {
       BASE_HP:  14450,
       BASE_ATK: 243,
       BASE_DEF: 547,
     },
   },
+
+  // Version 2.6
   10000066: {
     NAME: 'Kamisato Ayato',
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
-    SIGNATURE: 11510,
+    SIGNATURE: '11510',
     BASE_STATS: {
       BASE_HP:  13715,
       BASE_ATK: 298,
       BASE_DEF: 768,
     },
   },
+
+  // Version 2.5
   10000058: {
     NAME: 'Yae Miko',
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14509,
+    SIGNATURE: '14509',
     BASE_STATS: {
       BASE_HP:  10372,
       BASE_ATK: 339,
       BASE_DEF: 568,
     },
   },
+
+  // Version 2.4
   10000064: {
     NAME: 'Yun Jin',
     RARITY: 4,
@@ -769,19 +852,21 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Polearm',
-    SIGNATURE: 13507,
+    SIGNATURE: '13507',
     BASE_STATS: {
       BASE_HP:  12992,
       BASE_ATK: 303,
       BASE_DEF: 830,
     },
   },
+
+  // Version 2.3
   10000057: {
     NAME: 'Arataki Itto',
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Claymore',
-    SIGNATURE: 12510,
+    SIGNATURE: '12510',
     BASE_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 227,
@@ -799,6 +884,8 @@ export default {
       BASE_DEF: 648,
     },
   },
+
+  // Version 2.2
   10000062: {
     NAME: 'Aloy',
     RARITY: 5,
@@ -821,6 +908,8 @@ export default {
       BASE_DEF: 750,
     },
   },
+
+  // Version 2.1
   10000056: {
     NAME: 'Kujou Sara',
     RARITY: 4,
@@ -837,7 +926,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    SIGNATURE: 14506,
+    SIGNATURE: '14506',
     BASE_STATS: {
       BASE_HP:  13470,
       BASE_ATK: 234,
@@ -849,13 +938,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    SIGNATURE: 13509,
+    SIGNATURE: '13509',
     BASE_STATS: {
       BASE_HP:  12907,
       BASE_ATK: 337,
       BASE_DEF: 789,
     },
   },
+
+  // Version 2.0
   10000053: {
     NAME: 'Sayu',
     RARITY: 4,
@@ -872,7 +963,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Bow',
-    SIGNATURE: 15509,
+    SIGNATURE: '15509',
     BASE_STATS: {
       BASE_HP:  10164,
       BASE_ATK: 322,
@@ -884,31 +975,35 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
-    SIGNATURE: 11509,
+    SIGNATURE: '11509',
     BASE_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 342,
       BASE_DEF: 783,
     },
   },
+
+  // Version 1.6
   10000047: {
     NAME: 'Kaedehara Kazuha',
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Sword',
-    SIGNATURE: 11503,
+    SIGNATURE: '11503',
     BASE_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 296,
       BASE_DEF: 806,
     },
   },
+
+  // Version 1.5
   10000051: {
     NAME: 'Eula',
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Claymore',
-    SIGNATURE: 12503,
+    SIGNATURE: '12503',
     BASE_STATS: {
       BASE_HP:  13225,
       BASE_ATK: 342,
@@ -926,6 +1021,8 @@ export default {
       BASE_DEF: 586,
     },
   },
+
+  // Version 1.4
   10000045: {
     NAME: 'Rosaria',
     RARITY: 4,
@@ -937,12 +1034,14 @@ export default {
       BASE_DEF: 709,
     },
   },
+
+  // Version 1.3
   10000046: {
     NAME: 'Hu Tao',
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
-    SIGNATURE: 13501,
+    SIGNATURE: '13501',
     BASE_STATS: {
       BASE_HP:  15522,
       BASE_ATK: 106,
@@ -954,13 +1053,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Anemo',
     TYPE: 'Polearm',
-    SIGNATURE: 13505,
+    SIGNATURE: '13505',
     BASE_STATS: {
       BASE_HP:  12735,
       BASE_ATK: 349,
       BASE_DEF: 799,
     },
   },
+
+  // Version 1.2
   10000038: {
     NAME: 'Albedo',
     RARITY: 5,
@@ -977,13 +1078,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Cryo',
     TYPE: 'Bow',
-    SIGNATURE: 15502,
+    SIGNATURE: '15502',
     BASE_STATS: {
       BASE_HP:  9796,
       BASE_ATK: 334,
       BASE_DEF: 630,
     },
   },
+
+  // Version 1.1
   10000044: {
     NAME: 'Xinyan',
     RARITY: 4,
@@ -1011,7 +1114,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
-    SIGNATURE: 15507,
+    SIGNATURE: '15507',
     BASE_STATS: {
       BASE_HP:  13103,
       BASE_ATK: 301,
@@ -1023,13 +1126,15 @@ export default {
     RARITY: 5,
     ELEMENT: 'Geo',
     TYPE: 'Polearm',
-    SIGNATURE: 13504,
+    SIGNATURE: '13504',
     BASE_STATS: {
       BASE_HP:  14695,
       BASE_ATK: 251,
       BASE_DEF: 737,
     },
   },
+
+  // Version 1.0
   10000043: {
     NAME: 'Sucrose',
     RARITY: 4,
@@ -1211,7 +1316,7 @@ export default {
     RARITY: 5,
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
-    SIGNATURE: 12502,
+    SIGNATURE: '12502',
     BASE_STATS: {
       BASE_HP:  12980,
       BASE_ATK: 334,

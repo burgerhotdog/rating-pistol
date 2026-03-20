@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Stack, Box, Tooltip } from '@mui/material';
 import { ICON_ASSETS } from '@/assets';
-import { ALL_GENERAL_LOOKUP } from '@/lookups';
+import { GENERAL_LOOKUP } from '@/lookups';
 
 const GameLink = ({ gameId }) => {
-  const { TITLE } = ALL_GENERAL_LOOKUP[gameId];
+  const { TITLE } = GENERAL_LOOKUP[gameId];
   return (
     <Tooltip title={TITLE}>
       <Link to={`/${gameId}`}>

@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
 import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
-import { UserDataContext, BuildDataContext } from '@/contexts';
+import { UserDataContext, BuildContext } from '@/contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
-import { ALL_CHARACTER_LOOKUP } from '@/lookups';
+import { CHARACTER_LOOKUP } from '@/lookups';
 
 const HeaderEnka = ({ activeGameId }) => {
   const { savedUids, updateSavedUids } = useContext(UserDataContext);
-  const { saveBuildEntries } = useContext(BuildDataContext);
+  const { saveBuildEntries } = useContext(BuildContext);
   const [uid, setUid] = useState('');
   const [isSyncLoading, setIsSyncLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -167,7 +167,7 @@ const HeaderEnka = ({ activeGameId }) => {
                   })}
                 />
               }
-              label={ALL_CHARACTER_LOOKUP[activeGameId][char.avatarId].NAME}
+              label={CHARACTER_LOOKUP[activeGameId][char.avatarId].NAME}
             />
           ))}
         </DialogContent>

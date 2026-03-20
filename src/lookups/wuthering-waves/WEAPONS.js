@@ -1,10 +1,17 @@
 export default {
+  // Version 3.1
   21040056: {
     NAME: 'Daybreaker\'s Spine',
     RARITY: 5,
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020076: {
@@ -14,13 +21,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 3.0
   21050045: {
     NAME: 'Boson Astrolabe',
     RARITY: 5,
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 525,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040045: {
@@ -30,6 +51,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030046: {
     NAME: 'Spectrum Blaster',
@@ -37,6 +64,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030045: {
@@ -46,6 +79,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020045: {
     NAME: 'Laser Shearer',
@@ -53,6 +92,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010066: {
@@ -62,6 +107,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010045: {
     NAME: 'Radiance Cleaver',
@@ -70,7 +121,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.8
   21010056: {
     NAME: 'Kumokiri',
     RARITY: 5,
@@ -78,13 +137,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.7
   21030036: {
     NAME: 'Lux & Umbra',
     RARITY: 5,
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020066: {
@@ -94,13 +167,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.6
   21050104: {
     NAME: 'Radiant Dawn',
     RARITY: 4,
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 413,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040104: {
@@ -110,6 +197,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040046: {
     NAME: 'Moongazer\'s Sigil',
@@ -117,6 +210,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 500,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030104: {
@@ -126,6 +225,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020104: {
     NAME: 'Feather Edge',
@@ -133,6 +238,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 413,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010104: {
@@ -142,6 +253,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010046: {
     NAME: 'Thunderflare Dominion',
@@ -150,7 +267,15 @@ export default {
     BASE_STATS: {
       BASE_ATK: 675,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.5
   21050066: {
     NAME: 'Lethean Elegy',
     RARITY: 5,
@@ -158,13 +283,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.4
   21020056: {
     NAME: 'Defier\'s Thorn',
     RARITY: 5,
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 413,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010036: {
@@ -174,13 +313,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.3
   21040036: {
     NAME: 'Blazing Justice',
     RARITY: 5,
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 588,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030026: {
@@ -190,13 +343,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.2
   21050056: {
     NAME: 'Whispers of Sirens',
     RARITY: 5,
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020046: {
@@ -206,13 +373,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 588,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.1
   21050046: {
     NAME: 'Luminous Hymn',
     RARITY: 5,
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050027: {
@@ -222,6 +403,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 463,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020036: {
     NAME: 'Unflickering Valor',
@@ -230,13 +417,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 413,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 2.0
   21050094: {
     NAME: 'Waltz in Masquerade',
     RARITY: 4,
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050017: {
@@ -246,6 +447,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 338,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040094: {
     NAME: 'Legend of Drunken Hero',
@@ -253,6 +460,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040026: {
@@ -262,6 +475,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030094: {
     NAME: 'Romance in Farewell',
@@ -269,6 +488,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030016: {
@@ -278,6 +503,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020094: {
     NAME: 'Fables of Wisdom',
@@ -285,6 +516,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010094: {
@@ -294,13 +531,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.4
   21020026: {
     NAME: 'Red Spring',
     RARITY: 5,
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020017: {
@@ -310,13 +561,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.3
   21050084: {
     NAME: 'Fusion Accretion',
     RARITY: 4,
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050036: {
@@ -326,6 +591,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040084: {
     NAME: 'Celestial Spiral',
@@ -333,6 +604,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030084: {
@@ -342,6 +619,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020084: {
     NAME: 'Endless Collapse',
@@ -349,6 +632,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 462,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010084: {
@@ -358,13 +647,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 462,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.2
   21050026: {
     NAME: 'Rime-Draped Sprouts',
     RARITY: 5,
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040016: {
@@ -374,13 +677,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.1
   21020016: {
     NAME: 'Blazing Brilliance',
     RARITY: 5,
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010063: {
@@ -390,6 +707,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010026: {
     NAME: 'Ages of Harvest',
@@ -398,13 +721,27 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
+
+  // Version 1.0
   21050074: {
     NAME: 'Augment',
     RARITY: 4,
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050064: {
@@ -414,6 +751,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050053: {
     NAME: 'Guardian Rectifier',
@@ -421,6 +764,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050044: {
@@ -430,6 +779,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 387,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050043: {
     NAME: 'Rectifier of Voyager',
@@ -437,6 +792,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050034: {
@@ -446,6 +807,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 337,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050024: {
     NAME: 'Variation',
@@ -453,6 +820,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 337,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050023: {
@@ -462,6 +835,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050016: {
     NAME: 'Stringmaster',
@@ -469,6 +848,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 500,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050015: {
@@ -478,6 +863,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 500,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050013: {
     NAME: 'Rectifier of Night',
@@ -485,6 +876,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21050012: {
@@ -494,6 +891,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 275,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21050011: {
     NAME: 'Training Rectifier',
@@ -501,6 +904,12 @@ export default {
     TYPE: 'Rectifier',
     BASE_STATS: {
       BASE_ATK: 250,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040074: {
@@ -510,6 +919,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040064: {
     NAME: 'Hollow Mirage',
@@ -517,6 +932,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040053: {
@@ -526,6 +947,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040044: {
     NAME: 'Amity Accord',
@@ -533,6 +960,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 337,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040043: {
@@ -542,6 +975,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040034: {
     NAME: 'Gauntlets#21D',
@@ -549,6 +988,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 387,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040024: {
@@ -558,6 +1003,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 337,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040023: {
     NAME: 'Originite: Type IV',
@@ -565,6 +1016,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040015: {
@@ -574,6 +1031,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040013: {
     NAME: 'Gauntlets of Night',
@@ -581,6 +1044,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21040012: {
@@ -590,6 +1059,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 275,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21040011: {
     NAME: 'Training Gauntlets',
@@ -597,6 +1072,12 @@ export default {
     TYPE: 'Gauntlets',
     BASE_STATS: {
       BASE_ATK: 250,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030074: {
@@ -606,6 +1087,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 387,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030064: {
     NAME: 'Novaburst',
@@ -613,6 +1100,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030053: {
@@ -622,6 +1115,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030044: {
     NAME: 'Undying Flame',
@@ -629,6 +1128,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030043: {
@@ -638,6 +1143,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030034: {
     NAME: 'Pistols#26',
@@ -645,6 +1156,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 387,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030024: {
@@ -654,6 +1171,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 337,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030023: {
     NAME: 'Originite: Type III',
@@ -661,6 +1184,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030015: {
@@ -670,6 +1199,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030013: {
     NAME: 'Pistols of Night',
@@ -677,6 +1212,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21030012: {
@@ -686,6 +1227,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 275,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21030011: {
     NAME: 'Training Pistols',
@@ -693,6 +1240,12 @@ export default {
     TYPE: 'Pistols',
     BASE_STATS: {
       BASE_ATK: 250,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020074: {
@@ -702,6 +1255,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 387,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020064: {
     NAME: 'Lunar Cutter',
@@ -709,6 +1268,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020053: {
@@ -718,6 +1283,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020044: {
     NAME: 'Commando of Conviction',
@@ -725,6 +1296,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020043: {
@@ -734,6 +1311,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020034: {
     NAME: 'Sword#18',
@@ -741,6 +1324,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 387,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020024: {
@@ -750,6 +1339,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 337,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020023: {
     NAME: 'Originite: Type II',
@@ -757,6 +1352,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020015: {
@@ -766,6 +1367,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020013: {
     NAME: 'Sword of Night',
@@ -773,6 +1380,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 325,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21020012: {
@@ -782,6 +1395,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 275,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21020011: {
     NAME: 'Training Sword',
@@ -789,6 +1408,12 @@ export default {
     TYPE: 'Sword',
     BASE_STATS: {
       BASE_ATK: 250,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010074: {
@@ -798,6 +1423,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 412,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010064: {
     NAME: 'Helios Cleaver',
@@ -805,6 +1436,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010053: {
@@ -814,6 +1451,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010044: {
     NAME: 'Dauntless Evernight',
@@ -821,6 +1464,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 337,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010043: {
@@ -830,6 +1479,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 300,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010034: {
     NAME: 'Broadblade#41',
@@ -837,6 +1492,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 412,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010024: {
@@ -846,6 +1507,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 337,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010023: {
     NAME: 'Originite: Type I',
@@ -853,6 +1520,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 300,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010016: {
@@ -862,6 +1535,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 587,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010015: {
     NAME: 'Lustrous Razor',
@@ -869,6 +1548,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 587,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010013: {
@@ -878,6 +1563,12 @@ export default {
     BASE_STATS: {
       BASE_ATK: 325,
     },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
+    },
   },
   21010012: {
     NAME: 'Tyro Broadblade',
@@ -885,6 +1576,12 @@ export default {
     TYPE: 'Broadblade',
     BASE_STATS: {
       BASE_ATK: 275,
+    },
+    MAIN_STAT: {
+      
+    },
+    EFFECT_STATS: {
+      
     },
   },
   21010011: {
