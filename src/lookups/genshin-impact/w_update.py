@@ -64,7 +64,7 @@ for weapon_id in args.weapon_ids:
         sys.exit(1)
 
 # Parse data and write output
-with open('gi_w_out.txt', 'w', encoding='utf-8') as f:
+with open('w_new.txt', 'w', encoding='utf-8') as f:
     f.write('\n')
     f.write('  // Version #.#\n')
     for weapon_id in sorted(args.weapon_ids, key=int, reverse=True):
@@ -92,4 +92,4 @@ with open('gi_w_out.txt', 'w', encoding='utf-8') as f:
             f.write('    },\n')
         f.write('  },\n')
 
-print('written to gi_w_out.txt')
+print('written to w_new.txt')

@@ -62,7 +62,7 @@ for char_id in args.char_ids:
         sys.exit(1)
 
 # Parse data and write output
-with open('gi_c_out.txt', 'w', encoding='utf-8') as f:
+with open('c_new.txt', 'w', encoding='utf-8') as f:
     f.write('\n')
     f.write('  // Version #.#\n')
     for char_id in sorted(args.char_ids, key=int, reverse=True):
@@ -97,4 +97,4 @@ with open('gi_c_out.txt', 'w', encoding='utf-8') as f:
         f.write('    },\n')
         f.write('  },\n')
 
-print('written to gi_c_out.txt')
+print('written to c_new.txt')
