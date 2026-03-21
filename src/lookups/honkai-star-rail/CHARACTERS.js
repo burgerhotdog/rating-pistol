@@ -6,7 +6,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Elation',
     SIGNATURE: '23054',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1242,
       BASE_ATK: 466,
       BASE_DEF: 655,
@@ -19,7 +19,7 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Elation',
     SIGNATURE: '23053',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1048,
       BASE_ATK: 640,
       BASE_DEF: 461,
@@ -34,7 +34,7 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
     SIGNATURE: '23050',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1087,
       BASE_ATK: 679,
       BASE_DEF: 606,
@@ -49,7 +49,7 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Remembrance',
     SIGNATURE: '23052',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1397,
       BASE_ATK: 446,
       BASE_DEF: 582,
@@ -64,7 +64,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Preservation',
     SIGNATURE: '23051',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1048,
       BASE_ATK: 582,
       BASE_DEF: 776,
@@ -77,7 +77,7 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Remembrance',
     SIGNATURE: '23049',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1319,
       BASE_ATK: 543,
       BASE_DEF: 582,
@@ -92,7 +92,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Harmony',
     SIGNATURE: '23048',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 621,
       BASE_DEF: 485,
@@ -105,7 +105,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Nihility',
     SIGNATURE: '23047',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1203,
       BASE_ATK: 602,
       BASE_DEF: 485,
@@ -120,7 +120,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
     SIGNATURE: '23044',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1436,
       BASE_ATK: 582,
       BASE_DEF: 703,
@@ -133,7 +133,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Hunt',
     SIGNATURE: '23046',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 621,
       BASE_DEF: 485,
@@ -146,7 +146,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Destruction',
     SIGNATURE: '23045',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1242,
       BASE_ATK: 602,
       BASE_DEF: 655,
@@ -161,7 +161,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Remembrance',
     SIGNATURE: '23042',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1087,
       BASE_ATK: 388,
       BASE_DEF: 631,
@@ -174,7 +174,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Nihility',
     SIGNATURE: '23043',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  931,
       BASE_ATK: 640,
       BASE_DEF: 509,
@@ -189,7 +189,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Remembrance',
     SIGNATURE: '23040',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1630,
       BASE_ATK: 524,
       BASE_DEF: 485,
@@ -202,7 +202,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Erudition',
     SIGNATURE: '23041',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  970,
       BASE_ATK: 757,
       BASE_DEF: 558,
@@ -217,7 +217,7 @@ export default {
     ELEMENT: 'Imaginary',
     TYPE: 'Destruction',
     SIGNATURE: '23039',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1552,
       BASE_ATK: 427,
       BASE_DEF: 194,
@@ -230,7 +230,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Harmony',
     SIGNATURE: '23038',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1048,
       BASE_ATK: 524,
       BASE_DEF: 728,
@@ -245,7 +245,7 @@ export default {
     ELEMENT: 'Lightning',
     TYPE: 'Remembrance',
     SIGNATURE: '23036',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1242,
       BASE_ATK: 699,
       BASE_DEF: 485,
@@ -258,7 +258,7 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Erudition',
     SIGNATURE: '23037',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 679,
       BASE_DEF: 485,
@@ -273,7 +273,7 @@ export default {
     ELEMENT: 'Imaginary',
     TYPE: 'Harmony',
     SIGNATURE: '23034',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1241,
       BASE_ATK: 640,
       BASE_DEF: 533,
@@ -286,7 +286,7 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
     SIGNATURE: '23035',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1125,
       BASE_ATK: 582,
       BASE_DEF: 557,
@@ -301,7 +301,7 @@ export default {
     ELEMENT: 'Imaginary',
     TYPE: 'Erudition',
     SIGNATURE: '23033',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 717,
       BASE_DEF: 460,
@@ -315,7 +315,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Lightning',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  811,
       BASE_ATK: 599,
       BASE_DEF: 352,
@@ -328,7 +328,7 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Abundance',
     SIGNATURE: '23032',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 679,
       BASE_DEF: 436,
@@ -341,7 +341,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Hunt',
     SIGNATURE: '23031',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 601,
       BASE_DEF: 388,
@@ -355,7 +355,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Imaginary',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 564,
       BASE_DEF: 441,
@@ -368,7 +368,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
     SIGNATURE: '23030',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 679,
       BASE_DEF: 460,
@@ -381,7 +381,7 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
     SIGNATURE: '23029',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 601,
       BASE_DEF: 509,
@@ -396,7 +396,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Erudition',
     SIGNATURE: '23028',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 659,
       BASE_DEF: 509,
@@ -409,7 +409,7 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Destruction',
     SIGNATURE: '23025',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  814,
       BASE_ATK: 523,
       BASE_DEF: 776,
@@ -424,7 +424,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Hunt',
     SIGNATURE: '23027',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1203,
       BASE_ATK: 620,
       BASE_DEF: 436,
@@ -437,7 +437,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Harmony',
     SIGNATURE: '23026',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1280,
       BASE_ATK: 640,
       BASE_DEF: 485,
@@ -452,7 +452,7 @@ export default {
     ELEMENT: 'Lightning',
     TYPE: 'Nihility',
     SIGNATURE: '23024',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1125,
       BASE_ATK: 698,
       BASE_DEF: 436,
@@ -465,7 +465,7 @@ export default {
     ELEMENT: 'Imaginary',
     TYPE: 'Preservation',
     SIGNATURE: '23023',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1203,
       BASE_ATK: 446,
       BASE_DEF: 654,
@@ -477,7 +477,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Fire',
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1305,
       BASE_ATK: 529,
       BASE_DEF: 441,
@@ -491,7 +491,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Ice',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1270,
       BASE_ATK: 599,
       BASE_DEF: 396,
@@ -504,7 +504,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Nihility',
     SIGNATURE: '23022',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 659,
       BASE_DEF: 485,
@@ -517,7 +517,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Harmony',
     SIGNATURE: '23021',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1397,
       BASE_ATK: 523,
       BASE_DEF: 485,
@@ -532,7 +532,7 @@ export default {
     ELEMENT: 'Imaginary',
     TYPE: 'Hunt',
     SIGNATURE: '23020',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 776,
       BASE_DEF: 460,
@@ -545,7 +545,7 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Harmony',
     SIGNATURE: '23019',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 659,
       BASE_DEF: 485,
@@ -557,7 +557,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Quantum',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 599,
       BASE_DEF: 396,
@@ -572,7 +572,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Erudition',
     SIGNATURE: '23018',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 737,
       BASE_DEF: 363,
@@ -585,7 +585,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Abundance',
     SIGNATURE: '23017',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 601,
       BASE_DEF: 509,
@@ -597,7 +597,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Physical',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  917,
       BASE_ATK: 564,
       BASE_DEF: 352,
@@ -612,7 +612,7 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Destruction',
     SIGNATURE: '23014',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1435,
       BASE_ATK: 679,
       BASE_DEF: 485,
@@ -624,7 +624,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Fire',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  882,
       BASE_ATK: 582,
       BASE_DEF: 441,
@@ -637,7 +637,7 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Hunt',
     SIGNATURE: '23016',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  931,
       BASE_ATK: 620,
       BASE_DEF: 412,
@@ -652,7 +652,7 @@ export default {
     ELEMENT: 'Imaginary',
     TYPE: 'Destruction',
     SIGNATURE: '23015',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1241,
       BASE_ATK: 698,
       BASE_DEF: 363,
@@ -665,7 +665,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Preservation',
     SIGNATURE: '23011',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1474,
       BASE_ATK: 465,
       BASE_DEF: 606,
@@ -677,7 +677,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Quantum',
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 493,
       BASE_DEF: 551,
@@ -692,7 +692,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Destruction',
     SIGNATURE: '23009',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1358,
       BASE_ATK: 543,
       BASE_DEF: 485,
@@ -704,7 +704,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Physical',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  917,
       BASE_ATK: 582,
       BASE_DEF: 485,
@@ -717,7 +717,7 @@ export default {
     ELEMENT: 'Lightning',
     TYPE: 'Nihility',
     SIGNATURE: '23006',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1086,
       BASE_ATK: 679,
       BASE_DEF: 485,
@@ -731,7 +731,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Imaginary',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  917,
       BASE_ATK: 599,
       BASE_DEF: 374,
@@ -744,7 +744,7 @@ export default {
     ELEMENT: 'Imaginary',
     TYPE: 'Abundance',
     SIGNATURE: '23008',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1280,
       BASE_ATK: 756,
       BASE_DEF: 363,
@@ -757,7 +757,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Nihility',
     SIGNATURE: '23007',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 640,
       BASE_DEF: 460,
@@ -772,7 +772,7 @@ export default {
     ELEMENT: 'Lightning',
     TYPE: 'Abundance',
     SIGNATURE: '23013',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1319,
       BASE_ATK: 562,
       BASE_DEF: 485,
@@ -785,7 +785,7 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Hunt',
     SIGNATURE: '23012',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  892,
       BASE_ATK: 679,
       BASE_DEF: 412,
@@ -797,7 +797,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Physical',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  917,
       BASE_ATK: 564,
       BASE_DEF: 418,
@@ -810,7 +810,7 @@ export default {
     ELEMENT: 'Lightning',
     TYPE: 'Erudition',
     SIGNATURE: '23010',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 698,
       BASE_DEF: 485,
@@ -822,7 +822,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Lightning',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 529,
       BASE_DEF: 396,
@@ -834,7 +834,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Quantum',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1023,
       BASE_ATK: 652,
       BASE_DEF: 441,
@@ -846,7 +846,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Fire',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1340,
       BASE_ATK: 617,
       BASE_DEF: 352,
@@ -858,7 +858,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Wind',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1023,
       BASE_ATK: 617,
       BASE_DEF: 396,
@@ -871,7 +871,7 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Destruction',
     SIGNATURE: '23002',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1241,
       BASE_ATK: 737,
       BASE_DEF: 485,
@@ -883,7 +883,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Ice',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  987,
       BASE_ATK: 546,
       BASE_DEF: 463,
@@ -895,7 +895,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Physical',
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 476,
       BASE_DEF: 507,
@@ -908,7 +908,7 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Preservation',
     SIGNATURE: '23005',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1397,
       BASE_ATK: 543,
       BASE_DEF: 654,
@@ -920,7 +920,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Lightning',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  917,
       BASE_ATK: 652,
       BASE_DEF: 374,
@@ -933,7 +933,7 @@ export default {
     ELEMENT: 'Quantum',
     TYPE: 'Hunt',
     SIGNATURE: '23001',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  931,
       BASE_ATK: 640,
       BASE_DEF: 363,
@@ -946,7 +946,7 @@ export default {
     ELEMENT: 'Wind',
     TYPE: 'Harmony',
     SIGNATURE: '23003',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1241,
       BASE_ATK: 582,
       BASE_DEF: 533,
@@ -958,7 +958,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Ice',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 582,
       BASE_DEF: 396,
@@ -970,7 +970,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Fire',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1023,
       BASE_ATK: 511,
       BASE_DEF: 463,
@@ -982,7 +982,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Lightning',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1199,
       BASE_ATK: 599,
       BASE_DEF: 330,
@@ -995,7 +995,7 @@ export default {
     ELEMENT: 'Imaginary',
     TYPE: 'Nihility',
     SIGNATURE: '23004',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1125,
       BASE_ATK: 620,
       BASE_DEF: 509,
@@ -1008,7 +1008,7 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Erudition',
     SIGNATURE: '23000',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1047,
       BASE_ATK: 756,
       BASE_DEF: 436,
@@ -1020,7 +1020,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Wind',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  882,
       BASE_ATK: 546,
       BASE_DEF: 396,
@@ -1032,7 +1032,7 @@ export default {
     QUALITY: 4,
     ELEMENT: 'Ice',
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 511,
       BASE_DEF: 573,

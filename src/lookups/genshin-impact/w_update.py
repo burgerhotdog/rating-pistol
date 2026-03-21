@@ -76,9 +76,8 @@ with open('w_new.txt', 'w', encoding='utf-8') as f:
         f.write(f"    TYPE: '{type_name_map[w_data['weaponType']]}',\n")
 
         stats = w_data['ascensionStats']
-        f.write('    BASE_STATS: {\n')
+        f.write('    FIXED_STATS: {\n')
         f.write(f"      BASE_ATK: {stats['atk']},\n")
-        f.write('    },\n')
 
         if (w_data['qualityType'] != 'QUALITY_GREEN'):
             extra = next(k for k in stats.keys() if k not in {"hp", "atk", "def"})
@@ -87,9 +86,8 @@ with open('w_new.txt', 'w', encoding='utf-8') as f:
             rawStat = 0.352 if rawStat == 0.35200000000000004 else rawStat
             rawStat = 0.234 if rawStat == 0.23399999999999999 else rawStat
             rawStat = 0.827 if rawStat == 0.8270000000000001 else rawStat
-            f.write('    MAIN_STAT: {\n')
             f.write(f"      {stat_name_map[extra]}: {rawStat},\n")
-            f.write('    },\n')
+        f.write('    },\n')
         f.write('  },\n')
 
 print('written to w_new.txt')

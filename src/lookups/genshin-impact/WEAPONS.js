@@ -4,10 +4,8 @@ export default {
     NAME: 'Gest of the Mighty Wolf',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.331,
     },
   },
@@ -17,10 +15,8 @@ export default {
     NAME: 'Nocturne\'s Curtain Call',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -28,10 +24,8 @@ export default {
     NAME: 'Lightbearing Moonshard',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -41,10 +35,8 @@ export default {
     NAME: 'The Daybreak Chronicles',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.441,
     },
   },
@@ -52,10 +44,8 @@ export default {
     NAME: 'Rainbow Serpent\'s Rain Bow',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -63,10 +53,8 @@ export default {
     NAME: 'Athame Artis',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.331,
     },
   },
@@ -76,10 +64,8 @@ export default {
     NAME: 'Reliquary of Truth',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -87,10 +73,8 @@ export default {
     NAME: 'Dawning Frost',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.551,
     },
   },
@@ -98,10 +82,8 @@ export default {
     NAME: 'Sacrificer\'s Staff',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 620,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.092,
     },
   },
@@ -111,10 +93,8 @@ export default {
     NAME: 'Snare Hook',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.613,
     },
   },
@@ -122,10 +102,8 @@ export default {
     NAME: 'Nightweaver\'s Looking Glass',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       FLAT_EM: 265,
     },
   },
@@ -133,10 +111,8 @@ export default {
     NAME: 'Blackmarrow Lantern',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       FLAT_EM: 221,
     },
   },
@@ -144,10 +120,8 @@ export default {
     NAME: 'Etherlight Spindlelute',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -155,10 +129,8 @@ export default {
     NAME: 'Bloodsoaked Ruins',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.221,
     },
   },
@@ -166,10 +138,8 @@ export default {
     NAME: 'Prospector\'s Shovel',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -177,10 +147,8 @@ export default {
     NAME: 'Master Key',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.613,
     },
   },
@@ -188,10 +156,8 @@ export default {
     NAME: 'Serenity\'s Call',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.613,
     },
   },
@@ -201,10 +167,8 @@ export default {
     NAME: 'Fractured Halo',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.662,
     },
   },
@@ -214,10 +178,8 @@ export default {
     NAME: 'Azurelight',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.221,
     },
   },
@@ -227,10 +189,8 @@ export default {
     NAME: 'Sequence of Solitude',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.413,
     },
   },
@@ -238,10 +198,8 @@ export default {
     NAME: 'Symphonist of Scents',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.662,
     },
   },
@@ -251,10 +209,8 @@ export default {
     NAME: 'Vivid Notions',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.441,
     },
   },
@@ -264,10 +220,8 @@ export default {
     NAME: 'Sunny Morning Sleep-In',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       FLAT_EM: 265,
     },
   },
@@ -275,10 +229,8 @@ export default {
     NAME: 'Tamayuratei no Ohanashi',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -288,10 +240,8 @@ export default {
     NAME: 'Starcaller\'s Watch',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       FLAT_EM: 265,
     },
   },
@@ -299,10 +249,8 @@ export default {
     NAME: 'A Thousand Blazing Suns',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 741,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.11,
     },
   },
@@ -312,10 +260,8 @@ export default {
     NAME: 'Astral Vulture\'s Crimson Plumage',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.662,
     },
   },
@@ -323,10 +269,8 @@ export default {
     NAME: 'Flower-Wreathed Feathers',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -334,10 +278,8 @@ export default {
     NAME: 'Waveriding Whirl',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.613,
     },
   },
@@ -345,10 +287,8 @@ export default {
     NAME: 'Calamity of Eshu',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -358,10 +298,8 @@ export default {
     NAME: 'Mountain-Bracing Bolt',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -369,10 +307,8 @@ export default {
     NAME: 'Fruitful Hook',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -380,10 +316,8 @@ export default {
     NAME: 'Peak Patrol Song',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.827,
     },
   },
@@ -391,10 +325,8 @@ export default {
     NAME: 'Sturdy Bone',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -404,10 +336,8 @@ export default {
     NAME: 'Chain Breaker',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -415,10 +345,8 @@ export default {
     NAME: 'Surf\'s Up',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -426,10 +354,8 @@ export default {
     NAME: 'Ring of Yaxche',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.413,
     },
   },
@@ -437,10 +363,8 @@ export default {
     NAME: 'Ash-Graven Drinking Horn',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.413,
     },
   },
@@ -448,10 +372,8 @@ export default {
     NAME: 'Footprint of the Rainbow',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.517,
     },
   },
@@ -459,10 +381,8 @@ export default {
     NAME: 'Fang of the Mountain King',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 741,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.11,
     },
   },
@@ -470,10 +390,8 @@ export default {
     NAME: 'Earth Shaker',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -481,10 +399,8 @@ export default {
     NAME: 'Flute of Ezpitzal',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.69,
     },
   },
@@ -494,10 +410,8 @@ export default {
     NAME: 'Lumidouce Elegy',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.331,
     },
   },
@@ -507,10 +421,8 @@ export default {
     NAME: 'Silvershower Heartstrings',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.662,
     },
   },
@@ -518,10 +430,8 @@ export default {
     NAME: 'Cloudforged',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -529,10 +439,8 @@ export default {
     NAME: 'Absolution',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.441,
     },
   },
@@ -542,10 +450,8 @@ export default {
     NAME: 'Crimson Moon\'s Semblance',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.221,
     },
   },
@@ -555,10 +461,8 @@ export default {
     NAME: 'Dialogues of the Desert Sages',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.413,
     },
   },
@@ -566,10 +470,8 @@ export default {
     NAME: 'Uraku Misugiri',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -579,10 +481,8 @@ export default {
     NAME: 'Crane\'s Echoing Call',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 741,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.165,
     },
   },
@@ -592,10 +492,8 @@ export default {
     NAME: 'Verdict',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.221,
     },
   },
@@ -603,10 +501,8 @@ export default {
     NAME: '"Ultimate Overlord\'s Mega Magic Sword"',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -616,10 +512,8 @@ export default {
     NAME: 'Splendor of Tranquil Waters',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -627,10 +521,8 @@ export default {
     NAME: 'Sword of Narzissenkreuz',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -640,10 +532,8 @@ export default {
     NAME: 'Range Gauge',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -651,10 +541,8 @@ export default {
     NAME: 'Tome of the Eternal Flow',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -662,10 +550,8 @@ export default {
     NAME: 'Cashflow Supervision',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.221,
     },
   },
@@ -673,10 +559,8 @@ export default {
     NAME: 'Ballad of the Boundless Blue',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -684,10 +568,8 @@ export default {
     NAME: 'Prospector\'s Drill',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -695,10 +577,8 @@ export default {
     NAME: 'Portable Power Saw',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.551,
     },
   },
@@ -706,10 +586,8 @@ export default {
     NAME: 'The Dockhand\'s Assistant',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.413,
     },
   },
@@ -719,10 +597,8 @@ export default {
     NAME: 'The First Great Magic',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.662,
     },
   },
@@ -730,10 +606,8 @@ export default {
     NAME: 'Song of Stillness',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -741,10 +615,8 @@ export default {
     NAME: 'Scion of the Blazing Sun',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.184,
     },
   },
@@ -752,10 +624,8 @@ export default {
     NAME: 'Flowing Purity',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -763,10 +633,8 @@ export default {
     NAME: 'Sacrificial Jade',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.368,
     },
   },
@@ -774,10 +642,8 @@ export default {
     NAME: 'Rightful Reward',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.276,
     },
   },
@@ -785,10 +651,8 @@ export default {
     NAME: 'Ballad of the Fjords',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.276,
     },
   },
@@ -796,10 +660,8 @@ export default {
     NAME: 'Tidal Shadow',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -807,10 +669,8 @@ export default {
     NAME: 'Talking Stick',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.184,
     },
   },
@@ -818,10 +678,8 @@ export default {
     NAME: 'Fleuve Cendre Ferryman',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -829,10 +687,8 @@ export default {
     NAME: 'Finale of the Deep',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -840,10 +696,8 @@ export default {
     NAME: 'Wolf-Fang',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.276,
     },
   },
@@ -853,10 +707,8 @@ export default {
     NAME: 'Ibis Piercer',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -866,10 +718,8 @@ export default {
     NAME: 'Jadefall\'s Splendor',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.496,
     },
   },
@@ -879,10 +729,8 @@ export default {
     NAME: 'Beacon of the Reed Sea',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.331,
     },
   },
@@ -890,10 +738,8 @@ export default {
     NAME: 'Mailed Flower',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       FLAT_EM: 110,
     },
   },
@@ -903,10 +749,8 @@ export default {
     NAME: 'Light of Foliar Incision',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -916,10 +760,8 @@ export default {
     NAME: 'Tulaytullah\'s Remembrance',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.441,
     },
   },
@@ -927,10 +769,8 @@ export default {
     NAME: 'Toukabou Shigure',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -940,10 +780,8 @@ export default {
     NAME: 'A Thousand Floating Dreams',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       FLAT_EM: 265,
     },
   },
@@ -953,10 +791,8 @@ export default {
     NAME: 'Wandering Evenstar',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -964,10 +800,8 @@ export default {
     NAME: 'Staff of the Scarlet Sands',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.441,
     },
   },
@@ -975,10 +809,8 @@ export default {
     NAME: 'Missive Windspear',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -986,10 +818,8 @@ export default {
     NAME: 'Makhaira Aquamarine',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -997,10 +827,8 @@ export default {
     NAME: 'Key of Khaj-Nisut',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.662,
     },
   },
@@ -1008,10 +836,8 @@ export default {
     NAME: 'Xiphos\' Moonlight',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -1021,10 +847,8 @@ export default {
     NAME: 'Hunter\'s Path',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.441,
     },
   },
@@ -1032,10 +856,8 @@ export default {
     NAME: 'End of the Line',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -1043,10 +865,8 @@ export default {
     NAME: 'King\'s Squire',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.551,
     },
   },
@@ -1054,10 +874,8 @@ export default {
     NAME: 'Fruit of Fulfillment',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -1065,10 +883,8 @@ export default {
     NAME: 'Moonpiercer',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       FLAT_EM: 110,
     },
   },
@@ -1076,10 +892,8 @@ export default {
     NAME: 'Forest Regalia',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -1087,10 +901,8 @@ export default {
     NAME: 'Sapwood Blade',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -1100,10 +912,8 @@ export default {
     NAME: 'Kagotsurube Isshin',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -1113,10 +923,8 @@ export default {
     NAME: 'Aqua Simulacra',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -1124,10 +932,8 @@ export default {
     NAME: 'Fading Twilight',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -1137,10 +943,8 @@ export default {
     NAME: 'Haran Geppaku Futsu',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.331,
     },
   },
@@ -1150,10 +954,8 @@ export default {
     NAME: 'Kagura\'s Verity',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.662,
     },
   },
@@ -1161,10 +963,8 @@ export default {
     NAME: 'Oathsworn Eye',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -1174,10 +974,8 @@ export default {
     NAME: 'Calamity Queller',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 741,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.165,
     },
   },
@@ -1187,10 +985,8 @@ export default {
     NAME: 'Redhorn Stonethresher',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.882,
     },
   },
@@ -1198,10 +994,8 @@ export default {
     NAME: 'Cinnabar Spindle',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.69,
     },
   },
@@ -1211,10 +1005,8 @@ export default {
     NAME: 'Polar Star',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.331,
     },
   },
@@ -1222,10 +1014,8 @@ export default {
     NAME: 'Mouun\'s Moon',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -1233,10 +1023,8 @@ export default {
     NAME: 'Wavebreaker\'s Fin',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 620,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.138,
     },
   },
@@ -1244,10 +1032,8 @@ export default {
     NAME: 'Akuoumaru',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -1257,10 +1043,8 @@ export default {
     NAME: 'Predator',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -1268,10 +1052,8 @@ export default {
     NAME: 'Everlasting Moonglow',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.496,
     },
   },
@@ -1279,10 +1061,8 @@ export default {
     NAME: 'Engulfing Lightning',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.551,
     },
   },
@@ -1290,10 +1070,8 @@ export default {
     NAME: '"The Catch"',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -1301,10 +1079,8 @@ export default {
     NAME: 'Luxurious Sea-Lord',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.551,
     },
   },
@@ -1314,10 +1090,8 @@ export default {
     NAME: 'Thundering Pulse',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.662,
     },
   },
@@ -1325,10 +1099,8 @@ export default {
     NAME: 'Hamayumi',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.551,
     },
   },
@@ -1336,10 +1108,8 @@ export default {
     NAME: 'Hakushin Ring',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -1347,10 +1117,8 @@ export default {
     NAME: 'Kitain Cross Spear',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       FLAT_EM: 110,
     },
   },
@@ -1358,10 +1126,8 @@ export default {
     NAME: 'Katsuragikiri Nagamasa',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -1369,10 +1135,8 @@ export default {
     NAME: 'Mistsplitter Reforged',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.441,
     },
   },
@@ -1380,10 +1144,8 @@ export default {
     NAME: 'Amenoma Kageuchi',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.551,
     },
   },
@@ -1393,10 +1155,8 @@ export default {
     NAME: 'Mitternachts Waltz',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.517,
     },
   },
@@ -1404,10 +1164,8 @@ export default {
     NAME: 'Dodoco Tales',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.551,
     },
   },
@@ -1415,10 +1173,8 @@ export default {
     NAME: 'Freedom-Sworn',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       FLAT_EM: 198,
     },
   },
@@ -1428,10 +1184,8 @@ export default {
     NAME: 'Song of Broken Pines',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 741,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.207,
     },
   },
@@ -1441,10 +1195,8 @@ export default {
     NAME: 'Elegy for the End',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.551,
     },
   },
@@ -1452,10 +1204,8 @@ export default {
     NAME: 'Windblume Ode',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -1463,10 +1213,8 @@ export default {
     NAME: 'Alley Hunter',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -1474,10 +1222,8 @@ export default {
     NAME: 'Wine and Song',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -1485,10 +1231,8 @@ export default {
     NAME: 'The Alley Flash',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 620,
-    },
-    MAIN_STAT: {
       FLAT_EM: 55,
     },
   },
@@ -1498,10 +1242,8 @@ export default {
     NAME: 'Staff of Homa',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.662,
     },
   },
@@ -1509,10 +1251,8 @@ export default {
     NAME: 'Lithic Spear',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -1520,10 +1260,8 @@ export default {
     NAME: 'Lithic Blade',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -1531,10 +1269,8 @@ export default {
     NAME: 'Primordial Jade Cutter',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 542,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.441,
     },
   },
@@ -1544,10 +1280,8 @@ export default {
     NAME: 'Frostbearer',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -1555,10 +1289,8 @@ export default {
     NAME: 'Dragonspine Spear',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.69,
     },
   },
@@ -1566,10 +1298,8 @@ export default {
     NAME: 'Snow-Tombed Starsilver',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.345,
     },
   },
@@ -1577,10 +1307,8 @@ export default {
     NAME: 'Summit Shaper',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.496,
     },
   },
@@ -1588,10 +1316,8 @@ export default {
     NAME: 'Festering Desire',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -1601,10 +1327,8 @@ export default {
     NAME: 'Memory of Dust',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.496,
     },
   },
@@ -1612,10 +1336,8 @@ export default {
     NAME: 'Vortex Vanquisher',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.496,
     },
   },
@@ -1623,10 +1345,8 @@ export default {
     NAME: 'Royal Spear',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -1634,10 +1354,8 @@ export default {
     NAME: 'The Unforged',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.496,
     },
   },
@@ -1647,10 +1365,8 @@ export default {
     NAME: 'Amos\' Bow',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.496,
     },
   },
@@ -1658,10 +1374,8 @@ export default {
     NAME: 'Skyward Harp',
     QUALITY: '5',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.221,
     },
   },
@@ -1669,10 +1383,8 @@ export default {
     NAME: 'The Viridescent Hunt',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.276,
     },
   },
@@ -1680,10 +1392,8 @@ export default {
     NAME: 'Blackcliff Warbow',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.368,
     },
   },
@@ -1691,10 +1401,8 @@ export default {
     NAME: 'Compound Bow',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.69,
     },
   },
@@ -1702,10 +1410,8 @@ export default {
     NAME: 'Prototype Crescent',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -1713,10 +1419,8 @@ export default {
     NAME: 'Rust',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -1724,10 +1428,8 @@ export default {
     NAME: 'Royal Bow',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -1735,10 +1437,8 @@ export default {
     NAME: 'Sacrificial Bow',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -1746,10 +1446,8 @@ export default {
     NAME: 'The Stringless',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -1757,10 +1455,8 @@ export default {
     NAME: 'Favonius Warbow',
     QUALITY: '4',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.613,
     },
   },
@@ -1768,10 +1464,8 @@ export default {
     NAME: 'Messenger',
     QUALITY: '3',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 448,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.312,
     },
   },
@@ -1779,10 +1473,8 @@ export default {
     NAME: 'Slingshot',
     QUALITY: '3',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 354,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.312,
     },
   },
@@ -1790,10 +1482,8 @@ export default {
     NAME: 'Recurve Bow',
     QUALITY: '3',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 354,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.469,
     },
   },
@@ -1801,10 +1491,8 @@ export default {
     NAME: 'Sharpshooter\'s Oath',
     QUALITY: '3',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.469,
     },
   },
@@ -1812,10 +1500,8 @@ export default {
     NAME: 'Raven Bow',
     QUALITY: '3',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 448,
-    },
-    MAIN_STAT: {
       FLAT_EM: 94,
     },
   },
@@ -1823,7 +1509,7 @@ export default {
     NAME: 'Seasoned Hunter\'s Bow',
     QUALITY: '2',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 243,
     },
   },
@@ -1831,7 +1517,7 @@ export default {
     NAME: 'Hunter\'s Bow',
     QUALITY: '1',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 185,
     },
   },
@@ -1839,10 +1525,8 @@ export default {
     NAME: 'Lost Prayer to the Sacred Winds',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.331,
     },
   },
@@ -1850,10 +1534,8 @@ export default {
     NAME: 'Skyward Atlas',
     QUALITY: '5',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.331,
     },
   },
@@ -1861,10 +1543,8 @@ export default {
     NAME: 'Eye of Perception',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.551,
     },
   },
@@ -1872,10 +1552,8 @@ export default {
     NAME: 'Blackcliff Agate',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.551,
     },
   },
@@ -1883,10 +1561,8 @@ export default {
     NAME: 'Mappa Mare',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       FLAT_EM: 110,
     },
   },
@@ -1894,10 +1570,8 @@ export default {
     NAME: 'Prototype Amber',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.413,
     },
   },
@@ -1905,10 +1579,8 @@ export default {
     NAME: 'Solar Pearl',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.276,
     },
   },
@@ -1916,10 +1588,8 @@ export default {
     NAME: 'Royal Grimoire',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -1927,10 +1597,8 @@ export default {
     NAME: 'Sacrificial Fragments',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       FLAT_EM: 221,
     },
   },
@@ -1938,10 +1606,8 @@ export default {
     NAME: 'The Widsith',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.551,
     },
   },
@@ -1949,10 +1615,8 @@ export default {
     NAME: 'Favonius Codex',
     QUALITY: '4',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -1960,10 +1624,8 @@ export default {
     NAME: 'Twin Nephrite',
     QUALITY: '3',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 448,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.156,
     },
   },
@@ -1971,10 +1633,8 @@ export default {
     NAME: 'Emerald Orb',
     QUALITY: '3',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 448,
-    },
-    MAIN_STAT: {
       FLAT_EM: 94,
     },
   },
@@ -1982,10 +1642,8 @@ export default {
     NAME: 'Otherworldly Story',
     QUALITY: '3',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.39,
     },
   },
@@ -1993,10 +1651,8 @@ export default {
     NAME: 'Thrilling Tales of Dragon Slayers',
     QUALITY: '3',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.352,
     },
   },
@@ -2004,10 +1660,8 @@ export default {
     NAME: 'Magic Guide',
     QUALITY: '3',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 354,
-    },
-    MAIN_STAT: {
       FLAT_EM: 187,
     },
   },
@@ -2015,7 +1669,7 @@ export default {
     NAME: 'Pocket Grimoire',
     QUALITY: '2',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 243,
     },
   },
@@ -2023,7 +1677,7 @@ export default {
     NAME: 'Apprentice\'s Notes',
     QUALITY: '1',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 185,
     },
   },
@@ -2031,10 +1685,8 @@ export default {
     NAME: 'Primordial Jade Winged-Spear',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.221,
     },
   },
@@ -2042,10 +1694,8 @@ export default {
     NAME: 'Skyward Spine',
     QUALITY: '5',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.368,
     },
   },
@@ -2053,10 +1703,8 @@ export default {
     NAME: 'Favonius Lance',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -2064,10 +1712,8 @@ export default {
     NAME: 'Deathmatch',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.368,
     },
   },
@@ -2075,10 +1721,8 @@ export default {
     NAME: 'Blackcliff Pole',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.551,
     },
   },
@@ -2086,10 +1730,8 @@ export default {
     NAME: 'Crescent Pike',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.345,
     },
   },
@@ -2097,10 +1739,8 @@ export default {
     NAME: 'Prototype Starglitter',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.459,
     },
   },
@@ -2108,10 +1748,8 @@ export default {
     NAME: 'Dragon\'s Bane',
     QUALITY: '4',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       FLAT_EM: 221,
     },
   },
@@ -2119,10 +1757,8 @@ export default {
     NAME: 'Black Tassel',
     QUALITY: '3',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 354,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.469,
     },
   },
@@ -2130,10 +1766,8 @@ export default {
     NAME: 'Halberd',
     QUALITY: '3',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 448,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.235,
     },
   },
@@ -2141,10 +1775,8 @@ export default {
     NAME: 'White Tassel',
     QUALITY: '3',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.234,
     },
   },
@@ -2152,7 +1784,7 @@ export default {
     NAME: 'Iron Point',
     QUALITY: '2',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 243,
     },
   },
@@ -2160,7 +1792,7 @@ export default {
     NAME: 'Beginner\'s Protector',
     QUALITY: '1',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 185,
     },
   },
@@ -2168,10 +1800,8 @@ export default {
     NAME: 'Wolf\'s Gravestone',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.496,
     },
   },
@@ -2179,10 +1809,8 @@ export default {
     NAME: 'Skyward Pride',
     QUALITY: '5',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.368,
     },
   },
@@ -2190,10 +1818,8 @@ export default {
     NAME: 'Serpent Spine',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.276,
     },
   },
@@ -2201,10 +1827,8 @@ export default {
     NAME: 'Blackcliff Slasher',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.551,
     },
   },
@@ -2212,10 +1836,8 @@ export default {
     NAME: 'Whiteblind',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.517,
     },
   },
@@ -2223,10 +1845,8 @@ export default {
     NAME: 'Prototype Archaic',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -2234,10 +1854,8 @@ export default {
     NAME: 'Rainslasher',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -2245,10 +1863,8 @@ export default {
     NAME: 'Royal Greatsword',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.276,
     },
   },
@@ -2256,10 +1872,8 @@ export default {
     NAME: 'Sacrificial Greatsword',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.306,
     },
   },
@@ -2267,10 +1881,8 @@ export default {
     NAME: 'The Bell',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.413,
     },
   },
@@ -2278,10 +1890,8 @@ export default {
     NAME: 'Favonius Greatsword',
     QUALITY: '4',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.613,
     },
   },
@@ -2289,10 +1899,8 @@ export default {
     NAME: 'Skyrider Greatsword',
     QUALITY: '3',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.439,
     },
   },
@@ -2300,10 +1908,8 @@ export default {
     NAME: 'Debate Club',
     QUALITY: '3',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.352,
     },
   },
@@ -2311,10 +1917,8 @@ export default {
     NAME: 'White Iron Greatsword',
     QUALITY: '3',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.439,
     },
   },
@@ -2322,10 +1926,8 @@ export default {
     NAME: 'Bloodtainted Greatsword',
     QUALITY: '3',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 354,
-    },
-    MAIN_STAT: {
       FLAT_EM: 187,
     },
   },
@@ -2333,10 +1935,8 @@ export default {
     NAME: 'Ferrous Shadow',
     QUALITY: '3',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.352,
     },
   },
@@ -2344,7 +1944,7 @@ export default {
     NAME: 'Old Merc\'s Pal',
     QUALITY: '2',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 243,
     },
   },
@@ -2352,7 +1952,7 @@ export default {
     NAME: 'Waster Greatsword',
     QUALITY: '1',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 185,
     },
   },
@@ -2360,10 +1960,8 @@ export default {
     NAME: 'Skyward Blade',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 608,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.551,
     },
   },
@@ -2371,10 +1969,8 @@ export default {
     NAME: 'Aquila Favonia',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 674,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.413,
     },
   },
@@ -2382,10 +1978,8 @@ export default {
     NAME: 'Sword of Descension',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 440,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.352,
     },
   },
@@ -2393,10 +1987,8 @@ export default {
     NAME: 'The Black Sword',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.276,
     },
   },
@@ -2404,10 +1996,8 @@ export default {
     NAME: 'Blackcliff Longsword',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.368,
     },
   },
@@ -2415,10 +2005,8 @@ export default {
     NAME: 'Iron Sting',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       FLAT_EM: 165,
     },
   },
@@ -2426,10 +2014,8 @@ export default {
     NAME: 'Prototype Rancour',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 565,
-    },
-    MAIN_STAT: {
       PERCENT_PHYSICAL: 0.345,
     },
   },
@@ -2437,10 +2023,8 @@ export default {
     NAME: 'Lion\'s Roar',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -2448,10 +2032,8 @@ export default {
     NAME: 'Royal Longsword',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -2459,10 +2041,8 @@ export default {
     NAME: 'Sacrificial Sword',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.613,
     },
   },
@@ -2470,10 +2050,8 @@ export default {
     NAME: 'The Flute',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 510,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.413,
     },
   },
@@ -2481,10 +2059,8 @@ export default {
     NAME: 'Favonius Sword',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 454,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.613,
     },
   },
@@ -2492,10 +2068,8 @@ export default {
     NAME: 'Skyrider Sword',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 354,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.521,
     },
   },
@@ -2503,10 +2077,8 @@ export default {
     NAME: 'Fillet Blade',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.352,
     },
   },
@@ -2514,10 +2086,8 @@ export default {
     NAME: 'Dark Iron Sword',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       FLAT_EM: 141,
     },
   },
@@ -2525,10 +2095,8 @@ export default {
     NAME: 'Traveler\'s Handy Sword',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 448,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.293,
     },
   },
@@ -2536,10 +2104,8 @@ export default {
     NAME: 'Harbinger of Dawn',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.469,
     },
   },
@@ -2547,10 +2113,8 @@ export default {
     NAME: 'Cool Steel',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 401,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.352,
     },
   },
@@ -2558,7 +2122,7 @@ export default {
     NAME: 'Silver Sword',
     QUALITY: '2',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 243,
     },
   },
@@ -2566,7 +2130,7 @@ export default {
     NAME: 'Dull Blade',
     QUALITY: '1',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 185,
     },
   },

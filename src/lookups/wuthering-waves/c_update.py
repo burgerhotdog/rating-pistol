@@ -57,14 +57,12 @@ with open('c_new.txt', 'w', encoding='utf-8') as f:
             f.write("    SIGNATURE: '00000',\n")
 
         base_stats = data['Properties']
-        f.write('    BASE_STATS: {\n')
+        f.write('    FIXED_STATS: {\n')
         f.write(f"      BASE_HP: {round(base_stats[0]['GrowthValues'][95]['value'])},\n")
         f.write(f"      BASE_ATK: {round(base_stats[1]['GrowthValues'][95]['value'])},\n")
         f.write(f"      BASE_DEF: {round(base_stats[2]['GrowthValues'][95]['value'])},\n")
-        f.write('    },\n')
 
         extra_stats = data['SkillTree']
-        f.write('    ASCENSION_STATS: {\n')
         rawExtra = extra_stats[1]['PropertyNodeTitle']
         f.write(f"      {prop_name_map[rawExtra][0]}: {prop_name_map[rawExtra][1]},\n")
         rawExtra = extra_stats[0]['PropertyNodeTitle']

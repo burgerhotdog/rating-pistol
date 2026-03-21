@@ -4,112 +4,70 @@ export default {
     NAME: 'Elation Brimming With Blessings',
     QUALITY: '5',
     TYPE: 'Elation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 953,
       BASE_ATK: 529,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23054: {
     NAME: 'When She Decided to See',
     QUALITY: '5',
     TYPE: 'Elation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1058,
       BASE_ATK: 529,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23053: {
     NAME: 'Dazzled by a Flowery World',
     QUALITY: '5',
     TYPE: 'Elation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21065: {
     NAME: 'Today\'s Good Luck',
     QUALITY: 4,
     TYPE: 'Elation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 953,
       BASE_ATK: 529,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21064: {
     NAME: 'Mushy Shroomy\'s Adventures',
     QUALITY: 4,
     TYPE: 'Elation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 847,
       BASE_ATK: 476,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20024: {
     NAME: 'Lingering Tear',
     QUALITY: 3,
     TYPE: 'Elation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 847,
       BASE_ATK: 318,
       BASE_DEF: 265,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20023: {
     NAME: 'Sneering',
     QUALITY: 3,
     TYPE: 'Elation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 741,
       BASE_ATK: 370,
       BASE_DEF: 265,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -118,16 +76,10 @@ export default {
     NAME: 'Never Forget Her Flame',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1164,
       BASE_ATK: 529,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -136,32 +88,20 @@ export default {
     NAME: 'This Love, Forever',
     QUALITY: '5',
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1270,
       BASE_ATK: 476,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   22006: {
     NAME: 'Fly Into a Pink Tomorrow',
     QUALITY: 4,
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 847,
       BASE_ATK: 476,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -170,32 +110,20 @@ export default {
     NAME: 'Though Worlds Apart',
     QUALITY: '5',
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23049: {
     NAME: 'To Evernight\'s Stars',
     QUALITY: '5',
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 1164,
       BASE_ATK: 529,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -204,48 +132,30 @@ export default {
     NAME: 'Epoch Etched in Golden Blood',
     QUALITY: '5',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 635,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23047: {
     NAME: 'Why Does the Ocean Sing',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 635,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   22005: {
     NAME: 'The Forever Victual',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 476,
       BASE_DEF: 331,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -254,192 +164,120 @@ export default {
     NAME: 'The Hell Where Ideals Burn',
     QUALITY: '5',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 582,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23045: {
     NAME: 'A Thankless Coronation',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 582,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23044: {
     NAME: 'Thus Burns the Dawn',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 688,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21062: {
     NAME: 'See You at the End',
     QUALITY: 4,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 529,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21061: {
     NAME: 'Holiday Thermae Escapade',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 331,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21060: {
     NAME: 'A Dream Scented in Wheat',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 529,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21058: {
     NAME: 'A Trail of Bygone Blood',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 331,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21057: {
     NAME: 'The Flower Remembers',
     QUALITY: 4,
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 331,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21056: {
     NAME: 'In Pursuit of the Wind',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21055: {
     NAME: 'Unto Tomorrow\'s Morrow',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21054: {
     NAME: 'The Story\'s Next Page',
     QUALITY: 4,
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 370,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21053: {
     NAME: 'Journey, Forever Peaceful',
     QUALITY: 4,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 370,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -448,32 +286,20 @@ export default {
     NAME: 'Lies Dance on the Breeze',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 582,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23042: {
     NAME: 'Long May Rainbows Adorn the Sky',
     QUALITY: '5',
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 476,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -482,48 +308,30 @@ export default {
     NAME: 'Life Should Be Cast to Flames',
     QUALITY: '5',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 582,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23040: {
     NAME: 'Make Farewells More Beautiful',
     QUALITY: '5',
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1270,
       BASE_ATK: 529,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   22004: {
     NAME: 'The Great Cosmic Enterprise',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 476,
       BASE_DEF: 331,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -532,48 +340,30 @@ export default {
     NAME: 'Memory\'s Curtain Never Falls',
     QUALITY: '5',
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23039: {
     NAME: 'Flame of Blood, Blaze My Path',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1376,
       BASE_ATK: 476,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23038: {
     NAME: 'If Time Were a Flower',
     QUALITY: '5',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1270,
       BASE_ATK: 529,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -582,112 +372,70 @@ export default {
     NAME: 'Into the Unreachable Veil',
     QUALITY: '5',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 635,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23036: {
     NAME: 'Time Woven Into Gold',
     QUALITY: '5',
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 635,
       BASE_DEF: 397,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21052: {
     NAME: 'Sweat Now, Cry Less',
     QUALITY: 4,
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 198,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21051: {
     NAME: 'Geniuses\' Greetings',
     QUALITY: 4,
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  953,
       BASE_ATK: 476,
       BASE_DEF: 331,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21050: {
     NAME: 'Victory In a Blink',
     QUALITY: 4,
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20022: {
     NAME: 'Reminiscence',
     QUALITY: 3,
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  635,
       BASE_ATK: 423,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20021: {
     NAME: 'Shadowburn',
     QUALITY: 3,
     TYPE: 'Remembrance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -696,32 +444,20 @@ export default {
     NAME: 'Long Road Leads Home',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 661,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23034: {
     NAME: 'A Grounded Ascent',
     QUALITY: '5',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 476,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -730,48 +466,30 @@ export default {
     NAME: 'Ninjutsu Inscription: Dazzling Evilbreaker',
     QUALITY: '5',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 582,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   22003: {
     NAME: 'Ninja Record: Sound Hunt',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21048: {
     NAME: 'Dream\'s Montage',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -780,48 +498,30 @@ export default {
     NAME: 'Scent Alone Stays True',
     QUALITY: '5',
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23031: {
     NAME: 'I Venture Forth to Hunt',
     QUALITY: '5',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 635,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21047: {
     NAME: 'Shadowed by Night',
     QUALITY: 4,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 476,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -830,48 +530,30 @@ export default {
     NAME: 'Dance at Sunset',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23029: {
     NAME: 'Those Many Springs',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 582,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21046: {
     NAME: 'Poised to Bloom',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -880,64 +562,40 @@ export default {
     NAME: 'Eternal Calculus',
     QUALITY: '5',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23028: {
     NAME: 'Yet Hope Is Priceless',
     QUALITY: '5',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 582,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23025: {
     NAME: 'Whereabouts Should Dreams Rest',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 476,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21045: {
     NAME: 'After the Charmony Fall',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 476,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -946,64 +604,40 @@ export default {
     NAME: 'Sailing Towards A Second Life',
     QUALITY: '5',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23026: {
     NAME: 'Flowing Nightglow',
     QUALITY: '5',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 635,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   22002: {
     NAME: 'For Tomorrow\'s Journey',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21044: {
     NAME: 'Boundless Choreo',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1012,48 +646,30 @@ export default {
     NAME: 'Along the Passing Shore',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 635,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23023: {
     NAME: 'Inherently Unjust Destiny',
     QUALITY: '5',
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 423,
       BASE_DEF: 661,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21043: {
     NAME: 'Concert for Two',
     QUALITY: 4,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 370,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1062,160 +678,100 @@ export default {
     NAME: 'Reforged Remembrance',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23021: {
     NAME: 'Earthly Escapade',
     QUALITY: '5',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 529,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21042: {
     NAME: 'Indelible Promise',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21041: {
     NAME: 'It\'s Showtime',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21040: {
     NAME: 'The Day The Cosmos Fell',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21039: {
     NAME: 'Destiny\'s Threads Forewoven',
     QUALITY: 4,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 370,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21038: {
     NAME: 'Flames Afar',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21037: {
     NAME: 'Final Victor',
     QUALITY: 4,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21036: {
     NAME: 'Dreamville Adventure',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21035: {
     NAME: 'What Is Real?',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 423,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1224,32 +780,20 @@ export default {
     NAME: 'Baptism of Pure Thought',
     QUALITY: '5',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 582,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23019: {
     NAME: 'Past Self in Mirror',
     QUALITY: '5',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1258,48 +802,30 @@ export default {
     NAME: 'An Instant Before A Gaze',
     QUALITY: '5',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23017: {
     NAME: 'Night of Fright',
     QUALITY: '5',
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 476,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   22001: {
     NAME: 'Hey, Over Here',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1308,32 +834,20 @@ export default {
     NAME: 'Worrisome, Blissful',
     QUALITY: '5',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23014: {
     NAME: 'I Shall Be My Own Sword',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 582,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1342,48 +856,30 @@ export default {
     NAME: 'Solitary Healing',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23015: {
     NAME: 'Brighter Than the Sun',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 635,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23011: {
     NAME: 'She Already Shut Her Eyes',
     QUALITY: '5',
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1270,
       BASE_ATK: 423,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1392,32 +888,20 @@ export default {
     NAME: 'The Unreachable Side',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1270,
       BASE_ATK: 582,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23006: {
     NAME: 'Patience Is All You Need',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1426,48 +910,30 @@ export default {
     NAME: 'Echoes of the Coffin',
     QUALITY: '5',
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 582,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23007: {
     NAME: 'Incessant Rain',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   22000: {
     NAME: 'Before the Tutorial Mission Starts',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
 
@@ -1476,1079 +942,677 @@ export default {
     NAME: 'Texture of Memories',
     QUALITY: '5',
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 423,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   24001: {
     NAME: 'Cruising in the Stellar Sea',
     QUALITY: '5',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 529,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   24000: {
     NAME: 'On the Fall of an Aeon',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 529,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23013: {
     NAME: 'Time Waits for No One',
     QUALITY: '5',
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1270,
       BASE_ATK: 476,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23012: {
     NAME: 'Sleep Like the Dead',
     QUALITY: '5',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23010: {
     NAME: 'Before Dawn',
     QUALITY: '5',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23005: {
     NAME: 'Moment of Victory',
     QUALITY: '5',
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 595,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23004: {
     NAME: 'In the Name of the World',
     QUALITY: '5',
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23003: {
     NAME: 'But the Battle Isn\'t Over',
     QUALITY: '5',
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 529,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23002: {
     NAME: 'Something Irreplaceable',
     QUALITY: '5',
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 582,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23001: {
     NAME: 'In the Night',
     QUALITY: '5',
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 582,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   23000: {
     NAME: 'Night on the Milky Way',
     QUALITY: '5',
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1164,
       BASE_ATK: 582,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21034: {
     NAME: 'Today Is Another Peaceful Day',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 529,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21033: {
     NAME: 'Nowhere to Run',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 529,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21032: {
     NAME: 'Carve the Moon, Weave the Clouds',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21031: {
     NAME: 'Return to Darkness',
     QUALITY: 4,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 529,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21030: {
     NAME: 'This Is Me!',
     QUALITY: 4,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 370,
       BASE_DEF: 529,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21029: {
     NAME: 'We Will Meet Again',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 529,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21028: {
     NAME: 'Warmth Shortens Cold Nights',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 370,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21027: {
     NAME: 'The Seriousness of Breakfast',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 476,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21026: {
     NAME: 'Woof! Walk Time!',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21025: {
     NAME: 'Past and Future',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21024: {
     NAME: 'River Flows in Spring',
     QUALITY: 4,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 476,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21023: {
     NAME: 'We Are Wildfire',
     QUALITY: 4,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  740,
       BASE_ATK: 476,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21022: {
     NAME: 'Fermata',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21021: {
     NAME: 'Quid Pro Quo',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21020: {
     NAME: 'Geniuses\' Repose',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 476,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21019: {
     NAME: 'Under the Blue Sky',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21018: {
     NAME: 'Dance! Dance! Dance!',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21017: {
     NAME: 'Subscribe for More!',
     QUALITY: 4,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21016: {
     NAME: 'Trend of the Universal Market',
     QUALITY: 4,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 370,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21015: {
     NAME: 'Resolution Shines As Pearls of Sweat',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21014: {
     NAME: 'Perfect Timing',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21013: {
     NAME: 'Make the World Clamor',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 476,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21012: {
     NAME: 'A Secret Vow',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21011: {
     NAME: 'Planetary Rendezvous',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 423,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21010: {
     NAME: 'Swordplay',
     QUALITY: 4,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21009: {
     NAME: 'Landau\'s Choice',
     QUALITY: 4,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21008: {
     NAME: 'Eyes of the Prey',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21007: {
     NAME: 'Shared Feeling',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21006: {
     NAME: 'The Birth of the Self',
     QUALITY: 4,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21005: {
     NAME: 'The Moles Welcome You',
     QUALITY: 4,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 476,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21004: {
     NAME: 'Memories of the Past',
     QUALITY: 4,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 423,
       BASE_DEF: 396,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21003: {
     NAME: 'Only Silence Remains',
     QUALITY: 4,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21002: {
     NAME: 'Day One of My New Life',
     QUALITY: 4,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 370,
       BASE_DEF: 463,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21001: {
     NAME: 'Good Night and Sleep Well',
     QUALITY: 4,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 476,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   21000: {
     NAME: 'Post-Op Conversation',
     QUALITY: 4,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  1058,
       BASE_ATK: 423,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20020: {
     NAME: 'Sagacity',
     QUALITY: 3,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  740,
       BASE_ATK: 370,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20019: {
     NAME: 'Mediation',
     QUALITY: 3,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20018: {
     NAME: 'Hidden Shadow',
     QUALITY: 3,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20017: {
     NAME: 'Pioneering',
     QUALITY: 3,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 264,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20016: {
     NAME: 'Mutual Demise',
     QUALITY: 3,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 370,
       BASE_DEF: 198,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20015: {
     NAME: 'Multiplication',
     QUALITY: 3,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 317,
       BASE_DEF: 198,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20014: {
     NAME: 'Adversarial',
     QUALITY: 3,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  740,
       BASE_ATK: 370,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20013: {
     NAME: 'Passkey',
     QUALITY: 3,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  740,
       BASE_ATK: 370,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20012: {
     NAME: 'Meshing Cogs',
     QUALITY: 3,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20011: {
     NAME: 'Loop',
     QUALITY: 3,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20010: {
     NAME: 'Defense',
     QUALITY: 3,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 264,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20009: {
     NAME: 'Shattered Home',
     QUALITY: 3,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 370,
       BASE_DEF: 198,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20008: {
     NAME: 'Fine Fruit',
     QUALITY: 3,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 317,
       BASE_DEF: 198,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20007: {
     NAME: 'Darting Arrow',
     QUALITY: 3,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  740,
       BASE_ATK: 370,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20006: {
     NAME: 'Data Bank',
     QUALITY: 3,
     TYPE: 'Erudition',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  740,
       BASE_ATK: 370,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20005: {
     NAME: 'Chorus',
     QUALITY: 3,
     TYPE: 'Harmony',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20004: {
     NAME: 'Void',
     QUALITY: 3,
     TYPE: 'Nihility',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20003: {
     NAME: 'Amber',
     QUALITY: 3,
     TYPE: 'Preservation',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 264,
       BASE_DEF: 330,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20002: {
     NAME: 'Collapsing Sky',
     QUALITY: 3,
     TYPE: 'Destruction',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 370,
       BASE_DEF: 198,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20001: {
     NAME: 'Cornucopia',
     QUALITY: 3,
     TYPE: 'Abundance',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  952,
       BASE_ATK: 264,
       BASE_DEF: 264,
-    },
-    MAIN_STAT: {
-      
-    },
-    EFFECT_STATS: {
-      
     },
   },
   20000: {
     NAME: 'Arrows',
     QUALITY: 3,
     TYPE: 'Hunt',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  846,
       BASE_ATK: 317,
       BASE_DEF: 264

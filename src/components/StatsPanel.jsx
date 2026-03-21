@@ -1,22 +1,14 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { BuildContext } from '@/contexts';
 import { GENERAL_LOOKUP, CHARACTER_LOOKUP, WEAPON_LOOKUP } from '@/lookups';
-import { combineBaseStats, combineEquipStats, computeTotalStat } from '@/utils';
+import { combineEquipStats, computeTotalStat } from '@/utils';
 
 export const StatsPanel = () => {
   const { gameId, charId } = useParams();
   const { buildCollections } = useContext(BuildContext);
   const charBuild = buildCollections[gameId]?.[charId] ?? null;
-
-  const { baseStats, equipStats } = useMemo(() => {
-    if (!charBuild) return { baseStats: {}, equipStats: {} };
-
-    const baseStats = combineBaseStats(gameId, charId, charBuild.weaponId);
-    const equipStats = combineEquipStats(charBuild.equipList);
-    return { baseStats, equipStats };
-  }, [gameId, charId, charBuild]);
 
   return (
     <Card
@@ -34,16 +26,15 @@ export const StatsPanel = () => {
           <Stack gap={1.5} sx={{ flex: 1 }}>
             {GENERAL_LOOKUP[gameId].MENU_STAT_TYPES.map(([statId, statLabel]) => {
               const sourceMapList = [
-                baseStats,
-                equipStats,
-                CHARACTER_LOOKUP[gameId][charId].ASCENSION_STATS ?? {},
-                WEAPON_LOOKUP[gameId][charBuild.weaponId].MAIN_STAT ?? {},
                 GENERAL_LOOKUP[gameId].DEFAULT_STATS ?? {},
+                CHARACTER_LOOKUP[gameId][charId].FIXED_STATS ?? {},
+                WEAPON_LOOKUP[gameId][charBuild.weaponId].FIXED_STATS ?? {},
+                combineEquipStats(charBuild.equipList),
               ];
               const { totalValue, isPercent } = computeTotalStat(statId, sourceMapList);
-              const finalValue = totalValue * (isPercent ? 100 : 1);
-              const toFixedValue = isPercent ? 1 : 0;
-              if (statId !== 'EM' && finalValue === 0) return;
+              const adjustedValue = isPercent ? totalValue * 100 : totalValue;
+              const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && statId === 'ER') ? 1 : 0;
+              if (statId !== 'EM' && adjustedValue === 0) return;
               return (
                 <Box
                   key={statId}
@@ -57,7 +48,7 @@ export const StatsPanel = () => {
                     {statLabel}
                   </Typography>
                   <Typography variant="body2" fontWeight={600}>
-                    {finalValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
+                    {adjustedValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
                   </Typography>
                 </Box>
               );

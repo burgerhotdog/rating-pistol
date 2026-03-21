@@ -4,10 +4,8 @@ export default {
     NAME: 'Daybreaker\'s Spine',
     QUALITY: '5',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -15,10 +13,8 @@ export default {
     NAME: 'Everbright Polestar',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -28,10 +24,8 @@ export default {
     NAME: 'Boson Astrolabe',
     QUALITY: '5',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 525,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.389,
     },
   },
@@ -39,10 +33,8 @@ export default {
     NAME: 'Pulsation Bracer',
     QUALITY: '5',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -50,10 +42,8 @@ export default {
     NAME: 'Spectrum Blaster',
     QUALITY: '5',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -61,10 +51,8 @@ export default {
     NAME: 'Phasic Homogenizer',
     QUALITY: '5',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.486,
     },
   },
@@ -72,10 +60,8 @@ export default {
     NAME: 'Laser Shearer',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.389,
     },
   },
@@ -83,10 +69,8 @@ export default {
     NAME: 'Starfield Calibrator',
     QUALITY: '5',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.77,
     },
   },
@@ -94,10 +78,8 @@ export default {
     NAME: 'Radiance Cleaver',
     QUALITY: '5',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.486,
     },
   },
@@ -107,10 +89,8 @@ export default {
     NAME: 'Kumokiri',
     QUALITY: '5',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.36,
     },
   },
@@ -120,10 +100,8 @@ export default {
     NAME: 'Lux & Umbra',
     QUALITY: '5',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.486,
     },
   },
@@ -131,10 +109,8 @@ export default {
     NAME: 'Emerald Sentence',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -144,10 +120,8 @@ export default {
     NAME: 'Radiant Dawn',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.405,
     },
   },
@@ -155,10 +129,8 @@ export default {
     NAME: 'Aether Strike',
     QUALITY: '4',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.405,
     },
   },
@@ -166,10 +138,8 @@ export default {
     NAME: 'Moongazer\'s Sigil',
     QUALITY: '5',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.36,
     },
   },
@@ -177,10 +147,8 @@ export default {
     NAME: 'Solar Flame',
     QUALITY: '4',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.202,
     },
   },
@@ -188,10 +156,8 @@ export default {
     NAME: 'Feather Edge',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.202,
     },
   },
@@ -199,10 +165,8 @@ export default {
     NAME: 'Aureate Zenith',
     QUALITY: '4',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.405,
     },
   },
@@ -210,10 +174,8 @@ export default {
     NAME: 'Thunderflare Dominion',
     QUALITY: '5',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 675,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.122,
     },
   },
@@ -223,10 +185,8 @@ export default {
     NAME: 'Lethean Elegy',
     QUALITY: '5',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -236,10 +196,8 @@ export default {
     NAME: 'Defier\'s Thorn',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.722,
     },
   },
@@ -247,10 +205,8 @@ export default {
     NAME: 'Wildfire Mark',
     QUALITY: '5',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.486,
     },
   },
@@ -260,10 +216,8 @@ export default {
     NAME: 'Blazing Justice',
     QUALITY: '5',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.486,
     },
   },
@@ -271,10 +225,8 @@ export default {
     NAME: 'Woodland Aria',
     QUALITY: '5',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.36,
     },
   },
@@ -284,10 +236,8 @@ export default {
     NAME: 'Whispers of Sirens',
     QUALITY: '5',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.72,
     },
   },
@@ -295,10 +245,8 @@ export default {
     NAME: 'Bloodpact\'s Pledge',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.389,
     },
   },
@@ -308,10 +256,8 @@ export default {
     NAME: 'Luminous Hymn',
     QUALITY: '5',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.36,
     },
   },
@@ -319,10 +265,8 @@ export default {
     NAME: 'Ocean\'s Gift',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -330,10 +274,8 @@ export default {
     NAME: 'Unflickering Valor',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.77,
     },
   },
@@ -343,10 +285,8 @@ export default {
     NAME: 'Waltz in Masquerade',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -354,10 +294,8 @@ export default {
     NAME: 'Call of the Abyss',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.518,
     },
   },
@@ -365,10 +303,8 @@ export default {
     NAME: 'Legend of Drunken Hero',
     QUALITY: '4',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -376,10 +312,8 @@ export default {
     NAME: 'Tragicomedy',
     QUALITY: '5',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -387,10 +321,8 @@ export default {
     NAME: 'Romance in Farewell',
     QUALITY: '4',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -398,10 +330,8 @@ export default {
     NAME: 'The Last Dance',
     QUALITY: '5',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.72,
     },
   },
@@ -409,10 +339,8 @@ export default {
     NAME: 'Fables of Wisdom',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -420,10 +348,8 @@ export default {
     NAME: 'Meditations on Mercy',
     QUALITY: '4',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -433,10 +359,8 @@ export default {
     NAME: 'Red Spring',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -444,10 +368,8 @@ export default {
     NAME: 'Somnoire Anchor',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -457,10 +379,8 @@ export default {
     NAME: 'Fusion Accretion',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -468,10 +388,8 @@ export default {
     NAME: 'Stellar Symphony',
     QUALITY: '5',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.77,
     },
   },
@@ -479,10 +397,8 @@ export default {
     NAME: 'Celestial Spiral',
     QUALITY: '4',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -490,10 +406,8 @@ export default {
     NAME: 'Relativistic Jet',
     QUALITY: '4',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -501,10 +415,8 @@ export default {
     NAME: 'Endless Collapse',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -512,10 +424,8 @@ export default {
     NAME: 'Waning Redshift',
     QUALITY: '4',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 462,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.182,
     },
   },
@@ -525,10 +435,8 @@ export default {
     NAME: 'Rime-Draped Sprouts',
     QUALITY: '5',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.72,
     },
   },
@@ -536,10 +444,8 @@ export default {
     NAME: 'Verity\'s Handle',
     QUALITY: '5',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -549,10 +455,8 @@ export default {
     NAME: 'Blazing Brilliance',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.486,
     },
   },
@@ -560,10 +464,8 @@ export default {
     NAME: 'Beguiling Melody',
     QUALITY: '3',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -571,10 +473,8 @@ export default {
     NAME: 'Ages of Harvest',
     QUALITY: '5',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -584,10 +484,8 @@ export default {
     NAME: 'Augment',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.202,
     },
   },
@@ -595,10 +493,8 @@ export default {
     NAME: 'Comet Flare',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.304,
     },
   },
@@ -606,10 +502,8 @@ export default {
     NAME: 'Guardian Rectifier',
     QUALITY: '3',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -617,10 +511,8 @@ export default {
     NAME: 'Jinzhou Keeper',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 387,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.364,
     },
   },
@@ -628,10 +520,8 @@ export default {
     NAME: 'Rectifier of Voyager',
     QUALITY: '3',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.324,
     },
   },
@@ -639,10 +529,8 @@ export default {
     NAME: 'Rectifier#25',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.518,
     },
   },
@@ -650,10 +538,8 @@ export default {
     NAME: 'Variation',
     QUALITY: '4',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.518,
     },
   },
@@ -661,10 +547,8 @@ export default {
     NAME: 'Originite: Type V',
     QUALITY: '3',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.304,
     },
   },
@@ -672,10 +556,8 @@ export default {
     NAME: 'Stringmaster',
     QUALITY: '5',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.36,
     },
   },
@@ -683,10 +565,8 @@ export default {
     NAME: 'Cosmic Ripples',
     QUALITY: '5',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 500,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.54,
     },
   },
@@ -694,10 +574,8 @@ export default {
     NAME: 'Rectifier of Night',
     QUALITY: '3',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -705,10 +583,8 @@ export default {
     NAME: 'Tyro Rectifier',
     QUALITY: '2',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 275,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.148,
     },
   },
@@ -716,10 +592,8 @@ export default {
     NAME: 'Training Rectifier',
     QUALITY: '1',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 250,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.115,
     },
   },
@@ -727,10 +601,8 @@ export default {
     NAME: 'Stonard',
     QUALITY: '4',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.202,
     },
   },
@@ -738,10 +610,8 @@ export default {
     NAME: 'Hollow Mirage',
     QUALITY: '4',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -749,10 +619,8 @@ export default {
     NAME: 'Guardian Gauntlets',
     QUALITY: '3',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.385,
     },
   },
@@ -760,10 +628,8 @@ export default {
     NAME: 'Amity Accord',
     QUALITY: '4',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.616,
     },
   },
@@ -771,10 +637,8 @@ export default {
     NAME: 'Gauntlets of Voyager',
     QUALITY: '3',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.308,
     },
   },
@@ -782,10 +646,8 @@ export default {
     NAME: 'Gauntlets#21D',
     QUALITY: '4',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 387,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.389,
     },
   },
@@ -793,10 +655,8 @@ export default {
     NAME: 'Marcato',
     QUALITY: '4',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.518,
     },
   },
@@ -804,10 +664,8 @@ export default {
     NAME: 'Originite: Type IV',
     QUALITY: '3',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.405,
     },
   },
@@ -815,10 +673,8 @@ export default {
     NAME: 'Abyss Surges',
     QUALITY: '5',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.364,
     },
   },
@@ -826,10 +682,8 @@ export default {
     NAME: 'Gauntlets of Night',
     QUALITY: '3',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -837,10 +691,8 @@ export default {
     NAME: 'Tyro Gauntlets',
     QUALITY: '2',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 275,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.148,
     },
   },
@@ -848,10 +700,8 @@ export default {
     NAME: 'Training Gauntlets',
     QUALITY: '1',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 250,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.115,
     },
   },
@@ -859,10 +709,8 @@ export default {
     NAME: 'Thunderbolt',
     QUALITY: '4',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 387,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.364,
     },
   },
@@ -870,10 +718,8 @@ export default {
     NAME: 'Novaburst',
     QUALITY: '4',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -881,10 +727,8 @@ export default {
     NAME: 'Guardian Pistols',
     QUALITY: '3',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -892,10 +736,8 @@ export default {
     NAME: 'Undying Flame',
     QUALITY: '4',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -903,10 +745,8 @@ export default {
     NAME: 'Pistols of Voyager',
     QUALITY: '3',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -914,10 +754,8 @@ export default {
     NAME: 'Pistols#26',
     QUALITY: '4',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 387,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.364,
     },
   },
@@ -925,10 +763,8 @@ export default {
     NAME: 'Cadenza',
     QUALITY: '4',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.518,
     },
   },
@@ -936,10 +772,8 @@ export default {
     NAME: 'Originite: Type III',
     QUALITY: '3',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -947,10 +781,8 @@ export default {
     NAME: 'Static Mist',
     QUALITY: '5',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -958,10 +790,8 @@ export default {
     NAME: 'Pistols of Night',
     QUALITY: '3',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -969,10 +799,8 @@ export default {
     NAME: 'Tyro Pistols',
     QUALITY: '2',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 275,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.148,
     },
   },
@@ -980,10 +808,8 @@ export default {
     NAME: 'Training Pistols',
     QUALITY: '1',
     TYPE: 'Pistols',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 250,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.115,
     },
   },
@@ -991,10 +817,8 @@ export default {
     NAME: 'Lumingloss',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 387,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.364,
     },
   },
@@ -1002,10 +826,8 @@ export default {
     NAME: 'Lunar Cutter',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -1013,10 +835,8 @@ export default {
     NAME: 'Guardian Sword',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_HP: 0.304,
     },
   },
@@ -1024,10 +844,8 @@ export default {
     NAME: 'Commando of Conviction',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -1035,10 +853,8 @@ export default {
     NAME: 'Sword of Voyager',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.324,
     },
   },
@@ -1046,10 +862,8 @@ export default {
     NAME: 'Sword#18',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 387,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.364,
     },
   },
@@ -1057,10 +871,8 @@ export default {
     NAME: 'Overture',
     QUALITY: '4',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.518,
     },
   },
@@ -1068,10 +880,8 @@ export default {
     NAME: 'Originite: Type II',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -1079,10 +889,8 @@ export default {
     NAME: 'Emerald of Genesis',
     QUALITY: '5',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.243,
     },
   },
@@ -1090,10 +898,8 @@ export default {
     NAME: 'Sword of Night',
     QUALITY: '3',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -1101,10 +907,8 @@ export default {
     NAME: 'Tyro Sword',
     QUALITY: '2',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 275,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.148,
     },
   },
@@ -1112,10 +916,8 @@ export default {
     NAME: 'Training Sword',
     QUALITY: '1',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 250,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.115,
     },
   },
@@ -1123,10 +925,8 @@ export default {
     NAME: 'Autumntrace',
     QUALITY: '4',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_CR: 0.202,
     },
   },
@@ -1134,10 +934,8 @@ export default {
     NAME: 'Helios Cleaver',
     QUALITY: '4',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.304,
     },
   },
@@ -1145,10 +943,8 @@ export default {
     NAME: 'Guardian Broadblade',
     QUALITY: '3',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -1156,10 +952,8 @@ export default {
     NAME: 'Dauntless Evernight',
     QUALITY: '4',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.616,
     },
   },
@@ -1167,10 +961,8 @@ export default {
     NAME: 'Broadblade of Voyager',
     QUALITY: '3',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.324,
     },
   },
@@ -1178,10 +970,8 @@ export default {
     NAME: 'Broadblade#41',
     QUALITY: '4',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 412,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.324,
     },
   },
@@ -1189,10 +979,8 @@ export default {
     NAME: 'Discord',
     QUALITY: '4',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 337,
-    },
-    MAIN_STAT: {
       PERCENT_ER: 0.518,
     },
   },
@@ -1200,10 +988,8 @@ export default {
     NAME: 'Originite: Type I',
     QUALITY: '3',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 300,
-    },
-    MAIN_STAT: {
       PERCENT_DEF: 0.385,
     },
   },
@@ -1211,10 +997,8 @@ export default {
     NAME: 'Verdant Summit',
     QUALITY: '5',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_CD: 0.486,
     },
   },
@@ -1222,10 +1006,8 @@ export default {
     NAME: 'Lustrous Razor',
     QUALITY: '5',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 587,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.364,
     },
   },
@@ -1233,10 +1015,8 @@ export default {
     NAME: 'Broadblade of Night',
     QUALITY: '3',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 325,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.243,
     },
   },
@@ -1244,10 +1024,8 @@ export default {
     NAME: 'Tyro Broadblade',
     QUALITY: '2',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 275,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.148,
     },
   },
@@ -1255,10 +1033,8 @@ export default {
     NAME: 'Training Broadblade',
     QUALITY: '1',
     TYPE: 'Broadblade',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_ATK: 250,
-    },
-    MAIN_STAT: {
       PERCENT_ATK: 0.115,
     },
   },
