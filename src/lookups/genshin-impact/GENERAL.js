@@ -1,6 +1,6 @@
 export default {
   TITLE: 'Genshin Impact',
-  VERSION: '6.3',
+  VERSION: '6.4',
   RESIN_PER_DAY: 180,
   RESIN_PER_RUN: 20,
   DROPS_PER_RUN: 1.065,

@@ -11,6 +11,9 @@ export default {
       BASE_ATK: 466,
       BASE_DEF: 655,
       BASE_SPD: 101,
+      FLAT_SPD: 9,
+      PERCENT_CR: 0.187,
+      PERCENT_ELATION: 0.1,
     },
   },
   1501: {
@@ -24,6 +27,9 @@ export default {
       BASE_ATK: 640,
       BASE_DEF: 461,
       BASE_SPD: 107,
+      PERCENT_CR: 0.12,
+      PERCENT_CD: 0.133,
+      PERCENT_ELATION: 0.28,
     },
   },
 
@@ -39,6 +45,9 @@ export default {
       BASE_ATK: 679,
       BASE_DEF: 606,
       BASE_SPD: 96,
+      FLAT_SPD: 5,
+      PERCENT_BE: 0.373,
+      PERCENT_RES: 0.18,
     },
   },
 
@@ -54,6 +63,9 @@ export default {
       BASE_ATK: 446,
       BASE_DEF: 582,
       BASE_SPD: 101,
+      PERCENT_HP: 0.1,
+      FLAT_SPD: 9,
+      PERCENT_CD: 0.373,
     },
   },
 
@@ -69,6 +81,9 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 776,
       BASE_SPD: 97,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.225,
+      FLAT_SPD: 5,
     },
   },
   1413: {
@@ -82,6 +97,9 @@ export default {
       BASE_ATK: 543,
       BASE_DEF: 582,
       BASE_SPD: 99,
+      PERCENT_HP: 0.18,
+      PERCENT_CR: 0.187,
+      PERCENT_CD: 0.133,
     },
   },
 
@@ -97,6 +115,9 @@ export default {
       BASE_ATK: 621,
       BASE_DEF: 485,
       BASE_SPD: 99,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.18,
+      PERCENT_WIND: 0.224,
     },
   },
   1410: {
@@ -110,6 +131,9 @@ export default {
       BASE_ATK: 602,
       BASE_DEF: 485,
       BASE_SPD: 102,
+      PERCENT_ATK: 0.18,
+      FLAT_SPD: 14,
+      PERCENT_EHR: 0.1,
     },
   },
 
@@ -125,6 +149,9 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 703,
       BASE_SPD: 94,
+      FLAT_SPD: 5,
+      PERCENT_CR: 0.12,
+      PERCENT_CD: 0.373,
     },
   },
   1015: {
@@ -138,6 +165,9 @@ export default {
       BASE_ATK: 621,
       BASE_DEF: 485,
       BASE_SPD: 105,
+      PERCENT_ATK: 0.18,
+      PERCENT_CR: 0.067,
+      PERCENT_QUANTUM: 0.224,
     },
   },
   1014: {
@@ -151,6 +181,9 @@ export default {
       BASE_ATK: 602,
       BASE_DEF: 655,
       BASE_SPD: 101,
+      PERCENT_HP: 0.1,
+      PERCENT_CR: 0.12,
+      PERCENT_WIND: 0.224,
     },
   },
 
@@ -166,6 +199,9 @@ export default {
       BASE_ATK: 388,
       BASE_DEF: 631,
       BASE_SPD: 110,
+      PERCENT_HP: 0.1,
+      FLAT_SPD: 14,
+      PERCENT_RES: 0.18,
     },
   },
   1406: {
@@ -179,6 +215,9 @@ export default {
       BASE_ATK: 640,
       BASE_DEF: 509,
       BASE_SPD: 106,
+      FLAT_SPD: 14,
+      PERCENT_EHR: 0.1,
+      PERCENT_QUANTUM: 0.144,
     },
   },
 
@@ -194,6 +233,9 @@ export default {
       BASE_ATK: 524,
       BASE_DEF: 485,
       BASE_SPD: 95,
+      PERCENT_CR: 0.187,
+      PERCENT_CD: 0.133,
+      PERCENT_QUANTUM: 0.144,
     },
   },
   1405: {
@@ -207,6 +249,9 @@ export default {
       BASE_ATK: 757,
       BASE_DEF: 558,
       BASE_SPD: 97,
+      PERCENT_HP: 0.1,
+      PERCENT_CR: 0.12,
+      PERCENT_WIND: 0.224,
     },
   },
 
@@ -222,6 +267,9 @@ export default {
       BASE_ATK: 427,
       BASE_DEF: 194,
       BASE_SPD: 95,
+      PERCENT_HP: 0.18,
+      FLAT_SPD: 5,
+      PERCENT_CD: 0.373,
     },
   },
   1403: {
@@ -235,6 +283,9 @@ export default {
       BASE_ATK: 524,
       BASE_DEF: 728,
       BASE_SPD: 96,
+      PERCENT_HP: 0.1,
+      PERCENT_CR: 0.12,
+      PERCENT_CD: 0.373,
     },
   },
 
@@ -250,6 +301,9 @@ export default {
       BASE_ATK: 699,
       BASE_DEF: 485,
       BASE_SPD: 102,
+      PERCENT_DEF: 0.125,
+      PERCENT_CR: 0.12,
+      PERCENT_LIGHTNING: 0.224,
     },
   },
   1401: {
@@ -263,6 +317,9 @@ export default {
       BASE_ATK: 679,
       BASE_DEF: 485,
       BASE_SPD: 99,
+      PERCENT_ATK: 0.18,
+      FLAT_SPD: 5,
+      PERCENT_ICE: 0.224,
     },
   },
 
@@ -278,6 +335,9 @@ export default {
       BASE_ATK: 640,
       BASE_DEF: 533,
       BASE_SPD: 96,
+      PERCENT_DEF: 0.125,
+      PERCENT_CD: 0.373,
+      PERCENT_RES: 0.18,
     },
   },
   1225: {
@@ -291,6 +351,9 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 557,
       BASE_SPD: 102,
+      PERCENT_HP: 0.1,
+      FLAT_SPD: 14,
+      PERCENT_BE: 0.24,
     },
   },
 
@@ -306,6 +369,9 @@ export default {
       BASE_ATK: 717,
       BASE_DEF: 460,
       BASE_SPD: 96,
+      PERCENT_ATK: 0.28,
+      FLAT_SPD: 9,
+      PERCENT_BE: 0.133,
     },
   },
 
@@ -320,6 +386,9 @@ export default {
       BASE_ATK: 599,
       BASE_DEF: 352,
       BASE_SPD: 111,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.18,
+      PERCENT_CD: 0.373,
     },
   },
   1222: {
@@ -333,6 +402,9 @@ export default {
       BASE_ATK: 679,
       BASE_DEF: 436,
       BASE_SPD: 98,
+      PERCENT_HP: 0.18,
+      PERCENT_ATK: 0.1,
+      PERCENT_BE: 0.373,
     },
   },
   1220: {
@@ -346,6 +418,9 @@ export default {
       BASE_ATK: 601,
       BASE_DEF: 388,
       BASE_SPD: 112,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
+      PERCENT_CR: 0.12,
     },
   },
 
@@ -360,6 +435,9 @@ export default {
       BASE_ATK: 564,
       BASE_DEF: 441,
       BASE_SPD: 102,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
+      PERCENT_CD: 0.24,
     },
   },
   1221: {
@@ -373,6 +451,9 @@ export default {
       BASE_ATK: 679,
       BASE_DEF: 460,
       BASE_SPD: 94,
+      PERCENT_HP: 0.18,
+      PERCENT_ATK: 0.28,
+      PERCENT_CR: 0.067,
     },
   },
   1218: {
@@ -386,6 +467,9 @@ export default {
       BASE_ATK: 601,
       BASE_DEF: 509,
       BASE_SPD: 98,
+      FLAT_SPD: 5,
+      PERCENT_EHR: 0.28,
+      PERCENT_FIRE: 0.144,
     },
   },
 
@@ -401,6 +485,9 @@ export default {
       BASE_ATK: 659,
       BASE_DEF: 509,
       BASE_SPD: 103,
+      PERCENT_ATK: 0.18,
+      PERCENT_RES: 0.1,
+      PERCENT_QUANTUM: 0.224,
     },
   },
   1310: {
@@ -414,6 +501,9 @@ export default {
       BASE_ATK: 523,
       BASE_DEF: 776,
       BASE_SPD: 104,
+      FLAT_SPD: 5,
+      PERCENT_BE: 0.373,
+      PERCENT_RES: 0.18,
     },
   },
 
@@ -429,6 +519,9 @@ export default {
       BASE_ATK: 620,
       BASE_DEF: 436,
       BASE_SPD: 107,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.18,
+      PERCENT_BE: 0.373,
     },
   },
   1309: {
@@ -442,6 +535,9 @@ export default {
       BASE_ATK: 640,
       BASE_DEF: 485,
       BASE_SPD: 102,
+      PERCENT_HP: 0.18,
+      PERCENT_ATK: 0.28,
+      FLAT_SPD: 5,
     },
   },
 
@@ -457,6 +553,9 @@ export default {
       BASE_ATK: 698,
       BASE_DEF: 436,
       BASE_SPD: 101,
+      PERCENT_ATK: 0.28,
+      PERCENT_CD: 0.24,
+      PERCENT_LIGHTNING: 0.08,
     },
   },
   1304: {
@@ -470,6 +569,9 @@ export default {
       BASE_ATK: 446,
       BASE_DEF: 654,
       BASE_SPD: 106,
+      PERCENT_DEF: 0.35,
+      PERCENT_RES: 0.1,
+      PERCENT_IMAGINARY: 0.144,
     },
   },
   1301: {
@@ -482,6 +584,9 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 441,
       BASE_SPD: 98,
+      PERCENT_HP: 0.18,
+      PERCENT_BE: 0.133,
+      PERCENT_RES: 0.28,
     },
   },
 
@@ -496,6 +601,9 @@ export default {
       BASE_ATK: 599,
       BASE_DEF: 396,
       BASE_SPD: 96,
+      PERCENT_DEF: 0.225,
+      PERCENT_CR: 0.067,
+      PERCENT_ICE: 0.224,
     },
   },
   1307: {
@@ -509,6 +617,9 @@ export default {
       BASE_ATK: 659,
       BASE_DEF: 485,
       BASE_SPD: 102,
+      PERCENT_ATK: 0.28,
+      PERCENT_EHR: 0.1,
+      PERCENT_WIND: 0.144,
     },
   },
   1306: {
@@ -522,6 +633,9 @@ export default {
       BASE_ATK: 523,
       BASE_DEF: 485,
       BASE_SPD: 101,
+      PERCENT_HP: 0.28,
+      PERCENT_CD: 0.24,
+      PERCENT_RES: 0.1,
     },
   },
 
@@ -537,6 +651,9 @@ export default {
       BASE_ATK: 776,
       BASE_DEF: 460,
       BASE_SPD: 103,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
+      PERCENT_CR: 0.12,
     },
   },
   1303: {
@@ -550,6 +667,9 @@ export default {
       BASE_ATK: 659,
       BASE_DEF: 485,
       BASE_SPD: 104,
+      PERCENT_DEF: 0.225,
+      FLAT_SPD: 5,
+      PERCENT_BE: 0.373,
     },
   },
   1214: {
@@ -562,6 +682,9 @@ export default {
       BASE_ATK: 599,
       BASE_DEF: 396,
       BASE_SPD: 103,
+      PERCENT_HP: 0.18,
+      PERCENT_BE: 0.373,
+      PERCENT_QUANTUM: 0.08,
     },
   },
 
@@ -577,6 +700,9 @@ export default {
       BASE_ATK: 737,
       BASE_DEF: 363,
       BASE_SPD: 103,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.28,
+      PERCENT_PHYSICAL: 0.144,
     },
   },
   1217: {
@@ -590,6 +716,9 @@ export default {
       BASE_ATK: 601,
       BASE_DEF: 509,
       BASE_SPD: 98,
+      PERCENT_HP: 0.28,
+      FLAT_SPD: 5,
+      PERCENT_RES: 0.18,
     },
   },
   1215: {
@@ -602,6 +731,9 @@ export default {
       BASE_ATK: 564,
       BASE_DEF: 352,
       BASE_SPD: 110,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.28,
+      FLAT_SPD: 9,
     },
   },
 
@@ -617,6 +749,9 @@ export default {
       BASE_ATK: 679,
       BASE_DEF: 485,
       BASE_SPD: 96,
+      PERCENT_HP: 0.1,
+      FLAT_SPD: 9,
+      PERCENT_CD: 0.373,
     },
   },
   1210: {
@@ -629,6 +764,9 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 441,
       BASE_SPD: 106,
+      PERCENT_BE: 0.24,
+      PERCENT_EHR: 0.1,
+      PERCENT_FIRE: 0.224,
     },
   },
   1112: {
@@ -642,6 +780,9 @@ export default {
       BASE_ATK: 620,
       BASE_DEF: 412,
       BASE_SPD: 110,
+      PERCENT_HP: 0.1,
+      PERCENT_CR: 0.12,
+      PERCENT_FIRE: 0.224,
     },
   },
 
@@ -657,6 +798,9 @@ export default {
       BASE_ATK: 698,
       BASE_DEF: 363,
       BASE_SPD: 102,
+      PERCENT_HP: 0.1,
+      PERCENT_CR: 0.12,
+      PERCENT_IMAGINARY: 0.224,
     },
   },
   1208: {
@@ -670,6 +814,9 @@ export default {
       BASE_ATK: 465,
       BASE_DEF: 606,
       BASE_SPD: 100,
+      PERCENT_HP: 0.18,
+      PERCENT_CR: 0.187,
+      PERCENT_RES: 0.1,
     },
   },
   1110: {
@@ -682,6 +829,9 @@ export default {
       BASE_ATK: 493,
       BASE_DEF: 551,
       BASE_SPD: 100,
+      PERCENT_HP: 0.28,
+      PERCENT_DEF: 0.225,
+      PERCENT_RES: 0.1,
     },
   },
 
@@ -697,6 +847,9 @@ export default {
       BASE_ATK: 543,
       BASE_DEF: 485,
       BASE_SPD: 97,
+      PERCENT_HP: 0.28,
+      PERCENT_CR: 0.12,
+      PERCENT_RES: 0.1,
     },
   },
   1111: {
@@ -709,6 +862,9 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 485,
       BASE_SPD: 103,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
+      PERCENT_EHR: 0.18,
     },
   },
   1005: {
@@ -722,6 +878,9 @@ export default {
       BASE_ATK: 679,
       BASE_DEF: 485,
       BASE_SPD: 100,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.28,
+      PERCENT_EHR: 0.18,
     },
   },
 
@@ -736,6 +895,9 @@ export default {
       BASE_ATK: 599,
       BASE_DEF: 374,
       BASE_SPD: 107,
+      PERCENT_HP: 0.18,
+      PERCENT_ATK: 0.1,
+      PERCENT_IMAGINARY: 0.224,
     },
   },
   1203: {
@@ -749,6 +911,9 @@ export default {
       BASE_ATK: 756,
       BASE_DEF: 363,
       BASE_SPD: 101,
+      PERCENT_HP: 0.18,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
     },
   },
   1006: {
@@ -762,6 +927,9 @@ export default {
       BASE_ATK: 640,
       BASE_DEF: 460,
       BASE_SPD: 107,
+      PERCENT_ATK: 0.28,
+      PERCENT_EHR: 0.18,
+      PERCENT_QUANTUM: 0.08,
     },
   },
 
@@ -777,6 +945,9 @@ export default {
       BASE_ATK: 562,
       BASE_DEF: 485,
       BASE_SPD: 98,
+      PERCENT_HP: 0.28,
+      PERCENT_DEF: 0.225,
+      PERCENT_RES: 0.1,
     },
   },
   1209: {
@@ -790,6 +961,9 @@ export default {
       BASE_ATK: 679,
       BASE_DEF: 412,
       BASE_SPD: 109,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.28,
+      PERCENT_ICE: 0.144,
     },
   },
   1206: {
@@ -802,6 +976,9 @@ export default {
       BASE_ATK: 564,
       BASE_DEF: 418,
       BASE_SPD: 107,
+      PERCENT_HP: 0.18,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
     },
   },
   1204: {
@@ -815,6 +992,9 @@ export default {
       BASE_ATK: 698,
       BASE_DEF: 485,
       BASE_SPD: 99,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
+      PERCENT_CR: 0.12,
     },
   },
   1202: {
@@ -827,6 +1007,9 @@ export default {
       BASE_ATK: 529,
       BASE_DEF: 396,
       BASE_SPD: 112,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.225,
+      PERCENT_LIGHTNING: 0.08,
     },
   },
   1201: {
@@ -839,6 +1022,9 @@ export default {
       BASE_ATK: 652,
       BASE_DEF: 441,
       BASE_SPD: 98,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
+      PERCENT_QUANTUM: 0.144,
     },
   },
   1109: {
@@ -851,6 +1037,9 @@ export default {
       BASE_ATK: 617,
       BASE_DEF: 352,
       BASE_SPD: 94,
+      PERCENT_HP: 0.18,
+      PERCENT_ATK: 0.28,
+      PERCENT_CD: 0.133,
     },
   },
   1108: {
@@ -863,6 +1052,9 @@ export default {
       BASE_ATK: 617,
       BASE_DEF: 396,
       BASE_SPD: 102,
+      PERCENT_ATK: 0.28,
+      PERCENT_EHR: 0.18,
+      PERCENT_RES: 0.1,
     },
   },
   1107: {
@@ -876,6 +1068,9 @@ export default {
       BASE_ATK: 737,
       BASE_DEF: 485,
       BASE_SPD: 90,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.28,
+      PERCENT_PHYSICAL: 0.144,
     },
   },
   1106: {
@@ -888,6 +1083,9 @@ export default {
       BASE_ATK: 546,
       BASE_DEF: 463,
       BASE_SPD: 105,
+      PERCENT_ATK: 0.18,
+      PERCENT_EHR: 0.1,
+      PERCENT_ICE: 0.224,
     },
   },
   1105: {
@@ -900,6 +1098,9 @@ export default {
       BASE_ATK: 476,
       BASE_DEF: 507,
       BASE_SPD: 98,
+      PERCENT_HP: 0.28,
+      PERCENT_DEF: 0.125,
+      PERCENT_RES: 0.18,
     },
   },
   1104: {
@@ -913,6 +1114,9 @@ export default {
       BASE_ATK: 543,
       BASE_DEF: 654,
       BASE_SPD: 92,
+      PERCENT_DEF: 0.125,
+      PERCENT_RES: 0.18,
+      PERCENT_ICE: 0.224,
     },
   },
   1103: {
@@ -925,6 +1129,9 @@ export default {
       BASE_ATK: 652,
       BASE_DEF: 374,
       BASE_SPD: 104,
+      PERCENT_CR: 0.187,
+      PERCENT_EHR: 0.18,
+      PERCENT_RES: 0.1,
     },
   },
   1102: {
@@ -938,6 +1145,9 @@ export default {
       BASE_ATK: 640,
       BASE_DEF: 363,
       BASE_SPD: 115,
+      PERCENT_ATK: 0.28,
+      PERCENT_DEF: 0.125,
+      PERCENT_CD: 0.24,
     },
   },
   1101: {
@@ -951,6 +1161,9 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 533,
       BASE_SPD: 99,
+      PERCENT_CD: 0.24,
+      PERCENT_RES: 0.1,
+      PERCENT_WIND: 0.224,
     },
   },
   1013: {
@@ -963,6 +1176,9 @@ export default {
       BASE_ATK: 582,
       BASE_DEF: 396,
       BASE_SPD: 100,
+      PERCENT_DEF: 0.225,
+      PERCENT_CR: 0.067,
+      PERCENT_ICE: 0.224,
     },
   },
   1009: {
@@ -975,6 +1191,9 @@ export default {
       BASE_ATK: 511,
       BASE_DEF: 463,
       BASE_SPD: 106,
+      PERCENT_DEF: 0.225,
+      PERCENT_CR: 0.067,
+      PERCENT_FIRE: 0.224,
     },
   },
   1008: {
@@ -987,6 +1206,9 @@ export default {
       BASE_ATK: 599,
       BASE_DEF: 330,
       BASE_SPD: 102,
+      PERCENT_HP: 0.1,
+      PERCENT_ATK: 0.28,
+      PERCENT_RES: 0.18,
     },
   },
   1004: {
@@ -1000,6 +1222,9 @@ export default {
       BASE_ATK: 620,
       BASE_DEF: 509,
       BASE_SPD: 102,
+      PERCENT_ATK: 0.28,
+      PERCENT_RES: 0.1,
+      PERCENT_IMAGINARY: 0.144,
     },
   },
   1003: {
@@ -1013,6 +1238,9 @@ export default {
       BASE_ATK: 756,
       BASE_DEF: 436,
       BASE_SPD: 96,
+      PERCENT_ATK: 0.18,
+      PERCENT_RES: 0.1,
+      PERCENT_FIRE: 0.224,
     },
   },
   1002: {
@@ -1025,6 +1253,9 @@ export default {
       BASE_ATK: 546,
       BASE_DEF: 396,
       BASE_SPD: 110,
+      PERCENT_ATK: 0.18,
+      PERCENT_DEF: 0.125,
+      PERCENT_WIND: 0.224,
     },
   },
   1001: {
@@ -1037,6 +1268,9 @@ export default {
       BASE_ATK: 511,
       BASE_DEF: 573,
       BASE_SPD: 101,
+      PERCENT_DEF: 0.225,
+      PERCENT_RES: 0.1,
+      PERCENT_ICE: 0.224,
     },
   },
 };

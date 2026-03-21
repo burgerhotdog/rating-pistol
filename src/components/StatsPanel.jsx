@@ -17,7 +17,7 @@ export const StatsPanel = () => {
     >
       {charBuild ? (
         <Stack p={2} sx={{ height: '100%', overflowY: 'auto' }}>
-          <Typography variant="h6" fontWeight={700} gutterBottom>
+          <Typography variant="h6" fontWeight="bold">
             {CHARACTER_LOOKUP[gameId][charId].NAME}
           </Typography>
 
@@ -47,7 +47,7 @@ export const StatsPanel = () => {
                   <Typography variant="body2" color="text.secondary">
                     {statLabel}
                   </Typography>
-                  <Typography variant="body2" fontWeight={600}>
+                  <Typography variant="body2" fontWeight="bold">
                     {adjustedValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
                   </Typography>
                 </Box>
@@ -61,7 +61,7 @@ export const StatsPanel = () => {
             <Typography variant="body2" color="text.secondary">
               Weapon
             </Typography>
-            <Typography variant="body2" fontWeight={600}>
+            <Typography variant="body2" fontWeight="bold">
               {WEAPON_LOOKUP[gameId][charBuild.weaponId]?.NAME}
             </Typography>
           </Box>

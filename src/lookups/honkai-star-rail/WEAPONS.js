@@ -1,15 +1,5 @@
 export default {
   // Version 4.0
-  24006: {
-    NAME: 'Elation Brimming With Blessings',
-    QUALITY: '5',
-    TYPE: 'Elation',
-    FIXED_STATS: {
-      BASE_HP: 953,
-      BASE_ATK: 529,
-      BASE_DEF: 463,
-    },
-  },
   23054: {
     NAME: 'When She Decided to See',
     QUALITY: '5',
