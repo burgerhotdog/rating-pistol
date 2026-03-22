@@ -6,14 +6,13 @@ export default {
     ELEMENT: 'Ether',
     TYPE: 'Anomaly',
     SIGNATURE: '14150',
-    BASE_STATS: {
-      BASE_HP: 7749,
-      BASE_ATK: 863,
-      BASE_DEF: 619,
+    FIXED_STATS: {
+      BASE_HP: 7749.7096,
+      BASE_ATK: 863.4528,
+      BASE_DEF: 619.6099,
       BASE_IMPACT: 87,
-      BASE_AM: 115,
+      BASE_AM: 151,
       BASE_AP: 116,
-      BASE_ER: 1.2,
     },
   },
   1491: {
@@ -22,14 +21,14 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Support',
     SIGNATURE: '14149',
-    BASE_STATS: {
-      BASE_HP: 8477,
-      BASE_ATK: 750,
-      BASE_DEF: 600,
+    FIXED_STATS: {
+      BASE_HP: 8477.1696,
+      BASE_ATK: 750.7503,
+      BASE_DEF: 600.5916,
       BASE_IMPACT: 98,
       BASE_AM: 96,
       BASE_AP: 95,
-      BASE_ER: 1.2,
+      PERCENT_ATK: 0.21,
     },
   },
 
@@ -40,14 +39,14 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Attack',
     SIGNATURE: '14143',
-    BASE_STATS: {
-      BASE_HP: 7673,
-      BASE_ATK: 938,
-      BASE_DEF: 606,
+    FIXED_STATS: {
+      BASE_HP: 7673.7042,
+      BASE_ATK: 938.2102,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 83,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1341: {
@@ -56,14 +55,14 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Defense',
     SIGNATURE: '14134',
-    BASE_STATS: {
-      BASE_HP: 9117,
-      BASE_ATK: 765,
-      BASE_DEF: 701,
+    FIXED_STATS: {
+      BASE_HP: 9117.4144,
+      BASE_ATK: 765.6593,
+      BASE_DEF: 701.8928,
       BASE_IMPACT: 93,
       BASE_AM: 93,
       BASE_AP: 96,
-      BASE_ER: 1.2,
+      PERCENT_HP: 0.18,
     },
   },
 
@@ -74,14 +73,14 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Stun',
     SIGNATURE: '14148',
-    BASE_STATS: {
-      BASE_HP: 8250,
-      BASE_ATK: 758,
-      BASE_DEF: 612,
+    FIXED_STATS: {
+      BASE_HP: 8250.5871,
+      BASE_ATK: 758.2048,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 110,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1471: {
@@ -90,14 +89,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Rupture',
     SIGNATURE: '14147',
-    BASE_STATS: {
-      BASE_HP: 8497,
-      BASE_ATK: 859,
-      BASE_DEF: 445,
+    FIXED_STATS: {
+      BASE_HP: 8497.1437,
+      BASE_ATK: 859.9099,
+      BASE_DEF: 445.9996,
       BASE_IMPACT: 95,
       BASE_AM: 90,
       BASE_AP: 89,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
 
@@ -108,14 +107,14 @@ export default {
     ELEMENT: 'Ether',
     TYPE: 'Support',
     SIGNATURE: '14145',
-    BASE_STATS: {
-      BASE_HP: 8477,
-      BASE_ATK: 758,
-      BASE_DEF: 594,
+    FIXED_STATS: {
+      BASE_HP: 8477.1696,
+      BASE_ATK: 758.2048,
+      BASE_DEF: 594.5855,
       BASE_IMPACT: 83,
       BASE_AM: 96,
       BASE_AP: 95,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1441: {
@@ -124,14 +123,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Rupture',
     SIGNATURE: '13144',
-    BASE_STATS: {
-      BASE_HP: 7724,
-      BASE_ATK: 755,
-      BASE_DEF: 443,
+    FIXED_STATS: {
+      BASE_HP: 7724.8563,
+      BASE_ATK: 755.2106,
+      BASE_DEF: 443.56,
       BASE_IMPACT: 95,
       BASE_AM: 87,
       BASE_AP: 90,
-      BASE_ER: 1.2,
+      PERCENT_HP: 0.18,
     },
   },
   1051: {
@@ -140,14 +139,14 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Rupture',
     SIGNATURE: '14105',
-    BASE_STATS: {
-      BASE_HP: 8497,
-      BASE_ATK: 859,
-      BASE_DEF: 448,
+    FIXED_STATS: {
+      BASE_HP: 8497.1437,
+      BASE_ATK: 859.9099,
+      BASE_DEF: 448.4451,
       BASE_IMPACT: 95,
       BASE_AM: 87,
       BASE_AP: 90,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
 
@@ -158,14 +157,14 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Attack',
     SIGNATURE: '14146',
-    BASE_STATS: {
-      BASE_HP: 7673,
-      BASE_ATK: 929,
-      BASE_DEF: 612,
+    FIXED_STATS: {
+      BASE_HP: 7673.7042,
+      BASE_ATK: 929.7586,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 93,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.2,
+      PERCENT_CD: 0.288,
     },
   },
   1301: {
@@ -174,14 +173,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Attack',
     SIGNATURE: '14130',
-    BASE_STATS: {
-      BASE_HP: 7788,
-      BASE_ATK: 929,
-      BASE_DEF: 612,
+    FIXED_STATS: {
+      BASE_HP: 7788.6961,
+      BASE_ATK: 929.7586,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 93,
       BASE_AM: 92,
       BASE_AP: 90,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
 
@@ -192,14 +191,13 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Support',
     SIGNATURE: '14141',
-    BASE_STATS: {
-      BASE_HP:  8829,
-      BASE_ATK: 758,
-      BASE_DEF: 612,
+    FIXED_STATS: {
+      BASE_HP: 8829.47,
+      BASE_ATK: 758.2048,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 86,
       BASE_AM: 124,
       BASE_AP: 93,
-      BASE_ER: 1.2,
     },
   },
   1401: {
@@ -208,14 +206,13 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Anomaly',
     SIGNATURE: '14140',
-    BASE_STATS: {
-      BASE_HP:  7673,
-      BASE_ATK: 880,
-      BASE_DEF: 606,
+    FIXED_STATS: {
+      BASE_HP: 7673.7042,
+      BASE_ATK: 880.6952,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 86,
       BASE_AM: 142,
       BASE_AP: 118,
-      BASE_ER: 1.2,
     },
   },
 
@@ -226,14 +223,14 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Defense',
     SIGNATURE: '13142',
-    BASE_STATS: {
-      BASE_HP:  8453,
-      BASE_ATK: 661,
-      BASE_DEF: 712,
+    FIXED_STATS: {
+      BASE_HP: 8453.7942,
+      BASE_ATK: 661.9158,
+      BASE_DEF: 712.9433,
       BASE_IMPACT: 94,
       BASE_AM: 91,
       BASE_AP: 90,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1391: {
@@ -242,14 +239,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Stun',
     SIGNATURE: '14139',
-    BASE_STATS: {
-      BASE_HP:  8250,
-      BASE_ATK: 765,
-      BASE_DEF: 597,
+    FIXED_STATS: {
+      BASE_HP: 8250.5871,
+      BASE_ATK: 765.6593,
+      BASE_DEF: 597.5915,
       BASE_IMPACT: 118,
       BASE_AM: 93,
       BASE_AP: 96,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1371: {
@@ -258,14 +255,15 @@ export default {
     ELEMENT: 'Ether',
     TYPE: 'Rupture',
     SIGNATURE: '14137',
-    BASE_STATS: {
-      BASE_HP:  8373,
-      BASE_ATK: 872,
-      BASE_DEF: 441,
+    FIXED_STATS: {
+      BASE_HP: 7953.8621,
+      BASE_ATK: 872.5748,
+      BASE_DEF: 441.1145,
       BASE_IMPACT: 93,
       BASE_AM: 92,
       BASE_AP: 90,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
+      PERCENT_HP: 0.042,
     },
   },
 
@@ -276,14 +274,13 @@ export default {
     ELEMENT: 'Ether',
     TYPE: 'Anomaly',
     SIGNATURE: '14133',
-    BASE_STATS: {
-      BASE_HP:  7673,
-      BASE_ATK: 880,
-      BASE_DEF: 606,
+    FIXED_STATS: {
+      BASE_HP: 7673.7042,
+      BASE_ATK: 880.6952,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 86,
       BASE_AM: 144,
       BASE_AP: 118,
-      BASE_ER: 1.2,
     },
   },
   1291: {
@@ -292,14 +289,14 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Attack',
     SIGNATURE: '14129',
-    BASE_STATS: {
-      BASE_HP:  7940,
-      BASE_ATK: 919,
-      BASE_DEF: 616,
+    FIXED_STATS: {
+      BASE_HP: 7940.7128,
+      BASE_ATK: 919.3011,
+      BASE_DEF: 616.6098,
       BASE_IMPACT: 95,
       BASE_AM: 86,
       BASE_AP: 90,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
 
@@ -310,14 +307,14 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Attack',
     SIGNATURE: '14138',
-    BASE_STATS: {
-      BASE_HP:  7673,
-      BASE_ATK: 929,
-      BASE_DEF: 612,
+    FIXED_STATS: {
+      BASE_HP: 7673.7042,
+      BASE_ATK: 929.7586,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 93,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1361: {
@@ -326,14 +323,13 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Stun',
     SIGNATURE: '14136',
-    BASE_STATS: {
-      BASE_HP:  7923,
-      BASE_ATK: 750,
-      BASE_DEF: 600,
+    FIXED_STATS: {
+      BASE_HP: 7923.1783,
+      BASE_ATK: 750.7503,
+      BASE_DEF: 600.5916,
       BASE_IMPACT: 131,
       BASE_AM: 96,
       BASE_AP: 95,
-      BASE_ER: 1.2,
     },
   },
   1351: {
@@ -342,14 +338,13 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Stun',
     SIGNATURE: '13135',
-    BASE_STATS: {
-      BASE_HP:  7612,
-      BASE_ATK: 665,
-      BASE_DEF: 606,
+    FIXED_STATS: {
+      BASE_HP: 7612.7878,
+      BASE_ATK: 665.8333,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 136,
       BASE_AM: 92,
       BASE_AP: 90,
-      BASE_ER: 1.2,
     },
   },
 
@@ -360,14 +355,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Attack',
     SIGNATURE: '14132',
-    BASE_STATS: {
-      BASE_HP:  7788,
-      BASE_ATK: 929,
-      BASE_DEF: 612,
+    FIXED_STATS: {
+      BASE_HP: 7788.6961,
+      BASE_ATK: 929.7586,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 93,
       BASE_AM: 92,
       BASE_AP: 90,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1311: {
@@ -376,14 +371,14 @@ export default {
     ELEMENT: 'Ether',
     TYPE: 'Support',
     SIGNATURE: '14131',
-    BASE_STATS: {
-      BASE_HP:  8609,
-      BASE_ATK: 715,
-      BASE_DEF: 600,
+    FIXED_STATS: {
+      BASE_HP: 8609.2122,
+      BASE_ATK: 715.7699,
+      BASE_DEF: 600.5916,
       BASE_IMPACT: 83,
       BASE_AM: 93,
       BASE_AP: 92,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
 
@@ -394,14 +389,14 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Attack',
     SIGNATURE: '14120',
-    BASE_STATS: {
-      BASE_HP:  7405,
-      BASE_ATK: 915,
-      BASE_DEF: 600,
+    FIXED_STATS: {
+      BASE_HP: 7405.6956,
+      BASE_ATK: 915.593,
+      BASE_DEF: 600.5916,
       BASE_IMPACT: 90,
       BASE_AM: 80,
       BASE_AP: 95,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1091: {
@@ -410,14 +405,13 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Anomaly',
     SIGNATURE: '14109',
-    BASE_STATS: {
-      BASE_HP:  7673,
-      BASE_ATK: 880,
-      BASE_DEF: 606,
+    FIXED_STATS: {
+      BASE_HP: 7673.7042,
+      BASE_ATK: 880.6952,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 86,
       BASE_AM: 116,
       BASE_AP: 238,
-      BASE_ER: 1.2,
     },
   },
 
@@ -428,14 +422,13 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Anomaly',
     SIGNATURE: '14122',
-    BASE_STATS: {
-      BASE_HP:  7789,
-      BASE_ATK: 873,
-      BASE_DEF: 613,
+    FIXED_STATS: {
+      BASE_HP: 7788.6961,
+      BASE_ATK: 872.574,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 86,
       BASE_AM: 148,
       BASE_AP: 114,
-      BASE_ER: 1.2,
     },
   },
   1161: {
@@ -444,14 +437,13 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Stun',
     SIGNATURE: '14116',
-    BASE_STATS: {
-      BASE_HP:  8253,
-      BASE_ATK: 797,
-      BASE_DEF: 612,
+    FIXED_STATS: {
+      BASE_HP: 8253.2915,
+      BASE_ATK: 797.9569,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 137,
       BASE_AM: 91,
       BASE_AP: 90,
-      BASE_ER: 1.2,
     },
   },
 
@@ -462,14 +454,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Anomaly',
     SIGNATURE: '14117',
-    BASE_STATS: {
-      BASE_HP:  7368,
-      BASE_ATK: 863,
-      BASE_DEF: 601,
+    FIXED_STATS: {
+      BASE_HP: 7368.1929,
+      BASE_ATK: 863.4528,
+      BASE_DEF: 600.5916,
       BASE_IMPACT: 83,
       BASE_AM: 118,
       BASE_AP: 120,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1071: {
@@ -478,14 +470,13 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Defense',
     SIGNATURE: '14107',
-    BASE_STATS: {
-      BASE_HP:  9526,
-      BASE_ATK: 712,
-      BASE_DEF: 754,
+    FIXED_STATS: {
+      BASE_HP: 9526.2299,
+      BASE_ATK: 711.6899,
+      BASE_DEF: 753.862,
       BASE_IMPACT: 123,
       BASE_AM: 87,
       BASE_AP: 90,
-      BASE_ER: 1.2,
     },
   },
 
@@ -496,14 +487,14 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Defense',
     SIGNATURE: '13127',
-    BASE_STATS: {
-      BASE_HP:  8701,
-      BASE_ATK: 643,
-      BASE_DEF: 746,
+    FIXED_STATS: {
+      BASE_HP: 8701.3125,
+      BASE_ATK: 643.2987,
+      BASE_DEF: 746.1361,
       BASE_IMPACT: 94,
       BASE_AM: 86,
       BASE_AP: 90,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1261: {
@@ -512,14 +503,13 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Anomaly',
     SIGNATURE: '14126',
-    BASE_STATS: {
-      BASE_HP:  7789,
-      BASE_ATK: 881,
-      BASE_DEF: 607,
+    FIXED_STATS: {
+      BASE_HP: 7788.6961,
+      BASE_ATK: 880.6952,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 86,
       BASE_AM: 148,
       BASE_AP: 114,
-      BASE_ER: 1.2,
     },
   },
   1251: {
@@ -528,14 +518,13 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Stun',
     SIGNATURE: '14125',
-    BASE_STATS: {
-      BASE_HP:  8251,
-      BASE_ATK: 758,
-      BASE_DEF: 613,
+    FIXED_STATS: {
+      BASE_HP: 8250.5871,
+      BASE_ATK: 758.2048,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 136,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.2,
     },
   },
 
@@ -546,14 +535,14 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Anomaly',
     SIGNATURE: '13128',
-    BASE_STATS: {
-      BASE_HP:  6977,
-      BASE_ATK: 758,
-      BASE_DEF: 613,
+    FIXED_STATS: {
+      BASE_HP: 6976.9443,
+      BASE_ATK: 758.4172,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 86,
       BASE_AM: 116,
       BASE_AP: 118,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1241: {
@@ -562,14 +551,14 @@ export default {
     ELEMENT: 'Ether',
     TYPE: 'Attack',
     SIGNATURE: '14124',
-    BASE_STATS: {
-      BASE_HP:  7483,
-      BASE_ATK: 919,
-      BASE_DEF: 601,
+    FIXED_STATS: {
+      BASE_HP: 7482.7069,
+      BASE_ATK: 919.3011,
+      BASE_DEF: 600.5916,
       BASE_IMPACT: 90,
       BASE_AM: 93,
       BASE_AP: 92,
-      BASE_ER: 1.2,
+      PERCENT_CD: 0.288,
     },
   },
   1211: {
@@ -578,14 +567,14 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Support',
     SIGNATURE: '14121',
-    BASE_STATS: {
-      BASE_HP:  8609,
-      BASE_ATK: 717,
-      BASE_DEF: 601,
+    FIXED_STATS: {
+      BASE_HP: 8609.2122,
+      BASE_ATK: 717.1859,
+      BASE_DEF: 600.5916,
       BASE_IMPACT: 83,
       BASE_AM: 93,
       BASE_AP: 92,
-      BASE_ER: 1.2,
+      PERCENT_PR: 0.144,
     },
   },
   1191: {
@@ -594,14 +583,14 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Attack',
     SIGNATURE: '14119',
-    BASE_STATS: {
-      BASE_HP:  7674,
-      BASE_ATK: 938,
-      BASE_DEF: 607,
+    FIXED_STATS: {
+      BASE_HP: 7673.7042,
+      BASE_ATK: 938.2102,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 93,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1181: {
@@ -610,14 +599,13 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Anomaly',
     SIGNATURE: '14118',
-    BASE_STATS: {
-      BASE_HP:  7483,
-      BASE_ATK: 826,
-      BASE_DEF: 601,
+    FIXED_STATS: {
+      BASE_HP: 7482.7069,
+      BASE_ATK: 825.9679,
+      BASE_DEF: 600.5916,
       BASE_IMPACT: 83,
       BASE_AM: 151,
       BASE_AP: 116,
-      BASE_ER: 1.2,
     },
   },
   1151: {
@@ -626,14 +614,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Support',
     SIGNATURE: '13115',
-    BASE_STATS: {
-      BASE_HP:  8026,
-      BASE_ATK: 659,
-      BASE_DEF: 613,
+    FIXED_STATS: {
+      BASE_HP: 8025.9663,
+      BASE_ATK: 658.957,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 86,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1141: {
@@ -642,14 +630,13 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Stun',
     SIGNATURE: '14114',
-    BASE_STATS: {
-      BASE_HP:  8416,
-      BASE_ATK: 729,
-      BASE_DEF: 607,
+    FIXED_STATS: {
+      BASE_HP: 8416.2915,
+      BASE_ATK: 728.5933,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 137,
       BASE_AM: 91,
       BASE_AP: 90,
-      BASE_ER: 1.2,
     },
   },
   1131: {
@@ -658,14 +645,14 @@ export default {
     ELEMENT: 'Ice',
     TYPE: 'Support',
     SIGNATURE: '13113',
-    BASE_STATS: {
-      BASE_HP:  8026,
-      BASE_ATK: 666,
-      BASE_DEF: 598,
+    FIXED_STATS: {
+      BASE_HP: 8025.9663,
+      BASE_ATK: 665.8333,
+      BASE_DEF: 597.5915,
       BASE_IMPACT: 86,
       BASE_AM: 93,
       BASE_AP: 96,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1121: {
@@ -674,14 +661,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Defense',
     SIGNATURE: '13112',
-    BASE_STATS: {
-      BASE_HP:  8578,
-      BASE_ATK: 653,
-      BASE_DEF: 724,
+    FIXED_STATS: {
+      BASE_HP: 8577.5504,
+      BASE_ATK: 653.0866,
+      BASE_DEF: 724.0351,
       BASE_IMPACT: 95,
       BASE_AM: 86,
       BASE_AP: 90,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1111: {
@@ -690,14 +677,14 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Attack',
     SIGNATURE: '13111',
-    BASE_STATS: {
-      BASE_HP:  7219,
-      BASE_ATK: 792,
-      BASE_DEF: 623,
+    FIXED_STATS: {
+      BASE_HP: 7219.0996,
+      BASE_ATK: 791.6483,
+      BASE_DEF: 622.6159,
       BASE_IMPACT: 95,
       BASE_AM: 86,
       BASE_AP: 90,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1101: {
@@ -706,14 +693,13 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Stun',
     SIGNATURE: '14110',
-    BASE_STATS: {
-      BASE_HP:  8127,
-      BASE_ATK: 736,
-      BASE_DEF: 595,
+    FIXED_STATS: {
+      BASE_HP: 8127.3088,
+      BASE_ATK: 735.8413,
+      BASE_DEF: 594.5855,
       BASE_IMPACT: 134,
       BASE_AM: 97,
       BASE_AP: 96,
-      BASE_ER: 1.2,
     },
   },
   1081: {
@@ -722,14 +708,14 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Attack',
     SIGNATURE: '13108',
-    BASE_STATS: {
-      BASE_HP:  6907,
-      BASE_ATK: 787,
-      BASE_DEF: 607,
+    FIXED_STATS: {
+      BASE_HP: 6907.2636,
+      BASE_ATK: 787.2765,
+      BASE_DEF: 606.5977,
       BASE_IMPACT: 91,
       BASE_AM: 92,
       BASE_AP: 91,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1061: {
@@ -738,14 +724,14 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Attack',
     SIGNATURE: '13106',
-    BASE_STATS: {
-      BASE_HP:  6977,
-      BASE_ATK: 807,
-      BASE_DEF: 605,
+    FIXED_STATS: {
+      BASE_HP: 6976.9443,
+      BASE_ATK: 807.1414,
+      BASE_DEF: 604.5976,
       BASE_IMPACT: 93,
       BASE_AM: 93,
       BASE_AP: 96,
-      BASE_ER: 1.2,
+      PERCENT_CD: 0.288,
     },
   },
   1041: {
@@ -754,14 +740,14 @@ export default {
     ELEMENT: 'Fire',
     TYPE: 'Attack',
     SIGNATURE: '14104',
-    BASE_STATS: {
-      BASE_HP:  7674,
-      BASE_ATK: 889,
-      BASE_DEF: 613,
+    FIXED_STATS: {
+      BASE_HP: 7673.7042,
+      BASE_ATK: 888.5686,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 93,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1031: {
@@ -770,14 +756,14 @@ export default {
     ELEMENT: 'Ether',
     TYPE: 'Support',
     SIGNATURE: '13103',
-    BASE_STATS: {
-      BASE_HP:  8146,
-      BASE_ATK: 649,
-      BASE_DEF: 623,
+    FIXED_STATS: {
+      BASE_HP: 8145.8433,
+      BASE_ATK: 649.1691,
+      BASE_DEF: 622.6159,
       BASE_IMPACT: 88,
       BASE_AM: 90,
       BASE_AP: 93,
-      BASE_ER: 1.56,
+      BASE_ER: 0.36,
     },
   },
   1021: {
@@ -786,14 +772,14 @@ export default {
     ELEMENT: 'Physical',
     TYPE: 'Attack',
     SIGNATURE: '14102',
-    BASE_STATS: {
-      BASE_HP:  7560,
-      BASE_ATK: 911,
-      BASE_DEF: 588,
+    FIXED_STATS: {
+      BASE_HP: 7560.1902,
+      BASE_ATK: 910.5958,
+      BASE_DEF: 587.5794,
       BASE_IMPACT: 92,
       BASE_AM: 97,
       BASE_AP: 96,
-      BASE_ER: 1.2,
+      PERCENT_CR: 0.144,
     },
   },
   1011: {
@@ -802,14 +788,13 @@ export default {
     ELEMENT: 'Electric',
     TYPE: 'Stun',
     SIGNATURE: '13101',
-    BASE_STATS: {
-      BASE_HP:  7501,
-      BASE_ATK: 659,
-      BASE_DEF: 613,
+    FIXED_STATS: {
+      BASE_HP: 7500.7134,
+      BASE_ATK: 658.957,
+      BASE_DEF: 612.6038,
       BASE_IMPACT: 136,
       BASE_AM: 94,
       BASE_AP: 93,
-      BASE_ER: 1.2,
     },
   },
 };

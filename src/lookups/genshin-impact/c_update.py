@@ -77,14 +77,12 @@ with open('c_new.txt', 'w', encoding='utf-8') as f:
             f.write("    SIGNATURE: '00000',\n")
 
         stats = c_data['ascensionStats']
-        f.write('    BASE_STATS: {\n')
+        f.write('    FIXED_STATS: {\n')
         f.write(f"      BASE_HP: {stats['hp']},\n")
         f.write(f"      BASE_ATK: {stats['atk']},\n")
         f.write(f"      BASE_DEF: {stats['def']},\n")
-        f.write('    },\n')
 
         extra_stats = [k for k in stats.keys() if k not in {"hp", "atk", "def"}]
-        f.write('    ASCENSION_STATS: {\n')
         for extra in extra_stats:
             rawStat = stats[extra] if extra == 'Elemental Mastery' else stats[extra] / 100
             rawStat = 315.2 if rawStat == 315 else rawStat

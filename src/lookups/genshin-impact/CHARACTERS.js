@@ -6,12 +6,10 @@ export default {
     ELEMENT: 'Anemo',
     TYPE: 'Claymore',
     SIGNATURE: '12515',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 12613,
       BASE_ATK: 353,
       BASE_DEF: 795,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 38.4,
     },
   },
@@ -22,12 +20,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Geo',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 11962,
       BASE_ATK: 191,
       BASE_DEF: 814,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 96,
     },
   },
@@ -37,12 +33,10 @@ export default {
     ELEMENT: 'Geo',
     TYPE: 'Sword',
     SIGNATURE: '11519',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 12919,
       BASE_ATK: 225,
       BASE_DEF: 957,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -52,12 +46,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
     SIGNATURE: '14522',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 14695,
       BASE_ATK: 96,
       BASE_DEF: 515,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -68,12 +60,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Anemo',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 9646,
       BASE_ATK: 223,
       BASE_DEF: 580,
-    },
-    ASCENSION_STATS: {
       PERCENT_HB: 0.185,
     },
   },
@@ -83,12 +73,10 @@ export default {
     ELEMENT: 'Pyro',
     TYPE: 'Sword',
     SIGNATURE: '11518',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 12430,
       BASE_ATK: 347,
       BASE_DEF: 822,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -100,12 +88,10 @@ export default {
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
     SIGNATURE: '14521',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 12704,
       BASE_ATK: 344,
       BASE_DEF: 799,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 100,
       PERCENT_CD: 0.384,
     },
@@ -117,12 +103,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Hydro',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 11201,
       BASE_ATK: 242,
       BASE_DEF: 607,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 96,
     },
   },
@@ -132,12 +116,10 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
     SIGNATURE: '13516',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 12491,
       BASE_ATK: 352,
       BASE_DEF: 809,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -147,12 +129,10 @@ export default {
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
     SIGNATURE: '14520',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 10654,
       BASE_ATK: 255,
       BASE_DEF: 669,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 315.2,
     },
   },
@@ -164,12 +144,10 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
     SIGNATURE: '13515',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12613,
       BASE_ATK: 330,
       BASE_DEF: 828,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -180,12 +158,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12506,
       BASE_ATK: 189,
       BASE_DEF: 560,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -195,12 +171,10 @@ export default {
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
     SIGNATURE: '11517',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12417,
       BASE_ATK: 359,
       BASE_DEF: 806,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -211,12 +185,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10081,
       BASE_ATK: 178,
       BASE_DEF: 605,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 96,
     },
   },
@@ -226,12 +198,10 @@ export default {
     ELEMENT: 'Cryo',
     TYPE: 'Polearm',
     SIGNATURE: '13514',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 347,
       BASE_DEF: 732,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -243,12 +213,10 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Catalyst',
     SIGNATURE: '14519',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12699,
       BASE_ATK: 356,
       BASE_DEF: 782,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -257,12 +225,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10657,
       BASE_ATK: 257,
       BASE_DEF: 638,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -274,12 +240,10 @@ export default {
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
     SIGNATURE: '14518',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12736,
       BASE_ATK: 215,
       BASE_DEF: 757,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 115.2,
     },
   },
@@ -290,12 +254,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9243,
       BASE_ATK: 250,
       BASE_DEF: 580,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -305,12 +267,10 @@ export default {
     ELEMENT: 'Cryo',
     TYPE: 'Catalyst',
     SIGNATURE: '14517',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11633,
       BASE_ATK: 126,
       BASE_DEF: 763,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 115.2,
     },
   },
@@ -320,12 +280,10 @@ export default {
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
     SIGNATURE: '12514',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12552,
       BASE_ATK: 358,
       BASE_DEF: 791,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -336,12 +294,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9243,
       BASE_ATK: 244,
       BASE_DEF: 586,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -351,12 +307,10 @@ export default {
     ELEMENT: 'Anemo',
     TYPE: 'Bow',
     SIGNATURE: '15514',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9796,
       BASE_ATK: 346,
       BASE_DEF: 614,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -368,12 +322,10 @@ export default {
     ELEMENT: 'Geo',
     TYPE: 'Sword',
     SIGNATURE: '11516',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12405,
       BASE_ATK: 275,
       BASE_DEF: 929,
-    },
-    ASCENSION_STATS: {
       PERCENT_DEF: 0.36,
     },
   },
@@ -385,12 +337,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
     SIGNATURE: '14516',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  15184,
       BASE_ATK: 181,
       BASE_DEF: 570,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -400,12 +350,10 @@ export default {
     ELEMENT: 'Dendro',
     TYPE: 'Claymore',
     SIGNATURE: '12513',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 332,
       BASE_DEF: 801,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -414,12 +362,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Geo',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11799,
       BASE_ATK: 216,
       BASE_DEF: 792,
-    },
-    ASCENSION_STATS: {
       PERCENT_GEO: 0.24,
     },
   },
@@ -431,12 +377,10 @@ export default {
     ELEMENT: 'Dendro',
     TYPE: 'Polearm',
     SIGNATURE: '13513',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13568,
       BASE_ATK: 334,
       BASE_DEF: 730,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -448,12 +392,10 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Sword',
     SIGNATURE: '11515',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12956,
       BASE_ATK: 337,
       BASE_DEF: 783,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -462,12 +404,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9787,
       BASE_ATK: 227,
       BASE_DEF: 559,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 96,
     },
   },
@@ -477,12 +417,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
     SIGNATURE: '15513',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 192,
       BASE_DEF: 499,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.288,
     },
   },
@@ -494,12 +432,10 @@ export default {
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
     SIGNATURE: '13512',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13103,
       BASE_ATK: 342,
       BASE_DEF: 764,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -511,12 +447,10 @@ export default {
     ELEMENT: 'Geo',
     TYPE: 'Sword',
     SIGNATURE: '11514',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11437,
       BASE_ATK: 322,
       BASE_DEF: 953,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -528,12 +462,10 @@ export default {
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
     SIGNATURE: '14515',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10409,
       BASE_ATK: 334,
       BASE_DEF: 572,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.288,
     },
   },
@@ -542,12 +474,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11418,
       BASE_ATK: 301,
       BASE_DEF: 702,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -559,12 +489,10 @@ export default {
     ELEMENT: 'Geo',
     TYPE: 'Claymore',
     SIGNATURE: '12512',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12650,
       BASE_ATK: 351,
       BASE_DEF: 793,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -573,12 +501,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11962,
       BASE_ATK: 193,
       BASE_DEF: 604,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -590,12 +516,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
     SIGNATURE: '11513',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  15307,
       BASE_ATK: 243,
       BASE_DEF: 695,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -604,12 +528,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Cryo',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10766,
       BASE_ATK: 173,
       BASE_DEF: 546,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -621,12 +543,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
     SIGNATURE: '14514',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  14695,
       BASE_ATK: 208,
       BASE_DEF: 576,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -636,12 +556,10 @@ export default {
     ELEMENT: 'Cryo',
     TYPE: 'Catalyst',
     SIGNATURE: '14513',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13592,
       BASE_ATK: 310,
       BASE_DEF: 763,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -652,12 +570,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Cryo',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12071,
       BASE_ATK: 254,
       BASE_DEF: 708,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -667,12 +583,10 @@ export default {
     ELEMENT: 'Pyro',
     TYPE: 'Bow',
     SIGNATURE: '15512',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11021,
       BASE_ATK: 231,
       BASE_DEF: 537,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -681,12 +595,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Anemo',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12397,
       BASE_ATK: 231,
       BASE_DEF: 711,
-    },
-    ASCENSION_STATS: {
       PERCENT_ANEMO: 0.24,
     },
   },
@@ -697,12 +609,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Dendro',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12179,
       BASE_ATK: 223,
       BASE_DEF: 546,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -714,12 +624,10 @@ export default {
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
     SIGNATURE: '14505',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 192,
       BASE_DEF: 499,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.288,
     },
   },
@@ -728,12 +636,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Dendro',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11962,
       BASE_ATK: 233,
       BASE_DEF: 750,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 96,
     },
   },
@@ -744,12 +650,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Cryo',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12506,
       BASE_ATK: 223,
       BASE_DEF: 713,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -759,12 +663,10 @@ export default {
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
     SIGNATURE: '12511',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  15674,
       BASE_ATK: 265,
       BASE_DEF: 627,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.288,
     },
   },
@@ -776,12 +678,10 @@ export default {
     ELEMENT: 'Dendro',
     TYPE: 'Sword',
     SIGNATURE: '11512',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 313,
       BASE_DEF: 781,
-    },
-    ASCENSION_STATS: {
       PERCENT_DENDRO: 0.288,
     },
   },
@@ -790,12 +690,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Dendro',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12288,
       BASE_ATK: 212,
       BASE_DEF: 750,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -806,12 +704,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Anemo',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9569,
       BASE_ATK: 196,
       BASE_DEF: 627,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -821,12 +717,10 @@ export default {
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
     SIGNATURE: '14512',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10164,
       BASE_ATK: 327,
       BASE_DEF: 607,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -837,12 +731,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11092,
       BASE_ATK: 216,
       BASE_DEF: 655,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -852,12 +744,10 @@ export default {
     ELEMENT: 'Dendro',
     TYPE: 'Catalyst',
     SIGNATURE: '14511',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10360,
       BASE_ATK: 298,
       BASE_DEF: 630,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 115.2,
     },
   },
@@ -868,12 +758,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Hydro',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10874,
       BASE_ATK: 212,
       BASE_DEF: 682,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -883,12 +771,10 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
     SIGNATURE: '13511',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12490,
       BASE_ATK: 318,
       BASE_DEF: 859,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -898,12 +784,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
     SIGNATURE: '11511',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  15184,
       BASE_ATK: 229,
       BASE_DEF: 728,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.288,
     },
   },
@@ -915,12 +799,10 @@ export default {
     ELEMENT: 'Dendro',
     TYPE: 'Bow',
     SIGNATURE: '15511',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10849,
       BASE_ATK: 267,
       BASE_DEF: 630,
-    },
-    ASCENSION_STATS: {
       PERCENT_DENDRO: 0.288,
     },
   },
@@ -929,12 +811,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12397,
       BASE_ATK: 223,
       BASE_DEF: 723,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -943,12 +823,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Dendro',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9787,
       BASE_ATK: 199,
       BASE_DEF: 600,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -959,12 +837,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10657,
       BASE_ATK: 225,
       BASE_DEF: 683,
-    },
-    ASCENSION_STATS: {
       PERCENT_ANEMO: 0.24,
     },
   },
@@ -975,12 +851,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12288,
       BASE_ATK: 212,
       BASE_DEF: 750,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -990,12 +864,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
     SIGNATURE: '15508',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  14450,
       BASE_ATK: 243,
       BASE_DEF: 547,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -1007,12 +879,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
     SIGNATURE: '11510',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13715,
       BASE_ATK: 298,
       BASE_DEF: 768,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -1024,12 +894,10 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Catalyst',
     SIGNATURE: '14509',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10372,
       BASE_ATK: 339,
       BASE_DEF: 568,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -1040,12 +908,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Geo',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10657,
       BASE_ATK: 191,
       BASE_DEF: 734,
-    },
-    ASCENSION_STATS: {
       PERCENT_ER: 0.2668,
     },
   },
@@ -1055,12 +921,10 @@ export default {
     ELEMENT: 'Cryo',
     TYPE: 'Polearm',
     SIGNATURE: '13507',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12992,
       BASE_ATK: 303,
       BASE_DEF: 830,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.288,
     },
   },
@@ -1072,12 +936,10 @@ export default {
     ELEMENT: 'Geo',
     TYPE: 'Claymore',
     SIGNATURE: '12510',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 227,
       BASE_DEF: 959,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -1086,12 +948,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Geo',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9569,
       BASE_ATK: 182,
       BASE_DEF: 648,
-    },
-    ASCENSION_STATS: {
       PERCENT_GEO: 0.24,
     },
   },
@@ -1102,12 +962,10 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Cryo',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10898,
       BASE_ATK: 233,
       BASE_DEF: 676,
-    },
-    ASCENSION_STATS: {
       PERCENT_CRYO: 0.288,
     },
   },
@@ -1116,12 +974,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10331,
       BASE_ATK: 201,
       BASE_DEF: 750,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -1132,12 +988,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9569,
       BASE_ATK: 195,
       BASE_DEF: 627,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -1147,12 +1001,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
     SIGNATURE: '14506',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13470,
       BASE_ATK: 234,
       BASE_DEF: 657,
-    },
-    ASCENSION_STATS: {
       PERCENT_HYDRO: 0.288,
     },
   },
@@ -1162,12 +1014,10 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Polearm',
     SIGNATURE: '13509',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12907,
       BASE_ATK: 337,
       BASE_DEF: 789,
-    },
-    ASCENSION_STATS: {
       PERCENT_ER: 0.32,
     },
   },
@@ -1178,12 +1028,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Anemo',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11853,
       BASE_ATK: 244,
       BASE_DEF: 744,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 96,
     },
   },
@@ -1193,12 +1041,10 @@ export default {
     ELEMENT: 'Pyro',
     TYPE: 'Bow',
     SIGNATURE: '15509',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10164,
       BASE_ATK: 322,
       BASE_DEF: 614,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -1208,12 +1054,10 @@ export default {
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
     SIGNATURE: '11509',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12858,
       BASE_ATK: 342,
       BASE_DEF: 783,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -1225,12 +1069,10 @@ export default {
     ELEMENT: 'Anemo',
     TYPE: 'Sword',
     SIGNATURE: '11503',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13348,
       BASE_ATK: 296,
       BASE_DEF: 806,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 115.2,
     },
   },
@@ -1242,12 +1084,10 @@ export default {
     ELEMENT: 'Cryo',
     TYPE: 'Claymore',
     SIGNATURE: '12503',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13225,
       BASE_ATK: 342,
       BASE_DEF: 750,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -1256,12 +1096,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Pyro',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9352,
       BASE_ATK: 240,
       BASE_DEF: 586,
-    },
-    ASCENSION_STATS: {
       PERCENT_PYRO: 0.24,
     },
   },
@@ -1272,12 +1110,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Cryo',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12288,
       BASE_ATK: 240,
       BASE_DEF: 709,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -1289,12 +1125,10 @@ export default {
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
     SIGNATURE: '13501',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  15522,
       BASE_ATK: 106,
       BASE_DEF: 876,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -1304,12 +1138,10 @@ export default {
     ELEMENT: 'Anemo',
     TYPE: 'Polearm',
     SIGNATURE: '13505',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12735,
       BASE_ATK: 349,
       BASE_DEF: 799,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -1320,12 +1152,10 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Geo',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13225,
       BASE_ATK: 251,
       BASE_DEF: 876,
-    },
-    ASCENSION_STATS: {
       PERCENT_GEO: 0.288,
     },
   },
@@ -1335,12 +1165,10 @@ export default {
     ELEMENT: 'Cryo',
     TYPE: 'Bow',
     SIGNATURE: '15502',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9796,
       BASE_ATK: 334,
       BASE_DEF: 630,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -1351,12 +1179,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11201,
       BASE_ATK: 248,
       BASE_DEF: 798,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -1365,12 +1191,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Cryo',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9569,
       BASE_ATK: 212,
       BASE_DEF: 600,
-    },
-    ASCENSION_STATS: {
       PERCENT_CRYO: 0.24,
     },
   },
@@ -1380,12 +1204,10 @@ export default {
     ELEMENT: 'Hydro',
     TYPE: 'Bow',
     SIGNATURE: '15507',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13103,
       BASE_ATK: 301,
       BASE_DEF: 814,
-    },
-    ASCENSION_STATS: {
       PERCENT_HYDRO: 0.288,
     },
   },
@@ -1395,12 +1217,10 @@ export default {
     ELEMENT: 'Geo',
     TYPE: 'Polearm',
     SIGNATURE: '13504',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  14695,
       BASE_ATK: 251,
       BASE_DEF: 737,
-    },
-    ASCENSION_STATS: {
       PERCENT_GEO: 0.288,
     },
   },
@@ -1411,12 +1231,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Anemo',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9243,
       BASE_ATK: 169,
       BASE_DEF: 702,
-    },
-    ASCENSION_STATS: {
       PERCENT_ANEMO: 0.24,
     },
   },
@@ -1425,12 +1243,10 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Electro',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13103,
       BASE_ATK: 322,
       BASE_DEF: 799,
-    },
-    ASCENSION_STATS: {
       PERCENT_CD: 0.384,
     },
   },
@@ -1439,12 +1255,10 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10409,
       BASE_ATK: 287,
       BASE_DEF: 653,
-    },
-    ASCENSION_STATS: {
       PERCENT_ER: 0.32,
     },
   },
@@ -1453,12 +1267,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Cryo',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10983,
       BASE_ATK: 223,
       BASE_DEF: 648,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -1467,12 +1279,10 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12368,
       BASE_ATK: 287,
       BASE_DEF: 922,
-    },
-    ASCENSION_STATS: {
       PERCENT_HB: 0.2216,
     },
   },
@@ -1481,12 +1291,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Geo',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12071,
       BASE_ATK: 191,
       BASE_DEF: 798,
-    },
-    ASCENSION_STATS: {
       PERCENT_DEF: 0.3,
     },
   },
@@ -1495,12 +1303,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Pyro',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12397,
       BASE_ATK: 191,
       BASE_DEF: 771,
-    },
-    ASCENSION_STATS: {
       PERCENT_ER: 0.2668,
     },
   },
@@ -1509,12 +1315,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9189,
       BASE_ATK: 244,
       BASE_DEF: 593,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -1523,12 +1327,10 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Pyro',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10286,
       BASE_ATK: 310,
       BASE_DEF: 614,
-    },
-    ASCENSION_STATS: {
       PERCENT_PYRO: 0.288,
     },
   },
@@ -1537,12 +1339,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Geo',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9787,
       BASE_ATK: 212,
       BASE_DEF: 573,
-    },
-    ASCENSION_STATS: {
       PERCENT_GEO: 0.24,
     },
   },
@@ -1551,12 +1351,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Hydro',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10222,
       BASE_ATK: 201,
       BASE_DEF: 757,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -1565,12 +1363,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  13049,
       BASE_ATK: 225,
       BASE_DEF: 648,
-    },
-    ASCENSION_STATS: {
       PERCENT_ELECTRO: 0.24,
     },
   },
@@ -1579,12 +1375,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Pyro',
     TYPE: 'Polearm',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10874,
       BASE_ATK: 225,
       BASE_DEF: 668,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 96,
     },
   },
@@ -1593,12 +1387,10 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Anemo',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  10531,
       BASE_ATK: 263,
       BASE_DEF: 668,
-    },
-    ASCENSION_STATS: {
       PERCENT_ER: 0.32,
     },
   },
@@ -1607,12 +1399,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Pyro',
     TYPE: 'Bow',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9461,
       BASE_ATK: 223,
       BASE_DEF: 600,
-    },
-    ASCENSION_STATS: {
       PERCENT_ATK: 0.24,
     },
   },
@@ -1621,12 +1411,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Claymore',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11962,
       BASE_ATK: 233,
       BASE_DEF: 750,
-    },
-    ASCENSION_STATS: {
       PERCENT_PHYSICAL: 0.3,
     },
   },
@@ -1636,12 +1424,10 @@ export default {
     ELEMENT: 'Pyro',
     TYPE: 'Claymore',
     SIGNATURE: '12502',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  12980,
       BASE_ATK: 334,
       BASE_DEF: 783,
-    },
-    ASCENSION_STATS: {
       PERCENT_CR: 0.192,
     },
   },
@@ -1650,12 +1436,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Cryo',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  11636,
       BASE_ATK: 223,
       BASE_DEF: 791,
-    },
-    ASCENSION_STATS: {
       PERCENT_ER: 0.2668,
     },
   },
@@ -1664,12 +1448,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Hydro',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9787,
       BASE_ATK: 159,
       BASE_DEF: 668,
-    },
-    ASCENSION_STATS: {
       PERCENT_HP: 0.24,
     },
   },
@@ -1678,12 +1460,10 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Catalyst',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  9569,
       BASE_ATK: 231,
       BASE_DEF: 573,
-    },
-    ASCENSION_STATS: {
       FLAT_EM: 96,
     },
   },
@@ -1692,12 +1472,10 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Anemo',
     TYPE: 'Sword',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP:  14695,
       BASE_ATK: 239,
       BASE_DEF: 768,
-    },
-    ASCENSION_STATS: {
       PERCENT_HB: 0.2216,
     },
   },

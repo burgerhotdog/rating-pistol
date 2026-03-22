@@ -1,6 +1,6 @@
 export default {
   TITLE: 'Genshin Impact',
-  VERSION: '6.3',
+  VERSION: '6.4',
   RESIN_PER_DAY: 180,
   RESIN_PER_RUN: 20,
   DROPS_PER_RUN: 1.065,
@@ -30,6 +30,10 @@ export default {
     'Sword'
   ],
   DEFAULT_STATS: {
+    BASE_HP: 0,
+    BASE_ATK: 0,
+    BASE_DEF: 0,
+    BASE_EM: 0,
     PERCENT_CR: 0.05,
     PERCENT_CD: 0.5,
     PERCENT_ER: 1,

@@ -1,22 +1,14 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { BuildContext } from '@/contexts';
 import { GENERAL_LOOKUP, CHARACTER_LOOKUP, WEAPON_LOOKUP } from '@/lookups';
-import { combineBaseStats, combineEquipStats } from '@/utils';
+import { combineEquipStats, computeTotalStat } from '@/utils';
 
 export const StatsPanel = () => {
   const { gameId, charId } = useParams();
   const { buildCollections } = useContext(BuildContext);
   const charBuild = buildCollections[gameId]?.[charId] ?? null;
-
-  const { baseStats, equipStats } = useMemo(() => {
-    if (!charBuild) return { baseStats: {}, equipStats: {} };
-
-    const baseStats = combineBaseStats(gameId, charId, charBuild.weaponId);
-    const equipStats = combineEquipStats(charBuild.equipList);
-    return { baseStats, equipStats };
-  }, [gameId, charId, charBuild]);
 
   return (
     <Card
@@ -25,7 +17,7 @@ export const StatsPanel = () => {
     >
       {charBuild ? (
         <Stack p={2} sx={{ height: '100%', overflowY: 'auto' }}>
-          <Typography variant="h6" fontWeight={700} gutterBottom>
+          <Typography variant="h6" fontWeight="bold">
             {CHARACTER_LOOKUP[gameId][charId].NAME}
           </Typography>
 
@@ -33,14 +25,16 @@ export const StatsPanel = () => {
 
           <Stack gap={1.5} sx={{ flex: 1 }}>
             {GENERAL_LOOKUP[gameId].MENU_STAT_TYPES.map(([statId, statLabel]) => {
-              const baseId = `BASE_${statId}`;
-              const flatId = `FLAT_${statId}`;
-              const percentId = `PERCENT_${statId}`;
-              const value = (baseStats[baseId] ?? 0) + (baseStats[baseId] ? baseStats[baseId] : 1) * ((equipStats[percentId] ?? 0) + (CHARACTER_LOOKUP[gameId][charId].ASCENSION_STATS?.[percentId] ?? 0) + (WEAPON_LOOKUP[gameId][charBuild.weaponId].MAIN_STAT?.[percentId] ?? 0)) + ((equipStats[flatId] ?? 0) + (CHARACTER_LOOKUP[gameId][charId].ASCENSION_STATS?.[flatId] ?? 0) + (WEAPON_LOOKUP[gameId][charBuild.weaponId].MAIN_STAT?.[flatId] ?? 0)) + (GENERAL_LOOKUP[gameId].DEFAULT_STATS[percentId] ?? 0);
-              const isFlatStat = GENERAL_LOOKUP[gameId].MAIN_STAT_TYPES.some(typeObj => typeObj[flatId]) || GENERAL_LOOKUP[gameId].SUB_STAT_TYPES[flatId] || baseStats[baseId];
-              const finalValue = value * (isFlatStat ? 1 : 100);
-              const toFixedValue = isFlatStat ? 0 : 1;
-              if (statId !== 'EM' && finalValue === 0) return;
+              const sourceMapList = [
+                GENERAL_LOOKUP[gameId].DEFAULT_STATS ?? {},
+                CHARACTER_LOOKUP[gameId][charId].FIXED_STATS ?? {},
+                WEAPON_LOOKUP[gameId][charBuild.weaponId].FIXED_STATS ?? {},
+                combineEquipStats(charBuild.equipList),
+              ];
+              const { totalValue, isPercent } = computeTotalStat(statId, sourceMapList);
+              const adjustedValue = isPercent ? totalValue * 100 : totalValue;
+              const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && statId === 'ER') ? 1 : 0;
+              if (statId !== 'EM' && adjustedValue === 0) return;
               return (
                 <Box
                   key={statId}
@@ -53,8 +47,8 @@ export const StatsPanel = () => {
                   <Typography variant="body2" color="text.secondary">
                     {statLabel}
                   </Typography>
-                  <Typography variant="body2" fontWeight={600}>
-                    {finalValue.toFixed(toFixedValue) + (isFlatStat ? '' : '%')}
+                  <Typography variant="body2" fontWeight="bold">
+                    {adjustedValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
                   </Typography>
                 </Box>
               );
@@ -67,7 +61,7 @@ export const StatsPanel = () => {
             <Typography variant="body2" color="text.secondary">
               Weapon
             </Typography>
-            <Typography variant="body2" fontWeight={600}>
+            <Typography variant="body2" fontWeight="bold">
               {WEAPON_LOOKUP[gameId][charBuild.weaponId]?.NAME}
             </Typography>
           </Box>

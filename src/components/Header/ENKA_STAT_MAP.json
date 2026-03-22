@@ -45,7 +45,9 @@
     "BreakDamageAddedRatioBase": "PERCENT_BE",
     "BreakDamageAddedRatio": "PERCENT_BE",
     "SPRatioBase": "PERCENT_ERR",
-    "StatusResistance": "PERCENT_RES"
+    "StatusResistance": "PERCENT_RES",
+    "ElationDamageAddedRatioBase": "PERCENT_ELATION",
+    "ElationDamageAddedRatio": "PERCENT_ELATION"
   },
   "zenless-zone-zero": {
     "11103": "FLAT_HP",

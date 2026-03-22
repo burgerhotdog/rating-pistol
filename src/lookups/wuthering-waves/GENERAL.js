@@ -29,6 +29,9 @@ export default {
     'Sword'
   ],
   DEFAULT_STATS: {
+    BASE_HP: 0,
+    BASE_ATK: 0,
+    BASE_DEF: 0,
     PERCENT_ER: 1,
     PERCENT_CR: 0.05,
     PERCENT_CD: 1.5,

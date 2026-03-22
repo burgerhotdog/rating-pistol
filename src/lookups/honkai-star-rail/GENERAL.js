@@ -35,6 +35,10 @@ export default {
     'Remembrance'
   ],
   DEFAULT_STATS: {
+    BASE_HP: 0,
+    BASE_ATK: 0,
+    BASE_DEF: 0,
+    BASE_SPD: 0,
     PERCENT_CR: 0.05,
     PERCENT_CD: 0.5,
     PERCENT_ERR: 1,

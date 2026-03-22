@@ -6,10 +6,12 @@ export default {
     ELEMENT: 'Spectro',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040056',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 10300,
-      BASE_ATK: 463,
+      BASE_ATK: 462,
       BASE_DEF: 1112,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1210: {
@@ -18,10 +20,12 @@ export default {
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
     SIGNATURE: '21020076',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 11025,
       BASE_ATK: 425,
       BASE_DEF: 1149,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -32,10 +36,12 @@ export default {
     ELEMENT: 'Spectro',
     TYPE: 'Pistols',
     SIGNATURE: '21030046',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 12238,
       BASE_ATK: 375,
       BASE_DEF: 1198,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1209: {
@@ -44,10 +50,12 @@ export default {
     ELEMENT: 'Fusion',
     TYPE: 'Broadblade',
     SIGNATURE: '21010066',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 15375,
       BASE_ATK: 288,
       BASE_DEF: 1357,
+      PERCENT_DEF: 0.152,
+      PERCENT_HB: 0.12,
     },
   },
 
@@ -58,10 +66,12 @@ export default {
     ELEMENT: 'Havoc',
     TYPE: 'Broadblade',
     SIGNATURE: '21010056',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 10775,
       BASE_ATK: 438,
       BASE_DEF: 1137,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1307: {
@@ -69,10 +79,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Rectifier',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 10625,
       BASE_ATK: 225,
       BASE_DEF: 1259,
+      PERCENT_ATK: 0.12,
+      PERCENT_HB: 0.12,
     },
   },
 
@@ -83,10 +95,12 @@ export default {
     ELEMENT: 'Aero',
     TYPE: 'Sword',
     SIGNATURE: '21020066',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 12238,
       BASE_ATK: 375,
       BASE_DEF: 1198,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1208: {
@@ -95,10 +109,12 @@ export default {
     ELEMENT: 'Fusion',
     TYPE: 'Pistols',
     SIGNATURE: '21030036',
-    BASE_STATS: {
+    FIXED_STATS: {
       BASE_HP: 10300,
-      BASE_ATK: 463,
+      BASE_ATK: 462,
       BASE_DEF: 1112,
+      PERCENT_ATK: 0.12,
+      PERCENT_CD: 0.16,
     },
   },
 
@@ -109,10 +125,12 @@ export default {
     ELEMENT: 'Aero',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040046',
-    BASE_STATS: {
-      BASE_HP:  10525,
+    FIXED_STATS: {
+      BASE_HP: 10525,
       BASE_ATK: 450,
       BASE_DEF: 1124,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1306: {
@@ -121,10 +139,12 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Broadblade',
     SIGNATURE: '21010046',
-    BASE_STATS: {
-      BASE_HP:  10300,
-      BASE_ATK: 463,
+    FIXED_STATS: {
+      BASE_HP: 10300,
+      BASE_ATK: 462,
       BASE_DEF: 1112,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -135,10 +155,12 @@ export default {
     ELEMENT: 'Havoc',
     TYPE: 'Rectifier',
     SIGNATURE: '21050066',
-    BASE_STATS: {
-      BASE_HP:  10775,
+    FIXED_STATS: {
+      BASE_HP: 10775,
       BASE_ATK: 438,
       BASE_DEF: 1137,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -149,10 +171,12 @@ export default {
     ELEMENT: 'Aero',
     TYPE: 'Sword',
     SIGNATURE: '21020056',
-    BASE_STATS: {
-      BASE_HP:  14800,
-      BASE_ATK: 313,
+    FIXED_STATS: {
+      BASE_HP: 14800,
+      BASE_ATK: 312,
       BASE_DEF: 611,
+      PERCENT_HP: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1207: {
@@ -161,10 +185,12 @@ export default {
     ELEMENT: 'Fusion',
     TYPE: 'Broadblade',
     SIGNATURE: '21010036',
-    BASE_STATS: {
-      BASE_HP:  11913,
+    FIXED_STATS: {
+      BASE_HP: 11912,
       BASE_ATK: 388,
       BASE_DEF: 1186,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -175,10 +201,12 @@ export default {
     ELEMENT: 'Spectro',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040036',
-    BASE_STATS: {
-      BASE_HP:  10775,
+    FIXED_STATS: {
+      BASE_HP: 10775,
       BASE_ATK: 438,
       BASE_DEF: 1137,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1407: {
@@ -187,10 +215,12 @@ export default {
     ELEMENT: 'Aero',
     TYPE: 'Pistols',
     SIGNATURE: '21030026',
-    BASE_STATS: {
-      BASE_HP:  12238,
+    FIXED_STATS: {
+      BASE_HP: 12238,
       BASE_ATK: 375,
       BASE_DEF: 1198,
+      PERCENT_ATK: 0.12,
+      PERCENT_CD: 0.16,
     },
   },
 
@@ -201,10 +231,12 @@ export default {
     ELEMENT: 'Havoc',
     TYPE: 'Rectifier',
     SIGNATURE: '21050056',
-    BASE_STATS: {
-      BASE_HP:  11600,
+    FIXED_STATS: {
+      BASE_HP: 11600,
       BASE_ATK: 400,
       BASE_DEF: 1100,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -215,10 +247,12 @@ export default {
     ELEMENT: 'Spectro',
     TYPE: 'Rectifier',
     SIGNATURE: '21050046',
-    BASE_STATS: {
-      BASE_HP:  10825,
-      BASE_ATK: 413,
+    FIXED_STATS: {
+      BASE_HP: 10825,
+      BASE_ATK: 412,
       BASE_DEF: 1259,
+      PERCENT_ATK: 0.12,
+      PERCENT_CD: 0.16,
     },
   },
   1206: {
@@ -227,10 +261,12 @@ export default {
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
     SIGNATURE: '21020036',
-    BASE_STATS: {
-      BASE_HP:  11675,
+    FIXED_STATS: {
+      BASE_HP: 11675,
       BASE_ATK: 375,
       BASE_DEF: 1308,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -241,10 +277,12 @@ export default {
     ELEMENT: 'Havoc',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040026',
-    BASE_STATS: {
-      BASE_HP:  12250,
+    FIXED_STATS: {
+      BASE_HP: 12250,
       BASE_ATK: 375,
       BASE_DEF: 1198,
+      PERCENT_ATK: 0.12,
+      PERCENT_CD: 0.16,
     },
   },
   1107: {
@@ -253,10 +291,12 @@ export default {
     ELEMENT: 'Glacio',
     TYPE: 'Pistols',
     SIGNATURE: '21030016',
-    BASE_STATS: {
-      BASE_HP:  12450,
-      BASE_ATK: 463,
+    FIXED_STATS: {
+      BASE_HP: 12450,
+      BASE_ATK: 462,
       BASE_DEF: 1198,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -267,10 +307,12 @@ export default {
     ELEMENT: 'Havoc',
     TYPE: 'Sword',
     SIGNATURE: '21020026',
-    BASE_STATS: {
-      BASE_HP:  10325,
+    FIXED_STATS: {
+      BASE_HP: 10325,
       BASE_ATK: 450,
       BASE_DEF: 1161,
+      PERCENT_ATK: 0.12,
+      PERCENT_CD: 0.16,
     },
   },
   1504: {
@@ -278,10 +320,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Broadblade',
-    BASE_STATS: {
-      BASE_HP:  8500,
+    FIXED_STATS: {
+      BASE_HP: 8500,
       BASE_ATK: 338,
       BASE_DEF: 880,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -292,10 +336,12 @@ export default {
     ELEMENT: 'Spectro',
     TYPE: 'Rectifier',
     SIGNATURE: '21050036',
-    BASE_STATS: {
-      BASE_HP:  16713,
+    FIXED_STATS: {
+      BASE_HP: 16712,
       BASE_ATK: 288,
       BASE_DEF: 1100,
+      PERCENT_HP: 0.12,
+      PERCENT_HB: 0.12,
     },
   },
   1106: {
@@ -303,10 +349,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Glacio',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
-      BASE_HP:  9975,
-      BASE_ATK: 263,
+    FIXED_STATS: {
+      BASE_HP: 9975,
+      BASE_ATK: 262,
       BASE_DEF: 1051,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -317,10 +365,12 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040016',
-    BASE_STATS: {
-      BASE_HP:  10625,
+    FIXED_STATS: {
+      BASE_HP: 10625,
       BASE_ATK: 425,
       BASE_DEF: 1222,
+      PERCENT_ATK: 0.12,
+      PERCENT_CD: 0.16,
     },
   },
   1105: {
@@ -329,10 +379,12 @@ export default {
     ELEMENT: 'Glacio',
     TYPE: 'Rectifier',
     SIGNATURE: '21050026',
-    BASE_STATS: {
-      BASE_HP:  12250,
+    FIXED_STATS: {
+      BASE_HP: 12250,
       BASE_ATK: 375,
       BASE_DEF: 1198,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -343,10 +395,12 @@ export default {
     ELEMENT: 'Spectro',
     TYPE: 'Broadblade',
     SIGNATURE: '21010026',
-    BASE_STATS: {
-      BASE_HP:  10825,
-      BASE_ATK: 413,
+    FIXED_STATS: {
+      BASE_HP: 10825,
+      BASE_ATK: 412,
       BASE_DEF: 1259,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1205: {
@@ -355,10 +409,12 @@ export default {
     ELEMENT: 'Fusion',
     TYPE: 'Sword',
     SIGNATURE: '21020016',
-    BASE_STATS: {
-      BASE_HP:  10388,
-      BASE_ATK: 463,
+    FIXED_STATS: {
+      BASE_HP: 10388,
+      BASE_ATK: 462,
       BASE_DEF: 1100,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
 
@@ -368,10 +424,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Havoc',
     TYPE: 'Sword',
-    BASE_STATS: {
-      BASE_HP:  9438,
-      BASE_ATK: 263,
+    FIXED_STATS: {
+      BASE_HP: 9438,
+      BASE_ATK: 262,
       BASE_DEF: 1149,
+      PERCENT_ATK: 0.12,
+      PERCENT_HAVOC: 0.12,
     },
   },
   1601: {
@@ -379,10 +437,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Havoc',
     TYPE: 'Broadblade',
-    BASE_STATS: {
-      BASE_HP:  8950,
+    FIXED_STATS: {
+      BASE_HP: 8950,
       BASE_ATK: 225,
       BASE_DEF: 1564,
+      PERCENT_DEF: 0.152,
+      PERCENT_HAVOC: 0.12,
     },
   },
   1503: {
@@ -390,10 +450,12 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Spectro',
     TYPE: 'Rectifier',
-    BASE_STATS: {
-      BASE_HP:  14238,
+    FIXED_STATS: {
+      BASE_HP: 14238,
       BASE_ATK: 338,
       BASE_DEF: 1100,
+      PERCENT_ATK: 0.12,
+      PERCENT_HB: 0.12,
     },
   },
   1405: {
@@ -401,10 +463,12 @@ export default {
     QUALITY: '5',
     ELEMENT: 'Aero',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
-      BASE_HP:  14113,
+    FIXED_STATS: {
+      BASE_HP: 14112,
       BASE_ATK: 338,
       BASE_DEF: 1124,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1404: {
@@ -413,10 +477,12 @@ export default {
     ELEMENT: 'Aero',
     TYPE: 'Broadblade',
     SIGNATURE: '21010016',
-    BASE_STATS: {
-      BASE_HP:  10488,
+    FIXED_STATS: {
+      BASE_HP: 10488,
       BASE_ATK: 438,
-      BASE_DEF: 1185,
+      BASE_DEF: 1186,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1403: {
@@ -424,10 +490,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Aero',
     TYPE: 'Pistols',
-    BASE_STATS: {
-      BASE_HP:  9850,
-      BASE_ATK: 263,
-      BASE_DEF: 1075,
+    FIXED_STATS: {
+      BASE_HP: 9850,
+      BASE_ATK: 262,
+      BASE_DEF: 1076,
+      PERCENT_ATK: 0.12,
+      PERCENT_AERO: 0.12,
     },
   },
   1402: {
@@ -435,10 +503,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Aero',
     TYPE: 'Sword',
-    BASE_STATS: {
-      BASE_HP:  10200,
+    FIXED_STATS: {
+      BASE_HP: 10200,
       BASE_ATK: 250,
       BASE_DEF: 1100,
+      PERCENT_ATK: 0.12,
+      PERCENT_AERO: 0.12,
     },
   },
   1303: {
@@ -446,10 +516,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Electro',
     TYPE: 'Gauntlets',
-    BASE_STATS: {
-      BASE_HP:  8525,
+    FIXED_STATS: {
+      BASE_HP: 8525,
       BASE_ATK: 225,
-      BASE_DEF: 1637,
+      BASE_DEF: 1638,
+      PERCENT_DEF: 0.152,
+      PERCENT_ELECTRO: 0.12,
     },
   },
   1302: {
@@ -458,10 +530,12 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Rectifier',
     SIGNATURE: '21050016',
-    BASE_STATS: {
-      BASE_HP:  11000,
+    FIXED_STATS: {
+      BASE_HP: 11000,
       BASE_ATK: 400,
       BASE_DEF: 1283,
+      PERCENT_ATK: 0.12,
+      PERCENT_CR: 0.08,
     },
   },
   1301: {
@@ -470,10 +544,12 @@ export default {
     ELEMENT: 'Electro',
     TYPE: 'Broadblade',
     SIGNATURE: '21010015',
-    BASE_STATS: {
-      BASE_HP:  10500,
+    FIXED_STATS: {
+      BASE_HP: 10500,
       BASE_ATK: 438,
-      BASE_DEF: 1185,
+      BASE_DEF: 1186,
+      PERCENT_ATK: 0.12,
+      PERCENT_CD: 0.16,
     },
   },
   1204: {
@@ -481,10 +557,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Fusion',
     TYPE: 'Pistols',
-    BASE_STATS: {
-      BASE_HP:  10025,
+    FIXED_STATS: {
+      BASE_HP: 10025,
       BASE_ATK: 250,
-      BASE_DEF: 1136,
+      BASE_DEF: 1137,
+      PERCENT_ATK: 0.12,
+      PERCENT_FUSION: 0.12,
     },
   },
   1203: {
@@ -493,10 +571,12 @@ export default {
     ELEMENT: 'Fusion',
     TYPE: 'Rectifier',
     SIGNATURE: '21050015',
-    BASE_STATS: {
-      BASE_HP:  10513,
+    FIXED_STATS: {
+      BASE_HP: 10512,
       BASE_ATK: 425,
-      BASE_DEF: 1246,
+      BASE_DEF: 1247,
+      PERCENT_ATK: 0.12,
+      PERCENT_FUSION: 0.12,
     },
   },
   1202: {
@@ -504,10 +584,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Fusion',
     TYPE: 'Pistols',
-    BASE_STATS: {
-      BASE_HP:  9088,
+    FIXED_STATS: {
+      BASE_HP: 9088,
       BASE_ATK: 300,
       BASE_DEF: 953,
+      PERCENT_ATK: 0.12,
+      PERCENT_FUSION: 0.12,
     },
   },
   1104: {
@@ -516,10 +598,12 @@ export default {
     ELEMENT: 'Glacio',
     TYPE: 'Gauntlets',
     SIGNATURE: '21040015',
-    BASE_STATS: {
-      BASE_HP:  10388,
+    FIXED_STATS: {
+      BASE_HP: 10388,
       BASE_ATK: 438,
       BASE_DEF: 1210,
+      PERCENT_ATK: 0.12,
+      PERCENT_GLACIO: 0.12,
     },
   },
   1103: {
@@ -527,10 +611,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Glacio',
     TYPE: 'Rectifier',
-    BASE_STATS: {
-      BASE_HP:  12813,
-      BASE_ATK: 213,
+    FIXED_STATS: {
+      BASE_HP: 12812,
+      BASE_ATK: 212,
       BASE_DEF: 1002,
+      PERCENT_HP: 0.12,
+      PERCENT_HB: 0.12,
     },
   },
   1102: {
@@ -538,10 +624,12 @@ export default {
     QUALITY: '4',
     ELEMENT: 'Glacio',
     TYPE: 'Sword',
-    BASE_STATS: {
-      BASE_HP:  10063,
+    FIXED_STATS: {
+      BASE_HP: 10062,
       BASE_ATK: 275,
       BASE_DEF: 941,
+      PERCENT_ATK: 0.12,
+      PERCENT_GLACIO: 0.12,
     },
   },
 };
