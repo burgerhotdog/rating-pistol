@@ -11,7 +11,7 @@ export default {
     '3-Cost',
     '3-Cost',
     '1-Cost',
-    '1-Cost'
+    '1-Cost',
   ],
   ELEMENT_TYPES: [
     'Aero',
@@ -19,14 +19,14 @@ export default {
     'Fusion',
     'Glacio',
     'Havoc',
-    'Spectro'
+    'Spectro',
   ],
   WEAPON_TYPES: [
     'Broadblade',
     'Gauntlets',
     'Pistols',
     'Rectifier',
-    'Sword'
+    'Sword',
   ],
   DEFAULT_STATS: {
     BASE_HP: 0,

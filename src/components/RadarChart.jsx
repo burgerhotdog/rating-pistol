@@ -1,5 +1,7 @@
+import { useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Legend } from 'recharts';
+import { CHARACTER_LOOKUP } from '@/lookups';
 
 // Mock data for the radar chart
 const rawData = [
@@ -17,6 +19,8 @@ const radarData = rawData.map((entry) => ({
 }));
 
 export const CustomRadarChart = () => {
+  const { gameId, charId } = useParams();
+  if (!CHARACTER_LOOKUP[gameId][charId].CRITERIA) return null;
   return (
     <Box sx={{ flex: 3, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <RadarChart

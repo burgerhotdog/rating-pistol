@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { BuildContext } from '@/contexts';
 import { GENERAL_LOOKUP, CHARACTER_LOOKUP, WEAPON_LOOKUP } from '@/lookups';
-import { combineEquipStats, computeTotalStat } from '@/utils';
+import { combineEquipStats, computeTotalStat, computeDamage } from '@/utils';
 
 export const StatsPanel = () => {
   const { gameId, charId } = useParams();

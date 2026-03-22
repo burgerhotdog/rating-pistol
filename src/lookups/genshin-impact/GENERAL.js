@@ -11,7 +11,7 @@ export default {
     'Plume',
     'Sands',
     'Goblet',
-    'Circlet'
+    'Circlet',
   ],
   ELEMENT_TYPES: [
     'Anemo',
@@ -20,14 +20,14 @@ export default {
     'Electro',
     'Geo',
     'Hydro',
-    'Pyro'
+    'Pyro',
   ],
   WEAPON_TYPES: [
     'Bow',
     'Catalyst',
     'Claymore',
     'Polearm',
-    'Sword'
+    'Sword',
   ],
   DEFAULT_STATS: {
     BASE_HP: 0,

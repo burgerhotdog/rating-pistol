@@ -1,6 +1,10 @@
+import { useParams } from 'react-router-dom';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
+import { CHARACTER_LOOKUP } from '@/lookups';
 
 export const CustomTable = () => {
+  const { gameId, charId } = useParams();
+  if (!CHARACTER_LOOKUP[gameId][charId].CRITERIA) return null;
   const rows = [
     { name: 'CRIT', diff: 2.9 },
     { name: 'ATK', diff: 1.7 },

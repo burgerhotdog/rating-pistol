@@ -21,18 +21,13 @@ const GamePage = () => {
       <Sidebar />
       <StatsPanel />
 
-      {/* ── Graphs panel ── */}
       <Stack gap={2}>
-        {false && (
-          <>
-            <CustomLineChart />
+        <CustomLineChart />
 
-            <Stack direction="row" gap={2}>
-              <CustomRadarChart />
-              <CustomTable />
-            </Stack>
-          </>
-        )}
+        <Stack direction="row" gap={2}>
+          <CustomRadarChart />
+          <CustomTable />
+        </Stack>
       </Stack>
     </Box>
   );

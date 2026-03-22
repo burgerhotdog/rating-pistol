@@ -1,4 +1,9 @@
+import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { BuildContext } from '@/contexts';
+import { CHARACTER_LOOKUP } from '@/lookups';
+import { computeDamage } from '@/utils';
 
 const mockData = [
   { week: 0, damage: 5000 },
@@ -25,6 +30,16 @@ const mockData = [
 ];
 
 export const CustomLineChart = () => {
+  const { gameId, charId } = useParams();
+  const { buildCollections } = useContext(BuildContext);
+  const charBuild = buildCollections[gameId]?.[charId] ?? null;
+  const damage = computeDamage(gameId, charId, charBuild);
+  console.log(CHARACTER_LOOKUP[gameId][charId]?.NAME, damage);
+
+  if (!CHARACTER_LOOKUP[gameId][charId].CRITERIA) return null;
+
+  
+
   return (
     <LineChart
       width={800}

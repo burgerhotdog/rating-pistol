@@ -12,14 +12,14 @@ export default {
     'Disk 3',
     'Disk 4',
     'Disk 5',
-    'Disk 6'
+    'Disk 6',
   ],
   ELEMENT_TYPES: [
     'Electric',
     'Ether',
     'Fire',
     'Ice',
-    'Physical'
+    'Physical',
   ],
   WEAPON_TYPES: [
     'Anomaly',
@@ -27,7 +27,7 @@ export default {
     'Defense',
     'Rupture',
     'Stun',
-    'Support'
+    'Support',
   ],
   DEFAULT_STATS: {
     BASE_HP: 0,

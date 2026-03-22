@@ -12,7 +12,7 @@ export default {
     'Chest',
     'Boots',
     'Orb',
-    'Rope'
+    'Rope',
   ],
   ELEMENT_TYPES: [
     'Fire',
@@ -21,7 +21,7 @@ export default {
     'Lightning',
     'Physical',
     'Quantum',
-    'Wind'
+    'Wind',
   ],
   WEAPON_TYPES: [
     'Abundance',
@@ -32,7 +32,7 @@ export default {
     'Hunt',
     'Nihility',
     'Preservation',
-    'Remembrance'
+    'Remembrance',
   ],
   DEFAULT_STATS: {
     BASE_HP: 0,

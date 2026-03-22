@@ -723,6 +723,16 @@ export default {
       BASE_DEF: 607,
       PERCENT_CR: 0.192,
     },
+    CRITERIA: [
+      {
+        NAME: 'Damage',
+        MULTIPLIER: {
+          ATK: 1,
+        },
+        FLAT: 0,
+        TYPE: 'DAMAGE_NA',
+      },
+    ],
   },
 
   // Version 3.2
