@@ -1,0 +1,29 @@
+
+  // Version #.#
+  12003: {
+    NAME: '[Lunar] Noviluna',
+    QUALITY: '3',
+    TYPE: 'Attack',
+    FIXED_STATS: {
+      BASE_ATK: 475,
+      PERCENT_CR: 0.16,
+    },
+  },
+  12002: {
+    NAME: '[Lunar] Decrescent',
+    QUALITY: '3',
+    TYPE: 'Attack',
+    FIXED_STATS: {
+      BASE_ATK: 475,
+      PERCENT_ATK: 0.2,
+    },
+  },
+  12001: {
+    NAME: '[Lunar] Pleniluna',
+    QUALITY: '3',
+    TYPE: 'Attack',
+    FIXED_STATS: {
+      BASE_ATK: 475,
+      PERCENT_ATK: 0.2,
+    },
+  },

@@ -6,6 +6,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_AM: 0.3,
     },
   },
   14149: {
@@ -14,6 +15,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_ER: 0.6,
     },
   },
 
@@ -24,6 +26,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 743,
+      PERCENT_CD: 0.48,
     },
   },
   14134: {
@@ -32,6 +35,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_HP: 0.3,
     },
   },
   13019: {
@@ -40,6 +44,7 @@ export default {
     TYPE: 'Rupture',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_HP: 0.25,
     },
   },
 
@@ -50,6 +55,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CR: 0.24,
     },
   },
   14147: {
@@ -58,6 +64,7 @@ export default {
     TYPE: 'Rupture',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_HP: 0.3,
     },
   },
 
@@ -68,6 +75,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_HP: 0.3,
     },
   },
   14105: {
@@ -76,6 +84,7 @@ export default {
     TYPE: 'Rupture',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_HP: 0.3,
     },
   },
   13144: {
@@ -84,6 +93,7 @@ export default {
     TYPE: 'Rupture',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_HP: 0.25,
     },
   },
 
@@ -94,6 +104,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CR: 0.24,
     },
   },
   14130: {
@@ -102,6 +113,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_ER: 0.6,
     },
   },
 
@@ -112,6 +124,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_ER: 0.6,
     },
   },
   14140: {
@@ -120,6 +133,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_ATK: 0.3,
     },
   },
 
@@ -130,6 +144,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_ATK: 0.3,
     },
   },
   14137: {
@@ -138,6 +153,7 @@ export default {
     TYPE: 'Rupture',
     FIXED_STATS: {
       BASE_ATK: 743,
+      PERCENT_HP: 0.3,
     },
   },
   13142: {
@@ -146,6 +162,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ATK: 0.25,
     },
   },
   13016: {
@@ -154,6 +171,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_IMPACT: 0.15,
     },
   },
   13014: {
@@ -162,6 +180,7 @@ export default {
     TYPE: 'Rupture',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_HP: 0.25,
     },
   },
   13012: {
@@ -170,6 +189,7 @@ export default {
     TYPE: 'Rupture',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_ATK: 0.25,
     },
   },
   12015: {
@@ -178,6 +198,7 @@ export default {
     TYPE: 'Rupture',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_HP: 0.2,
     },
   },
 
@@ -188,6 +209,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 713,
+      FLAT_AP: 90,
     },
   },
   14129: {
@@ -196,6 +218,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CR: 0.24,
     },
   },
 
@@ -206,6 +229,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CD: 0.48,
     },
   },
   14136: {
@@ -214,6 +238,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CR: 0.24,
     },
   },
   13135: {
@@ -222,6 +247,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_IMPACT: 0.15,
     },
   },
 
@@ -232,6 +258,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CR: 0.24,
     },
   },
   14131: {
@@ -240,6 +267,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_ATK: 0.3,
     },
   },
 
@@ -250,6 +278,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CD: 0.48,
     },
   },
   14109: {
@@ -258,6 +287,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 743,
+      PERCENT_CR: 0.24,
     },
   },
   13015: {
@@ -266,6 +296,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_CR: 0.2,
     },
   },
 
@@ -276,6 +307,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_ATK: 0.3,
     },
   },
   14116: {
@@ -284,6 +316,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_IMPACT: 0.18,
     },
   },
 
@@ -294,6 +327,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_ATK: 0.3,
     },
   },
   14107: {
@@ -302,6 +336,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_IMPACT: 0.18,
     },
   },
 
@@ -312,6 +347,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 713,
+      FLAT_AP: 90,
     },
   },
   14125: {
@@ -320,6 +356,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_IMPACT: 0.18,
     },
   },
   13127: {
@@ -328,6 +365,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ATK: 0.25,
     },
   },
   13013: {
@@ -336,6 +374,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_ATK: 0.25,
     },
   },
 
@@ -346,6 +385,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CD: 0.48,
     },
   },
   14121: {
@@ -354,6 +394,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 684,
+      PERCENT_PR: 0.24,
     },
   },
   14119: {
@@ -362,6 +403,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 713,
+      PERCENT_CR: 0.24,
     },
   },
   14118: {
@@ -370,6 +412,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 684,
+      PERCENT_PR: 0.24,
     },
   },
   14114: {
@@ -378,6 +421,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 684,
+      PERCENT_IMPACT: 0.18,
     },
   },
   14110: {
@@ -386,6 +430,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 684,
+      PERCENT_IMPACT: 0.18,
     },
   },
   14104: {
@@ -394,6 +439,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 684,
+      PERCENT_ATK: 0.3,
     },
   },
   14102: {
@@ -402,6 +448,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 684,
+      PERCENT_CR: 0.24,
     },
   },
   14003: {
@@ -410,6 +457,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_IMPACT: 0.15,
     },
   },
   14002: {
@@ -418,6 +466,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_ER: 0.5,
     },
   },
   14001: {
@@ -426,6 +475,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_CR: 0.2,
     },
   },
   13128: {
@@ -434,6 +484,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ATK: 0.25,
     },
   },
   13115: {
@@ -442,6 +493,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ER: 0.5,
     },
   },
   13113: {
@@ -450,6 +502,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ATK: 0.25,
     },
   },
   13112: {
@@ -458,6 +511,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_DEF: 0.4,
     },
   },
   13111: {
@@ -466,6 +520,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ER: 0.5,
     },
   },
   13108: {
@@ -474,6 +529,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ATK: 0.25,
     },
   },
   13106: {
@@ -482,6 +538,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ATK: 0.25,
     },
   },
   13103: {
@@ -490,6 +547,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_ER: 0.5,
     },
   },
   13101: {
@@ -498,6 +556,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 624,
+      PERCENT_IMPACT: 0.15,
     },
   },
   13011: {
@@ -506,6 +565,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_ATK: 0.25,
     },
   },
   13010: {
@@ -514,6 +574,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_DEF: 0.4,
     },
   },
   13009: {
@@ -522,6 +583,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 594,
+      FLAT_AP: 75,
     },
   },
   13008: {
@@ -530,6 +592,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_ATK: 0.25,
     },
   },
   13007: {
@@ -538,6 +601,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_HP: 0.25,
     },
   },
   13006: {
@@ -546,6 +610,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_IMPACT: 0.15,
     },
   },
   13005: {
@@ -554,6 +619,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_ER: 0.5,
     },
   },
   13004: {
@@ -562,6 +628,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_ATK: 0.25,
     },
   },
   13003: {
@@ -570,6 +637,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 594,
+      FLAT_AP: 75,
     },
   },
   13002: {
@@ -578,6 +646,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_PR: 0.2,
     },
   },
   13001: {
@@ -586,6 +655,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 594,
+      PERCENT_ATK: 0.25,
     },
   },
   12014: {
@@ -594,6 +664,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_DEF: 0.32,
     },
   },
   12013: {
@@ -602,6 +673,7 @@ export default {
     TYPE: 'Defense',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_DEF: 0.32,
     },
   },
   12012: {
@@ -610,6 +682,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_PR: 0.16,
     },
   },
   12011: {
@@ -618,6 +691,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 475,
+      FLAT_AP: 60,
     },
   },
   12010: {
@@ -626,6 +700,7 @@ export default {
     TYPE: 'Anomaly',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_ATK: 0.2,
     },
   },
   12009: {
@@ -634,6 +709,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_ER: 0.4,
     },
   },
   12008: {
@@ -642,6 +718,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_IMPACT: 0.12,
     },
   },
   12007: {
@@ -650,6 +727,7 @@ export default {
     TYPE: 'Stun',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_ATK: 0.2,
     },
   },
   12006: {
@@ -658,6 +736,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_HP: 0.2,
     },
   },
   12005: {
@@ -666,6 +745,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_ER: 0.4,
     },
   },
   12004: {
@@ -674,6 +754,7 @@ export default {
     TYPE: 'Support',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_ATK: 0.2,
     },
   },
   12003: {
@@ -682,6 +763,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_CR: 0.16,
     },
   },
   12002: {
@@ -690,6 +772,7 @@ export default {
     TYPE: 'Attack',
     FIXED_STATS: {
       BASE_ATK: 475,
+      PERCENT_ATK: 0.2,
     },
   },
   12001: {
@@ -697,7 +780,8 @@ export default {
     RARITY: 3,
     TYPE: 'Attack',
     FIXED_STATS: {
-      BASE_ATK: 475
-    }
-  }
+      BASE_ATK: 475,
+      PERCENT_ATK: 0.2,
+    },
+  },
 };
