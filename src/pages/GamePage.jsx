@@ -1,5 +1,6 @@
 import { Box, Stack } from '@mui/material';
 import {
+  Graphs,
   Sidebar,
   StatsPanel,
   CustomLineChart,
@@ -20,15 +21,7 @@ const GamePage = () => {
     >
       <Sidebar />
       <StatsPanel />
-
-      <Stack gap={2}>
-        <CustomLineChart />
-
-        <Stack direction="row" gap={2}>
-          <CustomRadarChart />
-          <CustomTable />
-        </Stack>
-      </Stack>
+      <Graphs />
     </Box>
   );
 };

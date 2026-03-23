@@ -1,7 +1,9 @@
 export function combineEquipStats(equipList) {
   const result = {};
 
-  for (const { mainStatId, mainStatValue, subStatList } of equipList) {
+  for (const item of equipList) {
+    if (!item) continue;
+    const { mainStatId, mainStatValue, subStatList } = item;
     result[mainStatId] = (result[mainStatId] ?? 0) + mainStatValue;
 
     for (const { subStatId, subStatValue } of subStatList) {

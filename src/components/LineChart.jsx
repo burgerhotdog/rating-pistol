@@ -1,57 +1,38 @@
-import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { BuildContext } from '@/contexts';
-import { CHARACTER_LOOKUP } from '@/lookups';
-import { computeDamage } from '@/utils';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceDot } from 'recharts';
 
-const mockData = [
-  { week: 0, damage: 5000 },
-  { week: 1, damage: 5300 },
-  { week: 2, damage: 5600 },
-  { week: 3, damage: 5900 },
-  { week: 4, damage: 6150 },
-  { week: 5, damage: 6350 },
-  { week: 6, damage: 6500 },
-  { week: 7, damage: 6650 },
-  { week: 8, damage: 6750 },
-  { week: 9, damage: 6820 },
-  { week: 10, damage: 6880 },
-  { week: 11, damage: 6920 },
-  { week: 12, damage: 6950 },
-  { week: 13, damage: 6970 },
-  { week: 14, damage: 6985 },
-  { week: 15, damage: 6995 },
-  { week: 16, damage: 7000 },
-  { week: 17, damage: 7005 },
-  { week: 18, damage: 7010 },
-  { week: 19, damage: 7015 },
-  { week: 20, damage: 7020 },
-];
-
-export const CustomLineChart = () => {
-  const { gameId, charId } = useParams();
-  const { buildCollections } = useContext(BuildContext);
-  const charBuild = buildCollections[gameId]?.[charId] ?? null;
-  const damage = computeDamage(gameId, charId, charBuild);
-  console.log(CHARACTER_LOOKUP[gameId][charId]?.NAME, damage);
-
-  if (!CHARACTER_LOOKUP[gameId][charId].CRITERIA) return null;
-
-  
+export const CustomLineChart = ({ data, damage }) => {
+  // Find intersection
+  let intersection = null;
+  if (data) {
+    for (let i = 1; i < data.length; i++) {
+      const prev = data[i - 1];
+      const curr = data[i];
+      if ((prev.damage < damage && curr.damage >= damage) ||
+          (prev.damage > damage && curr.damage <= damage)) {
+        // Linear interpolation
+        const t = (damage - prev.damage) / (curr.damage - prev.damage);
+        const week = prev.week + t * (curr.week - prev.week);
+        intersection = { week, damage };
+        break;
+      }
+    }
+  }
 
   return (
     <LineChart
       width={800}
       height={400}
-      data={mockData}
+      data={data}
       margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
     >
       <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="week" label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5 }} />
+      <XAxis dataKey="week" type="number" label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5 }} />
       <YAxis label={{ value: 'Damage', angle: -90, position: 'insideLeft' }} />
       <Tooltip />
       <Legend />
+      {intersection && (
+        <ReferenceDot x={intersection.week} y={intersection.damage} fill="red" r={6} />
+      )}
       <Line type="monotone" dataKey="damage" stroke="#8884d8" activeDot={{ r: 8 }} />
     </LineChart>
   );

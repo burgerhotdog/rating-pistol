@@ -1,14 +1,37 @@
+import { useContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
-import { CHARACTER_LOOKUP } from '@/lookups';
+import { GENERAL_LOOKUP, CHARACTER_LOOKUP } from '@/lookups';
+import { BuildContext } from '@/contexts';
+import { computeDamage, combineEquipStats } from '@/utils';
 
 export const CustomTable = () => {
   const { gameId, charId } = useParams();
-  if (!CHARACTER_LOOKUP[gameId][charId].CRITERIA) return null;
-  const rows = [
-    { name: 'CRIT', diff: 2.9 },
-    { name: 'ATK', diff: 1.7 },
-  ];
+  const { buildCollections } = useContext(BuildContext);
+  const charBuild = buildCollections[gameId]?.[charId] ?? null;
+  const damage = computeDamage(gameId, charId, charBuild);
+
+  const unsortedData = {};
+  for (const stat in GENERAL_LOOKUP[gameId].SUB_STAT_TYPES) {
+    const newBuild = {
+      weaponId: charBuild.weaponId,
+      equipList: charBuild.equipList.map((equipObj, index) => {
+        if (index !== 0) return equipObj;
+        return {
+          ...equipObj,
+          subStatList: [
+            ...equipObj.subStatList,
+            { subStatId: stat, subStatValue: GENERAL_LOOKUP[gameId].SUB_STAT_TYPES[stat].VALUE },
+          ],
+        };
+      }),
+    };
+    unsortedData[stat] = computeDamage(gameId, charId, newBuild);
+  }
+
+  const sorted = Object.entries(unsortedData)
+    .map(([id, dmg]) => ({ name: id, diff: dmg / damage * 100 - 100 }))
+    .sort(({ diff: a }, { diff: b }) => b - a);
 
   const headers = ['Substat', '%diff'];
 
@@ -32,13 +55,13 @@ export const CustomTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
+          {sorted.map((row, index) => (
             <TableRow key={index}>
               <TableCell>
                 <Typography variant="body2">{row.name}</Typography>
               </TableCell>
               <TableCell align="center">
-                <Typography variant="body2">{row.diff}</Typography>
+                <Typography variant="body2">{row.diff.toFixed(1)}</Typography>
               </TableCell>
             </TableRow>
           ))}

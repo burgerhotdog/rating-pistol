@@ -10,7 +10,7 @@ export function createArtifact(gameId) {
   // Determine main stat
   const weightsList = Object.values(MAIN_STAT_TYPES[slotIndex]).map(({ WEIGHT }) => WEIGHT);
   const winningIndex = weightedLottery(weightsList);
-  const statId = Object.keys(MAIN_STAT_TYPES[slotIndex])[winningIndex]
-  
-  return [slotIndex, statId];
+  const mainStatId = Object.keys(MAIN_STAT_TYPES[slotIndex])[winningIndex];
+
+  return [slotIndex, mainStatId];
 };

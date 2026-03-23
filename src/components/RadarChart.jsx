@@ -1,26 +1,42 @@
 import { useParams } from 'react-router-dom';
 import { Box } from '@mui/material';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, Legend } from 'recharts';
-import { CHARACTER_LOOKUP } from '@/lookups';
+import { GENERAL_LOOKUP, CHARACTER_LOOKUP, WEAPON_LOOKUP } from '@/lookups';
+import { combineEquipStats, computeTotalStat } from '@/utils';
 
-// Mock data for the radar chart
-const rawData = [
-  { stat: 'HP', character: 1000, week20: 2000 },
-  { stat: 'ATK', character: 120, week20: 140 },
-  { stat: 'DEF', character: 98, week20: 130 },
-  { stat: 'SPD', character: 99, week20: 140 },
-  { stat: 'CRIT Rate', character: 85, week20: 145 },
+const statList = [
+  'HP',
+  'ATK',
+  'DEF',
+  'EM',
+  'ER',
+  'CR',
+  'CD',
 ];
 
-const radarData = rawData.map((entry) => ({
-  stat: entry.stat,
-  character: (entry.character / entry.week20) * 100,
-  week20: 100,
-}));
-
-export const CustomRadarChart = () => {
+export const CustomRadarChart = ({ combinedCharBuild, avgFinalWeekStats, weaponId }) => {
   const { gameId, charId } = useParams();
-  if (!CHARACTER_LOOKUP[gameId][charId].CRITERIA) return null;
+
+  const sourceMapList = [
+    GENERAL_LOOKUP[gameId].DEFAULT_STATS ?? {},
+    CHARACTER_LOOKUP[gameId][charId].FIXED_STATS ?? {},
+    WEAPON_LOOKUP[gameId][weaponId].FIXED_STATS ?? {},
+  ];
+
+  const createSlice = (stat) => ({
+    stat,
+    character: computeTotalStat(stat, [...sourceMapList, combinedCharBuild]).totalValue,
+    week20: computeTotalStat(stat, [...sourceMapList, avgFinalWeekStats]).totalValue,
+  });
+
+  const formattedData = statList.map((stat) => createSlice(stat));
+
+  const radarData = formattedData.map((entry) => ({
+    stat: entry.stat,
+    character: (entry.character / entry.week20) * 100,
+    week20: 100,
+  }));
+
   return (
     <Box sx={{ flex: 3, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       <RadarChart
