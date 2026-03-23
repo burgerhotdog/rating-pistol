@@ -33,7 +33,7 @@ export const CustomTable = () => {
     .map(([id, dmg]) => ({ name: id, diff: dmg / damage * 100 - 100 }))
     .sort(({ diff: a }, { diff: b }) => b - a);
 
-  const headers = ['Substat', '%diff'];
+  const headers = ['+1 Substat', '% diff'];
 
   return (
     <TableContainer component={Paper} sx={{ maxHeight: 300 }}>
@@ -61,7 +61,7 @@ export const CustomTable = () => {
                 <Typography variant="body2">{row.name}</Typography>
               </TableCell>
               <TableCell align="center">
-                <Typography variant="body2">{row.diff.toFixed(1)}</Typography>
+                <Typography variant="body2">{row.diff.toFixed(1)}%</Typography>
               </TableCell>
             </TableRow>
           ))}

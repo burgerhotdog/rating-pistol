@@ -522,6 +522,16 @@ export default {
       BASE_DEF: 695,
       PERCENT_CR: 0.192,
     },
+    CRITERIA: [
+      {
+        NAME: 'Damage',
+        MULTIPLIER: {
+          ATK: 1,
+        },
+        FLAT: 0,
+        TYPE: 'DAMAGE_NA',
+      },
+    ],
   },
   10000088: {
     NAME: 'Charlotte',
@@ -562,6 +572,16 @@ export default {
       BASE_DEF: 763,
       PERCENT_CD: 0.384,
     },
+    CRITERIA: [
+      {
+        NAME: 'Damage',
+        MULTIPLIER: {
+          ATK: 1,
+        },
+        FLAT: 0,
+        TYPE: 'DAMAGE_NA',
+      },
+    ],
   },
 
   // Version 4.0
