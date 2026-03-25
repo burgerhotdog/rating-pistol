@@ -1,12 +1,7 @@
-import { CHARACTER_LOOKUP } from '@/lookups';
 import { buildSourceMapList, computeTotalStat } from '@/utils';
 
-export function computeDamage(gameId, buildEntry, buffs = {}, criteriaIndex = 0) {
-  const [id, data] = buildEntry;
-  if (!buildEntry) return 0;
-
-  const criteria = CHARACTER_LOOKUP[gameId][id].CRITERIA[criteriaIndex];
-  const sourceMapList = buildSourceMapList(gameId, buildEntry, buffs);
+export function computeRating(gameId, charId, build, criteria, buffs = {}) {
+  const sourceMapList = buildSourceMapList(gameId, charId, build, buffs);
 
   // Base DMG:
   // Character's total stat * Skill multiplier + flat number

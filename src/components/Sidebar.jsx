@@ -1,24 +1,24 @@
 import { useEffect, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Avatar, List, ListItemButton } from '@mui/material';
+import { Avatar, Card, List, ListItemButton } from '@mui/material';
 import { CHARACTER_ASSETS } from '@/assets';
 import { CHARACTER_LOOKUP } from '@/lookups';
 
-export const Sidebar = ({ buildKeys, pinnedId }) => {
+export const Sidebar = ({ buildKeys, pinned }) => {
   const navigate = useNavigate();
   const { gameId, charId } = useParams();
 
   // Sort characters alphabetically with pinned on top
   const charList = useMemo(
     () => buildKeys.sort((a, b) => {
-      if (a === pinnedId) return -1;
-      if (b === pinnedId) return 1;
+      if (a === pinned) return -1;
+      if (b === pinned) return 1;
 
       const aName = CHARACTER_LOOKUP[gameId][a].NAME;
       const bName = CHARACTER_LOOKUP[gameId][b].NAME;
       return aName.localeCompare(bName);
     }),
-    [gameId, buildKeys, pinnedId],
+    [gameId, buildKeys, pinned],
   );
 
   // Autonavigate scenarios
@@ -41,22 +41,27 @@ export const Sidebar = ({ buildKeys, pinnedId }) => {
   };
 
   return (
-    <List
+    <Card
       sx={{
         overflowY: 'auto',
         scrollbarWidth: 'none',
         '&::-webkit-scrollbar': { display: 'none' },
       }}
     >
-      {charList.map((id) => (
-        <ListItemButton
-          key={id}
-          selected={charId === id}
-          onClick={() => handleSelect(id)}
-        >
-          <Avatar src={CHARACTER_ASSETS[gameId][id]} />
-        </ListItemButton>
-      ))}
-    </List>
+      <List sx={{ p: 0 }}>
+        {charList.map((id) => (
+          <ListItemButton
+            key={id}
+            selected={charId === id}
+            onClick={() => handleSelect(id)}
+          >
+            <Avatar
+              src={CHARACTER_ASSETS[gameId][id]}
+              sx={{ width: 48, height: 48 }}
+            />
+          </ListItemButton>
+        ))}
+      </List>
+    </Card>
   );
 };

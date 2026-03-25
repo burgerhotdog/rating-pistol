@@ -1,8 +1,6 @@
 export default {
   TITLE: 'Wuthering Waves',
   VERSION: '3.1',
-  RESIN_PER_DAY: 240,
-  RESIN_PER_RUN: 60,
   DROPS_PER_RUN: 4.33,
   NUM_MAINSTATS: 5,
   NUM_SUBSTATS: 5,

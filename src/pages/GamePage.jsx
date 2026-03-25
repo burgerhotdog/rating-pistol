@@ -9,29 +9,32 @@ import {
   CustomTable,
 } from '@/components';
 import { BuildContext, UserContext } from '@/contexts';
-import { computeDamage } from '@/utils';
+import { computeRating } from '@/utils';
 import { CHARACTER_LOOKUP } from '@/lookups';
 
 const GamePage = () => {
   const { gameId, charId } = useParams();
-  const [buffs, setBuffs] = useState({});
-  const [criteriaIndex, setCriteriaIndex] = useState(0);
-  const builds = useContext(BuildContext).buildCollections[gameId] ?? {};
-  const pinnedId = useContext(UserContext).pinnedIds[gameId] ?? null;
-  const charBuild = builds[charId] ?? null;
+  const builds = useContext(BuildContext).buildCollections[gameId];
+  const pinned = useContext(UserContext).pinnedIds[gameId];
+
+  const build = builds?.[charId];
   const criteria = CHARACTER_LOOKUP[gameId][charId]?.CRITERIA;
-  const rating = (criteria && charBuild?.weaponId) ? computeDamage(gameId, [charId, charBuild]) : 0;
+
+  const rating = build && criteria ? computeRating(gameId, charId, build, criteria[0]) : null;
 
   const workerRef = useRef(null);
-  const [result, setResult] = useState({
+  const [workerResult, setWorkerResult] = useState({
     weeklyRatings: null,
     finalStats: null,
     isLoading: false,
   });
 
+  const [buffs, setBuffs] = useState({});
+
+  // Simulation Worker Listener
   useEffect(() => {
-    if (!charBuild || !criteria) {
-      setResult({
+    if (!build || !criteria) {
+      setWorkerResult({
         weeklyRatings: null,
         finalStats: null,
         isLoading: false,
@@ -39,7 +42,7 @@ const GamePage = () => {
       return;
     }
   
-    setResult(prev => ({ ...prev, isLoading: true }));
+    setWorkerResult(prev => ({ ...prev, isLoading: true }));
   
     workerRef.current?.terminate();
     const worker = new Worker(
@@ -49,51 +52,57 @@ const GamePage = () => {
     workerRef.current = worker;
 
     worker.onmessage = ({ data: { weeklyRatings, finalStats } }) => {
-      setResult({ weeklyRatings, finalStats, isLoading: false });
+      console.log(weeklyRatings, finalStats);
+      setWorkerResult({ weeklyRatings, finalStats, isLoading: false });
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
     };
 
-    worker.postMessage({ gameId, buildEntry: [charId, charBuild], buffs, criteriaIndex });
+    worker.postMessage({ gameId, charId, build, criteria: criteria[0], buffs });
 
     return () => {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
     };
-  }, [gameId, charId, charBuild, buffs, criteriaIndex]);
+  }, [gameId, charId, build, criteria, buffs]);
 
   return (
     <Box
       display="flex"
       sx={{
+        flex: 1,
+        minHeight: 0,
         overflow: 'hidden',
         pb: 4,
-        gap: 2,
-        flex: 1,
+        gap: 1,
       }}
     >
-      <Sidebar buildKeys={Object.keys(builds)} pinnedId={pinnedId} />
-      <StatsPanel id={charId} data={charBuild} />
+      <Sidebar
+        buildKeys={builds ? Object.keys(builds) : []}
+        pinned={pinned}
+      />
+      <StatsPanel id={charId} data={build} />
       {criteria && (
-        <Stack spacing={2} sx={{ flex: 1 }}>
+        <Stack spacing={1} sx={{ flex: 1 }}>
           <CustomLineChart
-            weeklyRatings={result.weeklyRatings}
+            weeklyRatings={workerResult.weeklyRatings}
             rating={rating}
-            isLoading={result.isLoading}
+            isLoading={workerResult.isLoading}
           />
 
-          <Box display='flex' gap={2}>
+          <Box display="flex" gap={1} sx={{ flex: 1 }}>
             <CustomRadarChart
-              buildEntry={[charId, charBuild]}
-              combinedSimEquips={result.finalStats}
-              isLoading={result.isLoading}
+              charId={charId}
+              build={build}
+              combinedSimEquips={workerResult.finalStats}
+              isLoading={workerResult.isLoading}
             />
 
             <CustomTable
-              build={charBuild}
+              build={build}
               rating={rating}
               buffs={buffs}
-              isLoading={result.isLoading}
+              isLoading={workerResult.isLoading}
             />
           </Box>
         </Stack>

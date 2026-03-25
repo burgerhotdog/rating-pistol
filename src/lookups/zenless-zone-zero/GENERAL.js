@@ -1,8 +1,6 @@
 export default {
   TITLE: 'Zenless Zone Zero',
   VERSION: '2.6',
-  RESIN_PER_DAY: 320,
-  RESIN_PER_RUN: 60,
   DROPS_PER_RUN: 2.25,
   NUM_MAINSTATS: 6,
   NUM_SUBSTATS: 4,

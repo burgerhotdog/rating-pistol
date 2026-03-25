@@ -1,3 +1,4 @@
+import { Card } from '@mui/material';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceDot } from 'recharts';
 
 export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
@@ -19,33 +20,35 @@ export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
   const data = weeklyRatings.map((rat, index) => ({ week: index, rating: rat }))
 
   return (
-    <ResponsiveContainer width="100%" height={400}>
-      <LineChart
-        data={data}
-        margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis
-          dataKey="week"
-          type="number"
-          label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5 }}
-        />
-        <YAxis
-          label={{ value: 'DPS', angle: -90, position: 'insideLeft' }}
-        />
-        <Tooltip />
-        <Legend />
-
-        {ratingPoint && (
-          <ReferenceDot
-            x={ratingPoint.x}
-            y={ratingPoint.y}
-            fill="red"
-            r={6}
+    <Card sx={{ flex: 1, minHeight: 0 }}>
+      <ResponsiveContainer width="100%" height={400}>
+        <LineChart
+          data={data}
+          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="week"
+            type="number"
+            label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5 }}
           />
-        )}
-        <Line type="monotone" dataKey="rating" stroke="#8884d8" activeDot={{ r: 8 }} />
-      </LineChart>
-    </ResponsiveContainer>
+          <YAxis
+            label={{ value: 'DPS', angle: -90, position: 'insideLeft' }}
+          />
+          <Tooltip />
+          <Legend />
+
+          {ratingPoint && (
+            <ReferenceDot
+              x={ratingPoint.x}
+              y={ratingPoint.y}
+              fill="red"
+              r={6}
+            />
+          )}
+          <Line type="monotone" dataKey="rating" stroke="#8884d8" activeDot={{ r: 8 }} />
+        </LineChart>
+      </ResponsiveContainer>
+    </Card>
   );
 };

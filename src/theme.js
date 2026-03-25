@@ -1,4 +1,4 @@
-import { createTheme, alpha } from '@mui/material';
+import { createTheme } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -11,7 +11,6 @@ const theme = createTheme({
       1: '#708090',
     },
   },
-  typography: { button: { textTransform: 'none', fontWeight: 'bold' } },
 });
 
 export default theme;

@@ -1,8 +1,6 @@
 export default {
   TITLE: 'Honkai Star Rail',
   VERSION: '4.0',
-  RESIN_PER_DAY: 240,
-  RESIN_PER_RUN: 40,
   DROPS_PER_RUN: 2.1,
   NUM_MAINSTATS: 6,
   NUM_SUBSTATS: 4,

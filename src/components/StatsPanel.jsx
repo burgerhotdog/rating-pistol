@@ -9,13 +9,10 @@ export const StatsPanel = ({ id, data }) => {
   const { NAME: CHAR_NAME = '' } = CHARACTER_LOOKUP[gameId][id] ?? {};
   const { NAME: WEAP_NAME = '' } = WEAPON_LOOKUP[gameId][data?.weaponId] ?? {};
 
-  const sourceMapList = data ? buildSourceMapList(gameId, [id, data]) : null;
+  const sourceMapList = data ? buildSourceMapList(gameId, id, data) : null;
 
   return (
-    <Card
-      variant="outlined"
-      sx={{ width: 300 }}
-    >
+    <Card sx={{ width: 300 }}>
       {data ? (
         <Stack p={2} sx={{ height: '100%', overflowY: 'auto' }}>
           <Typography variant="h6" fontWeight="bold">

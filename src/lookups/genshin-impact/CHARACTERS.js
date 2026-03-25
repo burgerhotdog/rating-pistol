@@ -292,13 +292,14 @@ export default {
         SCALING: {
           FLAT: 0,
           MULTIPLIER: {
-            ATK: 1,
+            ATK: 8.0064,
           },
         },
-        TYPE: {
+        DMG_TYPE: {
           SKILL: 'ULT',
           ELEMENT: 'PYRO',
         },
+        MATCH: {},
         DEFAULT_BUFFS: [10000032],
       },
     ],
@@ -485,6 +486,22 @@ export default {
       BASE_DEF: 953,
       PERCENT_CR: 0.192,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit Sub DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1.4774,
+            DEF: 1.8468,
+          },
+        },
+        TYPE: {
+          SKILL: 'RS',
+          ELEMENT: 'GEO',
+        },
+      },
+    ],
   },
 
   // Version 4.4
@@ -560,7 +577,7 @@ export default {
         SCALING: {
           FLAT: 0,
           MULTIPLIER: {
-            HP: 1,
+            HP: 0.1492,
           },
         },
         TYPE: {
@@ -616,7 +633,7 @@ export default {
         SCALING: {
           FLAT: 0,
           MULTIPLIER: {
-            ATK: 1,
+            ATK: 2.7533,
           },
         },
         TYPE: {
