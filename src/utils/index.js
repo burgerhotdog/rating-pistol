@@ -4,4 +4,5 @@ export * from './computeDamage';
 export * from './createArtifact';
 export * from './upgradeArtifact';
 export * from './weightedLottery';
-export * from './simulateArtifactProgresion';
+export * from './simulateArtifactProgression';
+export * from './buildSourceMapList';

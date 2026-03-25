@@ -15,34 +15,33 @@ export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [isAuthLoading, setIsAuthLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setUser(user || null);
-      setIsAuthLoading(false);
+      setUser(user ?? null);
+      setIsLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
 
   async function signIn() {
-    setIsAuthLoading(true);
-
+    setIsLoading(true);
     try {
       await setPersistence(auth, browserLocalPersistence);
       await signInWithPopup(auth, provider);
     } catch (err) {
-      console.error('Sign-in failed', err);
+      console.error(err);
     }
   };
 
   async function signOut() {
-    setIsAuthLoading(true);
+    setIsLoading(true);
     try {
       await firebaseSignOut(auth);
     } catch (err) {
-      console.error('Sign-out failed', err);
+      console.error(err);
     }
   };
 
@@ -50,9 +49,9 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
+        isLoading,
         signIn,
         signOut,
-        isAuthLoading,
       }}
     >
       {children}

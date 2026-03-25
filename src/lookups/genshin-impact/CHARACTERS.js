@@ -286,6 +286,22 @@ export default {
       BASE_DEF: 791,
       PERCENT_CD: 0.384,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1,
+          },
+        },
+        TYPE: {
+          SKILL: 'ULT',
+          ELEMENT: 'PYRO',
+        },
+        DEFAULT_BUFFS: [10000032],
+      },
+    ],
   },
 
   // Version 5.2
@@ -438,6 +454,22 @@ export default {
       BASE_DEF: 764,
       PERCENT_CD: 0.384,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1,
+          },
+        },
+        TYPE: {
+          SKILL: 'NA',
+          ELEMENT: 'PYRO',
+        },
+        DEFAULT_BUFFS: [10000032],
+      },
+    ],
   },
 
   // Version 4.5
@@ -524,12 +556,18 @@ export default {
     },
     CRITERIA: [
       {
-        NAME: 'Damage',
-        MULTIPLIER: {
-          ATK: 1,
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            HP: 1,
+          },
         },
-        FLAT: 0,
-        TYPE: 'DAMAGE_NA',
+        TYPE: {
+          SKILL: 'ES',
+          ELEMENT: 'HYDRO',
+        },
+        DEFAULT_BUFFS: [10000032],
       },
     ],
   },
@@ -574,12 +612,18 @@ export default {
     },
     CRITERIA: [
       {
-        NAME: 'Damage',
-        MULTIPLIER: {
-          ATK: 1,
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1,
+          },
         },
-        FLAT: 0,
-        TYPE: 'DAMAGE_NA',
+        TYPE: {
+          SKILL: 'CA',
+          ELEMENT: 'CRYO',
+        },
+        DEFAULT_BUFFS: [10000032],
       },
     ],
   },
@@ -745,12 +789,18 @@ export default {
     },
     CRITERIA: [
       {
-        NAME: 'Damage',
-        MULTIPLIER: {
-          ATK: 1,
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1,
+          },
         },
-        FLAT: 0,
-        TYPE: 'DAMAGE_NA',
+        TYPE: {
+          SKILL: 'NA',
+          ELEMENT: 'ANEMO',
+        },
+        DEFAULT_BUFFS: [10000032],
       },
     ],
   },
@@ -1338,6 +1388,9 @@ export default {
       BASE_ATK: 191,
       BASE_DEF: 771,
       PERCENT_ER: 0.2668,
+    },
+    TEAM_BUFFS: {
+      FLAT_ATK: 1200,
     },
   },
   10000031: {

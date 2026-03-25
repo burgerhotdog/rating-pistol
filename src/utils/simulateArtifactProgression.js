@@ -1,13 +1,14 @@
 import { GENERAL_LOOKUP } from '@/lookups';
 import { createArtifact, upgradeArtifact, computeDamage } from '@/utils';
 
-function simulateBuildAfterWeekOfFarming(gameId, charId, buildObj) {
+function simulateBuildAfterWeekOfFarming(gameId, buildEntry, buffs, criteriaIndex) {
   const { RESIN_PER_DAY, RESIN_PER_RUN, DROPS_PER_RUN, MAIN_STAT_TYPES } = GENERAL_LOOKUP[gameId];
-  const { weaponId } = buildObj;
+  const [charId, charObj] = buildEntry;
+  const { weaponId } = charObj;
   const dropsPerWeek = Math.floor(RESIN_PER_DAY / RESIN_PER_RUN * DROPS_PER_RUN * 7);
 
-  let oldDmg = computeDamage(gameId, charId, buildObj);
-  let iterBuild = buildObj;
+  let oldDmg = computeDamage(gameId, buildEntry, buffs, criteriaIndex);
+  let iterBuild = charObj;
   for (let i = 0; i < dropsPerWeek; i++) {
     const [slotIndex, newMainStat] = createArtifact(gameId);
     const newEquip = {
@@ -21,7 +22,7 @@ function simulateBuildAfterWeekOfFarming(gameId, charId, buildObj) {
       return newEquip;
     });
 
-    const newDmg = computeDamage(gameId, charId, { weaponId, equipList: newEquipList });
+    const newDmg = computeDamage(gameId, [charId, { weaponId, equipList: newEquipList }], buffs, criteriaIndex);
     if (newDmg < oldDmg) continue;
 
     oldDmg = newDmg;
@@ -29,25 +30,25 @@ function simulateBuildAfterWeekOfFarming(gameId, charId, buildObj) {
   }
 
   return [oldDmg, iterBuild];
-};
+}
 
-export function simulateArtifactProgresion(gameId, charId, charBuild) {
+export function simulateArtifactProgression(gameId, buildEntry, buffs = {}, criteriaIndex = 0) {
   const { NUM_MAINSTATS } = GENERAL_LOOKUP[gameId];
+  const [charId, charData] = buildEntry;
 
   let iterBuild = {
-    weaponId: charBuild.weaponId,
-    equipList: Array(NUM_MAINSTATS).fill().map(() => null),
+    weaponId: charData.weaponId,
+    equipList: Array(NUM_MAINSTATS).fill(null),
   };
 
-  let weeklyProgression = [];
-
-  let dmg = computeDamage(gameId, charId, iterBuild)
-  weeklyProgression.push([dmg, iterBuild]);
+  const weeklyDamages = [];
+  let dmg = computeDamage(gameId, [charId, iterBuild], buffs, criteriaIndex);
+  weeklyDamages.push(dmg);
 
   for (let i = 0; i < 20; i++) {
-    [dmg, iterBuild] = simulateBuildAfterWeekOfFarming(gameId, charId, iterBuild);
-    weeklyProgression.push([dmg, iterBuild]);
+    [dmg, iterBuild] = simulateBuildAfterWeekOfFarming(gameId, [charId, iterBuild], buffs, criteriaIndex);
+    weeklyDamages.push(dmg);
   }
 
-  return weeklyProgression;
-};
+  return { weeklyDamages, finalBuild: iterBuild };
+}

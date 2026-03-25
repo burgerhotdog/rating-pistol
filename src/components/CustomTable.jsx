@@ -1,39 +1,23 @@
-import { useContext, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
-import { GENERAL_LOOKUP, CHARACTER_LOOKUP } from '@/lookups';
-import { BuildContext } from '@/contexts';
-import { computeDamage, combineEquipStats } from '@/utils';
+import { GENERAL_LOOKUP } from '@/lookups';
+import { computeDamage } from '@/utils';
 
-export const CustomTable = () => {
+export const CustomTable = ({ build, rating, buffs, isLoading }) => {
   const { gameId, charId } = useParams();
-  const { buildCollections } = useContext(BuildContext);
-  const charBuild = buildCollections[gameId]?.[charId] ?? null;
-  const damage = computeDamage(gameId, charId, charBuild);
+  const { SUB_STAT_TYPES } = GENERAL_LOOKUP[gameId];
+  if (isLoading || !build) return null;
 
-  const unsortedData = {};
-  for (const stat in GENERAL_LOOKUP[gameId].SUB_STAT_TYPES) {
-    const newBuild = {
-      weaponId: charBuild.weaponId,
-      equipList: charBuild.equipList.map((equipObj, index) => {
-        if (index !== 0) return equipObj;
-        return {
-          ...equipObj,
-          subStatList: [
-            ...equipObj.subStatList,
-            { subStatId: stat, subStatValue: GENERAL_LOOKUP[gameId].SUB_STAT_TYPES[stat].VALUE },
-          ],
-        };
-      }),
-    };
-    unsortedData[stat] = computeDamage(gameId, charId, newBuild);
-  }
-
-  const sorted = Object.entries(unsortedData)
-    .map(([id, dmg]) => ({ name: id, diff: dmg / damage * 100 - 100 }))
+  const newRatings = Object.entries(SUB_STAT_TYPES)
+    .map(([id, { VALUE }]) => {
+      const newRating = computeDamage(gameId, [charId, build], { ...buffs, [id]: (buffs[id] ?? 0) + VALUE});
+      return {
+        name: id,
+        diff: newRating / rating * 100 - 100,
+      };
+    })
+    .filter(({ diff }) => diff)
     .sort(({ diff: a }, { diff: b }) => b - a);
-
-  const headers = ['+1 Substat', '% diff'];
 
   return (
     <TableContainer component={Paper} sx={{ maxHeight: 300 }}>
@@ -42,26 +26,24 @@ export const CustomTable = () => {
           <TableRow>
             <TableCell>
               <Typography variant="subtitle2" fontWeight="bold">
-                {headers[0]}
+                +1 Substat
               </Typography>
             </TableCell>
-            {headers.slice(1).map((header) => (
-              <TableCell key={header} align="center">
-                <Typography variant="subtitle2" fontWeight="bold">
-                  {header}
-                </Typography>
-              </TableCell>
-            ))}
+            <TableCell>
+              <Typography variant="subtitle2" fontWeight="bold">
+                % diff
+              </Typography>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {sorted.map((row, index) => (
-            <TableRow key={index}>
+          {newRatings.map(({ name, diff }) => (
+            <TableRow key={name}>
               <TableCell>
-                <Typography variant="body2">{row.name}</Typography>
+                <Typography variant="body2">{name}</Typography>
               </TableCell>
-              <TableCell align="center">
-                <Typography variant="body2">{row.diff.toFixed(1)}%</Typography>
+              <TableCell>
+                <Typography variant="body2">{diff.toFixed(1)}%</Typography>
               </TableCell>
             </TableRow>
           ))}

@@ -1,19 +1,51 @@
-import { GENERAL_LOOKUP, CHARACTER_LOOKUP, WEAPON_LOOKUP } from '@/lookups';
-import { computeTotalStat, combineEquipStats } from '@/utils';
+import { CHARACTER_LOOKUP } from '@/lookups';
+import { buildSourceMapList, computeTotalStat } from '@/utils';
 
-export function computeDamage(gameId, charId, charBuild) {
-  if (!charId || !charBuild) return 0;
-  const sourceMapList = [
-    GENERAL_LOOKUP[gameId].DEFAULT_STATS ?? {},
-    CHARACTER_LOOKUP[gameId][charId].FIXED_STATS ?? {},
-    WEAPON_LOOKUP[gameId][charBuild.weaponId].FIXED_STATS ?? {},
-    combineEquipStats(charBuild.equipList),
-  ];
-  const totalATK = computeTotalStat('ATK', sourceMapList).totalValue;
-  const totalCR = computeTotalStat('CR', sourceMapList).totalValue;
-  const totalCD = computeTotalStat('CD', sourceMapList).totalValue;
-  const dmgElement = CHARACTER_LOOKUP[gameId][charId].ELEMENT.toUpperCase();
-  const totalELEMENTDMG = computeTotalStat(dmgElement, sourceMapList).totalValue;
+export function computeDamage(gameId, buildEntry, buffs = {}, criteriaIndex = 0) {
+  const [id, data] = buildEntry;
+  if (!buildEntry) return 0;
 
-  return totalATK * (1 + totalELEMENTDMG) * (totalCR * (1 + totalCD) + (1 - totalCR));
+  const criteria = CHARACTER_LOOKUP[gameId][id].CRITERIA[criteriaIndex];
+  const sourceMapList = buildSourceMapList(gameId, buildEntry, buffs);
+
+  // Base DMG:
+  // Character's total stat * Skill multiplier + flat number
+  let baseDmg = criteria.SCALING.FLAT ?? 0;
+
+  const multiplier = criteria.SCALING.MULTIPLIER ?? {};
+  for (const [stat, coeff] of Object.entries(multiplier)) {
+    baseDmg += computeTotalStat(stat, sourceMapList) * coeff;
+  }
+  // Base DMG Multiplier:
+  // Rare multiplier found on some skills
+  let baseDmgMultiplier = 1;
+
+  // Additive Base DMG Bonus:
+  // Spread/Aggravate, Rare multiplier on skills
+  let additiveBaseDmgBonus = 0;
+
+  // Damage bonus:
+  // Element
+  const dmgElement = criteria.TYPE.ELEMENT;
+  const totalElementDmgBonus = computeTotalStat(dmgElement, sourceMapList);
+  // Skill type
+  const dmgSkillType = criteria.TYPE.SKILL;
+  const totalSkillTypeDmgBonus = computeTotalStat(dmgSkillType, sourceMapList);
+  // All type
+  const totalAllTypeDmgBonus = computeTotalStat('ALL', sourceMapList);
+  const dmgBonus = 1 + totalElementDmgBonus + totalSkillTypeDmgBonus + totalAllTypeDmgBonus;
+
+  // Def
+
+  // Res
+
+  // Amplifying Reactions
+  let ampMult = 1;
+
+  // Crit multiplier
+  const totalCR = Math.min(computeTotalStat('CR', sourceMapList), 1);
+  const totalCD = computeTotalStat('CD', sourceMapList);
+  const critMult = totalCR * (1 + totalCD) + (1 - totalCR);
+
+  return (baseDmg * baseDmgMultiplier + additiveBaseDmgBonus) * dmgBonus * ampMult * critMult;
 };

@@ -21,9 +21,8 @@ export function computeTotalStat(statId, sourceMapList) {
   const totalPercent = totals[percentId] ?? 0;
 
   if (totalBase === undefined) {
-    return { totalValue: totalPercent, isPercent: true };
+    return totalPercent;
   }
 
-  const totalValue = totalBase * (1 + totalPercent) + totalFlat;
-  return { totalValue, isPercent: false }
+  return totalBase * (1 + totalPercent) + totalFlat;
 };

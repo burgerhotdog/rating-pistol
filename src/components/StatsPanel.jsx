@@ -1,43 +1,38 @@
-import { useContext } from 'react';
-import { useParams } from 'react-router-dom';
 import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
-import { BuildContext } from '@/contexts';
+import { useParams } from 'react-router-dom';
 import { GENERAL_LOOKUP, CHARACTER_LOOKUP, WEAPON_LOOKUP } from '@/lookups';
-import { combineEquipStats, computeTotalStat, computeDamage } from '@/utils';
+import { buildSourceMapList, computeTotalStat, combineEquipStats } from '@/utils';
 
-export const StatsPanel = () => {
-  const { gameId, charId } = useParams();
-  const { buildCollections } = useContext(BuildContext);
-  const charBuild = buildCollections[gameId]?.[charId] ?? null;
+export const StatsPanel = ({ id, data }) => {
+  const { gameId } = useParams();
+  const { MENU_STAT_ORDER } = GENERAL_LOOKUP[gameId];
+  const { NAME: CHAR_NAME = '' } = CHARACTER_LOOKUP[gameId][id] ?? {};
+  const { NAME: WEAP_NAME = '' } = WEAPON_LOOKUP[gameId][data?.weaponId] ?? {};
+
+  const sourceMapList = data ? buildSourceMapList(gameId, [id, data]) : null;
 
   return (
     <Card
       variant="outlined"
       sx={{ width: 300 }}
     >
-      {charBuild ? (
+      {data ? (
         <Stack p={2} sx={{ height: '100%', overflowY: 'auto' }}>
           <Typography variant="h6" fontWeight="bold">
-            {CHARACTER_LOOKUP[gameId][charId].NAME}
+            {CHAR_NAME}
           </Typography>
 
           <Divider sx={{ mb: 2 }} />
 
           <Stack gap={1.5} sx={{ flex: 1 }}>
-            {GENERAL_LOOKUP[gameId].MENU_STAT_TYPES.map(([statId, statLabel]) => {
-              const sourceMapList = [
-                GENERAL_LOOKUP[gameId].DEFAULT_STATS ?? {},
-                CHARACTER_LOOKUP[gameId][charId].FIXED_STATS ?? {},
-                WEAPON_LOOKUP[gameId][charBuild.weaponId].FIXED_STATS ?? {},
-                combineEquipStats(charBuild.equipList),
-              ];
-              const { totalValue, isPercent } = computeTotalStat(statId, sourceMapList);
-              const adjustedValue = isPercent ? totalValue * 100 : totalValue;
-              const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && statId === 'ER') ? 1 : 0;
-              if (statId !== 'EM' && adjustedValue === 0) return;
+            {MENU_STAT_ORDER.map(({ id, label, isPercent }) => {
+              const totalValue = computeTotalStat(id, sourceMapList);
+              const displayValue = isPercent ? totalValue * 100 : totalValue;
+              const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;
+              if (id !== 'EM' && displayValue === 0) return;
               return (
                 <Box
-                  key={statId}
+                  key={id}
                   sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -45,10 +40,10 @@ export const StatsPanel = () => {
                   }}
                 >
                   <Typography variant="body2" color="text.secondary">
-                    {statLabel}
+                    {label}
                   </Typography>
                   <Typography variant="body2" fontWeight="bold">
-                    {adjustedValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
+                    {displayValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
                   </Typography>
                 </Box>
               );
@@ -62,13 +57,13 @@ export const StatsPanel = () => {
               Weapon
             </Typography>
             <Typography variant="body2" fontWeight="bold">
-              {WEAPON_LOOKUP[gameId][charBuild.weaponId]?.NAME}
+              {WEAP_NAME}
             </Typography>
           </Box>
 
           <Divider sx={{ mt: 'auto', pt: 2 }} />
           <Typography variant="caption" color="text.secondary" sx={{ pt: 1 }}>
-            Last Updated: {charBuild.lastUpdated ?? 'Unknown'}
+            Last Updated: {data?.lastUpdated ?? 'Unknown'}
           </Typography>
         </Stack>
       ) : (

@@ -1,14 +1,10 @@
-import { useLocation } from 'react-router-dom';
 import { Box, Divider, Stack } from '@mui/material';
 import HeaderEnka from './HeaderEnka';
 import HeaderNav from './HeaderNav';
 import HeaderOcr from './HeaderOcr';
 import HeaderUser from './HeaderUser';
 
-export const Header = () => {
-  const location = useLocation();
-  const activeGameId = location.pathname.split('/').filter(Boolean)[0] ?? '';
-
+export const Header = ({ gamePath }) => {
   return (
     <Box
       display="flex"
@@ -16,14 +12,14 @@ export const Header = () => {
       alignItems="center"
       py={2}
     >
-      <HeaderNav activeGameId={activeGameId} />
+      <HeaderNav activeGameId={gamePath} />
 
       <Stack direction="row" alignItems="center" spacing={1}>
-        {activeGameId && (
+        {gamePath && (
           <>
-            {activeGameId === 'wuthering-waves'
+            {gamePath === 'wuthering-waves'
               ? <HeaderOcr />
-              : <HeaderEnka activeGameId={activeGameId} />
+              : <HeaderEnka activeGameId={gamePath} />
             }
             <Divider orientation="vertical" flexItem />
           </>
