@@ -1,6 +1,6 @@
 export default {
   TITLE: 'Honkai Star Rail',
-  VERSION: '4.0',
+  VERSION: '4.1',
   DROPS_PER_RUN: 2.1,
   NUM_MAINSTATS: 6,
   NUM_SUBSTATS: 4,

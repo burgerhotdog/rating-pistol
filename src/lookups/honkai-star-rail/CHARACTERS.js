@@ -1,4 +1,22 @@
 export default {
+  // Version 4.1
+  1504: {
+    NAME: 'Ashveil',
+    QUALITY: '5',
+    ELEMENT: 'Lightning',
+    TYPE: 'Hunt',
+    SIGNATURE: '00000',
+    FIXED_STATS: {
+      BASE_HP: 853,
+      BASE_ATK: 776,
+      BASE_DEF: 388,
+      BASE_SPD: 106,
+      PERCENT_ATK: 0.1,
+      PERCENT_CD: 0.373,
+      PERCENT_LIGHTNING: 0.144,
+    },
+  },
+
   // Version 4.0
   1502: {
     NAME: 'Yao Guang',
