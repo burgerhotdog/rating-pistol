@@ -299,7 +299,6 @@ export default {
           SKILL: 'ULT',
           ELEMENT: 'PYRO',
         },
-        MATCH: {},
         DEFAULT_BUFFS: [10000032],
       },
     ],
@@ -584,6 +583,7 @@ export default {
           SKILL: 'ES',
           ELEMENT: 'HYDRO',
         },
+        MATCH: ['ER'],
         DEFAULT_BUFFS: [10000032],
       },
     ],
@@ -817,7 +817,6 @@ export default {
           SKILL: 'NA',
           ELEMENT: 'ANEMO',
         },
-        MATCH: ['ER'],
         DEFAULT_BUFFS: [10000032],
       },
     ],
@@ -1422,6 +1421,22 @@ export default {
       BASE_DEF: 593,
       PERCENT_ATK: 0.24,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1.598,
+          },
+        },
+        TYPE: {
+          SKILL: 'SKILL',
+          ELEMENT: 'ELECTRO',
+        },
+        MATCH: ['ER'],
+      },
+    ],
   },
   10000029: {
     NAME: 'Klee',
@@ -1434,6 +1449,22 @@ export default {
       BASE_DEF: 614,
       PERCENT_PYRO: 0.288,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 2.832,
+          },
+        },
+        TYPE: {
+          SKILL: 'CA',
+          ELEMENT: 'PYRO',
+        },
+        MATCH: ['ER'],
+      },
+    ],
   },
   10000027: {
     NAME: 'Ningguang',
@@ -1446,6 +1477,22 @@ export default {
       BASE_DEF: 573,
       PERCENT_GEO: 0.24,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1.565,
+          },
+        },
+        TYPE: {
+          SKILL: 'ULT',
+          ELEMENT: 'GEO',
+        },
+        MATCH: ['ER'],
+      },
+    ],
   },
   10000025: {
     NAME: 'Xingqiu',
@@ -1458,6 +1505,22 @@ export default {
       BASE_DEF: 757,
       PERCENT_ATK: 0.24,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 0.977,
+          },
+        },
+        TYPE: {
+          SKILL: 'ULT',
+          ELEMENT: 'HYDRO',
+        },
+        MATCH: ['ER'],
+      },
+    ],
   },
   10000024: {
     NAME: 'Beidou',
@@ -1470,6 +1533,22 @@ export default {
       BASE_DEF: 648,
       PERCENT_ELECTRO: 0.24,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit Sub DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 2.189,
+          },
+        },
+        TYPE: {
+          SKILL: 'ULT',
+          ELEMENT: 'ELECTRO',
+        },
+        MATCH: ['ER'],
+      },
+    ],
   },
   10000023: {
     NAME: 'Xiangling',
@@ -1482,6 +1561,22 @@ export default {
       BASE_DEF: 668,
       FLAT_EM: 96,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit Sub DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 2.016,
+          },
+        },
+        TYPE: {
+          SKILL: 'ULT',
+          ELEMENT: 'PYRO',
+        },
+        MATCH: ['ER'],
+      },
+    ],
   },
   10000022: {
     NAME: 'Venti',
@@ -1531,6 +1626,22 @@ export default {
       BASE_DEF: 783,
       PERCENT_CR: 0.192,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 3.672,
+          },
+        },
+        TYPE: {
+          SKILL: 'ULT',
+          ELEMENT: 'PYRO',
+        },
+        MATCH: ['ER'],
+      },
+    ],
   },
   10000015: {
     NAME: 'Kaeya',
