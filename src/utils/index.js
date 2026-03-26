@@ -1,7 +1,6 @@
 export * from './combineEquipStats';
 export * from './computeTotalStat';
 export * from './computeRating';
-export * from './createArtifact';
 export * from './upgradeArtifact';
 export * from './weightedLottery';
 export * from './buildSourceMapList';

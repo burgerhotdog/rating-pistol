@@ -42,7 +42,7 @@ export const CustomTable = ({ build, rating, buffs, isLoading }) => {
             {newRatings.map(({ name, diff }) => (
               <TableRow key={name}>
                 <TableCell>
-                  <Typography variant="body2">{name}</Typography>
+                  <Typography variant="body2">{SUB_STAT_TYPES[name].NAME}</Typography>
                 </TableCell>
                 <TableCell>
                   <Typography variant="body2">{diff.toFixed(1)}%</Typography>

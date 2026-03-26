@@ -52,7 +52,6 @@ const GamePage = () => {
     workerRef.current = worker;
 
     worker.onmessage = ({ data: { weeklyRatings, finalStats } }) => {
-      console.log(weeklyRatings, finalStats);
       setWorkerResult({ weeklyRatings, finalStats, isLoading: false });
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;

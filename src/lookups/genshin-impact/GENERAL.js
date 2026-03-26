@@ -248,4 +248,70 @@ export default {
     { id: 'GEO', label: 'Geo DMG Bonus', isPercent: true },
     { id: 'PHYSICAL', label: 'Physical DMG Bonus', isPercent: true },
   ],
+  MENU_STAT: {
+    HP: {
+      label: 'HP',
+      isPercent: false,
+    },
+    ATK: {
+      label: 'ATK',
+      isPercent: false,
+    },
+    DEF: {
+      label: 'DEF',
+      isPercent: false,
+    },
+    EM: {
+      label: 'Elemental Mastery',
+      isPercent: false,
+    },
+    CR: {
+      label: 'CRIT Rate',
+      isPercent: true,
+    },
+    CD: {
+      label: 'CRIT DMG',
+      isPercent: true,
+    },
+    HB: {
+      label: 'Healing Bonus',
+      isPercent: true,
+    },
+    ER: {
+      label: 'Energy Recharge',
+      isPercent: true,
+    },
+    PYRO: {
+      label: 'Pyro DMG Bonus',
+      isPercent: true,
+    },
+    HYDRO: {
+      label: 'Hydro DMG Bonus',
+      isPercent: true,
+    },
+    DENDRO: {
+      label: 'Dendro DMG Bonus',
+      isPercent: true,
+    },
+    ELECTRO: {
+      label: 'Electro DMG Bonus',
+      isPercent: true,
+    },
+    ANEMO: {
+      label: 'Anemo DMG Bonus',
+      isPercent: true,
+    },
+    CRYO: {
+      label: 'Cryo DMG Bonus',
+      isPercent: true,
+    },
+    GEO: {
+      label: 'Geo DMG Bonus',
+      isPercent: true,
+    },
+    PHYSICAL: {
+      label: 'Physical DMG Bonus',
+      isPercent: true,
+    },
+  },
 };

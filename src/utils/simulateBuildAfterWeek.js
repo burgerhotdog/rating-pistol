@@ -1,5 +1,5 @@
 import { GENERAL_LOOKUP } from '@/lookups';
-import { computeRating, generateArtifact } from '@/utils';
+import { computeRating, generateArtifact, computeTotalStat, buildSourceMapList } from '@/utils';
 
 const DAILY_RESIN = {
   'genshin-impact': 180,
@@ -29,15 +29,24 @@ const DROPS_PER_RUN = {
   'zenless-zone-zero': 3.25,
 };
 
-export function simulateBuildAfterWeek(gameId, charId, build, criteria, buffs) {
+function match_penalty(current, target) {
+  if (target === 0) return 1;
+
+  const relativeDeficit = (target - current) / target;
+  if (relativeDeficit <= 0) return 1;
+
+  return Math.exp(-2 * relativeDeficit);
+};
+
+export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, buffs) {
   const resinPerWeek = DAILY_RESIN[gameId] * 7 + BONUS_RESIN[gameId];
   const runsPerWeek = resinPerWeek / COST_PER_RUN[gameId];
   const dropsPerWeek = Math.floor(runsPerWeek * DROPS_PER_RUN[gameId]);
 
-  const { weaponId } = build;
+  const { weaponId } = iter;
 
-  let control = computeRating(gameId, charId, build, criteria, buffs);
-  let iter = build;
+  let control = computeRating(gameId, charId, iter, criteria, buffs);
+  let newIter = iter;
 
   for (let i = 0; i < dropsPerWeek; i++) {
     const [slotIndex, newArtifact] = generateArtifact(gameId);
@@ -45,17 +54,39 @@ export function simulateBuildAfterWeek(gameId, charId, build, criteria, buffs) {
     // Ignore wrong set
     if (!newArtifact.setId) continue;
 
-    const newEquipList = iter.equipList.map((currentArtifact, index) => {
+    const newEquipList = newIter.equipList.map((currentArtifact, index) => {
       if (index !== slotIndex) return currentArtifact;
       return newArtifact;
     });
     
     const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
-    if (newRating < control) continue;
 
-    control = newRating;
-    iter = { weaponId, equipList: newEquipList };
+    if (!criteria.MATCH) {
+      if (newRating < control) continue;
+      control = newRating;
+      newIter = { weaponId, equipList: newEquipList };
+    } else {
+      const controlPenalty = criteria.MATCH
+        .map((stat) => {
+          const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, newIter));
+          const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+          return match_penalty(currentValue, targetValue);
+        })
+        .reduce((acc, mult) => acc * mult, 1);
+
+      const newPenalty = criteria.MATCH
+        .map((stat) => {
+          const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList }));
+          const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+          return match_penalty(currentValue, targetValue);
+        })
+        .reduce((acc, mult) => acc * mult, 1);
+      
+      if (newRating * newPenalty < control * controlPenalty) continue;
+      control = newRating;
+      newIter = { weaponId, equipList: newEquipList };
+    }
   }
 
-  return iter;
+  return newIter;
 };

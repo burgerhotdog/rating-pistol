@@ -7,7 +7,7 @@ export function multiWeekSimulation(gameId, charId, build, criteria, buffs = {})
   let weeklyRating = [computeRating(gameId, charId, iter, criteria, buffs)];
 
   for (let i = 0; i < 20; i++) {
-    iter = simulateBuildAfterWeek(gameId, charId, iter, criteria, buffs);
+    iter = simulateBuildAfterWeek(gameId, charId, build, iter, criteria, buffs);
     weeklyRating.push(computeRating(gameId, charId, iter, criteria, buffs));
   }
 

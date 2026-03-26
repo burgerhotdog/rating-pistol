@@ -817,6 +817,7 @@ export default {
           SKILL: 'NA',
           ELEMENT: 'ANEMO',
         },
+        MATCH: ['ER'],
         DEFAULT_BUFFS: [10000032],
       },
     ],
