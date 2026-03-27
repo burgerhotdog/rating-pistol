@@ -16,6 +16,7 @@
     "@mui/icons-material": "^7.0.0",
     "@mui/material": "^7.0.0",
     "esbuild": "^0.25.0",
+    "fastest-levenshtein": "^1.0.16",
     "firebase": "^11.0.2",
     "http-proxy-middleware": "^3.0.3",
     "plotly.js": "^3.0.1",
@@ -24,7 +25,8 @@
     "react-dom": "^18.3.1",
     "react-plotly.js": "^2.6.0",
     "react-router-dom": "^7.0.1",
-    "recharts": "^3.8.0"
+    "recharts": "^3.8.0",
+    "tesseract.js": "^7.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
@@ -41,6 +43,7 @@
     "vitest": "^4.1.0"
   },
   "overrides": {
-    "esbuild": "^0.25.0"
+    "esbuild": "^0.25.0",
+    "brace-expansion": "^5.0.5"
   }
 }

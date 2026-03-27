@@ -31,7 +31,7 @@ const GamePage = () => {
 
   const [buffs, setBuffs] = useState({});
 
-  // Simulation Worker Listener
+  // Simulation Worker
   useEffect(() => {
     if (!build || !criteria) {
       setWorkerResult({

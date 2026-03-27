@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Autocomplete, Button, Dialog, DialogContent, DialogActions, DialogTitle, Box, Typography, TextField } from '@mui/material';
 import { BuildContext } from '@/contexts';
 import { CHARACTER_LOOKUP } from '@/lookups';
@@ -15,6 +15,15 @@ const HeaderOcr = () => {
   const [selectedAvatarId, setSelectedAvatarId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const workerRef = useRef(null);
+
+  useEffect(() => {
+    workerRef.current = new Worker(
+      new URL('../../workers/ocr.worker.js', import.meta.url),
+      { type: 'module' }
+    );
+    return () => workerRef.current.terminate();
+  }, []);
 
   const closeDialog = () => {
     setDialogOpen(false);
@@ -31,26 +40,26 @@ const HeaderOcr = () => {
     setIsLoading(true);
     setError(null);
 
-    const formData = new FormData();
-    formData.append('file', file);
+    createImageBitmap(file).then((imageBitmap) => {
+      workerRef.current.postMessage({ imageBitmap }, [imageBitmap]);
+    });
 
-    fetch('https://rating-pistol-be-6a62d70a6b2f.herokuapp.com/ocr/', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error('Server error');
-        return res.json();
-      })
-      .then(data => {
-        saveBuildEntries('wuthering-waves', [[selectedAvatarId, data]]);
-        closeDialog();
-      })
-      .catch((err) => {
-        console.error('Error uploading image:', err);
+    workerRef.current.onmessage = (e) => {
+      const { success, results, error: workerError } = e.data;
+      if (!success) {
         setError('Failed to process image. Please try again.');
         setIsLoading(false);
-      });
+        return;
+      }
+      console.log(results);
+      // saveBuildEntries('wuthering-waves', [[selectedAvatarId, results]]);
+      closeDialog();
+    };
+
+    workerRef.current.onerror = () => {
+      setError('Failed to process image. Please try again.');
+      setIsLoading(false);
+    };
   };
 
   return (
