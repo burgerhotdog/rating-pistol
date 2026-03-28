@@ -75,4 +75,4 @@ export function upgradeArtifact(gameId, mainStatId) {
   }
 
   return subStatList;
-};
+}

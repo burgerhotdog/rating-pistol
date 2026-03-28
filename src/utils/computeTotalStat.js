@@ -25,4 +25,4 @@ export function computeTotalStat(statId, sourceMapList) {
   }
 
   return totalBase * (1 + totalPercent) + totalFlat;
-};
+}

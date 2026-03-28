@@ -9,4 +9,4 @@ export function buildSourceMapList(gameId, charId, build, buffs = {}) {
     combineEquipStats(build.equipList),
     ...(Object.keys(buffs).length ? [buffs] : []),
   ];
-};
+}

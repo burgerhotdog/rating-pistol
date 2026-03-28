@@ -22,4 +22,4 @@ export function generateArtifact(gameId) {
   const subStatList = upgradeArtifact(gameId, mainStatId);
 
   return [slotIndex, { setId, mainStatId, mainStatValue, subStatList }];
-};
+}

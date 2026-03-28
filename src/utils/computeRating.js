@@ -43,4 +43,4 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
   const critMult = totalCR * (1 + totalCD) + (1 - totalCR);
 
   return (baseDmg * baseDmgMultiplier + additiveBaseDmgBonus) * dmgBonus * ampMult * critMult;
-};
+}

@@ -62,7 +62,7 @@ export async function fetchEnka(gameId, uid) {
   } catch (err) {
     return [500, ERROR_CODES['500']];
   }
-};
+}
 
 // PARSE HELPERS
 const PARSE_WEAPONID = {
@@ -195,4 +195,4 @@ export function parseEnkaObj(gameId, enkaObj) {
   }
 
   return [avatarId, avatarData];
-};
+}

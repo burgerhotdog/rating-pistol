@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       console.error(err);
     }
-  };
+  }
 
   async function signOut() {
     setIsLoading(true);
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       console.error(err);
     }
-  };
+  }
 
   return (
     <AuthContext.Provider

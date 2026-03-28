@@ -89,4 +89,4 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
   }
 
   return newIter;
-};
+}

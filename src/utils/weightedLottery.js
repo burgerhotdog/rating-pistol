@@ -9,4 +9,4 @@ export function weightedLottery(weightsList) {
     if (count > winner) return i;
   }
   return weightsList.length - 1;
-};
+}

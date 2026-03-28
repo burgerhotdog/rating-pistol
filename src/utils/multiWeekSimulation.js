@@ -12,4 +12,4 @@ export function multiWeekSimulation(gameId, charId, build, criteria, buffs = {})
   }
 
   return { build: iter, weeklyRating };
-};
+}

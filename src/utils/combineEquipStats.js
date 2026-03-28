@@ -12,4 +12,4 @@ export function combineEquipStats(equipList) {
   }
 
   return result;
-};
+}
