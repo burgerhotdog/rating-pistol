@@ -54,18 +54,21 @@ export const SUBSTAT_DICT = Object.fromEntries(
   Object.entries(SUB_STAT_TYPES).map(([id, { NAME }]) => ([NAME, id]))
 );
 
-export async function cropBlob(region, imageBitmap) {
-  const cropCanvas = new OffscreenCanvas(region.w, region.h);
-  const cropCtx = cropCanvas.getContext('2d');
+function cropCanvas(region, imageBitmap) {
+  const canvas = new OffscreenCanvas(region.w, region.h);
+  const cropCtx = canvas.getContext('2d');
   cropCtx.drawImage(imageBitmap, region.x, region.y, region.w, region.h, 0, 0, region.w, region.h);
-  return cropCanvas.convertToBlob();
+  return canvas;
+}
+
+export async function cropBlob(region, imageBitmap) {
+  const canvas = cropCanvas(region, imageBitmap);
+  return canvas.convertToBlob();
 }
 
 export async function cropPixels(region, imageBitmap) {
-  const cropCanvas = new OffscreenCanvas(region.w, region.h);
-  const cropCtx = cropCanvas.getContext('2d');
-  cropCtx.drawImage(imageBitmap, region.x, region.y, region.w, region.h, 0, 0, region.w, region.h);
-  return cropCtx.getImageData(0, 0, region.w, region.h).data;
+  const canvas = cropCanvas(region, imageBitmap);
+  return canvas.getImageData(0, 0, region.w, region.h).data;
 }
 
 export function snapToOption(rawText, optionsList, threshold = 8) {
@@ -108,6 +111,8 @@ export function findBestMatch(cropPixels, templates) {
 
   return bestMatch;
 }
+
+
 export async function regionToName(region, dict, imageBitmap, ocrWorker) {
   const blob = await cropBlob(region, imageBitmap);
   const { data: { text } } = await ocrWorker.recognize(blob, {
