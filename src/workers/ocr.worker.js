@@ -89,13 +89,12 @@ self.onmessage = async ({ data: { imageBitmap } }) => {
     let equipList = [];
     for (let equipIndex = 0; equipIndex < 5; equipIndex++) {
       const offset = !equipIndex ? 0 : 4;
+      const valueOffset = equipIndex === 4 ? 4 : 0;
 
       // cost
       const costRegion = costRegions[equipIndex];
       const costPixelData = getPixelData(costRegion);
       const cost = matchPixelData(costPixelData.data, costPixelDataOptions[equipIndex]);
-
-      // const cost2 = matchLaplacian(costPixelData.data, costPixelDataOptions[equipIndex], costPixelData.width, costPixelData.height);
 
       // setId
       const setId = null;
@@ -110,8 +109,29 @@ self.onmessage = async ({ data: { imageBitmap } }) => {
       const mainStatNameRaw = await ocrRegion(mainStatRegion, 7, whitelistStat);
       const mainStatName = matchString(mainStatNameRaw, Object.keys(mainStatNameToIdByCost[cost]));
       const mainStatId = mainStatNameToIdByCost[cost][mainStatName];
-      // equipObj.mainStatValue = MAIN_STAT_TYPES[costConvert[cost]][equipObj.mainStatId].VALUE;
-      const mainStatValue = null;
+
+      // mainStatValue
+      const mainStatValueRegion = { 
+        x: 315 + equipIndex * 374 + valueOffset,
+        y: 756,
+        w: 31,
+        h: 24,
+      };
+      const mainStatValueString = await ocrRegion(mainStatValueRegion, 8, whitelistValue);
+      const mainStatValue = Number(mainStatValueString) / 100;
+
+      // mainStatFlatId
+      const mainStatFlatId = cost === '1' ? 'FLAT_HP' : 'FLAT_ATK';
+
+      // mainStatFlatValue
+      const mainStatFlatRegion = { 
+        x: 329 + equipIndex * 374 + offset,
+        y: 846,
+        w: 43,
+        h: 18,
+      };
+      const mainStatFlatString = await ocrRegion(mainStatFlatRegion, 8, whitelistValue);
+      const mainStatFlatValue = Number(mainStatFlatString)
 
       // subStatList
       let subStatList = [];
@@ -146,7 +166,7 @@ self.onmessage = async ({ data: { imageBitmap } }) => {
 
         subStatList.push({ subStatId, subStatValue });
       }
-      equipList.push({ cost, setId, mainStatId, mainStatValue, subStatList });
+      equipList.push({ cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList });
     }
 
     self.postMessage({ success: true, build: { weaponId, equipList } });
