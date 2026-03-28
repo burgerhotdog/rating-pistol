@@ -1,13 +1,17 @@
 import { createWorker } from 'tesseract.js';
-import { GENERAL_LOOKUP } from '@/lookups';
-import { ocrRegion, findBestMatch, COST_CROPS2, COST_CROPS, SUB_NAME_TO_ID, WEAPON_DICT, SUBSTAT_DICT, MAIN_STAT_DICT_PER_COST } from './ocr.helpers';
-import { COST_TEMPLATES } from '@/assets/ocr/cost/templates';
-
-const { MAIN_STAT_TYPES } = GENERAL_LOOKUP['wuthering-waves'];
+import { distance as findDistance } from 'fastest-levenshtein';
+import {
+  whitelistStat,
+  whitelistValue,
+  weaponNameToId,
+  costRegions,
+  costPixelDataOptions,
+  mainStatNameToIdByCost,
+  subStatFragmentToSuffix,
+  subStatValueOptionsById,
+} from './ocr.helpers';
 
 let worker = null;
-
-const costConvert = { 1: 0, 3: 1, 4: 2 };
 
 const initWorker = async () => {
   if (worker) return worker;
@@ -15,70 +19,131 @@ const initWorker = async () => {
   return worker;
 };
 
-self.onmessage = async (e) => {
-  const { imageBitmap } = e.data;
+self.onmessage = async ({ data: { imageBitmap } }) => {
+  // Helper functions
+  function getPixelData(region) {
+    const canvas = new OffscreenCanvas(region.w, region.h);
+    const cropCtx = canvas.getContext('2d');
+    cropCtx.drawImage(imageBitmap, region.x, region.y, region.w, region.h, 0, 0, region.w, region.h);
+    return cropCtx.getImageData(0, 0, region.w, region.h).data;
+  }
+
+  function matchPixelData(pixelData, options) {
+    let bestMatch = null;
+    let shortest = Infinity;
+    for (const [option, optionPixelData] of Object.entries(options)) {
+      let distance = 0;
+      for (let i = 0; i < pixelData.length; i += 4) {
+        const gray1 = 0.299 * pixelData[i] + 0.587 * pixelData[i + 1] + 0.114 * pixelData[i + 2];
+        const gray2 = 0.299 * optionPixelData[i] + 0.587 * optionPixelData[i + 1] + 0.114 * optionPixelData[i + 2];
+        distance += Math.abs(gray1 - gray2);
+      }
+      if (distance < shortest) {
+        shortest = distance;
+        bestMatch = option;
+      }
+    }
+    return bestMatch;
+  }
 
   try {
     const ocrWorker = await initWorker();
 
-    const weaponNameRegion = { x: 1600, y: 450, w: 250, h: 30};
-    const weaponName = await ocrRegion(weaponNameRegion, imageBitmap, ocrWorker, WEAPON_DICT);
-    const weaponId = WEAPON_DICT[weaponName];
+    async function ocrRegion(region, mode = 7, whitelist = '') {
+      const canvas = new OffscreenCanvas(region.w, region.h);
+      const cropCtx = canvas.getContext('2d');
+      cropCtx.drawImage(imageBitmap, region.x, region.y, region.w, region.h, 0, 0, region.w, region.h);
+      const blob = await canvas.convertToBlob();
+      const params = {
+        tessedit_pageseg_mode: mode,
+        ...(whitelist && { tessedit_char_whitelist: whitelist }),
+      };
 
+      const { data: { text } } = await ocrWorker.recognize(blob, params);
+      return text.replace(/\s+/g, ' ').trim();
+    }
 
+    function matchString(text, options, threshold = 8) {
+      let bestMatch = null;
+      let shortest = Infinity;
+
+      for (const option of options) {
+        const distance = findDistance(text, String(option));
+        if (distance < shortest) {
+          shortest = distance;
+          bestMatch = option;
+        }
+      }
+
+      return shortest <= threshold ? bestMatch : null;
+    }
+
+    // weaponId
+    const weaponRegion = { x: 1600, y: 450, w: 250, h: 30};
+    const weaponNameRaw = await ocrRegion(weaponRegion);
+    const weaponName = matchString(weaponNameRaw, Object.keys(weaponNameToId));
+    const weaponId = weaponNameToId[weaponName];
+
+    // equipList
     let equipList = [];
     for (let equipIndex = 0; equipIndex < 5; equipIndex++) {
-      const equipObj = {};
-      const cost = await regionToCost2(COST_CROPS[equipIndex], imageBitmap, ocrWorker);
-      equipObj.cost = cost;
-      console.log(cost);
-
       const offset = !equipIndex ? 0 : 4;
-      const mainStatNameRegion = { 
+
+      // cost
+      const costRegion = costRegions[equipIndex];
+      const costPixelData = getPixelData(costRegion);
+      const cost = matchPixelData(costPixelData, costPixelDataOptions);
+
+      // setId
+      const setId = null;
+
+      // mainStatId
+      const mainStatRegion = { 
         x: 219 + equipIndex * 374 + offset,
         y: 724,
         w: 153,
         h: 20,
       };
-      const mainStatName = await ocrRegion(mainStatNameRegion, imageBitmap, ocrWorker, MAIN_STAT_DICT_PER_COST[cost]);
-      
-      equipObj.mainStatId = MAIN_STAT_DICT_PER_COST[cost][mainStatName];
-      equipObj.mainStatValue = MAIN_STAT_TYPES[costConvert[cost]][equipObj.mainStatId].VALUE;
+      const mainStatNameRaw = await ocrRegion(mainStatRegion, 7, whitelistStat);
+      const mainStatName = matchString(mainStatNameRaw, Object.keys(mainStatNameToIdByCost[cost]));
+      const mainStatId = mainStatNameToIdByCost[cost][mainStatName];
+      // equipObj.mainStatValue = MAIN_STAT_TYPES[costConvert[cost]][equipObj.mainStatId].VALUE;
+      const mainStatValue = null;
 
+      // subStatList
       let subStatList = [];
       for (let lineIndex = 0; lineIndex < 5; lineIndex++) {
-        const line = {};
-
-        const subStatNameRegion = {
+        // subStatId
+        const subStatRegion = {
           x: 64 + equipIndex * 374 + offset,
           y: 882 + lineIndex * 34,
           w: 218,
           h: 21,
         };
-        const subStatName = await ocrRegion(subStatNameRegion, imageBitmap, ocrWorker, SUB_NAME_TO_ID);
-        line.subStatId = SUB_NAME_TO_ID[subStatName];
+        const subStatFragmentRaw = await ocrRegion(subStatRegion, 7, whitelistStat);
+        const subStatFragment = matchString(subStatFragmentRaw, Object.keys(subStatFragmentToSuffix));
+        const subStatSuffix = subStatFragmentToSuffix[subStatFragment];
 
+        // subStatValue
         const subStatValueRegion = {
           x: 315 + equipIndex * 374 + offset,
           y: 882 + lineIndex * 34,
           w: 58,
           h: 21,
         };
+        const subStatValueString = await ocrRegion(subStatValueRegion, 13, whitelistValue);
+        // finalize id
+        const isPercent = subStatValueString.endsWith('%');
+        const subStatPrefix = isPercent ? 'PERCENT' : 'FLAT';
+        const subStatId = `${subStatPrefix}_${subStatSuffix}`;
+        // finalize value
+        const noPercentStr = subStatValueString.endsWith('%') ? subStatValueString.slice(0, -1) : subStatValueString;
+        const subStatValueRaw = matchString(noPercentStr, subStatValueOptionsById[subStatId]);
+        const subStatValue = isPercent ? subStatValueRaw / 100 : subStatValueRaw;
 
-        const subStatValueRaw = await ocrRegion(subStatValueRegion, imageBitmap, ocrWorker);
-
-        if (subStatValueRaw.endsWith('%')) {
-          line.subStatId = `PERCENT_${SUB_NAME_TO_ID[subStatName]}`;
-          line.subStatValue = Number(subStatValueRaw.slice(0, -1)) / 100;
-        } else {
-          line.subStatId = `FLAT_${SUB_NAME_TO_ID[subStatName]}`;
-          line.subStatValue = Number(subStatValueRaw);
-        }
-
-        subStatList.push(line);
+        subStatList.push({ subStatId, subStatValue });
       }
-      equipObj.subStatList = subStatList;
-      equipList.push(equipObj);
+      equipList.push({ cost, setId, mainStatId, mainStatValue, subStatList });
     }
 
     self.postMessage({ success: true, build: { weaponId, equipList } });
