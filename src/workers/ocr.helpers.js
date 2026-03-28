@@ -1,4 +1,8 @@
-import { COST_TEMPLATES } from '@/assets/ocr/cost/templates';
+import { COST_TEMPLATES as cost0 } from '@/assets/ocr/cost/0/templates';
+import { COST_TEMPLATES as cost1 } from '@/assets/ocr/cost/1/templates';
+import { COST_TEMPLATES as cost2 } from '@/assets/ocr/cost/2/templates';
+import { COST_TEMPLATES as cost3 } from '@/assets/ocr/cost/3/templates';
+import { COST_TEMPLATES as cost4 } from '@/assets/ocr/cost/4/templates';
 import { WEAPON_LOOKUP, GENERAL_LOOKUP } from '@/lookups';
 
 const { MAIN_STAT_TYPES } = GENERAL_LOOKUP['wuthering-waves'];
@@ -18,7 +22,7 @@ export const costRegions = [
   { x: 1819, y: 664, w: 47, h: 47},
 ];
 
-export const costPixelDataOptions = COST_TEMPLATES;
+export const costPixelDataOptions = [cost0, cost1, cost2, cost3, cost4];
 
 export const mainStatNameToIdByCost = Object.fromEntries(
   MAIN_STAT_TYPES.map((map, index) => {
@@ -65,3 +69,50 @@ export const subStatValueOptionsById = {
   PERCENT_RS: [6.4, 7.1, 7.9, 8.6, 9.4, 10.1, 10.9, 11.6],
   PERCENT_RL: [6.4, 7.1, 7.9, 8.6, 9.4, 10.1, 10.9, 11.6],
 };
+
+function getLaplacian(pixelData, width, height) {
+  // Convert to grayscale first
+  const gray = new Float32Array(width * height);
+  for (let i = 0; i < width * height; i++) {
+    const p = i * 4;
+    gray[i] = 0.299 * pixelData[p] + 0.587 * pixelData[p + 1] + 0.114 * pixelData[p + 2];
+  }
+
+  // Apply discrete Laplacian kernel:
+  //  0  1  0
+  //  1 -4  1
+  //  0  1  0
+  const edges = new Float32Array(width * height);
+  for (let y = 1; y < height - 1; y++) {
+    for (let x = 1; x < width - 1; x++) {
+      const i = y * width + x;
+      edges[i] =
+        gray[i - width] +
+        gray[i + width] +
+        gray[i - 1] +
+        gray[i + 1] +
+        -4 * gray[i];
+    }
+  }
+  return edges;
+}
+
+export function matchLaplacian(pixelData, options, width, height) {
+  const candidateEdges = getLaplacian(pixelData, width, height);
+
+  let bestMatch = null;
+  let shortest = Infinity;
+  for (const [option, optionPixelData] of Object.entries(options)) {
+    const templateEdges = getLaplacian(optionPixelData, width, height);
+    let distance = 0;
+    for (let i = 0; i < candidateEdges.length; i++) {
+      const diff = candidateEdges[i] - templateEdges[i];
+      distance += diff * diff;
+    }
+    if (distance < shortest) {
+      shortest = distance;
+      bestMatch = option;
+    }
+  }
+  return bestMatch;
+}

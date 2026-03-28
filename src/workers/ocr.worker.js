@@ -9,6 +9,7 @@ import {
   mainStatNameToIdByCost,
   subStatFragmentToSuffix,
   subStatValueOptionsById,
+  matchLaplacian,
 } from './ocr.helpers';
 
 let worker = null;
@@ -25,7 +26,7 @@ self.onmessage = async ({ data: { imageBitmap } }) => {
     const canvas = new OffscreenCanvas(region.w, region.h);
     const cropCtx = canvas.getContext('2d');
     cropCtx.drawImage(imageBitmap, region.x, region.y, region.w, region.h, 0, 0, region.w, region.h);
-    return cropCtx.getImageData(0, 0, region.w, region.h).data;
+    return cropCtx.getImageData(0, 0, region.w, region.h);
   }
 
   function matchPixelData(pixelData, options) {
@@ -92,7 +93,9 @@ self.onmessage = async ({ data: { imageBitmap } }) => {
       // cost
       const costRegion = costRegions[equipIndex];
       const costPixelData = getPixelData(costRegion);
-      const cost = matchPixelData(costPixelData, costPixelDataOptions);
+      const cost = matchPixelData(costPixelData.data, costPixelDataOptions[equipIndex]);
+
+      // const cost2 = matchLaplacian(costPixelData.data, costPixelDataOptions[equipIndex], costPixelData.width, costPixelData.height);
 
       // setId
       const setId = null;
@@ -148,6 +151,7 @@ self.onmessage = async ({ data: { imageBitmap } }) => {
 
     self.postMessage({ success: true, build: { weaponId, equipList } });
   } catch (err) {
+    console.log(err);
     self.postMessage({ success: false, error: err.message });
   }
 };
