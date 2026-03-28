@@ -225,16 +225,46 @@ export default {
       WEIGHT: 5,
     },
   },
-  MENU_STAT_TYPES: [
-    ['HP', 'HP'],
-    ['ATK', 'ATK'],
-    ['DEF', 'DEF'],
-    ['IMPACT', 'Impact'],
-    ['CR', 'CRIT Rate'],
-    ['CD', 'CRIT DMG'],
-    ['AM', 'Anomaly Mastery'],
-    ['AP', 'Anomaly Proficiency'],
-    ['PR', 'PEN Ratio'],
-    ['ER', 'Energy Regen'],
-  ],
+  MENU_STATS: {
+    HP: {
+      label: 'HP',
+      isPercent: false,
+    },
+    ATK: {
+      label: 'ATK',
+      isPercent: false,
+    },
+    DEF: {
+      label: 'DEF',
+      isPercent: false,
+    },
+    IMPACT: {
+      label: 'Impact',
+      isPercent: false,
+    },
+    CR: {
+      label: 'CRIT Rate',
+      isPercent: true,
+    },
+    CD: {
+      label: 'CRIT DMG',
+      isPercent: true,
+    },
+    AM: {
+      label: 'Anomaly Mastery',
+      isPercent: false,
+    },
+    AP: {
+      label: 'Anomaly Proficiency',
+      isPercent: false,
+    },
+    PR: {
+      label: 'PEN Ratio',
+      isPercent: true,
+    },
+    ER: {
+      label: 'Energy Regen',
+      isPercent: false,
+    },
+  },
 };

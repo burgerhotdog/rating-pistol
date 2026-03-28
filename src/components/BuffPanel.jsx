@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, Switch, Stack, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { CHARACTER_LOOKUP } from '@/lookups';
+import { CHARACTERS } from '@/lookups';
 
 export const BuffPanel = ({ buffs, setBuffs }) => {
   const { gameId, charId } = useParams();
-  const allBuffs = Object.entries(CHARACTER_LOOKUP[gameId])
+  const allBuffs = Object.entries(CHARACTERS[gameId])
     .filter(([id, { TEAM_BUFFS }]) => TEAM_BUFFS && (charId !== id))
     .map(([id]) => id);
 
@@ -28,7 +28,7 @@ export const BuffPanel = ({ buffs, setBuffs }) => {
                   onChange={() => toggleBuff(id)}
                 />
               }
-              label={<Typography variant="body2">{CHARACTER_LOOKUP[gameId][id].NAME}</Typography>}
+              label={<Typography variant="body2">{CHARACTERS[gameId][id].NAME}</Typography>}
             />
           ))}
         </Stack>

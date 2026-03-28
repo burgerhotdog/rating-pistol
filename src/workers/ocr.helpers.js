@@ -3,15 +3,15 @@ import { COST_TEMPLATES as cost1 } from '@/assets/ocr/cost/1/templates';
 import { COST_TEMPLATES as cost2 } from '@/assets/ocr/cost/2/templates';
 import { COST_TEMPLATES as cost3 } from '@/assets/ocr/cost/3/templates';
 import { COST_TEMPLATES as cost4 } from '@/assets/ocr/cost/4/templates';
-import { WEAPON_LOOKUP, GENERAL_LOOKUP } from '@/lookups';
+import { WEAPONS, STATS } from '@/lookups';
 
-const { MAIN_STAT_TYPES } = GENERAL_LOOKUP['wuthering-waves'];
+const { MAIN_STAT_TYPES } = STATS['wuthering-waves'];
 
 export const whitelistStat = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .';
 export const whitelistValue = '0123456789.%';
 
 export const weaponNameToId = Object.fromEntries(
-  Object.entries(WEAPON_LOOKUP['wuthering-waves']).map(([id, { NAME }]) => ([NAME, id]))
+  Object.entries(WEAPONS['wuthering-waves']).map(([id, { NAME }]) => ([NAME, id]))
 );
 
 export const costRegions = [

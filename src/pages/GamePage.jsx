@@ -10,7 +10,7 @@ import {
 } from '@/components';
 import { BuildContext, UserContext } from '@/contexts';
 import { computeRating } from '@/utils';
-import { CHARACTER_LOOKUP } from '@/lookups';
+import { CHARACTERS } from '@/lookups';
 
 const GamePage = () => {
   const { gameId, charId } = useParams();
@@ -18,7 +18,7 @@ const GamePage = () => {
   const pinned = useContext(UserContext).pinnedIds[gameId];
 
   const build = builds?.[charId];
-  const criteria = CHARACTER_LOOKUP[gameId][charId]?.CRITERIA;
+  const criteria = CHARACTERS[gameId][charId]?.CRITERIA;
 
   const rating = build && criteria ? computeRating(gameId, charId, build, criteria[0]) : null;
 

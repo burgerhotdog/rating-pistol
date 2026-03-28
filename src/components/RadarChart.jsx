@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Card, Box, Paper, Typography } from '@mui/material';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis, Tooltip as ChartTooltip } from 'recharts';
-import { CHARACTER_LOOKUP, GENERAL_LOOKUP } from '@/lookups';
+import { CHARACTERS, STATS } from '@/lookups';
 import { buildSourceMapList, computeTotalStat } from '@/utils';
 
 const statList = ['HP', 'ATK', 'DEF', 'EM', 'ER', 'CR', 'CD'];
@@ -59,10 +59,10 @@ export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }
                   }}
                 >
                   <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
-                    {GENERAL_LOOKUP[gameId].MENU_STAT[label].label}
+                    {STATS[gameId].MENU_STATS[label].label}
                   </Typography>
                   {payload.map((entry) => {
-                    const { isPercent } = GENERAL_LOOKUP[gameId].MENU_STAT[label];
+                    const { isPercent } = STATS[gameId].MENU_STATS[label];
                     const totalValue = fullEntry[`${entry.dataKey}Raw`];
                     const displayValue = isPercent ? totalValue * 100 : totalValue;
                     const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;

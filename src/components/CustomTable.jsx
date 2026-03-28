@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { Card, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
-import { GENERAL_LOOKUP, CHARACTER_LOOKUP } from '@/lookups';
+import { STATS, CHARACTERS } from '@/lookups';
 import { computeRating } from '@/utils';
 
 export const CustomTable = ({ build, rating, buffs, isLoading }) => {
   const { gameId, charId } = useParams();
-  const { SUB_STAT_TYPES } = GENERAL_LOOKUP[gameId];
-  const { CRITERIA } = CHARACTER_LOOKUP[gameId][charId];
+  const { SUB_STAT_TYPES } = STATS[gameId];
+  const { CRITERIA } = CHARACTERS[gameId][charId];
   if (isLoading || !CRITERIA || !build) return null;
 
   const newRatings = Object.entries(SUB_STAT_TYPES)

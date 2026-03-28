@@ -1,11 +1,11 @@
-import { GENERAL_LOOKUP, GENERAL_LOOKUP } from '@/lookups';
+import { STATS, STATS } from '@/lookups';
 
 export default (gameId, fullWeights, mainstats) => {
-  const { NUM_MAINSTATS } = GENERAL_LOOKUP[gameId];
+  const { NUM_MAINSTATS } = STATS[gameId];
   let toAllocate = NUM_MAINSTATS * (gameId === 'wuthering-waves' ? 5 : 8);
 
   // allocate 2 substats to each possible different substat (1 for wuwa)
-  const substats = Object.entries(GENERAL_LOOKUP[gameId].STATS)
+  const substats = Object.entries(STATS[gameId].STATS)
     .filter(([, { subValue }]) => subValue)
     .map(([statId]) => ({ statId, rolls: (gameId === 'wuthering-waves' ? 0 : 1) }));
 

@@ -1,10 +1,10 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Autocomplete, Button, Dialog, DialogContent, DialogActions, DialogTitle, Box, Typography, TextField } from '@mui/material';
 import { BuildContext } from '@/contexts';
-import { CHARACTER_LOOKUP } from '@/lookups';
+import { CHARACTERS } from '@/lookups';
 import { CHARACTER_ASSETS } from '@/assets';
 
-const WUWA_DATA = CHARACTER_LOOKUP['wuthering-waves'];
+const WUWA_DATA = CHARACTERS['wuthering-waves'];
 
 const CHAR_OPTIONS = Object.keys(WUWA_DATA)
   .sort((a, b) => WUWA_DATA[a].NAME.localeCompare(WUWA_DATA[b].NAME));

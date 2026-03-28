@@ -1,4 +1,4 @@
-import { GENERAL_LOOKUP } from '@/lookups';
+import { STATS } from '@/lookups';
 import { computeRating, generateArtifact, computeTotalStat, buildSourceMapList } from '@/utils';
 
 const DAILY_RESIN = {

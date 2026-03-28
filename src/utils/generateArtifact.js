@@ -1,8 +1,8 @@
-import { GENERAL_LOOKUP } from '@/lookups';
+import { STATS } from '@/lookups';
 import { weightedLottery, upgradeArtifact } from '@/utils';
 
 export function generateArtifact(gameId) {
-  const { MAIN_STAT_TYPES } = GENERAL_LOOKUP[gameId];
+  const { MAIN_STAT_TYPES } = STATS[gameId];
 
   // Random set
   const setId = Math.floor(Math.random() * 2);

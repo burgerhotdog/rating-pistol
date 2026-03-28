@@ -1,4 +1,4 @@
-import { GENERAL_LOOKUP } from '@/lookups';
+import { STATS } from '@/lookups';
 import { weightedLottery } from '@/utils';
 
 const WW_ATKDEF = {
@@ -24,7 +24,7 @@ const WW_OTHER = {
 };
 
 const randomRoll = (gameId, statId) => {
-  const { VALUE } = GENERAL_LOOKUP[gameId].SUB_STAT_TYPES[statId];
+  const { VALUE } = STATS[gameId].SUB_STAT_TYPES[statId];
   if (gameId === 'zenless-zone-zero') return VALUE;
   if (gameId === 'honkai-star-rail') {
     const options = [1, 0.9, 0.8];
@@ -48,7 +48,7 @@ const randomRoll = (gameId, statId) => {
 };
 
 export function upgradeArtifact(gameId, mainStatId) {
-  const { NUM_SUBSTATS, SUB_STAT_TYPES } = GENERAL_LOOKUP[gameId];
+  const { NUM_SUBSTATS, SUB_STAT_TYPES } = STATS[gameId];
 
   // Create sub stat lines
   const statPool = Object.entries(SUB_STAT_TYPES)

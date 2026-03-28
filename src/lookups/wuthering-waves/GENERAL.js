@@ -224,23 +224,74 @@ export default {
       WEIGHT: 1,
     },
   },
-  MENU_STAT_ORDER: [
-    { id: 'HP', label: 'HP', isPercent: false },
-    { id: 'ATK', label: 'ATK', isPercent: false },
-    { id: 'DEF', label: 'DEF', isPercent: false },
-    { id: 'ER', label: 'Energy Regen', isPercent: true },
-    { id: 'CR', label: 'CRIT Rate', isPercent: true },
-    { id: 'CD', label: 'CRIT DMG', isPercent: true },
-    { id: 'RS', label: 'Resonance Skill DMG Bonus', isPercent: true },
-    { id: 'BA', label: 'Basic Attack DMG Bonus', isPercent: true },
-    { id: 'HA', label: 'Heavy Attack DMG Bonus', isPercent: true },
-    { id: 'RL', label: 'Resonance Liberation DMG Bonus', isPercent: true },
-    { id: 'GLACIO', label: 'Glacio DMG Bonus', isPercent: true },
-    { id: 'FUSION', label: 'Fusion DMG Bonus', isPercent: true },
-    { id: 'ELECTRO', label: 'Electro DMG Bonus', isPercent: true },
-    { id: 'AERO', label: 'Aero DMG Bonus', isPercent: true },
-    { id: 'SPECTRO', label: 'Spectro DMG Bonus', isPercent: true },
-    { id: 'HAVOC', label: 'Havoc DMG Bonus', isPercent: true },
-    { id: 'HB', label: 'Healing Bonus', isPercent: true },
-  ],
+  MENU_STATS: {
+    HP: {
+      label: 'HP',
+      isPercent: false,
+    },
+    ATK: {
+      label: 'ATK',
+      isPercent: false,
+    },
+    DEF: {
+      label: 'DEF',
+      isPercent: false,
+    },
+    ER: {
+      label: 'Energy Regen',
+      isPercent: true,
+    },
+    CR: {
+      label: 'CRIT Rate',
+      isPercent: true,
+    },
+    CD: {
+      label: 'CRIT DMG',
+      isPercent: true,
+    },
+    RS: {
+      label: 'Resonance Skill DMG Bonus',
+      isPercent: true,
+    },
+    BA: {
+      label: 'Basic Attack DMG Bonus',
+      isPercent: true,
+    },
+    HA: {
+      label: 'Heavy Attack DMG Bonus',
+      isPercent: true,
+    },
+    RL: {
+      label: 'Resonance Liberation DMG Bonus',
+      isPercent: true,
+    },
+    GLACIO: {
+      label: 'Glacio DMG Bonus',
+      isPercent: true,
+    },
+    FUSION: {
+      label: 'Fusion DMG Bonus',
+      isPercent: true,
+    },
+    ELECTRO: {
+      label: 'Electro DMG Bonus',
+      isPercent: true,
+    },
+    AERO: {
+      label: 'Aero DMG Bonus',
+      isPercent: true,
+    },
+    SPECTRO: {
+      label: 'Spectro DMG Bonus',
+      isPercent: true,
+    },
+    HAVOC: {
+      label: 'Havoc DMG Bonus',
+      isPercent: true,
+    },
+    HB: {
+      label: 'Healing Bonus',
+      isPercent: true,
+    },
+  },
 };

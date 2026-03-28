@@ -257,24 +257,78 @@ export default {
       WEIGHT: 8,
     },
   },
-  MENU_STAT_TYPES: [
-    ['HP', 'HP'],
-    ['ATK', 'ATK'],
-    ['DEF', 'DEF'],
-    ['SPD', 'SPD'],
-    ['CR', 'CRIT Rate'],
-    ['CD', 'CRIT DMG'],
-    ['BE', 'Break Effect'],
-    ['OHB', 'Outgoing Healing Boost'],
-    ['ERR', 'Energy Regeneration Rate'],
-    ['EHR', 'Effect Hit Rate'],
-    ['RES', 'Effect RES'],
-    ['PHYSICAL', 'Physical DMG Boost'],
-    ['FIRE', 'Fire DMG Boost'],
-    ['ICE', 'Ice DMG Boost'],
-    ['LIGHTNING', 'Lightning DMG Boost'],
-    ['WIND', 'Wind DMG Boost'],
-    ['QUANTUM', 'Quantum DMG Boost'],
-    ['IMAGINARY', 'Imaginary DMG Boost'],
-  ],
+  MENU_STATS: {
+    HP: {
+      label: 'HP',
+      isPercent: false,
+    },
+    ATK: {
+      label: 'ATK',
+      isPercent: false,
+    },
+    DEF: {
+      label: 'DEF',
+      isPercent: false,
+    },
+    SPD: {
+      label: 'SPD',
+      isPercent: false,
+    },
+    CR: {
+      label: 'CRIT Rate',
+      isPercent: true,
+    },
+    CD: {
+      label: 'CRIT DMG',
+      isPercent: true,
+    },
+    BE: {
+      label: 'Break Effect',
+      isPercent: true,
+    },
+    OHB: {
+      label: 'Outgoing Healing Bonus',
+      isPercent: true,
+    },
+    ERR: {
+      label: 'Energy Regeneration Rate',
+      isPercent: true,
+    },
+    EHR: {
+      label: 'Effect Hit Rate',
+      isPercent: true,
+    },
+    RES: {
+      label: 'Effect RES',
+      isPercent: true,
+    },
+    PHYSICAL: {
+      label: 'Physical DMG Bonus',
+      isPercent: true,
+    },
+    FIRE: {
+      label: 'Fire DMG Bonus',
+      isPercent: true,
+    },
+    ICE: {
+      label: 'Ice DMG Bonus',
+      isPercent: true,
+    },
+    LIGHTNING: {
+      label: 'Lightning DMG Bonus',
+      isPercent: true,
+    },
+    WIND: {
+      label: 'Wind DMG Bonus',
+      isPercent: true,
+    },
+    QUANTUM: {
+      label: 'Quantum DMG Bonus',
+      isPercent: true,
+    },
+    IMAGINARY: {
+      label: 'Imaginary DMG Bonus',
+      isPercent: true,
+    },
+  },
 };

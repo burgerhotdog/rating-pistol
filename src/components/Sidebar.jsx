@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Avatar, Card, List, ListItemButton } from '@mui/material';
 import { CHARACTER_ASSETS } from '@/assets';
-import { CHARACTER_LOOKUP } from '@/lookups';
+import { CHARACTERS } from '@/lookups';
 
 export const Sidebar = ({ buildKeys, pinned }) => {
   const navigate = useNavigate();
@@ -14,8 +14,8 @@ export const Sidebar = ({ buildKeys, pinned }) => {
       if (a === pinned) return -1;
       if (b === pinned) return 1;
 
-      const aName = CHARACTER_LOOKUP[gameId][a].NAME;
-      const bName = CHARACTER_LOOKUP[gameId][b].NAME;
+      const aName = CHARACTERS[gameId][a].NAME;
+      const bName = CHARACTERS[gameId][b].NAME;
       return aName.localeCompare(bName);
     }),
     [gameId, buildKeys, pinned],

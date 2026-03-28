@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Stack, Box, Typography, Tabs, Tab, Tooltip } from '@mui/material';
-import { GENERAL_LOOKUP } from '@/lookups';
+import { STATS } from '@/lookups';
 import { getLetter, TabLabel } from '@/utils';
 import Breakdown from './Breakdown';
 import Analysis from './Analysis';
@@ -8,7 +8,7 @@ import Plot from './Plot';
 import useTimeAgo from "./useTimeAgo";
 
 const Rating = ({ gameId, modalPipe }) => {
-  const { EQUIP_NAMES } = GENERAL_LOOKUP[gameId];
+  const { EQUIP_NAMES } = STATS[gameId];
   const { id, data, rating } = modalPipe;
   const [activeTab, setActiveTab] = useState(0);
   const benchmark = Math.round(rating.rolls / rating.bench * 100);
