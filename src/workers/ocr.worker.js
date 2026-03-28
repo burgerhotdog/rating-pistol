@@ -1,6 +1,6 @@
 import { createWorker } from 'tesseract.js';
 import { GENERAL_LOOKUP } from '@/lookups';
-import { regionToCost2, regionToCost, COST_CROPS2, regionToName, regionToNumber, COST_CROPS, SUB_NAME_TO_ID, regionToText, findBestMatch, cropBlob, cropPixels, snapToOption, WEAPON_DICT, SUBSTAT_DICT, MAIN_STAT_DICT_PER_COST } from './ocr.helpers';
+import { ocrRegion, findBestMatch, COST_CROPS2, COST_CROPS, SUB_NAME_TO_ID, WEAPON_DICT, SUBSTAT_DICT, MAIN_STAT_DICT_PER_COST } from './ocr.helpers';
 import { COST_TEMPLATES } from '@/assets/ocr/cost/templates';
 
 const { MAIN_STAT_TYPES } = GENERAL_LOOKUP['wuthering-waves'];
@@ -22,7 +22,7 @@ self.onmessage = async (e) => {
     const ocrWorker = await initWorker();
 
     const weaponNameRegion = { x: 1600, y: 450, w: 250, h: 30};
-    const weaponName = await regionToName(weaponNameRegion, WEAPON_DICT, imageBitmap, ocrWorker);
+    const weaponName = await ocrRegion(weaponNameRegion, imageBitmap, ocrWorker, WEAPON_DICT);
     const weaponId = WEAPON_DICT[weaponName];
 
 
@@ -40,7 +40,7 @@ self.onmessage = async (e) => {
         w: 153,
         h: 20,
       };
-      const mainStatName = await regionToText(mainStatNameRegion, MAIN_STAT_DICT_PER_COST[cost], imageBitmap, ocrWorker);
+      const mainStatName = await ocrRegion(mainStatNameRegion, imageBitmap, ocrWorker, MAIN_STAT_DICT_PER_COST[cost]);
       
       equipObj.mainStatId = MAIN_STAT_DICT_PER_COST[cost][mainStatName];
       equipObj.mainStatValue = MAIN_STAT_TYPES[costConvert[cost]][equipObj.mainStatId].VALUE;
@@ -55,7 +55,7 @@ self.onmessage = async (e) => {
           w: 218,
           h: 21,
         };
-        const subStatName = await regionToText(subStatNameRegion, SUB_NAME_TO_ID, imageBitmap, ocrWorker);
+        const subStatName = await ocrRegion(subStatNameRegion, imageBitmap, ocrWorker, SUB_NAME_TO_ID);
         line.subStatId = SUB_NAME_TO_ID[subStatName];
 
         const subStatValueRegion = {
@@ -65,7 +65,7 @@ self.onmessage = async (e) => {
           h: 21,
         };
 
-        const subStatValueRaw = await regionToNumber(subStatValueRegion, imageBitmap, ocrWorker);
+        const subStatValueRaw = await ocrRegion(subStatValueRegion, imageBitmap, ocrWorker);
 
         if (subStatValueRaw.endsWith('%')) {
           line.subStatId = `PERCENT_${SUB_NAME_TO_ID[subStatName]}`;
