@@ -7,3 +7,4 @@ export * from './buildSourceMapList';
 export * from './generateArtifact';
 export * from './multiWeekSimulation';
 export * from './simulateBuildAfterWeek';
+export * from './compareNewArtifact';

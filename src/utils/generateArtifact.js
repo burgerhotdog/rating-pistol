@@ -9,7 +9,7 @@ export function generateArtifact(gameId) {
 
   // Random slot (wuwa calc is different)
   const slotIndex = gameId === 'wuthering-waves'
-    ? Math.floor(Math.random() * (MAIN_STAT_TYPES.length - 1)) + 1
+    ? Math.floor(Math.random() * 2) + 1
     : Math.floor(Math.random() * MAIN_STAT_TYPES.length);
 
   // Main stat

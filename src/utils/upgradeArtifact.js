@@ -35,15 +35,15 @@ const randomRoll = (gameId, statId) => {
     return options[Math.floor(Math.random() * 4)] * VALUE;
   }
 
-  if (statId === '_ATK' || statId === '_DEF') {
-    const winnerIndex = drawLottery([4, 19, 14, 1]);
+  if (statId === 'FLAT_ATK' || statId === 'FLAT_DEF') {
+    const winnerIndex = weightedLottery([4, 19, 14, 1]);
     return WW_ATKDEF[statId][winnerIndex];
   }
-  if (statId === 'CR' || statId === 'CD') {
-    const winnerIndex = drawLottery([6, 6, 6, 2, 2, 2, 1, 1]);
+  if (statId === 'PERCENT_CR' || statId === 'PERCENT_CD') {
+    const winnerIndex = weightedLottery([6, 6, 6, 2, 2, 2, 1, 1]);
     return WW_CRIT[statId][winnerIndex];
   }
-  const winnerIndex = drawLottery([2, 2, 7, 8, 6, 5, 2, 1]);
+  const winnerIndex = weightedLottery([2, 2, 7, 8, 6, 5, 2, 1]);
   return WW_OTHER[statId][winnerIndex];
 };
 

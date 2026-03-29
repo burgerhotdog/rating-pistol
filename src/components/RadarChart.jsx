@@ -12,17 +12,27 @@ export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }
   const buildSources = buildSourceMapList(gameId, charId, build);
   const simSources = buildSources.toSpliced(3, 1, combinedSimEquips);
 
-  const data = statList.map((stat) => {
-    const buildRaw = computeTotalStat(stat, buildSources);
-    const simRaw = computeTotalStat(stat, simSources)
-    return {
-      stat,
-      build: buildRaw / simRaw * 100,
-      buildRaw,
-      sim: 100,
-      simRaw,
-    };
-  });
+  const damageType = CHARACTERS[gameId][charId].CRITERIA[0].TYPE.ELEMENT;
+  const nonDamageTypes = STATS[gameId].ELEMENT_TYPES
+    .map(element => element.toUpperCase())
+    .filter(element => element !== damageType);
+
+  const data = Object.entries(STATS[gameId].MENU_STATS)
+    .filter(([stat]) => damageType === 'PHYSICAL'
+      ? !nonDamageTypes.includes(stat)
+      : !nonDamageTypes.includes(stat) && stat !== 'PHYSICAL'
+    )
+    .map(([stat]) => {
+      const buildRaw = computeTotalStat(stat, buildSources);
+      const simRaw = computeTotalStat(stat, simSources)
+      return {
+        stat,
+        build: buildRaw / simRaw * 100 || 0,
+        buildRaw,
+        sim: simRaw ? 100 : 0,
+        simRaw,
+      };
+    });
 
   return (
     <Card sx={{ flex: 1, minHeight: 0 }}>
@@ -65,7 +75,7 @@ export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }
                     const { isPercent } = STATS[gameId].MENU_STATS[label];
                     const totalValue = fullEntry[`${entry.dataKey}Raw`];
                     const displayValue = isPercent ? totalValue * 100 : totalValue;
-                    const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;
+                    const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && label === 'ER') ? 1 : 0;
                     return (
                       <Box key={entry.dataKey} sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
                         <Typography variant="body2">{entry.name}: </Typography>

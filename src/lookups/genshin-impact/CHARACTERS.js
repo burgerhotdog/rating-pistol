@@ -295,7 +295,7 @@ export default {
             ATK: 8.0064,
           },
         },
-        DMG_TYPE: {
+        TYPE: {
           SKILL: 'ULT',
           ELEMENT: 'PYRO',
         },

@@ -146,6 +146,21 @@ export default {
       PERCENT_ATK: 0.12,
       PERCENT_CR: 0.08,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1,
+          },
+        },
+        TYPE: {
+          SKILL: 'HA',
+          ELEMENT: 'ELECTRO',
+        },
+      },
+    ],
   },
 
   // Version 2.5

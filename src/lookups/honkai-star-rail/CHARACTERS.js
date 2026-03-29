@@ -575,6 +575,21 @@ export default {
       PERCENT_CD: 0.24,
       PERCENT_LIGHTNING: 0.08,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1,
+          },
+        },
+        TYPE: {
+          SKILL: 'ULT',
+          ELEMENT: 'LIGHTNING',
+        },
+      },
+    ],
   },
   1304: {
     NAME: 'Aventurine',
