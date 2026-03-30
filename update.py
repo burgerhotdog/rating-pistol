@@ -1,5 +1,6 @@
 import sys
 from update import select_option, fetch_version, enter_ids, fetch_character
+import json
 
 GAMES = {
     'Genshin Impact': 'gi',
@@ -28,9 +29,9 @@ def main():
         character_ids = enter_ids(game_id, version, 'character')
         for ID in character_ids:
             scraped = fetch_character(game_id, version, ID)
-            print(scraped)
-
-
+            print(json.dumps(scraped, indent=2))
+            print()
+    
     # Weapons
     has_new_weapons = select_option(
         f"Does version {version} include new weapons?",

@@ -98,3 +98,75 @@ BASE_DEF_MAP = {
     'ww': lambda data: data['stats']['6']['90']['def'],
     'zzz': lambda data: data['stats']['defence_growth'] / 10000 * 59 + data['stats']['defence'] + data['level']['6']['defence'],
 }
+
+GI_BONUS_NAME_MAP = {
+    "fight_prop_hp_percent": "PERCENT_HP",
+    "fight_prop_attack_percent": "PERCENT_ATK",
+    "fight_prop_defense_percent": "PERCENT_DEF",
+    "fight_prop_element_mastery": "FLAT_EM",
+    "fight_prop_charge_efficiency": "PERCENT_ER",
+    "fight_prop_wind_add_hurt": "PERCENT_ANEMO",
+    "fight_prop_ice_add_hurt": "PERCENT_CRYO",
+    "fight_prop_grass_add_hurt": "PERCENT_DENDRO",
+    "fight_prop_elec_add_hurt": "PERCENT_ELECTRO",
+    "fight_prop_rock_add_hurt": "PERCENT_GEO",
+    "fight_prop_water_add_hurt": "PERCENT_HYDRO",
+    "fight_prop_fire_add_hurt": "PERCENT_PYRO",
+    "fight_prop_physical_add_hurt": "PERCENT_PHYSICAL",
+    "fight_prop_critical": "PERCENT_CR",
+    "fight_prop_critical_hurt": "PERCENT_CD",
+    "fight_prop_heal_add": "PERCENT_HB"
+}
+
+HSR_BONUS_NAME_MAP = {
+    "HPAddedRatio": "PERCENT_HP",
+    "AttackAddedRatio": "PERCENT_ATK",
+    "DefenceAddedRatio": "PERCENT_DEF",
+    "CriticalChanceBase": "PERCENT_CR",
+    "CriticalDamageBase": "PERCENT_CD",
+    "StatusProbabilityBase": "PERCENT_EHR",
+    "HealRatioBase": "PERCENT_OHB",
+    "SpeedDelta": "FLAT_SPD",
+    "FireAddedRatio": "PERCENT_FIRE",
+    "IceAddedRatio": "PERCENT_ICE",
+    "ImaginaryAddedRatio": "PERCENT_IMAGINARY",
+    "ThunderAddedRatio": "PERCENT_LIGHTNING",
+    "PhysicalAddedRatio": "PERCENT_PHYSICAL",
+    "QuantumAddedRatio": "PERCENT_QUANTUM",
+    "WindAddedRatio": "PERCENT_WIND",
+    "BreakDamageAddedRatioBase": "PERCENT_BE",
+    "SPRatioBase": "PERCENT_ERR",
+    "StatusResistanceBase": "PERCENT_RES",
+    "ElationDamageAddedRatioBase": "PERCENT_ELATION",
+}
+
+WW_BONUS_NAME_MAP = {
+    "HP+": "PERCENT_HP",
+    "ATK+": "PERCENT_ATK",
+    "DEF+": "PERCENT_DEF",
+    "Crit. Rate+": "PERCENT_CR",
+    "Crit. DMG+": "PERCENT_CD",
+    "Healing Bonus+": "PERCENT_OHB",
+    "Glacio DMG Bonus+": "PERCENT_GLACIO",
+    "Fusion DMG Bonus+": "PERCENT_FIRE",
+    "Electro DMG Bonus+": "PERCENT_ICE",
+    "Aero DMG Bonus+": "PERCENT_AERO",
+    "Spectro DMG Bonus+": "PERCENT_SPECTRO",
+    "Havoc DMG Bonus+": "PERCENT_HAVOC",
+}
+
+ZZZ_BONUS_NAME_MAP = {
+    "Base HP": "BASE_HP",
+    "Base ATK": "BASE_ATK",
+    "Base DEF": "BASE_DEF",
+    "HP": "PERCENT_HP",
+    "ATK": "PERCENT_ATK",
+    "DEF": "PERCENT_DEF",
+    "Impact": "BASE_IMPACT",
+    "Anomaly Mastery": "BASE_AM",
+    "Anomaly Proficiency": "BASE_AP",
+    "Base Energy Regen": "BASE_ER",
+    "CRIT Rate": "PERCENT_CR",
+    "CRIT DMG": "PERCENT_CD",
+    "PEN Ratio": "PERCENT_PR",
+}
