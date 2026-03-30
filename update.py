@@ -1,5 +1,5 @@
 import sys
-from update import select_option, fetch_version, enter_ids, fetch_character
+from update import select_option, fetch_version, enter_ids, fetch_character, fetch_weapon
 import json
 
 GAMES = {
@@ -39,6 +39,10 @@ def main():
     )
     if has_new_weapons == 'Yes':
         weapon_ids = enter_ids(game_id, version, 'weapon')
+        for ID in weapon_ids:
+            scraped = fetch_weapon(game_id, version, ID)
+            print(json.dumps(scraped, indent=2))
+            print()
     
     # Sets
     has_new_sets = select_option(

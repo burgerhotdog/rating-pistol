@@ -14,7 +14,9 @@ RARITY_VALUE_MAP = {
     'hsr': {
         'CombatPowerAvatarRarityType5': '5',
         'CombatPowerAvatarRarityType4': '4',
-        'CombatPowerAvatarRarityType3': '3',
+        'CombatPowerLightconeRarity5': '5',
+        'CombatPowerLightconeRarity4': '4',
+        'CombatPowerLightconeRarity3': '3',
     },
     'zzz': {
         4: '5',
@@ -44,10 +46,17 @@ ELEMENT_VALUE_MAP = {
     },
 }
 
-WEAPON_TYPE_ACCESS_MAP = {
+CHARACTER_WEAPON_TYPE_ACCESS_MAP = {
     'gi': lambda data: data['weapon'],
     'hsr': lambda data: data['base_type'],
     'ww': lambda data: data['weapon'],
+    'zzz': lambda data: next(iter(data['weapon_type'].values())),
+}
+
+WEAPON_TYPE_ACCESS_MAP = {
+    'gi': lambda data: data['weapon_type'],
+    'hsr': lambda data: data['base_type'],
+    'ww': lambda data: data['type'],
     'zzz': lambda data: next(iter(data['weapon_type'].values())),
 }
 
@@ -169,4 +178,25 @@ ZZZ_BONUS_NAME_MAP = {
     "CRIT Rate": "PERCENT_CR",
     "CRIT DMG": "PERCENT_CD",
     "PEN Ratio": "PERCENT_PR",
+}
+
+ZZZ_WEAPON_BONUS_NAME_MAP = {
+    "HP": "PERCENT_HP",
+    "ATK": "PERCENT_ATK",
+    "DEF": "PERCENT_DEF",
+    "Impact": "PERCENT_IMPACT",
+    "Anomaly Mastery": "PERCENT_AM",
+    "Anomaly Proficiency": "FLAT_AP",
+    "Energy Regen": "PERCENT_ER",
+    "CRIT Rate": "PERCENT_CR",
+    "CRIT DMG": "PERCENT_CD",
+    "PEN Ratio": "PERCENT_PR",
+}
+
+
+WEAPON_BASE_ATK_MAP = {
+    'gi': lambda data: data['stats_modifier']['atk']['base'] * data['stats_modifier']['atk']['levels']['90'] + data['ascension']['6']['fight_prop_base_attack'],
+    'hsr': lambda data: data['stats'][6]['base_attack_add'] * 79 + data['stats'][6]['base_attack'],
+    'ww': lambda data: data['stats']['6']['90'][0]['value'],
+    'zzz': lambda data: data['base_property']['value'] * 104 / 7,
 }

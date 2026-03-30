@@ -4,7 +4,7 @@ from .maps import (
     RARITY_VALUE_MAP,
     ELEMENT_ACCESS_MAP,
     ELEMENT_VALUE_MAP,
-    WEAPON_TYPE_ACCESS_MAP,
+    CHARACTER_WEAPON_TYPE_ACCESS_MAP,
     WEAPON_TYPE_VALUE_MAP,
     BASE_HP_MAP,
     BASE_ATK_MAP,
@@ -23,7 +23,7 @@ def fetch_character(game_id, version, ID):
     NAME = data['name']
     QUALITY = RARITY_VALUE_MAP.get(game_id, {}).get(data['rarity'], data['rarity'])
     ELEMENT = ELEMENT_VALUE_MAP.get(game_id, {}).get(ELEMENT_ACCESS_MAP[game_id](data), ELEMENT_ACCESS_MAP[game_id](data))
-    TYPE = WEAPON_TYPE_VALUE_MAP.get(game_id, {}).get(WEAPON_TYPE_ACCESS_MAP[game_id](data), WEAPON_TYPE_ACCESS_MAP[game_id](data))
+    TYPE = WEAPON_TYPE_VALUE_MAP.get(game_id, {}).get(CHARACTER_WEAPON_TYPE_ACCESS_MAP[game_id](data), CHARACTER_WEAPON_TYPE_ACCESS_MAP[game_id](data))
 
     FIXED_STATS = {}
     FIXED_STATS['BASE_HP'] = BASE_HP_MAP[game_id](data)
