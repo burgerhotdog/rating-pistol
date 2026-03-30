@@ -1,18 +1,11 @@
 import sys
-from update import select_option, fetch_version, enter_ids
+from update import select_option, fetch_version, enter_ids, fetch_character
 
 GAMES = {
     'Genshin Impact': 'gi',
     'Honkai Star Rail': 'hsr',
     'Wuthering Waves': 'ww',
     'Zenless Zone Zero': 'zzz',
-}
-
-ITEM_TYPE_MAP = {
-    'gi': 'artifact',
-    'hsr': 'relicset',
-    'ww': 'echo',
-    'zzz': 'equipment',
 }
 
 def main():
@@ -25,7 +18,6 @@ def main():
     is_version_correct = select_option('Is this correct?', ['Yes', 'No'])
     if is_version_correct == 'No':
         sys.exit()
-    base_url = f"https://static.nanoka.cc/{game_id}/{version}/"
 
     # Characters
     has_new_characters = select_option(
@@ -33,7 +25,11 @@ def main():
         ['Yes', 'No'],
     )
     if has_new_characters == 'Yes':
-        character_ids = enter_ids(base_url, 'character')
+        character_ids = enter_ids(game_id, version, 'character')
+        for ID in character_ids:
+            scraped = fetch_character(game_id, version, ID)
+            print(scraped)
+
 
     # Weapons
     has_new_weapons = select_option(
@@ -41,7 +37,7 @@ def main():
         ['Yes', 'No'],
     )
     if has_new_weapons == 'Yes':
-        weapon_ids = enter_ids(base_url, 'lightcone' if game_id == 'hsr' else 'weapon')
+        weapon_ids = enter_ids(game_id, version, 'weapon')
     
     # Sets
     has_new_sets = select_option(
@@ -49,7 +45,7 @@ def main():
         ['Yes', 'No'],
     )
     if has_new_sets == 'Yes':
-        set_ids = enter_ids(base_url, ITEM_TYPE_MAP.get(game_id))
+        set_ids = enter_ids(game_id, version, 'set')
 
 if __name__ == "__main__":
     main()
