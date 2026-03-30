@@ -4,3 +4,4 @@ from .enter_ids import enter_ids
 from .fetch_character import fetch_character
 from .fetch_weapon import fetch_weapon
 from .fetch_image import fetch_image
+from .json import read_json, write_json
