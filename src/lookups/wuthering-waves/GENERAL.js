@@ -1,8 +1,6 @@
 export default {
   TITLE: 'Wuthering Waves',
   VERSION: '3.1',
-  RESIN_PER_DAY: 240,
-  RESIN_PER_RUN: 60,
   DROPS_PER_RUN: 4.33,
   NUM_MAINSTATS: 5,
   NUM_SUBSTATS: 5,
@@ -11,7 +9,7 @@ export default {
     '3-Cost',
     '3-Cost',
     '1-Cost',
-    '1-Cost'
+    '1-Cost',
   ],
   ELEMENT_TYPES: [
     'Aero',
@@ -19,14 +17,14 @@ export default {
     'Fusion',
     'Glacio',
     'Havoc',
-    'Spectro'
+    'Spectro',
   ],
   WEAPON_TYPES: [
     'Broadblade',
     'Gauntlets',
     'Pistols',
     'Rectifier',
-    'Sword'
+    'Sword',
   ],
   DEFAULT_STATS: {
     BASE_HP: 0,
@@ -226,23 +224,74 @@ export default {
       WEIGHT: 1,
     },
   },
-  MENU_STAT_TYPES: [
-    ['HP', 'HP'],
-    ['ATK', 'ATK'],
-    ['DEF', 'DEF'],
-    ['ER', 'Energy Regen'],
-    ['CR', 'CRIT Rate'],
-    ['CD', 'CRIT DMG'],
-    ['RS', 'Resonance Skill DMG Bonus'],
-    ['BA', 'Basic Attack DMG Bonus'],
-    ['HA', 'Heavy Attack DMG Bonus'],
-    ['RL', 'Resonance Liberation DMG Bonus'],
-    ['GLACIO', 'Glacio DMG Bonus'],
-    ['FUSION', 'Fusion DMG Bonus'],
-    ['ELECTRO', 'Electro DMG Bonus'],
-    ['AERO', 'Aero DMG Bonus'],
-    ['SPECTRO', 'Spectro DMG Bonus'],
-    ['HAVOC', 'Havoc DMG Bonus'],
-    ['HB', 'Healing Bonus'],
-  ],
+  MENU_STATS: {
+    HP: {
+      label: 'HP',
+      isPercent: false,
+    },
+    ATK: {
+      label: 'ATK',
+      isPercent: false,
+    },
+    DEF: {
+      label: 'DEF',
+      isPercent: false,
+    },
+    ER: {
+      label: 'Energy Regen',
+      isPercent: true,
+    },
+    CR: {
+      label: 'CRIT Rate',
+      isPercent: true,
+    },
+    CD: {
+      label: 'CRIT DMG',
+      isPercent: true,
+    },
+    RS: {
+      label: 'Resonance Skill DMG Bonus',
+      isPercent: true,
+    },
+    BA: {
+      label: 'Basic Attack DMG Bonus',
+      isPercent: true,
+    },
+    HA: {
+      label: 'Heavy Attack DMG Bonus',
+      isPercent: true,
+    },
+    RL: {
+      label: 'Resonance Liberation DMG Bonus',
+      isPercent: true,
+    },
+    GLACIO: {
+      label: 'Glacio DMG Bonus',
+      isPercent: true,
+    },
+    FUSION: {
+      label: 'Fusion DMG Bonus',
+      isPercent: true,
+    },
+    ELECTRO: {
+      label: 'Electro DMG Bonus',
+      isPercent: true,
+    },
+    AERO: {
+      label: 'Aero DMG Bonus',
+      isPercent: true,
+    },
+    SPECTRO: {
+      label: 'Spectro DMG Bonus',
+      isPercent: true,
+    },
+    HAVOC: {
+      label: 'Havoc DMG Bonus',
+      isPercent: true,
+    },
+    HB: {
+      label: 'Healing Bonus',
+      isPercent: true,
+    },
+  },
 };

@@ -1,10 +1,10 @@
 import { Paper, Box, Typography, Divider, Stack } from '@mui/material';
-import { CHARACTER_LOOKUP, GENERAL_LOOKUP } from '@/lookups';
+import { CHARACTERS, STATS } from '@/lookups';
 
 export default ({ gameId, avatarId, ratingData, mainstat, subStatList }) => {
   const { rolls } = ratingData;
-  const { weights } = CHARACTER_LOOKUP[gameId][avatarId];
-  const statData = GENERAL_LOOKUP[gameId].STATS;
+  const { weights } = CHARACTERS[gameId][avatarId];
+  const statData = STATS[gameId].STATS;
 
   const Row = ({ subStatId, value }) => {
     const isFlat = subStatId[0] === '_';

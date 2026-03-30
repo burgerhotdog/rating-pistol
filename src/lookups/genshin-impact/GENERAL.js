@@ -1,8 +1,6 @@
 export default {
   TITLE: 'Genshin Impact',
   VERSION: '6.4',
-  RESIN_PER_DAY: 180,
-  RESIN_PER_RUN: 20,
   DROPS_PER_RUN: 1.065,
   NUM_MAINSTATS: 5,
   NUM_SUBSTATS: 4,
@@ -11,7 +9,7 @@ export default {
     'Plume',
     'Sands',
     'Goblet',
-    'Circlet'
+    'Circlet',
   ],
   ELEMENT_TYPES: [
     'Anemo',
@@ -20,14 +18,14 @@ export default {
     'Electro',
     'Geo',
     'Hydro',
-    'Pyro'
+    'Pyro',
   ],
   WEAPON_TYPES: [
     'Bow',
     'Catalyst',
     'Claymore',
     'Polearm',
-    'Sword'
+    'Sword',
   ],
   DEFAULT_STATS: {
     BASE_HP: 0,
@@ -232,22 +230,70 @@ export default {
       WEIGHT: 4,
     },
   },
-  MENU_STAT_TYPES: [
-    ['HP', 'Max HP'],
-    ['ATK', 'ATK'],
-    ['DEF', 'DEF'],
-    ['EM', 'Elemental Mastery'],
-    ['CR', 'CRIT Rate'],
-    ['CD', 'CRIT DMG'],
-    ['HB', 'Healing Bonus'],
-    ['ER', 'Energy Recharge'],
-    ['PYRO', 'Pyro DMG Bonus'],
-    ['HYDRO', 'Hydro DMG Bonus'],
-    ['DENDRO', 'Dendro DMG Bonus'],
-    ['ELECTRO', 'Electro DMG Bonus'],
-    ['ANEMO', 'Anemo DMG Bonus'],
-    ['CRYO', 'Cryo DMG Bonus'],
-    ['GEO', 'Geo DMG Bonus'],
-    ['PHYSICAL', 'Physical DMG Bonus'],
-  ],
+  MENU_STATS: {
+    HP: {
+      label: 'HP',
+      isPercent: false,
+    },
+    ATK: {
+      label: 'ATK',
+      isPercent: false,
+    },
+    DEF: {
+      label: 'DEF',
+      isPercent: false,
+    },
+    EM: {
+      label: 'Elemental Mastery',
+      isPercent: false,
+    },
+    CR: {
+      label: 'CRIT Rate',
+      isPercent: true,
+    },
+    CD: {
+      label: 'CRIT DMG',
+      isPercent: true,
+    },
+    HB: {
+      label: 'Healing Bonus',
+      isPercent: true,
+    },
+    ER: {
+      label: 'Energy Recharge',
+      isPercent: true,
+    },
+    PYRO: {
+      label: 'Pyro DMG Bonus',
+      isPercent: true,
+    },
+    HYDRO: {
+      label: 'Hydro DMG Bonus',
+      isPercent: true,
+    },
+    DENDRO: {
+      label: 'Dendro DMG Bonus',
+      isPercent: true,
+    },
+    ELECTRO: {
+      label: 'Electro DMG Bonus',
+      isPercent: true,
+    },
+    ANEMO: {
+      label: 'Anemo DMG Bonus',
+      isPercent: true,
+    },
+    CRYO: {
+      label: 'Cryo DMG Bonus',
+      isPercent: true,
+    },
+    GEO: {
+      label: 'Geo DMG Bonus',
+      isPercent: true,
+    },
+    PHYSICAL: {
+      label: 'Physical DMG Bonus',
+      isPercent: true,
+    },
+  },
 };

@@ -1,8 +1,6 @@
 export default {
   TITLE: 'Zenless Zone Zero',
   VERSION: '2.6',
-  RESIN_PER_DAY: 320,
-  RESIN_PER_RUN: 60,
   DROPS_PER_RUN: 2.25,
   NUM_MAINSTATS: 6,
   NUM_SUBSTATS: 4,
@@ -12,14 +10,14 @@ export default {
     'Disk 3',
     'Disk 4',
     'Disk 5',
-    'Disk 6'
+    'Disk 6',
   ],
   ELEMENT_TYPES: [
     'Electric',
     'Ether',
     'Fire',
     'Ice',
-    'Physical'
+    'Physical',
   ],
   WEAPON_TYPES: [
     'Anomaly',
@@ -27,7 +25,7 @@ export default {
     'Defense',
     'Rupture',
     'Stun',
-    'Support'
+    'Support',
   ],
   DEFAULT_STATS: {
     BASE_HP: 0,
@@ -227,16 +225,46 @@ export default {
       WEIGHT: 5,
     },
   },
-  MENU_STAT_TYPES: [
-    ['HP', 'HP'],
-    ['ATK', 'ATK'],
-    ['DEF', 'DEF'],
-    ['IMPACT', 'Impact'],
-    ['CR', 'CRIT Rate'],
-    ['CD', 'CRIT DMG'],
-    ['AM', 'Anomaly Mastery'],
-    ['AP', 'Anomaly Proficiency'],
-    ['PR', 'PEN Ratio'],
-    ['ER', 'Energy Regen'],
-  ],
+  MENU_STATS: {
+    HP: {
+      label: 'HP',
+      isPercent: false,
+    },
+    ATK: {
+      label: 'ATK',
+      isPercent: false,
+    },
+    DEF: {
+      label: 'DEF',
+      isPercent: false,
+    },
+    IMPACT: {
+      label: 'Impact',
+      isPercent: false,
+    },
+    CR: {
+      label: 'CRIT Rate',
+      isPercent: true,
+    },
+    CD: {
+      label: 'CRIT DMG',
+      isPercent: true,
+    },
+    AM: {
+      label: 'Anomaly Mastery',
+      isPercent: false,
+    },
+    AP: {
+      label: 'Anomaly Proficiency',
+      isPercent: false,
+    },
+    PR: {
+      label: 'PEN Ratio',
+      isPercent: true,
+    },
+    ER: {
+      label: 'Energy Regen',
+      isPercent: false,
+    },
+  },
 };

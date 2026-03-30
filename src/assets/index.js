@@ -48,5 +48,3 @@ export const ICON_ASSETS = {
   'wuthering-waves': Object.values(import.meta.glob('./icon/ww_icon.webp', { eager: true }))[0].default,
   'zenless-zone-zero': Object.values(import.meta.glob('./icon/zzz_icon.webp', { eager: true }))[0].default,
 };
-
-export const RATING_ASSETS = short(import.meta.glob('./rating/*.webp', { eager: true }));

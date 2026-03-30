@@ -1,4 +1,26 @@
 export default {
+  // Version 4.1
+  24006: {
+    NAME: 'Elation Brimming With Blessings',
+    QUALITY: '5',
+    TYPE: 'Elation',
+    FIXED_STATS: {
+      BASE_HP: 952,
+      BASE_ATK: 529,
+      BASE_DEF: 463,
+    },
+  },
+  23056: {
+    NAME: 'The Finale of a Lie',
+    QUALITY: '5',
+    TYPE: 'Hunt',
+    FIXED_STATS: {
+      BASE_HP: 846,
+      BASE_ATK: 635,
+      BASE_DEF: 529,
+    },
+  },
+
   // Version 4.0
   23054: {
     NAME: 'When She Decided to See',

@@ -592,6 +592,21 @@ export default {
       BASE_AP: 93,
       PERCENT_CR: 0.144,
     },
+    CRITERIA: [
+      {
+        NAME: 'Crit DPS',
+        SCALING: {
+          FLAT: 0,
+          MULTIPLIER: {
+            ATK: 1,
+          },
+        },
+        TYPE: {
+          SKILL: 'NA',
+          ELEMENT: 'ICE',
+        },
+      },
+    ],
   },
   1181: {
     NAME: 'Grace',

@@ -1,45 +1,57 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
+import { useParams } from 'react-router-dom';
+import { Card, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
+import { STATS, CHARACTERS } from '@/lookups';
+import { computeRating } from '@/utils';
 
-export const CustomTable = () => {
-  const rows = [
-    { name: 'CRIT', diff: 2.9 },
-    { name: 'ATK', diff: 1.7 },
-  ];
+export const CustomTable = ({ build, rating, buffs, isLoading }) => {
+  const { gameId, charId } = useParams();
+  const { SUB_STAT_TYPES } = STATS[gameId];
+  const { CRITERIA } = CHARACTERS[gameId][charId];
+  if (isLoading || !CRITERIA || !build) return null;
 
-  const headers = ['Substat', '%diff'];
+  const newRatings = Object.entries(SUB_STAT_TYPES)
+    .map(([id, { VALUE }]) => {
+      const newRating = computeRating(gameId, charId, build, CRITERIA[0], { ...buffs, [id]: (buffs[id] ?? 0) + VALUE});
+      return {
+        name: id,
+        diff: newRating / rating * 100 - 100,
+      };
+    })
+    .filter(({ diff }) => diff)
+    .sort(({ diff: a }, { diff: b }) => b - a);
 
   return (
-    <TableContainer component={Paper} sx={{ maxHeight: 300 }}>
-      <Table stickyHeader size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              <Typography variant="subtitle2" fontWeight="bold">
-                {headers[0]}
-              </Typography>
-            </TableCell>
-            {headers.slice(1).map((header) => (
-              <TableCell key={header} align="center">
+    <Card sx={{ flex: 1 }}>
+      <TableContainer>
+        <Table stickyHeader size="small">
+          <TableHead>
+            <TableRow>
+              <TableCell>
                 <Typography variant="subtitle2" fontWeight="bold">
-                  {header}
+                  +1 Substat
                 </Typography>
               </TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row, index) => (
-            <TableRow key={index}>
               <TableCell>
-                <Typography variant="body2">{row.name}</Typography>
-              </TableCell>
-              <TableCell align="center">
-                <Typography variant="body2">{row.diff}</Typography>
+                <Typography variant="subtitle2" fontWeight="bold">
+                  % diff
+                </Typography>
               </TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {newRatings.map(({ name, diff }) => (
+              <TableRow key={name}>
+                <TableCell>
+                  <Typography variant="body2">{SUB_STAT_TYPES[name].NAME}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2">{diff.toFixed(1)}%</Typography>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Card>
   );
 };

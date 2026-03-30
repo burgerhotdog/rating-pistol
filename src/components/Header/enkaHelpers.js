@@ -1,4 +1,4 @@
-import { CHARACTER_LOOKUP, WEAPON_LOOKUP, GENERAL_LOOKUP } from '@/lookups';
+import { CHARACTERS, WEAPONS, STATS } from '@/lookups';
 import template from '@/template';
 import ENKA_STAT_MAP from './ENKA_STAT_MAP.json';
 
@@ -50,7 +50,7 @@ export async function fetchEnka(gameId, uid) {
 
     // prune unrecognized avatars
     const validList = avatarList?.filter(({ avatarId }) => {
-      return CHARACTER_LOOKUP[gameId][avatarId];
+      return CHARACTERS[gameId][avatarId];
     });
 
     // empty list case
@@ -62,24 +62,24 @@ export async function fetchEnka(gameId, uid) {
   } catch (err) {
     return [500, ERROR_CODES['500']];
   }
-};
+}
 
 // PARSE HELPERS
 const PARSE_WEAPONID = {
   'genshin-impact': (enka) => {
     const weaponObj = enka.equipList[enka.equipList.length - 1];
     const weaponId = String(weaponObj.itemId);
-    return WEAPON_LOOKUP['genshin-impact'][weaponId] ? weaponId : null;
+    return WEAPONS['genshin-impact'][weaponId] ? weaponId : null;
   },
   'honkai-star-rail': (enka) => {
     const weaponObj = enka.equipment;
     const weaponId = weaponObj?.tid;
-    return WEAPON_LOOKUP['honkai-star-rail'][weaponId] ? String(weaponId) : null;
+    return WEAPONS['honkai-star-rail'][weaponId] ? String(weaponId) : null;
   },
   'zenless-zone-zero': (enka) => {
     const weaponObj = enka.Weapon;
     const weaponId = weaponObj?.Id;
-    return WEAPON_LOOKUP['zenless-zone-zero'][weaponId] ? String(weaponId) : null;
+    return WEAPONS['zenless-zone-zero'][weaponId] ? String(weaponId) : null;
   },
 };
 
@@ -195,4 +195,4 @@ export function parseEnkaObj(gameId, enkaObj) {
   }
 
   return [avatarId, avatarData];
-};
+}

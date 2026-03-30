@@ -1,10 +1,10 @@
-import { useLocation, Navigate, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Container } from '@mui/material';
 import { Header } from '@/components';
-import { AuthProvider, BuildProvider, UserDataProvider } from '@/contexts';
+import { AuthProvider, BuildProvider, UserProvider } from '@/contexts';
 import { GamePage, HomePage } from '@/pages';
 
-const GAME_IDS = new Set([
+const GAME_PATHS = new Set([
   'genshin-impact',
   'honkai-star-rail',
   'wuthering-waves',
@@ -14,18 +14,17 @@ const GAME_IDS = new Set([
 export default function App() {
   const location = useLocation();
   const pathSegments = location.pathname.split('/').filter(Boolean);
-  const [gameId = ''] = pathSegments;
-  const isHome = pathSegments.length === 0;
-  const hasValidSegmentCount = pathSegments.length <= 2;
-  const hasValidGameId = isHome || GAME_IDS.has(gameId);
+  const gamePath = pathSegments[0] ?? null;
 
-  if (!hasValidSegmentCount || !hasValidGameId) {
-    return <Navigate to="/" replace />;
-  }
+  const isHome = pathSegments.length === 0;
+  const isGame = GAME_PATHS.has(gamePath) && pathSegments.length < 3;
+  const isValidUrl = isHome || isGame;
+
+  if (!isValidUrl) return <Navigate to="/" replace />;
 
   return (
     <AuthProvider>
-      <UserDataProvider>
+      <UserProvider>
         <BuildProvider>
           <Container
             maxWidth="lg"
@@ -35,15 +34,14 @@ export default function App() {
               height: '100dvh',
             }}
           >
-            <Header />
+            <Header gamePath={gamePath} />
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/:gameId/:charId?" element={<GamePage />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Container>
         </BuildProvider>
-      </UserDataProvider>
+      </UserProvider>
     </AuthProvider>
   );
-};
+}

@@ -1,10 +1,10 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Autocomplete, Button, Dialog, DialogContent, DialogActions, DialogTitle, Box, Typography, TextField } from '@mui/material';
 import { BuildContext } from '@/contexts';
-import { CHARACTER_LOOKUP } from '@/lookups';
+import { CHARACTERS } from '@/lookups';
 import { CHARACTER_ASSETS } from '@/assets';
 
-const WUWA_DATA = CHARACTER_LOOKUP['wuthering-waves'];
+const WUWA_DATA = CHARACTERS['wuthering-waves'];
 
 const CHAR_OPTIONS = Object.keys(WUWA_DATA)
   .sort((a, b) => WUWA_DATA[a].NAME.localeCompare(WUWA_DATA[b].NAME));
@@ -15,6 +15,15 @@ const HeaderOcr = () => {
   const [selectedAvatarId, setSelectedAvatarId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const workerRef = useRef(null);
+
+  useEffect(() => {
+    workerRef.current = new Worker(
+      new URL('../../workers/ocr.worker.js', import.meta.url),
+      { type: 'module' }
+    );
+    return () => workerRef.current.terminate();
+  }, []);
 
   const closeDialog = () => {
     setDialogOpen(false);
@@ -31,26 +40,25 @@ const HeaderOcr = () => {
     setIsLoading(true);
     setError(null);
 
-    const formData = new FormData();
-    formData.append('file', file);
+    createImageBitmap(file).then((imageBitmap) => {
+      workerRef.current.postMessage({ imageBitmap }, [imageBitmap]);
+    });
 
-    fetch('https://rating-pistol-be-6a62d70a6b2f.herokuapp.com/ocr/', {
-      method: 'POST',
-      body: formData,
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error('Server error');
-        return res.json();
-      })
-      .then(data => {
-        saveBuildEntries('wuthering-waves', [[selectedAvatarId, data]]);
-        closeDialog();
-      })
-      .catch((err) => {
-        console.error('Error uploading image:', err);
+    workerRef.current.onmessage = ({ data }) => {
+      const { success, build, error: workerError } = data;
+      if (!success) {
         setError('Failed to process image. Please try again.');
         setIsLoading(false);
-      });
+        return;
+      }
+      saveBuildEntries('wuthering-waves', [[selectedAvatarId, build]]);
+      closeDialog();
+    };
+
+    workerRef.current.onerror = () => {
+      setError('Failed to process image. Please try again.');
+      setIsLoading(false);
+    };
   };
 
   return (
