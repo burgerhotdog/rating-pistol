@@ -193,7 +193,6 @@ ZZZ_WEAPON_BONUS_NAME_MAP = {
     "PEN Ratio": "PERCENT_PR",
 }
 
-
 WEAPON_BASE_ATK_MAP = {
     'gi': lambda data: data['stats_modifier']['atk']['base'] * data['stats_modifier']['atk']['levels']['90'] + data['ascension']['6']['fight_prop_base_attack'],
     'hsr': lambda data: data['stats'][6]['base_attack_add'] * 79 + data['stats'][6]['base_attack'],
