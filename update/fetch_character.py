@@ -39,7 +39,7 @@ def fetch_character(game_id, version, ID):
             stat_id = GI_BONUS_NAME_MAP[raw_stat_id]
             FIXED_STATS[stat_id] = FIXED_STATS.get(stat_id, 0) + stat_value
 
-            fetch_image(game_id, ID, data["icon"])
+            fetch_image(game_id, ID, data["icon"], 'avatar')
 
         case 'hsr':
             FIXED_STATS['BASE_SPD'] = data['stats']['6']['speed_base']
@@ -52,7 +52,7 @@ def fetch_character(game_id, version, ID):
                 stat_value = node['1']['status_add_list'][0]['value']
                 FIXED_STATS[stat_id] = FIXED_STATS.get(stat_id, 0) + stat_value
 
-            fetch_image(game_id, ID, f"avatarshopicon/{ID}")
+            fetch_image(game_id, ID, f"avatarshopicon/{ID}", 'avatar')
 
         case 'ww':
             for node in data['skill_trees'].values():
@@ -63,7 +63,7 @@ def fetch_character(game_id, version, ID):
                 stat_value = float(node['skill']['param'][0][:-1]) / 100
                 FIXED_STATS[stat_id] = FIXED_STATS.get(stat_id, 0) + stat_value
 
-            fetch_image(game_id, ID, data["icon"][13:data["icon"].rindex(".")])
+            fetch_image(game_id, ID, data["icon"][13:data["icon"].rindex(".")], 'avatar')
 
         case 'zzz':
             FIXED_STATS['BASE_IMPACT'] = data['stats']['break_stun']
@@ -81,7 +81,7 @@ def fetch_character(game_id, version, ID):
 
                 FIXED_STATS[stat_id] = FIXED_STATS.get(stat_id, 0) + stat_value
 
-            fetch_image(game_id, ID, data["icon"])
+            fetch_image(game_id, ID, data["icon"], 'avatar')
 
     return {
         "NAME": NAME,

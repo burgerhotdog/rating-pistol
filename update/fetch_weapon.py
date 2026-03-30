@@ -1,4 +1,5 @@
 import requests
+from .fetch_image import fetch_image
 from .maps import (
     ID_TYPE_MAP,
     RARITY_VALUE_MAP,
@@ -30,17 +31,25 @@ def fetch_weapon(game_id, version, ID):
             stat_id = GI_BONUS_NAME_MAP[raw_stat_id]
             FIXED_STATS[stat_id] = stat_map['base'] * stat_map['levels']['90']
 
+            fetch_image(game_id, ID, data["icon"], 'weapon')
+
         case 'hsr':
             FIXED_STATS['BASE_HP'] = data['stats'][6]['base_hp'] + data['stats'][6]['base_hp_add'] * 79
             FIXED_STATS['BASE_DEF'] = data['stats'][6]['base_defence'] + data['stats'][6]['base_defence_add'] * 79
 
+            fetch_image(game_id, ID, f"lightconemediumicon/{ID}", 'weapon')
+
         case 'ww':
             stat_id = WW_BONUS_NAME_MAP[f"{data['stats']['6']['90'][1]['name']}+"]
-            FIXED_STATS[stat_id] = data['stats']['6']['90'][1]['value'] / 1000 if data['stats']['6']['90'][1]['is_percent'] else data['stats']['6']['90'][1]['value']
+            FIXED_STATS[stat_id] = data['stats']['6']['90'][1]['value'] / 10000 if data['stats']['6']['90'][1]['is_percent'] else data['stats']['6']['90'][1]['value']
+
+            fetch_image(game_id, ID, data["icon"][13:data["icon"].rindex(".")], 'weapon')
 
         case 'zzz':
             stat_id = ZZZ_WEAPON_BONUS_NAME_MAP[data['rand_property']['name']]
             FIXED_STATS[stat_id] = (data['rand_property']['value'] if stat_id.startswith('FLAT') else data['rand_property']['value'] / 10000) * 2.5
+
+            fetch_image(game_id, ID, data["code_name"], 'weapon')
 
     return {
         "NAME": NAME,
