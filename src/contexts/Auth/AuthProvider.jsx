@@ -1,17 +1,16 @@
-import { createContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   GoogleAuthProvider,
   browserLocalPersistence,
   onAuthStateChanged,
   setPersistence,
   signInWithPopup,
-  signOut as firebaseSignOut,
+  signOut as signOutWithFirebase,
 } from 'firebase/auth';
 import { auth } from '@/firebase';
+import { AuthContext } from '@/contexts';
 
 const provider = new GoogleAuthProvider();
-
-export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -39,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   async function signOut() {
     setIsLoading(true);
     try {
-      await firebaseSignOut(auth);
+      await signOutWithFirebase(auth);
     } catch (err) {
       console.error(err);
     }

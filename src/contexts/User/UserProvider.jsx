@@ -1,12 +1,10 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { deleteField, doc, onSnapshot, setDoc, updateDoc } from 'firebase/firestore';
-import { AuthContext } from '@/contexts';
 import { db } from '@/firebase';
-
-export const UserContext = createContext(null);
+import { UserContext, useAuth } from '@/contexts';
 
 export const UserProvider = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const [savedUids, setSavedUids] = useState({});
   const [pinnedIds, setPinnedIds] = useState({});
 

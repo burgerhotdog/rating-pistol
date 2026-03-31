@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
-import { UserContext, BuildContext } from '@/contexts';
+import { useBuild, useUser } from '@/contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
 import { CHARACTERS } from '@/lookups';
 
 const HeaderEnka = ({ activeGameId }) => {
-  const { savedUids, updateSavedUids } = useContext(UserContext);
-  const { saveBuildEntries } = useContext(BuildContext);
+  const { savedUids, updateSavedUids } = useUser();
+  const { saveBuildEntries } = useBuild();
   const [uid, setUid] = useState('');
   const [isSyncLoading, setIsSyncLoading] = useState(false);
   const [error, setError] = useState(null);

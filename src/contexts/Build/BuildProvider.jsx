@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   collection,
   deleteDoc,
@@ -7,8 +7,8 @@ import {
   setDoc,
   writeBatch,
 } from 'firebase/firestore';
-import { AuthContext } from '@/contexts';
 import { db } from '@/firebase';
+import { BuildContext, useAuth } from '@/contexts';
 
 const GAME_PATHS = [
   'genshin-impact',
@@ -17,10 +17,8 @@ const GAME_PATHS = [
   'zenless-zone-zero',
 ];
 
-export const BuildContext = createContext(null);
-
 export const BuildProvider = ({ children }) => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuth();
   const [buildCollections, setBuildCollections] = useState({});
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Stack } from '@mui/material';
 import {
@@ -8,14 +8,14 @@ import {
   CustomRadarChart,
   CustomTable,
 } from '@/components';
-import { BuildContext, UserContext } from '@/contexts';
+import { useBuild, useUser } from '@/contexts';
 import { computeRating } from '@/utils';
 import { CHARACTERS } from '@/lookups';
 
 const GamePage = () => {
   const { gameId, charId } = useParams();
-  const builds = useContext(BuildContext).buildCollections[gameId];
-  const pinned = useContext(UserContext).pinnedIds[gameId];
+  const builds = useBuild().buildCollections[gameId];
+  const pinned = useUser().pinnedIds[gameId];
 
   const build = builds?.[charId];
   const criteria = CHARACTERS[gameId][charId]?.CRITERIA;
