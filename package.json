@@ -35,8 +35,5 @@
     "globals": "^15.11.0",
     "vite": "^6.2.4",
     "vitest": "^4.1.0"
-  },
-  "overrides": {
-    "brace-expansion": "^5.0.5"
   }
 }
