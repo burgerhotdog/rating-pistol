@@ -1,10 +1,11 @@
-import json, sys
+import json, requests, sys
 from update import (
     select_option,
-    fetch_version,
     enter_ids,
-    fetch_character,
-    fetch_weapon,
+    parse_character,
+    parse_weapon,
+    parse_set,
+    parse_image,
     read_json,
     write_json,
 )
@@ -23,15 +24,23 @@ GAME_LINKS = {
     'zzz': 'zenless-zone-zero',
 }
 
+ID_TYPE_MAP = {
+    'gi': { 'set': 'artifact' },
+    'hsr': { 'weapon': 'lightcone', 'set': 'relicset' },
+    'ww': { 'set': 'echo' },
+    'zzz': { 'set': 'equipment' },
+}
+
 def main():
     game = select_option('Select game to update:', GAMES.keys())
     game_id = GAMES[game]
     print()
 
-    version = fetch_version(game_id)
-    character_ids, character_names = enter_ids(game_id, version, 'character')
-    weapon_ids, weapon_names = enter_ids(game_id, version, 'weapon')
-    set_ids, set_names = enter_ids(game_id, version, 'set')
+    data = requests.get("https://static.nanoka.cc/manifest.json").json()
+    version = data[game_id]["live"]
+    character_ids, character_names, _ = enter_ids(game_id, version, 'character')
+    weapon_ids, weapon_names, _ = enter_ids(game_id, version, 'weapon')
+    set_ids, set_names, echo_setid_to_key = enter_ids(game_id, version, 'set')
     print()
 
     # Confirm input
@@ -55,22 +64,36 @@ def main():
         print('Invalid input. Please try again.')
 
     # Scrape
+    url_base = f"https://static.nanoka.cc/{game_id}/{version}/en/"
     if character_ids:
         json_data = read_json(f"src/lookups/{GAME_LINKS[game_id]}/CHARACTERS.json")
+        mapped_id_type = ID_TYPE_MAP.get(game_id, {}).get('character', 'character')
         for ID in character_ids:
-            json_data[ID] = fetch_character(game_id, version, ID)
+            data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
+            parse_image(data, game_id, ID, 'avatar')
+            json_data[ID] = parse_character(data, game_id)
         write_json(f"src/lookups/{GAME_LINKS[game_id]}/CHARACTERS.json", json_data)
 
     if weapon_ids:
         json_data = read_json(f"src/lookups/{GAME_LINKS[game_id]}/WEAPONS.json")
+        mapped_id_type = ID_TYPE_MAP.get(game_id, {}).get('weapon', 'weapon')
         for ID in weapon_ids:
-            json_data[ID] = fetch_weapon(game_id, version, ID)
+            data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
+            parse_image(data, game_id, ID, 'weapon')
+            json_data[ID] = parse_weapon(data, game_id)
         write_json(f"src/lookups/{GAME_LINKS[game_id]}/WEAPONS.json", json_data)
 
     if set_ids:
         json_data = read_json(f"src/lookups/{GAME_LINKS[game_id]}/SETS.json")
+        mapped_id_type = ID_TYPE_MAP.get(game_id, {}).get('set', 'set')
         for ID in set_ids:
-            json_data[ID] = fetch_set(game_id, version, ID)
+            if game_id == "ww":
+                data = requests.get(f"{url_base}{mapped_id_type}/{echo_setid_to_key[ID]}.json").json()
+                data = data["group"][ID]
+            else:
+                data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
+            parse_image(data, game_id, ID, 'set')
+            json_data[ID] = parse_set(data, game_id)
         write_json(f"src/lookups/{GAME_LINKS[game_id]}/SETS.json", json_data)
 
     print('Update complete')

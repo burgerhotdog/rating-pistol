@@ -55,7 +55,7 @@ def enter_ids(game_id, version, id_type):
             sys.exit()
 
         if input_str == '':
-            return [], []
+            return [], [], {}
 
         id_list = input_str.split()
         invalid_ids = [ID for ID in id_list if is_invalid_id(ID)]
@@ -66,4 +66,4 @@ def enter_ids(game_id, version, id_type):
         id_list = sorted(id_list, key=int)
         id_names = [get_name(ID) for ID in id_list]
 
-        return id_list, id_names
+        return id_list, id_names, echo_setid_to_key
