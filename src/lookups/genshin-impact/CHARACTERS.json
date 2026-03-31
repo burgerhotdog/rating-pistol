@@ -1,269 +1,63 @@
 {
-  "10000128": {
-    "NAME": "Varka",
+  "10000003": {
+    "NAME": "Jean",
     "QUALITY": "5",
     "ELEMENT": "Anemo",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 12613.288084400001,
-      "BASE_ATK": 352.78811550000006,
-      "BASE_DEF": 795.45377295,
-      "BASE_EM": 0,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000127": {
-    "NAME": "Illuga",
-    "QUALITY": "4",
-    "ELEMENT": "Geo",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 11962,
-      "BASE_ATK": 191,
-      "BASE_DEF": 814,
-      "FLAT_EM": 96
-    }
-  },
-  "10000126": {
-    "NAME": "Zibai",
-    "QUALITY": "5",
-    "ELEMENT": "Geo",
     "TYPE": "Sword",
-    "SIGNATURE": "11519",
-    "FIXED_STATS": {
-      "BASE_HP": 12919,
-      "BASE_ATK": 225,
-      "BASE_DEF": 957,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000125": {
-    "NAME": "Columbina",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14522",
     "FIXED_STATS": {
       "BASE_HP": 14695,
-      "BASE_ATK": 96,
-      "BASE_DEF": 515,
-      "PERCENT_CR": 0.192
+      "BASE_ATK": 239,
+      "BASE_DEF": 768,
+      "PERCENT_HB": 0.2216
     }
   },
-  "10000124": {
-    "NAME": "Jahoda",
+  "10000006": {
+    "NAME": "Lisa",
     "QUALITY": "4",
-    "ELEMENT": "Anemo",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 9646,
-      "BASE_ATK": 223,
-      "BASE_DEF": 580,
-      "PERCENT_HB": 0.185
-    }
-  },
-  "10000123": {
-    "NAME": "Durin",
-    "QUALITY": "5",
-    "ELEMENT": "Pyro",
-    "TYPE": "Sword",
-    "SIGNATURE": "11518",
-    "FIXED_STATS": {
-      "BASE_HP": 12430,
-      "BASE_ATK": 347,
-      "BASE_DEF": 822,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000122": {
-    "NAME": "Nefer",
-    "QUALITY": "5",
-    "ELEMENT": "Dendro",
+    "ELEMENT": "Electro",
     "TYPE": "Catalyst",
-    "SIGNATURE": "14521",
     "FIXED_STATS": {
-      "BASE_HP": 12704,
-      "BASE_ATK": 344,
-      "BASE_DEF": 799,
-      "FLAT_EM": 100,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000121": {
-    "NAME": "Aino",
-    "QUALITY": "4",
-    "ELEMENT": "Hydro",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 11201,
-      "BASE_ATK": 242,
-      "BASE_DEF": 607,
+      "BASE_HP": 9569,
+      "BASE_ATK": 231,
+      "BASE_DEF": 573,
       "FLAT_EM": 96
     }
   },
-  "10000120": {
-    "NAME": "Flins",
-    "QUALITY": "5",
-    "ELEMENT": "Electro",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13516",
-    "FIXED_STATS": {
-      "BASE_HP": 12491,
-      "BASE_ATK": 352,
-      "BASE_DEF": 809,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000119": {
-    "NAME": "Lauma",
-    "QUALITY": "5",
-    "ELEMENT": "Dendro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14520",
-    "FIXED_STATS": {
-      "BASE_HP": 10654,
-      "BASE_ATK": 255,
-      "BASE_DEF": 669,
-      "FLAT_EM": 315.2
-    }
-  },
-  "10000116": {
-    "NAME": "Ineffa",
-    "QUALITY": "5",
-    "ELEMENT": "Electro",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13515",
-    "FIXED_STATS": {
-      "BASE_HP": 12613,
-      "BASE_ATK": 330,
-      "BASE_DEF": 828,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000115": {
-    "NAME": "Dahlia",
+  "10000014": {
+    "NAME": "Barbara",
     "QUALITY": "4",
     "ELEMENT": "Hydro",
-    "TYPE": "Sword",
+    "TYPE": "Catalyst",
     "FIXED_STATS": {
-      "BASE_HP": 12506,
-      "BASE_ATK": 189,
-      "BASE_DEF": 560,
+      "BASE_HP": 9787,
+      "BASE_ATK": 159,
+      "BASE_DEF": 668,
       "PERCENT_HP": 0.24
     }
   },
-  "10000114": {
-    "NAME": "Skirk",
-    "QUALITY": "5",
+  "10000015": {
+    "NAME": "Kaeya",
+    "QUALITY": "4",
     "ELEMENT": "Cryo",
     "TYPE": "Sword",
-    "SIGNATURE": "11517",
     "FIXED_STATS": {
-      "BASE_HP": 12417,
-      "BASE_ATK": 359,
-      "BASE_DEF": 806,
-      "PERCENT_CD": 0.384
+      "BASE_HP": 11636,
+      "BASE_ATK": 223,
+      "BASE_DEF": 791,
+      "PERCENT_ER": 0.2668
     }
   },
-  "10000113": {
-    "NAME": "Ifa",
-    "QUALITY": "4",
-    "ELEMENT": "Anemo",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 10081,
-      "BASE_ATK": 178,
-      "BASE_DEF": 605,
-      "FLAT_EM": 96
-    }
-  },
-  "10000112": {
-    "NAME": "Escoffier",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13514",
-    "FIXED_STATS": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 347,
-      "BASE_DEF": 732,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000111": {
-    "NAME": "Varesa",
-    "QUALITY": "5",
-    "ELEMENT": "Electro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14519",
-    "FIXED_STATS": {
-      "BASE_HP": 12699,
-      "BASE_ATK": 356,
-      "BASE_DEF": 782,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000110": {
-    "NAME": "Iansan",
-    "QUALITY": "4",
-    "ELEMENT": "Electro",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 10657,
-      "BASE_ATK": 257,
-      "BASE_DEF": 638,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000109": {
-    "NAME": "Yumemizuki Mizuki",
-    "QUALITY": "5",
-    "ELEMENT": "Anemo",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14518",
-    "FIXED_STATS": {
-      "BASE_HP": 12736,
-      "BASE_ATK": 215,
-      "BASE_DEF": 757,
-      "FLAT_EM": 115.2
-    }
-  },
-  "10000108": {
-    "NAME": "Lan Yan",
-    "QUALITY": "4",
-    "ELEMENT": "Anemo",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 9243,
-      "BASE_ATK": 250,
-      "BASE_DEF": 580,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000107": {
-    "NAME": "Citlali",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14517",
-    "FIXED_STATS": {
-      "BASE_HP": 11633,
-      "BASE_ATK": 126,
-      "BASE_DEF": 763,
-      "FLAT_EM": 115.2
-    }
-  },
-  "10000106": {
-    "NAME": "Mavuika",
+  "10000016": {
+    "NAME": "Diluc",
     "QUALITY": "5",
     "ELEMENT": "Pyro",
     "TYPE": "Claymore",
-    "SIGNATURE": "12514",
+    "SIGNATURE": "12502",
     "FIXED_STATS": {
-      "BASE_HP": 12552,
-      "BASE_ATK": 358,
-      "BASE_DEF": 791,
-      "PERCENT_CD": 0.384
+      "BASE_HP": 12980,
+      "BASE_ATK": 334,
+      "BASE_DEF": 783,
+      "PERCENT_CR": 0.192
     },
     "CRITERIA": [
       {
@@ -271,188 +65,65 @@
         "SCALING": {
           "FLAT": 0,
           "MULTIPLIER": {
-            "ATK": 8.0064
+            "ATK": 3.672
           }
         },
         "TYPE": {
           "SKILL": "ULT",
           "ELEMENT": "PYRO"
         },
-        "DEFAULT_BUFFS": [
-          10000032
+        "MATCH": [
+          "ER"
         ]
       }
     ]
   },
-  "10000105": {
-    "NAME": "Ororon",
+  "10000020": {
+    "NAME": "Razor",
     "QUALITY": "4",
     "ELEMENT": "Electro",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 11962,
+      "BASE_ATK": 233,
+      "BASE_DEF": 750,
+      "PERCENT_PHYSICAL": 0.3
+    }
+  },
+  "10000021": {
+    "NAME": "Amber",
+    "QUALITY": "4",
+    "ELEMENT": "Pyro",
     "TYPE": "Bow",
     "FIXED_STATS": {
-      "BASE_HP": 9243,
-      "BASE_ATK": 244,
-      "BASE_DEF": 586,
+      "BASE_HP": 9461,
+      "BASE_ATK": 223,
+      "BASE_DEF": 600,
       "PERCENT_ATK": 0.24
     }
   },
-  "10000104": {
-    "NAME": "Chasca",
+  "10000022": {
+    "NAME": "Venti",
     "QUALITY": "5",
     "ELEMENT": "Anemo",
     "TYPE": "Bow",
-    "SIGNATURE": "15514",
     "FIXED_STATS": {
-      "BASE_HP": 9796,
-      "BASE_ATK": 346,
-      "BASE_DEF": 614,
-      "PERCENT_CR": 0.192
+      "BASE_HP": 10531,
+      "BASE_ATK": 263,
+      "BASE_DEF": 668,
+      "PERCENT_ER": 0.32
     }
   },
-  "10000103": {
-    "NAME": "Xilonen",
-    "QUALITY": "5",
-    "ELEMENT": "Geo",
-    "TYPE": "Sword",
-    "SIGNATURE": "11516",
-    "FIXED_STATS": {
-      "BASE_HP": 12405,
-      "BASE_ATK": 275,
-      "BASE_DEF": 929,
-      "PERCENT_DEF": 0.36
-    }
-  },
-  "10000102": {
-    "NAME": "Mualani",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14516",
-    "FIXED_STATS": {
-      "BASE_HP": 15184,
-      "BASE_ATK": 181,
-      "BASE_DEF": 570,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000101": {
-    "NAME": "Kinich",
-    "QUALITY": "5",
-    "ELEMENT": "Dendro",
-    "TYPE": "Claymore",
-    "SIGNATURE": "12513",
-    "FIXED_STATS": {
-      "BASE_HP": 12858,
-      "BASE_ATK": 332,
-      "BASE_DEF": 801,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000100": {
-    "NAME": "Kachina",
+  "10000023": {
+    "NAME": "Xiangling",
     "QUALITY": "4",
-    "ELEMENT": "Geo",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 11799,
-      "BASE_ATK": 216,
-      "BASE_DEF": 792,
-      "PERCENT_GEO": 0.24
-    }
-  },
-  "10000099": {
-    "NAME": "Emilie",
-    "QUALITY": "5",
-    "ELEMENT": "Dendro",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13513",
-    "FIXED_STATS": {
-      "BASE_HP": 13568,
-      "BASE_ATK": 334,
-      "BASE_DEF": 730,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000098": {
-    "NAME": "Clorinde",
-    "QUALITY": "5",
-    "ELEMENT": "Electro",
-    "TYPE": "Sword",
-    "SIGNATURE": "11515",
-    "FIXED_STATS": {
-      "BASE_HP": 12956,
-      "BASE_ATK": 337,
-      "BASE_DEF": 783,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000097": {
-    "NAME": "Sethos",
-    "QUALITY": "4",
-    "ELEMENT": "Electro",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 9787,
-      "BASE_ATK": 227,
-      "BASE_DEF": 559,
-      "FLAT_EM": 96
-    }
-  },
-  "10000095": {
-    "NAME": "Sigewinne",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Bow",
-    "SIGNATURE": "15513",
-    "FIXED_STATS": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 192,
-      "BASE_DEF": 499,
-      "PERCENT_HP": 0.288
-    }
-  },
-  "10000096": {
-    "NAME": "Arlecchino",
-    "QUALITY": "5",
     "ELEMENT": "Pyro",
     "TYPE": "Polearm",
-    "SIGNATURE": "13512",
     "FIXED_STATS": {
-      "BASE_HP": 13103,
-      "BASE_ATK": 342,
-      "BASE_DEF": 764,
-      "PERCENT_CD": 0.384
-    },
-    "CRITERIA": [
-      {
-        "NAME": "Crit DPS",
-        "SCALING": {
-          "FLAT": 0,
-          "MULTIPLIER": {
-            "ATK": 1
-          }
-        },
-        "TYPE": {
-          "SKILL": "NA",
-          "ELEMENT": "PYRO"
-        },
-        "DEFAULT_BUFFS": [
-          10000032
-        ]
-      }
-    ]
-  },
-  "10000094": {
-    "NAME": "Chiori",
-    "QUALITY": "5",
-    "ELEMENT": "Geo",
-    "TYPE": "Sword",
-    "SIGNATURE": "11514",
-    "FIXED_STATS": {
-      "BASE_HP": 11437,
-      "BASE_ATK": 322,
-      "BASE_DEF": 953,
-      "PERCENT_CR": 0.192
+      "BASE_HP": 10874,
+      "BASE_ATK": 225,
+      "BASE_DEF": 668,
+      "FLAT_EM": 96
     },
     "CRITERIA": [
       {
@@ -460,988 +131,12 @@
         "SCALING": {
           "FLAT": 0,
           "MULTIPLIER": {
-            "ATK": 1.4774,
-            "DEF": 1.8468
+            "ATK": 2.016
           }
         },
         "TYPE": {
-          "SKILL": "RS",
-          "ELEMENT": "GEO"
-        }
-      }
-    ]
-  },
-  "10000093": {
-    "NAME": "Xianyun",
-    "QUALITY": "5",
-    "ELEMENT": "Anemo",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14515",
-    "FIXED_STATS": {
-      "BASE_HP": 10409,
-      "BASE_ATK": 334,
-      "BASE_DEF": 572,
-      "PERCENT_ATK": 0.288
-    }
-  },
-  "10000092": {
-    "NAME": "Gaming",
-    "QUALITY": "4",
-    "ELEMENT": "Pyro",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 11418,
-      "BASE_ATK": 301,
-      "BASE_DEF": 702,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000091": {
-    "NAME": "Navia",
-    "QUALITY": "5",
-    "ELEMENT": "Geo",
-    "TYPE": "Claymore",
-    "SIGNATURE": "12512",
-    "FIXED_STATS": {
-      "BASE_HP": 12650,
-      "BASE_ATK": 351,
-      "BASE_DEF": 793,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000090": {
-    "NAME": "Chevreuse",
-    "QUALITY": "4",
-    "ELEMENT": "Pyro",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 11962,
-      "BASE_ATK": 193,
-      "BASE_DEF": 604,
-      "PERCENT_HP": 0.24
-    }
-  },
-  "10000089": {
-    "NAME": "Furina",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Sword",
-    "SIGNATURE": "11513",
-    "FIXED_STATS": {
-      "BASE_HP": 15307,
-      "BASE_ATK": 243,
-      "BASE_DEF": 695,
-      "PERCENT_CR": 0.192
-    },
-    "CRITERIA": [
-      {
-        "NAME": "Crit DPS",
-        "SCALING": {
-          "FLAT": 0,
-          "MULTIPLIER": {
-            "HP": 0.1492
-          }
-        },
-        "TYPE": {
-          "SKILL": "ES",
-          "ELEMENT": "HYDRO"
-        },
-        "MATCH": [
-          "ER"
-        ],
-        "DEFAULT_BUFFS": [
-          10000032
-        ]
-      }
-    ]
-  },
-  "10000088": {
-    "NAME": "Charlotte",
-    "QUALITY": "4",
-    "ELEMENT": "Cryo",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 10766,
-      "BASE_ATK": 173,
-      "BASE_DEF": 546,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000087": {
-    "NAME": "Neuvillette",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14514",
-    "FIXED_STATS": {
-      "BASE_HP": 14695,
-      "BASE_ATK": 208,
-      "BASE_DEF": 576,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000086": {
-    "NAME": "Wriothesley",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14513",
-    "FIXED_STATS": {
-      "BASE_HP": 13592,
-      "BASE_ATK": 310,
-      "BASE_DEF": 763,
-      "PERCENT_CD": 0.384
-    },
-    "CRITERIA": [
-      {
-        "NAME": "Crit DPS",
-        "SCALING": {
-          "FLAT": 0,
-          "MULTIPLIER": {
-            "ATK": 2.7533
-          }
-        },
-        "TYPE": {
-          "SKILL": "CA",
-          "ELEMENT": "CRYO"
-        },
-        "DEFAULT_BUFFS": [
-          10000032
-        ]
-      }
-    ]
-  },
-  "10000085": {
-    "NAME": "Freminet",
-    "QUALITY": "4",
-    "ELEMENT": "Cryo",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 12071,
-      "BASE_ATK": 254,
-      "BASE_DEF": 708,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000084": {
-    "NAME": "Lyney",
-    "QUALITY": "5",
-    "ELEMENT": "Pyro",
-    "TYPE": "Bow",
-    "SIGNATURE": "15512",
-    "FIXED_STATS": {
-      "BASE_HP": 11021,
-      "BASE_ATK": 231,
-      "BASE_DEF": 537,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000083": {
-    "NAME": "Lynette",
-    "QUALITY": "4",
-    "ELEMENT": "Anemo",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 12397,
-      "BASE_ATK": 231,
-      "BASE_DEF": 711,
-      "PERCENT_ANEMO": 0.24
-    }
-  },
-  "10000061": {
-    "NAME": "Kirara",
-    "QUALITY": "4",
-    "ELEMENT": "Dendro",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 12179,
-      "BASE_ATK": 223,
-      "BASE_DEF": 546,
-      "PERCENT_HP": 0.24
-    }
-  },
-  "10000082": {
-    "NAME": "Baizhu",
-    "QUALITY": "5",
-    "ELEMENT": "Dendro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14505",
-    "FIXED_STATS": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 192,
-      "BASE_DEF": 499,
-      "PERCENT_HP": 0.288
-    }
-  },
-  "10000081": {
-    "NAME": "Kaveh",
-    "QUALITY": "4",
-    "ELEMENT": "Dendro",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 11962,
-      "BASE_ATK": 233,
-      "BASE_DEF": 750,
-      "FLAT_EM": 96
-    }
-  },
-  "10000080": {
-    "NAME": "Mika",
-    "QUALITY": "4",
-    "ELEMENT": "Cryo",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 12506,
-      "BASE_ATK": 223,
-      "BASE_DEF": 713,
-      "PERCENT_HP": 0.24
-    }
-  },
-  "10000079": {
-    "NAME": "Dehya",
-    "QUALITY": "5",
-    "ELEMENT": "Pyro",
-    "TYPE": "Claymore",
-    "SIGNATURE": "12511",
-    "FIXED_STATS": {
-      "BASE_HP": 15674,
-      "BASE_ATK": 265,
-      "BASE_DEF": 627,
-      "PERCENT_HP": 0.288
-    }
-  },
-  "10000078": {
-    "NAME": "Alhaitham",
-    "QUALITY": "5",
-    "ELEMENT": "Dendro",
-    "TYPE": "Sword",
-    "SIGNATURE": "11512",
-    "FIXED_STATS": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 313,
-      "BASE_DEF": 781,
-      "PERCENT_DENDRO": 0.288
-    }
-  },
-  "10000077": {
-    "NAME": "Yaoyao",
-    "QUALITY": "4",
-    "ELEMENT": "Dendro",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 12288,
-      "BASE_ATK": 212,
-      "BASE_DEF": 750,
-      "PERCENT_HP": 0.24
-    }
-  },
-  "10000076": {
-    "NAME": "Faruzan",
-    "QUALITY": "4",
-    "ELEMENT": "Anemo",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 9569,
-      "BASE_ATK": 196,
-      "BASE_DEF": 627,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000075": {
-    "NAME": "Wanderer",
-    "QUALITY": "5",
-    "ELEMENT": "Anemo",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14512",
-    "FIXED_STATS": {
-      "BASE_HP": 10164,
-      "BASE_ATK": 327,
-      "BASE_DEF": 607,
-      "PERCENT_CR": 0.192
-    },
-    "CRITERIA": [
-      {
-        "NAME": "Crit DPS",
-        "SCALING": {
-          "FLAT": 0,
-          "MULTIPLIER": {
-            "ATK": 1
-          }
-        },
-        "TYPE": {
-          "SKILL": "NA",
-          "ELEMENT": "ANEMO"
-        },
-        "DEFAULT_BUFFS": [
-          10000032
-        ]
-      }
-    ]
-  },
-  "10000074": {
-    "NAME": "Layla",
-    "QUALITY": "4",
-    "ELEMENT": "Cryo",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 11092,
-      "BASE_ATK": 216,
-      "BASE_DEF": 655,
-      "PERCENT_HP": 0.24
-    }
-  },
-  "10000073": {
-    "NAME": "Nahida",
-    "QUALITY": "5",
-    "ELEMENT": "Dendro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14511",
-    "FIXED_STATS": {
-      "BASE_HP": 10360,
-      "BASE_ATK": 298,
-      "BASE_DEF": 630,
-      "FLAT_EM": 115.2
-    }
-  },
-  "10000072": {
-    "NAME": "Candace",
-    "QUALITY": "4",
-    "ELEMENT": "Hydro",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 10874,
-      "BASE_ATK": 212,
-      "BASE_DEF": 682,
-      "PERCENT_HP": 0.24
-    }
-  },
-  "10000071": {
-    "NAME": "Cyno",
-    "QUALITY": "5",
-    "ELEMENT": "Electro",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13511",
-    "FIXED_STATS": {
-      "BASE_HP": 12490,
-      "BASE_ATK": 318,
-      "BASE_DEF": 859,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000070": {
-    "NAME": "Nilou",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Sword",
-    "SIGNATURE": "11511",
-    "FIXED_STATS": {
-      "BASE_HP": 15184,
-      "BASE_ATK": 229,
-      "BASE_DEF": 728,
-      "PERCENT_HP": 0.288
-    }
-  },
-  "10000069": {
-    "NAME": "Tighnari",
-    "QUALITY": "5",
-    "ELEMENT": "Dendro",
-    "TYPE": "Bow",
-    "SIGNATURE": "15511",
-    "FIXED_STATS": {
-      "BASE_HP": 10849,
-      "BASE_ATK": 267,
-      "BASE_DEF": 630,
-      "PERCENT_DENDRO": 0.288
-    }
-  },
-  "10000068": {
-    "NAME": "Dori",
-    "QUALITY": "4",
-    "ELEMENT": "Electro",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 12397,
-      "BASE_ATK": 223,
-      "BASE_DEF": 723,
-      "PERCENT_HP": 0.24
-    }
-  },
-  "10000067": {
-    "NAME": "Collei",
-    "QUALITY": "4",
-    "ELEMENT": "Dendro",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 9787,
-      "BASE_ATK": 199,
-      "BASE_DEF": 600,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000059": {
-    "NAME": "Shikanoin Heizou",
-    "QUALITY": "4",
-    "ELEMENT": "Anemo",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 10657,
-      "BASE_ATK": 225,
-      "BASE_DEF": 683,
-      "PERCENT_ANEMO": 0.24
-    }
-  },
-  "10000065": {
-    "NAME": "Kuki Shinobu",
-    "QUALITY": "4",
-    "ELEMENT": "Electro",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 12288,
-      "BASE_ATK": 212,
-      "BASE_DEF": 750,
-      "PERCENT_HP": 0.24
-    }
-  },
-  "10000060": {
-    "NAME": "Yelan",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Bow",
-    "SIGNATURE": "15508",
-    "FIXED_STATS": {
-      "BASE_HP": 14450,
-      "BASE_ATK": 243,
-      "BASE_DEF": 547,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000066": {
-    "NAME": "Kamisato Ayato",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Sword",
-    "SIGNATURE": "11510",
-    "FIXED_STATS": {
-      "BASE_HP": 13715,
-      "BASE_ATK": 298,
-      "BASE_DEF": 768,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000058": {
-    "NAME": "Yae Miko",
-    "QUALITY": "5",
-    "ELEMENT": "Electro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14509",
-    "FIXED_STATS": {
-      "BASE_HP": 10372,
-      "BASE_ATK": 339,
-      "BASE_DEF": 568,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000064": {
-    "NAME": "Yun Jin",
-    "QUALITY": "4",
-    "ELEMENT": "Geo",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 10657,
-      "BASE_ATK": 191,
-      "BASE_DEF": 734,
-      "PERCENT_ER": 0.2668
-    }
-  },
-  "10000063": {
-    "NAME": "Shenhe",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13507",
-    "FIXED_STATS": {
-      "BASE_HP": 12992,
-      "BASE_ATK": 303,
-      "BASE_DEF": 830,
-      "PERCENT_ATK": 0.288
-    }
-  },
-  "10000057": {
-    "NAME": "Arataki Itto",
-    "QUALITY": "5",
-    "ELEMENT": "Geo",
-    "TYPE": "Claymore",
-    "SIGNATURE": "12510",
-    "FIXED_STATS": {
-      "BASE_HP": 12858,
-      "BASE_ATK": 227,
-      "BASE_DEF": 959,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000055": {
-    "NAME": "Gorou",
-    "QUALITY": "4",
-    "ELEMENT": "Geo",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 9569,
-      "BASE_ATK": 182,
-      "BASE_DEF": 648,
-      "PERCENT_GEO": 0.24
-    }
-  },
-  "10000062": {
-    "NAME": "Aloy",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 10898,
-      "BASE_ATK": 233,
-      "BASE_DEF": 676,
-      "PERCENT_CRYO": 0.288
-    }
-  },
-  "10000050": {
-    "NAME": "Thoma",
-    "QUALITY": "4",
-    "ELEMENT": "Pyro",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 10331,
-      "BASE_ATK": 201,
-      "BASE_DEF": 750,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000056": {
-    "NAME": "Kujou Sara",
-    "QUALITY": "4",
-    "ELEMENT": "Electro",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 9569,
-      "BASE_ATK": 195,
-      "BASE_DEF": 627,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000054": {
-    "NAME": "Sangonomiya Kokomi",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Catalyst",
-    "SIGNATURE": "14506",
-    "FIXED_STATS": {
-      "BASE_HP": 13470,
-      "BASE_ATK": 234,
-      "BASE_DEF": 657,
-      "PERCENT_HYDRO": 0.288
-    }
-  },
-  "10000052": {
-    "NAME": "Raiden Shogun",
-    "QUALITY": "5",
-    "ELEMENT": "Electro",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13509",
-    "FIXED_STATS": {
-      "BASE_HP": 12907,
-      "BASE_ATK": 337,
-      "BASE_DEF": 789,
-      "PERCENT_ER": 0.32
-    }
-  },
-  "10000053": {
-    "NAME": "Sayu",
-    "QUALITY": "4",
-    "ELEMENT": "Anemo",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 11853,
-      "BASE_ATK": 244,
-      "BASE_DEF": 744,
-      "FLAT_EM": 96
-    }
-  },
-  "10000049": {
-    "NAME": "Yoimiya",
-    "QUALITY": "5",
-    "ELEMENT": "Pyro",
-    "TYPE": "Bow",
-    "SIGNATURE": "15509",
-    "FIXED_STATS": {
-      "BASE_HP": 10164,
-      "BASE_ATK": 322,
-      "BASE_DEF": 614,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000002": {
-    "NAME": "Kamisato Ayaka",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Sword",
-    "SIGNATURE": "11509",
-    "FIXED_STATS": {
-      "BASE_HP": 12858,
-      "BASE_ATK": 342,
-      "BASE_DEF": 783,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000047": {
-    "NAME": "Kaedehara Kazuha",
-    "QUALITY": "5",
-    "ELEMENT": "Anemo",
-    "TYPE": "Sword",
-    "SIGNATURE": "11503",
-    "FIXED_STATS": {
-      "BASE_HP": 13348,
-      "BASE_ATK": 296,
-      "BASE_DEF": 806,
-      "FLAT_EM": 115.2
-    }
-  },
-  "10000051": {
-    "NAME": "Eula",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Claymore",
-    "SIGNATURE": "12503",
-    "FIXED_STATS": {
-      "BASE_HP": 13225,
-      "BASE_ATK": 342,
-      "BASE_DEF": 750,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000048": {
-    "NAME": "Yanfei",
-    "QUALITY": "4",
-    "ELEMENT": "Pyro",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 9352,
-      "BASE_ATK": 240,
-      "BASE_DEF": 586,
-      "PERCENT_PYRO": 0.24
-    }
-  },
-  "10000045": {
-    "NAME": "Rosaria",
-    "QUALITY": "4",
-    "ELEMENT": "Cryo",
-    "TYPE": "Polearm",
-    "FIXED_STATS": {
-      "BASE_HP": 12288,
-      "BASE_ATK": 240,
-      "BASE_DEF": 709,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000046": {
-    "NAME": "Hu Tao",
-    "QUALITY": "5",
-    "ELEMENT": "Pyro",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13501",
-    "FIXED_STATS": {
-      "BASE_HP": 15522,
-      "BASE_ATK": 106,
-      "BASE_DEF": 876,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000026": {
-    "NAME": "Xiao",
-    "QUALITY": "5",
-    "ELEMENT": "Anemo",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13505",
-    "FIXED_STATS": {
-      "BASE_HP": 12735,
-      "BASE_ATK": 349,
-      "BASE_DEF": 799,
-      "PERCENT_CR": 0.192
-    }
-  },
-  "10000038": {
-    "NAME": "Albedo",
-    "QUALITY": "5",
-    "ELEMENT": "Geo",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 13225,
-      "BASE_ATK": 251,
-      "BASE_DEF": 876,
-      "PERCENT_GEO": 0.288
-    }
-  },
-  "10000037": {
-    "NAME": "Ganyu",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Bow",
-    "SIGNATURE": "15502",
-    "FIXED_STATS": {
-      "BASE_HP": 9796,
-      "BASE_ATK": 334,
-      "BASE_DEF": 630,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000044": {
-    "NAME": "Xinyan",
-    "QUALITY": "4",
-    "ELEMENT": "Pyro",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 11201,
-      "BASE_ATK": 248,
-      "BASE_DEF": 798,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000039": {
-    "NAME": "Diona",
-    "QUALITY": "4",
-    "ELEMENT": "Cryo",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 9569,
-      "BASE_ATK": 212,
-      "BASE_DEF": 600,
-      "PERCENT_CRYO": 0.24
-    }
-  },
-  "10000033": {
-    "NAME": "Tartaglia",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Bow",
-    "SIGNATURE": "15507",
-    "FIXED_STATS": {
-      "BASE_HP": 13103,
-      "BASE_ATK": 301,
-      "BASE_DEF": 814,
-      "PERCENT_HYDRO": 0.288
-    }
-  },
-  "10000030": {
-    "NAME": "Zhongli",
-    "QUALITY": "5",
-    "ELEMENT": "Geo",
-    "TYPE": "Polearm",
-    "SIGNATURE": "13504",
-    "FIXED_STATS": {
-      "BASE_HP": 14695,
-      "BASE_ATK": 251,
-      "BASE_DEF": 737,
-      "PERCENT_GEO": 0.288
-    }
-  },
-  "10000043": {
-    "NAME": "Sucrose",
-    "QUALITY": "4",
-    "ELEMENT": "Anemo",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 9243,
-      "BASE_ATK": 169,
-      "BASE_DEF": 702,
-      "PERCENT_ANEMO": 0.24
-    }
-  },
-  "10000042": {
-    "NAME": "Keqing",
-    "QUALITY": "5",
-    "ELEMENT": "Electro",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 13103,
-      "BASE_ATK": 322,
-      "BASE_DEF": 799,
-      "PERCENT_CD": 0.384
-    }
-  },
-  "10000041": {
-    "NAME": "Mona",
-    "QUALITY": "5",
-    "ELEMENT": "Hydro",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 10409,
-      "BASE_ATK": 287,
-      "BASE_DEF": 653,
-      "PERCENT_ER": 0.32
-    }
-  },
-  "10000036": {
-    "NAME": "Chongyun",
-    "QUALITY": "4",
-    "ELEMENT": "Cryo",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 10983,
-      "BASE_ATK": 223,
-      "BASE_DEF": 648,
-      "PERCENT_ATK": 0.24
-    }
-  },
-  "10000035": {
-    "NAME": "Qiqi",
-    "QUALITY": "5",
-    "ELEMENT": "Cryo",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 12368,
-      "BASE_ATK": 287,
-      "BASE_DEF": 922,
-      "PERCENT_HB": 0.2216
-    }
-  },
-  "10000034": {
-    "NAME": "Noelle",
-    "QUALITY": "4",
-    "ELEMENT": "Geo",
-    "TYPE": "Claymore",
-    "FIXED_STATS": {
-      "BASE_HP": 12071,
-      "BASE_ATK": 191,
-      "BASE_DEF": 798,
-      "PERCENT_DEF": 0.3
-    }
-  },
-  "10000032": {
-    "NAME": "Bennett",
-    "QUALITY": "4",
-    "ELEMENT": "Pyro",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 12397,
-      "BASE_ATK": 191,
-      "BASE_DEF": 771,
-      "PERCENT_ER": 0.2668
-    },
-    "TEAM_BUFFS": {
-      "FLAT_ATK": 1200
-    }
-  },
-  "10000031": {
-    "NAME": "Fischl",
-    "QUALITY": "4",
-    "ELEMENT": "Electro",
-    "TYPE": "Bow",
-    "FIXED_STATS": {
-      "BASE_HP": 9189,
-      "BASE_ATK": 244,
-      "BASE_DEF": 593,
-      "PERCENT_ATK": 0.24
-    },
-    "CRITERIA": [
-      {
-        "NAME": "Crit DPS",
-        "SCALING": {
-          "FLAT": 0,
-          "MULTIPLIER": {
-            "ATK": 1.598
-          }
-        },
-        "TYPE": {
-          "SKILL": "SKILL",
-          "ELEMENT": "ELECTRO"
-        },
-        "MATCH": [
-          "ER"
-        ]
-      }
-    ]
-  },
-  "10000029": {
-    "NAME": "Klee",
-    "QUALITY": "5",
-    "ELEMENT": "Pyro",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 10286,
-      "BASE_ATK": 310,
-      "BASE_DEF": 614,
-      "PERCENT_PYRO": 0.288
-    },
-    "CRITERIA": [
-      {
-        "NAME": "Crit DPS",
-        "SCALING": {
-          "FLAT": 0,
-          "MULTIPLIER": {
-            "ATK": 2.832
-          }
-        },
-        "TYPE": {
-          "SKILL": "CA",
+          "SKILL": "ULT",
           "ELEMENT": "PYRO"
-        },
-        "MATCH": [
-          "ER"
-        ]
-      }
-    ]
-  },
-  "10000027": {
-    "NAME": "Ningguang",
-    "QUALITY": "4",
-    "ELEMENT": "Geo",
-    "TYPE": "Catalyst",
-    "FIXED_STATS": {
-      "BASE_HP": 9787,
-      "BASE_ATK": 212,
-      "BASE_DEF": 573,
-      "PERCENT_GEO": 0.24
-    },
-    "CRITERIA": [
-      {
-        "NAME": "Crit DPS",
-        "SCALING": {
-          "FLAT": 0,
-          "MULTIPLIER": {
-            "ATK": 1.565
-          }
-        },
-        "TYPE": {
-          "SKILL": "ULT",
-          "ELEMENT": "GEO"
-        },
-        "MATCH": [
-          "ER"
-        ]
-      }
-    ]
-  },
-  "10000025": {
-    "NAME": "Xingqiu",
-    "QUALITY": "4",
-    "ELEMENT": "Hydro",
-    "TYPE": "Sword",
-    "FIXED_STATS": {
-      "BASE_HP": 10222,
-      "BASE_ATK": 201,
-      "BASE_DEF": 757,
-      "PERCENT_ATK": 0.24
-    },
-    "CRITERIA": [
-      {
-        "NAME": "Crit DPS",
-        "SCALING": {
-          "FLAT": 0,
-          "MULTIPLIER": {
-            "ATK": 0.977
-          }
-        },
-        "TYPE": {
-          "SKILL": "ULT",
-          "ELEMENT": "HYDRO"
         },
         "MATCH": [
           "ER"
@@ -1479,28 +174,88 @@
       }
     ]
   },
-  "10000023": {
-    "NAME": "Xiangling",
+  "10000025": {
+    "NAME": "Xingqiu",
     "QUALITY": "4",
-    "ELEMENT": "Pyro",
-    "TYPE": "Polearm",
+    "ELEMENT": "Hydro",
+    "TYPE": "Sword",
     "FIXED_STATS": {
-      "BASE_HP": 10874,
-      "BASE_ATK": 225,
-      "BASE_DEF": 668,
-      "FLAT_EM": 96
+      "BASE_HP": 10222,
+      "BASE_ATK": 201,
+      "BASE_DEF": 757,
+      "PERCENT_ATK": 0.24
     },
     "CRITERIA": [
       {
-        "NAME": "Crit Sub DPS",
+        "NAME": "Crit DPS",
         "SCALING": {
           "FLAT": 0,
           "MULTIPLIER": {
-            "ATK": 2.016
+            "ATK": 0.977
           }
         },
         "TYPE": {
           "SKILL": "ULT",
+          "ELEMENT": "HYDRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "10000027": {
+    "NAME": "Ningguang",
+    "QUALITY": "4",
+    "ELEMENT": "Geo",
+    "TYPE": "Catalyst",
+    "FIXED_STATS": {
+      "BASE_HP": 9787,
+      "BASE_ATK": 212,
+      "BASE_DEF": 573,
+      "PERCENT_GEO": 0.24
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1.565
+          }
+        },
+        "TYPE": {
+          "SKILL": "ULT",
+          "ELEMENT": "GEO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "10000029": {
+    "NAME": "Klee",
+    "QUALITY": "5",
+    "ELEMENT": "Pyro",
+    "TYPE": "Catalyst",
+    "FIXED_STATS": {
+      "BASE_HP": 10286,
+      "BASE_ATK": 310,
+      "BASE_DEF": 614,
+      "PERCENT_PYRO": 0.288
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 2.832
+          }
+        },
+        "TYPE": {
+          "SKILL": "CA",
           "ELEMENT": "PYRO"
         },
         "MATCH": [
@@ -1509,52 +264,597 @@
       }
     ]
   },
-  "10000022": {
-    "NAME": "Venti",
-    "QUALITY": "5",
-    "ELEMENT": "Anemo",
+  "10000031": {
+    "NAME": "Fischl",
+    "QUALITY": "4",
+    "ELEMENT": "Electro",
     "TYPE": "Bow",
     "FIXED_STATS": {
-      "BASE_HP": 10531,
-      "BASE_ATK": 263,
-      "BASE_DEF": 668,
+      "BASE_HP": 9189,
+      "BASE_ATK": 244,
+      "BASE_DEF": 593,
+      "PERCENT_ATK": 0.24
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1.598
+          }
+        },
+        "TYPE": {
+          "SKILL": "SKILL",
+          "ELEMENT": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "10000032": {
+    "NAME": "Bennett",
+    "QUALITY": "4",
+    "ELEMENT": "Pyro",
+    "TYPE": "Sword",
+    "FIXED_STATS": {
+      "BASE_HP": 12397,
+      "BASE_ATK": 191,
+      "BASE_DEF": 771,
+      "PERCENT_ER": 0.2668
+    },
+    "TEAM_BUFFS": {
+      "FLAT_ATK": 1200
+    }
+  },
+  "10000034": {
+    "NAME": "Noelle",
+    "QUALITY": "4",
+    "ELEMENT": "Geo",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 12071,
+      "BASE_ATK": 191,
+      "BASE_DEF": 798,
+      "PERCENT_DEF": 0.3
+    }
+  },
+  "10000035": {
+    "NAME": "Qiqi",
+    "QUALITY": "5",
+    "ELEMENT": "Cryo",
+    "TYPE": "Sword",
+    "FIXED_STATS": {
+      "BASE_HP": 12368,
+      "BASE_ATK": 287,
+      "BASE_DEF": 922,
+      "PERCENT_HB": 0.2216
+    }
+  },
+  "10000036": {
+    "NAME": "Chongyun",
+    "QUALITY": "4",
+    "ELEMENT": "Cryo",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 10983,
+      "BASE_ATK": 223,
+      "BASE_DEF": 648,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000041": {
+    "NAME": "Mona",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Catalyst",
+    "FIXED_STATS": {
+      "BASE_HP": 10409,
+      "BASE_ATK": 287,
+      "BASE_DEF": 653,
       "PERCENT_ER": 0.32
     }
   },
-  "10000021": {
-    "NAME": "Amber",
+  "10000042": {
+    "NAME": "Keqing",
+    "QUALITY": "5",
+    "ELEMENT": "Electro",
+    "TYPE": "Sword",
+    "FIXED_STATS": {
+      "BASE_HP": 13103,
+      "BASE_ATK": 322,
+      "BASE_DEF": 799,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000043": {
+    "NAME": "Sucrose",
     "QUALITY": "4",
-    "ELEMENT": "Pyro",
+    "ELEMENT": "Anemo",
+    "TYPE": "Catalyst",
+    "FIXED_STATS": {
+      "BASE_HP": 9243,
+      "BASE_ATK": 169,
+      "BASE_DEF": 702,
+      "PERCENT_ANEMO": 0.24
+    }
+  },
+  "10000030": {
+    "NAME": "Zhongli",
+    "QUALITY": "5",
+    "ELEMENT": "Geo",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13504",
+    "FIXED_STATS": {
+      "BASE_HP": 14695,
+      "BASE_ATK": 251,
+      "BASE_DEF": 737,
+      "PERCENT_GEO": 0.288
+    }
+  },
+  "10000033": {
+    "NAME": "Tartaglia",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Bow",
+    "SIGNATURE": "15507",
+    "FIXED_STATS": {
+      "BASE_HP": 13103,
+      "BASE_ATK": 301,
+      "BASE_DEF": 814,
+      "PERCENT_HYDRO": 0.288
+    }
+  },
+  "10000039": {
+    "NAME": "Diona",
+    "QUALITY": "4",
+    "ELEMENT": "Cryo",
     "TYPE": "Bow",
     "FIXED_STATS": {
-      "BASE_HP": 9461,
-      "BASE_ATK": 223,
+      "BASE_HP": 9569,
+      "BASE_ATK": 212,
+      "BASE_DEF": 600,
+      "PERCENT_CRYO": 0.24
+    }
+  },
+  "10000044": {
+    "NAME": "Xinyan",
+    "QUALITY": "4",
+    "ELEMENT": "Pyro",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 11201,
+      "BASE_ATK": 248,
+      "BASE_DEF": 798,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000037": {
+    "NAME": "Ganyu",
+    "QUALITY": "5",
+    "ELEMENT": "Cryo",
+    "TYPE": "Bow",
+    "SIGNATURE": "15502",
+    "FIXED_STATS": {
+      "BASE_HP": 9796,
+      "BASE_ATK": 334,
+      "BASE_DEF": 630,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000038": {
+    "NAME": "Albedo",
+    "QUALITY": "5",
+    "ELEMENT": "Geo",
+    "TYPE": "Sword",
+    "FIXED_STATS": {
+      "BASE_HP": 13225,
+      "BASE_ATK": 251,
+      "BASE_DEF": 876,
+      "PERCENT_GEO": 0.288
+    }
+  },
+  "10000026": {
+    "NAME": "Xiao",
+    "QUALITY": "5",
+    "ELEMENT": "Anemo",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13505",
+    "FIXED_STATS": {
+      "BASE_HP": 12735,
+      "BASE_ATK": 349,
+      "BASE_DEF": 799,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000046": {
+    "NAME": "Hu Tao",
+    "QUALITY": "5",
+    "ELEMENT": "Pyro",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13501",
+    "FIXED_STATS": {
+      "BASE_HP": 15522,
+      "BASE_ATK": 106,
+      "BASE_DEF": 876,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000045": {
+    "NAME": "Rosaria",
+    "QUALITY": "4",
+    "ELEMENT": "Cryo",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 12288,
+      "BASE_ATK": 240,
+      "BASE_DEF": 709,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000048": {
+    "NAME": "Yanfei",
+    "QUALITY": "4",
+    "ELEMENT": "Pyro",
+    "TYPE": "Catalyst",
+    "FIXED_STATS": {
+      "BASE_HP": 9352,
+      "BASE_ATK": 240,
+      "BASE_DEF": 586,
+      "PERCENT_PYRO": 0.24
+    }
+  },
+  "10000051": {
+    "NAME": "Eula",
+    "QUALITY": "5",
+    "ELEMENT": "Cryo",
+    "TYPE": "Claymore",
+    "SIGNATURE": "12503",
+    "FIXED_STATS": {
+      "BASE_HP": 13225,
+      "BASE_ATK": 342,
+      "BASE_DEF": 750,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000047": {
+    "NAME": "Kaedehara Kazuha",
+    "QUALITY": "5",
+    "ELEMENT": "Anemo",
+    "TYPE": "Sword",
+    "SIGNATURE": "11503",
+    "FIXED_STATS": {
+      "BASE_HP": 13348,
+      "BASE_ATK": 296,
+      "BASE_DEF": 806,
+      "FLAT_EM": 115.2
+    }
+  },
+  "10000002": {
+    "NAME": "Kamisato Ayaka",
+    "QUALITY": "5",
+    "ELEMENT": "Cryo",
+    "TYPE": "Sword",
+    "SIGNATURE": "11509",
+    "FIXED_STATS": {
+      "BASE_HP": 12858,
+      "BASE_ATK": 342,
+      "BASE_DEF": 783,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000049": {
+    "NAME": "Yoimiya",
+    "QUALITY": "5",
+    "ELEMENT": "Pyro",
+    "TYPE": "Bow",
+    "SIGNATURE": "15509",
+    "FIXED_STATS": {
+      "BASE_HP": 10164,
+      "BASE_ATK": 322,
+      "BASE_DEF": 614,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000053": {
+    "NAME": "Sayu",
+    "QUALITY": "4",
+    "ELEMENT": "Anemo",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 11853,
+      "BASE_ATK": 244,
+      "BASE_DEF": 744,
+      "FLAT_EM": 96
+    }
+  },
+  "10000052": {
+    "NAME": "Raiden Shogun",
+    "QUALITY": "5",
+    "ELEMENT": "Electro",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13509",
+    "FIXED_STATS": {
+      "BASE_HP": 12907,
+      "BASE_ATK": 337,
+      "BASE_DEF": 789,
+      "PERCENT_ER": 0.32
+    }
+  },
+  "10000054": {
+    "NAME": "Sangonomiya Kokomi",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14506",
+    "FIXED_STATS": {
+      "BASE_HP": 13470,
+      "BASE_ATK": 234,
+      "BASE_DEF": 657,
+      "PERCENT_HYDRO": 0.288
+    }
+  },
+  "10000056": {
+    "NAME": "Kujou Sara",
+    "QUALITY": "4",
+    "ELEMENT": "Electro",
+    "TYPE": "Bow",
+    "FIXED_STATS": {
+      "BASE_HP": 9569,
+      "BASE_ATK": 195,
+      "BASE_DEF": 627,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000050": {
+    "NAME": "Thoma",
+    "QUALITY": "4",
+    "ELEMENT": "Pyro",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 10331,
+      "BASE_ATK": 201,
+      "BASE_DEF": 750,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000062": {
+    "NAME": "Aloy",
+    "QUALITY": "5",
+    "ELEMENT": "Cryo",
+    "TYPE": "Bow",
+    "FIXED_STATS": {
+      "BASE_HP": 10898,
+      "BASE_ATK": 233,
+      "BASE_DEF": 676,
+      "PERCENT_CRYO": 0.288
+    }
+  },
+  "10000055": {
+    "NAME": "Gorou",
+    "QUALITY": "4",
+    "ELEMENT": "Geo",
+    "TYPE": "Bow",
+    "FIXED_STATS": {
+      "BASE_HP": 9569,
+      "BASE_ATK": 182,
+      "BASE_DEF": 648,
+      "PERCENT_GEO": 0.24
+    }
+  },
+  "10000057": {
+    "NAME": "Arataki Itto",
+    "QUALITY": "5",
+    "ELEMENT": "Geo",
+    "TYPE": "Claymore",
+    "SIGNATURE": "12510",
+    "FIXED_STATS": {
+      "BASE_HP": 12858,
+      "BASE_ATK": 227,
+      "BASE_DEF": 959,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000063": {
+    "NAME": "Shenhe",
+    "QUALITY": "5",
+    "ELEMENT": "Cryo",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13507",
+    "FIXED_STATS": {
+      "BASE_HP": 12992,
+      "BASE_ATK": 303,
+      "BASE_DEF": 830,
+      "PERCENT_ATK": 0.288
+    }
+  },
+  "10000064": {
+    "NAME": "Yun Jin",
+    "QUALITY": "4",
+    "ELEMENT": "Geo",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 10657,
+      "BASE_ATK": 191,
+      "BASE_DEF": 734,
+      "PERCENT_ER": 0.2668
+    }
+  },
+  "10000058": {
+    "NAME": "Yae Miko",
+    "QUALITY": "5",
+    "ELEMENT": "Electro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14509",
+    "FIXED_STATS": {
+      "BASE_HP": 10372,
+      "BASE_ATK": 339,
+      "BASE_DEF": 568,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000066": {
+    "NAME": "Kamisato Ayato",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Sword",
+    "SIGNATURE": "11510",
+    "FIXED_STATS": {
+      "BASE_HP": 13715,
+      "BASE_ATK": 298,
+      "BASE_DEF": 768,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000060": {
+    "NAME": "Yelan",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Bow",
+    "SIGNATURE": "15508",
+    "FIXED_STATS": {
+      "BASE_HP": 14450,
+      "BASE_ATK": 243,
+      "BASE_DEF": 547,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000065": {
+    "NAME": "Kuki Shinobu",
+    "QUALITY": "4",
+    "ELEMENT": "Electro",
+    "TYPE": "Sword",
+    "FIXED_STATS": {
+      "BASE_HP": 12288,
+      "BASE_ATK": 212,
+      "BASE_DEF": 750,
+      "PERCENT_HP": 0.24
+    }
+  },
+  "10000059": {
+    "NAME": "Shikanoin Heizou",
+    "QUALITY": "4",
+    "ELEMENT": "Anemo",
+    "TYPE": "Catalyst",
+    "FIXED_STATS": {
+      "BASE_HP": 10657,
+      "BASE_ATK": 225,
+      "BASE_DEF": 683,
+      "PERCENT_ANEMO": 0.24
+    }
+  },
+  "10000067": {
+    "NAME": "Collei",
+    "QUALITY": "4",
+    "ELEMENT": "Dendro",
+    "TYPE": "Bow",
+    "FIXED_STATS": {
+      "BASE_HP": 9787,
+      "BASE_ATK": 199,
       "BASE_DEF": 600,
       "PERCENT_ATK": 0.24
     }
   },
-  "10000020": {
-    "NAME": "Razor",
+  "10000068": {
+    "NAME": "Dori",
     "QUALITY": "4",
     "ELEMENT": "Electro",
     "TYPE": "Claymore",
     "FIXED_STATS": {
-      "BASE_HP": 11962,
-      "BASE_ATK": 233,
-      "BASE_DEF": 750,
-      "PERCENT_PHYSICAL": 0.3
+      "BASE_HP": 12397,
+      "BASE_ATK": 223,
+      "BASE_DEF": 723,
+      "PERCENT_HP": 0.24
     }
   },
-  "10000016": {
-    "NAME": "Diluc",
+  "10000069": {
+    "NAME": "Tighnari",
     "QUALITY": "5",
-    "ELEMENT": "Pyro",
-    "TYPE": "Claymore",
-    "SIGNATURE": "12502",
+    "ELEMENT": "Dendro",
+    "TYPE": "Bow",
+    "SIGNATURE": "15511",
     "FIXED_STATS": {
-      "BASE_HP": 12980,
-      "BASE_ATK": 334,
-      "BASE_DEF": 783,
+      "BASE_HP": 10849,
+      "BASE_ATK": 267,
+      "BASE_DEF": 630,
+      "PERCENT_DENDRO": 0.288
+    }
+  },
+  "10000070": {
+    "NAME": "Nilou",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Sword",
+    "SIGNATURE": "11511",
+    "FIXED_STATS": {
+      "BASE_HP": 15184,
+      "BASE_ATK": 229,
+      "BASE_DEF": 728,
+      "PERCENT_HP": 0.288
+    }
+  },
+  "10000071": {
+    "NAME": "Cyno",
+    "QUALITY": "5",
+    "ELEMENT": "Electro",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13511",
+    "FIXED_STATS": {
+      "BASE_HP": 12490,
+      "BASE_ATK": 318,
+      "BASE_DEF": 859,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000072": {
+    "NAME": "Candace",
+    "QUALITY": "4",
+    "ELEMENT": "Hydro",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 10874,
+      "BASE_ATK": 212,
+      "BASE_DEF": 682,
+      "PERCENT_HP": 0.24
+    }
+  },
+  "10000073": {
+    "NAME": "Nahida",
+    "QUALITY": "5",
+    "ELEMENT": "Dendro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14511",
+    "FIXED_STATS": {
+      "BASE_HP": 10360,
+      "BASE_ATK": 298,
+      "BASE_DEF": 630,
+      "FLAT_EM": 115.2
+    }
+  },
+  "10000074": {
+    "NAME": "Layla",
+    "QUALITY": "4",
+    "ELEMENT": "Cryo",
+    "TYPE": "Sword",
+    "FIXED_STATS": {
+      "BASE_HP": 11092,
+      "BASE_ATK": 216,
+      "BASE_DEF": 655,
+      "PERCENT_HP": 0.24
+    }
+  },
+  "10000075": {
+    "NAME": "Wanderer",
+    "QUALITY": "5",
+    "ELEMENT": "Anemo",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14512",
+    "FIXED_STATS": {
+      "BASE_HP": 10164,
+      "BASE_ATK": 327,
+      "BASE_DEF": 607,
       "PERCENT_CR": 0.192
     },
     "CRITERIA": [
@@ -1563,65 +863,765 @@
         "SCALING": {
           "FLAT": 0,
           "MULTIPLIER": {
-            "ATK": 3.672
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "NA",
+          "ELEMENT": "ANEMO"
+        },
+        "DEFAULT_BUFFS": [
+          10000032
+        ]
+      }
+    ]
+  },
+  "10000076": {
+    "NAME": "Faruzan",
+    "QUALITY": "4",
+    "ELEMENT": "Anemo",
+    "TYPE": "Bow",
+    "FIXED_STATS": {
+      "BASE_HP": 9569,
+      "BASE_ATK": 196,
+      "BASE_DEF": 627,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000077": {
+    "NAME": "Yaoyao",
+    "QUALITY": "4",
+    "ELEMENT": "Dendro",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 12288,
+      "BASE_ATK": 212,
+      "BASE_DEF": 750,
+      "PERCENT_HP": 0.24
+    }
+  },
+  "10000078": {
+    "NAME": "Alhaitham",
+    "QUALITY": "5",
+    "ELEMENT": "Dendro",
+    "TYPE": "Sword",
+    "SIGNATURE": "11512",
+    "FIXED_STATS": {
+      "BASE_HP": 13348,
+      "BASE_ATK": 313,
+      "BASE_DEF": 781,
+      "PERCENT_DENDRO": 0.288
+    }
+  },
+  "10000079": {
+    "NAME": "Dehya",
+    "QUALITY": "5",
+    "ELEMENT": "Pyro",
+    "TYPE": "Claymore",
+    "SIGNATURE": "12511",
+    "FIXED_STATS": {
+      "BASE_HP": 15674,
+      "BASE_ATK": 265,
+      "BASE_DEF": 627,
+      "PERCENT_HP": 0.288
+    }
+  },
+  "10000080": {
+    "NAME": "Mika",
+    "QUALITY": "4",
+    "ELEMENT": "Cryo",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 12506,
+      "BASE_ATK": 223,
+      "BASE_DEF": 713,
+      "PERCENT_HP": 0.24
+    }
+  },
+  "10000081": {
+    "NAME": "Kaveh",
+    "QUALITY": "4",
+    "ELEMENT": "Dendro",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 11962,
+      "BASE_ATK": 233,
+      "BASE_DEF": 750,
+      "FLAT_EM": 96
+    }
+  },
+  "10000082": {
+    "NAME": "Baizhu",
+    "QUALITY": "5",
+    "ELEMENT": "Dendro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14505",
+    "FIXED_STATS": {
+      "BASE_HP": 13348,
+      "BASE_ATK": 192,
+      "BASE_DEF": 499,
+      "PERCENT_HP": 0.288
+    }
+  },
+  "10000061": {
+    "NAME": "Kirara",
+    "QUALITY": "4",
+    "ELEMENT": "Dendro",
+    "TYPE": "Sword",
+    "FIXED_STATS": {
+      "BASE_HP": 12179,
+      "BASE_ATK": 223,
+      "BASE_DEF": 546,
+      "PERCENT_HP": 0.24
+    }
+  },
+  "10000083": {
+    "NAME": "Lynette",
+    "QUALITY": "4",
+    "ELEMENT": "Anemo",
+    "TYPE": "Sword",
+    "FIXED_STATS": {
+      "BASE_HP": 12397,
+      "BASE_ATK": 231,
+      "BASE_DEF": 711,
+      "PERCENT_ANEMO": 0.24
+    }
+  },
+  "10000084": {
+    "NAME": "Lyney",
+    "QUALITY": "5",
+    "ELEMENT": "Pyro",
+    "TYPE": "Bow",
+    "SIGNATURE": "15512",
+    "FIXED_STATS": {
+      "BASE_HP": 11021,
+      "BASE_ATK": 231,
+      "BASE_DEF": 537,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000085": {
+    "NAME": "Freminet",
+    "QUALITY": "4",
+    "ELEMENT": "Cryo",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 12071,
+      "BASE_ATK": 254,
+      "BASE_DEF": 708,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000086": {
+    "NAME": "Wriothesley",
+    "QUALITY": "5",
+    "ELEMENT": "Cryo",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14513",
+    "FIXED_STATS": {
+      "BASE_HP": 13592,
+      "BASE_ATK": 310,
+      "BASE_DEF": 763,
+      "PERCENT_CD": 0.384
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 2.7533
+          }
+        },
+        "TYPE": {
+          "SKILL": "CA",
+          "ELEMENT": "CRYO"
+        },
+        "DEFAULT_BUFFS": [
+          10000032
+        ]
+      }
+    ]
+  },
+  "10000087": {
+    "NAME": "Neuvillette",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14514",
+    "FIXED_STATS": {
+      "BASE_HP": 14695,
+      "BASE_ATK": 208,
+      "BASE_DEF": 576,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000088": {
+    "NAME": "Charlotte",
+    "QUALITY": "4",
+    "ELEMENT": "Cryo",
+    "TYPE": "Catalyst",
+    "FIXED_STATS": {
+      "BASE_HP": 10766,
+      "BASE_ATK": 173,
+      "BASE_DEF": 546,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000089": {
+    "NAME": "Furina",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Sword",
+    "SIGNATURE": "11513",
+    "FIXED_STATS": {
+      "BASE_HP": 15307,
+      "BASE_ATK": 243,
+      "BASE_DEF": 695,
+      "PERCENT_CR": 0.192
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "HP": 0.1492
+          }
+        },
+        "TYPE": {
+          "SKILL": "ES",
+          "ELEMENT": "HYDRO"
+        },
+        "MATCH": [
+          "ER"
+        ],
+        "DEFAULT_BUFFS": [
+          10000032
+        ]
+      }
+    ]
+  },
+  "10000090": {
+    "NAME": "Chevreuse",
+    "QUALITY": "4",
+    "ELEMENT": "Pyro",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 11962,
+      "BASE_ATK": 193,
+      "BASE_DEF": 604,
+      "PERCENT_HP": 0.24
+    }
+  },
+  "10000091": {
+    "NAME": "Navia",
+    "QUALITY": "5",
+    "ELEMENT": "Geo",
+    "TYPE": "Claymore",
+    "SIGNATURE": "12512",
+    "FIXED_STATS": {
+      "BASE_HP": 12650,
+      "BASE_ATK": 351,
+      "BASE_DEF": 793,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000092": {
+    "NAME": "Gaming",
+    "QUALITY": "4",
+    "ELEMENT": "Pyro",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 11418,
+      "BASE_ATK": 301,
+      "BASE_DEF": 702,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000093": {
+    "NAME": "Xianyun",
+    "QUALITY": "5",
+    "ELEMENT": "Anemo",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14515",
+    "FIXED_STATS": {
+      "BASE_HP": 10409,
+      "BASE_ATK": 334,
+      "BASE_DEF": 572,
+      "PERCENT_ATK": 0.288
+    }
+  },
+  "10000094": {
+    "NAME": "Chiori",
+    "QUALITY": "5",
+    "ELEMENT": "Geo",
+    "TYPE": "Sword",
+    "SIGNATURE": "11514",
+    "FIXED_STATS": {
+      "BASE_HP": 11437,
+      "BASE_ATK": 322,
+      "BASE_DEF": 953,
+      "PERCENT_CR": 0.192
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit Sub DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1.4774,
+            "DEF": 1.8468
+          }
+        },
+        "TYPE": {
+          "SKILL": "RS",
+          "ELEMENT": "GEO"
+        }
+      }
+    ]
+  },
+  "10000096": {
+    "NAME": "Arlecchino",
+    "QUALITY": "5",
+    "ELEMENT": "Pyro",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13512",
+    "FIXED_STATS": {
+      "BASE_HP": 13103,
+      "BASE_ATK": 342,
+      "BASE_DEF": 764,
+      "PERCENT_CD": 0.384
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "NA",
+          "ELEMENT": "PYRO"
+        },
+        "DEFAULT_BUFFS": [
+          10000032
+        ]
+      }
+    ]
+  },
+  "10000095": {
+    "NAME": "Sigewinne",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Bow",
+    "SIGNATURE": "15513",
+    "FIXED_STATS": {
+      "BASE_HP": 13348,
+      "BASE_ATK": 192,
+      "BASE_DEF": 499,
+      "PERCENT_HP": 0.288
+    }
+  },
+  "10000097": {
+    "NAME": "Sethos",
+    "QUALITY": "4",
+    "ELEMENT": "Electro",
+    "TYPE": "Bow",
+    "FIXED_STATS": {
+      "BASE_HP": 9787,
+      "BASE_ATK": 227,
+      "BASE_DEF": 559,
+      "FLAT_EM": 96
+    }
+  },
+  "10000098": {
+    "NAME": "Clorinde",
+    "QUALITY": "5",
+    "ELEMENT": "Electro",
+    "TYPE": "Sword",
+    "SIGNATURE": "11515",
+    "FIXED_STATS": {
+      "BASE_HP": 12956,
+      "BASE_ATK": 337,
+      "BASE_DEF": 783,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000099": {
+    "NAME": "Emilie",
+    "QUALITY": "5",
+    "ELEMENT": "Dendro",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13513",
+    "FIXED_STATS": {
+      "BASE_HP": 13568,
+      "BASE_ATK": 334,
+      "BASE_DEF": 730,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000100": {
+    "NAME": "Kachina",
+    "QUALITY": "4",
+    "ELEMENT": "Geo",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 11799,
+      "BASE_ATK": 216,
+      "BASE_DEF": 792,
+      "PERCENT_GEO": 0.24
+    }
+  },
+  "10000101": {
+    "NAME": "Kinich",
+    "QUALITY": "5",
+    "ELEMENT": "Dendro",
+    "TYPE": "Claymore",
+    "SIGNATURE": "12513",
+    "FIXED_STATS": {
+      "BASE_HP": 12858,
+      "BASE_ATK": 332,
+      "BASE_DEF": 801,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000102": {
+    "NAME": "Mualani",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14516",
+    "FIXED_STATS": {
+      "BASE_HP": 15184,
+      "BASE_ATK": 181,
+      "BASE_DEF": 570,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000103": {
+    "NAME": "Xilonen",
+    "QUALITY": "5",
+    "ELEMENT": "Geo",
+    "TYPE": "Sword",
+    "SIGNATURE": "11516",
+    "FIXED_STATS": {
+      "BASE_HP": 12405,
+      "BASE_ATK": 275,
+      "BASE_DEF": 929,
+      "PERCENT_DEF": 0.36
+    }
+  },
+  "10000104": {
+    "NAME": "Chasca",
+    "QUALITY": "5",
+    "ELEMENT": "Anemo",
+    "TYPE": "Bow",
+    "SIGNATURE": "15514",
+    "FIXED_STATS": {
+      "BASE_HP": 9796,
+      "BASE_ATK": 346,
+      "BASE_DEF": 614,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000105": {
+    "NAME": "Ororon",
+    "QUALITY": "4",
+    "ELEMENT": "Electro",
+    "TYPE": "Bow",
+    "FIXED_STATS": {
+      "BASE_HP": 9243,
+      "BASE_ATK": 244,
+      "BASE_DEF": 586,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000106": {
+    "NAME": "Mavuika",
+    "QUALITY": "5",
+    "ELEMENT": "Pyro",
+    "TYPE": "Claymore",
+    "SIGNATURE": "12514",
+    "FIXED_STATS": {
+      "BASE_HP": 12552,
+      "BASE_ATK": 358,
+      "BASE_DEF": 791,
+      "PERCENT_CD": 0.384
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 8.0064
           }
         },
         "TYPE": {
           "SKILL": "ULT",
           "ELEMENT": "PYRO"
         },
-        "MATCH": [
-          "ER"
+        "DEFAULT_BUFFS": [
+          10000032
         ]
       }
     ]
   },
-  "10000015": {
-    "NAME": "Kaeya",
-    "QUALITY": "4",
+  "10000107": {
+    "NAME": "Citlali",
+    "QUALITY": "5",
     "ELEMENT": "Cryo",
-    "TYPE": "Sword",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14517",
     "FIXED_STATS": {
-      "BASE_HP": 11636,
-      "BASE_ATK": 223,
-      "BASE_DEF": 791,
-      "PERCENT_ER": 0.2668
+      "BASE_HP": 11633,
+      "BASE_ATK": 126,
+      "BASE_DEF": 763,
+      "FLAT_EM": 115.2
     }
   },
-  "10000014": {
-    "NAME": "Barbara",
+  "10000108": {
+    "NAME": "Lan Yan",
     "QUALITY": "4",
-    "ELEMENT": "Hydro",
+    "ELEMENT": "Anemo",
     "TYPE": "Catalyst",
     "FIXED_STATS": {
-      "BASE_HP": 9787,
-      "BASE_ATK": 159,
-      "BASE_DEF": 668,
-      "PERCENT_HP": 0.24
+      "BASE_HP": 9243,
+      "BASE_ATK": 250,
+      "BASE_DEF": 580,
+      "PERCENT_ATK": 0.24
     }
   },
-  "10000006": {
-    "NAME": "Lisa",
+  "10000109": {
+    "NAME": "Yumemizuki Mizuki",
+    "QUALITY": "5",
+    "ELEMENT": "Anemo",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14518",
+    "FIXED_STATS": {
+      "BASE_HP": 12736,
+      "BASE_ATK": 215,
+      "BASE_DEF": 757,
+      "FLAT_EM": 115.2
+    }
+  },
+  "10000110": {
+    "NAME": "Iansan",
     "QUALITY": "4",
     "ELEMENT": "Electro",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 10657,
+      "BASE_ATK": 257,
+      "BASE_DEF": 638,
+      "PERCENT_ATK": 0.24
+    }
+  },
+  "10000111": {
+    "NAME": "Varesa",
+    "QUALITY": "5",
+    "ELEMENT": "Electro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14519",
+    "FIXED_STATS": {
+      "BASE_HP": 12699,
+      "BASE_ATK": 356,
+      "BASE_DEF": 782,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000112": {
+    "NAME": "Escoffier",
+    "QUALITY": "5",
+    "ELEMENT": "Cryo",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13514",
+    "FIXED_STATS": {
+      "BASE_HP": 13348,
+      "BASE_ATK": 347,
+      "BASE_DEF": 732,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000113": {
+    "NAME": "Ifa",
+    "QUALITY": "4",
+    "ELEMENT": "Anemo",
     "TYPE": "Catalyst",
     "FIXED_STATS": {
-      "BASE_HP": 9569,
-      "BASE_ATK": 231,
-      "BASE_DEF": 573,
+      "BASE_HP": 10081,
+      "BASE_ATK": 178,
+      "BASE_DEF": 605,
       "FLAT_EM": 96
     }
   },
-  "10000003": {
-    "NAME": "Jean",
+  "10000114": {
+    "NAME": "Skirk",
     "QUALITY": "5",
-    "ELEMENT": "Anemo",
+    "ELEMENT": "Cryo",
+    "TYPE": "Sword",
+    "SIGNATURE": "11517",
+    "FIXED_STATS": {
+      "BASE_HP": 12417,
+      "BASE_ATK": 359,
+      "BASE_DEF": 806,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000115": {
+    "NAME": "Dahlia",
+    "QUALITY": "4",
+    "ELEMENT": "Hydro",
     "TYPE": "Sword",
     "FIXED_STATS": {
+      "BASE_HP": 12506,
+      "BASE_ATK": 189,
+      "BASE_DEF": 560,
+      "PERCENT_HP": 0.24
+    }
+  },
+  "10000116": {
+    "NAME": "Ineffa",
+    "QUALITY": "5",
+    "ELEMENT": "Electro",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13515",
+    "FIXED_STATS": {
+      "BASE_HP": 12613,
+      "BASE_ATK": 330,
+      "BASE_DEF": 828,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000119": {
+    "NAME": "Lauma",
+    "QUALITY": "5",
+    "ELEMENT": "Dendro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14520",
+    "FIXED_STATS": {
+      "BASE_HP": 10654,
+      "BASE_ATK": 255,
+      "BASE_DEF": 669,
+      "FLAT_EM": 315.2
+    }
+  },
+  "10000120": {
+    "NAME": "Flins",
+    "QUALITY": "5",
+    "ELEMENT": "Electro",
+    "TYPE": "Polearm",
+    "SIGNATURE": "13516",
+    "FIXED_STATS": {
+      "BASE_HP": 12491,
+      "BASE_ATK": 352,
+      "BASE_DEF": 809,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000121": {
+    "NAME": "Aino",
+    "QUALITY": "4",
+    "ELEMENT": "Hydro",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 11201,
+      "BASE_ATK": 242,
+      "BASE_DEF": 607,
+      "FLAT_EM": 96
+    }
+  },
+  "10000122": {
+    "NAME": "Nefer",
+    "QUALITY": "5",
+    "ELEMENT": "Dendro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14521",
+    "FIXED_STATS": {
+      "BASE_HP": 12704,
+      "BASE_ATK": 344,
+      "BASE_DEF": 799,
+      "FLAT_EM": 100,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000123": {
+    "NAME": "Durin",
+    "QUALITY": "5",
+    "ELEMENT": "Pyro",
+    "TYPE": "Sword",
+    "SIGNATURE": "11518",
+    "FIXED_STATS": {
+      "BASE_HP": 12430,
+      "BASE_ATK": 347,
+      "BASE_DEF": 822,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000124": {
+    "NAME": "Jahoda",
+    "QUALITY": "4",
+    "ELEMENT": "Anemo",
+    "TYPE": "Bow",
+    "FIXED_STATS": {
+      "BASE_HP": 9646,
+      "BASE_ATK": 223,
+      "BASE_DEF": 580,
+      "PERCENT_HB": 0.185
+    }
+  },
+  "10000125": {
+    "NAME": "Columbina",
+    "QUALITY": "5",
+    "ELEMENT": "Hydro",
+    "TYPE": "Catalyst",
+    "SIGNATURE": "14522",
+    "FIXED_STATS": {
       "BASE_HP": 14695,
-      "BASE_ATK": 239,
-      "BASE_DEF": 768,
-      "PERCENT_HB": 0.2216
+      "BASE_ATK": 96,
+      "BASE_DEF": 515,
+      "PERCENT_CR": 0.192
+    }
+  },
+  "10000126": {
+    "NAME": "Zibai",
+    "QUALITY": "5",
+    "ELEMENT": "Geo",
+    "TYPE": "Sword",
+    "SIGNATURE": "11519",
+    "FIXED_STATS": {
+      "BASE_HP": 12919,
+      "BASE_ATK": 225,
+      "BASE_DEF": 957,
+      "PERCENT_CD": 0.384
+    }
+  },
+  "10000127": {
+    "NAME": "Illuga",
+    "QUALITY": "4",
+    "ELEMENT": "Geo",
+    "TYPE": "Polearm",
+    "FIXED_STATS": {
+      "BASE_HP": 11962,
+      "BASE_ATK": 191,
+      "BASE_DEF": 814,
+      "FLAT_EM": 96
+    }
+  },
+  "10000128": {
+    "NAME": "Varka",
+    "QUALITY": "5",
+    "ELEMENT": "Anemo",
+    "TYPE": "Claymore",
+    "FIXED_STATS": {
+      "BASE_HP": 12613.288084400001,
+      "BASE_ATK": 352.78811550000006,
+      "BASE_DEF": 795.45377295,
+      "BASE_EM": 0,
+      "PERCENT_CD": 0.384
     }
   }
 }

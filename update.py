@@ -26,78 +26,52 @@ GAME_LINKS = {
 def main():
     game = select_option('Select game to update:', GAMES.keys())
     game_id = GAMES[game]
+    print()
 
-    # Version
     version = fetch_version(game_id)
-    print(f"The current live version is: {version}")
-    is_version_correct = select_option('Is this correct?', ['Yes', 'No'])
-    if is_version_correct == 'No':
-        sys.exit()
+    character_ids, character_names = enter_ids(game_id, version, 'character')
+    weapon_ids, weapon_names = enter_ids(game_id, version, 'weapon')
+    set_ids, set_names = enter_ids(game_id, version, 'set')
+    print()
 
-    # Characters
-    has_new_characters = select_option(
-        f"Does version {version} include new characters?",
-        ['Yes', 'No'],
-    )
-    scraped_character_entries = []
-    if has_new_characters == 'Yes':
-        character_ids = enter_ids(game_id, version, 'character')
+    # Confirm input
+    print(f"Update summary for {game} {version}")
+    if character_names:
+        print(f"New characters: {', '.join(character_names)}")
+    if weapon_names:
+        print(f"New weapons: {', '.join(weapon_names)}")
+    if set_names:
+        print(f"New sets: {', '.join(set_names)}")
+
+    print()
+    while True:
+        continue_update = input("Continue? (y/n): ")
+        match continue_update:
+            case 'n':
+                print('Update cancelled.')
+                sys.exit()
+            case 'y':
+                break
+        print('Invalid input. Please try again.')
+
+    # Scrape
+    if character_ids:
+        json_data = read_json(f"src/lookups/{GAME_LINKS[game_id]}/CHARACTERS.json")
         for ID in character_ids:
-            scraped = fetch_character(game_id, version, ID)
-            scraped_character_entries.append([ID, scraped])
-            print(json.dumps(scraped, indent=2))
-            print()
-    
-    # Weapons
-    has_new_weapons = select_option(
-        f"Does version {version} include new weapons?",
-        ['Yes', 'No'],
-    )
-    scraped_weapon_entries = []
-    if has_new_weapons == 'Yes':
-        weapon_ids = enter_ids(game_id, version, 'weapon')
+            json_data[ID] = fetch_character(game_id, version, ID)
+        write_json(f"src/lookups/{GAME_LINKS[game_id]}/CHARACTERS.json", json_data)
+
+    if weapon_ids:
+        json_data = read_json(f"src/lookups/{GAME_LINKS[game_id]}/WEAPONS.json")
         for ID in weapon_ids:
-            scraped = fetch_weapon(game_id, version, ID)
-            scraped_weapon_entries.append([ID, scraped])
-            print(json.dumps(scraped, indent=2))
-            print()
-    
-    # Sets
-    has_new_sets = select_option(
-        f"Does version {version} include new sets?",
-        ['Yes', 'No'],
-    )
-    scraped_set_entries = []
-    if has_new_sets == 'Yes':
-        set_ids = enter_ids(game_id, version, 'set')
+            json_data[ID] = fetch_weapon(game_id, version, ID)
+        write_json(f"src/lookups/{GAME_LINKS[game_id]}/WEAPONS.json", json_data)
 
-    # Finalizing
-    print('Summary:')
-    if scraped_character_entries:
-        print('New characters:')
-        for ID, scraped in scraped_character_entries:
-            print(scraped['NAME'])
-    if scraped_weapon_entries:
-        print('New weapons:')
-        for ID, scraped in scraped_weapon_entries:
-            print(scraped['NAME'])
-    if scraped_set_entries:
-        print('New sets:')
-        for ID, scraped in scraped_set_entries:
-            print(scraped['NAME'])
-    is_finalized = select_option(
-        f"Does this look correct?",
-        ['Yes', 'No'],
-    )
-
-    if is_finalized == 'No':
-        sys.exit()
-
-    if scraped_character_entries:
-        original_json = read_json(f"src/lookups/{GAME_LINKS[game_id]}/CHARACTERS.json")
-        for ID, scraped in scraped_character_entries:
-            original_json = {**{ID: scraped}, **original_json}
-        write_json(f"src/lookups/{GAME_LINKS[game_id]}/CHARACTERS.json", original_json)
+    if set_ids:
+        json_data = read_json(f"src/lookups/{GAME_LINKS[game_id]}/SETS.json")
+        for ID in set_ids:
+            json_data[ID] = fetch_set(game_id, version, ID)
+        write_json(f"src/lookups/{GAME_LINKS[game_id]}/SETS.json", json_data)
 
     print('Update complete')
 

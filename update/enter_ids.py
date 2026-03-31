@@ -49,30 +49,21 @@ def enter_ids(game_id, version, id_type):
         return data[ID]["en"]
 
     while True:
-        input_str = input(f"Enter new {id_type} IDs (space-separated): ")
+        input_str = input(f"Enter new {id_type} IDs (space-separated, or press Enter to skip): ")
+
         if input_str == 'q':
             sys.exit()
 
+        if input_str == '':
+            return [], []
+
         id_list = input_str.split()
-    
         invalid_ids = [ID for ID in id_list if is_invalid_id(ID)]
         if invalid_ids:
             print(f"Invalid IDs: ({', '.join(invalid_ids)}). Please try again.")
             continue
 
-        id_list = sorted(id_list, key=int, reverse=True)
-
+        id_list = sorted(id_list, key=int)
         id_names = [get_name(ID) for ID in id_list]
-        print("You entered:")
-        for ID, name in zip(id_list, id_names):
-            print(f"{ID}: {name}")
-        print()
-        
-        is_list_correct = select_option(
-            'Is this list correct?',
-            ['Yes', 'No'],
-        )
-        if is_list_correct == 'No':
-            continue
 
-        return id_list
+        return id_list, id_names
