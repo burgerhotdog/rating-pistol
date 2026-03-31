@@ -9,28 +9,22 @@ import {
 } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { BuildContext, useAuth } from '@/contexts';
-
-const GAME_PATHS = [
-  'genshin-impact',
-  'honkai-star-rail',
-  'wuthering-waves',
-  'zenless-zone-zero',
-];
+import { VERSION } from '@/lookups';
 
 export const BuildProvider = ({ children }) => {
   const { user } = useAuth();
-  const [buildCollections, setBuildCollections] = useState({});
+  const [buildsByGameId, setBuildsByGameId] = useState({});
 
   useEffect(() => {
     if (!user) {
-      setBuildCollections({});
+      setBuildsByGameId({});
       return;
     }
 
-    const unsubscribes = GAME_PATHS.map(gameId => {
+    const unsubscribes = Object.keys(VERSION).map(gameId => {
       const ref = collection(db, 'users', user.uid, gameId);
       return onSnapshot(ref, snapshot => {
-        setBuildCollections(prev => ({
+        setBuildsByGameId(prev => ({
           ...prev,
           [gameId]: Object.fromEntries(snapshot.docs.map(doc => [
             doc.id,
@@ -54,19 +48,17 @@ export const BuildProvider = ({ children }) => {
       if (entriesWithTimes.length === 1) {
         const [id, data] = entriesWithTimes[0];
         const ref = doc(db, 'users', user.uid, gameId, String(id));
-        setDoc(ref, data)
-          .catch(err => console.error(err));
+        setDoc(ref, data).catch(err => console.error(err));
       } else {
         const batch = writeBatch(db);
         entriesWithTimes.forEach(([id, data]) => {
           const ref = doc(db, 'users', user.uid, gameId, String(id));
           batch.set(ref, data);
         });
-        batch.commit()
-          .catch(err => console.error(err));
+        batch.commit().catch(err => console.error(err));
       }
     } else {
-      setBuildCollections(prev => ({
+      setBuildsByGameId(prev => ({
         ...prev,
         [gameId]: {
           ...prev[gameId],
@@ -79,10 +71,9 @@ export const BuildProvider = ({ children }) => {
   const deleteBuildId = async (gameId, id) => {
     if (user) {
       const ref = doc(db, 'users', user.uid, gameId, String(id));
-      deleteDoc(ref)
-        .catch(err => console.error(err));
+      deleteDoc(ref).catch(err => console.error(err));
     } else {
-      setBuildCollections(prev => {
+      setBuildsByGameId(prev => {
         const newCollection = { ...prev[gameId] };
         delete newCollection[id];
         return { ...prev, [gameId]: newCollection };
@@ -90,10 +81,15 @@ export const BuildProvider = ({ children }) => {
     }
   };
 
+  const getBuilds = (gameId) => {
+    return buildsByGameId[gameId] ?? {};
+  };
+
   return (
     <BuildContext.Provider
       value={{
-        buildCollections,
+        buildsByGameId,
+        getBuilds,
         saveBuildEntries,
         deleteBuildId,
       }}

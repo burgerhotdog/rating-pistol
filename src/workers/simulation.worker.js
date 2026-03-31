@@ -2,10 +2,10 @@ import { multiWeekSimulation, combineEquipStats } from '@/utils';
 
 const ITERATIONS = 100;
 
-self.onmessage = ({ data: { gameId, charId, build, criteria, buffs } }) => {
+self.onmessage = ({ data: { gameId, characterId, build, criteria, buffs } }) => {
   const rawData = [];
   for (let i = 0; i < ITERATIONS; i++) {
-    rawData.push(multiWeekSimulation(gameId, charId, build, criteria, buffs));
+    rawData.push(multiWeekSimulation(gameId, characterId, build, criteria, buffs));
   }
 
   // Average weekly ratings

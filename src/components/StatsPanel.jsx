@@ -2,18 +2,20 @@ import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { STATS, CHARACTERS, WEAPONS } from '@/lookups';
 import { buildSourceMapList, computeTotalStat, combineEquipStats } from '@/utils';
+import { useCurrent } from '@/hooks';
 
-export const StatsPanel = ({ id, data }) => {
-  const { gameId } = useParams();
+export const StatsPanel = () => {
+  const { gameId, characterId } = useParams();
+  const { build } = useCurrent();
   const { MENU_STATS } = STATS[gameId];
-  const { NAME: CHAR_NAME = '' } = CHARACTERS[gameId][id] ?? {};
-  const { NAME: WEAP_NAME = '' } = WEAPONS[gameId][data?.weaponId] ?? {};
+  const { NAME: CHAR_NAME = '' } = CHARACTERS[gameId][characterId] ?? {};
+  const { NAME: WEAP_NAME = '' } = WEAPONS[gameId][build?.weaponId] ?? {};
 
-  const sourceMapList = data ? buildSourceMapList(gameId, id, data) : null;
+  const sourceMapList = build ? buildSourceMapList(gameId, characterId, build) : null;
 
   return (
     <Card sx={{ width: 300 }}>
-      {data ? (
+      {build ? (
         <Stack p={2} sx={{ height: '100%', overflowY: 'auto' }}>
           <Typography variant="h6" fontWeight="bold">
             {CHAR_NAME}
@@ -60,7 +62,7 @@ export const StatsPanel = ({ id, data }) => {
 
           <Divider sx={{ mt: 'auto', pt: 2 }} />
           <Typography variant="caption" color="text.secondary" sx={{ pt: 1 }}>
-            Last Updated: {data?.lastUpdated ?? 'Unknown'}
+            Last Updated: {build?.lastUpdated ?? 'Unknown'}
           </Typography>
         </Stack>
       ) : (

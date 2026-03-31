@@ -70,7 +70,7 @@ def main():
         mapped_id_type = ID_TYPE_MAP.get(game_id, {}).get('character', 'character')
         for ID in character_ids:
             data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
-            parse_image(data, game_id, ID, 'avatar')
+            parse_image(data, game_id, ID, 'character')
             json_data[ID] = parse_character(data, game_id)
         write_json(f"src/lookups/{GAME_LINKS[game_id]}/CHARACTERS.json", json_data)
 

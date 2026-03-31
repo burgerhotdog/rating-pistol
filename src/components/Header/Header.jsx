@@ -12,14 +12,14 @@ export const Header = ({ gamePath }) => {
       alignItems="center"
       py={2}
     >
-      <HeaderNav activeGameId={gamePath} />
+      <HeaderNav gamePath={gamePath} />
 
       <Stack direction="row" alignItems="center" spacing={1}>
         {gamePath && (
           <>
             {gamePath === 'wuthering-waves'
               ? <HeaderOcr />
-              : <HeaderEnka activeGameId={gamePath} />
+              : <HeaderEnka gamePath={gamePath} />
             }
             <Divider orientation="vertical" flexItem />
           </>

@@ -10,9 +10,9 @@ const GAME_IDS = [
   'zenless-zone-zero',
 ];
 
-const HeaderNav = ({ activeGameId }) => {
+const HeaderNav = ({ gamePath }) => {
   const [isFanHovered, setIsFanHovered] = useState(false);
-  const isHomePage = activeGameId === '';
+  const isHomePage = gamePath === '';
 
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
@@ -54,7 +54,7 @@ const HeaderNav = ({ activeGameId }) => {
         }}
       >
         {GAME_IDS.map((gameId, index) => {
-          const isActiveGame = activeGameId === gameId;
+          const isActiveGame = gamePath === gameId;
           return (
             <Link key={gameId} to={gameId}>
               <Box

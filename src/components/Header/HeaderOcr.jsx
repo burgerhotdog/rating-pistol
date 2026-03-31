@@ -4,7 +4,7 @@ import { useBuild } from '@/contexts';
 import { CHARACTERS } from '@/lookups';
 import { CHARACTER_ASSETS } from '@/assets';
 
-const WUWA_DATA = CHARACTERS['wuthering-waves'];
+const WUWA_DATA = CHARACTERS["wuthering-waves"];
 
 const CHAR_OPTIONS = Object.keys(WUWA_DATA)
   .sort((a, b) => WUWA_DATA[a].NAME.localeCompare(WUWA_DATA[b].NAME));

@@ -3,21 +3,15 @@ import { Container } from '@mui/material';
 import { Header } from '@/components';
 import { AuthProvider, BuildProvider, UserProvider } from '@/contexts';
 import { GamePage, HomePage } from '@/pages';
-
-const GAME_PATHS = new Set([
-  'genshin-impact',
-  'honkai-star-rail',
-  'wuthering-waves',
-  'zenless-zone-zero',
-]);
+import { VERSION } from '@/lookups';
 
 export default function App() {
-  const location = useLocation();
-  const pathSegments = location.pathname.split('/').filter(Boolean);
-  const gamePath = pathSegments[0] ?? null;
+  const segments = useLocation().pathname.split('/').filter(Boolean);
+  const gameId = segments[0];
+  const characterId = segments[1];
 
-  const isHome = pathSegments.length === 0;
-  const isGame = GAME_PATHS.has(gamePath) && pathSegments.length < 3;
+  const isHome = !segments.length;
+  const isGame = VERSION[gameId] && segments.length < 3;
   const isValidUrl = isHome || isGame;
 
   if (!isValidUrl) return <Navigate to="/" replace />;
@@ -34,10 +28,16 @@ export default function App() {
               height: '100dvh',
             }}
           >
-            <Header gamePath={gamePath} />
+            <Header gameId={gameId} />
             <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/:gameId/:charId?" element={<GamePage />} />
+              <Route
+                path="/"
+                element={<HomePage />}
+              />
+              <Route
+                path="/:gameId/:characterId?"
+                element={<GamePage />}
+              />
             </Routes>
           </Container>
         </BuildProvider>

@@ -23,7 +23,7 @@ set_url = {
 
 def parse_image(data, game_id, ID, image_type):
     match image_type:
-        case 'avatar':
+        case 'character':
             image_url = character_url[game_id](data, ID)
         case 'weapon':
             image_url = weapon_url[game_id](data, ID)

@@ -1,42 +1,31 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Avatar, Card, List, ListItemButton } from '@mui/material';
 import { CHARACTER_ASSETS } from '@/assets';
-import { CHARACTERS } from '@/lookups';
+import { useSortedCharacters } from '@/hooks';
 
-export const Sidebar = ({ buildKeys, pinned }) => {
+export const Sidebar = () => {
   const navigate = useNavigate();
-  const { gameId, charId } = useParams();
+  const { gameId, characterId } = useParams();
 
-  // Sort characters alphabetically with pinned on top
-  const charList = useMemo(
-    () => buildKeys.sort((a, b) => {
-      if (a === pinned) return -1;
-      if (b === pinned) return 1;
-
-      const aName = CHARACTERS[gameId][a].NAME;
-      const bName = CHARACTERS[gameId][b].NAME;
-      return aName.localeCompare(bName);
-    }),
-    [gameId, buildKeys, pinned],
-  );
+  const characterList = useSortedCharacters();
 
   // Autonavigate scenarios
   useEffect(
     () => {
-      if (charList.length === 0) {
-        if (!charId) return;
+      if (characterList.length === 0) {
+        if (!characterId) return;
         navigate(`/${gameId}`, { replace: true });
       } else {
-        if (charList.includes(charId)) return;
-        navigate(`/${gameId}/${charList[0]}`, { replace: true });
+        if (characterList.includes(characterId)) return;
+        navigate(`/${gameId}/${characterList[0]}`, { replace: true });
       }
     },
-    [gameId, charId, charList, navigate],
+    [gameId, characterId, characterList, navigate],
   );
 
   const handleSelect = (id) => {
-    if (charId === id) return;
+    if (characterId === id) return;
     navigate(`/${gameId}/${id}`, { replace: true });
   };
 
@@ -49,10 +38,10 @@ export const Sidebar = ({ buildKeys, pinned }) => {
       }}
     >
       <List sx={{ p: 0 }}>
-        {charList.map((id) => (
+        {characterList.map((id) => (
           <ListItemButton
             key={id}
-            selected={charId === id}
+            selected={characterId === id}
             onClick={() => handleSelect(id)}
           >
             <Avatar
