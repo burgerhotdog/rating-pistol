@@ -418,7 +418,25 @@
       "BASE_DEF": 1137,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "HA",
+          "ELEMENT": "SPECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1207": {
     "NAME": "Lupa",
@@ -432,7 +450,25 @@
       "BASE_DEF": 1186,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RL",
+          "ELEMENT": "FUSION"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1409": {
     "NAME": "Cartethyia",
@@ -460,7 +496,22 @@
       "BASE_DEF": 1137,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Crit DPS",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RS",
+          "ELEMENT": "HAVOC"
+        }
+      }
+    ]
   },
   "1306": {
     "NAME": "Augusta",
@@ -477,7 +528,7 @@
     },
     "CRITERIA": [
       {
-        "NAME": "Crit DPS",
+        "NAME": "Damage",
         "SCALING": {
           "FLAT": 0,
           "MULTIPLIER": {
@@ -487,7 +538,10 @@
         "TYPE": {
           "SKILL": "HA",
           "ELEMENT": "ELECTRO"
-        }
+        },
+        "MATCH": [
+          "ER"
+        ]
       }
     ]
   },

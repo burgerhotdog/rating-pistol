@@ -35,7 +35,7 @@ function match_penalty(current, target) {
   const relativeDeficit = (target - current) / target;
   if (relativeDeficit <= 0) return 1;
 
-  return Math.exp(-2 * relativeDeficit);
+  return Math.exp(-1 * relativeDeficit);
 };
 
 export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, buffs) {
@@ -54,12 +54,12 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
       const [, newArtifact] = generateArtifact(gameId, true);
       if (!newArtifact.setId) continue;
       newArtifact.cost = 4;
-      newArtifact.mainStatFlat = 'FLAT_ATK';
+      newArtifact.mainStatFlatId = 'FLAT_ATK';
       newArtifact.mainStatFlatValue = 150;
 
       let costCounter = 0;
       for (const [index, equip] of newIter.equipList.entries()) {
-        if (equip && 4 !== equip.cost) continue;
+        if (equip && (4 !== equip.cost)) continue;
         costCounter++;
         if (costCounter > 1) break;
         const newEquipList = newIter.equipList.map((currentEcho, idx) => {
@@ -102,12 +102,12 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
       const [, newArtifact] = generateArtifact(gameId, true);
       if (!newArtifact.setId) continue;
       newArtifact.cost = 3;
-      newArtifact.mainStatFlat = 'FLAT_ATK';
+      newArtifact.mainStatFlatId = 'FLAT_ATK';
       newArtifact.mainStatFlatValue = 100;
 
       let costCounter = 0;
       for (const [index, equip] of newIter.equipList.entries()) {
-        if (equip && 3 !== equip.cost) continue;
+        if (equip && (3 !== equip.cost)) continue;
         costCounter++;
         if (costCounter > 2) break;
         const newEquipList = newIter.equipList.map((currentEcho, idx) => {
@@ -156,10 +156,10 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
       const cost = slotIndex ? 3 : 1;
       newArtifact.cost = cost;
       if (cost === 3) {
-        newArtifact.mainStatFlat = 'FLAT_ATK';
+        newArtifact.mainStatFlatId = 'FLAT_ATK';
         newArtifact.mainStatFlatValue = 100;
       } else {
-        newArtifact.mainStatFlat = 'FLAT_HP';
+        newArtifact.mainStatFlatId = 'FLAT_HP';
         newArtifact.mainStatFlatValue = 2280;
       }
 
@@ -169,7 +169,7 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
       let bestSwapRating = control;
       let costCounter = 0;
       for (const [index, equip] of newIter.equipList.entries()) {
-        if (equip && cost !== equip.cost) continue;
+        if (equip && (cost !== equip.cost)) continue;
         costCounter++;
         if (costCounter > 2) break;
         const newEquipList = newIter.equipList.map((currentEcho, idx) => {

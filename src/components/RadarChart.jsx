@@ -1,18 +1,19 @@
 import { useParams } from 'react-router-dom';
 import { Card, Box, Paper, Typography } from '@mui/material';
-import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarAngleAxis, Tooltip as ChartTooltip } from 'recharts';
+import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip as ChartTooltip } from 'recharts';
 import { CHARACTERS, STATS } from '@/lookups';
 import { buildSourceMapList, computeTotalStat } from '@/utils';
-
-const statList = ['HP', 'ATK', 'DEF', 'EM', 'ER', 'CR', 'CD'];
+import { useCurrent } from '@/hooks';
 
 export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }) => {
   const { gameId } = useParams();
+  const { criteria } = useCurrent();
+
   if (isLoading || !build || !combinedSimEquips) return null;
   const buildSources = buildSourceMapList(gameId, charId, build);
   const simSources = buildSources.toSpliced(3, 1, combinedSimEquips);
 
-  const damageType = CHARACTERS[gameId][charId].CRITERIA[0].TYPE.ELEMENT;
+  const damageType = criteria[0].TYPE.ELEMENT;
   const nonDamageTypes = STATS[gameId].ELEMENT_TYPES
     .map(element => element.toUpperCase())
     .filter(element => element !== damageType);
@@ -22,30 +23,33 @@ export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }
       ? !nonDamageTypes.includes(stat)
       : !nonDamageTypes.includes(stat) && stat !== 'PHYSICAL'
     )
+    .filter(([stat]) => stat === 'HB' ? !criteria[0].TYPE : true)
     .map(([stat]) => {
       const buildRaw = computeTotalStat(stat, buildSources);
       const simRaw = computeTotalStat(stat, simSources)
       return {
         stat,
-        build: buildRaw / simRaw * 100 || 0,
+        build: buildRaw / simRaw * 75 || 0,
         buildRaw,
-        sim: simRaw ? 100 : 0,
+        sim: simRaw ? 75 : 0,
         simRaw,
       };
     });
 
   return (
     <Card sx={{ flex: 1, minHeight: 0 }}>
-      <ResponsiveContainer width="100%" height={400}>
+      <ResponsiveContainer width="100%" height={400} style={{ overflow: 'visible' }}>
         <RadarChart outerRadius={100} data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="stat" />
+          <PolarRadiusAxis axisLine={false} tick={false} domain={[0, 100]} allowDataOverflow/>
           <Radar
             name="You"
             dataKey="build"
             stroke="#8884d8"
             fill="#8884d8"
             fillOpacity={0.6}
+            allowDataOverflow
           />
           <Radar
             name="Week 20 Avg"
