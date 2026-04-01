@@ -39,7 +39,7 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
 
   // Crit multiplier
   const totalCR = Math.min(computeTotalStat('CR', sourceMapList), 1);
-  const totalCD = computeTotalStat('CD', sourceMapList);
+  const totalCD = computeTotalStat('CD', sourceMapList) - (gameId === 'wuthering-waves' ? 1 : 0);
   const critMult = totalCR * (1 + totalCD) + (1 - totalCR);
 
   return (baseDmg * baseDmgMultiplier + additiveBaseDmgBonus) * dmgBonus * ampMult * critMult;

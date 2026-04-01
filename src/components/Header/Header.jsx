@@ -4,7 +4,7 @@ import HeaderNav from './HeaderNav';
 import HeaderOcr from './HeaderOcr';
 import HeaderUser from './HeaderUser';
 
-export const Header = ({ gamePath }) => {
+export const Header = ({ gameId }) => {
   return (
     <Box
       display="flex"
@@ -12,14 +12,14 @@ export const Header = ({ gamePath }) => {
       alignItems="center"
       py={2}
     >
-      <HeaderNav activeGameId={gamePath} />
+      <HeaderNav gamePath={gameId} />
 
       <Stack direction="row" alignItems="center" spacing={1}>
-        {gamePath && (
+        {gameId && (
           <>
-            {gamePath === 'wuthering-waves'
+            {gameId === 'wuthering-waves'
               ? <HeaderOcr />
-              : <HeaderEnka activeGameId={gamePath} />
+              : <HeaderEnka gamePath={gameId} />
             }
             <Divider orientation="vertical" flexItem />
           </>

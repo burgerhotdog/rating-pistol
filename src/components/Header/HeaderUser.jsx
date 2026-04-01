@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import {
   Avatar,
   IconButton,
@@ -7,10 +7,10 @@ import {
   Typography,
   Box
 } from '@mui/material';
-import { AuthContext } from '@/contexts';
+import { useAuth } from '@/contexts';
 
 const HeaderUser = () => {
-  const { user, signIn, signOut } = useContext(AuthContext);
+  const { user, signIn, signOut } = useAuth();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const open = Boolean(anchorEl);

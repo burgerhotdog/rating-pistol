@@ -4,19 +4,11 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tool
 export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
   if (isLoading || !weeklyRatings) return null;
 
-  // Find intersection
-  let ratingPoint = null;
-  if (weeklyRatings.length) {
-    for (let i = 1; i < 21; i++) {
-      const prev = weeklyRatings[i - 1];
-      const curr = weeklyRatings[i];
-      if ((prev < rating && curr >= rating) || (prev > rating && curr <= rating)) {
-        const t = (rating - prev) / (curr - prev);
-        ratingPoint = { x: i - 1 + t, y: rating };
-        break;
-      }
-    }
-  }
+  const values = [...weeklyRatings, rating].filter(Number.isFinite);
+  const minY = Math.min(...values);
+  const maxY = Math.max(...values);
+  const padding = Math.max((maxY - minY) * 0.1, 1);
+  const niceMax = Math.ceil((maxY + padding) / 1000) * 1000;
 
   const data = weeklyRatings.map((rat, index) => ({ week: index, rating: rat }))
 
@@ -34,6 +26,8 @@ export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
             label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5 }}
           />
           <YAxis
+            domain={[0, niceMax]}
+            tickFormatter={(value) => Math.round(value)}
             label={{ value: 'DPS', angle: -90, position: 'insideLeft' }}
           />
           <Tooltip />

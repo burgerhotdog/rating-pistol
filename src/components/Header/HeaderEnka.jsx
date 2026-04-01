@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
-import { UserContext, BuildContext } from '@/contexts';
+import { useBuild, useUser } from '@/contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
 import { CHARACTERS } from '@/lookups';
 
-const HeaderEnka = ({ activeGameId }) => {
-  const { savedUids, updateSavedUids } = useContext(UserContext);
-  const { saveBuildEntries } = useContext(BuildContext);
+const HeaderEnka = ({ gamePath }) => {
+  const { savedUids, updateSavedUids } = useUser();
+  const { saveBuildEntries } = useBuild();
   const [uid, setUid] = useState('');
   const [isSyncLoading, setIsSyncLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -16,8 +16,8 @@ const HeaderEnka = ({ activeGameId }) => {
   const [selectedList, setSelectedList] = useState([]);
 
   useEffect(() => {
-    setUid(savedUids[activeGameId] ?? '');
-  }, [savedUids, activeGameId]);
+    setUid(savedUids[gamePath] ?? '');
+  }, [savedUids, gamePath]);
 
   const isValidLength = (gameId, input) => {
     if (gameId === 'genshin-impact' || gameId === 'honkai-star-rail') {
@@ -32,7 +32,7 @@ const HeaderEnka = ({ activeGameId }) => {
   const handleSync = async () => {
     setIsSyncLoading(true);
     setError(null);
-    const [status, result] = await fetchEnka(activeGameId, uid);
+    const [status, result] = await fetchEnka(gamePath, uid);
     if (status !== 200) {
       setError(result);
       setIsSyncLoading(false);
@@ -41,7 +41,7 @@ const HeaderEnka = ({ activeGameId }) => {
       setEnkaList(result);
       setSelectedList(result.map(() => true));
       setDialogOpen(true);
-      updateSavedUids(activeGameId, uid);
+      updateSavedUids(gamePath, uid);
       setIsSyncLoading(false);
     }
   };
@@ -49,11 +49,11 @@ const HeaderEnka = ({ activeGameId }) => {
   const handleSave = async () => {
     const charBuffer = selectedList.map((verdict, index) => {
       if (!verdict) return null;
-      return parseEnkaObj(activeGameId, enkaList[index]);
+      return parseEnkaObj(gamePath, enkaList[index]);
     }).filter(Boolean);
 
     if (charBuffer.length) {
-      saveBuildEntries(activeGameId, charBuffer);
+      saveBuildEntries(gamePath, charBuffer);
     }
 
     closeDialog();
@@ -96,7 +96,7 @@ const HeaderEnka = ({ activeGameId }) => {
                 <IconButton
                   size="small"
                   onClick={() => handleSync()}
-                  disabled={!isValidLength(activeGameId, uid) || isSyncLoading}
+                  disabled={!isValidLength(gamePath, uid) || isSyncLoading}
                 >
                   <SyncIcon
                     sx={{
@@ -167,7 +167,7 @@ const HeaderEnka = ({ activeGameId }) => {
                   })}
                 />
               }
-              label={CHARACTERS[activeGameId][char.avatarId].NAME}
+              label={CHARACTERS[gamePath][char.avatarId].NAME}
             />
           ))}
         </DialogContent>

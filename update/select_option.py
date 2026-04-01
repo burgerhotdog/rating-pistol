@@ -8,14 +8,10 @@ def select_option(prompt, options):
 
     while True:
         choice = input(f"Enter #(1-{len(options)}): ")
-        if choice == 'q':
-            sys.exit()
         try:
             index = int(choice) - 1
             if 0 <= index < len(options):
                 option = options[index]
-                print(f"You selected: {option}")
-                print()
                 return option
         except ValueError:
             pass
