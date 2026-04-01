@@ -1,7 +1,5 @@
 {
   "TITLE": "Genshin Impact",
-  "VERSION": "6.4",
-  "DROPS_PER_RUN": 1.065,
   "NUM_MAINSTATS": 5,
   "NUM_SUBSTATS": 4,
   "EQUIP_NAMES": [

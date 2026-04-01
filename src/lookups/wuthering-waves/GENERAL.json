@@ -1,7 +1,5 @@
 {
   "TITLE": "Wuthering Waves",
-  "VERSION": "3.1",
-  "DROPS_PER_RUN": 4.33,
   "NUM_MAINSTATS": 5,
   "NUM_SUBSTATS": 5,
   "EQUIP_NAMES": [

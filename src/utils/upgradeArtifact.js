@@ -41,10 +41,10 @@ const randomRoll = (gameId, statId) => {
   }
   if (statId === 'PERCENT_CR' || statId === 'PERCENT_CD') {
     const winnerIndex = weightedLottery([6, 6, 6, 2, 2, 2, 1, 1]);
-    return WW_CRIT[statId][winnerIndex];
+    return WW_CRIT[statId][winnerIndex] * 0.01;
   }
   const winnerIndex = weightedLottery([2, 2, 7, 8, 6, 5, 2, 1]);
-  return WW_OTHER[statId][winnerIndex];
+  return WW_OTHER[statId][winnerIndex] * statId ==='FLAT_HP' ? 1 : 0.01;
 };
 
 export function upgradeArtifact(gameId, mainStatId) {

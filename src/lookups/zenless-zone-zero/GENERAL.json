@@ -1,7 +1,5 @@
 {
   "TITLE": "Zenless Zone Zero",
-  "VERSION": "2.6",
-  "DROPS_PER_RUN": 2.25,
   "NUM_MAINSTATS": 6,
   "NUM_SUBSTATS": 4,
   "EQUIP_NAMES": [

@@ -1,15 +1,15 @@
 import { STATS } from '@/lookups';
 import { weightedLottery, upgradeArtifact } from '@/utils';
 
-export function generateArtifact(gameId) {
+export function generateArtifact(gameId, isCost4 = false) {
   const { MAIN_STAT_TYPES } = STATS[gameId];
 
   // Random set
   const setId = Math.floor(Math.random() * 2);
 
   // Random slot (wuwa calc is different)
-  const slotIndex = gameId === 'wuthering-waves'
-    ? Math.floor(Math.random() * 2) + 1
+  const slotIndex = isCost4 ? 2 : gameId === 'wuthering-waves'
+    ? Math.floor(Math.random() * 2)
     : Math.floor(Math.random() * MAIN_STAT_TYPES.length);
 
   // Main stat
