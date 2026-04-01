@@ -5,12 +5,15 @@ export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
   if (isLoading || !weeklyRatings) return null;
 
   const values = [...weeklyRatings, rating].filter(Number.isFinite);
-  const minY = Math.min(...values);
-  const maxY = Math.max(...values);
-  const padding = Math.max((maxY - minY) * 0.1, 1);
-  const niceMax = Math.ceil((maxY + padding) / 1000) * 1000;
+  //const minY = Math.min(...values);
+  //const maxY = Math.max(...values);
+  //const padding = Math.max((maxY - minY) * 0.1, 1);
+  //const niceMax = Math.ceil((maxY + padding) / 1000) * 1000;
 
-  const data = weeklyRatings.map((rat, index) => ({ week: index, rating: rat }))
+  const benchmarkRating = weeklyRatings[20];
+
+  const data = weeklyRatings.map((rat, index) => ({ week: index, rating: rat / benchmarkRating * 100 }))
+  console.log('percent', Math.round(rating / benchmarkRating * 100))
 
   return (
     <Card sx={{ flex: 1, minHeight: 0 }}>
@@ -26,14 +29,14 @@ export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
             label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5 }}
           />
           <YAxis
-            domain={[0, niceMax]}
+            domain={[0, 100]}
             tickFormatter={(value) => Math.round(value)}
-            label={{ value: 'DPS', angle: -90, position: 'insideLeft' }}
+            label={{ value: '% of benchmark', angle: -90, position: 'insideLeft' }}
           />
           <Tooltip />
 
           <ReferenceLine
-            y={rating}
+            y={rating / benchmarkRating * 100}
             stroke="red"
             strokeDasharray="3 3"
             label={{ value: 'You', position: 'right', fill: 'red' }}

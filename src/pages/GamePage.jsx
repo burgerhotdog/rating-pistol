@@ -7,6 +7,7 @@ import {
   CustomLineChart,
   CustomRadarChart,
   CustomTable,
+  Bar,
 } from '@/components';
 import { computeRating } from '@/utils';
 import { useCurrent, useSimulation } from '@/hooks';
@@ -19,7 +20,7 @@ const GamePage = () => {
   const criteriaIndex = 0;
   const [buffs, setBuffs] = useState({});
 
-  const { weeklyRatings, finalStats, isLoading } = useSimulation(criteriaIndex, buffs);
+  const { completed, total, progress, weeklyRatings, finalStats, isLoading } = useSimulation(criteriaIndex, buffs);
 
   return (
     <Box
@@ -36,6 +37,7 @@ const GamePage = () => {
       <StatsPanel />
       {criteria && (
         <Stack spacing={1} sx={{ flex: 1 }}>
+          <Bar completed={completed} total={total} progress={progress} />
           <CustomLineChart
             weeklyRatings={weeklyRatings}
             rating={rating}
