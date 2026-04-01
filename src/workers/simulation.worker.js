@@ -1,7 +1,7 @@
 import { multiWeekSimulation, combineEquipStats } from '@/utils';
 
 const PROGRESS_EVERY = 1;
-const MAX_ITERATIONS = 1000;
+const MAX_ITERATIONS = 500;
 
 function runWithConvergence(simulationFunction, threshold = 0.005, windowSize = 50) {
   let results = [];
