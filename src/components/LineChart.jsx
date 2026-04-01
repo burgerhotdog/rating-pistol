@@ -8,7 +8,6 @@ export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
   const minY = Math.min(...values);
   const maxY = Math.max(...values);
   const padding = Math.max((maxY - minY) * 0.1, 1);
-  const niceMin = Math.floor((minY - padding) / 1000) * 1000;
   const niceMax = Math.ceil((maxY + padding) / 1000) * 1000;
 
   const data = weeklyRatings.map((rat, index) => ({ week: index, rating: rat }))
@@ -27,7 +26,7 @@ export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
             label={{ value: 'Weeks', position: 'insideBottomRight', offset: -5 }}
           />
           <YAxis
-            domain={[niceMin, niceMax]}
+            domain={[0, niceMax]}
             tickFormatter={(value) => Math.round(value)}
             label={{ value: 'DPS', angle: -90, position: 'insideLeft' }}
           />
