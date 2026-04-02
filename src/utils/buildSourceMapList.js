@@ -1,4 +1,4 @@
-import { CHARACTERS, WEAPONS, STATS } from '@/lookups';
+import { CHARACTERS, WEAPONS, STATS } from '@/data';
 import { combineEquipStats, getSetCounts, getSetEffects } from '@/utils';
 
 export function buildSourceMapList(gameId, charId, build, buffs = {}) {
@@ -6,8 +6,8 @@ export function buildSourceMapList(gameId, charId, build, buffs = {}) {
   const setEffects = getSetEffects(setCounts, gameId);
   return [
     STATS[gameId].DEFAULT_STATS,
-    CHARACTERS[gameId][charId].FIXED_STATS ?? {},
-    WEAPONS[gameId][build.weaponId].FIXED_STATS ?? {},
+    CHARACTERS[gameId][charId].fixedStats ?? {},
+    WEAPONS[gameId][build.weaponId].fixedStats ?? {},
     combineEquipStats(build.equipList),
     setEffects,
     ...(Object.keys(buffs).length ? [buffs] : []),

@@ -1,6 +1,6 @@
 import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import { STATS, CHARACTERS, WEAPONS } from '@/lookups';
+import { STATS, CHARACTERS, WEAPONS } from '@/data';
 import { buildSourceMapList, computeTotalStat, combineEquipStats } from '@/utils';
 import { useCurrent } from '@/hooks';
 
@@ -8,8 +8,8 @@ export const StatsPanel = () => {
   const { gameId, characterId } = useParams();
   const { build } = useCurrent();
   const { MENU_STATS } = STATS[gameId];
-  const { NAME: CHAR_NAME = '' } = CHARACTERS[gameId][characterId] ?? {};
-  const { NAME: WEAP_NAME = '' } = WEAPONS[gameId][build?.weaponId] ?? {};
+  const { name: CHAR_NAME = '' } = CHARACTERS[gameId][characterId] ?? {};
+  const { name: WEAP_NAME = '' } = WEAPONS[gameId][build?.weaponId] ?? {};
 
   const sourceMapList = build ? buildSourceMapList(gameId, characterId, build) : null;
 

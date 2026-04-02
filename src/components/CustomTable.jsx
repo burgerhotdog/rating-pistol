@@ -1,17 +1,17 @@
 import { useParams } from 'react-router-dom';
 import { Card, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
-import { STATS, CHARACTERS } from '@/lookups';
+import { STATS, CHARACTERS } from '@/data';
 import { computeRating } from '@/utils';
 
 export const CustomTable = ({ build, rating, buffs, isLoading }) => {
   const { gameId, characterId } = useParams();
   const { SUB_STAT_TYPES } = STATS[gameId];
-  const { CRITERIA } = CHARACTERS[gameId][characterId];
-  if (isLoading || !CRITERIA || !build) return null;
+  const { criteria } = CHARACTERS[gameId][characterId];
+  if (isLoading || !criteria || !build) return null;
 
   const newRatings = Object.entries(SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
-      const newRating = computeRating(gameId, characterId, build, CRITERIA[0], { ...buffs, [id]: (buffs[id] ?? 0) + VALUE});
+      const newRating = computeRating(gameId, characterId, build, criteria[0], { ...buffs, [id]: (buffs[id] ?? 0) + VALUE});
       return {
         name: id,
         diff: newRating / rating * 100 - 100,

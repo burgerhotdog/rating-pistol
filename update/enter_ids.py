@@ -1,30 +1,27 @@
-import sys
 import requests
-from .select_option import select_option
-from .maps import ID_TYPE_MAP
 
-def enter_ids(game_id, version, id_type):
-    mapped_id_type = ID_TYPE_MAP.get(game_id, {}).get(id_type, id_type)
-    url = f"https://static.nanoka.cc/{game_id}/{version}/{mapped_id_type}.json"
+def enter_ids(GAME, version, id_type):
+    mapped_id_type = GAME["lang"]["id_type"].get(id_type, id_type)
+    url = f"https://static.nanoka.cc/{GAME['link']}/{version}/{mapped_id_type}.json"
     data = requests.get(url).json()
 
     # Echo uses setId -> key mapping from data[key]["group"] array.
     echo_setid_to_key = None
     echo_details_cache = {}
 
-    if mapped_id_type == 'echo':
+    if mapped_id_type == "echo":
         echo_setid_to_key = {}
         for key, entry in data.items():
-            for set_id in entry.get('group', []):
+            for set_id in entry.get("group", []):
                 echo_setid_to_key[str(set_id)] = key
 
     def is_invalid_id(ID):
-        if mapped_id_type == 'echo':
+        if mapped_id_type == "echo":
             return ID not in echo_setid_to_key
         return ID not in data
 
     def get_name(ID):
-        if mapped_id_type == 'echo':
+        if mapped_id_type == "echo":
             key = echo_setid_to_key[ID]
 
             # Cache request per key so repeated IDs in same group do not refetch.
@@ -51,10 +48,7 @@ def enter_ids(game_id, version, id_type):
     while True:
         input_str = input(f"Enter new {id_type} IDs (space-separated, or press Enter to skip): ")
 
-        if input_str == 'q':
-            sys.exit()
-
-        if input_str == '':
+        if input_str == "":
             return [], [], {}
 
         id_list = input_str.split()

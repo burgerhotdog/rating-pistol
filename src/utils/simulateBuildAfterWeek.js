@@ -1,4 +1,4 @@
-import { STATS } from '@/lookups';
+import { STATS } from '@/data';
 import { computeRating, generateArtifact, computeTotalStat, buildSourceMapList, getSetCounts, getSetEffects } from '@/utils';
 
 const DAILY_RESIN = {

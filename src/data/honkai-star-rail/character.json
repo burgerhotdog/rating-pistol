@@ -1,0 +1,1187 @@
+{
+  "1001": {
+    "name": "March 7th",
+    "quality": "4",
+    "element": "Ice",
+    "type": "Preservation",
+    "fixedStats": {
+      "BASE_HP": 1058.4,
+      "BASE_ATK": 511.56,
+      "BASE_DEF": 573.3,
+      "BASE_SPD": 101,
+      "PERCENT_ICE": 0.224,
+      "PERCENT_DEF": 0.225,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1002": {
+    "name": "Dan Heng",
+    "quality": "4",
+    "element": "Wind",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 882,
+      "BASE_ATK": 546.84,
+      "BASE_DEF": 396.9,
+      "BASE_SPD": 110,
+      "PERCENT_WIND": 0.224,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1003": {
+    "name": "Himeko",
+    "quality": "5",
+    "element": "Fire",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 1047.816,
+      "BASE_ATK": 756.756,
+      "BASE_DEF": 436.59000000000003,
+      "BASE_SPD": 96,
+      "PERCENT_FIRE": 0.224,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1004": {
+    "name": "Welt",
+    "quality": "5",
+    "element": "Imaginary",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1125.4319999999998,
+      "BASE_ATK": 620.9280000000001,
+      "BASE_DEF": 509.355,
+      "BASE_SPD": 102,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_IMAGINARY": 0.14400000000000002,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1008": {
+    "name": "Arlan",
+    "quality": "4",
+    "element": "Lightning",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1199.52,
+      "BASE_ATK": 599.76,
+      "BASE_DEF": 330.75,
+      "BASE_SPD": 102,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_RES": 0.18,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1009": {
+    "name": "Asta",
+    "quality": "4",
+    "element": "Fire",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 1023.12,
+      "BASE_ATK": 511.56,
+      "BASE_DEF": 463.04999999999995,
+      "BASE_SPD": 106,
+      "PERCENT_FIRE": 0.224,
+      "PERCENT_DEF": 0.225,
+      "PERCENT_CR": 0.067
+    }
+  },
+  "1013": {
+    "name": "Herta",
+    "quality": "4",
+    "element": "Ice",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 952.56,
+      "BASE_ATK": 582.1199999999999,
+      "BASE_DEF": 396.9,
+      "BASE_SPD": 100,
+      "PERCENT_ICE": 0.224,
+      "PERCENT_DEF": 0.225,
+      "PERCENT_CR": 0.067
+    }
+  },
+  "1101": {
+    "name": "Bronya",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 1241.8560000000002,
+      "BASE_ATK": 582.1199999999999,
+      "BASE_DEF": 533.61,
+      "BASE_SPD": 99,
+      "PERCENT_WIND": 0.224,
+      "PERCENT_CD": 0.24,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1102": {
+    "name": "Seele",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 931.392,
+      "BASE_ATK": 640.332,
+      "BASE_DEF": 363.82500000000005,
+      "BASE_SPD": 115,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_CD": 0.24,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1103": {
+    "name": "Serval",
+    "quality": "4",
+    "element": "Lightning",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 917.28,
+      "BASE_ATK": 652.6800000000001,
+      "BASE_DEF": 374.85,
+      "BASE_SPD": 104,
+      "PERCENT_CR": 0.187,
+      "PERCENT_EHR": 0.18,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1104": {
+    "name": "Gepard",
+    "quality": "5",
+    "element": "Ice",
+    "type": "Preservation",
+    "fixedStats": {
+      "BASE_HP": 1397.088,
+      "BASE_ATK": 543.312,
+      "BASE_DEF": 654.885,
+      "BASE_SPD": 92,
+      "PERCENT_ICE": 0.224,
+      "PERCENT_RES": 0.18,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1105": {
+    "name": "Natasha",
+    "quality": "4",
+    "element": "Physical",
+    "type": "Abundance",
+    "fixedStats": {
+      "BASE_HP": 1164.2399999999998,
+      "BASE_ATK": 476.28,
+      "BASE_DEF": 507.15,
+      "BASE_SPD": 98,
+      "PERCENT_HP": 0.28,
+      "PERCENT_RES": 0.18,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1106": {
+    "name": "Pela",
+    "quality": "4",
+    "element": "Ice",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 987.8399999999999,
+      "BASE_ATK": 546.84,
+      "BASE_DEF": 463.04999999999995,
+      "BASE_SPD": 105,
+      "PERCENT_ICE": 0.224,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_EHR": 0.1
+    }
+  },
+  "1107": {
+    "name": "Clara",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1241.8560000000002,
+      "BASE_ATK": 737.3520000000001,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 90,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_PHYSICAL": 0.14400000000000002,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1108": {
+    "name": "Sampo",
+    "quality": "4",
+    "element": "Wind",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1023.12,
+      "BASE_ATK": 617.4000000000001,
+      "BASE_DEF": 396.9,
+      "BASE_SPD": 102,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_EHR": 0.18,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1109": {
+    "name": "Hook",
+    "quality": "4",
+    "element": "Fire",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1340.6399999999999,
+      "BASE_ATK": 617.4000000000001,
+      "BASE_DEF": 352.79999999999995,
+      "BASE_SPD": 94,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_HP": 0.18,
+      "PERCENT_CD": 0.133
+    }
+  },
+  "1201": {
+    "name": "Qingque",
+    "quality": "4",
+    "element": "Quantum",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 1023.12,
+      "BASE_ATK": 652.6800000000001,
+      "BASE_DEF": 441,
+      "BASE_SPD": 98,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_QUANTUM": 0.14400000000000002,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1202": {
+    "name": "Tingyun",
+    "quality": "4",
+    "element": "Lightning",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 846.72,
+      "BASE_ATK": 529.2,
+      "BASE_DEF": 396.9,
+      "BASE_SPD": 112,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_DEF": 0.225,
+      "PERCENT_LIGHTNING": 0.08
+    }
+  },
+  "1204": {
+    "name": "Jing Yuan",
+    "quality": "5",
+    "element": "Lightning",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 1164.2399999999998,
+      "BASE_ATK": 698.544,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 99,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_CR": 0.12,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1206": {
+    "name": "Sushang",
+    "quality": "4",
+    "element": "Physical",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 917.28,
+      "BASE_ATK": 564.48,
+      "BASE_DEF": 418.95000000000005,
+      "BASE_SPD": 107,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_HP": 0.18,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1209": {
+    "name": "Yanqing",
+    "quality": "5",
+    "element": "Ice",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 892.5840000000001,
+      "BASE_ATK": 679.1400000000001,
+      "BASE_DEF": 412.33500000000004,
+      "BASE_SPD": 109,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_ICE": 0.14400000000000002,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1211": {
+    "name": "Bailu",
+    "quality": "5",
+    "element": "Lightning",
+    "type": "Abundance",
+    "fixedStats": {
+      "BASE_HP": 1319.4720000000002,
+      "BASE_ATK": 562.7159999999999,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 98,
+      "PERCENT_HP": 0.28,
+      "PERCENT_DEF": 0.225,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1006": {
+    "name": "Silver Wolf",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1047.816,
+      "BASE_ATK": 640.332,
+      "BASE_DEF": 460.845,
+      "BASE_SPD": 107,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_EHR": 0.18,
+      "PERCENT_QUANTUM": 0.08
+    }
+  },
+  "1203": {
+    "name": "Luocha",
+    "quality": "5",
+    "element": "Imaginary",
+    "type": "Abundance",
+    "fixedStats": {
+      "BASE_HP": 1280.664,
+      "BASE_ATK": 756.756,
+      "BASE_DEF": 363.82500000000005,
+      "BASE_SPD": 101,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_HP": 0.18,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1207": {
+    "name": "Yukong",
+    "quality": "4",
+    "element": "Imaginary",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 917.28,
+      "BASE_ATK": 599.76,
+      "BASE_DEF": 374.85,
+      "BASE_SPD": 107,
+      "PERCENT_IMAGINARY": 0.224,
+      "PERCENT_HP": 0.18,
+      "PERCENT_ATK": 0.1
+    }
+  },
+  "1005": {
+    "name": "Kafka",
+    "quality": "5",
+    "element": "Lightning",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1086.624,
+      "BASE_ATK": 679.1400000000001,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 100,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_EHR": 0.18,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1111": {
+    "name": "Luka",
+    "quality": "4",
+    "element": "Physical",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 917.28,
+      "BASE_ATK": 582.1199999999999,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 103,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_EHR": 0.18,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1205": {
+    "name": "Blade",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1358.2800000000002,
+      "BASE_ATK": 543.312,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 97,
+      "PERCENT_HP": 0.28,
+      "PERCENT_CR": 0.12,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1110": {
+    "name": "Lynx",
+    "quality": "4",
+    "element": "Quantum",
+    "type": "Abundance",
+    "fixedStats": {
+      "BASE_HP": 1058.4,
+      "BASE_ATK": 493.91999999999996,
+      "BASE_DEF": 551.25,
+      "BASE_SPD": 100,
+      "PERCENT_HP": 0.28,
+      "PERCENT_DEF": 0.225,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1208": {
+    "name": "Fu Xuan",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Preservation",
+    "fixedStats": {
+      "BASE_HP": 1474.7040000000002,
+      "BASE_ATK": 465.696,
+      "BASE_DEF": 606.375,
+      "BASE_SPD": 100,
+      "PERCENT_CR": 0.187,
+      "PERCENT_HP": 0.18,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1213": {
+    "name": "Dan Heng \u2022 Imbibitor Lunae",
+    "quality": "5",
+    "element": "Imaginary",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1241.8560000000002,
+      "BASE_ATK": 698.544,
+      "BASE_DEF": 363.82500000000005,
+      "BASE_SPD": 102,
+      "PERCENT_IMAGINARY": 0.224,
+      "PERCENT_CR": 0.12,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1112": {
+    "name": "Topaz & Numby",
+    "quality": "5",
+    "element": "Fire",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 931.392,
+      "BASE_ATK": 620.9280000000001,
+      "BASE_DEF": 412.33500000000004,
+      "BASE_SPD": 110,
+      "PERCENT_FIRE": 0.224,
+      "PERCENT_CR": 0.12,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1210": {
+    "name": "Guinaifen",
+    "quality": "4",
+    "element": "Fire",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 882,
+      "BASE_ATK": 582.1199999999999,
+      "BASE_DEF": 441,
+      "BASE_SPD": 106,
+      "PERCENT_FIRE": 0.224,
+      "PERCENT_BE": 0.24,
+      "PERCENT_EHR": 0.1
+    }
+  },
+  "1212": {
+    "name": "Jingliu",
+    "quality": "5",
+    "element": "Ice",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1435.8960000000002,
+      "BASE_ATK": 679.1400000000001,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 96,
+      "PERCENT_CD": 0.373,
+      "FLAT_SPD": 9,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1215": {
+    "name": "Hanya",
+    "quality": "4",
+    "element": "Physical",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 917.28,
+      "BASE_ATK": 564.48,
+      "BASE_DEF": 352.79999999999995,
+      "BASE_SPD": 110,
+      "PERCENT_ATK": 0.28,
+      "FLAT_SPD": 9,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1217": {
+    "name": "Huohuo",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Abundance",
+    "fixedStats": {
+      "BASE_HP": 1358.2800000000002,
+      "BASE_ATK": 601.5239999999999,
+      "BASE_DEF": 509.355,
+      "BASE_SPD": 98,
+      "PERCENT_HP": 0.28,
+      "PERCENT_RES": 0.18,
+      "FLAT_SPD": 5
+    }
+  },
+  "1302": {
+    "name": "Argenti",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 1047.816,
+      "BASE_ATK": 737.3520000000001,
+      "BASE_DEF": 363.82500000000005,
+      "BASE_SPD": 103,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_PHYSICAL": 0.14400000000000002,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1214": {
+    "name": "Xueyi",
+    "quality": "4",
+    "element": "Quantum",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1058.4,
+      "BASE_ATK": 599.76,
+      "BASE_DEF": 396.9,
+      "BASE_SPD": 103,
+      "PERCENT_BE": 0.373,
+      "PERCENT_HP": 0.18,
+      "PERCENT_QUANTUM": 0.08
+    }
+  },
+  "1303": {
+    "name": "Ruan Mei",
+    "quality": "5",
+    "element": "Ice",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 1086.624,
+      "BASE_ATK": 659.7360000000001,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 104,
+      "PERCENT_BE": 0.373,
+      "PERCENT_DEF": 0.225,
+      "FLAT_SPD": 5
+    }
+  },
+  "1305": {
+    "name": "Dr. Ratio",
+    "quality": "5",
+    "element": "Imaginary",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 1047.816,
+      "BASE_ATK": 776.1600000000001,
+      "BASE_DEF": 460.845,
+      "BASE_SPD": 103,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_CR": 0.12,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1306": {
+    "name": "Sparkle",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 1397.088,
+      "BASE_ATK": 523.908,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 101,
+      "PERCENT_HP": 0.28,
+      "PERCENT_CD": 0.24,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1307": {
+    "name": "Black Swan",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1086.624,
+      "BASE_ATK": 659.7360000000001,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 102,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_WIND": 0.14400000000000002,
+      "PERCENT_EHR": 0.1
+    }
+  },
+  "1312": {
+    "name": "Misha",
+    "quality": "4",
+    "element": "Ice",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1270.08,
+      "BASE_ATK": 599.76,
+      "BASE_DEF": 396.9,
+      "BASE_SPD": 96,
+      "PERCENT_ICE": 0.224,
+      "PERCENT_DEF": 0.225,
+      "PERCENT_CR": 0.067
+    }
+  },
+  "1301": {
+    "name": "Gallagher",
+    "quality": "4",
+    "element": "Fire",
+    "type": "Abundance",
+    "fixedStats": {
+      "BASE_HP": 1305.3600000000001,
+      "BASE_ATK": 529.2,
+      "BASE_DEF": 441,
+      "BASE_SPD": 98,
+      "PERCENT_RES": 0.28,
+      "PERCENT_BE": 0.133,
+      "PERCENT_HP": 0.18
+    }
+  },
+  "1304": {
+    "name": "Aventurine",
+    "quality": "5",
+    "element": "Imaginary",
+    "type": "Preservation",
+    "fixedStats": {
+      "BASE_HP": 1203.0479999999998,
+      "BASE_ATK": 446.29200000000003,
+      "BASE_DEF": 654.885,
+      "BASE_SPD": 106,
+      "PERCENT_DEF": 0.35,
+      "PERCENT_IMAGINARY": 0.14400000000000002,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1308": {
+    "name": "Acheron",
+    "quality": "5",
+    "element": "Lightning",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1125.4319999999998,
+      "BASE_ATK": 698.544,
+      "BASE_DEF": 436.59000000000003,
+      "BASE_SPD": 101,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_CD": 0.24,
+      "PERCENT_LIGHTNING": 0.08
+    }
+  },
+  "1309": {
+    "name": "Robin",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 1280.664,
+      "BASE_ATK": 640.332,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 102,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_HP": 0.18,
+      "FLAT_SPD": 5
+    }
+  },
+  "1315": {
+    "name": "Boothill",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 1203.0479999999998,
+      "BASE_ATK": 620.9280000000001,
+      "BASE_DEF": 436.59000000000003,
+      "BASE_SPD": 107,
+      "PERCENT_BE": 0.373,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1310": {
+    "name": "Firefly",
+    "quality": "5",
+    "element": "Fire",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 814.968,
+      "BASE_ATK": 523.908,
+      "BASE_DEF": 776.1600000000001,
+      "BASE_SPD": 104,
+      "PERCENT_BE": 0.373,
+      "PERCENT_RES": 0.18,
+      "FLAT_SPD": 5
+    }
+  },
+  "1314": {
+    "name": "Jade",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 1086.624,
+      "BASE_ATK": 659.7360000000001,
+      "BASE_DEF": 509.355,
+      "BASE_SPD": 103,
+      "PERCENT_QUANTUM": 0.224,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_RES": 0.1
+    }
+  },
+  "1218": {
+    "name": "Jiaoqiu",
+    "quality": "5",
+    "element": "Fire",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1358.2800000000002,
+      "BASE_ATK": 601.5239999999999,
+      "BASE_DEF": 509.355,
+      "BASE_SPD": 98,
+      "PERCENT_EHR": 0.28,
+      "PERCENT_FIRE": 0.14400000000000002,
+      "FLAT_SPD": 5
+    }
+  },
+  "1221": {
+    "name": "Yunli",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1358.2800000000002,
+      "BASE_ATK": 679.1400000000001,
+      "BASE_DEF": 460.845,
+      "BASE_SPD": 94,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_HP": 0.18,
+      "PERCENT_CR": 0.067
+    }
+  },
+  "1224": {
+    "name": "March 7th",
+    "quality": "4",
+    "element": "Imaginary",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 1058.4,
+      "BASE_ATK": 564.48,
+      "BASE_DEF": 441,
+      "BASE_SPD": 102,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_CD": 0.24,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1220": {
+    "name": "Feixiao",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 1047.816,
+      "BASE_ATK": 601.5239999999999,
+      "BASE_DEF": 388.08000000000004,
+      "BASE_SPD": 112,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_CR": 0.12,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1222": {
+    "name": "Lingsha",
+    "quality": "5",
+    "element": "Fire",
+    "type": "Abundance",
+    "fixedStats": {
+      "BASE_HP": 1358.2800000000002,
+      "BASE_ATK": 679.1400000000001,
+      "BASE_DEF": 436.59000000000003,
+      "BASE_SPD": 98,
+      "PERCENT_BE": 0.373,
+      "PERCENT_HP": 0.18,
+      "PERCENT_ATK": 0.1
+    }
+  },
+  "1223": {
+    "name": "Moze",
+    "quality": "4",
+    "element": "Lightning",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 811.44,
+      "BASE_ATK": 599.76,
+      "BASE_DEF": 352.79999999999995,
+      "BASE_SPD": 111,
+      "PERCENT_CD": 0.373,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1317": {
+    "name": "Rappa",
+    "quality": "5",
+    "element": "Imaginary",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 1086.624,
+      "BASE_ATK": 717.9480000000001,
+      "BASE_DEF": 460.845,
+      "BASE_SPD": 96,
+      "PERCENT_ATK": 0.28,
+      "FLAT_SPD": 9,
+      "PERCENT_BE": 0.133
+    }
+  },
+  "1225": {
+    "name": "Fugue",
+    "quality": "5",
+    "element": "Fire",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1125.4319999999998,
+      "BASE_ATK": 582.1199999999999,
+      "BASE_DEF": 557.865,
+      "BASE_SPD": 102,
+      "FLAT_SPD": 14,
+      "PERCENT_BE": 0.24,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1313": {
+    "name": "Sunday",
+    "quality": "5",
+    "element": "Imaginary",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 1241.8560000000002,
+      "BASE_ATK": 640.332,
+      "BASE_DEF": 533.61,
+      "BASE_SPD": 96,
+      "PERCENT_CD": 0.373,
+      "PERCENT_RES": 0.18,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1401": {
+    "name": "The Herta",
+    "quality": "5",
+    "element": "Ice",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 1164.2399999999998,
+      "BASE_ATK": 679.1400000000001,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 99,
+      "PERCENT_ICE": 0.224,
+      "PERCENT_ATK": 0.18,
+      "FLAT_SPD": 5
+    }
+  },
+  "1402": {
+    "name": "Aglaea",
+    "quality": "5",
+    "element": "Lightning",
+    "type": "Remembrance",
+    "fixedStats": {
+      "BASE_HP": 1241.8560000000002,
+      "BASE_ATK": 698.544,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 102,
+      "PERCENT_LIGHTNING": 0.224,
+      "PERCENT_CR": 0.12,
+      "PERCENT_DEF": 0.125
+    }
+  },
+  "1403": {
+    "name": "Tribbie",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 1047.816,
+      "BASE_ATK": 523.908,
+      "BASE_DEF": 727.6500000000001,
+      "BASE_SPD": 96,
+      "PERCENT_CD": 0.373,
+      "PERCENT_CR": 0.12,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1404": {
+    "name": "Mydei",
+    "quality": "5",
+    "element": "Imaginary",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1552.3200000000002,
+      "BASE_ATK": 426.88800000000003,
+      "BASE_DEF": 194.04000000000002,
+      "BASE_SPD": 95,
+      "PERCENT_CD": 0.373,
+      "PERCENT_HP": 0.18,
+      "FLAT_SPD": 5
+    }
+  },
+  "1405": {
+    "name": "Anaxa",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Erudition",
+    "fixedStats": {
+      "BASE_HP": 970.2,
+      "BASE_ATK": 756.756,
+      "BASE_DEF": 557.865,
+      "BASE_SPD": 97,
+      "PERCENT_WIND": 0.224,
+      "PERCENT_CR": 0.12,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1407": {
+    "name": "Castorice",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Remembrance",
+    "fixedStats": {
+      "BASE_HP": 1629.936,
+      "BASE_ATK": 523.908,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 95,
+      "PERCENT_CR": 0.187,
+      "PERCENT_QUANTUM": 0.14400000000000002,
+      "PERCENT_CD": 0.133
+    }
+  },
+  "1406": {
+    "name": "Cipher",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 931.392,
+      "BASE_ATK": 640.332,
+      "BASE_DEF": 509.355,
+      "BASE_SPD": 106,
+      "FLAT_SPD": 14,
+      "PERCENT_QUANTUM": 0.14400000000000002,
+      "PERCENT_EHR": 0.1
+    }
+  },
+  "1409": {
+    "name": "Hyacine",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Remembrance",
+    "fixedStats": {
+      "BASE_HP": 1086.624,
+      "BASE_ATK": 388.08000000000004,
+      "BASE_DEF": 630.6300000000001,
+      "BASE_SPD": 110,
+      "FLAT_SPD": 14,
+      "PERCENT_RES": 0.18,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1014": {
+    "name": "Saber",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1241.8560000000002,
+      "BASE_ATK": 601.5239999999999,
+      "BASE_DEF": 654.885,
+      "BASE_SPD": 101,
+      "PERCENT_WIND": 0.224,
+      "PERCENT_CR": 0.12,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1015": {
+    "name": "Archer",
+    "quality": "5",
+    "element": "Quantum",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 1164.2399999999998,
+      "BASE_ATK": 620.9280000000001,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 105,
+      "PERCENT_QUANTUM": 0.224,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_CR": 0.067
+    }
+  },
+  "1408": {
+    "name": "Phainon",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Destruction",
+    "fixedStats": {
+      "BASE_HP": 1435.8960000000002,
+      "BASE_ATK": 582.1199999999999,
+      "BASE_DEF": 703.395,
+      "BASE_SPD": 94,
+      "PERCENT_CD": 0.373,
+      "PERCENT_CR": 0.12,
+      "FLAT_SPD": 5
+    }
+  },
+  "1410": {
+    "name": "Hysilens",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1203.0479999999998,
+      "BASE_ATK": 601.5239999999999,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 102,
+      "FLAT_SPD": 14,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_EHR": 0.1
+    }
+  },
+  "1412": {
+    "name": "Cerydra",
+    "quality": "5",
+    "element": "Wind",
+    "type": "Harmony",
+    "fixedStats": {
+      "BASE_HP": 1358.2800000000002,
+      "BASE_ATK": 620.9280000000001,
+      "BASE_DEF": 485.1,
+      "BASE_SPD": 99,
+      "PERCENT_WIND": 0.224,
+      "PERCENT_ATK": 0.18,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1413": {
+    "name": "Evernight",
+    "quality": "5",
+    "element": "Ice",
+    "type": "Remembrance",
+    "fixedStats": {
+      "BASE_HP": 1319.4720000000002,
+      "BASE_ATK": 543.312,
+      "BASE_DEF": 582.1199999999999,
+      "BASE_SPD": 99,
+      "PERCENT_CR": 0.187,
+      "PERCENT_HP": 0.18,
+      "PERCENT_CD": 0.133
+    }
+  },
+  "1414": {
+    "name": "Dan Heng \u2022 Permansor Terrae",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Preservation",
+    "fixedStats": {
+      "BASE_HP": 1047.816,
+      "BASE_ATK": 582.1199999999999,
+      "BASE_DEF": 776.1600000000001,
+      "BASE_SPD": 97,
+      "PERCENT_ATK": 0.28,
+      "PERCENT_DEF": 0.225,
+      "FLAT_SPD": 5
+    }
+  },
+  "1415": {
+    "name": "Cyrene",
+    "quality": "5",
+    "element": "Ice",
+    "type": "Remembrance",
+    "fixedStats": {
+      "BASE_HP": 1397.088,
+      "BASE_ATK": 446.29200000000003,
+      "BASE_DEF": 582.1199999999999,
+      "BASE_SPD": 101,
+      "PERCENT_CD": 0.373,
+      "FLAT_SPD": 9,
+      "PERCENT_HP": 0.1
+    }
+  },
+  "1321": {
+    "name": "The Dahlia",
+    "quality": "5",
+    "element": "Fire",
+    "type": "Nihility",
+    "fixedStats": {
+      "BASE_HP": 1086.624,
+      "BASE_ATK": 679.1400000000001,
+      "BASE_DEF": 606.375,
+      "BASE_SPD": 96,
+      "PERCENT_BE": 0.373,
+      "PERCENT_RES": 0.18,
+      "FLAT_SPD": 5
+    }
+  },
+  "1501": {
+    "name": "Sparxie",
+    "quality": "5",
+    "element": "Fire",
+    "type": "Elation",
+    "fixedStats": {
+      "BASE_HP": 1047.816,
+      "BASE_ATK": 640.332,
+      "BASE_DEF": 460.845,
+      "BASE_SPD": 107,
+      "PERCENT_ELATION": 0.28,
+      "PERCENT_CR": 0.12,
+      "PERCENT_CD": 0.133
+    }
+  },
+  "1502": {
+    "name": "Yao Guang",
+    "quality": "5",
+    "element": "Physical",
+    "type": "Elation",
+    "fixedStats": {
+      "BASE_HP": 1241.8560000000002,
+      "BASE_ATK": 465.696,
+      "BASE_DEF": 654.885,
+      "BASE_SPD": 101,
+      "PERCENT_CR": 0.187,
+      "FLAT_SPD": 9,
+      "PERCENT_ELATION": 0.1
+    }
+  },
+  "1504": {
+    "name": "Ashveil",
+    "quality": "5",
+    "element": "Lightning",
+    "type": "Hunt",
+    "fixedStats": {
+      "BASE_HP": 853.7760000000001,
+      "BASE_ATK": 776.1600000000001,
+      "BASE_DEF": 388.08000000000004,
+      "BASE_SPD": 106,
+      "PERCENT_CD": 0.373,
+      "PERCENT_LIGHTNING": 0.14400000000000002,
+      "PERCENT_ATK": 0.1
+    }
+  }
+}

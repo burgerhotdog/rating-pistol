@@ -5,9 +5,9 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
 
   // Base DMG:
   // Character's total stat * Skill multiplier + flat number
-  let baseDmg = criteria.SCALING.FLAT ?? 0;
+  let baseDmg = criteria.scaling.flat ?? 0;
 
-  const multiplier = criteria.SCALING.MULTIPLIER ?? {};
+  const multiplier = criteria.scaling.multiplier ?? {};
   for (const [stat, coeff] of Object.entries(multiplier)) {
     baseDmg += computeTotalStat(stat, sourceMapList) * coeff;
   }
@@ -21,10 +21,10 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
 
   // Damage bonus:
   // Element
-  const dmgElement = criteria.TYPE.ELEMENT;
+  const dmgElement = criteria.type.element;
   const totalElementDmgBonus = computeTotalStat(dmgElement, sourceMapList);
   // Skill type
-  const dmgSkillType = criteria.TYPE.SKILL;
+  const dmgSkillType = criteria.type.skill;
   const totalSkillTypeDmgBonus = computeTotalStat(dmgSkillType, sourceMapList);
   // All type
   const totalAllTypeDmgBonus = computeTotalStat('ALL', sourceMapList);

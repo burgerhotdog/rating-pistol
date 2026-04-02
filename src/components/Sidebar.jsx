@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Avatar, Card, List, ListItemButton } from '@mui/material';
-import { CHARACTER_ASSETS } from '@/assets';
 import { useSortedCharacters } from '@/hooks';
 
 export const Sidebar = () => {
@@ -45,7 +44,7 @@ export const Sidebar = () => {
             onClick={() => handleSelect(id)}
           >
             <Avatar
-              src={CHARACTER_ASSETS[gameId][id]}
+              src={`${import.meta.env.BASE_URL}${gameId}/character/${id}.webp`}
               sx={{ width: 48, height: 48 }}
             />
           </ListItemButton>

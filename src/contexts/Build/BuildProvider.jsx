@@ -9,7 +9,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '@/firebase';
 import { BuildContext, useAuth } from '@/contexts';
-import { VERSION } from '@/lookups';
+import { VERSION } from '@/data';
 
 export const BuildProvider = ({ children }) => {
   const { user } = useAuth();

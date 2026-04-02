@@ -1,4 +1,4 @@
-import { STATS } from '@/lookups';
+import { STATS } from '@/data';
 
 export default (gameId) => ({
   lastUpdated: null,

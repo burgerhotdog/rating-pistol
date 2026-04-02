@@ -1,0 +1,142 @@
+{
+  "14002": {
+    "name": "Thundersoother"
+  },
+  "14003": {
+    "name": "Lavawalker"
+  },
+  "14004": {
+    "name": "Maiden Beloved"
+  },
+  "15001": {
+    "name": "Gladiator's Finale"
+  },
+  "15002": {
+    "name": "Viridescent Venerer"
+  },
+  "15003": {
+    "name": "Wanderer's Troupe"
+  },
+  "15005": {
+    "name": "Thundering Fury"
+  },
+  "15006": {
+    "name": "Crimson Witch of Flames"
+  },
+  "15007": {
+    "name": "Noblesse Oblige"
+  },
+  "15008": {
+    "name": "Bloodstained Chivalry"
+  },
+  "15014": {
+    "name": "Archaic Petra"
+  },
+  "15015": {
+    "name": "Retracing Bolide"
+  },
+  "14001": {
+    "name": "Blizzard Strayer"
+  },
+  "15016": {
+    "name": "Heart of Depth"
+  },
+  "15017": {
+    "name": "Tenacity of the Millelith"
+  },
+  "15018": {
+    "name": "Pale Flame"
+  },
+  "15019": {
+    "name": "Shimenawa's Reminiscence"
+  },
+  "15020": {
+    "name": "Emblem of Severed Fate"
+  },
+  "15021": {
+    "name": "Husk of Opulent Dreams"
+  },
+  "15022": {
+    "name": "Ocean-Hued Clam"
+  },
+  "15023": {
+    "name": "Vermillion Hereafter"
+  },
+  "15024": {
+    "name": "Echoes of an Offering"
+  },
+  "15025": {
+    "name": "Deepwood Memories"
+  },
+  "15026": {
+    "name": "Gilded Dreams"
+  },
+  "15027": {
+    "name": "Desert Pavilion Chronicle"
+  },
+  "15028": {
+    "name": "Flower of Paradise Lost"
+  },
+  "15029": {
+    "name": "Nymph's Dream"
+  },
+  "15030": {
+    "name": "Vourukasha's Glow"
+  },
+  "15031": {
+    "name": "Marechaussee Hunter",
+    "effect": {
+      "4": {
+        "fixedStats": {
+          "PERCENT_CR": 0.36
+        }
+      }
+    }
+  },
+  "15032": {
+    "name": "Golden Troupe"
+  },
+  "15033": {
+    "name": "Song of Days Past"
+  },
+  "15034": {
+    "name": "Nighttime Whispers in the Echoing Woods"
+  },
+  "15035": {
+    "name": "Fragment of Harmonic Whimsy"
+  },
+  "15036": {
+    "name": "Unfinished Reverie"
+  },
+  "15037": {
+    "name": "Scroll of the Hero of Cinder City"
+  },
+  "15038": {
+    "name": "Obsidian Codex",
+    "effect": {
+      "4": {
+        "fixedStats": {
+          "PERCENT_CR": 0.4
+        }
+      }
+    }
+  },
+  "15039": {
+    "name": "Long Night's Oath"
+  },
+  "15040": {
+    "name": "Finale of the Deep Galleries"
+  },
+  "15041": {
+    "name": "Night of the Sky's Unveiling"
+  },
+  "15042": {
+    "name": "Silken Moon's Serenade"
+  },
+  "15043": {
+    "name": "Aubade of Morningstar and Moon"
+  },
+  "15044": {
+    "name": "A Day Carved From Rising Winds"
+  }
+}

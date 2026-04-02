@@ -1,13 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { Autocomplete, Button, Dialog, DialogContent, DialogActions, DialogTitle, Box, Typography, TextField } from '@mui/material';
 import { useBuild } from '@/contexts';
-import { CHARACTERS } from '@/lookups';
-import { CHARACTER_ASSETS } from '@/assets';
+import { CHARACTERS } from '@/data';
 
 const WUWA_DATA = CHARACTERS["wuthering-waves"];
 
 const CHAR_OPTIONS = Object.keys(WUWA_DATA)
-  .sort((a, b) => WUWA_DATA[a].NAME.localeCompare(WUWA_DATA[b].NAME));
+  .sort((a, b) => WUWA_DATA[a].name.localeCompare(WUWA_DATA[b].name));
 
 const HeaderOcr = () => {
   const { saveBuildEntries } = useBuild();
@@ -73,7 +72,7 @@ const HeaderOcr = () => {
           <Autocomplete
             value={selectedAvatarId}
             options={CHAR_OPTIONS}
-            getOptionLabel={(avatarId) => WUWA_DATA[avatarId]?.NAME ?? ''}
+            getOptionLabel={(avatarId) => WUWA_DATA[avatarId]?.name ?? ''}
             onChange={(_, newValue) => setSelectedAvatarId(newValue)}
             renderOption={(props, optionId) => {
               const { key, ...optionProps } = props;
@@ -91,11 +90,11 @@ const HeaderOcr = () => {
                   <Box
                     component="img"
                     loading="lazy"
-                    src={CHARACTER_ASSETS['wuthering-waves'][optionId]}
+                    src={`${import.meta.env.BASE_URL}wuthering-waves/character/${optionId}.webp`}
                     alt=""
                     sx={{ width: 24, height: 24, objectFit: 'contain' }}
                   />
-                  {WUWA_DATA[optionId].NAME}
+                  {WUWA_DATA[optionId].name}
                 </Box>
               );
             }}

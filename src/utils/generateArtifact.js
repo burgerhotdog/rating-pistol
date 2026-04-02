@@ -1,4 +1,4 @@
-import { STATS } from '@/lookups';
+import { STATS } from '@/data';
 import { weightedLottery, upgradeArtifact } from '@/utils';
 
 export function generateArtifact(gameId, isCost4 = false) {

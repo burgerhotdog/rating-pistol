@@ -1,4 +1,4 @@
-import { SETS } from '@/lookups';
+import { SETS } from '@/data';
 
 export function getSetCounts(equipList) {
   return equipList.reduce((acc, equip) => {
@@ -10,17 +10,17 @@ export function getSetCounts(equipList) {
 
 export function getSetEffects(setCounts, gameId) {
   const effectsPerSet = Object.entries(setCounts).flatMap(([setId, activePieces]) => {
-    const definition = SETS[gameId][setId]?.EFFECT;
+    const definition = SETS[gameId][setId]?.effect;
     if (!definition) return {}; // unknown set, skip
 
     const activeEffects = Object.entries(definition)
       .filter(([number]) => activePieces >= Number(number))
-      .map(([, { FIXED_STATS }]) => FIXED_STATS);
+      .map(([, { fixedStats }]) => fixedStats);
 
     if (activeEffects.length === 0) return {};
 
-    return activeEffects.reduce((acc, FIXED_STATS) => {
-      const statsList = Object.entries(FIXED_STATS);
+    return activeEffects.reduce((acc, fixedStats) => {
+      const statsList = Object.entries(fixedStats);
       for (const [statId, statValue] of statsList) {
         acc[statId] = (acc[statId] ?? 0) + statValue;
       }
