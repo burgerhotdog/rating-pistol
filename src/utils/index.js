@@ -4,8 +4,4 @@ export * from './computeRating';
 export * from './upgradeArtifact';
 export * from './weightedLottery';
 export * from './buildSourceMapList';
-export * from './generateArtifact';
-export * from './multiWeekSimulation';
-export * from './simulateBuildAfterWeek';
-export * from './compareNewArtifact';
 export * from './setEffect';

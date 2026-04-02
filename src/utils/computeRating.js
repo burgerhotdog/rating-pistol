@@ -30,10 +30,6 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
   const totalAllTypeDmgBonus = computeTotalStat('ALL', sourceMapList);
   const dmgBonus = 1 + totalElementDmgBonus + totalSkillTypeDmgBonus + totalAllTypeDmgBonus;
 
-  // Def
-
-  // Res
-
   // Amplifying Reactions
   let ampMult = 1;
 

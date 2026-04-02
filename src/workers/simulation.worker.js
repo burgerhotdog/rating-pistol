@@ -1,4 +1,5 @@
-import { multiWeekSimulation, combineEquipStats } from '@/utils';
+import { combineEquipStats } from '@/utils';
+import { multiWeekSimulation } from "./simulation.helpers"
 
 const PROGRESS_EVERY = 1;
 const MAX_ITERATIONS = 500;
@@ -45,6 +46,7 @@ function runWithConvergence(simulationFunction, threshold = 0.005, windowSize = 
 
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, criteria, buffs } = data;
+
   const rawData = runWithConvergence(() => multiWeekSimulation(gameId, characterId, build, criteria, buffs));
 
   // Average weekly ratings
