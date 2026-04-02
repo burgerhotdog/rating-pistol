@@ -20,7 +20,7 @@ const GamePage = () => {
   const criteriaIndex = 0;
   const [buffs, setBuffs] = useState({});
 
-  const { completed, total, progress, weeklyRatings, finalStats, isLoading } = useSimulation(criteriaIndex, buffs);
+  const { completed, weeklyRatings, finalStats, isLoading } = useSimulation(criteriaIndex, buffs);
 
   return (
     <Box

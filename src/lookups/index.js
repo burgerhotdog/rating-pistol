@@ -22,6 +22,17 @@ export const WEAPONS = {
   "zenless-zone-zero": ZZZ_WEAPONS,
 };
 
+import GI_SETS from './genshin-impact/SETS.json';
+import HSR_SETS from './honkai-star-rail/SETS.json';
+import WW_SETS from './wuthering-waves/SETS.json';
+import ZZZ_SETS from './zenless-zone-zero/SETS.json';
+export const SETS = {
+  "genshin-impact": GI_SETS,
+  "honkai-star-rail": HSR_SETS,
+  "wuthering-waves": WW_SETS,
+  "zenless-zone-zero": ZZZ_SETS,
+};
+
 import GI_GENERAL from './genshin-impact/GENERAL.json';
 import HSR_GENERAL from './honkai-star-rail/GENERAL.json';
 import WW_GENERAL from './wuthering-waves/GENERAL.json';

@@ -8,3 +8,4 @@ export * from './generateArtifact';
 export * from './multiWeekSimulation';
 export * from './simulateBuildAfterWeek';
 export * from './compareNewArtifact';
+export * from './setEffect';

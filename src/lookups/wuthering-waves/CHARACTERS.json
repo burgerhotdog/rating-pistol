@@ -105,7 +105,25 @@
       "BASE_DEF": 1283,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RL",
+          "ELEMENT": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1303": {
     "NAME": "Yuanwu",
@@ -158,7 +176,25 @@
       "BASE_DEF": 1186,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "HA",
+          "ELEMENT": "AERO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1405": {
     "NAME": "Jianxin",
@@ -224,7 +260,25 @@
       "BASE_DEF": 1100,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RS",
+          "ELEMENT": "FUSION"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1304": {
     "NAME": "Jinhsi",
@@ -238,7 +292,25 @@
       "BASE_DEF": 1259,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RS",
+          "ELEMENT": "SPECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1105": {
     "NAME": "Zhezhi",
@@ -252,7 +324,25 @@
       "BASE_DEF": 1198,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "BA",
+          "ELEMENT": "GLACIO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1305": {
     "NAME": "Xiangli Yao",
@@ -266,7 +356,25 @@
       "BASE_DEF": 1222,
       "PERCENT_ATK": 0.12,
       "PERCENT_CD": 0.16
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RL",
+          "ELEMENT": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1106": {
     "NAME": "Youhu",
@@ -320,7 +428,25 @@
       "BASE_DEF": 1161,
       "PERCENT_ATK": 0.12,
       "PERCENT_CD": 0.16
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "BA",
+          "ELEMENT": "HAVOC"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1107": {
     "NAME": "Carlotta",
@@ -334,7 +460,25 @@
       "BASE_DEF": 1198,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RS",
+          "ELEMENT": "GLACIO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1606": {
     "NAME": "Roccia",
@@ -348,7 +492,25 @@
       "BASE_DEF": 1198,
       "PERCENT_ATK": 0.12,
       "PERCENT_CD": 0.16
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RS",
+          "ELEMENT": "HAVOC"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1206": {
     "NAME": "Brant",
@@ -362,7 +524,25 @@
       "BASE_DEF": 1308,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "BA",
+          "ELEMENT": "FUSION"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1506": {
     "NAME": "Phoebe",
@@ -376,7 +556,25 @@
       "BASE_DEF": 1259,
       "PERCENT_ATK": 0.12,
       "PERCENT_CD": 0.16
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "HA",
+          "ELEMENT": "SPECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1607": {
     "NAME": "Cantarella",
@@ -390,7 +588,25 @@
       "BASE_DEF": 1100,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "BA",
+          "ELEMENT": "HAVOC"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1407": {
     "NAME": "Ciaccona",
@@ -404,7 +620,25 @@
       "BASE_DEF": 1198,
       "PERCENT_ATK": 0.12,
       "PERCENT_CD": 0.16
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RL",
+          "ELEMENT": "AERO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1507": {
     "NAME": "Zani",
@@ -482,7 +716,25 @@
       "BASE_DEF": 611,
       "PERCENT_HP": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "HP": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "BA",
+          "ELEMENT": "AERO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1608": {
     "NAME": "Phrolova",
@@ -603,7 +855,25 @@
       "BASE_DEF": 1198,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "HA",
+          "ELEMENT": "AERO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1307": {
     "NAME": "Buling",
@@ -630,7 +900,25 @@
       "BASE_DEF": 1137,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RL",
+          "ELEMENT": "HAVOC"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1209": {
     "NAME": "Mornye",
@@ -658,7 +946,25 @@
       "BASE_DEF": 1198,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "BA",
+          "ELEMENT": "SPECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1210": {
     "NAME": "Aemeath",
@@ -672,7 +978,25 @@
       "BASE_DEF": 1149,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "RL",
+          "ELEMENT": "FUSION"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1510": {
     "NAME": "Luuk Herssen",
@@ -686,6 +1010,24 @@
       "BASE_DEF": 1112,
       "PERCENT_ATK": 0.12,
       "PERCENT_CR": 0.08
-    }
+    },
+    "CRITERIA": [
+      {
+        "NAME": "Damage",
+        "SCALING": {
+          "FLAT": 0,
+          "MULTIPLIER": {
+            "ATK": 1
+          }
+        },
+        "TYPE": {
+          "SKILL": "BA",
+          "ELEMENT": "SPECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   }
 }

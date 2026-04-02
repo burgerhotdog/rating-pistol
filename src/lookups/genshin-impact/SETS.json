@@ -84,7 +84,14 @@
     "NAME": "Vourukasha's Glow"
   },
   "15031": {
-    "NAME": "Marechaussee Hunter"
+    "NAME": "Marechaussee Hunter",
+    "EFFECT": {
+      "4": {
+        "FIXED_STATS" : {
+          "PERCENT_CR": 0.36
+        }
+      }
+    }
   },
   "15032": {
     "NAME": "Golden Troupe"
@@ -105,7 +112,14 @@
     "NAME": "Scroll of the Hero of Cinder City"
   },
   "15038": {
-    "NAME": "Obsidian Codex"
+    "NAME": "Obsidian Codex",
+    "EFFECT": {
+      "4": {
+        "FIXED_STATS" : {
+          "PERCENT_CR": 0.4
+        }
+      }
+    }
   },
   "15039": {
     "NAME": "Long Night's Oath"
