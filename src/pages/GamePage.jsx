@@ -37,7 +37,7 @@ const GamePage = () => {
       <StatsPanel />
       {criteria && (
         <Stack spacing={1} sx={{ flex: 1 }}>
-          <Bar completed={completed} total={total} progress={progress} />
+          <Bar completed={completed} />
           <CustomLineChart
             weeklyRatings={weeklyRatings}
             rating={rating}

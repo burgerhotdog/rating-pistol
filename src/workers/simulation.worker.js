@@ -16,8 +16,6 @@ function runWithConvergence(simulationFunction, threshold = 0.005, windowSize = 
       self.postMessage({
         type: 'progress',
         completed: i,
-        total: MAX_ITERATIONS,
-        percent: Math.round((i / MAX_ITERATIONS) * 100),
       });
     }
 

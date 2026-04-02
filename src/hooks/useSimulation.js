@@ -9,9 +9,7 @@ export function useSimulation(criteriaIndex, buffs) {
     weeklyRatings: null,
     finalStats: null,
     isLoading: false,
-    progress: 0,
     completed: 0,
-    total: 0,
   });
   
   useEffect(() => {
@@ -20,9 +18,7 @@ export function useSimulation(criteriaIndex, buffs) {
         weeklyRatings: null,
         finalStats: null,
         isLoading: false,
-        progress: 0,
         completed: 0,
-        total: 0,
       });
       return;
     }
@@ -30,9 +26,7 @@ export function useSimulation(criteriaIndex, buffs) {
     setResult(prev => ({
       ...prev,
       isLoading: true,
-      progress: 0,
       completed: 0,
-      total: 0,
     }));
   
     workerRef.current?.terminate();
@@ -47,22 +41,18 @@ export function useSimulation(criteriaIndex, buffs) {
       if (data.type === 'progress') {
         setResult(prev => ({
           ...prev,
-          progress: data.percent,
           completed: data.completed,
-          total: data.total,
         }));
         return;
       }
 
       if (data.type === 'done') {
-        setResult({
+        setResult(prev => ({
+          ...prev,
           weeklyRatings: data.weeklyRatings,
           finalStats: data.finalStats,
           isLoading: false,
-          progress: 100,
-          completed: data.total ?? 0,
-          total: data.total ?? 0,
-        });
+        }));
 
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;
