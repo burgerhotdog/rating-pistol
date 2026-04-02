@@ -19,23 +19,23 @@ GAMES = [
         },
         "parsers": {
             "character": {
-                "name": lambda data: data['name'],
-                "quality": lambda data: data['rarity'],
-                "element": lambda data: data['element'],
-                "type": lambda data: data['weapon'],
+                "name": lambda data: data["name"],
+                "quality": lambda data: data["rarity"],
+                "element": lambda data: data["element"],
+                "type": lambda data: data["weapon"],
                 "fixedStats": {
-                    "BASE_HP": lambda data: data['base_hp'] * data['stats_modifier']['hp']['90'] + data['stats_modifier']['ascension'][5]['fight_prop_base_hp'],
-                    "BASE_ATK": lambda data: data['base_atk'] * data['stats_modifier']['atk']['90'] + data['stats_modifier']['ascension'][5]['fight_prop_base_attack'],
-                    "BASE_DEF": lambda data: data['base_def'] * data['stats_modifier']['def']['90'] + data['stats_modifier']['ascension'][5]['fight_prop_base_defense'],
-                    "BASE_EM": lambda data: data['elemental_mastery'],
+                    "BASE_HP": lambda data: data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"],
+                    "BASE_ATK": lambda data: data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"],
+                    "BASE_DEF": lambda data: data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"],
+                    "BASE_EM": lambda data: data["elemental_mastery"],
                 },
             },
             "weapon": {
-                "name": lambda data: data['name'],
-                "quality": lambda data: str(data['rarity']),
-                "type": lambda data: data['weapon_type'],
+                "name": lambda data: data["name"],
+                "quality": lambda data: str(data["rarity"]),
+                "type": lambda data: data["weapon_type"],
                 "fixedStats": {
-                    "BASE_ATK": lambda data: data['stats_modifier']['atk']['base'] * data['stats_modifier']['atk']['levels']['90'] + data['ascension']['6']['fight_prop_base_attack'],
+                    "BASE_ATK": lambda data: data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"],
                 },
             },
             "set": {
@@ -107,33 +107,33 @@ GAMES = [
         "assets": {
             "character": lambda data, ID: f"avatarshopicon/{ID}",
             "weapon": lambda data, ID: f"lightconemediumicon/{ID}",
-            "set": lambda data, ID: f"itemfigures/{data["icon"][22:data['icon'].rindex('.')]}",
+            "set": lambda data, ID: f"itemfigures/{data["icon"][22:data["icon"].rindex(".")]}",
         },
         "parsers": {
             "character": {
-                "name": lambda data: data['name'],
-                "quality": lambda data: data['rarity'],
-                "element": lambda data: data['damage_type'],
-                "type": lambda data: data['base_type'],
+                "name": lambda data: data["name"],
+                "quality": lambda data: data["rarity"],
+                "element": lambda data: data["damage_type"],
+                "type": lambda data: data["base_type"],
                 "fixedStats": {
-                    "BASE_HP": lambda data: data['stats']['6']['hp_add'] * 79 + data['stats']['6']['hp_base'],
-                    "BASE_ATK": lambda data: data['stats']['6']['attack_add'] * 79 + data['stats']['6']['attack_base'],
-                    "BASE_DEF": lambda data: data['stats']['6']['defence_add'] * 79 + data['stats']['6']['defence_base'],
-                    "BASE_SPD": lambda data: data['stats']['6']['speed_base'],
+                    "BASE_HP": lambda data: data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"],
+                    "BASE_ATK": lambda data: data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"],
+                    "BASE_DEF": lambda data: data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"],
+                    "BASE_SPD": lambda data: data["stats"]["6"]["speed_base"],
                 },
             },
             "weapon": {
-                "name": lambda data: data['name'],
-                "quality": lambda data: data['rarity'],
-                "type": lambda data: data['base_type'],
+                "name": lambda data: data["name"],
+                "quality": lambda data: data["rarity"],
+                "type": lambda data: data["base_type"],
                 "fixedStats": {
-                    "BASE_HP": lambda data: data['stats'][6]['base_hp'] + data['stats'][6]['base_hp_add'] * 79,
-                    "BASE_ATK": lambda data: data['stats'][6]['base_attack_add'] * 79 + data['stats'][6]['base_attack'],
-                    "BASE_DEF": lambda data: data['stats'][6]['base_defence'] + data['stats'][6]['base_defence_add'] * 79,
+                    "BASE_HP": lambda data: data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79,
+                    "BASE_ATK": lambda data: data["stats"][6]["base_attack_add"] * 79 + data["stats"][6]["base_attack"],
+                    "BASE_DEF": lambda data: data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79,
                 },
             },
             "set": {
-                "name": lambda data: data['name'],
+                "name": lambda data: data["name"],
             },
         },
         "lang": {
@@ -143,21 +143,21 @@ GAMES = [
             },
             "character": {
                 "quality": {
-                    'CombatPowerAvatarRarityType5': '5',
-                    'CombatPowerAvatarRarityType4': '4',
+                    "CombatPowerAvatarRarityType5": "5",
+                    "CombatPowerAvatarRarityType4": "4",
                 },
                 "element": {
-                    'Thunder': 'Lightning',
+                    "Thunder": "Lightning",
                 },
                 "type": {
-                    'Rogue': 'Hunt',
-                    'Priest': 'Abundance',
-                    'Warrior': 'Destruction',
-                    'Knight': 'Preservation',
-                    'Warlock': 'Nihility',
-                    'Shaman': 'Harmony',
-                    'Mage': 'Erudition',
-                    'Memory': 'Remembrance',
+                    "Rogue": "Hunt",
+                    "Priest": "Abundance",
+                    "Warrior": "Destruction",
+                    "Knight": "Preservation",
+                    "Warlock": "Nihility",
+                    "Shaman": "Harmony",
+                    "Mage": "Erudition",
+                    "Memory": "Remembrance",
                 },
                 "fixedStats": {
                     "HPAddedRatio": "PERCENT_HP",
@@ -183,19 +183,19 @@ GAMES = [
             },
             "weapon": {
                 "quality": {
-                    'CombatPowerLightconeRarity5': '5',
-                    'CombatPowerLightconeRarity4': '4',
-                    'CombatPowerLightconeRarity3': '3',
+                    "CombatPowerLightconeRarity5": "5",
+                    "CombatPowerLightconeRarity4": "4",
+                    "CombatPowerLightconeRarity3": "3",
                 },
                 "type": {
-                    'Rogue': 'Hunt',
-                    'Priest': 'Abundance',
-                    'Warrior': 'Destruction',
-                    'Knight': 'Preservation',
-                    'Warlock': 'Nihility',
-                    'Shaman': 'Harmony',
-                    'Mage': 'Erudition',
-                    'Memory': 'Remembrance',
+                    "Rogue": "Hunt",
+                    "Priest": "Abundance",
+                    "Warrior": "Destruction",
+                    "Knight": "Preservation",
+                    "Warlock": "Nihility",
+                    "Shaman": "Harmony",
+                    "Mage": "Erudition",
+                    "Memory": "Remembrance",
                 },
             },
         },
@@ -211,26 +211,26 @@ GAMES = [
         },
         "parsers": {
             "character": {
-                "name": lambda data: data['name'],
-                "quality": lambda data: str(data['rarity']),
-                "element": lambda data: data['element'],
-                "type": lambda data: data['weapon'],
+                "name": lambda data: data["name"],
+                "quality": lambda data: str(data["rarity"]),
+                "element": lambda data: data["element"],
+                "type": lambda data: data["weapon"],
                 "fixedStats": {
-                    "BASE_HP": lambda data: data['stats']['6']['90']['life'],
-                    "BASE_ATK": lambda data: data['stats']['6']['90']['atk'],
-                    "BASE_DEF": lambda data: data['stats']['6']['90']['def'],
+                    "BASE_HP": lambda data: data["stats"]["6"]["90"]["life"],
+                    "BASE_ATK": lambda data: data["stats"]["6"]["90"]["atk"],
+                    "BASE_DEF": lambda data: data["stats"]["6"]["90"]["def"],
                 },
             },
             "weapon": {
-                "name": lambda data: data['name'],
-                "quality": lambda data: str(data['rarity']),
-                "type": lambda data: data['type'],
+                "name": lambda data: data["name"],
+                "quality": lambda data: str(data["rarity"]),
+                "type": lambda data: data["type"],
                 "fixedStats": {
-                    "BASE_ATK": lambda data: data['stats']['6']['90'][0]['value'],
+                    "BASE_ATK": lambda data: data["stats"]["6"]["90"][0]["value"],
                 },
             },
             "set": {
-                "name": lambda data: data['name'],
+                "name": lambda data: data["name"],
             },
         },
         "lang": {
@@ -239,19 +239,19 @@ GAMES = [
             },
             "character": {
                 "element": {
-                    1: 'Glacio',
-                    2: 'Fusion',
-                    3: 'Electro',
-                    4: 'Aero',
-                    5: 'Spectro',
-                    6: 'Havoc',
+                    1: "Glacio",
+                    2: "Fusion",
+                    3: "Electro",
+                    4: "Aero",
+                    5: "Spectro",
+                    6: "Havoc",
                 },
                 "type": {
-                    1: 'Broadblade',
-                    2: 'Sword',
-                    3: 'Pistols',
-                    4: 'Gauntlets',
-                    5: 'Rectifier',
+                    1: "Broadblade",
+                    2: "Sword",
+                    3: "Pistols",
+                    4: "Gauntlets",
+                    5: "Rectifier",
                 },
                 "fixedStats": {
                     "HP+": "PERCENT_HP",
@@ -275,11 +275,11 @@ GAMES = [
             },
             "weapon": {
                 "type": {
-                    1: 'Broadblade',
-                    2: 'Sword',
-                    3: 'Pistols',
-                    4: 'Gauntlets',
-                    5: 'Rectifier',
+                    1: "Broadblade",
+                    2: "Sword",
+                    3: "Pistols",
+                    4: "Gauntlets",
+                    5: "Rectifier",
                 },
                 "fixedStats": {
                     "HP+": "PERCENT_HP",
@@ -310,29 +310,29 @@ GAMES = [
         },
         "parsers": {
             "character": {
-                "name": lambda data: data['name'],
-                "quality": lambda data: data['rarity'],
-                "element": lambda data: next(iter(data['element_type'].values())),
-                "type": lambda data: next(iter(data['weapon_type'].values())),
+                "name": lambda data: data["name"],
+                "quality": lambda data: data["rarity"],
+                "element": lambda data: next(iter(data["element_type"].values())),
+                "type": lambda data: next(iter(data["weapon_type"].values())),
                 "fixedStats": {
-                    "BASE_HP": lambda data: data['stats']['hp_growth'] / 10000 * 59 + data['stats']['hp_max'] + data['level']['6']['hp_max'],
-                    "BASE_ATK": lambda data: data['stats']['attack_growth'] / 10000 * 59 + data['stats']['attack'] + data['level']['6']['attack'],
-                    "BASE_DEF": lambda data: data['stats']['defence_growth'] / 10000 * 59 + data['stats']['defence'] + data['level']['6']['defence'],
-                    "BASE_IMPACT": lambda data: data['stats']['break_stun'],
-                    "BASE_AM": lambda data: data['stats']['element_abnormal_power'],
-                    "BASE_AP": lambda data: data['stats']['element_mystery'],
+                    "BASE_HP": lambda data: data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"],
+                    "BASE_ATK": lambda data: data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"],
+                    "BASE_DEF": lambda data: data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"],
+                    "BASE_IMPACT": lambda data: data["stats"]["break_stun"],
+                    "BASE_AM": lambda data: data["stats"]["element_abnormal_power"],
+                    "BASE_AP": lambda data: data["stats"]["element_mystery"],
                 },
             },
             "weapon": {
-                "name": lambda data: data['name'],
-                "quality": lambda data: data['rarity'],
-                "type": lambda data: next(iter(data['weapon_type'].values())),
+                "name": lambda data: data["name"],
+                "quality": lambda data: data["rarity"],
+                "type": lambda data: next(iter(data["weapon_type"].values())),
                 "fixedStats": {
-                    "BASE_ATK": lambda data: data['base_property']['value'] * 104 / 7,
+                    "BASE_ATK": lambda data: data["base_property"]["value"] * 104 / 7,
                 },
             },
             "set": {
-                "name": lambda data: data['name'],
+                "name": lambda data: data["name"],
             },
         },
         "lang": {
@@ -341,9 +341,9 @@ GAMES = [
             },
             "character": {
                 "quality": {
-                    4: '5',
-                    3: '4',
-                    2: '3',
+                    4: "5",
+                    3: "4",
+                    2: "3",
                 },
                 "fixedStats": {
                     "Base HP": "BASE_HP",
@@ -363,9 +363,9 @@ GAMES = [
             },
             "weapon": {
                 "quality": {
-                    4: '5',
-                    3: '4',
-                    2: '3',
+                    4: "5",
+                    3: "4",
+                    2: "3",
                 },
                 "fixedStats": {
                     "HP": "PERCENT_HP",
@@ -386,53 +386,53 @@ GAMES = [
 
 def parse_and_add_ascension_stats(game_id, id_type, data, fixedStats, lang_map):
     match game_id:
-        case 'genshin-impact':
-            if id_type == 'character':
-                raw_stat_id, stat_value = list(data['stats_modifier']['ascension'][5].items())[3]
+        case "genshin-impact":
+            if id_type == "character":
+                raw_stat_id, stat_value = list(data["stats_modifier"]["ascension"][5].items())[3]
                 stat_id = lang_map[raw_stat_id]
                 fixedStats[stat_id] = fixedStats.get(stat_id, 0) + stat_value
             else:
-                raw_stat_id, stat_map = list(data['stats_modifier'].items())[1]
+                raw_stat_id, stat_map = list(data["stats_modifier"].items())[1]
                 stat_id = lang_map[raw_stat_id]
-                fixedStats[stat_id] = stat_map['base'] * stat_map['levels']['90']
+                fixedStats[stat_id] = stat_map["base"] * stat_map["levels"]["90"]
 
-        case 'honkai-star-rail':
-            if id_type == 'character':
-                for node in data['skill_trees'].values():
-                    if node['1']['point_type'] != 1:
+        case "honkai-star-rail":
+            if id_type == "character":
+                for node in data["skill_trees"].values():
+                    if node["1"]["point_type"] != 1:
                         continue
 
-                    stat_id = lang_map[node['1']['status_add_list'][0]['property_type']]
-                    stat_value = node['1']['status_add_list'][0]['value']
+                    stat_id = lang_map[node["1"]["status_add_list"][0]["property_type"]]
+                    stat_value = node["1"]["status_add_list"][0]["value"]
                     fixedStats[stat_id] = fixedStats.get(stat_id, 0) + stat_value
                 
-        case 'wuthering-waves':
-            if id_type == 'character':
-                for node in data['skill_trees'].values():
-                    if node['node_type'] != 4:
+        case "wuthering-waves":
+            if id_type == "character":
+                for node in data["skill_trees"].values():
+                    if node["node_type"] != 4:
                         continue
                     
-                    stat_id = lang_map[node['skill']['name']]
-                    stat_value = float(node['skill']['param'][0][:-1]) / 100
+                    stat_id = lang_map[node["skill"]["name"]]
+                    stat_value = float(node["skill"]["param"][0][:-1]) / 100
                     fixedStats[stat_id] = fixedStats.get(stat_id, 0) + stat_value
             else:
                 stat_id = lang_map[f"{data['stats']['6']['90'][1]['name']}+"]
-                fixedStats[stat_id] = data['stats']['6']['90'][1]['value'] / 10000 if data['stats']['6']['90'][1]['is_percent'] else data['stats']['6']['90'][1]['value']
+                fixedStats[stat_id] = data["stats"]["6"]["90"][1]["value"] / 10000 if data["stats"]["6"]["90"][1]["is_percent"] else data["stats"]["6"]["90"][1]["value"]
 
-        case 'zenless-zone-zero':
-            if id_type == 'character':
-                for core_passive_bonus in data['extra_level']['6']['extra'].values():
-                    stat_id = lang_map[core_passive_bonus['name']]
-                    if stat_id.startswith('PERCENT'):
-                        stat_value = core_passive_bonus['value'] / 10000
-                    elif stat_id == 'BASE_ER':
-                        stat_value = core_passive_bonus['value'] / 100
+        case "zenless-zone-zero":
+            if id_type == "character":
+                for core_passive_bonus in data["extra_level"]["6"]["extra"].values():
+                    stat_id = lang_map[core_passive_bonus["name"]]
+                    if stat_id.startswith("PERCENT"):
+                        stat_value = core_passive_bonus["value"] / 10000
+                    elif stat_id == "BASE_ER":
+                        stat_value = core_passive_bonus["value"] / 100
                     else:
-                        stat_value = core_passive_bonus['value']
+                        stat_value = core_passive_bonus["value"]
                     fixedStats[stat_id] = fixedStats.get(stat_id, 0) + stat_value
             else:
-                stat_id = lang_map[data['rand_property']['name']]
-                fixedStats[stat_id] = (data['rand_property']['value'] if stat_id.startswith('FLAT') else data['rand_property']['value'] / 10000) * 2.5
+                stat_id = lang_map[data["rand_property"]["name"]]
+                fixedStats[stat_id] = (data["rand_property"]["value"] if stat_id.startswith("FLAT") else data["rand_property"]["value"] / 10000) * 2.5
 
 def parse_data(GAME, data, id_type):
     mapped_id_type = GAME["lang"]["id_type"].get(id_type, id_type)
@@ -480,11 +480,11 @@ def main():
         continue_update = input("Continue? (y/n): ")
         match continue_update:
             case "n":
-                print('Update cancelled.')
+                print("Update cancelled.")
                 sys.exit()
             case "y":
                 break
-        print('Invalid input. Please try again.')
+        print("Invalid input. Please try again.")
     print()
 
     # Scrape

@@ -43,7 +43,8 @@ function runWithConvergence(simulationFunction, threshold = 0.005, windowSize = 
   return simData; // hit max, return best guess
 }
 
-self.onmessage = ({ data: { gameId, characterId, build, criteria, buffs } }) => {
+self.onmessage = ({ data }) => {
+  const { gameId, characterId, build, criteria, buffs } = data;
   const rawData = runWithConvergence(() => multiWeekSimulation(gameId, characterId, build, criteria, buffs));
 
   // Average weekly ratings
