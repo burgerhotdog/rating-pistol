@@ -49,6 +49,7 @@ export function useSimulation(criteriaIndex, buffs) {
       if (data.type === 'done') {
         setResult(prev => ({
           ...prev,
+          completed: data.completed,
           weeklyRatings: data.weeklyRatings,
           finalStats: data.finalStats,
           isLoading: false,

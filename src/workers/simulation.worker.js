@@ -1,74 +1,86 @@
-import { combineEquipStats } from '@/utils';
-import { multiWeekSimulation } from "./simulation.helpers"
+import { combineEquipStats, getSetCounts, getSetEffects } from '@/utils';
+import { findBenchmarkWeek, createRun, getAverageRatings, advanceRunOneWeek } from "./simulation.helpers"
 
-const PROGRESS_EVERY = 1;
-const MAX_ITERATIONS = 500;
+const MIN_RUNS = 100;
+const MAX_RUNS = 1000;
+const MAX_WEEKS = 20;
+const EPS = 1e-8;
 
-function runWithConvergence(simulationFunction, threshold = 0.0005, windowSize = 50) {
-  let results = [];
-  let runningSum = 0;
-  let simData = [];
-
-  for (let i = 1; i <= MAX_ITERATIONS; i++) {
-    const { build, weeklyRating } = simulationFunction();
-    simData.push({ build, weeklyRating });
-
-    if (i % PROGRESS_EVERY === 0 || i === MAX_ITERATIONS) {
-      self.postMessage({
-        type: 'progress',
-        completed: i,
-      });
-    }
-
-    runningSum += weeklyRating[20];
-    const currentAvg = runningSum / i;
-    results.push(currentAvg);
-
-    // Only check once we have enough data to fill the window
-    if (i >= windowSize) {
-      const window = results.slice(-windowSize);
-      const windowMean = window.reduce((a, b) => a + b) / windowSize;
-
-      // Find the biggest % deviation from the window mean
-      const maxDeviation = Math.max(...window.map(v =>
-        Math.abs(v - windowMean) / windowMean
-      ));
-
-      if (maxDeviation < threshold) {
-        return simData; // stop early!
-      }
-    }
-  }
-  return simData; // hit max, return best guess
+function getStd(list) {
+  const n = list.length;
+  const mean = list.reduce((a, b) => a + b) / n;
+  const sumSquaredDiff = list.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0);
+  return Math.sqrt(sumSquaredDiff / (n - 1));
 }
 
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, criteria, buffs } = data;
+  const setCounts = getSetCounts(build.equipList);
+  const setEffects = getSetEffects(setCounts, gameId);
+  const buffsWithSet = [buffs, setEffects].reduce((acc, effectMap) => {
+    for (const [statId, statValue] of Object.entries(effectMap)) {
+      acc[statId] = (acc[statId] ?? 0) + statValue;
+    }
+    return acc;
+  }, {});
 
-  const rawData = runWithConvergence(() => multiWeekSimulation(gameId, characterId, build, criteria, buffs));
-
-  // Average weekly ratings
-  const weeklyRatings = [];
-  for (let week = 0; week < 21; week++) {
-    weeklyRatings.push(rawData.reduce((acc, run) => acc + run.weeklyRating[week], 0) / rawData.length);
+  const runs = [];
+  let lastBenchmarkWeek = null;
+  for (let i = 0; i < MIN_RUNS; i++) {
+    runs.push(createRun(gameId, characterId, build, criteria, buffsWithSet));
   }
+
+  for (let week = 1; week <= MAX_WEEKS; week++) {
+    // advance all runs by one week
+    for (const run of runs) {
+      advanceRunOneWeek(run, gameId, characterId, build, criteria, buffsWithSet);
+    }
+
+    // if relative error is too high add more runs
+    while (runs.length < MAX_RUNS) {
+      const values = runs.map(run => run.ratings[week]);
+      const mean = values.reduce((a, b) => a + b, 0) / values.length;
+      const std = getStd(values);
+
+      const standardError = std / Math.sqrt(values.length);
+      const relativeError = standardError / Math.max(Math.abs(mean), EPS);
+
+      if (relativeError <= 0.005) break;
+
+      const run = createRun(gameId, characterId, build, criteria, buffsWithSet);
+      for (let w = 1; w <= week; w++) {
+        advanceRunOneWeek(run, gameId, characterId, build, criteria, buffsWithSet);
+      }
+      runs.push(run);
+    }
+  
+    let weeklyRatings = getAverageRatings(runs, week);
+    let benchmarkWeek = findBenchmarkWeek(weeklyRatings);
+
+    if (benchmarkWeek !== -1 && benchmarkWeek <= week) {
+      lastBenchmarkWeek = benchmarkWeek;
+      break;
+    }
+
+    self.postMessage({ type: "progress", completed: week });
+  }
+
+  console.log(runs.length);
+
+  if (!lastBenchmarkWeek) {
+    lastBenchmarkWeek = 20;
+  }
+
+  const weeklyRatings = getAverageRatings(runs, lastBenchmarkWeek);
 
   // Average final week equip stats
   const finalStats = {};
-  for (let i = 0; i < rawData.length; i++) {
-    const finalCombined = combineEquipStats(rawData[i].build.equipList);
+  for (let i = 0; i < runs.length; i++) {
+    const finalCombined = combineEquipStats(runs[i].build.equipList);
     for (const stat in finalCombined) {
-      finalStats[stat] = (finalStats[stat] ?? 0) + finalCombined[stat];
+      finalStats[stat] = (finalStats[stat] ?? 0) + finalCombined[stat] / runs.length;
     }
   }
 
-  for (const stat in finalStats) {
-    finalStats[stat] /= rawData.length;
-  }
-
-  self.postMessage({
-    type: 'done',
-    weeklyRatings,
-    finalStats,
-  });
+  self.postMessage({ type: "done", completed: lastBenchmarkWeek, weeklyRatings, finalStats });
 };

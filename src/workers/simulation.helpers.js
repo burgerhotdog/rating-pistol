@@ -2,31 +2,78 @@ import { computeRating, getSetCounts, getSetEffects, computeTotalStat, buildSour
 import { STATS } from '@/data';
 
 const RESIN_DATA = {
-  'genshin-impact': {
+  "genshin-impact": {
     weeklyBonusResin: 60,
     dailyResin: 180,
     costPerRun: 20,
     dropsPerRun: 1.065,
   },
-  'honkai-star-rail': {
+  "honkai-star-rail": {
     weeklyBonusResin: 160,
     dailyResin: 240,
     costPerRun: 40,
     dropsPerRun: 2.1,
   },
-  'wuthering-waves': {
+  "wuthering-waves": {
     weeklyBonusResin: 120,
     dailyResin: 240,
     costPerRun: 60,
     dropsPerRun: 4.33,
   },
-  'zenless-zone-zero': {
+  "zenless-zone-zero": {
     weeklyBonusResin: 180,
     dailyResin: 320,
     costPerRun: 60,
     dropsPerRun: 3.25,
   },
 };
+
+export function findBenchmarkWeek(weeklyRatings, minGain = 0.01) {
+  for (let i = 1; i < weeklyRatings.length; i++) {
+    const prev = weeklyRatings[i - 1];
+    const curr = weeklyRatings[i];
+    if (!Number.isFinite(prev) || prev <= 0) continue;
+
+    const gain = (curr - prev) / prev;
+    if (gain < minGain) return i;
+  }
+  return -1;
+}
+
+export function createRun(gameId, characterId, build, criteria, buffs) {
+  const defaultBuild = { weaponId: build.weaponId, equipList: build.equipList.map(() => null) };
+  const week0 = computeRating(gameId, characterId, defaultBuild, criteria, buffs);
+  return {
+    build: defaultBuild,
+    ratings: [week0],
+  };
+}
+
+export function advanceRunOneWeek(run, gameId, characterId, originalBuild, criteria, buffs) {
+  const nextBuild = simulateBuildAfterWeek(
+    gameId,
+    characterId,
+    originalBuild,
+    run.build,
+    criteria,
+    buffs
+  );
+
+  const nextRating = computeRating(gameId, characterId, nextBuild, criteria, buffs);
+
+  run.build = nextBuild;
+  run.ratings.push(nextRating);
+}
+
+export function getAverageRatings(runs, weekCount) {
+  const averages = [];
+  for (let week = 0; week <= weekCount; week++) {
+    let sum = 0;
+    for (const run of runs) sum += run.ratings[week];
+    averages.push(sum / runs.length);
+  }
+  return averages;
+}
 
 export function generateArtifact(gameId, isCost4 = false) {
   const { MAIN_STAT_TYPES } = STATS[gameId];
