@@ -4,7 +4,7 @@ import { multiWeekSimulation } from "./simulation.helpers"
 const PROGRESS_EVERY = 1;
 const MAX_ITERATIONS = 500;
 
-function runWithConvergence(simulationFunction, threshold = 0.005, windowSize = 50) {
+function runWithConvergence(simulationFunction, threshold = 0.0005, windowSize = 50) {
   let results = [];
   let runningSum = 0;
   let simData = [];
@@ -35,12 +35,10 @@ function runWithConvergence(simulationFunction, threshold = 0.005, windowSize = 
       ));
 
       if (maxDeviation < threshold) {
-        console.log(`Converged at iteration ${i}`);
         return simData; // stop early!
       }
     }
   }
-  console.log('didnt converge');
   return simData; // hit max, return best guess
 }
 

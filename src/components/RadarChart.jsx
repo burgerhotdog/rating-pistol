@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Card, Box, Paper, Typography } from '@mui/material';
-import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip as ChartTooltip } from 'recharts';
+import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip } from 'recharts';
 import { CHARACTERS, STATS } from '@/data';
 import { buildSourceMapList, computeTotalStat } from '@/utils';
 import { useCurrent } from '@/hooks';
@@ -42,7 +42,7 @@ export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }
         <RadarChart outerRadius={100} data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="stat" />
-          <PolarRadiusAxis axisLine={false} tick={false} domain={[0, 100]} allowDataOverflow/>
+          <PolarRadiusAxis axisLine={false} tick={false} domain={[0, 100]} allowDataOverflow />
           <Radar
             name="You"
             dataKey="build"
@@ -58,7 +58,7 @@ export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }
             fill="gold"
             fillOpacity={0.1}
           />
-          <ChartTooltip
+          <Tooltip
             content={({ active, payload, label }) => {
               if (!active || !payload || !payload.length) return null;
               const fullEntry = payload[0].payload;
