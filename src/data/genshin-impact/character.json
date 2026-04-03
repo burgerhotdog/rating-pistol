@@ -93,7 +93,25 @@
       "BASE_DEF": 750.7736775,
       "BASE_EM": 0,
       "PERCENT_PHYSICAL": 0.3
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "PHYSICAL"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000021": {
     "name": "Amber",
@@ -144,7 +162,8 @@
         },
         "type": {
           "skill": "EB",
-          "element": "PYRO"
+          "element": "PYRO",
+          "reaction": "VAPE"
         },
         "MATCH": [
           "ER"
@@ -383,7 +402,25 @@
       "BASE_DEF": 799.2965448000001,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000043": {
     "name": "Sucrose",
@@ -422,7 +459,25 @@
       "BASE_DEF": 814.6676322000001,
       "BASE_EM": 0,
       "PERCENT_HYDRO": 0.288
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "ES",
+          "element": "HYDRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000039": {
     "name": "Diona",
@@ -461,7 +516,25 @@
       "BASE_DEF": 630.2145834,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "CRYO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000038": {
     "name": "Albedo",
@@ -474,7 +547,25 @@
       "BASE_DEF": 876.1519817999999,
       "BASE_EM": 0,
       "PERCENT_GEO": 0.288
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "DEF": 1
+          }
+        },
+        "type": {
+          "skill": "ES",
+          "element": "GEO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000026": {
     "name": "Xiao",
@@ -487,7 +578,25 @@
       "BASE_DEF": 799.2965448000001,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "PA",
+          "element": "ANEMO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000046": {
     "name": "Hu Tao",
@@ -500,7 +609,26 @@
       "BASE_DEF": 876.1519817999999,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "PYRO",
+          "reaction": "VAPE"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000045": {
     "name": "Rosaria",
@@ -539,7 +667,25 @@
       "BASE_DEF": 750.87761949,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "EB",
+          "element": "PHYSICAL"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000047": {
     "name": "Kaedehara Kazuha",
@@ -565,7 +711,25 @@
       "BASE_DEF": 783.9254574000001,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "EB",
+          "element": "CRYO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000049": {
     "name": "Yoimiya",
@@ -578,7 +742,25 @@
       "BASE_DEF": 614.843496,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "PYRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000053": {
     "name": "Sayu",
@@ -604,7 +786,25 @@
       "BASE_DEF": 789.30533799,
       "BASE_EM": 0,
       "PERCENT_ER": 0.32
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "EB",
+          "element": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000054": {
     "name": "Sangonomiya Kokomi",
@@ -682,7 +882,25 @@
       "BASE_DEF": 959.15585376,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "GEO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000063": {
     "name": "Shenhe",
@@ -721,7 +939,25 @@
       "BASE_DEF": 568.7302338000001,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "ES",
+          "element": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000066": {
     "name": "Kamisato Ayato",
@@ -734,7 +970,25 @@
       "BASE_DEF": 768.5543700000001,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "HYDRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000060": {
     "name": "Yelan",
@@ -747,7 +1001,25 @@
       "BASE_DEF": 547.97926581,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "HP": 1
+          }
+        },
+        "type": {
+          "skill": "EB",
+          "element": "HYDRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000065": {
     "name": "Kuki Shinobu",
@@ -812,7 +1084,25 @@
       "BASE_DEF": 630.2145834,
       "BASE_EM": 0,
       "PERCENT_DENDRO": 0.288
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "DENDRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000070": {
     "name": "Nilou",
@@ -838,7 +1128,25 @@
       "BASE_DEF": 859.24378566,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000072": {
     "name": "Candace",
@@ -864,7 +1172,25 @@
       "BASE_DEF": 630.2145834,
       "BASE_EM": 0,
       "FLAT_EM": 115.2
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "ES",
+          "element": "DENDRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000074": {
     "name": "Layla",
@@ -947,7 +1273,26 @@
       "BASE_DEF": 781.6197942900001,
       "BASE_EM": 0,
       "PERCENT_DENDRO": 0.288
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1,
+            "EM": 1
+          }
+        },
+        "type": {
+          "skill": "ES",
+          "element": "DENDRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000079": {
     "name": "Dehya",
@@ -1038,7 +1383,25 @@
       "BASE_DEF": 537.988059,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "PYRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000085": {
     "name": "Freminet",
@@ -1095,7 +1458,25 @@
       "BASE_DEF": 576.4157775000001,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "HP": 1
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "HYDRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000088": {
     "name": "Charlotte",
@@ -1165,7 +1546,25 @@
       "BASE_DEF": 793.1481098400001,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "ES",
+          "element": "GEO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000092": {
     "name": "Gaming",
@@ -1290,7 +1689,25 @@
       "BASE_DEF": 783.9254574000001,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000099": {
     "name": "Emilie",
@@ -1342,7 +1759,26 @@
       "BASE_DEF": 570.26734254,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "HP": 1
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "HYDRO",
+          "reaction": "VAPE"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000103": {
     "name": "Xilonen",
@@ -1368,7 +1804,24 @@
       "BASE_DEF": 614.843496,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "CA"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000105": {
     "name": "Ororon",
@@ -1381,7 +1834,25 @@
       "BASE_DEF": 586.9685115000001,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "ES",
+          "element": "ELECTRO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000106": {
     "name": "Mavuika",
@@ -1406,7 +1877,8 @@
         },
         "type": {
           "skill": "EB",
-          "element": "PYRO"
+          "element": "PYRO",
+          "reaction": "MELT"
         }
       }
     ]
@@ -1487,7 +1959,25 @@
       "BASE_DEF": 731.66376024,
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "ES",
+          "element": "CRYO"
+        },
+        "MATCH": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000113": {
     "name": "Ifa",
@@ -1513,7 +2003,22 @@
       "BASE_DEF": 806.21353413,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
-    }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "CRYO"
+        }
+      }
+    ]
   },
   "10000115": {
     "name": "Dahlia",

@@ -31,7 +31,18 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
   const dmgBonus = 1 + totalElementDmgBonus + totalSkillTypeDmgBonus + totalAllTypeDmgBonus;
 
   // Amplifying Reactions
-  let ampMult = 1;
+  let rxnBonus = 0;
+  const totalEm = computeTotalStat("EM", sourceMapList);
+  const rxn = criteria.type.reaction;
+  if (rxn === "MELT" || rxn === "VAPE") {
+    rxnBonus = 2;
+  }
+
+  if (rxn === "RMELT" || rxn === "RVAPE") {
+    rxnBonus = 1.5;
+  }
+
+  const ampMult = rxn ? rxnBonus * (1 + (2.78 * (totalEm / (totalEm + 1400)))) : 1;
 
   // Crit multiplier
   const totalCR = Math.min(computeTotalStat('CR', sourceMapList), 1);
