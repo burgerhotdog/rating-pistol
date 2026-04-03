@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Stack, Box, Tooltip } from '@mui/material';
 import { ICON_ASSETS } from '@/assets';
-import { STATS } from '@/lookups';
+import { STATS } from '@/data';
 
 const GameLink = ({ gameId }) => {
   const { TITLE } = STATS[gameId];

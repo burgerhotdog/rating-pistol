@@ -1,0 +1,398 @@
+{
+  "14002": {
+    "name": "Thundersoother"
+  },
+  "14003": {
+    "name": "Lavawalker"
+  },
+  "14004": {
+    "name": "Maiden Beloved"
+  },
+  "15001": {
+    "name": "Gladiator's Finale",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.18
+        }
+      }
+    }
+  },
+  "15002": {
+    "name": "Viridescent Venerer",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ANEMO": 0.15
+        }
+      }
+    }
+  },
+  "15003": {
+    "name": "Wanderer's Troupe",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "FLAT_EM": 80
+        }
+      }
+    }
+  },
+  "15005": {
+    "name": "Thundering Fury",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ELECTRO": 0.15
+        }
+      }
+    }
+  },
+  "15006": {
+    "name": "Crimson Witch of Flames",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_PYRO": 0.15
+        }
+      }
+    }
+  },
+  "15007": {
+    "name": "Noblesse Oblige",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_EB": 0.2
+        }
+      }
+    }
+  },
+  "15008": {
+    "name": "Bloodstained Chivalry",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_PHYSICAL": 0.25
+        }
+      }
+    }
+  },
+  "15014": {
+    "name": "Archaic Petra",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_GEO": 0.15
+        }
+      }
+    }
+  },
+  "15015": {
+    "name": "Retracing Bolide"
+  },
+  "14001": {
+    "name": "Blizzard Strayer",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_CRYO": 0.15
+        }
+      }
+    }
+  },
+  "15016": {
+    "name": "Heart of Depth",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_HYDRO": 0.15
+        }
+      }
+    }
+  },
+  "15017": {
+    "name": "Tenacity of the Millelith",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_HP": 0.2
+        }
+      }
+    }
+  },
+  "15018": {
+    "name": "Pale Flame",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_PHYSICAL": 0.25
+        }
+      }
+    }
+  },
+  "15019": {
+    "name": "Shimenawa's Reminiscence",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.18
+        }
+      }
+    }
+  },
+  "15020": {
+    "name": "Emblem of Severed Fate",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ER": 0.2
+        }
+      }
+    }
+  },
+  "15021": {
+    "name": "Husk of Opulent Dreams",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_DEF": 0.3
+        }
+      }
+    }
+  },
+  "15022": {
+    "name": "Ocean-Hued Clam",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_HB": 0.15
+        }
+      }
+    }
+  },
+  "15023": {
+    "name": "Vermillion Hereafter",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.18
+        }
+      }
+    }
+  },
+  "15024": {
+    "name": "Echoes of an Offering",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.18
+        }
+      }
+    }
+  },
+  "15025": {
+    "name": "Deepwood Memories",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_DENDRO": 0.15
+        }
+      }
+    }
+  },
+  "15026": {
+    "name": "Gilded Dreams",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "FLAT_EM": 80
+        }
+      }
+    }
+  },
+  "15027": {
+    "name": "Desert Pavilion Chronicle",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ANEMO": 0.15
+        }
+      }
+    }
+  },
+  "15028": {
+    "name": "Flower of Paradise Lost",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "FLAT_EM": 80
+        }
+      }
+    }
+  },
+  "15029": {
+    "name": "Nymph's Dream",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_HYDRO": 0.15
+        }
+      }
+    }
+  },
+  "15030": {
+    "name": "Vourukasha's Glow",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_HP": 0.2
+        }
+      }
+    }
+  },
+  "15031": {
+    "name": "Marechaussee Hunter",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_NA": 0.15,
+          "PERCENT_CA": 0.15
+        }
+      },
+      "4": {
+        "fixedStats": {
+          "PERCENT_CR": 0.36
+        }
+      }
+    }
+  },
+  "15032": {
+    "name": "Golden Troupe",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ES": 0.2
+        }
+      },
+      "4": {
+        "fixedStats": {
+          "PERCENT_ES": 0.5
+        }
+      }
+    }
+  },
+  "15033": {
+    "name": "Song of Days Past",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_HB": 0.15
+        }
+      }
+    }
+  },
+  "15034": {
+    "name": "Nighttime Whispers in the Echoing Woods",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.18
+        }
+      }
+    }
+  },
+  "15035": {
+    "name": "Fragment of Harmonic Whimsy",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.18
+        }
+      }
+    }
+  },
+  "15036": {
+    "name": "Unfinished Reverie",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.18
+        }
+      }
+    }
+  },
+  "15037": {
+    "name": "Scroll of the Hero of Cinder City"
+  },
+  "15038": {
+    "name": "Obsidian Codex",
+    "effect": {
+      "4": {
+        "fixedStats": {
+          "PERCENT_CR": 0.4
+        }
+      }
+    }
+  },
+  "15039": {
+    "name": "Long Night's Oath",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_PA": 0.25
+        }
+      }
+    }
+  },
+  "15040": {
+    "name": "Finale of the Deep Galleries",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_CRYO": 0.15
+        }
+      }
+    }
+  },
+  "15041": {
+    "name": "Night of the Sky's Unveiling",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "FLAT_EM": 80
+        }
+      }
+    }
+  },
+  "15042": {
+    "name": "Silken Moon's Serenade",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ER": 0.2
+        }
+      }
+    }
+  },
+  "15043": {
+    "name": "Aubade of Morningstar and Moon",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "FLAT_EM": 80
+        }
+      }
+    }
+  },
+  "15044": {
+    "name": "A Day Carved From Rising Winds",
+    "effect": {
+      "2": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.18
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, Fo
 import SyncIcon from '@mui/icons-material/Sync';
 import { useBuild, useUser } from '@/contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
-import { CHARACTERS } from '@/lookups';
+import { CHARACTERS } from '@/data';
 
 const HeaderEnka = ({ gamePath }) => {
   const { savedUids, updateSavedUids } = useUser();
@@ -167,7 +167,7 @@ const HeaderEnka = ({ gamePath }) => {
                   })}
                 />
               }
-              label={CHARACTERS[gamePath][char.avatarId].NAME}
+              label={CHARACTERS[gamePath][char.avatarId].name}
             />
           ))}
         </DialogContent>

@@ -1,4 +1,4 @@
-import { STATS } from '@/lookups';
+import { STATS } from '@/data';
 import { weightedLottery } from '@/utils';
 
 const WW_ATKDEF = {

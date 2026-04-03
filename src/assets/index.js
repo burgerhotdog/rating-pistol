@@ -6,20 +6,6 @@ const short = (assets) =>
     ])
   );
 
-export const CHARACTER_ASSETS = { 
-  'genshin-impact': short(import.meta.glob('./character/gi/*.webp', { eager: true })),
-  'honkai-star-rail': short(import.meta.glob('./character/hsr/*.webp', { eager: true })),
-  'wuthering-waves': short(import.meta.glob('./character/ww/*.webp', { eager: true })),
-  'zenless-zone-zero': short(import.meta.glob('./character/zzz/*.webp', { eager: true })),
-};
-
-export const WEAPON_ASSETS = { 
-  'genshin-impact': short(import.meta.glob('./weapon/gi/*.webp', { eager: true })),
-  'honkai-star-rail': short(import.meta.glob('./weapon/hsr/*.webp', { eager: true })),
-  'wuthering-waves': short(import.meta.glob('./weapon/ww/*.webp', { eager: true })),
-  'zenless-zone-zero': short(import.meta.glob('./weapon/zzz/*.webp', { eager: true })),
-};
-
 export const EQUIP_ASSETS = { 
   'genshin-impact': short(import.meta.glob('./equip/gi/*.webp', { eager: true })),
   'honkai-star-rail': short(import.meta.glob('./equip/hsr/*.webp', { eager: true })),

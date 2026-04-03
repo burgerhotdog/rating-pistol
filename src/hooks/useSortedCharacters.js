@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useMemo } from 'react';
 import { useBuild, useUser } from '@/contexts';
-import { CHARACTERS } from '@/lookups';
+import { CHARACTERS } from '@/data';
 
 // Sort characters alphabetically with pinned on top
 export function useSortedCharacters() {
@@ -16,8 +16,8 @@ export function useSortedCharacters() {
     if (a === pinned) return -1;
     if (b === pinned) return 1;
 
-    const aName = CHARACTERS[gameId][a].NAME;
-    const bName = CHARACTERS[gameId][b].NAME;
+    const aName = CHARACTERS[gameId][a].name;
+    const bName = CHARACTERS[gameId][b].name;
     return aName.localeCompare(bName);
   }), [gameId, buildKeys, pinned]);
 }

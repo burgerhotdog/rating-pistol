@@ -5,9 +5,9 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
 
   // Base DMG:
   // Character's total stat * Skill multiplier + flat number
-  let baseDmg = criteria.SCALING.FLAT ?? 0;
+  let baseDmg = criteria.scaling.flat ?? 0;
 
-  const multiplier = criteria.SCALING.MULTIPLIER ?? {};
+  const multiplier = criteria.scaling.multiplier ?? {};
   for (const [stat, coeff] of Object.entries(multiplier)) {
     baseDmg += computeTotalStat(stat, sourceMapList) * coeff;
   }
@@ -21,21 +21,28 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
 
   // Damage bonus:
   // Element
-  const dmgElement = criteria.TYPE.ELEMENT;
+  const dmgElement = criteria.type.element;
   const totalElementDmgBonus = computeTotalStat(dmgElement, sourceMapList);
   // Skill type
-  const dmgSkillType = criteria.TYPE.SKILL;
+  const dmgSkillType = criteria.type.skill;
   const totalSkillTypeDmgBonus = computeTotalStat(dmgSkillType, sourceMapList);
   // All type
   const totalAllTypeDmgBonus = computeTotalStat('ALL', sourceMapList);
   const dmgBonus = 1 + totalElementDmgBonus + totalSkillTypeDmgBonus + totalAllTypeDmgBonus;
 
-  // Def
-
-  // Res
-
   // Amplifying Reactions
-  let ampMult = 1;
+  let rxnBonus = 0;
+  const totalEm = computeTotalStat("EM", sourceMapList);
+  const rxn = criteria.type.reaction;
+  if (rxn === "MELT" || rxn === "VAPE") {
+    rxnBonus = 2;
+  }
+
+  if (rxn === "RMELT" || rxn === "RVAPE") {
+    rxnBonus = 1.5;
+  }
+
+  const ampMult = rxn ? rxnBonus * (1 + (2.78 * (totalEm / (totalEm + 1400)))) : 1;
 
   // Crit multiplier
   const totalCR = Math.min(computeTotalStat('CR', sourceMapList), 1);

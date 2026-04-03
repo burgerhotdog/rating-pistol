@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Accordion, AccordionSummary, AccordionDetails, FormControlLabel, Switch, Stack, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { CHARACTERS } from '@/lookups';
+import { CHARACTERS } from '@/data';
 
 export const BuffPanel = ({ buffs, setBuffs }) => {
   const { gameId, charId } = useParams();
@@ -28,7 +28,7 @@ export const BuffPanel = ({ buffs, setBuffs }) => {
                   onChange={() => toggleBuff(id)}
                 />
               }
-              label={<Typography variant="body2">{CHARACTERS[gameId][id].NAME}</Typography>}
+              label={<Typography variant="body2">{CHARACTERS[gameId][id].name}</Typography>}
             />
           ))}
         </Stack>

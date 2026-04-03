@@ -3,7 +3,7 @@ import { Container } from '@mui/material';
 import { Header } from '@/components';
 import { AuthProvider, BuildProvider, UserProvider } from '@/contexts';
 import { GamePage, HomePage } from '@/pages';
-import { VERSION } from '@/lookups';
+import { VERSION } from '@/data';
 
 export default function App() {
   const segments = useLocation().pathname.split('/').filter(Boolean);

@@ -1,0 +1,1003 @@
+{
+  "1102": {
+    "name": "Sanhua",
+    "quality": "4",
+    "element": "Glacio",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 10062.5,
+      "BASE_ATK": 275.0,
+      "BASE_DEF": 941.1094,
+      "PERCENT_GLACIO": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1103": {
+    "name": "Baizhi",
+    "quality": "4",
+    "element": "Glacio",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 12812.5,
+      "BASE_ATK": 212.5,
+      "BASE_DEF": 1002.2204,
+      "PERCENT_OHB": 0.12000000000000002,
+      "PERCENT_HP": 0.12000000000000002
+    }
+  },
+  "1104": {
+    "name": "Lingyang",
+    "quality": "5",
+    "element": "Glacio",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 10387.5,
+      "BASE_ATK": 437.5,
+      "BASE_DEF": 1209.9978,
+      "PERCENT_GLACIO": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1202": {
+    "name": "Chixia",
+    "quality": "4",
+    "element": "Fusion",
+    "type": "Pistols",
+    "fixedStats": {
+      "BASE_HP": 9087.5,
+      "BASE_ATK": 300.0,
+      "BASE_DEF": 953.3316,
+      "PERCENT_FIRE": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1203": {
+    "name": "Encore",
+    "quality": "5",
+    "element": "Fusion",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 10512.5,
+      "BASE_ATK": 425.0,
+      "BASE_DEF": 1246.6644,
+      "PERCENT_FIRE": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1204": {
+    "name": "Mortefi",
+    "quality": "4",
+    "element": "Fusion",
+    "type": "Pistols",
+    "fixedStats": {
+      "BASE_HP": 10025.0,
+      "BASE_ATK": 250.0,
+      "BASE_DEF": 1136.6646,
+      "PERCENT_FIRE": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1301": {
+    "name": "Calcharo",
+    "quality": "5",
+    "element": "Electro",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 10500.0,
+      "BASE_ATK": 437.5,
+      "BASE_DEF": 1185.5534,
+      "PERCENT_CD": 0.15999999999999998,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1302": {
+    "name": "Yinlin",
+    "quality": "5",
+    "element": "Electro",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 11000.0,
+      "BASE_ATK": 400.0,
+      "BASE_DEF": 1283.331,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RL",
+          "element": "ELECTRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1303": {
+    "name": "Yuanwu",
+    "quality": "4",
+    "element": "Electro",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 8525.0,
+      "BASE_ATK": 225.0,
+      "BASE_DEF": 1637.7748,
+      "PERCENT_ICE": 0.12000000000000002,
+      "PERCENT_DEF": 0.152
+    }
+  },
+  "1402": {
+    "name": "Yangyang",
+    "quality": "4",
+    "element": "Aero",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 10200.0,
+      "BASE_ATK": 250.0,
+      "BASE_DEF": 1099.998,
+      "PERCENT_AERO": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1403": {
+    "name": "Aalto",
+    "quality": "4",
+    "element": "Aero",
+    "type": "Pistols",
+    "fixedStats": {
+      "BASE_HP": 9850.0,
+      "BASE_ATK": 262.5,
+      "BASE_DEF": 1075.5536,
+      "PERCENT_AERO": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1404": {
+    "name": "Jiyan",
+    "quality": "5",
+    "element": "Aero",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 10487.5,
+      "BASE_ATK": 437.5,
+      "BASE_DEF": 1185.5534,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "HA",
+          "element": "AERO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1405": {
+    "name": "Jianxin",
+    "quality": "5",
+    "element": "Aero",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 14112.5,
+      "BASE_ATK": 337.5,
+      "BASE_DEF": 1124.4424,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1503": {
+    "name": "Verina",
+    "quality": "5",
+    "element": "Spectro",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 14237.5,
+      "BASE_ATK": 337.5,
+      "BASE_DEF": 1099.998,
+      "PERCENT_OHB": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1601": {
+    "name": "Taoqi",
+    "quality": "4",
+    "element": "Havoc",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 8950.0,
+      "BASE_ATK": 225.0,
+      "BASE_DEF": 1564.4416,
+      "PERCENT_HAVOC": 0.12000000000000002,
+      "PERCENT_DEF": 0.152
+    }
+  },
+  "1602": {
+    "name": "Danjin",
+    "quality": "4",
+    "element": "Havoc",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 9437.5,
+      "BASE_ATK": 262.5,
+      "BASE_DEF": 1148.8868,
+      "PERCENT_HAVOC": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1205": {
+    "name": "Changli",
+    "quality": "5",
+    "element": "Fusion",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 10387.5,
+      "BASE_ATK": 462.5,
+      "BASE_DEF": 1099.998,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RS",
+          "element": "FUSION"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1304": {
+    "name": "Jinhsi",
+    "quality": "5",
+    "element": "Spectro",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 10825.0,
+      "BASE_ATK": 412.5,
+      "BASE_DEF": 1258.8866,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RS",
+          "element": "SPECTRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1105": {
+    "name": "Zhezhi",
+    "quality": "5",
+    "element": "Glacio",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 12250.0,
+      "BASE_ATK": 375.0,
+      "BASE_DEF": 1197.7756,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "BA",
+          "element": "GLACIO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1305": {
+    "name": "Xiangli Yao",
+    "quality": "5",
+    "element": "Electro",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 10625.0,
+      "BASE_ATK": 425.0,
+      "BASE_DEF": 1222.22,
+      "PERCENT_CD": 0.15999999999999998,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RL",
+          "element": "ELECTRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1106": {
+    "name": "Youhu",
+    "quality": "4",
+    "element": "Glacio",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 9975.0,
+      "BASE_ATK": 262.5,
+      "BASE_DEF": 1051.1092,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1505": {
+    "name": "Shorekeeper",
+    "quality": "5",
+    "element": "Spectro",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 16712.5,
+      "BASE_ATK": 287.5,
+      "BASE_DEF": 1099.998,
+      "PERCENT_OHB": 0.12000000000000002,
+      "PERCENT_HP": 0.12000000000000002
+    }
+  },
+  "1504": {
+    "name": "Lumi",
+    "quality": "4",
+    "element": "Electro",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 8500.0,
+      "BASE_ATK": 337.5,
+      "BASE_DEF": 879.9984,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1603": {
+    "name": "Camellya",
+    "quality": "5",
+    "element": "Havoc",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 10325.0,
+      "BASE_ATK": 450.0,
+      "BASE_DEF": 1161.109,
+      "PERCENT_CD": 0.15999999999999998,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "BA",
+          "element": "HAVOC"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1107": {
+    "name": "Carlotta",
+    "quality": "5",
+    "element": "Glacio",
+    "type": "Pistols",
+    "fixedStats": {
+      "BASE_HP": 12450.0,
+      "BASE_ATK": 462.5,
+      "BASE_DEF": 1197.7756,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RS",
+          "element": "GLACIO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1606": {
+    "name": "Roccia",
+    "quality": "5",
+    "element": "Havoc",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 12250.0,
+      "BASE_ATK": 375.0,
+      "BASE_DEF": 1197.7756,
+      "PERCENT_CD": 0.15999999999999998,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RS",
+          "element": "HAVOC"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1206": {
+    "name": "Brant",
+    "quality": "5",
+    "element": "Fusion",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 11675.0,
+      "BASE_ATK": 375.0,
+      "BASE_DEF": 1307.7754,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "BA",
+          "element": "FUSION"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1506": {
+    "name": "Phoebe",
+    "quality": "5",
+    "element": "Spectro",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 10825.0,
+      "BASE_ATK": 412.5,
+      "BASE_DEF": 1258.8866,
+      "PERCENT_CD": 0.15999999999999998,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "HA",
+          "element": "SPECTRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1607": {
+    "name": "Cantarella",
+    "quality": "5",
+    "element": "Havoc",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 11600.0,
+      "BASE_ATK": 400.0,
+      "BASE_DEF": 1099.998,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "BA",
+          "element": "HAVOC"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1407": {
+    "name": "Ciaccona",
+    "quality": "5",
+    "element": "Aero",
+    "type": "Pistols",
+    "fixedStats": {
+      "BASE_HP": 12237.5,
+      "BASE_ATK": 375.0,
+      "BASE_DEF": 1197.7756,
+      "PERCENT_CD": 0.15999999999999998,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RL",
+          "element": "AERO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1507": {
+    "name": "Zani",
+    "quality": "5",
+    "element": "Spectro",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 10775.0,
+      "BASE_ATK": 437.5,
+      "BASE_DEF": 1136.6646,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "HA",
+          "element": "SPECTRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1207": {
+    "name": "Lupa",
+    "quality": "5",
+    "element": "Fusion",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 11912.5,
+      "BASE_ATK": 387.5,
+      "BASE_DEF": 1185.5534,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RL",
+          "element": "FUSION"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1409": {
+    "name": "Cartethyia",
+    "quality": "5",
+    "element": "Aero",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 14800.0,
+      "BASE_ATK": 312.5,
+      "BASE_DEF": 611.11,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_HP": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "HP": 1
+          }
+        },
+        "type": {
+          "skill": "BA",
+          "element": "AERO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1608": {
+    "name": "Phrolova",
+    "quality": "5",
+    "element": "Havoc",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 10775.0,
+      "BASE_ATK": 437.5,
+      "BASE_DEF": 1136.6646,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RS",
+          "element": "HAVOC"
+        }
+      }
+    ]
+  },
+  "1306": {
+    "name": "Augusta",
+    "quality": "5",
+    "element": "Electro",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 10300.0,
+      "BASE_ATK": 462.5,
+      "BASE_DEF": 1112.2202,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "HA",
+          "element": "ELECTRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1410": {
+    "name": "Iuno",
+    "quality": "5",
+    "element": "Aero",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 10525.0,
+      "BASE_ATK": 450.0,
+      "BASE_DEF": 1124.4424,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RL",
+          "element": "AERO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1208": {
+    "name": "Galbrena",
+    "quality": "5",
+    "element": "Fusion",
+    "type": "Pistols",
+    "fixedStats": {
+      "BASE_HP": 10300.0,
+      "BASE_ATK": 462.5,
+      "BASE_DEF": 1112.2202,
+      "PERCENT_CD": 0.15999999999999998,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1411": {
+    "name": "Qiuyuan",
+    "quality": "5",
+    "element": "Aero",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 12237.5,
+      "BASE_ATK": 375.0,
+      "BASE_DEF": 1197.7756,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "HA",
+          "element": "AERO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1307": {
+    "name": "Buling",
+    "quality": "4",
+    "element": "Electro",
+    "type": "Rectifier",
+    "fixedStats": {
+      "BASE_HP": 10625.0,
+      "BASE_ATK": 225.0,
+      "BASE_DEF": 1258.8866,
+      "PERCENT_OHB": 0.12000000000000002,
+      "PERCENT_ATK": 0.12000000000000002
+    }
+  },
+  "1508": {
+    "name": "Chisa",
+    "quality": "5",
+    "element": "Havoc",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 10775.0,
+      "BASE_ATK": 437.5,
+      "BASE_DEF": 1136.6646,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RL",
+          "element": "HAVOC"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1209": {
+    "name": "Mornye",
+    "quality": "5",
+    "element": "Fusion",
+    "type": "Broadblade",
+    "fixedStats": {
+      "BASE_HP": 15375.0,
+      "BASE_ATK": 287.5,
+      "BASE_DEF": 1356.6642,
+      "PERCENT_OHB": 0.12000000000000002,
+      "PERCENT_DEF": 0.152
+    }
+  },
+  "1509": {
+    "name": "Lynae",
+    "quality": "5",
+    "element": "Spectro",
+    "type": "Pistols",
+    "fixedStats": {
+      "BASE_HP": 12237.5,
+      "BASE_ATK": 375.0,
+      "BASE_DEF": 1197.7756,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "BA",
+          "element": "SPECTRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1210": {
+    "name": "Aemeath",
+    "quality": "5",
+    "element": "Fusion",
+    "type": "Sword",
+    "fixedStats": {
+      "BASE_HP": 11025.0,
+      "BASE_ATK": 425.0,
+      "BASE_DEF": 1148.8868,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "RL",
+          "element": "FUSION"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  },
+  "1510": {
+    "name": "Luuk Herssen",
+    "quality": "5",
+    "element": "Spectro",
+    "type": "Gauntlets",
+    "fixedStats": {
+      "BASE_HP": 10300.0,
+      "BASE_ATK": 462.5,
+      "BASE_DEF": 1112.2202,
+      "PERCENT_CR": 0.07999999999999999,
+      "PERCENT_ATK": 0.12000000000000002
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "flat": 0,
+          "multiplier": {
+            "ATK": 1
+          }
+        },
+        "type": {
+          "skill": "BA",
+          "element": "SPECTRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
+  }
+}
