@@ -1,4 +1,4 @@
-import { combineEquipStats, getSetCounts, getSetEffects } from '@/utils';
+import { combineEquipStats, getSetCounts, getSetEffects } from "@/utils";
 import { findBenchmarkWeek, createRun, getAverageRatings, advanceRunOneWeek } from "./simulation.helpers"
 
 const MIN_RUNS = 100;

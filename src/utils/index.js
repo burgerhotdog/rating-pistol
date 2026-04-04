@@ -5,3 +5,4 @@ export * from './upgradeArtifact';
 export * from './weightedLottery';
 export * from './buildSourceMapList';
 export * from './setEffect';
+export * from './collectTeamBuffs';
