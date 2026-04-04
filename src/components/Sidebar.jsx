@@ -45,7 +45,14 @@ export const Sidebar = () => {
           >
             <Avatar
               src={`${import.meta.env.BASE_URL}${gameId}/character/${id}.webp`}
-              sx={{ width: 48, height: 48 }}
+              sx={{
+                width: 48,
+                height: 48,
+                '& .MuiAvatar-img': {
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                },
+              }}
             />
           </ListItemButton>
         ))}
