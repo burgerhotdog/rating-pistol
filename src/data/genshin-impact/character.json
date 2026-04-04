@@ -1503,6 +1503,9 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "teamBuffs": {
+      "PERCENT_ALL": 1
+    },
     "criteria": [
       {
         "name": "Damage",

@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Box, Stack } from '@mui/material';
 import {
   Sidebar,
@@ -8,19 +8,28 @@ import {
   CustomRadarChart,
   CustomTable,
   Bar,
+  BuffPanel,
 } from '@/components';
-import { computeRating } from '@/utils';
+import { computeRating, collectTeamBuffs } from '@/utils';
 import { useCurrent, useSimulation } from '@/hooks';
 
 const GamePage = () => {
   const { gameId, characterId } = useParams();
-  const { build, data, criteria } = useCurrent();
+  const { build, criteria } = useCurrent();
 
-  const rating = build && criteria ? computeRating(gameId, characterId, build, criteria[0]) : null;
-  const criteriaIndex = 0;
-  const [buffs, setBuffs] = useState({});
+  const [draftTeam, setDraftTeam] = useState([]);
+  const [appliedTeam, setAppliedTeam] = useState([]);
 
-  const { completed, weeklyRatings, finalStats, isLoading } = useSimulation(criteriaIndex, buffs);
+  const buffs = useMemo(
+    () => collectTeamBuffs(gameId, appliedTeam),
+    [gameId, appliedTeam]
+  );
+
+  const rating = build && criteria
+    ? computeRating(gameId, characterId, build, criteria[0], buffs)
+    : null;
+
+  const { completed, weeklyRatings, finalStats, isLoading } = useSimulation(0, buffs);
 
   return (
     <Box
@@ -34,7 +43,22 @@ const GamePage = () => {
       }}
     >
       <Sidebar />
-      <StatsPanel />
+      <Stack>
+        <StatsPanel />
+        <BuffPanel
+          gameId={gameId}
+          mainCharacterId={characterId}
+          draftTeam={draftTeam}
+          appliedTeam={appliedTeam}
+          setDraftTeam={setDraftTeam}
+          onApply={() => setAppliedTeam(draftTeam)}
+          onReset={() => {
+            setDraftTeam([]);
+            setAppliedTeam([]);
+          }}
+        />
+      </Stack>
+
       {criteria && (
         <Stack spacing={1} sx={{ flex: 1 }}>
           <Bar completed={completed} />
