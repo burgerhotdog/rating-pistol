@@ -9,7 +9,7 @@ export function computeDamage(statMap, criteria) {
   const dmgTypeSkill = criteria.type.skill;
   const dmgTypeReaction = criteria.type.reaction;
   const totalEm = computeTotalStat("EM", statMap);
-  const totalRxn = computeTotalStat("RXN", statMap);
+  const totalRxnBonus = statMap[`RXN_${dmgTypeReaction}`] ?? 0;
 
   // Base DMG:
   // Character's total stat * skill scaling + flat number
@@ -32,7 +32,7 @@ export function computeDamage(statMap, criteria) {
   if (dmgTypeReaction === "AGGRAVATE") additiveReactionBonus = 1.15;
   if (dmgTypeReaction === "SPREAD") additiveReactionBonus = 1.25;
   const emBonusCatalyze = ((5 * totalEm) / (totalEm + 1200)) * 100;
-  const flatReactionBonus = additiveReactionBonus * CHARACTER_LEVEL * (1 + emBonusCatalyze + totalRxn);
+  const flatReactionBonus = additiveReactionBonus * CHARACTER_LEVEL * (1 + emBonusCatalyze + totalRxnBonus);
 
   // Teammate buffs, Direct multiplier on some talents
   const totalAddElement = statMap[`ADD_${dmgTypeElement}`] ?? 0;
@@ -74,7 +74,7 @@ export function computeDamage(statMap, criteria) {
   if (dmgTypeReaction === "MELT" || dmgTypeReaction === "VAPE") amplifyingReactionBonus = 2;
   if (dmgTypeReaction === "RMELT" || dmgTypeReaction === "RVAPE") amplifyingReactionBonus = 1.5;
   const emBonusAmplifying = 2.78 * (totalEm / (totalEm + 1400)) * 100;
-  const ampMult = isAmp ? amplifyingReactionBonus * (1 + emBonusAmplifying + totalRxn) : 1;
+  const ampMult = isAmp ? amplifyingReactionBonus * (1 + emBonusAmplifying + totalRxnBonus) : 1;
 
   // Crit multiplier
   const totalCR = Math.min(computeTotalStat("CR", statMap), 1);

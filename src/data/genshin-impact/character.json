@@ -88,7 +88,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 3.672
           }
@@ -184,7 +183,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2.016
           }
@@ -223,7 +221,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2.189
           }
@@ -267,7 +264,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 0.977
           }
@@ -294,11 +290,17 @@
       "BASE_EM": 0,
       "PERCENT_GEO": 0.24
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_GEO": 0.12
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1.565
           }
@@ -328,7 +330,8 @@
     "buffs": {
       "self": {
         "fixedStats": {
-          "RAW_CA": 0.5
+          "RAW_CA": 0.5,
+          "PERCENT_CA": 0.5
         }
       }
     },
@@ -336,7 +339,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2.832
           }
@@ -363,11 +365,18 @@
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.225,
+          "FLAT_EM": 90
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1.598
           }
@@ -395,9 +404,10 @@
       "PERCENT_ER": 0.2667
     },
     "buffs": {
-      "ally": {
+      "team": {
         "fixedStats": {
-          "FLAT_ATK": 1250
+          "FLAT_ATK": 1202.35,
+          "PERCENT_PYRO": 0.15
         }
       }
     }
@@ -413,7 +423,40 @@
       "BASE_DEF": 798.55018425,
       "BASE_EM": 0,
       "PERCENT_DEF": 0.3
-    }
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_CA": 0.15
+        },
+        "variableStats": {
+          "FLAT_ATK": {
+            "source": [
+              "DEF",
+              1
+            ],
+            "value": 1.35
+          }
+        }
+      }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "multiplier": {
+            "ATK": 1.003
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "GEO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000035": {
     "name": "Qiqi",
@@ -439,6 +482,13 @@
       "BASE_DEF": 648.39544875,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "SHRED_CRYO": 0.1
+        }
+      }
     }
   },
   "10000041": {
@@ -452,6 +502,23 @@
       "BASE_DEF": 653.2712145,
       "BASE_EM": 0,
       "PERCENT_ER": 0.32
+    },
+    "variableStats": {
+      "PERCENT_HYDRO": {
+        "source": [
+          "ER",
+          1
+        ],
+        "value": 0.2
+      }
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_ALL": 0.6,
+          "RXN_VAPE": 0.15
+        }
+      }
     }
   },
   "10000042": {
@@ -466,13 +533,20 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_CR": 0.15,
+          "PERCENT_ER": 0.15
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 3.218
           }
         },
         "type": {
@@ -496,6 +570,14 @@
       "BASE_DEF": 702.99717075,
       "BASE_EM": 0,
       "PERCENT_ANEMO": 0.24
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "FLAT_EM": 250,
+          "PERCENT_ALL": 0.3285713
+        }
+      }
     }
   },
   "10000030": {
@@ -509,6 +591,52 @@
       "BASE_DEF": 737.8121952,
       "BASE_EM": 0,
       "PERCENT_GEO": 0.288
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "ADD_NA": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.0139
+          },
+          "ADD_CA": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.0139
+          },
+          "ADD_PA": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.0139
+          },
+          "ADD_ES": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.019
+          },
+          "ADD_EB": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.33
+          }
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "SHRED_ALL": 0.2
+        }
+      }
     }
   },
   "10000033": {
@@ -527,7 +655,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -553,6 +680,13 @@
       "BASE_DEF": 600.6189420000001,
       "BASE_EM": 0,
       "PERCENT_CRYO": 0.24
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "FLAT_EM": 200
+        }
+      }
     }
   },
   "10000044": {
@@ -566,6 +700,25 @@
       "BASE_DEF": 798.55018425,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "ADD_CA": {
+            "source": [
+              "DEF",
+              1
+            ],
+            "value": 0.5
+          }
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_PHYSICAL": 0.15,
+          "SHRED_PHYSICAL": 0.15
+        }
+      }
     }
   },
   "10000037": {
@@ -580,13 +733,24 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_CR": 0.2
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_CRYO": 0.2
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 6.221
           }
         },
         "type": {
@@ -611,13 +775,29 @@
       "BASE_EM": 0,
       "PERCENT_GEO": 0.288
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "FLAT_EM": 125
+        },
+        "variableStats": {
+          "PERCENT_ALL": {
+            "source": [
+              "DEF",
+              1000
+            ],
+            "value": 0.14,
+            "max": 0.42
+          }
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "DEF": 1
+            "DEF": 2.405
           }
         },
         "type": {
@@ -646,7 +826,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -677,7 +856,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -735,7 +913,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -779,7 +956,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -817,7 +993,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -861,7 +1036,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -957,7 +1131,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1014,7 +1187,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1045,7 +1217,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1076,7 +1247,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 1
           }
@@ -1159,7 +1329,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1220,7 +1389,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2
           }
@@ -1272,7 +1440,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1324,7 +1491,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1391,7 +1557,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1.2096,
             "EM": 2.4192
@@ -1502,7 +1667,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1553,7 +1717,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2.7533
           }
@@ -1591,7 +1754,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 1
           }
@@ -1658,7 +1820,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 0.1492
           }
@@ -1709,7 +1870,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1766,7 +1926,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1.4774,
             "DEF": 1.8468
@@ -1795,7 +1954,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1852,7 +2010,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1922,7 +2079,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 1
           }
@@ -1967,7 +2123,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1997,7 +2152,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -2028,7 +2182,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 8.0064
           }
@@ -2122,7 +2275,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -2174,7 +2326,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
