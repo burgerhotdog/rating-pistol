@@ -806,7 +806,17 @@
     "type": "WEAPON_POLE",
     "fixedStats": {
       "BASE_ATK": 608.0745972,
-      "PERCENT_CD": 0.661536
+      "PERCENT_CD": 0.661536,
+      "PERCENT_HP": 0.2
+    },
+    "variableStats": {
+      "FLAT_ATK": {
+        "source": [
+          "HP",
+          1
+        ],
+        "value": 0.018
+      }
     }
   },
   "11410": {

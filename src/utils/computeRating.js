@@ -18,8 +18,9 @@ export function computeRating(gameId, charId, build, criteria, buffs = {}) {
   const sourceMapList = buildSourceMapList(gameId, charId, build, buffs);
   const mergedSourceMap = mergeStatMaps(...sourceMapList);
   const variableSourceMapCharacter = buildVariableSourceMap(mergedSourceMap, CHARACTERS[gameId][charId]?.variableStats ?? {});
+  const variableSourceMapCharacterSelf = buildVariableSourceMap(mergedSourceMap, CHARACTERS[gameId][charId]?.buffs?.self?.variableStats ?? {});
   const variableSourceMapWeapon = buildVariableSourceMap(mergedSourceMap, WEAPONS[gameId][build?.weaponId]?.variableStats ?? {});
-  const mergedAllSourceMaps = mergeStatMaps(mergedSourceMap, variableSourceMapCharacter, variableSourceMapWeapon);
+  const mergedAllSourceMaps = mergeStatMaps(mergedSourceMap, variableSourceMapCharacter, variableSourceMapCharacterSelf, variableSourceMapWeapon);
   if (criteria.name === "Damage") {
     return computeDamage(mergedAllSourceMaps, criteria);
   }

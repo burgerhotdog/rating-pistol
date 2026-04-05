@@ -822,12 +822,23 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_ALL": 0.25,
+          "PERCENT_NA": 0.952,
+          "PERCENT_CA": 0.952,
+          "PERCENT_PA": 0.952,
+          "PERCENT_ES": 0.45
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
           "multiplier": {
-            "ATK": 1
+            "ATK": 4.04
           }
         },
         "type": {
@@ -850,20 +861,35 @@
       "BASE_ATK": 106.4343801,
       "BASE_DEF": 876.1519817999999,
       "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+      "PERCENT_CD": 0.384,
+      "PERCENT_PYRO": 0.33
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "FLAT_ATK": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.0626,
+            "max": 2856
+          }
+        }
+      }
     },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
           "multiplier": {
-            "ATK": 1
+            "ATK": 2.426
           }
         },
         "type": {
           "skill": "CA",
           "element": "PYRO",
-          "reaction": "VAPE"
+          "reaction": "RVAPE"
         },
         "match": [
           "ER"
@@ -882,6 +908,24 @@
       "BASE_DEF": 709.822386,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_CR": 0.12,
+          "PERCENT_NA": 0.1
+        }
+      },
+      "ally": {
+        "fixedStats": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "SHRED_PHYSICAL": 0.2
+        }
+      }
     }
   },
   "10000048": {
@@ -895,6 +939,13 @@
       "BASE_DEF": 586.9685115000001,
       "BASE_EM": 0,
       "PERCENT_PYRO": 0.24
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_PYRO": 0.2
+        }
+      }
     }
   },
   "10000051": {
@@ -909,12 +960,20 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "SHRED_PHYSICAL": 0.25,
+          "SHRED_CRYO": 0.25
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
           "multiplier": {
-            "ATK": 1
+            "ATK": 17.63
           }
         },
         "type": {
@@ -938,6 +997,16 @@
       "BASE_DEF": 806.9820885,
       "BASE_EM": 0,
       "FLAT_EM": 115.2
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_HYDRO": 0.4,
+          "PERCENT_PYRO": 0.4,
+          "PERCENT_CRYO": 0.4,
+          "PERCENT_ELECTRO": 0.4
+        }
+      }
     }
   },
   "10000002": {
@@ -952,12 +1021,21 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_NA": 0.3,
+          "PERCENT_CA": 0.3,
+          "PERCENT_CRYO": 0.18
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
           "multiplier": {
-            "ATK": 1
+            "ATK": 41.431
           }
         },
         "type": {
@@ -985,7 +1063,13 @@
     "buffs": {
       "self": {
         "fixedStats": {
-          "RAW_NA": 0.6174
+          "RAW_NA": 0.6174,
+          "PERCENT_PYRO": 0.2
+        }
+      },
+      "ally": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.2
         }
       }
     },
@@ -994,7 +1078,7 @@
         "name": "Damage",
         "scaling": {
           "multiplier": {
-            "ATK": 1
+            "ATK": 1.889
           }
         },
         "type": {
@@ -1032,12 +1116,29 @@
       "BASE_EM": 0,
       "PERCENT_ER": 0.32
     },
+    "variableStats": {
+      "PERCENT_ELECTRO": {
+        "source": [
+          "ER",
+          0.01
+        ],
+        "offset": 1,
+        "value": 0.004
+      }
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_EB": 0.27
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
           "multiplier": {
-            "ATK": 1
+            "ATK": 11.414
           }
         },
         "type": {
@@ -1060,8 +1161,41 @@
       "BASE_ATK": 234.39481640000002,
       "BASE_DEF": 657.11398635,
       "BASE_EM": 0,
-      "PERCENT_HYDRO": 0.288
-    }
+      "PERCENT_HYDRO": 0.288,
+      "PERCENT_HB": 0.25,
+      "PERCENT_CR": -1
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "ADD_NA": {
+            "source": [
+              "HB",
+              0.01
+            ],
+            "value": 60
+          }
+        }
+      }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "multiplier": {
+            "ATK": 1.231,
+            "HP": 0.087
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "HYDRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000056": {
     "name": "Kujou Sara",
