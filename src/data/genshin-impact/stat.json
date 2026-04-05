@@ -1,0 +1,66 @@
+{
+  "HP": {
+    "name": "HP",
+    "isPercent": false
+  },
+  "ATK": {
+    "name": "ATK",
+    "isPercent": false
+  },
+  "DEF": {
+    "name": "DEF",
+    "isPercent": false
+  },
+  "EM": {
+    "name": "Elemental Mastery",
+    "isPercent": false
+  },
+  "CR": {
+    "name": "CRIT Rate",
+    "isPercent": true
+  },
+  "CD": {
+    "name": "CRIT DMG",
+    "isPercent": true
+  },
+  "HB": {
+    "name": "Healing Bonus",
+    "isPercent": true
+  },
+  "ER": {
+    "name": "Energy Recharge",
+    "isPercent": true
+  },
+  "PYRO": {
+    "name": "Pyro DMG Bonus",
+    "isPercent": true
+  },
+  "HYDRO": {
+    "name": "Hydro DMG Bonus",
+    "isPercent": true
+  },
+  "DENDRO": {
+    "name": "Dendro DMG Bonus",
+    "isPercent": true
+  },
+  "ELECTRO": {
+    "name": "Electro DMG Bonus",
+    "isPercent": true
+  },
+  "ANEMO": {
+    "name": "Anemo DMG Bonus",
+    "isPercent": true
+  },
+  "CRYO": {
+    "name": "Cryo DMG Bonus",
+    "isPercent": true
+  },
+  "GEO": {
+    "name": "Geo DMG Bonus",
+    "isPercent": true
+  },
+  "PHYSICAL": {
+    "name": "Physical DMG Bonus",
+    "isPercent": true
+  }
+}

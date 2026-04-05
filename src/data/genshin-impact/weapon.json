@@ -1221,6 +1221,15 @@
     "fixedStats": {
       "BASE_ATK": 541.829758,
       "PERCENT_CR": 0.441024
+    },
+    "variableStats": {
+      "FLAT_ATK": {
+        "source": [
+          "EM",
+          1
+        ],
+        "value": 1.36
+      }
     }
   },
   "14416": {

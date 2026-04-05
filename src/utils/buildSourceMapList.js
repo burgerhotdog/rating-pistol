@@ -1,5 +1,5 @@
 import { CHARACTERS, WEAPONS, STATS } from '@/data';
-import { combineEquipStats, getSetCounts, getSetEffects } from '@/utils';
+import { mergeEquipList, getSetCounts, getSetEffects } from '@/utils';
 
 export function buildSourceMapList(gameId, charId, build, buffs = {}) {
   const setCounts = getSetCounts(build.equipList);
@@ -8,7 +8,7 @@ export function buildSourceMapList(gameId, charId, build, buffs = {}) {
     STATS[gameId].DEFAULT_STATS,
     CHARACTERS[gameId][charId].fixedStats ?? {},
     WEAPONS[gameId][build.weaponId].fixedStats ?? {},
-    combineEquipStats(build.equipList),
+    mergeEquipList(build.equipList),
     setEffects,
     ...(Object.keys(buffs).length ? [buffs] : []),
   ];

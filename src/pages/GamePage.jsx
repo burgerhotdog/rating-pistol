@@ -1,4 +1,3 @@
-import { useParams } from 'react-router-dom';
 import { useMemo, useState } from 'react';
 import { Box, Stack } from '@mui/material';
 import {
@@ -14,8 +13,7 @@ import { computeRating, collectTeamBuffs } from '@/utils';
 import { useCurrent, useSimulation } from '@/hooks';
 
 const GamePage = () => {
-  const { gameId, characterId } = useParams();
-  const { build, criteria } = useCurrent();
+  const { gameId, characterId, build, criteria } = useCurrent();
 
   const [draftTeam, setDraftTeam] = useState([]);
   const [appliedTeam, setAppliedTeam] = useState([]);

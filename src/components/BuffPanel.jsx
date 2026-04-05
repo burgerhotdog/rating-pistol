@@ -36,12 +36,12 @@ function getSupportWeaponOptions(gameId, characterId) {
   const char = CHARACTERS[gameId]?.[characterId];
   return Object.entries(WEAPONS[gameId] ?? {}).filter(([, weapon]) => {
     const matchesType = !char?.type || weapon.type === char.type;
-    return matchesType && weapon.teamBuffs;
+    return matchesType && (weapon.buffs?.team?.fixedStats || weapon.buffs?.ally?.fixedStats);
   });
 }
 
 function getSupportSetOptions(gameId) {
-  return Object.entries(SETS[gameId] ?? {}).filter(([, set]) => set.teamBuffs);
+  return Object.entries(SETS[gameId] ?? {}).filter(([, set]) => set.buffs?.team?.fixedStats || set.buffs?.ally?.fixedStats);
 }
 
 export const BuffPanel = ({
@@ -57,7 +57,7 @@ export const BuffPanel = ({
 
   const availableCharacters = useMemo(() => {
     return Object.entries(CHARACTERS[gameId] ?? {}).filter(
-      ([id, data]) => id !== mainCharacterId && data.teamBuffs
+      ([id, data]) => id !== mainCharacterId && (data.buffs?.team?.fixedStats || data.buffs?.ally?.fixedStats)
     );
   }, [gameId, mainCharacterId]);
 
@@ -100,7 +100,7 @@ export const BuffPanel = ({
         Team Buffs {activeCount ? `(${activeCount})` : ''}
       </Button>
 
-      <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
+      <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth disableRestoreFocus>
         <DialogTitle>Team Buffs</DialogTitle>
 
         <DialogContent>

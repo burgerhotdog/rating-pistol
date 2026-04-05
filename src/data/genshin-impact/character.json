@@ -23,6 +23,13 @@
       "BASE_DEF": 573.3180810000001,
       "BASE_EM": 0,
       "FLAT_EM": 96
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "SHRED_DEF": 0.15
+        }
+      }
     }
   },
   "10000014": {
@@ -36,6 +43,13 @@
       "BASE_DEF": 668.8710945,
       "BASE_EM": 0,
       "PERCENT_HP": 0.24
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_HYDRO": 0.15
+        }
+      }
     }
   },
   "10000015": {
@@ -63,6 +77,13 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_PYRO": 0.2
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -74,9 +95,10 @@
         },
         "type": {
           "skill": "EB",
-          "element": "PYRO"
+          "element": "PYRO",
+          "reaction": "MELT"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -93,25 +115,7 @@
       "BASE_DEF": 750.7736775,
       "BASE_EM": 0,
       "PERCENT_PHYSICAL": 0.3
-    },
-    "criteria": [
-      {
-        "name": "Damage",
-        "scaling": {
-          "flat": 0,
-          "multiplier": {
-            "ATK": 1
-          }
-        },
-        "type": {
-          "skill": "NA",
-          "element": "PHYSICAL"
-        },
-        "MATCH": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000021": {
     "name": "Amber",
@@ -124,6 +128,18 @@
       "BASE_DEF": 600.6189420000001,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.15
+        }
+      }
     }
   },
   "10000022": {
@@ -151,6 +167,19 @@
       "BASE_EM": 0,
       "FLAT_EM": 96
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.10
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_PYRO": 0.15,
+          "SHRED_PYRO": 0.15
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -165,7 +194,7 @@
           "element": "PYRO",
           "reaction": "VAPE"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -183,6 +212,13 @@
       "BASE_EM": 0,
       "PERCENT_ELECTRO": 0.24
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "SHRED_ELECTRO": 0.15
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -196,7 +232,7 @@
           "skill": "EB",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -212,7 +248,20 @@
       "BASE_ATK": 201.77733240000003,
       "BASE_DEF": 757.5988927500001,
       "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+      "PERCENT_ATK": 0.24,
+      "PERCENT_HYDRO": 0.2
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_ES": 0.5
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "SHRED_HYDRO": 0.15
+        }
+      }
     },
     "criteria": [
       {
@@ -227,7 +276,7 @@
           "skill": "EB",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -258,7 +307,7 @@
           "skill": "EB",
           "element": "GEO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -276,6 +325,13 @@
       "BASE_EM": 0,
       "PERCENT_PYRO": 0.288
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_CA": 0.5
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -289,7 +345,7 @@
           "skill": "CA",
           "element": "PYRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -320,7 +376,7 @@
           "skill": "ES",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -337,6 +393,13 @@
       "BASE_DEF": 771.2493232500001,
       "BASE_EM": 0,
       "PERCENT_ER": 0.2667
+    },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "FLAT_ATK": 1250
+        }
+      }
     }
   },
   "10000034": {
@@ -416,7 +479,7 @@
           "skill": "CA",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -473,7 +536,7 @@
           "skill": "ES",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -530,7 +593,7 @@
           "skill": "CA",
           "element": "CRYO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -561,7 +624,7 @@
           "skill": "ES",
           "element": "GEO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -592,7 +655,7 @@
           "skill": "PA",
           "element": "ANEMO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -624,7 +687,7 @@
           "element": "PYRO",
           "reaction": "VAPE"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -681,7 +744,7 @@
           "skill": "EB",
           "element": "PHYSICAL"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -725,7 +788,7 @@
           "skill": "EB",
           "element": "CRYO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -743,6 +806,13 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_NA": 0.6174
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -756,7 +826,7 @@
           "skill": "NA",
           "element": "PYRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -800,7 +870,7 @@
           "skill": "EB",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -896,7 +966,7 @@
           "skill": "CA",
           "element": "GEO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -953,7 +1023,7 @@
           "skill": "ES",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -984,7 +1054,7 @@
           "skill": "NA",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1015,7 +1085,7 @@
           "skill": "EB",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1098,7 +1168,7 @@
           "skill": "CA",
           "element": "DENDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1127,7 +1197,24 @@
       "BASE_ATK": 318.1072494,
       "BASE_DEF": 859.24378566,
       "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+      "PERCENT_CD": 0.384,
+      "FLAT_EM": 100
+    },
+    "variableStats": {
+      "ADD_NA": {
+        "source": [
+          "EM",
+          1
+        ],
+        "value": 1.5
+      },
+      "ADD_ES": {
+        "source": [
+          "EM",
+          1
+        ],
+        "value": 2.5
+      }
     },
     "criteria": [
       {
@@ -1135,14 +1222,15 @@
         "scaling": {
           "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 2
           }
         },
         "type": {
           "skill": "NA",
-          "element": "ELECTRO"
+          "element": "ELECTRO",
+          "reaction": "AGGRAVATE"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1173,6 +1261,13 @@
       "BASE_EM": 0,
       "FLAT_EM": 115.2
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "FLAT_EM": 250
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -1186,7 +1281,7 @@
           "skill": "ES",
           "element": "DENDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1217,6 +1312,14 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_NA": 0.5372,
+          "RAW_CA": 0.4298
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -1230,7 +1333,7 @@
           "skill": "NA",
           "element": "ANEMO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1274,21 +1377,32 @@
       "BASE_EM": 0,
       "PERCENT_DENDRO": 0.288
     },
+    "variableStats": {
+      "PERCENT_ES": {
+        "source": [
+          "EM",
+          1
+        ],
+        "value": 0.001,
+        "max": 1
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
           "flat": 0,
           "multiplier": {
-            "ATK": 1,
-            "EM": 1
+            "ATK": 1.2096,
+            "EM": 2.4192
           }
         },
         "type": {
           "skill": "ES",
-          "element": "DENDRO"
+          "element": "DENDRO",
+          "reaction": "SPREAD"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1397,7 +1511,7 @@
           "skill": "CA",
           "element": "PYRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1428,6 +1542,13 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_NA": 0.7031
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -1441,7 +1562,7 @@
           "skill": "CA",
           "element": "CRYO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1459,6 +1580,13 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_CA": 0.6
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -1472,7 +1600,7 @@
           "skill": "CA",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1501,10 +1629,30 @@
       "BASE_ATK": 243.96194960000003,
       "BASE_DEF": 695.5417048500001,
       "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+      "PERCENT_CR": 0.192,
+      "PERCENT_BASE": 0.4
     },
-    "teamBuffs": {
-      "PERCENT_ALL": 1
+    "variableStats": {
+      "PERCENT_ES": {
+        "source": [
+          "HP",
+          1000
+        ],
+        "value": 0.007,
+        "max": 0.28
+      }
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_ES": 0.4
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_ALL": 0.75
+        }
+      }
     },
     "criteria": [
       {
@@ -1519,7 +1667,7 @@
           "skill": "ES",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1550,6 +1698,13 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_ES": 0.45
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
@@ -1563,7 +1718,7 @@
           "skill": "ES",
           "element": "GEO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1649,7 +1804,7 @@
           "skill": "NA",
           "element": "PYRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1706,7 +1861,7 @@
           "skill": "NA",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1777,7 +1932,7 @@
           "element": "HYDRO",
           "reaction": "VAPE"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1820,7 +1975,7 @@
         "type": {
           "skill": "CA"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1851,7 +2006,7 @@
           "skill": "ES",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1976,7 +2131,7 @@
           "skill": "ES",
           "element": "CRYO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -2006,6 +2161,14 @@
       "BASE_DEF": 806.21353413,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_NA": 0.7,
+          "RAW_EB": 0.6
+        }
+      }
     },
     "criteria": [
       {
@@ -2112,6 +2275,20 @@
       "BASE_DEF": 822.3531759000001,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "RAW_EB": {
+            "source": [
+              "ATK",
+              100
+            ],
+            "value": 0.03,
+            "max": 0.75
+          }
+        }
+      }
     }
   },
   "10000124": {

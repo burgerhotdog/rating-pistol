@@ -33,6 +33,20 @@ export const SETS = {
   "zenless-zone-zero": set_zzz,
 };
 
+import stat_gi from './genshin-impact/stat.json';
+import stat_ww from './wuthering-waves/stat.json';
+export const STAT = {
+  "genshin-impact": stat_gi,
+  "wuthering-waves": stat_ww,
+};
+
+import * as rating_gi from './genshin-impact/rating';
+import * as rating_ww from './wuthering-waves/rating';
+export const RATING = {
+  "genshin-impact": rating_gi,
+  "wuthering-waves": rating_ww,
+};
+
 import GI_GENERAL from './genshin-impact/GENERAL.json';
 import HSR_GENERAL from './honkai-star-rail/GENERAL.json';
 import WW_GENERAL from './wuthering-waves/GENERAL.json';
