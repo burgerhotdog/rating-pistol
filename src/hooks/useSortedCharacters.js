@@ -1,15 +1,13 @@
-import { useParams } from 'react-router-dom';
 import { useMemo } from 'react';
-import { useBuild, useUser } from '@/contexts';
+import { useUser } from '@/contexts';
 import { CHARACTERS } from '@/data';
+import { useCurrent } from '@/hooks';
 
 // Sort characters alphabetically with pinned on top
 export function useSortedCharacters() {
-  const { gameId } = useParams();
-  const { getBuilds } = useBuild();
+  const { gameId, builds } = useCurrent();
   const pinned = useUser().pinnedIds[gameId];
 
-  const builds = getBuilds(gameId) ?? {};
   const buildKeys = Object.keys(builds);
   
   return useMemo(() => buildKeys.sort((a, b) => {

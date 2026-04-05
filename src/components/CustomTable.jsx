@@ -1,10 +1,10 @@
-import { useParams } from 'react-router-dom';
 import { Card, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
 import { STATS, CHARACTERS } from '@/data';
 import { computeRating } from '@/utils';
+import { useCurrent } from "@/hooks";
 
 export const CustomTable = ({ build, rating, buffs, isLoading }) => {
-  const { gameId, characterId } = useParams();
+  const { gameId, characterId } = useCurrent();
   const { SUB_STAT_TYPES } = STATS[gameId];
   const { criteria } = CHARACTERS[gameId][characterId];
   if (isLoading || !criteria || !build) return null;

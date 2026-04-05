@@ -1,4 +1,4 @@
-import { combineEquipStats, getSetCounts, getSetEffects } from "@/utils";
+import { mergeEquipList, getSetCounts, getSetEffects } from "@/utils";
 import { findBenchmarkWeek, createRun, getAverageRatings, advanceRunOneWeek } from "./simulation.helpers"
 
 const MIN_RUNS = 100;
@@ -65,8 +65,6 @@ self.onmessage = ({ data }) => {
     self.postMessage({ type: "progress", completed: week });
   }
 
-  console.log(runs.length);
-
   if (!lastBenchmarkWeek) {
     lastBenchmarkWeek = 20;
   }
@@ -76,7 +74,7 @@ self.onmessage = ({ data }) => {
   // Average final week equip stats
   const finalStats = {};
   for (let i = 0; i < runs.length; i++) {
-    const finalCombined = combineEquipStats(runs[i].build.equipList);
+    const finalCombined = mergeEquipList(runs[i].build.equipList);
     for (const stat in finalCombined) {
       finalStats[stat] = (finalStats[stat] ?? 0) + finalCombined[stat] / runs.length;
     }

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Avatar, Card, List, ListItemButton } from '@mui/material';
-import { useSortedCharacters } from '@/hooks';
+import { useSortedCharacters, useCurrent } from '@/hooks';
 
 export const Sidebar = () => {
   const navigate = useNavigate();
-  const { gameId, characterId } = useParams();
+  const { gameId, characterId } = useCurrent();
 
   const characterList = useSortedCharacters();
 
@@ -45,7 +45,14 @@ export const Sidebar = () => {
           >
             <Avatar
               src={`${import.meta.env.BASE_URL}${gameId}/character/${id}.webp`}
-              sx={{ width: 48, height: 48 }}
+              sx={{
+                width: 48,
+                height: 48,
+                '& .MuiAvatar-img': {
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                },
+              }}
             />
           </ListItemButton>
         ))}

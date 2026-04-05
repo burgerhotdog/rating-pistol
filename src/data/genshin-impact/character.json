@@ -23,6 +23,13 @@
       "BASE_DEF": 573.3180810000001,
       "BASE_EM": 0,
       "FLAT_EM": 96
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "SHRED_DEF": 0.15
+        }
+      }
     }
   },
   "10000014": {
@@ -36,6 +43,13 @@
       "BASE_DEF": 668.8710945,
       "BASE_EM": 0,
       "PERCENT_HP": 0.24
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_HYDRO": 0.15
+        }
+      }
     }
   },
   "10000015": {
@@ -63,20 +77,27 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_PYRO": 0.2
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 3.672
           }
         },
         "type": {
           "skill": "EB",
-          "element": "PYRO"
+          "element": "PYRO",
+          "reaction": "MELT"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -93,25 +114,7 @@
       "BASE_DEF": 750.7736775,
       "BASE_EM": 0,
       "PERCENT_PHYSICAL": 0.3
-    },
-    "criteria": [
-      {
-        "name": "Damage",
-        "scaling": {
-          "flat": 0,
-          "multiplier": {
-            "ATK": 1
-          }
-        },
-        "type": {
-          "skill": "NA",
-          "element": "PHYSICAL"
-        },
-        "MATCH": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000021": {
     "name": "Amber",
@@ -124,6 +127,18 @@
       "BASE_DEF": 600.6189420000001,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.15
+        }
+      }
     }
   },
   "10000022": {
@@ -151,11 +166,23 @@
       "BASE_EM": 0,
       "FLAT_EM": 96
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.10
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_PYRO": 0.15,
+          "SHRED_PYRO": 0.15
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2.016
           }
@@ -165,7 +192,7 @@
           "element": "PYRO",
           "reaction": "VAPE"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -183,11 +210,17 @@
       "BASE_EM": 0,
       "PERCENT_ELECTRO": 0.24
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "SHRED_ELECTRO": 0.15
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2.189
           }
@@ -196,7 +229,7 @@
           "skill": "EB",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -212,13 +245,25 @@
       "BASE_ATK": 201.77733240000003,
       "BASE_DEF": 757.5988927500001,
       "BASE_EM": 0,
-      "PERCENT_ATK": 0.24
+      "PERCENT_ATK": 0.24,
+      "PERCENT_HYDRO": 0.2
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_ES": 0.5
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "SHRED_HYDRO": 0.15
+        }
+      }
     },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 0.977
           }
@@ -227,7 +272,7 @@
           "skill": "EB",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -245,11 +290,17 @@
       "BASE_EM": 0,
       "PERCENT_GEO": 0.24
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_GEO": 0.12
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1.565
           }
@@ -258,7 +309,7 @@
           "skill": "EB",
           "element": "GEO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -276,11 +327,18 @@
       "BASE_EM": 0,
       "PERCENT_PYRO": 0.288
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_CA": 0.5,
+          "PERCENT_CA": 0.5
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2.832
           }
@@ -289,7 +347,7 @@
           "skill": "CA",
           "element": "PYRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -307,11 +365,18 @@
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.225,
+          "FLAT_EM": 90
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1.598
           }
@@ -320,7 +385,7 @@
           "skill": "ES",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -337,6 +402,14 @@
       "BASE_DEF": 771.2493232500001,
       "BASE_EM": 0,
       "PERCENT_ER": 0.2667
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "FLAT_ATK": 1202.35,
+          "PERCENT_PYRO": 0.15
+        }
+      }
     }
   },
   "10000034": {
@@ -350,7 +423,40 @@
       "BASE_DEF": 798.55018425,
       "BASE_EM": 0,
       "PERCENT_DEF": 0.3
-    }
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_CA": 0.15
+        },
+        "variableStats": {
+          "FLAT_ATK": {
+            "source": [
+              "DEF",
+              1
+            ],
+            "value": 1.35
+          }
+        }
+      }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "multiplier": {
+            "ATK": 1.003
+          }
+        },
+        "type": {
+          "skill": "CA",
+          "element": "GEO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000035": {
     "name": "Qiqi",
@@ -376,6 +482,13 @@
       "BASE_DEF": 648.39544875,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "SHRED_CRYO": 0.1
+        }
+      }
     }
   },
   "10000041": {
@@ -389,6 +502,23 @@
       "BASE_DEF": 653.2712145,
       "BASE_EM": 0,
       "PERCENT_ER": 0.32
+    },
+    "variableStats": {
+      "PERCENT_HYDRO": {
+        "source": [
+          "ER",
+          1
+        ],
+        "value": 0.2
+      }
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_ALL": 0.6,
+          "RXN_VAPE": 0.15
+        }
+      }
     }
   },
   "10000042": {
@@ -403,20 +533,27 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_CR": 0.15,
+          "PERCENT_ER": 0.15
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 3.218
           }
         },
         "type": {
           "skill": "CA",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -433,6 +570,14 @@
       "BASE_DEF": 702.99717075,
       "BASE_EM": 0,
       "PERCENT_ANEMO": 0.24
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "FLAT_EM": 250,
+          "PERCENT_ALL": 0.3285713
+        }
+      }
     }
   },
   "10000030": {
@@ -446,6 +591,52 @@
       "BASE_DEF": 737.8121952,
       "BASE_EM": 0,
       "PERCENT_GEO": 0.288
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "ADD_NA": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.0139
+          },
+          "ADD_CA": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.0139
+          },
+          "ADD_PA": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.0139
+          },
+          "ADD_ES": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.019
+          },
+          "ADD_EB": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.33
+          }
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "SHRED_ALL": 0.2
+        }
+      }
     }
   },
   "10000033": {
@@ -464,7 +655,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -473,7 +663,7 @@
           "skill": "ES",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -490,6 +680,13 @@
       "BASE_DEF": 600.6189420000001,
       "BASE_EM": 0,
       "PERCENT_CRYO": 0.24
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "FLAT_EM": 200
+        }
+      }
     }
   },
   "10000044": {
@@ -503,6 +700,25 @@
       "BASE_DEF": 798.55018425,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "ADD_CA": {
+            "source": [
+              "DEF",
+              1
+            ],
+            "value": 0.5
+          }
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_PHYSICAL": 0.15,
+          "SHRED_PHYSICAL": 0.15
+        }
+      }
     }
   },
   "10000037": {
@@ -517,20 +733,31 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_CR": 0.2
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_CRYO": 0.2
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 6.221
           }
         },
         "type": {
           "skill": "CA",
           "element": "CRYO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -548,20 +775,36 @@
       "BASE_EM": 0,
       "PERCENT_GEO": 0.288
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "FLAT_EM": 125
+        },
+        "variableStats": {
+          "PERCENT_ALL": {
+            "source": [
+              "DEF",
+              1000
+            ],
+            "value": 0.14,
+            "max": 0.42
+          }
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "DEF": 1
+            "DEF": 2.405
           }
         },
         "type": {
           "skill": "ES",
           "element": "GEO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -579,20 +822,30 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_ALL": 0.25,
+          "PERCENT_NA": 0.952,
+          "PERCENT_CA": 0.952,
+          "PERCENT_PA": 0.952,
+          "PERCENT_ES": 0.45
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 4.04
           }
         },
         "type": {
           "skill": "PA",
           "element": "ANEMO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -608,23 +861,37 @@
       "BASE_ATK": 106.4343801,
       "BASE_DEF": 876.1519817999999,
       "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+      "PERCENT_CD": 0.384,
+      "PERCENT_PYRO": 0.33
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "FLAT_ATK": {
+            "source": [
+              "HP",
+              1
+            ],
+            "value": 0.0626,
+            "max": 2856
+          }
+        }
+      }
     },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 2.426
           }
         },
         "type": {
           "skill": "CA",
           "element": "PYRO",
-          "reaction": "VAPE"
+          "reaction": "RVAPE"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -641,6 +908,24 @@
       "BASE_DEF": 709.822386,
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_CR": 0.12,
+          "PERCENT_NA": 0.1
+        }
+      },
+      "ally": {
+        "fixedStats": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "SHRED_PHYSICAL": 0.2
+        }
+      }
     }
   },
   "10000048": {
@@ -654,6 +939,13 @@
       "BASE_DEF": 586.9685115000001,
       "BASE_EM": 0,
       "PERCENT_PYRO": 0.24
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_PYRO": 0.2
+        }
+      }
     }
   },
   "10000051": {
@@ -668,20 +960,27 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "SHRED_PHYSICAL": 0.25,
+          "SHRED_CRYO": 0.25
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 17.63
           }
         },
         "type": {
           "skill": "EB",
           "element": "PHYSICAL"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -698,6 +997,16 @@
       "BASE_DEF": 806.9820885,
       "BASE_EM": 0,
       "FLAT_EM": 115.2
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_HYDRO": 0.4,
+          "PERCENT_PYRO": 0.4,
+          "PERCENT_CRYO": 0.4,
+          "PERCENT_ELECTRO": 0.4
+        }
+      }
     }
   },
   "10000002": {
@@ -712,20 +1021,28 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "PERCENT_NA": 0.3,
+          "PERCENT_CA": 0.3,
+          "PERCENT_CRYO": 0.18
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 41.431
           }
         },
         "type": {
           "skill": "EB",
           "element": "CRYO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -743,20 +1060,32 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_NA": 0.6174,
+          "PERCENT_PYRO": 0.2
+        }
+      },
+      "ally": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.2
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 1.889
           }
         },
         "type": {
           "skill": "NA",
           "element": "PYRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -787,20 +1116,36 @@
       "BASE_EM": 0,
       "PERCENT_ER": 0.32
     },
+    "variableStats": {
+      "PERCENT_ELECTRO": {
+        "source": [
+          "ER",
+          0.01
+        ],
+        "offset": 1,
+        "value": 0.004
+      }
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_EB": 0.27
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 11.414
           }
         },
         "type": {
           "skill": "EB",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -816,8 +1161,41 @@
       "BASE_ATK": 234.39481640000002,
       "BASE_DEF": 657.11398635,
       "BASE_EM": 0,
-      "PERCENT_HYDRO": 0.288
-    }
+      "PERCENT_HYDRO": 0.288,
+      "PERCENT_HB": 0.25,
+      "PERCENT_CR": -1
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "ADD_NA": {
+            "source": [
+              "HB",
+              0.01
+            ],
+            "value": 60
+          }
+        }
+      }
+    },
+    "criteria": [
+      {
+        "name": "Damage",
+        "scaling": {
+          "multiplier": {
+            "ATK": 1.231,
+            "HP": 0.087
+          }
+        },
+        "type": {
+          "skill": "NA",
+          "element": "HYDRO"
+        },
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "10000056": {
     "name": "Kujou Sara",
@@ -887,7 +1265,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -896,7 +1273,7 @@
           "skill": "CA",
           "element": "GEO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -944,7 +1321,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -953,7 +1329,7 @@
           "skill": "ES",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -975,7 +1351,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -984,7 +1359,7 @@
           "skill": "NA",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1006,7 +1381,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 1
           }
@@ -1015,7 +1389,7 @@
           "skill": "EB",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1089,7 +1463,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1098,7 +1471,7 @@
           "skill": "CA",
           "element": "DENDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1127,22 +1500,39 @@
       "BASE_ATK": 318.1072494,
       "BASE_DEF": 859.24378566,
       "BASE_EM": 0,
-      "PERCENT_CD": 0.384
+      "PERCENT_CD": 0.384,
+      "FLAT_EM": 100
+    },
+    "variableStats": {
+      "ADD_NA": {
+        "source": [
+          "EM",
+          1
+        ],
+        "value": 1.5
+      },
+      "ADD_ES": {
+        "source": [
+          "EM",
+          1
+        ],
+        "value": 2.5
+      }
     },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1
+            "ATK": 2
           }
         },
         "type": {
           "skill": "NA",
-          "element": "ELECTRO"
+          "element": "ELECTRO",
+          "reaction": "AGGRAVATE"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1173,11 +1563,17 @@
       "BASE_EM": 0,
       "FLAT_EM": 115.2
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "FLAT_EM": 250
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1186,7 +1582,7 @@
           "skill": "ES",
           "element": "DENDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1217,11 +1613,18 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_NA": 0.5372,
+          "RAW_CA": 0.4298
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1230,7 +1633,7 @@
           "skill": "NA",
           "element": "ANEMO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1274,21 +1677,31 @@
       "BASE_EM": 0,
       "PERCENT_DENDRO": 0.288
     },
+    "variableStats": {
+      "PERCENT_ES": {
+        "source": [
+          "EM",
+          1
+        ],
+        "value": 0.001,
+        "max": 1
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
-            "ATK": 1,
-            "EM": 1
+            "ATK": 1.2096,
+            "EM": 2.4192
           }
         },
         "type": {
           "skill": "ES",
-          "element": "DENDRO"
+          "element": "DENDRO",
+          "reaction": "SPREAD"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1388,7 +1801,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1397,7 +1809,7 @@
           "skill": "CA",
           "element": "PYRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1428,11 +1840,17 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_NA": 0.7031
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 2.7533
           }
@@ -1441,7 +1859,7 @@
           "skill": "CA",
           "element": "CRYO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1459,11 +1877,17 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_CA": 0.6
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 1
           }
@@ -1472,7 +1896,7 @@
           "skill": "CA",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1501,16 +1925,35 @@
       "BASE_ATK": 243.96194960000003,
       "BASE_DEF": 695.5417048500001,
       "BASE_EM": 0,
-      "PERCENT_CR": 0.192
+      "PERCENT_CR": 0.192,
+      "PERCENT_BASE": 0.4
     },
-    "teamBuffs": {
-      "PERCENT_ALL": 1
+    "variableStats": {
+      "PERCENT_ES": {
+        "source": [
+          "HP",
+          1000
+        ],
+        "value": 0.007,
+        "max": 0.28
+      }
+    },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_ES": 0.4
+        }
+      },
+      "team": {
+        "fixedStats": {
+          "PERCENT_ALL": 0.75
+        }
+      }
     },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 0.1492
           }
@@ -1519,7 +1962,7 @@
           "skill": "ES",
           "element": "HYDRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1550,11 +1993,17 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_ES": 0.45
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1563,7 +2012,7 @@
           "skill": "ES",
           "element": "GEO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1611,7 +2060,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1.4774,
             "DEF": 1.8468
@@ -1640,7 +2088,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1649,7 +2096,7 @@
           "skill": "NA",
           "element": "PYRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1697,7 +2144,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1706,7 +2152,7 @@
           "skill": "NA",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1767,7 +2213,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 1
           }
@@ -1777,7 +2222,7 @@
           "element": "HYDRO",
           "reaction": "VAPE"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1812,7 +2257,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1820,7 +2264,7 @@
         "type": {
           "skill": "CA"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1842,7 +2286,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1851,7 +2294,7 @@
           "skill": "ES",
           "element": "ELECTRO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -1873,7 +2316,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 8.0064
           }
@@ -1967,7 +2409,6 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -1976,7 +2417,7 @@
           "skill": "ES",
           "element": "CRYO"
         },
-        "MATCH": [
+        "match": [
           "ER"
         ]
       }
@@ -2007,11 +2448,18 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
+    "buffs": {
+      "self": {
+        "fixedStats": {
+          "RAW_NA": 0.7,
+          "RAW_EB": 0.6
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
@@ -2112,6 +2560,20 @@
       "BASE_DEF": 822.3531759000001,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
+    },
+    "buffs": {
+      "self": {
+        "variableStats": {
+          "RAW_EB": {
+            "source": [
+              "ATK",
+              100
+            ],
+            "value": 0.03,
+            "max": 0.75
+          }
+        }
+      }
     }
   },
   "10000124": {

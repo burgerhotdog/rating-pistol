@@ -1,28 +1,12 @@
-export function computeTotalStat(statId, sourceMapList) {
+export function computeTotalStat(statId, statMap) {
   const baseId = `BASE_${statId}`;
-  const flatId = `FLAT_${statId}`;
   const percentId = `PERCENT_${statId}`;
+  const flatId = `FLAT_${statId}`;
 
-  const totals = {};
-  for (const sourceMap of sourceMapList) {
-    if (sourceMap[baseId] !== undefined) {
-      totals[baseId] = (totals[baseId] ?? 0) + sourceMap[baseId];
-    }
-    if (sourceMap[flatId] !== undefined) {
-      totals[flatId] = (totals[flatId] ?? 0) + sourceMap[flatId];
-    }
-    if (sourceMap[percentId] !== undefined) {
-      totals[percentId] = (totals[percentId] ?? 0) + sourceMap[percentId];
-    }
-  }
+  const baseValue = statMap[baseId];
+  const percentValue = statMap[percentId] ?? 0;
+  const flatValue = statMap[flatId] ?? 0;
 
-  const totalBase = totals[baseId];
-  const totalFlat = totals[flatId] ?? 0;
-  const totalPercent = totals[percentId] ?? 0;
-
-  if (totalBase === undefined) {
-    return totalPercent;
-  }
-
-  return totalBase * (1 + totalPercent) + totalFlat;
+  if (baseValue === undefined) return percentValue;
+  return baseValue * (1 + percentValue) + flatValue;
 }

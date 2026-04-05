@@ -4,25 +4,9 @@ import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tool
 export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
   if (isLoading || !weeklyRatings) return null;
 
-  const values = [...weeklyRatings, rating].filter(Number.isFinite);
-  //const minY = Math.min(...values);
-  //const maxY = Math.max(...values);
-  //const padding = Math.max((maxY - minY) * 0.1, 1);
-  //const niceMax = Math.ceil((maxY + padding) / 1000) * 1000;
+  const benchmarkRating = weeklyRatings[weeklyRatings.length - 1];
 
-  const benchmarkIndex = weeklyRatings.findIndex((current, index, arr) => {
-    if (index === 0) return false;
-
-    const previous = arr[index - 1];
-    if (!Number.isFinite(previous) || previous <= 0) return false;
-
-    const percentGain = ((current - previous) / previous) * 100;
-    return percentGain < 1;
-  });
-  const benchmarkRating = weeklyRatings[benchmarkIndex === -1 ? 20 : benchmarkIndex] || 1;
-  const cutoff = benchmarkIndex === -1 ? weeklyRatings.length : benchmarkIndex;
-
-  const data = weeklyRatings.map((rat, index) => ({ week: index, rating: rat / benchmarkRating * 100 })).filter((_, index) => index <= cutoff);
+  const data = weeklyRatings.map((rat, index) => ({ week: index, rating: rat / benchmarkRating * 100 }));
   const scaledBuildRating = rating / benchmarkRating * 100;
 
   return (
@@ -81,7 +65,7 @@ export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
                     {percentGain && `${percentGain >= 0 ? '+' : ''}${percentGain.toFixed(1)}% vs Week ${week - 1}`}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    You: {scaledBuildRating.toFixed(1)}%
+                    You: {rating.toLocaleString('en-US', { maximumFractionDigits: 0 })} ({scaledBuildRating.toFixed(1)}%)
                   </Typography>
                 </Paper>
               );

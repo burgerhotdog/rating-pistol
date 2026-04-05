@@ -1,11 +1,11 @@
-import { Box, Typography } from '@mui/material';
+import { Card, Typography } from '@mui/material';
 
 export const Bar = ({ completed }) => {
   return (
-    <Box sx={{ px: 1 }}>
-      <Typography variant="body2" sx={{ mb: 0.5 }}>
+    <Card sx={{ p: 1 }}>
+      <Typography>
         Simulated {completed} weeks
       </Typography>
-    </Box>
+    </Card>
   );  
 };

@@ -1,4 +1,4 @@
-import { computeRating, getSetCounts, getSetEffects, computeTotalStat, buildSourceMapList, weightedLottery, upgradeArtifact } from '@/utils';
+import { computeRating, getSetCounts, getSetEffects, computeTotalStat, buildSourceMapList, weightedLottery, upgradeArtifact, mergeStatMaps } from '@/utils';
 import { STATS } from '@/data';
 
 const RESIN_DATA = {
@@ -108,29 +108,6 @@ function match_penalty(current, target) {
   return Math.exp(-1 * relativeDeficit);
 };
 
-export function multiWeekSimulation(gameId, charId, build, criteria, buffs = {}) {
-  const { weaponId, equipList } = build;
-
-  const setCounts = getSetCounts(equipList);
-  const setEffects = getSetEffects(setCounts, gameId);
-  const buffsWithSet = [buffs, setEffects].reduce((acc, effectMap) => {
-    for (const [statId, statValue] of Object.entries(effectMap)) {
-      acc[statId] = (acc[statId] ?? 0) + statValue;
-    }
-    return acc;
-  }, {});
-
-  let iter = { weaponId, equipList: Array(equipList.length).fill(null) };
-  let weeklyRating = [computeRating(gameId, charId, iter, criteria, buffsWithSet)];
-
-  for (let i = 0; i < 20; i++) {
-    iter = simulateBuildAfterWeek(gameId, charId, build, iter, criteria, buffsWithSet);
-    weeklyRating.push(computeRating(gameId, charId, iter, criteria, buffsWithSet));
-  }
-
-  return { build: iter, weeklyRating };
-}
-
 export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, buffs) {
   const { weeklyBonusResin, dailyResin, costPerRun, dropsPerRun } = RESIN_DATA[gameId];
   const resinPerWeek = dailyResin * 7 + weeklyBonusResin;
@@ -161,23 +138,23 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
           return newArtifact;
         });
         const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
-        if (!criteria.MATCH) {
+        if (!criteria.match) {
           if (newRating < control) continue;
           control = newRating;
           newIter = { weaponId, equipList: newEquipList };
         } else {
-          const bestSwapPenalty = criteria.MATCH
+          const bestSwapPenalty = criteria.match
             .map((stat) => {
-              const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, newIter));
-              const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+              const currentValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, newIter)));
+              const targetValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, build)));
               return match_penalty(currentValue, targetValue);
             })
             .reduce((acc, mult) => acc * mult, 1);
 
-          const newPenalty = criteria.MATCH
+          const newPenalty = criteria.match
             .map((stat) => {
-              const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList }));
-              const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+              const currentValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList })));
+              const targetValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, build)));
               return match_penalty(currentValue, targetValue);
             })
             .reduce((acc, mult) => acc * mult, 1);
@@ -209,23 +186,23 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
           return newArtifact;
         });
         const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
-        if (!criteria.MATCH) {
+        if (!criteria.match) {
           if (newRating < control) continue;
           control = newRating;
           newIter = { weaponId, equipList: newEquipList };
         } else {
-          const bestSwapPenalty = criteria.MATCH
+          const bestSwapPenalty = criteria.match
             .map((stat) => {
-              const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, newIter));
-              const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+              const currentValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, newIter)));
+              const targetValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, build)));
               return match_penalty(currentValue, targetValue);
             })
             .reduce((acc, mult) => acc * mult, 1);
 
-          const newPenalty = criteria.MATCH
+          const newPenalty = criteria.match
             .map((stat) => {
-              const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList }));
-              const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+              const currentValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList })));
+              const targetValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, build)));
               return match_penalty(currentValue, targetValue);
             })
             .reduce((acc, mult) => acc * mult, 1);
@@ -271,23 +248,23 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
           return newArtifact;
         });
         const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
-        if (!criteria.MATCH) {
+        if (!criteria.match) {
           if (newRating < bestSwapRating) continue;
           bestSwapRating = newRating;
           bestSwapIter = { weaponId, equipList: newEquipList };
         } else {
-          const bestSwapPenalty = criteria.MATCH
+          const bestSwapPenalty = criteria.match
             .map((stat) => {
-              const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, bestSwapIter));
-              const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+              const currentValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, bestSwapIter)));
+              const targetValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, build)));
               return match_penalty(currentValue, targetValue);
             })
             .reduce((acc, mult) => acc * mult, 1);
 
-          const newPenalty = criteria.MATCH
+          const newPenalty = criteria.match
             .map((stat) => {
-              const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList }));
-              const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+              const currentValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList })));
+              const targetValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, build)));
               return match_penalty(currentValue, targetValue);
             })
             .reduce((acc, mult) => acc * mult, 1);
@@ -309,23 +286,23 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
     
     const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
 
-    if (!criteria.MATCH) {
+    if (!criteria.match) {
       if (newRating < control) continue;
       control = newRating;
       newIter = { weaponId, equipList: newEquipList };
     } else {
-      const controlPenalty = criteria.MATCH
+      const controlPenalty = criteria.match
         .map((stat) => {
-          const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, newIter));
-          const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+          const currentValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, newIter)));
+          const targetValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, build)));
           return match_penalty(currentValue, targetValue);
         })
         .reduce((acc, mult) => acc * mult, 1);
 
-      const newPenalty = criteria.MATCH
+      const newPenalty = criteria.match
         .map((stat) => {
-          const currentValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList }));
-          const targetValue = computeTotalStat(stat, buildSourceMapList(gameId, charId, build));
+          const currentValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, { weaponId, equipList: newEquipList })));
+          const targetValue = computeTotalStat(stat, mergeStatMaps(...buildSourceMapList(gameId, charId, build)));
           return match_penalty(currentValue, targetValue);
         })
         .reduce((acc, mult) => acc * mult, 1);

@@ -1,13 +1,11 @@
-import { useParams } from 'react-router-dom';
 import { Card, Box, Paper, Typography } from '@mui/material';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip } from 'recharts';
 import { CHARACTERS, STATS } from '@/data';
-import { buildSourceMapList, computeTotalStat } from '@/utils';
+import { buildSourceMapList, computeTotalStat, mergeStatMaps } from '@/utils';
 import { useCurrent } from '@/hooks';
 
 export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }) => {
-  const { gameId } = useParams();
-  const { criteria } = useCurrent();
+  const { gameId, criteria } = useCurrent();
 
   if (isLoading || !build || !combinedSimEquips) return null;
   const buildSources = buildSourceMapList(gameId, charId, build);
@@ -25,8 +23,8 @@ export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }
     )
     .filter(([stat]) => stat === 'HB' ? !criteria[0].type : true)
     .map(([stat]) => {
-      const buildRaw = computeTotalStat(stat, buildSources);
-      const simRaw = computeTotalStat(stat, simSources)
+      const buildRaw = computeTotalStat(stat, mergeStatMaps(...buildSources));
+      const simRaw = computeTotalStat(stat, mergeStatMaps(...simSources));
       return {
         stat,
         build: buildRaw / simRaw * 75 || 0,

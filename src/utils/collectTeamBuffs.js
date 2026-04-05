@@ -1,22 +1,17 @@
 import { CHARACTERS, WEAPONS, SETS } from '@/data';
-
-function mergeBuffMaps(...maps) {
-  return maps.reduce((acc, map = {}) => {
-    for (const [statId, value] of Object.entries(map)) {
-      acc[statId] = (acc[statId] ?? 0) + value;
-    }
-    return acc;
-  }, {});
-}
+import { mergeStatMaps } from '@/utils';
 
 export function collectTeamBuffs(gameId, team) {
   return team.reduce((acc, member) => {
     if (!member.characterId) return acc;
 
-    const charBuffs = CHARACTERS[gameId]?.[member.characterId]?.teamBuffs ?? {};
-    const weaponBuffs = WEAPONS[gameId]?.[member.weaponId]?.teamBuffs ?? {};
-    const setBuffs = SETS[gameId]?.[member.setId]?.teamBuffs ?? {};
+    const charBuffsTeam = CHARACTERS[gameId]?.[member.characterId]?.buffs?.team?.fixedStats ?? {};
+    const charBuffsBoth = CHARACTERS[gameId]?.[member.characterId]?.buffs?.ally?.fixedStats ?? {};
+    const weaponBuffsTeam = WEAPONS[gameId]?.[member.weaponId]?.buffs?.team?.fixedStats ?? {};
+    const weaponBuffsBoth = WEAPONS[gameId]?.[member.weaponId]?.buffs?.ally?.fixedStats ?? {};
+    const setBuffsTeam = SETS[gameId]?.[member.setId]?.buffs?.team?.fixedStats ?? {};
+    const setBuffsBoth = SETS[gameId]?.[member.setId]?.buffs?.ally?.fixedStats ?? {};
 
-    return mergeBuffMaps(acc, charBuffs, weaponBuffs, setBuffs);
+    return mergeStatMaps(acc, charBuffsTeam, charBuffsBoth, weaponBuffsTeam, weaponBuffsBoth, setBuffsTeam, setBuffsBoth);
   }, {});
 }

@@ -18,7 +18,7 @@ const HeaderOcr = () => {
 
   useEffect(() => {
     workerRef.current = new Worker(
-      new URL('../../workers/ocr.worker.js', import.meta.url),
+      new URL('../../workers/ocr/worker.js', import.meta.url),
       { type: 'module' }
     );
     return () => workerRef.current.terminate();
@@ -46,8 +46,9 @@ const HeaderOcr = () => {
     workerRef.current.onmessage = ({ data }) => {
       const { success, build, error: workerError } = data;
       if (!success) {
-        setError('Failed to process image. Please try again.');
+        setError('Failed to process image. Please try again.', workerError);
         setIsLoading(false);
+        console.log(data);
         return;
       }
       saveBuildEntries('wuthering-waves', [[selectedAvatarId, build]]);
