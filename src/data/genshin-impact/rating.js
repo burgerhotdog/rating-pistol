@@ -6,7 +6,7 @@ const AVERAGE_RES = 0.1;
 
 export function computeDamage(statMap, criteria) {
   const dmgTypeElement = criteria.type.element;
-  const dmgTypeSkill = criteria.type.skill;
+  const dmgTypeSkill = criteria.type.ability;
   const dmgTypeReaction = criteria.type.reaction;
   const totalEm = computeTotalStat("EM", statMap);
   const totalRxnBonus = statMap[`RXN_${dmgTypeReaction}`] ?? 0;
@@ -62,11 +62,14 @@ export function computeDamage(statMap, criteria) {
   const totalAllResShred = statMap[`SHRED_ALL`] ?? 0;
   const resDebuffs = totalElementResShred + totalAllResShred;
   const resAmount = AVERAGE_RES - resDebuffs;
-  const resMult = resAmount < 0
-    ? (1 - (resAmount / 2))
-    : resAmount < 0.75
-      ? (1 - resAmount)
-      : (1 / (4 * resAmount + 1));
+  let resMult;
+  if (resAmount < 0) {
+    resMult = 1 - resAmount / 2;
+  } else if (resAmount < 0.75) {
+    resMult = 1 - resAmount;
+  } else {
+    resMult = 1 / (4 * resAmount + 1);
+  }
 
   // Amplifying Reactions
   let amplifyingReactionBonus = 0;

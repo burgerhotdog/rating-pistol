@@ -93,7 +93,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "PYRO",
           "reaction": "MELT"
         },
@@ -188,7 +188,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "PYRO",
           "reaction": "VAPE"
         },
@@ -226,7 +226,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "ELECTRO"
         },
         "match": [
@@ -269,7 +269,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "HYDRO"
         },
         "match": [
@@ -306,7 +306,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "GEO"
         },
         "match": [
@@ -344,7 +344,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "PYRO"
         },
         "match": [
@@ -382,7 +382,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "ELECTRO"
         },
         "match": [
@@ -449,7 +449,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "GEO"
         },
         "match": [
@@ -550,7 +550,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "ELECTRO"
         },
         "match": [
@@ -660,7 +660,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "HYDRO"
         },
         "match": [
@@ -754,7 +754,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "CRYO"
         },
         "match": [
@@ -801,7 +801,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "GEO"
         },
         "match": [
@@ -842,7 +842,7 @@
           }
         },
         "type": {
-          "skill": "PA",
+          "ability": "PA",
           "element": "ANEMO"
         },
         "match": [
@@ -887,7 +887,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "PYRO",
           "reaction": "RVAPE"
         },
@@ -977,7 +977,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "PHYSICAL"
         },
         "match": [
@@ -1039,7 +1039,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "CRYO"
         },
         "match": [
@@ -1082,7 +1082,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "PYRO"
         },
         "match": [
@@ -1142,7 +1142,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "ELECTRO"
         },
         "match": [
@@ -1188,7 +1188,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "HYDRO"
         },
         "match": [
@@ -1270,7 +1270,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "GEO"
         },
         "match": [
@@ -1326,7 +1326,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "ELECTRO"
         },
         "match": [
@@ -1356,7 +1356,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "HYDRO"
         },
         "match": [
@@ -1386,7 +1386,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "HYDRO"
         },
         "match": [
@@ -1468,7 +1468,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "DENDRO"
         },
         "match": [
@@ -1528,7 +1528,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "ELECTRO",
           "reaction": "AGGRAVATE"
         },
@@ -1579,7 +1579,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "DENDRO"
         },
         "match": [
@@ -1630,7 +1630,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "ANEMO"
         },
         "match": [
@@ -1697,7 +1697,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "DENDRO",
           "reaction": "SPREAD"
         },
@@ -1806,7 +1806,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "PYRO"
         },
         "match": [
@@ -1856,7 +1856,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "CRYO"
         },
         "match": [
@@ -1893,7 +1893,7 @@
           }
         },
         "type": {
-          "skill": "CA",
+          "ability": "CA",
           "element": "HYDRO"
         },
         "match": [
@@ -1959,7 +1959,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "HYDRO"
         },
         "match": [
@@ -2009,7 +2009,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "GEO"
         },
         "match": [
@@ -2066,7 +2066,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "GEO"
         }
       }
@@ -2093,7 +2093,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "PYRO"
         },
         "match": [
@@ -2149,7 +2149,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "ELECTRO"
         },
         "match": [
@@ -2218,7 +2218,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "HYDRO",
           "reaction": "VAPE"
         },
@@ -2262,7 +2262,7 @@
           }
         },
         "type": {
-          "skill": "CA"
+          "ability": "CA"
         },
         "match": [
           "ER"
@@ -2291,7 +2291,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "ELECTRO"
         },
         "match": [
@@ -2321,7 +2321,7 @@
           }
         },
         "type": {
-          "skill": "EB",
+          "ability": "EB",
           "element": "PYRO",
           "reaction": "MELT"
         }
@@ -2414,7 +2414,7 @@
           }
         },
         "type": {
-          "skill": "ES",
+          "ability": "ES",
           "element": "CRYO"
         },
         "match": [
@@ -2465,7 +2465,7 @@
           }
         },
         "type": {
-          "skill": "NA",
+          "ability": "NA",
           "element": "CRYO"
         }
       }

@@ -102,17 +102,24 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_RL": 0.25,
+          "AMP_ELECTRO": 0.20
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RL",
+          "ability": "RL",
           "element": "ELECTRO"
         },
         "match": [
@@ -176,13 +183,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "HA",
+          "ability": "HA",
           "element": "AERO"
         },
         "match": [
@@ -202,6 +208,13 @@
       "BASE_DEF": 1124.4424,
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
+    },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_RL": 0.38
+        }
+      }
     }
   },
   "1503": {
@@ -215,6 +228,14 @@
       "BASE_DEF": 1099.998,
       "PERCENT_OHB": 0.12000000000000002,
       "PERCENT_ATK": 0.12000000000000002
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "PERCENT_ATK": 0.2,
+          "AMP_ALL": 0.15
+        }
+      }
     }
   },
   "1601": {
@@ -255,17 +276,24 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_RL": 0.25,
+          "AMP_FUSION": 0.20
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RS",
+          "ability": "RS",
           "element": "FUSION"
         },
         "match": [
@@ -290,13 +318,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RS",
+          "ability": "RS",
           "element": "SPECTRO"
         },
         "match": [
@@ -317,17 +344,24 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_RS": 0.25,
+          "AMP_GLACIO": 0.20
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "BA",
+          "ability": "BA",
           "element": "GLACIO"
         },
         "match": [
@@ -352,13 +386,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RL",
+          "ability": "RL",
           "element": "ELECTRO"
         },
         "match": [
@@ -391,6 +424,15 @@
       "BASE_DEF": 1099.998,
       "PERCENT_OHB": 0.12000000000000002,
       "PERCENT_HP": 0.12000000000000002
+    },
+    "buffs": {
+      "team": {
+        "fixedStats": {
+          "AMP_ALL": 0.15,
+          "PERCENT_CR": 0.125,
+          "PERCENT_CD": 0.25
+        }
+      }
     }
   },
   "1504": {
@@ -404,6 +446,13 @@
       "BASE_DEF": 879.9984,
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
+    },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_RL": 0.38
+        }
+      }
     }
   },
   "1603": {
@@ -422,13 +471,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "BA",
+          "ability": "BA",
           "element": "HAVOC"
         },
         "match": [
@@ -453,13 +501,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RS",
+          "ability": "RS",
           "element": "GLACIO"
         },
         "match": [
@@ -480,17 +527,24 @@
       "PERCENT_CD": 0.15999999999999998,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_BA": 0.25,
+          "AMP_HAVOC": 0.20
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RS",
+          "ability": "RS",
           "element": "HAVOC"
         },
         "match": [
@@ -511,17 +565,24 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_RS": 0.25,
+          "AMP_FUSION": 0.20
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "BA",
+          "ability": "BA",
           "element": "FUSION"
         },
         "match": [
@@ -542,17 +603,24 @@
       "PERCENT_CD": 0.15999999999999998,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_FRAZZLE": 1,
+          "SHRED_SPECTRO": 0.1
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "HA",
+          "ability": "HA",
           "element": "SPECTRO"
         },
         "match": [
@@ -573,17 +641,24 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_RS": 0.25,
+          "AMP_HAVOC": 0.2
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "BA",
+          "ability": "BA",
           "element": "HAVOC"
         },
         "match": [
@@ -604,17 +679,23 @@
       "PERCENT_CD": 0.15999999999999998,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_EROSION": 1
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RL",
+          "ability": "RL",
           "element": "AERO"
         },
         "match": [
@@ -639,14 +720,14 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "HA",
-          "element": "SPECTRO"
+          "ability": "HA",
+          "element": "SPECTRO",
+          "special": "FRAZZLE"
         },
         "match": [
           "ER"
@@ -670,13 +751,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RL",
+          "ability": "RL",
           "element": "FUSION"
         },
         "match": [
@@ -701,14 +781,14 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "HP": 1
           }
         },
         "type": {
-          "skill": "BA",
-          "element": "AERO"
+          "ability": "BA",
+          "element": "AERO",
+          "special": "EROSION"
         },
         "match": [
           "ER"
@@ -732,13 +812,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RS",
+          "ability": "RS",
           "element": "HAVOC"
         }
       }
@@ -760,13 +839,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "HA",
+          "ability": "HA",
           "element": "ELECTRO"
         },
         "match": [
@@ -787,17 +865,23 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_HA": 0.5
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RL",
+          "ability": "RL",
           "element": "AERO"
         },
         "match": [
@@ -831,17 +915,23 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
+    "buffs": {
+      "ally": {
+        "fixedStats": {
+          "AMP_ES": 0.5
+        }
+      }
+    },
     "criteria": [
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "HA",
+          "ability": "HA",
           "element": "AERO"
         },
         "match": [
@@ -879,13 +969,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RL",
+          "ability": "RL",
           "element": "HAVOC"
         },
         "match": [
@@ -923,13 +1012,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "BA",
+          "ability": "BA",
           "element": "SPECTRO"
         },
         "match": [
@@ -954,13 +1042,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "RL",
+          "ability": "RL",
           "element": "FUSION"
         },
         "match": [
@@ -985,13 +1072,12 @@
       {
         "name": "Damage",
         "scaling": {
-          "flat": 0,
           "multiplier": {
             "ATK": 1
           }
         },
         "type": {
-          "skill": "BA",
+          "ability": "BA",
           "element": "SPECTRO"
         },
         "match": [
