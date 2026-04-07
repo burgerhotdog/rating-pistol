@@ -2,72 +2,81 @@ import { computeTotalStat } from "@/utils";
 
 const CHARACTER_LEVEL = 80;
 const ENEMY_LEVEL = 90;
-const AVERAGE_RES = 0.2;
+const BASE_RES = 0.2;
 
-export function computeDamage(statMap, criteria) {
-  const dmgTypeElement = criteria.type.element;
-  const dmgTypeSkill = criteria.type.ability;
-  const isDot = criteria.type.isDot;
+function computeBase(statMap, criteria) {
+  const { ability, element } = criteria.type;
 
-  // Base DMG:
-  // Character's total stat * skill scaling + flat number
+  // Base ability
   const multiplier = criteria.scaling.multiplier ?? {};
-  const baseDmgScaling = Object.entries(multiplier).reduce((acc, [stat, coeff]) => {
+  const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
     const totalStat = computeTotalStat(stat, statMap);
-    return acc + totalStat * coeff;
+    return acc + totalStat * motionValue;
   }, 0);
-  const baseDmgFlat = criteria.scaling.flat ?? 0;
-  const baseDmg = baseDmgScaling + baseDmgFlat;
+  const flatComponent = criteria.scaling.flat ?? 0;
+  const abilityBaseDmg = multiplierComponent + flatComponent;
 
-  // Base DMG Multiplier:
-  // Direct multiplier on character talents
-  const totalSkillBaseDmg = statMap[`RAW_${dmgTypeSkill}`] ?? 0;
-  const baseDmgMultiplier = 1 + totalSkillBaseDmg;
+  // Base ability Multiplier:
+  const abilityRawMult = statMap[`RAW_${ability}`] ?? 0;
+  const baseDmgMult = 1 + abilityRawMult;
 
-  // Flat Damage Bonus:
-  // Teammate buffs, Direct multiplier on some talents
-  const totalAddElement = statMap[`ADD_${dmgTypeElement}`] ?? 0;
-  const totalAddSkillType = statMap[`ADD_${dmgTypeSkill}`] ?? 0;
-  const totalAddAll = statMap["ADD_ALL"] ?? 0;
-  const flatDmgBonus = totalAddElement + totalAddSkillType + totalAddAll;
+  // Flat
+  const allFlat = statMap["ADD_ALL"] ?? 0;
+  const abilityFlat = statMap[`ADD_${ability}`] ?? 0;
+  const elementFlat = statMap[`ADD_${element}`] ?? 0;
+  const flatDmg = allFlat + abilityFlat + elementFlat;
 
-  // Crit multiplier
-  const totalCR = Math.min(computeTotalStat("CR", statMap), 1);
-  const totalCD = computeTotalStat("CD", statMap);
-  const critMult = totalCR * (1 + totalCD) + (1 - totalCR);
+  return abilityBaseDmg * baseDmgMult + flatDmg;
+}
 
-  // Damage bonus:
-  // Ascension stat, Goblet, Teammate buffs
-  const totalElementDmgBonus = computeTotalStat(dmgTypeElement, statMap);
-  const totalSkillTypeDmgBonus = computeTotalStat(dmgTypeSkill, statMap);
-  const totalAllDmgBonus = computeTotalStat("ALL", statMap);
-  const dmgBonus = 1 + totalElementDmgBonus + totalSkillTypeDmgBonus + totalAllDmgBonus;
+function computeBonuses(statMap, criteria) {
+  const { ability, element, status } = criteria.type;
+
+  // Crit
+  const canCrit = status !== "DOT" && status !== "BREAK";
+  const critRate = Math.min(computeTotalStat("CR", statMap), 1);
+  const critDamage = computeTotalStat("CD", statMap) - 1;
+  const critMult = canCrit ? (critRate * (1 + critDamage) + (1 - critRate)) : 1;
+
+  // Damage bonus
+  const allDmgBonus = computeTotalStat("ALL", statMap);
+  const abilityDmgBonus = computeTotalStat(ability, statMap);
+  const elementDmgBonus = computeTotalStat(element, statMap);
+  const statusDmgBonus = status ? computeTotalStat(status, statMap) : 0;
+  const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus + statusDmgBonus;
 
   // Vulnerability
-  const totalElementVuln = computeTotalStat(`VULN_${dmgTypeElement}`, statMap);
-  const totalAllVuln = computeTotalStat("VULN_ALL", statMap);
-  const totalDoTVuln = computeTotalStat("VULN_DOT", statMap);
-  const vulnerabilityMultiplier = 1 + totalElementVuln + totalAllVuln + (isDot ? totalDoTVuln : 0);
+  const allVuln = statMap["VULN_ALL"] ?? 0;
+  const elementVuln = statMap[`VULN_${element}`] ?? 0;
+  const statusVuln = statMap[`VULN_${status}`] ?? 0;
+  const vulnMult = 1 + allVuln + elementVuln + statusVuln;
 
-  // Defense
-  // Def shred can come from teammate buffs
+  return critMult * dmgBonusMult * vulnMult;
+}
+
+function computeReductions(statMap, criteria) {
+  const { element } = criteria.type;
+
+  // Enemy resistance
+  const totalAllResShred = statMap[`SHRED_ALL`] ?? 0;
+  const totalElementResShred = statMap[`SHRED_${element}`] ?? 0;
+  const resDebuffs = totalElementResShred + totalAllResShred;
+  const resMult = 1 - (BASE_RES - resDebuffs);
+
+  // Enemy defense
   const totalDefShred = statMap["SHRED_DEF"] ?? 0;
   const totalDefIgnore = statMap["IGNORE_DEF"] ?? 0;
-  const defMultiplier = (CHARACTER_LEVEL + 20) / ((ENEMY_LEVEL + 20) * Math.max(0, 1 - totalDefShred - totalDefIgnore) + CHARACTER_LEVEL + 20);
+  const defMult = (CHARACTER_LEVEL + 20) / ((ENEMY_LEVEL + 20) * Math.max(0, 1 - totalDefShred - totalDefIgnore) + CHARACTER_LEVEL + 20);
 
-  // Resistance
-  // Res shred can come from teammate buffs
-  const totalElementResShred = statMap[`SHRED_${dmgTypeElement}`] ?? 0;
-  const totalAllResShred = statMap[`SHRED_ALL`] ?? 0;
-  const resDebuffs = totalElementResShred + totalAllResShred;
-  const resMultiplier = 1 - (AVERAGE_RES - resDebuffs);
+  // Weakness broken
+  const brokenMult = 0.9;
 
-  // Broken
-  const brokenMultiplier = 0.9;
+  return resMult * defMult * brokenMult;
+}
 
-  return (baseDmg * baseDmgMultiplier + flatDmgBonus) *
-    (isDot || isBreak ? 1 : critMult) *
-    dmgBonus *
-    vulnerabilityMultiplier *
-    defMultiplier * resMultiplier * brokenMultiplier;
+export function computeDamage(statMap, criteria) {
+  const baseDmg = computeBase(statMap, criteria);
+  const bonuses = computeBonuses(statMap, criteria);
+  const reductions = computeReductions(statMap, criteria);
+  return baseDmg * bonuses * reductions;
 }
