@@ -1,3 +1,5 @@
+import { distance } from "fastest-levenshtein";
+
 export function comparePixels(a, b) {
   let sad = 0;
   for (let i = 0; i < a.length; i += 4) {
@@ -8,4 +10,8 @@ export function comparePixels(a, b) {
   }
   const maxSAD = 255 * 3 * (a.length * a.length);
   return 1 - sad / maxSAD;
+}
+
+export function compareStrings(a, b) {
+  return distance(String(a), String(b));
 }

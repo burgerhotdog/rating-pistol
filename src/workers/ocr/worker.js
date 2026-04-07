@@ -1,5 +1,4 @@
 import { createWorker } from 'tesseract.js';
-import { distance as findDistance } from 'fastest-levenshtein';
 import {
   whitelistStat,
   whitelistValue,
@@ -8,9 +7,11 @@ import {
   subStatFragmentToSuffix,
   subStatValueOptionsById,
 } from './helpers/maps';
+import { compareStrings } from "./helpers";
 import { validateBitmap } from "./validateBitmap";
 import { getSetId } from "./getSetId";
 import { getCost } from "./getCost";
+import { getId } from "./getId";
 
 let worker = null;
 
@@ -49,7 +50,7 @@ self.onmessage = async ({ data }) => {
       let shortest = Infinity;
 
       for (const option of options) {
-        const distance = findDistance(text, String(option));
+        const distance = compareStrings(text, option);
         if (distance < shortest) {
           shortest = distance;
           bestMatch = option;
@@ -58,6 +59,9 @@ self.onmessage = async ({ data }) => {
 
       return shortest <= threshold ? bestMatch : null;
     }
+
+    // characterId
+    const characterId = await getId(imageBitmap, ocrWorker);
 
     // weaponId
     const weaponRegion = { x: 1600, y: 450, w: 250, h: 30};
@@ -146,10 +150,9 @@ self.onmessage = async ({ data }) => {
       }
       equipList.push({ cost, setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList });
     }
-
-    self.postMessage({ success: true, build: { weaponId, equipList } });
+    const build = { weaponId, equipList };
+    self.postMessage({ success: true, entry: [characterId, build] });
   } catch (err) {
-    console.log(err);
-    self.postMessage({ success: false, error: err.message });
+    self.postMessage({ error: err.message });
   }
 };

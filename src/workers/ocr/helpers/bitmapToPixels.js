@@ -4,8 +4,8 @@ export function bitmapToPixels(bitmap, region, resize) {
   const srcW = region?.w ?? bitmap.width;
   const srcH = region?.h ?? bitmap.height;
 
-  const outW = resize?.w ?? region.w;
-  const outH = resize?.h ?? region.h;
+  const outW = resize?.w ?? srcW;
+  const outH = resize?.h ?? srcH;
 
   const canvas = new OffscreenCanvas(outW, outH);
   const ctx = canvas.getContext('2d');
