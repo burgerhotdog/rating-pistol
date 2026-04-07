@@ -36,10 +36,12 @@ export const SETS = {
 import stat_gi from './genshin-impact/stat.json';
 import stat_hsr from './honkai-star-rail/stat.json';
 import stat_ww from './wuthering-waves/stat.json';
+import stat_zzz from './zenless-zone-zero/stat.json';
 export const STAT = {
   "genshin-impact": stat_gi,
   "honkai-star-rail": stat_hsr,
   "wuthering-waves": stat_ww,
+  "zenless-zone-zero": stat_zzz,
 };
 
 import * as rating_gi from './genshin-impact/rating';
