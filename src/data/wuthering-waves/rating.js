@@ -15,16 +15,16 @@ function computeBase(statMap, criteria) {
   const abilityBaseDmg = multiplierComponent + flatComponent;
 
   // Flat
-  const flatDamage = 0;
+  const flatDmg = 0;
 
-  return abilityBaseDmg + flatDamage;
+  return abilityBaseDmg + flatDmg;
 }
 
 function computeBonuses(statMap, criteria) {
   const { ability, element, status } = criteria.type;
 
   // Crit
-  const critRate = Math.min(computeTotalStat("CR", statMap), 1);
+  const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
   const critDamage = computeTotalStat("CD", statMap) - 1;
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
@@ -49,8 +49,8 @@ function computeReductions(statMap, criteria) {
   const { element } = criteria.type;
 
   // Enemy resistance
-  const elementResShred = statMap[`SHRED_${element}`] ?? 0
-  const totalRes = BASE_RES - elementResShred;
+  const elementShred = statMap[`SHRED_${element}`] ?? 0
+  const totalRes = BASE_RES - elementShred;
   let resMult;
   if (totalRes < 0) {
     resMult = 1 - totalRes / 2;
@@ -72,6 +72,5 @@ export function computeDamage(statMap, criteria) {
   const base = computeBase(statMap, criteria);
   const bonuses = computeBonuses(statMap, criteria);
   const reductions = computeReductions(statMap, criteria);
-
   return base * bonuses * reductions;
 }

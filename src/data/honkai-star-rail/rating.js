@@ -20,7 +20,7 @@ function computeBase(statMap, criteria) {
   const abilityRawMult = statMap[`RAW_${ability}`] ?? 0;
   const baseDmgMult = 1 + abilityRawMult;
 
-  // Flat
+  // Flat damage
   const allFlat = statMap["ADD_ALL"] ?? 0;
   const abilityFlat = statMap[`ADD_${ability}`] ?? 0;
   const elementFlat = statMap[`ADD_${element}`] ?? 0;
@@ -34,8 +34,8 @@ function computeBonuses(statMap, criteria) {
 
   // Crit
   const canCrit = status !== "DOT" && status !== "BREAK";
-  const critRate = Math.min(computeTotalStat("CR", statMap), 1);
-  const critDamage = computeTotalStat("CD", statMap) - 1;
+  const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
+  const critDamage = computeTotalStat("CD", statMap);
   const critMult = canCrit ? (critRate * (1 + critDamage) + (1 - critRate)) : 1;
 
   // Damage bonus
@@ -58,15 +58,14 @@ function computeReductions(statMap, criteria) {
   const { element } = criteria.type;
 
   // Enemy resistance
-  const totalAllResShred = statMap[`SHRED_ALL`] ?? 0;
-  const totalElementResShred = statMap[`SHRED_${element}`] ?? 0;
-  const resDebuffs = totalElementResShred + totalAllResShred;
-  const resMult = 1 - (BASE_RES - resDebuffs);
+  const allShred = statMap[`SHRED_ALL`] ?? 0;
+  const elementShred = statMap[`SHRED_${element}`] ?? 0;
+  const resMult = 1 - (BASE_RES - (allShred + elementShred));
 
   // Enemy defense
-  const totalDefShred = statMap["SHRED_DEF"] ?? 0;
-  const totalDefIgnore = statMap["IGNORE_DEF"] ?? 0;
-  const defMult = (CHARACTER_LEVEL + 20) / ((ENEMY_LEVEL + 20) * Math.max(0, 1 - totalDefShred - totalDefIgnore) + CHARACTER_LEVEL + 20);
+  const defShred = statMap["SHRED_DEF"] ?? 0;
+  const defIgnore = statMap["IGNORE_DEF"] ?? 0;
+  const defMult = (CHARACTER_LEVEL + 20) / ((ENEMY_LEVEL + 20) * Math.max(0, 1 - defShred - defIgnore) + CHARACTER_LEVEL + 20);
 
   // Weakness broken
   const brokenMult = 0.9;

@@ -2,87 +2,97 @@ import { computeTotalStat } from "@/utils";
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
-const AVERAGE_RES = 0.1;
+const BASE_RES = 0.1;
 
-export function computeDamage(statMap, criteria) {
-  const dmgTypeElement = criteria.type.element;
-  const dmgTypeSkill = criteria.type.ability;
-  const dmgTypeReaction = criteria.type.reaction;
+function computeBase(statMap, criteria) {
+  const { ability, element, reaction } = criteria.type;
   const totalEm = computeTotalStat("EM", statMap);
-  const totalRxnBonus = statMap[`RXN_${dmgTypeReaction}`] ?? 0;
+  const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
 
-  // Base DMG:
-  // Character's total stat * skill scaling + flat number
+  // Base ability
   const multiplier = criteria.scaling.multiplier ?? {};
-  const baseDmgScaling = Object.entries(multiplier).reduce((acc, [stat, coeff]) => {
+  const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
     const totalStat = computeTotalStat(stat, statMap);
-    return acc + totalStat * coeff;
+    return acc + totalStat * motionValue;
   }, 0);
-  const baseDmgFlat = criteria.scaling.flat ?? 0;
-  const baseDmg = baseDmgScaling + baseDmgFlat;
+  const flatComponent = criteria.scaling.flat ?? 0;
+  const abilityBaseDmg = multiplierComponent + flatComponent;
 
-  // Base DMG Multiplier:
-  // Direct multiplier on character talents
-  const totalSkillBaseDmg = statMap[`RAW_${dmgTypeSkill}`] ?? 0;
-  const baseDmgMultiplier = 1 + totalSkillBaseDmg;
+  // Base ability Multiplier:
+  const abilityRawMult = statMap[`RAW_${ability}`] ?? 0;
+  const baseDmgMult = 1 + abilityRawMult;
 
-  // Flat Damage Bonus:
-  // Catalyze reactions: Spread/Aggravate
-  let additiveReactionBonus = 0;
-  if (dmgTypeReaction === "AGGRAVATE") additiveReactionBonus = 1.15;
-  if (dmgTypeReaction === "SPREAD") additiveReactionBonus = 1.25;
-  const emBonusCatalyze = (5 * totalEm) / (totalEm + 1200);
-  const flatReactionBonus = additiveReactionBonus * CHARACTER_LEVEL * (1 + emBonusCatalyze + totalRxnBonus);
+  // Flat damage
+  // Non reaction
+  const allFlat = statMap["ADD_ALL"] ?? 0;
+  const abilityFlat = statMap[`ADD_${ability}`] ?? 0;
+  const elementFlat = statMap[`ADD_${element}`] ?? 0;
+  const nonRxnComponent = allFlat + abilityFlat + elementFlat;
+  // Additive reactions
+  let rxnBonus = 0;
+  if (reaction === "AGGRAVATE") rxnBonus = 1.15;
+  if (reaction === "SPREAD") rxnBonus = 1.25;
+  const emBonus = (5 * totalEm) / (totalEm + 1200);
+  const rxnComponent = rxnBonus * CHARACTER_LEVEL * (1 + emBonus + totalRxnBonus);
+  const flatDmg = nonRxnComponent + rxnComponent;
 
-  // Teammate buffs, Direct multiplier on some talents
-  const totalAddElement = statMap[`ADD_${dmgTypeElement}`] ?? 0;
-  const totalAddSkillType = statMap[`ADD_${dmgTypeSkill}`] ?? 0;
-  const totalAddAll = statMap["ADD_ALL"] ?? 0;
-  const flatDamageBuffs = totalAddElement + totalAddSkillType + totalAddAll;
+  return abilityBaseDmg * baseDmgMult + flatDmg;
+}
 
-  const flatDmgBonus = flatReactionBonus + flatDamageBuffs;
+function computeBonuses(statMap, criteria) {
+  const { ability, element, reaction } = criteria.type;
+  const totalEm = computeTotalStat("EM", statMap);
+  const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
 
-  // Damage bonus:
-  // Ascension stat, Goblet, Teammate buffs
-  const totalElementDmgBonus = computeTotalStat(dmgTypeElement, statMap);
-  const totalSkillTypeDmgBonus = computeTotalStat(dmgTypeSkill, statMap);
-  const totalAllDmgBonus = computeTotalStat("ALL", statMap);
-  const dmgBonus = 1 + totalElementDmgBonus + totalSkillTypeDmgBonus + totalAllDmgBonus;
+  // Crit
+  const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
+  const critDamage = computeTotalStat("CD", statMap);
+  const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
-  // Defense
-  // Def shred can come from teammate buffs
-  const totalDefShred = statMap["SHRED_DEF"] ?? 0;
-  const totalDefIgnore = statMap["IGNORE_DEF"] ?? 0;
-  const k = (1 - totalDefShred) * (1 - totalDefIgnore);
-  const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
+  // Damage bonus
+  const allDmgBonus = computeTotalStat("ALL", statMap);
+  const abilityDmgBonus = computeTotalStat(ability, statMap);
+  const elementDmgBonus = computeTotalStat(element, statMap);
+  const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus;
 
-  // Resistance
-  // Res shred can come from teammate buffs
-  const totalElementResShred = statMap[`SHRED_${dmgTypeElement}`] ?? 0;
-  const totalAllResShred = statMap[`SHRED_ALL`] ?? 0;
-  const resDebuffs = totalElementResShred + totalAllResShred;
-  const resAmount = AVERAGE_RES - resDebuffs;
+  // Amplifying reactions
+  let rxnBonus = 0;
+  if (reaction === "MELT" || reaction === "VAPE") rxnBonus = 2;
+  if (reaction === "RMELT" || reaction === "RVAPE") rxnBonus = 1.5;
+  const emBonus = 2.78 * (totalEm / (totalEm + 1400));
+  const rxnMult = ["MELT", "VAPE", "RMELT", "RVAPE"].includes(reaction) ? rxnBonus * (1 + emBonus + totalRxnBonus) : 1;
+
+  return critMult * dmgBonusMult * rxnMult;
+}
+
+function computeReductions(statMap, criteria) {
+  const { element } = criteria.type;
+
+  // Enemy resistance
+  const allShred = statMap[`SHRED_ALL`] ?? 0;
+  const elementShred = statMap[`SHRED_${element}`] ?? 0;
+  const totalRes = BASE_RES - (allShred + elementShred);
   let resMult;
-  if (resAmount < 0) {
-    resMult = 1 - resAmount / 2;
-  } else if (resAmount < 0.75) {
-    resMult = 1 - resAmount;
+  if (totalRes < 0) {
+    resMult = 1 - totalRes / 2;
+  } else if (totalRes < 0.75) {
+    resMult = 1 - totalRes;
   } else {
-    resMult = 1 / (4 * resAmount + 1);
+    resMult = 1 / (4 * totalRes + 1);
   }
 
-  // Amplifying Reactions
-  let amplifyingReactionBonus = 0;
-  const isAmp = ["MELT", "VAPE", "RMELT", "RVAPE"].includes(dmgTypeReaction);
-  if (dmgTypeReaction === "MELT" || dmgTypeReaction === "VAPE") amplifyingReactionBonus = 2;
-  if (dmgTypeReaction === "RMELT" || dmgTypeReaction === "RVAPE") amplifyingReactionBonus = 1.5;
-  const emBonusAmplifying = 2.78 * (totalEm / (totalEm + 1400));
-  const ampMult = isAmp ? amplifyingReactionBonus * (1 + emBonusAmplifying + totalRxnBonus) : 1;
+  // Enemy defense
+  const defShred = statMap["SHRED_DEF"] ?? 0;
+  const defIgnore = statMap["IGNORE_DEF"] ?? 0;
+  const k = (1 - defShred) * (1 - defIgnore);
+  const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
 
-  // Crit multiplier
-  const totalCR = Math.min(computeTotalStat("CR", statMap), 1);
-  const totalCD = computeTotalStat("CD", statMap);
-  const critMult = totalCR * (1 + totalCD) + (1 - totalCR);
+  return resMult * defMult;
+}
 
-  return (baseDmg * baseDmgMultiplier + flatDmgBonus) * dmgBonus * defMult * resMult * ampMult * critMult;
+export function computeDamage(statMap, criteria) {
+  const baseDmg = computeBase(statMap, criteria);
+  const bonuses = computeBonuses(statMap, criteria);
+  const reductions = computeReductions(statMap, criteria);
+  return baseDmg * bonuses * reductions;
 }
