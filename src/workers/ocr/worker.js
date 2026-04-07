@@ -8,6 +8,7 @@ import {
   subStatFragmentToSuffix,
   subStatValueOptionsById,
 } from './helpers/maps';
+import { validateBitmap } from "./validateBitmap";
 import { getSetId } from "./getSetId";
 import { getCost } from "./getCost";
 
@@ -21,6 +22,10 @@ const initWorker = async () => {
 
 self.onmessage = async ({ data }) => {
   const { imageBitmap } = data;
+  const validation = validateBitmap(imageBitmap);
+  if (!validation.success) {
+    return self.postMessage(validation);
+  }
 
   try {
     const ocrWorker = await initWorker();
