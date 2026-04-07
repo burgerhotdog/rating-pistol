@@ -1,17 +1,10 @@
 import { mergeEquipList, getSetCounts, getSetEffects } from "@/utils";
-import { findBenchmarkWeek, createRun, getAverageRatings, advanceRunOneWeek } from "./simulation.helpers"
+import { findBenchmarkWeek, createRun, getAverageRatings, advanceRunOneWeek } from "./helpers";
+import { findRelativeError } from "./helpers";
 
 const MIN_RUNS = 100;
 const MAX_RUNS = 1000;
 const MAX_WEEKS = 20;
-const EPS = 1e-8;
-
-function getStd(list) {
-  const n = list.length;
-  const mean = list.reduce((a, b) => a + b) / n;
-  const sumSquaredDiff = list.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0);
-  return Math.sqrt(sumSquaredDiff / (n - 1));
-}
 
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, criteria, buffs } = data;
@@ -30,6 +23,7 @@ self.onmessage = ({ data }) => {
     runs.push(createRun(gameId, characterId, build, criteria, buffsWithSet));
   }
 
+
   for (let week = 1; week <= MAX_WEEKS; week++) {
     // advance all runs by one week
     for (const run of runs) {
@@ -39,12 +33,7 @@ self.onmessage = ({ data }) => {
     // if relative error is too high add more runs
     while (runs.length < MAX_RUNS) {
       const values = runs.map(run => run.ratings[week]);
-      const mean = values.reduce((a, b) => a + b, 0) / values.length;
-      const std = getStd(values);
-
-      const standardError = std / Math.sqrt(values.length);
-      const relativeError = standardError / Math.max(Math.abs(mean), EPS);
-
+      const relativeError = findRelativeError(values);
       if (relativeError <= 0.005) break;
 
       const run = createRun(gameId, characterId, build, criteria, buffsWithSet);

@@ -32,7 +32,7 @@ export function useSimulation(criteriaIndex, buffs) {
     workerRef.current?.terminate();
 
     const worker = new Worker(
-      new URL('../workers/simulation.worker.js', import.meta.url),
+      new URL('../workers/simulation/worker.js', import.meta.url),
       { type: 'module' },
     );
     workerRef.current = worker;
