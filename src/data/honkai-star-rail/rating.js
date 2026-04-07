@@ -1,13 +1,11 @@
 import { computeTotalStat } from "@/utils";
 
-const CHARACTER_LEVEL = 90;
-const ENEMY_LEVEL = 100;
-const BASE_RES = 0.1;
+const CHARACTER_LEVEL = 80;
+const ENEMY_LEVEL = 90;
+const BASE_RES = 0.2;
 
 function computeBase(statMap, criteria) {
-  const { ability, element, reaction } = criteria.type;
-  const totalEm = computeTotalStat("EM", statMap);
-  const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
+  const { ability, element } = criteria.type;
 
   // Base ability
   const multiplier = criteria.scaling.multiplier ?? {};
@@ -23,46 +21,37 @@ function computeBase(statMap, criteria) {
   const baseDmgMult = 1 + abilityRawMult;
 
   // Flat damage
-  // Non reaction
   const allFlat = statMap["ADD_ALL"] ?? 0;
   const abilityFlat = statMap[`ADD_${ability}`] ?? 0;
   const elementFlat = statMap[`ADD_${element}`] ?? 0;
-  const nonRxnComponent = allFlat + abilityFlat + elementFlat;
-  // Additive reactions
-  let rxnBonus = 0;
-  if (reaction === "AGGRAVATE") rxnBonus = 1.15;
-  if (reaction === "SPREAD") rxnBonus = 1.25;
-  const emBonus = (5 * totalEm) / (totalEm + 1200);
-  const rxnComponent = rxnBonus * CHARACTER_LEVEL * (1 + emBonus + totalRxnBonus);
-  const flatDmg = nonRxnComponent + rxnComponent;
+  const flatDmg = allFlat + abilityFlat + elementFlat;
 
   return abilityBaseDmg * baseDmgMult + flatDmg;
 }
 
 function computeBonuses(statMap, criteria) {
-  const { ability, element, reaction } = criteria.type;
-  const totalEm = computeTotalStat("EM", statMap);
-  const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
+  const { ability, element, status } = criteria.type;
 
   // Crit
+  const canCrit = status !== "DOT" && status !== "BREAK";
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
   const critDamage = computeTotalStat("CD", statMap);
-  const critMult = critRate * (1 + critDamage) + (1 - critRate);
+  const critMult = canCrit ? (critRate * (1 + critDamage) + (1 - critRate)) : 1;
 
   // Damage bonus
   const allDmgBonus = computeTotalStat("ALL", statMap);
   const abilityDmgBonus = computeTotalStat(ability, statMap);
   const elementDmgBonus = computeTotalStat(element, statMap);
-  const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus;
+  const statusDmgBonus = status ? computeTotalStat(status, statMap) : 0;
+  const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus + statusDmgBonus;
 
-  // Amplifying reactions
-  let rxnBonus = 0;
-  if (reaction === "MELT" || reaction === "VAPE") rxnBonus = 2;
-  if (reaction === "RMELT" || reaction === "RVAPE") rxnBonus = 1.5;
-  const emBonus = 2.78 * (totalEm / (totalEm + 1400));
-  const rxnMult = ["MELT", "VAPE", "RMELT", "RVAPE"].includes(reaction) ? rxnBonus * (1 + emBonus + totalRxnBonus) : 1;
+  // Vulnerability
+  const allVuln = statMap["VULN_ALL"] ?? 0;
+  const elementVuln = statMap[`VULN_${element}`] ?? 0;
+  const statusVuln = statMap[`VULN_${status}`] ?? 0;
+  const vulnMult = 1 + allVuln + elementVuln + statusVuln;
 
-  return critMult * dmgBonusMult * rxnMult;
+  return critMult * dmgBonusMult * vulnMult;
 }
 
 function computeReductions(statMap, criteria) {
@@ -71,23 +60,17 @@ function computeReductions(statMap, criteria) {
   // Enemy resistance
   const allShred = statMap[`SHRED_ALL`] ?? 0;
   const elementShred = statMap[`SHRED_${element}`] ?? 0;
-  const totalRes = BASE_RES - (allShred + elementShred);
-  let resMult;
-  if (totalRes < 0) {
-    resMult = 1 - totalRes / 2;
-  } else if (totalRes < 0.75) {
-    resMult = 1 - totalRes;
-  } else {
-    resMult = 1 / (4 * totalRes + 1);
-  }
+  const resMult = 1 - (BASE_RES - (allShred + elementShred));
 
   // Enemy defense
   const defShred = statMap["SHRED_DEF"] ?? 0;
   const defIgnore = statMap["IGNORE_DEF"] ?? 0;
-  const k = (1 - defShred) * (1 - defIgnore);
-  const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
+  const defMult = (CHARACTER_LEVEL + 20) / ((ENEMY_LEVEL + 20) * Math.max(0, 1 - defShred - defIgnore) + CHARACTER_LEVEL + 20);
 
-  return resMult * defMult;
+  // Weakness broken
+  const brokenMult = 0.9;
+
+  return resMult * defMult * brokenMult;
 }
 
 export function computeDamage(statMap, criteria) {

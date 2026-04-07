@@ -46,11 +46,12 @@ const HeaderOcr = () => {
     workerRef.current.onmessage = ({ data }) => {
       const { success, build, error: workerError } = data;
       if (!success) {
-        setError('Failed to process image. Please try again.', workerError);
+        setError(workerError);
         setIsLoading(false);
         console.log(data);
         return;
       }
+
       saveBuildEntries('wuthering-waves', [[selectedAvatarId, build]]);
       closeDialog();
     };

@@ -1,37 +1,76 @@
 import { computeTotalStat } from "@/utils";
 
-export function computeDamage(statMap, criteria) {
-  // Base DMG:
-  // Character's total stat * Skill multiplier + flat number
-  let baseDmg = criteria.scaling.flat ?? 0;
+const CHARACTER_LEVEL = 90;
+const ENEMY_LEVEL = 100;
+const BASE_RES = 0.1;
 
+function computeBase(statMap, criteria) {
+  // Base ability
   const multiplier = criteria.scaling.multiplier ?? {};
-  for (const [stat, coeff] of Object.entries(multiplier)) {
-    baseDmg += computeTotalStat(stat, statMap) * coeff;
+  const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
+    const totalStat = computeTotalStat(stat, statMap);
+    return acc + totalStat * motionValue;
+  }, 0);
+  const flatComponent = criteria.scaling.flat ?? 0;
+  const abilityBaseDmg = multiplierComponent + flatComponent;
+
+  // Flat
+  const flatDmg = 0;
+
+  return abilityBaseDmg + flatDmg;
+}
+
+function computeBonuses(statMap, criteria) {
+  const { ability, element, status } = criteria.type;
+
+  // Crit
+  const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
+  const critDamage = computeTotalStat("CD", statMap) - 1;
+  const critMult = critRate * (1 + critDamage) + (1 - critRate);
+
+  // Damage bonus
+  const allDmgBonus = computeTotalStat("ALL", statMap);
+  const abilityDmgBonus = ability ? computeTotalStat(ability, statMap) : 0;
+  const elementDmgBonus = element ? computeTotalStat(element, statMap) : 0;
+  const statusDmgBonus = status ? computeTotalStat(status, statMap) : 0;
+  const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus + statusDmgBonus;
+
+  // Amplification
+  const allAmp = statMap["AMP_ALL"] ?? 0;
+  const abilityAmp = statMap[`AMP_${ability}`] ?? 0;
+  const elementAmp = statMap[`AMP_${element}`] ?? 0;
+  const statusAmp = statMap[`AMP_${status}`] ?? 0;
+  const ampMult = 1 + allAmp + abilityAmp + elementAmp + statusAmp;
+
+  return critMult * dmgBonusMult * ampMult;
+}
+
+function computeReductions(statMap, criteria) {
+  const { element } = criteria.type;
+
+  // Enemy resistance
+  const elementShred = statMap[`SHRED_${element}`] ?? 0
+  const totalRes = BASE_RES - elementShred;
+  let resMult;
+  if (totalRes < 0) {
+    resMult = 1 - totalRes / 2;
+  } else if (totalRes < 0.8) {
+    resMult = 1 - totalRes;
+  } else {
+    resMult = 1 / (5 * totalRes + 1);
   }
-  // Base DMG Multiplier:
-  // Rare multiplier found on some skills
-  let baseDmgMultiplier = 1;
 
-  // Additive Base DMG Bonus:
-  // Spread/Aggravate, Rare multiplier on skills
-  let additiveBaseDmgBonus = 0;
+  // Enemy defense
+  const enemyDef = 8 * ENEMY_LEVEL + 792;
+  const defIgnore = statMap["IGNORE_DEF"] ?? 0;
+  const defMult = (800 + 8 * CHARACTER_LEVEL) / (800 + 8 * CHARACTER_LEVEL + enemyDef * (1 - defIgnore))
 
-  // Damage bonus:
-  // Element
-  const dmgElement = criteria.type.element;
-  const totalElementDmgBonus = computeTotalStat(dmgElement, statMap);
-  // Skill type
-  const dmgSkillType = criteria.type.skill;
-  const totalSkillTypeDmgBonus = computeTotalStat(dmgSkillType, statMap);
-  // All type
-  const totalAllTypeDmgBonus = computeTotalStat("ALL", statMap);
-  const dmgBonus = 1 + totalElementDmgBonus + totalSkillTypeDmgBonus + totalAllTypeDmgBonus;
+  return resMult * defMult;
+}
 
-  // Crit multiplier
-  const totalCR = Math.min(computeTotalStat("CR", statMap), 1);
-  const totalCD = computeTotalStat("CD", statMap) - 1;
-  const critMult = totalCR * (1 + totalCD) + (1 - totalCR);
-
-  return (baseDmg * baseDmgMultiplier + additiveBaseDmgBonus) * dmgBonus * critMult;
+export function computeDamage(statMap, criteria) {
+  const base = computeBase(statMap, criteria);
+  const bonuses = computeBonuses(statMap, criteria);
+  const reductions = computeReductions(statMap, criteria);
+  return base * bonuses * reductions;
 }
