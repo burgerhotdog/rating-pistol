@@ -9,7 +9,7 @@ export function getFixedSetBuffs(gameId, equipList) {
     return acc;
   }, {});
 
-  const fixedMenuSetBuffs = Object.entries(setCounts)
+  const constantMenuSetBuffs = Object.entries(setCounts)
     .flatMap(([setId, activePieces]) => {
       const setData = SETS[gameId][setId];
       if (!setData) return {}; // invalid set
@@ -18,13 +18,13 @@ export function getFixedSetBuffs(gameId, equipList) {
 
       return Object.entries(setBonus)
         .filter(([numPiecesToActivate]) => activePieces >= Number(numPiecesToActivate))
-        .reduce((acc, [, { menuBuffs }]) => {
-          if (!menuBuffs) return acc;
+        .reduce((acc, [, { stats }]) => {
+          if (!stats) return acc;
 
-          const { fixed } = menuBuffs;
-          if (!fixed) return acc;
+          const { constant } = stats;
+          if (!constant) return acc;
 
-          const statsList = Object.entries(fixed);
+          const statsList = Object.entries(constant);
           for (const [statId, statValue] of statsList) {
             acc[statId] = (acc[statId] ?? 0) + statValue;
           }
@@ -38,7 +38,7 @@ export function getFixedSetBuffs(gameId, equipList) {
       return acc;
     }, {});
 
-  const fixedCombatSetBuffs = Object.entries(setCounts)
+  const constantCombatSetBuffs = Object.entries(setCounts)
     .flatMap(([setId, activePieces]) => {
       const setData = SETS[gameId][setId];
       if (!setData) return {}; // invalid set
@@ -50,10 +50,10 @@ export function getFixedSetBuffs(gameId, equipList) {
         .reduce((acc, [, { buffs }]) => {
           if (!buffs) return acc;
 
-          const { fixed } = buffs;
-          if (!fixed) return acc;
+          const { constant } = buffs;
+          if (!constant) return acc;
 
-          const statsList = Object.entries(fixed);
+          const statsList = Object.entries(constant);
           for (const [statId, statValue] of statsList) {
             acc[statId] = (acc[statId] ?? 0) + statValue;
           }
@@ -67,7 +67,7 @@ export function getFixedSetBuffs(gameId, equipList) {
       return acc;
     }, {});
 
-  return { fixedMenuSetBuffs, fixedCombatSetBuffs };
+  return { constantMenuSetBuffs, constantCombatSetBuffs };
 }
 
 export function getVariableSetBuffs(gameId, equipList, statMap) {
@@ -87,10 +87,10 @@ export function getVariableSetBuffs(gameId, equipList, statMap) {
 
       return Object.entries(setBonus)
         .filter(([numPiecesToActivate]) => activePieces >= Number(numPiecesToActivate))
-        .reduce((acc, [, { menuBuffs }]) => {
-          if (!menuBuffs) return acc;
+        .reduce((acc, [, { stats }]) => {
+          if (!stats) return acc;
 
-          const { variable } = menuBuffs;
+          const { variable } = stats;
           if (!variable) return acc;
 
           const statsList = Object.entries(variable);

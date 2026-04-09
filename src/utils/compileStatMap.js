@@ -17,31 +17,31 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
   const inCombat = mode === "combat";
   const { weaponId, equipList } = build;
 
-  const { fixedMenuSetBuffs, fixedCombatSetBuffs } = getFixedSetBuffs(gameId, equipList);
-  const fixedSetBuffs = inCombat
-    ? mergeStatMaps(fixedMenuSetBuffs, fixedCombatSetBuffs)
-    : fixedMenuSetBuffs;
+  const { constantMenuSetBuffs, constantCombatSetBuffs } = getFixedSetBuffs(gameId, equipList);
+  const constantSetBuffs = inCombat
+    ? mergeStatMaps(constantMenuSetBuffs, constantCombatSetBuffs)
+    : constantMenuSetBuffs;
 
-  const fixedTeamBuffs = team.reduce((acc, member) => {
+  const constantTeamBuffs = team.reduce((acc, member) => {
     const { buffs } = CHARACTERS[gameId][member] ?? {};
     if (!buffs) return acc;
     const { self, ally, team } = buffs;
     const buffMap = member === characterId
-      ? mergeStatMaps(self?.fixedStats ?? {}, team?.fixedStats ?? {})
-      : mergeStatMaps(ally?.fixedStats ?? {}, team?.fixedStats ?? {});
+      ? mergeStatMaps(self?.constant ?? {}, team?.constant ?? {})
+      : mergeStatMaps(ally?.constant ?? {}, team?.constant ?? {});
     return mergeStatMaps(acc, buffMap);
   }, {});
 
-  const fixedStatMap = mergeStatMaps(
+  const constantStatMap = mergeStatMaps(
     STATS[gameId].DEFAULT_STATS,
-    CHARACTERS[gameId][characterId].fixedStats,
-    WEAPONS[gameId][weaponId].fixedStats,
+    CHARACTERS[gameId][characterId].stats.constant,
+    WEAPONS[gameId][weaponId].stats.constant,
     mergeEquipList(equipList),
-    fixedSetBuffs,
-    inCombat ? fixedTeamBuffs : {}
+    constantSetBuffs,
+    inCombat ? constantTeamBuffs : {}
   );
 
-  const { variableMenuSetBuffs, variableCombatSetBuffs } = getVariableSetBuffs(gameId, equipList, fixedStatMap);
+  const { variableMenuSetBuffs, variableCombatSetBuffs } = getVariableSetBuffs(gameId, equipList, constantStatMap);
   const variableSetBuffs = inCombat
     ? mergeStatMaps(variableMenuSetBuffs, variableCombatSetBuffs)
     : variableMenuSetBuffs;
@@ -51,17 +51,17 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
     const { buffs } = CHARACTERS[gameId][characterId];
     if (!buffs) return acc;
     const { self, team } = buffs;
-    const selfVariableStatMap = buildVariableSourceMap(fixedStatMap, self?.variableStats ?? {});
-    const teamVariableStatMap = buildVariableSourceMap(fixedStatMap, team?.variableStats ?? {});
+    const selfVariableStatMap = buildVariableSourceMap(constantStatMap, self?.variableStats ?? {});
+    const teamVariableStatMap = buildVariableSourceMap(constantStatMap, team?.variableStats ?? {});
     return mergeStatMaps(acc, selfVariableStatMap, teamVariableStatMap);
   }, {});
 
   const variableStatMap = mergeStatMaps(
-    buildVariableSourceMap(fixedStatMap, CHARACTERS[gameId][characterId].variableStats ?? {}),
-    buildVariableSourceMap(fixedStatMap, WEAPONS[gameId][weaponId]?.variableStats ?? {}),
+    buildVariableSourceMap(constantStatMap, CHARACTERS[gameId][characterId].variableStats ?? {}),
+    buildVariableSourceMap(constantStatMap, WEAPONS[gameId][weaponId]?.variableStats ?? {}),
     variableSetBuffs,
     inCombat ? variableSelfBuffs : {}
   );
 
-  return mergeStatMaps(fixedStatMap, variableStatMap);
+  return mergeStatMaps(constantStatMap, variableStatMap);
 }

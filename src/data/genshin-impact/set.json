@@ -12,8 +12,8 @@
     "name": "Gladiator's Finale",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ATK": 0.18
           }
         }
@@ -24,8 +24,8 @@
     "name": "Viridescent Venerer",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ANEMO": 0.15
           }
         }
@@ -36,8 +36,8 @@
     "name": "Wanderer's Troupe",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "FLAT_EM": 80
           }
         }
@@ -48,8 +48,8 @@
     "name": "Thundering Fury",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ELECTRO": 0.15
           }
         }
@@ -60,8 +60,8 @@
     "name": "Crimson Witch of Flames",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_PYRO": 0.15
           }
         }
@@ -72,8 +72,8 @@
     "name": "Noblesse Oblige",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_EB": 0.2
           }
         }
@@ -84,8 +84,8 @@
     "name": "Bloodstained Chivalry",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_PHYSICAL": 0.25
           }
         }
@@ -96,8 +96,8 @@
     "name": "Archaic Petra",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_GEO": 0.15
           }
         }
@@ -111,8 +111,8 @@
     "name": "Blizzard Strayer",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_CRYO": 0.15
           }
         }
@@ -123,8 +123,8 @@
     "name": "Heart of Depth",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_HYDRO": 0.15
           }
         }
@@ -135,8 +135,8 @@
     "name": "Tenacity of the Millelith",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_HP": 0.2
           }
         }
@@ -147,8 +147,8 @@
     "name": "Pale Flame",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_PHYSICAL": 0.25
           }
         }
@@ -159,8 +159,8 @@
     "name": "Shimenawa's Reminiscence",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ATK": 0.18
           }
         }
@@ -171,14 +171,14 @@
     "name": "Emblem of Severed Fate",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ER": 0.2
           }
         }
       },
       "4": {
-        "menuBuffs": {
+        "stats": {
           "variable": {
             "PERCENT_EB": {
               "source": [
@@ -197,8 +197,8 @@
     "name": "Husk of Opulent Dreams",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_DEF": 0.3
           }
         }
@@ -209,8 +209,8 @@
     "name": "Ocean-Hued Clam",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_HB": 0.15
           }
         }
@@ -221,8 +221,8 @@
     "name": "Vermillion Hereafter",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ATK": 0.18
           }
         }
@@ -233,8 +233,8 @@
     "name": "Echoes of an Offering",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ATK": 0.18
           }
         }
@@ -245,8 +245,8 @@
     "name": "Deepwood Memories",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_DENDRO": 0.15
           }
         }
@@ -257,8 +257,8 @@
     "name": "Gilded Dreams",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "FLAT_EM": 80
           }
         }
@@ -269,8 +269,8 @@
     "name": "Desert Pavilion Chronicle",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ANEMO": 0.15
           }
         }
@@ -281,8 +281,8 @@
     "name": "Flower of Paradise Lost",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "FLAT_EM": 80
           }
         }
@@ -293,8 +293,8 @@
     "name": "Nymph's Dream",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_HYDRO": 0.15
           }
         }
@@ -305,8 +305,8 @@
     "name": "Vourukasha's Glow",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_HP": 0.2
           }
         }
@@ -317,8 +317,8 @@
     "name": "Marechaussee Hunter",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_NA": 0.15,
             "PERCENT_CA": 0.15
           }
@@ -326,7 +326,7 @@
       },
       "4": {
         "buffs": {
-          "fixed": {
+          "constant": {
             "PERCENT_CR": 0.36
           }
         }
@@ -337,15 +337,15 @@
     "name": "Golden Troupe",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ES": 0.2
           }
         }
       },
       "4": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ES": 0.5
           }
         }
@@ -356,8 +356,8 @@
     "name": "Song of Days Past",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_HB": 0.15
           }
         }
@@ -368,8 +368,8 @@
     "name": "Nighttime Whispers in the Echoing Woods",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ATK": 0.18
           }
         }
@@ -380,8 +380,8 @@
     "name": "Fragment of Harmonic Whimsy",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ATK": 0.18
           }
         }
@@ -392,8 +392,8 @@
     "name": "Unfinished Reverie",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ATK": 0.18
           }
         }
@@ -407,8 +407,8 @@
     "name": "Obsidian Codex",
     "setBonus": {
       "4": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_CR": 0.4
           }
         }
@@ -419,8 +419,8 @@
     "name": "Long Night's Oath",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_PA": 0.25
           }
         }
@@ -431,8 +431,8 @@
     "name": "Finale of the Deep Galleries",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_CRYO": 0.15
           }
         }
@@ -443,8 +443,8 @@
     "name": "Night of the Sky's Unveiling",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "FLAT_EM": 80
           }
         }
@@ -455,8 +455,8 @@
     "name": "Silken Moon's Serenade",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ER": 0.2
           }
         }
@@ -467,8 +467,8 @@
     "name": "Aubade of Morningstar and Moon",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "FLAT_EM": 80
           }
         }
@@ -479,8 +479,8 @@
     "name": "A Day Carved From Rising Winds",
     "setBonus": {
       "2": {
-        "menuBuffs": {
-          "fixed": {
+        "stats": {
+          "constant": {
             "PERCENT_ATK": 0.18
           }
         }

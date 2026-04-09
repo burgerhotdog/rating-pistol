@@ -4,43 +4,39 @@
     "quality": "",
     "element": "",
     "type": "",
-    "fixedStats": {
-      "BASE_STAT": 0,
-      "PERCENT_STAT": 0.000,
-      "FLAT_STAT": 0
-    },
-    "variableStats": {
-      "PERCENT_STAT": {
-        "source": [
-          "STAT",
-          0
-        ],
-        "offset": 0,
-        "value": 0.000,
-        "max": 0
-      }
-    },
-    "conditionalStats": {
-      "PERCENT_STAT": {
-        "condition": {},
-        "value": 0.000
+    "stats": {
+      "constant": {
+        "BASE_STAT": 0,
+        "PERCENT_STAT": 0.000,
+        "FLAT_STAT": 0
+      },
+      "variableStats": {
+        "PERCENT_STAT": {
+          "source": [
+            "STAT",
+            0
+          ],
+          "offset": 0,
+          "value": 0.000,
+          "max": 0
+        }
       }
     },
     "buffs": {
       "self": {
-        "fixedStats": {
+        "constant": {
           "PERCENT_STAT": 0.000,
           "FLAT_STAT": 0
         }
       },
       "ally": {
-        "fixedStats": {
+        "constant": {
           "PERCENT_STAT": 0.000,
           "FLAT_STAT": 0
         }
       },
       "team": {
-        "fixedStats": {
+        "constant": {
           "PERCENT_STAT": 0.000,
           "FLAT_STAT": 0
         }
@@ -70,10 +66,12 @@
     "name": "",
     "quality": "",
     "type": "",
-    "fixedStats": {
-      "BASE_STAT": 0,
-      "PERCENT_STAT": 0.000,
-      "FLAT_STAT": 0
+    "stats": {
+      "constant": {
+        "BASE_STAT": 0,
+        "PERCENT_STAT": 0.000,
+        "FLAT_STAT": 0
+      }
     },
     "buffs": {
       "self": {
@@ -112,7 +110,7 @@
   },
   "setId": {
     "name": "",
-    "fixedStats": {
+    "constantStats": {
       "BASE_STAT": 0,
       "PERCENT_STAT": 0.000,
       "FLAT_STAT": 0

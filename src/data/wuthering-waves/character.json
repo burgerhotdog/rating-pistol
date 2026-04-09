@@ -4,12 +4,21 @@
     "quality": "4",
     "element": "Glacio",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 10062.5,
-      "BASE_ATK": 275.0,
-      "BASE_DEF": 941.1094,
-      "PERCENT_GLACIO": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10062.5,
+        "BASE_ATK": 275.0,
+        "BASE_DEF": 941.1094,
+        "PERCENT_GLACIO": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
+    },
+    "buffs": {
+      "ally": {
+        "constantStats": {
+          "AMP_BA": 0.38
+        }
+      }
     }
   },
   "1103": {
@@ -17,12 +26,14 @@
     "quality": "4",
     "element": "Glacio",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 12812.5,
-      "BASE_ATK": 212.5,
-      "BASE_DEF": 1002.2204,
-      "PERCENT_OHB": 0.12000000000000002,
-      "PERCENT_HP": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 12812.5,
+        "BASE_ATK": 212.5,
+        "BASE_DEF": 1002.2204,
+        "PERCENT_OHB": 0.12000000000000002,
+        "PERCENT_HP": 0.12000000000000002
+      }
     }
   },
   "1104": {
@@ -30,12 +41,14 @@
     "quality": "5",
     "element": "Glacio",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 10387.5,
-      "BASE_ATK": 437.5,
-      "BASE_DEF": 1209.9978,
-      "PERCENT_GLACIO": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10387.5,
+        "BASE_ATK": 437.5,
+        "BASE_DEF": 1209.9978,
+        "PERCENT_GLACIO": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1202": {
@@ -43,12 +56,14 @@
     "quality": "4",
     "element": "Fusion",
     "type": "Pistols",
-    "fixedStats": {
-      "BASE_HP": 9087.5,
-      "BASE_ATK": 300.0,
-      "BASE_DEF": 953.3316,
-      "PERCENT_FIRE": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 9087.5,
+        "BASE_ATK": 300.0,
+        "BASE_DEF": 953.3316,
+        "PERCENT_FIRE": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1203": {
@@ -56,12 +71,14 @@
     "quality": "5",
     "element": "Fusion",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 10512.5,
-      "BASE_ATK": 425.0,
-      "BASE_DEF": 1246.6644,
-      "PERCENT_FIRE": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10512.5,
+        "BASE_ATK": 425.0,
+        "BASE_DEF": 1246.6644,
+        "PERCENT_FIRE": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1204": {
@@ -69,12 +86,14 @@
     "quality": "4",
     "element": "Fusion",
     "type": "Pistols",
-    "fixedStats": {
-      "BASE_HP": 10025.0,
-      "BASE_ATK": 250.0,
-      "BASE_DEF": 1136.6646,
-      "PERCENT_FIRE": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10025.0,
+        "BASE_ATK": 250.0,
+        "BASE_DEF": 1136.6646,
+        "PERCENT_FIRE": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1301": {
@@ -82,12 +101,14 @@
     "quality": "5",
     "element": "Electro",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 10500.0,
-      "BASE_ATK": 437.5,
-      "BASE_DEF": 1185.5534,
-      "PERCENT_CD": 0.15999999999999998,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10500.0,
+        "BASE_ATK": 437.5,
+        "BASE_DEF": 1185.5534,
+        "PERCENT_CD": 0.15999999999999998,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1302": {
@@ -95,16 +116,18 @@
     "quality": "5",
     "element": "Electro",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 11000.0,
-      "BASE_ATK": 400.0,
-      "BASE_DEF": 1283.331,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 11000.0,
+        "BASE_ATK": 400.0,
+        "BASE_DEF": 1283.331,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_RL": 0.25,
           "AMP_ELECTRO": 0.20
         }
@@ -133,12 +156,14 @@
     "quality": "4",
     "element": "Electro",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 8525.0,
-      "BASE_ATK": 225.0,
-      "BASE_DEF": 1637.7748,
-      "PERCENT_ICE": 0.12000000000000002,
-      "PERCENT_DEF": 0.152
+    "stats": {
+      "constant": {
+        "BASE_HP": 8525.0,
+        "BASE_ATK": 225.0,
+        "BASE_DEF": 1637.7748,
+        "PERCENT_ICE": 0.12000000000000002,
+        "PERCENT_DEF": 0.152
+      }
     }
   },
   "1402": {
@@ -146,12 +171,14 @@
     "quality": "4",
     "element": "Aero",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 10200.0,
-      "BASE_ATK": 250.0,
-      "BASE_DEF": 1099.998,
-      "PERCENT_AERO": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10200.0,
+        "BASE_ATK": 250.0,
+        "BASE_DEF": 1099.998,
+        "PERCENT_AERO": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1403": {
@@ -159,12 +186,14 @@
     "quality": "4",
     "element": "Aero",
     "type": "Pistols",
-    "fixedStats": {
-      "BASE_HP": 9850.0,
-      "BASE_ATK": 262.5,
-      "BASE_DEF": 1075.5536,
-      "PERCENT_AERO": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 9850.0,
+        "BASE_ATK": 262.5,
+        "BASE_DEF": 1075.5536,
+        "PERCENT_AERO": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1404": {
@@ -172,12 +201,14 @@
     "quality": "5",
     "element": "Aero",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 10487.5,
-      "BASE_ATK": 437.5,
-      "BASE_DEF": 1185.5534,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10487.5,
+        "BASE_ATK": 437.5,
+        "BASE_DEF": 1185.5534,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -202,16 +233,18 @@
     "quality": "5",
     "element": "Aero",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 14112.5,
-      "BASE_ATK": 337.5,
-      "BASE_DEF": 1124.4424,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 14112.5,
+        "BASE_ATK": 337.5,
+        "BASE_DEF": 1124.4424,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_RL": 0.38
         }
       }
@@ -222,16 +255,18 @@
     "quality": "5",
     "element": "Spectro",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 14237.5,
-      "BASE_ATK": 337.5,
-      "BASE_DEF": 1099.998,
-      "PERCENT_OHB": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 14237.5,
+        "BASE_ATK": 337.5,
+        "BASE_DEF": 1099.998,
+        "PERCENT_OHB": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "team": {
-        "fixedStats": {
+        "constantStats": {
           "PERCENT_ATK": 0.2,
           "AMP_ALL": 0.15
         }
@@ -243,12 +278,14 @@
     "quality": "4",
     "element": "Havoc",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 8950.0,
-      "BASE_ATK": 225.0,
-      "BASE_DEF": 1564.4416,
-      "PERCENT_HAVOC": 0.12000000000000002,
-      "PERCENT_DEF": 0.152
+    "stats": {
+      "constant": {
+        "BASE_HP": 8950.0,
+        "BASE_ATK": 225.0,
+        "BASE_DEF": 1564.4416,
+        "PERCENT_HAVOC": 0.12000000000000002,
+        "PERCENT_DEF": 0.152
+      }
     }
   },
   "1602": {
@@ -256,12 +293,14 @@
     "quality": "4",
     "element": "Havoc",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 9437.5,
-      "BASE_ATK": 262.5,
-      "BASE_DEF": 1148.8868,
-      "PERCENT_HAVOC": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 9437.5,
+        "BASE_ATK": 262.5,
+        "BASE_DEF": 1148.8868,
+        "PERCENT_HAVOC": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1205": {
@@ -269,16 +308,18 @@
     "quality": "5",
     "element": "Fusion",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 10387.5,
-      "BASE_ATK": 462.5,
-      "BASE_DEF": 1099.998,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10387.5,
+        "BASE_ATK": 462.5,
+        "BASE_DEF": 1099.998,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_RL": 0.25,
           "AMP_FUSION": 0.20
         }
@@ -307,12 +348,14 @@
     "quality": "5",
     "element": "Spectro",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 10825.0,
-      "BASE_ATK": 412.5,
-      "BASE_DEF": 1258.8866,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10825.0,
+        "BASE_ATK": 412.5,
+        "BASE_DEF": 1258.8866,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -337,16 +380,18 @@
     "quality": "5",
     "element": "Glacio",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 12250.0,
-      "BASE_ATK": 375.0,
-      "BASE_DEF": 1197.7756,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 12250.0,
+        "BASE_ATK": 375.0,
+        "BASE_DEF": 1197.7756,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_RS": 0.25,
           "AMP_GLACIO": 0.20
         }
@@ -375,12 +420,14 @@
     "quality": "5",
     "element": "Electro",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 10625.0,
-      "BASE_ATK": 425.0,
-      "BASE_DEF": 1222.22,
-      "PERCENT_CD": 0.15999999999999998,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10625.0,
+        "BASE_ATK": 425.0,
+        "BASE_DEF": 1222.22,
+        "PERCENT_CD": 0.15999999999999998,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -405,12 +452,14 @@
     "quality": "4",
     "element": "Glacio",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 9975.0,
-      "BASE_ATK": 262.5,
-      "BASE_DEF": 1051.1092,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 9975.0,
+        "BASE_ATK": 262.5,
+        "BASE_DEF": 1051.1092,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1505": {
@@ -418,16 +467,18 @@
     "quality": "5",
     "element": "Spectro",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 16712.5,
-      "BASE_ATK": 287.5,
-      "BASE_DEF": 1099.998,
-      "PERCENT_OHB": 0.12000000000000002,
-      "PERCENT_HP": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 16712.5,
+        "BASE_ATK": 287.5,
+        "BASE_DEF": 1099.998,
+        "PERCENT_OHB": 0.12000000000000002,
+        "PERCENT_HP": 0.12000000000000002
+      }
     },
     "buffs": {
       "team": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_ALL": 0.15,
           "PERCENT_CR": 0.125,
           "PERCENT_CD": 0.25
@@ -440,16 +491,18 @@
     "quality": "4",
     "element": "Electro",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 8500.0,
-      "BASE_ATK": 337.5,
-      "BASE_DEF": 879.9984,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 8500.0,
+        "BASE_ATK": 337.5,
+        "BASE_DEF": 879.9984,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_RL": 0.38
         }
       }
@@ -460,12 +513,14 @@
     "quality": "5",
     "element": "Havoc",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 10325.0,
-      "BASE_ATK": 450.0,
-      "BASE_DEF": 1161.109,
-      "PERCENT_CD": 0.15999999999999998,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10325.0,
+        "BASE_ATK": 450.0,
+        "BASE_DEF": 1161.109,
+        "PERCENT_CD": 0.15999999999999998,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -490,12 +545,14 @@
     "quality": "5",
     "element": "Glacio",
     "type": "Pistols",
-    "fixedStats": {
-      "BASE_HP": 12450.0,
-      "BASE_ATK": 462.5,
-      "BASE_DEF": 1197.7756,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 12450.0,
+        "BASE_ATK": 462.5,
+        "BASE_DEF": 1197.7756,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -520,16 +577,18 @@
     "quality": "5",
     "element": "Havoc",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 12250.0,
-      "BASE_ATK": 375.0,
-      "BASE_DEF": 1197.7756,
-      "PERCENT_CD": 0.15999999999999998,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 12250.0,
+        "BASE_ATK": 375.0,
+        "BASE_DEF": 1197.7756,
+        "PERCENT_CD": 0.15999999999999998,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_BA": 0.25,
           "AMP_HAVOC": 0.20
         }
@@ -558,16 +617,18 @@
     "quality": "5",
     "element": "Fusion",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 11675.0,
-      "BASE_ATK": 375.0,
-      "BASE_DEF": 1307.7754,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 11675.0,
+        "BASE_ATK": 375.0,
+        "BASE_DEF": 1307.7754,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_RS": 0.25,
           "AMP_FUSION": 0.20
         }
@@ -596,16 +657,18 @@
     "quality": "5",
     "element": "Spectro",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 10825.0,
-      "BASE_ATK": 412.5,
-      "BASE_DEF": 1258.8866,
-      "PERCENT_CD": 0.15999999999999998,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10825.0,
+        "BASE_ATK": 412.5,
+        "BASE_DEF": 1258.8866,
+        "PERCENT_CD": 0.15999999999999998,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_FRAZZLE": 1,
           "SHRED_SPECTRO": 0.1
         }
@@ -634,16 +697,18 @@
     "quality": "5",
     "element": "Havoc",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 11600.0,
-      "BASE_ATK": 400.0,
-      "BASE_DEF": 1099.998,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 11600.0,
+        "BASE_ATK": 400.0,
+        "BASE_DEF": 1099.998,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_RS": 0.25,
           "AMP_HAVOC": 0.2
         }
@@ -672,16 +737,18 @@
     "quality": "5",
     "element": "Aero",
     "type": "Pistols",
-    "fixedStats": {
-      "BASE_HP": 12237.5,
-      "BASE_ATK": 375.0,
-      "BASE_DEF": 1197.7756,
-      "PERCENT_CD": 0.15999999999999998,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 12237.5,
+        "BASE_ATK": 375.0,
+        "BASE_DEF": 1197.7756,
+        "PERCENT_CD": 0.15999999999999998,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_EROSION": 1
         }
       }
@@ -709,12 +776,14 @@
     "quality": "5",
     "element": "Spectro",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 10775.0,
-      "BASE_ATK": 437.5,
-      "BASE_DEF": 1136.6646,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10775.0,
+        "BASE_ATK": 437.5,
+        "BASE_DEF": 1136.6646,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -740,12 +809,14 @@
     "quality": "5",
     "element": "Fusion",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 11912.5,
-      "BASE_ATK": 387.5,
-      "BASE_DEF": 1185.5534,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 11912.5,
+        "BASE_ATK": 387.5,
+        "BASE_DEF": 1185.5534,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -770,12 +841,14 @@
     "quality": "5",
     "element": "Aero",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 14800.0,
-      "BASE_ATK": 312.5,
-      "BASE_DEF": 611.11,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_HP": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 14800.0,
+        "BASE_ATK": 312.5,
+        "BASE_DEF": 611.11,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_HP": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -801,12 +874,14 @@
     "quality": "5",
     "element": "Havoc",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 10775.0,
-      "BASE_ATK": 437.5,
-      "BASE_DEF": 1136.6646,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10775.0,
+        "BASE_ATK": 437.5,
+        "BASE_DEF": 1136.6646,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -828,12 +903,14 @@
     "quality": "5",
     "element": "Electro",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 10300.0,
-      "BASE_ATK": 462.5,
-      "BASE_DEF": 1112.2202,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10300.0,
+        "BASE_ATK": 462.5,
+        "BASE_DEF": 1112.2202,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -858,16 +935,18 @@
     "quality": "5",
     "element": "Aero",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 10525.0,
-      "BASE_ATK": 450.0,
-      "BASE_DEF": 1124.4424,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10525.0,
+        "BASE_ATK": 450.0,
+        "BASE_DEF": 1124.4424,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_HA": 0.5
         }
       }
@@ -895,12 +974,14 @@
     "quality": "5",
     "element": "Fusion",
     "type": "Pistols",
-    "fixedStats": {
-      "BASE_HP": 10300.0,
-      "BASE_ATK": 462.5,
-      "BASE_DEF": 1112.2202,
-      "PERCENT_CD": 0.15999999999999998,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10300.0,
+        "BASE_ATK": 462.5,
+        "BASE_DEF": 1112.2202,
+        "PERCENT_CD": 0.15999999999999998,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1411": {
@@ -908,16 +989,18 @@
     "quality": "5",
     "element": "Aero",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 12237.5,
-      "BASE_ATK": 375.0,
-      "BASE_DEF": 1197.7756,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 12237.5,
+        "BASE_ATK": 375.0,
+        "BASE_DEF": 1197.7756,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "buffs": {
       "ally": {
-        "fixedStats": {
+        "constantStats": {
           "AMP_ES": 0.5
         }
       }
@@ -945,12 +1028,14 @@
     "quality": "4",
     "element": "Electro",
     "type": "Rectifier",
-    "fixedStats": {
-      "BASE_HP": 10625.0,
-      "BASE_ATK": 225.0,
-      "BASE_DEF": 1258.8866,
-      "PERCENT_OHB": 0.12000000000000002,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10625.0,
+        "BASE_ATK": 225.0,
+        "BASE_DEF": 1258.8866,
+        "PERCENT_OHB": 0.12000000000000002,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     }
   },
   "1508": {
@@ -958,12 +1043,14 @@
     "quality": "5",
     "element": "Havoc",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 10775.0,
-      "BASE_ATK": 437.5,
-      "BASE_DEF": 1136.6646,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10775.0,
+        "BASE_ATK": 437.5,
+        "BASE_DEF": 1136.6646,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -988,12 +1075,14 @@
     "quality": "5",
     "element": "Fusion",
     "type": "Broadblade",
-    "fixedStats": {
-      "BASE_HP": 15375.0,
-      "BASE_ATK": 287.5,
-      "BASE_DEF": 1356.6642,
-      "PERCENT_OHB": 0.12000000000000002,
-      "PERCENT_DEF": 0.152
+    "stats": {
+      "constant": {
+        "BASE_HP": 15375.0,
+        "BASE_ATK": 287.5,
+        "BASE_DEF": 1356.6642,
+        "PERCENT_OHB": 0.12000000000000002,
+        "PERCENT_DEF": 0.152
+      }
     }
   },
   "1509": {
@@ -1001,12 +1090,14 @@
     "quality": "5",
     "element": "Spectro",
     "type": "Pistols",
-    "fixedStats": {
-      "BASE_HP": 12237.5,
-      "BASE_ATK": 375.0,
-      "BASE_DEF": 1197.7756,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 12237.5,
+        "BASE_ATK": 375.0,
+        "BASE_DEF": 1197.7756,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -1031,12 +1122,14 @@
     "quality": "5",
     "element": "Fusion",
     "type": "Sword",
-    "fixedStats": {
-      "BASE_HP": 11025.0,
-      "BASE_ATK": 425.0,
-      "BASE_DEF": 1148.8868,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 11025.0,
+        "BASE_ATK": 425.0,
+        "BASE_DEF": 1148.8868,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {
@@ -1061,12 +1154,14 @@
     "quality": "5",
     "element": "Spectro",
     "type": "Gauntlets",
-    "fixedStats": {
-      "BASE_HP": 10300.0,
-      "BASE_ATK": 462.5,
-      "BASE_DEF": 1112.2202,
-      "PERCENT_CR": 0.07999999999999999,
-      "PERCENT_ATK": 0.12000000000000002
+    "stats": {
+      "constant": {
+        "BASE_HP": 10300.0,
+        "BASE_ATK": 462.5,
+        "BASE_DEF": 1112.2202,
+        "PERCENT_CR": 0.07999999999999999,
+        "PERCENT_ATK": 0.12000000000000002
+      }
     },
     "criteria": [
       {

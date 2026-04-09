@@ -1,6 +1,5 @@
 import { mergeEquipList, computeTotalStat, compileStatMap } from "@/utils";
-import { findBenchmarkWeek, getAverageScores } from "./helpers";
-import { findRelativeError } from "./helpers";
+import { findBenchmarkWeek, getAverageScores, findRelativeError } from "./helpers";
 import { createTrial } from "./createTrial";
 import { advanceTrial } from "./advanceTrial";
 import { advanceTrialWuwa } from "./advanceTrialWuwa";
