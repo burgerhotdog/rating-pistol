@@ -1,7 +1,7 @@
 import { Card, Box, Paper, Typography } from '@mui/material';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip } from 'recharts';
 import { CHARACTERS, STATS } from '@/data';
-import { buildSourceMapList, computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
+import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
 
 export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading }) => {
   const criteria = CHARACTERS[gameId][characterId]?.criteria;

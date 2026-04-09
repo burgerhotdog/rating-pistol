@@ -325,7 +325,7 @@
         }
       },
       "4": {
-        "combatBuffs": {
+        "buffs": {
           "fixed": {
             "PERCENT_CR": 0.36
           }

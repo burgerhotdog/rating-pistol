@@ -47,10 +47,10 @@ export function getFixedSetBuffs(gameId, equipList) {
 
       return Object.entries(setBonus)
         .filter(([numPiecesToActivate]) => activePieces >= Number(numPiecesToActivate))
-        .reduce((acc, [, { combatBuffs }]) => {
-          if (!combatBuffs) return acc;
+        .reduce((acc, [, { buffs }]) => {
+          if (!buffs) return acc;
 
-          const { fixed } = combatBuffs;
+          const { fixed } = buffs;
           if (!fixed) return acc;
 
           const statsList = Object.entries(fixed);
@@ -120,10 +120,10 @@ export function getVariableSetBuffs(gameId, equipList, statMap) {
 
       return Object.entries(setBonus)
         .filter(([numPiecesToActivate]) => activePieces >= Number(numPiecesToActivate))
-        .reduce((acc, [, { combatBuffs }]) => {
-          if (!combatBuffs) return acc;
+        .reduce((acc, [, { buffs }]) => {
+          if (!buffs) return acc;
 
-          const { variable } = combatBuffs;
+          const { variable } = buffs;
           if (!variable) return acc;
 
           const statsList = Object.entries(variable);

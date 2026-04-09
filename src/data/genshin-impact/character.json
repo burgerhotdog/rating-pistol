@@ -24,7 +24,7 @@
       "BASE_EM": 0,
       "FLAT_EM": 96
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "SHRED_DEF": 0.15
@@ -44,7 +44,7 @@
       "BASE_EM": 0,
       "PERCENT_HP": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "PERCENT_HYDRO": 0.15
@@ -77,7 +77,7 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_PYRO": 0.2
@@ -134,7 +134,7 @@
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_ATK": 0.15
@@ -172,7 +172,7 @@
       "BASE_EM": 0,
       "FLAT_EM": 96
     },
-    "combatBuffs": {
+    "buffs": {
       "ally": {
         "fixedStats": {
           "PERCENT_ATK": 0.1
@@ -216,7 +216,7 @@
       "BASE_EM": 0,
       "PERCENT_ELECTRO": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "SHRED_ELECTRO": 0.15
@@ -254,7 +254,7 @@
       "PERCENT_ATK": 0.24,
       "PERCENT_HYDRO": 0.2
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_ES": 0.5
@@ -296,7 +296,7 @@
       "BASE_EM": 0,
       "PERCENT_GEO": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "PERCENT_GEO": 0.12
@@ -333,7 +333,7 @@
       "BASE_EM": 0,
       "PERCENT_PYRO": 0.288
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_CA": 0.5,
@@ -371,7 +371,7 @@
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "PERCENT_ATK": 0.225,
@@ -409,7 +409,7 @@
       "BASE_EM": 0,
       "PERCENT_ER": 0.2667
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "FLAT_ATK": 1202.35,
@@ -430,7 +430,7 @@
       "BASE_EM": 0,
       "PERCENT_DEF": 0.3
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_CA": 0.15
@@ -489,7 +489,7 @@
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "SHRED_CRYO": 0.1
@@ -518,7 +518,7 @@
         "value": 0.2
       }
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "PERCENT_ALL": 0.6,
@@ -539,7 +539,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_CR": 0.15,
@@ -577,7 +577,7 @@
       "BASE_EM": 0,
       "PERCENT_ANEMO": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "FLAT_EM": 250,
@@ -598,7 +598,7 @@
       "BASE_EM": 0,
       "PERCENT_GEO": 0.288
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "variableStats": {
           "ADD_NA": {
@@ -687,7 +687,7 @@
       "BASE_EM": 0,
       "PERCENT_CRYO": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "FLAT_EM": 200
@@ -707,7 +707,7 @@
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "variableStats": {
           "ADD_CA": {
@@ -739,7 +739,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_CR": 0.2
@@ -781,7 +781,7 @@
       "BASE_EM": 0,
       "PERCENT_GEO": 0.288
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "FLAT_EM": 125
@@ -828,7 +828,7 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_ALL": 0.25,
@@ -870,7 +870,7 @@
       "PERCENT_CD": 0.384,
       "PERCENT_PYRO": 0.33
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "variableStats": {
           "FLAT_ATK": {
@@ -915,7 +915,7 @@
       "BASE_EM": 0,
       "PERCENT_ATK": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_CR": 0.12,
@@ -946,7 +946,7 @@
       "BASE_EM": 0,
       "PERCENT_PYRO": 0.24
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_PYRO": 0.2
@@ -966,7 +966,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "SHRED_PHYSICAL": 0.25,
@@ -1004,7 +1004,7 @@
       "BASE_EM": 0,
       "FLAT_EM": 115.2
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "PERCENT_HYDRO": 0.4,
@@ -1027,7 +1027,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "PERCENT_NA": 0.3,
@@ -1066,7 +1066,7 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_NA": 0.6174,
@@ -1132,7 +1132,7 @@
         "value": 0.004
       }
     },
-    "combatBuffs": {
+    "buffs": {
       "team": {
         "fixedStats": {
           "PERCENT_EB": 0.27
@@ -1171,7 +1171,7 @@
       "PERCENT_HB": 0.25,
       "PERCENT_CR": -1
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "variableStats": {
           "ADD_NA": {
@@ -1569,7 +1569,7 @@
       "BASE_EM": 0,
       "FLAT_EM": 115.2
     },
-    "combatBuffs": {
+    "buffs": {
       "ally": {
         "fixedStats": {
           "FLAT_EM": 250
@@ -1619,7 +1619,7 @@
       "BASE_EM": 0,
       "PERCENT_CR": 0.192
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_NA": 0.5372,
@@ -1870,7 +1870,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_NA": 0.7031
@@ -1907,7 +1907,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_CA": 0.6
@@ -1968,7 +1968,7 @@
         "max": 0.28
       }
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_ES": 0.4
@@ -2023,7 +2023,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_ES": 0.45
@@ -2478,7 +2478,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "fixedStats": {
           "RAW_NA": 0.7,
@@ -2591,7 +2591,7 @@
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
     },
-    "combatBuffs": {
+    "buffs": {
       "self": {
         "variableStats": {
           "RAW_EB": {

@@ -1,5 +1,5 @@
 import { RATING, CHARACTERS, WEAPONS } from "@/data";
-import { buildSourceMapList, mergeStatMaps, computeTotalStat, compileStatMap } from "@/utils";
+import { mergeStatMaps, computeTotalStat, compileStatMap } from "@/utils";
 
 export function computeDamage2(gameId, characterId, build, criteria, team) {
   const { computeBase, computeBonuses, computeReductions } = RATING[gameId];

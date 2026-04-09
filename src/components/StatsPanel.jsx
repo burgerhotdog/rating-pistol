@@ -1,6 +1,6 @@
 import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { STATS, CHARACTERS, WEAPONS } from '@/data';
-import { buildSourceMapList, computeTotalStat, mergeEquipList, mergeStatMaps, compileStatMap } from '@/utils';
+import { computeTotalStat, mergeEquipList, mergeStatMaps, compileStatMap } from '@/utils';
 import { useBuild } from "@/contexts";
 
 export const StatsPanel = ({ gameId, characterId }) => {

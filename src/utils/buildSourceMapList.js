@@ -1,7 +1,7 @@
 import { CHARACTERS, WEAPONS, STATS } from '@/data';
 import { mergeEquipList, getFixedSetBuffs } from '@/utils';
 
-export function buildSourceMapList(gameId, charId, build, combatBuffs = {}) {
+export function buildSourceMapList(gameId, charId, build, buffs = {}) {
   const { fixedMenuSetBuffs: setEffects } = getFixedSetBuffs(gameId, build.equipList);
   return [
     STATS[gameId].DEFAULT_STATS,
@@ -9,6 +9,6 @@ export function buildSourceMapList(gameId, charId, build, combatBuffs = {}) {
     WEAPONS[gameId][build.weaponId].fixedStats ?? {},
     mergeEquipList(build.equipList),
     setEffects,
-    ...(Object.keys(combatBuffs).length ? [combatBuffs] : []),
+    ...(Object.keys(buffs).length ? [buffs] : []),
   ];
 }
