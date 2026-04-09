@@ -181,7 +181,7 @@
     "combatBuffs": {
       "ally": {
         "fixedStats": {
-          "PERCENT_ATK": 0.10
+          "PERCENT_ATK": 0.1
         }
       },
       "team": {
@@ -2651,6 +2651,19 @@
       "BASE_DEF": 795.45377295,
       "BASE_EM": 0,
       "PERCENT_CD": 0.384
+    }
+  },
+  "10000130": {
+    "name": "Linnea",
+    "quality": "5",
+    "element": "Geo",
+    "type": "Bow",
+    "fixedStats": {
+      "BASE_HP": 9894.69552967,
+      "BASE_ATK": 143.50702800000002,
+      "BASE_DEF": 906.8941566000001,
+      "BASE_EM": 0,
+      "PERCENT_CR": 0.192
     }
   }
 }

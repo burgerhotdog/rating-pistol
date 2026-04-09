@@ -754,5 +754,32 @@
       "BASE_ATK": 713.1428571428571,
       "PERCENT_AM": 0.3
     }
+  },
+  "13020": {
+    "name": "The Simmering Pot",
+    "quality": "4",
+    "type": "Stun",
+    "fixedStats": {
+      "BASE_ATK": 594.2857142857143,
+      "PERCENT_IMPACT": 0.15
+    }
+  },
+  "14151": {
+    "name": "Neon Fantasies",
+    "quality": "5",
+    "type": "Stun",
+    "fixedStats": {
+      "BASE_ATK": 713.1428571428571,
+      "PERCENT_AM": 0.3
+    }
+  },
+  "14152": {
+    "name": "Serpentine Seeker",
+    "quality": "5",
+    "type": "Attack",
+    "fixedStats": {
+      "BASE_ATK": 713.1428571428571,
+      "PERCENT_ER": 0.6
+    }
   }
 }

@@ -718,5 +718,34 @@
       "BASE_AM": 151,
       "BASE_AP": 116
     }
+  },
+  "1511": {
+    "name": "Nangong Yu",
+    "quality": "5",
+    "element": "Ether",
+    "type": "Stun",
+    "fixedStats": {
+      "BASE_HP": 8373.865399999999,
+      "BASE_ATK": 746.5024000000001,
+      "BASE_DEF": 622.6159,
+      "BASE_IMPACT": 120,
+      "BASE_AM": 126,
+      "BASE_AP": 93
+    }
+  },
+  "1521": {
+    "name": "Cissia",
+    "quality": "5",
+    "element": "Electric",
+    "type": "Attack",
+    "fixedStats": {
+      "BASE_HP": 7673.7042,
+      "BASE_ATK": 938.2102,
+      "BASE_DEF": 606.5977,
+      "BASE_IMPACT": 93,
+      "BASE_AM": 94,
+      "BASE_AP": 93,
+      "BASE_ER": 0.36
+    }
   }
 }

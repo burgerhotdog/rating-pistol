@@ -269,6 +269,15 @@ GAME_INFO = [
                     "WEAPON_BOW": "Bow",
                 },
             },
+            "weapon": {
+                "type": {
+                    "WEAPON_SWORD_ONE_HAND": "Sword",
+                    "WEAPON_CLAYMORE": "Claymore",
+                    "WEAPON_POLE": "Polearm",
+                    "WEAPON_CATALYST": "Catalyst",
+                    "WEAPON_BOW": "Bow",
+                },
+            },
         },
     },
     {
