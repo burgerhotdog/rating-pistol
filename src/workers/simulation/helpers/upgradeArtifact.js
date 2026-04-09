@@ -1,5 +1,5 @@
 import { STATS } from '@/data';
-import { weightedLottery } from '@/utils';
+import { weightedLottery } from './weightedLottery';
 
 const WW_ATKDEF = {
   FLAT_ATK: [30, 40, 50, 60],

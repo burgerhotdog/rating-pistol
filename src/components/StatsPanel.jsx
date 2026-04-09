@@ -1,16 +1,15 @@
 import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { STATS, CHARACTERS, WEAPONS } from '@/data';
-import { buildSourceMapList, computeTotalStat, mergeEquipList, mergeStatMaps } from '@/utils';
-import { useCurrent } from '@/hooks';
+import { buildSourceMapList, computeTotalStat, mergeEquipList, mergeStatMaps, compileStatMap } from '@/utils';
+import { useBuild } from "@/contexts";
 
-export const StatsPanel = () => {
-  const { gameId, characterId, build } = useCurrent();
+export const StatsPanel = ({ gameId, characterId }) => {
+  const build = useBuild(gameId, characterId);
   const { MENU_STATS } = STATS[gameId];
   const { name: CHAR_NAME = '' } = CHARACTERS[gameId][characterId] ?? {};
   const { name: WEAP_NAME = '' } = WEAPONS[gameId][build?.weaponId] ?? {};
 
-  const sourceMapList = build ? buildSourceMapList(gameId, characterId, build) : [];
-  const mergedSourceMapList = mergeStatMaps(...sourceMapList);
+  const statMap = build ? compileStatMap(gameId, characterId, build, [], "menu") : {};
 
   return (
     <Card sx={{ width: 300 }}>
@@ -24,7 +23,7 @@ export const StatsPanel = () => {
 
           <Stack gap={1.5} sx={{ flex: 1 }}>
             {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
-              const totalValue = computeTotalStat(id, mergedSourceMapList);
+              const totalValue = computeTotalStat(id, statMap);
               const displayValue = isPercent ? totalValue * 100 : totalValue;
               const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;
               if (id !== 'EM' && displayValue === 0) return;

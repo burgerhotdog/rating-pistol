@@ -1,12 +1,12 @@
 import { Card, Paper, Typography } from '@mui/material';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 
-export const CustomLineChart = ({ weeklyRatings, rating, isLoading }) => {
-  if (isLoading || !weeklyRatings) return null;
+export const CustomLineChart = ({ weeklyScores, rating, isLoading }) => {
+  if (isLoading || !weeklyScores) return null;
 
-  const benchmarkRating = weeklyRatings[weeklyRatings.length - 1];
+  const benchmarkRating = weeklyScores[weeklyScores.length - 1];
 
-  const data = weeklyRatings.map((rat, index) => ({ week: index, rating: rat / benchmarkRating * 100 }));
+  const data = weeklyScores.map((rat, index) => ({ week: index, rating: rat / benchmarkRating * 100 }));
   const scaledBuildRating = rating / benchmarkRating * 100;
 
   return (

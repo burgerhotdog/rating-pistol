@@ -1,7 +1,7 @@
 import { computeTotalStat } from "@/utils";
 
-const CHARACTER_LEVEL = 90;
-const ENEMY_LEVEL = 100;
+const CHARACTER_LEVEL = 60;
+const ENEMY_LEVEL = 70;
 const BASE_RES = 0.1;
 
 export function computeBase(statMap, criteria) {

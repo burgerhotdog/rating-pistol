@@ -26,7 +26,7 @@
         "value": 0.000
       }
     },
-    "buffs": {
+    "combatBuffs": {
       "self": {
         "fixedStats": {
           "PERCENT_STAT": 0.000,
@@ -75,7 +75,7 @@
       "PERCENT_STAT": 0.000,
       "FLAT_STAT": 0
     },
-    "buffs": {
+    "combatBuffs": {
       "self": {
         "BASE_STAT": 0,
         "PERCENT_STAT": 0.000,
@@ -117,7 +117,7 @@
       "PERCENT_STAT": 0.000,
       "FLAT_STAT": 0
     },
-    "buffs": {
+    "combatBuffs": {
       "self": {
         "PERCENT_STAT": 0.000,
         "FLAT_STAT": 0

@@ -1,17 +1,15 @@
 import { Card, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Paper } from '@mui/material';
 import { STATS, CHARACTERS } from '@/data';
-import { computeRating } from '@/utils';
-import { useCurrent } from "@/hooks";
+import { computeDamage } from '@/utils';
 
-export const CustomTable = ({ build, rating, buffs, isLoading }) => {
-  const { gameId, characterId } = useCurrent();
+export const CustomTable = ({ gameId, characterId, build, rating, team, isLoading }) => {
   const { SUB_STAT_TYPES } = STATS[gameId];
   const { criteria } = CHARACTERS[gameId][characterId];
   if (isLoading || !criteria || !build) return null;
 
   const newRatings = Object.entries(SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
-      const newRating = computeRating(gameId, characterId, build, criteria[0], { ...buffs, [id]: (buffs[id] ?? 0) + VALUE});
+      const newRating = computeDamage(gameId, characterId, { ...build, equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }] }, criteria[0], team);
       return {
         name: id,
         diff: newRating / rating * 100 - 100,

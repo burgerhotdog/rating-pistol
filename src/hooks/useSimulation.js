@@ -1,21 +1,36 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCurrent } from '@/hooks';
+import { useBuild } from "@/contexts";
+import { CHARACTERS, WEAPONS } from "@/data";
 
-export function useSimulation(criteriaIndex, buffs) {
-  const { gameId, characterId, build, criteria } = useCurrent();
+function validate(gameId, build, criteria) {
+  if (!build) return "Build not found";
+  const { weaponId } = build;
+  const weaponData = WEAPONS[gameId][weaponId];
+  if (!weaponData) return "Unrecognized Weapon";
+  if (weaponData.quality < 3) return "Invalid Weapon";
+  if (!criteria) return "Criteria not found";
+  return null;
+}
+
+export function useSimulation(gameId, characterId, criteriaIndex, team) {
+  const build = useBuild(gameId, characterId);
+  const criteria = CHARACTERS[gameId][characterId]?.criteria?.[criteriaIndex];
+  const [error, setError] = useState(null);
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({
-    weeklyRatings: null,
+    weeklyScores: null,
     finalStats: null,
     isLoading: false,
     completed: 0,
   });
   
   useEffect(() => {
-    if (!build || !criteria) {
+    const validationError = validate(gameId, build, criteria);
+    if (validationError) {
+      setError(validationError);
       setResult({
-        weeklyRatings: null,
+        weeklyScores: null,
         finalStats: null,
         isLoading: false,
         completed: 0,
@@ -50,7 +65,7 @@ export function useSimulation(criteriaIndex, buffs) {
         setResult(prev => ({
           ...prev,
           completed: data.completed,
-          weeklyRatings: data.weeklyRatings,
+          weeklyScores: data.weeklyScores,
           finalStats: data.finalStats,
           isLoading: false,
         }));
@@ -59,19 +74,20 @@ export function useSimulation(criteriaIndex, buffs) {
         if (workerRef.current === worker) workerRef.current = null;
       }
     };
+
     worker.postMessage({
       gameId,
       characterId,
       build,
-      criteria: criteria[criteriaIndex],
-      buffs,
+      criteria,
+      team,
     });
 
     return () => {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
     };
-  }, [gameId, characterId, build, criteria, criteriaIndex, buffs]);
+  }, [gameId, characterId, build, criteria, team]);
 
   return result;
 }

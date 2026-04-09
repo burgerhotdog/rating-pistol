@@ -1,50 +1,57 @@
-import { mergeEquipList, getSetCounts, getSetEffects } from "@/utils";
-import { findBenchmarkWeek, createRun, getAverageRatings, advanceRunOneWeek } from "./helpers";
+import { mergeEquipList, computeTotalStat, compileStatMap } from "@/utils";
+import { findBenchmarkWeek, getAverageScores } from "./helpers";
 import { findRelativeError } from "./helpers";
+import { createTrial } from "./createTrial";
+import { advanceTrial } from "./advanceTrial";
+import { advanceTrialWuwa } from "./advanceTrialWuwa";
 
-const MIN_RUNS = 100;
-const MAX_RUNS = 1000;
+const MIN_TRIALS = 100;
+const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
 
 self.onmessage = ({ data }) => {
-  const { gameId, characterId, build, criteria, buffs } = data;
-  const setCounts = getSetCounts(build.equipList);
-  const setEffects = getSetEffects(setCounts, gameId);
-  const buffsWithSet = [buffs, setEffects].reduce((acc, effectMap) => {
-    for (const [statId, statValue] of Object.entries(effectMap)) {
-      acc[statId] = (acc[statId] ?? 0) + statValue;
-    }
-    return acc;
-  }, {});
-
-  const runs = [];
+  const { gameId, characterId, build, criteria, team } = data;
+  const setIdList = build.equipList.map(equip => equip?.setId);
+  const matchTargets = (criteria.match ?? []).map(stat => {
+    return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, "menu"));
+  });
+  const trials = [];
   let lastBenchmarkWeek = null;
-  for (let i = 0; i < MIN_RUNS; i++) {
-    runs.push(createRun(gameId, characterId, build, criteria, buffsWithSet));
+
+  // Initialize first week
+  for (let i = 0; i < MIN_TRIALS; i++) {
+    trials.push(createTrial(matchTargets, gameId, characterId, build, criteria, team));
   }
 
-
   for (let week = 1; week <= MAX_WEEKS; week++) {
-    // advance all runs by one week
-    for (const run of runs) {
-      advanceRunOneWeek(run, gameId, characterId, build, criteria, buffsWithSet);
+    // advance all trials by one week
+    for (const trial of trials) {
+      if (gameId === "wuthering-waves") {
+        advanceTrialWuwa(trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+      } else {
+        advanceTrial(trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+      }
     }
 
-    // if relative error is too high add more runs
-    while (runs.length < MAX_RUNS) {
-      const values = runs.map(run => run.ratings[week]);
-      const relativeError = findRelativeError(values);
-      if (relativeError <= 0.005) break;
+    // if relative error is too high add more trials
+    while (trials.length < MAX_TRIALS) {
+      const values = trials.map(trial => trial.scores[week]);
+      if (findRelativeError(values) <= 0.005) break;
 
-      const run = createRun(gameId, characterId, build, criteria, buffsWithSet);
+      // add another trial
+      const trial = createTrial(matchTargets, gameId, characterId, build, criteria, team);
       for (let w = 1; w <= week; w++) {
-        advanceRunOneWeek(run, gameId, characterId, build, criteria, buffsWithSet);
+        if (gameId === "wuthering-waves") {
+          advanceTrialWuwa(trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+        } else {
+          advanceTrial(trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+        }
       }
-      runs.push(run);
+      trials.push(trial);
     }
   
-    let weeklyRatings = getAverageRatings(runs, week);
-    let benchmarkWeek = findBenchmarkWeek(weeklyRatings);
+    let weeklyScores = getAverageScores(trials, week);
+    let benchmarkWeek = findBenchmarkWeek(weeklyScores);
 
     if (benchmarkWeek !== -1 && benchmarkWeek <= week) {
       lastBenchmarkWeek = benchmarkWeek;
@@ -54,20 +61,21 @@ self.onmessage = ({ data }) => {
     self.postMessage({ type: "progress", completed: week });
   }
 
+  // If damage never hit plateau, set benchmark to week 20
   if (!lastBenchmarkWeek) {
     lastBenchmarkWeek = 20;
   }
 
-  const weeklyRatings = getAverageRatings(runs, lastBenchmarkWeek);
+  const weeklyScores = getAverageScores(trials, lastBenchmarkWeek);
 
   // Average final week equip stats
   const finalStats = {};
-  for (let i = 0; i < runs.length; i++) {
-    const finalCombined = mergeEquipList(runs[i].build.equipList);
+  for (let i = 0; i < trials.length; i++) {
+    const finalCombined = mergeEquipList(trials[i].build.equipList);
     for (const stat in finalCombined) {
-      finalStats[stat] = (finalStats[stat] ?? 0) + finalCombined[stat] / runs.length;
+      finalStats[stat] = (finalStats[stat] ?? 0) + finalCombined[stat] / trials.length;
     }
   }
 
-  self.postMessage({ type: "done", completed: lastBenchmarkWeek, weeklyRatings, finalStats });
+  self.postMessage({ type: "done", completed: lastBenchmarkWeek, weeklyScores, finalStats });
 };

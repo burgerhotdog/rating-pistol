@@ -1,4 +1,6 @@
-import { computeRating, getSetCounts, getSetEffects, computeTotalStat, buildSourceMapList, weightedLottery, upgradeArtifact, mergeStatMaps } from '@/utils';
+import { computeDamage, computeTotalStat, buildSourceMapList, mergeStatMaps } from '@/utils';
+import { weightedLottery } from './weightedLottery';
+import { upgradeArtifact } from './upgradeArtifact';
 import { STATS } from '@/data';
 
 const RESIN_DATA = {
@@ -28,10 +30,10 @@ const RESIN_DATA = {
   },
 };
 
-export function findBenchmarkWeek(weeklyRatings, minGain = 0.01) {
-  for (let i = 1; i < weeklyRatings.length; i++) {
-    const prev = weeklyRatings[i - 1];
-    const curr = weeklyRatings[i];
+export function findBenchmarkWeek(weeklyScores, minGain = 0.01) {
+  for (let i = 1; i < weeklyScores.length; i++) {
+    const prev = weeklyScores[i - 1];
+    const curr = weeklyScores[i];
     if (!Number.isFinite(prev) || prev <= 0) continue;
 
     const gain = (curr - prev) / prev;
@@ -40,37 +42,12 @@ export function findBenchmarkWeek(weeklyRatings, minGain = 0.01) {
   return -1;
 }
 
-export function createRun(gameId, characterId, build, criteria, buffs) {
-  const defaultBuild = { weaponId: build.weaponId, equipList: build.equipList.map(() => null) };
-  const week0 = computeRating(gameId, characterId, defaultBuild, criteria, buffs);
-  return {
-    build: defaultBuild,
-    ratings: [week0],
-  };
-}
-
-export function advanceRunOneWeek(run, gameId, characterId, originalBuild, criteria, buffs) {
-  const nextBuild = simulateBuildAfterWeek(
-    gameId,
-    characterId,
-    originalBuild,
-    run.build,
-    criteria,
-    buffs
-  );
-
-  const nextRating = computeRating(gameId, characterId, nextBuild, criteria, buffs);
-
-  run.build = nextBuild;
-  run.ratings.push(nextRating);
-}
-
-export function getAverageRatings(runs, weekCount) {
+export function getAverageScores(trials, weekCount) {
   const averages = [];
   for (let week = 0; week <= weekCount; week++) {
     let sum = 0;
-    for (const run of runs) sum += run.ratings[week];
-    averages.push(sum / runs.length);
+    for (const trial of trials) sum += trial.scores[week];
+    averages.push(sum / trials.length);
   }
   return averages;
 }
@@ -108,7 +85,7 @@ function match_penalty(current, target) {
   return Math.exp(-1 * relativeDeficit);
 };
 
-export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, buffs) {
+export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, combatBuffs) {
   const { weeklyBonusResin, dailyResin, costPerRun, dropsPerRun } = RESIN_DATA[gameId];
   const resinPerWeek = dailyResin * 7 + weeklyBonusResin;
   const runsPerWeek = resinPerWeek / costPerRun;
@@ -116,7 +93,7 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
 
   const { weaponId } = iter;
 
-  let control = computeRating(gameId, charId, iter, criteria, buffs);
+  let control = computeDamage(gameId, charId, iter, criteria, combatBuffs);
   let newIter = iter;
 
   // wuwa gets 20 free 4 costs per week
@@ -137,7 +114,7 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
           if (index !== idx) return currentEcho;
           return newArtifact;
         });
-        const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
+        const newRating = computeDamage(gameId, charId, { weaponId, equipList: newEquipList }, criteria, combatBuffs);
         if (!criteria.match) {
           if (newRating < control) continue;
           control = newRating;
@@ -185,7 +162,7 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
           if (index !== idx) return currentEcho;
           return newArtifact;
         });
-        const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
+        const newRating = computeDamage(gameId, charId, { weaponId, equipList: newEquipList }, criteria, combatBuffs);
         if (!criteria.match) {
           if (newRating < control) continue;
           control = newRating;
@@ -247,7 +224,7 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
           if (index !== idx) return currentEcho;
           return newArtifact;
         });
-        const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
+        const newRating = computeDamage(gameId, charId, { weaponId, equipList: newEquipList }, criteria, combatBuffs);
         if (!criteria.match) {
           if (newRating < bestSwapRating) continue;
           bestSwapRating = newRating;
@@ -284,7 +261,7 @@ export function simulateBuildAfterWeek(gameId, charId, build, iter, criteria, bu
       return newArtifact;
     });
     
-    const newRating = computeRating(gameId, charId, { weaponId, equipList: newEquipList }, criteria, buffs);
+    const newRating = computeDamage(gameId, charId, { weaponId, equipList: newEquipList }, criteria, combatBuffs);
 
     if (!criteria.match) {
       if (newRating < control) continue;

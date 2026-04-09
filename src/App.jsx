@@ -2,7 +2,7 @@ import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Container } from '@mui/material';
 import { Header } from '@/components';
 import { AuthProvider, BuildProvider, UserProvider } from '@/contexts';
-import { GamePage, HomePage } from '@/pages';
+import { GamePageWrapper, HomePage } from '@/pages';
 import { VERSION } from '@/data';
 
 export default function App() {
@@ -36,7 +36,7 @@ export default function App() {
               />
               <Route
                 path="/:gameId/:characterId?"
-                element={<GamePage />}
+                element={<GamePageWrapper />}
               />
             </Routes>
           </Container>

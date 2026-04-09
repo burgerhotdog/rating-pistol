@@ -102,7 +102,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_RL": 0.25,
@@ -209,7 +209,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_RL": 0.38
@@ -229,7 +229,7 @@
       "PERCENT_OHB": 0.12000000000000002,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "team": {
         "fixedStats": {
           "PERCENT_ATK": 0.2,
@@ -276,7 +276,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_RL": 0.25,
@@ -344,7 +344,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_RS": 0.25,
@@ -425,7 +425,7 @@
       "PERCENT_OHB": 0.12000000000000002,
       "PERCENT_HP": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "team": {
         "fixedStats": {
           "AMP_ALL": 0.15,
@@ -447,7 +447,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_RL": 0.38
@@ -527,7 +527,7 @@
       "PERCENT_CD": 0.15999999999999998,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_BA": 0.25,
@@ -565,7 +565,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_RS": 0.25,
@@ -603,7 +603,7 @@
       "PERCENT_CD": 0.15999999999999998,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_FRAZZLE": 1,
@@ -641,7 +641,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_RS": 0.25,
@@ -679,7 +679,7 @@
       "PERCENT_CD": 0.15999999999999998,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_EROSION": 1
@@ -865,7 +865,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_HA": 0.5
@@ -915,7 +915,7 @@
       "PERCENT_CR": 0.07999999999999999,
       "PERCENT_ATK": 0.12000000000000002
     },
-    "buffs": {
+    "combatBuffs": {
       "ally": {
         "fixedStats": {
           "AMP_ES": 0.5

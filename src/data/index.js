@@ -47,10 +47,12 @@ export const STAT = {
 import * as rating_gi from './genshin-impact/rating';
 import * as rating_hsr from './honkai-star-rail/rating';
 import * as rating_ww from './wuthering-waves/rating';
+import * as rating_zzz from './zenless-zone-zero/rating';
 export const RATING = {
   "genshin-impact": rating_gi,
   "honkai-star-rail": rating_hsr,
   "wuthering-waves": rating_ww,
+  "zenless-zone-zero": rating_zzz,
 };
 
 import GI_GENERAL from './genshin-impact/GENERAL.json';
