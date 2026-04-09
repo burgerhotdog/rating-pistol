@@ -9,7 +9,7 @@ import {
   Bar,
 } from '@/components';
 import { TeamConfig } from '@/components/TeamConfig';
-import { computeDamage } from '@/utils';
+import { computeDamage2 } from '@/utils';
 import { useCurrent, useSimulation, useTeam } from '@/hooks';
 
 export const GamePage = ({ gameId, characterId }) => {
@@ -18,7 +18,7 @@ export const GamePage = ({ gameId, characterId }) => {
   const { team, updateTeam } = useTeam(gameId, characterId, criteriaIndex);
 
   const rating = build && criteria
-    ? computeDamage(gameId, characterId, build, criteria[criteriaIndex], team)
+    ? computeDamage2(gameId, characterId, build, criteria[criteriaIndex], team)
     : null;
 
   const { completed, weeklyScores, finalStats, isLoading, elapsed } = useSimulation(gameId, characterId, 0, team);

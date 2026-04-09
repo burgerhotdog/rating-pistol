@@ -23,7 +23,7 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
     : fixedMenuSetBuffs;
 
   const fixedTeamBuffs = team.reduce((acc, member) => {
-    const { combatBuffs } = CHARACTERS[gameId][characterId];
+    const { combatBuffs } = CHARACTERS[gameId][member] ?? {};
     if (!combatBuffs) return acc;
     const { self, ally, team } = combatBuffs;
     const buffMap = member === characterId
