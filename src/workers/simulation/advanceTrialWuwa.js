@@ -59,63 +59,170 @@ function assignSubStats() {
   return subStatList;
 }
 
-function assignMainStat(slotIndex) {
-  const optionsMap = STATS["wuthering-waves"].MAIN_STAT_TYPES[slotIndex];
+function assignMainStat(costIndex) {
+  const optionsMap = STATS["wuthering-waves"].MAIN_STAT_TYPES[costIndex];
   const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
-  const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)]
-  const mainStatValue =  optionsMap[mainStatId].VALUE;
+  const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)];
+  const mainStatValue = optionsMap[mainStatId].VALUE;
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrialWuwa(trial, setIdList, matchTargets, characterId, criteria, team) {
+export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, criteria, team) {
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
+
+  // Cartethyia sometimes prefers a 44111 build
+  const isCartethyia = characterId == "1409";
 
   let latestBuild = trial.build;
   let latestPenalty = trial.penalty;
   let latestDamage = trial.scores.at(-1);
 
-  // Generate new artifacts and compare with latest build
-  for (let i = 0; i < totalDropsPerWeek; i++) {
-    // Randomly assign set and slot index
-    const coinFlip = Math.random() < 0.5 ? true : false;
-    const slotIndex = Math.floor(Math.random() * 5);
-
-    // Skip off-set artifacts
+  // Generate 20 4-costs per week
+  for (let i = 0; i < 20; i++) {
+    // Some 4-costs belong to 2 sets while some only have 1 set so we'll take the average
+    const coinFlip = Math.random() < 0.75 ? true : false;
     if (!coinFlip) continue;
 
     // Randomly assign main stat (according to weighted rules)
-    const { mainStatId, mainStatValue } = assignMainStat(slotIndex);
-
-    // Skip dead main stats
-    const deadStats = criteria.deadStats?.[slotIndex] ?? [];
-    if (deadStats.includes(mainStatId)) continue;
-
-    // Randomly assign and upgrade sub stats
+    // Skip non preferred main stats
+    const { mainStatId, mainStatValue } = assignMainStat(4);
+    if (!preferredMainStats[4].includes(mainStatId)) continue;
+    
+    // Assign main stat flat values
+    // Assign sub stats
+    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[4];
+    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
     const subStatList = assignSubStats();
 
-    // SetId comes from original build
-    const setId = setIdList[slotIndex];
-
-    // Construct newEquipObj and newEquipList
-    const newEquipObj = { setId, mainStatId, mainStatValue, subStatList };
-    const newEquipList = latestBuild.equipList.with(slotIndex, newEquipObj);
+    const setId = setIdList[0];
+    const newEquipObj = { setId, mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
+    const newEquipList = latestBuild.equipList.with(0, newEquipObj);
     const newBuild = { ...latestBuild, equipList: newEquipList };
 
     // Compute new match penalty and damage with new build
-    const newPenalty = (criteria.match ?? []).reduce((stat, index) => {
+    const newPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
       const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
     const newDamage = computeDamage("wuthering-waves", characterId, newBuild, criteria, team);
 
-    // Compare new damage with current and replace if better
+    // Compare with latest and replace if needed
     if (newDamage * newPenalty > latestDamage * latestPenalty) {
       latestBuild = newBuild;
       latestPenalty = newPenalty;
       latestDamage = newDamage;
     }
+  }
+
+  // Generate 15 3-costs per week
+  for (let i = 0; i < 20; i++) {
+    // 3-costs can belong to 1-3 sets but on average 2
+    const coinFlip = Math.random() < 0.5 ? true : false;
+    if (!coinFlip) continue;
+
+    // Randomly assign main stat (according to weighted rules)
+    // Skip non preferred main stats
+    const { mainStatId, mainStatValue } = assignMainStat(3);
+    if (!preferredMainStats[3].includes(mainStatId)) continue;
+    
+    // Assign main stat flat values
+    // Assign sub stats
+    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[3];
+    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
+    const subStatList = assignSubStats();
+
+    // Construct newEquipObj (without setId)
+    const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
+
+    // Create a buffer
+    let bufferBuild = latestBuild;
+    let bufferPenalty = latestPenalty;
+    let bufferDamage = latestDamage;
+
+    for (let slotIndex = 1; slotIndex < 3; slotIndex++) {
+      // Add in setId and construct newBuild
+      newEquipObj.setId = setIdList[slotIndex];
+      const newEquipList = latestBuild.equipList.with(slotIndex, newEquipObj);
+      const newBuild = { ...latestBuild, equipList: newEquipList };
+
+      // Compute new match penalty and damage with new build
+      const newPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
+        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
+        const targetValue = matchTargets[index];
+        return acc * matchPenalty(currentValue, targetValue);
+      }, 1);
+      const newDamage = computeDamage("wuthering-waves", characterId, newBuild, criteria, team);
+
+      // Compare new damage with buffer and replace if better
+      if (newDamage * newPenalty > bufferDamage * bufferPenalty) {
+        bufferBuild = newBuild;
+        bufferPenalty = newPenalty;
+        bufferDamage = newDamage;
+      }
+    }
+
+    // buffer will already be latest if neither result was better
+    latestBuild = bufferBuild;
+    latestPenalty = bufferPenalty;
+    latestDamage = bufferDamage;
+  }
+
+  // Generate 1 and 3 costs from tacet fields
+  for (let i = 0; i < totalDropsPerWeek; i++) {
+    // Randomly assign set and skip off-set artifacts
+    const coinFlip = Math.random() < 0.5 ? true : false;
+    if (!coinFlip) continue;
+
+    // Randomly assign cost
+    const costIndex = Math.random() < 0.5 ? 1 : 3;
+
+    // Randomly assign main stat (according to weighted rules)
+    // Skip non preferred main stats
+    const { mainStatId, mainStatValue } = assignMainStat(costIndex);
+    if (!preferredMainStats[costIndex].includes(mainStatId)) continue;
+
+    // Assign main stat flat values
+    // Randomly assign and upgrade sub stats
+    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[costIndex];
+    const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
+    const subStatList = assignSubStats();
+
+    // Construct newEquipObj (without setId)
+    const newEquipObj = { mainStatId, mainStatValue, mainStatFlatId, mainStatFlatValue, subStatList };
+
+    // Decide which slots to test and create a buffer
+    const startingSlot = costIndex === 1 ? 3 : 1;
+    let bufferBuild = latestBuild;
+    let bufferPenalty = latestPenalty;
+    let bufferDamage = latestDamage;
+    for (let slotIndex = startingSlot; slotIndex < (startingSlot + 2); slotIndex++) {
+      // Add in setId and construct newBuild
+      newEquipObj.setId = setIdList[slotIndex];
+      const newEquipList = latestBuild.equipList.with(slotIndex, newEquipObj);
+      const newBuild = { ...latestBuild, equipList: newEquipList };
+
+      // Compute new match penalty and damage with new build
+      const newPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
+        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
+        const targetValue = matchTargets[index];
+        return acc * matchPenalty(currentValue, targetValue);
+      }, 1);
+      const newDamage = computeDamage("wuthering-waves", characterId, newBuild, criteria, team);
+
+      // Compare new damage with buffer and replace if better
+      if (newDamage * newPenalty > bufferDamage * bufferPenalty) {
+        bufferBuild = newBuild;
+        bufferPenalty = newPenalty;
+        bufferDamage = newDamage;
+      }
+    }
+
+    // buffer will already be latest if neither result was better
+    latestBuild = bufferBuild;
+    latestPenalty = bufferPenalty;
+    latestDamage = bufferDamage;
   }
 
   trial.build = latestBuild;

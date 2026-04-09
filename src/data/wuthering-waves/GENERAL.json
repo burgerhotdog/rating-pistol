@@ -33,12 +33,14 @@
     "PERCENT_CD": 1.5
   },
   "MAIN_STAT_FLATS": [
+    {},
     {
       "FLAT_HP": {
         "NAME": "HP",
         "VALUE": 2280
       }
     },
+    {},
     {
       "FLAT_ATK": {
         "NAME": "ATK",
@@ -53,6 +55,7 @@
     }
   ],
   "MAIN_STAT_TYPES": [
+    {},
     {
       "PERCENT_HP": {
         "NAME": "HP%",
@@ -70,6 +73,7 @@
         "WEIGHT": 1
       }
     },
+    {},
     {
       "PERCENT_HP": {
         "NAME": "HP%",

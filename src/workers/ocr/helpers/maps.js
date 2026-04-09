@@ -10,20 +10,22 @@ export const weaponNameToId = Object.fromEntries(
 );
 
 export const mainStatNameToIdByCost = Object.fromEntries(
-  MAIN_STAT_TYPES.map((map, index) => {
-    const nameToId = {};
-    for (const [id, { NAME }] of Object.entries(map)) {
-      nameToId[NAME] = id;
-    }
-    switch (index) {
-      case 0:
-        return [1, nameToId];
-      case 1:
-        return [3, nameToId];
-      case 2:
-        return [4, nameToId];
-    }
-  })
+  MAIN_STAT_TYPES
+    .filter(statTypesMap => Object.keys(statTypesMap).length)
+    .map((map, index) => {
+      const nameToId = {};
+      for (const [id, { NAME }] of Object.entries(map)) {
+        nameToId[NAME] = id;
+      }
+      switch (index) {
+        case 0:
+          return [1, nameToId];
+        case 1:
+          return [3, nameToId];
+        case 2:
+          return [4, nameToId];
+      }
+    })
 );
 
 export const subStatFragmentToSuffix = {
