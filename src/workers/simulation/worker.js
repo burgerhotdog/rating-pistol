@@ -4,6 +4,7 @@ import { findRelativeError } from "./helpers";
 import { createTrial } from "./createTrial";
 import { advanceTrial } from "./advanceTrial";
 import { advanceTrialWuwa } from "./advanceTrialWuwa";
+import { findPreferred } from "./findPreferred";
 
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
@@ -23,13 +24,15 @@ self.onmessage = ({ data }) => {
     trials.push(createTrial(matchTargets, gameId, characterId, build, criteria, team));
   }
 
+  const preferredMainStats = findPreferred(trials[0], gameId, characterId, criteria, team, matchTargets);
+
   for (let week = 1; week <= MAX_WEEKS; week++) {
     // advance all trials by one week
     for (const trial of trials) {
       if (gameId === "wuthering-waves") {
-        advanceTrialWuwa(trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+        advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, criteria, team);
       } else {
-        advanceTrial(trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+        advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, criteria, team);
       }
     }
 
@@ -42,9 +45,9 @@ self.onmessage = ({ data }) => {
       const trial = createTrial(matchTargets, gameId, characterId, build, criteria, team);
       for (let w = 1; w <= week; w++) {
         if (gameId === "wuthering-waves") {
-          advanceTrialWuwa(trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+          advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, criteria, team);
         } else {
-          advanceTrial(trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+          advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, criteria, team);
         }
       }
       trials.push(trial);

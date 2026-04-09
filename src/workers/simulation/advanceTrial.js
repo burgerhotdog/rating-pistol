@@ -74,7 +74,7 @@ function assignMainStat(gameId, slotIndex) {
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(trial, setIdList, matchTargets, gameId, characterId, criteria, team) {
+export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, criteria, team) {
   const { DAILY_STAMINA, WEEKLY_STAMINA, COST_PER_RUN, DROPS_PER_RUN } = STAMINA_DATA[gameId];
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
@@ -96,9 +96,8 @@ export function advanceTrial(trial, setIdList, matchTargets, gameId, characterId
     // Randomly assign main stat (according to weighted rules)
     const { mainStatId, mainStatValue } = assignMainStat(gameId, slotIndex);
 
-    // Skip dead main stats
-    const deadStats = criteria.deadStats?.[slotIndex] ?? [];
-    if (deadStats.includes(mainStatId)) continue;
+    // Skip non preferred main stats
+    if (!preferredMainStats[slotIndex].includes(mainStatId)) continue;
 
     // Randomly assign and upgrade sub stats
     const subStatList = assignSubStats(gameId, mainStatId);

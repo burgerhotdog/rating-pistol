@@ -21,7 +21,7 @@ export const GamePage = ({ gameId, characterId }) => {
     ? computeDamage(gameId, characterId, build, criteria[criteriaIndex], team)
     : null;
 
-  const { completed, weeklyScores, finalStats, isLoading } = useSimulation(gameId, characterId, 0, team);
+  const { completed, weeklyScores, finalStats, isLoading, elapsed } = useSimulation(gameId, characterId, 0, team);
 
   return (
     <Box
@@ -52,7 +52,7 @@ export const GamePage = ({ gameId, characterId }) => {
 
       {criteria && (
         <Stack spacing={1} sx={{ flex: 1 }}>
-          <Bar completed={completed} />
+          <Bar completed={completed} elapsed={elapsed} />
           <CustomLineChart
             weeklyScores={weeklyScores}
             rating={rating}

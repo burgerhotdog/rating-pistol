@@ -100,13 +100,6 @@
         "match": [
           "ER"
         ],
-        "deadStats": [
-          [],
-          [],
-          [],
-          [],
-          []
-        ],
         "team": [
           10000032,
           10000025,
@@ -1715,6 +1708,30 @@
         },
         "match": [
           "ER"
+        ],
+        "deadStats": [
+          [],
+          [],
+          [
+            "PERCENT_HP",
+            "PERCENT_DEF"
+          ],
+          [
+            "PERCENT_HP",
+            "PERCENT_DEF",
+            "PERCENT_PYRO",
+            "PERCENT_HYDRO",
+            "PERCENT_ELECTRO",
+            "PERCENT_ANEMO",
+            "PERCENT_CRYO",
+            "PERCENT_GEO",
+            "PERCENT_PHYSICAL"
+          ],
+          [
+            "PERCENT_HP",
+            "PERCENT_DEF",
+            "PERCENT_HB"
+          ]
         ]
       }
     ]

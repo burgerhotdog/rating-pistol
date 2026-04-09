@@ -16,6 +16,8 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
   const build = useBuild(gameId, characterId);
   const criteria = CHARACTERS[gameId][characterId]?.criteria?.[criteriaIndex];
   const [error, setError] = useState(null);
+  const startTimeRef = useRef(0);
+  const intervalRef = useRef(null);
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({
@@ -23,6 +25,8 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
     finalStats: null,
     isLoading: false,
     completed: 0,
+    duration: 0,
+    elapsed: 0,
   });
   
   useEffect(() => {
@@ -34,6 +38,8 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
         finalStats: null,
         isLoading: false,
         completed: 0,
+        duration: 0,
+        elapsed: 0,
       });
       return;
     }
@@ -62,18 +68,32 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
       }
 
       if (data.type === 'done') {
+        const endTime = performance.now();
+        const duration = endTime - startTimeRef.current;
+
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+
         setResult(prev => ({
           ...prev,
           completed: data.completed,
           weeklyScores: data.weeklyScores,
           finalStats: data.finalStats,
           isLoading: false,
+          duration,
+          elapsed: duration,
         }));
 
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;
       }
     };
+
+    startTimeRef.current = performance.now();
+    intervalRef.current = setInterval(() => {
+      const elapsed = performance.now() - startTimeRef.current;
+      setResult(prev => ({ ...prev, elapsed }));
+    }, 1000);
 
     worker.postMessage({
       gameId,
@@ -86,6 +106,9 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
     return () => {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
+
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
     };
   }, [gameId, characterId, build, criteria, team]);
 
