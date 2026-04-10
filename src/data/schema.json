@@ -10,7 +10,7 @@
         "PERCENT_STAT": 0.000,
         "FLAT_STAT": 0
       },
-      "variableStats": {
+      "variable": {
         "PERCENT_STAT": {
           "source": [
             "STAT",

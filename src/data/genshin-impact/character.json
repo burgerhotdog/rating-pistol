@@ -30,7 +30,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "SHRED_DEF": 0.15
         }
       }
@@ -52,7 +52,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_HYDRO": 0.15
         }
       }
@@ -89,7 +89,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_PYRO": 0.2
         }
       }
@@ -150,12 +150,12 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ATK": 0.15
         }
       },
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ATK": 0.15
         }
       }
@@ -192,12 +192,12 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ATK": 0.1
         }
       },
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_PYRO": 0.15,
           "SHRED_PYRO": 0.15
         }
@@ -214,7 +214,7 @@
         "type": {
           "ability": "EB",
           "element": "PYRO",
-          "reaction": "VAPE"
+          "reaction": "VAPORIZE"
         },
         "match": [
           "ER"
@@ -238,7 +238,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "SHRED_ELECTRO": 0.15
         }
       }
@@ -278,12 +278,12 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_ES": 0.5
         }
       },
       "team": {
-        "constantStats": {
+        "constant": {
           "SHRED_HYDRO": 0.15
         }
       }
@@ -322,7 +322,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_GEO": 0.12
         }
       }
@@ -361,7 +361,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_CA": 0.5,
           "PERCENT_CA": 0.5
         }
@@ -401,7 +401,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ATK": 0.225,
           "FLAT_EM": 90
         }
@@ -441,7 +441,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "FLAT_ATK": 1202.35,
           "PERCENT_PYRO": 0.15
         }
@@ -464,10 +464,10 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_CA": 0.15
         },
-        "variableStats": {
+        "variable": {
           "FLAT_ATK": {
             "source": [
               "DEF",
@@ -527,7 +527,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "SHRED_CRYO": 0.1
         }
       }
@@ -547,7 +547,7 @@
         "PERCENT_ER": 0.32
       }
     },
-    "variableStats": {
+    "variable": {
       "PERCENT_HYDRO": {
         "source": [
           "ER",
@@ -558,9 +558,9 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ALL": 0.6,
-          "RXN_VAPE": 0.15
+          "RXN_VAPORIZE": 0.15
         }
       }
     }
@@ -581,7 +581,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_CR": 0.15,
           "PERCENT_ER": 0.15
         }
@@ -621,7 +621,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "FLAT_EM": 250,
           "PERCENT_ALL": 0.3285713
         }
@@ -644,7 +644,7 @@
     },
     "buffs": {
       "self": {
-        "variableStats": {
+        "variable": {
           "ADD_NA": {
             "source": [
               "HP",
@@ -683,7 +683,7 @@
         }
       },
       "team": {
-        "constantStats": {
+        "constant": {
           "SHRED_ALL": 0.2
         }
       }
@@ -737,7 +737,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "FLAT_EM": 200
         }
       }
@@ -759,7 +759,7 @@
     },
     "buffs": {
       "self": {
-        "variableStats": {
+        "variable": {
           "ADD_CA": {
             "source": [
               "DEF",
@@ -770,7 +770,7 @@
         }
       },
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_PHYSICAL": 0.15,
           "SHRED_PHYSICAL": 0.15
         }
@@ -793,12 +793,12 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_CR": 0.2
         }
       },
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_CRYO": 0.2
         }
       }
@@ -837,10 +837,10 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "FLAT_EM": 125
         },
-        "variableStats": {
+        "variable": {
           "PERCENT_ALL": {
             "source": [
               "DEF",
@@ -886,7 +886,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ALL": 0.25,
           "PERCENT_NA": 0.952,
           "PERCENT_CA": 0.952,
@@ -930,7 +930,7 @@
     },
     "buffs": {
       "self": {
-        "variableStats": {
+        "variable": {
           "FLAT_ATK": {
             "source": [
               "HP",
@@ -953,7 +953,7 @@
         "type": {
           "ability": "CA",
           "element": "PYRO",
-          "reaction": "RVAPE"
+          "reaction": "RVAPORIZE"
         },
         "match": [
           "ER"
@@ -977,18 +977,18 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_CR": 0.12,
           "PERCENT_NA": 0.1
         }
       },
       "ally": {
-        "constantStats": {
+        "constant": {
           "PERCENT_CR": 0.15
         }
       },
       "team": {
-        "constantStats": {
+        "constant": {
           "SHRED_PHYSICAL": 0.2
         }
       }
@@ -1010,7 +1010,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_PYRO": 0.2
         }
       }
@@ -1032,7 +1032,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "SHRED_PHYSICAL": 0.25,
           "SHRED_CRYO": 0.25
         }
@@ -1072,7 +1072,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_HYDRO": 0.4,
           "PERCENT_PYRO": 0.4,
           "PERCENT_CRYO": 0.4,
@@ -1097,7 +1097,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "PERCENT_NA": 0.3,
           "PERCENT_CA": 0.3,
           "PERCENT_CRYO": 0.18
@@ -1138,13 +1138,13 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_NA": 0.6174,
           "PERCENT_PYRO": 0.2
         }
       },
       "ally": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ATK": 0.2
         }
       }
@@ -1196,7 +1196,7 @@
         "PERCENT_ER": 0.32
       }
     },
-    "variableStats": {
+    "variable": {
       "PERCENT_ELECTRO": {
         "source": [
           "ER",
@@ -1208,7 +1208,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_EB": 0.27
         }
       }
@@ -1249,7 +1249,7 @@
     },
     "buffs": {
       "self": {
-        "variableStats": {
+        "variable": {
           "ADD_NA": {
             "source": [
               "HB",
@@ -1619,7 +1619,7 @@
         "FLAT_EM": 100
       }
     },
-    "variableStats": {
+    "variable": {
       "ADD_NA": {
         "source": [
           "EM",
@@ -1685,7 +1685,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "FLAT_EM": 250
         }
       }
@@ -1739,7 +1739,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_NA": 0.5372,
           "RAW_CA": 0.4298
         }
@@ -1807,7 +1807,7 @@
         "PERCENT_DENDRO": 0.288
       }
     },
-    "variableStats": {
+    "variable": {
       "PERCENT_ES": {
         "source": [
           "EM",
@@ -1990,7 +1990,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_NA": 0.7031
         }
       }
@@ -2029,7 +2029,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_CA": 0.6
         }
       }
@@ -2082,7 +2082,7 @@
         "PERCENT_BASE": 0.4
       }
     },
-    "variableStats": {
+    "variable": {
       "PERCENT_ES": {
         "source": [
           "HP",
@@ -2094,12 +2094,12 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_ES": 0.4
         }
       },
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ALL": 0.75
         }
       }
@@ -2153,7 +2153,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_ES": 0.45
         }
       }
@@ -2400,7 +2400,7 @@
         "type": {
           "ability": "NA",
           "element": "HYDRO",
-          "reaction": "VAPE"
+          "reaction": "VAPORIZE"
         },
         "match": [
           "ER"
@@ -2654,7 +2654,7 @@
     },
     "buffs": {
       "self": {
-        "constantStats": {
+        "constant": {
           "RAW_NA": 0.7,
           "RAW_EB": 0.6
         }
@@ -2781,7 +2781,7 @@
     },
     "buffs": {
       "self": {
-        "variableStats": {
+        "variable": {
           "RAW_EB": {
             "source": [
               "ATK",

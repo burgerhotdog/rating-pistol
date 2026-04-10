@@ -1,9 +1,9 @@
 import { CHARACTERS, WEAPONS, STATS } from "@/data";
 import { mergeEquipList, mergeStatMaps, getFixedSetBuffs, getVariableSetBuffs, computeTotalStat } from '@/utils';
 
-function buildVariableSourceMap(mergedSourceMap, variableStats) {
+function buildVariableSourceMap(mergedSourceMap, variable) {
   const varSourceMap = {};
-  for (const [stat, details] of Object.entries(variableStats)) {
+  for (const [stat, details] of Object.entries(variable)) {
     const { source, offset = 0, value, max = Infinity } = details;
     const totalStat = computeTotalStat(source[0], mergedSourceMap);
     const mult = (totalStat - offset) / source[1];
@@ -51,14 +51,14 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
     const { buffs } = CHARACTERS[gameId][characterId];
     if (!buffs) return acc;
     const { self, team } = buffs;
-    const selfVariableStatMap = buildVariableSourceMap(constantStatMap, self?.variableStats ?? {});
-    const teamVariableStatMap = buildVariableSourceMap(constantStatMap, team?.variableStats ?? {});
+    const selfVariableStatMap = buildVariableSourceMap(constantStatMap, self?.variable ?? {});
+    const teamVariableStatMap = buildVariableSourceMap(constantStatMap, team?.variable ?? {});
     return mergeStatMaps(acc, selfVariableStatMap, teamVariableStatMap);
   }, {});
 
   const variableStatMap = mergeStatMaps(
-    buildVariableSourceMap(constantStatMap, CHARACTERS[gameId][characterId].variableStats ?? {}),
-    buildVariableSourceMap(constantStatMap, WEAPONS[gameId][weaponId]?.variableStats ?? {}),
+    buildVariableSourceMap(constantStatMap, CHARACTERS[gameId][characterId].variable ?? {}),
+    buildVariableSourceMap(constantStatMap, WEAPONS[gameId][weaponId]?.variable ?? {}),
     variableSetBuffs,
     inCombat ? variableSelfBuffs : {}
   );

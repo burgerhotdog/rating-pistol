@@ -1082,7 +1082,7 @@
     "name": "Staff of Homa",
     "quality": "5",
     "type": "Polearm",
-    "variableStats": {
+    "variable": {
       "FLAT_ATK": {
         "source": [
           "HP",
@@ -1598,7 +1598,7 @@
     "name": "Staff of the Scarlet Sands",
     "quality": "5",
     "type": "Polearm",
-    "variableStats": {
+    "variable": {
       "FLAT_ATK": {
         "source": [
           "EM",

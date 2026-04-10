@@ -57,10 +57,10 @@ export function computeBonuses(statMap, criteria) {
 
   // Amplifying reactions
   let rxnBonus = 0;
-  if (reaction === "MELT" || reaction === "VAPE") rxnBonus = 2;
-  if (reaction === "RMELT" || reaction === "RVAPE") rxnBonus = 1.5;
+  if (reaction === "MELT" || reaction === "VAPORIZE") rxnBonus = 2;
+  if (reaction === "RMELT" || reaction === "RVAPORIZE") rxnBonus = 1.5;
   const emBonus = 2.78 * (totalEm / (totalEm + 1400));
-  const rxnMult = ["MELT", "VAPE", "RMELT", "RVAPE"].includes(reaction) ? rxnBonus * (1 + emBonus + totalRxnBonus) : 1;
+  const rxnMult = ["MELT", "VAPORIZE", "RMELT", "RVAPORIZE"].includes(reaction) ? rxnBonus * (1 + emBonus + totalRxnBonus) : 1;
 
   return critMult * dmgBonusMult * rxnMult;
 }
