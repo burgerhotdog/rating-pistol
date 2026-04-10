@@ -6,8 +6,6 @@ const BASE_RES = 0.1;
 
 export function computeBase(statMap, criteria) {
   const { ability, element, reaction } = criteria.type;
-  const totalEm = computeTotalStat("EM", statMap);
-  const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
 
   // Base ability
   const multiplier = criteria.scaling.multiplier ?? {};
@@ -22,27 +20,11 @@ export function computeBase(statMap, criteria) {
   const abilityRawMult = statMap[`RAW_${ability}`] ?? 0;
   const baseDmgMult = 1 + abilityRawMult;
 
-  // Flat damage
-  // Non reaction
-  const allFlat = statMap["ADD_ALL"] ?? 0;
-  const abilityFlat = statMap[`ADD_${ability}`] ?? 0;
-  const elementFlat = statMap[`ADD_${element}`] ?? 0;
-  const nonRxnComponent = allFlat + abilityFlat + elementFlat;
-  // Additive reactions
-  let rxnBonus = 0;
-  if (reaction === "AGGRAVATE") rxnBonus = 1.15;
-  if (reaction === "SPREAD") rxnBonus = 1.25;
-  const emBonus = (5 * totalEm) / (totalEm + 1200);
-  const rxnComponent = rxnBonus * CHARACTER_LEVEL * (1 + emBonus + totalRxnBonus);
-  const flatDmg = nonRxnComponent + rxnComponent;
-
-  return abilityBaseDmg * baseDmgMult + flatDmg;
+  return abilityBaseDmg * baseDmgMult;
 }
 
 export function computeBonuses(statMap, criteria) {
   const { ability, element, reaction } = criteria.type;
-  const totalEm = computeTotalStat("EM", statMap);
-  const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
 
   // Crit
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
@@ -55,14 +37,7 @@ export function computeBonuses(statMap, criteria) {
   const elementDmgBonus = computeTotalStat(element, statMap);
   const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus;
 
-  // Amplifying reactions
-  let rxnBonus = 0;
-  if (reaction === "MELT" || reaction === "VAPORIZE") rxnBonus = 2;
-  if (reaction === "RMELT" || reaction === "RVAPORIZE") rxnBonus = 1.5;
-  const emBonus = 2.78 * (totalEm / (totalEm + 1400));
-  const rxnMult = ["MELT", "VAPORIZE", "RMELT", "RVAPORIZE"].includes(reaction) ? rxnBonus * (1 + emBonus + totalRxnBonus) : 1;
-
-  return critMult * dmgBonusMult * rxnMult;
+  return critMult * dmgBonusMult;
 }
 
 export function computeReductions(statMap, criteria) {
