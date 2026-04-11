@@ -1,86 +1,497 @@
 {
   "1": {
-    "name": "Freezing Frost"
+    "name": "Freezing Frost",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_GLACIO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_GLACIO": 0.3
+          }
+        }
+      }
+    }
   },
   "2": {
-    "name": "Molten Rift"
+    "name": "Molten Rift",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_FUSION": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_FUSION": 0.3
+          }
+        }
+      }
+    }
   },
   "3": {
-    "name": "Void Thunder"
+    "name": "Void Thunder",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ELECTRO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ELECTRO": 0.3
+          }
+        }
+      }
+    }
   },
   "4": {
-    "name": "Sierra Gale"
+    "name": "Sierra Gale",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_AERO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_AERO": 0.3
+          }
+        }
+      }
+    }
   },
   "5": {
-    "name": "Celestial Light"
+    "name": "Celestial Light",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPECTRO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_SPECTRO": 0.3
+          }
+        }
+      }
+    }
   },
   "6": {
-    "name": "Havoc Eclipse"
+    "name": "Havoc Eclipse",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HAVOC": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_HAVOC": 0.3
+          }
+        }
+      }
+    }
   },
   "7": {
-    "name": "Rejuvenating Glow"
+    "name": "Rejuvenating Glow",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HB": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.15
+          }
+        }
+      }
+    }
   },
   "8": {
-    "name": "Moonlit Clouds"
+    "name": "Moonlit Clouds",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ER": 0.1
+          }
+        }
+      }
+    }
   },
   "9": {
-    "name": "Lingering Tunes"
+    "name": "Lingering Tunes",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.2,
+            "PERCENT_OS": 0.6
+          }
+        }
+      }
+    }
   },
   "10": {
-    "name": "Frosty Resolve"
+    "name": "Frosty Resolve",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_RS": 0.12
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_GLACIO": 0.45,
+            "PERCENT_RS": 0.36
+          }
+        }
+      }
+    }
   },
   "11": {
-    "name": "Eternal Radiance"
+    "name": "Eternal Radiance",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPECTRO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.2,
+            "PERCENT_SPECTRO": 0.15
+          }
+        }
+      }
+    }
   },
   "12": {
-    "name": "Midnight Veil"
+    "name": "Midnight Veil",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HAVOC": 0.1
+          }
+        }
+      }
+    }
   },
   "13": {
-    "name": "Empyrean Anthem"
+    "name": "Empyrean Anthem",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ER": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CA": 0.8,
+            "PERCENT_ATK": 0.2
+          }
+        }
+      }
+    }
   },
   "14": {
-    "name": "Tidebreaking Courage"
+    "name": "Tidebreaking Courage",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ER": 0.1
+          }
+        }
+      },
+      "5": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.15
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.3
+          }
+        }
+      }
+    }
   },
   "16": {
-    "name": "Gusts of Welkin"
+    "name": "Gusts of Welkin",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_AERO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_AERO": 0.3
+          }
+        }
+      }
+    }
   },
   "17": {
-    "name": "Windward Pilgrimage"
+    "name": "Windward Pilgrimage",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_AERO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.1,
+            "PERCENT_AERO": 0.3
+          }
+        }
+      }
+    }
   },
   "18": {
-    "name": "Flaming Clawprint"
+    "name": "Flaming Clawprint",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_FUSION": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_FUSION": 0.15,
+            "PERCENT_RL": 0.2
+          }
+        }
+      }
+    }
   },
   "19": {
-    "name": "Dream of the Lost"
+    "name": "Dream of the Lost",
+    "setBonus": {
+      "3": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.2,
+            "PERCENT_ES": 0.35
+          }
+        }
+      }
+    }
   },
   "20": {
-    "name": "Crown of Valor"
+    "name": "Crown of Valor",
+    "setBonus": {
+      "3": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.3,
+            "PERCENT_CD": 0.2
+          }
+        }
+      }
+    }
   },
   "21": {
-    "name": "Law of Harmony"
+    "name": "Law of Harmony",
+    "setBonus": {
+      "3": {
+        "buffs": {
+          "constant": {
+            "PERCENT_HA": 0.3,
+            "PERCENT_ES": 0.16
+          }
+        }
+      }
+    }
   },
   "22": {
-    "name": "Flamewing's Shadow"
+    "name": "Flamewing's Shadow",
+    "setBonus": {
+      "3": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.2,
+            "PERCENT_FUSION": 0.16
+          }
+        }
+      }
+    }
   },
   "23": {
-    "name": "Thread of Severed Fate"
+    "name": "Thread of Severed Fate",
+    "setBonus": {
+      "3": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.2,
+            "PERCENT_RL": 0.3
+          }
+        }
+      }
+    }
   },
   "24": {
-    "name": "Pact of Neonlight Leap"
+    "name": "Pact of Neonlight Leap",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPECTRO": 0.1
+          }
+        }
+      }
+    }
   },
   "25": {
-    "name": "Halo of Starry Radiance"
+    "name": "Halo of Starry Radiance",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HB": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.25
+          }
+        }
+      }
+    }
   },
   "26": {
-    "name": "Rite of Gilded Revelation"
+    "name": "Rite of Gilded Revelation",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPECTRO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_SPECTRO": 0.3,
+            "PERCENT_BA": 0.4
+          }
+        }
+      }
+    }
   },
   "27": {
-    "name": "Trailblazing Star"
+    "name": "Trailblazing Star",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_FUSION": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.2,
+            "PERCENT_FUSION": 0.2
+          }
+        }
+      }
+    }
   },
   "28": {
-    "name": "Chromatic Foam"
+    "name": "Chromatic Foam",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_FUSION": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_FUSION": 0.1
+          }
+        }
+      }
+    }
   },
   "29": {
-    "name": "Sound of True Name"
+    "name": "Sound of True Name",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_AERO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.2,
+            "PERCENT_AERO": 0.15
+          }
+        }
+      }
+    }
   }
 }

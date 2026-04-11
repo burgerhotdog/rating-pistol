@@ -1,323 +1,657 @@
 {
   "14002": {
-    "name": "Thundersoother"
+    "name": "Thundersoother",
+    "setBonus": {
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.35
+          }
+        }
+      }
+    }
   },
   "14003": {
-    "name": "Lavawalker"
+    "name": "Lavawalker",
+    "setBonus": {
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.35
+          }
+        }
+      }
+    }
   },
   "14004": {
-    "name": "Maiden Beloved"
+    "name": "Maiden Beloved",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HB": 0.15
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "PERCENT_HB": 0.2
+          }
+        }
+      }
+    }
   },
   "15001": {
     "name": "Gladiator's Finale",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ATK": 0.18
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.18
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_NA": 0.35
+          }
         }
       }
     }
   },
   "15002": {
     "name": "Viridescent Venerer",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ANEMO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_ANEMO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "RXN_SWIRL": 0.6,
+            "SHRED_PYRO": 0.4,
+            "SHRED_ELECTRO": 0.4,
+            "SHRED_CRYO": 0.4,
+            "SHRED_HYDRO": 0.4
+          }
         }
       }
     }
   },
   "15003": {
     "name": "Wanderer's Troupe",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "FLAT_EM": 80
+        "stats": {
+          "constant": {
+            "FLAT_EM": 80
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CA": 0.35
+          }
         }
       }
     }
   },
   "15005": {
     "name": "Thundering Fury",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ELECTRO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_ELECTRO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "RXN_OVERLOADED": 0.4,
+            "RXN_ELECTROCHARGED": 0.4,
+            "RXN_SUPERCONDUCT": 0.4,
+            "RXN_HYPERBLOOM": 0.4,
+            "RXN_AGGRAVATE": 0.2,
+            "RXN_LUNARCHARGED": 0.2
+          }
         }
       }
     }
   },
   "15006": {
     "name": "Crimson Witch of Flames",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_PYRO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_PYRO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "RXN_OVERLOADED": 0.4,
+            "RXN_BURNING": 0.4,
+            "RXN_BURGEON": 0.4,
+            "RXN_VAPORIZE": 0.15,
+            "RXN_MELT": 0.15,
+            "PERCENT_PYRO": 0.075
+          }
         }
       }
     }
   },
   "15007": {
     "name": "Noblesse Oblige",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_EB": 0.2
+        "stats": {
+          "constant": {
+            "PERCENT_EB": 0.2
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.2
+          }
         }
       }
     }
   },
   "15008": {
     "name": "Bloodstained Chivalry",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_PHYSICAL": 0.25
+        "stats": {
+          "constant": {
+            "PERCENT_PHYSICAL": 0.25
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CA": 0.5
+          }
         }
       }
     }
   },
   "15014": {
     "name": "Archaic Petra",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_GEO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_GEO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_PYRO": 0.35,
+            "PERCENT_ELECTRO": 0.35,
+            "PERCENT_CRYO": 0.35,
+            "PERCENT_HYDRO": 0.35
+          }
         }
       }
     }
   },
   "15015": {
-    "name": "Retracing Bolide"
+    "name": "Retracing Bolide",
+    "setBonus": {
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_NA": 0.4,
+            "PERCENT_CA": 0.4
+          }
+        }
+      }
+    }
   },
   "14001": {
     "name": "Blizzard Strayer",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_CRYO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_CRYO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.4
+          }
         }
       }
     }
   },
   "15016": {
     "name": "Heart of Depth",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_HYDRO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_HYDRO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_NA": 0.3,
+            "PERCENT_CA": 0.3
+          }
         }
       }
     }
   },
   "15017": {
     "name": "Tenacity of the Millelith",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_HP": 0.2
+        "stats": {
+          "constant": {
+            "PERCENT_HP": 0.2
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.2
+          }
         }
       }
     }
   },
   "15018": {
     "name": "Pale Flame",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_PHYSICAL": 0.25
+        "stats": {
+          "constant": {
+            "PERCENT_PHYSICAL": 0.25
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.18,
+            "PERCENT_PHYSICAL": 0.25
+          }
         }
       }
     }
   },
   "15019": {
     "name": "Shimenawa's Reminiscence",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ATK": 0.18
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.18
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_NA": 0.5,
+            "PERCENT_CA": 0.5,
+            "PERCENT_PA": 0.5
+          }
         }
       }
     }
   },
   "15020": {
     "name": "Emblem of Severed Fate",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ER": 0.2
+        "stats": {
+          "constant": {
+            "PERCENT_ER": 0.2
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "variable": {
+            "PERCENT_EB": {
+              "source": [
+                "ER",
+                0.01
+              ],
+              "value": 0.0025,
+              "max": 0.75
+            }
+          }
         }
       }
     }
   },
   "15021": {
     "name": "Husk of Opulent Dreams",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_DEF": 0.3
+        "stats": {
+          "constant": {
+            "PERCENT_DEF": 0.3
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "PERCENT_DEF": 0.24,
+            "PERCENT_GEO": 0.24
+          }
         }
       }
     }
   },
   "15022": {
     "name": "Ocean-Hued Clam",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_HB": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_HB": 0.15
+          }
         }
       }
     }
   },
   "15023": {
     "name": "Vermillion Hereafter",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ATK": 0.18
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.18
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.4
+          }
         }
       }
     }
   },
   "15024": {
     "name": "Echoes of an Offering",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ATK": 0.18
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.18
+          }
         }
       }
     }
   },
   "15025": {
     "name": "Deepwood Memories",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_DENDRO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_DENDRO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "SHRED_DENDRO": 0.3
+          }
         }
       }
     }
   },
   "15026": {
     "name": "Gilded Dreams",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "FLAT_EM": 80
+        "stats": {
+          "constant": {
+            "FLAT_EM": 80
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.14,
+            "FLAT_EM": 100
+          }
         }
       }
     }
   },
   "15027": {
     "name": "Desert Pavilion Chronicle",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ANEMO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_ANEMO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_NA": 0.4,
+            "PERCENT_CA": 0.4,
+            "PERCENT_PA": 0.4
+          }
         }
       }
     }
   },
   "15028": {
     "name": "Flower of Paradise Lost",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "FLAT_EM": 80
+        "stats": {
+          "constant": {
+            "FLAT_EM": 80
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "RXN_BLOOM": 0.4,
+            "RXN_HYPERBLOOM": 0.4,
+            "RXN_BURGEON": 0.4,
+            "RXN_LUNARBLOOM": 0.1
+          }
+        },
+        "buffs": {
+          "constant": {
+            "RXN_BLOOM": 0.4,
+            "RXN_HYPERBLOOM": 0.4,
+            "RXN_BURGEON": 0.4,
+            "RXN_LUNARBLOOM": 0.4
+          }
         }
       }
     }
   },
   "15029": {
     "name": "Nymph's Dream",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_HYDRO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_HYDRO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.25,
+            "PERCENT_HYDRO": 0.15
+          }
         }
       }
     }
   },
   "15030": {
     "name": "Vourukasha's Glow",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_HP": 0.2
+        "stats": {
+          "constant": {
+            "PERCENT_HP": 0.2
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "PERCENT_ES": 0.1,
+            "PERCENT_EB": 0.1
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_ES": 0.4,
+            "PERCENT_EB": 0.4
+          }
         }
       }
     }
   },
   "15031": {
     "name": "Marechaussee Hunter",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_NA": 0.15,
-          "PERCENT_CA": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_NA": 0.15,
+            "PERCENT_CA": 0.15
+          }
         }
       },
       "4": {
-        "fixedStats": {
-          "PERCENT_CR": 0.36
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.36
+          }
         }
       }
     }
   },
   "15032": {
     "name": "Golden Troupe",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ES": 0.2
+        "stats": {
+          "constant": {
+            "PERCENT_ES": 0.2
+          }
         }
       },
       "4": {
-        "fixedStats": {
-          "PERCENT_ES": 0.5
+        "stats": {
+          "constant": {
+            "PERCENT_ES": 0.5
+          }
         }
       }
     }
   },
   "15033": {
     "name": "Song of Days Past",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_HB": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_HB": 0.15
+          }
         }
       }
     }
   },
   "15034": {
     "name": "Nighttime Whispers in the Echoing Woods",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ATK": 0.18
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.18
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_GEO": 0.5
+          }
         }
       }
     }
   },
   "15035": {
     "name": "Fragment of Harmonic Whimsy",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ATK": 0.18
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.18
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.54
+          }
         }
       }
     }
   },
   "15036": {
     "name": "Unfinished Reverie",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ATK": 0.18
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.18
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.5
+          }
         }
       }
     }
@@ -327,70 +661,143 @@
   },
   "15038": {
     "name": "Obsidian Codex",
-    "effect": {
+    "setBonus": {
+      "2": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.15
+          }
+        }
+      },
       "4": {
-        "fixedStats": {
-          "PERCENT_CR": 0.4
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.4
+          }
         }
       }
     }
   },
   "15039": {
     "name": "Long Night's Oath",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_PA": 0.25
+        "stats": {
+          "constant": {
+            "PERCENT_PA": 0.25
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_PA": 0.75
+          }
         }
       }
     }
   },
   "15040": {
     "name": "Finale of the Deep Galleries",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_CRYO": 0.15
+        "stats": {
+          "constant": {
+            "PERCENT_CRYO": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_NA": 0.6,
+            "PERCENT_EB": 0.6
+          }
         }
       }
     }
   },
   "15041": {
     "name": "Night of the Sky's Unveiling",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "FLAT_EM": 80
+        "stats": {
+          "constant": {
+            "FLAT_EM": 80
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.3,
+            "RXN_LUNARCHARGED": 0.2,
+            "RXN_LUNARBLOOM": 0.2,
+            "RXN_LUNARCRYSTALIZE": 0.2
+          }
         }
       }
     }
   },
   "15042": {
     "name": "Silken Moon's Serenade",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ER": 0.2
+        "stats": {
+          "constant": {
+            "PERCENT_ER": 0.2
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "FLAT_EM": 120,
+            "RXN_LUNARCHARGED": 0.2,
+            "RXN_LUNARBLOOM": 0.2,
+            "RXN_LUNARCRYSTALIZE": 0.2
+          }
         }
       }
     }
   },
   "15043": {
     "name": "Aubade of Morningstar and Moon",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "FLAT_EM": 80
+        "stats": {
+          "constant": {
+            "FLAT_EM": 80
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "RXN_LUNARCHARGED": 0.6,
+            "RXN_LUNARBLOOM": 0.6,
+            "RXN_LUNARCRYSTALIZE": 0.6
+          }
         }
       }
     }
   },
   "15044": {
     "name": "A Day Carved From Rising Winds",
-    "effect": {
+    "setBonus": {
       "2": {
-        "fixedStats": {
-          "PERCENT_ATK": 0.18
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.18
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.25,
+            "PERCENT_CR": 0.2
+          }
         }
       }
     }

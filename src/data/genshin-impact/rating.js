@@ -4,7 +4,7 @@ const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-function computeBase(statMap, criteria) {
+export function computeBase(statMap, criteria) {
   const { ability, element, reaction } = criteria.type;
   const totalEm = computeTotalStat("EM", statMap);
   const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
@@ -39,7 +39,7 @@ function computeBase(statMap, criteria) {
   return abilityBaseDmg * baseDmgMult + flatDmg;
 }
 
-function computeBonuses(statMap, criteria) {
+export function computeBonuses(statMap, criteria) {
   const { ability, element, reaction } = criteria.type;
   const totalEm = computeTotalStat("EM", statMap);
   const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
@@ -57,15 +57,15 @@ function computeBonuses(statMap, criteria) {
 
   // Amplifying reactions
   let rxnBonus = 0;
-  if (reaction === "MELT" || reaction === "VAPE") rxnBonus = 2;
-  if (reaction === "RMELT" || reaction === "RVAPE") rxnBonus = 1.5;
+  if (reaction === "MELT" || reaction === "VAPORIZE") rxnBonus = 2;
+  if (reaction === "RMELT" || reaction === "RVAPORIZE") rxnBonus = 1.5;
   const emBonus = 2.78 * (totalEm / (totalEm + 1400));
-  const rxnMult = ["MELT", "VAPE", "RMELT", "RVAPE"].includes(reaction) ? rxnBonus * (1 + emBonus + totalRxnBonus) : 1;
+  const rxnMult = ["MELT", "VAPORIZE", "RMELT", "RVAPORIZE"].includes(reaction) ? rxnBonus * (1 + emBonus + totalRxnBonus) : 1;
 
   return critMult * dmgBonusMult * rxnMult;
 }
 
-function computeReductions(statMap, criteria) {
+export function computeReductions(statMap, criteria) {
   const { element } = criteria.type;
 
   // Enemy resistance
@@ -88,11 +88,4 @@ function computeReductions(statMap, criteria) {
   const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
 
   return resMult * defMult;
-}
-
-export function computeDamage(statMap, criteria) {
-  const baseDmg = computeBase(statMap, criteria);
-  const bonuses = computeBonuses(statMap, criteria);
-  const reductions = computeReductions(statMap, criteria);
-  return baseDmg * bonuses * reductions;
 }

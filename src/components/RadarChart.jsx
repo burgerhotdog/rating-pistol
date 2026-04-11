@@ -1,17 +1,19 @@
 import { Card, Box, Paper, Typography } from '@mui/material';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip } from 'recharts';
 import { CHARACTERS, STATS } from '@/data';
-import { buildSourceMapList, computeTotalStat, mergeStatMaps } from '@/utils';
-import { useCurrent } from '@/hooks';
+import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
 
-export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }) => {
-  const { gameId, criteria } = useCurrent();
+export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading }) => {
+  const criteria = CHARACTERS[gameId][characterId]?.criteria;
 
   if (isLoading || !build || !combinedSimEquips) return null;
-  const buildSources = buildSourceMapList(gameId, charId, build);
-  const simSources = buildSources.toSpliced(3, 1, combinedSimEquips);
+  const simSources = Object.entries(combinedSimEquips).map(([statId, value]) => ({
+    mainStatId: statId,
+    mainStatValue: value,
+    subStatList: []
+  }));
 
-  const damageType = criteria[0].type.element;
+  const damageType = criteria?.[0].type.element;
   const nonDamageTypes = STATS[gameId].ELEMENT_TYPES
     .map(element => element.toUpperCase())
     .filter(element => element !== damageType);
@@ -23,8 +25,8 @@ export const CustomRadarChart = ({ charId, build, combinedSimEquips, isLoading }
     )
     .filter(([stat]) => stat === 'HB' ? !criteria[0].type : true)
     .map(([stat]) => {
-      const buildRaw = computeTotalStat(stat, mergeStatMaps(...buildSources));
-      const simRaw = computeTotalStat(stat, mergeStatMaps(...simSources));
+      const buildRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, build, []));
+      const simRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, { weaponId: build.weaponId, equipList: simSources }, []));
       return {
         stat,
         build: buildRaw / simRaw * 75 || 0,

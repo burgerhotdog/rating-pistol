@@ -1,12 +1,12 @@
-def character_fixed_stats_parser(game_id, data):
-    fixed_stats = {}
+def character_constant_stats_parser(game_id, data):
+    constant = {}
     match game_id:
         case "genshin-impact":
             # Base stats
-            fixed_stats["BASE_HP"] = data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"]
-            fixed_stats["BASE_ATK"] = data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"]
-            fixed_stats["BASE_DEF"] = data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"]
-            fixed_stats["BASE_EM"] = data["elemental_mastery"]
+            constant["BASE_HP"] = data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"]
+            constant["BASE_ATK"] = data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"]
+            constant["BASE_DEF"] = data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"]
+            constant["BASE_EM"] = data["elemental_mastery"]
             
             # Ascension stats
             stat_map = {
@@ -29,14 +29,14 @@ def character_fixed_stats_parser(game_id, data):
             }
             raw_id, value = list(data["stats_modifier"]["ascension"][5].items())[3]
             stat_id = stat_map[raw_id]
-            fixed_stats[stat_id] = fixed_stats.get(stat_id, 0) + value
+            constant[stat_id] = constant.get(stat_id, 0) + value
 
         case "honkai-star-rail":
             # Base stats
-            fixed_stats["BASE_HP"] = data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"]
-            fixed_stats["BASE_ATK"] = data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"]
-            fixed_stats["BASE_DEF"] = data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"]
-            fixed_stats["BASE_SPD"] = data["stats"]["6"]["speed_base"]
+            constant["BASE_HP"] = data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"]
+            constant["BASE_ATK"] = data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"]
+            constant["BASE_DEF"] = data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"]
+            constant["BASE_SPD"] = data["stats"]["6"]["speed_base"]
 
             # Ascension stats
             stat_map = {
@@ -67,13 +67,13 @@ def character_fixed_stats_parser(game_id, data):
             for node in nodes:
                 stat_id = stat_map[node["1"]["status_add_list"][0]["property_type"]]
                 stat_value = node["1"]["status_add_list"][0]["value"]
-                fixed_stats[stat_id] = fixed_stats.get(stat_id, 0) + stat_value
+                constant[stat_id] = constant.get(stat_id, 0) + stat_value
 
         case "wuthering-waves":
             # Base stats
-            fixed_stats["BASE_HP"] = data["stats"]["6"]["90"]["life"]
-            fixed_stats["BASE_ATK"] = data["stats"]["6"]["90"]["atk"]
-            fixed_stats["BASE_DEF"] = data["stats"]["6"]["90"]["def"]
+            constant["BASE_HP"] = data["stats"]["6"]["90"]["life"]
+            constant["BASE_ATK"] = data["stats"]["6"]["90"]["atk"]
+            constant["BASE_DEF"] = data["stats"]["6"]["90"]["def"]
 
             # Ascension stats
             stat_map = {
@@ -102,16 +102,16 @@ def character_fixed_stats_parser(game_id, data):
             for node in nodes:
                 stat_id = stat_map[node["skill"]["name"]]
                 stat_value = float(node["skill"]["param"][0][:-1]) / 100
-                fixed_stats[stat_id] = fixed_stats.get(stat_id, 0) + stat_value
+                constant[stat_id] = constant.get(stat_id, 0) + stat_value
 
         case "zenless-zone-zero":
             # Base stats
-            fixed_stats["BASE_HP"] = data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"]
-            fixed_stats["BASE_ATK"] = data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"]
-            fixed_stats["BASE_DEF"] = data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"]
-            fixed_stats["BASE_IMPACT"] = data["stats"]["break_stun"]
-            fixed_stats["BASE_AM"] = data["stats"]["element_abnormal_power"]
-            fixed_stats["BASE_AP"] = data["stats"]["element_mystery"]
+            constant["BASE_HP"] = data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"]
+            constant["BASE_ATK"] = data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"]
+            constant["BASE_DEF"] = data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"]
+            constant["BASE_IMPACT"] = data["stats"]["break_stun"]
+            constant["BASE_AM"] = data["stats"]["element_abnormal_power"]
+            constant["BASE_AP"] = data["stats"]["element_mystery"]
 
             # Ascension stats
             stat_map = {
@@ -137,17 +137,17 @@ def character_fixed_stats_parser(game_id, data):
                     stat_value = core_passive_bonus["value"] / 100
                 else:
                     stat_value = core_passive_bonus["value"]
-                fixed_stats[stat_id] = fixed_stats.get(stat_id, 0) + stat_value
+                constant[stat_id] = constant.get(stat_id, 0) + stat_value
 
-    return fixed_stats
+    return { constant }
 
-def weapon_fixed_stats_parser(game_id, data):
-    fixed_stats = {}
+def weapon_constant_stats_parser(game_id, data):
+    constant = {}
 
     match game_id:
         case "genshin-impact":
             # Base stats
-            fixed_stats["BASE_ATK"] = data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"]
+            constant["BASE_ATK"] = data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"]
 
             # Ascension stats
             stat_map = {
@@ -170,17 +170,17 @@ def weapon_fixed_stats_parser(game_id, data):
             }
             raw_id, value_map = list(data["stats_modifier"].items())[1]
             stat_id = stat_map[raw_id]
-            fixed_stats[stat_id] = value_map["base"] * value_map["levels"]["90"]
+            constant[stat_id] = value_map["base"] * value_map["levels"]["90"]
 
         case "honkai-star-rail":
             # Base stats
-            fixed_stats["BASE_HP"] = data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79
-            fixed_stats["BASE_ATK"] = data["stats"][6]["base_attack_add"] * 79 + data["stats"][6]["base_attack"]
-            fixed_stats["BASE_DEF"] = data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79
+            constant["BASE_HP"] = data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79
+            constant["BASE_ATK"] = data["stats"][6]["base_attack_add"] * 79 + data["stats"][6]["base_attack"]
+            constant["BASE_DEF"] = data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79
 
         case "wuthering-waves":
             # Base stats
-            fixed_stats["BASE_ATK"] = data["stats"]["6"]["90"][0]["value"]
+            constant["BASE_ATK"] = data["stats"]["6"]["90"][0]["value"]
 
             # Ascension stats
             stat_map = {
@@ -199,11 +199,11 @@ def weapon_fixed_stats_parser(game_id, data):
                 "Energy Regen": "PERCENT_ER",
             }
             stat_id = stat_map[data['stats']['6']['90'][1]['name']]
-            fixed_stats[stat_id] = data["stats"]["6"]["90"][1]["value"] / 10000 if data["stats"]["6"]["90"][1]["is_percent"] else data["stats"]["6"]["90"][1]["value"]
+            constant[stat_id] = data["stats"]["6"]["90"][1]["value"] / 10000 if data["stats"]["6"]["90"][1]["is_percent"] else data["stats"]["6"]["90"][1]["value"]
 
         case "zenless-zone-zero":
             # Base stats
-            fixed_stats["BASE_ATK"] = data["base_property"]["value"] * 104 / 7
+            constant["BASE_ATK"] = data["base_property"]["value"] * 104 / 7
 
             # Ascension stats
             stat_map = {
@@ -219,9 +219,9 @@ def weapon_fixed_stats_parser(game_id, data):
                 "PEN Ratio": "PERCENT_PR",
             }
             stat_id = stat_map[data["rand_property"]["name"]]
-            fixed_stats[stat_id] = (data["rand_property"]["value"] if stat_id.startswith("FLAT") else data["rand_property"]["value"] / 10000) * 2.5
+            constant[stat_id] = (data["rand_property"]["value"] if stat_id.startswith("FLAT") else data["rand_property"]["value"] / 10000) * 2.5
 
-    return fixed_stats
+    return { constant }
 
 GAME_INFO = [
     {
@@ -239,13 +239,13 @@ GAME_INFO = [
                 "quality": lambda data: data["rarity"],
                 "element": lambda data: data["element"],
                 "type": lambda data: data["weapon"],
-                "fixedStats": lambda data: character_fixed_stats_parser("genshin-impact", data),
+                "stats": lambda data: character_constant_stats_parser("genshin-impact", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],
                 "quality": lambda data: str(data["rarity"]),
                 "type": lambda data: data["weapon_type"],
-                "fixedStats": lambda data: weapon_fixed_stats_parser("genshin-impact", data),
+                "stats": lambda data: weapon_constant_stats_parser("genshin-impact", data),
             },
             "set": {
                 "name": lambda data: data["affix"][0]["name"],
@@ -261,6 +261,15 @@ GAME_INFO = [
                     "QUALITY_ORANGE": "5",
                     "QUALITY_PURPLE": "4",
                 },
+                "type": {
+                    "WEAPON_SWORD_ONE_HAND": "Sword",
+                    "WEAPON_CLAYMORE": "Claymore",
+                    "WEAPON_POLE": "Polearm",
+                    "WEAPON_CATALYST": "Catalyst",
+                    "WEAPON_BOW": "Bow",
+                },
+            },
+            "weapon": {
                 "type": {
                     "WEAPON_SWORD_ONE_HAND": "Sword",
                     "WEAPON_CLAYMORE": "Claymore",
@@ -286,13 +295,13 @@ GAME_INFO = [
                 "quality": lambda data: data["rarity"],
                 "element": lambda data: data["damage_type"],
                 "type": lambda data: data["base_type"],
-                "fixedStats": lambda data: character_fixed_stats_parser("honkai-star-rail", data),
+                "stats": lambda data: character_constant_stats_parser("honkai-star-rail", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],
                 "quality": lambda data: data["rarity"],
                 "type": lambda data: data["base_type"],
-                "fixedStats": lambda data: weapon_fixed_stats_parser("honkai-star-rail", data),
+                "stats": lambda data: weapon_constant_stats_parser("honkai-star-rail", data),
             },
             "set": {
                 "name": lambda data: data["name"],
@@ -356,13 +365,13 @@ GAME_INFO = [
                 "quality": lambda data: str(data["rarity"]),
                 "element": lambda data: data["element"],
                 "type": lambda data: data["weapon"],
-                "fixedStats": lambda data: character_fixed_stats_parser("wuthering-waves", data),
+                "stats": lambda data: character_constant_stats_parser("wuthering-waves", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],
                 "quality": lambda data: str(data["rarity"]),
                 "type": lambda data: data["type"],
-                "fixedStats": lambda data: weapon_fixed_stats_parser("wuthering-waves", data),
+                "stats": lambda data: weapon_constant_stats_parser("wuthering-waves", data),
             },
             "set": {
                 "name": lambda data: data["name"],
@@ -415,13 +424,13 @@ GAME_INFO = [
                 "quality": lambda data: data["rarity"],
                 "element": lambda data: next(iter(data["element_type"].values())),
                 "type": lambda data: next(iter(data["weapon_type"].values())),
-                "fixedStats": lambda data: character_fixed_stats_parser("zenless-zone-zero", data),
+                "stats": lambda data: character_constant_stats_parser("zenless-zone-zero", data),
             },
             "weapon": {
                 "name": lambda data: data["name"],
                 "quality": lambda data: data["rarity"],
                 "type": lambda data: next(iter(data["weapon_type"].values())),
-                "fixedStats": lambda data: weapon_fixed_stats_parser("zenless-zone-zero", data),
+                "stats": lambda data: weapon_constant_stats_parser("zenless-zone-zero", data),
             },
             "set": {
                 "name": lambda data: data["name"],

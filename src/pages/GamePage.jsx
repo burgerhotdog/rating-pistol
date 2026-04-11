@@ -7,27 +7,21 @@ import {
   CustomRadarChart,
   CustomTable,
   Bar,
-  BuffPanel,
 } from '@/components';
-import { computeRating, collectTeamBuffs } from '@/utils';
-import { useCurrent, useSimulation } from '@/hooks';
+import { TeamConfig } from '@/components/TeamConfig';
+import { computeDamage2 } from '@/utils';
+import { useCurrent, useSimulation, useTeam } from '@/hooks';
 
-const GamePage = () => {
-  const { gameId, characterId, build, criteria } = useCurrent();
-
-  const [draftTeam, setDraftTeam] = useState([]);
-  const [appliedTeam, setAppliedTeam] = useState([]);
-
-  const buffs = useMemo(
-    () => collectTeamBuffs(gameId, appliedTeam),
-    [gameId, appliedTeam]
-  );
+export const GamePage = ({ gameId, characterId }) => {
+  const { build, criteria } = useCurrent();
+  const [criteriaIndex, setCriteriaIndex] = useState(0);
+  const { team, updateTeam } = useTeam(gameId, characterId, criteriaIndex);
 
   const rating = build && criteria
-    ? computeRating(gameId, characterId, build, criteria[0], buffs)
+    ? computeDamage2(gameId, characterId, build, criteria[criteriaIndex], team)
     : null;
 
-  const { completed, weeklyRatings, finalStats, isLoading } = useSimulation(0, buffs);
+  const { completed, weeklyScores, finalStats, isLoading, elapsed } = useSimulation(gameId, characterId, 0, team);
 
   return (
     <Box
@@ -40,44 +34,46 @@ const GamePage = () => {
         gap: 1,
       }}
     >
-      <Sidebar />
-      <Stack>
-        <StatsPanel />
-        <BuffPanel
+      <Sidebar
+        gameId={gameId}
+        characterId={characterId}
+      />
+      <Stack spacing={1}>
+        <StatsPanel
           gameId={gameId}
-          mainCharacterId={characterId}
-          draftTeam={draftTeam}
-          appliedTeam={appliedTeam}
-          setDraftTeam={setDraftTeam}
-          onApply={() => setAppliedTeam(draftTeam)}
-          onReset={() => {
-            setDraftTeam([]);
-            setAppliedTeam([]);
-          }}
+          characterId={characterId}
+        />
+        <TeamConfig
+          gameId={gameId}
+          team={team}
+          updateTeam={updateTeam}
         />
       </Stack>
 
       {criteria && (
         <Stack spacing={1} sx={{ flex: 1 }}>
-          <Bar completed={completed} />
+          <Bar completed={completed} elapsed={elapsed} />
           <CustomLineChart
-            weeklyRatings={weeklyRatings}
+            weeklyScores={weeklyScores}
             rating={rating}
             isLoading={isLoading}
           />
 
           <Box display="flex" gap={1} sx={{ flex: 1 }}>
             <CustomRadarChart
-              charId={characterId}
+              gameId={gameId}
+              characterId={characterId}
               build={build}
               combinedSimEquips={finalStats}
               isLoading={isLoading}
             />
 
             <CustomTable
+              gameId={gameId}
+              characterId={characterId}
               build={build}
               rating={rating}
-              buffs={buffs}
+              team={team}
               isLoading={isLoading}
             />
           </Box>
@@ -86,5 +82,3 @@ const GamePage = () => {
     </Box>
   );
 };
-
-export default GamePage;

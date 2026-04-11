@@ -22,13 +22,31 @@ def parse_data(GAME, data, id_type):
     return result
 
 def main():
+    manifest = requests.get("https://static.nanoka.cc/manifest.json").json()
+    version_json = read_json("src/data/version.json")
+
     # Select game
-    game_index = select_game_index([game["name"] for game in GAME_INFO])
+    print("Select game to update:")
+    names = [game["name"] for game in GAME_INFO]
+    for index, option in enumerate(names):
+        current_game_info = GAME_INFO[index]
+        print(f"{index + 1}: {option} {version_json[current_game_info["id"]]} => {manifest[current_game_info["link"]]["live"]}")
+
+    while True:
+        choice = input(f"Enter #(1-{len(names)}): ")
+        try:
+            index = int(choice) - 1
+            if 0 <= index < len(names):
+                break
+        except ValueError:
+            pass
+        print('Invalid input. Please try again.')
+
+    game_index = index
     GAME = GAME_INFO[game_index]
     print()
 
     # Enter IDs
-    manifest = requests.get("https://static.nanoka.cc/manifest.json").json()
     version = manifest[GAME["link"]]["live"]
 
     character_ids, character_names, _ = enter_ids(GAME, version, "character")
@@ -92,6 +110,10 @@ def main():
             parse_image(GAME, data, ID, "set")
             json_data[ID] = parse_data(GAME, data, "set")
         write_json(f"src/data/{GAME['id']}/set.json", json_data)
+
+    # Version number
+    version_json[GAME['id']] = str(version)
+    write_json(f"src/data/version.json", version_json)
 
     print("Update complete")
 

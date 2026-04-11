@@ -1,24 +1,45 @@
 import { useEffect, useRef, useState } from 'react';
-import { useCurrent } from '@/hooks';
+import { useBuild } from "@/contexts";
+import { CHARACTERS, WEAPONS } from "@/data";
 
-export function useSimulation(criteriaIndex, buffs) {
-  const { gameId, characterId, build, criteria } = useCurrent();
+function validate(gameId, build, criteria) {
+  if (!build) return "Build not found";
+  const { weaponId } = build;
+  const weaponData = WEAPONS[gameId][weaponId];
+  if (!weaponData) return "Unrecognized Weapon";
+  if (weaponData.quality < 3) return "Invalid Weapon";
+  if (!criteria) return "Criteria not found";
+  return null;
+}
+
+export function useSimulation(gameId, characterId, criteriaIndex, team) {
+  const build = useBuild(gameId, characterId);
+  const criteria = CHARACTERS[gameId][characterId]?.criteria?.[criteriaIndex];
+  const [error, setError] = useState(null);
+  const startTimeRef = useRef(0);
+  const intervalRef = useRef(null);
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({
-    weeklyRatings: null,
+    weeklyScores: null,
     finalStats: null,
     isLoading: false,
     completed: 0,
+    duration: 0,
+    elapsed: 0,
   });
   
   useEffect(() => {
-    if (!build || !criteria) {
+    const validationError = validate(gameId, build, criteria);
+    if (validationError) {
+      setError(validationError);
       setResult({
-        weeklyRatings: null,
+        weeklyScores: null,
         finalStats: null,
         isLoading: false,
         completed: 0,
+        duration: 0,
+        elapsed: 0,
       });
       return;
     }
@@ -32,7 +53,7 @@ export function useSimulation(criteriaIndex, buffs) {
     workerRef.current?.terminate();
 
     const worker = new Worker(
-      new URL('../workers/simulation.worker.js', import.meta.url),
+      new URL('../workers/simulation/worker.js', import.meta.url),
       { type: 'module' },
     );
     workerRef.current = worker;
@@ -47,31 +68,49 @@ export function useSimulation(criteriaIndex, buffs) {
       }
 
       if (data.type === 'done') {
+        const endTime = performance.now();
+        const duration = endTime - startTimeRef.current;
+
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+
         setResult(prev => ({
           ...prev,
           completed: data.completed,
-          weeklyRatings: data.weeklyRatings,
+          weeklyScores: data.weeklyScores,
           finalStats: data.finalStats,
           isLoading: false,
+          duration,
+          elapsed: duration,
         }));
 
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;
       }
     };
+
+    startTimeRef.current = performance.now();
+    intervalRef.current = setInterval(() => {
+      const elapsed = performance.now() - startTimeRef.current;
+      setResult(prev => ({ ...prev, elapsed }));
+    }, 1000);
+
     worker.postMessage({
       gameId,
       characterId,
       build,
-      criteria: criteria[criteriaIndex],
-      buffs,
+      criteria,
+      team,
     });
 
     return () => {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
+
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
     };
-  }, [gameId, characterId, build, criteria, criteriaIndex, buffs]);
+  }, [gameId, characterId, build, criteria, team]);
 
   return result;
 }

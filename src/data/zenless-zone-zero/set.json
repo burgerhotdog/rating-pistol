@@ -1,80 +1,504 @@
 {
   "31000": {
-    "name": "Woodpecker Electro"
+    "name": "Woodpecker Electro",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.08
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "COMBAT_ATK": 0.27
+          }
+        }
+      }
+    }
   },
   "31100": {
-    "name": "Puffer Electro"
+    "name": "Puffer Electro",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_PR": 0.08
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_U": 0.2,
+            "COMBAT_ATK": 0.15
+          }
+        }
+      }
+    }
   },
   "31200": {
-    "name": "Shockstar Disco"
+    "name": "Shockstar Disco",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_IMPACT": 0.06
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_DAZE": 0.2
+          }
+        }
+      }
+    }
   },
   "31300": {
-    "name": "Freedom Blues"
+    "name": "Freedom Blues",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "FLAT_AP": 30
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "SHRED_BURNING": 0.2,
+            "SHRED_CORRUPTION": 0.2,
+            "SHRED_FREEZE": 0.2,
+            "SHRED_ASSAULT": 0.2,
+            "SHRED_SHOCKED": 0.2
+          }
+        }
+      }
+    }
   },
   "31400": {
-    "name": "Hormone Punk"
+    "name": "Hormone Punk",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "COMBAT_ATK": 0.25
+          }
+        }
+      }
+    }
   },
   "31500": {
-    "name": "Soul Rock"
+    "name": "Soul Rock",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_DEF": 0.16
+          }
+        }
+      }
+    }
   },
   "31600": {
-    "name": "Swing Jazz"
+    "name": "Swing Jazz",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ER": 0.2
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.15
+          }
+        }
+      }
+    }
   },
   "32200": {
-    "name": "Inferno Metal"
+    "name": "Inferno Metal",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_FIRE": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.28
+          }
+        }
+      }
+    }
   },
   "32300": {
-    "name": "Chaotic Metal"
+    "name": "Chaotic Metal",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ETHER": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.53
+          }
+        }
+      }
+    }
   },
   "32400": {
-    "name": "Thunder Metal"
+    "name": "Thunder Metal",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ELECTRIC": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "COMBAT_ATK": 0.28
+          }
+        }
+      }
+    }
   },
   "32500": {
-    "name": "Polar Metal"
+    "name": "Polar Metal",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ICE": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_BA": 0.4,
+            "PERCENT_DA": 0.4
+          }
+        }
+      }
+    }
   },
   "32600": {
-    "name": "Fanged Metal"
+    "name": "Fanged Metal",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_PHYSICAL": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.35
+          }
+        }
+      }
+    }
   },
   "31800": {
-    "name": "Chaos Jazz"
+    "name": "Chaos Jazz",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "FLAT_AP": 30
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_FIRE": 0.15,
+            "PERCENT_ELECTRIC": 0.15,
+            "PERCENT_EX": 0.2,
+            "PERCENT_AA": 0.2
+          }
+        }
+      }
+    }
   },
   "31900": {
-    "name": "Proto Punk"
+    "name": "Proto Punk",
+    "setBonus": {
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.15
+          }
+        }
+      }
+    }
   },
   "32700": {
-    "name": "Branch & Blade Song"
+    "name": "Branch & Blade Song",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CD": 0.16
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.3,
+            "PERCENT_CR": 0.12
+          }
+        }
+      }
+    }
   },
   "32800": {
-    "name": "Astral Voice"
+    "name": "Astral Voice",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.24
+          }
+        }
+      }
+    }
   },
   "32900": {
-    "name": "Shadow Harmony"
+    "name": "Shadow Harmony",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_A": 0.15,
+            "PERCENT_DA": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "COMBAT_ATK": 0.12,
+            "PERCENT_CR": 0.12
+          }
+        }
+      }
+    }
   },
   "33000": {
-    "name": "Phaethon's Melody"
+    "name": "Phaethon's Melody",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_AM": 0.08
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "FLAT_AP": 45,
+            "PERCENT_ETHER": 0.25
+          }
+        }
+      }
+    }
   },
   "33100": {
-    "name": "Yunkui Tales"
+    "name": "Yunkui Tales",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HP": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.12,
+            "PERCENT_SHEER": 0.1
+          }
+        }
+      }
+    }
   },
   "33200": {
-    "name": "King of the Summit"
+    "name": "King of the Summit",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_DAZE": 0.06
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.3
+          }
+        }
+      }
+    }
   },
   "33300": {
-    "name": "Dawn's Bloom"
+    "name": "Dawn's Bloom",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_BA": 0.15
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_BA": 0.4
+          }
+        }
+      }
+    }
   },
   "33400": {
-    "name": "Moonlight Lullaby"
+    "name": "Moonlight Lullaby",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ER": 0.2
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.18
+          }
+        }
+      }
+    }
   },
   "33500": {
-    "name": "White Water Ballad"
+    "name": "White Water Ballad",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_PHYSICAL": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.2,
+            "COMBAT_ATK": 0.1
+          }
+        }
+      }
+    }
   },
   "33600": {
-    "name": "Shining Aria"
+    "name": "Shining Aria",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ETHER": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "FLAT_AP": 36,
+            "PERCENT_ALL": 0.25
+          }
+        }
+      }
+    }
   },
   "33700": {
-    "name": "Bunny in Wonderland"
+    "name": "Bunny in Wonderland",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HP": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.18
+          }
+        }
+      }
+    }
   },
   "33800": {
-    "name": "Notes From the Chained"
+    "name": "Notes From the Chained",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ICE": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "FLAT_AP": 48,
+            "PERCENT_CORRUPTION": 0.16,
+            "PERCENT_BURNING": 0.16,
+            "PERCENT_FREEZE": 0.16,
+            "PERCENT_SHOCKED": 0.16,
+            "PERCENT_ASSAULT": 0.16,
+            "PERCENT_DISORDER": 0.16
+          }
+        }
+      }
+    }
   }
 }

@@ -3,756 +3,957 @@
     "name": "[Lunar] Pleniluna",
     "quality": "3",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_ATK": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_ATK": 0.2
+      }
     }
   },
   "12002": {
     "name": "[Lunar] Decrescent",
     "quality": "3",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_ATK": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_ATK": 0.2
+      }
     }
   },
   "12003": {
     "name": "[Lunar] Noviluna",
     "quality": "3",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_CR": 0.16
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_CR": 0.16
+      }
     }
   },
   "12004": {
     "name": "[Reverb] Mark I",
     "quality": "3",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_ATK": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_ATK": 0.2
+      }
     }
   },
   "12005": {
     "name": "[Reverb] Mark II",
     "quality": "3",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_ER": 0.4
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_ER": 0.4
+      }
     }
   },
   "12006": {
     "name": "[Reverb] Mark III",
     "quality": "3",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_HP": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_HP": 0.2
+      }
     }
   },
   "12007": {
     "name": "[Vortex] Revolver",
     "quality": "3",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_ATK": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_ATK": 0.2
+      }
     }
   },
   "12008": {
     "name": "[Vortex] Arrow",
     "quality": "3",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_IMPACT": 0.12
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_IMPACT": 0.12
+      }
     }
   },
   "12009": {
     "name": "[Vortex] Hatchet",
     "quality": "3",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_ER": 0.4
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_ER": 0.4
+      }
     }
   },
   "12010": {
     "name": "[Magnetic Storm] Alpha",
     "quality": "3",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_ATK": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_ATK": 0.2
+      }
     }
   },
   "12011": {
     "name": "[Magnetic Storm] Bravo",
     "quality": "3",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "FLAT_AP": 60.0
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "FLAT_AP": 60.0
+      }
     }
   },
   "12012": {
     "name": "[Magnetic Storm] Charlie",
     "quality": "3",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_PR": 0.16
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_PR": 0.16
+      }
     }
   },
   "12013": {
     "name": "[Identity] Base",
     "quality": "3",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_DEF": 0.32
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_DEF": 0.32
+      }
     }
   },
   "12014": {
     "name": "[Identity] Inflection",
     "quality": "3",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_DEF": 0.32
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_DEF": 0.32
+      }
     }
   },
   "13001": {
     "name": "Street Superstar",
     "quality": "4",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13002": {
     "name": "Slice of Time",
     "quality": "4",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_PR": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_PR": 0.2
+      }
     }
   },
   "13003": {
     "name": "Rainforest Gourmet",
     "quality": "4",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "FLAT_AP": 75.0
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "FLAT_AP": 75.0
+      }
     }
   },
   "13004": {
     "name": "Starlight Engine",
     "quality": "4",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13005": {
     "name": "Steam Oven",
     "quality": "4",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_ER": 0.5
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_ER": 0.5
+      }
     }
   },
   "13006": {
     "name": "Precious Fossilized Core",
     "quality": "4",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_IMPACT": 0.15
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_IMPACT": 0.15
+      }
     }
   },
   "13007": {
     "name": "Original Transmorpher",
     "quality": "4",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_HP": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_HP": 0.25
+      }
     }
   },
   "13008": {
     "name": "Weeping Gemini",
     "quality": "4",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13009": {
     "name": "Electro-Lip Gloss",
     "quality": "4",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "FLAT_AP": 75.0
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "FLAT_AP": 75.0
+      }
     }
   },
   "13010": {
     "name": "Bunny Band",
     "quality": "4",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_DEF": 0.4
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_DEF": 0.4
+      }
     }
   },
   "13011": {
     "name": "Spring Embrace",
     "quality": "4",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13101": {
     "name": "Demara Battery Mark II",
     "quality": "4",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_IMPACT": 0.15
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_IMPACT": 0.15
+      }
     }
   },
   "13103": {
     "name": "The Vault",
     "quality": "4",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ER": 0.5
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ER": 0.5
+      }
     }
   },
   "13106": {
     "name": "Housekeeper",
     "quality": "4",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13108": {
     "name": "Starlight Engine Replica",
     "quality": "4",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13111": {
     "name": "Drill Rig - Red Axis",
     "quality": "4",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ER": 0.5
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ER": 0.5
+      }
     }
   },
   "13112": {
     "name": "Big Cylinder",
     "quality": "4",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_DEF": 0.4
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_DEF": 0.4
+      }
     }
   },
   "13113": {
     "name": "Bashful Demon",
     "quality": "4",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13115": {
     "name": "Kaboom the Cannon",
     "quality": "4",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ER": 0.5
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ER": 0.5
+      }
     }
   },
   "13128": {
     "name": "Roaring Ride",
     "quality": "4",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "14001": {
     "name": "Cannon Rotor",
     "quality": "4",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_CR": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_CR": 0.2
+      }
     }
   },
   "14002": {
     "name": "Unfettered Game Ball",
     "quality": "4",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_ER": 0.5
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_ER": 0.5
+      }
     }
   },
   "14003": {
     "name": "Six Shooter",
     "quality": "4",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_IMPACT": 0.15
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_IMPACT": 0.15
+      }
     }
   },
   "14102": {
     "name": "Steel Cushion",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 683.4285714285714,
-      "PERCENT_CR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 683.4285714285714,
+        "PERCENT_CR": 0.24
+      }
     }
   },
   "14104": {
     "name": "The Brimstone",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 683.4285714285714,
-      "PERCENT_ATK": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 683.4285714285714,
+        "PERCENT_ATK": 0.3
+      }
     }
   },
   "14110": {
     "name": "Hellfire Gears",
     "quality": "5",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 683.4285714285714,
-      "PERCENT_IMPACT": 0.18
+    "stats": {
+      "constant": {
+        "BASE_ATK": 683.4285714285714,
+        "PERCENT_IMPACT": 0.18
+      }
     }
   },
   "14114": {
     "name": "The Restrained",
     "quality": "5",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 683.4285714285714,
-      "PERCENT_IMPACT": 0.18
+    "stats": {
+      "constant": {
+        "BASE_ATK": 683.4285714285714,
+        "PERCENT_IMPACT": 0.18
+      }
     }
   },
   "14118": {
     "name": "Fusion Compiler",
     "quality": "5",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 683.4285714285714,
-      "PERCENT_PR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 683.4285714285714,
+        "PERCENT_PR": 0.24
+      }
     }
   },
   "14119": {
     "name": "Deep Sea Visitor",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CR": 0.24
+      }
     }
   },
   "14121": {
     "name": "Weeping Cradle",
     "quality": "5",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 683.4285714285714,
-      "PERCENT_PR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 683.4285714285714,
+        "PERCENT_PR": 0.24
+      }
     }
   },
   "14124": {
     "name": "Riot Suppressor Mark VI",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CD": 0.48
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CD": 0.48
+      }
     }
   },
   "13013": {
     "name": "Gilded Blossom",
     "quality": "4",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13127": {
     "name": "Peacekeeper - Specialized",
     "quality": "4",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "14125": {
     "name": "Ice-Jade Teapot",
     "quality": "5",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_IMPACT": 0.18
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_IMPACT": 0.18
+      }
     }
   },
   "14126": {
     "name": "Sharpened Stinger",
     "quality": "5",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "FLAT_AP": 90.0
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "FLAT_AP": 90.0
+      }
     }
   },
   "14107": {
     "name": "Tusks of Fury",
     "quality": "5",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_IMPACT": 0.18
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_IMPACT": 0.18
+      }
     }
   },
   "14117": {
     "name": "Flamemaker Shaker",
     "quality": "5",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_ATK": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ATK": 0.3
+      }
     }
   },
   "14116": {
     "name": "Blazing Laurel",
     "quality": "5",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_IMPACT": 0.18
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_IMPACT": 0.18
+      }
     }
   },
   "14122": {
     "name": "Timeweaver",
     "quality": "5",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_ATK": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ATK": 0.3
+      }
     }
   },
   "13015": {
     "name": "Marcato Desire",
     "quality": "4",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_CR": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_CR": 0.2
+      }
     }
   },
   "14109": {
     "name": "Hailstorm Shrine",
     "quality": "5",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 742.8571428571429,
-      "PERCENT_CR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 742.8571428571429,
+        "PERCENT_CR": 0.24
+      }
     }
   },
   "14120": {
     "name": "Zanshin Herb Case",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CD": 0.48
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CD": 0.48
+      }
     }
   },
   "14131": {
     "name": "Elegant Vanity",
     "quality": "5",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_ATK": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ATK": 0.3
+      }
     }
   },
   "14132": {
     "name": "Heartstring Nocturne",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CR": 0.24
+      }
     }
   },
   "13135": {
     "name": "Box Cutter",
     "quality": "4",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_IMPACT": 0.15
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_IMPACT": 0.15
+      }
     }
   },
   "14136": {
     "name": "Spectral Gaze",
     "quality": "5",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CR": 0.24
+      }
     }
   },
   "14138": {
     "name": "Severed Innocence",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CD": 0.48
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CD": 0.48
+      }
     }
   },
   "14129": {
     "name": "Myriad Eclipse",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CR": 0.24
+      }
     }
   },
   "14133": {
     "name": "Flight of Fancy",
     "quality": "5",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "FLAT_AP": 90.0
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "FLAT_AP": 90.0
+      }
     }
   },
   "12015": {
     "name": "[Cinder] Cobalt",
     "quality": "3",
     "type": "Rupture",
-    "fixedStats": {
-      "BASE_ATK": 475.42857142857144,
-      "PERCENT_HP": 0.2
+    "stats": {
+      "constant": {
+        "BASE_ATK": 475.42857142857144,
+        "PERCENT_HP": 0.2
+      }
     }
   },
   "13012": {
     "name": "Puzzle Sphere",
     "quality": "4",
     "type": "Rupture",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "13014": {
     "name": "Radiowave Journey",
     "quality": "4",
     "type": "Rupture",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_HP": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_HP": 0.25
+      }
     }
   },
   "13016": {
     "name": "Reel Projector",
     "quality": "4",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_IMPACT": 0.15
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_IMPACT": 0.15
+      }
     }
   },
   "13142": {
     "name": "Tremor Trigram Vessel",
     "quality": "4",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_ATK": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_ATK": 0.25
+      }
     }
   },
   "14137": {
     "name": "Qingming Birdcage",
     "quality": "5",
     "type": "Rupture",
-    "fixedStats": {
-      "BASE_ATK": 742.8571428571429,
-      "PERCENT_HP": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 742.8571428571429,
+        "PERCENT_HP": 0.3
+      }
     }
   },
   "14139": {
     "name": "Roaring Fur-nace",
     "quality": "5",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_ATK": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ATK": 0.3
+      }
     }
   },
   "14140": {
     "name": "Practiced Perfection",
     "quality": "5",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_ATK": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ATK": 0.3
+      }
     }
   },
   "14141": {
     "name": "Metanukimorphosis",
     "quality": "5",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_ER": 0.6
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ER": 0.6
+      }
     }
   },
   "14130": {
     "name": "Bellicose Blaze",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_ER": 0.6
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ER": 0.6
+      }
     }
   },
   "14146": {
     "name": "Cordis Germina",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CR": 0.24
+      }
     }
   },
   "13144": {
     "name": "Grill O'Wisp",
     "quality": "4",
     "type": "Rupture",
-    "fixedStats": {
-      "BASE_ATK": 624.0,
-      "PERCENT_HP": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 624.0,
+        "PERCENT_HP": 0.25
+      }
     }
   },
   "14105": {
     "name": "Kraken's Cradle",
     "quality": "5",
     "type": "Rupture",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_HP": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_HP": 0.3
+      }
     }
   },
   "14145": {
     "name": "Dreamlit Hearth",
     "quality": "5",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_HP": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_HP": 0.3
+      }
     }
   },
   "14147": {
     "name": "Wrathful Vajra",
     "quality": "5",
     "type": "Rupture",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_HP": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_HP": 0.3
+      }
     }
   },
   "14148": {
     "name": "Yesterday Calls",
     "quality": "5",
     "type": "Stun",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_CR": 0.24
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_CR": 0.24
+      }
     }
   },
   "13019": {
     "name": "Cauldron of Clarity",
     "quality": "4",
     "type": "Rupture",
-    "fixedStats": {
-      "BASE_ATK": 594.2857142857143,
-      "PERCENT_HP": 0.25
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_HP": 0.25
+      }
     }
   },
   "14134": {
     "name": "Half-Sugar Bunny",
     "quality": "5",
     "type": "Defense",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_HP": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_HP": 0.3
+      }
     }
   },
   "14143": {
     "name": "Cloudcleave Radiance",
     "quality": "5",
     "type": "Attack",
-    "fixedStats": {
-      "BASE_ATK": 742.8571428571429,
-      "PERCENT_CD": 0.48
+    "stats": {
+      "constant": {
+        "BASE_ATK": 742.8571428571429,
+        "PERCENT_CD": 0.48
+      }
     }
   },
   "14149": {
     "name": "Thoughtbop",
     "quality": "5",
     "type": "Support",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_ER": 0.6
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ER": 0.6
+      }
     }
   },
   "14150": {
     "name": "Angel in the Shell",
     "quality": "5",
     "type": "Anomaly",
-    "fixedStats": {
-      "BASE_ATK": 713.1428571428571,
-      "PERCENT_AM": 0.3
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_AM": 0.3
+      }
+    }
+  },
+  "13020": {
+    "name": "The Simmering Pot",
+    "quality": "4",
+    "type": "Stun",
+    "stats": {
+      "constant": {
+        "BASE_ATK": 594.2857142857143,
+        "PERCENT_IMPACT": 0.15
+      }
+    }
+  },
+  "14151": {
+    "name": "Neon Fantasies",
+    "quality": "5",
+    "type": "Stun",
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_AM": 0.3
+      }
+    }
+  },
+  "14152": {
+    "name": "Serpentine Seeker",
+    "quality": "5",
+    "type": "Attack",
+    "stats": {
+      "constant": {
+        "BASE_ATK": 713.1428571428571,
+        "PERCENT_ER": 0.6
+      }
     }
   }
 }

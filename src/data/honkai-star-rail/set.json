@@ -1,170 +1,956 @@
 {
   "101": {
-    "name": "Passerby of Wandering Cloud"
+    "name": "Passerby of Wandering Cloud",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_OHB": 0.1
+          }
+        }
+      }
+    }
   },
   "102": {
-    "name": "Musketeer of Wild Wheat"
+    "name": "Musketeer of Wild Wheat",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPD": 0.06,
+            "PERCENT_BA": 0.1
+          }
+        }
+      }
+    }
   },
   "103": {
-    "name": "Knight of Purity Palace"
+    "name": "Knight of Purity Palace",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_DEF": 0.15
+          }
+        }
+      }
+    }
   },
   "104": {
-    "name": "Hunter of Glacial Forest"
+    "name": "Hunter of Glacial Forest",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ICE": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.25
+          }
+        }
+      }
+    }
   },
   "105": {
-    "name": "Champion of Streetwise Boxing"
+    "name": "Champion of Streetwise Boxing",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_PHYSICAL": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.25
+          }
+        }
+      }
+    }
   },
   "106": {
     "name": "Guard of Wuthering Snow"
   },
   "107": {
-    "name": "Firesmith of Lava-Forging"
+    "name": "Firesmith of Lava-Forging",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_FIRE": 0.1
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "PERCENT_S": 0.12
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_FIRE": 0.12
+          }
+        }
+      }
+    }
   },
   "108": {
-    "name": "Genius of Brilliant Stars"
+    "name": "Genius of Brilliant Stars",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_QUANTUM": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "DEF_IGNORE": 0.2
+          }
+        }
+      }
+    }
   },
   "109": {
-    "name": "Band of Sizzling Thunder"
+    "name": "Band of Sizzling Thunder",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_LIGHTNING": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.2
+          }
+        }
+      }
+    }
   },
   "110": {
-    "name": "Eagle of Twilight Line"
+    "name": "Eagle of Twilight Line",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_WIND": 0.1
+          }
+        }
+      }
+    }
   },
   "111": {
-    "name": "Thief of Shooting Meteor"
+    "name": "Thief of Shooting Meteor",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_BE": 0.16
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "PERCENT_BE": 0.16
+          }
+        }
+      }
+    }
   },
   "112": {
-    "name": "Wastelander of Banditry Desert"
+    "name": "Wastelander of Banditry Desert",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_IMAGINARY": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.1,
+            "PERCENT_CD": 0.2
+          }
+        }
+      }
+    }
   },
   "301": {
-    "name": "Space Sealing Station"
+    "name": "Space Sealing Station",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        }
+      }
+    }
   },
   "302": {
-    "name": "Fleet of the Ageless"
+    "name": "Fleet of the Ageless",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HP": 0.12
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.08
+          }
+        }
+      }
+    }
   },
   "303": {
-    "name": "Pan-Cosmic Commercial Enterprise"
+    "name": "Pan-Cosmic Commercial Enterprise",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_EHR": 0.1
+          }
+        },
+        "buffs": {
+          "variable": {
+            "PERCENT_ATK": {
+              "source": [
+                "EHR",
+                0.01
+              ],
+              "value": 0.0025,
+              "max": 0.25
+            }
+          }
+        }
+      }
+    }
   },
   "304": {
-    "name": "Belobog of the Architects"
+    "name": "Belobog of the Architects",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_DEF": 0.15
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_DEF": 0.15
+          }
+        }
+      }
+    }
   },
   "305": {
-    "name": "Celestial Differentiator"
+    "name": "Celestial Differentiator",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CD": 0.16
+          }
+        }
+      }
+    }
   },
   "306": {
-    "name": "Inert Salsotto"
+    "name": "Inert Salsotto",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.08
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_U": 0.15,
+            "PERCENT_FUA": 0.15
+          }
+        }
+      }
+    }
   },
   "307": {
-    "name": "Talia: Kingdom of Banditry"
+    "name": "Talia: Kingdom of Banditry",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_BE": 0.16
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_BE": 0.2
+          }
+        }
+      }
+    }
   },
   "308": {
-    "name": "Sprightly Vonwacq"
+    "name": "Sprightly Vonwacq",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ERR": 0.05
+          }
+        }
+      }
+    }
   },
   "113": {
-    "name": "Longevous Disciple"
+    "name": "Longevous Disciple",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HP": 0.2
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.16
+          }
+        }
+      }
+    }
   },
   "114": {
-    "name": "Messenger Traversing Hackerspace"
+    "name": "Messenger Traversing Hackerspace",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPD": 0.06
+          }
+        }
+      }
+    }
   },
   "309": {
-    "name": "Rutilant Arena"
+    "name": "Rutilant Arena",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.08
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_BA": 0.2,
+            "PERCENT_S": 0.2
+          }
+        }
+      }
+    }
   },
   "310": {
-    "name": "Broken Keel"
+    "name": "Broken Keel",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_RES": 0.1
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.1
+          }
+        }
+      }
+    }
   },
   "115": {
-    "name": "The Ashblazing Grand Duke"
+    "name": "The Ashblazing Grand Duke",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_FUA": 0.2
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.48
+          }
+        }
+      }
+    }
   },
   "116": {
-    "name": "Prisoner in Deep Confinement"
+    "name": "Prisoner in Deep Confinement",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "DEF_IGNORE": 0.18
+          }
+        }
+      }
+    }
   },
   "311": {
-    "name": "Firmament Frontline: Glamoth"
+    "name": "Firmament Frontline: Glamoth",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.18
+          }
+        }
+      }
+    }
   },
   "312": {
-    "name": "Penacony, Land of the Dreams"
+    "name": "Penacony, Land of the Dreams",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ERR": 0.05
+          }
+        }
+      }
+    }
   },
   "117": {
-    "name": "Pioneer Diver of Dead Waters"
+    "name": "Pioneer Diver of Dead Waters",
+    "setBonus": {
+      "2": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.12
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.04
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.04,
+            "PERCENT_CD": 0.24
+          }
+        }
+      }
+    }
   },
   "118": {
-    "name": "Watchmaker, Master of Dream Machinations"
+    "name": "Watchmaker, Master of Dream Machinations",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_BE": 0.16
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.3
+          }
+        }
+      }
+    }
   },
   "313": {
-    "name": "Sigonia, the Unclaimed Desolation"
+    "name": "Sigonia, the Unclaimed Desolation",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.04
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.40
+          }
+        }
+      }
+    }
   },
   "314": {
-    "name": "Izumo Gensei and Takama Divine Realm"
+    "name": "Izumo Gensei and Takama Divine Realm",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.12
+          }
+        }
+      }
+    }
   },
   "119": {
-    "name": "Iron Cavalry Against the Scourge"
+    "name": "Iron Cavalry Against the Scourge",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_BE": 0.16
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "DEF_IGNORE": 0.25
+          }
+        }
+      }
+    }
   },
   "120": {
-    "name": "The Wind-Soaring Valorous"
+    "name": "The Wind-Soaring Valorous",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        }
+      },
+      "4": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.06
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_U": 0.36
+          }
+        }
+      }
+    }
   },
   "315": {
-    "name": "Duran, Dynasty of Running Wolves"
+    "name": "Duran, Dynasty of Running Wolves",
+    "setBonus": {
+      "2": {
+        "buffs": {
+          "constant": {
+            "PERCENT_FUA": 0.25,
+            "PERCENT_CD": 0.25
+          }
+        }
+      }
+    }
   },
   "316": {
-    "name": "Forge of the Kalpagni Lantern"
+    "name": "Forge of the Kalpagni Lantern",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPD": 0.06
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_BE": 0.4
+          }
+        }
+      }
+    }
   },
   "317": {
-    "name": "Lushaka, the Sunken Seas"
+    "name": "Lushaka, the Sunken Seas",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ERR": 0.05
+          }
+        }
+      }
+    }
   },
   "318": {
-    "name": "The Wondrous BananAmusement Park"
+    "name": "The Wondrous BananAmusement Park",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CD": 0.16
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.32
+          }
+        }
+      }
+    }
   },
   "121": {
-    "name": "Sacerdos' Relived Ordeal"
+    "name": "Sacerdos' Relived Ordeal",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPD": 0.06
+          }
+        }
+      }
+    }
   },
   "122": {
-    "name": "Scholar Lost in Erudition"
+    "name": "Scholar Lost in Erudition",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.08
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_S": 0.45,
+            "PERCENT_U": 0.2
+          }
+        }
+      }
+    }
   },
   "123": {
-    "name": "Hero of Triumphant Song"
+    "name": "Hero of Triumphant Song",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_SPD": 0.06,
+            "PERCENT_CD": 0.3
+          }
+        }
+      }
+    }
   },
   "124": {
-    "name": "Poet of Mourning Collapse"
+    "name": "Poet of Mourning Collapse",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_QUANTUM": 0.1
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_SPD": -0.08,
+            "PERCENT_CR": 0.32
+          }
+        }
+      }
+    }
   },
   "319": {
-    "name": "Bone Collection's Serene Demesne"
+    "name": "Bone Collection's Serene Demesne",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_HP": 0.12
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.28
+          }
+        }
+      }
+    }
   },
   "320": {
-    "name": "Giant Tree of Rapt Brooding"
+    "name": "Giant Tree of Rapt Brooding",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPD": 0.06
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_OHB": 0.2
+          }
+        }
+      }
+    }
   },
   "125": {
-    "name": "Warrior Goddess of Sun and Thunder"
+    "name": "Warrior Goddess of Sun and Thunder",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPD": 0.06
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_SPD": 0.06,
+            "PERCENT_CD": 0.15
+          }
+        }
+      }
+    }
   },
   "126": {
-    "name": "Wavestrider Captain"
+    "name": "Wavestrider Captain",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CD": 0.16
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.48
+          }
+        }
+      }
+    }
   },
   "321": {
-    "name": "Arcadia of Woven Dreams"
+    "name": "Arcadia of Woven Dreams",
+    "setBonus": {
+      "2": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ALL": 0.36
+          }
+        }
+      }
+    }
   },
   "322": {
-    "name": "Revelry by the Sea"
+    "name": "Revelry by the Sea",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.12
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_DOT": 0.24
+          }
+        }
+      }
+    }
   },
   "127": {
-    "name": "World-Remaking Deliverer"
+    "name": "World-Remaking Deliverer",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.08
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_HP": 0.24,
+            "PERCENT_ALL": 0.15
+          }
+        }
+      }
+    }
   },
   "128": {
-    "name": "Self-Enshrouded Recluse"
+    "name": "Self-Enshrouded Recluse",
+    "setBonus": {
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.15
+          }
+        }
+      }
+    }
   },
   "323": {
-    "name": "Amphoreus, The Eternal Land"
+    "name": "Amphoreus, The Eternal Land",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CR": 0.08
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_SPD": 0.08
+          }
+        }
+      }
+    }
   },
   "324": {
-    "name": "Tengoku@Livestream"
+    "name": "Tengoku@Livestream",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CD": 0.16
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.32
+          }
+        }
+      }
+    }
   },
   "129": {
-    "name": "Ever-Glorious Magical Girl"
+    "name": "Ever-Glorious Magical Girl",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_CD": 0.16
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "DEF_IGNORE": 0.2
+          }
+        }
+      }
+    }
   },
   "130": {
-    "name": "Diviner of Distant Reach"
+    "name": "Diviner of Distant Reach",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_SPD": 0.06
+          }
+        }
+      },
+      "4": {
+        "buffs": {
+          "constant": {
+            "PERCENT_CR": 0.18,
+            "PERCENT_ELATION": 0.1
+          }
+        }
+      }
+    }
   },
   "325": {
-    "name": "Punklorde Stage Zero"
+    "name": "Punklorde Stage Zero",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ELATION": 0.08
+          }
+        },
+        "buffs": {
+          "constant": {
+            "PERCENT_CD": 0.32
+          }
+        }
+      }
+    }
   },
   "326": {
-    "name": "City of Converging Stars"
+    "name": "City of Converging Stars",
+    "setBonus": {
+      "2": {
+        "buffs": {
+          "constant": {
+            "PERCENT_ATK": 0.24,
+            "PERCENT_CD": 0.12
+          }
+        }
+      }
+    }
   }
 }

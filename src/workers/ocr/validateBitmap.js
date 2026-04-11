@@ -5,7 +5,7 @@ const QR_URL = "https://discord.com/invite/wutheringwaves";
 const RESIZE = 128;
 
 const offscreen = new OffscreenCanvas(128, 128);
-const ctx = offscreen.getContext("2d");
+const ctx = offscreen.getContext("2d", { willReadFrequently: true });
 
 export function validateBitmap(imageBitmap) {
   const { width, height } = imageBitmap;

@@ -4,7 +4,7 @@ const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-function computeBase(statMap, criteria) {
+export function computeBase(statMap, criteria) {
   // Base ability
   const multiplier = criteria.scaling.multiplier ?? {};
   const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
@@ -20,7 +20,7 @@ function computeBase(statMap, criteria) {
   return abilityBaseDmg + flatDmg;
 }
 
-function computeBonuses(statMap, criteria) {
+export function computeBonuses(statMap, criteria) {
   const { ability, element, status } = criteria.type;
 
   // Crit
@@ -45,7 +45,7 @@ function computeBonuses(statMap, criteria) {
   return critMult * dmgBonusMult * ampMult;
 }
 
-function computeReductions(statMap, criteria) {
+export function computeReductions(statMap, criteria) {
   const { element } = criteria.type;
 
   // Enemy resistance
@@ -66,11 +66,4 @@ function computeReductions(statMap, criteria) {
   const defMult = (800 + 8 * CHARACTER_LEVEL) / (800 + 8 * CHARACTER_LEVEL + enemyDef * (1 - defIgnore))
 
   return resMult * defMult;
-}
-
-export function computeDamage(statMap, criteria) {
-  const base = computeBase(statMap, criteria);
-  const bonuses = computeBonuses(statMap, criteria);
-  const reductions = computeReductions(statMap, criteria);
-  return base * bonuses * reductions;
 }

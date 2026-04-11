@@ -1,0 +1,42 @@
+{
+  "HP": {
+    "label": "HP",
+    "isPercent": false
+  },
+  "ATK": {
+    "label": "ATK",
+    "isPercent": false
+  },
+  "DEF": {
+    "label": "DEF",
+    "isPercent": false
+  },
+  "IMPACT": {
+    "label": "Impact",
+    "isPercent": false
+  },
+  "CR": {
+    "label": "CRIT Rate",
+    "isPercent": true
+  },
+  "CD": {
+    "label": "CRIT DMG",
+    "isPercent": true
+  },
+  "AM": {
+    "label": "Anomaly Mastery",
+    "isPercent": false
+  },
+  "AP": {
+    "label": "Anomaly Proficiency",
+    "isPercent": false
+  },
+  "PR": {
+    "label": "PEN Ratio",
+    "isPercent": true
+  },
+  "ER": {
+    "label": "Energy Regen",
+    "isPercent": false
+  }
+}

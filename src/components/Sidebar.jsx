@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Card, List, ListItemButton } from '@mui/material';
-import { useSortedCharacters, useCurrent } from '@/hooks';
+import { useSortedCharacters } from '@/hooks';
 
-export const Sidebar = () => {
+export const Sidebar = ({ gameId, characterId }) => {
   const navigate = useNavigate();
-  const { gameId, characterId } = useCurrent();
 
   const characterList = useSortedCharacters();
 

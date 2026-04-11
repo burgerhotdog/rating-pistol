@@ -4,7 +4,7 @@ const CHARACTER_LEVEL = 80;
 const ENEMY_LEVEL = 90;
 const BASE_RES = 0.2;
 
-function computeBase(statMap, criteria) {
+export function computeBase(statMap, criteria) {
   const { ability, element } = criteria.type;
 
   // Base ability
@@ -29,7 +29,7 @@ function computeBase(statMap, criteria) {
   return abilityBaseDmg * baseDmgMult + flatDmg;
 }
 
-function computeBonuses(statMap, criteria) {
+export function computeBonuses(statMap, criteria) {
   const { ability, element, status } = criteria.type;
 
   // Crit
@@ -54,7 +54,7 @@ function computeBonuses(statMap, criteria) {
   return critMult * dmgBonusMult * vulnMult;
 }
 
-function computeReductions(statMap, criteria) {
+export function computeReductions(statMap, criteria) {
   const { element } = criteria.type;
 
   // Enemy resistance
@@ -71,11 +71,4 @@ function computeReductions(statMap, criteria) {
   const brokenMult = 0.9;
 
   return resMult * defMult * brokenMult;
-}
-
-export function computeDamage(statMap, criteria) {
-  const baseDmg = computeBase(statMap, criteria);
-  const bonuses = computeBonuses(statMap, criteria);
-  const reductions = computeReductions(statMap, criteria);
-  return baseDmg * bonuses * reductions;
 }
