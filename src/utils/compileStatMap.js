@@ -57,8 +57,8 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
   }, {});
 
   const variableStatMap = mergeStatMaps(
-    buildVariableSourceMap(constantStatMap, CHARACTERS[gameId][characterId].variable ?? {}),
-    buildVariableSourceMap(constantStatMap, WEAPONS[gameId][weaponId]?.variable ?? {}),
+    buildVariableSourceMap(constantStatMap, CHARACTERS[gameId][characterId].stats?.variable ?? {}),
+    buildVariableSourceMap(constantStatMap, WEAPONS[gameId][weaponId]?.stats?.variable ?? {}),
     variableSetBuffs,
     inCombat ? variableSelfBuffs : {}
   );

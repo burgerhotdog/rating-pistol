@@ -1253,16 +1253,16 @@
         "BASE_DEF": 789.30533799,
         "BASE_EM": 0,
         "PERCENT_ER": 0.32
-      }
-    },
-    "variable": {
-      "PERCENT_ELECTRO": {
-        "source": [
-          "ER",
-          0.01
-        ],
-        "offset": 1,
-        "value": 0.004
+      },
+      "variable": {
+        "PERCENT_ELECTRO": {
+          "source": [
+            "ER",
+            0.01
+          ],
+          "offset": 1,
+          "value": 0.004
+        }
       }
     },
     "buffs": {

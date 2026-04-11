@@ -97,7 +97,7 @@ export function getVariableSetBuffs(gameId, equipList, statMap) {
           for (const [statId, statParams] of statsList) {
             const { source, offset, value, max } = statParams;
             const totalSource = computeTotalStat(source[0], statMap);
-            const mult = (totalSource - offset) / source[1];
+            const mult = (totalSource - (offset ?? 0)) / source[1];
             const statValue = Math.min(mult * value, max);
             acc[statId] = (acc[statId] ?? 0) + statValue;
           }
@@ -130,7 +130,7 @@ export function getVariableSetBuffs(gameId, equipList, statMap) {
           for (const [statId, statParams] of statsList) {
             const { source, offset, value, max } = statParams;
             const totalSource = computeTotalStat(source[0], statMap);
-            const mult = (totalSource - offset) / source[1];
+            const mult = (totalSource - (offset ?? 0)) / source[1];
             const statValue = Math.min(mult * value, max);
             acc[statId] = (acc[statId] ?? 0) + statValue;
           }
