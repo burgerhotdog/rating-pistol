@@ -1,13 +1,10 @@
 import { CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { STATS, CHARACTERS, WEAPONS } from '@/data';
-import { computeTotalStat, mergeEquipList, mergeStatMaps, compileStatMap } from '@/utils';
-import { useBuild } from "@/contexts";
+import { computeTotalStat, compileStatMap } from '@/utils';
 import { CustomAvatar } from "@/components";
 
 export const StatsPanel = ({ gameId, characterId, build, team }) => {
   const { MENU_STATS } = STATS[gameId];
-  const { name: CHAR_NAME = '' } = CHARACTERS[gameId][characterId] ?? {};
-  const { name: WEAP_NAME = '' } = WEAPONS[gameId][build?.weaponId] ?? {};
 
   const statMap = build ? compileStatMap(gameId, characterId, build, [], "menu") : {};
 
@@ -27,7 +24,7 @@ export const StatsPanel = ({ gameId, characterId, build, team }) => {
     <Card sx={{ width: 300 }}>
       <CardHeader
         avatar={<CustomAvatar gameId={gameId} characterId={characterId} />}
-        title={CHAR_NAME}
+        title={CHARACTERS[gameId]?.[characterId]?.name ?? ""}
       />
 
       <CardContent>
@@ -64,7 +61,7 @@ export const StatsPanel = ({ gameId, characterId, build, team }) => {
             Weapon
           </Typography>
           <Typography variant="body2" fontWeight="bold">
-            {WEAP_NAME}
+            {WEAPONS[gameId]?.[build?.weaponId]?.name ?? ""}
           </Typography>
         </Box>
 
