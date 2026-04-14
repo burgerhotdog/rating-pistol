@@ -440,7 +440,7 @@
     "stats": {
       "constant": {
         "BASE_ATK": 401,
-        "PERCENT_CR": 0.234294
+        "PERCENT_CR": 0.234
       }
     }
   },
@@ -2176,7 +2176,7 @@
     "stats": {
       "constant": {
         "BASE_ATK": 542,
-        "PERCENT_DEF": 0.82692
+        "PERCENT_DEF": 0.827
       }
     }
   },
@@ -2440,7 +2440,7 @@
     "stats": {
       "constant": {
         "BASE_ATK": 620,
-        "PERCENT_CR": 0.09188
+        "PERCENT_CR": 0.092
       }
     }
   },

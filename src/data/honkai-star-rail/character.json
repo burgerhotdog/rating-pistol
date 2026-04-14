@@ -6,9 +6,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 511.56,
-        "BASE_DEF": 573.3,
+        "BASE_HP": 1058,
+        "BASE_ATK": 512,
+        "BASE_DEF": 573,
         "BASE_SPD": 101,
         "PERCENT_ICE": 0.224,
         "PERCENT_DEF": 0.225,
@@ -24,8 +24,8 @@
     "stats": {
       "constant": {
         "BASE_HP": 882,
-        "BASE_ATK": 546.84,
-        "BASE_DEF": 396.9,
+        "BASE_ATK": 547,
+        "BASE_DEF": 397,
         "BASE_SPD": 110,
         "PERCENT_WIND": 0.224,
         "PERCENT_ATK": 0.18,
@@ -40,9 +40,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1047.816,
-        "BASE_ATK": 756.756,
-        "BASE_DEF": 436.59000000000003,
+        "BASE_HP": 1048,
+        "BASE_ATK": 757,
+        "BASE_DEF": 437,
         "BASE_SPD": 96,
         "PERCENT_FIRE": 0.224,
         "PERCENT_ATK": 0.18,
@@ -57,12 +57,12 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1125.4319999999998,
-        "BASE_ATK": 620.9280000000001,
-        "BASE_DEF": 509.355,
+        "BASE_HP": 1125,
+        "BASE_ATK": 621,
+        "BASE_DEF": 509,
         "BASE_SPD": 102,
         "PERCENT_ATK": 0.28,
-        "PERCENT_IMAGINARY": 0.14400000000000002,
+        "PERCENT_IMAGINARY": 0.144,
         "PERCENT_RES": 0.1
       }
     }
@@ -74,9 +74,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1199.52,
-        "BASE_ATK": 599.76,
-        "BASE_DEF": 330.75,
+        "BASE_HP": 1200,
+        "BASE_ATK": 600,
+        "BASE_DEF": 331,
         "BASE_SPD": 102,
         "PERCENT_ATK": 0.28,
         "PERCENT_RES": 0.18,
@@ -91,9 +91,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1023.12,
-        "BASE_ATK": 511.56,
-        "BASE_DEF": 463.04999999999995,
+        "BASE_HP": 1023,
+        "BASE_ATK": 512,
+        "BASE_DEF": 463,
         "BASE_SPD": 106,
         "PERCENT_FIRE": 0.224,
         "PERCENT_DEF": 0.225,
@@ -108,9 +108,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 396.9,
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 397,
         "BASE_SPD": 100,
         "PERCENT_ICE": 0.224,
         "PERCENT_DEF": 0.225,
@@ -125,9 +125,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1241.8560000000002,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 533.61,
+        "BASE_HP": 1242,
+        "BASE_ATK": 582,
+        "BASE_DEF": 534,
         "BASE_SPD": 99,
         "PERCENT_WIND": 0.224,
         "PERCENT_CD": 0.24,
@@ -142,9 +142,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 931.392,
-        "BASE_ATK": 640.332,
-        "BASE_DEF": 363.82500000000005,
+        "BASE_HP": 931,
+        "BASE_ATK": 640,
+        "BASE_DEF": 364,
         "BASE_SPD": 115,
         "PERCENT_ATK": 0.28,
         "PERCENT_CD": 0.24,
@@ -159,9 +159,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 917.28,
-        "BASE_ATK": 652.6800000000001,
-        "BASE_DEF": 374.85,
+        "BASE_HP": 917,
+        "BASE_ATK": 653,
+        "BASE_DEF": 375,
         "BASE_SPD": 104,
         "PERCENT_CR": 0.187,
         "PERCENT_EHR": 0.18,
@@ -176,9 +176,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1397.088,
-        "BASE_ATK": 543.312,
-        "BASE_DEF": 654.885,
+        "BASE_HP": 1397,
+        "BASE_ATK": 543,
+        "BASE_DEF": 655,
         "BASE_SPD": 92,
         "PERCENT_ICE": 0.224,
         "PERCENT_RES": 0.18,
@@ -193,9 +193,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 507.15,
+        "BASE_HP": 1164,
+        "BASE_ATK": 476,
+        "BASE_DEF": 507,
         "BASE_SPD": 98,
         "PERCENT_HP": 0.28,
         "PERCENT_RES": 0.18,
@@ -210,9 +210,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 987.8399999999999,
-        "BASE_ATK": 546.84,
-        "BASE_DEF": 463.04999999999995,
+        "BASE_HP": 988,
+        "BASE_ATK": 547,
+        "BASE_DEF": 463,
         "BASE_SPD": 105,
         "PERCENT_ICE": 0.224,
         "PERCENT_ATK": 0.18,
@@ -227,12 +227,12 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1241.8560000000002,
-        "BASE_ATK": 737.3520000000001,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1242,
+        "BASE_ATK": 737,
+        "BASE_DEF": 485,
         "BASE_SPD": 90,
         "PERCENT_ATK": 0.28,
-        "PERCENT_PHYSICAL": 0.14400000000000002,
+        "PERCENT_PHYSICAL": 0.144,
         "PERCENT_HP": 0.1
       }
     }
@@ -244,9 +244,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1023.12,
-        "BASE_ATK": 617.4000000000001,
-        "BASE_DEF": 396.9,
+        "BASE_HP": 1023,
+        "BASE_ATK": 617,
+        "BASE_DEF": 397,
         "BASE_SPD": 102,
         "PERCENT_ATK": 0.28,
         "PERCENT_EHR": 0.18,
@@ -261,9 +261,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1340.6399999999999,
-        "BASE_ATK": 617.4000000000001,
-        "BASE_DEF": 352.79999999999995,
+        "BASE_HP": 1341,
+        "BASE_ATK": 617,
+        "BASE_DEF": 353,
         "BASE_SPD": 94,
         "PERCENT_ATK": 0.28,
         "PERCENT_HP": 0.18,
@@ -278,12 +278,12 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1023.12,
-        "BASE_ATK": 652.6800000000001,
+        "BASE_HP": 1023,
+        "BASE_ATK": 653,
         "BASE_DEF": 441,
         "BASE_SPD": 98,
         "PERCENT_ATK": 0.28,
-        "PERCENT_QUANTUM": 0.14400000000000002,
+        "PERCENT_QUANTUM": 0.144,
         "PERCENT_DEF": 0.125
       }
     }
@@ -295,9 +295,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9,
+        "BASE_HP": 847,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397,
         "BASE_SPD": 112,
         "PERCENT_ATK": 0.28,
         "PERCENT_DEF": 0.225,
@@ -312,9 +312,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 698.544,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1164,
+        "BASE_ATK": 699,
+        "BASE_DEF": 485,
         "BASE_SPD": 99,
         "PERCENT_ATK": 0.28,
         "PERCENT_CR": 0.12,
@@ -329,9 +329,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 917.28,
-        "BASE_ATK": 564.48,
-        "BASE_DEF": 418.95000000000005,
+        "BASE_HP": 917,
+        "BASE_ATK": 564,
+        "BASE_DEF": 419,
         "BASE_SPD": 107,
         "PERCENT_ATK": 0.28,
         "PERCENT_HP": 0.18,
@@ -346,12 +346,12 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 892.5840000000001,
-        "BASE_ATK": 679.1400000000001,
-        "BASE_DEF": 412.33500000000004,
+        "BASE_HP": 893,
+        "BASE_ATK": 679,
+        "BASE_DEF": 412,
         "BASE_SPD": 109,
         "PERCENT_ATK": 0.28,
-        "PERCENT_ICE": 0.14400000000000002,
+        "PERCENT_ICE": 0.144,
         "PERCENT_HP": 0.1
       }
     }
@@ -363,9 +363,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1319.4720000000002,
-        "BASE_ATK": 562.7159999999999,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1319,
+        "BASE_ATK": 563,
+        "BASE_DEF": 485,
         "BASE_SPD": 98,
         "PERCENT_HP": 0.28,
         "PERCENT_DEF": 0.225,
@@ -380,9 +380,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1047.816,
-        "BASE_ATK": 640.332,
-        "BASE_DEF": 460.845,
+        "BASE_HP": 1048,
+        "BASE_ATK": 640,
+        "BASE_DEF": 461,
         "BASE_SPD": 107,
         "PERCENT_ATK": 0.28,
         "PERCENT_EHR": 0.18,
@@ -397,9 +397,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1280.664,
-        "BASE_ATK": 756.756,
-        "BASE_DEF": 363.82500000000005,
+        "BASE_HP": 1281,
+        "BASE_ATK": 757,
+        "BASE_DEF": 364,
         "BASE_SPD": 101,
         "PERCENT_ATK": 0.28,
         "PERCENT_HP": 0.18,
@@ -414,9 +414,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 917.28,
-        "BASE_ATK": 599.76,
-        "BASE_DEF": 374.85,
+        "BASE_HP": 917,
+        "BASE_ATK": 600,
+        "BASE_DEF": 375,
         "BASE_SPD": 107,
         "PERCENT_IMAGINARY": 0.224,
         "PERCENT_HP": 0.18,
@@ -431,9 +431,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1086.624,
-        "BASE_ATK": 679.1400000000001,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1087,
+        "BASE_ATK": 679,
+        "BASE_DEF": 485,
         "BASE_SPD": 100,
         "PERCENT_ATK": 0.28,
         "PERCENT_EHR": 0.18,
@@ -448,9 +448,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 917.28,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 917,
+        "BASE_ATK": 582,
+        "BASE_DEF": 485,
         "BASE_SPD": 103,
         "PERCENT_ATK": 0.28,
         "PERCENT_EHR": 0.18,
@@ -465,9 +465,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1358.2800000000002,
-        "BASE_ATK": 543.312,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1358,
+        "BASE_ATK": 543,
+        "BASE_DEF": 485,
         "BASE_SPD": 97,
         "PERCENT_HP": 0.28,
         "PERCENT_CR": 0.12,
@@ -482,9 +482,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 493.91999999999996,
-        "BASE_DEF": 551.25,
+        "BASE_HP": 1058,
+        "BASE_ATK": 494,
+        "BASE_DEF": 551,
         "BASE_SPD": 100,
         "PERCENT_HP": 0.28,
         "PERCENT_DEF": 0.225,
@@ -499,9 +499,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1474.7040000000002,
-        "BASE_ATK": 465.696,
-        "BASE_DEF": 606.375,
+        "BASE_HP": 1475,
+        "BASE_ATK": 466,
+        "BASE_DEF": 606,
         "BASE_SPD": 100,
         "PERCENT_CR": 0.187,
         "PERCENT_HP": 0.18,
@@ -510,15 +510,15 @@
     }
   },
   "1213": {
-    "name": "Dan Heng \u2022 Imbibitor Lunae",
+    "name": "Dan Heng • Imbibitor Lunae",
     "quality": "5",
     "element": "Imaginary",
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1241.8560000000002,
-        "BASE_ATK": 698.544,
-        "BASE_DEF": 363.82500000000005,
+        "BASE_HP": 1242,
+        "BASE_ATK": 699,
+        "BASE_DEF": 364,
         "BASE_SPD": 102,
         "PERCENT_IMAGINARY": 0.224,
         "PERCENT_CR": 0.12,
@@ -533,9 +533,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 931.392,
-        "BASE_ATK": 620.9280000000001,
-        "BASE_DEF": 412.33500000000004,
+        "BASE_HP": 931,
+        "BASE_ATK": 621,
+        "BASE_DEF": 412,
         "BASE_SPD": 110,
         "PERCENT_FIRE": 0.224,
         "PERCENT_CR": 0.12,
@@ -551,7 +551,7 @@
     "stats": {
       "constant": {
         "BASE_HP": 882,
-        "BASE_ATK": 582.1199999999999,
+        "BASE_ATK": 582,
         "BASE_DEF": 441,
         "BASE_SPD": 106,
         "PERCENT_FIRE": 0.224,
@@ -567,9 +567,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1435.8960000000002,
-        "BASE_ATK": 679.1400000000001,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1436,
+        "BASE_ATK": 679,
+        "BASE_DEF": 485,
         "BASE_SPD": 96,
         "PERCENT_CD": 0.373,
         "FLAT_SPD": 9,
@@ -584,9 +584,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 917.28,
-        "BASE_ATK": 564.48,
-        "BASE_DEF": 352.79999999999995,
+        "BASE_HP": 917,
+        "BASE_ATK": 564,
+        "BASE_DEF": 353,
         "BASE_SPD": 110,
         "PERCENT_ATK": 0.28,
         "FLAT_SPD": 9,
@@ -601,9 +601,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1358.2800000000002,
-        "BASE_ATK": 601.5239999999999,
-        "BASE_DEF": 509.355,
+        "BASE_HP": 1358,
+        "BASE_ATK": 602,
+        "BASE_DEF": 509,
         "BASE_SPD": 98,
         "PERCENT_HP": 0.28,
         "PERCENT_RES": 0.18,
@@ -618,12 +618,12 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1047.816,
-        "BASE_ATK": 737.3520000000001,
-        "BASE_DEF": 363.82500000000005,
+        "BASE_HP": 1048,
+        "BASE_ATK": 737,
+        "BASE_DEF": 364,
         "BASE_SPD": 103,
         "PERCENT_ATK": 0.28,
-        "PERCENT_PHYSICAL": 0.14400000000000002,
+        "PERCENT_PHYSICAL": 0.144,
         "PERCENT_HP": 0.1
       }
     }
@@ -635,9 +635,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 599.76,
-        "BASE_DEF": 396.9,
+        "BASE_HP": 1058,
+        "BASE_ATK": 600,
+        "BASE_DEF": 397,
         "BASE_SPD": 103,
         "PERCENT_BE": 0.373,
         "PERCENT_HP": 0.18,
@@ -652,9 +652,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1086.624,
-        "BASE_ATK": 659.7360000000001,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1087,
+        "BASE_ATK": 660,
+        "BASE_DEF": 485,
         "BASE_SPD": 104,
         "PERCENT_BE": 0.373,
         "PERCENT_DEF": 0.225,
@@ -669,9 +669,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1047.816,
-        "BASE_ATK": 776.1600000000001,
-        "BASE_DEF": 460.845,
+        "BASE_HP": 1048,
+        "BASE_ATK": 776,
+        "BASE_DEF": 461,
         "BASE_SPD": 103,
         "PERCENT_ATK": 0.28,
         "PERCENT_CR": 0.12,
@@ -686,9 +686,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1397.088,
-        "BASE_ATK": 523.908,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1397,
+        "BASE_ATK": 524,
+        "BASE_DEF": 485,
         "BASE_SPD": 101,
         "PERCENT_HP": 0.28,
         "PERCENT_CD": 0.24,
@@ -703,12 +703,12 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1086.624,
-        "BASE_ATK": 659.7360000000001,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1087,
+        "BASE_ATK": 660,
+        "BASE_DEF": 485,
         "BASE_SPD": 102,
         "PERCENT_ATK": 0.28,
-        "PERCENT_WIND": 0.14400000000000002,
+        "PERCENT_WIND": 0.144,
         "PERCENT_EHR": 0.1
       }
     }
@@ -720,9 +720,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1270.08,
-        "BASE_ATK": 599.76,
-        "BASE_DEF": 396.9,
+        "BASE_HP": 1270,
+        "BASE_ATK": 600,
+        "BASE_DEF": 397,
         "BASE_SPD": 96,
         "PERCENT_ICE": 0.224,
         "PERCENT_DEF": 0.225,
@@ -737,8 +737,8 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1305.3600000000001,
-        "BASE_ATK": 529.2,
+        "BASE_HP": 1305,
+        "BASE_ATK": 529,
         "BASE_DEF": 441,
         "BASE_SPD": 98,
         "PERCENT_RES": 0.28,
@@ -754,12 +754,12 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1203.0479999999998,
-        "BASE_ATK": 446.29200000000003,
-        "BASE_DEF": 654.885,
+        "BASE_HP": 1203,
+        "BASE_ATK": 446,
+        "BASE_DEF": 655,
         "BASE_SPD": 106,
         "PERCENT_DEF": 0.35,
-        "PERCENT_IMAGINARY": 0.14400000000000002,
+        "PERCENT_IMAGINARY": 0.144,
         "PERCENT_RES": 0.1
       }
     }
@@ -771,9 +771,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1125.4319999999998,
-        "BASE_ATK": 698.544,
-        "BASE_DEF": 436.59000000000003,
+        "BASE_HP": 1125,
+        "BASE_ATK": 699,
+        "BASE_DEF": 437,
         "BASE_SPD": 101,
         "PERCENT_ATK": 0.28,
         "PERCENT_CD": 0.24,
@@ -788,9 +788,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1280.664,
-        "BASE_ATK": 640.332,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1281,
+        "BASE_ATK": 640,
+        "BASE_DEF": 485,
         "BASE_SPD": 102,
         "PERCENT_ATK": 0.28,
         "PERCENT_HP": 0.18,
@@ -805,9 +805,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1203.0479999999998,
-        "BASE_ATK": 620.9280000000001,
-        "BASE_DEF": 436.59000000000003,
+        "BASE_HP": 1203,
+        "BASE_ATK": 621,
+        "BASE_DEF": 437,
         "BASE_SPD": 107,
         "PERCENT_BE": 0.373,
         "PERCENT_ATK": 0.18,
@@ -822,9 +822,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 814.968,
-        "BASE_ATK": 523.908,
-        "BASE_DEF": 776.1600000000001,
+        "BASE_HP": 815,
+        "BASE_ATK": 524,
+        "BASE_DEF": 776,
         "BASE_SPD": 104,
         "PERCENT_BE": 0.373,
         "PERCENT_RES": 0.18,
@@ -839,9 +839,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1086.624,
-        "BASE_ATK": 659.7360000000001,
-        "BASE_DEF": 509.355,
+        "BASE_HP": 1087,
+        "BASE_ATK": 660,
+        "BASE_DEF": 509,
         "BASE_SPD": 103,
         "PERCENT_QUANTUM": 0.224,
         "PERCENT_ATK": 0.18,
@@ -856,12 +856,12 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1358.2800000000002,
-        "BASE_ATK": 601.5239999999999,
-        "BASE_DEF": 509.355,
+        "BASE_HP": 1358,
+        "BASE_ATK": 602,
+        "BASE_DEF": 509,
         "BASE_SPD": 98,
         "PERCENT_EHR": 0.28,
-        "PERCENT_FIRE": 0.14400000000000002,
+        "PERCENT_FIRE": 0.144,
         "FLAT_SPD": 5
       }
     }
@@ -873,9 +873,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1358.2800000000002,
-        "BASE_ATK": 679.1400000000001,
-        "BASE_DEF": 460.845,
+        "BASE_HP": 1358,
+        "BASE_ATK": 679,
+        "BASE_DEF": 461,
         "BASE_SPD": 94,
         "PERCENT_ATK": 0.28,
         "PERCENT_HP": 0.18,
@@ -890,8 +890,8 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 564.48,
+        "BASE_HP": 1058,
+        "BASE_ATK": 564,
         "BASE_DEF": 441,
         "BASE_SPD": 102,
         "PERCENT_ATK": 0.28,
@@ -907,9 +907,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1047.816,
-        "BASE_ATK": 601.5239999999999,
-        "BASE_DEF": 388.08000000000004,
+        "BASE_HP": 1048,
+        "BASE_ATK": 602,
+        "BASE_DEF": 388,
         "BASE_SPD": 112,
         "PERCENT_ATK": 0.28,
         "PERCENT_CR": 0.12,
@@ -924,9 +924,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1358.2800000000002,
-        "BASE_ATK": 679.1400000000001,
-        "BASE_DEF": 436.59000000000003,
+        "BASE_HP": 1358,
+        "BASE_ATK": 679,
+        "BASE_DEF": 437,
         "BASE_SPD": 98,
         "PERCENT_BE": 0.373,
         "PERCENT_HP": 0.18,
@@ -941,9 +941,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 811.44,
-        "BASE_ATK": 599.76,
-        "BASE_DEF": 352.79999999999995,
+        "BASE_HP": 811,
+        "BASE_ATK": 600,
+        "BASE_DEF": 353,
         "BASE_SPD": 111,
         "PERCENT_CD": 0.373,
         "PERCENT_ATK": 0.18,
@@ -958,9 +958,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1086.624,
-        "BASE_ATK": 717.9480000000001,
-        "BASE_DEF": 460.845,
+        "BASE_HP": 1087,
+        "BASE_ATK": 718,
+        "BASE_DEF": 461,
         "BASE_SPD": 96,
         "PERCENT_ATK": 0.28,
         "FLAT_SPD": 9,
@@ -975,9 +975,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1125.4319999999998,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 557.865,
+        "BASE_HP": 1125,
+        "BASE_ATK": 582,
+        "BASE_DEF": 558,
         "BASE_SPD": 102,
         "FLAT_SPD": 14,
         "PERCENT_BE": 0.24,
@@ -992,9 +992,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1241.8560000000002,
-        "BASE_ATK": 640.332,
-        "BASE_DEF": 533.61,
+        "BASE_HP": 1242,
+        "BASE_ATK": 640,
+        "BASE_DEF": 534,
         "BASE_SPD": 96,
         "PERCENT_CD": 0.373,
         "PERCENT_RES": 0.18,
@@ -1009,9 +1009,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 679.1400000000001,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1164,
+        "BASE_ATK": 679,
+        "BASE_DEF": 485,
         "BASE_SPD": 99,
         "PERCENT_ICE": 0.224,
         "PERCENT_ATK": 0.18,
@@ -1026,9 +1026,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1241.8560000000002,
-        "BASE_ATK": 698.544,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1242,
+        "BASE_ATK": 699,
+        "BASE_DEF": 485,
         "BASE_SPD": 102,
         "PERCENT_LIGHTNING": 0.224,
         "PERCENT_CR": 0.12,
@@ -1043,9 +1043,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1047.816,
-        "BASE_ATK": 523.908,
-        "BASE_DEF": 727.6500000000001,
+        "BASE_HP": 1048,
+        "BASE_ATK": 524,
+        "BASE_DEF": 728,
         "BASE_SPD": 96,
         "PERCENT_CD": 0.373,
         "PERCENT_CR": 0.12,
@@ -1060,9 +1060,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1552.3200000000002,
-        "BASE_ATK": 426.88800000000003,
-        "BASE_DEF": 194.04000000000002,
+        "BASE_HP": 1552,
+        "BASE_ATK": 427,
+        "BASE_DEF": 194,
         "BASE_SPD": 95,
         "PERCENT_CD": 0.373,
         "PERCENT_HP": 0.18,
@@ -1077,9 +1077,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 970.2,
-        "BASE_ATK": 756.756,
-        "BASE_DEF": 557.865,
+        "BASE_HP": 970,
+        "BASE_ATK": 757,
+        "BASE_DEF": 558,
         "BASE_SPD": 97,
         "PERCENT_WIND": 0.224,
         "PERCENT_CR": 0.12,
@@ -1094,12 +1094,12 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1629.936,
-        "BASE_ATK": 523.908,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1630,
+        "BASE_ATK": 524,
+        "BASE_DEF": 485,
         "BASE_SPD": 95,
         "PERCENT_CR": 0.187,
-        "PERCENT_QUANTUM": 0.14400000000000002,
+        "PERCENT_QUANTUM": 0.144,
         "PERCENT_CD": 0.133
       }
     }
@@ -1111,12 +1111,12 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 931.392,
-        "BASE_ATK": 640.332,
-        "BASE_DEF": 509.355,
+        "BASE_HP": 931,
+        "BASE_ATK": 640,
+        "BASE_DEF": 509,
         "BASE_SPD": 106,
         "FLAT_SPD": 14,
-        "PERCENT_QUANTUM": 0.14400000000000002,
+        "PERCENT_QUANTUM": 0.144,
         "PERCENT_EHR": 0.1
       }
     }
@@ -1128,9 +1128,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1086.624,
-        "BASE_ATK": 388.08000000000004,
-        "BASE_DEF": 630.6300000000001,
+        "BASE_HP": 1087,
+        "BASE_ATK": 388,
+        "BASE_DEF": 631,
         "BASE_SPD": 110,
         "FLAT_SPD": 14,
         "PERCENT_RES": 0.18,
@@ -1145,9 +1145,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1241.8560000000002,
-        "BASE_ATK": 601.5239999999999,
-        "BASE_DEF": 654.885,
+        "BASE_HP": 1242,
+        "BASE_ATK": 602,
+        "BASE_DEF": 655,
         "BASE_SPD": 101,
         "PERCENT_WIND": 0.224,
         "PERCENT_CR": 0.12,
@@ -1162,9 +1162,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 620.9280000000001,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1164,
+        "BASE_ATK": 621,
+        "BASE_DEF": 485,
         "BASE_SPD": 105,
         "PERCENT_QUANTUM": 0.224,
         "PERCENT_ATK": 0.18,
@@ -1179,9 +1179,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1435.8960000000002,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 703.395,
+        "BASE_HP": 1436,
+        "BASE_ATK": 582,
+        "BASE_DEF": 703,
         "BASE_SPD": 94,
         "PERCENT_CD": 0.373,
         "PERCENT_CR": 0.12,
@@ -1196,9 +1196,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1203.0479999999998,
-        "BASE_ATK": 601.5239999999999,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1203,
+        "BASE_ATK": 602,
+        "BASE_DEF": 485,
         "BASE_SPD": 102,
         "FLAT_SPD": 14,
         "PERCENT_ATK": 0.18,
@@ -1213,9 +1213,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1358.2800000000002,
-        "BASE_ATK": 620.9280000000001,
-        "BASE_DEF": 485.1,
+        "BASE_HP": 1358,
+        "BASE_ATK": 621,
+        "BASE_DEF": 485,
         "BASE_SPD": 99,
         "PERCENT_WIND": 0.224,
         "PERCENT_ATK": 0.18,
@@ -1230,9 +1230,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1319.4720000000002,
-        "BASE_ATK": 543.312,
-        "BASE_DEF": 582.1199999999999,
+        "BASE_HP": 1319,
+        "BASE_ATK": 543,
+        "BASE_DEF": 582,
         "BASE_SPD": 99,
         "PERCENT_CR": 0.187,
         "PERCENT_HP": 0.18,
@@ -1241,15 +1241,15 @@
     }
   },
   "1414": {
-    "name": "Dan Heng \u2022 Permansor Terrae",
+    "name": "Dan Heng • Permansor Terrae",
     "quality": "5",
     "element": "Physical",
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1047.816,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 776.1600000000001,
+        "BASE_HP": 1048,
+        "BASE_ATK": 582,
+        "BASE_DEF": 776,
         "BASE_SPD": 97,
         "PERCENT_ATK": 0.28,
         "PERCENT_DEF": 0.225,
@@ -1264,9 +1264,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1397.088,
-        "BASE_ATK": 446.29200000000003,
-        "BASE_DEF": 582.1199999999999,
+        "BASE_HP": 1397,
+        "BASE_ATK": 446,
+        "BASE_DEF": 582,
         "BASE_SPD": 101,
         "PERCENT_CD": 0.373,
         "FLAT_SPD": 9,
@@ -1281,9 +1281,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1086.624,
-        "BASE_ATK": 679.1400000000001,
-        "BASE_DEF": 606.375,
+        "BASE_HP": 1087,
+        "BASE_ATK": 679,
+        "BASE_DEF": 606,
         "BASE_SPD": 96,
         "PERCENT_BE": 0.373,
         "PERCENT_RES": 0.18,
@@ -1298,9 +1298,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 1047.816,
-        "BASE_ATK": 640.332,
-        "BASE_DEF": 460.845,
+        "BASE_HP": 1048,
+        "BASE_ATK": 640,
+        "BASE_DEF": 461,
         "BASE_SPD": 107,
         "PERCENT_ELATION": 0.28,
         "PERCENT_CR": 0.12,
@@ -1315,9 +1315,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 1241.8560000000002,
-        "BASE_ATK": 465.696,
-        "BASE_DEF": 654.885,
+        "BASE_HP": 1242,
+        "BASE_ATK": 466,
+        "BASE_DEF": 655,
         "BASE_SPD": 101,
         "PERCENT_CR": 0.187,
         "FLAT_SPD": 9,
@@ -1332,12 +1332,12 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 853.7760000000001,
-        "BASE_ATK": 776.1600000000001,
-        "BASE_DEF": 388.08000000000004,
+        "BASE_HP": 854,
+        "BASE_ATK": 776,
+        "BASE_DEF": 388,
         "BASE_SPD": 106,
         "PERCENT_CD": 0.373,
-        "PERCENT_LIGHTNING": 0.14400000000000002,
+        "PERCENT_LIGHTNING": 0.144,
         "PERCENT_ATK": 0.1
       }
     }

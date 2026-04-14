@@ -1,12 +1,14 @@
+import math
+
 def character_constant_stats_parser(game_id, data):
     constant = {}
     match game_id:
         case "genshin-impact":
             # Base stats
-            constant["BASE_HP"] = data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"]
-            constant["BASE_ATK"] = data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"]
-            constant["BASE_DEF"] = data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"]
-            constant["BASE_EM"] = data["elemental_mastery"]
+            constant["BASE_HP"] = round(data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"])
+            constant["BASE_ATK"] = round(data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"])
+            constant["BASE_DEF"] = round(data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"])
+            constant["BASE_EM"] = round(data["elemental_mastery"])
             
             # Ascension stats
             stat_map = {
@@ -33,10 +35,10 @@ def character_constant_stats_parser(game_id, data):
 
         case "honkai-star-rail":
             # Base stats
-            constant["BASE_HP"] = data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"]
-            constant["BASE_ATK"] = data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"]
-            constant["BASE_DEF"] = data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"]
-            constant["BASE_SPD"] = data["stats"]["6"]["speed_base"]
+            constant["BASE_HP"] = round(data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"])
+            constant["BASE_ATK"] = round(data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"])
+            constant["BASE_DEF"] = round(data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"])
+            constant["BASE_SPD"] = round(data["stats"]["6"]["speed_base"])
 
             # Ascension stats
             stat_map = {
@@ -71,9 +73,9 @@ def character_constant_stats_parser(game_id, data):
 
         case "wuthering-waves":
             # Base stats
-            constant["BASE_HP"] = data["stats"]["6"]["90"]["life"]
-            constant["BASE_ATK"] = data["stats"]["6"]["90"]["atk"]
-            constant["BASE_DEF"] = data["stats"]["6"]["90"]["def"]
+            constant["BASE_HP"] = math.floor(data["stats"]["6"]["90"]["life"])
+            constant["BASE_ATK"] = math.floor(data["stats"]["6"]["90"]["atk"])
+            constant["BASE_DEF"] = math.floor(data["stats"]["6"]["90"]["def"])
 
             # Ascension stats
             stat_map = {
@@ -106,12 +108,12 @@ def character_constant_stats_parser(game_id, data):
 
         case "zenless-zone-zero":
             # Base stats
-            constant["BASE_HP"] = data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"]
-            constant["BASE_ATK"] = data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"]
-            constant["BASE_DEF"] = data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"]
-            constant["BASE_IMPACT"] = data["stats"]["break_stun"]
-            constant["BASE_AM"] = data["stats"]["element_abnormal_power"]
-            constant["BASE_AP"] = data["stats"]["element_mystery"]
+            constant["BASE_HP"] = round(data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"])
+            constant["BASE_ATK"] = round(data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"])
+            constant["BASE_DEF"] = round(data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"])
+            constant["BASE_IMPACT"] = round(data["stats"]["break_stun"])
+            constant["BASE_AM"] = round(data["stats"]["element_abnormal_power"])
+            constant["BASE_AP"] = round(data["stats"]["element_mystery"])
 
             # Ascension stats
             stat_map = {
@@ -147,7 +149,7 @@ def weapon_constant_stats_parser(game_id, data):
     match game_id:
         case "genshin-impact":
             # Base stats
-            constant["BASE_ATK"] = data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"]
+            constant["BASE_ATK"] = round(data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"])
 
             # Ascension stats
             stat_map = {
@@ -174,13 +176,13 @@ def weapon_constant_stats_parser(game_id, data):
 
         case "honkai-star-rail":
             # Base stats
-            constant["BASE_HP"] = data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79
-            constant["BASE_ATK"] = data["stats"][6]["base_attack_add"] * 79 + data["stats"][6]["base_attack"]
-            constant["BASE_DEF"] = data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79
+            constant["BASE_HP"] = round(data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79)
+            constant["BASE_ATK"] = round(data["stats"][6]["base_attack_add"] * 79 + data["stats"][6]["base_attack"])
+            constant["BASE_DEF"] = round(data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79)
 
         case "wuthering-waves":
             # Base stats
-            constant["BASE_ATK"] = data["stats"]["6"]["90"][0]["value"]
+            constant["BASE_ATK"] = math.floor(data["stats"]["6"]["90"][0]["value"])
 
             # Ascension stats
             stat_map = {
@@ -203,7 +205,7 @@ def weapon_constant_stats_parser(game_id, data):
 
         case "zenless-zone-zero":
             # Base stats
-            constant["BASE_ATK"] = data["base_property"]["value"] * 104 / 7
+            constant["BASE_ATK"] = round(data["base_property"]["value"] * 104 / 7)
 
             # Ascension stats
             stat_map = {

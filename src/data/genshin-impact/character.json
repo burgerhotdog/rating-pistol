@@ -6,11 +6,11 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 14695.093175999998,
-        "BASE_ATK": 239.17838000000003,
-        "BASE_DEF": 768.5543700000001,
+        "BASE_HP": 14695,
+        "BASE_ATK": 239,
+        "BASE_DEF": 769,
         "BASE_EM": 0,
-        "PERCENT_HB": 0.2215
+        "PERCENT_HB": 0.222
       }
     }
   },
@@ -21,9 +21,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 9569.925258899999,
-        "BASE_ATK": 231.51293628000002,
-        "BASE_DEF": 573.3180810000001,
+        "BASE_HP": 9570,
+        "BASE_ATK": 232,
+        "BASE_DEF": 573,
         "BASE_EM": 0,
         "FLAT_EM": 96
       }
@@ -43,9 +43,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 9787.4235531,
-        "BASE_ATK": 159.29789399999999,
-        "BASE_DEF": 668.8710945,
+        "BASE_HP": 9787,
+        "BASE_ATK": 159,
+        "BASE_DEF": 669,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -65,11 +65,11 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 11636.1591236,
-        "BASE_ATK": 223.0170516,
-        "BASE_DEF": 791.724969,
+        "BASE_HP": 11636,
+        "BASE_ATK": 223,
+        "BASE_DEF": 792,
         "BASE_EM": 0,
-        "PERCENT_ER": 0.2667
+        "PERCENT_ER": 0.267
       }
     }
   },
@@ -80,9 +80,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12980.665588799999,
-        "BASE_ATK": 334.849732,
-        "BASE_DEF": 783.9254574000001,
+        "BASE_HP": 12981,
+        "BASE_ATK": 335,
+        "BASE_DEF": 784,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -124,9 +124,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 11962.4064649,
-        "BASE_ATK": 233.6369112,
-        "BASE_DEF": 750.7736775,
+        "BASE_HP": 11962,
+        "BASE_ATK": 234,
+        "BASE_DEF": 751,
         "BASE_EM": 0,
         "PERCENT_PHYSICAL": 0.3
       }
@@ -139,9 +139,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9461.1761118,
-        "BASE_ATK": 223.0170516,
-        "BASE_DEF": 600.6189420000001,
+        "BASE_HP": 9461,
+        "BASE_ATK": 223,
+        "BASE_DEF": 601,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -166,9 +166,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 10531.4833928,
-        "BASE_ATK": 263.096218,
-        "BASE_DEF": 668.6423019,
+        "BASE_HP": 10531,
+        "BASE_ATK": 263,
+        "BASE_DEF": 669,
         "BASE_EM": 0,
         "PERCENT_ER": 0.32
       }
@@ -181,9 +181,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 10874.914859,
-        "BASE_ATK": 225.14102152,
-        "BASE_DEF": 668.8710945,
+        "BASE_HP": 10875,
+        "BASE_ATK": 225,
+        "BASE_DEF": 669,
         "BASE_EM": 0,
         "FLAT_EM": 96
       }
@@ -231,9 +231,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 13049.897870800001,
-        "BASE_ATK": 225.14102152,
-        "BASE_DEF": 648.39544875,
+        "BASE_HP": 13050,
+        "BASE_ATK": 225,
+        "BASE_DEF": 648,
         "BASE_EM": 0,
         "PERCENT_ELECTRO": 0.24
       }
@@ -274,9 +274,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 10222.420242440001,
-        "BASE_ATK": 201.77733240000003,
-        "BASE_DEF": 757.5988927500001,
+        "BASE_HP": 10222,
+        "BASE_ATK": 202,
+        "BASE_DEF": 758,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24,
         "PERCENT_HYDRO": 0.2
@@ -323,9 +323,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 9787.4235531,
-        "BASE_ATK": 212.397192,
-        "BASE_DEF": 573.3180810000001,
+        "BASE_HP": 9787,
+        "BASE_ATK": 212,
+        "BASE_DEF": 573,
         "BASE_EM": 0,
         "PERCENT_GEO": 0.24
       }
@@ -366,9 +366,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10286.5650232,
-        "BASE_ATK": 310.931894,
-        "BASE_DEF": 614.843496,
+        "BASE_HP": 10287,
+        "BASE_ATK": 311,
+        "BASE_DEF": 615,
         "BASE_EM": 0,
         "PERCENT_PYRO": 0.288
       }
@@ -410,9 +410,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9189.3029266,
-        "BASE_ATK": 244.25677079999997,
-        "BASE_DEF": 593.79372675,
+        "BASE_HP": 9189,
+        "BASE_ATK": 244,
+        "BASE_DEF": 594,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -454,11 +454,11 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12397.4035882,
-        "BASE_ATK": 191.15747280000002,
-        "BASE_DEF": 771.2493232500001,
+        "BASE_HP": 12397,
+        "BASE_ATK": 191,
+        "BASE_DEF": 771,
         "BASE_EM": 0,
-        "PERCENT_ER": 0.2667
+        "PERCENT_ER": 0.267
       }
     },
     "buffs": {
@@ -477,9 +477,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12071.155412,
-        "BASE_ATK": 191.15747280000002,
-        "BASE_DEF": 798.55018425,
+        "BASE_HP": 12071,
+        "BASE_ATK": 191,
+        "BASE_DEF": 799,
         "BASE_EM": 0,
         "PERCENT_DEF": 0.3
       }
@@ -525,11 +525,11 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12368.369914800001,
-        "BASE_ATK": 287.01405600000004,
-        "BASE_DEF": 922.2652440000002,
+        "BASE_HP": 12368,
+        "BASE_ATK": 287,
+        "BASE_DEF": 922,
         "BASE_EM": 0,
-        "PERCENT_HB": 0.2215
+        "PERCENT_HB": 0.222
       }
     }
   },
@@ -540,9 +540,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 10983.66434006,
-        "BASE_ATK": 223.0170516,
-        "BASE_DEF": 648.39544875,
+        "BASE_HP": 10984,
+        "BASE_ATK": 223,
+        "BASE_DEF": 648,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -562,9 +562,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10409.023958000002,
-        "BASE_ATK": 287.01405600000004,
-        "BASE_DEF": 653.2712145,
+        "BASE_HP": 10409,
+        "BASE_ATK": 287,
+        "BASE_DEF": 653,
         "BASE_EM": 0,
         "PERCENT_ER": 0.32
       }
@@ -594,9 +594,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 13103.1246236,
-        "BASE_ATK": 322.89081300000004,
-        "BASE_DEF": 799.2965448000001,
+        "BASE_HP": 13103,
+        "BASE_ATK": 323,
+        "BASE_DEF": 799,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -638,9 +638,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 9243.67751666,
-        "BASE_ATK": 169.9177536,
-        "BASE_DEF": 702.99717075,
+        "BASE_HP": 9244,
+        "BASE_ATK": 170,
+        "BASE_DEF": 703,
         "BASE_EM": 0,
         "PERCENT_ANEMO": 0.24
       }
@@ -661,9 +661,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 14695.093175999998,
-        "BASE_ATK": 251.137289,
-        "BASE_DEF": 737.8121952,
+        "BASE_HP": 14695,
+        "BASE_ATK": 251,
+        "BASE_DEF": 738,
         "BASE_EM": 0,
         "PERCENT_GEO": 0.288
       }
@@ -722,9 +722,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 13103.1246236,
-        "BASE_ATK": 301.3647568,
-        "BASE_DEF": 814.6676322000001,
+        "BASE_HP": 13103,
+        "BASE_ATK": 301,
+        "BASE_DEF": 815,
         "BASE_EM": 0,
         "PERCENT_HYDRO": 0.288
       }
@@ -759,9 +759,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9569.925258899999,
-        "BASE_ATK": 212.397192,
-        "BASE_DEF": 600.6189420000001,
+        "BASE_HP": 9570,
+        "BASE_ATK": 212,
+        "BASE_DEF": 601,
         "BASE_EM": 0,
         "PERCENT_CRYO": 0.24
       }
@@ -781,9 +781,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 11201.1621003,
-        "BASE_ATK": 248.50471064000004,
-        "BASE_DEF": 798.55018425,
+        "BASE_HP": 11201,
+        "BASE_ATK": 249,
+        "BASE_DEF": 799,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -815,9 +815,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9796.728784,
-        "BASE_ATK": 334.849732,
-        "BASE_DEF": 630.2145834,
+        "BASE_HP": 9797,
+        "BASE_ATK": 335,
+        "BASE_DEF": 630,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -863,9 +863,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 13225.583558400001,
-        "BASE_ATK": 251.13729899999998,
-        "BASE_DEF": 876.1519817999999,
+        "BASE_HP": 13226,
+        "BASE_ATK": 251,
+        "BASE_DEF": 876,
         "BASE_EM": 0,
         "PERCENT_GEO": 0.288
       }
@@ -916,9 +916,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12735.747219200002,
-        "BASE_ATK": 349.20043780000003,
-        "BASE_DEF": 799.2965448000001,
+        "BASE_HP": 12736,
+        "BASE_ATK": 349,
+        "BASE_DEF": 799,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -963,9 +963,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 15552.3066196,
-        "BASE_ATK": 106.4343801,
-        "BASE_DEF": 876.1519817999999,
+        "BASE_HP": 15552,
+        "BASE_ATK": 106,
+        "BASE_DEF": 876,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384,
         "PERCENT_PYRO": 0.33
@@ -1015,9 +1015,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12288.654441100001,
-        "BASE_ATK": 240.00882496,
-        "BASE_DEF": 709.822386,
+        "BASE_HP": 12289,
+        "BASE_ATK": 240,
+        "BASE_DEF": 710,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -1048,9 +1048,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 9352.42703074,
-        "BASE_ATK": 240.00882496,
-        "BASE_DEF": 586.9685115000001,
+        "BASE_HP": 9352,
+        "BASE_ATK": 240,
+        "BASE_DEF": 587,
         "BASE_EM": 0,
         "PERCENT_PYRO": 0.24
       }
@@ -1070,9 +1070,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 13225.583558400001,
-        "BASE_ATK": 342.0250874,
-        "BASE_DEF": 750.87761949,
+        "BASE_HP": 13226,
+        "BASE_ATK": 342,
+        "BASE_DEF": 751,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -1114,11 +1114,11 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 13348.0427932,
-        "BASE_ATK": 296.58119320000003,
-        "BASE_DEF": 806.9820885,
+        "BASE_HP": 13348,
+        "BASE_ATK": 297,
+        "BASE_DEF": 807,
         "BASE_EM": 0,
-        "FLAT_EM": 115.2
+        "FLAT_EM": 115
       }
     },
     "buffs": {
@@ -1139,9 +1139,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12858.206654000001,
-        "BASE_ATK": 342.0250874,
-        "BASE_DEF": 783.9254574000001,
+        "BASE_HP": 12858,
+        "BASE_ATK": 342,
+        "BASE_DEF": 784,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -1184,9 +1184,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 10164.105888400001,
-        "BASE_ATK": 322.89081300000004,
-        "BASE_DEF": 614.843496,
+        "BASE_HP": 10164,
+        "BASE_ATK": 323,
+        "BASE_DEF": 615,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -1233,9 +1233,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 11853.657417800001,
-        "BASE_ATK": 244.25677079999997,
-        "BASE_DEF": 744.630992124,
+        "BASE_HP": 11854,
+        "BASE_ATK": 244,
+        "BASE_DEF": 745,
         "BASE_EM": 0,
         "FLAT_EM": 96
       }
@@ -1248,9 +1248,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12907.189733140001,
-        "BASE_ATK": 337.2415138,
-        "BASE_DEF": 789.30533799,
+        "BASE_HP": 12907,
+        "BASE_ATK": 337,
+        "BASE_DEF": 789,
         "BASE_EM": 0,
         "PERCENT_ER": 0.32
       },
@@ -1301,13 +1301,13 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 13470.501828000002,
-        "BASE_ATK": 234.39481640000002,
-        "BASE_DEF": 657.11398635,
+        "BASE_HP": 13471,
+        "BASE_ATK": 234,
+        "BASE_DEF": 657,
         "BASE_EM": 0,
         "PERCENT_HYDRO": 0.288,
         "PERCENT_HB": 0.25,
-        "PERCENT_CR": -1
+        "PERCENT_CR": -1.0
       }
     },
     "buffs": {
@@ -1353,9 +1353,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9569.925258899999,
-        "BASE_ATK": 195.40541564,
-        "BASE_DEF": 627.919803,
+        "BASE_HP": 9570,
+        "BASE_ATK": 195,
+        "BASE_DEF": 628,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -1368,9 +1368,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 10331.1695235,
-        "BASE_ATK": 201.77733240000003,
-        "BASE_DEF": 750.7736775,
+        "BASE_HP": 10331,
+        "BASE_ATK": 202,
+        "BASE_DEF": 751,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -1383,9 +1383,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 10898.8604972,
-        "BASE_ATK": 233.91645604,
-        "BASE_DEF": 676.3278456,
+        "BASE_HP": 10899,
+        "BASE_ATK": 234,
+        "BASE_DEF": 676,
         "BASE_EM": 0,
         "PERCENT_CRYO": 0.288
       }
@@ -1398,9 +1398,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9569.925258899999,
-        "BASE_ATK": 182.66158612,
-        "BASE_DEF": 648.39544875,
+        "BASE_HP": 9570,
+        "BASE_ATK": 183,
+        "BASE_DEF": 648,
         "BASE_EM": 0,
         "PERCENT_GEO": 0.24
       }
@@ -1413,9 +1413,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12858.206654000001,
-        "BASE_ATK": 227.21946100000002,
-        "BASE_DEF": 959.15585376,
+        "BASE_HP": 12858,
+        "BASE_ATK": 227,
+        "BASE_DEF": 959,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -1449,9 +1449,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12992.91143967,
-        "BASE_ATK": 303.7565386,
-        "BASE_DEF": 830.0387196,
+        "BASE_HP": 12993,
+        "BASE_ATK": 304,
+        "BASE_DEF": 830,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.288
       }
@@ -1464,11 +1464,11 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 10657.416864800001,
-        "BASE_ATK": 191.15747280000002,
-        "BASE_DEF": 734.3931609000001,
+        "BASE_HP": 10657,
+        "BASE_ATK": 191,
+        "BASE_DEF": 734,
         "BASE_EM": 0,
-        "PERCENT_ER": 0.2667
+        "PERCENT_ER": 0.267
       }
     }
   },
@@ -1479,9 +1479,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10372.286467560001,
-        "BASE_ATK": 339.6332956,
-        "BASE_DEF": 568.7302338000001,
+        "BASE_HP": 10372,
+        "BASE_ATK": 340,
+        "BASE_DEF": 569,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -1515,9 +1515,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 13715.4200976,
-        "BASE_ATK": 298.972975,
-        "BASE_DEF": 768.5543700000001,
+        "BASE_HP": 13715,
+        "BASE_ATK": 299,
+        "BASE_DEF": 769,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -1547,9 +1547,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 14450.174906400001,
-        "BASE_ATK": 243.96194960000003,
-        "BASE_DEF": 547.97926581,
+        "BASE_HP": 14450,
+        "BASE_ATK": 244,
+        "BASE_DEF": 548,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -1583,9 +1583,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12288.654441100001,
-        "BASE_ATK": 212.397192,
-        "BASE_DEF": 750.7736775,
+        "BASE_HP": 12289,
+        "BASE_ATK": 212,
+        "BASE_DEF": 751,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -1598,9 +1598,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10657.416864800001,
-        "BASE_ATK": 225.14102152,
-        "BASE_DEF": 683.88656805,
+        "BASE_HP": 10657,
+        "BASE_ATK": 225,
+        "BASE_DEF": 684,
         "BASE_EM": 0,
         "PERCENT_ANEMO": 0.24
       }
@@ -1613,9 +1613,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9787.4235531,
-        "BASE_ATK": 199.65335947999998,
-        "BASE_DEF": 600.6189420000001,
+        "BASE_HP": 9787,
+        "BASE_ATK": 200,
+        "BASE_DEF": 601,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -1628,9 +1628,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12397.4035882,
-        "BASE_ATK": 223.0170516,
-        "BASE_DEF": 723.4728165,
+        "BASE_HP": 12397,
+        "BASE_ATK": 223,
+        "BASE_DEF": 723,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -1643,9 +1643,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 10849.87711806,
-        "BASE_ATK": 267.8797916,
-        "BASE_DEF": 630.2145834,
+        "BASE_HP": 10850,
+        "BASE_ATK": 268,
+        "BASE_DEF": 630,
         "BASE_EM": 0,
         "PERCENT_DENDRO": 0.288
       }
@@ -1679,9 +1679,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 15184.929315200003,
-        "BASE_ATK": 229.6112428,
-        "BASE_DEF": 728.5895427600001,
+        "BASE_HP": 15185,
+        "BASE_ATK": 230,
+        "BASE_DEF": 729,
         "BASE_EM": 0,
         "PERCENT_HP": 0.288
       }
@@ -1694,9 +1694,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12490.8290496,
-        "BASE_ATK": 318.1072494,
-        "BASE_DEF": 859.24378566,
+        "BASE_HP": 12491,
+        "BASE_ATK": 318,
+        "BASE_DEF": 859,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384,
         "FLAT_EM": 100
@@ -1748,9 +1748,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 10874.914859,
-        "BASE_ATK": 212.397192,
-        "BASE_DEF": 682.521525,
+        "BASE_HP": 10875,
+        "BASE_ATK": 212,
+        "BASE_DEF": 683,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -1763,11 +1763,11 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10360.0405293,
-        "BASE_ATK": 298.972975,
-        "BASE_DEF": 630.2145834,
+        "BASE_HP": 10360,
+        "BASE_ATK": 299,
+        "BASE_DEF": 630,
         "BASE_EM": 0,
-        "FLAT_EM": 115.2
+        "FLAT_EM": 115
       }
     },
     "buffs": {
@@ -1802,9 +1802,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 11092.4131532,
-        "BASE_ATK": 216.64513184,
-        "BASE_DEF": 655.2206639999999,
+        "BASE_HP": 11092,
+        "BASE_ATK": 217,
+        "BASE_DEF": 655,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -1817,9 +1817,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10164.105888400001,
-        "BASE_ATK": 327.6743806,
-        "BASE_DEF": 607.1579523,
+        "BASE_HP": 10164,
+        "BASE_ATK": 328,
+        "BASE_DEF": 607,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -1861,9 +1861,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9569.925258899999,
-        "BASE_ATK": 196.4674026,
-        "BASE_DEF": 627.919803,
+        "BASE_HP": 9570,
+        "BASE_ATK": 196,
+        "BASE_DEF": 628,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -1876,9 +1876,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12288.654441100001,
-        "BASE_ATK": 212.397192,
-        "BASE_DEF": 750.7736775,
+        "BASE_HP": 12289,
+        "BASE_ATK": 212,
+        "BASE_DEF": 751,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -1891,9 +1891,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 13348.0427932,
-        "BASE_ATK": 313.3236758,
-        "BASE_DEF": 781.6197942900001,
+        "BASE_HP": 13348,
+        "BASE_ATK": 313,
+        "BASE_DEF": 782,
         "BASE_EM": 0,
         "PERCENT_DENDRO": 0.288
       }
@@ -1939,9 +1939,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 15674.765654400002,
-        "BASE_ATK": 265.4879998,
-        "BASE_DEF": 627.90892029,
+        "BASE_HP": 15675,
+        "BASE_ATK": 265,
+        "BASE_DEF": 628,
         "BASE_EM": 0,
         "PERCENT_HP": 0.288
       }
@@ -1954,9 +1954,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12506.152435299999,
-        "BASE_ATK": 223.0170516,
-        "BASE_DEF": 713.234993625,
+        "BASE_HP": 12506,
+        "BASE_ATK": 223,
+        "BASE_DEF": 713,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -1969,9 +1969,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 11962.4064649,
-        "BASE_ATK": 233.6369112,
-        "BASE_DEF": 750.7736775,
+        "BASE_HP": 11962,
+        "BASE_ATK": 234,
+        "BASE_DEF": 751,
         "BASE_EM": 0,
         "FLAT_EM": 96
       }
@@ -1984,9 +1984,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 13348.0427932,
-        "BASE_ATK": 192.53859490000002,
-        "BASE_DEF": 499.56034050000005,
+        "BASE_HP": 13348,
+        "BASE_ATK": 193,
+        "BASE_DEF": 500,
         "BASE_EM": 0,
         "PERCENT_HP": 0.288
       }
@@ -1999,9 +1999,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12179.90470957,
-        "BASE_ATK": 223.0170516,
-        "BASE_DEF": 546.01722,
+        "BASE_HP": 12180,
+        "BASE_ATK": 223,
+        "BASE_DEF": 546,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -2014,9 +2014,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12397.4035882,
-        "BASE_ATK": 231.51293628000002,
-        "BASE_DEF": 711.869957273,
+        "BASE_HP": 12397,
+        "BASE_ATK": 232,
+        "BASE_DEF": 712,
         "BASE_EM": 0,
         "PERCENT_ANEMO": 0.24
       }
@@ -2029,9 +2029,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 11021.319632000002,
-        "BASE_ATK": 318.1072494,
-        "BASE_DEF": 537.988059,
+        "BASE_HP": 11021,
+        "BASE_ATK": 318,
+        "BASE_DEF": 538,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2065,9 +2065,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12071.155412,
-        "BASE_ATK": 254.87663039999998,
-        "BASE_DEF": 708.45734295,
+        "BASE_HP": 12071,
+        "BASE_ATK": 255,
+        "BASE_DEF": 708,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -2080,9 +2080,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 13592.9609628,
-        "BASE_ATK": 310.931894,
-        "BASE_DEF": 763.17448941,
+        "BASE_HP": 13593,
+        "BASE_ATK": 311,
+        "BASE_DEF": 763,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2123,9 +2123,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 14695.093175999998,
-        "BASE_ATK": 208.32436678,
-        "BASE_DEF": 576.4157775000001,
+        "BASE_HP": 14695,
+        "BASE_ATK": 208,
+        "BASE_DEF": 576,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2166,9 +2166,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10766.1657119,
-        "BASE_ATK": 173.10371048,
-        "BASE_DEF": 546.01722,
+        "BASE_HP": 10766,
+        "BASE_ATK": 173,
+        "BASE_DEF": 546,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -2181,9 +2181,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 15307.388350000001,
-        "BASE_ATK": 243.96194960000003,
-        "BASE_DEF": 695.5417048500001,
+        "BASE_HP": 15307,
+        "BASE_ATK": 244,
+        "BASE_DEF": 696,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192,
         "PERCENT_BASE": 0.4
@@ -2236,9 +2236,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 11962.4064649,
-        "BASE_ATK": 193.28144472,
-        "BASE_DEF": 604.71407115,
+        "BASE_HP": 11962,
+        "BASE_ATK": 193,
+        "BASE_DEF": 605,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -2251,9 +2251,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12650.02580006,
-        "BASE_ATK": 351.5922196,
-        "BASE_DEF": 793.1481098400001,
+        "BASE_HP": 12650,
+        "BASE_ATK": 352,
+        "BASE_DEF": 793,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2294,9 +2294,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 11418.66071195,
-        "BASE_ATK": 301.60400863999996,
-        "BASE_DEF": 702.99717075,
+        "BASE_HP": 11419,
+        "BASE_ATK": 302,
+        "BASE_DEF": 703,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -2309,9 +2309,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10409.023958000002,
-        "BASE_ATK": 334.849732,
-        "BASE_DEF": 572.57300565,
+        "BASE_HP": 10409,
+        "BASE_ATK": 335,
+        "BASE_DEF": 573,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.288
       }
@@ -2324,9 +2324,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 11437.6807651,
-        "BASE_ATK": 322.89081300000004,
-        "BASE_DEF": 953.0074188000001,
+        "BASE_HP": 11438,
+        "BASE_ATK": 323,
+        "BASE_DEF": 953,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2354,9 +2354,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 13103.1246236,
-        "BASE_ATK": 342.0250874,
-        "BASE_DEF": 764.7115981500001,
+        "BASE_HP": 13103,
+        "BASE_ATK": 342,
+        "BASE_DEF": 765,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2386,9 +2386,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 13348.0427932,
-        "BASE_ATK": 192.53859490000002,
-        "BASE_DEF": 499.56034050000005,
+        "BASE_HP": 13348,
+        "BASE_ATK": 193,
+        "BASE_DEF": 500,
         "BASE_EM": 0,
         "PERCENT_HP": 0.288
       }
@@ -2401,9 +2401,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9787.4235531,
-        "BASE_ATK": 227.26499543999998,
-        "BASE_DEF": 559.6676505,
+        "BASE_HP": 9787,
+        "BASE_ATK": 227,
+        "BASE_DEF": 560,
         "BASE_EM": 0,
         "FLAT_EM": 96
       }
@@ -2416,9 +2416,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12956.173074450002,
-        "BASE_ATK": 337.2415138,
-        "BASE_DEF": 783.9254574000001,
+        "BASE_HP": 12956,
+        "BASE_ATK": 337,
+        "BASE_DEF": 784,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2448,9 +2448,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 13568.469685400001,
-        "BASE_ATK": 334.849732,
-        "BASE_DEF": 730.1266515000001,
+        "BASE_HP": 13568,
+        "BASE_ATK": 335,
+        "BASE_DEF": 730,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2463,9 +2463,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 11799.2822268,
-        "BASE_ATK": 216.64513184,
-        "BASE_DEF": 792.4074905250001,
+        "BASE_HP": 11799,
+        "BASE_ATK": 217,
+        "BASE_DEF": 792,
         "BASE_EM": 0,
         "PERCENT_GEO": 0.24
       }
@@ -2478,9 +2478,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12858.206654000001,
-        "BASE_ATK": 332.4579502,
-        "BASE_DEF": 801.6022079100001,
+        "BASE_HP": 12858,
+        "BASE_ATK": 332,
+        "BASE_DEF": 802,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2493,9 +2493,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 15184.929315200003,
-        "BASE_ATK": 181.7755668,
-        "BASE_DEF": 570.26734254,
+        "BASE_HP": 15185,
+        "BASE_ATK": 182,
+        "BASE_DEF": 570,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2530,9 +2530,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12405.10724307,
-        "BASE_ATK": 275.05513700000006,
-        "BASE_DEF": 929.9507877000001,
+        "BASE_HP": 12405,
+        "BASE_ATK": 275,
+        "BASE_DEF": 930,
         "BASE_EM": 0,
         "PERCENT_DEF": 0.36
       }
@@ -2545,9 +2545,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9796.728784,
-        "BASE_ATK": 346.808651,
-        "BASE_DEF": 614.843496,
+        "BASE_HP": 9797,
+        "BASE_ATK": 347,
+        "BASE_DEF": 615,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2576,9 +2576,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9243.67751666,
-        "BASE_ATK": 244.25677079999997,
-        "BASE_DEF": 586.9685115000001,
+        "BASE_HP": 9244,
+        "BASE_ATK": 244,
+        "BASE_DEF": 587,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -2608,9 +2608,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12552.058567,
-        "BASE_ATK": 358.76757,
-        "BASE_DEF": 791.6110011000001,
+        "BASE_HP": 12552,
+        "BASE_ATK": 359,
+        "BASE_DEF": 792,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2638,11 +2638,11 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 11633.615306000002,
-        "BASE_ATK": 126.76454140000001,
-        "BASE_DEF": 763.17448941,
+        "BASE_HP": 11634,
+        "BASE_ATK": 127,
+        "BASE_DEF": 763,
         "BASE_EM": 0,
-        "FLAT_EM": 115.2
+        "FLAT_EM": 115
       }
     }
   },
@@ -2653,9 +2653,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 9243.67751666,
-        "BASE_ATK": 250.62869056,
-        "BASE_DEF": 580.14329625,
+        "BASE_HP": 9244,
+        "BASE_ATK": 251,
+        "BASE_DEF": 580,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -2668,11 +2668,11 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 12735.747219200002,
-        "BASE_ATK": 215.260542,
-        "BASE_DEF": 757.0260544500001,
+        "BASE_HP": 12736,
+        "BASE_ATK": 215,
+        "BASE_DEF": 757,
         "BASE_EM": 0,
-        "FLAT_EM": 115.2
+        "FLAT_EM": 115
       }
     }
   },
@@ -2683,9 +2683,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 10657.416864800001,
-        "BASE_ATK": 257.00060032,
-        "BASE_DEF": 638.157625875,
+        "BASE_HP": 10657,
+        "BASE_ATK": 257,
+        "BASE_DEF": 638,
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
@@ -2698,9 +2698,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 12699.00924137,
-        "BASE_ATK": 356.3757822,
-        "BASE_DEF": 781.6197942900001,
+        "BASE_HP": 12699,
+        "BASE_ATK": 356,
+        "BASE_DEF": 782,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2713,9 +2713,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 13348.0427932,
-        "BASE_ATK": 346.808651,
-        "BASE_DEF": 731.66376024,
+        "BASE_HP": 13348,
+        "BASE_ATK": 347,
+        "BASE_DEF": 732,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2745,9 +2745,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10081.0465747,
-        "BASE_ATK": 178.41364328,
-        "BASE_DEF": 605.396592675,
+        "BASE_HP": 10081,
+        "BASE_ATK": 178,
+        "BASE_DEF": 605,
         "BASE_EM": 0,
         "FLAT_EM": 96
       }
@@ -2760,9 +2760,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12417.353843500001,
-        "BASE_ATK": 358.76757,
-        "BASE_DEF": 806.21353413,
+        "BASE_HP": 12417,
+        "BASE_ATK": 359,
+        "BASE_DEF": 806,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2797,9 +2797,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12506.152435299999,
-        "BASE_ATK": 189.03350088000002,
-        "BASE_DEF": 559.6676505,
+        "BASE_HP": 12506,
+        "BASE_ATK": 189,
+        "BASE_DEF": 560,
         "BASE_EM": 0,
         "PERCENT_HP": 0.24
       }
@@ -2812,9 +2812,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12613.288084400001,
-        "BASE_ATK": 330.06616240000005,
-        "BASE_DEF": 827.7330564900001,
+        "BASE_HP": 12613,
+        "BASE_ATK": 330,
+        "BASE_DEF": 828,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2827,11 +2827,11 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 10653.9424276,
-        "BASE_ATK": 254.96415188000003,
-        "BASE_DEF": 668.6423019,
+        "BASE_HP": 10654,
+        "BASE_ATK": 255,
+        "BASE_DEF": 669,
         "BASE_EM": 200,
-        "FLAT_EM": 115.2
+        "FLAT_EM": 115
       }
     }
   },
@@ -2842,9 +2842,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 12490.8290496,
-        "BASE_ATK": 351.5922196,
-        "BASE_DEF": 808.51919724,
+        "BASE_HP": 12491,
+        "BASE_ATK": 352,
+        "BASE_DEF": 809,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2857,9 +2857,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 11201.1621003,
-        "BASE_ATK": 242.13280088,
-        "BASE_DEF": 607.44415725,
+        "BASE_HP": 11201,
+        "BASE_ATK": 242,
+        "BASE_DEF": 607,
         "BASE_EM": 0,
         "FLAT_EM": 96
       }
@@ -2872,9 +2872,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 12703.9082338,
-        "BASE_ATK": 344.4168692,
-        "BASE_DEF": 799.2965448000001,
+        "BASE_HP": 12704,
+        "BASE_ATK": 344,
+        "BASE_DEF": 799,
         "BASE_EM": 100,
         "PERCENT_CD": 0.384
       }
@@ -2887,9 +2887,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12429.5994322,
-        "BASE_ATK": 346.808651,
-        "BASE_DEF": 822.3531759000001,
+        "BASE_HP": 12430,
+        "BASE_ATK": 347,
+        "BASE_DEF": 822,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2916,11 +2916,11 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9646.0494514,
-        "BASE_ATK": 223.0170516,
-        "BASE_DEF": 580.14329625,
+        "BASE_HP": 9646,
+        "BASE_ATK": 223,
+        "BASE_DEF": 580,
         "BASE_EM": 0,
-        "PERCENT_HB": 0.1846
+        "PERCENT_HB": 0.185
       }
     }
   },
@@ -2931,9 +2931,9 @@
     "type": "Catalyst",
     "stats": {
       "constant": {
-        "BASE_HP": 14695.093175999998,
-        "BASE_ATK": 95.67135200000001,
-        "BASE_DEF": 514.9314279,
+        "BASE_HP": 14695,
+        "BASE_ATK": 96,
+        "BASE_DEF": 515,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
@@ -2946,9 +2946,9 @@
     "type": "Sword",
     "stats": {
       "constant": {
-        "BASE_HP": 12919.435971400002,
-        "BASE_ATK": 224.82766920000003,
-        "BASE_DEF": 956.8501906500001,
+        "BASE_HP": 12919,
+        "BASE_ATK": 225,
+        "BASE_DEF": 957,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2961,9 +2961,9 @@
     "type": "Polearm",
     "stats": {
       "constant": {
-        "BASE_HP": 11962.4064649,
-        "BASE_ATK": 191.15747280000002,
-        "BASE_DEF": 813.5656577999999,
+        "BASE_HP": 11962,
+        "BASE_ATK": 191,
+        "BASE_DEF": 814,
         "BASE_EM": 0,
         "FLAT_EM": 96
       }
@@ -2976,9 +2976,9 @@
     "type": "Claymore",
     "stats": {
       "constant": {
-        "BASE_HP": 12613.288084400001,
-        "BASE_ATK": 352.78811550000006,
-        "BASE_DEF": 795.45377295,
+        "BASE_HP": 12613,
+        "BASE_ATK": 353,
+        "BASE_DEF": 795,
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
@@ -2991,9 +2991,9 @@
     "type": "Bow",
     "stats": {
       "constant": {
-        "BASE_HP": 9894.69552967,
-        "BASE_ATK": 143.50702800000002,
-        "BASE_DEF": 906.8941566000001,
+        "BASE_HP": 9895,
+        "BASE_ATK": 144,
+        "BASE_DEF": 907,
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }

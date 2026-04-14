@@ -5,9 +5,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -17,9 +17,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 264.6,
-        "BASE_DEF": 264.6
+        "BASE_HP": 953,
+        "BASE_ATK": 265,
+        "BASE_DEF": 265
       }
     }
   },
@@ -29,9 +29,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 198.45
+        "BASE_HP": 847,
+        "BASE_ATK": 370,
+        "BASE_DEF": 198
       }
     }
   },
@@ -41,9 +41,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 264.6,
-        "BASE_DEF": 330.75
+        "BASE_HP": 847,
+        "BASE_ATK": 265,
+        "BASE_DEF": 331
       }
     }
   },
@@ -53,9 +53,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -65,9 +65,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -77,9 +77,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 740.8800000000001,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 264.6
+        "BASE_HP": 741,
+        "BASE_ATK": 370,
+        "BASE_DEF": 265
       }
     }
   },
@@ -89,9 +89,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 740.8800000000001,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 264.6
+        "BASE_HP": 741,
+        "BASE_ATK": 370,
+        "BASE_DEF": 265
       }
     }
   },
@@ -101,9 +101,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 198.45
+        "BASE_HP": 953,
+        "BASE_ATK": 318,
+        "BASE_DEF": 198
       }
     }
   },
@@ -113,9 +113,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 198.45
+        "BASE_HP": 847,
+        "BASE_ATK": 370,
+        "BASE_DEF": 198
       }
     }
   },
@@ -125,9 +125,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 264.6,
-        "BASE_DEF": 264.6
+        "BASE_HP": 953,
+        "BASE_ATK": 265,
+        "BASE_DEF": 265
       }
     }
   },
@@ -137,9 +137,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -149,9 +149,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -161,9 +161,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 740.8800000000001,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 264.6
+        "BASE_HP": 741,
+        "BASE_ATK": 370,
+        "BASE_DEF": 265
       }
     }
   },
@@ -173,9 +173,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 740.8800000000001,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 264.6
+        "BASE_HP": 741,
+        "BASE_ATK": 370,
+        "BASE_DEF": 265
       }
     }
   },
@@ -185,9 +185,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 198.45
+        "BASE_HP": 953,
+        "BASE_ATK": 318,
+        "BASE_DEF": 198
       }
     }
   },
@@ -197,9 +197,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 198.45
+        "BASE_HP": 847,
+        "BASE_ATK": 370,
+        "BASE_DEF": 198
       }
     }
   },
@@ -209,9 +209,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 264.6,
-        "BASE_DEF": 264.6
+        "BASE_HP": 953,
+        "BASE_ATK": 265,
+        "BASE_DEF": 265
       }
     }
   },
@@ -221,9 +221,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -233,9 +233,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -245,9 +245,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 740.8800000000001,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 264.6
+        "BASE_HP": 741,
+        "BASE_ATK": 370,
+        "BASE_DEF": 265
       }
     }
   },
@@ -257,9 +257,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 330.75
+        "BASE_HP": 1058,
+        "BASE_ATK": 423,
+        "BASE_DEF": 331
       }
     }
   },
@@ -269,9 +269,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -281,9 +281,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 370,
+        "BASE_DEF": 463
       }
     }
   },
@@ -293,9 +293,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -305,9 +305,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -317,9 +317,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 264.6
+        "BASE_HP": 1058,
+        "BASE_ATK": 476,
+        "BASE_DEF": 265
       }
     }
   },
@@ -329,9 +329,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -341,9 +341,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -353,9 +353,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -365,9 +365,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -377,9 +377,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -389,9 +389,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 330.75
+        "BASE_HP": 1058,
+        "BASE_ATK": 423,
+        "BASE_DEF": 331
       }
     }
   },
@@ -401,9 +401,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 264.6
+        "BASE_HP": 1058,
+        "BASE_ATK": 476,
+        "BASE_DEF": 265
       }
     }
   },
@@ -413,9 +413,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -425,9 +425,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -437,9 +437,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -449,9 +449,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 370,
+        "BASE_DEF": 397
       }
     }
   },
@@ -461,9 +461,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -473,9 +473,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -485,9 +485,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -497,9 +497,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -509,9 +509,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -521,9 +521,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -533,9 +533,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 740.8800000000001,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 741,
+        "BASE_ATK": 476,
+        "BASE_DEF": 463
       }
     }
   },
@@ -545,9 +545,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -557,9 +557,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -569,9 +569,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -581,9 +581,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -593,9 +593,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 370,
+        "BASE_DEF": 397
       }
     }
   },
@@ -605,9 +605,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 330.75
+        "BASE_HP": 847,
+        "BASE_ATK": 529,
+        "BASE_DEF": 331
       }
     }
   },
@@ -617,9 +617,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 529.2
+        "BASE_HP": 847,
+        "BASE_ATK": 370,
+        "BASE_DEF": 529
       }
     }
   },
@@ -629,9 +629,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 330.75
+        "BASE_HP": 847,
+        "BASE_ATK": 529,
+        "BASE_DEF": 331
       }
     }
   },
@@ -641,9 +641,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -653,9 +653,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 264.6
+        "BASE_HP": 953,
+        "BASE_ATK": 529,
+        "BASE_DEF": 265
       }
     }
   },
@@ -665,9 +665,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 330.75
+        "BASE_HP": 847,
+        "BASE_ATK": 529,
+        "BASE_DEF": 331
       }
     }
   },
@@ -677,9 +677,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1164,
+        "BASE_ATK": 582,
+        "BASE_DEF": 397
       }
     }
   },
@@ -689,9 +689,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -701,9 +701,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1164,
+        "BASE_ATK": 582,
+        "BASE_DEF": 397
       }
     }
   },
@@ -713,9 +713,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1164,
+        "BASE_ATK": 529,
+        "BASE_DEF": 463
       }
     }
   },
@@ -725,9 +725,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -737,9 +737,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 595.3499999999999
+        "BASE_HP": 1058,
+        "BASE_ATK": 476,
+        "BASE_DEF": 595
       }
     }
   },
@@ -749,9 +749,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -761,9 +761,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -773,9 +773,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1270.08,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1270,
+        "BASE_ATK": 476,
+        "BASE_DEF": 463
       }
     }
   },
@@ -785,9 +785,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -797,9 +797,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 529,
+        "BASE_DEF": 463
       }
     }
   },
@@ -809,9 +809,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1058,
+        "BASE_ATK": 423,
+        "BASE_DEF": 529
       }
     }
   },
@@ -821,9 +821,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -833,9 +833,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -845,9 +845,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1164,
+        "BASE_ATK": 582,
+        "BASE_DEF": 397
       }
     }
   },
@@ -857,9 +857,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -869,9 +869,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1270.08,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 330.75
+        "BASE_HP": 1270,
+        "BASE_ATK": 582,
+        "BASE_DEF": 331
       }
     }
   },
@@ -881,9 +881,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1270.08,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1270,
+        "BASE_ATK": 423,
+        "BASE_DEF": 529
       }
     }
   },
@@ -893,9 +893,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 635,
+        "BASE_DEF": 397
       }
     }
   },
@@ -905,9 +905,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -917,9 +917,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1164,
+        "BASE_ATK": 582,
+        "BASE_DEF": 397
       }
     }
   },
@@ -929,9 +929,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -941,9 +941,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -953,9 +953,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1164,
+        "BASE_ATK": 476,
+        "BASE_DEF": 529
       }
     }
   },
@@ -965,9 +965,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -977,9 +977,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 529
       }
     }
   },
@@ -989,9 +989,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 529.2
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1001,9 +1001,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 330.75
+        "BASE_HP": 1058,
+        "BASE_ATK": 423,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1013,9 +1013,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1025,9 +1025,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1037,9 +1037,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 264.6
+        "BASE_HP": 1058,
+        "BASE_ATK": 476,
+        "BASE_DEF": 265
       }
     }
   },
@@ -1049,9 +1049,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 370,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1061,9 +1061,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1073,9 +1073,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 264.6
+        "BASE_HP": 1058,
+        "BASE_ATK": 476,
+        "BASE_DEF": 265
       }
     }
   },
@@ -1085,9 +1085,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1097,9 +1097,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1164,
+        "BASE_ATK": 529,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1109,9 +1109,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1121,9 +1121,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 370,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1133,9 +1133,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 661.5
+        "BASE_HP": 1058,
+        "BASE_ATK": 423,
+        "BASE_DEF": 662
       }
     }
   },
@@ -1145,9 +1145,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 635,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1157,9 +1157,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1169,9 +1169,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1181,9 +1181,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 635,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1193,9 +1193,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1205,9 +1205,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1217,9 +1217,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1164,
+        "BASE_ATK": 476,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1229,9 +1229,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 529.2
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1241,9 +1241,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1253,9 +1253,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1265,9 +1265,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 529.2
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1277,9 +1277,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1289,9 +1289,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1301,9 +1301,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 635,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1313,9 +1313,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1325,9 +1325,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 423,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1337,9 +1337,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 264.6
+        "BASE_HP": 1058,
+        "BASE_ATK": 476,
+        "BASE_DEF": 265
       }
     }
   },
@@ -1349,9 +1349,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 529.2
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1361,9 +1361,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1164,
+        "BASE_ATK": 476,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1373,9 +1373,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 661.5
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 662
       }
     }
   },
@@ -1385,9 +1385,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -1397,9 +1397,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 635.04,
-        "BASE_ATK": 423.36,
-        "BASE_DEF": 264.6
+        "BASE_HP": 635,
+        "BASE_ATK": 423,
+        "BASE_DEF": 265
       }
     }
   },
@@ -1409,9 +1409,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1421,9 +1421,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1433,9 +1433,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 198.45
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 198
       }
     }
   },
@@ -1445,9 +1445,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 635,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1457,9 +1457,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 635,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1469,9 +1469,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1270.08,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1270,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1481,9 +1481,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1375.92,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1376,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1493,9 +1493,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1505,9 +1505,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1517,9 +1517,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1270.08,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1270,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1529,9 +1529,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 529.2
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1541,9 +1541,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1164,
+        "BASE_ATK": 476,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1553,9 +1553,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 529.2
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1565,9 +1565,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1058,
+        "BASE_ATK": 370,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1577,9 +1577,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 370,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1589,9 +1589,9 @@
     "type": "Abundance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1601,9 +1601,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 1058,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1613,9 +1613,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 330.75
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1625,9 +1625,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 330.75
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1637,9 +1637,9 @@
     "type": "Erudition",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1649,9 +1649,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 330.75
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1661,9 +1661,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1673,9 +1673,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 687.96,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 688,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1685,9 +1685,9 @@
     "type": "Destruction",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 529.2
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1697,9 +1697,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 529.2
+        "BASE_HP": 953,
+        "BASE_ATK": 582,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1709,9 +1709,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 330.75
+        "BASE_HP": 953,
+        "BASE_ATK": 476,
+        "BASE_DEF": 331
       }
     }
   },
@@ -1721,9 +1721,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 635,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1733,9 +1733,9 @@
     "type": "Harmony",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 635,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1745,9 +1745,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1164,
+        "BASE_ATK": 529,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1757,9 +1757,9 @@
     "type": "Preservation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1769,9 +1769,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1781,9 +1781,9 @@
     "type": "Remembrance",
     "stats": {
       "constant": {
-        "BASE_HP": 1270.08,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1270,
+        "BASE_ATK": 476,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1793,9 +1793,9 @@
     "type": "Nihility",
     "stats": {
       "constant": {
-        "BASE_HP": 1164.2399999999998,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1164,
+        "BASE_ATK": 529,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1805,9 +1805,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 740.8800000000001,
-        "BASE_ATK": 370.44000000000005,
-        "BASE_DEF": 264.6
+        "BASE_HP": 741,
+        "BASE_ATK": 370,
+        "BASE_DEF": 265
       }
     }
   },
@@ -1817,9 +1817,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 317.52,
-        "BASE_DEF": 264.6
+        "BASE_HP": 847,
+        "BASE_ATK": 318,
+        "BASE_DEF": 265
       }
     }
   },
@@ -1829,9 +1829,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 476.28,
-        "BASE_DEF": 396.9
+        "BASE_HP": 847,
+        "BASE_ATK": 476,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1841,9 +1841,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 396.9
+        "BASE_HP": 953,
+        "BASE_ATK": 529,
+        "BASE_DEF": 397
       }
     }
   },
@@ -1853,9 +1853,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 582.1199999999999,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 1058,
+        "BASE_ATK": 582,
+        "BASE_DEF": 463
       }
     }
   },
@@ -1865,9 +1865,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 1058.4,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 529.2
+        "BASE_HP": 1058,
+        "BASE_ATK": 529,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1877,9 +1877,9 @@
     "type": "Hunt",
     "stats": {
       "constant": {
-        "BASE_HP": 846.72,
-        "BASE_ATK": 635.04,
-        "BASE_DEF": 529.2
+        "BASE_HP": 847,
+        "BASE_ATK": 635,
+        "BASE_DEF": 529
       }
     }
   },
@@ -1889,9 +1889,9 @@
     "type": "Elation",
     "stats": {
       "constant": {
-        "BASE_HP": 952.56,
-        "BASE_ATK": 529.2,
-        "BASE_DEF": 463.04999999999995
+        "BASE_HP": 953,
+        "BASE_ATK": 529,
+        "BASE_DEF": 463
       }
     }
   }
