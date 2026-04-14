@@ -10,10 +10,13 @@ import {
 } from '@/components';
 import { TeamConfig } from '@/components/TeamConfig';
 import { computeDamage2 } from '@/utils';
-import { useCurrent, useSimulation, useTeam } from '@/hooks';
+import { useSimulation, useTeam } from '@/hooks';
+import { useBuild } from "@/contexts";
+import { CHARACTERS } from "@/data";
 
 export const GamePage = ({ gameId, characterId }) => {
-  const { build, criteria } = useCurrent();
+  const build = useBuild().getBuilds(gameId)[characterId];
+  const { criteria } = CHARACTERS[gameId][characterId];
   const [criteriaIndex, setCriteriaIndex] = useState(0);
   const { team, updateTeam } = useTeam(gameId, characterId, criteriaIndex);
 
@@ -42,6 +45,8 @@ export const GamePage = ({ gameId, characterId }) => {
         <StatsPanel
           gameId={gameId}
           characterId={characterId}
+          build={build}
+          team={team}
         />
         <TeamConfig
           gameId={gameId}

@@ -13,7 +13,7 @@ function validate(gameId, build, criteria) {
 }
 
 export function useSimulation(gameId, characterId, criteriaIndex, team) {
-  const build = useBuild(gameId, characterId);
+  const build = useBuild().getBuilds(gameId)[characterId];
   const criteria = CHARACTERS[gameId][characterId]?.criteria?.[criteriaIndex];
   const [error, setError] = useState(null);
   const startTimeRef = useRef(0);

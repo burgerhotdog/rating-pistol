@@ -1,6 +1,5 @@
 import { useState, useMemo } from 'react';
 import {
-  Avatar,
   Card,
   CardActionArea,
   CardMedia,
@@ -16,6 +15,7 @@ import {
   IconButton,
 } from '@mui/material';
 import { STATS, CHARACTERS, WEAPONS } from '@/data';
+import { CustomAvatar } from "@/components";
 
 export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
   const [open, setOpen] = useState(false);
@@ -41,11 +41,9 @@ export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
     <>
       <Card>
         <CardActionArea onClick={() => setOpen(true)}>
-          <Avatar
-            src={`${gameId}/character/${currentId}.webp`}
-            alt={CHARACTERS[gameId][currentId]?.name}
-            sx={{ width: 48, height: 48 }}
-            variant="rounded"
+          <CustomAvatar
+            gameId={gameId}
+            characterId={currentId}
           />
         </CardActionArea>
       </Card>
