@@ -4,7 +4,7 @@ import { CHARACTERS, STATS } from '@/data';
 import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
 
 export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading }) => {
-  const criteria = CHARACTERS[gameId][characterId]?.criteria;
+  const calcs = CHARACTERS[gameId][characterId]?.calcs;
 
   if (isLoading || !build || !combinedSimEquips) return null;
   const simSources = Object.entries(combinedSimEquips).map(([statId, value]) => ({
@@ -13,7 +13,7 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
     subStatList: []
   }));
 
-  const damageType = criteria?.[0].type.element;
+  const damageType = calcs?.[0].type.element;
   const nonDamageTypes = STATS[gameId].ELEMENT_TYPES
     .map(element => element.toUpperCase())
     .filter(element => element !== damageType);
@@ -23,7 +23,7 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
       ? !nonDamageTypes.includes(stat)
       : !nonDamageTypes.includes(stat) && stat !== 'PHYSICAL'
     )
-    .filter(([stat]) => stat === 'HB' ? !criteria[0].type : true)
+    .filter(([stat]) => stat === 'HB' ? !calcs[0].type : true)
     .map(([stat]) => {
       const buildRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, build, []));
       const simRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, { weaponId: build.weaponId, equipList: simSources }, []));

@@ -16,12 +16,12 @@ import { computeDamage } from "@/utils";
 
 export const GamePage = ({ gameId, characterId }) => {
   const build = useBuild().getBuilds(gameId)[characterId];
-  const { criteria } = CHARACTERS[gameId][characterId] ?? {};
-  const [criteriaIndex, setCriteriaIndex] = useState(0);
-  const { team, updateTeam } = useTeam(gameId, characterId, criteriaIndex);
+  const { calcs } = CHARACTERS[gameId][characterId] ?? {};
+  const [calcsIndex, setCriteriaIndex] = useState(0);
+  const { team, updateTeam } = useTeam(gameId, characterId, calcsIndex);
 
-  const rating = build && criteria
-    ? computeDamage(gameId, characterId, build, criteria[criteriaIndex], team)
+  const rating = build && calcs
+    ? computeDamage(gameId, characterId, build, calcs[calcsIndex], team)
     : null;
 
   const { completed, weeklyScores, finalStats, isLoading, elapsed } = useSimulation(gameId, characterId, 0, team);
@@ -55,7 +55,7 @@ export const GamePage = ({ gameId, characterId }) => {
         />
       </Stack>
 
-      {criteria && (
+      {calcs && (
         <Stack spacing={1} sx={{ flex: 1 }}>
           <Bar completed={completed} elapsed={elapsed} />
           <CustomLineChart

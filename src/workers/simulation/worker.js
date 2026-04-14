@@ -10,10 +10,10 @@ const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
 
 self.onmessage = ({ data }) => {
-  const { gameId, characterId, build, criteria, team } = data;
+  const { gameId, characterId, build, calcs, team } = data;
   const isWuwa = gameId === "wuthering-waves";
   const setIdList = build.equipList.map(equip => equip?.setId);
-  const matchTargets = (criteria.match ?? []).map(stat => {
+  const matchTargets = (calcs.match ?? []).map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, "menu"));
   });
   const trials = [];
@@ -21,20 +21,20 @@ self.onmessage = ({ data }) => {
 
   // Initialize first week
   for (let i = 0; i < MIN_TRIALS; i++) {
-    trials.push(createTrial(matchTargets, gameId, characterId, build, criteria, team));
+    trials.push(createTrial(matchTargets, gameId, characterId, build, calcs, team));
   }
 
   const preferredMainStats = isWuwa
-    ? findPreferredWuwa(trials[0], gameId, characterId, criteria, team, matchTargets)
-    : findPreferred(trials[0], gameId, characterId, criteria, team, matchTargets);
+    ? findPreferredWuwa(trials[0], gameId, characterId, calcs, team, matchTargets)
+    : findPreferred(trials[0], gameId, characterId, calcs, team, matchTargets);
 
   for (let week = 1; week <= MAX_WEEKS; week++) {
     // advance all trials by one week
     for (const trial of trials) {
       if (isWuwa) {
-        advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, criteria, team);
+        advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, calcs, team);
       } else {
-        advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+        advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, calcs, team);
       }
     }
 
@@ -44,12 +44,12 @@ self.onmessage = ({ data }) => {
       if (findRelativeError(values) <= 0.005) break;
 
       // add another trial
-      const trial = createTrial(matchTargets, gameId, characterId, build, criteria, team);
+      const trial = createTrial(matchTargets, gameId, characterId, build, calcs, team);
       for (let w = 1; w <= week; w++) {
         if (isWuwa) {
-          advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, criteria, team);
+          advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, calcs, team);
         } else {
-          advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, criteria, team);
+          advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, calcs, team);
         }
       }
       trials.push(trial);

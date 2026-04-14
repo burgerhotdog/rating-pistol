@@ -10,7 +10,7 @@ export function useCurrent() {
   const build = builds[characterId];
 
   const data = CHARACTERS[gameId][characterId];
-  const criteria = data?.criteria;
+  const calcs = data?.calcs;
 
-  return { gameId, characterId, builds, build, data, criteria };
+  return { gameId, characterId, builds, build, data, calcs };
 }

@@ -42,7 +42,7 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "",
         "scaling": {
@@ -88,7 +88,7 @@
         "FLAT_STAT": 0
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "",
         "scaling": {
@@ -129,7 +129,7 @@
         "FLAT_STAT": 0
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "",
         "scaling": {

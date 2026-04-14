@@ -1,21 +1,21 @@
-import { computeTotalStat } from "@/utils";
+import { computeTotalStat, compileStatMap } from "@/utils";
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-export function computeBase(statMap, criteria) {
-  const { ability, element, reaction } = criteria.type;
+export function computeBase(statMap, scaling, type = {}) {
+  const { ability, element, reaction } = type;
   const totalEm = computeTotalStat("EM", statMap);
   const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
 
   // Base ability
-  const multiplier = criteria.scaling.multiplier ?? {};
+  const multiplier = scaling.multiplier ?? {};
   const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
     const totalStat = computeTotalStat(stat, statMap);
     return acc + totalStat * motionValue;
   }, 0);
-  const flatComponent = criteria.scaling.flat ?? 0;
+  const flatComponent = scaling.flat ?? 0;
   const abilityBaseDmg = multiplierComponent + flatComponent;
 
   // Base ability Multiplier:
@@ -39,8 +39,8 @@ export function computeBase(statMap, criteria) {
   return abilityBaseDmg * baseDmgMult + flatDmg;
 }
 
-export function computeBonuses(statMap, criteria) {
-  const { ability, element, reaction } = criteria.type;
+export function computeBonuses(statMap, type) {
+  const { ability, element, reaction } = type;
   const totalEm = computeTotalStat("EM", statMap);
   const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
 
@@ -65,8 +65,8 @@ export function computeBonuses(statMap, criteria) {
   return critMult * dmgBonusMult * rxnMult;
 }
 
-export function computeReductions(statMap, criteria) {
-  const { element } = criteria.type;
+export function computeReductions(statMap, type) {
+  const { element } = type;
 
   // Enemy resistance
   const allShred = statMap[`SHRED_ALL`] ?? 0;
@@ -88,4 +88,24 @@ export function computeReductions(statMap, criteria) {
   const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
 
   return resMult * defMult;
+}
+
+export function computeDamage(characterId, build, calcs, team) {
+  const statMap = compileStatMap("genshin-impact", characterId, build, team, "combat");
+
+  const combo = calcs.combo;
+  let damage = 0;
+  if (!combo) return 0;
+  for (const hit of combo) {
+    const scaling = hit.scaling;
+    const type = hit.type;
+    const baseDmg = computeBase(statMap, scaling, type);
+    const bonuses = computeBonuses(statMap, type);
+    const reductions = computeReductions(statMap, type);
+
+    const repeat = hit.repeat;
+    damage += baseDmg * bonuses * reductions * (repeat ?? 1);
+  }
+
+  return damage;
 }

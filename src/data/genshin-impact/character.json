@@ -94,19 +94,64 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
-        "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 3.672
-          }
-        },
+        "name": "Melt DPS",
         "type": {
-          "ability": "EB",
-          "element": "PYRO",
-          "reaction": "RVAPORIZE"
+          "element": "PYRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 3.672
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "PYRO",
+              "reaction": "RMELT"
+            },
+            "repeat": 2
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.08
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "PYRO"
+            },
+            "repeat": 7
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 5.774
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "PYRO",
+              "reaction": "RMELT"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 8.107
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "PYRO"
+            },
+            "repeat": 2
+          }
+        ],
+        "duration": 12,
         "match": [
           "ER"
         ],
@@ -122,6 +167,9 @@
     "quality": "4",
     "element": "Electro",
     "type": "Claymore",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 11962,
@@ -164,6 +212,9 @@
     "quality": "5",
     "element": "Anemo",
     "type": "Bow",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 10531,
@@ -201,19 +252,51 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 2.016
-          }
-        },
         "type": {
-          "ability": "EB",
-          "element": "PYRO",
-          "reaction": "VAPORIZE"
+          "element": "PYRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.365
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "PYRO"
+            },
+            "repeat": 3
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 5.729
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "PYRO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.38
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "PYRO",
+              "reaction": "VAPORIZE"
+            },
+            "repeat": 11
+          }
+        ],
+        "duration": 14,
         "match": [
           "ER"
         ],
@@ -245,18 +328,49 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 2.189
-          }
-        },
         "type": {
-          "ability": "EB",
           "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 9.384
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "ELECTRO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.584
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "ELECTRO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.04
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "ELECTRO"
+            },
+            "repeat": 45
+          }
+        ],
+        "duration": 15,
         "match": [
           "ER"
         ],
@@ -294,18 +408,38 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 0.977
-          }
-        },
         "type": {
-          "ability": "EB",
           "element": "HYDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 7.633
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "HYDRO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.153
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "HYDRO"
+            },
+            "repeat": 50
+          }
+        ],
+        "duration": 15,
         "match": [
           "ER"
         ],
@@ -336,34 +470,16 @@
           "PERCENT_GEO": 0.12
         }
       }
-    },
-    "criteria": [
-      {
-        "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1.565
-          }
-        },
-        "type": {
-          "ability": "EB",
-          "element": "GEO"
-        },
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000027",
-          "10000032"
-        ]
-      }
-    ]
+    }
   },
   "10000029": {
     "name": "Klee",
     "quality": "5",
     "element": "Pyro",
     "type": "Catalyst",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 10287,
@@ -381,9 +497,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 2.832
@@ -408,6 +525,9 @@
     "quality": "4",
     "element": "Electro",
     "type": "Bow",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 9189,
@@ -425,9 +545,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1.598
@@ -500,9 +621,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1.003
@@ -560,6 +682,9 @@
     "quality": "5",
     "element": "Hydro",
     "type": "Catalyst",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 10409,
@@ -609,9 +734,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 3.218
@@ -636,6 +762,9 @@
     "quality": "4",
     "element": "Anemo",
     "type": "Catalyst",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 9244,
@@ -729,9 +858,10 @@
         "PERCENT_HYDRO": 0.288
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -834,9 +964,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 6.221
@@ -861,6 +992,9 @@
     "quality": "5",
     "element": "Geo",
     "type": "Sword",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 13226,
@@ -887,18 +1021,61 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "DEF": 2.405
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "GEO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.347
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "GEO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 6.61
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "GEO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.296
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "GEO"
+            },
+            "repeat": 7
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "DEF": 2.405
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "GEO"
+            },
+            "repeat": 10
+          }
+        ],
+        "duration": 20,
         "match": [
           "ER"
         ],
@@ -934,9 +1111,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 4.04
@@ -985,9 +1163,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 2.426
@@ -1085,9 +1264,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 17.63
@@ -1155,9 +1335,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 41.431
@@ -1204,9 +1385,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1.889
@@ -1272,9 +1454,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 11.414
@@ -1323,9 +1506,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1.231,
@@ -1420,9 +1604,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -1486,9 +1671,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -1522,9 +1708,10 @@
         "PERCENT_CD": 0.384
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -1554,9 +1741,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "HP": 1
@@ -1650,9 +1838,10 @@
         "PERCENT_DENDRO": 0.288
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -1718,9 +1907,10 @@
         "value": 2.5
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 2
@@ -1777,9 +1967,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -1832,9 +2023,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -1908,9 +2100,10 @@
         "max": 1
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1.2096,
@@ -2036,9 +2229,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -2094,9 +2288,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 2.7533
@@ -2137,9 +2332,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "HP": 1
@@ -2211,9 +2407,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "HP": 0.1492
@@ -2265,9 +2462,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -2331,9 +2529,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1.4774,
@@ -2361,9 +2560,10 @@
         "PERCENT_CD": 0.384
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -2423,9 +2623,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -2500,9 +2701,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "HP": 1
@@ -2552,9 +2754,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -2583,9 +2786,10 @@
         "PERCENT_ATK": 0.24
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -2615,9 +2819,10 @@
         "PERCENT_CD": 0.384
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 8.0064
@@ -2720,9 +2925,10 @@
         "PERCENT_CR": 0.192
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -2775,9 +2981,10 @@
         }
       }
     },
-    "criteria": [
+    "calcs": [
       {
         "name": "Damage",
+        "combo": [],
         "scaling": {
           "multiplier": {
             "ATK": 1
@@ -2885,6 +3092,9 @@
     "quality": "5",
     "element": "Pyro",
     "type": "Sword",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 12430,
@@ -2974,6 +3184,9 @@
     "quality": "5",
     "element": "Anemo",
     "type": "Claymore",
+    "tags": [
+      "HEXEREI"
+    ],
     "stats": {
       "constant": {
         "BASE_HP": 12613,

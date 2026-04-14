@@ -1,17 +1,17 @@
-import { computeTotalStat } from "@/utils";
+import { computeTotalStat, compileStatMap } from "@/utils";
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-export function computeBase(statMap, criteria) {
+export function computeBase(statMap, calcs) {
   // Base ability
-  const multiplier = criteria.scaling.multiplier ?? {};
+  const multiplier = calcs.scaling.multiplier ?? {};
   const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
     const totalStat = computeTotalStat(stat, statMap);
     return acc + totalStat * motionValue;
   }, 0);
-  const flatComponent = criteria.scaling.flat ?? 0;
+  const flatComponent = calcs.scaling.flat ?? 0;
   const abilityBaseDmg = multiplierComponent + flatComponent;
 
   // Flat
@@ -20,8 +20,8 @@ export function computeBase(statMap, criteria) {
   return abilityBaseDmg + flatDmg;
 }
 
-export function computeBonuses(statMap, criteria) {
-  const { ability, element, status } = criteria.type;
+export function computeBonuses(statMap, calcs) {
+  const { ability, element, status } = calcs.type;
 
   // Crit
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
@@ -45,8 +45,8 @@ export function computeBonuses(statMap, criteria) {
   return critMult * dmgBonusMult * ampMult;
 }
 
-export function computeReductions(statMap, criteria) {
-  const { element } = criteria.type;
+export function computeReductions(statMap, calcs) {
+  const { element } = calcs.type;
 
   // Enemy resistance
   const elementShred = statMap[`SHRED_${element}`] ?? 0
@@ -66,4 +66,13 @@ export function computeReductions(statMap, criteria) {
   const defMult = (800 + 8 * CHARACTER_LEVEL) / (800 + 8 * CHARACTER_LEVEL + enemyDef * (1 - defIgnore))
 
   return resMult * defMult;
+}
+
+export function computeDamage(characterId, build, calcs, team) {
+  const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
+
+  const baseDmg = computeBase(statMap, calcs);
+  const bonuses = computeBonuses(statMap, calcs);
+  const reductions = computeReductions(statMap, calcs);
+  return baseDmg * bonuses * reductions;
 }

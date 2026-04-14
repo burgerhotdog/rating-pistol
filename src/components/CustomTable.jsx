@@ -4,12 +4,12 @@ import { computeDamage } from '@/utils';
 
 export const CustomTable = ({ gameId, characterId, build, rating, team, isLoading }) => {
   const { SUB_STAT_TYPES } = STATS[gameId];
-  const { criteria } = CHARACTERS[gameId][characterId];
-  if (isLoading || !criteria || !build) return null;
+  const { calcs } = CHARACTERS[gameId][characterId];
+  if (isLoading || !calcs || !build) return null;
 
   const newRatings = Object.entries(SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
-      const newRating = computeDamage(gameId, characterId, { ...build, equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }] }, criteria[0], team);
+      const newRating = computeDamage(gameId, characterId, { ...build, equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }] }, calcs[0], team);
       return {
         name: id,
         diff: newRating / rating * 100 - 100,
