@@ -1,27 +1,27 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Box, Stack } from '@mui/material';
 import {
+  Bar,
   Sidebar,
   StatsPanel,
   CustomLineChart,
   CustomRadarChart,
   CustomTable,
-  Bar,
+  TeamConfig,
 } from '@/components';
-import { TeamConfig } from '@/components/TeamConfig';
-import { computeDamage2 } from '@/utils';
-import { useSimulation, useTeam } from '@/hooks';
 import { useBuild } from "@/contexts";
 import { CHARACTERS } from "@/data";
+import { useSimulation, useTeam } from '@/hooks';
+import { computeDamage } from "@/utils";
 
 export const GamePage = ({ gameId, characterId }) => {
   const build = useBuild().getBuilds(gameId)[characterId];
-  const { criteria } = CHARACTERS[gameId][characterId];
+  const { criteria } = CHARACTERS[gameId][characterId] ?? {};
   const [criteriaIndex, setCriteriaIndex] = useState(0);
   const { team, updateTeam } = useTeam(gameId, characterId, criteriaIndex);
 
   const rating = build && criteria
-    ? computeDamage2(gameId, characterId, build, criteria[criteriaIndex], team)
+    ? computeDamage(gameId, characterId, build, criteria[criteriaIndex], team)
     : null;
 
   const { completed, weeklyScores, finalStats, isLoading, elapsed } = useSimulation(gameId, characterId, 0, team);
