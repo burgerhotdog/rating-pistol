@@ -9,15 +9,6 @@
     "Goblet",
     "Circlet"
   ],
-  "ELEMENT_TYPES": [
-    "Anemo",
-    "Cryo",
-    "Dendro",
-    "Electro",
-    "Geo",
-    "Hydro",
-    "Pyro"
-  ],
   "ELEMENT_COLORS": {
     "Anemo": "#2ed89f",
     "Cryo": "#78f3f6",

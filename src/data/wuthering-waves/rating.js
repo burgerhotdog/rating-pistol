@@ -4,20 +4,13 @@ const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-export function computeBase(statMap, scaling) {
-  // Base ability
-  const multiplier = scaling.multiplier ?? {};
-  const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
-    const totalStat = computeTotalStat(stat, statMap);
-    return acc + totalStat * motionValue;
-  }, 0);
-  const flatComponent = scaling.flat ?? 0;
-  const abilityBaseDmg = multiplierComponent + flatComponent;
-
-  // Flat
-  const flatDmg = 0;
-
-  return abilityBaseDmg + flatDmg;
+export function computeBase(statMap, hits) {
+  let baseDamage = 0;
+  for (const hit of hits) {
+    const { attr = "ATK", mv, times = 1 } = hit;
+    baseDamage += computeTotalStat(attr, statMap) * mv * times;
+  }
+  return baseDamage;
 }
 
 export function computeBonuses(statMap, type) {
@@ -71,18 +64,17 @@ export function computeReductions(statMap, type) {
 export function computeDamage(characterId, build, calcs, team) {
   const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
 
-  const combo = calcs.combo;
+  const rotation = calcs.rotation;
   let damage = 0;
-  if (!combo) return 0;
-  for (const hit of combo) {
-    const scaling = hit.scaling;
-    const type = hit.type;
-    const baseDmg = computeBase(statMap, scaling);
+  if (!rotation) return 0; // temp
+  for (const skill of rotation) {
+    const { type, hits, times = 1 } = skill;
+    if (!hits) continue; // temp
+    const baseDmg = computeBase(statMap, hits);
     const bonuses = computeBonuses(statMap, type);
     const reductions = computeReductions(statMap, type);
 
-    const repeat = hit.repeat;
-    damage += baseDmg * bonuses * reductions * (repeat ?? 1);
+    damage += baseDmg * bonuses * reductions * times;
   }
 
   return damage;

@@ -10,15 +10,6 @@
     "Orb",
     "Rope"
   ],
-  "ELEMENT_TYPES": [
-    "Fire",
-    "Ice",
-    "Imaginary",
-    "Lightning",
-    "Physical",
-    "Quantum",
-    "Wind"
-  ],
   "ELEMENT_COLORS": {
     "Fire": "#ea7866",
     "Ice": "#5ec7db",

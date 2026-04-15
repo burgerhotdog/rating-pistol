@@ -1,4 +1,4 @@
-import { CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
+import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
 import { STATS, CHARACTERS, WEAPONS } from '@/data';
 import { computeTotalStat, compileStatMap } from '@/utils';
 import { CustomAvatar } from "@/components";
@@ -25,9 +25,30 @@ export const StatsPanel = ({ gameId, characterId, build, team }) => {
       <CardHeader
         avatar={<CustomAvatar gameId={gameId} characterId={characterId} />}
         title={CHARACTERS[gameId]?.[characterId]?.name ?? ""}
+        subheader={
+          <Chip
+            label={CHARACTERS[gameId]?.[characterId]?.element ?? ""}
+            variant="outlined"
+            size="small"
+            sx={{
+              color: STATS[gameId]?.ELEMENT_COLORS[CHARACTERS[gameId]?.[characterId]?.element]
+            }}
+          />
+        }
       />
 
       <CardContent>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Typography variant="body2" color="text.secondary">
+            Weapon
+          </Typography>
+          <Typography variant="body2" fontWeight="bold">
+            {WEAPONS[gameId]?.[build?.weaponId]?.name ?? ""}
+          </Typography>
+        </Box>
+
+        <Divider sx={{ my: 2 }} />
+
         <Stack gap={1}>
           {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
             const totalValue = computeTotalStat(id, statMap);
@@ -53,17 +74,6 @@ export const StatsPanel = ({ gameId, characterId, build, team }) => {
             );
           })}
         </Stack>
-
-        <Divider sx={{ my: 2 }} />
-
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="body2" color="text.secondary">
-            Weapon
-          </Typography>
-          <Typography variant="body2" fontWeight="bold">
-            {WEAPONS[gameId]?.[build?.weaponId]?.name ?? ""}
-          </Typography>
-        </Box>
 
         <Divider sx={{ my: 2 }} />
 

@@ -9,14 +9,6 @@
     "1-Cost",
     "1-Cost"
   ],
-  "ELEMENT_TYPES": [
-    "Aero",
-    "Electro",
-    "Fusion",
-    "Glacio",
-    "Havoc",
-    "Spectro"
-  ],
   "ELEMENT_COLORS": {
     "Aero": "#44c4a3",
     "Electro": "#c154c7",

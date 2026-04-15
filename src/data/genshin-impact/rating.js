@@ -93,10 +93,10 @@ function computeReductions(statMap, type) {
 export function computeDamage(characterId, build, calcs, team) {
   const statMap = compileStatMap("genshin-impact", characterId, build, team, "combat");
 
-  const combo = calcs.combo;
+  const rotation = calcs.rotation;
   let damage = 0;
-  if (!combo) return 0;
-  for (const hit of combo) {
+  if (!rotation) return 0;
+  for (const hit of rotation) {
     const scaling = hit.scaling;
     const type = hit.type;
     const baseDmg = computeBase(statMap, scaling, type);

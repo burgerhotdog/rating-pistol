@@ -10,13 +10,6 @@
     "Disk 5",
     "Disk 6"
   ],
-  "ELEMENT_TYPES": [
-    "Electric",
-    "Ether",
-    "Fire",
-    "Ice",
-    "Physical"
-  ],
   "ELEMENT_COLORS": {
     "Electric": "#1da3ec",
     "Ether": "#9b55c5",

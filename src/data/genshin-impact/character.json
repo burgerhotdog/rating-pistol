@@ -100,7 +100,7 @@
         "type": {
           "element": "PYRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -258,7 +258,7 @@
         "type": {
           "element": "PYRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -334,7 +334,7 @@
         "type": {
           "element": "ELECTRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -414,7 +414,7 @@
         "type": {
           "element": "HYDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -503,7 +503,7 @@
         "type": {
           "element": "PYRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -557,7 +557,7 @@
         "type": {
           "element": "ELECTRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -734,7 +734,7 @@
         "type": {
           "element": "ELECTRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -864,7 +864,7 @@
         "type": {
           "element": "HYDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -976,7 +976,7 @@
         "type": {
           "element": "CRYO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1039,7 +1039,7 @@
         "type": {
           "element": "GEO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1129,7 +1129,7 @@
         "type": {
           "element": "ANEMO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1187,7 +1187,7 @@
         "type": {
           "element": "PYRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1294,7 +1294,7 @@
         "type": {
           "element": "PHYSICAL"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1371,7 +1371,7 @@
         "type": {
           "element": "CRYO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1427,7 +1427,7 @@
         "type": {
           "element": "PYRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1502,7 +1502,7 @@
         "type": {
           "element": "ELECTRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1560,7 +1560,7 @@
         "type": {
           "element": "HYDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1664,7 +1664,7 @@
         "type": {
           "element": "GEO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1737,7 +1737,7 @@
         "type": {
           "element": "ELECTRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1780,7 +1780,7 @@
         "type": {
           "element": "HYDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1819,7 +1819,7 @@
         "type": {
           "element": "HYDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1922,7 +1922,7 @@
         "type": {
           "element": "DENDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -1997,7 +1997,7 @@
         "type": {
           "element": "ELECTRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2063,7 +2063,7 @@
         "type": {
           "element": "DENDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2125,7 +2125,7 @@
         "type": {
           "element": "ANEMO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2208,7 +2208,7 @@
         "type": {
           "element": "DENDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2343,7 +2343,7 @@
         "type": {
           "element": "PYRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2408,7 +2408,7 @@
         "type": {
           "element": "CRYO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2458,7 +2458,7 @@
         "type": {
           "element": "HYDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2539,7 +2539,7 @@
         "type": {
           "element": "HYDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2600,7 +2600,7 @@
         "type": {
           "element": "GEO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2673,7 +2673,7 @@
         "type": {
           "element": "GEO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2717,7 +2717,7 @@
         "type": {
           "element": "PYRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2862,7 +2862,7 @@
         "type": {
           "element": "ELECTRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -2946,7 +2946,7 @@
         "type": {
           "element": "HYDRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -3005,7 +3005,7 @@
         "type": {
           "element": ""
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -3043,7 +3043,7 @@
         "type": {
           "element": "ELECTRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -3082,7 +3082,7 @@
         "type": {
           "element": "PYRO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -3194,7 +3194,7 @@
         "type": {
           "element": "CRYO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {
@@ -3256,7 +3256,7 @@
         "type": {
           "element": "CRYO"
         },
-        "combo": [
+        "rotation": [
           {
             "scaling": {
               "multiplier": {

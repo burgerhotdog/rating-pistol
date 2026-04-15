@@ -19,7 +19,7 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
   }));
 
   const damageType = calcs?.[0].type.element;
-  const nonDamageTypes = STATS[gameId].ELEMENT_TYPES
+  const nonDamageTypes = Object.keys(STATS[gameId].ELEMENT_COLORS)
     .map(element => element.toUpperCase())
     .filter(element => element !== damageType);
 
