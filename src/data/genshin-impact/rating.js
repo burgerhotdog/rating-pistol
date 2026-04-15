@@ -4,7 +4,7 @@ const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-export function computeBase(statMap, scaling, type = {}) {
+function computeBase(statMap, scaling, type = {}) {
   const { ability, element, reaction } = type;
   const totalEm = computeTotalStat("EM", statMap);
   const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
@@ -39,7 +39,7 @@ export function computeBase(statMap, scaling, type = {}) {
   return abilityBaseDmg * baseDmgMult + flatDmg;
 }
 
-export function computeBonuses(statMap, type) {
+function computeBonuses(statMap, type) {
   const { ability, element, reaction } = type;
   const totalEm = computeTotalStat("EM", statMap);
   const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
@@ -65,7 +65,7 @@ export function computeBonuses(statMap, type) {
   return critMult * dmgBonusMult * rxnMult;
 }
 
-export function computeReductions(statMap, type) {
+function computeReductions(statMap, type) {
   const { element } = type;
 
   // Enemy resistance

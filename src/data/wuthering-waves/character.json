@@ -15,7 +15,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_BA": 0.38
         }
       }
@@ -127,7 +127,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_RL": 0.25,
           "AMP_ELECTRO": 0.2
         }
@@ -136,15 +136,94 @@
     "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RL",
           "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.1656
+              }
+            },
+            "type": {
+              "ability": "RL",
+              "element": "ELECTRO"
+            },
+            "repeat": 7
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.5965
+              }
+            },
+            "type": {
+              "ability": "RS",
+              "element": "ELECTRO"
+            },
+            "repeat": 3
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.8947
+              }
+            },
+            "type": {
+              "ability": "RS",
+              "element": "ELECTRO"
+            },
+            "repeat": 4
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.1989
+              }
+            },
+            "type": {
+              "ability": "RS",
+              "element": "ELECTRO"
+            },
+            "repeat": 4
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.7893
+              }
+            },
+            "type": {
+              "ability": "HA",
+              "element": "ELECTRO"
+            },
+            "repeat": 2
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.7864
+              }
+            },
+            "type": {
+              "ability": "RS",
+              "element": "ELECTRO"
+            },
+            "repeat": 18
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.6954
+              }
+            },
+            "type": {
+              "ability": "BA",
+              "element": "ELECTRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -213,15 +292,70 @@
     "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "HA",
           "element": "AERO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 7.1455
+              }
+            },
+            "type": {
+              "ability": "HA",
+              "element": "AERO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.6552
+              }
+            },
+            "type": {
+              "ability": "HA",
+              "element": "AERO"
+            },
+            "repeat": 16
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.6155
+              }
+            },
+            "type": {
+              "ability": "HA",
+              "element": "AERO"
+            },
+            "repeat": 16
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.6676
+              }
+            },
+            "type": {
+              "ability": "HA",
+              "element": "AERO"
+            },
+            "repeat": 16
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.0636
+              }
+            },
+            "type": {
+              "ability": "RS",
+              "element": "AERO"
+            },
+            "repeat": 8
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -244,7 +378,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_RL": 0.38
         }
       }
@@ -266,7 +400,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ATK": 0.2,
           "AMP_ALL": 0.15
         }
@@ -319,7 +453,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_RL": 0.25,
           "AMP_FUSION": 0.2
         }
@@ -391,7 +525,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_RS": 0.25,
           "AMP_GLACIO": 0.2
         }
@@ -478,7 +612,7 @@
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "AMP_ALL": 0.15,
           "PERCENT_CR": 0.125,
           "PERCENT_CD": 0.25
@@ -502,7 +636,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_RL": 0.38
         }
       }
@@ -588,7 +722,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_BA": 0.25,
           "AMP_HAVOC": 0.2
         }
@@ -628,7 +762,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_RS": 0.25,
           "AMP_FUSION": 0.2
         }
@@ -668,7 +802,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_FRAZZLE": 1,
           "SHRED_SPECTRO": 0.1
         }
@@ -708,7 +842,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_RS": 0.25,
           "AMP_HAVOC": 0.2
         }
@@ -748,7 +882,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_EROSION": 1
         }
       }
@@ -946,7 +1080,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_HA": 0.5
         }
       }
@@ -1000,7 +1134,7 @@
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_ES": 0.5
         }
       }

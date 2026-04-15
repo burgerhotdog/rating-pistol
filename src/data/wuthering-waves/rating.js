@@ -4,14 +4,14 @@ const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-export function computeBase(statMap, calcs) {
+export function computeBase(statMap, scaling) {
   // Base ability
-  const multiplier = calcs.scaling.multiplier ?? {};
+  const multiplier = scaling.multiplier ?? {};
   const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
     const totalStat = computeTotalStat(stat, statMap);
     return acc + totalStat * motionValue;
   }, 0);
-  const flatComponent = calcs.scaling.flat ?? 0;
+  const flatComponent = scaling.flat ?? 0;
   const abilityBaseDmg = multiplierComponent + flatComponent;
 
   // Flat
@@ -20,8 +20,8 @@ export function computeBase(statMap, calcs) {
   return abilityBaseDmg + flatDmg;
 }
 
-export function computeBonuses(statMap, calcs) {
-  const { ability, element, status } = calcs.type;
+export function computeBonuses(statMap, type) {
+  const { ability, element, status } = type;
 
   // Crit
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
@@ -45,8 +45,8 @@ export function computeBonuses(statMap, calcs) {
   return critMult * dmgBonusMult * ampMult;
 }
 
-export function computeReductions(statMap, calcs) {
-  const { element } = calcs.type;
+export function computeReductions(statMap, type) {
+  const { element } = type;
 
   // Enemy resistance
   const elementShred = statMap[`SHRED_${element}`] ?? 0
@@ -71,8 +71,19 @@ export function computeReductions(statMap, calcs) {
 export function computeDamage(characterId, build, calcs, team) {
   const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
 
-  const baseDmg = computeBase(statMap, calcs);
-  const bonuses = computeBonuses(statMap, calcs);
-  const reductions = computeReductions(statMap, calcs);
-  return baseDmg * bonuses * reductions;
+  const combo = calcs.combo;
+  let damage = 0;
+  if (!combo) return 0;
+  for (const hit of combo) {
+    const scaling = hit.scaling;
+    const type = hit.type;
+    const baseDmg = computeBase(statMap, scaling);
+    const bonuses = computeBonuses(statMap, type);
+    const reductions = computeReductions(statMap, type);
+
+    const repeat = hit.repeat;
+    damage += baseDmg * bonuses * reductions * (repeat ?? 1);
+  }
+
+  return damage;
 }

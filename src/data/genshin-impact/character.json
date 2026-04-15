@@ -500,16 +500,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 2.832
-          }
-        },
         "type": {
-          "ability": "CA",
           "element": "PYRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.832
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "PYRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -548,16 +554,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1.598
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.598
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "ELECTRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -620,25 +632,7 @@
           }
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1.003
-          }
-        },
-        "type": {
-          "ability": "CA",
-          "element": "GEO"
-        },
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000035": {
     "name": "Qiqi",
@@ -737,16 +731,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 3.218
-          }
-        },
         "type": {
-          "ability": "CA",
           "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 3.218
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "ELECTRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -861,16 +861,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "HYDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "HYDRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -967,16 +973,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 6.221
-          }
-        },
         "type": {
-          "ability": "CA",
           "element": "CRYO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 6.221
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "CRYO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1114,16 +1126,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 4.04
-          }
-        },
         "type": {
-          "ability": "PA",
           "element": "ANEMO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 4.04
+              }
+            },
+            "type": {
+              "ability": "PA",
+              "element": "ANEMO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1166,17 +1184,23 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 2.426
-          }
-        },
         "type": {
-          "ability": "CA",
-          "element": "PYRO",
-          "reaction": "RVAPORIZE"
+          "element": "PYRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.426
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "PYRO",
+              "reaction": "RVAPORIZE"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1267,16 +1291,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 17.63
-          }
-        },
         "type": {
-          "ability": "EB",
           "element": "PHYSICAL"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 17.63
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "PHYSICAL"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1338,16 +1368,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 41.431
-          }
-        },
         "type": {
-          "ability": "EB",
           "element": "CRYO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 41.431
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "CRYO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1388,16 +1424,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1.889
-          }
-        },
         "type": {
-          "ability": "NA",
           "element": "PYRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.889
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "PYRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1457,16 +1499,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 11.414
-          }
-        },
         "type": {
-          "ability": "EB",
           "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 11.414
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "ELECTRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1509,17 +1557,23 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1.231,
-            "HP": 0.087
-          }
-        },
         "type": {
-          "ability": "NA",
           "element": "HYDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.231,
+                "HP": 0.087
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "HYDRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1607,16 +1661,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "CA",
           "element": "GEO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "GEO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1674,16 +1734,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "ELECTRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1711,16 +1777,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "NA",
           "element": "HYDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "HYDRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -1744,16 +1816,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "HP": 1
-          }
-        },
         "type": {
-          "ability": "EB",
           "element": "HYDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "HP": 1
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "HYDRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1841,16 +1919,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "CA",
           "element": "DENDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "DENDRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1910,17 +1994,23 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 2
-          }
-        },
         "type": {
-          "ability": "NA",
-          "element": "ELECTRO",
-          "reaction": "AGGRAVATE"
+          "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "ELECTRO",
+              "reaction": "AGGRAVATE"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -1970,16 +2060,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "DENDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "DENDRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -2026,16 +2122,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "NA",
           "element": "ANEMO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "ANEMO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -2103,18 +2205,24 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1.2096,
-            "EM": 2.4192
-          }
-        },
         "type": {
-          "ability": "ES",
-          "element": "DENDRO",
-          "reaction": "SPREAD"
+          "element": "DENDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.2096,
+                "EM": 2.4192
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "DENDRO",
+              "reaction": "SPREAD"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -2232,16 +2340,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "CA",
           "element": "PYRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "PYRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -2291,16 +2405,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 2.7533
-          }
-        },
         "type": {
-          "ability": "CA",
           "element": "CRYO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.7533
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "CRYO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -2335,16 +2455,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "HP": 1
-          }
-        },
         "type": {
-          "ability": "CA",
           "element": "HYDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "HP": 1
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "HYDRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -2410,16 +2536,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "HP": 0.1492
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "HYDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "HP": 0.1492
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "HYDRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -2465,16 +2597,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "GEO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "GEO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -2532,17 +2670,23 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1.4774,
-            "DEF": 1.8468
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "GEO"
-        }
+        },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.4774,
+                "DEF": 1.8468
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "GEO"
+            }
+          }
+        ]
       }
     ]
   },
@@ -2560,21 +2704,110 @@
         "PERCENT_CD": 0.384
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_PYRO": 0.4
+        }
+      }
+    },
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "NA",
           "element": "PYRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.267
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "PYRO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 2.404
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "PYRO"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 0.572
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "PYRO"
+            },
+            "repeat": 2
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1.795
+              }
+            },
+            "type": {
+              "ability": "CA",
+              "element": "PYRO",
+              "reaction": "RVAPORIZE"
+            }
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 3.101
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "PYRO",
+              "reaction": "RVAPORIZE"
+            },
+            "repeat": 5
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 3.03
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "PYRO"
+            },
+            "repeat": 5
+          },
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 3.142
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "PYRO"
+            },
+            "repeat": 5
+          }
+        ],
         "match": [
           "ER"
+        ],
+        "team": [
+          "10000096",
+          "10000032"
         ]
       }
     ]
@@ -2626,16 +2859,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "NA",
           "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "ELECTRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -2704,17 +2943,23 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "HP": 1
-          }
-        },
         "type": {
-          "ability": "NA",
-          "element": "HYDRO",
-          "reaction": "VAPORIZE"
+          "element": "HYDRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "HP": 1
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "HYDRO",
+              "reaction": "VAPORIZE"
+            }
+          }
+        ],
         "match": [
           "ER"
         ],
@@ -2757,15 +3002,21 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "CA"
+          "element": ""
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "CA"
+            }
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -2789,16 +3040,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "ELECTRO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "ELECTRO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -2822,17 +3079,23 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 8.0064
-          }
-        },
         "type": {
-          "ability": "EB",
-          "element": "PYRO",
-          "reaction": "MELT"
-        }
+          "element": "PYRO"
+        },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 8.0064
+              }
+            },
+            "type": {
+              "ability": "EB",
+              "element": "PYRO",
+              "reaction": "MELT"
+            }
+          }
+        ]
       }
     ]
   },
@@ -2928,16 +3191,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "ES",
           "element": "CRYO"
         },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "ES",
+              "element": "CRYO"
+            }
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -2984,16 +3253,22 @@
     "calcs": [
       {
         "name": "Damage",
-        "combo": [],
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "NA",
           "element": "CRYO"
-        }
+        },
+        "combo": [
+          {
+            "scaling": {
+              "multiplier": {
+                "ATK": 1
+              }
+            },
+            "type": {
+              "ability": "NA",
+              "element": "CRYO"
+            }
+          }
+        ]
       }
     ]
   },
