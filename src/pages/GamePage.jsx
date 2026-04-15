@@ -62,6 +62,8 @@ export const GamePage = ({ gameId, characterId }) => {
             weeklyScores={weeklyScores}
             rating={rating}
             isLoading={isLoading}
+            gameId={gameId}
+            characterId={characterId}
           />
 
           <Box display="flex" gap={1} sx={{ flex: 1 }}>

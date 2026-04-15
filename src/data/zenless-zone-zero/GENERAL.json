@@ -17,6 +17,13 @@
     "Ice",
     "Physical"
   ],
+  "ELEMENT_COLORS": {
+    "Electric": "#1da3ec",
+    "Ether": "#9b55c5",
+    "Fire": "#e3481c",
+    "Ice": "#44d3d7",
+    "Physical": "#e9a117"
+  },
   "WEAPON_TYPES": [
     "Anomaly",
     "Attack",

@@ -18,6 +18,15 @@
     "Hydro",
     "Pyro"
   ],
+  "ELEMENT_COLORS": {
+    "Anemo": "#2ed89f",
+    "Cryo": "#78f3f6",
+    "Dendro": "#9be43b",
+    "Electro": "#ce7ffc",
+    "Geo": "#ffae10",
+    "Hydro": "#00c1ff",
+    "Pyro": "#ff603f"
+  },
   "WEAPON_TYPES": [
     "Bow",
     "Catalyst",

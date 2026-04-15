@@ -17,6 +17,14 @@
     "Havoc",
     "Spectro"
   ],
+  "ELEMENT_COLORS": {
+    "Aero": "#44c4a3",
+    "Electro": "#c154c7",
+    "Fusion": "#d45772",
+    "Glacio": "#4fb4cf",
+    "Havoc": "#be4981",
+    "Spectro": "#b7a835"
+  },
   "WEAPON_TYPES": [
     "Broadblade",
     "Gauntlets",

@@ -19,6 +19,15 @@
     "Quantum",
     "Wind"
   ],
+  "ELEMENT_COLORS": {
+    "Fire": "#ea7866",
+    "Ice": "#5ec7db",
+    "Imaginary": "#e8d85d",
+    "Lightning": "#eb77ea",
+    "Physical": "#bebebe",
+    "Quantum": "#9c96f4",
+    "Wind": "#62d3a2"
+  },
   "WEAPON_TYPES": [
     "Abundance",
     "Destruction",

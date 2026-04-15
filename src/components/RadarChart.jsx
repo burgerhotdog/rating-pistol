@@ -2,8 +2,13 @@ import { Card, Box, Paper, Typography } from '@mui/material';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip } from 'recharts';
 import { CHARACTERS, STATS } from '@/data';
 import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
+import { useTheme } from '@mui/material/styles';
 
 export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading }) => {
+  const theme = useTheme();
+  const disabledColor = theme.palette.action.disabled;
+  const element = CHARACTERS[gameId]?.[characterId]?.element;
+  const elementColor = STATS[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
   const calcs = CHARACTERS[gameId][characterId]?.calcs;
 
   if (isLoading || !build || !combinedSimEquips) return null;
@@ -46,17 +51,17 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
           <Radar
             name="You"
             dataKey="build"
-            stroke="#8884d8"
-            fill="#8884d8"
+            stroke={elementColor}
+            fill={elementColor}
             fillOpacity={0.6}
             allowDataOverflow
           />
           <Radar
             name="Week 20 Avg"
             dataKey="sim"
-            stroke="gold"
-            fill="gold"
-            fillOpacity={0.1}
+            stroke={disabledColor}
+            fill={disabledColor}
+            fillOpacity={0.5}
           />
           <Tooltip
             content={({ active, payload, label }) => {

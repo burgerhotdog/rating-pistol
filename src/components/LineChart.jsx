@@ -1,7 +1,13 @@
 import { Card, Paper, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
+import { CHARACTERS, STATS } from "@/data";
 
-export const CustomLineChart = ({ weeklyScores, rating, isLoading }) => {
+export const CustomLineChart = ({ weeklyScores, rating, isLoading, gameId, characterId }) => {
+  const theme = useTheme();
+  const disabledColor = theme.palette.action.disabled;
+  const element = CHARACTERS[gameId]?.[characterId]?.element;
+  const elementColor = STATS[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
   if (isLoading || !weeklyScores) return null;
 
   const benchmarkRating = weeklyScores[weeklyScores.length - 1];
@@ -28,11 +34,10 @@ export const CustomLineChart = ({ weeklyScores, rating, isLoading }) => {
 
           <ReferenceLine
             y={scaledBuildRating > 100 ? 100 : scaledBuildRating}
-            stroke="red"
-            strokeDasharray="3 3"
-            label={{ value: 'You', position: 'right', fill: 'red' }}
+            stroke={elementColor}
+            label={{ value: 'You', position: 'right', fill: elementColor }}
           />
-          <Line type="monotone" dataKey="rating" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="rating" stroke={disabledColor} activeDot={{ r: 8 }} />
           
           <Tooltip
             content={({ active, payload, label }) => {
