@@ -10,12 +10,12 @@
     "1-Cost"
   ],
   "ELEMENT_COLORS": {
-    "Aero": "#44c4a3",
-    "Electro": "#c154c7",
-    "Fusion": "#d45772",
-    "Glacio": "#4fb4cf",
-    "Havoc": "#be4981",
-    "Spectro": "#b7a835"
+    "GLACIO": "#4fb4cf",
+    "FUSION": "#d45772",
+    "ELECTRO": "#c154c7",
+    "AERO": "#44c4a3",
+    "SPECTRO": "#b7a835",
+    "HAVOC": "#be4981"
   },
   "WEAPON_TYPES": [
     "Broadblade",

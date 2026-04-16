@@ -1,4 +1,5 @@
 import { computeTotalStat, compileStatMap } from "@/utils";
+import { CHARACTERS } from "@/data"; 
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
@@ -13,34 +14,31 @@ export function computeBase(statMap, hits) {
   return baseDamage;
 }
 
-export function computeBonuses(statMap, type) {
-  const { ability, element, status } = type;
-
+export function computeBonuses(statMap, dmgType = []) {
   // Crit
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
   const critDamage = computeTotalStat("CD", statMap) - 1;
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
-  // Damage bonus
+  // Damage bonus and amp
+  let dmgBonusMult = 1;
+  let ampMult = 1;
   const allDmgBonus = computeTotalStat("ALL", statMap);
-  const abilityDmgBonus = ability ? computeTotalStat(ability, statMap) : 0;
-  const elementDmgBonus = element ? computeTotalStat(element, statMap) : 0;
-  const statusDmgBonus = status ? computeTotalStat(status, statMap) : 0;
-  const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus + statusDmgBonus;
-
-  // Amplification
   const allAmp = statMap["AMP_ALL"] ?? 0;
-  const abilityAmp = statMap[`AMP_${ability}`] ?? 0;
-  const elementAmp = statMap[`AMP_${element}`] ?? 0;
-  const statusAmp = statMap[`AMP_${status}`] ?? 0;
-  const ampMult = 1 + allAmp + abilityAmp + elementAmp + statusAmp;
+  dmgBonusMult += allDmgBonus;
+  ampMult += allAmp;
+  for (const type of dmgType) {
+    const typeDmgBonus = computeTotalStat(type, statMap);
+    const typeAmp = statMap[`AMP_${type}`] ?? 0;
+
+    dmgBonusMult += typeDmgBonus;
+    ampMult += typeAmp;
+  }
 
   return critMult * dmgBonusMult * ampMult;
 }
 
-export function computeReductions(statMap, type) {
-  const { element } = type;
-
+export function computeReductions(statMap, element) {
   // Enemy resistance
   const elementShred = statMap[`SHRED_${element}`] ?? 0
   const totalRes = BASE_RES - elementShred;
@@ -62,17 +60,18 @@ export function computeReductions(statMap, type) {
 }
 
 export function computeDamage(characterId, build, calcs, team) {
+  const element = CHARACTERS["wuthering-waves"][characterId];
   const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
 
   const rotation = calcs.rotation;
   let damage = 0;
   if (!rotation) return 0; // temp
-  for (const skill of rotation) {
-    const { type, hits, times = 1 } = skill;
+  for (const ability of rotation) {
+    const { dmgType, hits, times = 1 } = ability;
     if (!hits) continue; // temp
     const baseDmg = computeBase(statMap, hits);
-    const bonuses = computeBonuses(statMap, type);
-    const reductions = computeReductions(statMap, type);
+    const bonuses = computeBonuses(statMap, dmgType);
+    const reductions = computeReductions(statMap, element);
 
     damage += baseDmg * bonuses * reductions * times;
   }
