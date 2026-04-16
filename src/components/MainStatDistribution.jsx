@@ -2,7 +2,7 @@ import { Box, Card, LinearProgress, Tooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { STATS } from '@/data';
 
-export const PreferredMainStats = ({ gameId, mainStatDist }) => {
+export const MainStatDistribution = ({ gameId, mainStatDist }) => {
   if (!mainStatDist) return null;
 
   const { EQUIP_NAMES, MAIN_STAT_TYPES } = STATS[gameId];

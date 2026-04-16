@@ -8,4 +8,4 @@ export * from './Bar';
 export * from './CustomAvatar';
 export * from "./TeamConfig";
 export * from "./PieChart";
-export * from "./PreferredMainStats";
+export * from "./MainStatDistribution";

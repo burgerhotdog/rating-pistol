@@ -192,7 +192,7 @@
             ]
           },
           {
-            "name": "Resonance Liberation",
+            "name": "Ultimate",
             "type": {
               "ability": "RL",
               "element": "ELECTRO"
@@ -217,7 +217,7 @@
             ]
           },
           {
-            "name": "Forte: Chameleon Cipher",
+            "name": "Forte: Heavy: Chameleon Cipher",
             "type": {
               "ability": "HA",
               "element": "ELECTRO"
@@ -230,7 +230,7 @@
             ]
           },
           {
-            "name": "Forte: Judgement Strike",
+            "name": "Coordinated: Judgement Strike",
             "type": {
               "ability": "RS",
               "element": "ELECTRO"
@@ -344,7 +344,7 @@
             ]
           },
           {
-            "name": "Resonance Skill",
+            "name": "Skill",
             "type": {
               "ability": "RS",
               "element": "AERO"
@@ -358,7 +358,7 @@
             "times": 2
           },
           {
-            "name": "Heavy Attack: Lance of Qinqlong P1",
+            "name": "Heavy: Lance of Qinqlong P1",
             "type": {
               "ability": "HA",
               "element": "AERO"
@@ -372,7 +372,7 @@
             "times": 2
           },
           {
-            "name": "Heavy Attack: Lance of Qinqlong P2",
+            "name": "Heavy: Lance of Qinqlong P2",
             "type": {
               "ability": "HA",
               "element": "AERO"
@@ -386,7 +386,7 @@
             "times": 2
           },
           {
-            "name": "Heavy Attack: Lance of Qinqlong P3",
+            "name": "Heavy: Lance of Qinqlong P3",
             "type": {
               "ability": "HA",
               "element": "AERO"
@@ -540,7 +540,7 @@
             ]
           },
           {
-            "name" : "True Sight - Charge",
+            "name" : "True Sight: Charge",
             "type": {
               "ability": "RS",
               "element": "FUSION"
@@ -555,7 +555,7 @@
             ]
           },
           {
-            "name" : "Mid-air Heavy Attack",
+            "name" : "Mid-air Heavy",
             "type": {
               "ability": "HA",
               "element": "FUSION"
@@ -596,7 +596,7 @@
             ]
           },
           {
-            "name" : "True Sight - Conquest",
+            "name" : "True Sight: Conquest",
             "type": {
               "ability": "RS",
               "element": "FUSION"
@@ -616,7 +616,7 @@
             "times": 3
           },
           {
-            "name" : "True Sight - Capture",
+            "name" : "Skill",
             "type": {
               "ability": "RS",
               "element": "FUSION"
@@ -633,7 +633,7 @@
             "times": 2
           },
           {
-            "name" : "Forte: Flaming Sacrifice",
+            "name" : "Forte: Heavy: Flaming Sacrifice",
             "type": {
               "ability": "RS",
               "element": "FUSION"
@@ -650,7 +650,7 @@
             "times": 2
           },
           {
-            "name" : "Resonance Liberation",
+            "name" : "Ultimate",
             "type": {
               "ability": "RL",
               "element": "FUSION"
@@ -690,14 +690,147 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name" : "Intro",
+            "type": {
+              "ability": "IS",
+              "element": "SPECTRO"
+            },
+            "hits": [
+              {
+                "mv": 1.5905
+              }
+            ]
+          },
+          {
+            "name" : "Skill: Overflowing Radiance",
             "type": {
               "ability": "RS",
               "element": "SPECTRO"
             },
             "hits": [
               {
-                "mv": 1
+                "mv": 0.0987,
+                "times": 4
+              },
+              {
+                "mv": 0.2959,
+                "times": 4
+              },
+              {
+                "mv": 0.3945
+              }
+            ]
+          },
+          {
+            "name" : "Incarnation: Skill: Crescent Divinity",
+            "type": {
+              "ability": "RS",
+              "element": "SPECTRO"
+            },
+            "hits": [
+              {
+                "mv": 1.0076
+              },
+              {
+                "mv": 0.7557,
+                "times": 2
+              },
+              {
+                "mv": 2.519
+              }
+            ]
+          },
+          {
+            "name" : "Incarnation: Basic P1",
+            "type": {
+              "ability": "RS",
+              "element": "SPECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.8862
+              }
+            ]
+          },
+          {
+            "name" : "Incarnation: Basic P2",
+            "type": {
+              "ability": "RS",
+              "element": "SPECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.7797
+              },
+              {
+                "mv": 0.2599,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name" : "Incarnation: Basic P3",
+            "type": {
+              "ability": "RS",
+              "element": "SPECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.9944
+              },
+              {
+                "mv": 0.663
+              }
+            ]
+          },
+          {
+            "name" : "Incarnation: Basic P4",
+            "type": {
+              "ability": "RS",
+              "element": "SPECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.1867,
+                "times": 6
+              },
+              {
+                "mv": 0.7467
+              }
+            ]
+          },
+          {
+            "name" : "Skill: Illuminous Epiphany",
+            "type": {
+              "ability": "RS",
+              "element": "SPECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.1989,
+                "times": 6
+              },
+              {
+                "mv": 3.4792
+              },
+              {
+                "mv": 0.4454,
+                "times": 50
+              }
+            ]
+          },
+          {
+            "name" : "Ultimate",
+            "type": {
+              "ability": "RL",
+              "element": "SPECTRO"
+            },
+            "hits": [
+              {
+                "mv": 4.9981
+              },
+              {
+                "mv": 11.6622
               }
             ]
           }
@@ -738,16 +871,120 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name" : "Intro",
+            "type": {
+              "ability": "IS",
+              "element": "GLACIO"
+            },
+            "hits": [
+              {
+                "mv": 0.8616,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name" : "Basic P1",
             "type": {
               "ability": "BA",
               "element": "GLACIO"
             },
             "hits": [
               {
-                "mv": 1
+                "mv": 0.4176,
+                "times": 2
               }
             ]
+          },
+          {
+            "name" : "Basic P2",
+            "type": {
+              "ability": "BA",
+              "element": "GLACIO"
+            },
+            "hits": [
+              {
+                "mv": 0.2055,
+                "times": 5
+              }
+            ]
+          },
+          {
+            "name" : "Basic P3",
+            "type": {
+              "ability": "BA",
+              "element": "GLACIO"
+            },
+            "hits": [
+              {
+                "mv": 1.3361
+              }
+            ]
+          },
+          {
+            "name" : "Skill: Manifestation",
+            "type": {
+              "ability": "RS",
+              "element": "GLACIO"
+            },
+            "hits": [
+              {
+                "mv": 0.9842,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name" : "Forte: Heavy: Conjuration",
+            "type": {
+              "ability": "HA",
+              "element": "GLACIO"
+            },
+            "hits": [
+              {
+                "mv": 0.8301,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name" : "Forte: Skill: Stroke of Genius",
+            "type": {
+              "ability": "BA",
+              "element": "GLACIO"
+            },
+            "hits": [
+              {
+                "mv": 2.9822
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name" : "Forte: Skill: Creation's Zenith",
+            "type": {
+              "ability": "BA",
+              "element": "GLACIO"
+            },
+            "hits": [
+              {
+                "mv": 1.1929,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name" : "Ultimate",
+            "type": {
+              "ability": "BA",
+              "element": "GLACIO"
+            },
+            "hits": [
+              {
+                "mv": 0.6521
+              }
+            ],
+            "times": 21
           }
         ],
         "match": [
@@ -778,16 +1015,133 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name" : "Intro",
+            "type": {
+              "ability": "IS",
+              "element": "ELECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.9941,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name" : "Ultimate",
             "type": {
               "ability": "RL",
               "element": "ELECTRO"
             },
             "hits": [
               {
-                "mv": 1
+                "mv": 14.6606
               }
             ]
+          },
+          {
+            "name" : "Ultimate: Skill: Divergence",
+            "type": {
+              "ability": "RS",
+              "element": "ELECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.4959,
+                "times": 3
+              },
+              {
+                "mv": 1.7355,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name" : "Forte: Mid-Air: Revamp",
+            "type": {
+              "ability": "RL",
+              "element": "ELECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.2187,
+                "times": 4
+              },
+              {
+                "mv": 0.6561,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name" : "Forte: Skill: Law of Reigns",
+            "type": {
+              "ability": "RL",
+              "element": "ELECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.9573,
+                "times": 4
+              },
+              {
+                "mv": 2.5528
+              }
+            ],
+            "times": 3
+          },
+          {
+            "name" : "Ultimate: Basic: Pivot - Impale P1",
+            "type": {
+              "ability": "BA",
+              "element": "ELECTRO"
+            },
+            "hits": [
+              {
+                "mv": 1.1967
+              }
+            ]
+          },
+          {
+            "name" : "Ultimate: Basic: Pivot - Impale P2",
+            "type": {
+              "ability": "BA",
+              "element": "ELECTRO"
+            },
+            "hits": [
+              {
+                "mv": 0.6092,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name" : "Ultimate: Basic: Pivot - Impale P3",
+            "type": {
+              "ability": "BA",
+              "element": "ELECTRO"
+            },
+            "hits": [
+              {
+                "mv": 1.3325,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name" : "Outro",
+            "type": {
+              "ability": "OS",
+              "element": "ELECTRO"
+            },
+            "hits": [
+              {
+                "mv": 2.3763
+              }
+            ],
+            "times": 3
           }
         ],
         "match": [
@@ -879,14 +1233,148 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name" : "Intro",
+            "type": {
+              "ability": "IS",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 1.9881
+              }
+            ]
+          },
+          {
+            "name" : "Skill: Crimson Blossom",
             "type": {
               "ability": "BA",
               "element": "HAVOC"
             },
             "hits": [
               {
-                "mv": 1
+                "mv": 1.1362,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name" : "Ultimate",
+            "type": {
+              "ability": "RL",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 12.0281
+              }
+            ]
+          },
+          {
+            "name" : "Skill: Basic: Vining Waltz P1",
+            "type": {
+              "ability": "BA",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 0.9633
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name" : "Skill: Basic: Vining Waltz P2",
+            "type": {
+              "ability": "BA",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 0.4563,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name" : "Skill: Basic: Vining Waltz P3",
+            "type": {
+              "ability": "BA",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 0.2195,
+                "times": 6
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name" : "Skill: Basic: Blazing Waltz",
+            "type": {
+              "ability": "BA",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 0.2195,
+                "times": 19
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name" : "Skill: Basic: Vining Waltz P4",
+            "type": {
+              "ability": "BA",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 0.6759,
+                "times": 3
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name" : "Forte: Skill: Ephemeral",
+            "type": {
+              "ability": "BA",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 12.6245
+              }
+            ]
+          },
+          {
+            "name" : "Skill: Floral Ravage",
+            "type": {
+              "ability": "BA",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 0.5261,
+                "times": 5
+              }
+            ]
+          },
+          {
+            "name" : "Outro",
+            "type": {
+              "ability": "OS",
+              "element": "HAVOC"
+            },
+            "hits": [
+              {
+                "mv": 3.2924
+              },
+              {
+                "mv": 4.5902
               }
             ]
           }

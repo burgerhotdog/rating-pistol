@@ -1,4 +1,4 @@
-import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from "@mui/material";
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';

@@ -8,7 +8,7 @@ import {
   CustomRadarChart,
   CustomTable,
   CustomPieChart,
-  PreferredMainStats,
+  MainStatDistribution,
 } from '@/components';
 import { useBuild } from "@/contexts";
 import { CHARACTERS } from "@/data";
@@ -83,7 +83,7 @@ export const GamePage = ({ gameId, characterId }) => {
                   benchmarkWeek={benchmarkWeek}
                 />
 
-                <PreferredMainStats
+                <MainStatDistribution
                   gameId={gameId}
                   mainStatDist={mainStatDist}
                 />
