@@ -42,8 +42,9 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
     });
 
   return (
-    <Card sx={{ flex: 1, minHeight: 0 }}>
-      <ResponsiveContainer width="100%" height={400} style={{ overflow: 'visible' }}>
+    <Card sx={{ flex: 1, minHeight: 0, position: 'relative' }}>
+      <Box sx={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
+      <ResponsiveContainer width="100%" height="100%">
         <RadarChart outerRadius={100} data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="stat" />
@@ -100,6 +101,7 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
           />
         </RadarChart>
       </ResponsiveContainer>
+      </Box>
     </Card>
   );
 };

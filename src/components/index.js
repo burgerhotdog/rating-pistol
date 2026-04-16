@@ -7,3 +7,4 @@ export * from './CustomTable';
 export * from './Bar';
 export * from './CustomAvatar';
 export * from "./TeamConfig";
+export * from "./PieChart";

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import {
   Bar,
   Sidebar,
@@ -8,6 +8,7 @@ import {
   CustomRadarChart,
   CustomTable,
   TeamConfig,
+  CustomPieChart,
 } from '@/components';
 import { useBuild } from "@/contexts";
 import { CHARACTERS } from "@/data";
@@ -55,36 +56,50 @@ export const GamePage = ({ gameId, characterId }) => {
         />
       </Stack>
 
-      {calcs && (
-        <Stack spacing={1} sx={{ flex: 1 }}>
+      {calcs ? (
+        isLoading ? (
           <Bar completed={completed} elapsed={elapsed} />
-          <CustomLineChart
-            weeklyScores={weeklyScores}
-            rating={rating}
-            isLoading={isLoading}
-            gameId={gameId}
-            characterId={characterId}
-          />
+        ) : (
+          <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 0 }}>
+            <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 250 }}>
+              <CustomLineChart
+                weeklyScores={weeklyScores}
+                rating={rating}
+                isLoading={isLoading}
+                gameId={gameId}
+                characterId={characterId}
+              />
+            </Box>
 
-          <Box display="flex" gap={1} sx={{ flex: 1 }}>
-            <CustomRadarChart
-              gameId={gameId}
-              characterId={characterId}
-              build={build}
-              combinedSimEquips={finalStats}
-              isLoading={isLoading}
-            />
+            <Box display="flex" flexDirection="row" sx={{ flex: 2, minHeight: 300, mt: 1 }}>
+              <Box flex={2} display="flex" flexDirection="column" minWidth={0}>
+                <CustomRadarChart
+                  gameId={gameId}
+                  characterId={characterId}
+                  build={build}
+                  combinedSimEquips={finalStats}
+                  isLoading={isLoading}
+                />
 
-            <CustomTable
-              gameId={gameId}
-              characterId={characterId}
-              build={build}
-              rating={rating}
-              team={team}
-              isLoading={isLoading}
-            />
+                <CustomTable
+                  gameId={gameId}
+                  characterId={characterId}
+                  build={build}
+                  rating={rating}
+                  team={team}
+                  isLoading={isLoading}
+                />
+              </Box>
+              <Box flex={1} minWidth={0} ml={2} display="flex" flexDirection="column">
+                <CustomPieChart />
+              </Box>
+            </Box>
           </Box>
-        </Stack>
+        )
+      ) : (
+        <Typography textAlign="center" sx={{ flex: 1 }}>
+          Simulation data is not available for this character
+        </Typography>
       )}
     </Box>
   );
