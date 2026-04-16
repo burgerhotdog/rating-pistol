@@ -1,4 +1,4 @@
-import { RATING, CHARACTERS, WEAPONS } from "@/data";
+import { RATING, CHARACTERS, WEAPONS, STATS } from "@/data";
 import { mergeStatMaps, computeTotalStat, compileStatMap } from "@/utils";
 
 export function computeDamage(gameId, characterId, build, calcs, team) {
@@ -15,14 +15,14 @@ export function computeDamageBreakdown(gameId, characterId, build, calcs, team) 
 
   // Games with rotation (GI, WW) - per-hit breakdown
   const grouped = {};
-  for (const hit of rotation) {
-    const singleCalcs = { ...calcs, rotation: [hit] };
+  for (const part of rotation) {
+    const singleCalcs = { ...calcs, rotation: [part] };
     const damage = RATING[gameId].computeDamage(characterId, build, singleCalcs, team);
-    const label = hit.type?.ability ?? 'Other';
+    const label = part.dmgType[1];
     grouped[label] = (grouped[label] ?? 0) + damage;
   }
 
   return Object.entries(grouped)
-    .map(([name, value]) => ({ name, value }))
+    .map(([abilityId, value]) => ({ name: STATS[gameId].ABILITY_TYPES[abilityId], value }))
     .sort((a, b) => b.value - a.value);
 }

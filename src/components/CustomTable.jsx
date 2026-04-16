@@ -59,15 +59,21 @@ export const CustomTable = ({ gameId, characterId, build, rating, team, isLoadin
                   </TableCell>
                   <TableCell>
                     <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                      <Box sx={{
-                        height: 6,
-                        borderRadius: 3,
-                        width: `${barWidth}%`,
-                        minWidth: 4,
-                        backgroundColor: elementColor,
-                        opacity: 0.4 + 0.6 * (diff / maxDiff),
-                      }} />
-                      <Typography variant="caption" color="text.secondary" sx={{ whiteSpace: 'nowrap' }}>
+                      <Box sx={{ flex: 1 }}>
+                        <Box sx={{
+                          height: 6,
+                          borderRadius: 3,
+                          width: `${barWidth}%`,
+                          minWidth: 4,
+                          backgroundColor: elementColor,
+                          opacity: 0.4 + 0.6 * (diff / maxDiff),
+                        }} />
+                      </Box>
+                      <Typography
+                        variant="caption"
+                        color="text.secondary"
+                        sx={{ whiteSpace: 'nowrap' }}
+                      >
                         +{diff.toFixed(2)}%
                       </Typography>
                     </Box>

@@ -17,6 +17,15 @@
     "SPECTRO": "#b7a835",
     "HAVOC": "#be4981"
   },
+  "ABILITY_TYPES": {
+    "BA": "Basic Attack",
+    "HA": "Heavy Attack",
+    "RS": "Resonance Skill",
+    "RL": "Resonance Liberation",
+    "IS": "Intro Skill",
+    "OS": "Outro Skill",
+    "ES": "Echo Skill"
+  },
   "WEAPON_TYPES": [
     "Broadblade",
     "Gauntlets",

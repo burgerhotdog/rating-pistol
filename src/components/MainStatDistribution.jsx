@@ -45,8 +45,8 @@ export const MainStatDistribution = ({ gameId, mainStatDist }) => {
         </Tooltip>
       </Box>
       <Box sx={{ flex: 1, overflow: 'auto', px: 2, pb: 1.5 }}>
-        {slots.map(({ slotName, entries }) => (
-          <Box key={slotName} sx={{ mb: 1.5 }}>
+        {slots.map(({ slotName, entries }, index) => (
+          <Box key={index} sx={{ mb: 1.5 }}>
             <Typography variant="caption" color="text.secondary" sx={{ mb: 0.5, display: 'block' }}>
               {slotName}
             </Typography>
