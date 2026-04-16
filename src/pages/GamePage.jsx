@@ -7,13 +7,13 @@ import {
   CustomLineChart,
   CustomRadarChart,
   CustomTable,
-  TeamConfig,
   CustomPieChart,
+  PreferredMainStats,
 } from '@/components';
 import { useBuild } from "@/contexts";
 import { CHARACTERS } from "@/data";
 import { useSimulation, useTeam } from '@/hooks';
-import { computeDamage } from "@/utils";
+import { computeDamage, computeDamageBreakdown } from "@/utils";
 
 export const GamePage = ({ gameId, characterId }) => {
   const build = useBuild().getBuilds(gameId)[characterId];
@@ -25,7 +25,13 @@ export const GamePage = ({ gameId, characterId }) => {
     ? computeDamage(gameId, characterId, build, calcs[calcsIndex], team)
     : null;
 
-  const { completed, weeklyScores, finalStats, isLoading, elapsed } = useSimulation(gameId, characterId, 0, team);
+  const breakdown = build && calcs
+    ? computeDamageBreakdown(gameId, characterId, build, calcs[calcsIndex], team)
+    : [];
+
+  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, isLoading, elapsed } = useSimulation(gameId, characterId, 0, team);
+
+  const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 
   return (
     <Box
@@ -42,19 +48,13 @@ export const GamePage = ({ gameId, characterId }) => {
         gameId={gameId}
         characterId={characterId}
       />
-      <Stack spacing={1}>
-        <StatsPanel
+      <StatsPanel
           gameId={gameId}
           characterId={characterId}
           build={build}
           team={team}
-        />
-        <TeamConfig
-          gameId={gameId}
-          team={team}
           updateTeam={updateTeam}
         />
-      </Stack>
 
       {calcs ? (
         isLoading ? (
@@ -64,6 +64,7 @@ export const GamePage = ({ gameId, characterId }) => {
             <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 250 }}>
               <CustomLineChart
                 weeklyScores={weeklyScores}
+                weeklyDistribution={weeklyDistribution}
                 rating={rating}
                 isLoading={isLoading}
                 gameId={gameId}
@@ -72,15 +73,25 @@ export const GamePage = ({ gameId, characterId }) => {
             </Box>
 
             <Box display="flex" flexDirection="row" sx={{ flex: 2, minHeight: 300, mt: 1 }}>
-              <Box flex={2} display="flex" flexDirection="column" minWidth={0}>
+              <Box flex={3} display="flex" flexDirection="column" minWidth={0}>
                 <CustomRadarChart
                   gameId={gameId}
                   characterId={characterId}
                   build={build}
                   combinedSimEquips={finalStats}
                   isLoading={isLoading}
+                  benchmarkWeek={benchmarkWeek}
                 />
 
+                <PreferredMainStats
+                  gameId={gameId}
+                  mainStatDist={mainStatDist}
+                />
+              </Box>
+              <Box flex={2} minWidth={0} ml={1} display="flex" flexDirection="column" gap={1}>
+                {breakdown.length > 0 && (
+                  <CustomPieChart breakdown={breakdown} />
+                )}
                 <CustomTable
                   gameId={gameId}
                   characterId={characterId}
@@ -89,9 +100,6 @@ export const GamePage = ({ gameId, characterId }) => {
                   team={team}
                   isLoading={isLoading}
                 />
-              </Box>
-              <Box flex={1} minWidth={0} ml={2} display="flex" flexDirection="column">
-                <CustomPieChart />
               </Box>
             </Box>
           </Box>

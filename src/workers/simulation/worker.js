@@ -82,5 +82,42 @@ self.onmessage = ({ data }) => {
     }
   }
 
-  self.postMessage({ type: "done", completed: lastBenchmarkWeek, weeklyScores, finalStats });
+  // Main stat distribution at benchmark week (per slot)
+  const slotCount = trials[0].build.equipList.length;
+  const mainStatDist = Array.from({ length: slotCount }, () => ({}));
+  for (const trial of trials) {
+    for (let s = 0; s < slotCount; s++) {
+      const equip = trial.build.equipList[s];
+      if (!equip) continue;
+      const id = equip.mainStatId;
+      mainStatDist[s][id] = (mainStatDist[s][id] ?? 0) + 1;
+    }
+  }
+  // Normalize to percentages
+  for (let s = 0; s < slotCount; s++) {
+    const total = Object.values(mainStatDist[s]).reduce((a, b) => a + b, 0);
+    if (total > 0) {
+      for (const id in mainStatDist[s]) {
+        mainStatDist[s][id] = mainStatDist[s][id] / total;
+      }
+    }
+  }
+
+  // Per-week score percentiles for distribution bands
+  const weeklyDistribution = [];
+  for (let week = 0; week <= lastBenchmarkWeek; week++) {
+    const values = trials.map(t => t.scores[week]).sort((a, b) => a - b);
+    const n = values.length;
+    weeklyDistribution.push({
+      min: values[0],
+      p10: values[Math.floor(n * 0.1)],
+      q1: values[Math.floor(n * 0.25)],
+      median: values[Math.floor(n * 0.5)],
+      q3: values[Math.floor(n * 0.75)],
+      p90: values[Math.floor(n * 0.9)],
+      max: values[n - 1],
+    });
+  }
+
+  self.postMessage({ type: "done", completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, mainStatDist, weeklyDistribution });
 };

@@ -1,10 +1,11 @@
-import { Card, Box, Paper, Typography } from '@mui/material';
-import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip } from 'recharts';
+import { Card, Box, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip, Legend } from 'recharts';
 import { CHARACTERS, STATS } from '@/data';
 import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
 import { useTheme } from '@mui/material/styles';
 
-export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading }) => {
+export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading, benchmarkWeek }) => {
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
@@ -42,7 +43,14 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
     });
 
   return (
-    <Card sx={{ flex: 1, minHeight: 0, position: 'relative' }}>
+    <Card sx={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0 }}>
+        <Typography variant="subtitle2" fontWeight="bold">Stat Distribution</Typography>
+        <MuiTooltip title="Compares your build's stat totals against the benchmark's average. The gray area is the target — stats that extend beyond it are over-invested." placement="top" arrow>
+          <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
+        </MuiTooltip>
+      </Box>
+      <Box sx={{ flex: 1, minHeight: 0, position: 'relative' }}>
       <Box sx={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart outerRadius={100} data={data}>
@@ -58,11 +66,18 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
             allowDataOverflow
           />
           <Radar
-            name="Week 20 Avg"
+            name="Benchmark"
             dataKey="sim"
             stroke={disabledColor}
             fill={disabledColor}
-            fillOpacity={0.5}
+            fillOpacity={0.15}
+          />
+          <Legend
+            verticalAlign="top"
+            height={28}
+            iconType="circle"
+            iconSize={8}
+            wrapperStyle={{ fontSize: 12 }}
           />
           <Tooltip
             content={({ active, payload, label }) => {
@@ -101,6 +116,7 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
           />
         </RadarChart>
       </ResponsiveContainer>
+      </Box>
       </Box>
     </Card>
   );

@@ -2,8 +2,9 @@ import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, S
 import { STATS, CHARACTERS, WEAPONS } from '@/data';
 import { computeTotalStat, compileStatMap } from '@/utils';
 import { CustomAvatar } from "@/components";
+import { CharacterPicker } from "@/components/CharacterPicker";
 
-export const StatsPanel = ({ gameId, characterId, build, team }) => {
+export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => {
   const { MENU_STATS } = STATS[gameId];
 
   const statMap = build ? compileStatMap(gameId, characterId, build, [], "menu") : {};
@@ -73,6 +74,22 @@ export const StatsPanel = ({ gameId, characterId, build, team }) => {
               </Box>
             );
           })}
+        </Stack>
+
+        <Divider sx={{ my: 2 }} />
+
+        <Typography variant="caption" color="text.secondary" sx={{ mb: 1.5, display: 'block' }}>
+          Team
+        </Typography>
+        <Stack direction="row" spacing={1} justifyContent="center">
+          {team.map((member, index) => (
+            <CharacterPicker
+              key={index}
+              gameId={gameId}
+              currentId={member}
+              updateTeam={newId => updateTeam(index, newId)}
+            />
+          ))}
         </Stack>
 
         <Divider sx={{ my: 2 }} />
