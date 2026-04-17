@@ -1,11 +1,22 @@
-import { Box, Card, LinearProgress, Tooltip, Typography } from '@mui/material';
+import { Box, Card, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import { STATS } from '@/data';
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+} from 'recharts';
+import { STATS, CHARACTERS } from '@/data';
 
-export const MainStatDistribution = ({ gameId, mainStatDist }) => {
+export const MainStatDistribution = ({ gameId, characterId, mainStatDist }) => {
   if (!mainStatDist) return null;
 
   const { EQUIP_NAMES, MAIN_STAT_TYPES } = STATS[gameId];
+  const element = CHARACTERS[gameId][characterId].element;
+  const baseColor = STATS[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+
   if (!EQUIP_NAMES) return null;
 
   const slots = EQUIP_NAMES
@@ -14,21 +25,23 @@ export const MainStatDistribution = ({ gameId, mainStatDist }) => {
       if (!slotOptions) return null;
 
       const dist = mainStatDist[index];
-      // For fixed slots (single option), show 100% for that stat
       const isFixed = Object.keys(slotOptions).length === 1;
-      const effectiveDist = (dist && Object.keys(dist).length)
-        ? dist
-        : isFixed ? { [Object.keys(slotOptions)[0]]: 1 } : null;
+
+      const effectiveDist =
+        dist && Object.keys(dist).length
+          ? dist
+          : isFixed
+          ? { [Object.keys(slotOptions)[0]]: 1 }
+          : null;
+
       if (!effectiveDist) return null;
 
-      // Sort by percentage descending
       const entries = Object.entries(effectiveDist)
         .map(([statId, pct]) => ({
           statId,
           name: slotOptions[statId]?.NAME ?? statId,
-          pct,
-        }))
-        .sort((a, b) => b.pct - a.pct);
+          pct: pct * 100,
+        }));
 
       return { slotName, entries };
     })
@@ -36,43 +49,85 @@ export const MainStatDistribution = ({ gameId, mainStatDist }) => {
 
   if (!slots.length) return null;
 
+  // -------------------------------
+  // 1. Global ordering (consistent across all bars)
+  // -------------------------------
+  const statTotals = {};
+
+  slots.forEach(({ entries }) => {
+    entries.forEach(({ name, pct }) => {
+      statTotals[name] = (statTotals[name] || 0) + pct;
+    });
+  });
+
+  const statKeys = Object.keys(statTotals).sort(
+    (a, b) => statTotals[b] - statTotals[a]
+  );
+
+  // -------------------------------
+  // 2. Transform for Recharts
+  // -------------------------------
+  const chartData = slots.map(({ slotName, entries }) => {
+    const obj = { slot: slotName };
+    entries.forEach(({ name, pct }) => {
+      obj[name] = pct;
+    });
+    return obj;
+  });
+
+  // -------------------------------
+  // 3. Color helpers
+  // -------------------------------
+  const hexToRgb = (hex) => {
+    const res = hex.replace('#', '');
+    const bigint = parseInt(res, 16);
+    return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+  };
+
+  const rgb = hexToRgb(baseColor);
+
+  const getColor = (index, total) => {
+    // darker for smaller segments, brighter for larger ones
+    const intensity = 0.35 + (index / Math.max(total - 1, 1)) * 0.65;
+    return `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${intensity})`;
+  };
+
   return (
     <Card sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
+      {/* Header */}
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 1 }}>
-        <Typography variant="subtitle2" fontWeight="bold">Main Stat Distribution</Typography>
-        <Tooltip title="How often each main stat appears across all simulated builds at the benchmark week." placement="top" arrow>
-          <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
-        </Tooltip>
+        <Typography variant="subtitle2" fontWeight="bold">
+          Main Stat Distribution
+        </Typography>
+        <MuiTooltip
+          title="How often each main stat appears across all simulated builds."
+          arrow
+        >
+          <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled' }} />
+        </MuiTooltip>
       </Box>
-      <Box sx={{ flex: 1, overflow: 'auto', px: 2, pb: 1.5 }}>
-        {slots.map(({ slotName, entries }, index) => (
-          <Box key={index} sx={{ mb: 1.5 }}>
-            <Typography variant="caption" color="text.secondary" sx={{ mb: 0.5, display: 'block' }}>
-              {slotName}
-            </Typography>
-            {entries.map(({ statId, name, pct }) => (
-              <Box key={statId} sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.3 }}>
-                <Typography variant="caption" sx={{ minWidth: 80, flexShrink: 0 }}>
-                  {name}
-                </Typography>
-                <LinearProgress
-                  variant="determinate"
-                  value={pct * 100}
-                  sx={{
-                    flex: 1,
-                    height: 6,
-                    borderRadius: 3,
-                    backgroundColor: 'action.hover',
-                    '& .MuiLinearProgress-bar': { borderRadius: 3 },
-                  }}
-                />
-                <Typography variant="caption" sx={{ minWidth: 36, textAlign: 'right' }}>
-                  {(pct * 100).toFixed(0)}%
-                </Typography>
-              </Box>
+
+      {/* Chart */}
+      <Box sx={{ flex: 1, px: 2, pb: 2 }}>
+        <ResponsiveContainer width="100%" height={260}>
+          <BarChart data={chartData}>
+            <XAxis dataKey="slot" tick={{ fontSize: 11 }} />
+            <YAxis domain={[0, 100]} tickFormatter={(v) => `${v}%`} width={35} />
+
+            <Tooltip formatter={(v, name) => [`${v.toFixed(1)}%`, name]} />
+
+            {statKeys.map((key, index) => (
+              <Bar
+                key={key}
+                dataKey={key}
+                stackId="a"
+                fill={getColor(index, statKeys.length)}
+                stroke="rgba(0,0,0,0.25)"
+                strokeWidth={1}
+              />
             ))}
-          </Box>
-        ))}
+          </BarChart>
+        </ResponsiveContainer>
       </Box>
     </Card>
   );

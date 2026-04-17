@@ -18,6 +18,13 @@
     "Hydro": "#00c1ff",
     "Pyro": "#ff603f"
   },
+  "ABILITY_TYPES": {
+    "NA": "Normal Attack",
+    "CA": "Charged Attack",
+    "PA": "Plunge Attack",
+    "ES": "Elemental Skill",
+    "EB": "Elemental Burst"
+  },
   "WEAPON_TYPES": [
     "Bow",
     "Catalyst",

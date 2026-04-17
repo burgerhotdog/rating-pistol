@@ -102,53 +102,65 @@
         },
         "rotation": [
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 3.672
+            "name" : "Ultimate",
+            "dmgType": [
+              "PYRO",
+              "EB"
+            ],
+            "hits": [
+              {
+                "mv": 3.672,
+                "reaction": "RMELT",
+                "times": 2
+              },
+              {
+                "mv": 1.08,
+                "times": 7
               }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "PYRO",
-              "reaction": "RMELT"
-            },
-            "repeat": 2
+            ]
           },
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.08
+            "name" : "Skill",
+            "dmgType": [
+              "PYRO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 1.699,
+                "reaction": "RMELT"
+              },
+              {
+                "mv": 1.757,
+                "reaction": "RMELT"
+              },
+              {
+                "mv": 2.318,
+                "reaction": "RMELT"
               }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "PYRO"
-            },
-            "repeat": 7
+            ]
           },
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 5.774
+            "name" : "N4",
+            "dmgType": [
+              "PYRO",
+              "NA"
+            ],
+            "hits": [
+              {
+                "mv": 1.773
+              },
+              {
+                "mv": 1.732
+              },
+              {
+                "mv": 1.953
+              },
+              {
+                "mv": 2.649
               }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "PYRO",
-              "reaction": "RMELT"
-            }
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 8.107
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "PYRO"
-            },
-            "repeat": 2
+            ],
+            "times": 2
           }
         ],
         "duration": 12,
@@ -260,40 +272,42 @@
         },
         "rotation": [
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.365
+            "name" : "Skill",
+            "dmgType": [
+              "PYRO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 2.365,
+                "reaction": "RVAPORIZE"
               }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "PYRO"
-            },
-            "repeat": 3
+            ],
+            "times": 3
           },
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 5.729
+            "name" : "Ultimate",
+            "dmgType": [
+              "PYRO",
+              "EB"
+            ],
+            "hits": [
+              {
+                "mv": 1.53,
+                "reaction": "RVAPORIZE"
+              },
+              {
+                "mv": 1.87
+              },
+              {
+                "mv": 2.329
+              },
+              {
+                "mv": 2.38,
+                "reaction": "RVAPORIZE",
+                "times": 11
               }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "PYRO"
-            }
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.38
-              }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "PYRO",
-              "reaction": "VAPORIZE"
-            },
-            "repeat": 11
+            ]
           }
         ],
         "duration": 14,
@@ -336,38 +350,36 @@
         },
         "rotation": [
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 9.384
+            "name" : "Skill",
+            "dmgType": [
+              "ELECTRO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 2.584
+              },
+              {
+                "mv": 3.4,
+                "times": 2
               }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "ELECTRO"
-            }
+            ]
           },
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.584
+            "name" : "Ultimate",
+            "dmgType": [
+              "ELECTRO",
+              "EB"
+            ],
+            "hits": [
+              {
+                "mv": 2.584
+              },
+              {
+                "mv": 2.04,
+                "times": 45
               }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "ELECTRO"
-            }
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.04
-              }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "ELECTRO"
-            },
-            "repeat": 45
+            ]
           }
         ],
         "duration": 15,
@@ -416,36 +428,46 @@
         },
         "rotation": [
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 7.633
+            "name" : "Skill",
+            "dmgType": [
+              "HYDRO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 3.57
+              },
+              {
+                "mv": 4.063
               }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "HYDRO"
-            }
+            ]
           },
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.153
+            "name" : "Ultimate",
+            "dmgType": [
+              "HYDRO",
+              "EB"
+            ],
+            "hits": [
+              {
+                "mv": 1.153,
+                "times": 2
+              },
+              {
+                "mv": 1.153,
+                "times": 3
+              },
+              {
+                "mv": 1.153,
+                "times": 5
               }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "HYDRO"
-            },
-            "repeat": 50
+            ],
+            "times": 5
           }
         ],
         "duration": 15,
         "match": [
           "ER"
-        ],
-        "team": [
-          "10000025",
-          "10000032"
         ]
       }
     ]
@@ -496,35 +518,7 @@
           "PERCENT_CA": 0.5
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "PYRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.832
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "PYRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000029",
-          "10000032"
-        ]
-      }
-    ]
+    }
   },
   "10000031": {
     "name": "Fischl",
@@ -550,35 +544,7 @@
           "FLAT_EM": 90
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.598
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "ELECTRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000031",
-          "10000032"
-        ]
-      }
-    ]
+    }
   },
   "10000032": {
     "name": "Bennett",
@@ -727,35 +693,7 @@
           "PERCENT_ER": 0.15
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 3.218
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "ELECTRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000042",
-          "10000073"
-        ]
-      }
-    ]
+    }
   },
   "10000043": {
     "name": "Sucrose",
@@ -857,36 +795,7 @@
         "BASE_EM": 0,
         "PERCENT_HYDRO": 0.288
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HYDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "HYDRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000033",
-          "10000032",
-          "10000023"
-        ]
-      }
-    ]
+    }
   },
   "10000039": {
     "name": "Diona",
@@ -969,35 +878,7 @@
           "PERCENT_CRYO": 0.2
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "CRYO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 6.221
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "CRYO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000037",
-          "10000032"
-        ]
-      }
-    ]
+    }
   },
   "10000038": {
     "name": "Albedo",
@@ -1041,50 +922,37 @@
         },
         "rotation": [
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.347
+            "name" : "Skill",
+            "dmgType": [
+              "GEO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 2.347
+              },
+              {
+                "attr": "DEF",
+                "mv": 2.405,
+                "times": 10
               }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "GEO"
-            }
+            ]
           },
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 6.61
+            "name" : "Ultimate",
+            "dmgType": [
+              "GEO",
+              "EB"
+            ],
+            "hits": [
+              {
+                "mv": 6.61
+              },
+              {
+                "mv": 1.296,
+                "times": 7
               }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "GEO"
-            }
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.296
-              }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "GEO"
-            },
-            "repeat": 7
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "DEF": 2.405
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "GEO"
-            },
-            "repeat": 10
+            ]
           }
         ],
         "duration": 20,
@@ -1122,35 +990,7 @@
           "PERCENT_ES": 0.45
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ANEMO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 4.04
-              }
-            },
-            "type": {
-              "ability": "PA",
-              "element": "ANEMO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000026",
-          "10000032"
-        ]
-      }
-    ]
+    }
   },
   "10000046": {
     "name": "Hu Tao",
@@ -1180,36 +1020,7 @@
           }
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "PYRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.426
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "PYRO",
-              "reaction": "RVAPORIZE"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000046",
-          "10000025"
-        ]
-      }
-    ]
+    }
   },
   "10000045": {
     "name": "Rosaria",
@@ -1287,35 +1098,7 @@
           "SHRED_CRYO": 0.25
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "PHYSICAL"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 17.63
-              }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "PHYSICAL"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000051",
-          "10000052"
-        ]
-      }
-    ]
+    }
   },
   "10000047": {
     "name": "Kaedehara Kazuha",
@@ -1364,35 +1147,7 @@
           "PERCENT_CRYO": 0.18
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "CRYO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 41.431
-              }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "CRYO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000002",
-          "10000089"
-        ]
-      }
-    ]
+    }
   },
   "10000049": {
     "name": "Yoimiya",
@@ -1420,35 +1175,7 @@
           "PERCENT_ATK": 0.2
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "PYRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.889
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "PYRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000049",
-          "10000064"
-        ]
-      }
-    ]
+    }
   },
   "10000053": {
     "name": "Sayu",
@@ -1495,35 +1222,7 @@
           "PERCENT_EB": 0.27
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 11.414
-              }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "ELECTRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000052",
-          "10000056"
-        ]
-      }
-    ]
+    }
   },
   "10000054": {
     "name": "Sangonomiya Kokomi",
@@ -1553,36 +1252,7 @@
           }
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HYDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.231,
-                "HP": 0.087
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "HYDRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000054",
-          "10000089"
-        ]
-      }
-    ]
+    }
   },
   "10000056": {
     "name": "Kujou Sara",
@@ -1657,35 +1327,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "GEO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "GEO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000057",
-          "10000055"
-        ]
-      }
-    ]
+    }
   },
   "10000063": {
     "name": "Shenhe",
@@ -1730,35 +1372,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "ELECTRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000058",
-          "10000073"
-        ]
-      }
-    ]
+    }
   },
   "10000066": {
     "name": "Kamisato Ayato",
@@ -1773,31 +1387,7 @@
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HYDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "HYDRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000060": {
     "name": "Yelan",
@@ -1812,35 +1402,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HYDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "HP": 1
-              }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "HYDRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000089",
-          "10000060"
-        ]
-      }
-    ]
+    }
   },
   "10000065": {
     "name": "Kuki Shinobu",
@@ -1915,35 +1477,7 @@
         "BASE_EM": 0,
         "PERCENT_DENDRO": 0.288
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "DENDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "DENDRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000069",
-          "10000073"
-        ]
-      }
-    ]
+    }
   },
   "10000070": {
     "name": "Nilou",
@@ -1990,36 +1524,7 @@
         ],
         "value": 2.5
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "ELECTRO",
-              "reaction": "AGGRAVATE"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000071",
-          "10000073"
-        ]
-      }
-    ]
+    }
   },
   "10000072": {
     "name": "Candace",
@@ -2056,31 +1561,7 @@
           "FLAT_EM": 250
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "DENDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "DENDRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000074": {
     "name": "Layla",
@@ -2118,35 +1599,7 @@
           "RAW_CA": 0.4298
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ANEMO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "ANEMO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000075",
-          "10000076"
-        ]
-      }
-    ]
+    }
   },
   "10000076": {
     "name": "Faruzan",
@@ -2201,37 +1654,7 @@
         "value": 0.001,
         "max": 1
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "DENDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.2096,
-                "EM": 2.4192
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "DENDRO",
-              "reaction": "SPREAD"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000078",
-          "10000073"
-        ]
-      }
-    ]
+    }
   },
   "10000079": {
     "name": "Dehya",
@@ -2336,35 +1759,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "PYRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "PYRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000084",
-          "10000032"
-        ]
-      }
-    ]
+    }
   },
   "10000085": {
     "name": "Freminet",
@@ -2401,35 +1796,7 @@
           "RAW_NA": 0.7031
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "CRYO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.7533
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "CRYO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000086",
-          "10000089"
-        ]
-      }
-    ]
+    }
   },
   "10000087": {
     "name": "Neuvillette",
@@ -2451,35 +1818,7 @@
           "RAW_CA": 0.6
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HYDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "HP": 1
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "HYDRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000087",
-          "10000089"
-        ]
-      }
-    ]
+    }
   },
   "10000088": {
     "name": "Charlotte",
@@ -2532,31 +1871,7 @@
           "PERCENT_ALL": 0.75
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HYDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "HP": 0.1492
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "HYDRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000090": {
     "name": "Chevreuse",
@@ -2593,35 +1908,7 @@
           "RAW_ES": 0.45
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "GEO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "GEO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000091",
-          "10000032"
-        ]
-      }
-    ]
+    }
   },
   "10000092": {
     "name": "Gaming",
@@ -2666,29 +1953,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "GEO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.4774,
-                "DEF": 1.8468
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "GEO"
-            }
-          }
-        ]
-      }
-    ]
+    }
   },
   "10000096": {
     "name": "Arlecchino",
@@ -2719,87 +1984,56 @@
         },
         "rotation": [
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 0.267
+            "name" : "Skill",
+            "dmgType": [
+              "PYRO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 0.267
+              },
+              {
+                "mv": 2.404
+              },
+              {
+                "mv": 0.572,
+                "times": 2
               }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "PYRO"
-            }
+            ]
           },
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 2.404
+            "name" : "Charged Attack",
+            "dmgType": [
+              "PYRO",
+              "CA"
+            ],
+            "hits": [
+              {
+                "mv": 1.795,
+                "reaction": "RVAPORIZE"
               }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "PYRO"
-            }
+            ]
           },
           {
-            "scaling": {
-              "multiplier": {
-                "ATK": 0.572
+            "name" : "N3",
+            "dmgType": [
+              "PYRO",
+              "NA"
+            ],
+            "hits": [
+              {
+                "mv": 3.101,
+                "reaction": "RVAPORIZE"
+              },
+              {
+                "mv": 3.03
+              },
+              {
+                "mv": 3.142
               }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "PYRO"
-            },
-            "repeat": 2
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1.795
-              }
-            },
-            "type": {
-              "ability": "CA",
-              "element": "PYRO",
-              "reaction": "RVAPORIZE"
-            }
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 3.101
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "PYRO",
-              "reaction": "RVAPORIZE"
-            },
-            "repeat": 5
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 3.03
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "PYRO"
-            },
-            "repeat": 5
-          },
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 3.142
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "PYRO"
-            },
-            "repeat": 5
+            ],
+            "times": 5
           }
         ],
         "match": [
@@ -2855,31 +2089,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "ELECTRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000099": {
     "name": "Emilie",
@@ -2939,36 +2149,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HYDRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "HP": 1
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "HYDRO",
-              "reaction": "VAPORIZE"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ],
-        "team": [
-          "10000102",
-          "10000106"
-        ]
-      }
-    ]
+    }
   },
   "10000103": {
     "name": "Xilonen",
@@ -2998,30 +2179,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": ""
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "CA"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000105": {
     "name": "Ororon",
@@ -3036,31 +2194,7 @@
         "BASE_EM": 0,
         "PERCENT_ATK": 0.24
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "ELECTRO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000106": {
     "name": "Mavuika",
@@ -3075,29 +2209,7 @@
         "BASE_EM": 0,
         "PERCENT_CD": 0.384
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "PYRO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 8.0064
-              }
-            },
-            "type": {
-              "ability": "EB",
-              "element": "PYRO",
-              "reaction": "MELT"
-            }
-          }
-        ]
-      }
-    ]
+    }
   },
   "10000107": {
     "name": "Citlali",
@@ -3187,31 +2299,7 @@
         "BASE_EM": 0,
         "PERCENT_CR": 0.192
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "CRYO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "ES",
-              "element": "CRYO"
-            }
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "10000113": {
     "name": "Ifa",
@@ -3249,28 +2337,7 @@
           "RAW_EB": 0.6
         }
       }
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "CRYO"
-        },
-        "rotation": [
-          {
-            "scaling": {
-              "multiplier": {
-                "ATK": 1
-              }
-            },
-            "type": {
-              "ability": "NA",
-              "element": "CRYO"
-            }
-          }
-        ]
-      }
-    ]
+    }
   },
   "10000115": {
     "name": "Dahlia",

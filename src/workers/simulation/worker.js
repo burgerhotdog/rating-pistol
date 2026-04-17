@@ -56,14 +56,14 @@ self.onmessage = ({ data }) => {
     }
   
     let weeklyScores = getAverageScores(trials, week);
-    let benchmarkWeek = findBenchmarkWeek(weeklyScores);
+    let { benchmarkWeek, diff } = findBenchmarkWeek(weeklyScores);
 
     if (benchmarkWeek !== -1 && benchmarkWeek <= week) {
       lastBenchmarkWeek = benchmarkWeek;
       break;
     }
 
-    self.postMessage({ type: "progress", completed: week });
+    self.postMessage({ type: "progress", completed: week, diff });
   }
 
   // If damage never hit plateau, set benchmark to week 20

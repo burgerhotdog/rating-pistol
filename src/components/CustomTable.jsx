@@ -3,6 +3,15 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { STATS, CHARACTERS } from '@/data';
 import { computeDamage } from '@/utils';
 import { useTheme } from '@mui/material/styles';
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip as Tooltip2,
+  Cell,
+} from 'recharts';
 
 export const CustomTable = ({ gameId, characterId, build, rating, team, isLoading }) => {
   const theme = useTheme();
@@ -25,6 +34,11 @@ export const CustomTable = ({ gameId, characterId, build, rating, team, isLoadin
 
   const maxDiff = newRatings.length ? newRatings[0].diff : 1;
 
+  const chartData = newRatings.map(({ name, diff }) => ({
+    name: SUB_STAT_TYPES[name].NAME,
+    value: diff,
+  }));
+
   return (
     <Card sx={{ flex: 1, overflow: 'auto' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0.5 }}>
@@ -33,57 +47,37 @@ export const CustomTable = ({ gameId, characterId, build, rating, team, isLoadin
           <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
         </Tooltip>
       </Box>
-      <TableContainer>
-        <Table stickyHeader size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <Typography variant="caption" color="text.secondary">
-                  +1 Roll
-                </Typography>
-              </TableCell>
-              <TableCell sx={{ width: 140 }}>
-                <Typography variant="caption" color="text.secondary">
-                  Damage Impact
-                </Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {newRatings.map(({ name, diff }) => {
-              const barWidth = Math.min((diff / maxDiff) * 100, 100);
-              return (
-                <TableRow key={name}>
-                  <TableCell>
-                    <Typography variant="body2">{SUB_STAT_TYPES[name].NAME}</Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                      <Box sx={{ flex: 1 }}>
-                        <Box sx={{
-                          height: 6,
-                          borderRadius: 3,
-                          width: `${barWidth}%`,
-                          minWidth: 4,
-                          backgroundColor: elementColor,
-                          opacity: 0.4 + 0.6 * (diff / maxDiff),
-                        }} />
-                      </Box>
-                      <Typography
-                        variant="caption"
-                        color="text.secondary"
-                        sx={{ whiteSpace: 'nowrap' }}
-                      >
-                        +{diff.toFixed(2)}%
-                      </Typography>
-                    </Box>
-                  </TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <Box sx={{ width: '100%', height: 220, px: 2, pb: 2 }}>
+        <ResponsiveContainer>
+          <BarChart
+            data={chartData}
+            layout="vertical"
+            margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+          >
+            <XAxis
+              type="number"
+              tickFormatter={(v) => `+${v.toFixed(1)}%`}
+            />
+            <YAxis
+              type="category"
+              dataKey="name"
+              width={100}
+            />
+            <Tooltip2
+              formatter={(value) => `+${value.toFixed(2)}%`}
+            />
+            <Bar dataKey="value" radius={[4, 4, 4, 4]}>
+              {chartData.map((entry, index) => (
+                <Cell
+                  key={index}
+                  fill={elementColor}
+                  opacity={0.4 + 0.6 * (entry.value / maxDiff)}
+                />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </Box>
     </Card>
   );
 };

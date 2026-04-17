@@ -28,6 +28,7 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
     weeklyDistribution: null,
     isLoading: false,
     completed: 0,
+    diff: 0,
     duration: 0,
     elapsed: 0,
   });
@@ -69,6 +70,7 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
         setResult(prev => ({
           ...prev,
           completed: data.completed,
+          diff: data.diff,
         }));
         return;
       }
