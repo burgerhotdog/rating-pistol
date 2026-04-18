@@ -32,9 +32,12 @@ export function computeBonuses(statMap, dmgType = []) {
   return critMult * dmgBonusMult * ampMult;
 }
 
-export function computeReductions(statMap, element) {
+export function computeReductions(statMap, element, dmgType) {
   // Enemy resistance
-  const elementShred = statMap[`SHRED_${element}`] ?? 0
+  let elementShred = statMap[`IGNORE_${element}`] ?? 0
+  for (const type of dmgType) {
+    elementShred += statMap[`IGNORE_${element}_${type}`] ?? 0;
+  }
   const totalRes = BASE_RES - elementShred;
   let resMult;
   if (totalRes < 0) {
@@ -47,7 +50,10 @@ export function computeReductions(statMap, element) {
 
   // Enemy defense
   const enemyDef = 8 * ENEMY_LEVEL + 792;
-  const defIgnore = statMap["IGNORE_DEF"] ?? 0;
+  let defIgnore = statMap["IGNORE_DEF"] ?? 0;
+  for (const type of dmgType) {
+    defIgnore += statMap[`IGNORE_DEF_${type}`] ?? 0;
+  }
   const defMult = (800 + 8 * CHARACTER_LEVEL) / (800 + 8 * CHARACTER_LEVEL + enemyDef * (1 - defIgnore))
 
   return resMult * defMult;
@@ -63,7 +69,7 @@ export function computeDamage(characterId, build, calcs, team) {
 
     const baseDmg = computeBase(statMap, hits);
     const bonuses = computeBonuses(statMap, dmgType);
-    const reductions = computeReductions(statMap, element);
+    const reductions = computeReductions(statMap, element, dmgType);
 
     damage += baseDmg * bonuses * reductions * times;
   }

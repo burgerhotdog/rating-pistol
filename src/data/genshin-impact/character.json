@@ -3,7 +3,7 @@
     "name": "Jean",
     "quality": "5",
     "element": "Anemo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 14695,
@@ -18,7 +18,7 @@
     "name": "Lisa",
     "quality": "4",
     "element": "Electro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 9570,
@@ -40,7 +40,7 @@
     "name": "Barbara",
     "quality": "4",
     "element": "Hydro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 9787,
@@ -62,7 +62,7 @@
     "name": "Kaeya",
     "quality": "4",
     "element": "Cryo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 11636,
@@ -77,7 +77,7 @@
     "name": "Diluc",
     "quality": "5",
     "element": "Pyro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 12981,
@@ -178,7 +178,7 @@
     "name": "Razor",
     "quality": "4",
     "element": "Electro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "tags": [
       "HEXEREI"
     ],
@@ -196,7 +196,7 @@
     "name": "Amber",
     "quality": "4",
     "element": "Pyro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9461,
@@ -223,7 +223,7 @@
     "name": "Venti",
     "quality": "5",
     "element": "Anemo",
-    "type": "Bow",
+    "type": "BOW",
     "tags": [
       "HEXEREI"
     ],
@@ -241,7 +241,7 @@
     "name": "Xiangling",
     "quality": "4",
     "element": "Pyro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 10875,
@@ -325,7 +325,7 @@
     "name": "Beidou",
     "quality": "4",
     "element": "Electro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 13050,
@@ -397,7 +397,7 @@
     "name": "Xingqiu",
     "quality": "4",
     "element": "Hydro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 10222,
@@ -476,7 +476,7 @@
     "name": "Ningguang",
     "quality": "4",
     "element": "Geo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 9787,
@@ -498,7 +498,7 @@
     "name": "Klee",
     "quality": "5",
     "element": "Pyro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "tags": [
       "HEXEREI"
     ],
@@ -524,7 +524,7 @@
     "name": "Fischl",
     "quality": "4",
     "element": "Electro",
-    "type": "Bow",
+    "type": "BOW",
     "tags": [
       "HEXEREI"
     ],
@@ -550,7 +550,7 @@
     "name": "Bennett",
     "quality": "4",
     "element": "Pyro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12397,
@@ -573,7 +573,7 @@
     "name": "Noelle",
     "quality": "4",
     "element": "Geo",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 12071,
@@ -604,7 +604,7 @@
     "name": "Qiqi",
     "quality": "5",
     "element": "Cryo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12368,
@@ -619,7 +619,7 @@
     "name": "Chongyun",
     "quality": "4",
     "element": "Cryo",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 10984,
@@ -641,7 +641,7 @@
     "name": "Mona",
     "quality": "5",
     "element": "Hydro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "tags": [
       "HEXEREI"
     ],
@@ -676,7 +676,7 @@
     "name": "Keqing",
     "quality": "5",
     "element": "Electro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 13103,
@@ -699,7 +699,7 @@
     "name": "Sucrose",
     "quality": "4",
     "element": "Anemo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "tags": [
       "HEXEREI"
     ],
@@ -725,7 +725,7 @@
     "name": "Zhongli",
     "quality": "5",
     "element": "Geo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 14695,
@@ -786,7 +786,7 @@
     "name": "Tartaglia",
     "quality": "5",
     "element": "Hydro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 13103,
@@ -801,7 +801,7 @@
     "name": "Diona",
     "quality": "4",
     "element": "Cryo",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9570,
@@ -823,7 +823,7 @@
     "name": "Xinyan",
     "quality": "4",
     "element": "Pyro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 11201,
@@ -857,7 +857,7 @@
     "name": "Ganyu",
     "quality": "5",
     "element": "Cryo",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9797,
@@ -884,7 +884,7 @@
     "name": "Albedo",
     "quality": "5",
     "element": "Geo",
-    "type": "Sword",
+    "type": "SWORD",
     "tags": [
       "HEXEREI"
     ],
@@ -970,7 +970,7 @@
     "name": "Xiao",
     "quality": "5",
     "element": "Anemo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12736,
@@ -996,7 +996,7 @@
     "name": "Hu Tao",
     "quality": "5",
     "element": "Pyro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 15552,
@@ -1026,7 +1026,7 @@
     "name": "Rosaria",
     "quality": "4",
     "element": "Cryo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12289,
@@ -1059,7 +1059,7 @@
     "name": "Yanfei",
     "quality": "4",
     "element": "Pyro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 9352,
@@ -1081,7 +1081,7 @@
     "name": "Eula",
     "quality": "5",
     "element": "Cryo",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 13226,
@@ -1104,7 +1104,7 @@
     "name": "Kaedehara Kazuha",
     "quality": "5",
     "element": "Anemo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 13348,
@@ -1129,7 +1129,7 @@
     "name": "Kamisato Ayaka",
     "quality": "5",
     "element": "Cryo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12858,
@@ -1153,7 +1153,7 @@
     "name": "Yoimiya",
     "quality": "5",
     "element": "Pyro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 10164,
@@ -1181,7 +1181,7 @@
     "name": "Sayu",
     "quality": "4",
     "element": "Anemo",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 11854,
@@ -1196,7 +1196,7 @@
     "name": "Raiden Shogun",
     "quality": "5",
     "element": "Electro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12907,
@@ -1228,7 +1228,7 @@
     "name": "Sangonomiya Kokomi",
     "quality": "5",
     "element": "Hydro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 13471,
@@ -1258,7 +1258,7 @@
     "name": "Kujou Sara",
     "quality": "4",
     "element": "Electro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9570,
@@ -1273,7 +1273,7 @@
     "name": "Thoma",
     "quality": "4",
     "element": "Pyro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 10331,
@@ -1288,7 +1288,7 @@
     "name": "Aloy",
     "quality": "5",
     "element": "Cryo",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 10899,
@@ -1303,7 +1303,7 @@
     "name": "Gorou",
     "quality": "4",
     "element": "Geo",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9570,
@@ -1318,7 +1318,7 @@
     "name": "Arataki Itto",
     "quality": "5",
     "element": "Geo",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 12858,
@@ -1333,7 +1333,7 @@
     "name": "Shenhe",
     "quality": "5",
     "element": "Cryo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12993,
@@ -1348,7 +1348,7 @@
     "name": "Yun Jin",
     "quality": "4",
     "element": "Geo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 10657,
@@ -1363,7 +1363,7 @@
     "name": "Yae Miko",
     "quality": "5",
     "element": "Electro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 10372,
@@ -1378,7 +1378,7 @@
     "name": "Kamisato Ayato",
     "quality": "5",
     "element": "Hydro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 13715,
@@ -1393,7 +1393,7 @@
     "name": "Yelan",
     "quality": "5",
     "element": "Hydro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 14450,
@@ -1408,7 +1408,7 @@
     "name": "Kuki Shinobu",
     "quality": "4",
     "element": "Electro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12289,
@@ -1423,7 +1423,7 @@
     "name": "Shikanoin Heizou",
     "quality": "4",
     "element": "Anemo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 10657,
@@ -1438,7 +1438,7 @@
     "name": "Collei",
     "quality": "4",
     "element": "Dendro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9787,
@@ -1453,7 +1453,7 @@
     "name": "Dori",
     "quality": "4",
     "element": "Electro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 12397,
@@ -1468,7 +1468,7 @@
     "name": "Tighnari",
     "quality": "5",
     "element": "Dendro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 10850,
@@ -1483,7 +1483,7 @@
     "name": "Nilou",
     "quality": "5",
     "element": "Hydro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 15185,
@@ -1498,7 +1498,7 @@
     "name": "Cyno",
     "quality": "5",
     "element": "Electro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12491,
@@ -1530,7 +1530,7 @@
     "name": "Candace",
     "quality": "4",
     "element": "Hydro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 10875,
@@ -1545,7 +1545,7 @@
     "name": "Nahida",
     "quality": "5",
     "element": "Dendro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 10360,
@@ -1567,7 +1567,7 @@
     "name": "Layla",
     "quality": "4",
     "element": "Cryo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 11092,
@@ -1582,7 +1582,7 @@
     "name": "Wanderer",
     "quality": "5",
     "element": "Anemo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 10164,
@@ -1605,7 +1605,7 @@
     "name": "Faruzan",
     "quality": "4",
     "element": "Anemo",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9570,
@@ -1620,7 +1620,7 @@
     "name": "Yaoyao",
     "quality": "4",
     "element": "Dendro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12289,
@@ -1635,7 +1635,7 @@
     "name": "Alhaitham",
     "quality": "5",
     "element": "Dendro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 13348,
@@ -1660,7 +1660,7 @@
     "name": "Dehya",
     "quality": "5",
     "element": "Pyro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 15675,
@@ -1675,7 +1675,7 @@
     "name": "Mika",
     "quality": "4",
     "element": "Cryo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12506,
@@ -1690,7 +1690,7 @@
     "name": "Kaveh",
     "quality": "4",
     "element": "Dendro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 11962,
@@ -1705,7 +1705,7 @@
     "name": "Baizhu",
     "quality": "5",
     "element": "Dendro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 13348,
@@ -1720,7 +1720,7 @@
     "name": "Kirara",
     "quality": "4",
     "element": "Dendro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12180,
@@ -1735,7 +1735,7 @@
     "name": "Lynette",
     "quality": "4",
     "element": "Anemo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12397,
@@ -1750,7 +1750,7 @@
     "name": "Lyney",
     "quality": "5",
     "element": "Pyro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 11021,
@@ -1765,7 +1765,7 @@
     "name": "Freminet",
     "quality": "4",
     "element": "Cryo",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 12071,
@@ -1780,7 +1780,7 @@
     "name": "Wriothesley",
     "quality": "5",
     "element": "Cryo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 13593,
@@ -1802,7 +1802,7 @@
     "name": "Neuvillette",
     "quality": "5",
     "element": "Hydro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 14695,
@@ -1824,7 +1824,7 @@
     "name": "Charlotte",
     "quality": "4",
     "element": "Cryo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 10766,
@@ -1839,7 +1839,7 @@
     "name": "Furina",
     "quality": "5",
     "element": "Hydro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 15307,
@@ -1877,7 +1877,7 @@
     "name": "Chevreuse",
     "quality": "4",
     "element": "Pyro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 11962,
@@ -1892,7 +1892,7 @@
     "name": "Navia",
     "quality": "5",
     "element": "Geo",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 12650,
@@ -1914,7 +1914,7 @@
     "name": "Gaming",
     "quality": "4",
     "element": "Pyro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 11419,
@@ -1929,7 +1929,7 @@
     "name": "Xianyun",
     "quality": "5",
     "element": "Anemo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 10409,
@@ -1944,7 +1944,7 @@
     "name": "Chiori",
     "quality": "5",
     "element": "Geo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 11438,
@@ -1959,7 +1959,7 @@
     "name": "Arlecchino",
     "quality": "5",
     "element": "Pyro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 13103,
@@ -2050,7 +2050,7 @@
     "name": "Sigewinne",
     "quality": "5",
     "element": "Hydro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 13348,
@@ -2065,7 +2065,7 @@
     "name": "Sethos",
     "quality": "4",
     "element": "Electro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9787,
@@ -2080,7 +2080,7 @@
     "name": "Clorinde",
     "quality": "5",
     "element": "Electro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12956,
@@ -2095,7 +2095,7 @@
     "name": "Emilie",
     "quality": "5",
     "element": "Dendro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 13568,
@@ -2110,7 +2110,7 @@
     "name": "Kachina",
     "quality": "4",
     "element": "Geo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 11799,
@@ -2125,7 +2125,7 @@
     "name": "Kinich",
     "quality": "5",
     "element": "Dendro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 12858,
@@ -2140,7 +2140,7 @@
     "name": "Mualani",
     "quality": "5",
     "element": "Hydro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 15185,
@@ -2155,7 +2155,7 @@
     "name": "Xilonen",
     "quality": "5",
     "element": "Geo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12405,
@@ -2170,7 +2170,7 @@
     "name": "Chasca",
     "quality": "5",
     "element": "Anemo",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9797,
@@ -2185,7 +2185,7 @@
     "name": "Ororon",
     "quality": "4",
     "element": "Electro",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9244,
@@ -2200,7 +2200,7 @@
     "name": "Mavuika",
     "quality": "5",
     "element": "Pyro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 12552,
@@ -2215,7 +2215,7 @@
     "name": "Citlali",
     "quality": "5",
     "element": "Cryo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 11634,
@@ -2230,7 +2230,7 @@
     "name": "Lan Yan",
     "quality": "4",
     "element": "Anemo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 9244,
@@ -2245,7 +2245,7 @@
     "name": "Yumemizuki Mizuki",
     "quality": "5",
     "element": "Anemo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 12736,
@@ -2260,7 +2260,7 @@
     "name": "Iansan",
     "quality": "4",
     "element": "Electro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 10657,
@@ -2275,7 +2275,7 @@
     "name": "Varesa",
     "quality": "5",
     "element": "Electro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 12699,
@@ -2290,7 +2290,7 @@
     "name": "Escoffier",
     "quality": "5",
     "element": "Cryo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 13348,
@@ -2305,7 +2305,7 @@
     "name": "Ifa",
     "quality": "4",
     "element": "Anemo",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 10081,
@@ -2320,7 +2320,7 @@
     "name": "Skirk",
     "quality": "5",
     "element": "Cryo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12417,
@@ -2343,7 +2343,7 @@
     "name": "Dahlia",
     "quality": "4",
     "element": "Hydro",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12506,
@@ -2358,7 +2358,7 @@
     "name": "Ineffa",
     "quality": "5",
     "element": "Electro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12613,
@@ -2373,7 +2373,7 @@
     "name": "Lauma",
     "quality": "5",
     "element": "Dendro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 10654,
@@ -2388,7 +2388,7 @@
     "name": "Flins",
     "quality": "5",
     "element": "Electro",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 12491,
@@ -2403,7 +2403,7 @@
     "name": "Aino",
     "quality": "4",
     "element": "Hydro",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "stats": {
       "constant": {
         "BASE_HP": 11201,
@@ -2418,7 +2418,7 @@
     "name": "Nefer",
     "quality": "5",
     "element": "Dendro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 12704,
@@ -2433,7 +2433,7 @@
     "name": "Durin",
     "quality": "5",
     "element": "Pyro",
-    "type": "Sword",
+    "type": "SWORD",
     "tags": [
       "HEXEREI"
     ],
@@ -2465,7 +2465,7 @@
     "name": "Jahoda",
     "quality": "4",
     "element": "Anemo",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9646,
@@ -2480,7 +2480,7 @@
     "name": "Columbina",
     "quality": "5",
     "element": "Hydro",
-    "type": "Catalyst",
+    "type": "CATALYST",
     "stats": {
       "constant": {
         "BASE_HP": 14695,
@@ -2495,7 +2495,7 @@
     "name": "Zibai",
     "quality": "5",
     "element": "Geo",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12919,
@@ -2510,7 +2510,7 @@
     "name": "Illuga",
     "quality": "4",
     "element": "Geo",
-    "type": "Polearm",
+    "type": "POLEARM",
     "stats": {
       "constant": {
         "BASE_HP": 11962,
@@ -2525,7 +2525,7 @@
     "name": "Varka",
     "quality": "5",
     "element": "Anemo",
-    "type": "Claymore",
+    "type": "CLAYMORE",
     "tags": [
       "HEXEREI"
     ],
@@ -2543,7 +2543,7 @@
     "name": "Linnea",
     "quality": "5",
     "element": "Geo",
-    "type": "Bow",
+    "type": "BOW",
     "stats": {
       "constant": {
         "BASE_HP": 9895,

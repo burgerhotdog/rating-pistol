@@ -18,12 +18,12 @@
     "Physical": "#e9a117"
   },
   "WEAPON_TYPES": [
-    "Anomaly",
-    "Attack",
-    "Defense",
-    "Rupture",
-    "Stun",
-    "Support"
+    "ATTACK",
+    "SUPPORT",
+    "STUN",
+    "ANOMALY",
+    "DEFENSE",
+    "RUPTURE"
   ],
   "DEFAULT_STATS": {
     "BASE_HP": 0,

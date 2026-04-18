@@ -2,62 +2,90 @@
   "21010011": {
     "name": "Training Broadblade",
     "quality": "1",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
+        "PERCENT_ATK": 0.175
       }
     }
   },
   "21010012": {
     "name": "Tyro Broadblade",
     "quality": "2",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
+        "PERCENT_ATK": 0.223
       }
     }
   },
   "21010013": {
     "name": "Broadblade of Night",
     "quality": "3",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
         "PERCENT_ATK": 0.243
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.16
+        }
       }
     }
   },
   "21010015": {
     "name": "Lustrous Razor",
     "quality": "5",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_ATK": 0.364
+        "PERCENT_ATK": 0.364,
+        "PERCENT_ER": 0.128
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.21
+        }
       }
     }
   },
   "21010016": {
     "name": "Verdant Summit",
     "quality": "5",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
+        "PERCENT_CD": 0.486,
+        "PERCENT_GLACIO": 0.12,
+        "PERCENT_FUSION": 0.12,
+        "PERCENT_ELECTRO": 0.12,
+        "PERCENT_AERO": 0.12,
+        "PERCENT_SPECTRO": 0.12,
+        "PERCENT_HAVOC": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HA": 48
+        }
       }
     }
   },
   "21010023": {
     "name": "Originite: Type I",
     "quality": "3",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
@@ -68,7 +96,7 @@
   "21010024": {
     "name": "Discord",
     "quality": "4",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
@@ -79,18 +107,19 @@
   "21010034": {
     "name": "Broadblade#41",
     "quality": "4",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_ER": 0.324
+        "PERCENT_ER": 0.324,
+        "PERCENT_ATK": 0.24
       }
     }
   },
   "21010043": {
     "name": "Broadblade of Voyager",
     "quality": "3",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
@@ -101,95 +130,134 @@
   "21010044": {
     "name": "Dauntless Evernight",
     "quality": "4",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
         "PERCENT_DEF": 0.615
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.16,
+          "PERCENT_DEF": 0.3
+        }
       }
     }
   },
   "21010053": {
     "name": "Guardian Broadblade",
     "quality": "3",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
+        "PERCENT_ATK": 0.243,
+        "PERCENT_BA": 0.24,
+        "PERCENT_HA": 0.24
       }
     }
   },
   "21010064": {
     "name": "Helios Cleaver",
     "quality": "4",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_ATK": 0.303
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.24
+        }
       }
     }
   },
   "21010074": {
     "name": "Autumntrace",
     "quality": "4",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_CR": 0.202
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.64
+        }
       }
     }
   },
   "21020011": {
     "name": "Training Sword",
     "quality": "1",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
+        "PERCENT_ATK": 0.175
       }
     }
   },
   "21020012": {
     "name": "Tyro Sword",
     "quality": "2",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
+        "PERCENT_ATK": 0.223
       }
     }
   },
   "21020013": {
     "name": "Sword of Night",
     "quality": "3",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
         "PERCENT_ATK": 0.243
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.16
+        }
       }
     }
   },
   "21020015": {
     "name": "Emerald of Genesis",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ER": 0.128
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.12
+        }
       }
     }
   },
   "21020023": {
     "name": "Originite: Type II",
     "quality": "3",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
@@ -200,7 +268,7 @@
   "21020024": {
     "name": "Overture",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
@@ -211,18 +279,25 @@
   "21020034": {
     "name": "Sword#18",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 387,
         "PERCENT_ATK": 0.364
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HA": 0.36
+        }
       }
     }
   },
   "21020043": {
     "name": "Sword of Voyager",
     "quality": "3",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
@@ -233,95 +308,133 @@
   "21020044": {
     "name": "Commando of Conviction",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_ATK": 0.303
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.3
+        }
       }
     }
   },
   "21020053": {
     "name": "Guardian Sword",
     "quality": "3",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
-        "PERCENT_HP": 0.303
+        "PERCENT_HP": 0.303,
+        "PERCENT_RS": 0.24
       }
     }
   },
   "21020064": {
     "name": "Lunar Cutter",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_ATK": 0.303
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.24
+        }
       }
     }
   },
   "21020074": {
     "name": "Lumingloss",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 387,
         "PERCENT_ATK": 0.364
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.64,
+          "PERCENT_HA": 0.64
+        }
       }
     }
   },
   "21030011": {
     "name": "Training Pistols",
     "quality": "1",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
+        "PERCENT_ATK": 0.175
       }
     }
   },
   "21030012": {
     "name": "Tyro Pistols",
     "quality": "2",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
+        "PERCENT_ATK": 0.223
       }
     }
   },
   "21030013": {
     "name": "Pistols of Night",
     "quality": "3",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
         "PERCENT_ATK": 0.243
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.16
+        }
       }
     }
   },
   "21030015": {
     "name": "Static Mist",
     "quality": "5",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ER": 0.128
+      }
+    },
+    "buffs": {
+      "next": {
+        "constant": {
+          "PERCENT_ATK": 0.1
+        }
       }
     }
   },
   "21030023": {
     "name": "Originite: Type III",
     "quality": "3",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
@@ -332,7 +445,7 @@
   "21030024": {
     "name": "Cadenza",
     "quality": "4",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
@@ -343,18 +456,25 @@
   "21030034": {
     "name": "Pistols#26",
     "quality": "4",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 387,
         "PERCENT_ATK": 0.364
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.24
+        }
       }
     }
   },
   "21030043": {
     "name": "Pistols of Voyager",
     "quality": "3",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
@@ -365,95 +485,133 @@
   "21030044": {
     "name": "Undying Flame",
     "quality": "4",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_ATK": 0.303
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.4
+        }
       }
     }
   },
   "21030053": {
     "name": "Guardian Pistols",
     "quality": "3",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
-        "PERCENT_ATK": 0.303
+        "PERCENT_ATK": 0.303,
+        "PERCENT_RS": 0.24
       }
     }
   },
   "21030064": {
     "name": "Novaburst",
     "quality": "4",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_ATK": 0.303
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.24
+        }
       }
     }
   },
   "21030074": {
     "name": "Thunderbolt",
     "quality": "4",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 387,
         "PERCENT_ATK": 0.364
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.69
+        }
       }
     }
   },
   "21040011": {
     "name": "Training Gauntlets",
     "quality": "1",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
+        "PERCENT_ATK": 0.175
       }
     }
   },
   "21040012": {
     "name": "Tyro Gauntlets",
     "quality": "2",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
+        "PERCENT_ATK": 0.223
       }
     }
   },
   "21040013": {
     "name": "Gauntlets of Night",
     "quality": "3",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
         "PERCENT_ATK": 0.243
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.16
+        }
       }
     }
   },
   "21040015": {
     "name": "Abyss Surges",
     "quality": "5",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_ATK": 0.364
+        "PERCENT_ATK": 0.364,
+        "PERCENT_ER": 0.128
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.1,
+          "PERCENT_RS": 0.1
+        }
       }
     }
   },
   "21040023": {
     "name": "Originite: Type IV",
     "quality": "3",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
@@ -464,7 +622,7 @@
   "21040024": {
     "name": "Marcato",
     "quality": "4",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
@@ -475,18 +633,26 @@
   "21040034": {
     "name": "Gauntlets#21D",
     "quality": "4",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 387,
         "PERCENT_ER": 0.388
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.16,
+          "PERCENT_DC": 1
+        }
       }
     }
   },
   "21040043": {
     "name": "Gauntlets of Voyager",
     "quality": "3",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
@@ -497,106 +663,157 @@
   "21040044": {
     "name": "Amity Accord",
     "quality": "4",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
         "PERCENT_DEF": 0.615
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.4
+        }
       }
     }
   },
   "21040053": {
     "name": "Guardian Gauntlets",
     "quality": "3",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
-        "PERCENT_DEF": 0.384
+        "PERCENT_DEF": 0.384,
+        "PERECNT_RL": 0.24
       }
     }
   },
   "21040064": {
     "name": "Hollow Mirage",
     "quality": "4",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_ATK": 0.303
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.15,
+          "PERCENT_DEF": 0.15
+        }
       }
     }
   },
   "21040074": {
     "name": "Stonard",
     "quality": "4",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_CR": 0.202
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.54
+        }
       }
     }
   },
   "21050011": {
     "name": "Training Rectifier",
     "quality": "1",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
+        "PERCENT_ATK": 0.175
       }
     }
   },
   "21050012": {
     "name": "Tyro Rectifier",
     "quality": "2",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
+        "PERCENT_ATK": 0.223
       }
     }
   },
   "21050013": {
     "name": "Rectifier of Night",
     "quality": "3",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
         "PERCENT_ATK": 0.243
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.16
+        }
       }
     }
   },
   "21050015": {
     "name": "Cosmic Ripples",
     "quality": "5",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_ATK": 0.539
+        "PERCENT_ATK": 0.539,
+        "PERCENT_ER": 0.128
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.16
+        }
       }
     }
   },
   "21050016": {
     "name": "Stringmaster",
     "quality": "5",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
+        "PERCENT_CR": 0.36,
+        "PERCENT_GLACIO": 0.12,
+        "PERCENT_FUSION": 0.12,
+        "PERCENT_ELECTRO": 0.12,
+        "PERCENT_AERO": 0.12,
+        "PERCENT_SPECTRO": 0.12,
+        "PERCENT_HAVOC": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.24
+        }
       }
     }
   },
   "21050023": {
     "name": "Originite: Type V",
     "quality": "3",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
@@ -607,7 +824,7 @@
   "21050024": {
     "name": "Variation",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
@@ -618,18 +835,25 @@
   "21050034": {
     "name": "Rectifier#25",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
         "PERCENT_ER": 0.518
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.24
+        }
       }
     }
   },
   "21050043": {
     "name": "Rectifier of Voyager",
     "quality": "3",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
@@ -640,62 +864,99 @@
   "21050044": {
     "name": "Jinzhou Keeper",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 387,
         "PERCENT_ATK": 0.364
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.16,
+          "PERCENT_HP": 0.2
+        }
       }
     }
   },
   "21050053": {
     "name": "Guardian Rectifier",
     "quality": "3",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
+        "PERCENT_ATK": 0.243,
+        "PERCENT_BA": 0.24,
+        "PERCENT_HA": 0.24
       }
     }
   },
   "21050064": {
     "name": "Comet Flare",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_HP": 0.303
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HB": 0.18
+        }
       }
     }
   },
   "21050074": {
     "name": "Augment",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_CR": 0.202
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.48
+        }
       }
     }
   },
   "21010026": {
     "name": "Ages of Harvest",
     "quality": "5",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_GLACIO": 0.12,
+        "PERCENT_FUSION": 0.12,
+        "PERCENT_ELECTRO": 0.12,
+        "PERCENT_AERO": 0.12,
+        "PERCENT_SPECTRO": 0.12,
+        "PERCENT_HAVOC": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.48
+        }
       }
     }
   },
   "21010063": {
     "name": "Beguiling Melody",
     "quality": "3",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 300,
@@ -706,528 +967,967 @@
   "21020016": {
     "name": "Blazing Brilliance",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
+        "PERCENT_CD": 0.486,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.56
+        }
       }
     }
   },
   "21040016": {
     "name": "Verity's Handle",
     "quality": "5",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_GLACIO": 0.12,
+        "PERCENT_FUSION": 0.12,
+        "PERCENT_ELECTRO": 0.12,
+        "PERCENT_AERO": 0.12,
+        "PERCENT_SPECTRO": 0.12,
+        "PERCENT_HAVOC": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.48
+        }
       }
     }
   },
   "21050026": {
     "name": "Rime-Draped Sprouts",
     "quality": "5",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CD": 0.72
+        "PERCENT_CD": 0.72,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.52
+        }
       }
     }
   },
   "21010084": {
     "name": "Waning Redshift",
     "quality": "4",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
       }
     }
   },
   "21020084": {
     "name": "Endless Collapse",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
       }
     }
   },
   "21030084": {
     "name": "Relativistic Jet",
     "quality": "4",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
       }
     }
   },
   "21040084": {
     "name": "Celestial Spiral",
     "quality": "4",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
       }
     }
   },
   "21050036": {
     "name": "Stellar Symphony",
     "quality": "5",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_ER": 0.77
+        "PERCENT_ER": 0.77,
+        "PERCENT_HP": 0.12
+      }
+    },
+    "buffs": {
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.14
+        }
       }
     }
   },
   "21050084": {
     "name": "Fusion Accretion",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
       }
     }
   },
   "21020017": {
     "name": "Somnoire Anchor",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.4,
+          "PERCENT_CR": 0.12
+        }
       }
     }
   },
   "21020026": {
     "name": "Red Spring",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.7
+        }
       }
     }
   },
   "21010094": {
     "name": "Meditations on Mercy",
     "quality": "4",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.32
+        }
       }
     }
   },
   "21020094": {
     "name": "Fables of Wisdom",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.32
+        }
       }
     }
   },
   "21030016": {
     "name": "The Last Dance",
     "quality": "5",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CD": 0.72
+        "PERCENT_CD": 0.72,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.48
+        }
       }
     }
   },
   "21030094": {
     "name": "Romance in Farewell",
     "quality": "4",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.32
+        }
       }
     }
   },
   "21040026": {
     "name": "Tragicomedy",
     "quality": "5",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HA": 0.48
+        }
       }
     }
   },
   "21040094": {
     "name": "Legend of Drunken Hero",
     "quality": "4",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.32
+        }
       }
     }
   },
   "21050017": {
     "name": "Call of the Abyss",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 337,
         "PERCENT_ER": 0.518
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HB": 0.32
+        }
       }
     }
   },
   "21050094": {
     "name": "Waltz in Masquerade",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.32
+        }
       }
     }
   },
   "21020036": {
     "name": "Unflickering Valor",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_ER": 0.77
+        "PERCENT_ER": 0.77,
+        "PERCENT_CR": 0.08
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.48
+        }
       }
     }
   },
   "21050027": {
     "name": "Ocean's Gift",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 462,
         "PERCENT_ATK": 0.182
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_SPECTRO": 0.4
+        }
       }
     }
   },
   "21050046": {
     "name": "Luminous Hymn",
     "quality": "5",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
+        "PERCENT_CR": 0.36,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.42,
+          "PERCENT_HA": 0.42
+        }
+      },
+      "ally": {
+        "constant": {
+          "PERCENT_FRAZZLE": 0.3
+        }
       }
     }
   },
   "21020046": {
     "name": "Bloodpact's Pledge",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
         "PERCENT_ER": 0.388
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.26
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_AERO": 0.26
+        }
       }
     }
   },
   "21050056": {
     "name": "Whispers of Sirens",
     "quality": "5",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CD": 0.72
+        "PERCENT_CD": 0.72,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.4,
+          "IGNORE_HAVOC": 0.12
+        }
       }
     }
   },
   "21030026": {
     "name": "Woodland Aria",
     "quality": "5",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
+        "PERCENT_CR": 0.36,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_AERO": 0.24
+        }
+      },
+      "team": {
+        "constant": {
+          "IGNORE_AERO": 0.1
+        }
       }
     }
   },
   "21040036": {
     "name": "Blazing Justice",
     "quality": "5",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
+        "PERCENT_CD": 0.486,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "IGNORE_DEF": 0.08,
+          "AMP_FRAZZLE": 0.5
+        }
       }
     }
   },
   "21010036": {
     "name": "Wildfire Mark",
     "quality": "5",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
+        "PERCENT_CD": 0.486,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.24
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_FUSION": 0.24
+        }
       }
     }
   },
   "21020056": {
     "name": "Defier's Thorn",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_HP": 0.722
+        "PERCENT_HP": 0.842
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "IGNORE_DEF": 0.08,
+          "AMP_ALL": 0.2
+        }
       }
     }
   },
   "21050066": {
     "name": "Lethean Elegy",
     "quality": "5",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.32,
+          "AMP_ES": 0.32,
+          "IGNORE_DEF": 0.08
+        }
       }
     }
   },
   "21010046": {
     "name": "Thunderflare Dominion",
     "quality": "5",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 675,
-        "PERCENT_CR": 0.121
+        "PERCENT_CR": 0.121,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HA": 0.2,
+          "IGNORE_DEF_HA": 0.36
+        }
       }
     }
   },
   "21010104": {
     "name": "Aureate Zenith",
     "quality": "4",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_CD": 0.405
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.23,
+          "PERCENT_HA": 0.345
+        }
       }
     }
   },
   "21020104": {
     "name": "Feather Edge",
     "quality": "4",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_CR": 0.202
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.23,
+          "PERCENT_RL": 0.345
+        }
       }
     }
   },
   "21030104": {
     "name": "Solar Flame",
     "quality": "4",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_CR": 0.202
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.36,
+          "PERCENT_HA": 0.36
+        }
       }
     }
   },
   "21040046": {
     "name": "Moongazer's Sigil",
     "quality": "5",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
+        "PERCENT_CR": 0.36,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.2,
+          "IGNORE_DEF_RL": 0.36
+        }
       }
     }
   },
   "21040104": {
     "name": "Aether Strike",
     "quality": "4",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_CD": 0.405
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.23,
+          "PERCENT_RL": 0.345
+        }
       }
     }
   },
   "21050104": {
     "name": "Radiant Dawn",
     "quality": "4",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
         "PERCENT_CD": 0.405
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.288,
+          "PERCENT_BA": 0.288
+        }
       }
     }
   },
   "21020066": {
     "name": "Emerald Sentence",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HA": 0.6
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ES": 0.2
+        }
       }
     }
   },
   "21030036": {
     "name": "Lux & Umbra",
     "quality": "5",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
+        "PERCENT_CD": 0.486,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "AMP_HA": 0.24,
+          "AMP_ES": 0.24,
+          "IGNORE_DEF": 0.08
+        }
       }
     }
   },
   "21010056": {
     "name": "Kumokiri",
     "quality": "5",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
+        "PERCENT_CR": 0.36,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.24
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_GLACIO": 0.24,
+          "PERCENT_FUSION": 0.24,
+          "PERCENT_ELECTRO": 0.24,
+          "PERCENT_AERO": 0.24,
+          "PERCENT_SPECTRO": 0.24,
+          "PERCENT_HAVOC": 0.24
+        }
       }
     }
   },
   "21010045": {
     "name": "Radiance Cleaver",
     "quality": "5",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
+        "PERCENT_CD": 0.486,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.24
+        }
       }
     }
   },
   "21010066": {
     "name": "Starfield Calibrator",
     "quality": "5",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_ER": 0.77
+        "PERCENT_ER": 0.77,
+        "PERCENT_DEF": 0.16
+      }
+    },
+    "buffs": {
+      "team": {
+        "constant": {
+          "PERCENT_CD": 0.2
+        }
       }
     }
   },
   "21020045": {
     "name": "Laser Shearer",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_ER": 0.388
+        "PERCENT_ER": 0.388,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.24
+        }
       }
     }
   },
   "21030045": {
     "name": "Phasic Homogenizer",
     "quality": "5",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
+        "PERCENT_CD": 0.486,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_GLACIO": 0.2,
+          "PERCENT_FUSION": 0.2,
+          "PERCENT_ELECTRO": 0.2,
+          "PERCENT_AERO": 0.2,
+          "PERCENT_SPECTRO": 0.2,
+          "PERCENT_HAVOC": 0.2
+        }
       }
     }
   },
   "21030046": {
     "name": "Spectrum Blaster",
     "quality": "5",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.36
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ALL": 0.24
+        }
       }
     }
   },
   "21040045": {
     "name": "Pulsation Bracer",
     "quality": "5",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.24
+        }
       }
     }
   },
   "21050045": {
     "name": "Boson Astrolabe",
     "quality": "5",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_ATK": 525,
-        "PERCENT_ER": 0.388
+        "PERCENT_ER": 0.388,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.12,
+          "PERCENT_BA": 0.12
+        }
       }
     }
   },
   "21020076": {
     "name": "Everbright Polestar",
     "quality": "5",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_GLACIO": 0.12,
+        "PERCENT_FUSION": 0.12,
+        "PERCENT_ELECTRO": 0.12,
+        "PERCENT_AERO": 0.12,
+        "PERCENT_SPECTRO": 0.12,
+        "PERCENT_HAVOC": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "IGNORE_DEF_RL": 0.32,
+          "IGNORE_FUSION_RL": 0.1
+        }
       }
     }
   },
   "21040056": {
     "name": "Daybreaker's Spine",
     "quality": "5",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
+        "PERCENT_CR": 0.243,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_SPECTRO": 0.2,
+          "AMP_BA": 0.2,
+          "IGNORE_DEF_BA": 0.1
+        }
       }
     }
   }

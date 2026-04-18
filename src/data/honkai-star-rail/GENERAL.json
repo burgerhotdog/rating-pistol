@@ -20,15 +20,15 @@
     "Wind": "#62d3a2"
   },
   "WEAPON_TYPES": [
-    "Abundance",
-    "Destruction",
-    "Elation",
-    "Erudition",
-    "Harmony",
-    "Hunt",
-    "Nihility",
-    "Preservation",
-    "Remembrance"
+    "HUNT",
+    "ABUNDANCE",
+    "DESTRUCTION",
+    "PRESERVATION",
+    "NIHILITY",
+    "HARMONY",
+    "ERUDITION",
+    "REMEMBRANCE",
+    "ELATION"
   ],
   "DEFAULT_STATS": {
     "BASE_HP": 0,

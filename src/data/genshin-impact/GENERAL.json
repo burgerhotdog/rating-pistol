@@ -26,11 +26,11 @@
     "EB": "Elemental Burst"
   },
   "WEAPON_TYPES": [
-    "Bow",
-    "Catalyst",
-    "Claymore",
-    "Polearm",
-    "Sword"
+    "SWORD",
+    "CLAYMORE",
+    "POLEARM",
+    "CATALYST",
+    "BOW"
   ],
   "DEFAULT_STATS": {
     "BASE_HP": 0,

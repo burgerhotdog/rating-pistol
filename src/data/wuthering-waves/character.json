@@ -3,7 +3,7 @@
     "name": "Sanhua",
     "quality": "4",
     "element": "GLACIO",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 10062,
@@ -25,7 +25,7 @@
     "name": "Baizhi",
     "quality": "4",
     "element": "GLACIO",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 12812,
@@ -47,7 +47,7 @@
     "name": "Lingyang",
     "quality": "5",
     "element": "GLACIO",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 10387,
@@ -62,7 +62,7 @@
     "name": "Chixia",
     "quality": "4",
     "element": "FUSION",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_HP": 9087,
@@ -77,7 +77,7 @@
     "name": "Encore",
     "quality": "5",
     "element": "FUSION",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 10512,
@@ -92,7 +92,7 @@
     "name": "Mortefi",
     "quality": "4",
     "element": "FUSION",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_HP": 10025,
@@ -114,7 +114,7 @@
     "name": "Calcharo",
     "quality": "5",
     "element": "ELECTRO",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 10500,
@@ -129,7 +129,7 @@
     "name": "Yinlin",
     "quality": "5",
     "element": "ELECTRO",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 11000,
@@ -268,7 +268,7 @@
     "name": "Yuanwu",
     "quality": "4",
     "element": "ELECTRO",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 8525,
@@ -283,7 +283,7 @@
     "name": "Yangyang",
     "quality": "4",
     "element": "AERO",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 10200,
@@ -298,7 +298,7 @@
     "name": "Aalto",
     "quality": "4",
     "element": "AERO",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_HP": 9850,
@@ -320,7 +320,7 @@
     "name": "Jiyan",
     "quality": "5",
     "element": "AERO",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 10487,
@@ -445,7 +445,7 @@
     "name": "Jianxin",
     "quality": "5",
     "element": "AERO",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 14112,
@@ -467,7 +467,7 @@
     "name": "Verina",
     "quality": "5",
     "element": "SPECTRO",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 14237,
@@ -490,7 +490,7 @@
     "name": "Taoqi",
     "quality": "4",
     "element": "HAVOC",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 8950,
@@ -512,7 +512,7 @@
     "name": "Danjin",
     "quality": "4",
     "element": "HAVOC",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 9437,
@@ -534,7 +534,7 @@
     "name": "Changli",
     "quality": "5",
     "element": "FUSION",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 10387,
@@ -708,7 +708,7 @@
     "name": "Jinhsi",
     "quality": "5",
     "element": "SPECTRO",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 10825,
@@ -881,7 +881,7 @@
     "name": "Zhezhi",
     "quality": "5",
     "element": "GLACIO",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 12250,
@@ -1034,7 +1034,7 @@
     "name": "Xiangli Yao",
     "quality": "5",
     "element": "ELECTRO",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 10625,
@@ -1191,7 +1191,7 @@
     "name": "Youhu",
     "quality": "4",
     "element": "GLACIO",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 9975,
@@ -1213,7 +1213,7 @@
     "name": "Shorekeeper",
     "quality": "5",
     "element": "SPECTRO",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 16712,
@@ -1237,7 +1237,7 @@
     "name": "Lumi",
     "quality": "4",
     "element": "ELECTRO",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 8500,
@@ -1259,7 +1259,7 @@
     "name": "Camellya",
     "quality": "5",
     "element": "HAVOC",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 10325,
@@ -1433,7 +1433,7 @@
     "name": "Carlotta",
     "quality": "5",
     "element": "GLACIO",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_HP": 12450,
@@ -1473,7 +1473,7 @@
     "name": "Roccia",
     "quality": "5",
     "element": "HAVOC",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 12250,
@@ -1521,7 +1521,7 @@
     "name": "Brant",
     "quality": "5",
     "element": "FUSION",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 11675,
@@ -1569,7 +1569,7 @@
     "name": "Phoebe",
     "quality": "5",
     "element": "SPECTRO",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 10825,
@@ -1617,7 +1617,7 @@
     "name": "Cantarella",
     "quality": "5",
     "element": "HAVOC",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 11600,
@@ -1665,7 +1665,7 @@
     "name": "Ciaccona",
     "quality": "5",
     "element": "AERO",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_HP": 12237,
@@ -1712,7 +1712,7 @@
     "name": "Zani",
     "quality": "5",
     "element": "SPECTRO",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 10775,
@@ -1753,7 +1753,7 @@
     "name": "Lupa",
     "quality": "5",
     "element": "FUSION",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 11912,
@@ -1793,7 +1793,7 @@
     "name": "Cartethyia",
     "quality": "5",
     "element": "AERO",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 14800,
@@ -1835,7 +1835,7 @@
     "name": "Phrolova",
     "quality": "5",
     "element": "HAVOC",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 10775,
@@ -1872,7 +1872,7 @@
     "name": "Augusta",
     "quality": "5",
     "element": "ELECTRO",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 10300,
@@ -1912,7 +1912,7 @@
     "name": "Iuno",
     "quality": "5",
     "element": "AERO",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 10525,
@@ -1959,7 +1959,7 @@
     "name": "Galbrena",
     "quality": "5",
     "element": "FUSION",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_HP": 10300,
@@ -1974,7 +1974,7 @@
     "name": "Qiuyuan",
     "quality": "5",
     "element": "AERO",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 12237,
@@ -2021,7 +2021,7 @@
     "name": "Buling",
     "quality": "4",
     "element": "ELECTRO",
-    "type": "Rectifier",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
         "BASE_HP": 10625,
@@ -2036,7 +2036,7 @@
     "name": "Chisa",
     "quality": "5",
     "element": "HAVOC",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 10775,
@@ -2076,7 +2076,7 @@
     "name": "Mornye",
     "quality": "5",
     "element": "FUSION",
-    "type": "Broadblade",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
         "BASE_HP": 15375,
@@ -2098,7 +2098,7 @@
     "name": "Lynae",
     "quality": "5",
     "element": "SPECTRO",
-    "type": "Pistols",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
         "BASE_HP": 12237,
@@ -2138,7 +2138,7 @@
     "name": "Aemeath",
     "quality": "5",
     "element": "FUSION",
-    "type": "Sword",
+    "type": "SWORD",
     "stats": {
       "constant": {
         "BASE_HP": 11025,
@@ -2178,7 +2178,7 @@
     "name": "Luuk Herssen",
     "quality": "5",
     "element": "SPECTRO",
-    "type": "Gauntlets",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
         "BASE_HP": 10300,

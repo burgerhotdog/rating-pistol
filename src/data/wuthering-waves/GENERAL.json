@@ -27,11 +27,11 @@
     "ES": "Echo Skill"
   },
   "WEAPON_TYPES": [
-    "Broadblade",
-    "Gauntlets",
-    "Pistols",
-    "Rectifier",
-    "Sword"
+    "BROADBLADE",
+    "SWORD",
+    "PISTOLS",
+    "GAUNTLETS",
+    "RECTIFIER"
   ],
   "DEFAULT_STATS": {
     "BASE_HP": 0,

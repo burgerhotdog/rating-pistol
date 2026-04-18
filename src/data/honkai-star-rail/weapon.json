@@ -2,7 +2,7 @@
   "20000": {
     "name": "Arrows",
     "quality": "3",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -14,7 +14,7 @@
   "20001": {
     "name": "Cornucopia",
     "quality": "3",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -26,7 +26,7 @@
   "20002": {
     "name": "Collapsing Sky",
     "quality": "3",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -38,7 +38,7 @@
   "20003": {
     "name": "Amber",
     "quality": "3",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -50,7 +50,7 @@
   "20004": {
     "name": "Void",
     "quality": "3",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -62,7 +62,7 @@
   "20005": {
     "name": "Chorus",
     "quality": "3",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -74,7 +74,7 @@
   "20006": {
     "name": "Data Bank",
     "quality": "3",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 741,
@@ -86,7 +86,7 @@
   "20007": {
     "name": "Darting Arrow",
     "quality": "3",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 741,
@@ -98,7 +98,7 @@
   "20008": {
     "name": "Fine Fruit",
     "quality": "3",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -110,7 +110,7 @@
   "20009": {
     "name": "Shattered Home",
     "quality": "3",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -120,9 +120,9 @@
     }
   },
   "20010": {
-    "name": "Defense",
+    "name": "DEFENSE",
     "quality": "3",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -134,7 +134,7 @@
   "20011": {
     "name": "Loop",
     "quality": "3",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -146,7 +146,7 @@
   "20012": {
     "name": "Meshing Cogs",
     "quality": "3",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -158,7 +158,7 @@
   "20013": {
     "name": "Passkey",
     "quality": "3",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 741,
@@ -170,7 +170,7 @@
   "20014": {
     "name": "Adversarial",
     "quality": "3",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 741,
@@ -182,7 +182,7 @@
   "20015": {
     "name": "Multiplication",
     "quality": "3",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -194,7 +194,7 @@
   "20016": {
     "name": "Mutual Demise",
     "quality": "3",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -206,7 +206,7 @@
   "20017": {
     "name": "Pioneering",
     "quality": "3",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -218,7 +218,7 @@
   "20018": {
     "name": "Hidden Shadow",
     "quality": "3",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -230,7 +230,7 @@
   "20019": {
     "name": "Mediation",
     "quality": "3",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -242,7 +242,7 @@
   "20020": {
     "name": "Sagacity",
     "quality": "3",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 741,
@@ -254,7 +254,7 @@
   "21000": {
     "name": "Post-Op Conversation",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -266,7 +266,7 @@
   "21001": {
     "name": "Good Night and Sleep Well",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -278,7 +278,7 @@
   "21002": {
     "name": "Day One of My New Life",
     "quality": "4",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -290,7 +290,7 @@
   "21003": {
     "name": "Only Silence Remains",
     "quality": "4",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -302,7 +302,7 @@
   "21004": {
     "name": "Memories of the Past",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -314,7 +314,7 @@
   "21005": {
     "name": "The Moles Welcome You",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -326,7 +326,7 @@
   "21006": {
     "name": "The Birth of the Self",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -338,7 +338,7 @@
   "21007": {
     "name": "Shared Feeling",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -350,7 +350,7 @@
   "21008": {
     "name": "Eyes of the Prey",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -362,7 +362,7 @@
   "21009": {
     "name": "Landau's Choice",
     "quality": "4",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -374,7 +374,7 @@
   "21010": {
     "name": "Swordplay",
     "quality": "4",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -386,7 +386,7 @@
   "21011": {
     "name": "Planetary Rendezvous",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -398,7 +398,7 @@
   "21012": {
     "name": "A Secret Vow",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -410,7 +410,7 @@
   "21013": {
     "name": "Make the World Clamor",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -422,7 +422,7 @@
   "21014": {
     "name": "Perfect Timing",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -434,7 +434,7 @@
   "21015": {
     "name": "Resolution Shines As Pearls of Sweat",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -446,7 +446,7 @@
   "21016": {
     "name": "Trend of the Universal Market",
     "quality": "4",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -458,7 +458,7 @@
   "21017": {
     "name": "Subscribe for More!",
     "quality": "4",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -470,7 +470,7 @@
   "21018": {
     "name": "Dance! Dance! Dance!",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -482,7 +482,7 @@
   "21019": {
     "name": "Under the Blue Sky",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -494,7 +494,7 @@
   "21020": {
     "name": "Geniuses' Repose",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -506,7 +506,7 @@
   "21021": {
     "name": "Quid Pro Quo",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -518,7 +518,7 @@
   "21022": {
     "name": "Fermata",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -530,7 +530,7 @@
   "21023": {
     "name": "We Are Wildfire",
     "quality": "4",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 741,
@@ -542,7 +542,7 @@
   "21024": {
     "name": "River Flows in Spring",
     "quality": "4",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -554,7 +554,7 @@
   "21025": {
     "name": "Past and Future",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -566,7 +566,7 @@
   "21026": {
     "name": "Woof! Walk Time!",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -578,7 +578,7 @@
   "21027": {
     "name": "The Seriousness of Breakfast",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -590,7 +590,7 @@
   "21028": {
     "name": "Warmth Shortens Cold Nights",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -602,7 +602,7 @@
   "21029": {
     "name": "We Will Meet Again",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -614,7 +614,7 @@
   "21030": {
     "name": "This Is Me!",
     "quality": "4",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -626,7 +626,7 @@
   "21031": {
     "name": "Return to Darkness",
     "quality": "4",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -638,7 +638,7 @@
   "21032": {
     "name": "Carve the Moon, Weave the Clouds",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -650,7 +650,7 @@
   "21033": {
     "name": "Nowhere to Run",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -662,7 +662,7 @@
   "21034": {
     "name": "Today Is Another Peaceful Day",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -674,7 +674,7 @@
   "23000": {
     "name": "Night on the Milky Way",
     "quality": "5",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -686,7 +686,7 @@
   "23001": {
     "name": "In the Night",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -698,7 +698,7 @@
   "23002": {
     "name": "Something Irreplaceable",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -710,7 +710,7 @@
   "23003": {
     "name": "But the Battle Isn't Over",
     "quality": "5",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -722,7 +722,7 @@
   "23004": {
     "name": "In the Name of the World",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -734,7 +734,7 @@
   "23005": {
     "name": "Moment of Victory",
     "quality": "5",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -746,7 +746,7 @@
   "23010": {
     "name": "Before Dawn",
     "quality": "5",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -758,7 +758,7 @@
   "23012": {
     "name": "Sleep Like the Dead",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -770,7 +770,7 @@
   "23013": {
     "name": "Time Waits for No One",
     "quality": "5",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1270,
@@ -782,7 +782,7 @@
   "24000": {
     "name": "On the Fall of an Aeon",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -794,7 +794,7 @@
   "24001": {
     "name": "Cruising in the Stellar Sea",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -806,7 +806,7 @@
   "24002": {
     "name": "Texture of Memories",
     "quality": "5",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -818,7 +818,7 @@
   "22000": {
     "name": "Before the Tutorial Mission Starts",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -830,7 +830,7 @@
   "23007": {
     "name": "Incessant Rain",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -842,7 +842,7 @@
   "23008": {
     "name": "Echoes of the Coffin",
     "quality": "5",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -854,7 +854,7 @@
   "23006": {
     "name": "Patience Is All You Need",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -866,7 +866,7 @@
   "23009": {
     "name": "The Unreachable Side",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1270,
@@ -878,7 +878,7 @@
   "23011": {
     "name": "She Already Shut Her Eyes",
     "quality": "5",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 1270,
@@ -890,7 +890,7 @@
   "23015": {
     "name": "Brighter Than the Sun",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -902,7 +902,7 @@
   "24003": {
     "name": "Solitary Healing",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -914,7 +914,7 @@
   "23014": {
     "name": "I Shall Be My Own Sword",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -926,7 +926,7 @@
   "23016": {
     "name": "Worrisome, Blissful",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -938,7 +938,7 @@
   "22001": {
     "name": "Hey, Over Here",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -950,7 +950,7 @@
   "23017": {
     "name": "Night of Fright",
     "quality": "5",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -962,7 +962,7 @@
   "23018": {
     "name": "An Instant Before A Gaze",
     "quality": "5",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -974,7 +974,7 @@
   "23019": {
     "name": "Past Self in Mirror",
     "quality": "5",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -986,7 +986,7 @@
   "23020": {
     "name": "Baptism of Pure Thought",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -998,7 +998,7 @@
   "21035": {
     "name": "What Is Real?",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1010,7 +1010,7 @@
   "21036": {
     "name": "Dreamville Adventure",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1022,7 +1022,7 @@
   "21037": {
     "name": "Final Victor",
     "quality": "4",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1034,7 +1034,7 @@
   "21038": {
     "name": "Flames Afar",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1046,7 +1046,7 @@
   "21039": {
     "name": "Destiny's Threads Forewoven",
     "quality": "4",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1058,7 +1058,7 @@
   "21040": {
     "name": "The Day The Cosmos Fell",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1070,7 +1070,7 @@
   "21041": {
     "name": "It's Showtime",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1082,7 +1082,7 @@
   "21042": {
     "name": "Indelible Promise",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1094,7 +1094,7 @@
   "23021": {
     "name": "Earthly Escapade",
     "quality": "5",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -1106,7 +1106,7 @@
   "23022": {
     "name": "Reforged Remembrance",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1118,7 +1118,7 @@
   "21043": {
     "name": "Concert for Two",
     "quality": "4",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1130,7 +1130,7 @@
   "23023": {
     "name": "Inherently Unjust Destiny",
     "quality": "5",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1142,7 +1142,7 @@
   "23024": {
     "name": "Along the Passing Shore",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1154,7 +1154,7 @@
   "21044": {
     "name": "Boundless Choreo",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1166,7 +1166,7 @@
   "22002": {
     "name": "For Tomorrow's Journey",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1178,7 +1178,7 @@
   "23026": {
     "name": "Flowing Nightglow",
     "quality": "5",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1190,7 +1190,7 @@
   "23027": {
     "name": "Sailing Towards a Second Life",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1202,7 +1202,7 @@
   "21045": {
     "name": "After the Charmony Fall",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -1214,7 +1214,7 @@
   "23025": {
     "name": "Whereabouts Should Dreams Rest",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -1226,7 +1226,7 @@
   "23028": {
     "name": "Yet Hope Is Priceless",
     "quality": "5",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1238,7 +1238,7 @@
   "24004": {
     "name": "Eternal Calculus",
     "quality": "5",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1250,7 +1250,7 @@
   "21046": {
     "name": "Poised to Bloom",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1262,7 +1262,7 @@
   "23029": {
     "name": "Those Many Springs",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1274,7 +1274,7 @@
   "23030": {
     "name": "Dance at Sunset",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1286,7 +1286,7 @@
   "21047": {
     "name": "Shadowed by Night",
     "quality": "4",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -1298,7 +1298,7 @@
   "23031": {
     "name": "I Venture Forth to Hunt",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1310,7 +1310,7 @@
   "23032": {
     "name": "Scent Alone Stays True",
     "quality": "5",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1322,7 +1322,7 @@
   "21048": {
     "name": "Dream's Montage",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1334,7 +1334,7 @@
   "22003": {
     "name": "Ninja Record: Sound Hunt",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1346,7 +1346,7 @@
   "23033": {
     "name": "Ninjutsu Inscription: Dazzling Evilbreaker",
     "quality": "5",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1358,7 +1358,7 @@
   "23034": {
     "name": "A Grounded Ascent",
     "quality": "5",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -1370,7 +1370,7 @@
   "23035": {
     "name": "Long Road Leads Home",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1382,7 +1382,7 @@
   "20021": {
     "name": "Shadowburn",
     "quality": "3",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -1394,7 +1394,7 @@
   "20022": {
     "name": "Reminiscence",
     "quality": "3",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 635,
@@ -1406,7 +1406,7 @@
   "21050": {
     "name": "Victory In a Blink",
     "quality": "4",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -1418,7 +1418,7 @@
   "21051": {
     "name": "Geniuses' Greetings",
     "quality": "4",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1430,7 +1430,7 @@
   "21052": {
     "name": "Sweat Now, Cry Less",
     "quality": "4",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1442,7 +1442,7 @@
   "23036": {
     "name": "Time Woven Into Gold",
     "quality": "5",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1454,7 +1454,7 @@
   "23037": {
     "name": "Into the Unreachable Veil",
     "quality": "5",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1466,7 +1466,7 @@
   "23038": {
     "name": "If Time Were a Flower",
     "quality": "5",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 1270,
@@ -1478,7 +1478,7 @@
   "23039": {
     "name": "Flame of Blood, Blaze My Path",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1376,
@@ -1490,7 +1490,7 @@
   "24005": {
     "name": "Memory's Curtain Never Falls",
     "quality": "5",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1502,7 +1502,7 @@
   "22004": {
     "name": "The Great Cosmic Enterprise",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1514,7 +1514,7 @@
   "23040": {
     "name": "Make Farewells More Beautiful",
     "quality": "5",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1270,
@@ -1526,7 +1526,7 @@
   "23041": {
     "name": "Life Should Be Cast to Flames",
     "quality": "5",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1538,7 +1538,7 @@
   "23042": {
     "name": "Long May Rainbows Adorn the Sky",
     "quality": "5",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -1550,7 +1550,7 @@
   "23043": {
     "name": "Lies Dance on the Breeze",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1562,7 +1562,7 @@
   "21053": {
     "name": "Journey, Forever Peaceful",
     "quality": "4",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1574,7 +1574,7 @@
   "21054": {
     "name": "The Story's Next Page",
     "quality": "4",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1586,7 +1586,7 @@
   "21055": {
     "name": "Unto Tomorrow's Morrow",
     "quality": "4",
-    "type": "Abundance",
+    "type": "ABUNDANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1598,7 +1598,7 @@
   "21056": {
     "name": "In Pursuit of the Wind",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1610,7 +1610,7 @@
   "21057": {
     "name": "The Flower Remembers",
     "quality": "4",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1622,7 +1622,7 @@
   "21058": {
     "name": "A Trail of Bygone Blood",
     "quality": "4",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1634,7 +1634,7 @@
   "21060": {
     "name": "A Dream Scented in Wheat",
     "quality": "4",
-    "type": "Erudition",
+    "type": "ERUDITION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1646,7 +1646,7 @@
   "21061": {
     "name": "Holiday Thermae Escapade",
     "quality": "4",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1658,7 +1658,7 @@
   "21062": {
     "name": "See You at the End",
     "quality": "4",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1670,7 +1670,7 @@
   "23044": {
     "name": "Thus Burns the Dawn",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1682,7 +1682,7 @@
   "23045": {
     "name": "A Thankless Coronation",
     "quality": "5",
-    "type": "Destruction",
+    "type": "DESTRUCTION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1694,7 +1694,7 @@
   "23046": {
     "name": "The Hell Where Ideals Burn",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1706,7 +1706,7 @@
   "22005": {
     "name": "The Forever Victual",
     "quality": "4",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1718,7 +1718,7 @@
   "23047": {
     "name": "Why Does the Ocean Sing",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1730,7 +1730,7 @@
   "23048": {
     "name": "Epoch Etched in Golden Blood",
     "quality": "5",
-    "type": "Harmony",
+    "type": "HARMONY",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1742,7 +1742,7 @@
   "23049": {
     "name": "To Evernight's Stars",
     "quality": "5",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -1754,7 +1754,7 @@
   "23051": {
     "name": "Though Worlds Apart",
     "quality": "5",
-    "type": "Preservation",
+    "type": "PRESERVATION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1766,7 +1766,7 @@
   "22006": {
     "name": "Fly Into a Pink Tomorrow",
     "quality": "4",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -1778,7 +1778,7 @@
   "23052": {
     "name": "This Love, Forever",
     "quality": "5",
-    "type": "Remembrance",
+    "type": "REMEMBRANCE",
     "stats": {
       "constant": {
         "BASE_HP": 1270,
@@ -1790,7 +1790,7 @@
   "23050": {
     "name": "Never Forget Her Flame",
     "quality": "5",
-    "type": "Nihility",
+    "type": "NIHILITY",
     "stats": {
       "constant": {
         "BASE_HP": 1164,
@@ -1802,7 +1802,7 @@
   "20023": {
     "name": "Sneering",
     "quality": "3",
-    "type": "Elation",
+    "type": "ELATION",
     "stats": {
       "constant": {
         "BASE_HP": 741,
@@ -1814,7 +1814,7 @@
   "20024": {
     "name": "Lingering Tear",
     "quality": "3",
-    "type": "Elation",
+    "type": "ELATION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -1826,7 +1826,7 @@
   "21064": {
     "name": "Mushy Shroomy's Adventures",
     "quality": "4",
-    "type": "Elation",
+    "type": "ELATION",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -1838,7 +1838,7 @@
   "21065": {
     "name": "Today's Good Luck",
     "quality": "4",
-    "type": "Elation",
+    "type": "ELATION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
@@ -1850,7 +1850,7 @@
   "23053": {
     "name": "Dazzled by a Flowery World",
     "quality": "5",
-    "type": "Elation",
+    "type": "ELATION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1862,7 +1862,7 @@
   "23054": {
     "name": "When She Decided to See",
     "quality": "5",
-    "type": "Elation",
+    "type": "ELATION",
     "stats": {
       "constant": {
         "BASE_HP": 1058,
@@ -1874,7 +1874,7 @@
   "23056": {
     "name": "The Finale of a Lie",
     "quality": "5",
-    "type": "Hunt",
+    "type": "HUNT",
     "stats": {
       "constant": {
         "BASE_HP": 847,
@@ -1886,7 +1886,7 @@
   "24006": {
     "name": "Elation Brimming With Blessings",
     "quality": "5",
-    "type": "Elation",
+    "type": "ELATION",
     "stats": {
       "constant": {
         "BASE_HP": 953,
