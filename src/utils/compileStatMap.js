@@ -83,8 +83,8 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
       if (!memberData || (member === characterId)) continue;
 
       const isNext = (characterIndex === team.length - 1)
-        ? index === 0
-        : index === characterIndex + 1;
+        ? Number(index) === 0
+        : Number(index) === characterIndex + 1;
       const memberBuffTypes = ["ally", "team", ...(isFirst ? ["first"] : []), ...(isNext ? ["next"] : [])];
 
       if (memberData.preset) {
