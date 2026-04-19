@@ -1,4 +1,4 @@
-import { CHARACTERS, WEAPONS, STATS } from '@/data';
+import { CHARACTERS, WEAPONS, MISC } from '@/data';
 import template from '@/template';
 import ENKA_STAT_MAP from './ENKA_STAT_MAP.json';
 

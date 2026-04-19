@@ -77,7 +77,7 @@
     "buffs": {
       "self": {
         "constant": {
-          "PERCENT_HA": 48
+          "PERCENT_HA": 0.48
         }
       }
     }

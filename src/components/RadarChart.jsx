@@ -1,7 +1,7 @@
 import { Card, Box, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip, Legend } from 'recharts';
-import { CHARACTERS, STATS } from '@/data';
+import { CHARACTERS, MISC } from '@/data';
 import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
 import { useTheme } from '@mui/material/styles';
 
@@ -9,7 +9,7 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = STATS[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
   const calcs = CHARACTERS[gameId][characterId]?.calcs;
 
   if (isLoading || !build || !combinedSimEquips) return null;
@@ -20,11 +20,11 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
   }));
 
   const damageType = calcs?.[0].type.element;
-  const nonDamageTypes = Object.keys(STATS[gameId].ELEMENT_COLORS)
+  const nonDamageTypes = Object.keys(MISC[gameId].ELEMENT_COLORS)
     .map(element => element.toUpperCase())
     .filter(element => element !== damageType);
 
-  const data = Object.entries(STATS[gameId].MENU_STATS)
+  const data = Object.entries(MISC[gameId].MENU_STATS)
     .filter(([stat]) => damageType === 'PHYSICAL'
       ? !nonDamageTypes.includes(stat)
       : !nonDamageTypes.includes(stat) && stat !== 'PHYSICAL'
@@ -94,10 +94,10 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
                   }}
                 >
                   <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
-                    {STATS[gameId].MENU_STATS[label].label}
+                    {MISC[gameId].MENU_STATS[label].label}
                   </Typography>
                   {payload.map((entry) => {
-                    const { isPercent } = STATS[gameId].MENU_STATS[label];
+                    const { isPercent } = MISC[gameId].MENU_STATS[label];
                     const totalValue = fullEntry[`${entry.dataKey}Raw`];
                     const displayValue = isPercent ? totalValue * 100 : totalValue;
                     const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && label === 'ER') ? 1 : 0;

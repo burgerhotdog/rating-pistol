@@ -8,14 +8,14 @@ import {
   YAxis,
   Tooltip,
 } from 'recharts';
-import { STATS, CHARACTERS } from '@/data';
+import { MISC, CHARACTERS } from '@/data';
 
 export const MainStatDistribution = ({ gameId, characterId, mainStatDist }) => {
   if (!mainStatDist) return null;
 
-  const { EQUIP_NAMES, MAIN_STAT_TYPES } = STATS[gameId];
+  const { EQUIP_NAMES, MAIN_STAT_TYPES } = MISC[gameId];
   const element = CHARACTERS[gameId][characterId].element;
-  const baseColor = STATS[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const baseColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
 
   if (!EQUIP_NAMES) return null;
 

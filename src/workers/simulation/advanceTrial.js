@@ -1,4 +1,4 @@
-import { STATS } from '@/data';
+import { MISC } from '@/data';
 import { computeDamage, computeTotalStat, compileStatMap } from "@/utils";
 import { weightedLottery } from './helpers/weightedLottery';
 import { matchPenalty } from './helpers/matchPenalty';
@@ -25,7 +25,7 @@ const STAMINA_DATA = {
 };
 
 function randomRoll(gameId, statId) {
-  const { VALUE } = STATS[gameId].SUB_STAT_TYPES[statId];
+  const { VALUE } = MISC[gameId].SUB_STAT_TYPES[statId];
 
   if (gameId === "genshin-impact") {
     const options = [1, 0.9, 0.8, 0.7];
@@ -41,7 +41,7 @@ function randomRoll(gameId, statId) {
 }
 
 function assignSubStats(gameId, mainStatId) {
-  const optionsMap = STATS[gameId].SUB_STAT_TYPES;
+  const optionsMap = MISC[gameId].SUB_STAT_TYPES;
   const statPool = Object.entries(optionsMap)
     .filter(([id]) => id !== mainStatId)
     .map(([id, { WEIGHT }]) => [id, WEIGHT]);
@@ -67,7 +67,7 @@ function assignSubStats(gameId, mainStatId) {
 }
 
 function assignMainStat(gameId, slotIndex) {
-  const optionsMap = STATS[gameId].MAIN_STAT_TYPES[slotIndex];
+  const optionsMap = MISC[gameId].MAIN_STAT_TYPES[slotIndex];
   const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
   const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)]
   const mainStatValue =  optionsMap[mainStatId].VALUE;

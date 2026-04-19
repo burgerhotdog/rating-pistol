@@ -2,7 +2,7 @@ import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } f
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTERS, STATS } from "@/data";
+import { CHARACTERS, MISC } from "@/data";
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -17,7 +17,7 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLo
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = STATS[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
   if (isLoading || !weeklyScores) return null;
 
   const benchmarkRating = weeklyScores[weeklyScores.length - 1];

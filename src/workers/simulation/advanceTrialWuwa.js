@@ -1,4 +1,4 @@
-import { STATS } from '@/data';
+import { MISC } from '@/data';
 import { computeDamage, computeTotalStat, compileStatMap } from "@/utils";
 import { weightedLottery } from './helpers/weightedLottery';
 import { matchPenalty } from './helpers/matchPenalty';
@@ -44,7 +44,7 @@ const randomRoll = (statId) => {
 };
 
 function assignSubStats() {
-  const optionsMap = STATS["wuthering-waves"].SUB_STAT_TYPES;
+  const optionsMap = MISC["wuthering-waves"].SUB_STAT_TYPES;
   const statPool = Object.entries(optionsMap)
     .map(([id, { WEIGHT }]) => [id, WEIGHT]);
 
@@ -60,7 +60,7 @@ function assignSubStats() {
 }
 
 function assignMainStat(costIndex) {
-  const optionsMap = STATS["wuthering-waves"].MAIN_STAT_TYPES[costIndex];
+  const optionsMap = MISC["wuthering-waves"].MAIN_STAT_TYPES[costIndex];
   const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
   const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)];
   const mainStatValue = optionsMap[mainStatId].VALUE;
@@ -91,7 +91,7 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[4];
+    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[4];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
     const subStatList = assignSubStats();
 
@@ -129,7 +129,7 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[3];
+    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[3];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
     const subStatList = assignSubStats();
 
@@ -185,7 +185,7 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
 
     // Assign main stat flat values
     // Randomly assign and upgrade sub stats
-    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[costIndex];
+    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[costIndex];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
     const subStatList = assignSubStats();
 

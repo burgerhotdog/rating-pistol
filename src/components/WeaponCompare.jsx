@@ -2,13 +2,13 @@ import { useMemo } from 'react';
 import { Box, Card, Tooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useTheme } from '@mui/material/styles';
-import { CHARACTERS, WEAPONS, STATS } from '@/data';
+import { CHARACTERS, WEAPONS, MISC } from '@/data';
 import { computeDamage } from '@/utils';
 
 export const WeaponCompare = ({ gameId, characterId, build, calcs, team }) => {
   const theme = useTheme();
   const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = STATS[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
 
   const results = useMemo(() => {
     if (!build || !calcs) return [];

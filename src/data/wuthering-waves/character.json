@@ -14,9 +14,19 @@
       }
     },
     "buffs": {
-      "ally": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      "next": {
         "constant": {
           "AMP_BA": 0.38
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
         }
       }
     }
@@ -103,7 +113,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_HA": 0.38
         }
@@ -140,7 +150,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_RL": 0.25,
           "AMP_ELECTRO": 0.2
@@ -248,7 +258,7 @@
             "dmgType": [
               "ELECTRO",
               "RS",
-              "COORD"
+              "CA"
             ],
             "hits": [
               {
@@ -309,7 +319,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_AERO": 0.23
         }
@@ -456,7 +466,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_RL": 0.38
         }
@@ -501,7 +511,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_RS": 0.38
         }
@@ -523,7 +533,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_HAVOC": 0.23
         }
@@ -545,7 +555,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_RL": 0.25,
           "AMP_FUSION": 0.2
@@ -892,7 +902,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_RS": 0.25,
           "AMP_GLACIO": 0.2
@@ -1014,7 +1024,7 @@
             "dmgType": [
               "GLACIO",
               "BA",
-              "COORD"
+              "CA"
             ],
             "hits": [
               {
@@ -1202,9 +1212,9 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
-          "AMP_COORD": 1
+          "AMP_CA": 1
         }
       }
     }
@@ -1248,7 +1258,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_RL": 0.38
         }
@@ -1484,7 +1494,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_BA": 0.25,
           "AMP_HAVOC": 0.2
@@ -1532,7 +1542,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_RS": 0.25,
           "AMP_FUSION": 0.2
@@ -1628,7 +1638,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_RS": 0.25,
           "AMP_HAVOC": 0.2
@@ -1923,7 +1933,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_HA": 0.5
         }
@@ -1985,7 +1995,7 @@
       }
     },
     "buffs": {
-      "ally": {
+      "next": {
         "constant": {
           "AMP_ES": 0.5
         }

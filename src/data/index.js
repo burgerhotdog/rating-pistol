@@ -55,13 +55,13 @@ export const RATING = {
   "zenless-zone-zero": rating_zzz,
 };
 
-import GI_GENERAL from './genshin-impact/GENERAL.json';
-import HSR_GENERAL from './honkai-star-rail/GENERAL.json';
-import WW_GENERAL from './wuthering-waves/GENERAL.json';
-import ZZZ_GENERAL from './zenless-zone-zero/GENERAL.json';
-export const STATS = {
-  "genshin-impact": GI_GENERAL,
-  "honkai-star-rail": HSR_GENERAL,
-  "wuthering-waves": WW_GENERAL,
-  "zenless-zone-zero": ZZZ_GENERAL,
+import GI_MISC from './genshin-impact/misc.json';
+import HSR_MISC from './honkai-star-rail/misc.json';
+import WW_MISC from './wuthering-waves/misc.json';
+import ZZZ_MISC from './zenless-zone-zero/misc.json';
+export const MISC = {
+  "genshin-impact": GI_MISC,
+  "honkai-star-rail": HSR_MISC,
+  "wuthering-waves": WW_MISC,
+  "zenless-zone-zero": ZZZ_MISC,
 };

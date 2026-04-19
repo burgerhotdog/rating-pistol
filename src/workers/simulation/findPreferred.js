@@ -1,9 +1,9 @@
-import { STATS } from "@/data";
+import { MISC } from "@/data";
 import { computeDamage, compileStatMap, computeTotalStat } from "@/utils";
 import { matchPenalty } from './helpers/matchPenalty';
 
 export function findPreferredWuwa(trial, gameId, characterId, calcs, team, matchTargets) {
-  const { MAIN_STAT_TYPES } = STATS[gameId];
+  const { MAIN_STAT_TYPES } = MISC[gameId];
 
   return MAIN_STAT_TYPES.map((statOptions, costIndex) => {
     if (costIndex === 0 || costIndex === 2) return [];
@@ -32,7 +32,7 @@ export function findPreferredWuwa(trial, gameId, characterId, calcs, team, match
 
 
 export function findPreferred(trial, gameId, characterId, calcs, team, matchTargets) {
-  const { MAIN_STAT_TYPES } = STATS[gameId];
+  const { MAIN_STAT_TYPES } = MISC[gameId];
 
   return MAIN_STAT_TYPES.map((statOptions, slotIndex) => {
     if (Object.keys(statOptions).length === 1) {

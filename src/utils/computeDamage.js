@@ -1,4 +1,4 @@
-import { RATING, CHARACTERS, WEAPONS, STATS } from "@/data";
+import { RATING, CHARACTERS, WEAPONS, MISC } from "@/data";
 import { mergeStatMaps, computeTotalStat, compileStatMap } from "@/utils";
 
 export function computeDamage(gameId, characterId, build, calcs, team) {
@@ -23,6 +23,6 @@ export function computeDamageBreakdown(gameId, characterId, build, calcs, team) 
   }
 
   return Object.entries(grouped)
-    .map(([abilityId, value]) => ({ name: STATS[gameId].ABILITY_TYPES[abilityId], value }))
+    .map(([abilityId, value]) => ({ name: MISC[gameId].ABILITY_TYPES[abilityId], value }))
     .sort((a, b) => b.value - a.value);
 }

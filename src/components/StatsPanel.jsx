@@ -1,11 +1,11 @@
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
-import { STATS, CHARACTERS, WEAPONS } from '@/data';
+import { MISC, CHARACTERS, WEAPONS } from '@/data';
 import { computeTotalStat, compileStatMap } from '@/utils';
 import { CustomAvatar } from "@/components";
 import { CharacterPicker } from "@/components/CharacterPicker";
 
 export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => {
-  const { MENU_STATS } = STATS[gameId];
+  const { MENU_STATS } = MISC[gameId];
 
   const statMap = build ? compileStatMap(gameId, characterId, build, [], "menu") : {};
 
@@ -32,7 +32,7 @@ export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => 
             variant="outlined"
             size="small"
             sx={{
-              color: STATS[gameId]?.ELEMENT_COLORS[CHARACTERS[gameId]?.[characterId]?.element]
+              color: MISC[gameId]?.ELEMENT_COLORS[CHARACTERS[gameId]?.[characterId]?.element]
             }}
           />
         }

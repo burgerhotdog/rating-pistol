@@ -14,7 +14,7 @@ import {
   Button,
   IconButton,
 } from '@mui/material';
-import { STATS, CHARACTERS, WEAPONS } from '@/data';
+import { MISC, CHARACTERS, WEAPONS } from '@/data';
 import { CustomAvatar } from "@/components";
 
 export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
