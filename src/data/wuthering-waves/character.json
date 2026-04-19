@@ -165,6 +165,14 @@
         }
       }
     },
+    "preset": {
+      "setBonuses": [
+        [
+          "13",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
