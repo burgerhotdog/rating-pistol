@@ -1,4 +1,4 @@
-import { computeTotalStat, compileStatMap } from "@/utils";
+import { computeTotalStat, compileStatMap, mergeStatMaps } from "@/utils";
 import { CHARACTERS } from "@/data"; 
 
 const CHARACTER_LEVEL = 90;
@@ -7,9 +7,10 @@ const BASE_RES = 0.1;
 
 export function computeBase(statMap, hits) {
   let baseDamage = 0;
+  const mvMult = 1 + (statMap.RAW_MV ?? 0);
   for (const hit of hits) {
     const { attr = "ATK", mv, times = 1 } = hit;
-    baseDamage += computeTotalStat(attr, statMap) * mv * times;
+    baseDamage += computeTotalStat(attr, statMap) * (mv * mvMult) * times;
   }
   return baseDamage;
 }
@@ -65,11 +66,12 @@ export function computeDamage(characterId, build, calcs, team) {
 
   let damage = 0;
   for (const ability of calcs.rotation) {
-    const { dmgType, hits, times = 1 } = ability;
+    const { dmgType, hits, bonus, times = 1 } = ability;
+    const statMapWithBonus = bonus ? mergeStatMaps(statMap, bonus) : statMap;
 
-    const baseDmg = computeBase(statMap, hits);
-    const bonuses = computeBonuses(statMap, dmgType);
-    const reductions = computeReductions(statMap, element, dmgType);
+    const baseDmg = computeBase(statMapWithBonus, hits);
+    const bonuses = computeBonuses(statMapWithBonus, dmgType);
+    const reductions = computeReductions(statMapWithBonus, element, dmgType);
 
     damage += baseDmg * bonuses * reductions * times;
   }

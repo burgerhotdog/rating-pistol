@@ -89,7 +89,7 @@ def character_constant_stats_parser(game_id, data):
                 "Crit. Rate Up": "PERCENT_CR",
                 "Crit. DMG+": "PERCENT_CD",
                 "Crit. DMG Up": "PERCENT_CD",
-                "Healing Bonus+": "PERCENT_OHB",
+                "Healing Bonus+": "PERCENT_HB",
                 "Glacio DMG Bonus+": "PERCENT_GLACIO",
                 "Fusion DMG Bonus+": "PERCENT_FIRE",
                 "Electro DMG Bonus+": "PERCENT_ICE",
@@ -141,7 +141,18 @@ def character_constant_stats_parser(game_id, data):
                     stat_value = core_passive_bonus["value"]
                 constant[stat_id] = constant.get(stat_id, 0) + stat_value
 
-    return { constant }
+    for key, value in constant.items():
+        # Special case
+        if game_id == "zenless-zone-zero" and key == "BASE_ER":
+            constant[key] = round(value, 2)
+
+        elif key.startswith(("BASE_", "FLAT_")):
+            constant[key] = round(value)
+
+        elif key.startswith("PERCENT_"):
+            constant[key] = round(value, 3)
+
+    return { "constant": constant }
 
 def weapon_constant_stats_parser(game_id, data):
     constant = {}
@@ -223,7 +234,7 @@ def weapon_constant_stats_parser(game_id, data):
             stat_id = stat_map[data["rand_property"]["name"]]
             constant[stat_id] = (data["rand_property"]["value"] if stat_id.startswith("FLAT") else data["rand_property"]["value"] / 10000) * 2.5
 
-    return { constant }
+    return { "constant": constant }
 
 GAME_INFO = [
     {

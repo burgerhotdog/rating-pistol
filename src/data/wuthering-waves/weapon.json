@@ -1376,7 +1376,7 @@
       },
       "ally": {
         "constant": {
-          "PERCENT_FRAZZLE": 0.3
+          "AMP_FRAZZLE": 0.3
         }
       }
     }
@@ -1927,6 +1927,26 @@
           "PERCENT_SPECTRO": 0.2,
           "AMP_BA": 0.2,
           "IGNORE_DEF_BA": 0.1
+        }
+      }
+    }
+  },
+  "21040066": {
+    "name": "Solsworn Ciphers",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "constant": {
+        "BASE_ATK": 587,
+        "PERCENT_CD": 0.486,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "AMP_ES": 0.32,
+          "IGNORE_DEF_ES": 0.1
         }
       }
     }

@@ -29,6 +29,14 @@
           "PERCENT_ATK": 0.2
         }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1103": {
@@ -41,16 +49,41 @@
         "BASE_HP": 12812,
         "BASE_ATK": 212,
         "BASE_DEF": 1002,
-        "PERCENT_OHB": 0.12,
+        "PERCENT_HB": 0.12,
         "PERCENT_HP": 0.12
       }
     },
     "buffs": {
-      "ally": {
+      "self": {
+        "constant": {
+          "PERCENT_HP": 0.12,
+          "PERCENT_GLACIO": 0.15,
+          "PERCENT_HB": 0.15
+        }
+      },
+      "next": {
         "constant": {
           "AMP_ALL": 0.15
         }
+      },
+      "first": {
+        "constant": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_GLACIO": 0.12
+        }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "7",
+          "5"
+        ]
+      ]
     }
   },
   "1104": {
@@ -66,6 +99,22 @@
         "PERCENT_GLACIO": 0.12,
         "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_GLACIO": 0.5
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21040015",
+      "setBonuses": [
+        [
+          "1",
+          "5"
+        ]
+      ]
     }
   },
   "1202": {
@@ -81,6 +130,26 @@
         "PERCENT_FIRE": 0.12,
         "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.6
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_BA": 0.25
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "2",
+          "5"
+        ]
+      ]
     }
   },
   "1203": {
@@ -96,6 +165,22 @@
         "PERCENT_FIRE": 0.12,
         "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_FUSION": 0.1
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21050015",
+      "setBonuses": [
+        [
+          "2",
+          "5"
+        ]
+      ]
     }
   },
   "1204": {
@@ -116,6 +201,11 @@
       "next": {
         "constant": {
           "AMP_HA": 0.38
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
         }
       }
     },
@@ -141,6 +231,22 @@
         "PERCENT_CD": 0.16,
         "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.1
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21010015",
+      "setBonuses": [
+        [
+          "3",
+          "5"
+        ]
+      ]
     }
   },
   "1302": {
@@ -166,6 +272,7 @@
       }
     },
     "preset": {
+      "weaponId": "21050016",
       "setBonuses": [
         [
           "13",
@@ -303,6 +410,26 @@
         "PERCENT_ICE": 0.12,
         "PERCENT_DEF": 0.152
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.5
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_DEF": 0.32
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "13",
+          "5"
+        ]
+      ]
     }
   },
   "1402": {
@@ -318,6 +445,27 @@
         "PERCENT_AERO": 0.12,
         "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_AERO": 0.23,
+          "PERCENT_RS": 0.4
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1403": {
@@ -335,11 +483,26 @@
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.15,
+          "PERCENT_AERO": 0.25,
+          "PERCENT_CR": 0.08
+        }
+      },
       "next": {
         "constant": {
           "AMP_AERO": 0.23
         }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1404": {
@@ -355,6 +518,15 @@
         "PERCENT_CR": 0.08,
         "PERCENT_ATK": 0.12
       }
+    },
+    "preset": {
+      "weaponId": "21010016",
+      "setBonuses": [
+        [
+          "4",
+          "5"
+        ]
+      ]
     },
     "calcs": [
       {
@@ -487,6 +659,14 @@
           "AMP_RL": 0.38
         }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1503": {
@@ -499,7 +679,7 @@
         "BASE_HP": 14237,
         "BASE_ATK": 337,
         "BASE_DEF": 1099,
-        "PERCENT_OHB": 0.12,
+        "PERCENT_HB": 0.12,
         "PERCENT_ATK": 0.12
       }
     },
@@ -535,11 +715,30 @@
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.4,
+          "PERCENT_HA": 0.4
+        }
+      },
       "next": {
         "constant": {
           "AMP_RS": 0.38
         }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_DEF": 0.15
+        }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1602": {
@@ -557,11 +756,31 @@
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.3,
+          "PERCENT_RL": 0.3,
+          "PERCENT_HAVOC": 0.3
+        }
+      },
       "next": {
         "constant": {
           "AMP_HAVOC": 0.23
         }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1205": {
@@ -586,6 +805,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21020016",
+      "setBonuses": [
+        [
+          "2",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -594,7 +822,7 @@
         },
         "rotation": [
           {
-            "name" : "Intro",
+            "name": "Intro",
             "dmgType": [
               "FUSION",
               "IS"
@@ -610,7 +838,7 @@
             ]
           },
           {
-            "name" : "True Sight: Charge",
+            "name": "True Sight: Charge",
             "dmgType": [
               "FUSION",
               "RS"
@@ -625,7 +853,7 @@
             ]
           },
           {
-            "name" : "Mid-air Heavy",
+            "name": "Mid-air Heavy",
             "dmgType": [
               "FUSION",
               "HA"
@@ -637,7 +865,7 @@
             ]
           },
           {
-            "name" : "Basic P3",
+            "name": "Basic P3",
             "dmgType": [
               "FUSION",
               "BA"
@@ -650,7 +878,7 @@
             ]
           },
           {
-            "name" : "Basic P4",
+            "name": "Basic P4",
             "dmgType": [
               "FUSION",
               "BA"
@@ -666,7 +894,7 @@
             ]
           },
           {
-            "name" : "True Sight: Conquest",
+            "name": "True Sight: Conquest",
             "dmgType": [
               "FUSION",
               "RS"
@@ -686,7 +914,7 @@
             "times": 3
           },
           {
-            "name" : "Skill",
+            "name": "Skill",
             "dmgType": [
               "FUSION",
               "RS"
@@ -703,7 +931,7 @@
             "times": 2
           },
           {
-            "name" : "Forte: Heavy: Flaming Sacrifice",
+            "name": "Forte: Heavy: Flaming Sacrifice",
             "dmgType": [
               "FUSION",
               "RS"
@@ -720,7 +948,7 @@
             "times": 2
           },
           {
-            "name" : "Ultimate",
+            "name": "Ultimate",
             "dmgType": [
               "FUSION",
               "RL"
@@ -752,6 +980,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21010026",
+      "setBonuses": [
+        [
+          "5",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -760,7 +997,7 @@
         },
         "rotation": [
           {
-            "name" : "Intro",
+            "name": "Intro",
             "dmgType": [
               "SPECTRO",
               "IS"
@@ -772,7 +1009,7 @@
             ]
           },
           {
-            "name" : "Skill: Overflowing Radiance",
+            "name": "Skill: Overflowing Radiance",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -792,7 +1029,7 @@
             ]
           },
           {
-            "name" : "Incarnation: Skill: Crescent Divinity",
+            "name": "Incarnation: Skill: Crescent Divinity",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -811,7 +1048,7 @@
             ]
           },
           {
-            "name" : "Incarnation: Basic P1",
+            "name": "Incarnation: Basic P1",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -823,7 +1060,7 @@
             ]
           },
           {
-            "name" : "Incarnation: Basic P2",
+            "name": "Incarnation: Basic P2",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -839,7 +1076,7 @@
             ]
           },
           {
-            "name" : "Incarnation: Basic P3",
+            "name": "Incarnation: Basic P3",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -854,7 +1091,7 @@
             ]
           },
           {
-            "name" : "Incarnation: Basic P4",
+            "name": "Incarnation: Basic P4",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -870,7 +1107,7 @@
             ]
           },
           {
-            "name" : "Skill: Illuminous Epiphany",
+            "name": "Skill: Illuminous Epiphany",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -890,7 +1127,7 @@
             ]
           },
           {
-            "name" : "Ultimate",
+            "name": "Ultimate",
             "dmgType": [
               "SPECTRO",
               "RL"
@@ -933,6 +1170,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21050026",
+      "setBonuses": [
+        [
+          "13",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -941,7 +1187,7 @@
         },
         "rotation": [
           {
-            "name" : "Intro",
+            "name": "Intro",
             "dmgType": [
               "GLACIO",
               "IS"
@@ -954,7 +1200,7 @@
             ]
           },
           {
-            "name" : "Basic P1",
+            "name": "Basic P1",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -967,7 +1213,7 @@
             ]
           },
           {
-            "name" : "Basic P2",
+            "name": "Basic P2",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -980,7 +1226,7 @@
             ]
           },
           {
-            "name" : "Basic P3",
+            "name": "Basic P3",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -992,7 +1238,7 @@
             ]
           },
           {
-            "name" : "Skill: Manifestation",
+            "name": "Skill: Manifestation",
             "dmgType": [
               "GLACIO",
               "RS"
@@ -1005,7 +1251,7 @@
             ]
           },
           {
-            "name" : "Forte: Heavy: Conjuration",
+            "name": "Forte: Heavy: Conjuration",
             "dmgType": [
               "GLACIO",
               "HA"
@@ -1018,7 +1264,7 @@
             ]
           },
           {
-            "name" : "Forte: Skill: Stroke of Genius",
+            "name": "Forte: Skill: Stroke of Genius",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -1031,7 +1277,7 @@
             "times": 2
           },
           {
-            "name" : "Forte: Skill: Creation's Zenith",
+            "name": "Forte: Skill: Creation's Zenith",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -1044,7 +1290,7 @@
             ]
           },
           {
-            "name" : "Ultimate",
+            "name": "Ultimate",
             "dmgType": [
               "GLACIO",
               "BA",
@@ -1078,6 +1324,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21040016",
+      "setBonuses": [
+        [
+          "3",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1086,7 +1341,7 @@
         },
         "rotation": [
           {
-            "name" : "Intro",
+            "name": "Intro",
             "dmgType": [
               "ELECTRO",
               "IS"
@@ -1099,7 +1354,7 @@
             ]
           },
           {
-            "name" : "Ultimate",
+            "name": "Ultimate",
             "dmgType": [
               "ELECTRO",
               "RL"
@@ -1111,7 +1366,7 @@
             ]
           },
           {
-            "name" : "Ultimate: Skill: Divergence",
+            "name": "Ultimate: Skill: Divergence",
             "dmgType": [
               "ELECTRO",
               "RS"
@@ -1129,7 +1384,7 @@
             "times": 2
           },
           {
-            "name" : "Forte: Mid-Air: Revamp",
+            "name": "Forte: Mid-Air: Revamp",
             "dmgType": [
               "ELECTRO",
               "RL"
@@ -1147,7 +1402,7 @@
             "times": 2
           },
           {
-            "name" : "Forte: Skill: Law of Reigns",
+            "name": "Forte: Skill: Law of Reigns",
             "dmgType": [
               "ELECTRO",
               "RL"
@@ -1164,7 +1419,7 @@
             "times": 3
           },
           {
-            "name" : "Ultimate: Basic: Pivot - Impale P1",
+            "name": "Ultimate: Basic: Pivot - Impale P1",
             "dmgType": [
               "ELECTRO",
               "BA"
@@ -1176,7 +1431,7 @@
             ]
           },
           {
-            "name" : "Ultimate: Basic: Pivot - Impale P2",
+            "name": "Ultimate: Basic: Pivot - Impale P2",
             "dmgType": [
               "ELECTRO",
               "BA"
@@ -1189,7 +1444,7 @@
             ]
           },
           {
-            "name" : "Ultimate: Basic: Pivot - Impale P3",
+            "name": "Ultimate: Basic: Pivot - Impale P3",
             "dmgType": [
               "ELECTRO",
               "BA"
@@ -1202,7 +1457,7 @@
             ]
           },
           {
-            "name" : "Outro",
+            "name": "Outro",
             "dmgType": [
               "ELECTRO",
               "OS"
@@ -1241,6 +1496,14 @@
           "AMP_CA": 1
         }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "7",
+          "5"
+        ]
+      ]
     }
   },
   "1505": {
@@ -1253,11 +1516,16 @@
         "BASE_HP": 16712,
         "BASE_ATK": 287,
         "BASE_DEF": 1099,
-        "PERCENT_OHB": 0.12,
+        "PERCENT_HB": 0.12,
         "PERCENT_HP": 0.12
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ER": 0.1
+        }
+      },
       "team": {
         "constant": {
           "AMP_ALL": 0.15,
@@ -1291,11 +1559,29 @@
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.3
+        }
+      },
       "next": {
         "constant": {
-          "AMP_RL": 0.38
+          "AMP_RS": 0.38
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
         }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1603": {
@@ -1312,6 +1598,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21020026",
+      "setBonuses": [
+        [
+          "6",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1320,7 +1615,7 @@
         },
         "rotation": [
           {
-            "name" : "Intro",
+            "name": "Intro",
             "dmgType": [
               "HAVOC",
               "IS"
@@ -1332,7 +1627,7 @@
             ]
           },
           {
-            "name" : "Skill: Crimson Blossom",
+            "name": "Skill: Crimson Blossom",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1345,7 +1640,7 @@
             ]
           },
           {
-            "name" : "Ultimate",
+            "name": "Ultimate",
             "dmgType": [
               "HAVOC",
               "RL"
@@ -1357,7 +1652,7 @@
             ]
           },
           {
-            "name" : "Skill: Basic: Vining Waltz P1",
+            "name": "Skill: Basic: Vining Waltz P1",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1370,7 +1665,7 @@
             "times": 2
           },
           {
-            "name" : "Skill: Basic: Vining Waltz P2",
+            "name": "Skill: Basic: Vining Waltz P2",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1384,7 +1679,7 @@
             "times": 2
           },
           {
-            "name" : "Skill: Basic: Vining Waltz P3",
+            "name": "Skill: Basic: Vining Waltz P3",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1398,7 +1693,7 @@
             "times": 2
           },
           {
-            "name" : "Skill: Basic: Blazing Waltz",
+            "name": "Skill: Basic: Blazing Waltz",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1412,7 +1707,7 @@
             "times": 2
           },
           {
-            "name" : "Skill: Basic: Vining Waltz P4",
+            "name": "Skill: Basic: Vining Waltz P4",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1426,7 +1721,7 @@
             "times": 2
           },
           {
-            "name" : "Forte: Skill: Ephemeral",
+            "name": "Forte: Skill: Ephemeral",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1438,7 +1733,7 @@
             ]
           },
           {
-            "name" : "Skill: Floral Ravage",
+            "name": "Skill: Floral Ravage",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1451,7 +1746,7 @@
             ]
           },
           {
-            "name" : "Outro",
+            "name": "Outro",
             "dmgType": [
               "HAVOC",
               "OS"
@@ -1486,6 +1781,22 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "IGNORE_DEF": 0.18
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21030016",
+      "setBonuses": [
+        [
+          "10",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1494,14 +1805,139 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "Intro",
+            "dmgType": [
+              "GLACIO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.7893
+              },
+              {
+                "mv": 0.5965,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Skill",
             "dmgType": [
               "GLACIO",
               "RS"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 1.4411,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Skill: Chromatic Splendor",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.1273,
+                "times": 2
+              },
+              {
+                "mv": 3.3818
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Mid-air Attack",
+            "dmgType": [
+              "GLACIO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.0478
+              }
+            ]
+          },
+          {
+            "name": "Forte: Heavy: Imminent Oblivion",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.6683,
+                "times": 5
+              },
+              {
+                "mv": 5.0121
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "bonus": {
+              "RAW_MV": 0.8
+            },
+            "hits": [
+              {
+                "mv": 4.0271
+              }
+            ]
+          },
+          {
+            "name": "Ultimate: Death Knell",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "bonus": {
+              "RAW_MV": 0.8
+            },
+            "hits": [
+              {
+                "mv": 1.8364
+              },
+              {
+                "mv": 0.145,
+                "times": 4
+              }
+            ],
+            "times": 4
+          },
+          {
+            "name": "Ultimate: Fatal Finale",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "bonus": {
+              "RAW_MV": 0.8
+            },
+            "hits": [
+              {
+                "mv": 6.4433
+              }
+            ]
+          },
+          {
+            "name": "Outro",
+            "dmgType": [
+              "GLACIO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 7.942
               }
             ]
           }
@@ -1534,6 +1970,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21040026",
+      "setBonuses": [
+        [
+          "12",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1542,7 +1987,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "HAVOC",
               "RS"
@@ -1582,6 +2027,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21020036",
+      "setBonuses": [
+        [
+          "14",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1590,7 +2044,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "FUSION",
               "BA"
@@ -1630,6 +2084,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21050046",
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1638,7 +2101,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "SPECTRO",
               "HA"
@@ -1678,6 +2141,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21050056",
+      "setBonuses": [
+        [
+          "12",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1686,7 +2158,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1725,6 +2197,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21030026",
+      "setBonuses": [
+        [
+          "16",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1733,7 +2214,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "AERO",
               "RL"
@@ -1765,6 +2246,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21040036",
+      "setBonuses": [
+        [
+          "11",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1773,7 +2263,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "SPECTRO",
               "HA",
@@ -1806,6 +2296,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21010036",
+      "setBonuses": [
+        [
+          "18",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1814,7 +2313,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "FUSION",
               "RL"
@@ -1846,6 +2345,15 @@
         "PERCENT_HP": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21020056",
+      "setBonuses": [
+        [
+          "17",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1854,7 +2362,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "AERO",
               "BA",
@@ -1888,6 +2396,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21050066",
+      "setBonuses": [
+        [
+          "19",
+          "3"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1896,7 +2413,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "HAVOC",
               "RS"
@@ -1925,6 +2442,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21010046",
+      "setBonuses": [
+        [
+          "20",
+          "3"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1933,7 +2459,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "ELECTRO",
               "HA"
@@ -1972,6 +2498,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21040046",
+      "setBonuses": [
+        [
+          "20",
+          "3"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -1980,7 +2515,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "AERO",
               "RL"
@@ -2011,6 +2546,15 @@
         "PERCENT_CD": 0.16,
         "PERCENT_ATK": 0.12
       }
+    },
+    "preset": {
+      "weaponId": "21030036",
+      "setBonuses": [
+        [
+          "22",
+          "3"
+        ]
+      ]
     }
   },
   "1411": {
@@ -2034,6 +2578,15 @@
         }
       }
     },
+    "preset": {
+      "weaponId": "21020066",
+      "setBonuses": [
+        [
+          "21",
+          "3"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -2042,7 +2595,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "AERO",
               "HA"
@@ -2070,9 +2623,17 @@
         "BASE_HP": 10625,
         "BASE_ATK": 225,
         "BASE_DEF": 1258,
-        "PERCENT_OHB": 0.12,
+        "PERCENT_HB": 0.12,
         "PERCENT_ATK": 0.12
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "7",
+          "5"
+        ]
+      ]
     }
   },
   "1508": {
@@ -2089,6 +2650,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21010056",
+      "setBonuses": [
+        [
+          "23",
+          "3"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -2097,7 +2667,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "HAVOC",
               "RL"
@@ -2135,6 +2705,15 @@
           "AMP_ALL": 0.25
         }
       }
+    },
+    "preset": {
+      "weaponId": "21010066",
+      "setBonuses": [
+        [
+          "25",
+          "5"
+        ]
+      ]
     }
   },
   "1509": {
@@ -2151,6 +2730,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21030046",
+      "setBonuses": [
+        [
+          "24",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -2159,7 +2747,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "SPECTRO",
               "BA"
@@ -2191,6 +2779,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21020076",
+      "setBonuses": [
+        [
+          "27",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -2199,7 +2796,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "FUSION",
               "RL"
@@ -2231,6 +2828,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "preset": {
+      "weaponId": "21040056",
+      "setBonuses": [
+        [
+          "26",
+          "5"
+        ]
+      ]
+    },
     "calcs": [
       {
         "name": "Damage",
@@ -2239,7 +2845,7 @@
         },
         "rotation": [
           {
-            "name" : "",
+            "name": "",
             "dmgType": [
               "SPECTRO",
               "BA"
@@ -2256,5 +2862,29 @@
         ]
       }
     ]
+  },
+  "1412": {
+    "name": "Sigrika",
+    "quality": "5",
+    "element": "AERO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "constant": {
+        "BASE_HP": 10775,
+        "BASE_ATK": 437,
+        "BASE_DEF": 1136,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "preset": {
+      "weaponId": "21040066",
+      "setBonuses": [
+        [
+          "29",
+          "5"
+        ]
+      ]
+    }
   }
 }
