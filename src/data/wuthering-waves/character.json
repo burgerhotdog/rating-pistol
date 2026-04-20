@@ -2103,6 +2103,22 @@
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_FUSION": 0.15
+        },
+        "variable": {
+          "FLAT_ATK": {
+            "source": [
+              "ER",
+              0.01
+            ],
+            "offset": 1.5,
+            "value": 20,
+            "max": 2600
+          }
+        }
+      },
       "next": {
         "constant": {
           "AMP_RS": 0.25,
@@ -2127,14 +2143,125 @@
         },
         "rotation": [
           {
-            "name": "",
+            "name": "Intro",
+            "dmgType": [
+              "FUSION",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 2.0279
+              },
+              {
+                "mv": 0.507
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.8506,
+                "times": 4
+              },
+              {
+                "mv": 3.4021
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P2",
             "dmgType": [
               "FUSION",
               "BA"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 0.8492,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P2: Charged Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3287,
+                "times": 6
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P2: Flip",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.338
+              },
+              {
+                "mv": 0.5915
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P3",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2817,
+                "times": 6
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P3: Flip",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.338
+              },
+              {
+                "mv": 0.5915
+              }
+            ]
+          },
+          {
+            "name": "Forte: Skill: Returned from Ashes",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.4722,
+                "times": 2
+              },
+              {
+                "mv": 0.9444
+              },
+              {
+                "mv": 1.8887,
+                "times": 2
+              },
+              {
+                "mv": 13.2209
               }
             ]
           }
