@@ -2935,6 +2935,11 @@
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "AMP_FRAZZLE": 0.2
+        }
+      },
       "ally": {
         "constant": {
           "AMP_SPECTRO": 0.2
@@ -3041,6 +3046,9 @@
               "HA",
               "FRAZZLE"
             ],
+            "bonus": {
+              "PERCENT_MV": 0.25
+            },
             "hits": [
               {
                 "mv": 1.9881
@@ -3056,6 +3064,9 @@
               "HA",
               "FRAZZLE"
             ],
+            "bonus": {
+              "PERCENT_MV": 0.25
+            },
             "hits": [
               {
                 "mv": 4.2407
@@ -3071,6 +3082,9 @@
               "HA",
               "FRAZZLE"
             ],
+            "bonus": {
+              "PERCENT_MV": 0.25
+            },
             "hits": [
               {
                 "mv": 1.352
@@ -3129,6 +3143,26 @@
         "BASE_DEF": 1185,
         "PERCENT_CR": 0.08,
         "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.12
+        }
+      },
+      "team": {
+        "constant": {
+          "IGNORE_FUSION": 0.15,
+          "PERCENT_FUSION": 0.2,
+          "PERCENT_ATK": 0.24
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_FUSION": 0.2,
+          "AMP_BA": 0.25
+        }
       }
     },
     "preset": {
@@ -3275,6 +3309,22 @@
                 "mv": 4.5375
               }
             ]
+          },
+          {
+            "name": "Set the Arena Ablaze",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "FUSION",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.4235
+              },
+              {
+                "mv": 1.694
+              }
+            ]
           }
         ],
         "match": [
@@ -3295,6 +3345,18 @@
         "BASE_DEF": 611,
         "PERCENT_CR": 0.08,
         "PERCENT_HP": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ALL": 0.6
+        }
+      },
+      "ally": {
+        "constant": {
+          "AMP_AERO": 0.175
+        }
       }
     },
     "preset": {
@@ -3538,6 +3600,9 @@
               "AERO",
               "RL"
             ],
+            "bonus": {
+              "AMP_ALL": 1
+            },
             "hits": [
               {
                 "attr": "HP",
@@ -3567,6 +3632,19 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_CD": 0.6
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_HAVOC": 0.2,
+          "AMP_HA": 0.25
+        }
+      }
+    },
     "preset": {
       "weaponId": "21050066",
       "setBonuses": [
@@ -3584,17 +3662,227 @@
         },
         "rotation": [
           {
-            "name": "",
-            "category": "",
+            "name": "Suite of Immortality",
+            "category": "Intro Skill",
             "dmgType": [
               "HAVOC",
               "RS"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 5.9643
               }
             ]
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3269,
+                "times": 6
+              }
+            ]
+          },
+          {
+            "name": "Murmurs in a Haunting Dream",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.2321,
+                "times": 4
+              },
+              {
+                "mv": 0.4641
+              },
+              {
+                "mv": 3.2482
+              }
+            ]
+          },
+          {
+            "name": "Whispers in a Fleeting Dream",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.0597,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Murmurs in a Haunting Dream",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.2321,
+                "times": 4
+              },
+              {
+                "mv": 0.4641
+              },
+              {
+                "mv": 3.2482
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 1",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5345,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.9543
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3269,
+                "times": 6
+              }
+            ]
+          },
+          {
+            "name": "Murmurs in a Haunting Dream",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.2321,
+                "times": 4
+              },
+              {
+                "mv": 0.4641
+              },
+              {
+                "mv": 3.2482
+              }
+            ]
+          },
+          {
+            "name": "Scarlet Coda",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.3301,
+                "times": 2
+              },
+              {
+                "mv": 0.1238,
+                "times": 8
+              },
+              {
+                "mv": 4.951
+              }
+            ]
+          },
+          {
+            "name": "Enhanced Attack - Hecate Strings",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "HAVOC",
+              "ES"
+            ],
+            "bonus": {
+              "PERCENT_ATK": 1.2
+            },
+            "hits": [
+              {
+                "mv": 1.0438
+              },
+              {
+                "mv": 2.4355
+              }
+            ],
+            "times": 3
+          },
+          {
+            "name": "Enhanced Attack - Hecate Winds",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "HAVOC",
+              "ES"
+            ],
+            "bonus": {
+              "PERCENT_ATK": 1.2
+            },
+            "hits": [
+              {
+                "mv": 0.9916
+              },
+              {
+                "mv": 2.3137
+              }
+            ],
+            "times": 3
+          },
+          {
+            "name": "Enhanced Attack - Hecate Cadenza",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "HAVOC",
+              "ES"
+            ],
+            "bonus": {
+              "PERCENT_ATK": 1.2
+            },
+            "hits": [
+              {
+                "mv": 1.0438
+              },
+              {
+                "mv": 2.4355
+              }
+            ],
+            "times": 3
           }
         ]
       }
@@ -3614,6 +3902,23 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ELECTRO": 0.15
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_GLACIO": 0.15,
+          "AMP_FUSION": 0.15,
+          "AMP_ELECTRO": 0.15,
+          "AMP_AERO": 0.15,
+          "AMP_SPECTRO": 0.15,
+          "AMP_HAVOC": 0.15
+        }
+      }
+    },
     "preset": {
       "weaponId": "21010046",
       "setBonuses": [
@@ -3631,15 +3936,190 @@
         },
         "rotation": [
           {
-            "name": "",
-            "category": "",
+            "name": "Stride of Goldenflare",
+            "category": "Intro Skill",
+            "dmgType": [
+              "ELECTRO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.9941,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Heavy Attack - Thunderoar: Backstep",
+            "category": "Normal Attack",
             "dmgType": [
               "ELECTRO",
               "HA"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 0.5368
+              }
+            ]
+          },
+          {
+            "name": "Heavy Attack - Thunderoar: Spinslash",
+            "category": "Normal Attack",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1.4172,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Warrior's Blade",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "ELECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 2.187,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Heavy Attack - Thunderoar: Backstep",
+            "category": "Normal Attack",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5368
+              }
+            ]
+          },
+          {
+            "name": "Heavy Attack - Thunderoar: Spinslash",
+            "category": "Normal Attack",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1.4172,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Sword of Eternal Oath",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3299,
+                "times": 2
+              },
+              {
+                "mv": 1.3194,
+                "times": 3
+              },
+              {
+                "mv": 0.3299,
+                "times": 2
+              },
+              {
+                "mv": 5.717
+              }
+            ]
+          },
+          {
+            "name": "Undying Sunlight: Strike",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "ELECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.3917,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Undying Sunlight: Leap",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "ELECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 2.2267
+              },
+              {
+                "mv": 0.2784,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Undying Sunlight: Plunge",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.8659
+              },
+              {
+                "mv": 7.7924
+              }
+            ]
+          },
+          {
+            "name": "Sublime is the Sun - Sunborne",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1.1929
+              }
+            ],
+            "times": 9
+          },
+          {
+            "name": "Sublime is the Sun - Everbright Protector",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 2.3858
+              },
+              {
+                "mv": 8.9465
+              },
+              {
+                "mv": 0.0597,
+                "times": 10
               }
             ]
           }
