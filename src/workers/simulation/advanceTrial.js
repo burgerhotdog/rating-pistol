@@ -1,4 +1,4 @@
-import { STATS } from '@/data';
+import { MISC } from '@/data';
 import { computeDamage, computeTotalStat, compileStatMap } from "@/utils";
 import { weightedLottery } from './helpers/weightedLottery';
 import { matchPenalty } from './helpers/matchPenalty';
@@ -25,7 +25,7 @@ const STAMINA_DATA = {
 };
 
 function randomRoll(gameId, statId) {
-  const { VALUE } = STATS[gameId].SUB_STAT_TYPES[statId];
+  const { VALUE } = MISC[gameId].SUB_STAT_TYPES[statId];
 
   if (gameId === "genshin-impact") {
     const options = [1, 0.9, 0.8, 0.7];
@@ -41,7 +41,7 @@ function randomRoll(gameId, statId) {
 }
 
 function assignSubStats(gameId, mainStatId) {
-  const optionsMap = STATS[gameId].SUB_STAT_TYPES;
+  const optionsMap = MISC[gameId].SUB_STAT_TYPES;
   const statPool = Object.entries(optionsMap)
     .filter(([id]) => id !== mainStatId)
     .map(([id, { WEIGHT }]) => [id, WEIGHT]);
@@ -67,14 +67,14 @@ function assignSubStats(gameId, mainStatId) {
 }
 
 function assignMainStat(gameId, slotIndex) {
-  const optionsMap = STATS[gameId].MAIN_STAT_TYPES[slotIndex];
+  const optionsMap = MISC[gameId].MAIN_STAT_TYPES[slotIndex];
   const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
   const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)]
   const mainStatValue =  optionsMap[mainStatId].VALUE;
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, criteria, team) {
+export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, calcs, team) {
   const { DAILY_STAMINA, WEEKLY_STAMINA, COST_PER_RUN, DROPS_PER_RUN } = STAMINA_DATA[gameId];
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
@@ -111,12 +111,12 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
     const newBuild = { ...latestBuild, equipList: newEquipList };
 
     // Compute new match penalty and damage with new build
-    const newPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
+    const newPenalty = (calcs.match ?? []).reduce((acc, stat, index) => {
       const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, newBuild, team, "menu"));
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
-    const newDamage = computeDamage(gameId, characterId, newBuild, criteria, team);
+    const newDamage = computeDamage(gameId, characterId, newBuild, calcs, team);
 
     // Compare new damage with current and replace if better
     if (newDamage * newPenalty > latestDamage * latestPenalty) {

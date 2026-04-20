@@ -3,12 +3,12 @@
     "name": "Anby",
     "quality": "4",
     "element": "Electric",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 7500.713400000001,
-        "BASE_ATK": 658.957,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 7501,
+        "BASE_ATK": 659,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 136,
         "BASE_AM": 94,
         "BASE_AP": 93
@@ -19,12 +19,12 @@
     "name": "Nekomata",
     "quality": "5",
     "element": "Physical",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7560.1902,
-        "BASE_ATK": 910.5958,
-        "BASE_DEF": 587.5794,
+        "BASE_HP": 7560,
+        "BASE_ATK": 911,
+        "BASE_DEF": 588,
         "BASE_IMPACT": 92,
         "BASE_AM": 97,
         "BASE_AP": 96,
@@ -36,16 +36,16 @@
     "name": "Nicole",
     "quality": "4",
     "element": "Ether",
-    "type": "Support",
+    "type": "SUPPORT",
     "stats": {
       "constant": {
-        "BASE_HP": 8145.8432999999995,
-        "BASE_ATK": 649.1691000000001,
-        "BASE_DEF": 622.6159,
+        "BASE_HP": 8146,
+        "BASE_ATK": 649,
+        "BASE_DEF": 623,
         "BASE_IMPACT": 88,
         "BASE_AM": 90,
         "BASE_AP": 93,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -53,12 +53,12 @@
     "name": "Soldier 11",
     "quality": "5",
     "element": "Fire",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 888.5686000000001,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 7674,
+        "BASE_ATK": 889,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 93,
         "BASE_AM": 94,
         "BASE_AP": 93,
@@ -70,12 +70,12 @@
     "name": "Corin",
     "quality": "4",
     "element": "Physical",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 6976.9443,
-        "BASE_ATK": 807.1414,
-        "BASE_DEF": 604.5976,
+        "BASE_HP": 6977,
+        "BASE_ATK": 807,
+        "BASE_DEF": 605,
         "BASE_IMPACT": 93,
         "BASE_AM": 93,
         "BASE_AP": 96,
@@ -87,12 +87,12 @@
     "name": "Billy",
     "quality": "4",
     "element": "Physical",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 6907.2636,
-        "BASE_ATK": 787.2764999999999,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 6907,
+        "BASE_ATK": 787,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 91,
         "BASE_AM": 92,
         "BASE_AP": 91,
@@ -104,12 +104,12 @@
     "name": "Koleda",
     "quality": "5",
     "element": "Fire",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 8127.3088,
-        "BASE_ATK": 735.8413,
-        "BASE_DEF": 594.5854999999999,
+        "BASE_HP": 8127,
+        "BASE_ATK": 736,
+        "BASE_DEF": 595,
         "BASE_IMPACT": 134,
         "BASE_AM": 97,
         "BASE_AP": 96
@@ -120,12 +120,12 @@
     "name": "Anton",
     "quality": "4",
     "element": "Electric",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7219.0996,
-        "BASE_ATK": 791.6483000000001,
-        "BASE_DEF": 622.6159,
+        "BASE_HP": 7219,
+        "BASE_ATK": 792,
+        "BASE_DEF": 623,
         "BASE_IMPACT": 95,
         "BASE_AM": 86,
         "BASE_AP": 90,
@@ -137,16 +137,16 @@
     "name": "Ben",
     "quality": "4",
     "element": "Fire",
-    "type": "Defense",
+    "type": "DEFENSE",
     "stats": {
       "constant": {
-        "BASE_HP": 8577.5504,
-        "BASE_ATK": 653.0866000000001,
-        "BASE_DEF": 724.0351,
+        "BASE_HP": 8578,
+        "BASE_ATK": 653,
+        "BASE_DEF": 724,
         "BASE_IMPACT": 95,
         "BASE_AM": 86,
         "BASE_AP": 90,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -154,16 +154,16 @@
     "name": "Soukaku",
     "quality": "4",
     "element": "Ice",
-    "type": "Support",
+    "type": "SUPPORT",
     "stats": {
       "constant": {
-        "BASE_HP": 8025.9663,
-        "BASE_ATK": 665.8333,
-        "BASE_DEF": 597.5915,
+        "BASE_HP": 8026,
+        "BASE_ATK": 666,
+        "BASE_DEF": 598,
         "BASE_IMPACT": 86,
         "BASE_AM": 93,
         "BASE_AP": 96,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -171,12 +171,12 @@
     "name": "Lycaon",
     "quality": "5",
     "element": "Ice",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 8416.2915,
-        "BASE_ATK": 728.5933,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 8416,
+        "BASE_ATK": 729,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 137,
         "BASE_AM": 91,
         "BASE_AP": 90
@@ -187,16 +187,16 @@
     "name": "Lucy",
     "quality": "4",
     "element": "Fire",
-    "type": "Support",
+    "type": "SUPPORT",
     "stats": {
       "constant": {
-        "BASE_HP": 8025.9663,
-        "BASE_ATK": 658.957,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 8026,
+        "BASE_ATK": 659,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 86,
         "BASE_AM": 94,
         "BASE_AP": 93,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -204,12 +204,12 @@
     "name": "Grace",
     "quality": "5",
     "element": "Electric",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 7482.7069,
-        "BASE_ATK": 825.9679,
-        "BASE_DEF": 600.5916,
+        "BASE_HP": 7483,
+        "BASE_ATK": 826,
+        "BASE_DEF": 601,
         "BASE_IMPACT": 83,
         "BASE_AM": 151,
         "BASE_AP": 116
@@ -220,12 +220,12 @@
     "name": "Ellen",
     "quality": "5",
     "element": "Ice",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 938.2102,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 7674,
+        "BASE_ATK": 938,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 93,
         "BASE_AM": 94,
         "BASE_AP": 93,
@@ -237,12 +237,12 @@
     "name": "Rina",
     "quality": "5",
     "element": "Electric",
-    "type": "Support",
+    "type": "SUPPORT",
     "stats": {
       "constant": {
-        "BASE_HP": 8609.2122,
-        "BASE_ATK": 717.1859,
-        "BASE_DEF": 600.5916,
+        "BASE_HP": 8609,
+        "BASE_ATK": 717,
+        "BASE_DEF": 601,
         "BASE_IMPACT": 83,
         "BASE_AM": 93,
         "BASE_AP": 92,
@@ -254,12 +254,12 @@
     "name": "Zhu Yuan",
     "quality": "5",
     "element": "Ether",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7482.7069,
-        "BASE_ATK": 919.3011,
-        "BASE_DEF": 600.5916,
+        "BASE_HP": 7483,
+        "BASE_ATK": 919,
+        "BASE_DEF": 601,
         "BASE_IMPACT": 90,
         "BASE_AM": 93,
         "BASE_AP": 92,
@@ -271,16 +271,16 @@
     "name": "Piper",
     "quality": "4",
     "element": "Physical",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 6976.9443,
-        "BASE_ATK": 758.4172,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 6977,
+        "BASE_ATK": 758,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 86,
         "BASE_AM": 116,
         "BASE_AP": 118,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -288,12 +288,12 @@
     "name": "Qingyi",
     "quality": "5",
     "element": "Electric",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 8250.5871,
-        "BASE_ATK": 758.2048,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 8251,
+        "BASE_ATK": 758,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 136,
         "BASE_AM": 94,
         "BASE_AP": 93
@@ -304,12 +304,12 @@
     "name": "Jane",
     "quality": "5",
     "element": "Physical",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 7788.6961,
-        "BASE_ATK": 880.6952,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 7789,
+        "BASE_ATK": 881,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 86,
         "BASE_AM": 148,
         "BASE_AP": 114
@@ -320,16 +320,16 @@
     "name": "Seth",
     "quality": "4",
     "element": "Electric",
-    "type": "Defense",
+    "type": "DEFENSE",
     "stats": {
       "constant": {
-        "BASE_HP": 8701.3125,
-        "BASE_ATK": 643.2987,
-        "BASE_DEF": 746.1360999999999,
+        "BASE_HP": 8701,
+        "BASE_ATK": 643,
+        "BASE_DEF": 746,
         "BASE_IMPACT": 94,
         "BASE_AM": 86,
         "BASE_AP": 90,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -337,12 +337,12 @@
     "name": "Caesar",
     "quality": "5",
     "element": "Physical",
-    "type": "Defense",
+    "type": "DEFENSE",
     "stats": {
       "constant": {
-        "BASE_HP": 9526.229899999998,
-        "BASE_ATK": 711.6899000000001,
-        "BASE_DEF": 753.8620000000001,
+        "BASE_HP": 9526,
+        "BASE_ATK": 712,
+        "BASE_DEF": 754,
         "BASE_IMPACT": 123,
         "BASE_AM": 87,
         "BASE_AP": 90
@@ -353,16 +353,16 @@
     "name": "Burnice",
     "quality": "5",
     "element": "Fire",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 7368.1929,
-        "BASE_ATK": 863.4528,
-        "BASE_DEF": 600.5916,
+        "BASE_HP": 7368,
+        "BASE_ATK": 863,
+        "BASE_DEF": 601,
         "BASE_IMPACT": 83,
         "BASE_AM": 118,
         "BASE_AP": 120,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -370,12 +370,12 @@
     "name": "Lighter",
     "quality": "5",
     "element": "Fire",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 8253.2915,
-        "BASE_ATK": 797.9569,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 8253,
+        "BASE_ATK": 798,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 137,
         "BASE_AM": 91,
         "BASE_AP": 90
@@ -386,12 +386,12 @@
     "name": "Yanagi",
     "quality": "5",
     "element": "Electric",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 7788.6961,
-        "BASE_ATK": 872.5740000000001,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 7789,
+        "BASE_ATK": 873,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 86,
         "BASE_AM": 148,
         "BASE_AP": 114
@@ -402,12 +402,12 @@
     "name": "Miyabi",
     "quality": "5",
     "element": "Ice",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 880.6952,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 7674,
+        "BASE_ATK": 881,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 86,
         "BASE_AM": 116,
         "BASE_AP": 238
@@ -418,12 +418,12 @@
     "name": "Harumasa",
     "quality": "5",
     "element": "Electric",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7405.6956,
-        "BASE_ATK": 915.593,
-        "BASE_DEF": 600.5916,
+        "BASE_HP": 7406,
+        "BASE_ATK": 916,
+        "BASE_DEF": 601,
         "BASE_IMPACT": 90,
         "BASE_AM": 80,
         "BASE_AP": 95,
@@ -435,16 +435,16 @@
     "name": "Astra Yao",
     "quality": "5",
     "element": "Ether",
-    "type": "Support",
+    "type": "SUPPORT",
     "stats": {
       "constant": {
-        "BASE_HP": 8609.2122,
-        "BASE_ATK": 715.7699,
-        "BASE_DEF": 600.5916,
+        "BASE_HP": 8609,
+        "BASE_ATK": 716,
+        "BASE_DEF": 601,
         "BASE_IMPACT": 83,
         "BASE_AM": 93,
         "BASE_AP": 92,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -452,12 +452,12 @@
     "name": "Evelyn",
     "quality": "5",
     "element": "Fire",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7788.6961,
-        "BASE_ATK": 929.7586,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 7789,
+        "BASE_ATK": 930,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 93,
         "BASE_AM": 92,
         "BASE_AP": 90,
@@ -469,12 +469,12 @@
     "name": "Pulchra",
     "quality": "4",
     "element": "Physical",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 7612.7878,
-        "BASE_ATK": 665.8333,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 7613,
+        "BASE_ATK": 666,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 136,
         "BASE_AM": 92,
         "BASE_AP": 90
@@ -485,12 +485,12 @@
     "name": "Trigger",
     "quality": "5",
     "element": "Electric",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 7923.1783000000005,
-        "BASE_ATK": 750.7502999999999,
-        "BASE_DEF": 600.5916,
+        "BASE_HP": 7923,
+        "BASE_ATK": 751,
+        "BASE_DEF": 601,
         "BASE_IMPACT": 131,
         "BASE_AM": 96,
         "BASE_AP": 95
@@ -501,12 +501,12 @@
     "name": "Soldier 0 - Anby",
     "quality": "5",
     "element": "Electric",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 929.7586,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 7674,
+        "BASE_ATK": 930,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 93,
         "BASE_AM": 94,
         "BASE_AP": 93,
@@ -518,12 +518,12 @@
     "name": "Hugo",
     "quality": "5",
     "element": "Ice",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7940.7128,
-        "BASE_ATK": 919.3011,
-        "BASE_DEF": 616.6098,
+        "BASE_HP": 7941,
+        "BASE_ATK": 919,
+        "BASE_DEF": 617,
         "BASE_IMPACT": 95,
         "BASE_AM": 86,
         "BASE_AP": 90,
@@ -535,12 +535,12 @@
     "name": "Vivian",
     "quality": "5",
     "element": "Ether",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 880.6952,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 7674,
+        "BASE_ATK": 881,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 86,
         "BASE_AM": 144,
         "BASE_AP": 118
@@ -551,12 +551,12 @@
     "name": "Yixuan",
     "quality": "5",
     "element": "Ether",
-    "type": "Rupture",
+    "type": "RUPTURE",
     "stats": {
       "constant": {
-        "BASE_HP": 7953.8621,
-        "BASE_ATK": 872.5748,
-        "BASE_DEF": 441.1145,
+        "BASE_HP": 7954,
+        "BASE_ATK": 873,
+        "BASE_DEF": 441,
         "BASE_IMPACT": 93,
         "BASE_AM": 92,
         "BASE_AP": 90,
@@ -569,12 +569,12 @@
     "name": "Ju Fufu",
     "quality": "5",
     "element": "Fire",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 8250.5871,
-        "BASE_ATK": 765.6593,
-        "BASE_DEF": 597.5915,
+        "BASE_HP": 8251,
+        "BASE_ATK": 766,
+        "BASE_DEF": 598,
         "BASE_IMPACT": 118,
         "BASE_AM": 93,
         "BASE_AP": 96,
@@ -586,16 +586,16 @@
     "name": "Pan Yinhu",
     "quality": "4",
     "element": "Physical",
-    "type": "Defense",
+    "type": "DEFENSE",
     "stats": {
       "constant": {
-        "BASE_HP": 8453.7942,
-        "BASE_ATK": 661.9158,
-        "BASE_DEF": 712.9432999999999,
+        "BASE_HP": 8454,
+        "BASE_ATK": 662,
+        "BASE_DEF": 713,
         "BASE_IMPACT": 94,
         "BASE_AM": 91,
         "BASE_AP": 90,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -603,12 +603,12 @@
     "name": "Alice",
     "quality": "5",
     "element": "Physical",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 880.6952,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 7674,
+        "BASE_ATK": 881,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 86,
         "BASE_AM": 142,
         "BASE_AP": 118
@@ -619,12 +619,12 @@
     "name": "Yuzuha",
     "quality": "5",
     "element": "Physical",
-    "type": "Support",
+    "type": "SUPPORT",
     "stats": {
       "constant": {
-        "BASE_HP": 8829.470000000001,
-        "BASE_ATK": 758.2048,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 8829,
+        "BASE_ATK": 758,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 86,
         "BASE_AM": 124,
         "BASE_AP": 93
@@ -635,16 +635,16 @@
     "name": "Orphie & Magus",
     "quality": "5",
     "element": "Fire",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7788.6961,
-        "BASE_ATK": 929.7586,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 7789,
+        "BASE_ATK": 930,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 93,
         "BASE_AM": 92,
         "BASE_AP": 90,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -652,12 +652,12 @@
     "name": "Seed",
     "quality": "5",
     "element": "Electric",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 929.7586,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 7674,
+        "BASE_ATK": 930,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 93,
         "BASE_AM": 94,
         "BASE_AP": 93,
@@ -669,12 +669,12 @@
     "name": "Yidhari",
     "quality": "5",
     "element": "Ice",
-    "type": "Rupture",
+    "type": "RUPTURE",
     "stats": {
       "constant": {
-        "BASE_HP": 8497.1437,
-        "BASE_ATK": 859.9099,
-        "BASE_DEF": 448.44509999999997,
+        "BASE_HP": 8497,
+        "BASE_ATK": 860,
+        "BASE_DEF": 448,
         "BASE_IMPACT": 95,
         "BASE_AM": 87,
         "BASE_AP": 90,
@@ -686,12 +686,12 @@
     "name": "Manato",
     "quality": "4",
     "element": "Fire",
-    "type": "Rupture",
+    "type": "RUPTURE",
     "stats": {
       "constant": {
-        "BASE_HP": 7724.8563,
-        "BASE_ATK": 755.2106,
-        "BASE_DEF": 443.56,
+        "BASE_HP": 7725,
+        "BASE_ATK": 755,
+        "BASE_DEF": 444,
         "BASE_IMPACT": 95,
         "BASE_AM": 87,
         "BASE_AP": 90,
@@ -703,16 +703,16 @@
     "name": "Lucia",
     "quality": "5",
     "element": "Ether",
-    "type": "Support",
+    "type": "SUPPORT",
     "stats": {
       "constant": {
-        "BASE_HP": 8477.169600000001,
-        "BASE_ATK": 758.2048,
-        "BASE_DEF": 594.5854999999999,
+        "BASE_HP": 8477,
+        "BASE_ATK": 758,
+        "BASE_DEF": 595,
         "BASE_IMPACT": 83,
         "BASE_AM": 96,
         "BASE_AP": 95,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   },
@@ -720,12 +720,12 @@
     "name": "Banyue",
     "quality": "5",
     "element": "Fire",
-    "type": "Rupture",
+    "type": "RUPTURE",
     "stats": {
       "constant": {
-        "BASE_HP": 8497.1437,
-        "BASE_ATK": 859.9099,
-        "BASE_DEF": 445.9996,
+        "BASE_HP": 8497,
+        "BASE_ATK": 860,
+        "BASE_DEF": 446,
         "BASE_IMPACT": 95,
         "BASE_AM": 90,
         "BASE_AP": 89,
@@ -737,12 +737,12 @@
     "name": "Dialyn",
     "quality": "5",
     "element": "Physical",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 8250.5871,
-        "BASE_ATK": 758.2048,
-        "BASE_DEF": 612.6038000000001,
+        "BASE_HP": 8251,
+        "BASE_ATK": 758,
+        "BASE_DEF": 613,
         "BASE_IMPACT": 110,
         "BASE_AM": 94,
         "BASE_AP": 93,
@@ -754,12 +754,12 @@
     "name": "Zhao",
     "quality": "5",
     "element": "Ice",
-    "type": "Defense",
+    "type": "DEFENSE",
     "stats": {
       "constant": {
-        "BASE_HP": 9117.4144,
-        "BASE_ATK": 765.6593,
-        "BASE_DEF": 701.8928000000001,
+        "BASE_HP": 9117,
+        "BASE_ATK": 766,
+        "BASE_DEF": 702,
         "BASE_IMPACT": 93,
         "BASE_AM": 93,
         "BASE_AP": 96,
@@ -771,12 +771,12 @@
     "name": "Ye Shunguang",
     "quality": "5",
     "element": "Physical",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 938.2102,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 7674,
+        "BASE_ATK": 938,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 83,
         "BASE_AM": 94,
         "BASE_AP": 93,
@@ -788,12 +788,12 @@
     "name": "Sunna",
     "quality": "5",
     "element": "Physical",
-    "type": "Support",
+    "type": "SUPPORT",
     "stats": {
       "constant": {
-        "BASE_HP": 8477.169600000001,
-        "BASE_ATK": 750.7502999999999,
-        "BASE_DEF": 600.5916,
+        "BASE_HP": 8477,
+        "BASE_ATK": 751,
+        "BASE_DEF": 601,
         "BASE_IMPACT": 98,
         "BASE_AM": 96,
         "BASE_AP": 95,
@@ -805,12 +805,12 @@
     "name": "Aria",
     "quality": "5",
     "element": "Ether",
-    "type": "Anomaly",
+    "type": "ANOMALY",
     "stats": {
       "constant": {
-        "BASE_HP": 7749.7096,
-        "BASE_ATK": 863.4528,
-        "BASE_DEF": 619.6098999999999,
+        "BASE_HP": 7750,
+        "BASE_ATK": 863,
+        "BASE_DEF": 620,
         "BASE_IMPACT": 87,
         "BASE_AM": 151,
         "BASE_AP": 116
@@ -821,12 +821,12 @@
     "name": "Nangong Yu",
     "quality": "5",
     "element": "Ether",
-    "type": "Stun",
+    "type": "STUN",
     "stats": {
       "constant": {
-        "BASE_HP": 8373.865399999999,
-        "BASE_ATK": 746.5024000000001,
-        "BASE_DEF": 622.6159,
+        "BASE_HP": 8374,
+        "BASE_ATK": 747,
+        "BASE_DEF": 623,
         "BASE_IMPACT": 120,
         "BASE_AM": 126,
         "BASE_AP": 93
@@ -837,16 +837,16 @@
     "name": "Cissia",
     "quality": "5",
     "element": "Electric",
-    "type": "Attack",
+    "type": "ATTACK",
     "stats": {
       "constant": {
-        "BASE_HP": 7673.7042,
-        "BASE_ATK": 938.2102,
-        "BASE_DEF": 606.5977,
+        "BASE_HP": 7674,
+        "BASE_ATK": 938,
+        "BASE_DEF": 607,
         "BASE_IMPACT": 93,
         "BASE_AM": 94,
         "BASE_AP": 93,
-        "BASE_ER": 0.36
+        "BASE_ER": 0
       }
     }
   }

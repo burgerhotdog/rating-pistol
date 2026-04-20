@@ -2,19 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import { useBuild } from "@/contexts";
 import { CHARACTERS, WEAPONS } from "@/data";
 
-function validate(gameId, build, criteria) {
+function validate(gameId, build, calcs) {
   if (!build) return "Build not found";
   const { weaponId } = build;
   const weaponData = WEAPONS[gameId][weaponId];
   if (!weaponData) return "Unrecognized Weapon";
   if (weaponData.quality < 3) return "Invalid Weapon";
-  if (!criteria) return "Criteria not found";
+  if (!calcs) return "Criteria not found";
   return null;
 }
 
-export function useSimulation(gameId, characterId, criteriaIndex, team) {
-  const build = useBuild(gameId, characterId);
-  const criteria = CHARACTERS[gameId][characterId]?.criteria?.[criteriaIndex];
+export function useSimulation(gameId, characterId, calcsIndex, team) {
+  const build = useBuild().getBuilds(gameId)[characterId];
+  const calcs = CHARACTERS[gameId][characterId]?.calcs?.[calcsIndex];
   const [error, setError] = useState(null);
   const startTimeRef = useRef(0);
   const intervalRef = useRef(null);
@@ -23,19 +23,26 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
   const [result, setResult] = useState({
     weeklyScores: null,
     finalStats: null,
+    preferredMainStats: null,
+    mainStatDist: null,
+    weeklyDistribution: null,
     isLoading: false,
     completed: 0,
+    diff: 0,
     duration: 0,
     elapsed: 0,
   });
   
   useEffect(() => {
-    const validationError = validate(gameId, build, criteria);
+    const validationError = validate(gameId, build, calcs);
     if (validationError) {
       setError(validationError);
       setResult({
         weeklyScores: null,
         finalStats: null,
+        preferredMainStats: null,
+        mainStatDist: null,
+        weeklyDistribution: null,
         isLoading: false,
         completed: 0,
         duration: 0,
@@ -63,6 +70,7 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
         setResult(prev => ({
           ...prev,
           completed: data.completed,
+          diff: data.diff,
         }));
         return;
       }
@@ -79,6 +87,9 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
           completed: data.completed,
           weeklyScores: data.weeklyScores,
           finalStats: data.finalStats,
+          preferredMainStats: data.preferredMainStats,
+          mainStatDist: data.mainStatDist,
+          weeklyDistribution: data.weeklyDistribution,
           isLoading: false,
           duration,
           elapsed: duration,
@@ -99,7 +110,7 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
       gameId,
       characterId,
       build,
-      criteria,
+      calcs,
       team,
     });
 
@@ -110,7 +121,7 @@ export function useSimulation(gameId, characterId, criteriaIndex, team) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     };
-  }, [gameId, characterId, build, criteria, team]);
+  }, [gameId, characterId, build, calcs, team]);
 
   return result;
 }

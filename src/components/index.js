@@ -5,3 +5,7 @@ export * from './RadarChart';
 export * from './LineChart';
 export * from './CustomTable';
 export * from './Bar';
+export * from './CustomAvatar';
+export * from "./TeamConfig";
+export * from "./PieChart";
+export * from "./MainStatDistribution";

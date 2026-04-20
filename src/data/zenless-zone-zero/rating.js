@@ -1,19 +1,19 @@
-import { computeTotalStat } from "@/utils";
+import { computeTotalStat, compileStatMap } from "@/utils";
 
 const CHARACTER_LEVEL = 60;
 const ENEMY_LEVEL = 70;
 const BASE_RES = 0.1;
 
-export function computeBase(statMap, criteria) {
-  const { ability, element, reaction } = criteria.type;
+export function computeBase(statMap, calcs) {
+  const { ability, element, reaction } = calcs.type;
 
   // Base ability
-  const multiplier = criteria.scaling.multiplier ?? {};
+  const multiplier = calcs.scaling.multiplier ?? {};
   const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
     const totalStat = computeTotalStat(stat, statMap);
     return acc + totalStat * motionValue;
   }, 0);
-  const flatComponent = criteria.scaling.flat ?? 0;
+  const flatComponent = calcs.scaling.flat ?? 0;
   const abilityBaseDmg = multiplierComponent + flatComponent;
 
   // Base ability Multiplier:
@@ -23,8 +23,8 @@ export function computeBase(statMap, criteria) {
   return abilityBaseDmg * baseDmgMult;
 }
 
-export function computeBonuses(statMap, criteria) {
-  const { ability, element, reaction } = criteria.type;
+export function computeBonuses(statMap, calcs) {
+  const { ability, element, reaction } = calcs.type;
 
   // Crit
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
@@ -40,8 +40,8 @@ export function computeBonuses(statMap, criteria) {
   return critMult * dmgBonusMult;
 }
 
-export function computeReductions(statMap, criteria) {
-  const { element } = criteria.type;
+export function computeReductions(statMap, calcs) {
+  const { element } = calcs.type;
 
   // Enemy resistance
   const allShred = statMap[`SHRED_ALL`] ?? 0;
@@ -63,4 +63,13 @@ export function computeReductions(statMap, criteria) {
   const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
 
   return resMult * defMult;
+}
+
+export function computeDamage(characterId, build, calcs, team) {
+  const statMap = compileStatMap("zenless-zone-zero", characterId, build, team, "combat");
+
+  const baseDmg = computeBase(statMap, calcs);
+  const bonuses = computeBonuses(statMap, calcs);
+  const reductions = computeReductions(statMap, calcs);
+  return baseDmg * bonuses * reductions;
 }

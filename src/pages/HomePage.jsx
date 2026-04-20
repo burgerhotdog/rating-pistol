@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Stack, Box, Tooltip } from '@mui/material';
 import { ICON_ASSETS } from '@/assets';
-import { STATS } from '@/data';
+import { MISC } from '@/data';
 
 const GameLink = ({ gameId }) => {
-  const { TITLE } = STATS[gameId];
+  const { TITLE } = MISC[gameId];
   return (
     <Tooltip title={TITLE}>
       <Link to={`/${gameId}`}>

@@ -1,12 +1,14 @@
+import math
+
 def character_constant_stats_parser(game_id, data):
     constant = {}
     match game_id:
         case "genshin-impact":
             # Base stats
-            constant["BASE_HP"] = data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"]
-            constant["BASE_ATK"] = data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"]
-            constant["BASE_DEF"] = data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"]
-            constant["BASE_EM"] = data["elemental_mastery"]
+            constant["BASE_HP"] = round(data["base_hp"] * data["stats_modifier"]["hp"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_hp"])
+            constant["BASE_ATK"] = round(data["base_atk"] * data["stats_modifier"]["atk"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_attack"])
+            constant["BASE_DEF"] = round(data["base_def"] * data["stats_modifier"]["def"]["90"] + data["stats_modifier"]["ascension"][5]["fight_prop_base_defense"])
+            constant["BASE_EM"] = round(data["elemental_mastery"])
             
             # Ascension stats
             stat_map = {
@@ -33,10 +35,10 @@ def character_constant_stats_parser(game_id, data):
 
         case "honkai-star-rail":
             # Base stats
-            constant["BASE_HP"] = data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"]
-            constant["BASE_ATK"] = data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"]
-            constant["BASE_DEF"] = data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"]
-            constant["BASE_SPD"] = data["stats"]["6"]["speed_base"]
+            constant["BASE_HP"] = round(data["stats"]["6"]["hp_add"] * 79 + data["stats"]["6"]["hp_base"])
+            constant["BASE_ATK"] = round(data["stats"]["6"]["attack_add"] * 79 + data["stats"]["6"]["attack_base"])
+            constant["BASE_DEF"] = round(data["stats"]["6"]["defence_add"] * 79 + data["stats"]["6"]["defence_base"])
+            constant["BASE_SPD"] = round(data["stats"]["6"]["speed_base"])
 
             # Ascension stats
             stat_map = {
@@ -71,9 +73,9 @@ def character_constant_stats_parser(game_id, data):
 
         case "wuthering-waves":
             # Base stats
-            constant["BASE_HP"] = data["stats"]["6"]["90"]["life"]
-            constant["BASE_ATK"] = data["stats"]["6"]["90"]["atk"]
-            constant["BASE_DEF"] = data["stats"]["6"]["90"]["def"]
+            constant["BASE_HP"] = math.floor(data["stats"]["6"]["90"]["life"])
+            constant["BASE_ATK"] = math.floor(data["stats"]["6"]["90"]["atk"])
+            constant["BASE_DEF"] = math.floor(data["stats"]["6"]["90"]["def"])
 
             # Ascension stats
             stat_map = {
@@ -87,7 +89,7 @@ def character_constant_stats_parser(game_id, data):
                 "Crit. Rate Up": "PERCENT_CR",
                 "Crit. DMG+": "PERCENT_CD",
                 "Crit. DMG Up": "PERCENT_CD",
-                "Healing Bonus+": "PERCENT_OHB",
+                "Healing Bonus+": "PERCENT_HB",
                 "Glacio DMG Bonus+": "PERCENT_GLACIO",
                 "Fusion DMG Bonus+": "PERCENT_FIRE",
                 "Electro DMG Bonus+": "PERCENT_ICE",
@@ -106,12 +108,12 @@ def character_constant_stats_parser(game_id, data):
 
         case "zenless-zone-zero":
             # Base stats
-            constant["BASE_HP"] = data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"]
-            constant["BASE_ATK"] = data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"]
-            constant["BASE_DEF"] = data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"]
-            constant["BASE_IMPACT"] = data["stats"]["break_stun"]
-            constant["BASE_AM"] = data["stats"]["element_abnormal_power"]
-            constant["BASE_AP"] = data["stats"]["element_mystery"]
+            constant["BASE_HP"] = round(data["stats"]["hp_growth"] / 10000 * 59 + data["stats"]["hp_max"] + data["level"]["6"]["hp_max"])
+            constant["BASE_ATK"] = round(data["stats"]["attack_growth"] / 10000 * 59 + data["stats"]["attack"] + data["level"]["6"]["attack"])
+            constant["BASE_DEF"] = round(data["stats"]["defence_growth"] / 10000 * 59 + data["stats"]["defence"] + data["level"]["6"]["defence"])
+            constant["BASE_IMPACT"] = round(data["stats"]["break_stun"])
+            constant["BASE_AM"] = round(data["stats"]["element_abnormal_power"])
+            constant["BASE_AP"] = round(data["stats"]["element_mystery"])
 
             # Ascension stats
             stat_map = {
@@ -139,7 +141,18 @@ def character_constant_stats_parser(game_id, data):
                     stat_value = core_passive_bonus["value"]
                 constant[stat_id] = constant.get(stat_id, 0) + stat_value
 
-    return { constant }
+    for key, value in constant.items():
+        # Special case
+        if game_id == "zenless-zone-zero" and key == "BASE_ER":
+            constant[key] = round(value, 2)
+
+        elif key.startswith(("BASE_", "FLAT_")):
+            constant[key] = round(value)
+
+        elif key.startswith("PERCENT_"):
+            constant[key] = round(value, 3)
+
+    return { "constant": constant }
 
 def weapon_constant_stats_parser(game_id, data):
     constant = {}
@@ -147,7 +160,7 @@ def weapon_constant_stats_parser(game_id, data):
     match game_id:
         case "genshin-impact":
             # Base stats
-            constant["BASE_ATK"] = data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"]
+            constant["BASE_ATK"] = round(data["stats_modifier"]["atk"]["base"] * data["stats_modifier"]["atk"]["levels"]["90"] + data["ascension"]["6"]["fight_prop_base_attack"])
 
             # Ascension stats
             stat_map = {
@@ -174,13 +187,13 @@ def weapon_constant_stats_parser(game_id, data):
 
         case "honkai-star-rail":
             # Base stats
-            constant["BASE_HP"] = data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79
-            constant["BASE_ATK"] = data["stats"][6]["base_attack_add"] * 79 + data["stats"][6]["base_attack"]
-            constant["BASE_DEF"] = data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79
+            constant["BASE_HP"] = round(data["stats"][6]["base_hp"] + data["stats"][6]["base_hp_add"] * 79)
+            constant["BASE_ATK"] = round(data["stats"][6]["base_attack_add"] * 79 + data["stats"][6]["base_attack"])
+            constant["BASE_DEF"] = round(data["stats"][6]["base_defence"] + data["stats"][6]["base_defence_add"] * 79)
 
         case "wuthering-waves":
             # Base stats
-            constant["BASE_ATK"] = data["stats"]["6"]["90"][0]["value"]
+            constant["BASE_ATK"] = math.floor(data["stats"]["6"]["90"][0]["value"])
 
             # Ascension stats
             stat_map = {
@@ -203,7 +216,7 @@ def weapon_constant_stats_parser(game_id, data):
 
         case "zenless-zone-zero":
             # Base stats
-            constant["BASE_ATK"] = data["base_property"]["value"] * 104 / 7
+            constant["BASE_ATK"] = round(data["base_property"]["value"] * 104 / 7)
 
             # Ascension stats
             stat_map = {
@@ -221,7 +234,7 @@ def weapon_constant_stats_parser(game_id, data):
             stat_id = stat_map[data["rand_property"]["name"]]
             constant[stat_id] = (data["rand_property"]["value"] if stat_id.startswith("FLAT") else data["rand_property"]["value"] / 10000) * 2.5
 
-    return { constant }
+    return { "constant": constant }
 
 GAME_INFO = [
     {
@@ -262,20 +275,20 @@ GAME_INFO = [
                     "QUALITY_PURPLE": "4",
                 },
                 "type": {
-                    "WEAPON_SWORD_ONE_HAND": "Sword",
-                    "WEAPON_CLAYMORE": "Claymore",
-                    "WEAPON_POLE": "Polearm",
-                    "WEAPON_CATALYST": "Catalyst",
-                    "WEAPON_BOW": "Bow",
+                    "WEAPON_SWORD_ONE_HAND": "SWORD",
+                    "WEAPON_CLAYMORE": "CLAYMORE",
+                    "WEAPON_POLE": "POLEARM",
+                    "WEAPON_CATALYST": "CATALYST",
+                    "WEAPON_BOW": "BOW",
                 },
             },
             "weapon": {
                 "type": {
-                    "WEAPON_SWORD_ONE_HAND": "Sword",
-                    "WEAPON_CLAYMORE": "Claymore",
-                    "WEAPON_POLE": "Polearm",
-                    "WEAPON_CATALYST": "Catalyst",
-                    "WEAPON_BOW": "Bow",
+                    "WEAPON_SWORD_ONE_HAND": "SWORD",
+                    "WEAPON_CLAYMORE": "CLAYMORE",
+                    "WEAPON_POLE": "POLEARM",
+                    "WEAPON_CATALYST": "CATALYST",
+                    "WEAPON_BOW": "BOW",
                 },
             },
         },
@@ -321,14 +334,14 @@ GAME_INFO = [
                     "Thunder": "Lightning",
                 },
                 "type": {
-                    "Rogue": "Hunt",
-                    "Priest": "Abundance",
-                    "Warrior": "Destruction",
-                    "Knight": "Preservation",
-                    "Warlock": "Nihility",
-                    "Shaman": "Harmony",
-                    "Mage": "Erudition",
-                    "Memory": "Remembrance",
+                    "Rogue": "HUNT",
+                    "Priest": "ABUNDANCE",
+                    "Warrior": "DESTRUCTION",
+                    "Knight": "PRESERVATION",
+                    "Warlock": "NIHILITY",
+                    "Shaman": "HARMONY",
+                    "Mage": "ERUDITION",
+                    "Memory": "REMEMBRANCE",
                 },
             },
             "weapon": {
@@ -338,14 +351,14 @@ GAME_INFO = [
                     "CombatPowerLightconeRarity3": "3",
                 },
                 "type": {
-                    "Rogue": "Hunt",
-                    "Priest": "Abundance",
-                    "Warrior": "Destruction",
-                    "Knight": "Preservation",
-                    "Warlock": "Nihility",
-                    "Shaman": "Harmony",
-                    "Mage": "Erudition",
-                    "Memory": "Remembrance",
+                    "Rogue": "HUNT",
+                    "Priest": "ABUNDANCE",
+                    "Warrior": "DESTRUCTION",
+                    "Knight": "PRESERVATION",
+                    "Warlock": "NIHILITY",
+                    "Shaman": "HARMONY",
+                    "Mage": "ERUDITION",
+                    "Memory": "REMEMBRANCE",
                 },
             },
         },
@@ -383,28 +396,28 @@ GAME_INFO = [
             },
             "character": {
                 "element": {
-                    1: "Glacio",
-                    2: "Fusion",
-                    3: "Electro",
-                    4: "Aero",
-                    5: "Spectro",
-                    6: "Havoc",
+                    1: "GLACIO",
+                    2: "FUSION",
+                    3: "ELECTRO",
+                    4: "AERO",
+                    5: "SPECTRO",
+                    6: "HAVOC",
                 },
                 "type": {
-                    1: "Broadblade",
-                    2: "Sword",
-                    3: "Pistols",
-                    4: "Gauntlets",
-                    5: "Rectifier",
+                    1: "BROADBLADE",
+                    2: "SWORD",
+                    3: "PISTOLS",
+                    4: "GAUNTLETS",
+                    5: "RECTIFIER",
                 },
             },
             "weapon": {
                 "type": {
-                    1: "Broadblade",
-                    2: "Sword",
-                    3: "Pistols",
-                    4: "Gauntlets",
-                    5: "Rectifier",
+                    1: "BROADBLADE",
+                    2: "SWORD",
+                    3: "PISTOLS",
+                    4: "GAUNTLETS",
+                    5: "RECTIFIER",
                 },
             },
         },

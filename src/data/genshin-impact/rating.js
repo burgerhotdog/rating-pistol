@@ -1,73 +1,64 @@
-import { computeTotalStat } from "@/utils";
+import { computeTotalStat, compileStatMap } from "@/utils";
+import { CHARACTERS } from "@/data"; 
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-export function computeBase(statMap, criteria) {
-  const { ability, element, reaction } = criteria.type;
+function computeBase(statMap, hits, dmgType = []) {
   const totalEm = computeTotalStat("EM", statMap);
-  const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
-
-  // Base ability
-  const multiplier = criteria.scaling.multiplier ?? {};
-  const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
-    const totalStat = computeTotalStat(stat, statMap);
-    return acc + totalStat * motionValue;
-  }, 0);
-  const flatComponent = criteria.scaling.flat ?? 0;
-  const abilityBaseDmg = multiplierComponent + flatComponent;
-
+  
   // Base ability Multiplier:
-  const abilityRawMult = statMap[`RAW_${ability}`] ?? 0;
-  const baseDmgMult = 1 + abilityRawMult;
+  const baseDmgMult = 1 + (statMap[`RAW_${dmgType[1]}`] ?? 0);
 
-  // Flat damage
-  // Non reaction
-  const allFlat = statMap["ADD_ALL"] ?? 0;
-  const abilityFlat = statMap[`ADD_${ability}`] ?? 0;
-  const elementFlat = statMap[`ADD_${element}`] ?? 0;
-  const nonRxnComponent = allFlat + abilityFlat + elementFlat;
-  // Additive reactions
-  let rxnBonus = 0;
-  if (reaction === "AGGRAVATE") rxnBonus = 1.15;
-  if (reaction === "SPREAD") rxnBonus = 1.25;
-  const emBonus = (5 * totalEm) / (totalEm + 1200);
-  const rxnComponent = rxnBonus * CHARACTER_LEVEL * (1 + emBonus + totalRxnBonus);
-  const flatDmg = nonRxnComponent + rxnComponent;
+  let baseDamage = 0;
+  for (const hit of hits) {
+    const { attr = "ATK", mv, times = 1, reaction } = hit;
 
-  return abilityBaseDmg * baseDmgMult + flatDmg;
+    // Flat damage bonuses
+    let flatDamage = statMap["ADD_ALL"] ?? 0;
+    for (const type of dmgType) {
+      flatDamage += statMap[`ADD_${type}`] ?? 0;
+    }
+    if ((reaction === "AGGRAVATE") || (reaction === "SPREAD")) {
+      const rxnBonus = reaction === "AGGRAVATE" ? 1.15 : 1.25;
+      const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
+      const emBonus = (5 * totalEm) / (totalEm + 1200);
+      flatDamage += rxnBonus * CHARACTER_LEVEL * (1 + emBonus + totalRxnBonus);
+    }
+
+    // Amplifying reactions
+    let ampRxnMult = 1;
+    if ((reaction === "MELT") || (reaction === "VAPORIZE") || (reaction === "RMELT") || (reaction === "RVAPORIZE")) {
+      const rxnBonus = (reaction === "MELT" || reaction === "VAPORIZE") ? 2 : 1.5;
+      const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
+      const emBonus = 2.78 * (totalEm / (totalEm + 1400));
+      ampRxnMult += rxnBonus * (1 + emBonus + totalRxnBonus);
+    }
+
+    baseDamage += (computeTotalStat(attr, statMap) * mv * baseDmgMult + flatDamage) * ampRxnMult * times;
+  }
+
+  return baseDamage;
 }
 
-export function computeBonuses(statMap, criteria) {
-  const { ability, element, reaction } = criteria.type;
-  const totalEm = computeTotalStat("EM", statMap);
-  const totalRxnBonus = statMap[`RXN_${reaction}`] ?? 0;
-
+function computeBonuses(statMap, dmgType) {
   // Crit
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
   const critDamage = computeTotalStat("CD", statMap);
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
   // Damage bonus
-  const allDmgBonus = computeTotalStat("ALL", statMap);
-  const abilityDmgBonus = computeTotalStat(ability, statMap);
-  const elementDmgBonus = computeTotalStat(element, statMap);
-  const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus;
+  let dmgBonusMult = 1 + computeTotalStat("ALL", statMap);
 
-  // Amplifying reactions
-  let rxnBonus = 0;
-  if (reaction === "MELT" || reaction === "VAPORIZE") rxnBonus = 2;
-  if (reaction === "RMELT" || reaction === "RVAPORIZE") rxnBonus = 1.5;
-  const emBonus = 2.78 * (totalEm / (totalEm + 1400));
-  const rxnMult = ["MELT", "VAPORIZE", "RMELT", "RVAPORIZE"].includes(reaction) ? rxnBonus * (1 + emBonus + totalRxnBonus) : 1;
+  for (const type of dmgType) {
+    dmgBonusMult += computeTotalStat(type, statMap);
+  }
 
-  return critMult * dmgBonusMult * rxnMult;
+  return critMult * dmgBonusMult;
 }
 
-export function computeReductions(statMap, criteria) {
-  const { element } = criteria.type;
-
+function computeReductions(statMap, element) {
   // Enemy resistance
   const allShred = statMap[`SHRED_ALL`] ?? 0;
   const elementShred = statMap[`SHRED_${element}`] ?? 0;
@@ -88,4 +79,22 @@ export function computeReductions(statMap, criteria) {
   const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
 
   return resMult * defMult;
+}
+
+export function computeDamage(characterId, build, calcs, team) {
+  const element = CHARACTERS["genshin-impact"][characterId];
+  const statMap = compileStatMap("genshin-impact", characterId, build, team, "combat");
+
+  let damage = 0;
+  for (const ability of calcs.rotation) {
+    const { dmgType, hits, times = 1 } = ability;
+
+    const baseDmg = computeBase(statMap, hits);
+    const bonuses = computeBonuses(statMap, dmgType);
+    const reductions = computeReductions(statMap, element);
+
+    damage += baseDmg * bonuses * reductions * times;
+  }
+
+  return damage;
 }

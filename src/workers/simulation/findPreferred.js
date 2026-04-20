@@ -1,9 +1,9 @@
-import { STATS } from "@/data";
+import { MISC } from "@/data";
 import { computeDamage, compileStatMap, computeTotalStat } from "@/utils";
 import { matchPenalty } from './helpers/matchPenalty';
 
-export function findPreferredWuwa(trial, gameId, characterId, criteria, team, matchTargets) {
-  const { MAIN_STAT_TYPES } = STATS[gameId];
+export function findPreferredWuwa(trial, gameId, characterId, calcs, team, matchTargets) {
+  const { MAIN_STAT_TYPES } = MISC[gameId];
 
   return MAIN_STAT_TYPES.map((statOptions, costIndex) => {
     if (costIndex === 0 || costIndex === 2) return [];
@@ -13,8 +13,8 @@ export function findPreferredWuwa(trial, gameId, characterId, criteria, team, ma
       const testObj = { mainStatId: id, mainStatValue: data.VALUE, subStatList: [] };
       const testBuild = { ...trial.build, equipList: [testObj] };
 
-      const testDamage = computeDamage(gameId, characterId, testBuild, criteria, team);
-      const testPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
+      const testDamage = computeDamage(gameId, characterId, testBuild, calcs, team);
+      const testPenalty = (calcs.match ?? []).reduce((acc, stat, index) => {
         const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, testBuild, team, "menu"));
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
@@ -31,8 +31,8 @@ export function findPreferredWuwa(trial, gameId, characterId, criteria, team, ma
 }
 
 
-export function findPreferred(trial, gameId, characterId, criteria, team, matchTargets) {
-  const { MAIN_STAT_TYPES } = STATS[gameId];
+export function findPreferred(trial, gameId, characterId, calcs, team, matchTargets) {
+  const { MAIN_STAT_TYPES } = MISC[gameId];
 
   return MAIN_STAT_TYPES.map((statOptions, slotIndex) => {
     if (Object.keys(statOptions).length === 1) {
@@ -48,8 +48,8 @@ export function findPreferred(trial, gameId, characterId, criteria, team, matchT
       });
       const testBuild = { ...trial.build, equipList: testEquipList };
 
-      const testDamage = computeDamage(gameId, characterId, testBuild, criteria, team);
-      const testPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
+      const testDamage = computeDamage(gameId, characterId, testBuild, calcs, team);
+      const testPenalty = (calcs.match ?? []).reduce((acc, stat, index) => {
         const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, testBuild, team, "menu"));
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);

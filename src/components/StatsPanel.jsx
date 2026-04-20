@@ -1,75 +1,103 @@
-import { Box, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
-import { STATS, CHARACTERS, WEAPONS } from '@/data';
-import { computeTotalStat, mergeEquipList, mergeStatMaps, compileStatMap } from '@/utils';
-import { useBuild } from "@/contexts";
+import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton } from '@mui/material';
+import { MISC, CHARACTERS, WEAPONS } from '@/data';
+import { computeTotalStat, compileStatMap } from '@/utils';
+import { CustomAvatar } from "@/components";
+import { CharacterPicker } from "@/components/CharacterPicker";
 
-export const StatsPanel = ({ gameId, characterId }) => {
-  const build = useBuild(gameId, characterId);
-  const { MENU_STATS } = STATS[gameId];
-  const { name: CHAR_NAME = '' } = CHARACTERS[gameId][characterId] ?? {};
-  const { name: WEAP_NAME = '' } = WEAPONS[gameId][build?.weaponId] ?? {};
+export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => {
+  const { MENU_STATS } = MISC[gameId];
 
   const statMap = build ? compileStatMap(gameId, characterId, build, [], "menu") : {};
 
-  return (
-    <Card sx={{ width: 300 }}>
-      {build ? (
-        <Stack p={2} sx={{ height: '100%', overflowY: 'auto' }}>
-          <Typography variant="h6" fontWeight="bold">
-            {CHAR_NAME}
-          </Typography>
-
-          <Divider sx={{ mb: 2 }} />
-
-          <Stack gap={1.5} sx={{ flex: 1 }}>
-            {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
-              const totalValue = computeTotalStat(id, statMap);
-              const displayValue = isPercent ? totalValue * 100 : totalValue;
-              const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;
-              if (id !== 'EM' && displayValue === 0) return;
-              return (
-                <Box
-                  key={id}
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                >
-                  <Typography variant="body2" color="text.secondary">
-                    {label}
-                  </Typography>
-                  <Typography variant="body2" fontWeight="bold">
-                    {displayValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
-                  </Typography>
-                </Box>
-              );
-            })}
-          </Stack>
-
-          <Divider sx={{ mb: 2 }} />
-
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Typography variant="body2" color="text.secondary">
-              Weapon
-            </Typography>
-            <Typography variant="body2" fontWeight="bold">
-              {WEAP_NAME}
-            </Typography>
-          </Box>
-
-          <Divider sx={{ mt: 'auto', pt: 2 }} />
-          <Typography variant="caption" color="text.secondary" sx={{ pt: 1 }}>
-            Last Updated: {build?.lastUpdated ?? 'Unknown'}
-          </Typography>
-        </Stack>
-      ) : (
+  if (!build) {
+    return (
+      <Card sx={{ width: 300 }}>
         <Skeleton
           variant="rectangular"
           width="100%"
           height="100%"
         />
-      )}
+      </Card>
+    )
+  }
+
+  return (
+    <Card sx={{ width: 300 }}>
+      <CardHeader
+        avatar={<CustomAvatar gameId={gameId} characterId={characterId} />}
+        title={CHARACTERS[gameId]?.[characterId]?.name ?? ""}
+        subheader={
+          <Chip
+            label={CHARACTERS[gameId]?.[characterId]?.element ?? ""}
+            variant="outlined"
+            size="small"
+            sx={{
+              color: MISC[gameId]?.ELEMENT_COLORS[CHARACTERS[gameId]?.[characterId]?.element]
+            }}
+          />
+        }
+      />
+
+      <CardContent>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Typography variant="body2" color="text.secondary">
+            Weapon
+          </Typography>
+          <Typography variant="body2" fontWeight="bold">
+            {WEAPONS[gameId]?.[build?.weaponId]?.name ?? ""}
+          </Typography>
+        </Box>
+
+        <Divider sx={{ my: 2 }} />
+
+        <Stack gap={1}>
+          {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
+            const totalValue = computeTotalStat(id, statMap);
+            const displayValue = isPercent ? totalValue * 100 : totalValue;
+            const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && id === 'ER') ? 1 : 0;
+            if (id !== 'EM' && displayValue === 0) return;
+            return (
+              <Box
+                key={id}
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                }}
+              >
+                <Typography variant="body2" color="text.secondary">
+                  {label}
+                </Typography>
+                <Typography variant="body2" fontWeight="bold">
+                  {displayValue.toFixed(toFixedValue) + (isPercent ? '%' : '')}
+                </Typography>
+              </Box>
+            );
+          })}
+        </Stack>
+
+        <Divider sx={{ my: 2 }} />
+
+        <Typography variant="caption" color="text.secondary" sx={{ mb: 1.5, display: 'block' }}>
+          Team
+        </Typography>
+        <Stack direction="row" spacing={1} justifyContent="center">
+          {team.map((member, index) => (
+            <CharacterPicker
+              key={index}
+              gameId={gameId}
+              currentId={member}
+              updateTeam={newId => updateTeam(index, newId)}
+            />
+          ))}
+        </Stack>
+
+        <Divider sx={{ my: 2 }} />
+
+        <Typography variant="caption" color="text.secondary">
+          Last Updated: {build?.lastUpdated ?? 'Unknown'}
+        </Typography>
+      </CardContent>
     </Card>
   );
 };

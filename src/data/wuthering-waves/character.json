@@ -2,149 +2,395 @@
   "1102": {
     "name": "Sanhua",
     "quality": "4",
-    "element": "Glacio",
-    "type": "Sword",
+    "element": "GLACIO",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 10062.5,
-        "BASE_ATK": 275.0,
-        "BASE_DEF": 941.1094,
-        "PERCENT_GLACIO": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10062,
+        "BASE_ATK": 275,
+        "BASE_DEF": 941,
+        "PERCENT_GLACIO": 0.12,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "self": {
+        "constant": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      "next": {
+        "constant": {
           "AMP_BA": 0.38
         }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1103": {
     "name": "Baizhi",
     "quality": "4",
-    "element": "Glacio",
-    "type": "Rectifier",
+    "element": "GLACIO",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 12812.5,
-        "BASE_ATK": 212.5,
-        "BASE_DEF": 1002.2204,
-        "PERCENT_OHB": 0.12000000000000002,
-        "PERCENT_HP": 0.12000000000000002
+        "BASE_HP": 12812,
+        "BASE_ATK": 212,
+        "BASE_DEF": 1002,
+        "PERCENT_HB": 0.12,
+        "PERCENT_HP": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HP": 0.12,
+          "PERCENT_GLACIO": 0.15,
+          "PERCENT_HB": 0.15
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_ALL": 0.15
+        }
+      },
+      "first": {
+        "constant": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_GLACIO": 0.12
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "7",
+          "5"
+        ]
+      ]
     }
   },
   "1104": {
     "name": "Lingyang",
     "quality": "5",
-    "element": "Glacio",
-    "type": "Gauntlets",
+    "element": "GLACIO",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 10387.5,
-        "BASE_ATK": 437.5,
-        "BASE_DEF": 1209.9978,
-        "PERCENT_GLACIO": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10387,
+        "BASE_ATK": 437,
+        "BASE_DEF": 1209,
+        "PERCENT_GLACIO": 0.12,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_GLACIO": 0.5
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21040015",
+      "setBonuses": [
+        [
+          "1",
+          "5"
+        ]
+      ]
     }
   },
   "1202": {
     "name": "Chixia",
     "quality": "4",
-    "element": "Fusion",
-    "type": "Pistols",
+    "element": "FUSION",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
-        "BASE_HP": 9087.5,
-        "BASE_ATK": 300.0,
-        "BASE_DEF": 953.3316,
-        "PERCENT_FIRE": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 9087,
+        "BASE_ATK": 300,
+        "BASE_DEF": 953,
+        "PERCENT_FIRE": 0.12,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.6
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_BA": 0.25
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "2",
+          "5"
+        ]
+      ]
     }
   },
   "1203": {
     "name": "Encore",
     "quality": "5",
-    "element": "Fusion",
-    "type": "Rectifier",
+    "element": "FUSION",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 10512.5,
-        "BASE_ATK": 425.0,
-        "BASE_DEF": 1246.6644,
-        "PERCENT_FIRE": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10512,
+        "BASE_ATK": 425,
+        "BASE_DEF": 1246,
+        "PERCENT_FIRE": 0.12,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_FUSION": 0.1
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21050015",
+      "setBonuses": [
+        [
+          "2",
+          "5"
+        ]
+      ]
     }
   },
   "1204": {
     "name": "Mortefi",
     "quality": "4",
-    "element": "Fusion",
-    "type": "Pistols",
+    "element": "FUSION",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
-        "BASE_HP": 10025.0,
-        "BASE_ATK": 250.0,
-        "BASE_DEF": 1136.6646,
-        "PERCENT_FIRE": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10025,
+        "BASE_ATK": 250,
+        "BASE_DEF": 1136,
+        "PERCENT_FIRE": 0.12,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "next": {
+        "constant": {
+          "AMP_HA": 0.38
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1301": {
     "name": "Calcharo",
     "quality": "5",
-    "element": "Electro",
-    "type": "Broadblade",
+    "element": "ELECTRO",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 10500.0,
-        "BASE_ATK": 437.5,
-        "BASE_DEF": 1185.5534,
-        "PERCENT_CD": 0.15999999999999998,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10500,
+        "BASE_ATK": 437,
+        "BASE_DEF": 1185,
+        "PERCENT_CD": 0.16,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.1
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21010015",
+      "setBonuses": [
+        [
+          "3",
+          "5"
+        ]
+      ]
     }
   },
   "1302": {
     "name": "Yinlin",
     "quality": "5",
-    "element": "Electro",
-    "type": "Rectifier",
+    "element": "ELECTRO",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 11000.0,
-        "BASE_ATK": 400.0,
-        "BASE_DEF": 1283.331,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 11000,
+        "BASE_ATK": 400,
+        "BASE_DEF": 1283,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "next": {
+        "constant": {
           "AMP_RL": 0.25,
-          "AMP_ELECTRO": 0.20
+          "AMP_ELECTRO": 0.2
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21050016",
+      "setBonuses": [
+        [
+          "13",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RL",
           "element": "ELECTRO"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "ELECTRO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.1432,
+                "times": 10
+              }
+            ]
+          },
+          {
+            "name": "Basic P4",
+            "dmgType": [
+              "ELECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.7516
+              }
+            ]
+          },
+          {
+            "name": "Skill: Magnetic Roar",
+            "dmgType": [
+              "ELECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.5965,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Skill: Lightning Execution",
+            "dmgType": [
+              "ELECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.8947,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "ELECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 1.1656,
+                "times": 7
+              }
+            ]
+          },
+          {
+            "name": "Basic P1",
+            "dmgType": [
+              "ELECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2881
+              }
+            ]
+          },
+          {
+            "name": "Forte: Heavy: Chameleon Cipher",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1.7893,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Skill: Judgement Strike",
+            "dmgType": [
+              "ELECTRO",
+              "RS",
+              "CA"
+            ],
+            "hits": [
+              {
+                "mv": 0.7864
+              }
+            ],
+            "times": 18
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -154,74 +400,239 @@
   "1303": {
     "name": "Yuanwu",
     "quality": "4",
-    "element": "Electro",
-    "type": "Gauntlets",
+    "element": "ELECTRO",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 8525.0,
-        "BASE_ATK": 225.0,
-        "BASE_DEF": 1637.7748,
-        "PERCENT_ICE": 0.12000000000000002,
+        "BASE_HP": 8525,
+        "BASE_ATK": 225,
+        "BASE_DEF": 1637,
+        "PERCENT_ICE": 0.12,
         "PERCENT_DEF": 0.152
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.5
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_DEF": 0.32
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "13",
+          "5"
+        ]
+      ]
     }
   },
   "1402": {
     "name": "Yangyang",
     "quality": "4",
-    "element": "Aero",
-    "type": "Sword",
+    "element": "AERO",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 10200.0,
-        "BASE_ATK": 250.0,
-        "BASE_DEF": 1099.998,
-        "PERCENT_AERO": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10200,
+        "BASE_ATK": 250,
+        "BASE_DEF": 1099,
+        "PERCENT_AERO": 0.12,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_AERO": 0.23,
+          "PERCENT_RS": 0.4
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1403": {
     "name": "Aalto",
     "quality": "4",
-    "element": "Aero",
-    "type": "Pistols",
+    "element": "AERO",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
-        "BASE_HP": 9850.0,
-        "BASE_ATK": 262.5,
-        "BASE_DEF": 1075.5536,
-        "PERCENT_AERO": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 9850,
+        "BASE_ATK": 262,
+        "BASE_DEF": 1075,
+        "PERCENT_AERO": 0.12,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.15,
+          "PERCENT_AERO": 0.25,
+          "PERCENT_CR": 0.08
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_AERO": 0.23
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1404": {
     "name": "Jiyan",
     "quality": "5",
-    "element": "Aero",
-    "type": "Broadblade",
+    "element": "AERO",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 10487.5,
-        "BASE_ATK": 437.5,
-        "BASE_DEF": 1185.5534,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10487,
+        "BASE_ATK": 437,
+        "BASE_DEF": 1185,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21010016",
+      "setBonuses": [
+        [
+          "4",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "HA",
           "element": "AERO"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "AERO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.9881
+              }
+            ]
+          },
+          {
+            "name": "Forte: Emerald Storm",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1.4291,
+                "times": 2
+              },
+              {
+                "mv": 4.2873
+              }
+            ]
+          },
+          {
+            "name": "Skill",
+            "dmgType": [
+              "AERO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.0636,
+                "times": 4
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Heavy: Lance of Qinqlong P1",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6552,
+                "times": 8
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Heavy: Lance of Qinqlong P2",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6155,
+                "times": 8
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Heavy: Lance of Qinqlong P3",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6676,
+                "times": 8
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Outro",
+            "dmgType": [
+              "AERO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 3.134,
+                "times": 2
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -231,112 +642,324 @@
   "1405": {
     "name": "Jianxin",
     "quality": "5",
-    "element": "Aero",
-    "type": "Gauntlets",
+    "element": "AERO",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 14112.5,
-        "BASE_ATK": 337.5,
-        "BASE_DEF": 1124.4424,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 14112,
+        "BASE_ATK": 337,
+        "BASE_DEF": 1124,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "next": {
+        "constant": {
           "AMP_RL": 0.38
         }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1503": {
     "name": "Verina",
     "quality": "5",
-    "element": "Spectro",
-    "type": "Rectifier",
+    "element": "SPECTRO",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 14237.5,
-        "BASE_ATK": 337.5,
-        "BASE_DEF": 1099.998,
-        "PERCENT_OHB": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 14237,
+        "BASE_ATK": 337,
+        "BASE_DEF": 1099,
+        "PERCENT_HB": 0.12,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
       "team": {
-        "constantStats": {
+        "constant": {
           "PERCENT_ATK": 0.2,
           "AMP_ALL": 0.15
         }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "7",
+          "5"
+        ]
+      ]
     }
   },
   "1601": {
     "name": "Taoqi",
     "quality": "4",
-    "element": "Havoc",
-    "type": "Broadblade",
+    "element": "HAVOC",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 8950.0,
-        "BASE_ATK": 225.0,
-        "BASE_DEF": 1564.4416,
-        "PERCENT_HAVOC": 0.12000000000000002,
+        "BASE_HP": 8950,
+        "BASE_ATK": 225,
+        "BASE_DEF": 1564,
+        "PERCENT_HAVOC": 0.12,
         "PERCENT_DEF": 0.152
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.4,
+          "PERCENT_HA": 0.4
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_RS": 0.38
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_DEF": 0.15
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1602": {
     "name": "Danjin",
     "quality": "4",
-    "element": "Havoc",
-    "type": "Sword",
+    "element": "HAVOC",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 9437.5,
-        "BASE_ATK": 262.5,
-        "BASE_DEF": 1148.8868,
-        "PERCENT_HAVOC": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 9437,
+        "BASE_ATK": 262,
+        "BASE_DEF": 1148,
+        "PERCENT_HAVOC": 0.12,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.3,
+          "PERCENT_RL": 0.3,
+          "PERCENT_HAVOC": 0.3
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_HAVOC": 0.23
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1205": {
     "name": "Changli",
     "quality": "5",
-    "element": "Fusion",
-    "type": "Sword",
+    "element": "FUSION",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 10387.5,
-        "BASE_ATK": 462.5,
-        "BASE_DEF": 1099.998,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10387,
+        "BASE_ATK": 462,
+        "BASE_DEF": 1099,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "next": {
+        "constant": {
           "AMP_RL": 0.25,
-          "AMP_FUSION": 0.20
+          "AMP_FUSION": 0.2
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21020016",
+      "setBonuses": [
+        [
+          "2",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RS",
           "element": "FUSION"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "FUSION",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.445
+              },
+              {
+                "mv": 0.2596,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "True Sight: Charge",
+            "dmgType": [
+              "FUSION",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.7268
+              },
+              {
+                "mv": 1.0902
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Heavy",
+            "dmgType": [
+              "FUSION",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1.2327
+              }
+            ]
+          },
+          {
+            "name": "Basic P3",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3645,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Basic P4",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.507
+              },
+              {
+                "mv": 0.2958,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "True Sight: Conquest",
+            "dmgType": [
+              "FUSION",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.5895,
+                "times": 2
+              },
+              {
+                "mv": 0.8252
+              },
+              {
+                "mv": 0.9431
+              }
+            ],
+            "times": 3
+          },
+          {
+            "name": "Skill",
+            "dmgType": [
+              "FUSION",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.8188,
+                "times": 3
+              },
+              {
+                "mv": 1.6376
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Forte: Heavy: Flaming Sacrifice",
+            "dmgType": [
+              "FUSION",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.3925,
+                "times": 5
+              },
+              {
+                "mv": 4.5785
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 12.1275
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -346,29 +969,179 @@
   "1304": {
     "name": "Jinhsi",
     "quality": "5",
-    "element": "Spectro",
-    "type": "Broadblade",
+    "element": "SPECTRO",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 10825.0,
-        "BASE_ATK": 412.5,
-        "BASE_DEF": 1258.8866,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10825,
+        "BASE_ATK": 412,
+        "BASE_DEF": 1258,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21010026",
+      "setBonuses": [
+        [
+          "5",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RS",
           "element": "SPECTRO"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "SPECTRO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.5905
+              }
+            ]
+          },
+          {
+            "name": "Skill: Overflowing Radiance",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.0987,
+                "times": 4
+              },
+              {
+                "mv": 0.2959,
+                "times": 4
+              },
+              {
+                "mv": 0.3945
+              }
+            ]
+          },
+          {
+            "name": "Incarnation: Skill: Crescent Divinity",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.0076
+              },
+              {
+                "mv": 0.7557,
+                "times": 2
+              },
+              {
+                "mv": 2.519
+              }
+            ]
+          },
+          {
+            "name": "Incarnation: Basic P1",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.8862
+              }
+            ]
+          },
+          {
+            "name": "Incarnation: Basic P2",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.7797
+              },
+              {
+                "mv": 0.2599,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Incarnation: Basic P3",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.9944
+              },
+              {
+                "mv": 0.663
+              }
+            ]
+          },
+          {
+            "name": "Incarnation: Basic P4",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.1867,
+                "times": 6
+              },
+              {
+                "mv": 0.7467
+              }
+            ]
+          },
+          {
+            "name": "Skill: Illuminous Epiphany",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.1989,
+                "times": 6
+              },
+              {
+                "mv": 3.4792
+              },
+              {
+                "mv": 0.4454,
+                "times": 50
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "SPECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 4.9981
+              },
+              {
+                "mv": 11.6622
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -378,37 +1151,159 @@
   "1105": {
     "name": "Zhezhi",
     "quality": "5",
-    "element": "Glacio",
-    "type": "Rectifier",
+    "element": "GLACIO",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 12250.0,
-        "BASE_ATK": 375.0,
-        "BASE_DEF": 1197.7756,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 12250,
+        "BASE_ATK": 375,
+        "BASE_DEF": 1197,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "next": {
+        "constant": {
           "AMP_RS": 0.25,
-          "AMP_GLACIO": 0.20
+          "AMP_GLACIO": 0.2
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21050026",
+      "setBonuses": [
+        [
+          "13",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "BA",
           "element": "GLACIO"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "GLACIO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.8616,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Basic P1",
+            "dmgType": [
+              "GLACIO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.4176,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Basic P2",
+            "dmgType": [
+              "GLACIO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2055,
+                "times": 5
+              }
+            ]
+          },
+          {
+            "name": "Basic P3",
+            "dmgType": [
+              "GLACIO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.3361
+              }
+            ]
+          },
+          {
+            "name": "Skill: Manifestation",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.9842,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Forte: Heavy: Conjuration",
+            "dmgType": [
+              "GLACIO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.8301,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Forte: Skill: Stroke of Genius",
+            "dmgType": [
+              "GLACIO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 2.9822
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Forte: Skill: Creation's Zenith",
+            "dmgType": [
+              "GLACIO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.1929,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "GLACIO",
+              "BA",
+              "CA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6521
+              }
+            ],
+            "times": 21
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -418,29 +1313,163 @@
   "1305": {
     "name": "Xiangli Yao",
     "quality": "5",
-    "element": "Electro",
-    "type": "Gauntlets",
+    "element": "ELECTRO",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 10625.0,
-        "BASE_ATK": 425.0,
-        "BASE_DEF": 1222.22,
-        "PERCENT_CD": 0.15999999999999998,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10625,
+        "BASE_ATK": 425,
+        "BASE_DEF": 1222,
+        "PERCENT_CD": 0.16,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21040016",
+      "setBonuses": [
+        [
+          "3",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RL",
           "element": "ELECTRO"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "ELECTRO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.9941,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "ELECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 14.6606
+              }
+            ]
+          },
+          {
+            "name": "Ultimate: Skill: Divergence",
+            "dmgType": [
+              "ELECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.4959,
+                "times": 3
+              },
+              {
+                "mv": 1.7355,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Forte: Mid-Air: Revamp",
+            "dmgType": [
+              "ELECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.2187,
+                "times": 4
+              },
+              {
+                "mv": 0.6561,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Forte: Skill: Law of Reigns",
+            "dmgType": [
+              "ELECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.9573,
+                "times": 4
+              },
+              {
+                "mv": 2.5528
+              }
+            ],
+            "times": 3
+          },
+          {
+            "name": "Ultimate: Basic: Pivot - Impale P1",
+            "dmgType": [
+              "ELECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.1967
+              }
+            ]
+          },
+          {
+            "name": "Ultimate: Basic: Pivot - Impale P2",
+            "dmgType": [
+              "ELECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6092,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Ultimate: Basic: Pivot - Impale P3",
+            "dmgType": [
+              "ELECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.3325,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Outro",
+            "dmgType": [
+              "ELECTRO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 2.3763
+              }
+            ],
+            "times": 3
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -450,90 +1479,288 @@
   "1106": {
     "name": "Youhu",
     "quality": "4",
-    "element": "Glacio",
-    "type": "Gauntlets",
+    "element": "GLACIO",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 9975.0,
-        "BASE_ATK": 262.5,
-        "BASE_DEF": 1051.1092,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 9975,
+        "BASE_ATK": 262,
+        "BASE_DEF": 1051,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "buffs": {
+      "next": {
+        "constant": {
+          "AMP_CA": 1
+        }
+      }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "7",
+          "5"
+        ]
+      ]
     }
   },
   "1505": {
     "name": "Shorekeeper",
     "quality": "5",
-    "element": "Spectro",
-    "type": "Rectifier",
+    "element": "SPECTRO",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 16712.5,
-        "BASE_ATK": 287.5,
-        "BASE_DEF": 1099.998,
-        "PERCENT_OHB": 0.12000000000000002,
-        "PERCENT_HP": 0.12000000000000002
+        "BASE_HP": 16712,
+        "BASE_ATK": 287,
+        "BASE_DEF": 1099,
+        "PERCENT_HB": 0.12,
+        "PERCENT_HP": 0.12
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ER": 0.1
+        }
+      },
       "team": {
-        "constantStats": {
+        "constant": {
           "AMP_ALL": 0.15,
           "PERCENT_CR": 0.125,
           "PERCENT_CD": 0.25
         }
       }
+    },
+    "preset": {
+      "weaponId": "21050036",
+      "setBonuses": [
+        [
+          "7",
+          "5"
+        ]
+      ]
     }
   },
   "1504": {
     "name": "Lumi",
     "quality": "4",
-    "element": "Electro",
-    "type": "Broadblade",
+    "element": "ELECTRO",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 8500.0,
-        "BASE_ATK": 337.5,
-        "BASE_DEF": 879.9984,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 8500,
+        "BASE_ATK": 337,
+        "BASE_DEF": 879,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
-          "AMP_RL": 0.38
+      "self": {
+        "constant": {
+          "PERCENT_BA": 0.3
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_RS": 0.38
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.2
         }
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
     }
   },
   "1603": {
     "name": "Camellya",
     "quality": "5",
-    "element": "Havoc",
-    "type": "Sword",
+    "element": "HAVOC",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 10325.0,
-        "BASE_ATK": 450.0,
-        "BASE_DEF": 1161.109,
-        "PERCENT_CD": 0.15999999999999998,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10325,
+        "BASE_ATK": 450,
+        "BASE_DEF": 1161,
+        "PERCENT_CD": 0.16,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21020026",
+      "setBonuses": [
+        [
+          "6",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "BA",
           "element": "HAVOC"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "HAVOC",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.9881
+              }
+            ]
+          },
+          {
+            "name": "Skill: Crimson Blossom",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.1362,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "HAVOC",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 12.0281
+              }
+            ]
+          },
+          {
+            "name": "Skill: Basic: Vining Waltz P1",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.9633
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Skill: Basic: Vining Waltz P2",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.4563,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Skill: Basic: Vining Waltz P3",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2195,
+                "times": 6
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Skill: Basic: Blazing Waltz",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2195,
+                "times": 19
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Skill: Basic: Vining Waltz P4",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6759,
+                "times": 3
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Forte: Skill: Ephemeral",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 12.6245
+              }
+            ]
+          },
+          {
+            "name": "Skill: Floral Ravage",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5261,
+                "times": 5
+              }
+            ]
+          },
+          {
+            "name": "Outro",
+            "dmgType": [
+              "HAVOC",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 3.2924
+              },
+              {
+                "mv": 4.5902
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -543,29 +1770,178 @@
   "1107": {
     "name": "Carlotta",
     "quality": "5",
-    "element": "Glacio",
-    "type": "Pistols",
+    "element": "GLACIO",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
-        "BASE_HP": 12450.0,
-        "BASE_ATK": 462.5,
-        "BASE_DEF": 1197.7756,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 12450,
+        "BASE_ATK": 462,
+        "BASE_DEF": 1197,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "buffs": {
+      "self": {
+        "constant": {
+          "IGNORE_DEF": 0.18
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21030016",
+      "setBonuses": [
+        [
+          "10",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RS",
           "element": "GLACIO"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "GLACIO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.7893
+              },
+              {
+                "mv": 0.5965,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Skill",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.4411,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Skill: Chromatic Splendor",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.1273,
+                "times": 2
+              },
+              {
+                "mv": 3.3818
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Mid-air Attack",
+            "dmgType": [
+              "GLACIO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.0478
+              }
+            ]
+          },
+          {
+            "name": "Forte: Heavy: Imminent Oblivion",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.6683,
+                "times": 5
+              },
+              {
+                "mv": 5.0121
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "bonus": {
+              "RAW_MV": 0.8
+            },
+            "hits": [
+              {
+                "mv": 4.0271
+              }
+            ]
+          },
+          {
+            "name": "Ultimate: Death Knell",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "bonus": {
+              "RAW_MV": 0.8
+            },
+            "hits": [
+              {
+                "mv": 1.8364
+              },
+              {
+                "mv": 0.145,
+                "times": 4
+              }
+            ],
+            "times": 4
+          },
+          {
+            "name": "Ultimate: Fatal Finale",
+            "dmgType": [
+              "GLACIO",
+              "RS"
+            ],
+            "bonus": {
+              "RAW_MV": 0.8
+            },
+            "hits": [
+              {
+                "mv": 6.4433
+              }
+            ]
+          },
+          {
+            "name": "Outro",
+            "dmgType": [
+              "GLACIO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 7.942
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -575,37 +1951,137 @@
   "1606": {
     "name": "Roccia",
     "quality": "5",
-    "element": "Havoc",
-    "type": "Gauntlets",
+    "element": "HAVOC",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 12250.0,
-        "BASE_ATK": 375.0,
-        "BASE_DEF": 1197.7756,
-        "PERCENT_CD": 0.15999999999999998,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 12250,
+        "BASE_ATK": 375,
+        "BASE_DEF": 1197,
+        "PERCENT_CD": 0.16,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "next": {
+        "constant": {
           "AMP_BA": 0.25,
-          "AMP_HAVOC": 0.20
+          "AMP_HAVOC": 0.2
+        }
+      },
+      "ally": {
+        "constant": {
+          "FLAT_ATK": 200
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21040026",
+      "setBonuses": [
+        [
+          "12",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RS",
           "element": "HAVOC"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "HAVOC",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.6899
+              }
+            ]
+          },
+          {
+            "name": "Basic P4",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.0419,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Skill",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.6147,
+                "times": 8
+              }
+            ]
+          },
+          {
+            "name": "Forte: Basic: Real Fantasy P1",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 3.2208
+              }
+            ]
+          },
+          {
+            "name": "Forte: Basic: Real Fantasy P2",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 3.3997
+              }
+            ]
+          },
+          {
+            "name": "Forte: Basic: Real Fantasy P3",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 3.5786
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "bonus": {
+              "FLAT_ATK": 200
+            },
+            "hits": [
+              {
+                "mv": 2.7834,
+                "times": 3
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -615,37 +2091,181 @@
   "1206": {
     "name": "Brant",
     "quality": "5",
-    "element": "Fusion",
-    "type": "Sword",
+    "element": "FUSION",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 11675.0,
-        "BASE_ATK": 375.0,
-        "BASE_DEF": 1307.7754,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 11675,
+        "BASE_ATK": 375,
+        "BASE_DEF": 1307,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "self": {
+        "constant": {
+          "PERCENT_FUSION": 0.15
+        },
+        "variable": {
+          "FLAT_ATK": {
+            "source": [
+              "ER",
+              0.01
+            ],
+            "offset": 1.5,
+            "value": 20,
+            "max": 2600
+          }
+        }
+      },
+      "next": {
+        "constant": {
           "AMP_RS": 0.25,
-          "AMP_FUSION": 0.20
+          "AMP_FUSION": 0.2
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21020036",
+      "setBonuses": [
+        [
+          "14",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "BA",
           "element": "FUSION"
         },
+        "rotation": [
+          {
+            "name": "Intro",
+            "dmgType": [
+              "FUSION",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 2.0279
+              },
+              {
+                "mv": 0.507
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.8506,
+                "times": 4
+              },
+              {
+                "mv": 3.4021
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P2",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.8492,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P2: Charged Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3287,
+                "times": 6
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P2: Flip",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.338
+              },
+              {
+                "mv": 0.5915
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P3",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2817,
+                "times": 6
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack P3: Flip",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.338
+              },
+              {
+                "mv": 0.5915
+              }
+            ]
+          },
+          {
+            "name": "Forte: Skill: Returned from Ashes",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.4722,
+                "times": 2
+              },
+              {
+                "mv": 0.9444
+              },
+              {
+                "mv": 1.8887,
+                "times": 2
+              },
+              {
+                "mv": 13.2209
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -655,37 +2275,54 @@
   "1506": {
     "name": "Phoebe",
     "quality": "5",
-    "element": "Spectro",
-    "type": "Rectifier",
+    "element": "SPECTRO",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 10825.0,
-        "BASE_ATK": 412.5,
-        "BASE_DEF": 1258.8866,
-        "PERCENT_CD": 0.15999999999999998,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10825,
+        "BASE_ATK": 412,
+        "BASE_DEF": 1258,
+        "PERCENT_CD": 0.16,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_FRAZZLE": 1,
           "SHRED_SPECTRO": 0.1
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21050046",
+      "setBonuses": [
+        [
+          "8",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "HA",
           "element": "SPECTRO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "SPECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -695,37 +2332,54 @@
   "1607": {
     "name": "Cantarella",
     "quality": "5",
-    "element": "Havoc",
-    "type": "Rectifier",
+    "element": "HAVOC",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 11600.0,
-        "BASE_ATK": 400.0,
-        "BASE_DEF": 1099.998,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 11600,
+        "BASE_ATK": 400,
+        "BASE_DEF": 1099,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "next": {
+        "constant": {
           "AMP_RS": 0.25,
           "AMP_HAVOC": 0.2
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21050056",
+      "setBonuses": [
+        [
+          "12",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "BA",
           "element": "HAVOC"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -735,36 +2389,53 @@
   "1407": {
     "name": "Ciaccona",
     "quality": "5",
-    "element": "Aero",
-    "type": "Pistols",
+    "element": "AERO",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
-        "BASE_HP": 12237.5,
-        "BASE_ATK": 375.0,
-        "BASE_DEF": 1197.7756,
-        "PERCENT_CD": 0.15999999999999998,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 12237,
+        "BASE_ATK": 375,
+        "BASE_DEF": 1197,
+        "PERCENT_CD": 0.16,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
       "ally": {
-        "constantStats": {
+        "constant": {
           "AMP_EROSION": 1
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21030026",
+      "setBonuses": [
+        [
+          "16",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RL",
           "element": "AERO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -774,30 +2445,47 @@
   "1507": {
     "name": "Zani",
     "quality": "5",
-    "element": "Spectro",
-    "type": "Gauntlets",
+    "element": "SPECTRO",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 10775.0,
-        "BASE_ATK": 437.5,
-        "BASE_DEF": 1136.6646,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10775,
+        "BASE_ATK": 437,
+        "BASE_DEF": 1136,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21040036",
+      "setBonuses": [
+        [
+          "11",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "HA",
-          "element": "SPECTRO",
-          "special": "FRAZZLE"
+          "element": "SPECTRO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "SPECTRO",
+              "HA",
+              "FRAZZLE"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -807,29 +2495,46 @@
   "1207": {
     "name": "Lupa",
     "quality": "5",
-    "element": "Fusion",
-    "type": "Broadblade",
+    "element": "FUSION",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 11912.5,
-        "BASE_ATK": 387.5,
-        "BASE_DEF": 1185.5534,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 11912,
+        "BASE_ATK": 387,
+        "BASE_DEF": 1185,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21010036",
+      "setBonuses": [
+        [
+          "18",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RL",
           "element": "FUSION"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -839,30 +2544,48 @@
   "1409": {
     "name": "Cartethyia",
     "quality": "5",
-    "element": "Aero",
-    "type": "Sword",
+    "element": "AERO",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 14800.0,
-        "BASE_ATK": 312.5,
-        "BASE_DEF": 611.11,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_HP": 0.12000000000000002
+        "BASE_HP": 14800,
+        "BASE_ATK": 312,
+        "BASE_DEF": 611,
+        "PERCENT_CR": 0.08,
+        "PERCENT_HP": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21020056",
+      "setBonuses": [
+        [
+          "17",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "HP": 1
-          }
-        },
         "type": {
-          "ability": "BA",
-          "element": "AERO",
-          "special": "EROSION"
+          "element": "AERO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "AERO",
+              "BA",
+              "EROSION"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -872,58 +2595,92 @@
   "1608": {
     "name": "Phrolova",
     "quality": "5",
-    "element": "Havoc",
-    "type": "Rectifier",
+    "element": "HAVOC",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 10775.0,
-        "BASE_ATK": 437.5,
-        "BASE_DEF": 1136.6646,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10775,
+        "BASE_ATK": 437,
+        "BASE_DEF": 1136,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21050066",
+      "setBonuses": [
+        [
+          "19",
+          "3"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RS",
           "element": "HAVOC"
-        }
+        },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   "1306": {
     "name": "Augusta",
     "quality": "5",
-    "element": "Electro",
-    "type": "Broadblade",
+    "element": "ELECTRO",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 10300.0,
-        "BASE_ATK": 462.5,
-        "BASE_DEF": 1112.2202,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10300,
+        "BASE_ATK": 462,
+        "BASE_DEF": 1112,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21010046",
+      "setBonuses": [
+        [
+          "20",
+          "3"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "HA",
           "element": "ELECTRO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "ELECTRO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -933,36 +2690,53 @@
   "1410": {
     "name": "Iuno",
     "quality": "5",
-    "element": "Aero",
-    "type": "Gauntlets",
+    "element": "AERO",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 10525.0,
-        "BASE_ATK": 450.0,
-        "BASE_DEF": 1124.4424,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10525,
+        "BASE_ATK": 450,
+        "BASE_DEF": 1124,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "next": {
+        "constant": {
           "AMP_HA": 0.5
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21040046",
+      "setBonuses": [
+        [
+          "20",
+          "3"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RL",
           "element": "AERO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -972,51 +2746,77 @@
   "1208": {
     "name": "Galbrena",
     "quality": "5",
-    "element": "Fusion",
-    "type": "Pistols",
+    "element": "FUSION",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
-        "BASE_HP": 10300.0,
-        "BASE_ATK": 462.5,
-        "BASE_DEF": 1112.2202,
-        "PERCENT_CD": 0.15999999999999998,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10300,
+        "BASE_ATK": 462,
+        "BASE_DEF": 1112,
+        "PERCENT_CD": 0.16,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "preset": {
+      "weaponId": "21030036",
+      "setBonuses": [
+        [
+          "22",
+          "3"
+        ]
+      ]
     }
   },
   "1411": {
     "name": "Qiuyuan",
     "quality": "5",
-    "element": "Aero",
-    "type": "Sword",
+    "element": "AERO",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 12237.5,
-        "BASE_ATK": 375.0,
-        "BASE_DEF": 1197.7756,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 12237,
+        "BASE_ATK": 375,
+        "BASE_DEF": 1197,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "ally": {
-        "constantStats": {
+      "next": {
+        "constant": {
           "AMP_ES": 0.5
         }
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21020066",
+      "setBonuses": [
+        [
+          "21",
+          "3"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "HA",
           "element": "AERO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -1026,44 +2826,69 @@
   "1307": {
     "name": "Buling",
     "quality": "4",
-    "element": "Electro",
-    "type": "Rectifier",
+    "element": "ELECTRO",
+    "type": "RECTIFIER",
     "stats": {
       "constant": {
-        "BASE_HP": 10625.0,
-        "BASE_ATK": 225.0,
-        "BASE_DEF": 1258.8866,
-        "PERCENT_OHB": 0.12000000000000002,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10625,
+        "BASE_ATK": 225,
+        "BASE_DEF": 1258,
+        "PERCENT_HB": 0.12,
+        "PERCENT_ATK": 0.12
       }
+    },
+    "preset": {
+      "setBonuses": [
+        [
+          "7",
+          "5"
+        ]
+      ]
     }
   },
   "1508": {
     "name": "Chisa",
     "quality": "5",
-    "element": "Havoc",
-    "type": "Broadblade",
+    "element": "HAVOC",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 10775.0,
-        "BASE_ATK": 437.5,
-        "BASE_DEF": 1136.6646,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10775,
+        "BASE_ATK": 437,
+        "BASE_DEF": 1136,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21010056",
+      "setBonuses": [
+        [
+          "23",
+          "3"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RL",
           "element": "HAVOC"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "HAVOC",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -1073,44 +2898,77 @@
   "1209": {
     "name": "Mornye",
     "quality": "5",
-    "element": "Fusion",
-    "type": "Broadblade",
+    "element": "FUSION",
+    "type": "BROADBLADE",
     "stats": {
       "constant": {
-        "BASE_HP": 15375.0,
-        "BASE_ATK": 287.5,
-        "BASE_DEF": 1356.6642,
-        "PERCENT_OHB": 0.12000000000000002,
+        "BASE_HP": 15375,
+        "BASE_ATK": 287,
+        "BASE_DEF": 1356,
+        "PERCENT_OHB": 0.12,
         "PERCENT_DEF": 0.152
       }
+    },
+    "buffs": {
+      "team": {
+        "constant": {
+          "AMP_ALL": 0.25
+        }
+      }
+    },
+    "preset": {
+      "weaponId": "21010066",
+      "setBonuses": [
+        [
+          "25",
+          "5"
+        ]
+      ]
     }
   },
   "1509": {
     "name": "Lynae",
     "quality": "5",
-    "element": "Spectro",
-    "type": "Pistols",
+    "element": "SPECTRO",
+    "type": "PISTOLS",
     "stats": {
       "constant": {
-        "BASE_HP": 12237.5,
-        "BASE_ATK": 375.0,
-        "BASE_DEF": 1197.7756,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 12237,
+        "BASE_ATK": 375,
+        "BASE_DEF": 1197,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21030046",
+      "setBonuses": [
+        [
+          "24",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "BA",
           "element": "SPECTRO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -1120,29 +2978,46 @@
   "1210": {
     "name": "Aemeath",
     "quality": "5",
-    "element": "Fusion",
-    "type": "Sword",
+    "element": "FUSION",
+    "type": "SWORD",
     "stats": {
       "constant": {
-        "BASE_HP": 11025.0,
-        "BASE_ATK": 425.0,
-        "BASE_DEF": 1148.8868,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 11025,
+        "BASE_ATK": 425,
+        "BASE_DEF": 1148,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21020076",
+      "setBonuses": [
+        [
+          "27",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "RL",
           "element": "FUSION"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
@@ -1152,33 +3027,74 @@
   "1510": {
     "name": "Luuk Herssen",
     "quality": "5",
-    "element": "Spectro",
-    "type": "Gauntlets",
+    "element": "SPECTRO",
+    "type": "GAUNTLETS",
     "stats": {
       "constant": {
-        "BASE_HP": 10300.0,
-        "BASE_ATK": 462.5,
-        "BASE_DEF": 1112.2202,
-        "PERCENT_CR": 0.07999999999999999,
-        "PERCENT_ATK": 0.12000000000000002
+        "BASE_HP": 10300,
+        "BASE_ATK": 462,
+        "BASE_DEF": 1112,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
       }
     },
-    "criteria": [
+    "preset": {
+      "weaponId": "21040056",
+      "setBonuses": [
+        [
+          "26",
+          "5"
+        ]
+      ]
+    },
+    "calcs": [
       {
         "name": "Damage",
-        "scaling": {
-          "multiplier": {
-            "ATK": 1
-          }
-        },
         "type": {
-          "ability": "BA",
           "element": "SPECTRO"
         },
+        "rotation": [
+          {
+            "name": "",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
         "match": [
           "ER"
         ]
       }
     ]
+  },
+  "1412": {
+    "name": "Sigrika",
+    "quality": "5",
+    "element": "AERO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "constant": {
+        "BASE_HP": 10775,
+        "BASE_ATK": 437,
+        "BASE_DEF": 1136,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "preset": {
+      "weaponId": "21040066",
+      "setBonuses": [
+        [
+          "29",
+          "5"
+        ]
+      ]
+    }
   }
 }

@@ -1,10 +1,16 @@
-import { Card, Box, Paper, Typography } from '@mui/material';
-import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip } from 'recharts';
-import { CHARACTERS, STATS } from '@/data';
+import { Card, Box, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip, Legend } from 'recharts';
+import { CHARACTERS, MISC } from '@/data';
 import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
+import { useTheme } from '@mui/material/styles';
 
-export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading }) => {
-  const criteria = CHARACTERS[gameId][characterId]?.criteria;
+export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading, benchmarkWeek }) => {
+  const theme = useTheme();
+  const disabledColor = theme.palette.action.disabled;
+  const element = CHARACTERS[gameId]?.[characterId]?.element;
+  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const calcs = CHARACTERS[gameId][characterId]?.calcs;
 
   if (isLoading || !build || !combinedSimEquips) return null;
   const simSources = Object.entries(combinedSimEquips).map(([statId, value]) => ({
@@ -13,17 +19,17 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
     subStatList: []
   }));
 
-  const damageType = criteria?.[0].type.element;
-  const nonDamageTypes = STATS[gameId].ELEMENT_TYPES
+  const damageType = calcs?.[0].type.element;
+  const nonDamageTypes = Object.keys(MISC[gameId].ELEMENT_COLORS)
     .map(element => element.toUpperCase())
     .filter(element => element !== damageType);
 
-  const data = Object.entries(STATS[gameId].MENU_STATS)
+  const data = Object.entries(MISC[gameId].MENU_STATS)
     .filter(([stat]) => damageType === 'PHYSICAL'
       ? !nonDamageTypes.includes(stat)
       : !nonDamageTypes.includes(stat) && stat !== 'PHYSICAL'
     )
-    .filter(([stat]) => stat === 'HB' ? !criteria[0].type : true)
+    .filter(([stat]) => stat === 'HB' ? !calcs[0].type : true)
     .map(([stat]) => {
       const buildRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, build, []));
       const simRaw = computeTotalStat(stat, compileStatMap(gameId, characterId, { weaponId: build.weaponId, equipList: simSources }, []));
@@ -37,8 +43,16 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
     });
 
   return (
-    <Card sx={{ flex: 1, minHeight: 0 }}>
-      <ResponsiveContainer width="100%" height={400} style={{ overflow: 'visible' }}>
+    <Card sx={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0 }}>
+        <Typography variant="subtitle2" fontWeight="bold">Stat Distribution</Typography>
+        <MuiTooltip title="Compares your build's stat totals against the benchmark's average. The gray area is the target — stats that extend beyond it are over-invested." placement="top" arrow>
+          <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
+        </MuiTooltip>
+      </Box>
+      <Box sx={{ flex: 1, minHeight: 0, position: 'relative' }}>
+      <Box sx={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
+      <ResponsiveContainer width="100%" height="100%">
         <RadarChart outerRadius={100} data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey="stat" />
@@ -46,17 +60,24 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
           <Radar
             name="You"
             dataKey="build"
-            stroke="#8884d8"
-            fill="#8884d8"
+            stroke={elementColor}
+            fill={elementColor}
             fillOpacity={0.6}
             allowDataOverflow
           />
           <Radar
-            name="Week 20 Avg"
+            name="Benchmark"
             dataKey="sim"
-            stroke="gold"
-            fill="gold"
-            fillOpacity={0.1}
+            stroke={disabledColor}
+            fill={disabledColor}
+            fillOpacity={0.15}
+          />
+          <Legend
+            verticalAlign="top"
+            height={28}
+            iconType="circle"
+            iconSize={8}
+            wrapperStyle={{ fontSize: 12 }}
           />
           <Tooltip
             content={({ active, payload, label }) => {
@@ -73,10 +94,10 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
                   }}
                 >
                   <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
-                    {STATS[gameId].MENU_STATS[label].label}
+                    {MISC[gameId].MENU_STATS[label].label}
                   </Typography>
                   {payload.map((entry) => {
-                    const { isPercent } = STATS[gameId].MENU_STATS[label];
+                    const { isPercent } = MISC[gameId].MENU_STATS[label];
                     const totalValue = fullEntry[`${entry.dataKey}Raw`];
                     const displayValue = isPercent ? totalValue * 100 : totalValue;
                     const toFixedValue = isPercent || (gameId === 'zenless-zone-zero' && label === 'ER') ? 1 : 0;
@@ -95,6 +116,8 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
           />
         </RadarChart>
       </ResponsiveContainer>
+      </Box>
+      </Box>
     </Card>
   );
 };

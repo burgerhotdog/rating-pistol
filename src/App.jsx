@@ -28,7 +28,10 @@ export default function App() {
               height: '100dvh',
             }}
           >
-            <Header gameId={gameId} />
+            <Header
+              key={gameId}
+              gameId={gameId}
+            />
             <Routes>
               <Route
                 path="/"

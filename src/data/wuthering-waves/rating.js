@@ -1,55 +1,44 @@
-import { computeTotalStat } from "@/utils";
+import { computeTotalStat, compileStatMap, mergeStatMaps } from "@/utils";
+import { CHARACTERS } from "@/data"; 
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-export function computeBase(statMap, criteria) {
-  // Base ability
-  const multiplier = criteria.scaling.multiplier ?? {};
-  const multiplierComponent = Object.entries(multiplier).reduce((acc, [stat, motionValue]) => {
-    const totalStat = computeTotalStat(stat, statMap);
-    return acc + totalStat * motionValue;
-  }, 0);
-  const flatComponent = criteria.scaling.flat ?? 0;
-  const abilityBaseDmg = multiplierComponent + flatComponent;
-
-  // Flat
-  const flatDmg = 0;
-
-  return abilityBaseDmg + flatDmg;
+export function computeBase(statMap, hits) {
+  let baseDamage = 0;
+  const mvMult = 1 + (statMap.RAW_MV ?? 0);
+  for (const hit of hits) {
+    const { attr = "ATK", mv, times = 1 } = hit;
+    baseDamage += computeTotalStat(attr, statMap) * (mv * mvMult) * times;
+  }
+  return baseDamage;
 }
 
-export function computeBonuses(statMap, criteria) {
-  const { ability, element, status } = criteria.type;
-
+export function computeBonuses(statMap, dmgType = []) {
   // Crit
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
   const critDamage = computeTotalStat("CD", statMap) - 1;
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
-  // Damage bonus
-  const allDmgBonus = computeTotalStat("ALL", statMap);
-  const abilityDmgBonus = ability ? computeTotalStat(ability, statMap) : 0;
-  const elementDmgBonus = element ? computeTotalStat(element, statMap) : 0;
-  const statusDmgBonus = status ? computeTotalStat(status, statMap) : 0;
-  const dmgBonusMult = 1 + allDmgBonus + abilityDmgBonus + elementDmgBonus + statusDmgBonus;
+  // Damage bonus and amp
+  let dmgBonusMult = 1 + computeTotalStat("ALL", statMap);
+  let ampMult = 1 + (statMap["AMP_ALL"] ?? 0);
 
-  // Amplification
-  const allAmp = statMap["AMP_ALL"] ?? 0;
-  const abilityAmp = statMap[`AMP_${ability}`] ?? 0;
-  const elementAmp = statMap[`AMP_${element}`] ?? 0;
-  const statusAmp = statMap[`AMP_${status}`] ?? 0;
-  const ampMult = 1 + allAmp + abilityAmp + elementAmp + statusAmp;
+  for (const type of dmgType) {
+    dmgBonusMult += computeTotalStat(type, statMap);
+    ampMult += statMap[`AMP_${type}`] ?? 0;
+  }
 
   return critMult * dmgBonusMult * ampMult;
 }
 
-export function computeReductions(statMap, criteria) {
-  const { element } = criteria.type;
-
+export function computeReductions(statMap, element, dmgType) {
   // Enemy resistance
-  const elementShred = statMap[`SHRED_${element}`] ?? 0
+  let elementShred = statMap[`IGNORE_${element}`] ?? 0
+  for (const type of dmgType) {
+    elementShred += statMap[`IGNORE_${element}_${type}`] ?? 0;
+  }
   const totalRes = BASE_RES - elementShred;
   let resMult;
   if (totalRes < 0) {
@@ -62,8 +51,30 @@ export function computeReductions(statMap, criteria) {
 
   // Enemy defense
   const enemyDef = 8 * ENEMY_LEVEL + 792;
-  const defIgnore = statMap["IGNORE_DEF"] ?? 0;
+  let defIgnore = statMap["IGNORE_DEF"] ?? 0;
+  for (const type of dmgType) {
+    defIgnore += statMap[`IGNORE_DEF_${type}`] ?? 0;
+  }
   const defMult = (800 + 8 * CHARACTER_LEVEL) / (800 + 8 * CHARACTER_LEVEL + enemyDef * (1 - defIgnore))
 
   return resMult * defMult;
+}
+
+export function computeDamage(characterId, build, calcs, team) {
+  const element = CHARACTERS["wuthering-waves"][characterId];
+  const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
+
+  let damage = 0;
+  for (const ability of calcs.rotation) {
+    const { dmgType, hits, bonus, times = 1 } = ability;
+    const statMapWithBonus = bonus ? mergeStatMaps(statMap, bonus) : statMap;
+
+    const baseDmg = computeBase(statMapWithBonus, hits);
+    const bonuses = computeBonuses(statMapWithBonus, dmgType);
+    const reductions = computeReductions(statMapWithBonus, element, dmgType);
+
+    damage += baseDmg * bonuses * reductions * times;
+  }
+
+  return damage;
 }

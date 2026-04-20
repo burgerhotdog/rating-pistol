@@ -1,6 +1,6 @@
-import { WEAPONS, STATS } from '@/data';
+import { WEAPONS, MISC } from '@/data';
 
-const { MAIN_STAT_TYPES } = STATS['wuthering-waves'];
+const { MAIN_STAT_TYPES } = MISC['wuthering-waves'];
 
 export const whitelistStat = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz .';
 export const whitelistValue = '0123456789.%';

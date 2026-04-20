@@ -11,8 +11,10 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_GLACIO": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_GLACIO": 0.3
+            }
           }
         }
       }
@@ -30,8 +32,10 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_FUSION": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_FUSION": 0.3
+            }
           }
         }
       }
@@ -49,8 +53,10 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_ELECTRO": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_ELECTRO": 0.3
+            }
           }
         }
       }
@@ -68,8 +74,10 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_AERO": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_AERO": 0.3
+            }
           }
         }
       }
@@ -87,8 +95,10 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_SPECTRO": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_SPECTRO": 0.3
+            }
           }
         }
       }
@@ -106,8 +116,10 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_HAVOC": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_HAVOC": 0.3
+            }
           }
         }
       }
@@ -125,8 +137,10 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.15
+          "team": {
+            "constant": {
+              "PERCENT_ATK": 0.15
+            }
           }
         }
       }
@@ -139,6 +153,15 @@
         "stats": {
           "constant": {
             "PERCENT_ER": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "next": {
+            "constant": {
+              "PERCENT_ATK": 0.225
+            }
           }
         }
       }
@@ -156,9 +179,11 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.2,
-            "PERCENT_OS": 0.6
+          "self": {
+            "constant": {
+              "PERCENT_ATK": 0.2,
+              "PERCENT_OS": 0.6
+            }
           }
         }
       }
@@ -176,9 +201,11 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_GLACIO": 0.45,
-            "PERCENT_RS": 0.36
+          "self": {
+            "constant": {
+              "PERCENT_GLACIO": 0.45,
+              "PERCENT_RS": 0.36
+            }
           }
         }
       }
@@ -196,9 +223,11 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.2,
-            "PERCENT_SPECTRO": 0.15
+          "self": {
+            "constant": {
+              "PERCENT_CR": 0.2,
+              "PERCENT_SPECTRO": 0.15
+            }
           }
         }
       }
@@ -211,6 +240,15 @@
         "stats": {
           "constant": {
             "PERCENT_HAVOC": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "next": {
+            "constant": {
+              "PERCENT_HAVOC": 0.15
+            }
           }
         }
       }
@@ -228,9 +266,15 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_CA": 0.8,
-            "PERCENT_ATK": 0.2
+          "self": {
+            "constant": {
+              "PERCENT_CA": 0.8
+            }
+          },
+          "team": {
+            "constant": {
+              "PERCENT_ATK": 0.2
+            }
           }
         }
       }
@@ -253,8 +297,15 @@
           }
         },
         "buffs": {
-          "constant": {
-            "PERCENT_ALL": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_GLACIO": 0.3,
+              "PERCENT_FUSION": 0.3,
+              "PERCENT_ELECTRO": 0.3,
+              "PERCENT_AERO": 0.3,
+              "PERCENT_SPECTRO": 0.3,
+              "PERCENT_HAVOC": 0.3
+            }
           }
         }
       }
@@ -272,8 +323,15 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_AERO": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_AERO": 0.15
+            }
+          },
+          "team": {
+            "constant": {
+              "PERCENT_AERO": 0.15
+            }
           }
         }
       }
@@ -291,9 +349,11 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.1,
-            "PERCENT_AERO": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_CR": 0.1,
+              "PERCENT_AERO": 0.3
+            }
           }
         }
       }
@@ -311,9 +371,15 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_FUSION": 0.15,
-            "PERCENT_RL": 0.2
+          "self": {
+            "constant": {
+              "PERCENT_RL": 0.2
+            }
+          },
+          "team": {
+            "constant": {
+              "PERCENT_FUSION": 0.15
+            }
           }
         }
       }
@@ -324,9 +390,11 @@
     "setBonus": {
       "3": {
         "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.2,
-            "PERCENT_ES": 0.35
+          "self": {
+            "constant": {
+              "PERCENT_CR": 0.2,
+              "PERCENT_ES": 0.35
+            }
           }
         }
       }
@@ -337,9 +405,11 @@
     "setBonus": {
       "3": {
         "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.3,
-            "PERCENT_CD": 0.2
+          "self": {
+            "constant": {
+              "PERCENT_ATK": 0.3,
+              "PERCENT_CD": 0.2
+            }
           }
         }
       }
@@ -350,9 +420,15 @@
     "setBonus": {
       "3": {
         "buffs": {
-          "constant": {
-            "PERCENT_HA": 0.3,
-            "PERCENT_ES": 0.16
+          "self": {
+            "constant": {
+              "PERCENT_HA": 0.3
+            }
+          },
+          "team": {
+            "constant": {
+              "PERCENT_ES": 0.16
+            }
           }
         }
       }
@@ -363,9 +439,12 @@
     "setBonus": {
       "3": {
         "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.2,
-            "PERCENT_FUSION": 0.16
+          "self": {
+            "constant": {
+              "PERCENT_CR_HA": 0.2,
+              "PERCENT_CR_ES": 0.2,
+              "PERCENT_FUSION": 0.16
+            }
           }
         }
       }
@@ -376,9 +455,11 @@
     "setBonus": {
       "3": {
         "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.2,
-            "PERCENT_RL": 0.3
+          "self": {
+            "constant": {
+              "PERCENT_ATK": 0.2,
+              "PERCENT_RL": 0.3
+            }
           }
         }
       }
@@ -391,6 +472,15 @@
         "stats": {
           "constant": {
             "PERCENT_SPECTRO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "next": {
+            "constant": {
+              "PERCENT_ATK": 0.3
+            }
           }
         }
       }
@@ -408,8 +498,10 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_ATK": 0.25
+          "team": {
+            "constant": {
+              "PERCENT_ATK": 0.25
+            }
           }
         }
       }
@@ -427,9 +519,11 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_SPECTRO": 0.3,
-            "PERCENT_BA": 0.4
+          "self": {
+            "constant": {
+              "PERCENT_SPECTRO": 0.3,
+              "PERCENT_BA": 0.4
+            }
           }
         }
       }
@@ -447,9 +541,11 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.2,
-            "PERCENT_FUSION": 0.2
+          "self": {
+            "constant": {
+              "PERCENT_CR": 0.2,
+              "PERCENT_FUSION": 0.2
+            }
           }
         }
       }
@@ -467,8 +563,15 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_FUSION": 0.1
+          "self": {
+            "constant": {
+              "PERCENT_FUSION": 0.1
+            }
+          },
+          "next": {
+            "constant": {
+              "PERCENT_FUSION": 0.25
+            }
           }
         }
       }
@@ -486,9 +589,11 @@
       },
       "5": {
         "buffs": {
-          "constant": {
-            "PERCENT_CR": 0.2,
-            "PERCENT_AERO": 0.15
+          "self": {
+            "constant": {
+              "PERCENT_CR_ES": 0.2,
+              "PERCENT_AERO": 0.15
+            }
           }
         }
       }

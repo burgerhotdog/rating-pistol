@@ -1,12 +1,28 @@
-import { RATING, CHARACTERS, WEAPONS } from "@/data";
+import { RATING, CHARACTERS, WEAPONS, MISC } from "@/data";
 import { mergeStatMaps, computeTotalStat, compileStatMap } from "@/utils";
 
-export function computeDamage(gameId, characterId, build, criteria, team) {
-  const { computeBase, computeBonuses, computeReductions } = RATING[gameId];
-  const statMap = compileStatMap(gameId, characterId, build, team, "combat");
+export function computeDamage(gameId, characterId, build, calcs, team) {
+  return RATING[gameId].computeDamage(characterId, build, calcs, team);
+}
 
-  const baseDmg = computeBase(statMap, criteria);
-  const bonuses = computeBonuses(statMap, criteria);
-  const reductions = computeReductions(statMap, criteria);
-  return baseDmg * bonuses * reductions;
+export function computeDamageBreakdown(gameId, characterId, build, calcs, team) {
+  if (!calcs || !build) return [];
+
+  const rotation = calcs.rotation;
+
+  // Games without rotation (HSR, ZZZ) - single calculation
+  if (!rotation) return [];
+
+  // Games with rotation (GI, WW) - per-hit breakdown
+  const grouped = {};
+  for (const part of rotation) {
+    const singleCalcs = { ...calcs, rotation: [part] };
+    const damage = RATING[gameId].computeDamage(characterId, build, singleCalcs, team);
+    const label = part.dmgType[1];
+    grouped[label] = (grouped[label] ?? 0) + damage;
+  }
+
+  return Object.entries(grouped)
+    .map(([abilityId, value]) => ({ name: MISC[gameId].ABILITY_TYPES[abilityId], value }))
+    .sort((a, b) => b.value - a.value);
 }

@@ -9,20 +9,29 @@
     "1-Cost",
     "1-Cost"
   ],
-  "ELEMENT_TYPES": [
-    "Aero",
-    "Electro",
-    "Fusion",
-    "Glacio",
-    "Havoc",
-    "Spectro"
-  ],
+  "ELEMENT_COLORS": {
+    "GLACIO": "#4fb4cf",
+    "FUSION": "#d45772",
+    "ELECTRO": "#c154c7",
+    "AERO": "#44c4a3",
+    "SPECTRO": "#b7a835",
+    "HAVOC": "#be4981"
+  },
+  "ABILITY_TYPES": {
+    "BA": "Basic Attack",
+    "HA": "Heavy Attack",
+    "RS": "Resonance Skill",
+    "RL": "Resonance Liberation",
+    "IS": "Intro Skill",
+    "OS": "Outro Skill",
+    "ES": "Echo Skill"
+  },
   "WEAPON_TYPES": [
-    "Broadblade",
-    "Gauntlets",
-    "Pistols",
-    "Rectifier",
-    "Sword"
+    "BROADBLADE",
+    "SWORD",
+    "PISTOLS",
+    "GAUNTLETS",
+    "RECTIFIER"
   ],
   "DEFAULT_STATS": {
     "BASE_HP": 0,

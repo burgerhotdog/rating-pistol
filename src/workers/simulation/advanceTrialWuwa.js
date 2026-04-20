@@ -1,4 +1,4 @@
-import { STATS } from '@/data';
+import { MISC } from '@/data';
 import { computeDamage, computeTotalStat, compileStatMap } from "@/utils";
 import { weightedLottery } from './helpers/weightedLottery';
 import { matchPenalty } from './helpers/matchPenalty';
@@ -44,7 +44,7 @@ const randomRoll = (statId) => {
 };
 
 function assignSubStats() {
-  const optionsMap = STATS["wuthering-waves"].SUB_STAT_TYPES;
+  const optionsMap = MISC["wuthering-waves"].SUB_STAT_TYPES;
   const statPool = Object.entries(optionsMap)
     .map(([id, { WEIGHT }]) => [id, WEIGHT]);
 
@@ -60,14 +60,14 @@ function assignSubStats() {
 }
 
 function assignMainStat(costIndex) {
-  const optionsMap = STATS["wuthering-waves"].MAIN_STAT_TYPES[costIndex];
+  const optionsMap = MISC["wuthering-waves"].MAIN_STAT_TYPES[costIndex];
   const weightsList = Object.values(optionsMap).map(({ WEIGHT }) => WEIGHT);
   const mainStatId = Object.keys(optionsMap)[weightedLottery(weightsList)];
   const mainStatValue = optionsMap[mainStatId].VALUE;
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, criteria, team) {
+export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, calcs, team) {
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
 
@@ -91,7 +91,7 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[4];
+    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[4];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
     const subStatList = assignSubStats();
 
@@ -101,12 +101,12 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
     const newBuild = { ...latestBuild, equipList: newEquipList };
 
     // Compute new match penalty and damage with new build
-    const newPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
+    const newPenalty = (calcs.match ?? []).reduce((acc, stat, index) => {
       const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
-    const newDamage = computeDamage("wuthering-waves", characterId, newBuild, criteria, team);
+    const newDamage = computeDamage("wuthering-waves", characterId, newBuild, calcs, team);
 
     // Compare with latest and replace if needed
     if (newDamage * newPenalty > latestDamage * latestPenalty) {
@@ -129,7 +129,7 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
     
     // Assign main stat flat values
     // Assign sub stats
-    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[3];
+    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[3];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
     const subStatList = assignSubStats();
 
@@ -148,12 +148,12 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
       const newBuild = { ...latestBuild, equipList: newEquipList };
 
       // Compute new match penalty and damage with new build
-      const newPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
+      const newPenalty = (calcs.match ?? []).reduce((acc, stat, index) => {
         const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
-      const newDamage = computeDamage("wuthering-waves", characterId, newBuild, criteria, team);
+      const newDamage = computeDamage("wuthering-waves", characterId, newBuild, calcs, team);
 
       // Compare new damage with buffer and replace if better
       if (newDamage * newPenalty > bufferDamage * bufferPenalty) {
@@ -185,7 +185,7 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
 
     // Assign main stat flat values
     // Randomly assign and upgrade sub stats
-    const mainFlatMap = STATS["wuthering-waves"].MAIN_STAT_FLATS[costIndex];
+    const mainFlatMap = MISC["wuthering-waves"].MAIN_STAT_FLATS[costIndex];
     const [mainStatFlatId, { VALUE: mainStatFlatValue }] = Object.entries(mainFlatMap)[0];
     const subStatList = assignSubStats();
 
@@ -204,12 +204,12 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
       const newBuild = { ...latestBuild, equipList: newEquipList };
 
       // Compute new match penalty and damage with new build
-      const newPenalty = (criteria.match ?? []).reduce((acc, stat, index) => {
+      const newPenalty = (calcs.match ?? []).reduce((acc, stat, index) => {
         const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
-      const newDamage = computeDamage("wuthering-waves", characterId, newBuild, criteria, team);
+      const newDamage = computeDamage("wuthering-waves", characterId, newBuild, calcs, team);
 
       // Compare new damage with buffer and replace if better
       if (newDamage * newPenalty > bufferDamage * bufferPenalty) {
