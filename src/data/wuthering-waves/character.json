@@ -1968,6 +1968,11 @@
           "AMP_BA": 0.25,
           "AMP_HAVOC": 0.2
         }
+      },
+      "ally": {
+        "constant": {
+          "FLAT_ATK": 200
+        }
       }
     },
     "preset": {
@@ -1987,14 +1992,92 @@
         },
         "rotation": [
           {
-            "name": "",
+            "name": "Intro",
+            "dmgType": [
+              "HAVOC",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.6899
+              }
+            ]
+          },
+          {
+            "name": "Basic P4",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.0419,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Skill",
             "dmgType": [
               "HAVOC",
               "RS"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 0.6147,
+                "times": 8
+              }
+            ]
+          },
+          {
+            "name": "Forte: Basic: Real Fantasy P1",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 3.2208
+              }
+            ]
+          },
+          {
+            "name": "Forte: Basic: Real Fantasy P2",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 3.3997
+              }
+            ]
+          },
+          {
+            "name": "Forte: Basic: Real Fantasy P3",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 3.5786
+              }
+            ]
+          },
+          {
+            "name": "Ultimate",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "bonus": {
+              "FLAT_ATK": 200
+            },
+            "hits": [
+              {
+                "mv": 2.7834,
+                "times": 3
               }
             ]
           }

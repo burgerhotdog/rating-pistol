@@ -73,7 +73,7 @@ export const GamePage = ({ gameId, characterId }) => {
             </Box>
 
             <Box display="flex" flexDirection="row" sx={{ flex: 2, minHeight: 300, mt: 1 }}>
-              <Box flex={3} display="flex" flexDirection="column" minWidth={0}>
+              <Box flex={3} display="flex" flexDirection="column" minWidth={0} gap={1}>
                 <CustomRadarChart
                   gameId={gameId}
                   characterId={characterId}
