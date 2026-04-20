@@ -1,19 +1,9 @@
 import { useState, useEffect } from "react";
 import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
 
-export const Bar = ({ completed, elapsed, diff }) => {
-  const maxWeeks = 20;
-  const elapsedSeconds = Math.floor((elapsed ?? 0) / 1000);
-
+export const Bar = ({ completed, diff }) => {
   const [initialDiff, setInitialDiff] = useState(diff);
-
-  useEffect(() => {
-    if (diff === undefined) {
-      setInitialDiff(undefined);
-    } else if (initialDiff === undefined) {
-      setInitialDiff(diff);
-    }
-  }, [diff, initialDiff]);
+  console.log(diff, initialDiff);
 
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -24,9 +14,7 @@ export const Bar = ({ completed, elapsed, diff }) => {
 
         <LinearProgress
           variant="determinate"
-          value={initialDiff !== undefined && diff !== undefined
-            ? Math.min(Math.max(((initialDiff - diff) / (initialDiff - 0.01)) * 100, 0), 100)
-            : 0}
+          value={Math.min(Math.max(((initialDiff - diff) / (initialDiff - 0.01)) * 100, 0), 100)}
           sx={{
             height: 6,
             borderRadius: 3,
@@ -37,11 +25,7 @@ export const Bar = ({ completed, elapsed, diff }) => {
 
         <Box display="flex" justifyContent="space-between">
           <Typography variant="caption" color="text.secondary">
-            Week {completed} / {maxWeeks}
-          </Typography>
-
-          <Typography variant="caption" color="text.secondary">
-            {elapsedSeconds}s
+            Week {completed}
           </Typography>
         </Box>
       </Stack>

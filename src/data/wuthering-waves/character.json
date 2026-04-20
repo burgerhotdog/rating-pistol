@@ -286,6 +286,11 @@
         "type": {
           "element": "ELECTRO"
         },
+        "team": [
+          null,
+          "1302",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Raging Storm",
@@ -542,6 +547,11 @@
         "type": {
           "element": "AERO"
         },
+        "team": [
+          "1404",
+          "1204",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Tactical Strike",
@@ -835,6 +845,11 @@
         "type": {
           "element": "FUSION"
         },
+        "team": [
+          "1205",
+          "1206",
+          "1207"
+        ],
         "rotation": [
           {
             "name": "Obedience of Rules",
@@ -1019,6 +1034,11 @@
         "type": {
           "element": "SPECTRO"
         },
+        "team": [
+          "1304",
+          "1105",
+          "1503"
+        ],
         "rotation": [
           {
             "name": "Loong's Halo",
@@ -1227,6 +1247,11 @@
         "type": {
           "element": "GLACIO"
         },
+        "team": [
+          null,
+          "1105",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Radiant Ruin",
@@ -1390,6 +1415,11 @@
         "type": {
           "element": "ELECTRO"
         },
+        "team": [
+          "1305",
+          "1302",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Principle",
@@ -1673,6 +1703,11 @@
         "type": {
           "element": "HAVOC"
         },
+        "team": [
+          "1603",
+          "1606",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Everblooming",
@@ -1874,6 +1909,11 @@
         "type": {
           "element": "GLACIO"
         },
+        "team": [
+          "1107",
+          "1105",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Wintertime Aria",
@@ -2070,6 +2110,11 @@
         "type": {
           "element": "HAVOC"
         },
+        "team": [
+          null,
+          "1606",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Pero, Help",
@@ -2228,6 +2273,11 @@
         "type": {
           "element": "FUSION"
         },
+        "team": [
+          "1205",
+          "1206",
+          "1207"
+        ],
         "rotation": [
           {
             "name": "Applaud for Me!",
@@ -2404,6 +2454,11 @@
         "type": {
           "element": "SPECTRO"
         },
+        "team": [
+          null,
+          "1506",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Golden Grace",
@@ -2574,6 +2629,11 @@
         "type": {
           "element": "HAVOC"
         },
+        "team": [
+          "1608",
+          "1607",
+          "1411"
+        ],
         "rotation": [
           {
             "name": "Ripple",
@@ -2771,6 +2831,11 @@
         "type": {
           "element": "AERO"
         },
+        "team": [
+          "1409",
+          "1407",
+          "1508"
+        ],
         "rotation": [
           {
             "name": "Roaming with the Wind",
@@ -2961,6 +3026,11 @@
         "type": {
           "element": "SPECTRO"
         },
+        "team": [
+          "1507",
+          "1506",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Immediate Execution",
@@ -3180,6 +3250,11 @@
         "type": {
           "element": "FUSION"
         },
+        "team": [
+          "1205",
+          "1206",
+          "1207"
+        ],
         "rotation": [
           {
             "name": "Nowhere to Run!",
@@ -3374,6 +3449,11 @@
         "type": {
           "element": "AERO"
         },
+        "team": [
+          "1409",
+          "1407",
+          "1508"
+        ],
         "rotation": [
           {
             "name": "Sword to Mark Tide's Trace",
@@ -3660,6 +3740,11 @@
         "type": {
           "element": "HAVOC"
         },
+        "team": [
+          "1608",
+          "1607",
+          "1411"
+        ],
         "rotation": [
           {
             "name": "Suite of Immortality",
@@ -3934,6 +4019,11 @@
         "type": {
           "element": "ELECTRO"
         },
+        "team": [
+          "1306",
+          "1410",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Stride of Goldenflare",
@@ -4166,6 +4256,11 @@
         "type": {
           "element": "AERO"
         },
+        "team": [
+          "1306",
+          "1410",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "",
