@@ -7,10 +7,11 @@ const BASE_RES = 0.1;
 
 export function computeBase(statMap, hits) {
   let baseDamage = 0;
-  const mvMult = 1 + (statMap.RAW_MV ?? 0);
+  const flatMv = statMap.FLAT_MV ?? 0;
+  const mvMult = 1 + (statMap.PERCENT_MV ?? 0);
   for (const hit of hits) {
     const { attr = "ATK", mv, times = 1 } = hit;
-    baseDamage += computeTotalStat(attr, statMap) * (mv * mvMult) * times;
+    baseDamage += computeTotalStat(attr, statMap) * ((mv + flatMv) * mvMult) * times;
   }
   return baseDamage;
 }

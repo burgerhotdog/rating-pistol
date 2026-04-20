@@ -288,7 +288,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Raging Storm",
+            "category": "Intro Skill",
             "dmgType": [
               "ELECTRO",
               "IS"
@@ -301,7 +302,8 @@
             ]
           },
           {
-            "name": "Basic P4",
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
             "dmgType": [
               "ELECTRO",
               "BA"
@@ -313,7 +315,8 @@
             ]
           },
           {
-            "name": "Skill: Magnetic Roar",
+            "name": "Magnetic Roar",
+            "category": "Resonance Skill",
             "dmgType": [
               "ELECTRO",
               "RS"
@@ -326,7 +329,8 @@
             ]
           },
           {
-            "name": "Skill: Lightning Execution",
+            "name": "Lightning Execution",
+            "category": "Resonance Skill",
             "dmgType": [
               "ELECTRO",
               "RS"
@@ -339,7 +343,8 @@
             ]
           },
           {
-            "name": "Ultimate",
+            "name": "Thundering Wrath",
+            "category": "Resonance Liberation",
             "dmgType": [
               "ELECTRO",
               "RL"
@@ -352,7 +357,8 @@
             ]
           },
           {
-            "name": "Basic P1",
+            "name": "Basic Attack Stage 1",
+            "category": "Normal Attack",
             "dmgType": [
               "ELECTRO",
               "BA"
@@ -364,7 +370,8 @@
             ]
           },
           {
-            "name": "Forte: Heavy: Chameleon Cipher",
+            "name": "Chameleon Cipher",
+            "category": "Forte Circuit",
             "dmgType": [
               "ELECTRO",
               "HA"
@@ -377,7 +384,8 @@
             ]
           },
           {
-            "name": "Skill: Judgement Strike",
+            "name": "Judgement Strike",
+            "category": "Forte Circuit",
             "dmgType": [
               "ELECTRO",
               "RS",
@@ -536,7 +544,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Tactical Strike",
+            "category": "Intro Skill",
             "dmgType": [
               "AERO",
               "IS"
@@ -548,7 +557,8 @@
             ]
           },
           {
-            "name": "Forte: Emerald Storm",
+            "name": "Emerald Storm - Finale",
+            "category": "Forte Circuit",
             "dmgType": [
               "AERO",
               "HA"
@@ -564,7 +574,8 @@
             ]
           },
           {
-            "name": "Skill",
+            "name": "Windqueller",
+            "category": "Resonance Skill",
             "dmgType": [
               "AERO",
               "RS"
@@ -578,7 +589,8 @@
             "times": 2
           },
           {
-            "name": "Heavy: Lance of Qinqlong P1",
+            "name": "Lance of Qinqloong Stage 1",
+            "category": "Resonance Liberation",
             "dmgType": [
               "AERO",
               "HA"
@@ -592,7 +604,8 @@
             "times": 2
           },
           {
-            "name": "Heavy: Lance of Qinqlong P2",
+            "name": "Lance of Qinqloong Stage 2",
+            "category": "Resonance Liberation",
             "dmgType": [
               "AERO",
               "HA"
@@ -606,7 +619,8 @@
             "times": 2
           },
           {
-            "name": "Heavy: Lance of Qinqlong P3",
+            "name": "Lance of Qinqloong Stage 3",
+            "category": "Resonance Liberation",
             "dmgType": [
               "AERO",
               "HA"
@@ -620,7 +634,8 @@
             "times": 2
           },
           {
-            "name": "Outro",
+            "name": "Discipline",
+            "category": "Outro Skill",
             "dmgType": [
               "AERO",
               "OS"
@@ -822,7 +837,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Obedience of Rules",
+            "category": "Intro Skill",
             "dmgType": [
               "FUSION",
               "IS"
@@ -838,7 +854,8 @@
             ]
           },
           {
-            "name": "True Sight: Charge",
+            "name": "True Sight - Charge",
+            "category": "Resonance Skill",
             "dmgType": [
               "FUSION",
               "RS"
@@ -853,7 +870,8 @@
             ]
           },
           {
-            "name": "Mid-air Heavy",
+            "name": "Mid-air Heavy Attack",
+            "category": "Normal Attack",
             "dmgType": [
               "FUSION",
               "HA"
@@ -865,7 +883,8 @@
             ]
           },
           {
-            "name": "Basic P3",
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
             "dmgType": [
               "FUSION",
               "BA"
@@ -878,7 +897,8 @@
             ]
           },
           {
-            "name": "Basic P4",
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
             "dmgType": [
               "FUSION",
               "BA"
@@ -894,7 +914,8 @@
             ]
           },
           {
-            "name": "True Sight: Conquest",
+            "name": "True Sight - Conquest",
+            "category": "Resonance Skill",
             "dmgType": [
               "FUSION",
               "RS"
@@ -914,7 +935,8 @@
             "times": 3
           },
           {
-            "name": "Skill",
+            "name": "True Sight - Capture",
+            "category": "Resonance Skill",
             "dmgType": [
               "FUSION",
               "RS"
@@ -931,7 +953,8 @@
             "times": 2
           },
           {
-            "name": "Forte: Heavy: Flaming Sacrifice",
+            "name": "Flaming Sacrifice",
+            "category": "Forte Circuit",
             "dmgType": [
               "FUSION",
               "RS"
@@ -948,7 +971,8 @@
             "times": 2
           },
           {
-            "name": "Ultimate",
+            "name": "Radiance of Fealty",
+            "category": "Resonance Liberation",
             "dmgType": [
               "FUSION",
               "RL"
@@ -997,7 +1021,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Loong's Halo",
+            "category": "Intro Skill",
             "dmgType": [
               "SPECTRO",
               "IS"
@@ -1009,7 +1034,8 @@
             ]
           },
           {
-            "name": "Skill: Overflowing Radiance",
+            "name": "Overflowing Radiance",
+            "category": "Resonance Skill",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -1029,7 +1055,8 @@
             ]
           },
           {
-            "name": "Incarnation: Skill: Crescent Divinity",
+            "name": "Crescent Divinity",
+            "category": "Forte Circuit",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -1048,7 +1075,8 @@
             ]
           },
           {
-            "name": "Incarnation: Basic P1",
+            "name": "Incarnation - Basic Attack Stage 1",
+            "category": "Forte Circuit",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -1060,7 +1088,8 @@
             ]
           },
           {
-            "name": "Incarnation: Basic P2",
+            "name": "Incarnation - Basic Attack Stage 2",
+            "category": "Forte Circuit",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -1076,7 +1105,8 @@
             ]
           },
           {
-            "name": "Incarnation: Basic P3",
+            "name": "Incarnation - Basic Attack Stage 3",
+            "category": "Forte Circuit",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -1091,7 +1121,8 @@
             ]
           },
           {
-            "name": "Incarnation: Basic P4",
+            "name": "Incarnation - Basic Attack Stage 4",
+            "category": "Forte Circuit",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -1107,7 +1138,8 @@
             ]
           },
           {
-            "name": "Skill: Illuminous Epiphany",
+            "name": "Illuminous Epiphany - Solar Flare",
+            "category": "Forte Circuit",
             "dmgType": [
               "SPECTRO",
               "RS"
@@ -1116,18 +1148,28 @@
               {
                 "mv": 0.1989,
                 "times": 6
-              },
-              {
-                "mv": 3.4792
-              },
-              {
-                "mv": 0.4454,
-                "times": 50
               }
             ]
           },
           {
-            "name": "Ultimate",
+            "name": "Illuminous Epiphany - Stella Glamor",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "bonus": {
+              "FLAT_MV": 22.27
+            },
+            "hits": [
+              {
+                "mv": 3.4792
+              }
+            ]
+          },
+          {
+            "name": "Purge of Light",
+            "category": "Resonance Liberation",
             "dmgType": [
               "SPECTRO",
               "RL"
@@ -1187,7 +1229,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Radiant Ruin",
+            "category": "Intro Skill",
             "dmgType": [
               "GLACIO",
               "IS"
@@ -1200,7 +1243,8 @@
             ]
           },
           {
-            "name": "Basic P1",
+            "name": "Basic Attack Stage 1",
+            "category": "Normal Attack",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -1213,7 +1257,8 @@
             ]
           },
           {
-            "name": "Basic P2",
+            "name": "Basic Attack Stage 2",
+            "category": "Normal Attack",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -1226,7 +1271,8 @@
             ]
           },
           {
-            "name": "Basic P3",
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -1238,7 +1284,8 @@
             ]
           },
           {
-            "name": "Skill: Manifestation",
+            "name": "Manifestation",
+            "category": "Resonance Skill",
             "dmgType": [
               "GLACIO",
               "RS"
@@ -1251,7 +1298,8 @@
             ]
           },
           {
-            "name": "Forte: Heavy: Conjuration",
+            "name": "Conjuration",
+            "category": "Forte Circuit",
             "dmgType": [
               "GLACIO",
               "HA"
@@ -1264,7 +1312,8 @@
             ]
           },
           {
-            "name": "Forte: Skill: Stroke of Genius",
+            "name": "Stroke of Genius",
+            "category": "Forte Circuit",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -1277,7 +1326,8 @@
             "times": 2
           },
           {
-            "name": "Forte: Skill: Creation's Zenith",
+            "name": "Creation's Zenith",
+            "category": "Forte Circuit",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -1290,7 +1340,8 @@
             ]
           },
           {
-            "name": "Ultimate",
+            "name": "Living Canvas",
+            "category": "Resonance Liberation",
             "dmgType": [
               "GLACIO",
               "BA",
@@ -1341,7 +1392,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Principle",
+            "category": "Intro Skill",
             "dmgType": [
               "ELECTRO",
               "IS"
@@ -1354,7 +1406,8 @@
             ]
           },
           {
-            "name": "Ultimate",
+            "name": "Cogitation Model",
+            "category": "Resonance Liberation",
             "dmgType": [
               "ELECTRO",
               "RL"
@@ -1366,7 +1419,8 @@
             ]
           },
           {
-            "name": "Ultimate: Skill: Divergence",
+            "name": "Divergence",
+            "category": "Resonance Liberation",
             "dmgType": [
               "ELECTRO",
               "RS"
@@ -1384,7 +1438,8 @@
             "times": 2
           },
           {
-            "name": "Forte: Mid-Air: Revamp",
+            "name": "Revamp",
+            "category": "Forte Circuit",
             "dmgType": [
               "ELECTRO",
               "RL"
@@ -1402,7 +1457,8 @@
             "times": 2
           },
           {
-            "name": "Forte: Skill: Law of Reigns",
+            "name": "Law of Reigns",
+            "category": "Forte Circuit",
             "dmgType": [
               "ELECTRO",
               "RL"
@@ -1419,7 +1475,8 @@
             "times": 3
           },
           {
-            "name": "Ultimate: Basic: Pivot - Impale P1",
+            "name": "Pivot - Impale Stage 1",
+            "category": "Resonance Liberation",
             "dmgType": [
               "ELECTRO",
               "BA"
@@ -1431,7 +1488,8 @@
             ]
           },
           {
-            "name": "Ultimate: Basic: Pivot - Impale P2",
+            "name": "Pivot - Impale Stage 2",
+            "category": "Resonance Liberation",
             "dmgType": [
               "ELECTRO",
               "BA"
@@ -1444,7 +1502,8 @@
             ]
           },
           {
-            "name": "Ultimate: Basic: Pivot - Impale P3",
+            "name": "Pivot - Impale Stage 3",
+            "category": "Resonance Liberation",
             "dmgType": [
               "ELECTRO",
               "BA"
@@ -1457,7 +1516,8 @@
             ]
           },
           {
-            "name": "Outro",
+            "name": "Chain Rule",
+            "category": "Outro Skill",
             "dmgType": [
               "ELECTRO",
               "OS"
@@ -1615,7 +1675,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Everblooming",
+            "category": "Intro Skill",
             "dmgType": [
               "HAVOC",
               "IS"
@@ -1627,7 +1688,8 @@
             ]
           },
           {
-            "name": "Skill: Crimson Blossom",
+            "name": "Crimson Blossom",
+            "category": "Resonance Skill",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1640,7 +1702,8 @@
             ]
           },
           {
-            "name": "Ultimate",
+            "name": "Fervor Efflorescent",
+            "category": "Resonance Liberation",
             "dmgType": [
               "HAVOC",
               "RL"
@@ -1652,7 +1715,8 @@
             ]
           },
           {
-            "name": "Skill: Basic: Vining Waltz P1",
+            "name": "Vining Waltz Stage 1",
+            "category": "Resonance Skill",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1665,7 +1729,8 @@
             "times": 2
           },
           {
-            "name": "Skill: Basic: Vining Waltz P2",
+            "name": "Vining Waltz Stage 2",
+            "category": "Resonance Skill",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1679,7 +1744,8 @@
             "times": 2
           },
           {
-            "name": "Skill: Basic: Vining Waltz P3",
+            "name": "Vining Waltz Stage 3",
+            "category": "Resonance Skill",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1693,7 +1759,8 @@
             "times": 2
           },
           {
-            "name": "Skill: Basic: Blazing Waltz",
+            "name": "Blazing Waltz",
+            "category": "Resonance Skill",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1707,7 +1774,8 @@
             "times": 2
           },
           {
-            "name": "Skill: Basic: Vining Waltz P4",
+            "name": "Vining Waltz Stage 4",
+            "category": "Resonance Skill",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1721,7 +1789,8 @@
             "times": 2
           },
           {
-            "name": "Forte: Skill: Ephemeral",
+            "name": "Ephemeral",
+            "category": "Forte Circuit",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1733,7 +1802,8 @@
             ]
           },
           {
-            "name": "Skill: Floral Ravage",
+            "name": "Floral Ravage",
+            "category": "Resonance Skill",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -1746,7 +1816,8 @@
             ]
           },
           {
-            "name": "Outro",
+            "name": "Twining",
+            "category": "Outro Skill",
             "dmgType": [
               "HAVOC",
               "OS"
@@ -1805,7 +1876,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Wintertime Aria",
+            "category": "Intro Skill",
             "dmgType": [
               "GLACIO",
               "IS"
@@ -1821,7 +1893,8 @@
             ]
           },
           {
-            "name": "Skill",
+            "name": "Art of Violence",
+            "category": "Resonance Skill",
             "dmgType": [
               "GLACIO",
               "RS"
@@ -1835,7 +1908,8 @@
             "times": 2
           },
           {
-            "name": "Skill: Chromatic Splendor",
+            "name": "Chromatic Splendor",
+            "category": "Resonance Skill",
             "dmgType": [
               "GLACIO",
               "RS"
@@ -1853,6 +1927,7 @@
           },
           {
             "name": "Mid-air Attack",
+            "category": "Normal Attack",
             "dmgType": [
               "GLACIO",
               "BA"
@@ -1864,7 +1939,8 @@
             ]
           },
           {
-            "name": "Forte: Heavy: Imminent Oblivion",
+            "name": "Imminent Oblivion",
+            "category": "Forte Circuit",
             "dmgType": [
               "GLACIO",
               "RS"
@@ -1880,13 +1956,14 @@
             ]
           },
           {
-            "name": "Ultimate",
+            "name": "Era of New Wave",
+            "category": "Resonance Liberation",
             "dmgType": [
               "GLACIO",
               "RS"
             ],
             "bonus": {
-              "RAW_MV": 0.8
+              "PERCENT_MV": 0.8
             },
             "hits": [
               {
@@ -1895,13 +1972,14 @@
             ]
           },
           {
-            "name": "Ultimate: Death Knell",
+            "name": "Death Knell",
+            "category": "Resonance Liberation",
             "dmgType": [
               "GLACIO",
               "RS"
             ],
             "bonus": {
-              "RAW_MV": 0.8
+              "PERCENT_MV": 0.8
             },
             "hits": [
               {
@@ -1915,13 +1993,14 @@
             "times": 4
           },
           {
-            "name": "Ultimate: Fatal Finale",
+            "name": "Fatal Finale",
+            "category": "Resonance Liberation",
             "dmgType": [
               "GLACIO",
               "RS"
             ],
             "bonus": {
-              "RAW_MV": 0.8
+              "PERCENT_MV": 0.8
             },
             "hits": [
               {
@@ -1930,7 +2009,8 @@
             ]
           },
           {
-            "name": "Outro",
+            "name": "Closing Remark",
+            "category": "Outro Skill",
             "dmgType": [
               "GLACIO",
               "OS"
@@ -1992,7 +2072,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Pero, Help",
+            "category": "Intro Skill",
             "dmgType": [
               "HAVOC",
               "IS"
@@ -2004,7 +2085,8 @@
             ]
           },
           {
-            "name": "Basic P4",
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
             "dmgType": [
               "HAVOC",
               "BA"
@@ -2017,7 +2099,8 @@
             ]
           },
           {
-            "name": "Skill",
+            "name": "Acrobatic Trick",
+            "category": "Resonance Skill",
             "dmgType": [
               "HAVOC",
               "RS"
@@ -2030,7 +2113,8 @@
             ]
           },
           {
-            "name": "Forte: Basic: Real Fantasy P1",
+            "name": "Real Fantasy Stage 1",
+            "category": "Forte Circuit",
             "dmgType": [
               "HAVOC",
               "HA"
@@ -2042,7 +2126,8 @@
             ]
           },
           {
-            "name": "Forte: Basic: Real Fantasy P2",
+            "name": "Real Fantasy Stage 2",
+            "category": "Forte Circuit",
             "dmgType": [
               "HAVOC",
               "HA"
@@ -2054,7 +2139,8 @@
             ]
           },
           {
-            "name": "Forte: Basic: Real Fantasy P3",
+            "name": "Real Fantasy Stage 3",
+            "category": "Forte Circuit",
             "dmgType": [
               "HAVOC",
               "HA"
@@ -2066,7 +2152,8 @@
             ]
           },
           {
-            "name": "Ultimate",
+            "name": "Commedia Improvviso!",
+            "category": "Resonance Liberation",
             "dmgType": [
               "HAVOC",
               "HA"
@@ -2143,7 +2230,8 @@
         },
         "rotation": [
           {
-            "name": "Intro",
+            "name": "Applaud for Me!",
+            "category": "Intro Skill",
             "dmgType": [
               "FUSION",
               "IS"
@@ -2158,7 +2246,8 @@
             ]
           },
           {
-            "name": "Ultimate",
+            "name": "To the Horizon",
+            "category": "Resonance Liberation",
             "dmgType": [
               "FUSION",
               "RL"
@@ -2174,7 +2263,8 @@
             ]
           },
           {
-            "name": "Mid-air Attack P2",
+            "name": "Mid-air Attack Stage 2",
+            "category": "Normal Attack",
             "dmgType": [
               "FUSION",
               "BA"
@@ -2187,7 +2277,8 @@
             ]
           },
           {
-            "name": "Mid-air Attack P2: Charged Attack",
+            "name": "Mid-air Attack Stage 2: Charged Attack",
+            "category": "Normal Attack",
             "dmgType": [
               "FUSION",
               "BA"
@@ -2200,7 +2291,8 @@
             ]
           },
           {
-            "name": "Mid-air Attack P2: Flip",
+            "name": "Mid-air Attack Stage 2: Flip",
+            "category": "Normal Attack",
             "dmgType": [
               "FUSION",
               "BA"
@@ -2215,7 +2307,8 @@
             ]
           },
           {
-            "name": "Mid-air Attack P3",
+            "name": "Mid-air Attack Stage 3",
+            "category": "Normal Attack",
             "dmgType": [
               "FUSION",
               "BA"
@@ -2228,7 +2321,8 @@
             ]
           },
           {
-            "name": "Mid-air Attack P3: Flip",
+            "name": "Mid-air Attack Stage 3: Flip",
+            "category": "Normal Attack",
             "dmgType": [
               "FUSION",
               "BA"
@@ -2243,7 +2337,8 @@
             ]
           },
           {
-            "name": "Forte: Skill: Returned from Ashes",
+            "name": "Returned from Ashes",
+            "category": "Forte Circuit",
             "dmgType": [
               "FUSION",
               "BA"
@@ -2311,14 +2406,127 @@
         },
         "rotation": [
           {
-            "name": "",
+            "name": "Golden Grace",
+            "category": "Intro Skill",
+            "dmgType": [
+              "SPECTRO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.9881
+              }
+            ]
+          },
+          {
+            "name": "To Where Light Shines",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.6263,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Utter Confession",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.8788
+              }
+            ]
+          },
+          {
+            "name": "Dawn of Enlightenment",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "SPECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 4.016
+              }
+            ]
+          },
+          {
+            "name": "Chamuel's Star Stage 1",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5935
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Chamuel's Star Stage 2",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3977,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Chamuel's Star Stage 3",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2893,
+                "times": 6
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Starflash",
+            "category": "Forte Circuit",
             "dmgType": [
               "SPECTRO",
               "HA"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 0.8269,
+                "times": 3
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Attentive Heart",
+            "category": "Outro Skill",
+            "dmgType": [
+              "SPECTRO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 5.2841
               }
             ]
           }
@@ -2368,14 +2576,155 @@
         },
         "rotation": [
           {
-            "name": "",
+            "name": "Ripple",
+            "category": "Intro Skill",
+            "dmgType": [
+              "HAVOC",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.4225,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
             "dmgType": [
               "HAVOC",
               "BA"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 0.7257,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Graceful Step",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.736,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Flowing Suffocation",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 3.76
+              }
+            ]
+          },
+          {
+            "name": "Delusive Dive",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5305,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Flickering Reverie",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.9623
+              }
+            ]
+          },
+          {
+            "name": "Phantom String Stage 1",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3533,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Phantom String Stage 2",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6293,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Phantom String Stage 3",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6462,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Perception Drain",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 6.6799,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Diffusion",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "HAVOC",
+              "BA",
+              "CA"
+            ],
+            "hits": [
+              {
+                "mv": 0.1454,
+                "times": 21
               }
             ]
           }
@@ -2424,14 +2773,143 @@
         },
         "rotation": [
           {
-            "name": "",
+            "name": "Roaming with the Wind",
+            "category": "Intro Skill",
+            "dmgType": [
+              "AERO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.8911
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3302,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6114,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 1",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5543,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2446,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.6114,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Harmonic Allegro",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "AERO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.4039,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Quadruple Downbeat",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3141,
+                "times": 10
+              },
+              {
+                "mv": 3.1403
+              }
+            ]
+          },
+          {
+            "name": "Improvised Symphonic Poem",
+            "category": "Resonance Liberation",
             "dmgType": [
               "AERO",
               "RL"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 11.0042
+              }
+            ]
+          },
+          {
+            "name": "Symphonic Poem - Tonic",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.0612,
+                "times": 20
               }
             ]
           }
@@ -2456,6 +2934,13 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "ally": {
+        "constant": {
+          "AMP_SPECTRO": 0.2
+        }
+      }
+    },
     "preset": {
       "weaponId": "21040036",
       "setBonuses": [
@@ -2473,7 +2958,84 @@
         },
         "rotation": [
           {
-            "name": "",
+            "name": "Immediate Execution",
+            "category": "Intro Skill",
+            "dmgType": [
+              "SPECTRO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.2424,
+                "times": 5
+              },
+              {
+                "mv": 0.808
+              }
+            ]
+          },
+          {
+            "name": "Standard Defense Protocol",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.6394
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.4242,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Targeted Action",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.8619
+              },
+              {
+                "mv": 0.2873
+              },
+              {
+                "mv": 1.7237
+              }
+            ]
+          },
+          {
+            "name": "Rekindle",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "SPECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 3.1852
+              }
+            ]
+          },
+          {
+            "name": "Heavy Slash - Daybreak",
+            "category": "Forte Circuit",
             "dmgType": [
               "SPECTRO",
               "HA",
@@ -2481,7 +3043,70 @@
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 1.9881
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Heavy Slash - Dawning",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "HA",
+              "FRAZZLE"
+            ],
+            "hits": [
+              {
+                "mv": 4.2407
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Heavy Slash - Nightfall",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "HA",
+              "FRAZZLE"
+            ],
+            "hits": [
+              {
+                "mv": 1.352
+              },
+              {
+                "mv": 2.6243
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "The Last Stand",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "SPECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 1.9112
+              },
+              {
+                "mv": 10.8296
+              }
+            ]
+          },
+          {
+            "name": "Beacon For the Future",
+            "category": "Outro Skill",
+            "dmgType": [
+              "SPECTRO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 1.5
               }
             ]
           }
@@ -2523,14 +3148,131 @@
         },
         "rotation": [
           {
-            "name": "",
+            "name": "Nowhere to Run!",
+            "category": "Intro Skill",
             "dmgType": [
               "FUSION",
               "RL"
             ],
             "hits": [
               {
-                "mv": 1
+                "mv": 7.9357
+              },
+              {
+                "mv": 0.496,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Fire-Kissed Glory",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 8.2044
+              }
+            ]
+          },
+          {
+            "name": "Foebreaker",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "FUSION",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 3.0446
+              }
+            ]
+          },
+          {
+            "name": "Mid-Air Attack Stage 1",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.7673
+              }
+            ]
+          },
+          {
+            "name": "Mid-Air Attack Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.7723
+              },
+              {
+                "mv": 0.1931,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Mid-Air Attack - Firestrike",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2848
+              },
+              {
+                "mv": 0.2848
+              }
+            ]
+          },
+          {
+            "name": "Heavy Attack - Wolf's Claw",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.7215
+              },
+              {
+                "mv": 0.1804,
+                "times": 4
+              },
+              {
+                "mv": 0.9619
+              }
+            ]
+          },
+          {
+            "name": "Dance With the Wolf - Climax",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.7563
+              },
+              {
+                "mv": 0.5672,
+                "times": 4
+              },
+              {
+                "mv": 4.5375
               }
             ]
           }
@@ -2572,7 +3314,102 @@
         },
         "rotation": [
           {
-            "name": "",
+            "name": "Sword to Mark Tide's Trace",
+            "category": "Intro Skill",
+            "dmgType": [
+              "AERO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0208,
+                "times": 3
+              },
+              {
+                "attr": "HP",
+                "mv": 0.0624
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0394
+              },
+              {
+                "attr": "HP",
+                "mv": 0.0394
+              },
+              {
+                "attr": "HP",
+                "mv": 0.0525
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0428,
+                "times": 4
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0252,
+                "times": 3
+              },
+              {
+                "attr": "HP",
+                "mv": 0.0754
+              }
+            ]
+          },
+          {
+            "name": "Sword to Bear Their Names",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0689,
+                "times": 3
+              },
+              {
+                "attr": "HP",
+                "mv": 0.0886
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack",
+            "category": "Normal Attack",
             "dmgType": [
               "AERO",
               "BA",
@@ -2581,7 +3418,131 @@
             "hits": [
               {
                 "attr": "HP",
-                "mv": 1
+                "mv": 0.1129,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Fleurdelys Sword to Answer Waves' Call",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0186,
+                "times": 4
+              },
+              {
+                "attr": "HP",
+                "mv": 0.1736
+              }
+            ]
+          },
+          {
+            "name": "Fleurdelys Mid-air Attack Stage 3",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.022
+              }
+            ]
+          },
+          {
+            "name": "Fleurdelys Basic Attack Stage 3",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0213,
+                "times": 3
+              },
+              {
+                "attr": "HP",
+                "mv": 0.0426
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Fleurdelys Basic Attack Stage 4",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0274,
+                "times": 5
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Fleurdelys Basic Attack Stage 5",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.072
+              },
+              {
+                "attr": "HP",
+                "mv": 0.288
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Fleurdelys May Tempest Break the Tides",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.0186,
+                "times": 2
+              },
+              {
+                "attr": "HP",
+                "mv": 0.0703,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Fleurdelys Blade of Howling Squall",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "attr": "HP",
+                "mv": 0.1312,
+                "times": 7
               }
             ]
           }
@@ -2624,6 +3585,7 @@
         "rotation": [
           {
             "name": "",
+            "category": "",
             "dmgType": [
               "HAVOC",
               "RS"
@@ -2670,6 +3632,7 @@
         "rotation": [
           {
             "name": "",
+            "category": "",
             "dmgType": [
               "ELECTRO",
               "HA"
@@ -2726,6 +3689,7 @@
         "rotation": [
           {
             "name": "",
+            "category": "",
             "dmgType": [
               "AERO",
               "RL"
@@ -2806,6 +3770,7 @@
         "rotation": [
           {
             "name": "",
+            "category": "",
             "dmgType": [
               "AERO",
               "HA"
@@ -2878,6 +3843,7 @@
         "rotation": [
           {
             "name": "",
+            "category": "",
             "dmgType": [
               "HAVOC",
               "RL"
@@ -2958,6 +3924,7 @@
         "rotation": [
           {
             "name": "",
+            "category": "",
             "dmgType": [
               "SPECTRO",
               "BA"
@@ -3007,6 +3974,7 @@
         "rotation": [
           {
             "name": "",
+            "category": "",
             "dmgType": [
               "FUSION",
               "RL"
@@ -3056,6 +4024,7 @@
         "rotation": [
           {
             "name": "",
+            "category": "",
             "dmgType": [
               "SPECTRO",
               "BA"
