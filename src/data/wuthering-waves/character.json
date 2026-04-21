@@ -4666,33 +4666,7 @@
           "3"
         ]
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
-        "rotation": [
-          {
-            "name": "",
-            "category": "",
-            "dmgType": [
-              "AERO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 1
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1307": {
     "name": "Buling",
@@ -4739,33 +4713,7 @@
           "3"
         ]
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
-        "rotation": [
-          {
-            "name": "",
-            "category": "",
-            "dmgType": [
-              "HAVOC",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 1
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1209": {
     "name": "Mornye",
