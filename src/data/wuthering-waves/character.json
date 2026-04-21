@@ -4239,6 +4239,11 @@
         "constant": {
           "AMP_HA": 0.5
         }
+      },
+      "team": {
+        "constant": {
+          "AMP_ALL": 0.4
+        }
       }
     },
     "preset": {
@@ -4263,11 +4268,120 @@
         ],
         "rotation": [
           {
-            "name": "",
-            "category": "",
+            "name": "Illuminated Manifestation",
+            "category": "Intro Skill",
+            "dmgType": [
+              "AERO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.1591,
+                "times": 7
+              }
+            ]
+          },
+          {
+            "name": "Beneath Lunar Tides",
+            "category": "Resonance Liberation",
             "dmgType": [
               "AERO",
               "RL"
+            ],
+            "hits": [
+              {
+                "mv": 10.9346
+              }
+            ]
+          },
+          {
+            "name": "Flux - Moonbow",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 2.5051
+              }
+            ]
+          },
+          {
+            "name": "Enhanced Moonbow - Basic Attack Stage 1",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 2.0597
+              }
+            ]
+          },
+          {
+            "name": "Enhanced Moonbow - Basic Attack Stage 2",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.9543,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Enhanced Moonbow - Basic Attack Stage 3",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 2.6641,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Enhanced Arc Beyond the Edge",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 3.1919,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Absolute Fullness",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 1.5905
+              }
+            ]
+          },
+          {
+            "name": "From Gloom to Gleam",
+            "category": "Outro Skill",
+            "dmgType": [
+              "AERO",
+              "OS"
             ],
             "hits": [
               {
@@ -4296,6 +4410,13 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "AMP_ALL": 0.2
+        }
+      }
+    },
     "preset": {
       "weaponId": "21030036",
       "setBonuses": [
@@ -4304,7 +4425,217 @@
           "3"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "type": {
+          "element": "FUSION"
+        },
+        "team": [
+          "1208",
+          "1411",
+          "1505"
+        ],
+        "rotation": [
+          {
+            "name": "Hellflare Overload",
+            "category": "Intro Skill",
+            "dmgType": [
+              "FUSION",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.9412
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.2631,
+                "times": 2
+              },
+              {
+                "mv": 0.7891
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.286,
+                "times": 2
+              },
+              {
+                "mv": 0.4289,
+                "times": 2
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 1.7786
+              }
+            ]
+          },
+          {
+            "name": "Ascent of Malice",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "FUSION",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5157
+              }
+            ]
+          },
+          {
+            "name": "Hellfire Absolution",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "FUSION",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 1.109
+              },
+              {
+                "mv": 0.9074,
+                "times": 11
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Seraphic Execution Stage 2",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "FUSION",
+              "HA"
+            ],
+            "bonus": {
+              "PERCENT_MV": 0.85
+            },
+            "hits": [
+              {
+                "mv": 0.2784,
+                "times": 2
+              },
+              {
+                "mv": 0.8351
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Seraphic Execution Stage 3",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "FUSION",
+              "HA"
+            ],
+            "bonus": {
+              "PERCENT_MV": 0.85
+            },
+            "hits": [
+              {
+                "mv": 0.2432,
+                "times": 3
+              },
+              {
+                "mv": 1.7021
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Basic Attack - Seraphic Execution Stage 4",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "FUSION",
+              "ES"
+            ],
+            "bonus": {
+              "PERCENT_MV": 0.85
+            },
+            "hits": [
+              {
+                "mv": 0.1815,
+                "times": 3
+              },
+              {
+                "mv": 1.2702
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Basic Attack - Seraphic Execution Stage 5",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "FUSION",
+              "ES"
+            ],
+            "bonus": {
+              "PERCENT_MV": 0.85
+            },
+            "hits": [
+              {
+                "mv": 0.6728
+              },
+              {
+                "mv": 1.5699
+              }
+            ],
+            "times": 2
+          },
+          {
+            "name": "Ashen Pursuit",
+            "category": "Outro Skill",
+            "dmgType": [
+              "FUSION",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 0.795,
+                "times": 3
+              },
+              {
+                "mv": 5.565
+              }
+            ]
+          }
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1411": {
     "name": "Qiuyuan",
@@ -4489,33 +4820,7 @@
           "5"
         ]
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
-        "rotation": [
-          {
-            "name": "",
-            "category": "",
-            "dmgType": [
-              "SPECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1210": {
     "name": "Aemeath",
@@ -4539,33 +4844,7 @@
           "5"
         ]
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
-        "rotation": [
-          {
-            "name": "",
-            "category": "",
-            "dmgType": [
-              "FUSION",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 1
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1510": {
     "name": "Luuk Herssen",
@@ -4589,33 +4868,7 @@
           "5"
         ]
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
-        "rotation": [
-          {
-            "name": "",
-            "category": "",
-            "dmgType": [
-              "SPECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1412": {
     "name": "Sigrika",
