@@ -29,7 +29,7 @@ export const GamePage = ({ gameId, characterId }) => {
     ? computeDamageBreakdown(gameId, characterId, build, calcs[calcsIndex], team)
     : [];
 
-  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, isLoading, elapsed, diff } = useSimulation(gameId, characterId, 0, team);
+  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, 0, team);
 
   const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 
@@ -49,16 +49,20 @@ export const GamePage = ({ gameId, characterId }) => {
         characterId={characterId}
       />
       <StatsPanel
-          gameId={gameId}
-          characterId={characterId}
-          build={build}
-          team={team}
-          updateTeam={updateTeam}
-        />
+        gameId={gameId}
+        characterId={characterId}
+        build={build}
+        team={team}
+        updateTeam={updateTeam}
+      />
 
       {calcs ? (
-        isLoading ? (
-          <Bar completed={completed} elapsed={elapsed} diff={diff} />
+        (isLoading || simCharacter !== characterId) ? (
+          diff ? (
+            <Bar key={characterId} completed={completed} diff={diff} />
+          ) : (
+            <Bar completed={completed} diff={1} />
+          )
         ) : (
           <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 0 }}>
             <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 250 }}>
@@ -69,6 +73,7 @@ export const GamePage = ({ gameId, characterId }) => {
                 isLoading={isLoading}
                 gameId={gameId}
                 characterId={characterId}
+                teamWeeklyScores={teamWeeklyScores}
               />
             </Box>
 

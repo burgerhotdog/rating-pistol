@@ -16,8 +16,6 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
   const build = useBuild().getBuilds(gameId)[characterId];
   const calcs = CHARACTERS[gameId][characterId]?.calcs?.[calcsIndex];
   const [error, setError] = useState(null);
-  const startTimeRef = useRef(0);
-  const intervalRef = useRef(null);
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({
@@ -26,11 +24,9 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
     preferredMainStats: null,
     mainStatDist: null,
     weeklyDistribution: null,
+    teamWeeklyScores: null,
     isLoading: false,
     completed: 0,
-    diff: 0,
-    duration: 0,
-    elapsed: 0,
   });
   
   useEffect(() => {
@@ -43,10 +39,9 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
         preferredMainStats: null,
         mainStatDist: null,
         weeklyDistribution: null,
+        teamWeeklyScores: null,
         isLoading: false,
         completed: 0,
-        duration: 0,
-        elapsed: 0,
       });
       return;
     }
@@ -55,6 +50,7 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
       ...prev,
       isLoading: true,
       completed: 0,
+      diff: null,
     }));
   
     workerRef.current?.terminate();
@@ -76,12 +72,6 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
       }
 
       if (data.type === 'done') {
-        const endTime = performance.now();
-        const duration = endTime - startTimeRef.current;
-
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-
         setResult(prev => ({
           ...prev,
           completed: data.completed,
@@ -90,21 +80,15 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
           preferredMainStats: data.preferredMainStats,
           mainStatDist: data.mainStatDist,
           weeklyDistribution: data.weeklyDistribution,
+          teamWeeklyScores: data.teamWeeklyScores,
           isLoading: false,
-          duration,
-          elapsed: duration,
+          simCharacter: characterId,
         }));
 
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;
       }
     };
-
-    startTimeRef.current = performance.now();
-    intervalRef.current = setInterval(() => {
-      const elapsed = performance.now() - startTimeRef.current;
-      setResult(prev => ({ ...prev, elapsed }));
-    }, 1000);
 
     worker.postMessage({
       gameId,
@@ -117,9 +101,6 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
     return () => {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
-
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
     };
   }, [gameId, characterId, build, calcs, team]);
 

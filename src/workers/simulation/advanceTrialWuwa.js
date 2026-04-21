@@ -143,8 +143,8 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
 
     for (let slotIndex = 1; slotIndex < 3; slotIndex++) {
       // Add in setId and construct newBuild
-      newEquipObj.setId = setIdList[slotIndex];
-      const newEquipList = latestBuild.equipList.with(slotIndex, newEquipObj);
+      const equip = { ...newEquipObj, setId: setIdList[slotIndex] };
+      const newEquipList = latestBuild.equipList.with(slotIndex, equip);
       const newBuild = { ...latestBuild, equipList: newEquipList };
 
       // Compute new match penalty and damage with new build
@@ -199,8 +199,8 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
     let bufferDamage = latestDamage;
     for (let slotIndex = startingSlot; slotIndex < (startingSlot + 2); slotIndex++) {
       // Add in setId and construct newBuild
-      newEquipObj.setId = setIdList[slotIndex];
-      const newEquipList = latestBuild.equipList.with(slotIndex, newEquipObj);
+      const equip = { ...newEquipObj, setId: setIdList[slotIndex] };
+      const newEquipList = latestBuild.equipList.with(slotIndex, equip);
       const newBuild = { ...latestBuild, equipList: newEquipList };
 
       // Compute new match penalty and damage with new build

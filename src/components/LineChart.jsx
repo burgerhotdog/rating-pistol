@@ -1,6 +1,9 @@
-import { Box, Card, Divider, Paper, Stack, Tooltip as MuiTooltip, Typography } from "@mui/material";
+import { Box, Card, Divider, Paper, Stack, ToggleButton, ToggleButtonGroup, Tooltip as MuiTooltip, Typography } from "@mui/material";
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import PersonIcon from '@mui/icons-material/Person';
+import GroupsIcon from '@mui/icons-material/Groups';
 import { useTheme } from '@mui/material/styles';
+import { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import { CHARACTERS, MISC } from "@/data";
 
@@ -13,30 +16,47 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLoading, gameId, characterId }) => {
+export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLoading, gameId, characterId, teamWeeklyScores }) => {
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const [viewMode, setViewMode] = useState('team');
+
   if (isLoading || !weeklyScores) return null;
 
-  const benchmarkRating = weeklyScores[weeklyScores.length - 1];
-  const scaledBuildRating = rating / benchmarkRating * 100;
+  const hasTeamData = teamWeeklyScores && Object.keys(teamWeeklyScores).length > 0;
+  const showTeam = viewMode === 'team' && hasTeamData;
 
-  const data = weeklyScores.map((dmg, index) => {
+  // Teammate benchmark damage at final week (constant contribution)
+  const teammatesBenchmark = hasTeamData
+    ? Object.values(teamWeeklyScores).reduce((sum, scores) => sum + (scores[scores.length - 1] ?? 0), 0)
+    : 0;
+
+  // Team totals: main char's weekly scores + teammates' fixed benchmark damage
+  const teamScores = hasTeamData
+    ? weeklyScores.map(score => score + teammatesBenchmark)
+    : null;
+
+  const activeScores = showTeam ? teamScores : weeklyScores;
+  const benchmarkRating = activeScores[activeScores.length - 1];
+  const activeUserRating = showTeam ? (rating ?? 0) + teammatesBenchmark : (rating ?? 0);
+  const scaledBuildRating = activeUserRating / benchmarkRating * 100;
+
+  const data = activeScores.map((dmg, index) => {
     const dist = weeklyDistribution?.[index];
     return {
       week: index,
       damage: dmg,
-      q1: dist?.q1 ?? dmg,
-      iqr: dist ? dist.q3 - dist.q1 : 0,
-      p10: dist?.p10 ?? dmg,
-      p90band: dist ? dist.p90 - dist.p10 : 0,
+      q1: showTeam ? dmg : (dist?.q1 ?? dmg),
+      iqr: showTeam ? 0 : (dist ? dist.q3 - dist.q1 : 0),
+      p10: showTeam ? dmg : (dist?.p10 ?? dmg),
+      p90band: showTeam ? 0 : (dist ? dist.p90 - dist.p10 : 0),
     };
   });
   const yMin = 0;
-  const distMax = weeklyDistribution ? Math.max(...weeklyDistribution.map(d => d.p90)) : 0;
-  const yMax = Math.max(benchmarkRating, rating ?? 0, distMax) * 1.08;
+  const distMax = (!showTeam && weeklyDistribution) ? Math.max(...weeklyDistribution.map(d => d.p90)) : 0;
+  const yMax = Math.max(benchmarkRating, activeUserRating, distMax) * 1.08;
 
   const formatDamage = (v) => {
     if (v >= 1_000_000) return `${(v / 1_000_000).toFixed(1)}M`;
@@ -86,12 +106,12 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLo
           />
 
           <ReferenceLine
-            y={rating}
+            y={activeUserRating}
             stroke={elementColor}
             strokeWidth={2}
             label={{
               value: `You · ${scaledBuildRating.toFixed(1)}%`,
-              position: rating > benchmarkRating * 0.9 ? 'insideBottomRight' : 'right',
+              position: activeUserRating > benchmarkRating * 0.9 ? 'insideBottomRight' : 'right',
               fill: elementColor,
               fontSize: 12,
               fontWeight: 600,
@@ -146,7 +166,7 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLo
                   <Typography variant="body2">
                     Avg: {damage.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                   </Typography>
-                  {dist && (
+                  {!showTeam && dist && (
                     <Typography variant="body2" color="text.secondary">
                       Q1–Q3: {dist.q1.toLocaleString('en-US', { maximumFractionDigits: 0 })} – {dist.q3.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
@@ -166,21 +186,59 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLo
       </Box>
       <Divider orientation="vertical" flexItem />
       <Stack spacing={1.5} sx={{ flex: 1, p: 2, minWidth: 150, justifyContent: 'center' }}>
+        {hasTeamData && (
+          <>
+            <ToggleButtonGroup
+              value={viewMode}
+              exclusive
+              onChange={(_, val) => { if (val) setViewMode(val); }}
+              size="small"
+              fullWidth
+            >
+              <ToggleButton value="solo">
+                <MuiTooltip title="Solo view" placement="top" arrow>
+                  <PersonIcon fontSize="small" />
+                </MuiTooltip>
+              </ToggleButton>
+              <ToggleButton value="team">
+                <MuiTooltip title="Team view" placement="top" arrow>
+                  <GroupsIcon fontSize="small" />
+                </MuiTooltip>
+              </ToggleButton>
+            </ToggleButtonGroup>
+            <Divider />
+          </>
+        )}
         <Box>
-          <InfoLabel label="Potential" tip="Your build's damage as a percentage of the benchmark. Above 100% means your build exceeds the expected stopping point." />
+          <InfoLabel
+            label="Potential"
+            tip={showTeam
+              ? "Your team's total damage as a percentage of the team benchmark. Reflects how your character's current build contributes relative to the team's expected optimum."
+              : "Your build's damage as a percentage of the benchmark. Above 100% means your build exceeds the expected stopping point."}
+          />
           <Typography variant="h5" fontWeight="bold" color={scaledBuildRating >= 100 ? 'success.main' : 'warning.main'}>
             {scaledBuildRating.toFixed(1)}%
           </Typography>
         </Box>
         <Divider />
         <Box>
-          <InfoLabel label="Your Score" tip="Total calculated damage for your current build's rotation." />
+          <InfoLabel
+            label={showTeam ? "Team Score" : "Your Score"}
+            tip={showTeam
+              ? "Your character's current damage plus teammates' simulated benchmark damage."
+              : "Total calculated damage for your current build's rotation."}
+          />
           <Typography variant="h6" fontWeight="bold">
-            {rating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}
+            {activeUserRating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}
           </Typography>
         </Box>
         <Box>
-          <InfoLabel label="Benchmark" tip="Average damage of simulated builds at the week where farming becomes resin-inefficient (<1% weekly gain)." />
+          <InfoLabel
+            label={showTeam ? "Team Benchmark" : "Benchmark"}
+            tip={showTeam
+              ? "Sum of each character's simulated average damage at the benchmark week."
+              : "Average damage of simulated builds at the week where farming becomes resin-inefficient (<1% weekly gain)."}
+          />
           <Typography variant="h6" fontWeight="bold">
             {benchmarkRating?.toLocaleString('en-US', { maximumFractionDigits: 0 }) ?? '—'}
           </Typography>
