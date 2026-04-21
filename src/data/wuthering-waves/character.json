@@ -1616,10 +1616,18 @@
           "PERCENT_ER": 0.1
         }
       },
+      "ally": {
+        "constant": {
+          "PERCENT_CR": 0.125
+        }
+      },
       "team": {
         "constant": {
-          "AMP_ALL": 0.15,
-          "PERCENT_CR": 0.125,
+          "AMP_ALL": 0.15
+        }
+      },
+      "first": {
+        "constant": {
           "PERCENT_CD": 0.25
         }
       }
@@ -4683,6 +4691,11 @@
         "type": {
           "element": "AERO"
         },
+        "team": [
+          "1208",
+          "1411",
+          "1505"
+        ],
         "rotation": [
           {
             "name": "Attack the Must-Defend",
@@ -5125,6 +5138,24 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_SPECTRO": 0.25
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ALL": 0.24
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_ALL": 0.15,
+          "AMP_RL": 0.25
+        }
+      }
+    },
     "preset": {
       "weaponId": "21030046",
       "setBonuses": [
@@ -5133,7 +5164,152 @@
           "5"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "type": {
+          "element": "SPECTRO"
+        },
+        "team": [
+          "1210",
+          "1509",
+          "1209"
+        ],
+        "rotation": [
+          {
+            "name": "Time to Show Some Colors!",
+            "category": "Intro Skill",
+            "dmgType": [
+              "SPECTRO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.2248,
+                "times": 10
+              }
+            ]
+          },
+          {
+            "name": "Prismatic Overblast",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "SPECTRO",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.8748,
+                "times": 10
+              }
+            ]
+          },
+          {
+            "name": "Lynae-Style Palettes",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 1.3931
+              },
+              {
+                "mv": 0.4644,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Spark Collision Lv. 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 2.7778,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Polychrome Leap 1",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.338,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Polychrome Leap 2",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.169,
+                "times": 6
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Polychrome Leap 3",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.131,
+                "times": 8
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Visual Impact",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 12.1672
+              }
+            ]
+          },
+          {
+            "name": "Let's Hit the Road!",
+            "category": "Outro Skill",
+            "dmgType": [
+              "SPECTRO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1210": {
     "name": "Aemeath",
@@ -5149,6 +5325,18 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_CD": 0.6
+        }
+      },
+      "team": {
+        "constant": {
+          "AMP_ALL": 0.2
+        }
+      }
+    },
     "preset": {
       "weaponId": "21020076",
       "setBonuses": [
@@ -5157,7 +5345,282 @@
           "5"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "type": {
+          "element": "FUSION"
+        },
+        "team": [
+          "1210",
+          "1509",
+          "1209"
+        ],
+        "rotation": [
+          {
+            "name": "Songs Across the Universe",
+            "category": "Intro Skill",
+            "dmgType": [
+              "FUSION",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.1346,
+                "times": 2
+              },
+              {
+                "mv": 1.0766
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Aemeath Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.0932,
+                "times": 3
+              },
+              {
+                "mv": 0.1863
+              },
+              {
+                "mv": 0.4656
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Aemeath Stage 4",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.0673,
+                "times": 5
+              },
+              {
+                "mv": 1.0094
+              }
+            ]
+          },
+          {
+            "name": "Heavenfall Edict - Overdrive",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 2.008
+              },
+              {
+                "mv": 2.6774,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Mech Stage 2",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.1857
+              },
+              {
+                "mv": 0.7426
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Mech Stage 3",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.0389,
+                "times": 6
+              },
+              {
+                "mv": 0.8154
+              },
+              {
+                "mv": 0.1165
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Mech Stage 4",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.4038
+              },
+              {
+                "mv": 0.9421
+              }
+            ]
+          },
+          {
+            "name": "Seraphic Duet - Encore",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.179,
+                "times": 4
+              },
+              {
+                "mv": 0.3579,
+                "times": 3
+              },
+              {
+                "mv": 1.7893
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Aemeath Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.1389
+              },
+              {
+                "mv": 0.2084
+              },
+              {
+                "mv": 0.3473
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Aemeath Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.0932,
+                "times": 3
+              },
+              {
+                "mv": 0.1863
+              },
+              {
+                "mv": 0.4656
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Aemeath Stage 4",
+            "category": "Normal Attack",
+            "dmgType": [
+              "FUSION",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.0673,
+                "times": 5
+              },
+              {
+                "mv": 1.0094
+              }
+            ]
+          },
+          {
+            "name": "Seraphic Duet - Overture",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.179
+              },
+              {
+                "mv": 0.1492,
+                "times": 6
+              },
+              {
+                "mv": 0.2386,
+                "times": 3
+              },
+              {
+                "mv": 0.5965,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Heavy Attack - Mech Charged II",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "bonus": {
+              "AMP_ALL": 2
+            },
+            "hits": [
+              {
+                "mv": 2.32
+              }
+            ]
+          },
+          {
+            "name": "Heavenfall Edict - Finale",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "FUSION",
+              "RL"
+            ],
+            "bonus": {
+              "AMP_ALL": 0.25
+            },
+            "hits": [
+              {
+                "mv": 17.8929
+              }
+            ]
+          }
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1510": {
     "name": "Luuk Herssen",
@@ -5173,6 +5636,14 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.25,
+          "AMP_ALL": 0.3
+        }
+      }
+    },
     "preset": {
       "weaponId": "21040056",
       "setBonuses": [
@@ -5181,7 +5652,293 @@
           "5"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "type": {
+          "element": "SPECTRO"
+        },
+        "team": [
+          "1510",
+          "1509",
+          "1209"
+        ],
+        "rotation": [
+          {
+            "name": "Before Injection of Dawn",
+            "category": "Intro Skill",
+            "dmgType": [
+              "SPECTRO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.7267,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 2 Scythe: Resection",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5042,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 3 Scythe: Resection",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.7492,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Aureole of Execution: Ring",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.1
+            },
+            "hits": [
+              {
+                "mv": 0.2656,
+                "times": 5
+              },
+              {
+                "mv": 0.8853
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Golden Impale",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.5547
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 1",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5746
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 2 Scythe: Resection",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5042,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 3 Scythe: Resection",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.7492,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Aureole of Execution: Breach",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.1
+            },
+            "hits": [
+              {
+                "mv": 0.9591,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Golden Impale",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 1.5547
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 1",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5746
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 2 Scythe: Resection",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5042,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Mid-air Attack Stage 3 Scythe: Resection",
+            "category": "Normal Attack",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.7492,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Aureole of Execution: Glare",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.1
+            },
+            "hits": [
+              {
+                "mv": 3.5411
+              }
+            ]
+          },
+          {
+            "name": "Ichor Deposit",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.1
+            },
+            "hits": [
+              {
+                "mv": 1.5345
+              }
+            ]
+          },
+          {
+            "name": "Gavel of Earthshaker",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.1
+            },
+            "hits": [
+              {
+                "mv": 3.069
+              }
+            ]
+          },
+          {
+            "name": "Rewritten in Winter's Margins",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "SPECTRO",
+              "BA"
+            ],
+            "bonus": {
+              "PERCENT_MV": 0.75
+            },
+            "hits": [
+              {
+                "mv": 7.4554
+              },
+              {
+                "mv": 0.4971,
+                "times": 5
+              }
+            ]
+          },
+          {
+            "name": "Bow to the Last Light",
+            "category": "Outro Skill",
+            "dmgType": [
+              "SPECTRO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 5
+              }
+            ]
+          }
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1412": {
     "name": "Sigrika",
@@ -5197,6 +5954,31 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_AERO": 0.3,
+          "PERCENT_ES": 0.3
+        },
+        "variable": {
+          "PERCENT_ES": {
+            "source": [
+              "ER",
+              0.01
+            ],
+            "offset": 1.25,
+            "value": 0.02,
+            "max": 0.5
+          }
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_AERO": 0.18,
+          "PERCENT_ES": 0.18
+        }
+      }
+    },
     "preset": {
       "weaponId": "21040066",
       "setBonuses": [
@@ -5205,6 +5987,258 @@
           "5"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "type": {
+          "element": "AERO"
+        },
+        "team": [
+          "1412",
+          "1411",
+          "1505"
+        ],
+        "rotation": [
+          {
+            "name": "Solsworn Etymology",
+            "category": "Intro Skill",
+            "dmgType": [
+              "AERO",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 1.6342
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5034,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3341,
+                "times": 2
+              },
+              {
+                "mv": 0.4454
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.4136
+              },
+              {
+                "mv": 0.517,
+                "times": 2
+              },
+              {
+                "mv": 0.6203
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Elucidated",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 0.6156,
+                "times": 3
+              },
+              {
+                "mv": 1.2311
+              }
+            ]
+          },
+          {
+            "name": "Runic Chain Whip",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "bonus": {
+              "AMP_ALL": 0.9
+            },
+            "hits": [
+              {
+                "mv": 0.497,
+                "times": 4
+              },
+              {
+                "mv": 0.6626,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Where Trust Leads Me!",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 8.6143
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.5034,
+                "times": 2
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 3",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.3341,
+                "times": 2
+              },
+              {
+                "mv": 0.4454
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 4",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.4136
+              },
+              {
+                "mv": 0.517,
+                "times": 2
+              },
+              {
+                "mv": 0.6203
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack - Elucidated",
+            "category": "Normal Attack",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 0.6156,
+                "times": 3
+              },
+              {
+                "mv": 1.2311
+              }
+            ]
+          },
+          {
+            "name": "Runic Outburst",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "bonus": {
+              "AMP_ALL": 0.9
+            },
+            "hits": [
+              {
+                "mv": 1.1767
+              },
+              {
+                "mv": 2.0592
+              },
+              {
+                "mv": 2.6475
+              }
+            ]
+          },
+          {
+            "name": "Learn My True Name",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 3.0287
+              },
+              {
+                "mv": 9.0861
+              }
+            ]
+          },
+          {
+            "name": "In This Very Moment",
+            "category": "Outro Skill",
+            "dmgType": [
+              "AERO",
+              "OS"
+            ],
+            "hits": [
+              {
+                "mv": 7.95
+              }
+            ]
+          }
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   }
 }
