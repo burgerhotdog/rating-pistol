@@ -4652,6 +4652,16 @@
       }
     },
     "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.1
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_CD": 0.3
+        }
+      },
       "next": {
         "constant": {
           "AMP_ES": 0.5
@@ -4666,7 +4676,167 @@
           "3"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "type": {
+          "element": "AERO"
+        },
+        "rotation": [
+          {
+            "name": "Attack the Must-Defend",
+            "category": "Intro Skill",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.0955,
+                "times": 5
+              },
+              {
+                "mv": 0.4772
+              },
+              {
+                "mv": 1.4315
+              }
+            ]
+          },
+          {
+            "name": "Thus Spoke the Blade: Inkwash Stage 3",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 0.1458
+              },
+              {
+                "mv": 0.1458,
+                "times": 4
+              },
+              {
+                "mv": 0.7287
+              }
+            ]
+          },
+          {
+            "name": "Thus Spoke the Blade: Inkwash Stage 4",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "hits": [
+              {
+                "mv": 1.7237
+              }
+            ]
+          },
+          {
+            "name": "Sundering Strike",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 7.9524
+              }
+            ]
+          },
+          {
+            "name": "Thus Spoke the Blade: To Teach",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "bonus": {
+              "PERCENT_ALL": 0.5
+            },
+            "hits": [
+              {
+                "mv": 0.9144,
+                "times": 5
+              }
+            ]
+          },
+          {
+            "name": "Thus Spoke the Blade: To Save",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "bonus": {
+              "PERCENT_ALL": 0.5
+            },
+            "hits": [
+              {
+                "mv": 0.3844,
+                "times": 3
+              },
+              {
+                "mv": 0.3145,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Thus Spoke the Blade: To Sacrifice",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "AERO",
+              "HA"
+            ],
+            "bonus": {
+              "PERCENT_ALL": 0.5
+            },
+            "hits": [
+              {
+                "mv": 2.177
+              }
+            ]
+          },
+          {
+            "name": "Through the Groves",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 0.7184,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Strike Before Ready",
+            "category": "Outro Skill",
+            "dmgType": [
+              "AERO",
+              "ES"
+            ],
+            "hits": [
+              {
+                "mv": 1
+              }
+            ]
+          }
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1307": {
     "name": "Buling",
@@ -4705,6 +4875,19 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HAVOC": 0.2,
+          "IGNORE_DEF": 0.18
+        }
+      },
+      "team": {
+        "constant": {
+          "IGNORE_DEF": 0.06
+        }
+      }
+    },
     "preset": {
       "weaponId": "21010056",
       "setBonuses": [
@@ -4713,7 +4896,189 @@
           "3"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "type": {
+          "element": "HAVOC"
+        },
+        "rotation": [
+          {
+            "name": "Reverberance - Return",
+            "category": "Intro Skill",
+            "dmgType": [
+              "HAVOC",
+              "IS"
+            ],
+            "hits": [
+              {
+                "mv": 0.9543
+              }
+            ]
+          },
+          {
+            "name": "Basic Attack Stage 2",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.0955
+              },
+              {
+                "mv": 0.1909
+              },
+              {
+                "mv": 0.6681
+              }
+            ]
+          },
+          {
+            "name": "Rending Lunge",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "BA"
+            ],
+            "hits": [
+              {
+                "mv": 0.1511,
+                "times": 4
+              },
+              {
+                "mv": 0.9066
+              }
+            ]
+          },
+          {
+            "name": "Death Snip",
+            "category": "Normal Attack",
+            "dmgType": [
+              "HAVOC",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 0.2981
+              },
+              {
+                "mv": 0.1491
+              },
+              {
+                "mv": 1.0434
+              },
+              {
+                "mv": 0.4778
+              }
+            ]
+          },
+          {
+            "name": "Moment of Nihility",
+            "category": "Resonance Liberation",
+            "dmgType": [
+              "HAVOC",
+              "RL"
+            ],
+            "hits": [
+              {
+                "mv": 9.5429
+              }
+            ]
+          },
+          {
+            "name": "Serrated Loop",
+            "category": "Resonance Skill",
+            "dmgType": [
+              "HAVOC",
+              "RS"
+            ],
+            "hits": [
+              {
+                "mv": 0.1745,
+                "times": 8
+              }
+            ]
+          },
+          {
+            "name": "Sawring - Blitz Stage 2",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "RL"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.2
+            },
+            "hits": [
+              {
+                "mv": 0.1064,
+                "times": 8
+              }
+            ]
+          },
+          {
+            "name": "Sawring - Blitz Stage 3",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "RL"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.2
+            },
+            "hits": [
+              {
+                "mv": 0.1598,
+                "times": 8
+              }
+            ]
+          },
+          {
+            "name": "Sawring - Blitz Stage 3: Falltone",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "RL"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.2
+            },
+            "hits": [
+              {
+                "mv": 0.0358,
+                "times": 3
+              }
+            ]
+          },
+          {
+            "name": "Sawring - Eradication",
+            "category": "Forte Circuit",
+            "dmgType": [
+              "HAVOC",
+              "RL"
+            ],
+            "bonus": {
+              "PERCENT_MV": 1.2,
+              "FLAT_MV": 2.59
+            },
+            "hits": [
+              {
+                "mv": 0.5154
+              },
+              {
+                "mv": 2.0613
+              }
+            ]
+          }
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1209": {
     "name": "Mornye",
