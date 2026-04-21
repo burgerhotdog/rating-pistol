@@ -29,7 +29,7 @@ export const GamePage = ({ gameId, characterId }) => {
     ? computeDamageBreakdown(gameId, characterId, build, calcs[calcsIndex], team)
     : [];
 
-  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, 0, team);
+  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, 0, team);
 
   const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 
@@ -73,6 +73,7 @@ export const GamePage = ({ gameId, characterId }) => {
                 isLoading={isLoading}
                 gameId={gameId}
                 characterId={characterId}
+                teamWeeklyScores={teamWeeklyScores}
               />
             </Box>
 

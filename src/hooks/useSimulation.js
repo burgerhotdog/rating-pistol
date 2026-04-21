@@ -24,6 +24,7 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
     preferredMainStats: null,
     mainStatDist: null,
     weeklyDistribution: null,
+    teamWeeklyScores: null,
     isLoading: false,
     completed: 0,
   });
@@ -38,6 +39,7 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
         preferredMainStats: null,
         mainStatDist: null,
         weeklyDistribution: null,
+        teamWeeklyScores: null,
         isLoading: false,
         completed: 0,
       });
@@ -78,6 +80,7 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
           preferredMainStats: data.preferredMainStats,
           mainStatDist: data.mainStatDist,
           weeklyDistribution: data.weeklyDistribution,
+          teamWeeklyScores: data.teamWeeklyScores,
           isLoading: false,
           simCharacter: characterId,
         }));
