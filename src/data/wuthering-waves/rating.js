@@ -1,17 +1,9 @@
-import { computeTotalStat, compileStatMap, mergeStatMaps } from "@/utils";
+import { computeTotalStat, compileStatMap, mergeStatMaps, getSkill } from "@/utils";
 import { CHARACTERS, MVS } from "@/data";
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
-
-const DEFAULT_GROUP_INPUT = {
-  "1": "BA",
-  "2": "RS",
-  "3": "RL",
-  "6": "IS",
-  "8": "OS",
-};
 
 export function computeBase(statMap, attr, multipliers) {
   let baseDamage = 0;
@@ -77,28 +69,15 @@ export function computeDamage(characterId, build, calcs, team) {
 
   let damage = 0;
   for (const step of calcs.rotation) {
-    const [groupId, skillId] = step.split("-");
-    const skill = skillMap?.[groupId]?.skills?.[skillId]
-    if (!skill) {
-      throw new Error(`Unknown step "${step}" in rotation for character "${characterId}"`);
-    }
-
     const {
-      input: rawInput,
-      considered: rawConsidered,
+      considered,
       special,
       modifiers,
-      attr = "ATK",
+      attr,
       multipliers,
-    } = skill;
+    } = getSkill("wuthering-waves", characterId, step);
 
-    const input = rawInput ?? DEFAULT_GROUP_INPUT[groupId];
-    if (!input) {
-      throw new Error(`Input is not defined for skill "${step}" of character "${characterId}"`);
-    }
-    const considered = rawConsidered ?? input;
     const dmgTypes = [considered, special].filter(Boolean);
-
     const adjustedStatMap = modifiers ? mergeStatMaps(statMap, modifiers) : statMap;
 
     const baseDmg = computeBase(adjustedStatMap, attr, multipliers);

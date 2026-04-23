@@ -1,5 +1,5 @@
 import { RATING, CHARACTERS, WEAPONS, MISC, MVS } from "@/data";
-import { mergeStatMaps, computeTotalStat, compileStatMap } from "@/utils";
+import { mergeStatMaps, computeTotalStat, compileStatMap, getSkill } from "@/utils";
 
 const DEFAULT_GROUP_INPUT = {
   "1": "BA",
@@ -25,16 +25,7 @@ export function computeDamageBreakdown(gameId, characterId, build, calcs, team) 
   const grouped = {};
   for (const step of rotation) {
     const damage = RATING[gameId].computeDamage(characterId, build, { ...calcs, rotation: [step] }, team);
-    const [groupId, skillId] = step.split("-");
-    const {
-      input: rawInput,
-      considered: rawConsidered,
-    } = MVS[gameId]?.[characterId]?.[groupId]?.skills?.[skillId] ?? {};
-
-    const input = rawInput ?? DEFAULT_GROUP_INPUT[groupId];
-    const considered = rawConsidered ?? input;
-    if (!considered) continue;
-
+    const { considered } = getSkill(gameId, characterId, step);
     grouped[considered] = (grouped[considered] ?? 0) + damage;
   }
 
