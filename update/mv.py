@@ -37,18 +37,18 @@ def mv_parser(game_id, data):
         case "honkai-star-rail":
             print("this shouldn't happen")
         case "wuthering-waves":
-            skill_ids = ["1", "2", "3", "6", "7"] # normal, skill, ult, intro, forte
+            skill_group_ids = ["1", "2", "3", "6", "7"] # normal, skill, ult, intro, forte
             
-            for skill_id in skill_ids:
-                data_skill_map = data["skill_trees"][skill_id]["skill"]
+            for group_id in skill_group_ids:
+                skill_group_data = data["skill_trees"][group_id]["skill"]
 
-                sub_skills = {}
-                for sub_skill_id, sub_skill_map in data_skill_map["level"].items():
-                    if "%" not in sub_skill_map["param"][0][0]:
+                skills = {}
+                for skill_id, skill_data in skill_group_data["level"].items():
+                    if "%" not in skill_data["param"][0][0]:
                         continue # skip invalid entries
 
                     # get scaling attribute
-                    fmt = sub_skill_map["format"]
+                    fmt = skill_data["format"]
                     if fmt is None:
                         attr = None
                     elif "HP" in fmt:
@@ -62,18 +62,17 @@ def mv_parser(game_id, data):
                     else:
                         raise ValueError(f"Unknown skill format: {fmt}")
 
-                    # format mv list
-                    formatted_mv = format_mv_list(sub_skill_map["param"][0])
+                    # format multipliers list
+                    multipliers = format_mv_list(skill_data["param"][0])
 
-                    sub_skills[sub_skill_id] = {
-                        "name": sub_skill_map["name"],
-                        "skillType": "",
-                        "dmgType": [""],
+                    skills[skill_id] = {
+                        "name": skill_data["name"],
+                        **({"input": ""} if group_id == "7" else {}),
                         **({"attr": attr} if attr else {}),
-                        "multipliers": formatted_mv,
+                        "multipliers": multipliers,
                     }
 
-                mv_dict[skill_id] = { "name": data_skill_map["name"], "subSkills": sub_skills }
+                mv_dict[group_id] = { "name": skill_group_data["name"], "skills": skills }
 
         case "zenless-zone-zero":
             print("this shouldn't happen")

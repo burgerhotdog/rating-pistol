@@ -2,7 +2,6 @@ import { Box, Card, Table, TableBody, TableCell, TableContainer, TableHead, Tabl
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { MISC, CHARACTERS } from '@/data';
 import { computeDamage } from '@/utils';
-import { useTheme } from '@mui/material/styles';
 import {
   ResponsiveContainer,
   BarChart,
@@ -14,9 +13,8 @@ import {
 } from 'recharts';
 
 export const CustomTable = ({ gameId, characterId, build, rating, team, isLoading }) => {
-  const theme = useTheme();
   const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const { SUB_STAT_TYPES } = MISC[gameId];
   const { calcs } = CHARACTERS[gameId][characterId];
   if (isLoading || !calcs || !build) return null;

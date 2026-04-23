@@ -5,6 +5,14 @@ const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
+const DEFAULT_GROUP_INPUT = {
+  "1": "BA",
+  "2": "RS",
+  "3": "RL",
+  "6": "IS",
+  "8": "OS",
+};
+
 export function computeBase(statMap, attr, multipliers) {
   let baseDamage = 0;
   const flatMv = statMap.FLAT_MV ?? 0;
@@ -17,17 +25,17 @@ export function computeBase(statMap, attr, multipliers) {
   return baseDamage;
 }
 
-export function computeBonuses(statMap, element, dmgType) {
+export function computeBonuses(statMap, element, dmgTypes) {
   // Crit multiplier
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
   const critDamage = computeTotalStat("CD", statMap) - 1;
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
-  // Damage bonus and amp
+  // Damage bonus and amp multipliers
   let dmgBonusMult = 1 + computeTotalStat("ALL", statMap);
   let ampMult = 1 + (statMap["AMP_ALL"] ?? 0);
 
-  for (const type of [element, ...dmgType]) {
+  for (const type of [element, ...dmgTypes]) {
     dmgBonusMult += computeTotalStat(type, statMap);
     ampMult += statMap[`AMP_${type}`] ?? 0;
   }
@@ -35,10 +43,10 @@ export function computeBonuses(statMap, element, dmgType) {
   return critMult * dmgBonusMult * ampMult;
 }
 
-export function computeReductions(statMap, element, dmgType) {
+export function computeReductions(statMap, element, dmgTypes) {
   // Enemy resistance multiplier
   let resIgnore = statMap[`IGNORE_${element}`] ?? 0
-  for (const type of dmgType) {
+  for (const type of dmgTypes) {
     resIgnore += statMap[`IGNORE_${element}_${type}`] ?? 0;
   }
   const totalRes = BASE_RES - resIgnore;
@@ -54,7 +62,7 @@ export function computeReductions(statMap, element, dmgType) {
   // Enemy defense multiplier
   const enemyDef = 8 * ENEMY_LEVEL + 792;
   let defIgnore = statMap["IGNORE_DEF"] ?? 0;
-  for (const type of dmgType) {
+  for (const type of dmgTypes) {
     defIgnore += statMap[`IGNORE_DEF_${type}`] ?? 0;
   }
   const defMult = (800 + 8 * CHARACTER_LEVEL) / (800 + 8 * CHARACTER_LEVEL + enemyDef * (1 - defIgnore))
@@ -63,18 +71,39 @@ export function computeReductions(statMap, element, dmgType) {
 }
 
 export function computeDamage(characterId, build, calcs, team) {
+  const skillMap = MVS["wuthering-waves"][characterId];
   const { element } = CHARACTERS["wuthering-waves"][characterId];
   const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
 
   let damage = 0;
   for (const step of calcs.rotation) {
-    const [skillId, subSkillId] = step.split("-");
-    const { dmgType, modifiers, attr = "ATK", multipliers } = MVS["wuthering-waves"][characterId]?.[skillId]?.subSkills?.[subSkillId];
+    const [groupId, skillId] = step.split("-");
+    const skill = skillMap?.[groupId]?.skills?.[skillId]
+    if (!skill) {
+      throw new Error(`Unknown step "${step}" in rotation for character "${characterId}"`);
+    }
+
+    const {
+      input: rawInput,
+      considered: rawConsidered,
+      special,
+      modifiers,
+      attr = "ATK",
+      multipliers,
+    } = skill;
+
+    const input = rawInput ?? DEFAULT_GROUP_INPUT[groupId];
+    if (!input) {
+      throw new Error(`Input is not defined for skill "${step}" of character "${characterId}"`);
+    }
+    const considered = rawConsidered ?? input;
+    const dmgTypes = [considered, special].filter(Boolean);
+
     const adjustedStatMap = modifiers ? mergeStatMaps(statMap, modifiers) : statMap;
 
     const baseDmg = computeBase(adjustedStatMap, attr, multipliers);
-    const bonuses = computeBonuses(adjustedStatMap, element, dmgType);
-    const reductions = computeReductions(adjustedStatMap, element, dmgType);
+    const bonuses = computeBonuses(adjustedStatMap, element, dmgTypes);
+    const reductions = computeReductions(adjustedStatMap, element, dmgTypes);
 
     damage += baseDmg * bonuses * reductions;
   }

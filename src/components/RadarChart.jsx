@@ -9,7 +9,7 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const calcs = CHARACTERS[gameId][characterId]?.calcs;
 
   if (isLoading || !build || !combinedSimEquips) return null;
@@ -19,15 +19,12 @@ export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips
     subStatList: []
   }));
 
-  const damageType = calcs?.[0].type.element;
-  const nonDamageTypes = Object.keys(MISC[gameId].ELEMENT_COLORS)
-    .map(element => element.toUpperCase())
-    .filter(element => element !== damageType);
+  const offElements = Object.keys(MISC[gameId].ELEMENT_COLORS).filter(e => e !== element);
 
   const data = Object.entries(MISC[gameId].MENU_STATS)
-    .filter(([stat]) => damageType === 'PHYSICAL'
-      ? !nonDamageTypes.includes(stat)
-      : !nonDamageTypes.includes(stat) && stat !== 'PHYSICAL'
+    .filter(([stat]) => element === 'PHYSICAL'
+      ? !offElements.includes(stat)
+      : !offElements.includes(stat) && stat !== 'PHYSICAL'
     )
     .filter(([stat]) => stat === 'HB' ? !calcs[0].type : true)
     .map(([stat]) => {

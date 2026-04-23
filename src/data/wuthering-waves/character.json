@@ -283,9 +283,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
         "team": [
           null,
           "1302",
@@ -442,9 +439,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
         "team": [
           "1404",
           "1204",
@@ -647,9 +641,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
         "team": [
           "1205",
           "1206",
@@ -702,9 +693,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
         "team": [
           "1304",
           "1105",
@@ -762,9 +750,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "GLACIO"
-        },
         "team": [
           "1107",
           "1105",
@@ -814,9 +799,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
         "team": [
           "1305",
           "1302",
@@ -986,9 +968,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
         "team": [
           "1603",
           "1606",
@@ -1046,9 +1025,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "GLACIO"
-        },
         "team": [
           "1107",
           "1105",
@@ -1113,9 +1089,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
         "team": [
           null,
           "1606",
@@ -1186,9 +1159,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
         "team": [
           "1205",
           "1206",
@@ -1244,9 +1214,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
         "team": [
           "1507",
           "1506",
@@ -1307,9 +1274,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
         "team": [
           "1608",
           "1607",
@@ -1367,9 +1331,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
         "team": [
           "1409",
           "1407",
@@ -1431,9 +1392,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
         "team": [
           "1507",
           "1506",
@@ -1503,9 +1461,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
         "team": [
           "1205",
           "1206",
@@ -1566,9 +1521,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
         "team": [
           "1409",
           "1407",
@@ -1634,9 +1586,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
         "team": [
           "1608",
           "1607",
@@ -1703,9 +1652,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
         "team": [
           "1306",
           "1410",
@@ -1769,9 +1715,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
         "team": [
           "1306",
           "1410",
@@ -1827,9 +1770,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
         "team": [
           "1208",
           "1411",
@@ -1897,9 +1837,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
         "team": [
           "1208",
           "1411",
@@ -1984,9 +1921,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
         "rotation": [
           "6-25",
           "1-2",
@@ -2080,9 +2014,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
         "team": [
           "1210",
           "1509",
@@ -2140,12 +2071,9 @@
         ]
       ]
     },
-    "calcs": [
+    "calcs1": [
       {
         "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
         "team": [
           "1210",
           "1509",
@@ -2207,9 +2135,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
         "team": [
           "1510",
           "1509",
@@ -2292,9 +2217,6 @@
     "calcs": [
       {
         "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
         "team": [
           "1412",
           "1411",
