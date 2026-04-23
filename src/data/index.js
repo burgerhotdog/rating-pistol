@@ -11,6 +11,11 @@ export const CHARACTERS = {
   "zenless-zone-zero": character_zzz,
 };
 
+import mv_ww from './wuthering-waves/mv.json';
+export const MVS = {
+  "wuthering-waves": mv_ww,
+};
+
 import weapon_gi from './genshin-impact/weapon.json';
 import weapon_hsr from './honkai-star-rail/weapon.json';
 import weapon_ww from './wuthering-waves/weapon.json';

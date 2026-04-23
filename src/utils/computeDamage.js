@@ -1,4 +1,4 @@
-import { RATING, CHARACTERS, WEAPONS, MISC } from "@/data";
+import { RATING, CHARACTERS, WEAPONS, MISC, MVS } from "@/data";
 import { mergeStatMaps, computeTotalStat, compileStatMap } from "@/utils";
 
 export function computeDamage(gameId, characterId, build, calcs, team) {
@@ -17,8 +17,10 @@ export function computeDamageBreakdown(gameId, characterId, build, calcs, team) 
   const grouped = {};
   for (const part of rotation) {
     const singleCalcs = { ...calcs, rotation: [part] };
+    const parts = part.split("-");
     const damage = RATING[gameId].computeDamage(characterId, build, singleCalcs, team);
-    const label = part.dmgType[1];
+    const label = MVS[gameId]?.[characterId]?.[parts[0]]?.subSkills?.[parts[1]]?.dmgType?.[0];
+    if (!label) continue;
     grouped[label] = (grouped[label] ?? 0) + damage;
   }
 
