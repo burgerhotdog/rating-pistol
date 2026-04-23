@@ -19,7 +19,7 @@ export const GamePage = ({ gameId, characterId }) => {
   const build = useBuild().getBuilds(gameId)[characterId];
   const { calcs } = CHARACTERS[gameId][characterId] ?? {};
   const [calcsIndex, setCriteriaIndex] = useState(0);
-  const { team, updateTeam } = useTeam(gameId, characterId, calcsIndex);
+  const { team, teamIds, updateTeam } = useTeam(gameId, characterId, calcsIndex);
 
   const rating = build && calcs
     ? computeDamage(gameId, characterId, build, calcs[calcsIndex], team)
@@ -29,7 +29,7 @@ export const GamePage = ({ gameId, characterId }) => {
     ? computeDamageBreakdown(gameId, characterId, build, calcs[calcsIndex], team)
     : [];
 
-  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, 0, team);
+  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, 0, teamIds);
 
   const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 

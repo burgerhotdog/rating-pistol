@@ -2,10 +2,12 @@ import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, S
 import { MISC, CHARACTERS, WEAPONS } from '@/data';
 import { computeTotalStat, compileStatMap } from '@/utils';
 import { CustomAvatar } from "@/components";
-import { CharacterPicker } from "@/components/CharacterPicker";
+import { TeamMemberDialog } from "@/components/TeamMemberDialog";
+import { useState } from 'react';
 
 export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => {
   const { MENU_STATS } = MISC[gameId];
+  const [dialogIndex, setDialogIndex] = useState(null);
 
   const statMap = build ? compileStatMap(gameId, characterId, build, [], "menu") : {};
 
@@ -83,14 +85,24 @@ export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => 
         </Typography>
         <Stack direction="row" spacing={1} justifyContent="center">
           {team.map((member, index) => (
-            <CharacterPicker
-              key={index}
-              gameId={gameId}
-              currentId={member}
-              updateTeam={newId => updateTeam(index, newId)}
-            />
+            <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
+              <CustomAvatar
+                gameId={gameId}
+                characterId={member?.characterId ?? null}
+              />
+            </Box>
           ))}
         </Stack>
+
+        {dialogIndex !== null && (
+          <TeamMemberDialog
+            gameId={gameId}
+            member={team[dialogIndex]}
+            open={dialogIndex !== null}
+            onClose={() => setDialogIndex(null)}
+            onSave={(updatedMember) => updateTeam(dialogIndex, updatedMember)}
+          />
+        )}
 
         <Divider sx={{ my: 2 }} />
 
