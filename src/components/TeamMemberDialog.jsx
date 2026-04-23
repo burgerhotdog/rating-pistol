@@ -1,6 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
-  Avatar,
   Box,
   Button,
   Card,
@@ -11,13 +10,28 @@ import {
   DialogContent,
   DialogTitle,
   Grid,
+  IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Stack,
   TextField,
   Typography,
 } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import ClearAllIcon from '@mui/icons-material/ClearAll';
 import { CHARACTERS, WEAPONS } from '@/data';
-import { CustomAvatar } from '@/components';
+import { getSkill, getSkillList } from '@/utils';
 
-// ─── Inner character-select dialog ───────────────────────────────────────────
+function getDefaultRotation(gameId, characterId) {
+  const calcsList = CHARACTERS[gameId]?.[characterId]?.calcs ?? [];
+  const calcWithRotation = calcsList.find(calc => Array.isArray(calc?.rotation));
+  return calcWithRotation ? [...calcWithRotation.rotation] : [];
+}
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
@@ -70,8 +84,6 @@ function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
     </Dialog>
   );
 }
-
-// ─── Inner weapon-select dialog ───────────────────────────────────────────────
 
 function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
@@ -128,7 +140,76 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
   );
 }
 
-// ─── Thumbnail button shared between character and weapon ─────────────────────
+function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
+  const [search, setSearch] = useState('');
+
+  const options = useMemo(() => {
+    if (!characterId) return [];
+    let keys = [];
+    try {
+      keys = getSkillList(gameId, characterId);
+    } catch {
+      return [];
+    }
+
+    const lower = search.toLowerCase();
+    return keys
+      .map(skillKey => {
+        try {
+          const skill = getSkill(gameId, characterId, skillKey);
+          return { skillKey, name: skill.name };
+        } catch {
+          return null;
+        }
+      })
+      .filter(Boolean)
+      .filter(({ name, skillKey }) => {
+        const text = `${name} ${skillKey}`.toLowerCase();
+        return text.includes(lower);
+      });
+  }, [gameId, characterId, search]);
+
+  const handleSelect = (skillKey) => {
+    onSelect(skillKey);
+    setSearch('');
+    onClose();
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
+      <DialogTitle>Select Skill</DialogTitle>
+      <DialogContent>
+        <TextField
+          fullWidth
+          size="small"
+          placeholder="Search skills..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          sx={{ mb: 2 }}
+        />
+
+        <Stack spacing={1}>
+          {options.map(({ skillKey, name }) => (
+            <Button
+              key={skillKey}
+              variant="outlined"
+              onClick={() => handleSelect(skillKey)}
+              sx={{ justifyContent: 'flex-start', textTransform: 'none' }}
+            >
+              {name}
+            </Button>
+          ))}
+
+          {options.length === 0 && (
+            <Typography variant="body2" color="text.secondary">
+              No skills available for this character.
+            </Typography>
+          )}
+        </Stack>
+      </DialogContent>
+    </Dialog>
+  );
+}
 
 function PickerButton({ label, imageUrl, name, onClick }) {
   return (
@@ -169,15 +250,146 @@ function PickerButton({ label, imageUrl, name, onClick }) {
   );
 }
 
-// ─── Main TeamMemberDialog ────────────────────────────────────────────────────
+function RotationEditor({ gameId, characterId, rotation, onChange }) {
+  const [skillDialogOpen, setSkillDialogOpen] = useState(false);
+
+  const normalizedRotation = Array.isArray(rotation) ? rotation : [];
+  const defaultRotation = useMemo(
+    () => (characterId ? getDefaultRotation(gameId, characterId) : []),
+    [gameId, characterId]
+  );
+
+  const skillNameByKey = useMemo(() => {
+    if (!characterId) return {};
+    let keys = [];
+    try {
+      keys = getSkillList(gameId, characterId);
+    } catch {
+      return {};
+    }
+
+    const entries = keys.map(skillKey => {
+      try {
+        return [skillKey, getSkill(gameId, characterId, skillKey).name];
+      } catch {
+        return [skillKey, skillKey];
+      }
+    });
+    return Object.fromEntries(entries);
+  }, [gameId, characterId]);
+
+  const moveSkill = (index, direction) => {
+    const nextIndex = index + direction;
+    if (nextIndex < 0 || nextIndex >= normalizedRotation.length) return;
+    const next = [...normalizedRotation];
+    [next[index], next[nextIndex]] = [next[nextIndex], next[index]];
+    onChange(next);
+  };
+
+  const removeSkill = (index) => {
+    onChange(normalizedRotation.filter((_, i) => i !== index));
+  };
+
+  if (!characterId) {
+    return (
+      <Typography variant="body2" color="text.secondary">
+        Select a character to edit rotation.
+      </Typography>
+    );
+  }
+
+  return (
+    <Box mt={2.5}>
+      <Typography variant="subtitle2" sx={{ mb: 1 }}>
+        Rotation
+      </Typography>
+
+      <List dense sx={{ p: 0 }}>
+        {normalizedRotation.map((skillKey, index) => (
+          <ListItem
+            key={`${skillKey}-${index}`}
+            secondaryAction={
+              <Stack direction="row" spacing={0.5}>
+                <IconButton size="small" onClick={() => moveSkill(index, -1)}>
+                  <ArrowUpwardIcon fontSize="small" />
+                </IconButton>
+                <IconButton size="small" onClick={() => moveSkill(index, 1)}>
+                  <ArrowDownwardIcon fontSize="small" />
+                </IconButton>
+                <IconButton size="small" onClick={() => removeSkill(index)}>
+                  <DeleteOutlineIcon fontSize="small" />
+                </IconButton>
+              </Stack>
+            }
+            sx={{ py: 0.25, pr: 14 }}
+          >
+            <ListItemText
+              primary={`${index + 1}. ${skillNameByKey[skillKey] ?? skillKey}`}
+              secondary={skillKey}
+            />
+          </ListItem>
+        ))}
+      </List>
+
+      {normalizedRotation.length === 0 && (
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          Rotation is empty.
+        </Typography>
+      )}
+
+      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<AddIcon />}
+          onClick={() => setSkillDialogOpen(true)}
+        >
+          Add Skill
+        </Button>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<RestartAltIcon />}
+          onClick={() => onChange(defaultRotation)}
+        >
+          Reset Default
+        </Button>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<ClearAllIcon />}
+          onClick={() => onChange([])}
+        >
+          Clear
+        </Button>
+      </Stack>
+
+      <SkillSelectDialog
+        gameId={gameId}
+        characterId={characterId}
+        open={skillDialogOpen}
+        onClose={() => setSkillDialogOpen(false)}
+        onSelect={(skillKey) => onChange([...normalizedRotation, skillKey])}
+      />
+    </Box>
+  );
+}
 
 export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
-  const [draft, setDraft] = useState(member);
+  const EMPTY_MEMBER = {
+    characterId: null,
+    weaponId: null,
+    setId: null,
+    rotation: [],
+  };
+
+  const [draft, setDraft] = useState(member ?? EMPTY_MEMBER);
   const [charDialogOpen, setCharDialogOpen] = useState(false);
   const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
 
-  // Keep draft in sync when member prop changes (e.g. dialog re-opened for different slot)
-  useMemo(() => { setDraft(member); }, [member]);
+  useEffect(() => {
+    setDraft(member ?? EMPTY_MEMBER);
+  }, [member]);
 
   const characterData = CHARACTERS[gameId]?.[draft?.characterId];
   const weaponData = WEAPONS[gameId]?.[draft?.weaponId];
@@ -189,17 +401,20 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
       characterId: charId,
       weaponId: preset?.weaponId ?? null,
       setId: preset?.setBonuses?.[0]?.[0] ?? null,
-      rotation: null,
+      rotation: getDefaultRotation(gameId, charId),
     });
   };
 
   const handleSave = () => {
-    onSave(draft);
+    onSave({
+      ...draft,
+      rotation: [...(draft?.rotation ?? [])],
+    });
     onClose();
   };
 
   const handleCancel = () => {
-    setDraft(member);
+    setDraft(member ?? EMPTY_MEMBER);
     onClose();
   };
 
@@ -231,10 +446,14 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             <Typography variant="body2" color="text.secondary">
               Set: <Typography component="span" variant="body2">{draft?.setId ?? '—'}</Typography>
             </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Rotation: <Typography component="span" variant="body2">{draft?.rotation ?? '—'}</Typography>
-            </Typography>
           </Box>
+
+          <RotationEditor
+            gameId={gameId}
+            characterId={draft?.characterId}
+            rotation={draft?.rotation}
+            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
+          />
         </DialogContent>
 
         <DialogActions>

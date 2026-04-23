@@ -8,6 +8,17 @@ const DEFAULT_GROUP_INPUT = {
   "8": "OS",
 };
 
+export function getSkillList(gameId, characterId) {
+  const skillMap = MVS[gameId]?.[characterId];
+  if (!skillMap) {
+    throw new Error(`Skill map doesn't exist for character "${characterId}"`);
+  }
+
+  return Object.entries(skillMap).flatMap(([groupId, { skills }]) =>
+    Object.keys(skills).map(skillId => `${groupId}-${skillId}`)
+  );
+}
+
 export function getSkill(gameId, characterId, skillKey) {
   const skillMap = MVS[gameId]?.[characterId];
   if (!skillMap) {
@@ -35,7 +46,7 @@ export function getSkill(gameId, characterId, skillKey) {
     multipliers,
   } = skill;
 
-  const name = name ?? group.name;
+  const name = rawName ?? group.name;
   const input = rawInput ?? DEFAULT_GROUP_INPUT[groupId];
   if (!input) {
     throw new Error(`Input is not defined for skill "${skillKey}" of character "${characterId}"`);

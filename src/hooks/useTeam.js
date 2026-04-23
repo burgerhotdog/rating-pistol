@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { CHARACTERS } from "@/data";
 
+function getDefaultRotation(gameId, charId) {
+  const calcsList = CHARACTERS[gameId]?.[charId]?.calcs ?? [];
+  const defaultCalc = calcsList.find(calc => Array.isArray(calc?.rotation));
+  return defaultCalc ? [...defaultCalc.rotation] : [];
+}
+
 function buildMember(gameId, charId) {
   if (!charId) return null;
   const preset = CHARACTERS[gameId]?.[charId]?.preset;
@@ -8,7 +14,7 @@ function buildMember(gameId, charId) {
     characterId: charId,
     weaponId: preset?.weaponId ?? null,
     setId: preset?.setBonuses?.[0]?.[0] ?? null,
-    rotation: null,
+    rotation: getDefaultRotation(gameId, charId),
   };
 }
 
