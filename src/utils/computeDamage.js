@@ -1,5 +1,5 @@
-import { RATING, CHARACTERS, WEAPONS, MISC, MVS } from "@/data";
-import { mergeStatMaps, computeTotalStat, compileStatMap, getSkill } from "@/utils";
+import { RATING, MISC } from "@/data";
+import { getSkill, resolveCalcsWithTeamRotation } from "@/utils";
 
 const DEFAULT_GROUP_INPUT = {
   "1": "BA",
@@ -10,13 +10,15 @@ const DEFAULT_GROUP_INPUT = {
 };
 
 export function computeDamage(gameId, characterId, build, calcs, team) {
-  return RATING[gameId].computeDamage(characterId, build, calcs, team);
+  const effectiveCalcs = resolveCalcsWithTeamRotation(characterId, calcs, team);
+  return RATING[gameId].computeDamage(characterId, build, effectiveCalcs, team);
 }
 
 export function computeDamageBreakdown(gameId, characterId, build, calcs, team) {
   if (!calcs || !build) return [];
 
-  const rotation = calcs.rotation;
+  const effectiveCalcs = resolveCalcsWithTeamRotation(characterId, calcs, team);
+  const rotation = effectiveCalcs.rotation;
 
   // Games without rotation (HSR, ZZZ) - single calculation
   if (!rotation) return [];
@@ -24,7 +26,7 @@ export function computeDamageBreakdown(gameId, characterId, build, calcs, team) 
   // Games with rotation (GI, WW) - per-hit breakdown
   const grouped = {};
   for (const step of rotation) {
-    const damage = RATING[gameId].computeDamage(characterId, build, { ...calcs, rotation: [step] }, team);
+    const damage = RATING[gameId].computeDamage(characterId, build, { ...effectiveCalcs, rotation: [step] }, team);
     const { considered } = getSkill(gameId, characterId, step);
     grouped[considered] = (grouped[considered] ?? 0) + damage;
   }

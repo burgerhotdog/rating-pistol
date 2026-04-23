@@ -1,4 +1,4 @@
-import { mergeEquipList, computeTotalStat, compileStatMap } from "@/utils";
+import { mergeEquipList, computeTotalStat, compileStatMap, resolveCalcsWithTeamRotation } from "@/utils";
 import { findBenchmarkWeek, getAverageScores, findRelativeError } from "./helpers";
 import { createTrial } from "./createTrial";
 import { advanceTrial } from "./advanceTrial";
@@ -12,6 +12,7 @@ const MAX_WEEKS = 20;
 
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, calcs, team } = data;
+  const getMemberId = (member) => (typeof member === 'string' ? member : member?.characterId ?? null);
   const isWuwa = gameId === "wuthering-waves";
   const setIdList = build.equipList.map(equip => equip?.setId);
   const matchTargets = (calcs.match ?? []).map(stat => {
@@ -124,12 +125,14 @@ self.onmessage = ({ data }) => {
   const teamWeeklyScores = {};
   if (isWuwa) {
     for (let ti = team.length - 1; ti >= 0; ti--) {
-      const memberCharId = team[ti];
+      const member = team[ti];
+      const memberCharId = getMemberId(member);
       if (!memberCharId || memberCharId === characterId) continue;
 
       const memberData = CHARACTERS["wuthering-waves"][memberCharId];
-      const memberCalcs = memberData?.calcs?.[0];
-      if (!memberCalcs) continue;
+      const defaultMemberCalcs = memberData?.calcs?.[0];
+      if (!defaultMemberCalcs) continue;
+      const memberCalcs = resolveCalcsWithTeamRotation(memberCharId, defaultMemberCalcs, team);
 
       const memberPreset = memberData?.preset;
       if (!memberPreset?.weaponId || !memberPreset?.setBonuses) continue;
@@ -144,7 +147,7 @@ self.onmessage = ({ data }) => {
       }
 
       const memberBuild = {
-        weaponId: memberPreset.weaponId,
+        weaponId: (typeof member === 'object' ? member?.weaponId : null) ?? memberPreset.weaponId,
         equipList: new Array(5).fill(null),
       };
 
