@@ -717,32 +717,32 @@
           ]
         },
         "2": {
-          "name": "Healing",
           "input": "AUTO",
+          "considered": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
-              "mv": [
-                5.75,
-                6.23,
-                6.7,
-                7.36,
-                7.83,
-                8.37,
-                9.13,
-                9.88,
-                10.64,
-                11.44,
-                12.38,
-                13.32,
-                14.27,
-                15.21,
-                16.15,
-                17.09,
-                18.04,
-                18.98,
-                19.92,
-                20.87
+              "flat": [
+                575,
+                623,
+                670,
+                736,
+                783,
+                837,
+                913,
+                988,
+                1064,
+                1144,
+                1238,
+                1332,
+                1427,
+                1521,
+                1615,
+                1709,
+                1804,
+                1898,
+                1992,
+                2087
               ]
             },
             {
@@ -777,8 +777,8 @@
       "name": "Momentary Union",
       "skills": {
         "1": {
-          "name": "Remnant Entities Damage",
-          "input": "AUTO",
+          "name": "Remnant Entities",
+          "input": "CA",
           "considered": "RL",
           "attr": "HP",
           "multipliers": [
@@ -809,32 +809,33 @@
           ]
         },
         "2": {
-          "name": "Remnant Entities Healing",
+          "name": "Remnant Entities",
           "input": "AUTO",
+          "considered": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
-              "mv": [
-                3.49,
-                3.78,
-                4.06,
-                4.46,
-                4.75,
-                5.08,
-                5.54,
-                5.99,
-                6.45,
-                6.94,
-                7.51,
-                8.08,
-                8.65,
-                9.23,
-                9.8,
-                10.37,
-                10.94,
-                11.51,
-                12.09,
-                12.66
+              "flat": [
+                349,
+                378,
+                406,
+                446,
+                475,
+                508,
+                554,
+                599,
+                645,
+                694,
+                751,
+                808,
+                865,
+                923,
+                980,
+                1037,
+                1094,
+                1151,
+                1209,
+                1266
               ]
             },
             {
@@ -864,32 +865,31 @@
           ]
         },
         "3": {
-          "name": "Momentary Union Healing",
-          "input": "AUTO",
+          "considered": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
-              "mv": [
-                3.1,
-                3.36,
-                3.61,
-                3.97,
-                4.22,
-                4.52,
-                4.92,
-                5.33,
-                5.74,
-                6.17,
-                6.68,
-                7.18,
-                7.69,
-                8.2,
-                8.71,
-                9.22,
-                9.73,
-                10.24,
-                10.74,
-                11.25
+              "flat": [
+                310,
+                336,
+                361,
+                397,
+                422,
+                452,
+                492,
+                533,
+                574,
+                617,
+                668,
+                718,
+                769,
+                820,
+                871,
+                922,
+                973,
+                1024,
+                1074,
+                1125
               ]
             },
             {
@@ -952,32 +952,32 @@
           ]
         },
         "2": {
-          "name": "Overflowing Frost Healing",
           "input": "AUTO",
+          "considered": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
-              "mv": [
-                0.75,
-                0.82,
-                0.88,
-                0.96,
-                1.03,
-                1.1,
-                1.19,
-                1.29,
-                1.39,
-                1.5,
-                1.62,
-                1.74,
-                1.87,
-                1.99,
-                2.11,
-                2.23,
-                2.36,
-                2.48,
-                2.6,
-                2.73
+              "flat": [
+                75,
+                82,
+                88,
+                96,
+                103,
+                110,
+                119,
+                129,
+                139,
+                150,
+                162,
+                174,
+                187,
+                199,
+                211,
+                223,
+                236,
+                248,
+                260,
+                273
               ]
             },
             {
@@ -1012,32 +1012,33 @@
       "name": "Cycle of Life",
       "skills": {
         "1": {
-          "name": "Concentration Healing",
+          "name": "Concentration",
           "input": "AUTO",
+          "considered": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
-              "mv": [
-                0.32,
-                0.34,
-                0.37,
-                0.4,
-                0.43,
-                0.46,
-                0.5,
-                0.54,
-                0.58,
-                0.63,
-                0.68,
-                0.73,
-                0.78,
-                0.83,
-                0.88,
-                0.93,
-                0.99,
-                1.04,
-                1.09,
-                1.14
+              "flat": [
+                32,
+                34,
+                37,
+                40,
+                43,
+                46,
+                50,
+                54,
+                58,
+                63,
+                68,
+                73,
+                78,
+                83,
+                88,
+                93,
+                99,
+                104,
+                109,
+                114
               ]
             },
             {
@@ -1075,7 +1076,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1105,7 +1105,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1135,7 +1134,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1166,7 +1164,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1221,7 +1218,6 @@
         },
         "5": {
           "name": "Basic Attack Stage 5",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1250,8 +1246,7 @@
           ]
         },
         "6": {
-          "name": "Feral Roars Damage",
-          "input": "",
+          "name": "Feral Roars",
           "multipliers": [
             {
               "mv": [
@@ -1311,8 +1306,7 @@
           ]
         },
         "8": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -1341,8 +1335,7 @@
           ]
         },
         "9": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -1377,8 +1370,6 @@
       "name": "Ancient Arts",
       "skills": {
         "1": {
-          "name": "Ancient Arts Damage",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1407,8 +1398,7 @@
           ]
         },
         "2": {
-          "name": "Furious Punches Damage",
-          "input": "",
+          "name": "Furious Punches",
           "multipliers": [
             {
               "mv": [
@@ -1443,8 +1433,6 @@
       "name": "Strive: Lion's Vigor",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1478,8 +1466,6 @@
       "name": "Lion Awakens",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1514,8 +1500,8 @@
       "name": "Unification of Spirits",
       "skills": {
         "2": {
-          "name": "Glorious Plunge Damage",
-          "input": "",
+          "name": "Glorious Plunge",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -1544,8 +1530,8 @@
           ]
         },
         "3": {
-          "name": "Feral Gyrate Stage 1 DMG",
-          "input": "",
+          "name": "Feral Gyrate Stage 1",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -1599,8 +1585,8 @@
           ]
         },
         "4": {
-          "name": "Feral Gyrate Stage 2 DMG",
-          "input": "",
+          "name": "Feral Gyrate Stage 2",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -1630,8 +1616,8 @@
           ]
         },
         "5": {
-          "name": "Mountain Roamer Damage",
-          "input": "",
+          "name": "Mountain Roamer",
+          "input": "RS",
           "multipliers": [
             {
               "mv": [
@@ -1661,8 +1647,8 @@
           ]
         },
         "7": {
-          "name": "Stormy Kicks Damage",
-          "input": "",
+          "name": "Stormy Kicks",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -1716,8 +1702,8 @@
           ]
         },
         "8": {
-          "name": "Tail Strike Damage",
-          "input": "",
+          "name": "Tail Strike",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -1743,6 +1729,18 @@
                 3.1928
               ],
               "times": 2
+            }
+          ]
+        }
+      }
+    },
+    "8": {
+      "name": "Frosty Marks",
+      "skills": {
+        "1": {
+          "multipliers": [
+            {
+              "mv": 5.8794
             }
           ]
         }

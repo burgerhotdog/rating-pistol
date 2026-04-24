@@ -37,26 +37,22 @@ export function getSkill(gameId, characterId, skillKey) {
   }
 
   const {
-    name: rawName,
-    input: rawInput,
-    considered: rawConsidered,
+    name = group.name,
+    input = DEFAULT_GROUP_INPUT[groupId],
     special,
     modifiers,
     attr = "ATK",
     multipliers,
   } = skill;
 
-  const name = rawName ?? group.name;
-  const input = rawInput ?? DEFAULT_GROUP_INPUT[groupId];
   if (!input) {
     throw new Error(`Input is not defined for skill "${skillKey}" of character "${characterId}"`);
   }
-  const considered = rawConsidered ?? input;
 
   return {
-    name,
+    name: skill.considered === "HEAL" ? `${name} Healing` : name,
     input,
-    considered,
+    considered: skill.considered ?? input,
     special,
     modifiers,
     attr,

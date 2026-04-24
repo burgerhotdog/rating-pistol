@@ -1,21 +1,28 @@
-def format_mv_list(raw_list):
-    def parse_segment(segment):
-        segment = segment.replace(" ", "")
-        parts = segment.split("*")
+def parse_segment(segment):
+    segment = segment.replace(" ", "")
+    parts = segment.split("*")
 
-        mv = round(float(parts[0].replace("%", "")) / 100, 4)
-        times = int(parts[1]) if len(parts) > 1 else 1
+    if parts[0].endswith("%"):
+        segment_type = "mv"
+        segment_value = round(float(parts[0].replace("%", "")) / 100, 4)
+    else:
+        segment_type = "flat"
+        segment_value = int(parts[0])
+    
+    times = int(parts[1]) if len(parts) > 1 else 1
 
-        return mv, times
+    return segment_type, segment_value, times
 
-    # Step 1: use first entry to define structure
-    first_segments = raw_list[0].split("+")
+def format_multipliers(raw_list):
+    base_multipliers = raw_list[0].split("+")
     result = []
 
-    for segment in first_segments:
-        mv, times = parse_segment(segment)
+    # Step 1: use first entry to define structure
+    for segment in base_multipliers:
+        segment_type, segment_value, times = parse_segment(segment)
+
         result.append({
-            "mv": [mv],   # initialize with first value
+            segment_type: [segment_value],
             **({"times": times} if times > 1 else {})
         })
 
@@ -24,8 +31,8 @@ def format_mv_list(raw_list):
         segments = mv_str.split("+")
 
         for i, segment in enumerate(segments):
-            mv, _ = parse_segment(segment)
-            result[i]["mv"].append(mv)
+            segment_type, segment_value, _ = parse_segment(segment)
+            result[i][segment_type].append(segment_value)
 
     return result
 
@@ -63,7 +70,7 @@ def mv_parser(game_id, data):
                         raise ValueError(f"Unknown skill format: {fmt}")
 
                     # format multipliers list
-                    multipliers = format_mv_list(skill_data["param"][0])
+                    multipliers = format_multipliers(skill_data["param"][0])
 
                     skills[skill_id] = {
                         "name": skill_data["name"],
