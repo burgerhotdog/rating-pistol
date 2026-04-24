@@ -127,7 +127,7 @@
         "BASE_HP": 9087,
         "BASE_ATK": 300,
         "BASE_DEF": 953,
-        "PERCENT_FIRE": 0.12,
+        "PERCENT_FUSION": 0.12,
         "PERCENT_ATK": 0.12
       }
     },
@@ -162,7 +162,7 @@
         "BASE_HP": 10512,
         "BASE_ATK": 425,
         "BASE_DEF": 1246,
-        "PERCENT_FIRE": 0.12,
+        "PERCENT_FUSION": 0.12,
         "PERCENT_ATK": 0.12
       }
     },
@@ -193,7 +193,7 @@
         "BASE_HP": 10025,
         "BASE_ATK": 250,
         "BASE_DEF": 1136,
-        "PERCENT_FIRE": 0.12,
+        "PERCENT_FUSION": 0.12,
         "PERCENT_ATK": 0.12
       }
     },
@@ -216,7 +216,30 @@
           "5"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "team": [
+          null,
+          "1204",
+          null
+        ],
+        "rotation": [
+          "6-1",
+          "2-1",
+          "7-1",
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "3-1"
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1301": {
     "name": "Calcharo",
@@ -900,7 +923,29 @@
           "5"
         ]
       ]
-    }
+    },
+    "calcs": [
+      {
+        "name": "Damage",
+        "team": [
+          null,
+          null,
+          "1505"
+        ],
+        "rotation": [
+          "6-2",
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "7-2",
+          "2-1"
+        ],
+        "match": [
+          "ER"
+        ]
+      }
+    ]
   },
   "1504": {
     "name": "Lumi",

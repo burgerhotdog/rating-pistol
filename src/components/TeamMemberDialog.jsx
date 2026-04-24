@@ -10,10 +10,10 @@ import {
   DialogContent,
   DialogTitle,
   Grid,
+  Chip,
   IconButton,
   List,
   ListItem,
-  ListItemText,
   MenuItem,
   Stack,
   TextField,
@@ -25,7 +25,7 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
-import { CHARACTERS, WEAPONS, SETS } from '@/data';
+import { CHARACTERS, WEAPONS, SETS, MISC } from '@/data';
 import { getSkill, getSkillList } from '@/utils';
 
 function getDefaultRotation(gameId, characterId) {
@@ -193,7 +193,8 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
         try {
           const skill = getSkill(gameId, characterId, skillKey);
           return { skillKey, name: skill.name };
-        } catch {
+        } catch (err) {
+          console.log(err);
           return null;
         }
       })
@@ -287,6 +288,7 @@ function PickerButton({ label, imageUrl, name, onClick }) {
 
 function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
+  const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
 
   const normalizedRotation = Array.isArray(rotation) ? rotation : [];
   const defaultRotation = useMemo(
@@ -305,9 +307,10 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
     const entries = keys.map(skillKey => {
       try {
-        return [skillKey, getSkill(gameId, characterId, skillKey).name];
+        const { name, input } = getSkill(gameId, characterId, skillKey);
+        return [skillKey, { name, input }];
       } catch {
-        return [skillKey, skillKey];
+        return [skillKey, { name: skillKey, input: null }];
       }
     });
     return Object.fromEntries(entries);
@@ -339,32 +342,58 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         Rotation
       </Typography>
 
-      <List dense sx={{ p: 0 }}>
-        {normalizedRotation.map((skillKey, index) => (
-          <ListItem
-            key={`${skillKey}-${index}`}
-            secondaryAction={
-              <Stack direction="row" spacing={0.5}>
-                <IconButton size="small" onClick={() => moveSkill(index, -1)}>
-                  <ArrowUpwardIcon fontSize="small" />
-                </IconButton>
-                <IconButton size="small" onClick={() => moveSkill(index, 1)}>
-                  <ArrowDownwardIcon fontSize="small" />
-                </IconButton>
-                <IconButton size="small" onClick={() => removeSkill(index)}>
-                  <DeleteOutlineIcon fontSize="small" />
-                </IconButton>
-              </Stack>
-            }
-            sx={{ py: 0.25, pr: 14 }}
-          >
-            <ListItemText
-              primary={`${index + 1}. ${skillNameByKey[skillKey] ?? skillKey}`}
-              secondary={skillKey}
-            />
-          </ListItem>
-        ))}
-      </List>
+      <Box
+        sx={{
+          maxHeight: 220,
+          overflowY: 'auto',
+          pr: 0.5,
+          border: 1,
+          borderColor: 'divider',
+          borderRadius: 1,
+          mb: 1,
+        }}
+      >
+        <List dense sx={{ p: 0.5 }}>
+          {normalizedRotation.map((skillKey, index) => {
+            const skillData = skillNameByKey[skillKey] ?? { name: skillKey, input: null };
+            return (
+              <ListItem
+                key={`${skillKey}-${index}`}
+                secondaryAction={
+                  <Stack direction="row" spacing={0.5}>
+                    <IconButton size="small" onClick={() => moveSkill(index, -1)}>
+                      <ArrowUpwardIcon fontSize="small" />
+                    </IconButton>
+                    <IconButton size="small" onClick={() => moveSkill(index, 1)}>
+                      <ArrowDownwardIcon fontSize="small" />
+                    </IconButton>
+                    <IconButton size="small" onClick={() => removeSkill(index)}>
+                      <DeleteOutlineIcon fontSize="small" />
+                    </IconButton>
+                  </Stack>
+                }
+                sx={{ py: 0.25, pr: 14 }}
+              >
+                <Stack direction="row" spacing={1} alignItems="center" sx={{ width: '100%' }}>
+                  <Box sx={{ width: 128, flexShrink: 0 }}>
+                    {skillData.input ? (
+                      <Chip
+                        size="small"
+                        label={abilityTypeLabels[skillData.input] ?? skillData.input}
+                        variant="outlined"
+                        sx={{ height: 20, maxWidth: '100%' }}
+                      />
+                    ) : null}
+                  </Box>
+                  <Typography variant="body2" noWrap>
+                    {skillData.name}
+                  </Typography>
+                </Stack>
+              </ListItem>
+            );
+          })}
+        </List>
+      </Box>
 
       {normalizedRotation.length === 0 && (
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
@@ -470,7 +499,7 @@ function SetBonusEditor({ gameId, characterId, setBonuses, onChange }) {
   }
 
   return (
-    <Box mt={2.5}>
+    <Box>
       <Typography variant="subtitle2" sx={{ mb: 1 }}>
         Set Bonuses
       </Typography>
@@ -615,38 +644,42 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
 
   return (
     <>
-      <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="xs">
+      <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="sm">
         <DialogTitle>Configure Team Member</DialogTitle>
 
         <DialogContent>
-          <Box display="flex" gap={3} flexWrap="wrap" mt={1}>
-            {/* Character */}
-            <PickerButton
-              label="Character"
-              imageUrl={draft?.characterId ? `${gameId}/character/${draft.characterId}.webp` : null}
-              name={characterData?.name ?? null}
-              onClick={() => setCharDialogOpen(true)}
-            />
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="flex-start" mt={1}>
+            <Stack direction="row" spacing={2}>
+              {/* Character */}
+              <PickerButton
+                label="Character"
+                imageUrl={draft?.characterId ? `${gameId}/character/${draft.characterId}.webp` : null}
+                name={characterData?.name ?? null}
+                onClick={() => setCharDialogOpen(true)}
+              />
 
-            {/* Weapon */}
-            <PickerButton
-              label="Weapon"
-              imageUrl={draft?.weaponId ? `${gameId}/weapon/${draft.weaponId}.webp` : null}
-              name={weaponData?.name ?? null}
-              onClick={() => setWeaponDialogOpen(true)}
-            />
-          </Box>
+              {/* Weapon */}
+              <PickerButton
+                label="Weapon"
+                imageUrl={draft?.weaponId ? `${gameId}/weapon/${draft.weaponId}.webp` : null}
+                name={weaponData?.name ?? null}
+                onClick={() => setWeaponDialogOpen(true)}
+              />
+            </Stack>
 
-          <SetBonusEditor
-            gameId={gameId}
-            characterId={draft?.characterId}
-            setBonuses={draft?.setBonuses}
-            onChange={(setBonuses) => setDraft(prev => ({
-              ...prev,
-              setBonuses,
-              setId: setBonuses?.[0]?.[0] ?? null,
-            }))}
-          />
+            <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 280 } }}>
+              <SetBonusEditor
+                gameId={gameId}
+                characterId={draft?.characterId}
+                setBonuses={draft?.setBonuses}
+                onChange={(setBonuses) => setDraft(prev => ({
+                  ...prev,
+                  setBonuses,
+                  setId: setBonuses?.[0]?.[0] ?? null,
+                }))}
+              />
+            </Box>
+          </Stack>
 
           <RotationEditor
             gameId={gameId}

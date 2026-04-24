@@ -1,14 +1,6 @@
 import { RATING, MISC } from "@/data";
 import { getSkill, resolveCalcsWithTeamRotation } from "@/utils";
 
-const DEFAULT_GROUP_INPUT = {
-  "1": "BA",
-  "2": "RS",
-  "3": "RL",
-  "6": "IS",
-  "8": "OS",
-};
-
 export function computeDamage(gameId, characterId, build, calcs, team) {
   const effectiveCalcs = resolveCalcsWithTeamRotation(characterId, calcs, team);
   return RATING[gameId].computeDamage(characterId, build, effectiveCalcs, team);
