@@ -13,6 +13,24 @@ const MAX_WEEKS = 20;
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, calcs, team } = data;
   const getMemberId = (member) => (typeof member === 'string' ? member : member?.characterId ?? null);
+  const buildSetIdList = (setBonuses, maxSlots) => {
+    const list = new Array(maxSlots).fill(null);
+    let slot = 0;
+
+    for (const [setIdRaw, countRaw] of setBonuses ?? []) {
+      const setId = String(setIdRaw);
+      const count = Number(countRaw);
+      if (!setId || !Number.isFinite(count) || count <= 0) continue;
+
+      for (let i = 0; i < count && slot < maxSlots; i++) {
+        list[slot++] = setId;
+      }
+
+      if (slot >= maxSlots) break;
+    }
+
+    return list;
+  };
   const isWuwa = gameId === "wuthering-waves";
   const setIdList = build.equipList.map(equip => equip?.setId);
   const matchTargets = (calcs.match ?? []).map(stat => {
@@ -137,14 +155,11 @@ self.onmessage = ({ data }) => {
       const memberPreset = memberData?.preset;
       if (!memberPreset?.weaponId || !memberPreset?.setBonuses) continue;
 
-      // Build setIdList from preset.setBonuses: fill slots in order
-      const memberSetIdList = new Array(5).fill(null);
-      let slot = 0;
-      for (const [setId, count] of memberPreset.setBonuses) {
-        for (let i = 0; i < Number(count); i++) {
-          if (slot < 5) memberSetIdList[slot++] = setId;
-        }
-      }
+      const configuredSetBonuses = (typeof member === 'object' && Array.isArray(member?.setBonuses))
+        ? member.setBonuses
+        : null;
+      const memberSetBonuses = configuredSetBonuses ?? memberPreset.setBonuses;
+      const memberSetIdList = buildSetIdList(memberSetBonuses, 5);
 
       const memberBuild = {
         weaponId: (typeof member === 'object' ? member?.weaponId : null) ?? memberPreset.weaponId,

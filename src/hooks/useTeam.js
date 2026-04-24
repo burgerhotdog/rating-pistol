@@ -10,10 +10,12 @@ function getDefaultRotation(gameId, charId) {
 function buildMember(gameId, charId) {
   if (!charId) return null;
   const preset = CHARACTERS[gameId]?.[charId]?.preset;
+  const setBonuses = (preset?.setBonuses ?? []).map(([setId, pieces]) => [String(setId), Number(pieces)]);
   return {
     characterId: charId,
     weaponId: preset?.weaponId ?? null,
-    setId: preset?.setBonuses?.[0]?.[0] ?? null,
+    setId: setBonuses[0]?.[0] ?? null,
+    setBonuses,
     rotation: getDefaultRotation(gameId, charId),
   };
 }

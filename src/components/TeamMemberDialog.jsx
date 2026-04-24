@@ -14,6 +14,7 @@ import {
   List,
   ListItem,
   ListItemText,
+  MenuItem,
   Stack,
   TextField,
   Typography,
@@ -24,13 +25,47 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
-import { CHARACTERS, WEAPONS } from '@/data';
+import { CHARACTERS, WEAPONS, SETS } from '@/data';
 import { getSkill, getSkillList } from '@/utils';
 
 function getDefaultRotation(gameId, characterId) {
   const calcsList = CHARACTERS[gameId]?.[characterId]?.calcs ?? [];
   const calcWithRotation = calcsList.find(calc => Array.isArray(calc?.rotation));
   return calcWithRotation ? [...calcWithRotation.rotation] : [];
+}
+
+function getDefaultSetBonuses(gameId, characterId) {
+  const raw = CHARACTERS[gameId]?.[characterId]?.preset?.setBonuses ?? [];
+  return raw.map(([setId, pieces]) => [String(setId), Number(pieces)]);
+}
+
+function getSetCapacity(gameId) {
+  if (gameId === 'honkai-star-rail' || gameId === 'zenless-zone-zero') return 6;
+  return 5;
+}
+
+function normalizeSetBonuses(setBonuses, gameId) {
+  const capacity = getSetCapacity(gameId);
+  const seen = new Set();
+  const normalized = [];
+  let used = 0;
+
+  for (const entry of setBonuses ?? []) {
+    if (!Array.isArray(entry) || entry.length < 2) continue;
+    const setId = String(entry[0]);
+    const pieces = Number(entry[1]);
+    if (!setId || !Number.isFinite(pieces) || pieces <= 0) continue;
+
+    const key = `${setId}-${pieces}`;
+    if (seen.has(key)) continue;
+    if (used + pieces > capacity) continue;
+
+    seen.add(key);
+    normalized.push([setId, pieces]);
+    used += pieces;
+  }
+
+  return normalized;
 }
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
@@ -375,11 +410,166 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
   );
 }
 
+function SetBonusEditor({ gameId, characterId, setBonuses, onChange }) {
+  const normalized = Array.isArray(setBonuses) ? setBonuses : [];
+  const setMap = SETS[gameId] ?? {};
+  const capacity = getSetCapacity(gameId);
+  const usedPieces = normalized.reduce((acc, [_, pieces]) => acc + Number(pieces || 0), 0);
+
+  const setOptions = useMemo(() => {
+    return Object.entries(setMap)
+      .filter(([_, setData]) => Object.keys(setData?.setBonus ?? {}).length > 0)
+      .map(([id, setData]) => ({ id: String(id), name: setData.name }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [setMap]);
+
+  const getPieceOptionsForSet = (setId) => {
+    const keys = Object.keys(setMap?.[setId]?.setBonus ?? {});
+    return keys.map(Number).filter(Number.isFinite).sort((a, b) => a - b);
+  };
+
+  const updateRows = (nextRows) => onChange(normalizeSetBonuses(nextRows, gameId));
+
+  const updateSetId = (index, setId) => {
+    const next = [...normalized];
+    const maxAllowed = capacity - (usedPieces - Number(next[index][1] || 0));
+    const pieceOptions = getPieceOptionsForSet(setId).filter(p => p <= maxAllowed);
+    const nextPieces = pieceOptions[0] ?? getPieceOptionsForSet(setId)[0] ?? 0;
+    next[index] = [setId, nextPieces];
+    updateRows(next);
+  };
+
+  const updatePieces = (index, pieces) => {
+    const next = [...normalized];
+    next[index] = [next[index][0], Number(pieces)];
+    updateRows(next);
+  };
+
+  const removeRow = (index) => {
+    updateRows(normalized.filter((_, i) => i !== index));
+  };
+
+  const addRow = () => {
+    const remaining = capacity - usedPieces;
+    if (remaining <= 0) return;
+
+    for (const option of setOptions) {
+      const pieceOptions = getPieceOptionsForSet(option.id).filter(p => p <= remaining);
+      if (!pieceOptions.length) continue;
+      updateRows([...normalized, [option.id, pieceOptions[0]]]);
+      return;
+    }
+  };
+
+  if (!characterId) {
+    return (
+      <Typography variant="body2" color="text.secondary">
+        Select a character to edit set bonuses.
+      </Typography>
+    );
+  }
+
+  return (
+    <Box mt={2.5}>
+      <Typography variant="subtitle2" sx={{ mb: 1 }}>
+        Set Bonuses
+      </Typography>
+
+      <Stack spacing={1}>
+        {normalized.map(([setId, pieces], index) => {
+          const maxAllowed = capacity - (usedPieces - Number(pieces || 0));
+          const pieceOptions = getPieceOptionsForSet(setId).filter(p => p <= maxAllowed);
+          const pieceValue = pieceOptions.includes(Number(pieces))
+            ? Number(pieces)
+            : (pieceOptions[0] ?? '');
+
+          return (
+            <Stack key={`${setId}-${index}`} direction="row" spacing={1} alignItems="center">
+              <TextField
+                select
+                size="small"
+                label="Set"
+                value={setId}
+                onChange={e => updateSetId(index, e.target.value)}
+                sx={{ minWidth: 180 }}
+              >
+                {setOptions.map(option => (
+                  <MenuItem key={option.id} value={option.id}>
+                    {option.name}
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <TextField
+                select
+                size="small"
+                label="Bonus"
+                value={pieceValue}
+                onChange={e => updatePieces(index, e.target.value)}
+                sx={{ width: 110 }}
+              >
+                {pieceOptions.map(count => (
+                  <MenuItem key={count} value={count}>
+                    {count}pc
+                  </MenuItem>
+                ))}
+              </TextField>
+
+              <IconButton size="small" onClick={() => removeRow(index)}>
+                <DeleteOutlineIcon fontSize="small" />
+              </IconButton>
+            </Stack>
+          );
+        })}
+      </Stack>
+
+      {normalized.length === 0 && (
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+          No set bonuses selected.
+        </Typography>
+      )}
+
+      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
+        Pieces used: {usedPieces}/{capacity}
+      </Typography>
+
+      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<AddIcon />}
+          onClick={addRow}
+          disabled={usedPieces >= capacity}
+        >
+          Add Set Bonus
+        </Button>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<RestartAltIcon />}
+          onClick={() => onChange(getDefaultSetBonuses(gameId, characterId))}
+        >
+          Reset Default
+        </Button>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<ClearAllIcon />}
+          onClick={() => onChange([])}
+        >
+          Clear
+        </Button>
+      </Stack>
+    </Box>
+  );
+}
+
 export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   const EMPTY_MEMBER = {
     characterId: null,
     weaponId: null,
     setId: null,
+    setBonuses: [],
     rotation: [],
   };
 
@@ -396,18 +586,23 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   const weaponType = characterData?.type ?? null;
 
   const handleCharacterSelect = (charId) => {
+    const defaultSetBonuses = getDefaultSetBonuses(gameId, charId);
     const preset = CHARACTERS[gameId]?.[charId]?.preset;
     setDraft({
       characterId: charId,
       weaponId: preset?.weaponId ?? null,
-      setId: preset?.setBonuses?.[0]?.[0] ?? null,
+      setId: defaultSetBonuses[0]?.[0] ?? null,
+      setBonuses: defaultSetBonuses,
       rotation: getDefaultRotation(gameId, charId),
     });
   };
 
   const handleSave = () => {
+    const normalizedSetBonuses = normalizeSetBonuses(draft?.setBonuses, gameId);
     onSave({
       ...draft,
+      setId: normalizedSetBonuses?.[0]?.[0] ?? null,
+      setBonuses: normalizedSetBonuses,
       rotation: [...(draft?.rotation ?? [])],
     });
     onClose();
@@ -442,11 +637,16 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
             />
           </Box>
 
-          <Box mt={3} display="flex" flexDirection="column" gap={1}>
-            <Typography variant="body2" color="text.secondary">
-              Set: <Typography component="span" variant="body2">{draft?.setId ?? '—'}</Typography>
-            </Typography>
-          </Box>
+          <SetBonusEditor
+            gameId={gameId}
+            characterId={draft?.characterId}
+            setBonuses={draft?.setBonuses}
+            onChange={(setBonuses) => setDraft(prev => ({
+              ...prev,
+              setBonuses,
+              setId: setBonuses?.[0]?.[0] ?? null,
+            }))}
+          />
 
           <RotationEditor
             gameId={gameId}

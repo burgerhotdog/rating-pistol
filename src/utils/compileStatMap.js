@@ -98,8 +98,15 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
         teamMaps.push(constructConstantMap({ buffs: WEAPONS[gameId][memberWeaponId].buffs }, memberBuffTypes));
       }
 
-      const setBonuses = memberData.preset?.setBonuses ?? [];
-      for (const [setId, numPieces] of setBonuses) {
+      const configuredSetBonuses = (typeof member === 'object' && Array.isArray(member?.setBonuses))
+        ? member.setBonuses
+        : null;
+      const setBonuses = configuredSetBonuses ?? memberData.preset?.setBonuses ?? [];
+      for (const [setIdRaw, numPiecesRaw] of setBonuses) {
+        const setId = String(setIdRaw);
+        const numPieces = Number(numPiecesRaw);
+        if (!setId || !Number.isFinite(numPieces)) continue;
+
         const key = `${setId}-${numPieces}`;
         if (appliedSetBonuses.has(key)) continue;
         appliedSetBonuses.add(key);
