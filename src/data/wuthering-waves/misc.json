@@ -259,50 +259,6 @@
     "CD": {
       "label": "CRIT DMG",
       "isPercent": true
-    },
-    "RS": {
-      "label": "Resonance Skill DMG Bonus",
-      "isPercent": true
-    },
-    "BA": {
-      "label": "Basic Attack DMG Bonus",
-      "isPercent": true
-    },
-    "HA": {
-      "label": "Heavy Attack DMG Bonus",
-      "isPercent": true
-    },
-    "RL": {
-      "label": "Resonance Liberation DMG Bonus",
-      "isPercent": true
-    },
-    "GLACIO": {
-      "label": "Glacio DMG Bonus",
-      "isPercent": true
-    },
-    "FUSION": {
-      "label": "Fusion DMG Bonus",
-      "isPercent": true
-    },
-    "ELECTRO": {
-      "label": "Electro DMG Bonus",
-      "isPercent": true
-    },
-    "AERO": {
-      "label": "Aero DMG Bonus",
-      "isPercent": true
-    },
-    "SPECTRO": {
-      "label": "Spectro DMG Bonus",
-      "isPercent": true
-    },
-    "HAVOC": {
-      "label": "Havoc DMG Bonus",
-      "isPercent": true
-    },
-    "HB": {
-      "label": "Healing Bonus",
-      "isPercent": true
     }
   }
 }
