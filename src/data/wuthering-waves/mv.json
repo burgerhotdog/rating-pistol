@@ -183,6 +183,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -246,7 +247,6 @@
       "name": "Eternal Frost",
       "skills": {
         "1": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -280,7 +280,6 @@
       "name": "Glacial Gaze",
       "skills": {
         "1": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -314,7 +313,6 @@
       "name": "Freezing Thorns",
       "skills": {
         "1": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -348,7 +346,7 @@
       "name": "Clarity of Mind",
       "skills": {
         "1": {
-          "name": "Detonate Damage",
+          "name": "Detonate",
           "input": "HA",
           "multipliers": [
             {
@@ -379,7 +377,7 @@
           ]
         },
         "2": {
-          "name": "Glacier Burst Damage",
+          "name": "Glacier Burst",
           "input": "AUTO",
           "considered": "RS",
           "multipliers": [
@@ -410,7 +408,7 @@
           ]
         },
         "3": {
-          "name": "Ice Prism Burst Damage",
+          "name": "Ice Prism Burst",
           "input": "AUTO",
           "considered": "RS",
           "multipliers": [
@@ -441,7 +439,7 @@
           ]
         },
         "4": {
-          "name": "Ice Thorn Burst Damage",
+          "name": "Ice Thorn Burst",
           "input": "AUTO",
           "considered": "RS",
           "multipliers": [
@@ -27249,6 +27247,7 @@
       "skills": {
         "1": {
           "name": "Basic Attack 1",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27278,6 +27277,7 @@
         },
         "2": {
           "name": "Basic Attack 2",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27355,6 +27355,7 @@
         },
         "3": {
           "name": "Basic Attack 3",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27456,6 +27457,7 @@
         },
         "4": {
           "name": "Basic Attack 4",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -27484,7 +27486,9 @@
           ]
         },
         "5": {
-          "name": "Dodge Counter - Blood for Blood DMG",
+          "name": "Blood for Blood",
+          "input": "DC",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27585,7 +27589,9 @@
           ]
         },
         "6": {
-          "name": "Mid-air Attack - Ashfall Barrage Plunging Attack DMG",
+          "name": "Ashfall Barrage Plunging Attack",
+          "input": "MBA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27614,7 +27620,8 @@
           ]
         },
         "7": {
-          "name": "Mid-air Attack - Ashfall Barrage Sustained Fire DMG",
+          "name": "Ashfall Barrage Sustained Fire",
+          "input": "MHA",
           "multipliers": [
             {
               "mv": [
@@ -27643,7 +27650,8 @@
           ]
         },
         "8": {
-          "name": "Heavy Attack - Volley of Death 1",
+          "name": "Volley of Death 1",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27696,7 +27704,9 @@
           ]
         },
         "9": {
-          "name": "Heavy Attack - Volley of Death 2",
+          "name": "Volley of Death 2",
+          "input": "HK",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27726,7 +27736,9 @@
           ]
         },
         "10": {
-          "name": "Heavy Attack - Volley of Death 3",
+          "name": "Volley of Death 3",
+          "input": "HK",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -27785,7 +27797,8 @@
       "name": "Edge Transcended",
       "skills": {
         "14": {
-          "name": "Resonance Skill - Encroach DMG",
+          "name": "Encroach",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27838,7 +27851,8 @@
           ]
         },
         "15": {
-          "name": "Resonance Skill - Ascent of Malice DMG",
+          "name": "Ascent of Malice",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -27896,7 +27910,7 @@
       "name": "Hellfire Absolution",
       "skills": {
         "16": {
-          "name": "Resonance Liberation - Hellfire Absolution DMG",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -27955,7 +27969,6 @@
       "name": "Hellflare Overload",
       "skills": {
         "11": {
-          "name": "Intro Skill - Hellflare Overload DMG",
           "multipliers": [
             {
               "mv": [
@@ -27989,7 +28002,9 @@
       "name": "Beyond Threshold",
       "skills": {
         "17": {
-          "name": "Basic Attack - Seraphic Execution 1",
+          "name": "Seraphic Execution 1",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28018,7 +28033,9 @@
           ]
         },
         "18": {
-          "name": "Basic Attack - Seraphic Execution 2",
+          "name": "Seraphic Execution 2",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28095,7 +28112,9 @@
           ]
         },
         "19": {
-          "name": "Basic Attack - Seraphic Execution 3",
+          "name": "Seraphic Execution 3",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28149,7 +28168,9 @@
           ]
         },
         "20": {
-          "name": "Basic Attack - Seraphic Execution 4",
+          "name": "Seraphic Execution 4",
+          "input": "BA",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -28203,7 +28224,9 @@
           ]
         },
         "21": {
-          "name": "Basic Attack - Seraphic Execution 5",
+          "name": "Seraphic Execution 5",
+          "input": "BA",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -28256,7 +28279,8 @@
           ]
         },
         "22": {
-          "name": "Heavy Attack - Flamewing Verdict 1",
+          "name": "Flamewing Verdict 1",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28309,7 +28333,9 @@
           ]
         },
         "23": {
-          "name": "Heavy Attack - Flamewing Verdict 2",
+          "name": "Flamewing Verdict 2",
+          "input": "HK",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28339,7 +28365,9 @@
           ]
         },
         "24": {
-          "name": "Heavy Attack - Flamewing Verdict 3",
+          "name": "Flamewing Verdict 3",
+          "input": "HK",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -28393,7 +28421,9 @@
           ]
         },
         "25": {
-          "name": "Dodge Counter - Purgatory Scourge",
+          "name": "Purgatory Scourge",
+          "input": "DC",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28447,7 +28477,9 @@
           ]
         },
         "42": {
-          "name": "Mid-air Attack - Hellsent Barrage Plunging Attack DMG",
+          "name": "Hellsent Barrage Plunging Attack",
+          "input": "MBA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28476,7 +28508,8 @@
           ]
         },
         "43": {
-          "name": "Mid-air Attack - Hellsent Barrage Sustained Fire DMG",
+          "name": "Hellsent Barrage Sustained Fire",
+          "input": "MHA",
           "multipliers": [
             {
               "mv": [
@@ -28505,7 +28538,9 @@
           ]
         },
         "46": {
-          "name": "Resonance Skill - Ravage DMG",
+          "name": "Ravage",
+          "input": "RS",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28560,9 +28595,19 @@
       }
     },
     "8": {
-      "name": "",
+      "name": "Ashen Pursuit",
       "skills": {
-        "1": {}
+        "1": {
+          "multipliers": [
+            {
+              "mv": 0.795,
+              "times": 3
+            },
+            {
+              "mv": 5.565
+            }
+          ]
+        }
       }
     }
   },
@@ -28779,6 +28824,7 @@
         },
         "4": {
           "name": "Mid-air Attack DMG",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -28837,7 +28883,9 @@
           ]
         },
         "6": {
-          "name": "Dodge Counter DMG",
+          "name": "Dodge Counter",
+          "input": "DC",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28896,7 +28944,7 @@
       "name": "Through the Groves",
       "skills": {
         "7": {
-          "name": "Skill DMG",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -28926,7 +28974,8 @@
           ]
         },
         "8": {
-          "name": "Undaunted Wayfarer DMG",
+          "name": "Undaunted Wayfarer",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -29009,7 +29058,7 @@
       "name": "Sundering Strike",
       "skills": {
         "13": {
-          "name": "Skill DMG",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -29043,7 +29092,7 @@
       "name": "Attack the Must-Defend",
       "skills": {
         "18": {
-          "name": "Skill Damage",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29127,6 +29176,8 @@
       "skills": {
         "21": {
           "name": "Thus Spoke the Blade: Inkwash 1",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29180,6 +29231,8 @@
         },
         "22": {
           "name": "Thus Spoke the Blade: Inkwash 2",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29257,6 +29310,8 @@
         },
         "23": {
           "name": "Thus Spoke the Blade: Inkwash 3",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29335,6 +29390,8 @@
         },
         "24": {
           "name": "Thus Spoke the Blade: Inkwash 4",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29363,7 +29420,8 @@
           ]
         },
         "25": {
-          "name": "Thus Spoke the Blade: To Teach DMG",
+          "name": "Thus Spoke the Blade: To Teach",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29488,7 +29546,9 @@
           ]
         },
         "26": {
-          "name": "Thus Spoke the Blade: To Save DMG",
+          "name": "Thus Spoke the Blade: To Save",
+          "input": "HK",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29590,7 +29650,9 @@
           ]
         },
         "27": {
-          "name": "Thus Spoke the Blade: To Sacrifice DMG",
+          "name": "Thus Spoke the Blade: To Sacrifice",
+          "input": "HK",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29621,9 +29683,16 @@
       }
     },
     "8": {
-      "name": "",
+      "name": "Strike Before Ready",
       "skills": {
-        "1": {}
+        "1": {
+          "considered": "ES",
+          "multipliers": [
+            {
+              "mv": 1
+            }
+          ]
+        }
       }
     }
   },
@@ -29751,7 +29820,8 @@
           ]
         },
         "5": {
-          "name": "Mid-air Attack DMG",
+          "name": "Mid-air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -29780,7 +29850,8 @@
           ]
         },
         "6": {
-          "name": "Dodge Counter DMG",
+          "name": "Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -29810,7 +29881,8 @@
           ]
         },
         "7": {
-          "name": "Heavy Attack - Mountain Over Thunder DMG",
+          "name": "Mountain Over Thunder",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29839,7 +29911,8 @@
           ]
         },
         "8": {
-          "name": "Heavy Attack - Thunder Over Mountain DMG",
+          "name": "Thunder Over Mountain",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29868,31 +29941,32 @@
           ]
         },
         "9": {
-          "name": "Heavy Attack - Twin Mountains Healing",
-          "attr": "ATK",
+          "name": "Twin Mountains",
+          "input": "HA",
+          "considered": "HEAL",
           "multipliers": [
             {
-              "mv": [
-                3.6,
-                3.9,
-                4.2,
-                4.61,
-                4.9,
-                5.24,
-                5.72,
-                6.19,
-                6.66,
-                7.16,
-                7.75,
-                8.34,
-                8.93,
-                9.52,
-                10.11,
-                10.7,
-                11.29,
-                11.89,
-                12.48,
-                13.07
+              "flat": [
+                360,
+                390,
+                420,
+                461,
+                490,
+                524,
+                572,
+                619,
+                666,
+                716,
+                775,
+                834,
+                893,
+                952,
+                1011,
+                1070,
+                1129,
+                1189,
+                1248,
+                1307
               ]
             },
             {
@@ -29922,31 +29996,32 @@
           ]
         },
         "10": {
-          "name": "Heavy Attack - Twin Thunders Healing",
-          "attr": "ATK",
+          "name": "Twin Thunders",
+          "input": "HA",
+          "considered": "HEAL",
           "multipliers": [
             {
-              "mv": [
-                0.85,
-                0.92,
-                0.99,
-                1.09,
-                1.16,
-                1.24,
-                1.35,
-                1.46,
-                1.58,
-                1.69,
-                1.83,
-                1.97,
-                2.11,
-                2.25,
-                2.39,
-                2.53,
-                2.67,
-                2.81,
-                2.95,
-                3.09
+              "flat": [
+                85,
+                92,
+                99,
+                109,
+                116,
+                124,
+                135,
+                146,
+                158,
+                169,
+                183,
+                197,
+                211,
+                225,
+                239,
+                253,
+                267,
+                281,
+                295,
+                309
               ]
             },
             {
@@ -29981,7 +30056,7 @@
       "name": "In Shadow Thunder Stirs",
       "skills": {
         "21": {
-          "name": "Thunder Talisman DMG",
+          "name": "Thunder Talisman",
           "multipliers": [
             {
               "mv": [
@@ -30010,7 +30085,8 @@
           ]
         },
         "22": {
-          "name": "Pull-in Effect Continuous DMG",
+          "name": "Pull-in Effect Continuous",
+          "input": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -30045,7 +30121,6 @@
       "name": "Flashing Thunder Spell",
       "skills": {
         "27": {
-          "name": "Flashing Thunder Spell DMG",
           "multipliers": [
             {
               "mv": [
@@ -30079,7 +30154,6 @@
       "name": "Summon and Smite",
       "skills": {
         "31": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -30108,8 +30182,8 @@
           ]
         },
         "32": {
-          "name": "Skill Healing",
-          "attr": "ATK",
+          "input": "AUTO",
+          "considered": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -30167,7 +30241,8 @@
       "name": "Thunder Begets Life",
       "skills": {
         "25": {
-          "name": "Flashing Thunder Spell - Harmony DMG",
+          "name": "Flashing Thunder Spell - Harmony",
+          "input": "RL",
           "multipliers": [
             {
               "mv": [
@@ -30196,7 +30271,8 @@
           ]
         },
         "26": {
-          "name": "Five Thunders Spell Array Continuous DMG",
+          "name": "Five Thunders Spell Array Continuous",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -30227,9 +30303,16 @@
       }
     },
     "8": {
-      "name": "",
+      "name": "Exorcism Spell",
       "skills": {
-        "1": {}
+        "1": {
+          "considered": "HEAL",
+          "multipliers": [
+            {
+              "mv": 0.18
+            }
+          ]
+        }
       }
     }
   },
@@ -30345,7 +30428,8 @@
           ]
         },
         "3": {
-          "name": "Death Snip DMG",
+          "name": "Death Snip",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -30423,6 +30507,7 @@
         },
         "4": {
           "name": "Death Snip Additional DMG",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -30451,31 +30536,32 @@
           ]
         },
         "5": {
-          "name": "Death Snip Healing",
-          "attr": "ATK",
+          "name": "Death Snip",
+          "input": "AUTO",
+          "considered": "HEAL",
           "multipliers": [
             {
               "mv": [
-                6.0,
-                6.72,
-                7.5,
-                8.4,
-                9.48,
-                10.5,
-                10.68,
-                10.92,
-                11.1,
-                11.4,
-                12.34,
-                13.28,
-                14.22,
-                15.16,
-                16.1,
-                17.04,
-                17.98,
-                18.92,
-                19.86,
-                20.8
+                600,
+                672,
+                750,
+                840,
+                948,
+                1050,
+                1068,
+                1092,
+                1110,
+                1140,
+                1234,
+                1328,
+                1422,
+                1516,
+                1610,
+                1704,
+                1798,
+                1892,
+                1986,
+                2080
               ]
             },
             {
@@ -30505,7 +30591,7 @@
           ]
         },
         "6": {
-          "name": "Thread Withdrawn DMG",
+          "name": "Thread Withdrawn",
           "multipliers": [
             {
               "mv": [
@@ -30559,7 +30645,7 @@
           ]
         },
         "7": {
-          "name": "Rending Lunge DMG",
+          "name": "Rending Lunge",
           "multipliers": [
             {
               "mv": [
@@ -30644,7 +30730,8 @@
           ]
         },
         "9": {
-          "name": "Mid-air Attack DMG",
+          "name": "Mid-air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -30673,7 +30760,9 @@
           ]
         },
         "10": {
-          "name": "Severed Facet DMG",
+          "name": "Severed Facet",
+          "input": "HK",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -30703,7 +30792,8 @@
           ]
         },
         "11": {
-          "name": "Hanging Finality DMG",
+          "name": "Hanging Finality",
+          "input": "HK",
           "multipliers": [
             {
               "mv": [
@@ -30781,7 +30871,8 @@
           ]
         },
         "12": {
-          "name": "Dodge Counter DMG",
+          "name": "Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -30858,7 +30949,8 @@
           ]
         },
         "13": {
-          "name": "Eye of Unraveling - Retraction DMG",
+          "name": "Eye of Unraveling - Retraction",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -30892,7 +30984,7 @@
       "name": "Fractured Composition",
       "skills": {
         "17": {
-          "name": "Eye of Unraveling DMG",
+          "name": "Eye of Unraveling",
           "multipliers": [
             {
               "mv": [
@@ -30921,7 +31013,7 @@
           ]
         },
         "18": {
-          "name": "Serrated Loop DMG",
+          "name": "Serrated Loop",
           "multipliers": [
             {
               "mv": [
@@ -30951,7 +31043,8 @@
           ]
         },
         "18_2": {
-          "name": "Serrated Loop Hold DMG",
+          "name": "Serrated Loop Hold",
+          "input": "HK",
           "multipliers": [
             {
               "mv": [
@@ -30986,7 +31079,6 @@
       "name": "Moment of Nihility",
       "skills": {
         "20": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -31015,31 +31107,31 @@
           ]
         },
         "21": {
-          "name": "Healing",
-          "attr": "ATK",
+          "input": "AUTO",
+          "considered": "HEAL",
           "multipliers": [
             {
-              "mv": [
-                14.0,
-                15.68,
-                17.5,
-                19.6,
-                22.12,
-                24.5,
-                24.92,
-                25.48,
-                25.9,
-                26.6,
-                28.79,
-                30.98,
-                33.18,
-                35.37,
-                37.57,
-                39.76,
-                41.95,
-                44.15,
-                46.34,
-                48.54
+              "flat": [
+                1400,
+                1568,
+                1750,
+                1960,
+                2212,
+                2450,
+                2492,
+                2548,
+                2590,
+                2660,
+                2879,
+                3098,
+                3318,
+                3537,
+                3757,
+                3976,
+                4195,
+                4415,
+                4634,
+                4854
               ]
             },
             {
@@ -31074,7 +31166,6 @@
       "name": "Reverberance - Return",
       "skills": {
         "25": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -31109,6 +31200,8 @@
       "skills": {
         "27": {
           "name": "Sawring - Blitz 1",
+          "input": "BA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31139,6 +31232,8 @@
         },
         "28": {
           "name": "Sawring - Blitz 2",
+          "input": "HA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31168,7 +31263,9 @@
           ]
         },
         "28_2": {
-          "name": "Sawring - Blitz Stage 2 Hold DMG",
+          "name": "Sawring - Blitz Stage 2 Hold",
+          "input": "HK",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31198,7 +31295,9 @@
           ]
         },
         "28_3": {
-          "name": "Sawring - Blitz Stage 2: Discordance DMG",
+          "name": "Sawring - Blitz Stage 2: Discordance",
+          "input": "RK",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31229,6 +31328,8 @@
         },
         "29": {
           "name": "Sawring - Blitz 3",
+          "input": "BA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31258,7 +31359,9 @@
           ]
         },
         "29_2": {
-          "name": "Sawring - Blitz Stage 3 Hold DMG",
+          "name": "Sawring - Blitz Stage 3 Hold",
+          "input": "HK",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31288,7 +31391,9 @@
           ]
         },
         "29_3": {
-          "name": "Sawring - Blitz Stage 3: Falltone DMG",
+          "name": "Sawring - Blitz Stage 3: Falltone",
+          "input": "RK",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31318,7 +31423,9 @@
           ]
         },
         "29_4": {
-          "name": "Chainsaw Mode - Dodge Counter DMG",
+          "name": "Chainsaw Mode - Dodge Counter",
+          "input": "DC",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31348,7 +31455,9 @@
           ]
         },
         "29_5": {
-          "name": "Chainsaw Mode - Dodge Counter Hold DMG",
+          "name": "Chainsaw Mode - Dodge Counter Hold",
+          "input": "HK",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31378,7 +31487,9 @@
           ]
         },
         "30": {
-          "name": "Sawring - Eradication DMG",
+          "name": "Sawring - Eradication",
+          "input": "BA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -31432,6 +31543,8 @@
         },
         "31": {
           "name": "Bonus DMG Multiplier per Ring of Chainsaw",
+          "input": "AUTO",
+          "considered": "BUFF",
           "multipliers": [
             {
               "mv": [
@@ -31460,31 +31573,32 @@
           ]
         },
         "32": {
-          "name": "Sawring - Eradication Shield",
-          "attr": "ATK",
+          "name": "Sawring - Eradication",
+          "input": "AUTO",
+          "considered": "SHIELD",
           "multipliers": [
             {
-              "mv": [
-                20.0,
-                22.4,
-                25.0,
-                28.0,
-                31.6,
-                35.0,
-                35.6,
-                36.4,
-                37.0,
-                38.0,
-                41.13,
-                44.26,
-                47.4,
-                50.53,
-                53.67,
-                56.8,
-                59.94,
-                63.07,
-                66.21,
-                69.34
+              "flat": [
+                2000,
+                2240,
+                2500,
+                2800,
+                3160,
+                3500,
+                3560,
+                3640,
+                3700,
+                3800,
+                4113,
+                4426,
+                4740,
+                5053,
+                5367,
+                5680,
+                5994,
+                6307,
+                6621,
+                6934
               ]
             },
             {
@@ -31516,7 +31630,7 @@
       }
     },
     "8": {
-      "name": "",
+      "name": "Unraveling - Law Zero",
       "skills": {
         "1": {}
       }
@@ -31742,7 +31856,7 @@
           ]
         },
         "5": {
-          "name": "Basic Attack - Wide Field Observation Mode 1",
+          "name": "Wide Field Observation Mode: Basic Attack 1",
           "multipliers": [
             {
               "mv": [
@@ -31772,7 +31886,7 @@
           ]
         },
         "6": {
-          "name": "Basic Attack - Wide Field Observation Mode 2",
+          "name": "Wide Field Observation Mode: Basic Attack 2",
           "multipliers": [
             {
               "mv": [
@@ -31802,7 +31916,7 @@
           ]
         },
         "7": {
-          "name": "Basic Attack - Wide Field Observation Mode 3",
+          "name": "Wide Field Observation Mode: Basic Attack 3",
           "multipliers": [
             {
               "mv": [
@@ -31935,7 +32049,8 @@
           ]
         },
         "9": {
-          "name": "Mid-air Attack DMG",
+          "name": "Mid-air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -31964,7 +32079,8 @@
           ]
         },
         "10": {
-          "name": "Dodge Counter DMG",
+          "name": "Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -31993,7 +32109,8 @@
           ]
         },
         "11": {
-          "name": "Dodge Counter - Wide Field Observation Mode DMG",
+          "name": "Wide Field Observation Mode: Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -32028,31 +32145,32 @@
       "name": "Resolution",
       "skills": {
         "14": {
-          "name": "Distributed Array Healing",
+          "name": "Wide Field Observation Mode: Distributed Array",
+          "considered": "HEAL",
           "attr": "DEF",
           "multipliers": [
             {
-              "mv": [
-                2.25,
-                2.52,
-                2.81,
-                3.15,
-                3.55,
-                3.93,
-                4.0,
-                4.09,
-                4.16,
-                4.27,
-                4.62,
-                4.98,
-                5.33,
-                5.68,
-                6.03,
-                6.39,
-                6.74,
-                7.09,
-                7.44,
-                7.8
+              "flat": [
+                225,
+                252,
+                281,
+                315,
+                355,
+                393,
+                400,
+                409,
+                416,
+                427,
+                462,
+                498,
+                533,
+                568,
+                603,
+                639,
+                674,
+                709,
+                744,
+                780
               ]
             },
             {
@@ -32082,11 +32200,12 @@
           ]
         },
         "15": {
-          "name": "Expectation Error Healing",
+          "name": "Expectation Error",
+          "considered": "HEAL",
           "attr": "DEF",
           "multipliers": [
             {
-              "mv": [
+              "flat": [
                 0.49,
                 0.55,
                 0.61,
@@ -32094,7 +32213,7 @@
                 0.78,
                 0.86,
                 0.88,
-                0.9,
+                0.90,
                 0.91,
                 0.94,
                 1.01,
@@ -32102,7 +32221,7 @@
                 1.17,
                 1.25,
                 1.32,
-                1.4,
+                1.40,
                 1.48,
                 1.56,
                 1.63,
@@ -32136,7 +32255,8 @@
           ]
         },
         "16": {
-          "name": "Optimal Solution DMG",
+          "name": "Optimal Solution",
+          "input": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -32165,7 +32285,8 @@
           ]
         },
         "17": {
-          "name": "Distributed Array DMG",
+          "name": "Wide Field Observation Mode: Distributed Array",
+          "input": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -32200,7 +32321,6 @@
       "name": "Critical Protocol",
       "skills": {
         "21": {
-          "name": "Skill DMG",
           "attr": "DEF",
           "multipliers": [
             {
@@ -32235,7 +32355,6 @@
       "name": "Convergence",
       "skills": {
         "25": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -32269,31 +32388,33 @@
       "name": "Mass-Energy Equivalence",
       "skills": {
         "27": {
-          "name": "Syntony Field Healing",
+          "name": "Syntony Field",
+          "input": "AUTO",
+          "considered": "HEAL",
           "attr": "DEF",
           "multipliers": [
             {
-              "mv": [
-                0.4,
-                0.44,
-                0.5,
-                0.56,
-                0.63,
-                0.7,
-                0.71,
-                0.73,
-                0.74,
-                0.76,
-                0.82,
-                0.88,
-                0.95,
-                1.01,
-                1.07,
-                1.14,
-                1.2,
-                1.26,
-                1.32,
-                1.39
+              "flat": [
+                40,
+                44,
+                50,
+                56,
+                63,
+                70,
+                71,
+                73,
+                74,
+                76,
+                82,
+                88,
+                95,
+                101,
+                107,
+                114,
+                120,
+                126,
+                132,
+                139
               ]
             },
             {
@@ -32323,7 +32444,8 @@
           ]
         },
         "28": {
-          "name": "Syntony Field DMG",
+          "name": "Syntony Field",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -32353,7 +32475,8 @@
           ]
         },
         "29": {
-          "name": "Heavy Attack - Geopotential Shift DMG",
+          "name": "Geopotential Shift",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -32406,7 +32529,8 @@
           ]
         },
         "30": {
-          "name": "Heavy Attack - Inversion DMG",
+          "name": "Wide Field Observation Mode: Inversion",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -32435,7 +32559,8 @@
           ]
         },
         "31": {
-          "name": "Tune Rupture Response - Particle Jet DMG",
+          "name": "Tune Rupture Response - Particle Jet",
+          "considered": "TR",
           "attr": "TUNE",
           "multipliers": [
             {
@@ -32467,7 +32592,7 @@
       }
     },
     "8": {
-      "name": "",
+      "name": "Recursion",
       "skills": {
         "1": {}
       }
@@ -32613,7 +32738,8 @@
           ]
         },
         "4": {
-          "name": "Dodge Counter DMG",
+          "name": "Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -32642,7 +32768,8 @@
           ]
         },
         "5": {
-          "name": "Mid-air Attack DMG",
+          "name": "Mid-air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -32695,7 +32822,8 @@
           ]
         },
         "11": {
-          "name": "Basic Attack - Spark Collision Lv. 1 DMG",
+          "name": "Spark Collision Lv. 1",
+          "input": "RK",
           "multipliers": [
             {
               "mv": [
@@ -32725,7 +32853,8 @@
           ]
         },
         "12": {
-          "name": "Basic Attack - Spark Collision Lv. 2 DMG",
+          "name": "Spark Collision Lv. 2",
+          "input": "RK",
           "multipliers": [
             {
               "mv": [
@@ -32755,7 +32884,8 @@
           ]
         },
         "13": {
-          "name": "Basic Attack - Spark Collision Lv. 3 DMG",
+          "name": "Spark Collision Lv. 3",
+          "input": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -32785,7 +32915,7 @@
           ]
         },
         "14": {
-          "name": "Kaleidoscopic Parade - Basic Attack 1",
+          "name": "Kaleidoscopic Parade: Basic Attack 1",
           "multipliers": [
             {
               "mv": [
@@ -32814,7 +32944,7 @@
           ]
         },
         "15": {
-          "name": "Kaleidoscopic Parade - Basic Attack 2",
+          "name": "Kaleidoscopic Parade: Basic Attack 2",
           "multipliers": [
             {
               "mv": [
@@ -32844,7 +32974,7 @@
           ]
         },
         "16": {
-          "name": "Kaleidoscopic Parade - Basic Attack 3",
+          "name": "Kaleidoscopic Parade: Basic Attack 3",
           "multipliers": [
             {
               "mv": [
@@ -32874,7 +33004,7 @@
           ]
         },
         "17": {
-          "name": "Kaleidoscopic Parade - Basic Attack 4",
+          "name": "Kaleidoscopic Parade: Basic Attack 4",
           "multipliers": [
             {
               "mv": [
@@ -32952,7 +33082,7 @@
           ]
         },
         "18": {
-          "name": "Kaleidoscopic Parade - Basic Attack 5",
+          "name": "Kaleidoscopic Parade: Basic Attack 5",
           "multipliers": [
             {
               "mv": [
@@ -33030,7 +33160,8 @@
           ]
         },
         "19": {
-          "name": "Kaleidoscopic Parade - Dodge Counter",
+          "name": "Kaleidoscopic Parade: Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -33059,7 +33190,9 @@
           ]
         },
         "23": {
-          "name": "Kaleidoscopic Parade - Ground Heavy Attack DMG",
+          "name": "Kaleidoscopic Parade: Ground Heavy Attack",
+          "input": "HA",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -33089,7 +33222,8 @@
           ]
         },
         "24": {
-          "name": "Kaleidoscopic Parade - Graffiti Blast DMG",
+          "name": "Kaleidoscopic Parade: Graffiti Blast",
+          "input": "RK",
           "multipliers": [
             {
               "mv": [
@@ -33118,7 +33252,8 @@
           ]
         },
         "25": {
-          "name": "Kaleidoscopic Parade - Mid-Air Attack DMG",
+          "name": "Kaleidoscopic Parade: Mid-Air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -33171,7 +33306,9 @@
           ]
         },
         "28": {
-          "name": "Kaleidoscopic Parade - Mid-air Heavy Attack DMG",
+          "name": "Kaleidoscopic Parade: Mid-air Heavy Attack",
+          "input": "MHA",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -33206,7 +33343,6 @@
       "name": "Lynae-Style Palettes",
       "skills": {
         "6": {
-          "name": "Lynae-Style Palettes DMG",
           "multipliers": [
             {
               "mv": [
@@ -33260,7 +33396,7 @@
           ]
         },
         "7": {
-          "name": "Additive Color DMG",
+          "name": "Additive Color",
           "multipliers": [
             {
               "mv": [
@@ -33295,7 +33431,6 @@
       "name": "Prismatic Overblast",
       "skills": {
         "10": {
-          "name": "Prismatic Overblast DMG",
           "multipliers": [
             {
               "mv": [
@@ -33325,7 +33460,8 @@
           ]
         },
         "27": {
-          "name": "Basic Attack - To a Vivid Tomorrow! DMG",
+          "name": "To a Vivid Tomorrow!",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -33385,7 +33521,6 @@
       "name": "Time to Show Some Colors!",
       "skills": {
         "29": {
-          "name": "Time to Show Some Colors! DMG",
           "multipliers": [
             {
               "mv": [
@@ -33420,7 +33555,8 @@
       "name": "Chromaticity Modeling",
       "skills": {
         "8": {
-          "name": "Basic Attack - Iridescent Splash DMG",
+          "name": "Kaleidoscopic Parade: Iridescent Splash",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -33449,7 +33585,8 @@
           ]
         },
         "9": {
-          "name": "Basic Attack - Visual Impact DMG",
+          "name": "Kaleidoscopic Parade: Visual Impact",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -33478,7 +33615,9 @@
           ]
         },
         "20": {
-          "name": "Basic Attack - Polychrome Leap 1",
+          "name": "Kaleidoscopic Parade: Polychrome Leap 1",
+          "input": "JA",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -33508,7 +33647,9 @@
           ]
         },
         "21": {
-          "name": "Basic Attack - Polychrome Leap 2",
+          "name": "Kaleidoscopic Parade: Polychrome Leap 2",
+          "input": "JA",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -33538,7 +33679,9 @@
           ]
         },
         "22": {
-          "name": "Basic Attack - Polychrome Leap 3",
+          "name": "Kaleidoscopic Parade: Polychrome Leap 3",
+          "input": "JA",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -33568,7 +33711,9 @@
           ]
         },
         "32": {
-          "name": "Tune Rupture Response - Spectral Analysis DMG",
+          "name": "Tune Rupture Response - Spectral Analysis",
+          "input": "AUTO",
+          "considered": "TR",
           "attr": "TUNE",
           "multipliers": [
             {
@@ -33600,9 +33745,15 @@
       }
     },
     "8": {
-      "name": "",
+      "name": "Let's Hit the Road!",
       "skills": {
-        "1": {}
+        "1": {
+          "multipliers": [
+            {
+              "mv": 1
+            }
+          ]
+        }
       }
     }
   },
@@ -33611,7 +33762,7 @@
       "name": "Infinity Calibration",
       "skills": {
         "1": {
-          "name": "Basic Attack - Aemeath 1",
+          "name": "Basic Attack 1",
           "multipliers": [
             {
               "mv": [
@@ -33640,7 +33791,7 @@
           ]
         },
         "2": {
-          "name": "Basic Attack - Aemeath 2",
+          "name": "Basic Attack 2",
           "multipliers": [
             {
               "mv": [
@@ -33717,7 +33868,7 @@
           ]
         },
         "3": {
-          "name": "Basic Attack - Aemeath 3",
+          "name": "Basic Attack 3",
           "multipliers": [
             {
               "mv": [
@@ -33795,7 +33946,7 @@
           ]
         },
         "4": {
-          "name": "Basic Attack - Aemeath 4",
+          "name": "Basic Attack 4",
           "multipliers": [
             {
               "mv": [
@@ -33849,7 +34000,9 @@
           ]
         },
         "5": {
-          "name": "Heavy Attack - Aemeath Charged I DMG",
+          "name": "Heavy Attack Charged I",
+          "input": "HA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -33902,7 +34055,9 @@
           ]
         },
         "6": {
-          "name": "Heavy Attack - Aemeath Charged II DMG",
+          "name": "Heavy Attack Charged II",
+          "input": "HA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -33956,7 +34111,8 @@
           ]
         },
         "7": {
-          "name": "Mid-air Attack - Aemeath DMG",
+          "name": "Mid-air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -33985,7 +34141,8 @@
           ]
         },
         "8": {
-          "name": "Dodge Counter - Aemeath DMG",
+          "name": "Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -34068,7 +34225,7 @@
       "name": "Shared Voyage",
       "skills": {
         "1": {
-          "name": "Sync Strike: Armament Merge DMG",
+          "name": "Sync Strike: Armament Merge",
           "multipliers": [
             {
               "mv": [
@@ -34145,7 +34302,7 @@
           ]
         },
         "2": {
-          "name": "Sync Strike: Call of Dawn DMG",
+          "name": "Mech: Sync Strike: Call of Dawn",
           "multipliers": [
             {
               "mv": [
@@ -34199,7 +34356,8 @@
           ]
         },
         "3": {
-          "name": "Basic Attack - Mech 1",
+          "name": "Mech: Basic Attack 1",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -34229,7 +34387,8 @@
           ]
         },
         "4": {
-          "name": "Basic Attack - Mech 2",
+          "name": "Mech: Basic Attack 2",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -34282,7 +34441,8 @@
           ]
         },
         "5": {
-          "name": "Basic Attack - Mech 3",
+          "name": "Mech: Basic Attack 3",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -34360,7 +34520,8 @@
           ]
         },
         "6": {
-          "name": "Basic Attack - Mech 4",
+          "name": "Mech: Basic Attack 4",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -34413,7 +34574,9 @@
           ]
         },
         "7": {
-          "name": "Heavy Attack - Mech Charged I DMG",
+          "name": "Mech: Heavy Attack Charged I",
+          "input": "HA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -34442,7 +34605,9 @@
           ]
         },
         "8": {
-          "name": "Heavy Attack - Mech Charged II DMG",
+          "name": "Mech: Heavy Attack Charged II",
+          "input": "HA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -34471,7 +34636,8 @@
           ]
         },
         "9": {
-          "name": "Mid-air Attack - Mech DMG",
+          "name": "Mech: Mid-air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -34525,7 +34691,8 @@
           ]
         },
         "10": {
-          "name": "Dodge Counter - Mech DMG",
+          "name": "Mech: Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -34608,7 +34775,7 @@
       "name": "Towards the Daybreak",
       "skills": {
         "1": {
-          "name": "Heavenfall Edict: Overdrive DMG",
+          "name": "Heavenfall Edict: Overdrive",
           "multipliers": [
             {
               "mv": [
@@ -34662,7 +34829,7 @@
           ]
         },
         "2": {
-          "name": "Heavenfall Edict: Finale DMG",
+          "name": "Heavenfall Edict: Finale",
           "multipliers": [
             {
               "mv": [
@@ -34696,7 +34863,7 @@
       "name": "Overture of Departure",
       "skills": {
         "1": {
-          "name": "Songs Across the Universe DMG",
+          "name": "Songs Across the Universe",
           "multipliers": [
             {
               "mv": [
@@ -34750,7 +34917,7 @@
           ]
         },
         "2": {
-          "name": "Debut of Meteoric Radiance DMG",
+          "name": "Debut of Meteoric Radiance",
           "multipliers": [
             {
               "mv": [
@@ -34808,7 +34975,9 @@
       "name": "To Sculpt the Silence",
       "skills": {
         "1": {
-          "name": "Seraphic Duet: Encore DMG",
+          "name": "Mech: Seraphic Duet: Encore",
+          "input": "RS",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -34887,7 +35056,9 @@
           ]
         },
         "2": {
-          "name": "Seraphic Duet: Overture DMG",
+          "name": "Seraphic Duet: Overture",
+          "input": "RS",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -34991,7 +35162,9 @@
           ]
         },
         "3": {
-          "name": "Tune Rupture Response - Starburst DMG",
+          "name": "Tune Rupture Response - Starburst",
+          "input": "AUTO",
+          "considered": "TR",
           "attr": "TUNE",
           "multipliers": [
             {
@@ -35022,6 +35195,8 @@
         },
         "4": {
           "name": "Seraphic Duet Bonus DMG (Per Instance)",
+          "input": "AUTO",
+          "considered": "BUFF",
           "attr": "TUNE",
           "multipliers": [
             {
@@ -35053,7 +35228,7 @@
       }
     },
     "8": {
-      "name": "",
+      "name": "Silent Protection",
       "skills": {
         "1": {}
       }
@@ -35260,6 +35435,7 @@
         },
         "6": {
           "name": "Mid-air Attack 1",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35288,7 +35464,8 @@
           ]
         },
         "7": {
-          "name": "Mid-air Attack Stage 2 Scythe: Dissection DMG",
+          "name": "Mid-air Attack 2 Scythe: Dissection",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35365,7 +35542,8 @@
           ]
         },
         "8": {
-          "name": "Mid-air Attack Stage 3 Scythe: Dissection DMG",
+          "name": "Mid-air Attack 3 Scythe: Dissection",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35442,7 +35620,8 @@
           ]
         },
         "9": {
-          "name": "Mid-air Attack Stage 2 Scythe: Resction DMG",
+          "name": "Mid-air Attack 2 Scythe: Resection",
+          "input": "JA",
           "multipliers": [
             {
               "mv": [
@@ -35495,7 +35674,8 @@
           ]
         },
         "10": {
-          "name": "Mid-air Attack Stage 3 Scythe: Resction DMG",
+          "name": "Mid-air Attack 3 Scythe: Resection",
+          "input": "JA",
           "multipliers": [
             {
               "mv": [
@@ -35549,6 +35729,7 @@
         },
         "11": {
           "name": "Mid-air Attack 4",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35577,7 +35758,8 @@
           ]
         },
         "12": {
-          "name": "Ground Dodge Counter DMG",
+          "name": "Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -35630,7 +35812,8 @@
           ]
         },
         "13": {
-          "name": "Mid-air Dodge Counter DMG",
+          "name": "Mid-air Dodge Counter",
+          "input": "MDC",
           "multipliers": [
             {
               "mv": [
@@ -35664,7 +35847,7 @@
       "name": "Reunion of All the Fallen",
       "skills": {
         "14": {
-          "name": "Golden Reflux DMG",
+          "name": "Golden Reflux",
           "multipliers": [
             {
               "mv": [
@@ -35693,7 +35876,8 @@
           ]
         },
         "15": {
-          "name": "Aureole of Execution: Ring DMG",
+          "name": "Aureole of Execution: Ring",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -35747,7 +35931,8 @@
           ]
         },
         "16": {
-          "name": "Aureole of Execution: Breach DMG",
+          "name": "Aureole of Execution: Breach",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -35777,7 +35962,8 @@
           ]
         },
         "19": {
-          "name": "Aureole of Execution: Glare DMG",
+          "name": "Aureole of Execution: Glare",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -35806,7 +35992,8 @@
           ]
         },
         "20": {
-          "name": "Basic Attack - Golden Impale DMG",
+          "name": "Golden Impale",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -35835,7 +36022,9 @@
           ]
         },
         "22": {
-          "name": "Ichor Deposit DMG",
+          "name": "Ichor Deposit",
+          "input": "AUTO",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -35869,7 +36058,7 @@
       "name": "Rewritten in Winter's Margins",
       "skills": {
         "25": {
-          "name": "Skill DMG",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -35928,7 +36117,6 @@
       "name": "Before Injection of Dawn",
       "skills": {
         "29": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -35963,7 +36151,8 @@
       "name": "Spark from the Frost",
       "skills": {
         "1": {
-          "name": "Gavel of Earthshaker DMG",
+          "name": "Gavel of Earthshaker",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35994,9 +36183,15 @@
       }
     },
     "8": {
-      "name": "",
+      "name": "Bow to the Last Light",
       "skills": {
-        "1": {}
+        "1": {
+          "multipliers": [
+            {
+              "mv": 5
+            }
+          ]
+        }
       }
     }
   },
@@ -36265,7 +36460,8 @@
           ]
         },
         "5": {
-          "name": "Basic Attack - Elucidated DMG",
+          "name": "Decipher: Basic Attack - Elucidated",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -36350,7 +36546,8 @@
           ]
         },
         "7": {
-          "name": "Mid-air Attack DMG",
+          "name": "Mid-air Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -36379,7 +36576,8 @@
           ]
         },
         "8": {
-          "name": "Dodge Counter DMG",
+          "name": "Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -36456,7 +36654,8 @@
           ]
         },
         "9": {
-          "name": "Mid-air Dodge Counter DMG",
+          "name": "Mid-air Dodge Counter",
+          "input": "MDC",
           "multipliers": [
             {
               "mv": [
@@ -36485,7 +36684,9 @@
           ]
         },
         "10": {
-          "name": "Dodge Counter - Decipher DMG",
+          "name": "Decipher: Dodge Counter",
+          "input": "DC",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -36544,7 +36745,7 @@
       "name": "Royan Close Quarters Combat",
       "skills": {
         "14": {
-          "name": "BOOMY BOOM! DMG",
+          "name": "BOOMY BOOM!",
           "multipliers": [
             {
               "mv": [
@@ -36645,7 +36846,8 @@
           ]
         },
         "15": {
-          "name": "BIG BOOMY BOOM! DMG",
+          "name": "Decipher: BIG BOOMY BOOM!",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -36699,7 +36901,8 @@
           ]
         },
         "16": {
-          "name": "Soliskin to the Aid DMG",
+          "name": "Decipher: Soliskin to the Aid",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -36758,7 +36961,7 @@
       "name": "Where Trust Leads Me!",
       "skills": {
         "18": {
-          "name": "Skill DMG",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -36792,7 +36995,6 @@
       "name": "Solsworn Etymology",
       "skills": {
         "22": {
-          "name": "Skill DMG",
           "multipliers": [
             {
               "mv": [
@@ -36826,7 +37028,9 @@
       "name": "Within Infinity's Embrace",
       "skills": {
         "24": {
-          "name": "Heavy Attack - Schemata of Runes DMG",
+          "name": "Schemata of Runes",
+          "input": "HA",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -36855,7 +37059,8 @@
           ]
         },
         "25": {
-          "name": "Runic Outburst DMG",
+          "name": "Runic Outburst",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -36932,7 +37137,8 @@
           ]
         },
         "26": {
-          "name": "Runic Chain Whip DMG",
+          "name": "Runic Chain Whip",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -36987,7 +37193,8 @@
           ]
         },
         "27": {
-          "name": "Runic Soliskin DMG",
+          "name": "Runic Soliskin",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -37065,7 +37272,9 @@
           ]
         },
         "28": {
-          "name": "Forte Circuit - Learn My True Name DMG",
+          "name": "Learn My True Name",
+          "input": "RS",
+          "considered": "ES",
           "multipliers": [
             {
               "mv": [
@@ -37114,6 +37323,18 @@
                 15.8317,
                 16.5812
               ]
+            }
+          ]
+        }
+      }
+    },
+    "8": {
+      "name": "In This Very Moment",
+      "skills": {
+        "1": {
+          "multipliers": [
+            {
+              "mv": 7.95
             }
           ]
         }

@@ -79,6 +79,7 @@ export function computeDamage(characterId, build, calcs, team) {
 
     if (considered === "HEAL") continue;
     if (considered === "SHIELD") continue;
+    if (considered === "BUFF") continue;
     if (!multipliers) continue;
 
     const dmgTypes = [considered, special].filter(Boolean);
