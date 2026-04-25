@@ -1,10 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { CHARACTERS } from "@/data";
 
-function getDefaultRotation(gameId, charId) {
-  const calcsList = CHARACTERS[gameId]?.[charId]?.calcs ?? [];
-  const defaultCalc = calcsList.find(calc => Array.isArray(calc?.rotation));
-  return defaultCalc ? [...defaultCalc.rotation] : [];
+function getDefaultRotation(gameId, characterId) {
+  return CHARACTERS[gameId]?.[characterId]?.preset?.rotation ?? [];
 }
 
 function buildMember(gameId, charId) {

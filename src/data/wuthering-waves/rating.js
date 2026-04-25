@@ -68,7 +68,7 @@ export function computeDamage(characterId, build, calcs, team) {
   const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
 
   let damage = 0;
-  for (const step of calcs.rotation) {
+  for (const step of CHARACTERS["wuthering-waves"][characterId]?.preset?.rotation ?? []) {
     const {
       considered,
       special,

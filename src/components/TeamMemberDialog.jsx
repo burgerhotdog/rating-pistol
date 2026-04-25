@@ -30,9 +30,7 @@ import { CHARACTERS, WEAPONS, SETS, MISC } from '@/data';
 import { getSkill, getSkillList } from '@/utils';
 
 function getDefaultRotation(gameId, characterId) {
-  const calcsList = CHARACTERS[gameId]?.[characterId]?.calcs ?? [];
-  const calcWithRotation = calcsList.find(calc => Array.isArray(calc?.rotation));
-  return calcWithRotation ? [...calcWithRotation.rotation] : [];
+  return CHARACTERS[gameId]?.[characterId]?.preset?.rotation ?? [];
 }
 
 function getDefaultSetBonuses(gameId, characterId) {
