@@ -26,7 +26,13 @@
     "OS": "Outro Skill",
     "ES": "Echo Skill",
     "CA": "Coordinated Attack",
-    "AUTO": "Triggered Automatically"
+    "JA": "Jump Attack",
+    "DC": "Dodge Counter",
+    "MBA": "Mid-air Basic Attack",
+    "MHA": "Mid-air Heavy Attack",
+    "AUTO": "Triggered Automatically",
+    "HK": "Hold Key",
+    "RK": "Release Key"
   },
   "WEAPON_TYPES": [
     "BROADBLADE",
