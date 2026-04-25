@@ -81,6 +81,16 @@ def mv_parser(game_id, data):
 
                 mv_dict[group_id] = { "name": skill_group_data["name"], "skills": skills }
 
+            mv_dict["8"] = {
+                "name": data["skill_trees"]["8"]["skill"]["name"],
+                "skills": {
+                    "1": {
+                        "desc": data["skill_trees"]["8"]["skill"]["desc"],
+                        "param": data["skill_trees"]["8"]["skill"]["param"],
+                    },
+                },
+            }
+
         case "zenless-zone-zero":
             print("this shouldn't happen")
 

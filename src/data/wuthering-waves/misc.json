@@ -24,7 +24,9 @@
     "RL": "Resonance Liberation",
     "IS": "Intro Skill",
     "OS": "Outro Skill",
-    "ES": "Echo Skill"
+    "ES": "Echo Skill",
+    "CA": "Coordinated Attack",
+    "AUTO": "Triggered Automatically"
   },
   "WEAPON_TYPES": [
     "BROADBLADE",

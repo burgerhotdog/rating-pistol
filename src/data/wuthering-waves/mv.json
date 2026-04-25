@@ -471,6 +471,12 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Silversnow",
+      "skills": {
+        "1": {}
+      }
     }
   },
   "1103": {
@@ -1064,6 +1070,20 @@
                 0.0055,
                 0.0057
               ]
+            }
+          ]
+        }
+      }
+    },
+    "8": {
+      "name": "Rejuvinating Flow",
+      "skills": {
+        "1": {
+          "considered": "HEAL",
+          "attr": "HP",
+          "multipliers": [
+            {
+              "mv": 0.0154
             }
           ]
         }
@@ -1753,7 +1773,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1783,7 +1802,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1814,7 +1832,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1845,7 +1862,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -1904,8 +1920,8 @@
           ]
         },
         "6": {
-          "name": "Full Charge Heavy Attack DMG",
-          "input": "",
+          "name": "Full Charge Heavy Attack",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -1934,8 +1950,7 @@
           ]
         },
         "7": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -1964,8 +1979,7 @@
           ]
         },
         "8": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -1999,8 +2013,6 @@
       "name": "Whizzing Fight Spirit",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2035,8 +2047,6 @@
       "name": "Blazing Flames",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2095,8 +2105,6 @@
       "name": "Grand Entrance",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2156,8 +2164,8 @@
       "name": "Heroic Bullets",
       "skills": {
         "1": {
-          "name": "Thermobaric Bullets Damage",
-          "input": "",
+          "name": "Thermobaric Bullets",
+          "input": "RS",
           "multipliers": [
             {
               "mv": [
@@ -2186,8 +2194,8 @@
           ]
         },
         "2": {
-          "name": "Boom Boom Damage",
-          "input": "",
+          "name": "Boom Boom",
+          "input": "RS",
           "multipliers": [
             {
               "mv": [
@@ -2216,6 +2224,18 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Leaping Flames",
+      "skills": {
+        "1": {
+          "multipliers": [
+            {
+              "mv": 5.3
+            }
+          ]
+        }
+      }
     }
   },
   "1203": {
@@ -2224,7 +2244,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2254,7 +2273,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2284,7 +2302,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2315,7 +2332,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2345,8 +2361,7 @@
           ]
         },
         "5": {
-          "name": "Woolies Damage",
-          "input": "",
+          "name": "Wooly Strike",
           "multipliers": [
             {
               "mv": [
@@ -2406,7 +2421,6 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2435,8 +2449,7 @@
           ]
         },
         "9": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -2471,8 +2484,6 @@
       "name": "Flaming Woolies",
       "skills": {
         "1": {
-          "name": "Flaming Woolies Damage",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2502,8 +2513,7 @@
           ]
         },
         "2": {
-          "name": "Energetic Welcome Damage",
-          "input": "",
+          "name": "Energetic Welcome",
           "multipliers": [
             {
               "mv": [
@@ -2537,8 +2547,8 @@
       "name": "Cosmos Rave",
       "skills": {
         "1": {
-          "name": "Cosmos: Frolicking Stage 1 DMG",
-          "input": "",
+          "name": "Cosmos: Frolicking Stage 1",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2568,8 +2578,8 @@
           ]
         },
         "2": {
-          "name": "Cosmos: Frolicking Stage 2 DMG",
-          "input": "",
+          "name": "Cosmos: Frolicking Stage 2",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2599,8 +2609,8 @@
           ]
         },
         "3": {
-          "name": "Cosmos: Frolicking Stage 3 DMG",
-          "input": "",
+          "name": "Cosmos: Frolicking Stage 3",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2630,8 +2640,8 @@
           ]
         },
         "4": {
-          "name": "Basic Attack Stage 4",
-          "input": "",
+          "name": "Cosmos: Frolicking Stage 4",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2661,8 +2671,8 @@
           ]
         },
         "5": {
-          "name": "Cosmos: Heavy Attack DMG",
-          "input": "",
+          "name": "Cosmos: Heavy Attack",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -2691,8 +2701,8 @@
           ]
         },
         "6": {
-          "name": "Cosmos Rampage Damage",
-          "input": "",
+          "name": "Cosmos: Rampage",
+          "input": "RS",
           "multipliers": [
             {
               "mv": [
@@ -2722,8 +2732,8 @@
           ]
         },
         "7": {
-          "name": "Cosmos: Dodge Counter DMG",
-          "input": "",
+          "name": "Cosmos: Dodge Counter",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2758,8 +2768,6 @@
       "name": "Woolies Helpers",
       "skills": {
         "2": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -2793,8 +2801,9 @@
       "name": "Black & White Woolies",
       "skills": {
         "1": {
-          "name": "Cloudy Frenzy Damage",
-          "input": "",
+          "name": "Cloudy Frenzy",
+          "input": "HA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -2823,8 +2832,9 @@
           ]
         },
         "2": {
-          "name": "Cosmos Rupture Damage",
-          "input": "",
+          "name": "Cosmos Rupture",
+          "input": "HA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -2874,6 +2884,19 @@
                 8.6286,
                 9.0368
               ]
+            }
+          ]
+        }
+      }
+    },
+    "8": {
+      "name": "Thermal Field",
+      "skills": {
+        "1": {
+          "multipliers": [
+            {
+              "mv": 1.7676,
+              "times": 4
             }
           ]
         }
@@ -3212,7 +3235,6 @@
       "name": "Violent Finale",
       "skills": {
         "1": {
-          "name": "Violent Finale",
           "multipliers": [
             {
               "mv": [
@@ -3242,6 +3264,7 @@
         },
         "2": {
           "name": "Marcato",
+          "input": "CA",
           "multipliers": [
             {
               "mv": [
@@ -3338,6 +3361,12 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Rage Transposition",
+      "skills": {
+        "1": {}
+      }
     }
   },
   "1301": {
@@ -3346,7 +3375,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -3377,7 +3405,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -3407,7 +3434,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -3462,7 +3488,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -3547,8 +3572,7 @@
           ]
         },
         "6": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -3577,8 +3601,7 @@
           ]
         },
         "7": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -3637,8 +3660,7 @@
       "name": "Extermination Order",
       "skills": {
         "1": {
-          "name": "Extermination Order Stage 1 DMG",
-          "input": "",
+          "name": "Extermination Order Stage 1",
           "multipliers": [
             {
               "mv": [
@@ -3692,8 +3714,7 @@
           ]
         },
         "2": {
-          "name": "Extermination Order Stage 2 DMG",
-          "input": "",
+          "name": "Extermination Order Stage 2",
           "multipliers": [
             {
               "mv": [
@@ -3747,8 +3768,7 @@
           ]
         },
         "3": {
-          "name": "Extermination Order Stage 3 DMG",
-          "input": "",
+          "name": "Extermination Order Stage 3",
           "multipliers": [
             {
               "mv": [
@@ -3783,8 +3803,6 @@
       "name": "Phantom Etching",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -3813,8 +3831,8 @@
           ]
         },
         "2": {
-          "name": "\"Necessary Means\" Damage",
-          "input": "",
+          "name": "\"Necessary Means\"",
+          "input": "IS",
           "multipliers": [
             {
               "mv": [
@@ -3845,7 +3863,7 @@
         },
         "3": {
           "name": "Hounds Roar Stage 1",
-          "input": "",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -3875,7 +3893,7 @@
         },
         "4": {
           "name": "Hounds Roar Stage 2",
-          "input": "",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -3931,7 +3949,7 @@
         },
         "5": {
           "name": "Hounds Roar Stage 3",
-          "input": "",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -3961,7 +3979,7 @@
         },
         "6": {
           "name": "Hounds Roar Stage 4",
-          "input": "",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -3992,7 +4010,7 @@
         },
         "7": {
           "name": "Hounds Roar Stage 5",
-          "input": "",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -4053,8 +4071,9 @@
           ]
         },
         "9": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
+          "input": "BA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -4089,8 +4108,6 @@
       "name": "Wanted Outlaw",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4150,8 +4167,8 @@
       "name": "Hunting Mission",
       "skills": {
         "1": {
-          "name": "\"Mercy\" Damage",
-          "input": "",
+          "name": "\"Mercy\"",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -4205,8 +4222,9 @@
           ]
         },
         "2": {
-          "name": "\"Death Messenger\" Damage",
-          "input": "",
+          "name": "\"Death Messenger\"",
+          "input": "HA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -4260,6 +4278,21 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Shadowy Raid",
+      "skills": {
+        "1": {
+          "multipliers": [
+            {
+              "mv": 1.9598
+            },
+            {
+              "mv": 3.9196
+            }
+          ]
+        }
+      }
     }
   },
   "1302": {
@@ -4268,7 +4301,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4298,7 +4330,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4329,7 +4360,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4360,7 +4390,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4420,8 +4449,7 @@
           ]
         },
         "8": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -4450,8 +4478,7 @@
           ]
         },
         "10": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -4486,8 +4513,6 @@
       "name": "Magnetic Roar",
       "skills": {
         "11": {
-          "name": "Magnetic Roar Damage",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4517,8 +4542,7 @@
           ]
         },
         "12": {
-          "name": "Lightning Execution Damage",
-          "input": "",
+          "name": "Lightning Execution",
           "multipliers": [
             {
               "mv": [
@@ -4548,8 +4572,9 @@
           ]
         },
         "13": {
-          "name": "Electromagnetic Blast Damage",
-          "input": "",
+          "name": "Electromagnetic Blast",
+          "input": "AUTO",
+          "considered": "RS",
           "multipliers": [
             {
               "mv": [
@@ -4583,8 +4608,6 @@
       "name": "Thundering Wrath",
       "skills": {
         "15": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4619,8 +4642,6 @@
       "name": "Raging Storm",
       "skills": {
         "19": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4655,8 +4676,7 @@
       "name": "Chameleon Cipher",
       "skills": {
         "7": {
-          "name": "Chameleon Cipher Damage",
-          "input": "",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -4686,8 +4706,9 @@
           ]
         },
         "20": {
-          "name": "Judgment Strike Damage",
-          "input": "",
+          "name": "Judgment Strike",
+          "input": "CA",
+          "considered": "RS",
           "multipliers": [
             {
               "mv": [
@@ -4716,6 +4737,12 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Strategist",
+      "skills": {
+        "1": {}
+      }
     }
   },
   "1303": {
@@ -4724,7 +4751,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4754,7 +4780,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4785,7 +4810,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4841,7 +4865,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4872,7 +4895,6 @@
         },
         "5": {
           "name": "Basic Attack Stage 5",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -4956,8 +4978,7 @@
           ]
         },
         "7": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -4986,8 +5007,7 @@
           ]
         },
         "8": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -5022,8 +5042,6 @@
       "name": "Leihuang Master",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5053,8 +5071,9 @@
           ]
         },
         "2": {
-          "name": "Thunder Wedge Coordinated Attack DMG",
-          "input": "",
+          "name": "Thunder Wedge Coordinated Attack",
+          "input": "CA",
+          "considered": "RS",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5084,8 +5103,9 @@
           ]
         },
         "3": {
-          "name": "Thunder Wedge Detonation Damage",
-          "input": "",
+          "name": "Thunder Wedge Detonation",
+          "input": "AUTO",
+          "considered": "RS",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5115,8 +5135,7 @@
           ]
         },
         "4": {
-          "name": "Rumbling Spark Damage",
-          "input": "",
+          "name": "Rumbling Spark",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5151,8 +5170,6 @@
       "name": "Blazing Might",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5188,8 +5205,6 @@
       "name": "Thunder Bombardment",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5224,8 +5239,8 @@
       "name": "Unassuming Blade",
       "skills": {
         "1": {
-          "name": "Thunder Uprising Damage",
-          "input": "",
+          "name": "Thunder Uprising",
+          "input": "RS",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5255,8 +5270,8 @@
           ]
         },
         "2": {
-          "name": "Lightning Infused Basic Attack Stage 1 DMG",
-          "input": "",
+          "name": "Lightning Infused Basic Attack Stage 1",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5286,8 +5301,8 @@
           ]
         },
         "3": {
-          "name": "Lightning Infused Basic Attack Stage 2 DMG",
-          "input": "",
+          "name": "Lightning Infused Basic Attack Stage 2",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5318,8 +5333,8 @@
           ]
         },
         "4": {
-          "name": "Lightning Infused Basic Attack Stage 3 DMG",
-          "input": "",
+          "name": "Lightning Infused Basic Attack Stage 3",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5375,8 +5390,8 @@
           ]
         },
         "5": {
-          "name": "Lightning Infused Basic Attack Stage 4 DMG",
-          "input": "",
+          "name": "Lightning Infused Basic Attack Stage 4",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5407,8 +5422,8 @@
           ]
         },
         "6": {
-          "name": "Lightning Infused Basic Attack Stage 5 DMG",
-          "input": "",
+          "name": "Lightning Infused Basic Attack Stage 5",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5463,8 +5478,8 @@
           ]
         },
         "7": {
-          "name": "Lightning Infused Heavy Attack DMG",
-          "input": "",
+          "name": "Lightning Infused Heavy Attack",
+          "input": "HA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5494,8 +5509,8 @@
           ]
         },
         "8": {
-          "name": "Thunderweaver Damage",
-          "input": "",
+          "name": "Thunderweaver",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5550,8 +5565,8 @@
           ]
         },
         "9": {
-          "name": "Lightning Infused Dodge Counter DMG",
-          "input": "",
+          "name": "Lightning Infused Dodge Counter",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5606,6 +5621,12 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Lightning Manipulation",
+      "skills": {
+        "1": {}
+      }
     }
   },
   "1402": {
@@ -5614,7 +5635,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -5644,7 +5664,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -5674,7 +5693,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -5705,7 +5723,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -5790,8 +5807,7 @@
           ]
         },
         "6": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -5820,8 +5836,9 @@
           ]
         },
         "7": {
-          "name": "Zephyr Song Damage",
-          "input": "",
+          "name": "Zephyr Song",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -5850,8 +5867,7 @@
           ]
         },
         "8": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -5886,8 +5902,6 @@
       "name": "Zephyr Domain",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -5944,8 +5958,6 @@
       "name": "Wind Spirals",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6004,8 +6016,6 @@
       "name": "Cerulean Song",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6040,8 +6050,9 @@
       "name": "Echoing Feathers",
       "skills": {
         "1": {
-          "name": "Stormy Strike Damage",
-          "input": "",
+          "name": "Stormy Strike",
+          "input": "AUTO",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6071,8 +6082,8 @@
           ]
         },
         "2": {
-          "name": "Feather Release Damage",
-          "input": "",
+          "name": "Mid-air Attack: Feather Release",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -6127,6 +6138,12 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Whispering Breeze",
+      "skills": {
+        "1": {}
+      }
     }
   },
   "1403": {
@@ -6135,7 +6152,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6165,7 +6181,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6195,7 +6210,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6226,7 +6240,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6257,7 +6270,6 @@
         },
         "5": {
           "name": "Basic Attack Stage 5",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6287,7 +6299,6 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6316,8 +6327,8 @@
           ]
         },
         "8": {
-          "name": "Aimed Shot Damage",
-          "input": "",
+          "name": "Aimed Shot",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6346,8 +6357,8 @@
           ]
         },
         "9": {
-          "name": "Fully Charged Aimed Shot Damage",
-          "input": "",
+          "name": "Fully Charged Aimed Shot",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6376,8 +6387,7 @@
           ]
         },
         "10": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -6411,8 +6421,9 @@
       "name": "Shift Trick",
       "skills": {
         "11": {
-          "name": "Mist Bullet Damage",
-          "input": "",
+          "name": "Mist Bullet",
+          "input": "AUTO",
+          "considered": "RS",
           "multipliers": [
             {
               "mv": [
@@ -6439,36 +6450,6 @@
               ]
             }
           ]
-        },
-        "12": {
-          "name": "Mist Avatar HP",
-          "input": "",
-          "multipliers": [
-            {
-              "mv": [
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0,
-                1.0
-              ]
-            }
-          ]
         }
       }
     },
@@ -6476,8 +6457,6 @@
       "name": "Flower in the Mist",
       "skills": {
         "15": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6504,36 +6483,6 @@
               ]
             }
           ]
-        },
-        "16": {
-          "name": "Gate Of Quandary ATK Increase",
-          "input": "",
-          "multipliers": [
-            {
-              "mv": [
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1,
-                0.1
-              ]
-            }
-          ]
         }
       }
     },
@@ -6541,8 +6490,6 @@
       "name": "Feint Shot",
       "skills": {
         "20": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -6577,8 +6524,9 @@
       "name": "Misty Cover",
       "skills": {
         "21": {
-          "name": "Mist Bullet DMG",
-          "input": "",
+          "name": "Mist Bullet",
+          "input": "AUTO",
+          "considered": "RS",
           "multipliers": [
             {
               "mv": [
@@ -6605,37 +6553,13 @@
               ]
             }
           ]
-        },
-        "22": {
-          "name": "Movement Speed Increase",
-          "input": "",
-          "multipliers": [
-            {
-              "mv": [
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4,
-                0.4
-              ]
-            }
-          ]
         }
+      }
+    },
+    "8": {
+      "name": "Dissolving Mist",
+      "skills": {
+        "1": {}
       }
     }
   },
@@ -6849,7 +6773,8 @@
         },
         "7": {
           "name": "Windborne Strike",
-          "input": "HA",
+          "input": "AUTO",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6879,7 +6804,8 @@
         },
         "8": {
           "name": "Abyssal Slash",
-          "input": "HA",
+          "input": "AUTO",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7271,7 +7197,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -7300,7 +7225,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -7355,7 +7279,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -7386,7 +7309,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -7445,8 +7367,7 @@
           ]
         },
         "6": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -7474,8 +7395,7 @@
           ]
         },
         "7": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -7532,8 +7452,7 @@
       "name": "Calming Air",
       "skills": {
         "1": {
-          "name": "Chi Counter Damage",
-          "input": "",
+          "name": "Chi Counter",
           "multipliers": [
             {
               "mv": [
@@ -7561,8 +7480,7 @@
           ]
         },
         "2": {
-          "name": "Chi Parry Damage",
-          "input": "",
+          "name": "Chi Parry",
           "multipliers": [
             {
               "mv": [
@@ -7596,8 +7514,6 @@
       "name": "Purification Force Field",
       "skills": {
         "1": {
-          "name": "Resonance Liberation Continuous Damage",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -7625,8 +7541,9 @@
           ]
         },
         "2": {
-          "name": "Resonance Liberation Explosion Damage",
-          "input": "",
+          "name": "Purification Force Field Explosion",
+          "input": "AUTO",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -7659,8 +7576,6 @@
       "name": "Essence of Tao",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -7717,8 +7632,9 @@
       "name": "Primordial Chi Spiral",
       "skills": {
         "1": {
-          "name": "Pushing Punch Damage",
-          "input": "",
+          "name": "Pushing Punch",
+          "input": "AUTO",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7746,8 +7662,8 @@
           ]
         },
         "2": {
-          "name": "Zhoutian Progress Continuous Damage",
-          "input": "",
+          "name": "Zhoutian Progress Continuous",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7775,8 +7691,9 @@
           ]
         },
         "3": {
-          "name": "Minor Zhoutian Shock Damage",
-          "input": "",
+          "name": "Minor Zhoutian Shock",
+          "input": "AUTO",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7804,8 +7721,9 @@
           ]
         },
         "4": {
-          "name": "Major Zhoutian: Inner Shock Damage",
-          "input": "",
+          "name": "Major Zhoutian: Inner Shock",
+          "input": "AUTO",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7833,8 +7751,9 @@
           ]
         },
         "5": {
-          "name": "Major Zhoutian: Outer Shock Damage",
-          "input": "",
+          "name": "Major Zhoutian: Outer Shock",
+          "input": "AUTO",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7862,8 +7781,9 @@
           ]
         },
         "6": {
-          "name": "Yielding Pull Damage",
-          "input": "",
+          "name": "Yielding Pull",
+          "input": "AUTO",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7891,31 +7811,32 @@
           ]
         },
         "7": {
-          "name": "Incomplete Minor Zhoutian Final Shield",
-          "input": "",
+          "name": "Incomplete Minor Zhoutian Final",
+          "input": "AUTO",
+          "considered": "SHIELD",
           "multipliers": [
             {
-              "mv": [
-                4.37,
-                4.9,
-                5.46,
-                6.12,
-                6.91,
-                7.65,
-                7.78,
-                7.96,
-                8.09,
-                8.31,
-                8.99,
-                9.68,
-                10.36,
-                11.05,
-                11.74,
-                12.42,
-                13.11,
-                13.79,
-                14.48,
-                15.16
+              "flat": [
+                437,
+                490,
+                546,
+                612,
+                691,
+                765,
+                778,
+                796,
+                809,
+                831,
+                899,
+                968,
+                1036,
+                1105,
+                1174,
+                1242,
+                1311,
+                1379,
+                1448,
+                1516
               ]
             },
             {
@@ -7945,31 +7866,32 @@
           ]
         },
         "8": {
-          "name": "Minor Zhoutian Final Shield",
-          "input": "",
+          "name": "Minor Zhoutian Final",
+          "input": "AUTO",
+          "considered": "SHIELD",
           "multipliers": [
             {
-              "mv": [
-                8.75,
-                9.8,
-                10.93,
-                12.25,
-                13.82,
-                15.31,
-                15.57,
-                15.92,
-                16.18,
-                16.62,
-                17.99,
-                19.36,
-                20.73,
-                22.11,
-                23.48,
-                24.85,
-                26.22,
-                27.59,
-                28.96,
-                30.33
+              "flat": [
+                875,
+                980,
+                1093,
+                1225,
+                1382,
+                1531,
+                1557,
+                1592,
+                1618,
+                1662,
+                1799,
+                1936,
+                2073,
+                2211,
+                2348,
+                2485,
+                2622,
+                2759,
+                2896,
+                3033
               ]
             },
             {
@@ -7999,31 +7921,32 @@
           ]
         },
         "9": {
-          "name": "Major Zhoutian: Inner Final Shield",
-          "input": "",
+          "name": "Major Zhoutian: Inner Final",
+          "input": "AUTO",
+          "considered": "SHIELD",
           "multipliers": [
             {
-              "mv": [
-                17.5,
-                19.6,
-                21.87,
-                24.5,
-                27.65,
-                30.62,
-                31.15,
-                31.85,
-                32.37,
-                33.25,
-                35.99,
-                38.73,
-                41.47,
-                44.22,
-                46.96,
-                49.7,
-                52.44,
-                55.19,
-                57.93,
-                60.67
+              "flat": [
+                1750,
+                1960,
+                2187,
+                2450,
+                2765,
+                3062,
+                3115,
+                3185,
+                3237,
+                3325,
+                3599,
+                3873,
+                4147,
+                4422,
+                4696,
+                4970,
+                5244,
+                5519,
+                5793,
+                6067
               ]
             },
             {
@@ -8053,31 +7976,32 @@
           ]
         },
         "10": {
-          "name": "Major Zhoutian: Outer Final Shield",
-          "input": "",
+          "name": "Major Zhoutian: Outer Final",
+          "input": "AUTO",
+          "considered": "SHIELD",
           "multipliers": [
             {
-              "mv": [
-                29.15,
-                32.65,
-                36.44,
-                40.81,
-                46.06,
-                51.02,
-                51.89,
-                53.06,
-                53.93,
-                55.39,
-                59.96,
-                64.53,
-                69.1,
-                73.67,
-                78.24,
-                82.81,
-                87.38,
-                91.95,
-                96.52,
-                101.08
+              "flat": [
+                2915,
+                3265,
+                3644,
+                4081,
+                4606,
+                5102,
+                5189,
+                5306,
+                5393,
+                5539,
+                5996,
+                6453,
+                6910,
+                7367,
+                7824,
+                8281,
+                8738,
+                9195,
+                9652,
+                10108
               ]
             },
             {
@@ -8107,31 +8031,32 @@
           ]
         },
         "11": {
-          "name": "Shield Healing",
-          "input": "",
+          "name": "Shield",
+          "input": "AUTO",
+          "considered": "HEAL",
           "multipliers": [
             {
-              "mv": [
-                7.0,
-                7.84,
-                8.75,
-                9.8,
-                11.06,
-                12.25,
-                12.46,
-                12.74,
-                12.95,
-                13.3,
-                14.39,
-                15.49,
-                16.59,
-                17.68,
-                18.78,
-                19.88,
-                20.97,
-                22.07,
-                23.17,
-                24.27
+              "flat": [
+                700,
+                784,
+                875,
+                980,
+                1106,
+                1225,
+                1246,
+                1274,
+                1295,
+                1330,
+                1439,
+                1549,
+                1659,
+                1768,
+                1878,
+                1988,
+                2097,
+                2207,
+                2317,
+                2427
               ]
             },
             {
@@ -8161,6 +8086,12 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Transcendence",
+      "skills": {
+        "1": {}
+      }
     }
   },
   "1503": {
@@ -8169,7 +8100,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -8199,7 +8129,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -8229,7 +8158,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -8260,7 +8188,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -8290,7 +8217,6 @@
         },
         "5": {
           "name": "Basic Attack Stage 5",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -8349,8 +8275,7 @@
           ]
         },
         "7": {
-          "name": "Mid-air Attack Stage 1 DMG",
-          "input": "",
+          "name": "Mid-air Attack Stage 1",
           "multipliers": [
             {
               "mv": [
@@ -8379,8 +8304,7 @@
           ]
         },
         "8": {
-          "name": "Mid-air Attack Stage 2 DMG",
-          "input": "",
+          "name": "Mid-air Attack Stage 2",
           "multipliers": [
             {
               "mv": [
@@ -8409,8 +8333,7 @@
           ]
         },
         "9": {
-          "name": "Mid-air Attack Stage 3 DMG",
-          "input": "",
+          "name": "Mid-air Attack Stage 3",
           "multipliers": [
             {
               "mv": [
@@ -8440,8 +8363,8 @@
           ]
         },
         "10": {
-          "name": "Mid-air Heavy Attack DMG",
-          "input": "",
+          "name": "Mid-air Heavy Attack",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -8470,8 +8393,7 @@
           ]
         },
         "11": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -8505,8 +8427,6 @@
       "name": "Botany Experiment",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -8565,8 +8485,6 @@
       "name": "Arboreal Flourish",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -8595,32 +8513,31 @@
           ]
         },
         "2": {
-          "name": "Arboreal Flourish Healing",
-          "input": "",
-          "attr": "ATK",
+          "input": "AUTO",
+          "considered": "HEAL",
           "multipliers": [
             {
-              "mv": [
-                5.0,
-                6.0,
-                7.0,
-                8.0,
-                8.25,
-                8.9,
-                9.0,
-                9.15,
-                9.3,
-                9.5,
-                10.29,
-                11.07,
-                11.86,
-                12.64,
-                13.42,
-                14.21,
-                14.99,
-                15.77,
-                16.56,
-                17.34
+              "flat": [
+                500,
+                600,
+                700,
+                800,
+                825,
+                890,
+                900,
+                915,
+                930,
+                950,
+                1029,
+                1107,
+                1186,
+                1264,
+                1342,
+                1421,
+                1499,
+                1577,
+                1656,
+                1734
               ]
             },
             {
@@ -8650,8 +8567,9 @@
           ]
         },
         "3": {
-          "name": "Coordinated Attack DMG",
-          "input": "",
+          "name": "Photosynthesis Mark Coordinated Attack",
+          "input": "CA",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -8680,32 +8598,32 @@
           ]
         },
         "4": {
-          "name": "Coordinated Attack Healing",
-          "input": "",
-          "attr": "ATK",
+          "name": "Photosynthesis Mark",
+          "input": "AUTO",
+          "considered": "HEAL",
           "multipliers": [
             {
-              "mv": [
-                2.25,
-                2.7,
-                3.15,
-                3.6,
-                3.72,
-                4.01,
-                4.05,
-                4.12,
-                4.19,
-                4.28,
-                4.63,
-                4.99,
-                5.34,
-                5.69,
-                6.04,
-                6.4,
-                6.75,
-                7.1,
-                7.45,
-                7.81
+              "flat": [
+                225,
+                270,
+                315,
+                360,
+                372,
+                401,
+                405,
+                412,
+                419,
+                428,
+                463,
+                499,
+                534,
+                569,
+                604,
+                640,
+                675,
+                710,
+                745,
+                781
               ]
             },
             {
@@ -8740,8 +8658,6 @@
       "name": "Verdant Growth",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -8775,8 +8691,8 @@
       "name": "Starflower Blooms",
       "skills": {
         "1": {
-          "name": "Heavy Attack: Starflower Blooms Damage",
-          "input": "",
+          "name": "Heavy Attack: Starflower Blooms",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -8829,8 +8745,8 @@
           ]
         },
         "2": {
-          "name": "Mid-air Attack: Starflower Blooms Stage 1 DMG",
-          "input": "",
+          "name": "Mid-air Attack: Starflower Blooms Stage 1",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -8859,8 +8775,8 @@
           ]
         },
         "3": {
-          "name": "Mid-air Attack: Starflower Blooms Stage 2 DMG",
-          "input": "",
+          "name": "Mid-air Attack: Starflower Blooms Stage 2",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -8889,8 +8805,8 @@
           ]
         },
         "4": {
-          "name": "Mid-air Attack: Starflower Blooms Stage 3 DMG",
-          "input": "",
+          "name": "Mid-air Attack: Starflower Blooms Stage 3",
+          "input": "BA",
           "multipliers": [
             {
               "mv": [
@@ -8920,32 +8836,31 @@
           ]
         },
         "5": {
-          "name": "Starflower Blooms Healing",
-          "input": "",
-          "attr": "ATK",
+          "input": "AUTO",
+          "considered": "HEAL",
           "multipliers": [
             {
-              "mv": [
-                6.25,
-                7.5,
-                8.75,
-                10.0,
-                10.32,
-                11.13,
-                11.25,
-                11.44,
-                11.63,
-                11.88,
-                12.86,
-                13.84,
-                14.82,
-                15.8,
-                16.78,
-                17.76,
-                18.74,
-                19.72,
-                20.7,
-                21.68
+              "flat": [
+                625,
+                750,
+                875,
+                1000,
+                1032,
+                1113,
+                1125,
+                1144,
+                1163,
+                1188,
+                1286,
+                1384,
+                1482,
+                1580,
+                1678,
+                1776,
+                1874,
+                1972,
+                2070,
+                2168
               ]
             },
             {
@@ -8975,6 +8890,20 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Blossom",
+      "skills": {
+        "1": {
+          "considered": "HEAL",
+          "multipliers": [
+            {
+              "mv": 0.19,
+              "times": 6
+            }
+          ]
+        }
+      }
     }
   },
   "1601": {
@@ -8983,7 +8912,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -9013,7 +8941,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -9043,7 +8970,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -9073,7 +8999,6 @@
         },
         "4": {
           "name": "Basic Attack Stage 4",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -9131,29 +9056,10 @@
             }
           ]
         },
-        "6": {
-          "name": "Heavy Attack DMG Reduction",
-          "input": "",
-          "multipliers": [
-            {
-              "mv": [
-                0.35,
-                0.35,
-                0.35,
-                0.35,
-                0.35,
-                0.35,
-                0.35,
-                0.35,
-                0.35,
-                0.35
-              ]
-            }
-          ]
-        },
         "8": {
-          "name": "Strategic Parry Damage",
-          "input": "",
+          "name": "Strategic Parry",
+          "input": "AUTO",
+          "considered": "HA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9183,8 +9089,7 @@
           ]
         },
         "12": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -9213,8 +9118,7 @@
           ]
         },
         "14": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -9248,8 +9152,6 @@
       "name": "Fortified Defense",
       "skills": {
         "15": {
-          "name": "Skill DMG",
-          "input": "",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9279,32 +9181,32 @@
           ]
         },
         "16": {
-          "name": "HP recovery",
-          "input": "",
+          "input": "AUTO",
+          "considered": "HEAL",
           "attr": "DEF",
           "multipliers": [
             {
-              "mv": [
-                9.5,
-                10.64,
-                11.87,
-                13.3,
-                15.01,
-                16.62,
-                16.91,
-                17.29,
-                17.57,
-                18.05,
-                19.53,
-                21.02,
-                22.51,
-                24.0,
-                25.49,
-                26.98,
-                28.47,
-                29.96,
-                31.45,
-                32.93
+              "flat": [
+                950,
+                1064,
+                1187,
+                1330,
+                1501,
+                1662,
+                1691,
+                1729,
+                1757,
+                1805,
+                1953,
+                2102,
+                2251,
+                2400,
+                2549,
+                2698,
+                2847,
+                2996,
+                3145,
+                3293
               ]
             },
             {
@@ -9332,26 +9234,6 @@
               ]
             }
           ]
-        },
-        "17": {
-          "name": "Rocksteady Shield Damage Reduction",
-          "input": "",
-          "multipliers": [
-            {
-              "mv": [
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15
-              ]
-            }
-          ]
         }
       }
     },
@@ -9359,8 +9241,6 @@
       "name": "Unmovable",
       "skills": {
         "20": {
-          "name": "Skill DMG",
-          "input": "",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9395,8 +9275,6 @@
       "name": "Defense Formation",
       "skills": {
         "24": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -9430,8 +9308,8 @@
       "name": "Power Shift",
       "skills": {
         "9": {
-          "name": "Timed Counters Stage 1 DMG",
-          "input": "",
+          "name": "Timed Counters Stage 1",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9461,8 +9339,8 @@
           ]
         },
         "10": {
-          "name": "Timed Counters Stage 2 DMG",
-          "input": "",
+          "name": "Timed Counters Stage 2",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9492,8 +9370,8 @@
           ]
         },
         "11": {
-          "name": "Timed Counters Stage 3 DMG",
-          "input": "",
+          "name": "Timed Counters Stage 3",
+          "input": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9523,32 +9401,33 @@
           ]
         },
         "27": {
-          "name": "Timed Counters Stage 1 Shield",
-          "input": "",
+          "name": "Timed Counters Stage 1",
+          "input": "AUTO",
+          "considered": "SHIELD",
           "attr": "DEF",
           "multipliers": [
             {
-              "mv": [
-                3.0,
-                3.36,
-                3.75,
-                4.2,
-                4.74,
-                5.25,
-                5.34,
-                5.46,
-                5.55,
-                5.7,
-                6.17,
-                6.64,
-                7.11,
-                7.58,
-                8.05,
-                8.52,
-                8.99,
-                9.46,
-                9.93,
-                10.4
+              "flat": [
+                300,
+                336,
+                375,
+                420,
+                474,
+                525,
+                534,
+                546,
+                555,
+                570,
+                617,
+                664,
+                711,
+                758,
+                805,
+                852,
+                899,
+                946,
+                993,
+                1040
               ]
             },
             {
@@ -9578,32 +9457,33 @@
           ]
         },
         "28": {
-          "name": "Timed Counters Stage 2 Shield",
-          "input": "",
+          "name": "Timed Counters Stage 2",
+          "input": "AUTO",
+          "considered": "SHIELD",
           "attr": "DEF",
           "multipliers": [
             {
-              "mv": [
-                4.5,
-                5.04,
-                5.62,
-                6.3,
-                7.11,
-                7.87,
-                8.01,
-                8.19,
-                8.32,
-                8.55,
-                9.25,
-                9.96,
-                10.66,
-                11.37,
-                12.07,
-                12.78,
-                13.48,
-                14.19,
-                14.89,
-                15.6
+              "flat": [
+                450,
+                504,
+                562,
+                630,
+                711,
+                787,
+                801,
+                819,
+                832,
+                855,
+                925,
+                996,
+                1066,
+                1137,
+                1207,
+                1278,
+                1348,
+                1419,
+                1489,
+                1560
               ]
             },
             {
@@ -9633,32 +9513,33 @@
           ]
         },
         "29": {
-          "name": "Timed Counters Stage 3 Shield",
-          "input": "",
+          "name": "Timed Counters Stage 3",
+          "input": "AUTO",
+          "considered": "SHIELD",
           "attr": "DEF",
           "multipliers": [
             {
-              "mv": [
-                7.5,
-                8.4,
-                9.37,
-                10.5,
-                11.85,
-                13.12,
-                13.35,
-                13.65,
-                13.87,
-                14.25,
-                15.42,
-                16.6,
-                17.77,
-                18.95,
-                20.12,
-                21.3,
-                22.47,
-                23.65,
-                24.82,
-                26.0
+              "flat": [
+                750,
+                840,
+                937,
+                1050,
+                1185,
+                1312,
+                1335,
+                1365,
+                1387,
+                1425,
+                1542,
+                1660,
+                1777,
+                1895,
+                2012,
+                2130,
+                2247,
+                2365,
+                2482,
+                2600
               ]
             },
             {
@@ -9688,6 +9569,12 @@
           ]
         }
       }
+    },
+    "8": {
+      "name": "Iron Will",
+      "skills": {
+        "1": {}
+      }
     }
   },
   "1602": {
@@ -9696,7 +9583,6 @@
       "skills": {
         "1": {
           "name": "Basic Attack Stage 1",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -9726,7 +9612,6 @@
         },
         "2": {
           "name": "Basic Attack Stage 2",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -9756,7 +9641,6 @@
         },
         "3": {
           "name": "Basic Attack Stage 3",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -9816,8 +9700,7 @@
           ]
         },
         "5": {
-          "name": "Mid-air Attack DMG",
-          "input": "",
+          "name": "Mid-air Attack",
           "multipliers": [
             {
               "mv": [
@@ -9846,8 +9729,7 @@
           ]
         },
         "6": {
-          "name": "Dodge Counter DMG",
-          "input": "",
+          "name": "Dodge Counter",
           "multipliers": [
             {
               "mv": [
@@ -9882,8 +9764,7 @@
       "name": "Crimson Fragment",
       "skills": {
         "1": {
-          "name": "Carmine Gleam Damage",
-          "input": "",
+          "name": "Carmine Gleam",
           "multipliers": [
             {
               "mv": [
@@ -9913,8 +9794,7 @@
           ]
         },
         "2": {
-          "name": "Crimson Erosion Stage 1 DMG",
-          "input": "",
+          "name": "Crimson Erosion Stage 1",
           "multipliers": [
             {
               "mv": [
@@ -9944,8 +9824,7 @@
           ]
         },
         "3": {
-          "name": "Crimson Erosion Stage 2 DMG",
-          "input": "",
+          "name": "Crimson Erosion Stage 2",
           "multipliers": [
             {
               "mv": [
@@ -9975,8 +9854,7 @@
           ]
         },
         "4": {
-          "name": "Sanguine Pulse Stage 1 DMG",
-          "input": "",
+          "name": "Sanguine Pulse Stage 1",
           "multipliers": [
             {
               "mv": [
@@ -10006,8 +9884,7 @@
           ]
         },
         "6": {
-          "name": "Sanguine Pulse Stage 2 DMG",
-          "input": "",
+          "name": "Sanguine Pulse Stage 2",
           "multipliers": [
             {
               "mv": [
@@ -10037,8 +9914,7 @@
           ]
         },
         "7": {
-          "name": "Sanguine Pulse Stage 3 DMG",
-          "input": "",
+          "name": "Sanguine Pulse Stage 3",
           "multipliers": [
             {
               "mv": [
@@ -10073,8 +9949,6 @@
       "name": "Crimson Bloom",
       "skills": {
         "1": {
-          "name": "Consecutive Attack DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -10104,8 +9978,9 @@
           ]
         },
         "2": {
-          "name": "Scarlet Burst Damage",
-          "input": "",
+          "name": "Scarlet Burst",
+          "input": "AUTO",
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -10139,8 +10014,6 @@
       "name": "Vindication",
       "skills": {
         "1": {
-          "name": "Skill DMG",
-          "input": "",
           "multipliers": [
             {
               "mv": [
@@ -10175,8 +10048,8 @@
       "name": "Serene Vigil",
       "skills": {
         "1": {
-          "name": "Chaoscleave Damage",
-          "input": "",
+          "name": "Chaoscleave",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -10206,8 +10079,9 @@
           ]
         },
         "2": {
-          "name": "Scatterbloom Damage",
-          "input": "",
+          "name": "Scatterbloom",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -10236,8 +10110,8 @@
           ]
         },
         "3": {
-          "name": "Full Energy Chaoscleave Damage",
-          "input": "",
+          "name": "Full Energy Chaoscleave",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -10267,8 +10141,9 @@
           ]
         },
         "4": {
-          "name": "Full Energy Scatterbloom Damage",
-          "input": "",
+          "name": "Full Energy Scatterbloom",
+          "input": "BA",
+          "considered": "HA",
           "multipliers": [
             {
               "mv": [
@@ -10296,6 +10171,12 @@
             }
           ]
         }
+      }
+    },
+    "8": {
+      "name": "Duality",
+      "skills": {
+        "1": {}
       }
     }
   },

@@ -78,6 +78,8 @@ export function computeDamage(characterId, build, calcs, team) {
     } = getSkill("wuthering-waves", characterId, step);
 
     if (considered === "HEAL") continue;
+    if (considered === "SHIELD") continue;
+    if (!multipliers) continue;
 
     const dmgTypes = [considered, special].filter(Boolean);
     const adjustedStatMap = modifiers ? mergeStatMaps(statMap, modifiers) : statMap;

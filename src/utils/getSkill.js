@@ -50,7 +50,7 @@ export function getSkill(gameId, characterId, skillKey) {
   }
 
   return {
-    name: skill.considered === "HEAL" ? `${name} Healing` : name,
+    name: skill.considered === "HEAL" ? `${name} Healing` : skill.considered === "SHIELD" ? `${name} Shield` : name,
     input,
     considered: skill.considered ?? input,
     special,
