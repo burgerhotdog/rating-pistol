@@ -10,11 +10,8 @@ export function computeDamageBreakdown(gameId, characterId, build, team) {
   if (!build) return [];
 
   const { rotation } = team.find(member => characterId === member?.characterId);
-
-  // Games without rotation (HSR, ZZZ) - single calculation
   if (!rotation) return [];
 
-  // Games with rotation (GI, WW) - per-hit breakdown
   const grouped = {};
   for (const step of rotation) {
     const damage = RATING[gameId].computeDamage(characterId, build, [step], team);

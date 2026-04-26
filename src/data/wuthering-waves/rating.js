@@ -72,6 +72,7 @@ export function computeDamage(characterId, build, rotation, team) {
     const {
       considered,
       special,
+      effects,
       modifiers,
       attr,
       multipliers,

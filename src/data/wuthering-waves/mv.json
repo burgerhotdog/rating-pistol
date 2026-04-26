@@ -1522,7 +1522,7 @@
     "7": {
       "name": "Unification of Spirits",
       "skills": {
-        "2": {
+        "1": {
           "name": "Glorious Plunge",
           "input": "HA",
           "multipliers": [
@@ -1552,7 +1552,7 @@
             }
           ]
         },
-        "3": {
+        "2": {
           "name": "Feral Gyrate 1",
           "input": "BA",
           "multipliers": [
@@ -1607,7 +1607,7 @@
             }
           ]
         },
-        "4": {
+        "3": {
           "name": "Feral Gyrate 2",
           "input": "BA",
           "multipliers": [
@@ -1638,7 +1638,7 @@
             }
           ]
         },
-        "5": {
+        "4": {
           "name": "Mountain Roamer",
           "input": "RS",
           "multipliers": [
@@ -1669,7 +1669,7 @@
             }
           ]
         },
-        "7": {
+        "5": {
           "name": "Stormy Kicks",
           "input": "BA",
           "multipliers": [
@@ -1724,7 +1724,7 @@
             }
           ]
         },
-        "8": {
+        "6": {
           "name": "Tail Strike",
           "input": "BA",
           "multipliers": [
@@ -2227,6 +2227,37 @@
               ]
             }
           ]
+        },
+        "3": {
+          "name": "Thermobaric Bullets (x30)",
+          "input": "RS",
+          "multipliers": [
+            {
+              "mv": [
+                0.1,
+                0.1082,
+                0.1164,
+                0.1279,
+                0.1361,
+                0.1456,
+                0.1587,
+                0.1718,
+                0.1849,
+                0.1989,
+                0.2153,
+                0.2317,
+                0.2481,
+                0.2645,
+                0.2809,
+                0.2973,
+                0.3137,
+                0.3301,
+                0.3465,
+                0.3629
+              ]
+            }
+          ],
+          "times": 30
         }
       }
     },
@@ -2740,7 +2771,7 @@
         },
         "7": {
           "name": "Cosmos: Dodge Counter",
-          "input": "BA",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -2768,13 +2799,14 @@
               "times": 4
             }
           ]
-        }
+        },
+        "8": {}
       }
     },
     "6": {
       "name": "Woolies Helpers",
       "skills": {
-        "2": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -2839,7 +2871,7 @@
           ]
         },
         "2": {
-          "name": "Cosmos Rupture",
+          "name": "Cosmos: Rupture",
           "input": "HA",
           "considered": "RL",
           "multipliers": [
@@ -3118,6 +3150,7 @@
         },
         "7": {
           "name": "Mid-air Attack 1",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -3147,6 +3180,7 @@
         },
         "8": {
           "name": "Mid-air Attack 2",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -3243,6 +3277,13 @@
       "name": "Violent Finale",
       "skills": {
         "1": {
+          "effects": [
+            {
+              "type": "state",
+              "target": "team",
+              "index": 1
+            }
+          ],
           "multipliers": [
             {
               "mv": [
@@ -3339,7 +3380,6 @@
       "name": "Fury Fugue",
       "skills": {
         "1": {
-          "name": "Fury Fugue",
           "input": "RS",
           "multipliers": [
             {
@@ -18543,7 +18583,7 @@
     "6": {
       "name": "Applaud for Me!",
       "skills": {
-        "2": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -26756,7 +26796,7 @@
     "7": {
       "name": "Ebb and Flow",
       "skills": {
-        "2": {
+        "1": {
           "name": "Flux: Moonbow",
           "input": "JA",
           "considered": "RL",
@@ -26787,7 +26827,7 @@
             }
           ]
         },
-        "3": {
+        "2": {
           "name": "Flux: Moonring",
           "input": "JA",
           "considered": "RL",
@@ -26819,7 +26859,7 @@
             }
           ]
         },
-        "4": {
+        "3": {
           "name": "Enhanced Moonbow: Basic Attack 1",
           "input": "BA",
           "considered": "RL",
@@ -26850,7 +26890,7 @@
             }
           ]
         },
-        "5": {
+        "4": {
           "name": "Enhanced Moonbow: Basic Attack 2",
           "input": "BA",
           "considered": "RL",
@@ -26882,7 +26922,7 @@
             }
           ]
         },
-        "6": {
+        "5": {
           "name": "Enhanced Moonbow: Basic Attack 3",
           "input": "BA",
           "considered": "RL",
@@ -26914,7 +26954,7 @@
             }
           ]
         },
-        "7": {
+        "6": {
           "name": "Enhanced Moonbow: Dodge Counter",
           "input": "DC",
           "considered": "RL",
@@ -26946,7 +26986,7 @@
             }
           ]
         },
-        "8": {
+        "7": {
           "name": "Enhanced Arc Beyond the Edge",
           "input": "RS",
           "considered": "RL",
@@ -26978,7 +27018,7 @@
             }
           ]
         },
-        "14": {
+        "8": {
           "name": "Moonbow: Basic Attack 1",
           "input": "AUTO",
           "considered": "HEAL",
@@ -27009,7 +27049,7 @@
             }
           ]
         },
-        "15": {
+        "9": {
           "name": "Moonbow: Basic Attack 2",
           "input": "AUTO",
           "considered": "HEAL",
@@ -27040,7 +27080,7 @@
             }
           ]
         },
-        "16": {
+        "10": {
           "name": "Moonbow: Basic Attack 3",
           "input": "AUTO",
           "considered": "HEAL",
@@ -27071,7 +27111,7 @@
             }
           ]
         },
-        "17": {
+        "11": {
           "name": "Moonbow: Dodge Counter",
           "input": "AUTO",
           "considered": "HEAL",
@@ -27102,7 +27142,7 @@
             }
           ]
         },
-        "18": {
+        "12": {
           "name": "Arc Beyond the Edge",
           "input": "AUTO",
           "considered": "HEAL",
@@ -27133,7 +27173,7 @@
             }
           ]
         },
-        "19": {
+        "13": {
           "name": "Absolute Fullness",
           "input": "HA",
           "considered": "RL",
@@ -27164,7 +27204,7 @@
             }
           ]
         },
-        "20": {
+        "14": {
           "name": "Absolute Fullness",
           "input": "AUTO",
           "considered": "HEAL",
@@ -27195,7 +27235,7 @@
             }
           ]
         },
-        "23": {
+        "15": {
           "name": "Full Moon Domain",
           "input": "AUTO",
           "considered": "HEAL",
@@ -30983,7 +31023,7 @@
     "2": {
       "name": "Fractured Composition",
       "skills": {
-        "17": {
+        "1": {
           "name": "Eye of Unraveling",
           "multipliers": [
             {
@@ -31012,7 +31052,7 @@
             }
           ]
         },
-        "18": {
+        "2": {
           "name": "Serrated Loop",
           "multipliers": [
             {
@@ -31042,7 +31082,7 @@
             }
           ]
         },
-        "18_2": {
+        "3": {
           "name": "Serrated Loop Hold",
           "input": "HK",
           "multipliers": [
@@ -31198,7 +31238,7 @@
     "7": {
       "name": "Sight of Unraveling - Oblivion",
       "skills": {
-        "27": {
+        "1": {
           "name": "Sawring - Blitz 1",
           "input": "BA",
           "considered": "RL",
@@ -31230,7 +31270,7 @@
             }
           ]
         },
-        "28": {
+        "2": {
           "name": "Sawring - Blitz 2",
           "input": "HA",
           "considered": "RL",
@@ -31262,7 +31302,7 @@
             }
           ]
         },
-        "28_2": {
+        "3": {
           "name": "Sawring - Blitz Stage 2 Hold",
           "input": "HK",
           "considered": "RL",
@@ -31294,7 +31334,7 @@
             }
           ]
         },
-        "28_3": {
+        "4": {
           "name": "Sawring - Blitz Stage 2: Discordance",
           "input": "RK",
           "considered": "RL",
@@ -31326,7 +31366,7 @@
             }
           ]
         },
-        "29": {
+        "5": {
           "name": "Sawring - Blitz 3",
           "input": "BA",
           "considered": "RL",
@@ -31358,7 +31398,7 @@
             }
           ]
         },
-        "29_2": {
+        "6": {
           "name": "Sawring - Blitz Stage 3 Hold",
           "input": "HK",
           "considered": "RL",
@@ -31390,7 +31430,7 @@
             }
           ]
         },
-        "29_3": {
+        "7": {
           "name": "Sawring - Blitz Stage 3: Falltone",
           "input": "RK",
           "considered": "RL",
@@ -31422,7 +31462,7 @@
             }
           ]
         },
-        "29_4": {
+        "8": {
           "name": "Chainsaw Mode - Dodge Counter",
           "input": "DC",
           "considered": "RL",
@@ -31454,7 +31494,7 @@
             }
           ]
         },
-        "29_5": {
+        "9": {
           "name": "Chainsaw Mode - Dodge Counter Hold",
           "input": "HK",
           "considered": "RL",
@@ -31486,7 +31526,7 @@
             }
           ]
         },
-        "30": {
+        "10": {
           "name": "Sawring - Eradication",
           "input": "BA",
           "considered": "RL",
@@ -31541,7 +31581,7 @@
             }
           ]
         },
-        "31": {
+        "11": {
           "name": "Bonus DMG Multiplier per Ring of Chainsaw",
           "input": "AUTO",
           "considered": "BUFF",
@@ -31572,7 +31612,7 @@
             }
           ]
         },
-        "32": {
+        "12": {
           "name": "Sawring - Eradication",
           "input": "AUTO",
           "considered": "SHIELD",

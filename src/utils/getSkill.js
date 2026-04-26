@@ -66,6 +66,7 @@ export function getSkill(gameId, characterId, skillKey) {
     input,
     considered,
     special: skill.special,
+    effects: skill.effects,
     modifiers: skill.modifiers,
     attr: skill.attr ?? DEFAULT_ATTR,
     multipliers: skill.multipliers,
