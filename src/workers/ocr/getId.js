@@ -1,10 +1,10 @@
-import { CHARACTERS } from "@/data";
-import { compareStrings } from "./helpers";
+import { CHARACTERS } from '@/data';
+import { compareStrings } from './helpers';
 
 const REGION = { x: 67, y: 24, w: 600, h: 54};
 const PARAMS = {
   tessedit_pageseg_mode: 7,
-  tessedit_char_whitelist: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ",
+  tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ',
 };
 const nameToId = Object.fromEntries(
   Object.entries(CHARACTERS['wuthering-waves'])

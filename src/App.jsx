@@ -1,21 +1,19 @@
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Outlet, Route, Routes, useParams } from 'react-router-dom';
 import { Container } from '@mui/material';
-import { Header } from '@/components';
 import { AuthProvider, BuildProvider, UserProvider } from '@/contexts';
-import { GamePageWrapper, HomePage } from '@/pages';
 import { VERSION } from '@/data';
+import { GamePage, HomePage } from '@/pages';
+
+const GameIdGuard = () => {
+  const { gameId } = useParams();
+  if (!VERSION[gameId]) {
+    return <Navigate to="/" replace />;
+  }
+
+  return <Outlet />;
+};
 
 export default function App() {
-  const segments = useLocation().pathname.split('/').filter(Boolean);
-  const gameId = segments[0];
-  const characterId = segments[1];
-
-  const isHome = !segments.length;
-  const isGame = VERSION[gameId] && segments.length < 3;
-  const isValidUrl = isHome || isGame;
-
-  if (!isValidUrl) return <Navigate to="/" replace />;
-
   return (
     <AuthProvider>
       <UserProvider>
@@ -28,19 +26,11 @@ export default function App() {
               height: '100dvh',
             }}
           >
-            <Header
-              key={gameId}
-              gameId={gameId}
-            />
             <Routes>
-              <Route
-                path="/"
-                element={<HomePage />}
-              />
-              <Route
-                path="/:gameId/:characterId?"
-                element={<GamePageWrapper />}
-              />
+              <Route path="/" element={<HomePage />} />
+              <Route element={<GameIdGuard />}>
+                <Route path="/:gameId/:characterId?" element={<GamePage />} />
+              </Route>
             </Routes>
           </Container>
         </BuildProvider>

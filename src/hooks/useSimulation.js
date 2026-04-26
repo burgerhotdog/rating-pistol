@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { useBuild } from "@/contexts";
-import { CHARACTERS, WEAPONS } from "@/data";
+import { useBuild } from '@/contexts';
+import { CHARACTERS, WEAPONS } from '@/data';
 
 function validate(gameId, build, calcs) {
   if (!build) return "Build not found";
@@ -31,7 +31,6 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
   useEffect(() => {
     const validationError = validate(gameId, build, calcs);
     if (validationError) {
-      console.log(validationError);
       setError(validationError);
       setResult({
         weeklyScores: null,

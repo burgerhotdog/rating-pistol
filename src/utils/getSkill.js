@@ -1,4 +1,4 @@
-import { MVS } from "@/data";
+import { MVS } from '@/data';
 
 const DEFAULT_GROUP_INPUT = {
   "1": "BA",

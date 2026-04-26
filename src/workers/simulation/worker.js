@@ -1,10 +1,10 @@
-import { mergeEquipList, computeTotalStat, compileStatMap, resolveCalcsWithTeamRotation } from "@/utils";
-import { findBenchmarkWeek, getAverageScores, findRelativeError } from "./helpers";
-import { createTrial } from "./createTrial";
-import { advanceTrial } from "./advanceTrial";
-import { advanceTrialWuwa } from "./advanceTrialWuwa";
-import { findPreferred, findPreferredWuwa } from "./findPreferred";
-import { CHARACTERS } from "@/data";
+import { mergeEquipList, computeTotalStat, compileStatMap, resolveCalcsWithTeamRotation } from '@/utils';
+import { findBenchmarkWeek, getAverageScores, findRelativeError } from './helpers';
+import { createTrial } from './createTrial';
+import { advanceTrial } from './advanceTrial';
+import { advanceTrialWuwa } from './advanceTrialWuwa';
+import { findPreferred, findPreferredWuwa } from './findPreferred';
+import { CHARACTERS } from '@/data';
 
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
@@ -49,10 +49,10 @@ function advanceOneWeek(isWuwa, preferredMainStats, trial, setIdList, matchTarge
 }
 
 function simulateCharacter({ gameId, characterId, build, team, setIdList, reportProgress = false }) {
-  const isWuwa = gameId === "wuthering-waves";
-  const match = CHARACTERS[gameId][characterId].match ?? ["ER"];
+  const isWuwa = gameId === 'wuthering-waves';
+  const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
-    return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, "menu"));
+    return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, 'menu'));
   });
 
   const trials = [];
@@ -93,7 +93,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
     const { benchmarkWeek, diff } = findBenchmarkWeek(weeklyScores);
     lastDiff = diff;
 
-    if (reportProgress) self.postMessage({ type: "progress", completed: week, diff });
+    if (reportProgress) self.postMessage({ type: 'progress', completed: week, diff });
 
     if (benchmarkWeek !== -1 && benchmarkWeek <= week) {
       lastBenchmarkWeek = benchmarkWeek;
@@ -119,7 +119,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
 
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, calcs, team } = data;
-  const isWuwa = gameId === "wuthering-waves";
+  const isWuwa = gameId === 'wuthering-waves';
   const setIdList = build.equipList.map(equip => equip?.setId);
 
   const teamWeeklyScores = {};
@@ -129,7 +129,7 @@ self.onmessage = ({ data }) => {
       const memberCharId = getMemberId(member);
       if (!memberCharId || memberCharId === characterId) continue;
 
-      const memberData = CHARACTERS["wuthering-waves"][memberCharId];
+      const memberData = CHARACTERS['wuthering-waves'][memberCharId];
 
       const memberPreset = memberData?.preset ?? {};
 
@@ -145,7 +145,7 @@ self.onmessage = ({ data }) => {
       };
 
       const memberResult = simulateCharacter({
-        gameId: "wuthering-waves",
+        gameId: 'wuthering-waves',
         characterId: memberCharId,
         build: memberBuild,
         team,
@@ -212,5 +212,5 @@ self.onmessage = ({ data }) => {
     });
   }
 
-  self.postMessage({ type: "done", completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, mainStatDist, weeklyDistribution, teamWeeklyScores });
+  self.postMessage({ type: 'done', completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, mainStatDist, weeklyDistribution, teamWeeklyScores });
 };

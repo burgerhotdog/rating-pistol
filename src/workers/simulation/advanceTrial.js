@@ -1,5 +1,5 @@
 import { MISC } from '@/data';
-import { computeDamage, computeTotalStat, compileStatMap } from "@/utils";
+import { computeDamage, computeTotalStat, compileStatMap } from '@/utils';
 import { weightedLottery } from './helpers/weightedLottery';
 import { matchPenalty } from './helpers/matchPenalty';
 

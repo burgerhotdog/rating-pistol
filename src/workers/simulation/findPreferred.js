@@ -1,5 +1,5 @@
-import { MISC } from "@/data";
-import { computeDamage, compileStatMap, computeTotalStat } from "@/utils";
+import { MISC } from '@/data';
+import { computeDamage, compileStatMap, computeTotalStat } from '@/utils';
 import { matchPenalty } from './helpers/matchPenalty';
 
 export function findPreferredWuwa(trial, gameId, characterId, match, team, matchTargets) {

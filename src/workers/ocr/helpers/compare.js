@@ -1,4 +1,4 @@
-import { distance } from "fastest-levenshtein";
+import { distance } from 'fastest-levenshtein';
 
 export function comparePixels(a, b) {
   let sad = 0;

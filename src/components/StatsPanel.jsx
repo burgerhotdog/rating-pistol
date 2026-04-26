@@ -1,8 +1,8 @@
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Avatar } from '@mui/material';
 import { MISC, CHARACTERS, WEAPONS, SETS } from '@/data';
 import { computeTotalStat, compileStatMap, mergeStatMaps } from '@/utils';
-import { CustomAvatar } from "@/components";
-import { TeamMemberDialog } from "@/components/TeamMemberDialog";
+import { CustomAvatar } from '@/components';
+import { TeamMemberDialog } from '@/components/TeamMemberDialog';
 import { useState } from 'react';
 
 function constructBuffMap(buffs, buffTypes) {

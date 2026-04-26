@@ -1,4 +1,4 @@
-import { CHARACTERS, WEAPONS, SETS, MISC } from "@/data";
+import { CHARACTERS, WEAPONS, SETS, MISC } from '@/data';
 import { mergeEquipList, mergeStatMaps, computeTotalStat } from '@/utils';
 
 function constructConstantMap(data, buffTypes) {

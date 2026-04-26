@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Checkbox, Button, Dialog, DialogContent, DialogActions, DialogTitle, FormControlLabel, Box, Typography, IconButton, TextField, InputAdornment } from '@mui/material';
 import SyncIcon from '@mui/icons-material/Sync';
 import { useBuild, useUser } from '@/contexts';
 import { fetchEnka, parseEnkaObj } from './enkaHelpers';
 import { CHARACTERS } from '@/data';
 
-const HeaderEnka = ({ gamePath }) => {
+const HeaderEnka = () => {
+  const { gameId } = useParams();
   const { savedUids, updateSavedUids } = useUser();
   const { saveBuildEntries } = useBuild();
   const [uid, setUid] = useState('');
@@ -16,8 +18,8 @@ const HeaderEnka = ({ gamePath }) => {
   const [selectedList, setSelectedList] = useState([]);
 
   useEffect(() => {
-    setUid(savedUids[gamePath] ?? '');
-  }, [savedUids, gamePath]);
+    setUid(savedUids[gameId] ?? '');
+  }, [savedUids, gameId]);
 
   const isValidLength = (gameId, input) => {
     if (gameId === 'genshin-impact' || gameId === 'honkai-star-rail') {
@@ -32,7 +34,7 @@ const HeaderEnka = ({ gamePath }) => {
   const handleSync = async () => {
     setIsSyncLoading(true);
     setError(null);
-    const [status, result] = await fetchEnka(gamePath, uid);
+    const [status, result] = await fetchEnka(gameId, uid);
     if (status !== 200) {
       setError(result);
       setIsSyncLoading(false);
@@ -41,7 +43,7 @@ const HeaderEnka = ({ gamePath }) => {
       setEnkaList(result);
       setSelectedList(result.map(() => true));
       setDialogOpen(true);
-      updateSavedUids(gamePath, uid);
+      updateSavedUids(gameId, uid);
       setIsSyncLoading(false);
     }
   };
@@ -49,11 +51,11 @@ const HeaderEnka = ({ gamePath }) => {
   const handleSave = async () => {
     const charBuffer = selectedList.map((verdict, index) => {
       if (!verdict) return null;
-      return parseEnkaObj(gamePath, enkaList[index]);
+      return parseEnkaObj(gameId, enkaList[index]);
     }).filter(Boolean);
 
     if (charBuffer.length) {
-      saveBuildEntries(gamePath, charBuffer);
+      saveBuildEntries(gameId, charBuffer);
     }
 
     closeDialog();
@@ -96,7 +98,7 @@ const HeaderEnka = ({ gamePath }) => {
                 <IconButton
                   size="small"
                   onClick={() => handleSync()}
-                  disabled={!isValidLength(gamePath, uid) || isSyncLoading}
+                  disabled={!isValidLength(gameId, uid) || isSyncLoading}
                 >
                   <SyncIcon
                     sx={{
@@ -167,7 +169,7 @@ const HeaderEnka = ({ gamePath }) => {
                   })}
                 />
               }
-              label={CHARACTERS[gamePath][char.avatarId].name}
+              label={CHARACTERS[gameId][char.avatarId].name}
             />
           ))}
         </DialogContent>

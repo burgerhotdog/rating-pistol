@@ -1,5 +1,5 @@
-import { Avatar } from "@mui/material";
-import { CHARACTERS } from "@/data";
+import { Avatar } from '@mui/material';
+import { CHARACTERS } from '@/data';
 
 export const CustomAvatar = ({ gameId, characterId }) => {
   return (

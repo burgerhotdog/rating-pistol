@@ -1,2 +1,2 @@
-export * from "./compare";
-export * from "./bitmapToPixels";
+export * from './compare';
+export * from './bitmapToPixels';

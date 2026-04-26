@@ -7,11 +7,11 @@ import {
   subStatFragmentToSuffix,
   subStatValueOptionsById,
 } from './helpers/maps';
-import { compareStrings } from "./helpers";
-import { validateBitmap } from "./validateBitmap";
-import { getSetId } from "./getSetId";
-import { getCost } from "./getCost";
-import { getId } from "./getId";
+import { compareStrings } from './helpers';
+import { validateBitmap } from './validateBitmap';
+import { getSetId } from './getSetId';
+import { getCost } from './getCost';
+import { getId } from './getId';
 
 let worker = null;
 

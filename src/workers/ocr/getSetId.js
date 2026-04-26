@@ -1,4 +1,4 @@
-import { comparePixels, bitmapToPixels } from "./helpers";
+import { comparePixels, bitmapToPixels } from './helpers';
 
 const CROPS = [
   { x: 267, y: 662, w: 50, h: 50 },

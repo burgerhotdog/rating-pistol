@@ -1,5 +1,5 @@
-import { computeTotalStat, compileStatMap } from "@/utils";
-import { CHARACTERS } from "@/data"; 
+import { computeTotalStat, compileStatMap } from '@/utils';
+import { CHARACTERS } from '@/data'; 
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;

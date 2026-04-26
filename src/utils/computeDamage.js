@@ -1,5 +1,5 @@
-import { RATING, MISC } from "@/data";
-import { getSkill, resolveCalcsWithTeamRotation } from "@/utils";
+import { RATING, MISC } from '@/data';
+import { getSkill, resolveCalcsWithTeamRotation } from '@/utils';
 
 export function computeDamage(gameId, characterId, build, team) {
   const { rotation } = team.find(member => characterId === member?.characterId);

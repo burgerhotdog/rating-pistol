@@ -1,4 +1,4 @@
-import { computeDamage, computeTotalStat, compileStatMap } from "@/utils";
+import { computeDamage, computeTotalStat, compileStatMap } from '@/utils';
 import { matchPenalty } from './helpers/matchPenalty';
 
 export function createTrial(matchTargets, gameId, characterId, build, match, team) {
@@ -6,8 +6,6 @@ export function createTrial(matchTargets, gameId, characterId, build, match, tea
     weaponId: build.weaponId,
     equipList: build.equipList.map(() => null),
   };
-
-  console.log(match);
 
   return {
     build: startingBuild,

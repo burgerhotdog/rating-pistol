@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
-import { CHARACTERS } from "@/data";
+import { useParams } from 'react-router-dom';
+import { useEffect, useMemo, useState } from 'react';
+import { CHARACTERS } from '@/data';
 
 function getDefaultRotation(gameId, characterId) {
   return CHARACTERS[gameId]?.[characterId]?.preset?.rotation ?? [];
@@ -18,7 +19,9 @@ function buildMember(gameId, charId) {
   };
 }
 
-export function useTeam(gameId, characterId, calcsIndex) {
+export function useTeam() {
+  const { gameId, characterId } = useParams();
+  const { team: teamPreset } = CHARACTERS[gameId][characterId].preset;
   const [team, setTeam] = useState([]);
 
   useEffect(() => {
@@ -30,7 +33,7 @@ export function useTeam(gameId, characterId, calcsIndex) {
       : [characterId, ...new Array(size - 1).fill(null)];
 
     setTeam(charIds.map(id => buildMember(gameId, id)));
-  }, [gameId, characterId, calcsIndex]);
+  }, [gameId, characterId]);
 
   function updateTeam(index, member) {
     if (index < 0 || index >= team.length) return;

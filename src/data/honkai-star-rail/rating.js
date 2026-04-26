@@ -1,4 +1,4 @@
-import { computeTotalStat, compileStatMap } from "@/utils";
+import { computeTotalStat, compileStatMap } from '@/utils';
 
 const CHARACTER_LEVEL = 80;
 const ENEMY_LEVEL = 90;

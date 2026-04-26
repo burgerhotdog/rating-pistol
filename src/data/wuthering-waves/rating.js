@@ -1,5 +1,5 @@
-import { computeTotalStat, compileStatMap, mergeStatMaps, getSkill } from "@/utils";
-import { CHARACTERS, MVS } from "@/data";
+import { computeTotalStat, compileStatMap, mergeStatMaps, getSkill } from '@/utils';
+import { CHARACTERS, MVS } from '@/data';
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
