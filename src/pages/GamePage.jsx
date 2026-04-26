@@ -18,15 +18,14 @@ import { computeDamage, computeDamageBreakdown } from "@/utils";
 export const GamePage = ({ gameId, characterId }) => {
   const build = useBuild().getBuilds(gameId)[characterId];
   const { calcs } = CHARACTERS[gameId][characterId] ?? {};
-  const [calcsIndex, setCriteriaIndex] = useState(0);
-  const { team, updateTeam } = useTeam(gameId, characterId, calcsIndex);
+  const { team, updateTeam } = useTeam(gameId, characterId, 0);
 
-  const rating = build && calcs
-    ? computeDamage(gameId, characterId, build, calcs[calcsIndex], team)
+  const rating = build && team.find(member => characterId === member?.characterId)
+    ? computeDamage(gameId, characterId, build, team)
     : null;
 
-  const breakdown = build && calcs
-    ? computeDamageBreakdown(gameId, characterId, build, calcs[calcsIndex], team)
+  const breakdown = build && team.find(member => characterId === member?.characterId)
+    ? computeDamageBreakdown(gameId, characterId, build, team)
     : [];
 
   const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, 0, team);
@@ -56,7 +55,7 @@ export const GamePage = ({ gameId, characterId }) => {
         updateTeam={updateTeam}
       />
 
-      {calcs ? (
+      {true ? (
         (isLoading || simCharacter !== characterId) ? (
           diff ? (
             <Bar key={characterId} completed={completed} diff={diff} />

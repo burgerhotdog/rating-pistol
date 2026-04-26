@@ -32,7 +32,7 @@ function formatConsidered(considered, input, groupId) {
 
   if (input.endsWith("DC")) return "BA";
   if (input.startsWith("M")) return input.slice(1);
-  if (SPECIAL_INPUTS.includes(input)) return DEFAULT_GROUP_INPUT[groupId];
+  if (SPECIAL_INPUTS.has(input)) return DEFAULT_GROUP_INPUT[groupId];
 
   return input;
 }

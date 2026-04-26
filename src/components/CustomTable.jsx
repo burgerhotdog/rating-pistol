@@ -16,12 +16,11 @@ export const CustomTable = ({ gameId, characterId, build, rating, team, isLoadin
   const element = CHARACTERS[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const { SUB_STAT_TYPES } = MISC[gameId];
-  const { calcs } = CHARACTERS[gameId][characterId];
-  if (isLoading || !calcs || !build) return null;
+  if (isLoading || !build) return null;
 
   const newRatings = Object.entries(SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
-      const newRating = computeDamage(gameId, characterId, { ...build, equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }] }, calcs[0], team);
+      const newRating = computeDamage(gameId, characterId, { ...build, equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }] }, team);
       return {
         name: id,
         diff: newRating / rating * 100 - 100,

@@ -8,7 +8,6 @@ function validate(gameId, build, calcs) {
   const weaponData = WEAPONS[gameId][weaponId];
   if (!weaponData) return "Unrecognized Weapon";
   if (weaponData.quality < 3) return "Invalid Weapon";
-  if (!calcs) return "Criteria not found";
   return null;
 }
 
@@ -32,6 +31,7 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
   useEffect(() => {
     const validationError = validate(gameId, build, calcs);
     if (validationError) {
+      console.log(validationError);
       setError(validationError);
       setResult({
         weeklyScores: null,

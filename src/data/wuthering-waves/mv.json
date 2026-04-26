@@ -32144,7 +32144,7 @@
     "2": {
       "name": "Resolution",
       "skills": {
-        "14": {
+        "1": {
           "name": "Wide Field Observation Mode: Distributed Array",
           "considered": "HEAL",
           "attr": "DEF",
@@ -32199,7 +32199,7 @@
             }
           ]
         },
-        "15": {
+        "2": {
           "name": "Expectation Error",
           "considered": "HEAL",
           "attr": "DEF",
@@ -32254,7 +32254,7 @@
             }
           ]
         },
-        "16": {
+        "3": {
           "name": "Optimal Solution",
           "input": "AUTO",
           "multipliers": [
@@ -32284,7 +32284,7 @@
             }
           ]
         },
-        "17": {
+        "4": {
           "name": "Wide Field Observation Mode: Distributed Array",
           "input": "AUTO",
           "multipliers": [
@@ -32320,7 +32320,7 @@
     "3": {
       "name": "Critical Protocol",
       "skills": {
-        "21": {
+        "1": {
           "attr": "DEF",
           "multipliers": [
             {
@@ -32354,7 +32354,7 @@
     "6": {
       "name": "Convergence",
       "skills": {
-        "25": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -32387,9 +32387,8 @@
     "7": {
       "name": "Mass-Energy Equivalence",
       "skills": {
-        "27": {
+        "1": {
           "name": "Syntony Field",
-          "input": "AUTO",
           "considered": "HEAL",
           "attr": "DEF",
           "multipliers": [
@@ -32443,7 +32442,7 @@
             }
           ]
         },
-        "28": {
+        "2": {
           "name": "Syntony Field",
           "considered": "RL",
           "multipliers": [
@@ -32474,7 +32473,7 @@
             }
           ]
         },
-        "29": {
+        "3": {
           "name": "Geopotential Shift",
           "input": "HA",
           "multipliers": [
@@ -32528,7 +32527,7 @@
             }
           ]
         },
-        "30": {
+        "4": {
           "name": "Wide Field Observation Mode: Inversion",
           "input": "HA",
           "multipliers": [
@@ -32558,7 +32557,7 @@
             }
           ]
         },
-        "31": {
+        "5": {
           "name": "Tune Rupture Response - Particle Jet",
           "considered": "TR",
           "attr": "TUNE",
@@ -32823,7 +32822,8 @@
         },
         "11": {
           "name": "Spark Collision Lv. 1",
-          "input": "RK",
+          "input": "HA",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -32854,7 +32854,8 @@
         },
         "12": {
           "name": "Spark Collision Lv. 2",
-          "input": "RK",
+          "input": "HA",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -32885,7 +32886,8 @@
         },
         "13": {
           "name": "Spark Collision Lv. 3",
-          "input": "AUTO",
+          "input": "HA",
+          "considered": "BA",
           "multipliers": [
             {
               "mv": [

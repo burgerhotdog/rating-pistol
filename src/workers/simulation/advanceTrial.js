@@ -74,7 +74,7 @@ function assignMainStat(gameId, slotIndex) {
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, calcs, team) {
+export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, match, team) {
   const { DAILY_STAMINA, WEEKLY_STAMINA, COST_PER_RUN, DROPS_PER_RUN } = STAMINA_DATA[gameId];
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
@@ -111,12 +111,12 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
     const newBuild = { ...latestBuild, equipList: newEquipList };
 
     // Compute new match penalty and damage with new build
-    const newPenalty = (calcs.match ?? []).reduce((acc, stat, index) => {
+    const newPenalty = match.reduce((acc, stat, index) => {
       const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, newBuild, team, "menu"));
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
-    const newDamage = computeDamage(gameId, characterId, newBuild, calcs, team);
+    const newDamage = computeDamage(gameId, characterId, newBuild, team);
 
     // Compare new damage with current and replace if better
     if (newDamage * newPenalty > latestDamage * latestPenalty) {

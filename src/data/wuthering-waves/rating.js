@@ -62,13 +62,13 @@ export function computeReductions(statMap, element, dmgTypes) {
   return resMult * defMult;
 }
 
-export function computeDamage(characterId, build, calcs, team) {
+export function computeDamage(characterId, build, rotation, team) {
   const skillMap = MVS["wuthering-waves"][characterId];
   const { element } = CHARACTERS["wuthering-waves"][characterId];
   const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
 
   let damage = 0;
-  for (const step of CHARACTERS["wuthering-waves"][characterId]?.preset?.rotation ?? []) {
+  for (const step of rotation) {
     const {
       considered,
       special,

@@ -23,7 +23,7 @@ export function useTeam(gameId, characterId, calcsIndex) {
 
   useEffect(() => {
     const size = (gameId === "genshin-impact" || gameId === "honkai-star-rail") ? 4 : 3;
-    const defaultTeam = CHARACTERS[gameId][characterId]?.calcs?.[calcsIndex]?.team;
+    const defaultTeam = CHARACTERS[gameId][characterId]?.preset?.team;
 
     const charIds = defaultTeam
       ? [...defaultTeam, ...new Array(size - 1).fill(null)].slice(0, size)
