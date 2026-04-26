@@ -218,7 +218,7 @@ export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => 
             <Box key={index} sx={{ cursor: 'pointer' }} onClick={() => setDialogIndex(index)}>
               <CustomAvatar
                 gameId={gameId}
-                characterId={member?.characterId ?? null}
+                characterId={member?.memberId ?? null}
               />
             </Box>
           ))}

@@ -30,19 +30,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1102",
         "1505"
       ],
       "weaponId": "21020015",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "3-1",
@@ -93,19 +90,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         null,
         "1103"
       ],
       "weaponId": "21050024",
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "7": 5
+      },
       "rotation": [
         "6-1",
         "6-2",
@@ -145,19 +139,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1104",
         "1102",
         "1505"
       ],
       "weaponId": "21040015",
-      "setBonuses": [
-        [
-          "1",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "1": 5
+      },
       "rotation": [
         "6-1",
         "3-1",
@@ -203,19 +194,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1202",
         "1206",
         "1207"
       ],
       "weaponId": "21030045",
-      "setBonuses": [
-        [
-          "2",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "2": 5
+      },
       "rotation": [
         "6-1",
         "7-3",
@@ -248,19 +236,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1203",
         "1207",
         "1505"
       ],
       "weaponId": "21050015",
-      "setBonuses": [
-        [
-          "2",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "2": 5
+      },
       "rotation": [
         "6-1",
         "3-8",
@@ -324,19 +309,16 @@
         ]
       }
     ],
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1204",
         "1505"
       ],
       "weaponId": "21030015",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "2-1",
@@ -372,19 +354,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1301",
         "1302",
         "1505"
       ],
       "weaponId": "21010015",
-      "setBonuses": [
-        [
-          "3",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "3": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -413,19 +392,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1302",
         "1505"
       ],
       "weaponId": "21050016",
-      "setBonuses": [
-        [
-          "13",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "13": 5
+      },
       "rotation": [
         "6-19",
         "1-4",
@@ -465,19 +441,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1303",
         "1505"
       ],
       "weaponId": "21040044",
-      "setBonuses": [
-        [
-          "13",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "13": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -511,19 +484,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1402",
         "1505"
       ],
       "weaponId": "21020015",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -558,19 +528,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1403",
         "1505"
       ],
       "weaponId": "21030015",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -591,19 +558,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1404",
         "1204",
         "1505"
       ],
       "weaponId": "21010016",
-      "setBonuses": [
-        [
-          "4",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "4": 5
+      },
       "rotation": [
         "6-1",
         "7-1",
@@ -640,19 +604,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1405",
         "1505"
       ],
       "weaponId": "21040024",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -681,19 +642,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         null,
         "1503"
       ],
       "weaponId": "21050024",
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "7": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -732,19 +690,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1601",
         "1505"
       ],
       "weaponId": "21010024",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -784,19 +739,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1602",
         "1505"
       ],
       "weaponId": "21020015",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -825,19 +777,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1205",
         "1206",
         "1207"
       ],
       "weaponId": "21020016",
-      "setBonuses": [
-        [
-          "2",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "2": 5
+      },
       "rotation": [
         "6-1",
         "2-3",
@@ -869,19 +818,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1304",
         "1105",
         "1503"
       ],
       "weaponId": "21010026",
-      "setBonuses": [
-        [
-          "5",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "5": 5
+      },
       "rotation": [
         "6-1",
         "2-2",
@@ -918,19 +864,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1105",
         "1505"
       ],
       "weaponId": "21050026",
-      "setBonuses": [
-        [
-          "13",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "13": 5
+      },
       "rotation": [
         "6-1",
         "1-1",
@@ -959,19 +902,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1305",
         "1302",
         "1505"
       ],
       "weaponId": "21040016",
-      "setBonuses": [
-        [
-          "3",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "3": 5
+      },
       "rotation": [
         "6-1",
         "2-1",
@@ -1011,19 +951,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         null,
         "1106"
       ],
       "weaponId": "21040024",
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "7": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -1066,19 +1003,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         null,
         "1505"
       ],
       "weaponId": "21050036",
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "7": 5
+      },
       "rotation": [
         "6-2",
         "1-1",
@@ -1121,19 +1055,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1504",
         "1505"
       ],
       "weaponId": "21010045",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -1154,19 +1085,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1603",
         "1606",
         "1505"
       ],
       "weaponId": "21020026",
-      "setBonuses": [
-        [
-          "6",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "6": 5
+      },
       "rotation": [
         "6-1",
         "2-1",
@@ -1203,19 +1131,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1107",
         "1105",
         "1505"
       ],
       "weaponId": "21030016",
-      "setBonuses": [
-        [
-          "10",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "10": 5
+      },
       "rotation": [
         "6-1",
         "2-1",
@@ -1259,19 +1184,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1606",
         "1505"
       ],
       "weaponId": "21040026",
-      "setBonuses": [
-        [
-          "12",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "12": 5
+      },
       "rotation": [
         "6-1",
         "1-4",
@@ -1321,19 +1243,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1206",
         "1207"
       ],
       "weaponId": "21020036",
-      "setBonuses": [
-        [
-          "14",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "14": 5
+      },
       "rotation": [
         "6-2",
         "3-1",
@@ -1368,19 +1287,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1507",
         "1506",
         "1505"
       ],
       "weaponId": "21050046",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "8": 5
+      },
       "rotation": [
         "6-1",
         "2-1",
@@ -1420,19 +1336,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1608",
         "1607",
         "1411"
       ],
       "weaponId": "21050056",
-      "setBonuses": [
-        [
-          "12",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "12": 5
+      },
       "rotation": [
         "6-36",
         "1-3",
@@ -1469,19 +1382,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1409",
         "1407",
         "1508"
       ],
       "weaponId": "21030026",
-      "setBonuses": [
-        [
-          "16",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "16": 5
+      },
       "rotation": [
         "6-1",
         "1-3",
@@ -1522,19 +1432,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1507",
         "1506",
         "1505"
       ],
       "weaponId": "21040036",
-      "setBonuses": [
-        [
-          "11",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "11": 5
+      },
       "rotation": [
         "6-1",
         "2-1",
@@ -1583,19 +1490,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1205",
         "1206",
         "1207"
       ],
       "weaponId": "21010036",
-      "setBonuses": [
-        [
-          "18",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "18": 5
+      },
       "rotation": [
         "6-2",
         "3-1",
@@ -1635,19 +1539,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1409",
         "1407",
         "1508"
       ],
       "weaponId": "21020056",
-      "setBonuses": [
-        [
-          "17",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "17": 5
+      },
       "rotation": [
         "6-9",
         "7-14",
@@ -1693,23 +1594,17 @@
       }
     },
     "match": [],
-    "preset": {
+    "defaults": {
       "team": [
         "1608",
         "1607",
         "1411"
       ],
       "weaponId": "21050066",
-      "setBonuses": [
-        [
-          "19",
-          "3"
-        ],
-        [
-          "6",
-          "2"
-        ]
-      ],
+      "setCounts": {
+        "19": 3,
+        "6": 2
+      },
       "rotation": [
         "6-26",
         "1-3",
@@ -1758,23 +1653,17 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1306",
         "1410",
         "1505"
       ],
       "weaponId": "21010046",
-      "setBonuses": [
-        [
-          "20",
-          "3"
-        ],
-        [
-          "3",
-          "2"
-        ]
-      ],
+      "setCounts": {
+        "20": 3,
+        "3": 2
+      },
       "rotation": [
         "6-38",
         "1-12",
@@ -1817,23 +1706,17 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1306",
         "1410",
         "1505"
       ],
       "weaponId": "21040046",
-      "setBonuses": [
-        [
-          "20",
-          "3"
-        ],
-        [
-          "4",
-          "2"
-        ]
-      ],
+      "setCounts": {
+        "20": 3,
+        "4": 2
+      },
       "rotation": [
         "6-1",
         "3-1",
@@ -1868,23 +1751,17 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1208",
         "1411",
         "1505"
       ],
       "weaponId": "21030036",
-      "setBonuses": [
-        [
-          "22",
-          "3"
-        ],
-        [
-          "2",
-          "2"
-        ]
-      ],
+      "setCounts": {
+        "22": 3,
+        "2": 2
+      },
       "rotation": [
         "6-11",
         "1-2",
@@ -1931,23 +1808,17 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1208",
         "1411",
         "1505"
       ],
       "weaponId": "21020066",
-      "setBonuses": [
-        [
-          "21",
-          "3"
-        ],
-        [
-          "4",
-          "2"
-        ]
-      ],
+      "setCounts": {
+        "21": 3,
+        "4": 2
+      },
       "rotation": [
         "6-18",
         "7-23",
@@ -1975,19 +1846,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         null,
         "1307"
       ],
       "weaponId": "21050024",
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "7": 5
+      },
       "rotation": [
         "6-1",
         "8-1"
@@ -2021,23 +1889,17 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         null,
         "1508"
       ],
       "weaponId": "21010056",
-      "setBonuses": [
-        [
-          "23",
-          "3"
-        ],
-        [
-          "6",
-          "2"
-        ]
-      ],
+      "setCounts": {
+        "23": 3,
+        "6": 2
+      },
       "rotation": [
         "6-25",
         "1-2",
@@ -2073,19 +1935,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         null,
         "1209"
       ],
       "weaponId": "21010066",
-      "setBonuses": [
-        [
-          "25",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "25": 5
+      },
       "rotation": [
         "6-1",
         "7-2",
@@ -2133,19 +1992,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         null,
         "1509",
         "1209"
       ],
       "weaponId": "21030046",
-      "setBonuses": [
-        [
-          "24",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "24": 5
+      },
       "rotation": [
         "6-29",
         "3-10",
@@ -2185,19 +2041,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1210",
         "1509",
         "1209"
       ],
       "weaponId": "21020076",
-      "setBonuses": [
-        [
-          "27",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "27": 5
+      },
       "rotation": [
         "6-1",
         "1-3",
@@ -2238,19 +2091,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1510",
         "1509",
         "1209"
       ],
       "weaponId": "21040056",
-      "setBonuses": [
-        [
-          "26",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "26": 5
+      },
       "rotation": [
         "6-29",
         "1-9",
@@ -2312,19 +2162,16 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
       "team": [
         "1412",
         "1411",
         "1505"
       ],
       "weaponId": "21040066",
-      "setBonuses": [
-        [
-          "29",
-          "5"
-        ]
-      ],
+      "setCounts": {
+        "29": 5
+      },
       "rotation": [
         "6-22",
         "1-2",

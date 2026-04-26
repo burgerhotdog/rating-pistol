@@ -17,6 +17,8 @@ import {
   Stack,
   TextField,
   Typography,
+  ToggleButton,
+  ToggleButtonGroup,
   Avatar,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -27,45 +29,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
 import { CHARACTERS, WEAPONS, SETS, MISC } from '@/data';
-import { getSkill, getSkillList } from '@/utils';
-
-function getDefaultRotation(gameId, characterId) {
-  return CHARACTERS[gameId]?.[characterId]?.preset?.rotation ?? [];
-}
-
-function getDefaultSetBonuses(gameId, characterId) {
-  const raw = CHARACTERS[gameId]?.[characterId]?.preset?.setBonuses ?? [];
-  return raw.map(([setId, pieces]) => [String(setId), Number(pieces)]);
-}
-
-function getSetCapacity(gameId) {
-  if (gameId === 'honkai-star-rail' || gameId === 'zenless-zone-zero') return 6;
-  return 5;
-}
-
-function normalizeSetBonuses(setBonuses, gameId) {
-  const capacity = getSetCapacity(gameId);
-  const seen = new Set();
-  const normalized = [];
-  let used = 0;
-
-  for (const entry of setBonuses ?? []) {
-    if (!Array.isArray(entry) || entry.length < 2) continue;
-    const setId = String(entry[0]);
-    const pieces = Number(entry[1]);
-    if (!setId || !Number.isFinite(pieces) || pieces <= 0) continue;
-
-    const key = `${setId}-${pieces}`;
-    if (seen.has(key)) continue;
-    if (used + pieces > capacity) continue;
-
-    seen.add(key);
-    normalized.push([setId, pieces]);
-    used += pieces;
-  }
-
-  return normalized;
-}
+import { getSkill, getSkillList, getMember } from '@/utils';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
@@ -208,6 +172,353 @@ function WeaponSelectDialog({ gameId, weaponType, open, onClose, onSelect }) {
   );
 }
 
+// ─── SetSelectDialog ────────────────────────────────────────────────────────
+
+function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity }) {
+  const [search, setSearch] = useState('');
+  const [pieceFilter, setPieceFilter] = useState(null);
+
+  // Collect all piece-count tiers that exist across all sets in this game
+  const allPieceTiers = useMemo(() => {
+    const tiers = new Set();
+    for (const setData of Object.values(SETS[gameId])) {
+      for (const key of Object.keys(setData?.setBonus ?? {})) {
+        const n = Number(key);
+        if (Number.isFinite(n)) tiers.add(n);
+      }
+    }
+    return [...tiers].sort((a, b) => a - b);
+  }, [gameId]);
+
+  // Which tiers are possible given remaining capacity
+  const enabledTiers = useMemo(
+    () => new Set(allPieceTiers.filter(t => t <= remainingCapacity)),
+    [allPieceTiers, remainingCapacity]
+  );
+
+  // Sync default filter to first enabled tier whenever dialog opens
+  useEffect(() => {
+    if (open) {
+      const firstEnabled = allPieceTiers.find(t => enabledTiers.has(t)) ?? null;
+      setPieceFilter(firstEnabled);
+    }
+  }, [open]);
+
+  const options = useMemo(() => {
+    const lower = search.toLowerCase();
+    return Object.entries(SETS[gameId])
+      .filter(([_, setData]) => {
+        const bonusKeys = Object.keys(setData?.setBonus ?? {}).map(Number);
+        // Must have at least one bonus tier matching the filter (if set) and within capacity
+        const hasMatchingTier = pieceFilter
+          ? bonusKeys.includes(pieceFilter) && enabledTiers.has(pieceFilter)
+          : bonusKeys.some(k => enabledTiers.has(k));
+        return hasMatchingTier && setData.name.toLowerCase().includes(lower);
+      })
+      .map(([id, setData]) => ({ id, name: setData.name }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [gameId, search, pieceFilter, enabledTiers]);
+
+  const handleSelect = (id) => {
+    onSelect(id, pieceFilter);
+    setSearch('');
+    onClose();
+  };
+
+  return (
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
+      <DialogTitle sx={{ pr: 6 }}>
+        Select Set
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
+          sx={{ position: 'absolute', right: 8, top: 8 }}
+        >
+          <CloseIcon fontSize="small" />
+        </IconButton>
+      </DialogTitle>
+
+      <DialogContent>
+        {/* Piece-count filter */}
+        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
+          <Typography variant="body2" color="text.secondary" sx={{ flexShrink: 0 }}>
+            Piece bonus:
+          </Typography>
+          <ToggleButtonGroup
+            size="small"
+            exclusive
+            value={pieceFilter}
+            onChange={(_, val) => { if (val !== null) setPieceFilter(val); }}
+          >
+            {allPieceTiers.map(tier => (
+              <ToggleButton
+                key={tier}
+                value={tier}
+                disabled={!enabledTiers.has(tier)}
+              >
+                {tier}pc
+              </ToggleButton>
+            ))}
+          </ToggleButtonGroup>
+        </Stack>
+
+        <TextField
+          fullWidth
+          size="small"
+          placeholder="Search sets..."
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          sx={{ mb: 2 }}
+        />
+
+        <Box
+          sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 1,
+            justifyContent: 'flex-start',
+            width: 'fit-content',
+            maxWidth: '100%',
+            mx: 'auto',
+          }}
+        >
+          {options.map(({ id, name }) => (
+            <Card key={id} sx={{ width: 100 }}>
+              <CardActionArea onClick={() => handleSelect(id)}>
+                <CardMedia
+                  image={`${gameId}/set/${id}.webp`}
+                  title={name}
+                  sx={{ width: 100, height: 100 }}
+                />
+                <Typography variant="body2" textAlign="center" noWrap px={0.5}>
+                  {name}
+                </Typography>
+              </CardActionArea>
+            </Card>
+          ))}
+
+          {options.length === 0 && (
+            <Typography variant="body2" color="text.secondary">
+              No sets available.
+            </Typography>
+          )}
+        </Box>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+// ─── SetIcon — single icon with hover-X and piece-count badge ───────────────
+
+function SetIcon({ gameId, setId, pieces, onRemove, onClick }) {
+  const [hovered, setHovered] = useState(false);
+  const name = SETS[gameId]?.[setId]?.name ?? setId;
+
+  return (
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      gap={0.5}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Box position="relative">
+        <Card sx={{ width: 80 }}>
+          <CardActionArea onClick={onClick}>
+            <CardMedia
+              image={`${gameId}/set/${setId}.webp`}
+              title={name}
+              sx={{ width: 80, height: 80 }}
+            />
+          </CardActionArea>
+        </Card>
+
+        {/* Piece-count badge — bottom-left */}
+        <Chip
+          label={`${pieces}pc`}
+          size="small"
+          sx={{
+            position: 'absolute',
+            bottom: 2,
+            left: 2,
+            height: 18,
+            fontSize: '0.65rem',
+            pointerEvents: 'none',
+            bgcolor: 'rgba(0,0,0,0.6)',
+            color: '#fff',
+            '& .MuiChip-label': { px: '4px' },
+          }}
+        />
+
+        {/* Remove X — top-right, visible on hover */}
+        {hovered && (
+          <IconButton
+            size="small"
+            onClick={(e) => { e.stopPropagation(); onRemove(); }}
+            sx={{
+              position: 'absolute',
+              top: -6,
+              right: -6,
+              bgcolor: 'background.paper',
+              border: '1px solid',
+              borderColor: 'divider',
+              width: 18,
+              height: 18,
+              '&:hover': { bgcolor: 'error.main', color: '#fff', borderColor: 'error.main' },
+            }}
+          >
+            <CloseIcon sx={{ fontSize: 11 }} />
+          </IconButton>
+        )}
+      </Box>
+
+      <Typography variant="caption" noWrap sx={{ maxWidth: 80 }}>
+        {name}
+      </Typography>
+    </Box>
+  );
+}
+
+// ─── SetCountsEditor ────────────────────────────────────────────────────────
+
+function SetCountsEditor({ gameId, memberId, setCounts, onChange }) {
+  const capacity = (gameId === 'genshin-impact' || gameId === 'wuthering-waves') ? 5 : 6;
+  const [dialogOpen, setDialogOpen] = useState(false);
+  // Index of the set being replaced; null means we're adding a new one
+  const [replacingIndex, setReplacingIndex] = useState(null);
+
+  const entries = Object.entries(setCounts); // [[setId, pieces], ...]
+  const usedPieces = entries.reduce((sum, [, n]) => sum + n, 0);
+
+  const remainingForAdd = capacity - usedPieces;
+
+  // Remaining capacity when replacing a specific slot (free up that slot's pieces first)
+  const remainingForReplace = (index) => {
+    const freed = Number(entries[index]?.[1] ?? 0);
+    return capacity - usedPieces + freed;
+  };
+
+  const openAdd = () => {
+    setReplacingIndex(null);
+    setDialogOpen(true);
+  };
+
+  const openReplace = (index) => {
+    setReplacingIndex(index);
+    setDialogOpen(true);
+  };
+
+  const handleSelect = (setId, pieces) => {
+    const next = { ...setCounts };
+
+    if (replacingIndex !== null) {
+      // Remove the old set at that index, add the new one
+      const oldSetId = entries[replacingIndex][0];
+      delete next[oldSetId];
+    }
+
+    next[setId] = pieces;
+    onChange(next);
+  };
+
+  const handleRemove = (setId) => {
+    const next = { ...setCounts };
+    delete next[setId];
+    onChange(next);
+  };
+
+  const currentRemainingCapacity =
+    replacingIndex !== null ? remainingForReplace(replacingIndex) : remainingForAdd;
+
+  if (!memberId) {
+    return (
+      <Typography variant="body2" color="text.secondary">
+        Select a character to edit set bonuses.
+      </Typography>
+    );
+  }
+
+  return (
+    <Box>
+      <Typography variant="subtitle2" sx={{ mb: 1 }}>
+        Set Bonuses
+      </Typography>
+
+      <Stack direction="row" spacing={1} alignItems="flex-start" flexWrap="wrap" useFlexGap>
+        {entries.map(([setId, pieces], index) => (
+          <SetIcon
+            key={setId}
+            gameId={gameId}
+            setId={setId}
+            pieces={pieces}
+            onRemove={() => handleRemove(setId)}
+            onClick={() => openReplace(index)}
+          />
+        ))}
+
+        {/* Add button — only shown when more sets can fit */}
+        {remainingForAdd > 0 && (
+          <Box display="flex" flexDirection="column" alignItems="center" gap={0.5}>
+            <Card
+              sx={{
+                width: 80,
+                height: 80,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: '2px dashed',
+                borderColor: 'divider',
+                boxShadow: 'none',
+                bgcolor: 'transparent',
+              }}
+            >
+              <CardActionArea
+                onClick={openAdd}
+                sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <AddIcon color="action" />
+              </CardActionArea>
+            </Card>
+            <Typography variant="caption" color="text.secondary">Add set</Typography>
+          </Box>
+        )}
+      </Stack>
+
+      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
+        Pieces used: {usedPieces}/{capacity}
+      </Typography>
+
+      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<RestartAltIcon />}
+          onClick={() => onChange(getMember(gameId, memberId).setCounts)}
+        >
+          Reset Default
+        </Button>
+        <Button
+          size="small"
+          variant="outlined"
+          startIcon={<ClearAllIcon />}
+          onClick={() => onChange({})}
+        >
+          Clear
+        </Button>
+      </Stack>
+
+      <SetSelectDialog
+        gameId={gameId}
+        open={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        onSelect={handleSelect}
+        remainingCapacity={currentRemainingCapacity}
+      />
+    </Box>
+  );
+}
+
 function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
 
@@ -323,12 +634,6 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
 
-  const normalizedRotation = Array.isArray(rotation) ? rotation : [];
-  const defaultRotation = useMemo(
-    () => (characterId ? getDefaultRotation(gameId, characterId) : []),
-    [gameId, characterId]
-  );
-
   const skillNameByKey = useMemo(() => {
     if (!characterId) return {};
     let keys = [];
@@ -351,14 +656,14 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
   const moveSkill = (index, direction) => {
     const nextIndex = index + direction;
-    if (nextIndex < 0 || nextIndex >= normalizedRotation.length) return;
-    const next = [...normalizedRotation];
+    if (nextIndex < 0 || nextIndex >= rotation.length) return;
+    const next = [...rotation];
     [next[index], next[nextIndex]] = [next[nextIndex], next[index]];
     onChange(next);
   };
 
   const removeSkill = (index) => {
-    onChange(normalizedRotation.filter((_, i) => i !== index));
+    onChange(rotation.filter((_, i) => i !== index));
   };
 
   if (!characterId) {
@@ -387,7 +692,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         }}
       >
         <List dense sx={{ p: 0.5 }}>
-          {normalizedRotation.map((skillKey, index) => {
+          {rotation.map((skillKey, index) => {
             const skillData = skillNameByKey[skillKey] ?? { name: skillKey, input: null };
             return (
               <ListItem
@@ -428,7 +733,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         </List>
       </Box>
 
-      {normalizedRotation.length === 0 && (
+      {rotation.length === 0 && (
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
           Rotation is empty.
         </Typography>
@@ -447,7 +752,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
           size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(defaultRotation)}
+          onClick={() => onChange(CHARACTERS[gameId][characterId]?.preset?.rotation ?? [])}
         >
           Reset Default
         </Button>
@@ -466,218 +771,40 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         characterId={characterId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
-        onSelect={(skillKey) => onChange([...normalizedRotation, skillKey])}
+        onSelect={(skillKey) => onChange([...rotation, skillKey])}
       />
     </Box>
   );
 }
 
-function SetBonusEditor({ gameId, characterId, setBonuses, onChange }) {
-  const normalized = Array.isArray(setBonuses) ? setBonuses : [];
-  const setMap = SETS[gameId] ?? {};
-  const capacity = getSetCapacity(gameId);
-  const usedPieces = normalized.reduce((acc, [_, pieces]) => acc + Number(pieces || 0), 0);
-
-  const setOptions = useMemo(() => {
-    return Object.entries(setMap)
-      .filter(([_, setData]) => Object.keys(setData?.setBonus ?? {}).length > 0)
-      .map(([id, setData]) => ({ id: String(id), name: setData.name }))
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }, [setMap]);
-
-  const getPieceOptionsForSet = (setId) => {
-    const keys = Object.keys(setMap?.[setId]?.setBonus ?? {});
-    return keys.map(Number).filter(Number.isFinite).sort((a, b) => a - b);
-  };
-
-  const updateRows = (nextRows) => onChange(normalizeSetBonuses(nextRows, gameId));
-
-  const updateSetId = (index, setId) => {
-    const next = [...normalized];
-    const maxAllowed = capacity - (usedPieces - Number(next[index][1] || 0));
-    const pieceOptions = getPieceOptionsForSet(setId).filter(p => p <= maxAllowed);
-    const nextPieces = pieceOptions[0] ?? getPieceOptionsForSet(setId)[0] ?? 0;
-    next[index] = [setId, nextPieces];
-    updateRows(next);
-  };
-
-  const updatePieces = (index, pieces) => {
-    const next = [...normalized];
-    next[index] = [next[index][0], Number(pieces)];
-    updateRows(next);
-  };
-
-  const removeRow = (index) => {
-    updateRows(normalized.filter((_, i) => i !== index));
-  };
-
-  const addRow = () => {
-    const remaining = capacity - usedPieces;
-    if (remaining <= 0) return;
-
-    for (const option of setOptions) {
-      const pieceOptions = getPieceOptionsForSet(option.id).filter(p => p <= remaining);
-      if (!pieceOptions.length) continue;
-      updateRows([...normalized, [option.id, pieceOptions[0]]]);
-      return;
-    }
-  };
-
-  if (!characterId) {
-    return (
-      <Typography variant="body2" color="text.secondary">
-        Select a character to edit set bonuses.
-      </Typography>
-    );
-  }
-
-  return (
-    <Box>
-      <Typography variant="subtitle2" sx={{ mb: 1 }}>
-        Set Bonuses
-      </Typography>
-
-      <Stack spacing={1}>
-        {normalized.map(([setId, pieces], index) => {
-          const maxAllowed = capacity - (usedPieces - Number(pieces || 0));
-          const pieceOptions = getPieceOptionsForSet(setId).filter(p => p <= maxAllowed);
-          const pieceValue = pieceOptions.includes(Number(pieces))
-            ? Number(pieces)
-            : (pieceOptions[0] ?? '');
-
-          return (
-            <Stack key={`${setId}-${index}`} direction="row" spacing={1} alignItems="center">
-              <TextField
-                select
-                size="small"
-                label="Set"
-                value={setId}
-                onChange={e => updateSetId(index, e.target.value)}
-                sx={{ minWidth: 180 }}
-              >
-                {setOptions.map(option => (
-                  <MenuItem key={option.id} value={option.id}>
-                    {option.name}
-                  </MenuItem>
-                ))}
-              </TextField>
-
-              <TextField
-                select
-                size="small"
-                label="Bonus"
-                value={pieceValue}
-                onChange={e => updatePieces(index, e.target.value)}
-                sx={{ width: 110 }}
-              >
-                {pieceOptions.map(count => (
-                  <MenuItem key={count} value={count}>
-                    {count}pc
-                  </MenuItem>
-                ))}
-              </TextField>
-
-              <IconButton size="small" onClick={() => removeRow(index)}>
-                <DeleteOutlineIcon fontSize="small" />
-              </IconButton>
-            </Stack>
-          );
-        })}
-      </Stack>
-
-      {normalized.length === 0 && (
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-          No set bonuses selected.
-        </Typography>
-      )}
-
-      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
-        Pieces used: {usedPieces}/{capacity}
-      </Typography>
-
-      <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
-        <Button
-          size="small"
-          variant="outlined"
-          startIcon={<AddIcon />}
-          onClick={addRow}
-          disabled={usedPieces >= capacity}
-        >
-          Add Set Bonus
-        </Button>
-        <Button
-          size="small"
-          variant="outlined"
-          startIcon={<RestartAltIcon />}
-          onClick={() => onChange(getDefaultSetBonuses(gameId, characterId))}
-        >
-          Reset Default
-        </Button>
-        <Button
-          size="small"
-          variant="outlined"
-          startIcon={<ClearAllIcon />}
-          onClick={() => onChange([])}
-        >
-          Clear
-        </Button>
-      </Stack>
-    </Box>
-  );
-}
-
 export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
-  const EMPTY_MEMBER = {
-    characterId: null,
-    weaponId: null,
-    setId: null,
-    setBonuses: [],
-    rotation: [],
-  };
-
-  const [draft, setDraft] = useState(member ?? EMPTY_MEMBER);
+  const [draft, setDraft] = useState(member);
   const [charDialogOpen, setCharDialogOpen] = useState(false);
   const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
 
-  useEffect(() => {
-    setDraft(member ?? EMPTY_MEMBER);
-  }, [member]);
+  useEffect(() => setDraft(member), [member]);
 
-  const characterData = CHARACTERS[gameId]?.[draft?.characterId];
-  const weaponData = WEAPONS[gameId]?.[draft?.weaponId];
-  const weaponType = characterData?.type ?? null;
+  const memberData = CHARACTERS[gameId][draft.memberId];
+  const weaponData = WEAPONS[gameId]?.[draft.weaponId];
+  const weaponType = memberData?.type ?? null;
 
   const handleCharacterSelect = (charId) => {
-    const defaultSetBonuses = getDefaultSetBonuses(gameId, charId);
-    const preset = CHARACTERS[gameId]?.[charId]?.preset;
-    setDraft({
-      characterId: charId,
-      weaponId: preset?.weaponId ?? null,
-      setId: defaultSetBonuses[0]?.[0] ?? null,
-      setBonuses: defaultSetBonuses,
-      rotation: getDefaultRotation(gameId, charId),
-    });
+    setDraft(getMember(gameId, charId));
   };
 
   const handleSave = () => {
-    const normalizedSetBonuses = normalizeSetBonuses(draft?.setBonuses, gameId);
-    onSave({
-      ...draft,
-      setId: normalizedSetBonuses?.[0]?.[0] ?? null,
-      setBonuses: normalizedSetBonuses,
-      rotation: [...(draft?.rotation ?? [])],
-    });
+    onSave({ ...draft });
     onClose();
   };
 
   const handleCancel = () => {
-    setDraft(member ?? EMPTY_MEMBER);
+    setDraft(member);
     onClose();
   };
 
   return (
     <>
-      <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="sm">
+      <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="md">
         <DialogTitle>Configure Team Member</DialogTitle>
 
         <DialogContent>
@@ -686,38 +813,34 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
               {/* Character */}
               <PickerButton
                 label="Character"
-                imageUrl={draft?.characterId ? `${gameId}/character/${draft.characterId}.webp` : null}
-                name={characterData?.name ?? null}
+                imageUrl={`${gameId}/character/${draft.memberId}.webp`}
+                name={memberData?.name ?? null}
                 onClick={() => setCharDialogOpen(true)}
               />
 
               {/* Weapon */}
               <PickerButton
                 label="Weapon"
-                imageUrl={draft?.weaponId ? `${gameId}/weapon/${draft.weaponId}.webp` : null}
+                imageUrl={`${gameId}/weapon/${draft.weaponId}.webp`}
                 name={weaponData?.name ?? null}
                 onClick={() => setWeaponDialogOpen(true)}
               />
             </Stack>
 
             <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 280 } }}>
-              <SetBonusEditor
+              <SetCountsEditor
                 gameId={gameId}
-                characterId={draft?.characterId}
-                setBonuses={draft?.setBonuses}
-                onChange={(setBonuses) => setDraft(prev => ({
-                  ...prev,
-                  setBonuses,
-                  setId: setBonuses?.[0]?.[0] ?? null,
-                }))}
+                memberId={draft.memberId}
+                setCounts={draft.setCounts}
+                onChange={(setCounts) => setDraft(prev => ({ ...prev, setCounts }))}
               />
             </Box>
           </Stack>
 
           <RotationEditor
             gameId={gameId}
-            characterId={draft?.characterId}
-            rotation={draft?.rotation}
+            characterId={draft.memberId}
+            rotation={draft.rotation}
             onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
           />
         </DialogContent>

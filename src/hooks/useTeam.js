@@ -1,39 +1,31 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { CHARACTERS } from '@/data';
+import { getMember } from '@/utils';
 
-function getDefaultRotation(gameId, characterId) {
-  return CHARACTERS[gameId]?.[characterId]?.preset?.rotation ?? [];
-}
+function createMember(gameId, member) {
+  if (!member) {
+    return {
+      memberId: null,
+      weaponId: null,
+      setCounts: {},
+      rotation: [],
+    };
+  }
 
-function buildMember(gameId, charId) {
-  if (!charId) return null;
-  const preset = CHARACTERS[gameId]?.[charId]?.preset;
-  const setBonuses = (preset?.setBonuses ?? []).map(([setId, pieces]) => [String(setId), Number(pieces)]);
-  return {
-    characterId: charId,
-    weaponId: preset?.weaponId ?? null,
-    setId: setBonuses[0]?.[0] ?? null,
-    setBonuses,
-    rotation: getDefaultRotation(gameId, charId),
-  };
+  if (typeof member === 'string') {
+    return getMember(gameId, member);
+  }
+
+  return { ...getMember(gameId, member.memberId), ...member };
 }
 
 export function useTeam() {
   const { gameId, characterId } = useParams();
-  const { team: teamPreset } = CHARACTERS[gameId][characterId].preset;
-  const [team, setTeam] = useState([]);
+  const teamSize = (gameId === 'genshin-impact' || gameId === 'honkai-star-rail') ? 4 : 3;
+  const defaultTeam = CHARACTERS[gameId][characterId].defaults?.team ?? [characterId, ...Array(teamSize - 1).fill(null)];
 
-  useEffect(() => {
-    const size = (gameId === "genshin-impact" || gameId === "honkai-star-rail") ? 4 : 3;
-    const defaultTeam = CHARACTERS[gameId][characterId]?.preset?.team;
-
-    const charIds = defaultTeam
-      ? [...defaultTeam, ...new Array(size - 1).fill(null)].slice(0, size)
-      : [characterId, ...new Array(size - 1).fill(null)];
-
-    setTeam(charIds.map(id => buildMember(gameId, id)));
-  }, [gameId, characterId]);
+  const [team, setTeam] = useState(defaultTeam.map(member => createMember(gameId, member)));
 
   function updateTeam(index, member) {
     if (index < 0 || index >= team.length) return;
@@ -44,7 +36,5 @@ export function useTeam() {
     setTeam([...newTeam]);
   }
 
-  const teamIds = useMemo(() => team.map(m => m?.characterId ?? null), [team]);
-
-  return { team, teamIds, updateTeam, replaceTeam };
+  return { team, updateTeam, replaceTeam };
 }
