@@ -1,15 +1,15 @@
 import { RATING, MISC } from '@/data';
-import { getSkill, resolveCalcsWithTeamRotation } from '@/utils';
+import { getSkill } from '@/utils';
 
 export function computeDamage(gameId, characterId, build, team) {
-  const { rotation } = team.find(member => characterId === member?.characterId);
+  const { rotation } = team.find(member => characterId === member?.memberId);
   return RATING[gameId].computeDamage(characterId, build, rotation, team);
 }
 
 export function computeDamageBreakdown(gameId, characterId, build, team) {
   if (!build) return [];
 
-  const { rotation } = team.find(member => characterId === member?.characterId);
+  const { rotation } = team.find(member => characterId === member?.memberId);
   if (!rotation) return [];
 
   const grouped = {};

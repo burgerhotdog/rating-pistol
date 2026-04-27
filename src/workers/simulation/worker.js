@@ -1,4 +1,4 @@
-import { mergeEquipList, computeTotalStat, compileStatMap, resolveCalcsWithTeamRotation } from '@/utils';
+import { mergeEquipList, computeTotalStat, compileStatMap } from '@/utils';
 import { findBenchmarkWeek, getAverageScores, findRelativeError } from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
@@ -9,10 +9,6 @@ import { CHARACTERS } from '@/data';
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
-
-function getMemberId(member) {
-  return typeof member === 'string' ? member : member?.characterId ?? null;
-}
 
 function buildSetIdList(setBonuses, maxSlots) {
   const list = new Array(maxSlots).fill(null);
@@ -33,19 +29,19 @@ function buildSetIdList(setBonuses, maxSlots) {
   return list;
 }
 
-function getPreferredMainStats(isWuwa, trial, gameId, characterId, calcs, team, matchTargets) {
+function getPreferredMainStats(isWuwa, trial, gameId, characterId, match, team, matchTargets) {
   return isWuwa
-    ? findPreferredWuwa(trial, gameId, characterId, calcs, team, matchTargets)
-    : findPreferred(trial, gameId, characterId, calcs, team, matchTargets);
+    ? findPreferredWuwa(trial, gameId, characterId, match, team, matchTargets)
+    : findPreferred(trial, gameId, characterId, match, team, matchTargets);
 }
 
-function advanceOneWeek(isWuwa, preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, calcs, team) {
+function advanceOneWeek(isWuwa, preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, match, team) {
   if (isWuwa) {
-    advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, calcs, team);
+    advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
     return;
   }
 
-  advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, calcs, team);
+  advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, match, team);
 }
 
 function simulateCharacter({ gameId, characterId, build, team, setIdList, reportProgress = false }) {
@@ -118,7 +114,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
 }
 
 self.onmessage = ({ data }) => {
-  const { gameId, characterId, build, calcs, team } = data;
+  const { gameId, characterId, build, team } = data;
   const isWuwa = gameId === 'wuthering-waves';
   const setIdList = build.equipList.map(equip => equip?.setId);
 
@@ -126,33 +122,25 @@ self.onmessage = ({ data }) => {
   if (isWuwa) {
     for (let ti = team.length - 1; ti >= 0; ti--) {
       const member = team[ti];
-      const memberCharId = getMemberId(member);
-      if (!memberCharId || memberCharId === characterId) continue;
+      const { memberId, weaponId, setCounts } = member;
+      if (!memberId || memberId === characterId) continue;
 
-      const memberData = CHARACTERS['wuthering-waves'][memberCharId];
+      const memberSetIdList = Object.entries(setCounts)
+        .flatMap(([setId, count]) => Array(count).fill(setId))
+        .concat(Array(5).fill(null))
+        .slice(0, 5);
 
-      const memberPreset = memberData?.preset ?? {};
-
-      const configuredSetBonuses = (typeof member === 'object' && Array.isArray(member?.setBonuses))
-        ? member.setBonuses
-        : null;
-      const memberSetBonuses = configuredSetBonuses ?? memberPreset.setBonuses ?? [];
-      const memberSetIdList = buildSetIdList(memberSetBonuses, 5);
-
-      const memberBuild = {
-        weaponId: (typeof member === 'object' ? member?.weaponId : null) ?? memberPreset.weaponId ?? null,
-        equipList: new Array(5).fill(null),
-      };
+      const memberBuild = { weaponId, equipList: new Array(5).fill(null) };
 
       const memberResult = simulateCharacter({
         gameId: 'wuthering-waves',
-        characterId: memberCharId,
+        characterId: memberId,
         build: memberBuild,
         team,
         setIdList: memberSetIdList,
       });
 
-      teamWeeklyScores[memberCharId] = memberResult.weeklyScores;
+      teamWeeklyScores[memberId] = memberResult.weeklyScores;
     }
   }
 

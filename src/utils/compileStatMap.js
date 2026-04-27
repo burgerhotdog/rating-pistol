@@ -38,8 +38,7 @@ function buildVariableSourceMap(mergedSourceMap, variable) {
 }
 
 export function compileStatMap(gameId, characterId, build, team, mode) {
-  const getMemberId = (m) => (typeof m === 'string' ? m : m?.characterId ?? null);
-  const characterIndex = team.findIndex(m => getMemberId(m) === characterId);
+  const characterIndex = team.findIndex(m => m.memberId === characterId);
   const inCombat = mode === "combat";
   const isFirst = characterIndex === 0;
   const { weaponId, equipList } = build;
@@ -80,7 +79,7 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
     const teamMaps = [];
     const appliedSetBonuses = new Set();
     for (const [index, member] of Object.entries(team)) {
-      const memberId = getMemberId(member);
+      const { memberId } = member;
       const memberData = CHARACTERS[gameId][memberId];
       if (!memberData || (memberId === characterId)) continue;
 

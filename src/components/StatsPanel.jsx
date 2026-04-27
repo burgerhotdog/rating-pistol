@@ -60,14 +60,13 @@ function getBuffLines(gameId, menuStats, buffMap) {
 export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => {
   const { MENU_STATS } = MISC[gameId];
   const [dialogIndex, setDialogIndex] = useState(null);
-  const getMemberId = (member) => (typeof member === 'string' ? member : member?.characterId ?? null);
 
   const statMap = build ? compileStatMap(gameId, characterId, build, [], "menu") : {};
-  const characterIndex = team.findIndex(member => getMemberId(member) === characterId);
+  const characterIndex = team.findIndex(({ memberId }) => memberId === characterId);
   const isFirst = characterIndex === 0;
 
   const teamBuffRows = team.flatMap((member, index) => {
-    const memberId = getMemberId(member);
+    const memberId = member.memberId;
     if (!memberId || memberId === characterId) return [];
 
     const memberData = CHARACTERS[gameId]?.[memberId];
@@ -87,10 +86,7 @@ export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => 
     const memberWeaponId = configuredWeaponId ?? presetWeaponId;
     const weaponData = memberWeaponId ? WEAPONS[gameId]?.[memberWeaponId] : null;
 
-    const configuredSetBonuses = (typeof member === 'object' && Array.isArray(member?.setBonuses))
-      ? member.setBonuses
-      : null;
-    const setBonuses = configuredSetBonuses ?? memberData.preset?.setBonuses ?? [];
+    const setBonuses = Object.entries(member.setCounts) ?? memberData.preset?.setBonuses ?? [];
 
     const rows = [];
 
@@ -171,17 +167,6 @@ export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => 
       />
 
       <CardContent>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="body2" color="text.secondary">
-            Weapon
-          </Typography>
-          <Typography variant="body2" fontWeight="bold">
-            {WEAPONS[gameId]?.[build?.weaponId]?.name ?? ""}
-          </Typography>
-        </Box>
-
-        <Divider sx={{ my: 2 }} />
-
         <Stack gap={1}>
           {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
             const totalValue = computeTotalStat(id, statMap);
@@ -211,7 +196,7 @@ export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => 
         <Divider sx={{ my: 2 }} />
 
         <Typography variant="caption" color="text.secondary" sx={{ mb: 1.5, display: 'block' }}>
-          Team
+          Team Configuration
         </Typography>
         <Stack direction="row" spacing={1} justifyContent="center">
           {team.map((member, index) => (

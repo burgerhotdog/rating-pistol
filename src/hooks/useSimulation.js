@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useBuild } from '@/contexts';
-import { CHARACTERS, WEAPONS } from '@/data';
+import { WEAPONS } from '@/data';
 
-function validate(gameId, build, calcs) {
+function validate(gameId, build) {
   if (!build) return "Build not found";
   const { weaponId } = build;
   const weaponData = WEAPONS[gameId][weaponId];
@@ -11,10 +11,8 @@ function validate(gameId, build, calcs) {
   return null;
 }
 
-export function useSimulation(gameId, characterId, calcsIndex, team) {
+export function useSimulation(gameId, characterId, team) {
   const build = useBuild().getBuilds(gameId)[characterId];
-  const calcs = CHARACTERS[gameId][characterId]?.calcs?.[calcsIndex];
-  const [error, setError] = useState(null);
 
   const workerRef = useRef(null);
   const [result, setResult] = useState({
@@ -29,9 +27,8 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
   });
   
   useEffect(() => {
-    const validationError = validate(gameId, build, calcs);
+    const validationError = validate(gameId, build);
     if (validationError) {
-      setError(validationError);
       setResult({
         weeklyScores: null,
         finalStats: null,
@@ -93,7 +90,6 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
       gameId,
       characterId,
       build,
-      calcs,
       team,
     });
 
@@ -101,7 +97,7 @@ export function useSimulation(gameId, characterId, calcsIndex, team) {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
     };
-  }, [gameId, characterId, build, calcs, team]);
+  }, [gameId, characterId, build, team]);
 
   return result;
 }

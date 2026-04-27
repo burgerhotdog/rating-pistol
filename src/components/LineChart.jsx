@@ -168,7 +168,7 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLo
                   </Typography>
                   {!showTeam && dist && (
                     <Typography variant="body2" color="text.secondary">
-                      Q1–Q3: {dist.q1.toLocaleString('en-US', { maximumFractionDigits: 0 })} – {dist.q3.toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                      Q1-Q3: {dist.q1.toLocaleString('en-US', { maximumFractionDigits: 0 })} - {dist.q3.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
                   )}
                   {percentGain != null && (
