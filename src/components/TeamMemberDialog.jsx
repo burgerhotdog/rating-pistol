@@ -519,7 +519,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange }) {
   );
 }
 
-function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
+function SkillSelectDialog({ gameId, characterId, teamIds, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
 
   const options = useMemo(() => {
@@ -531,9 +531,23 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
       return [];
     }
 
+    for (const memberId of teamIds) {
+      if (memberId === characterId) continue;
+      const memberSkillList = getSkillList(gameId, memberId).filter(skillKey => {
+        const { input } = getSkill(gameId, memberId, skillKey);
+        return input === "CA";
+      }).map(skillKey => `${skillKey}_${memberId}`);
+      keys = [...keys, ...memberSkillList];
+    }
+
     const lower = search.toLowerCase();
     return keys
       .map(skillKey => {
+        const [pureKey, ownerId] = skillKey.split('_');
+        if (ownerId) {
+          const skill = getSkill(gameId, ownerId, pureKey);
+          return { skillKey, name: skill.name, ownerId };
+        }
         try {
           const skill = getSkill(gameId, characterId, skillKey);
           return { skillKey, name: skill.name };
@@ -547,7 +561,7 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
         const text = `${name} ${skillKey}`.toLowerCase();
         return text.includes(lower);
       });
-  }, [gameId, characterId, search]);
+  }, [gameId, characterId, teamIds, search]);
 
   const handleSelect = (skillKey) => {
     onSelect(skillKey);
@@ -630,7 +644,7 @@ function PickerButton({ label, imageUrl, name, onClick }) {
   );
 }
 
-function RotationEditor({ gameId, characterId, rotation, onChange }) {
+function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
 
@@ -693,7 +707,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
       >
         <List dense sx={{ p: 0.5 }}>
           {rotation.map((skillKey, index) => {
-            const skillData = skillNameByKey[skillKey] ?? { name: skillKey, input: null };
+            const { input, name, ownerId } = getSkill(gameId, characterId, skillKey);
             return (
               <ListItem
                 key={`${skillKey}-${index}`}
@@ -713,18 +727,18 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
                 sx={{ py: 0.25, pr: 14 }}
               >
                 <Stack direction="row" spacing={1} alignItems="center" sx={{ width: '100%' }}>
-                  <Box sx={{ width: 128, flexShrink: 0 }}>
-                    {skillData.input ? (
+                  <Box sx={{ width: 200, flexShrink: 0 }}>
+                    {input ? (
                       <Chip
                         size="small"
-                        label={abilityTypeLabels[skillData.input] ?? skillData.input}
+                        label={abilityTypeLabels[input] ?? input}
                         variant="outlined"
                         sx={{ height: 20, maxWidth: '100%' }}
                       />
                     ) : null}
                   </Box>
                   <Typography variant="body2" noWrap>
-                    {skillData.name}
+                    {`${ownerId !== characterId ? `${CHARACTERS[gameId][ownerId].name}: ` : ""}${name}`}
                   </Typography>
                 </Stack>
               </ListItem>
@@ -769,6 +783,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
       <SkillSelectDialog
         gameId={gameId}
         characterId={characterId}
+        teamIds={teamIds}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
         onSelect={(skillKey) => onChange([...rotation, skillKey])}
@@ -777,7 +792,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
   );
 }
 
-export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
+export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }) {
   const [draft, setDraft] = useState(member);
   const [charDialogOpen, setCharDialogOpen] = useState(false);
   const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
@@ -840,6 +855,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
           <RotationEditor
             gameId={gameId}
             characterId={draft.memberId}
+            teamIds={team.map(member => member.memberId)}
             rotation={draft.rotation}
             onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
           />

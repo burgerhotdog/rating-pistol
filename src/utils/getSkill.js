@@ -43,25 +43,28 @@ function formatName(name, considered) {
   return name;
 }
 
-export function getSkill(gameId, characterId, skillKey) {
+export function getSkill(gameId, characterId, rawSkillKey) {
+  const [skillKey, ownerId = characterId] = rawSkillKey.split("_");
+
   if (!skillKey.includes("-")) throw new Error(`Invalid skillKey "${skillKey}"`);
-  const skillMap = getSkillMap(gameId, characterId);
+  const skillMap = getSkillMap(gameId, ownerId);
 
   const [groupId, skillId] = skillKey.split("-");
   const group = skillMap[groupId];
-  if (!group) throw new Error(`Unknown group "${groupId}" in character "${characterId}" in game "${gameId}"`);
-  if (!group.name) throw new Error(`Missing name for group "${groupId}" in character "${characterId}" in game "${gameId}"`);
+  if (!group) throw new Error(`Unknown group "${groupId}" in character "${ownerId}" in game "${gameId}"`);
+  if (!group.name) throw new Error(`Missing name for group "${groupId}" in character "${ownerId}" in game "${gameId}"`);
   
   const skill = group.skills?.[skillId];
-  if (!skill) throw new Error(`Unknown skill "${skillId}" in group "${groupId}" in character "${characterId}" in game "${gameId}"`);
+  if (!skill) throw new Error(`Unknown skill "${skillId}" in group "${groupId}" in character "${ownerId}" in game "${gameId}"`);
 
   const input = skill.input ?? DEFAULT_GROUP_INPUT[groupId];
-  if (!input) throw new Error(`Missing input for skill "${skillKey}" in character "${characterId}" in game "${gameId}"`);
+  if (!input) throw new Error(`Missing input for skill "${skillKey}" in character "${ownerId}" in game "${gameId}"`);
 
   const considered = formatConsidered(skill.considered, input, groupId);
-  if (!considered || considered === "AUTO") throw new Error(`Invalid considered for skill "${skillKey}" in character "${characterId}" in game "${gameId}"`);
+  if (!considered || considered === "AUTO") throw new Error(`Invalid considered for skill "${skillKey}" in character "${ownerId}" in game "${gameId}"`);
 
   return {
+    ownerId,
     name: formatName(skill.name ?? group.name, considered),
     input,
     considered,

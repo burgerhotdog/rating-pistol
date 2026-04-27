@@ -1,16 +1,39 @@
 import { RATING, MISC } from '@/data';
 import { getSkill } from '@/utils';
 
+function rotateFromIdReverse(team, startId) {
+  const index = team.findIndex(m => m?.memberId === startId);
+
+  if (index === -1) {
+    throw new Error("startId not found in team");
+  }
+
+  return [
+    team[index],
+    ...team.slice(0, index).reverse(),
+    ...team.slice(index + 1).reverse(),
+  ];
+}
+
 export function computeDamage(gameId, characterId, build, team) {
-  const { rotation } = team.find(member => characterId === member?.memberId);
+  const rotation = rotateFromIdReverse(team, characterId).flatMap(({ memberId, rotation }) => {
+    return rotation.map(step => {
+      if (step.includes('_')) return step;
+      return `${step}_${memberId}`;
+    });
+  });
   return RATING[gameId].computeDamage(characterId, build, rotation, team);
 }
 
 export function computeDamageBreakdown(gameId, characterId, build, team) {
   if (!build) return [];
 
-  const { rotation } = team.find(member => characterId === member?.memberId);
-  if (!rotation) return [];
+  const rotation = rotateFromIdReverse(team, characterId).flatMap(({ memberId, rotation }) => {
+    return rotation.map(step => {
+      if (step.includes("_")) return step;
+      return `${step}_${memberId}`;
+    });
+  });
 
   const grouped = {};
   for (const step of rotation) {

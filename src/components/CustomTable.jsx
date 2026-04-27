@@ -1,4 +1,4 @@
-import { Box, Card, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tooltip, Typography, Paper } from '@mui/material';
+import { Box, Card, Tooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { MISC, CHARACTERS } from '@/data';
 import { computeDamage } from '@/utils';

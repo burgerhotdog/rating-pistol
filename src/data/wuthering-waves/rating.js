@@ -1,5 +1,5 @@
 import { computeTotalStat, compileStatMap, mergeStatMaps, getSkill } from '@/utils';
-import { CHARACTERS, MVS } from '@/data';
+import { CHARACTERS } from '@/data';
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
@@ -63,21 +63,21 @@ export function computeReductions(statMap, element, dmgTypes) {
 }
 
 export function computeDamage(characterId, build, rotation, team) {
-  const skillMap = MVS["wuthering-waves"][characterId];
   const { element } = CHARACTERS["wuthering-waves"][characterId];
   const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
 
   let damage = 0;
   for (const step of rotation) {
     const {
+      ownerId,
       considered,
       special,
-      effects,
       modifiers,
       attr,
       multipliers,
     } = getSkill("wuthering-waves", characterId, step);
 
+    if (ownerId !== characterId) continue;
     if (considered === "HEAL") continue;
     if (considered === "SHIELD") continue;
     if (considered === "BUFF") continue;
