@@ -728,16 +728,17 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
               >
                 <Stack direction="row" spacing={1} alignItems="center" sx={{ width: '100%' }}>
                   <Box sx={{ width: 200, flexShrink: 0 }}>
-                    {input ? (
+                    {(input && input !== "AUTO") ? (
                       <Chip
                         size="small"
-                        label={abilityTypeLabels[input] ?? input}
+                        label={abilityTypeLabels[input]}
+                        disabled={input === "CA"}
                         variant="outlined"
                         sx={{ height: 20, maxWidth: '100%' }}
                       />
                     ) : null}
                   </Box>
-                  <Typography variant="body2" noWrap>
+                  <Typography variant="body2" color={input === "CA" ? "text.disabled" : "text.primary"} noWrap>
                     {`${ownerId !== characterId ? `${CHARACTERS[gameId][ownerId].name}: ` : ""}${name}`}
                   </Typography>
                 </Stack>
