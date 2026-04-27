@@ -4498,7 +4498,7 @@
             }
           ]
         },
-        "8": {
+        "6": {
           "name": "Mid-air Attack",
           "input": "MBA",
           "multipliers": [
@@ -4528,7 +4528,7 @@
             }
           ]
         },
-        "10": {
+        "9": {
           "name": "Dodge Counter",
           "input": "DC",
           "multipliers": [
@@ -4564,7 +4564,7 @@
     "2": {
       "name": "Magnetic Roar",
       "skills": {
-        "11": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -4593,7 +4593,7 @@
             }
           ]
         },
-        "12": {
+        "2": {
           "name": "Lightning Execution",
           "multipliers": [
             {
@@ -4623,7 +4623,7 @@
             }
           ]
         },
-        "13": {
+        "3": {
           "name": "Electromagnetic Blast",
           "input": "AUTO",
           "considered": "RS",
@@ -4659,7 +4659,7 @@
     "3": {
       "name": "Thundering Wrath",
       "skills": {
-        "15": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -4693,7 +4693,7 @@
     "6": {
       "name": "Raging Storm",
       "skills": {
-        "19": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -4727,7 +4727,7 @@
     "7": {
       "name": "Chameleon Cipher",
       "skills": {
-        "7": {
+        "1": {
           "input": "HA",
           "multipliers": [
             {
@@ -4757,7 +4757,7 @@
             }
           ]
         },
-        "20": {
+        "2": {
           "name": "Judgment Strike",
           "input": "CA",
           "considered": "RS",
@@ -6478,7 +6478,7 @@
     "2": {
       "name": "Shift Trick",
       "skills": {
-        "11": {
+        "1": {
           "name": "Mist Bullet",
           "input": "AUTO",
           "considered": "RS",
@@ -6514,7 +6514,7 @@
     "3": {
       "name": "Flower in the Mist",
       "skills": {
-        "15": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -6547,7 +6547,7 @@
     "6": {
       "name": "Feint Shot",
       "skills": {
-        "20": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -6581,7 +6581,7 @@
     "7": {
       "name": "Misty Cover",
       "skills": {
-        "21": {
+        "1": {
           "name": "Mist Bullet",
           "input": "AUTO",
           "considered": "RS",
@@ -9119,7 +9119,7 @@
             }
           ]
         },
-        "8": {
+        "6": {
           "name": "Strategic Parry",
           "input": "AUTO",
           "considered": "HA",
@@ -9151,7 +9151,7 @@
             }
           ]
         },
-        "12": {
+        "7": {
           "name": "Mid-air Attack",
           "input": "MBA",
           "multipliers": [
@@ -9181,7 +9181,7 @@
             }
           ]
         },
-        "14": {
+        "8": {
           "name": "Dodge Counter",
           "input": "DC",
           "multipliers": [
@@ -9216,7 +9216,7 @@
     "2": {
       "name": "Fortified Defense",
       "skills": {
-        "15": {
+        "1": {
           "attr": "DEF",
           "multipliers": [
             {
@@ -9245,7 +9245,7 @@
             }
           ]
         },
-        "16": {
+        "2": {
           "input": "AUTO",
           "considered": "HEAL",
           "attr": "DEF",
@@ -9305,7 +9305,7 @@
     "3": {
       "name": "Unmovable",
       "skills": {
-        "20": {
+        "1": {
           "attr": "DEF",
           "multipliers": [
             {
@@ -9339,7 +9339,7 @@
     "6": {
       "name": "Defense Formation",
       "skills": {
-        "24": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -9372,7 +9372,7 @@
     "7": {
       "name": "Power Shift",
       "skills": {
-        "9": {
+        "1": {
           "name": "Timed Counters 1",
           "input": "BA",
           "attr": "DEF",
@@ -9403,7 +9403,7 @@
             }
           ]
         },
-        "10": {
+        "2": {
           "name": "Timed Counters 2",
           "input": "BA",
           "attr": "DEF",
@@ -9434,7 +9434,7 @@
             }
           ]
         },
-        "11": {
+        "3": {
           "name": "Timed Counters 3",
           "input": "BA",
           "attr": "DEF",
@@ -9465,7 +9465,7 @@
             }
           ]
         },
-        "27": {
+        "4": {
           "name": "Timed Counters 1",
           "input": "AUTO",
           "considered": "SHIELD",
@@ -9521,7 +9521,7 @@
             }
           ]
         },
-        "28": {
+        "5": {
           "name": "Timed Counters 2",
           "input": "AUTO",
           "considered": "SHIELD",
@@ -9577,7 +9577,7 @@
             }
           ]
         },
-        "29": {
+        "6": {
           "name": "Timed Counters 3",
           "input": "AUTO",
           "considered": "SHIELD",
@@ -9950,7 +9950,7 @@
             }
           ]
         },
-        "6": {
+        "5": {
           "name": "Sanguine Pulse 2",
           "multipliers": [
             {
@@ -9980,7 +9980,7 @@
             }
           ]
         },
-        "7": {
+        "6": {
           "name": "Sanguine Pulse 3",
           "multipliers": [
             {
@@ -12459,7 +12459,7 @@
             }
           ]
         },
-        "3": {
+        "2": {
           "name": "Stroke of Genius",
           "input": "RS",
           "considered": "BA",
@@ -12489,7 +12489,7 @@
             }
           ]
         },
-        "4": {
+        "3": {
           "name": "Creation's Zenith",
           "input": "RS",
           "considered": "BA",
@@ -16958,7 +16958,7 @@
             }
           ]
         },
-        "4": {
+        "3": {
           "name": "Fatal Finale",
           "input": "BA",
           "considered": "RS",
@@ -19574,7 +19574,7 @@
     "2": {
       "name": "Dance with Shadows",
       "skills": {
-        "11": {
+        "1": {
           "name": "Graceful Step",
           "multipliers": [
             {
@@ -19604,7 +19604,7 @@
             }
           ]
         },
-        "12": {
+        "2": {
           "name": "Flickering Reverie",
           "multipliers": [
             {
@@ -19633,7 +19633,7 @@
             }
           ]
         },
-        "13": {
+        "3": {
           "name": "Jolt",
           "input": "AUTO",
           "considered": "BA",
@@ -19669,7 +19669,7 @@
     "3": {
       "name": "Beneath the Sea",
       "skills": {
-        "31": {
+        "1": {
           "name": "Flowing Suffocation",
           "considered": "BA",
           "multipliers": [
@@ -19699,7 +19699,7 @@
             }
           ]
         },
-        "32": {
+        "2": {
           "name": "Diffusion",
           "input": "CA",
           "considered": "BA",
@@ -19736,7 +19736,7 @@
     "6": {
       "name": "Cruise",
       "skills": {
-        "36": {
+        "1": {
           "name": "Ripple",
           "multipliers": [
             {
@@ -19766,7 +19766,7 @@
             }
           ]
         },
-        "37": {
+        "2": {
           "name": "Tidal Surge",
           "multipliers": [
             {
@@ -19825,7 +19825,7 @@
     "7": {
       "name": "Between Illusion and Reality",
       "skills": {
-        "18": {
+        "1": {
           "name": "Phantom Sting 1",
           "input": "BA",
           "multipliers": [
@@ -19856,7 +19856,7 @@
             }
           ]
         },
-        "19": {
+        "2": {
           "name": "Phantom Sting 2",
           "input": "BA",
           "multipliers": [
@@ -19887,7 +19887,7 @@
             }
           ]
         },
-        "20": {
+        "3": {
           "name": "Phantom Sting 3",
           "input": "BA",
           "multipliers": [
@@ -19918,7 +19918,7 @@
             }
           ]
         },
-        "21": {
+        "4": {
           "name": "Abysmal Vortex",
           "input": "JA",
           "considered": "BA",
@@ -19973,7 +19973,7 @@
             }
           ]
         },
-        "22": {
+        "5": {
           "name": "Perception Drain",
           "input": "RS",
           "considered": "BA",
@@ -20005,7 +20005,7 @@
             }
           ]
         },
-        "23": {
+        "6": {
           "name": "Shadowy Sweep",
           "input": "DC",
           "multipliers": [
@@ -20036,7 +20036,7 @@
             }
           ]
         },
-        "24": {
+        "7": {
           "name": "Trance",
           "input": "AUTO",
           "considered": "HEAL",
@@ -20091,7 +20091,7 @@
             }
           ]
         },
-        "25": {
+        "8": {
           "name": "Perception Drain",
           "input": "AUTO",
           "considered": "HEAL",
@@ -21491,7 +21491,7 @@
             }
           ]
         },
-        "5": {
+        "4": {
           "name": "Heavy Slash - Lightsmash",
           "considered": "HA",
           "special": "FRAZZLE",
@@ -23188,7 +23188,7 @@
             }
           ]
         },
-        "8": {
+        "6": {
           "name": "Heavy Attack",
           "input": "HA",
           "considered": "BA",
@@ -23245,7 +23245,7 @@
             }
           ]
         },
-        "9": {
+        "7": {
           "name": "Mid-air Attack",
           "input": "MBA",
           "special": "EROSION",
@@ -23277,7 +23277,7 @@
             }
           ]
         },
-        "10": {
+        "8": {
           "name": "Mid-air Attack 1 Sword Shadow Recalled",
           "input": "MBA",
           "special": "EROSION",
@@ -23309,7 +23309,7 @@
             }
           ]
         },
-        "11": {
+        "9": {
           "name": "Mid-air Attack 2 Sword Shadows Recalled",
           "input": "MBA",
           "special": "EROSION",
@@ -23342,7 +23342,7 @@
             }
           ]
         },
-        "12": {
+        "10": {
           "name": "Mid-air Attack 3 Sword Shadows Recalled",
           "input": "MBA",
           "special": "EROSION",
@@ -23380,7 +23380,7 @@
     "2": {
       "name": "Sword to Bear Their Names",
       "skills": {
-        "6": {
+        "1": {
           "considered": "BA",
           "attr": "HP",
           "multipliers": [
@@ -23440,7 +23440,7 @@
     "3": {
       "name": "A Knight's Heartfelt Prayers",
       "skills": {
-        "31": {
+        "1": {
           "name": "Blade of Howling Squall",
           "attr": "HP",
           "multipliers": [
@@ -23476,7 +23476,7 @@
     "6": {
       "name": "Sword to Mark Tide's Trace",
       "skills": {
-        "9": {
+        "1": {
           "attr": "HP",
           "multipliers": [
             {
@@ -23530,7 +23530,7 @@
             }
           ]
         },
-        "22": {
+        "2": {
           "name": "Sword to Call for Freedom",
           "attr": "HP",
           "multipliers": [
@@ -23589,7 +23589,7 @@
     "7": {
       "name": "Tempest",
       "skills": {
-        "13": {
+        "1": {
           "name": "Fleurdelys: Basic Attack 1",
           "input": "BA",
           "attr": "HP",
@@ -23620,7 +23620,7 @@
             }
           ]
         },
-        "14": {
+        "2": {
           "name": "Fleurdelys: Basic Attack 2",
           "input": "BA",
           "attr": "HP",
@@ -23723,7 +23723,7 @@
             }
           ]
         },
-        "15": {
+        "3": {
           "name": "Fleurdelys: Basic Attack 3",
           "input": "BA",
           "attr": "HP",
@@ -23826,7 +23826,7 @@
             }
           ]
         },
-        "16": {
+        "4": {
           "name": "Fleurdelys: Basic Attack 4",
           "input": "BA",
           "attr": "HP",
@@ -23858,7 +23858,7 @@
             }
           ]
         },
-        "17": {
+        "5": {
           "name": "Fleurdelys: Basic Attack 5",
           "input": "BA",
           "attr": "HP",
@@ -23913,7 +23913,7 @@
             }
           ]
         },
-        "18": {
+        "6": {
           "name": "Fleurdelys: Dodge Counter",
           "input": "DC",
           "attr": "HP",
@@ -24016,7 +24016,7 @@
             }
           ]
         },
-        "19": {
+        "7": {
           "name": "Fleurdelys: Upward Cut",
           "input": "JA",
           "considered": "BA",
@@ -24049,7 +24049,7 @@
             }
           ]
         },
-        "20": {
+        "8": {
           "name": "Fleurdelys: Heavy Attack",
           "input": "HA",
           "considered": "BA",
@@ -24105,7 +24105,7 @@
             }
           ]
         },
-        "21": {
+        "9": {
           "name": "Fleurdelys: Enhanced Heavy Attack",
           "input": "BA",
           "attr": "HP",
@@ -24161,7 +24161,7 @@
             }
           ]
         },
-        "25": {
+        "10": {
           "name": "Fleurdelys: Mid-air Attack 1",
           "input": "MBA",
           "attr": "HP",
@@ -24240,7 +24240,7 @@
             }
           ]
         },
-        "26": {
+        "11": {
           "name": "Fleurdelys: Mid-air Attack 2",
           "input": "MBA",
           "attr": "HP",
@@ -24319,7 +24319,7 @@
             }
           ]
         },
-        "27": {
+        "12": {
           "name": "Fleurdelys: Mid-air Attack 3",
           "input": "MHA",
           "considered": "BA",
@@ -24351,7 +24351,7 @@
             }
           ]
         },
-        "28": {
+        "13": {
           "name": "Fleurdelys: Sword to Answer Waves' Call",
           "input": "RS",
           "attr": "HP",
@@ -24407,7 +24407,7 @@
             }
           ]
         },
-        "29": {
+        "14": {
           "name": "May Tempest Break the Tides",
           "input": "RS",
           "attr": "HP",
@@ -24678,7 +24678,7 @@
             }
           ]
         },
-        "7": {
+        "6": {
           "name": "Mid-air Attack",
           "input": "MBA",
           "multipliers": [
@@ -24708,7 +24708,7 @@
             }
           ]
         },
-        "8": {
+        "7": {
           "name": "Dodge Counter",
           "input": "DC",
           "multipliers": [
@@ -24743,7 +24743,7 @@
     "2": {
       "name": "Whispers in a Fleeting Dream",
       "skills": {
-        "13": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -24777,7 +24777,7 @@
     "3": {
       "name": "Waltz of Forsaken Depths",
       "skills": {
-        "16": {
+        "1": {
           "name": "Hecate: Basic Attack 1",
           "input": "AUTO",
           "considered": "ES",
@@ -24808,7 +24808,7 @@
             }
           ]
         },
-        "17": {
+        "2": {
           "name": "Hecate: Basic Attack 2",
           "input": "AUTO",
           "considered": "ES",
@@ -24840,7 +24840,7 @@
             }
           ]
         },
-        "19": {
+        "3": {
           "name": "Hecate: Enhanced Attack: Strings",
           "input": "AUTO",
           "considered": "ES",
@@ -24895,7 +24895,7 @@
             }
           ]
         },
-        "20": {
+        "4": {
           "name": "Hecate: Enhanced Attack: Winds",
           "input": "AUTO",
           "considered": "ES",
@@ -24950,7 +24950,7 @@
             }
           ]
         },
-        "21": {
+        "5": {
           "name": "Hecate: Enhanced Attack: Cadenza",
           "input": "AUTO",
           "considered": "ES",
@@ -25005,7 +25005,7 @@
             }
           ]
         },
-        "22": {
+        "6": {
           "name": "Curtain Call",
           "multipliers": [
             {
@@ -25039,7 +25039,7 @@
     "6": {
       "name": "Suite of Quietus",
       "skills": {
-        "25": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -25091,7 +25091,7 @@
             }
           ]
         },
-        "26": {
+        "2": {
           "name": "Suite of Immortality",
           "considered": "RS",
           "multipliers": [
@@ -25126,7 +25126,7 @@
     "7": {
       "name": "Rhapsody of a New World",
       "skills": {
-        "29": {
+        "1": {
           "name": "Movement of Fate and Finality",
           "input": "BA",
           "considered": "RS",
@@ -25183,7 +25183,7 @@
             }
           ]
         },
-        "30": {
+        "2": {
           "name": "Murmurs in a Haunting Dream",
           "input": "RS",
           "multipliers": [
@@ -25518,7 +25518,7 @@
             }
           ]
         },
-        "12": {
+        "9": {
           "name": "Heavy Attack - Thunderoar: Backstep",
           "input": "HA",
           "multipliers": [
@@ -25548,7 +25548,7 @@
             }
           ]
         },
-        "13": {
+        "10": {
           "name": "Heavy Attack - Thunderoar: Spinslash",
           "input": "RK",
           "considered": "HA",
@@ -25580,7 +25580,7 @@
             }
           ]
         },
-        "14": {
+        "11": {
           "name": "Heavy Attack - Thunderoar: Uppercut",
           "input": "JA",
           "considered": "HA",
@@ -25612,7 +25612,7 @@
             }
           ]
         },
-        "15": {
+        "12": {
           "name": "Dodge Counter - Heavy Attack: Steelclash",
           "input": "DC",
           "considered": "HA",
@@ -25644,7 +25644,7 @@
             }
           ]
         },
-        "16": {
+        "13": {
           "name": "Dodge Counter - Thunderoar: Backstep",
           "input": "DC",
           "considered": "HA",
@@ -25680,7 +25680,7 @@
     "2": {
       "name": "Warrior's Blade",
       "skills": {
-        "20": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -25714,7 +25714,7 @@
     "3": {
       "name": "Sunward Conquest",
       "skills": {
-        "30": {
+        "1": {
           "name": "Sword of Eternal Oath",
           "considered": "HA",
           "multipliers": [
@@ -25819,7 +25819,7 @@
             }
           ]
         },
-        "31": {
+        "2": {
           "name": "Sublime is the Sun - Sunborne",
           "input": "RL",
           "considered": "HA",
@@ -25850,7 +25850,7 @@
             }
           ]
         },
-        "32": {
+        "3": {
           "name": "Sublime is the Sun - Everbright Protector",
           "input": "RL",
           "considered": "HA",
@@ -25935,7 +25935,7 @@
     "6": {
       "name": "Stride of Goldenflare",
       "skills": {
-        "38": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -25969,7 +25969,7 @@
     "7": {
       "name": "Call Me By the Sun",
       "skills": {
-        "23": {
+        "1": {
           "name": "Undying Sunlight: Strike",
           "input": "RS",
           "multipliers": [
@@ -26000,7 +26000,7 @@
             }
           ]
         },
-        "24": {
+        "2": {
           "name": "Undying Sunlight: Leap",
           "input": "RS",
           "multipliers": [
@@ -26055,7 +26055,7 @@
             }
           ]
         },
-        "25": {
+        "3": {
           "name": "Undying Sunlight: Plunge",
           "input": "RS",
           "considered": "HA",
@@ -26110,7 +26110,7 @@
             }
           ]
         },
-        "26": {
+        "4": {
           "name": "Undying Sunlight: Strike",
           "input": "MDC",
           "considered": "RS",
@@ -26561,7 +26561,7 @@
             }
           ]
         },
-        "4": {
+        "2": {
           "name": "Closing Refrain",
           "multipliers": [
             {
@@ -26615,7 +26615,7 @@
             }
           ]
         },
-        "6": {
+        "3": {
           "name": "Unfinished Refrain",
           "multipliers": [
             {
@@ -26669,7 +26669,7 @@
             }
           ]
         },
-        "9": {
+        "4": {
           "name": "Arc Beyond the Edge",
           "considered": "RL",
           "multipliers": [
@@ -27836,7 +27836,7 @@
     "2": {
       "name": "Edge Transcended",
       "skills": {
-        "14": {
+        "1": {
           "name": "Encroach",
           "considered": "HA",
           "multipliers": [
@@ -27890,7 +27890,7 @@
             }
           ]
         },
-        "15": {
+        "2": {
           "name": "Ascent of Malice",
           "considered": "HA",
           "multipliers": [
@@ -27949,7 +27949,7 @@
     "3": {
       "name": "Hellfire Absolution",
       "skills": {
-        "16": {
+        "1": {
           "considered": "ES",
           "multipliers": [
             {
@@ -28008,7 +28008,7 @@
     "6": {
       "name": "Hellflare Overload",
       "skills": {
-        "11": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -28041,7 +28041,7 @@
     "7": {
       "name": "Beyond Threshold",
       "skills": {
-        "17": {
+        "1": {
           "name": "Seraphic Execution 1",
           "input": "BA",
           "considered": "HA",
@@ -28072,7 +28072,7 @@
             }
           ]
         },
-        "18": {
+        "2": {
           "name": "Seraphic Execution 2",
           "input": "BA",
           "considered": "HA",
@@ -28151,7 +28151,7 @@
             }
           ]
         },
-        "19": {
+        "3": {
           "name": "Seraphic Execution 3",
           "input": "BA",
           "considered": "HA",
@@ -28207,7 +28207,7 @@
             }
           ]
         },
-        "20": {
+        "4": {
           "name": "Seraphic Execution 4",
           "input": "BA",
           "considered": "ES",
@@ -28263,7 +28263,7 @@
             }
           ]
         },
-        "21": {
+        "5": {
           "name": "Seraphic Execution 5",
           "input": "BA",
           "considered": "ES",
@@ -28318,7 +28318,7 @@
             }
           ]
         },
-        "22": {
+        "6": {
           "name": "Flamewing Verdict 1",
           "input": "HA",
           "multipliers": [
@@ -28372,7 +28372,7 @@
             }
           ]
         },
-        "23": {
+        "7": {
           "name": "Flamewing Verdict 2",
           "input": "HK",
           "considered": "HA",
@@ -28404,7 +28404,7 @@
             }
           ]
         },
-        "24": {
+        "8": {
           "name": "Flamewing Verdict 3",
           "input": "HK",
           "considered": "ES",
@@ -28460,7 +28460,7 @@
             }
           ]
         },
-        "25": {
+        "9": {
           "name": "Purgatory Scourge",
           "input": "DC",
           "considered": "HA",
@@ -28516,7 +28516,7 @@
             }
           ]
         },
-        "42": {
+        "10": {
           "name": "Hellsent Barrage Plunging Attack",
           "input": "MBA",
           "considered": "HA",
@@ -28547,7 +28547,7 @@
             }
           ]
         },
-        "43": {
+        "11": {
           "name": "Hellsent Barrage Sustained Fire",
           "input": "MHA",
           "multipliers": [
@@ -28577,7 +28577,7 @@
             }
           ]
         },
-        "46": {
+        "12": {
           "name": "Ravage",
           "input": "RS",
           "considered": "HA",
@@ -28983,7 +28983,7 @@
     "2": {
       "name": "Through the Groves",
       "skills": {
-        "7": {
+        "1": {
           "considered": "ES",
           "multipliers": [
             {
@@ -29013,7 +29013,7 @@
             }
           ]
         },
-        "8": {
+        "2": {
           "name": "Undaunted Wayfarer",
           "considered": "ES",
           "multipliers": [
@@ -29097,7 +29097,7 @@
     "3": {
       "name": "Sundering Strike",
       "skills": {
-        "13": {
+        "1": {
           "considered": "ES",
           "multipliers": [
             {
@@ -29131,7 +29131,7 @@
     "6": {
       "name": "Attack the Must-Defend",
       "skills": {
-        "18": {
+        "1": {
           "considered": "HA",
           "multipliers": [
             {
@@ -29214,7 +29214,7 @@
     "7": {
       "name": "Verdant Edge",
       "skills": {
-        "21": {
+        "1": {
           "name": "Thus Spoke the Blade: Inkwash 1",
           "input": "BA",
           "considered": "HA",
@@ -29269,7 +29269,7 @@
             }
           ]
         },
-        "22": {
+        "2": {
           "name": "Thus Spoke the Blade: Inkwash 2",
           "input": "BA",
           "considered": "HA",
@@ -29348,7 +29348,7 @@
             }
           ]
         },
-        "23": {
+        "3": {
           "name": "Thus Spoke the Blade: Inkwash 3",
           "input": "BA",
           "considered": "HA",
@@ -29428,7 +29428,7 @@
             }
           ]
         },
-        "24": {
+        "4": {
           "name": "Thus Spoke the Blade: Inkwash 4",
           "input": "BA",
           "considered": "HA",
@@ -29459,7 +29459,7 @@
             }
           ]
         },
-        "25": {
+        "5": {
           "name": "Thus Spoke the Blade: To Teach",
           "input": "HA",
           "multipliers": [
@@ -29585,7 +29585,7 @@
             }
           ]
         },
-        "26": {
+        "6": {
           "name": "Thus Spoke the Blade: To Save",
           "input": "HK",
           "considered": "HA",
@@ -29689,7 +29689,7 @@
             }
           ]
         },
-        "27": {
+        "7": {
           "name": "Thus Spoke the Blade: To Sacrifice",
           "input": "HK",
           "considered": "HA",
@@ -30095,7 +30095,7 @@
     "2": {
       "name": "In Shadow Thunder Stirs",
       "skills": {
-        "21": {
+        "1": {
           "name": "Thunder Talisman",
           "multipliers": [
             {
@@ -30124,7 +30124,7 @@
             }
           ]
         },
-        "22": {
+        "2": {
           "name": "Pull-in Effect Continuous",
           "input": "AUTO",
           "multipliers": [
@@ -30160,7 +30160,7 @@
     "3": {
       "name": "Flashing Thunder Spell",
       "skills": {
-        "27": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -30193,7 +30193,7 @@
     "6": {
       "name": "Summon and Smite",
       "skills": {
-        "31": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -30221,7 +30221,7 @@
             }
           ]
         },
-        "32": {
+        "2": {
           "input": "AUTO",
           "considered": "HEAL",
           "multipliers": [
@@ -30280,7 +30280,7 @@
     "7": {
       "name": "Thunder Begets Life",
       "skills": {
-        "25": {
+        "1": {
           "name": "Flashing Thunder Spell - Harmony",
           "input": "RL",
           "multipliers": [
@@ -30310,7 +30310,7 @@
             }
           ]
         },
-        "26": {
+        "2": {
           "name": "Five Thunders Spell Array Continuous",
           "considered": "RL",
           "multipliers": [
@@ -31118,7 +31118,7 @@
     "3": {
       "name": "Moment of Nihility",
       "skills": {
-        "20": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -31146,7 +31146,7 @@
             }
           ]
         },
-        "21": {
+        "2": {
           "input": "AUTO",
           "considered": "HEAL",
           "multipliers": [
@@ -31205,7 +31205,7 @@
     "6": {
       "name": "Reverberance - Return",
       "skills": {
-        "25": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -32860,7 +32860,7 @@
             }
           ]
         },
-        "11": {
+        "6": {
           "name": "Spark Collision Lv. 1",
           "input": "HA",
           "considered": "BA",
@@ -32892,7 +32892,7 @@
             }
           ]
         },
-        "12": {
+        "7": {
           "name": "Spark Collision Lv. 2",
           "input": "HA",
           "considered": "BA",
@@ -32924,7 +32924,7 @@
             }
           ]
         },
-        "13": {
+        "8": {
           "name": "Spark Collision Lv. 3",
           "input": "HA",
           "considered": "BA",
@@ -32956,7 +32956,7 @@
             }
           ]
         },
-        "14": {
+        "9": {
           "name": "Kaleidoscopic Parade: Basic Attack 1",
           "multipliers": [
             {
@@ -32985,7 +32985,7 @@
             }
           ]
         },
-        "15": {
+        "10": {
           "name": "Kaleidoscopic Parade: Basic Attack 2",
           "multipliers": [
             {
@@ -33015,7 +33015,7 @@
             }
           ]
         },
-        "16": {
+        "11": {
           "name": "Kaleidoscopic Parade: Basic Attack 3",
           "multipliers": [
             {
@@ -33045,7 +33045,7 @@
             }
           ]
         },
-        "17": {
+        "12": {
           "name": "Kaleidoscopic Parade: Basic Attack 4",
           "multipliers": [
             {
@@ -33123,7 +33123,7 @@
             }
           ]
         },
-        "18": {
+        "13": {
           "name": "Kaleidoscopic Parade: Basic Attack 5",
           "multipliers": [
             {
@@ -33201,7 +33201,7 @@
             }
           ]
         },
-        "19": {
+        "14": {
           "name": "Kaleidoscopic Parade: Dodge Counter",
           "input": "DC",
           "multipliers": [
@@ -33231,7 +33231,7 @@
             }
           ]
         },
-        "23": {
+        "15": {
           "name": "Kaleidoscopic Parade: Ground Heavy Attack",
           "input": "HA",
           "considered": "BA",
@@ -33263,7 +33263,7 @@
             }
           ]
         },
-        "24": {
+        "16": {
           "name": "Kaleidoscopic Parade: Graffiti Blast",
           "input": "RK",
           "multipliers": [
@@ -33293,7 +33293,7 @@
             }
           ]
         },
-        "25": {
+        "17": {
           "name": "Kaleidoscopic Parade: Mid-Air Attack",
           "input": "MBA",
           "multipliers": [
@@ -33347,7 +33347,7 @@
             }
           ]
         },
-        "28": {
+        "18": {
           "name": "Kaleidoscopic Parade: Mid-air Heavy Attack",
           "input": "MHA",
           "considered": "BA",
@@ -33384,7 +33384,7 @@
     "2": {
       "name": "Lynae-Style Palettes",
       "skills": {
-        "6": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -33437,7 +33437,7 @@
             }
           ]
         },
-        "7": {
+        "2": {
           "name": "Additive Color",
           "multipliers": [
             {
@@ -33472,7 +33472,7 @@
     "3": {
       "name": "Prismatic Overblast",
       "skills": {
-        "10": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -33501,7 +33501,7 @@
             }
           ]
         },
-        "27": {
+        "2": {
           "name": "To a Vivid Tomorrow!",
           "input": "BA",
           "multipliers": [
@@ -33562,7 +33562,7 @@
     "6": {
       "name": "Time to Show Some Colors!",
       "skills": {
-        "29": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -33596,7 +33596,7 @@
     "7": {
       "name": "Chromaticity Modeling",
       "skills": {
-        "8": {
+        "1": {
           "name": "Kaleidoscopic Parade: Iridescent Splash",
           "input": "MBA",
           "multipliers": [
@@ -33626,7 +33626,7 @@
             }
           ]
         },
-        "9": {
+        "2": {
           "name": "Kaleidoscopic Parade: Visual Impact",
           "input": "MBA",
           "multipliers": [
@@ -33656,7 +33656,7 @@
             }
           ]
         },
-        "20": {
+        "3": {
           "name": "Kaleidoscopic Parade: Polychrome Leap 1",
           "input": "JA",
           "considered": "BA",
@@ -33688,7 +33688,7 @@
             }
           ]
         },
-        "21": {
+        "4": {
           "name": "Kaleidoscopic Parade: Polychrome Leap 2",
           "input": "JA",
           "considered": "BA",
@@ -33720,7 +33720,7 @@
             }
           ]
         },
-        "22": {
+        "5": {
           "name": "Kaleidoscopic Parade: Polychrome Leap 3",
           "input": "JA",
           "considered": "BA",
@@ -33752,7 +33752,7 @@
             }
           ]
         },
-        "32": {
+        "6": {
           "name": "Tune Rupture Response - Spectral Analysis",
           "input": "AUTO",
           "considered": "TR",
@@ -35888,7 +35888,7 @@
     "2": {
       "name": "Reunion of All the Fallen",
       "skills": {
-        "14": {
+        "1": {
           "name": "Golden Reflux",
           "multipliers": [
             {
@@ -35917,7 +35917,7 @@
             }
           ]
         },
-        "15": {
+        "2": {
           "name": "Aureole of Execution: Ring",
           "considered": "BA",
           "multipliers": [
@@ -35972,7 +35972,7 @@
             }
           ]
         },
-        "16": {
+        "3": {
           "name": "Aureole of Execution: Breach",
           "considered": "BA",
           "multipliers": [
@@ -36003,7 +36003,7 @@
             }
           ]
         },
-        "19": {
+        "4": {
           "name": "Aureole of Execution: Glare",
           "considered": "BA",
           "multipliers": [
@@ -36033,7 +36033,7 @@
             }
           ]
         },
-        "20": {
+        "5": {
           "name": "Golden Impale",
           "input": "BA",
           "multipliers": [
@@ -36063,7 +36063,7 @@
             }
           ]
         },
-        "22": {
+        "6": {
           "name": "Ichor Deposit",
           "input": "AUTO",
           "considered": "BA",
@@ -36099,7 +36099,7 @@
     "3": {
       "name": "Rewritten in Winter's Margins",
       "skills": {
-        "25": {
+        "1": {
           "considered": "BA",
           "multipliers": [
             {
@@ -36158,7 +36158,7 @@
     "6": {
       "name": "Before Injection of Dawn",
       "skills": {
-        "29": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -36786,7 +36786,7 @@
     "2": {
       "name": "Royan Close Quarters Combat",
       "skills": {
-        "14": {
+        "1": {
           "name": "BOOMY BOOM!",
           "multipliers": [
             {
@@ -36887,7 +36887,7 @@
             }
           ]
         },
-        "15": {
+        "2": {
           "name": "Decipher: BIG BOOMY BOOM!",
           "considered": "ES",
           "multipliers": [
@@ -36942,7 +36942,7 @@
             }
           ]
         },
-        "16": {
+        "3": {
           "name": "Decipher: Soliskin to the Aid",
           "considered": "ES",
           "multipliers": [
@@ -37002,7 +37002,7 @@
     "3": {
       "name": "Where Trust Leads Me!",
       "skills": {
-        "18": {
+        "1": {
           "considered": "ES",
           "multipliers": [
             {
@@ -37036,7 +37036,7 @@
     "6": {
       "name": "Solsworn Etymology",
       "skills": {
-        "22": {
+        "1": {
           "multipliers": [
             {
               "mv": [
@@ -37069,7 +37069,7 @@
     "7": {
       "name": "Within Infinity's Embrace",
       "skills": {
-        "24": {
+        "1": {
           "name": "Schemata of Runes",
           "input": "HA",
           "considered": "ES",
@@ -37100,7 +37100,7 @@
             }
           ]
         },
-        "25": {
+        "2": {
           "name": "Runic Outburst",
           "considered": "ES",
           "multipliers": [
@@ -37178,7 +37178,7 @@
             }
           ]
         },
-        "26": {
+        "3": {
           "name": "Runic Chain Whip",
           "considered": "ES",
           "multipliers": [
@@ -37234,7 +37234,7 @@
             }
           ]
         },
-        "27": {
+        "4": {
           "name": "Runic Soliskin",
           "considered": "ES",
           "multipliers": [
@@ -37313,7 +37313,7 @@
             }
           ]
         },
-        "28": {
+        "5": {
           "name": "Learn My True Name",
           "input": "RS",
           "considered": "ES",

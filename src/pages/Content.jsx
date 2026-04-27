@@ -18,11 +18,10 @@ export const Content = () => {
   const build = useBuild().getBuilds(gameId)[characterId];
   const { team, updateTeam } = useTeam();
 
-  const rating = build && team.find(member => characterId === member?.memberId) ? computeDamage(gameId, characterId, build, team) : null;
-  const breakdown = build && team.find(member => characterId === member?.memberId) ? computeDamageBreakdown(gameId, characterId, build, team) : [];
+  const rating = build && team.find(({ memberId }) => characterId === memberId) ? computeDamage(gameId, characterId, build, team) : null;
+  const breakdown = build && team.find(({ memberId }) => characterId === memberId) ? computeDamageBreakdown(gameId, characterId, build, team) : [];
 
   const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, team);
-  console.log(completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter);
 
   const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 

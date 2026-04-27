@@ -38,7 +38,7 @@ function buildVariableSourceMap(mergedSourceMap, variable) {
 }
 
 export function compileStatMap(gameId, characterId, build, team, mode) {
-  const characterIndex = team.findIndex(m => m.memberId === characterId);
+  const characterIndex = team.findIndex(({ memberId }) => memberId === characterId);
   const inCombat = mode === "combat";
   const isFirst = characterIndex === 0;
   const { weaponId, equipList } = build;
@@ -88,24 +88,11 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
         : Number(index) === characterIndex + 1;
       const memberBuffTypes = ["ally", "team", ...(isFirst ? ["first"] : []), ...(isNext ? ["next"] : [])];
 
-      // Use user-configured weaponId if available, otherwise fall back to preset
-      const configuredWeaponId = typeof member === 'object' ? member?.weaponId : null;
-      const presetWeaponId = memberData.preset?.weaponId;
-      const memberWeaponId = configuredWeaponId ?? presetWeaponId;
-
-      if (memberWeaponId && WEAPONS[gameId][memberWeaponId]?.buffs) {
-        teamMaps.push(constructConstantMap({ buffs: WEAPONS[gameId][memberWeaponId].buffs }, memberBuffTypes));
+      if (WEAPONS[gameId][member.weaponId]?.buffs) {
+        teamMaps.push(constructConstantMap({ buffs: WEAPONS[gameId][member.weaponId].buffs }, memberBuffTypes));
       }
 
-      const configuredSetBonuses = (typeof member === 'object' && Array.isArray(member?.setBonuses))
-        ? member.setBonuses
-        : null;
-      const setBonuses = configuredSetBonuses ?? memberData.preset?.setBonuses ?? [];
-      for (const [setIdRaw, numPiecesRaw] of setBonuses) {
-        const setId = String(setIdRaw);
-        const numPieces = Number(numPiecesRaw);
-        if (!setId || !Number.isFinite(numPieces)) continue;
-
+      for (const [setId, numPieces] of Object.entries(member.setCounts)) {
         const key = `${setId}-${numPieces}`;
         if (appliedSetBonuses.has(key)) continue;
         appliedSetBonuses.add(key);

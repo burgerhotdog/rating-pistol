@@ -10,25 +10,6 @@ const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
 
-function buildSetIdList(setBonuses, maxSlots) {
-  const list = new Array(maxSlots).fill(null);
-  let slot = 0;
-
-  for (const [setIdRaw, countRaw] of setBonuses ?? []) {
-    const setId = String(setIdRaw);
-    const count = Number(countRaw);
-    if (!setId || !Number.isFinite(count) || count <= 0) continue;
-
-    for (let i = 0; i < count && slot < maxSlots; i++) {
-      list[slot++] = setId;
-    }
-
-    if (slot >= maxSlots) break;
-  }
-
-  return list;
-}
-
 function getPreferredMainStats(isWuwa, trial, gameId, characterId, match, team, matchTargets) {
   return isWuwa
     ? findPreferredWuwa(trial, gameId, characterId, match, team, matchTargets)
