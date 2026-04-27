@@ -13,13 +13,11 @@ import {
   IconButton,
   List,
   ListItem,
-  MenuItem,
   Stack,
   TextField,
   Typography,
   ToggleButton,
   ToggleButtonGroup,
-  Avatar,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
@@ -648,26 +646,6 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
 
-  const skillNameByKey = useMemo(() => {
-    if (!characterId) return {};
-    let keys = [];
-    try {
-      keys = getSkillList(gameId, characterId);
-    } catch {
-      return {};
-    }
-
-    const entries = keys.map(skillKey => {
-      try {
-        const { name, input } = getSkill(gameId, characterId, skillKey);
-        return [skillKey, { name, input }];
-      } catch {
-        return [skillKey, { name: skillKey, input: null }];
-      }
-    });
-    return Object.fromEntries(entries);
-  }, [gameId, characterId]);
-
   const moveSkill = (index, direction) => {
     const nextIndex = index + direction;
     if (nextIndex < 0 || nextIndex >= rotation.length) return;
@@ -767,7 +745,7 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
           size="small"
           variant="outlined"
           startIcon={<RestartAltIcon />}
-          onClick={() => onChange(CHARACTERS[gameId][characterId]?.preset?.rotation ?? [])}
+          onClick={() => onChange(CHARACTERS[gameId][characterId]?.defaults?.rotation ?? [])}
         >
           Reset Default
         </Button>
