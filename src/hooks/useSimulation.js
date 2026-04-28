@@ -11,7 +11,7 @@ function validate(gameId, build) {
   return null;
 }
 
-export function useSimulation(gameId, characterId, team) {
+export function useSimulation(gameId, characterId, team, enabled = true) {
   const build = useBuild().getBuilds(gameId)[characterId];
 
   const workerRef = useRef(null);
@@ -27,6 +27,24 @@ export function useSimulation(gameId, characterId, team) {
   });
   
   useEffect(() => {
+    if (!enabled) {
+      workerRef.current?.terminate();
+      workerRef.current = null;
+      setResult({
+        weeklyScores: null,
+        finalStats: null,
+        preferredMainStats: null,
+        mainStatDist: null,
+        weeklyDistribution: null,
+        teamWeeklyScores: null,
+        isLoading: false,
+        completed: 0,
+        diff: null,
+        simCharacter: characterId,
+      });
+      return;
+    }
+
     const validationError = validate(gameId, build);
     if (validationError) {
       setResult({
@@ -97,7 +115,7 @@ export function useSimulation(gameId, characterId, team) {
       worker.terminate();
       if (workerRef.current === worker) workerRef.current = null;
     };
-  }, [gameId, characterId, build, team]);
+  }, [enabled, gameId, characterId, build, team]);
 
   return result;
 }

@@ -17,11 +17,16 @@ export const Content = () => {
   const { gameId, characterId } = useParams();
   const build = useBuild().getBuilds(gameId)[characterId];
   const { team, updateTeam } = useTeam();
+  const isRatingEnabled = gameId === 'wuthering-waves';
 
-  const rating = build && team.find(({ memberId }) => characterId === memberId) ? computeDamage(gameId, characterId, build, team) : null;
-  const breakdown = build && team.find(({ memberId }) => characterId === memberId) ? computeDamageBreakdown(gameId, characterId, build, team) : [];
+  const rating = isRatingEnabled && build && team.find(({ memberId }) => characterId === memberId)
+    ? computeDamage(gameId, characterId, build, team)
+    : null;
+  const breakdown = isRatingEnabled && build && team.find(({ memberId }) => characterId === memberId)
+    ? computeDamageBreakdown(gameId, characterId, build, team)
+    : [];
 
-  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, team);
+  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, team, isRatingEnabled);
 
   const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 
@@ -43,7 +48,7 @@ export const Content = () => {
         updateTeam={updateTeam}
       />
 
-      {(isLoading || simCharacter !== characterId) ? (
+      {isRatingEnabled && (isLoading || simCharacter !== characterId) ? (
         diff ? (
           <Bar key={characterId} completed={completed} diff={diff} />
         ) : (

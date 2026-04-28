@@ -50,7 +50,7 @@ const HeaderNav = () => {
         {Object.keys(VERSION).map((id, index) => {
           const isActiveGame = gameId === id;
           return (
-            <Link key={id} to={id}>
+            <Link key={id} to={`/${id}`}>
               <Box
                 component="img"
                 alt={id}
