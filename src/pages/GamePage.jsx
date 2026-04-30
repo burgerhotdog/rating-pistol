@@ -7,6 +7,7 @@ import { Content } from '@/pages';
 export const GamePage = () => {
   const { gameId, characterId } = useParams();
 
+  // Navigate invalid characterIds to main page
   if (characterId && !CHARACTERS[gameId][characterId]) {
     return <Navigate to={`/${gameId}`} replace />;
   }
@@ -24,11 +25,7 @@ export const GamePage = () => {
           gap: 1,
         }}
       >
-        <Sidebar
-          key={gameId}
-          gameId={gameId}
-          characterId={characterId}
-        />
+        <Sidebar />
         {characterId && <Content key={`${gameId}-${characterId}`} />}
       </Box>
     </>
