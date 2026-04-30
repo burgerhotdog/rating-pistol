@@ -1,5 +1,5 @@
 export * from './Header';
-export * from './Sidebar';
+export * from './Navbar';
 export * from './StatsPanel';
 export * from './RadarChart';
 export * from './LineChart';
