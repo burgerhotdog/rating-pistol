@@ -7,7 +7,6 @@ import {
   CustomRadarChart,
   CustomTable,
   CustomPieChart,
-  MainStatDistribution,
 } from '@/components';
 import { useBuild } from '@/contexts';
 import { useSimulation, useTeam } from '@/hooks';
@@ -26,7 +25,7 @@ export const Content = () => {
     ? computeDamageBreakdown(gameId, characterId, build, team)
     : [];
 
-  const { completed, weeklyScores, finalStats, mainStatDist, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, team, isRatingEnabled);
+  const { completed, weeklyScores, finalStats, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, team, isRatingEnabled);
 
   const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 
@@ -77,12 +76,6 @@ export const Content = () => {
                 combinedSimEquips={finalStats}
                 isLoading={isLoading}
                 benchmarkWeek={benchmarkWeek}
-              />
-
-              <MainStatDistribution
-                gameId={gameId}
-                characterId={characterId}
-                mainStatDist={mainStatDist}
               />
             </Box>
             <Box flex={2} minWidth={0} ml={1} display="flex" flexDirection="column" gap={1}>

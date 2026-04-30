@@ -9,4 +9,3 @@ export * from './CustomAvatar';
 export * from './TeamConfig';
 export * from './TeamMemberDialog';
 export * from './PieChart';
-export * from './MainStatDistribution';
