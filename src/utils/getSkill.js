@@ -22,17 +22,17 @@ function getSkillMap(gameId, characterId) {
 export function getSkillList(gameId, characterId) {
   const skillMap = getSkillMap(gameId, characterId);
 
-  return Object.entries(skillMap).flatMap(([groupId, { skills }]) =>
-    Object.keys(skills).map(skillId => `${groupId}-${skillId}`)
+  return Object.entries(skillMap).flatMap(([skillId, { skills }]) =>
+    Object.keys(skills).map(actionId => `${skillId}-${actionId}`)
   );
 }
 
-function formatConsidered(considered, input, groupId) {
+function formatConsidered(considered, input, skillId) {
   if (considered) return considered;
 
   if (input.endsWith("DC")) return "BA";
   if (input.startsWith("M")) return input.slice(1);
-  if (SPECIAL_INPUTS.has(input)) return DEFAULT_GROUP_INPUT[groupId];
+  if (SPECIAL_INPUTS.has(input)) return DEFAULT_GROUP_INPUT[skillId];
 
   return input;
 }
@@ -43,25 +43,26 @@ function formatName(name, considered) {
   return name;
 }
 
-export function getSkill(gameId, characterId, rawSkillKey) {
-  const [skillKey, ownerId = characterId] = rawSkillKey.split("_");
+export function getSkill(gameId, actionKey) {
+  // const [skillKey, ownerId = characterId] = rawSkillKey.split("_");
 
-  if (!skillKey.includes("-")) throw new Error(`Invalid skillKey "${skillKey}"`);
+  if (!actionKey.includes("-")) throw new Error(`Invalid actionKey "${actionKey}"`);
+  const [ownerId, skillId, actionId] = actionKey.split("-");
+
   const skillMap = getSkillMap(gameId, ownerId);
 
-  const [groupId, skillId] = skillKey.split("-");
-  const group = skillMap[groupId];
-  if (!group) throw new Error(`Unknown group "${groupId}" in character "${ownerId}" in game "${gameId}"`);
-  if (!group.name) throw new Error(`Missing name for group "${groupId}" in character "${ownerId}" in game "${gameId}"`);
+  const group = skillMap[skillId];
+  if (!group) throw new Error(`Unknown group "${skillId}" in character "${ownerId}" in game "${gameId}"`);
+  if (!group.name) throw new Error(`Missing name for group "${skillId}" in character "${ownerId}" in game "${gameId}"`);
   
-  const skill = group.skills?.[skillId];
-  if (!skill) throw new Error(`Unknown skill "${skillId}" in group "${groupId}" in character "${ownerId}" in game "${gameId}"`);
+  const skill = group.skills?.[actionId];
+  if (!skill) throw new Error(`Unknown skill "${actionId}" in group "${skillId}" in character "${ownerId}" in game "${gameId}"`);
 
-  const input = skill.input ?? DEFAULT_GROUP_INPUT[groupId];
-  if (!input) throw new Error(`Missing input for skill "${skillKey}" in character "${ownerId}" in game "${gameId}"`);
+  const input = skill.input ?? DEFAULT_GROUP_INPUT[skillId];
+  if (!input) throw new Error(`Missing input for skill "${actionKey}" in character "${ownerId}" in game "${gameId}"`);
 
-  const considered = formatConsidered(skill.considered, input, groupId);
-  if (!considered || considered === "AUTO") throw new Error(`Invalid considered for skill "${skillKey}" in character "${ownerId}" in game "${gameId}"`);
+  const considered = formatConsidered(skill.considered, input, skillId);
+  if (!considered || considered === "AUTO") throw new Error(`Invalid considered for skill "${actionKey}" in character "${ownerId}" in game "${gameId}"`);
 
   return {
     ownerId,

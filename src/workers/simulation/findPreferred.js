@@ -1,5 +1,5 @@
 import { MISC } from '@/data';
-import { computeDamage, compileStatMap, computeTotalStat } from '@/utils';
+import { computeDamage, compileStatMap, computeTotalStat, simulateRotation, sumRotationDmg } from '@/utils';
 import { matchPenalty } from './helpers/matchPenalty';
 
 export function findPreferredWuwa(trial, gameId, characterId, match, team, matchTargets) {
@@ -13,14 +13,15 @@ export function findPreferredWuwa(trial, gameId, characterId, match, team, match
       const testObj = { mainStatId: id, mainStatValue: data.VALUE, subStatList: [] };
       const testBuild = { ...trial.build, equipList: [testObj] };
 
-      const testDamage = computeDamage(gameId, characterId, testBuild, team);
+      const testDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: testBuild } : { memberId: null, weaponId: null, build: {}, setCounts: {}, rotation: [] }));
+      
       const testPenalty = match.reduce((acc, stat, index) => {
         const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, testBuild, team, "menu"));
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1)
 
-      if (testDamage * testPenalty > trial.scores[0] * trial.penalty) {
+      if (sumRotationDmg(testDamage) * testPenalty > sumRotationDmg(trial.scores[0]) * trial.penalty) {
         preferred.push(id);
       }
     }

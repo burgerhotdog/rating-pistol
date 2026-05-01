@@ -1,5 +1,5 @@
 import { MISC } from '@/data';
-import { computeDamage, computeTotalStat, compileStatMap } from '@/utils';
+import { computeDamage, computeTotalStat, compileStatMap, simulateRotation, sumRotationDmg } from '@/utils';
 import { weightedLottery } from './helpers/weightedLottery';
 import { matchPenalty } from './helpers/matchPenalty';
 
@@ -106,10 +106,10 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
-    const newDamage = computeDamage("wuthering-waves", characterId, newBuild, team);
+    const newDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: newBuild } : { memberId: null, weaponId: null, build: {}, setCounts: {}, rotation: [] }));
 
     // Compare with latest and replace if needed
-    if (newDamage * newPenalty > latestDamage * latestPenalty) {
+    if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(latestDamage) * latestPenalty) {
       latestBuild = newBuild;
       latestPenalty = newPenalty;
       latestDamage = newDamage;
@@ -153,10 +153,10 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
-      const newDamage = computeDamage("wuthering-waves", characterId, newBuild, team);
+      const newDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: newBuild } : { memberId: null, weaponId: null, build: {}, setCounts: {}, rotation: [] }));
 
       // Compare new damage with buffer and replace if better
-      if (newDamage * newPenalty > bufferDamage * bufferPenalty) {
+      if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
         bufferBuild = newBuild;
         bufferPenalty = newPenalty;
         bufferDamage = newDamage;
@@ -209,10 +209,10 @@ export function advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTarg
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
-      const newDamage = computeDamage("wuthering-waves", characterId, newBuild, team);
+      const newDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: newBuild } : { memberId: null, weaponId: null, build: {}, setCounts: {}, rotation: [] }));
 
       // Compare new damage with buffer and replace if better
-      if (newDamage * newPenalty > bufferDamage * bufferPenalty) {
+      if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {
         bufferBuild = newBuild;
         bufferPenalty = newPenalty;
         bufferDamage = newDamage;

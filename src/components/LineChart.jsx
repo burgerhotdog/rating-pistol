@@ -6,6 +6,8 @@ import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import { CHARACTERS, MISC } from '@/data';
+import { useSimulateRotation } from '@/hooks';
+import { sumRotationDmg } from '@/utils';
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -16,12 +18,14 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLoading, gameId, characterId, teamWeeklyScores }) => {
+export const CustomLineChart = ({ weeklyScores, weeklyDistribution, isLoading, gameId, characterId, teamWeeklyScores, teamFinalStats, team }) => {
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
   const [viewMode, setViewMode] = useState('team');
+  console.log(team);
+  const rating = useSimulateRotation(team.map(member => member.memberId === characterId ? { ...member } : { ...member, build: { statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } }));
 
   if (isLoading || !weeklyScores) return null;
 
@@ -40,7 +44,7 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLo
 
   const activeScores = showTeam ? teamScores : weeklyScores;
   const benchmarkRating = activeScores[activeScores.length - 1];
-  const activeUserRating = showTeam ? (rating ?? 0) + teammatesBenchmark : (rating ?? 0);
+  const activeUserRating = sumRotationDmg(rating);
   const scaledBuildRating = activeUserRating / benchmarkRating * 100;
 
   const data = activeScores.map((dmg, index) => {

@@ -97,6 +97,7 @@ export function useSimulation(gameId, characterId, team, enabled = true) {
           teamWeeklyScores: data.teamWeeklyScores,
           isLoading: false,
           simCharacter: characterId,
+          teamFinalStats: data.teamFinalStats,
         }));
 
         worker.terminate();

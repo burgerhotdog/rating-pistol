@@ -18,14 +18,8 @@ export const Content = () => {
   const { team, updateTeam } = useTeam();
   const isRatingEnabled = gameId === 'wuthering-waves';
 
-  const rating = isRatingEnabled && build && team.find(({ memberId }) => characterId === memberId)
-    ? computeDamage(gameId, characterId, build, team)
-    : null;
-  const breakdown = isRatingEnabled && build && team.find(({ memberId }) => characterId === memberId)
-    ? computeDamageBreakdown(gameId, characterId, build, team)
-    : [];
-
-  const { completed, weeklyScores, finalStats, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter } = useSimulation(gameId, characterId, team, isRatingEnabled);
+  const { completed, weeklyScores, finalStats, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter, teamFinalStats } = useSimulation(gameId, characterId, team, isRatingEnabled);
+  console.log(completed, weeklyScores, finalStats, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter, teamFinalStats);
 
   const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 
@@ -59,11 +53,12 @@ export const Content = () => {
             <CustomLineChart
               weeklyScores={weeklyScores}
               weeklyDistribution={weeklyDistribution}
-              rating={rating}
               isLoading={isLoading}
               gameId={gameId}
               characterId={characterId}
               teamWeeklyScores={teamWeeklyScores}
+              teamFinalStats={teamFinalStats}
+              team={team}
             />
           </Box>
 
@@ -79,14 +74,10 @@ export const Content = () => {
               />
             </Box>
             <Box flex={2} minWidth={0} ml={1} display="flex" flexDirection="column" gap={1}>
-              {breakdown.length > 0 && (
-                <CustomPieChart breakdown={breakdown} />
-              )}
               <CustomTable
                 gameId={gameId}
                 characterId={characterId}
                 build={build}
-                rating={rating}
                 team={team}
                 isLoading={isLoading}
               />

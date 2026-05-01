@@ -41,8 +41,8 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
   const characterIndex = team.findIndex(({ memberId }) => memberId === characterId);
   const inCombat = mode === "combat";
   const isFirst = characterIndex === 0;
-  const { weaponId, equipList } = build;
-  const setCounts = equipList.reduce((acc, equip) => {
+  const { weaponId, equipList, statMap, setCounts: setCounts1 } = build;
+  const setCounts = setCounts1 ?? equipList.reduce((acc, equip) => {
     const setId = equip?.setId;
     if (!setId) return acc;
     acc[setId] = (acc[setId] ?? 0) + 1;
@@ -58,7 +58,7 @@ export function compileStatMap(gameId, characterId, build, team, mode) {
   constantSources.push(constructConstantMap(CHARACTERS[gameId][characterId], buffTypes));
   constantSources.push(constructConstantMap(WEAPONS[gameId][weaponId], buffTypes));
   // EquipList
-  constantSources.push(mergeEquipList(equipList));
+  constantSources.push(statMap ?? mergeEquipList(equipList));
   // Set specific stats
   const setBonusDatas = [];
   for (const [setId, activePieces] of Object.entries(setCounts)) {

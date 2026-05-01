@@ -6,3 +6,5 @@ export * from './compileStatMap';
 export * from './getSkill';
 export * from './getMember';
 export * from './resolveCalcs';
+export * from './simulateRotation';
+export * from './sumRotationDmg';

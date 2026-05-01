@@ -1,4 +1,4 @@
-import { mergeEquipList, computeTotalStat, compileStatMap } from '@/utils';
+import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
 import { findBenchmarkWeek, getAverageScores, findRelativeError } from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
@@ -56,7 +56,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
     }
 
     while (trials.length < MAX_TRIALS) {
-      const values = trials.map(trial => trial.scores[week]);
+      const values = trials.map(trial => sumRotationDmg(trial.scores[week]));
       if (findRelativeError(values) <= 0.005) break;
 
       const trial = createTrial(matchTargets, gameId, characterId, build, match, team);
@@ -100,6 +100,7 @@ self.onmessage = ({ data }) => {
   const setIdList = build.equipList.map(equip => equip?.setId);
 
   const teamWeeklyScores = {};
+  const teamFinalStats = {};
   if (isWuwa) {
     for (let ti = team.length - 1; ti >= 0; ti--) {
       const member = team[ti];
@@ -122,6 +123,15 @@ self.onmessage = ({ data }) => {
       });
 
       teamWeeklyScores[memberId] = memberResult.weeklyScores;
+      
+      const finalStats = {};
+      for (let i = 0; i < memberResult.trials.length; i++) {
+        const finalCombined = mergeEquipList(memberResult.trials[i].build.equipList);
+        for (const stat in finalCombined) {
+          finalStats[stat] = (finalStats[stat] ?? 0) + finalCombined[stat] / memberResult.trials.length;
+        }
+      }
+      teamFinalStats[memberId] = finalStats;
     }
   }
 
@@ -144,27 +154,6 @@ self.onmessage = ({ data }) => {
     }
   }
 
-  // Main stat distribution at benchmark week (per slot)
-  const slotCount = trials[0].build.equipList.length;
-  const mainStatDist = Array.from({ length: slotCount }, () => ({}));
-  for (const trial of trials) {
-    for (let s = 0; s < slotCount; s++) {
-      const equip = trial.build.equipList[s];
-      if (!equip) continue;
-      const id = equip.mainStatId;
-      mainStatDist[s][id] = (mainStatDist[s][id] ?? 0) + 1;
-    }
-  }
-  // Normalize to percentages
-  for (let s = 0; s < slotCount; s++) {
-    const total = Object.values(mainStatDist[s]).reduce((a, b) => a + b, 0);
-    if (total > 0) {
-      for (const id in mainStatDist[s]) {
-        mainStatDist[s][id] = mainStatDist[s][id] / total;
-      }
-    }
-  }
-
   // Per-week score percentiles for distribution bands
   const weeklyDistribution = [];
   for (let week = 0; week <= lastBenchmarkWeek; week++) {
@@ -181,5 +170,5 @@ self.onmessage = ({ data }) => {
     });
   }
 
-  self.postMessage({ type: 'done', completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, mainStatDist, weeklyDistribution, teamWeeklyScores });
+  self.postMessage({ type: 'done', completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, weeklyDistribution, teamWeeklyScores, teamFinalStats });
 };
