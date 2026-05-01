@@ -532,23 +532,18 @@ function SkillSelectDialog({ gameId, characterId, teamIds, open, onClose, onSele
     for (const memberId of teamIds) {
       if (memberId === characterId) continue;
       const memberSkillList = getSkillList(gameId, memberId).filter(skillKey => {
-        const { input } = getSkill(gameId, memberId, skillKey);
-        return input === "CA";
-      }).map(skillKey => `${skillKey}_${memberId}`);
+        const { input } = getSkill(gameId, skillKey);
+        return input === 'CA';
+      });
       keys = [...keys, ...memberSkillList];
     }
 
     const lower = search.toLowerCase();
     return keys
       .map(skillKey => {
-        const [pureKey, ownerId] = skillKey.split('_');
-        if (ownerId) {
-          const skill = getSkill(gameId, ownerId, pureKey);
-          return { skillKey, name: skill.name, ownerId };
-        }
         try {
-          const skill = getSkill(gameId, characterId, skillKey);
-          return { skillKey, name: skill.name };
+          const skill = getSkill(gameId, skillKey);
+          return { skillKey, name: skill.name, ownerId: skill.ownerId };
         } catch (err) {
           console.log(err);
           return null;
@@ -685,7 +680,7 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
       >
         <List dense sx={{ p: 0.5 }}>
           {rotation.map((skillKey, index) => {
-            const { input, name, ownerId } = getSkill(gameId, characterId, skillKey);
+            const { input, name, ownerId } = getSkill(gameId, skillKey);
             return (
               <ListItem
                 key={`${skillKey}-${index}`}

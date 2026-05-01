@@ -75,7 +75,7 @@ export function computeDamage(characterId, build, rotation, team) {
       modifiers,
       attr,
       multipliers,
-    } = getSkill("wuthering-waves", characterId, step);
+    } = getSkill("wuthering-waves", step);
 
     if (ownerId !== characterId) continue;
     if (considered === "HEAL") continue;

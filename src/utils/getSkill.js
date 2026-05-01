@@ -23,7 +23,7 @@ export function getSkillList(gameId, characterId) {
   const skillMap = getSkillMap(gameId, characterId);
 
   return Object.entries(skillMap).flatMap(([skillId, { skills }]) =>
-    Object.keys(skills).map(actionId => `${skillId}-${actionId}`)
+    Object.keys(skills).map(actionId => `${characterId}-${skillId}-${actionId}`)
   );
 }
 
@@ -44,10 +44,8 @@ function formatName(name, considered) {
 }
 
 export function getSkill(gameId, actionKey) {
-  // const [skillKey, ownerId = characterId] = rawSkillKey.split("_");
-
-  if (!actionKey.includes("-")) throw new Error(`Invalid actionKey "${actionKey}"`);
-  const [ownerId, skillId, actionId] = actionKey.split("-");
+  if (!actionKey.includes('-')) throw new Error(`Invalid actionKey "${actionKey}"`);
+  const [ownerId, skillId, actionId] = actionKey.split('-');
 
   const skillMap = getSkillMap(gameId, ownerId);
 

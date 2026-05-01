@@ -36,7 +36,7 @@ function parseTeammateEffects(gameId, memberId, index, team) {
 
   let effectStatMap = {};
   for (const actionKey of fullActionOrder) {
-    const [ownerId, skillId, actionId] = convertActionKey(memberId, actionKey).split('-');
+    const [ownerId, skillId, actionId] = actionKey.split('-');
     if (ownerId === memberId) continue;
 
     const ownerEffects = CHARACTERS[gameId][ownerId].effects;
@@ -60,15 +60,6 @@ function parseTeammateEffects(gameId, memberId, index, team) {
   return effectStatMap;
 }
 
-function convertActionKey(id, raw) {
-  if (raw.includes('_')) {
-    const [rawKey, ownerId] = raw.split('_');
-    return `${ownerId}-${rawKey}`;
-  } else {
-    return `${id}-${raw}`;
-  }
-}
-
 export function simulateRotation(gameId, team) {
   const actionMap = {};
 
@@ -82,7 +73,7 @@ export function simulateRotation(gameId, team) {
 
     const mergedMap = mergeStatMaps(statMap, effectStatMap);
     for (const actionKey of rotation) {
-      const [ownerId, skillId, actionId] = convertActionKey(memberId, actionKey).split('-');
+      const [ownerId, skillId, actionId] = actionKey.split('-');
       if (ownerId !== memberId) continue;
 
       for (const effect of memberEffects) {
@@ -94,10 +85,10 @@ export function simulateRotation(gameId, team) {
         }
       }
   
-      const { damage = 0, healing = 0 } = simulateAction(gameId, convertActionKey(memberId, actionKey), mergedMap);
-      actionMap[convertActionKey(memberId, actionKey)] = {
-        damage: (actionMap[convertActionKey(memberId, actionKey)]?.damage ?? 0) + damage,
-        healing: (actionMap[convertActionKey(memberId, actionKey)]?.healing ?? 0) + healing,
+      const { damage = 0, healing = 0 } = simulateAction(gameId, actionKey, mergedMap);
+      actionMap[actionKey] = {
+        damage: (actionMap[actionKey]?.damage ?? 0) + damage,
+        healing: (actionMap[actionKey]?.healing ?? 0) + healing,
       };
     }
   }

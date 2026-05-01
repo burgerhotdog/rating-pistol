@@ -19,7 +19,6 @@ export const Content = () => {
   const isRatingEnabled = gameId === 'wuthering-waves';
 
   const { completed, weeklyScores, finalStats, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter, teamFinalStats } = useSimulation(gameId, characterId, team, isRatingEnabled);
-  console.log(completed, weeklyScores, finalStats, weeklyDistribution, teamWeeklyScores, isLoading, diff, simCharacter, teamFinalStats);
 
   const benchmarkWeek = weeklyScores ? weeklyScores.length - 1 : null;
 

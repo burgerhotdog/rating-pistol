@@ -30,7 +30,7 @@ export function computeDamageBreakdown(gameId, characterId, build, team) {
 
   const rotation = rotateFromIdReverse(team, characterId).flatMap(({ memberId, rotation }) => {
     return rotation.map(step => {
-      if (step.includes("_")) return step;
+      if (step.includes('_')) return step;
       return `${step}_${memberId}`;
     });
   });
@@ -38,7 +38,7 @@ export function computeDamageBreakdown(gameId, characterId, build, team) {
   const grouped = {};
   for (const step of rotation) {
     const damage = RATING[gameId].computeDamage(characterId, build, [step], team);
-    const { considered } = getSkill(gameId, characterId, step);
+    const { considered } = getSkill(gameId, step);
     grouped[considered] = (grouped[considered] ?? 0) + damage;
   }
 
