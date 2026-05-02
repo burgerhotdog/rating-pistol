@@ -57,7 +57,11 @@ export const SubstatPriority = ({ isLoading, team, teamFinalStats }) => {
     180,
     Math.max(100, Math.max(...chartData.map(({ name }) => name.length), 0) * 7 + 16)
   );
-  const chartHeight = Math.max(220, chartData.length * 28);
+  const chartViewportHeight = 220;
+  const itemCount = Math.max(chartData.length, 1);
+  const availableBarArea = chartViewportHeight - 44;
+  const barSize = Math.max(3, Math.min(18, Math.floor(availableBarArea / itemCount) - 2));
+  const barCategoryGap = Math.max(1, Math.min(10, Math.floor(barSize * 0.4)));
 
   const renderYAxisTick = ({ x, y, payload }) => (
     <foreignObject x={x - yAxisWidth + 6} y={y - 10} width={yAxisWidth - 12} height={20}>
@@ -89,67 +93,63 @@ export const SubstatPriority = ({ isLoading, team, teamFinalStats }) => {
           <HelpOutlineIcon sx={{ fontSize: 13, color: 'text.disabled', cursor: 'help' }} />
         </Tooltip>
       </Box>
-      <Box sx={{ width: '100%', height: 220, px: 2, pb: 2 }}>
-        <Box sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
-          <Box sx={{ width: '100%', height: chartHeight }}>
-            <ResponsiveContainer>
-              <BarChart
-                data={chartData}
-                layout="vertical"
-                margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
-                barCategoryGap={10}
-              >
-                <XAxis
-                  type="number"
-                  tickFormatter={(v) => `+${v.toFixed(1)}%`}
+      <Box sx={{ width: '100%', height: chartViewportHeight, px: 2, pb: 2 }}>
+        <ResponsiveContainer>
+          <BarChart
+            data={chartData}
+            layout="vertical"
+            margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+            barCategoryGap={barCategoryGap}
+          >
+            <XAxis
+              type="number"
+              tickFormatter={(v) => `+${v.toFixed(1)}%`}
+            />
+            <YAxis
+              type="category"
+              dataKey="name"
+              width={yAxisWidth}
+              interval={0}
+              tickMargin={6}
+              tick={renderYAxisTick}
+            />
+            <Tooltip2
+              allowEscapeViewBox={{ x: true, y: true }}
+              wrapperStyle={{ pointerEvents: 'none', zIndex: 10 }}
+              content={({ active, payload, label }) => {
+                if (!active || !payload?.length) return null;
+                const value = payload[0].value;
+                return (
+                  <Paper
+                    elevation={4}
+                    sx={{
+                      p: 1.5,
+                      minWidth: 0,
+                      border: 1,
+                      borderColor: 'divider',
+                    }}
+                  >
+                    <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                      {label}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Damage gain: +{Number(value).toFixed(2)}%
+                    </Typography>
+                  </Paper>
+                );
+              }}
+            />
+            <Bar dataKey="value" radius={[4, 4, 4, 4]} barSize={barSize}>
+              {chartData.map((entry, index) => (
+                <Cell
+                  key={index}
+                  fill={MISC[gameId].ELEMENT_COLORS[element]}
+                  opacity={0.4 + 0.6 * (entry.value / maxDiff)}
                 />
-                <YAxis
-                  type="category"
-                  dataKey="name"
-                  width={yAxisWidth}
-                  interval={0}
-                  tickMargin={6}
-                  tick={renderYAxisTick}
-                />
-                <Tooltip2
-                  allowEscapeViewBox={{ x: true, y: true }}
-                  wrapperStyle={{ pointerEvents: 'none', zIndex: 10 }}
-                  content={({ active, payload, label }) => {
-                    if (!active || !payload?.length) return null;
-                    const value = payload[0].value;
-                    return (
-                      <Paper
-                        elevation={4}
-                        sx={{
-                          p: 1.5,
-                          minWidth: 0,
-                          border: 1,
-                          borderColor: 'divider',
-                        }}
-                      >
-                        <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
-                          {label}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          Damage gain: +{Number(value).toFixed(2)}%
-                        </Typography>
-                      </Paper>
-                    );
-                  }}
-                />
-                <Bar dataKey="value" radius={[4, 4, 4, 4]}>
-                  {chartData.map((entry, index) => (
-                    <Cell
-                      key={index}
-                      fill={MISC[gameId].ELEMENT_COLORS[element]}
-                      opacity={0.4 + 0.6 * (entry.value / maxDiff)}
-                    />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </Box>
-        </Box>
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
       </Box>
     </Card>
   );
