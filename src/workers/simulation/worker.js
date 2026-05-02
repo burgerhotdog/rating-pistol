@@ -4,7 +4,7 @@ import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { advanceTrialWuwa } from './advanceTrialWuwa';
 import { findPreferred, findPreferredWuwa } from './findPreferred';
-import { CHARACTERS } from '@/data';
+import { CHARACTERS, MISC } from '@/data';
 
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
@@ -78,10 +78,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
     }
   }
 
-  if (!lastBenchmarkWeek) {
-    lastBenchmarkWeek = MAX_WEEKS;
-  }
-
+  if (!lastBenchmarkWeek) lastBenchmarkWeek = MAX_WEEKS;
   const weeklyScores = getAverageScores(trials, lastBenchmarkWeek);
 
   return {
@@ -96,50 +93,48 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
 
 self.onmessage = ({ data }) => {
   const { gameId, characterId, build, team } = data;
-  const isWuwa = gameId === 'wuthering-waves';
+  const { NUM_MAINSTATS } = MISC[gameId];
   const setIdList = build.equipList.map(equip => equip?.setId);
 
-  const teamWeeklyScores = {};
   const teamFinalStats = {};
-  if (isWuwa) {
-    for (let ti = team.length - 1; ti >= 0; ti--) {
-      const member = team[ti];
-      const { memberId, weaponId, setCounts } = member;
-      if (!memberId || memberId === characterId) continue;
 
-      const memberSetIdList = Object.entries(setCounts)
-        .flatMap(([setId, count]) => Array(count).fill(setId))
-        .concat(Array(5).fill(null))
-        .slice(0, 5);
+  // Generate benchmark builds for teammates
+  for (let ti = team.length - 1; ti >= 0; ti--) {
+    const member = team[ti];
+    const { memberId, weaponId, setCounts } = member;
+    if (!memberId || memberId === characterId) continue;
 
-      const memberBuild = { weaponId, equipList: new Array(5).fill(null) };
+    const memberSetIdList = Object.entries(setCounts)
+      .flatMap(([setId, count]) => Array(count).fill(setId))
+      .concat(Array(NUM_MAINSTATS).fill(null))
+      .slice(0, 5);
 
-      const memberResult = simulateCharacter({
-        gameId: 'wuthering-waves',
-        characterId: memberId,
-        build: memberBuild,
-        team,
-        setIdList: memberSetIdList,
-      });
+    const memberBuild = { weaponId, equipList: new Array(NUM_MAINSTATS).fill(null) };
 
-      teamWeeklyScores[memberId] = memberResult.weeklyScores;
-      
-      const finalStats = {};
-      for (let i = 0; i < memberResult.trials.length; i++) {
-        const finalCombined = mergeEquipList(memberResult.trials[i].build.equipList);
-        for (const stat in finalCombined) {
-          finalStats[stat] = (finalStats[stat] ?? 0) + finalCombined[stat] / memberResult.trials.length;
-        }
+    const memberResult = simulateCharacter({
+      gameId,
+      characterId: memberId,
+      build: memberBuild,
+      team,
+      setIdList: memberSetIdList,
+    });
+    
+    const finalStats = {};
+    for (let i = 0; i < memberResult.trials.length; i++) {
+      const finalCombined = mergeEquipList(memberResult.trials[i].build.equipList);
+      for (const stat in finalCombined) {
+        finalStats[stat] = (finalStats[stat] ?? 0) + finalCombined[stat] / memberResult.trials.length;
       }
-      teamFinalStats[memberId] = finalStats;
     }
+    teamFinalStats[memberId] = finalStats;
   }
 
+  // Run farming simulation for current character
   const currentResult = simulateCharacter({
     gameId,
     characterId,
     build,
-    team,
+    team: team.map(member => member.memberId === characterId ? { ...member } : { ...member, build: { weaponId: member.weaponId, statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } }),
     setIdList,
     reportProgress: true,
   });
@@ -170,5 +165,5 @@ self.onmessage = ({ data }) => {
     });
   }
 
-  self.postMessage({ type: 'done', completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, weeklyDistribution, teamWeeklyScores, teamFinalStats });
+  self.postMessage({ type: 'done', completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, weeklyDistribution, teamFinalStats });
 };

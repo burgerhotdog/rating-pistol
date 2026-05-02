@@ -1,5 +1,7 @@
+import { useParams } from 'react-router-dom';
 import { Box, Card, Tooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { useBuild } from '@/contexts';
 import { MISC, CHARACTERS } from '@/data';
 import { computeDamage } from '@/utils';
 import {
@@ -12,7 +14,9 @@ import {
   Cell,
 } from 'recharts';
 
-export const CustomTable = ({ gameId, characterId, build, rating, team, isLoading }) => {
+export const CustomTable = ({ rating, team, isLoading }) => {
+  const { gameId, characterId } = useParams();
+  const build = useBuild().getBuilds(gameId)[characterId];
   const element = CHARACTERS[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const { SUB_STAT_TYPES } = MISC[gameId];

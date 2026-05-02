@@ -1,11 +1,15 @@
+import { useParams } from 'react-router-dom';
 import { Card, Box, Paper, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { ResponsiveContainer, Radar, RadarChart, PolarGrid, PolarRadiusAxis, PolarAngleAxis, Tooltip, Legend } from 'recharts';
+import { useBuild } from '@/contexts';
 import { CHARACTERS, MISC } from '@/data';
 import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
 import { useTheme } from '@mui/material/styles';
 
-export const CustomRadarChart = ({ gameId, characterId, build, combinedSimEquips, isLoading, benchmarkWeek }) => {
+export const CustomRadarChart = ({ combinedSimEquips, isLoading, benchmarkWeek }) => {
+  const { gameId, characterId } = useParams();
+  const build = useBuild().getBuilds(gameId)[characterId];
   const theme = useTheme();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;

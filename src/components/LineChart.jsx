@@ -1,4 +1,5 @@
 import { Box, Card, Divider, Paper, Stack, ToggleButton, ToggleButtonGroup, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import PersonIcon from '@mui/icons-material/Person';
 import GroupsIcon from '@mui/icons-material/Groups';
@@ -18,33 +19,23 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const CustomLineChart = ({ weeklyScores, weeklyDistribution, isLoading, gameId, characterId, teamWeeklyScores, teamFinalStats, team }) => {
+export const CustomLineChart = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats, team }) => {
   const theme = useTheme();
+  const { gameId, characterId } = useParams();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const [viewMode, setViewMode] = useState('team');
-  console.log(team);
   const rating = useSimulateRotation(team.map(member => member.memberId === characterId ? { ...member } : { ...member, build: { statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } }));
 
   if (isLoading || !weeklyScores) return null;
 
-  const hasTeamData = teamWeeklyScores && Object.keys(teamWeeklyScores).length > 0;
+  const hasTeamData = teamFinalStats && Object.keys(teamFinalStats).length > 0;
   const showTeam = viewMode === 'team' && hasTeamData;
 
-  // Teammate benchmark damage at final week (constant contribution)
-  const teammatesBenchmark = hasTeamData
-    ? Object.values(teamWeeklyScores).reduce((sum, scores) => sum + (scores[scores.length - 1] ?? 0), 0)
-    : 0;
-
-  // Team totals: main char's weekly scores + teammates' fixed benchmark damage
-  const teamScores = hasTeamData
-    ? weeklyScores.map(score => score + teammatesBenchmark)
-    : null;
-
-  const activeScores = showTeam ? teamScores : weeklyScores;
+  const activeScores = weeklyScores.map(actionMap => sumRotationDmg(actionMap, (showTeam ? {} : { ownerId: characterId })));
   const benchmarkRating = activeScores[activeScores.length - 1];
-  const activeUserRating = sumRotationDmg(rating);
+  const activeUserRating = sumRotationDmg(rating, (showTeam ? {} : { ownerId: characterId }));
   const scaledBuildRating = activeUserRating / benchmarkRating * 100;
 
   const data = activeScores.map((dmg, index) => {

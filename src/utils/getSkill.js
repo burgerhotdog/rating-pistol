@@ -20,6 +20,7 @@ function getSkillMap(gameId, characterId) {
 }
 
 export function getSkillList(gameId, characterId) {
+  if (!characterId) return [];
   const skillMap = getSkillMap(gameId, characterId);
 
   return Object.entries(skillMap).flatMap(([skillId, { skills }]) =>

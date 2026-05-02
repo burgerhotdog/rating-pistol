@@ -1,7 +1,9 @@
+import { useParams } from 'react-router-dom';
 import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Avatar } from '@mui/material';
 import { MISC, CHARACTERS, WEAPONS, SETS } from '@/data';
 import { computeTotalStat, compileStatMap, mergeStatMaps } from '@/utils';
 import { CustomAvatar } from '@/components';
+import { useBuild } from '@/contexts';
 import { TeamMemberDialog } from '@/components/TeamMemberDialog';
 import { useState } from 'react';
 
@@ -57,7 +59,9 @@ function getBuffLines(gameId, menuStats, buffMap) {
     .map(([statId, value]) => formatBuffStat(gameId, menuStats, statId, value));
 }
 
-export const StatsPanel = ({ gameId, characterId, build, team, updateTeam }) => {
+export const StatsPanel = ({ team, updateTeam }) => {
+  const { gameId, characterId } = useParams();
+  const build = useBuild().getBuilds(gameId)[characterId];
   const { MENU_STATS } = MISC[gameId];
   const [dialogIndex, setDialogIndex] = useState(null);
 
