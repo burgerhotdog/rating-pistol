@@ -1,3 +1,3 @@
 export * from './GamePage';
-export * from "./GamePageWrapper";
+export * from './Content';
 export { default as HomePage } from './HomePage';

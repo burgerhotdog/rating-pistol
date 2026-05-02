@@ -42,14 +42,14 @@
   "MAIN_STAT_TYPES": [
     {
       "FLAT_HP": {
-        "NAME": "HP",
+        "NAME": "Flat HP",
         "VALUE": 705.6,
         "WEIGHT": 1
       }
     },
     {
       "FLAT_ATK": {
-        "NAME": "ATK",
+        "NAME": "Flat ATK",
         "VALUE": 352.8,
         "WEIGHT": 1
       }
@@ -195,17 +195,17 @@
   ],
   "SUB_STAT_TYPES": {
     "FLAT_HP": {
-      "NAME": "HP",
+      "NAME": "Flat HP",
       "VALUE": 42.33751,
       "WEIGHT": 10
     },
     "FLAT_ATK": {
-      "NAME": "ATK",
+      "NAME": "Flat ATK",
       "VALUE": 21.168754,
       "WEIGHT": 10
     },
     "FLAT_DEF": {
-      "NAME": "DEF",
+      "NAME": "Flat DEF",
       "VALUE": 21.168754,
       "WEIGHT": 10
     },

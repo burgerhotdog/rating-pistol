@@ -1,4 +1,4 @@
-import { comparePixels, bitmapToPixels } from "./helpers";
+import { comparePixels, bitmapToPixels } from './helpers';
 
 import { COST_TEMPLATES as cost0 } from '@/assets/ocr/cost/0/templates';
 import { COST_TEMPLATES as cost1 } from '@/assets/ocr/cost/1/templates';

@@ -1,4 +1,4 @@
-import { computeTotalStat, compileStatMap } from "@/utils";
+import { computeTotalStat, compileStatMap } from '@/utils';
 
 const CHARACTER_LEVEL = 80;
 const ENEMY_LEVEL = 90;
@@ -71,13 +71,4 @@ export function computeReductions(statMap, calcs) {
   const brokenMult = 0.9;
 
   return resMult * defMult * brokenMult;
-}
-
-export function computeDamage(characterId, build, calcs, team) {
-  const statMap = compileStatMap("honkai-star-rail", characterId, build, team, "combat");
-
-  const baseDmg = computeBase(statMap, calcs);
-  const bonuses = computeBonuses(statMap, calcs);
-  const reductions = computeReductions(statMap, calcs);
-  return baseDmg * bonuses * reductions;
 }

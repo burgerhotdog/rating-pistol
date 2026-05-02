@@ -15,7 +15,7 @@ import {
   IconButton,
 } from '@mui/material';
 import { MISC, CHARACTERS, WEAPONS } from '@/data';
-import { CustomAvatar } from "@/components";
+import { CustomAvatar } from '@/components';
 
 export const CharacterPicker = ({ gameId, currentId, updateTeam }) => {
   const [open, setOpen] = useState(false);

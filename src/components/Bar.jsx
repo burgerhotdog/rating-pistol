@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
 
 export const Bar = ({ completed, diff }) => {
   const [initialDiff, setInitialDiff] = useState(diff);
-  console.log(diff, initialDiff);
 
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>

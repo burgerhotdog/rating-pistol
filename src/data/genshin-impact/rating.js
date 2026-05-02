@@ -1,11 +1,11 @@
-import { computeTotalStat, compileStatMap } from "@/utils";
-import { CHARACTERS } from "@/data"; 
+import { computeTotalStat, compileStatMap } from '@/utils';
+import { CHARACTERS } from '@/data'; 
 
 const CHARACTER_LEVEL = 90;
 const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
-function computeBase(statMap, hits, dmgType = []) {
+export function computeBase(statMap, hits, dmgType = []) {
   const totalEm = computeTotalStat("EM", statMap);
   
   // Base ability Multiplier:
@@ -42,7 +42,7 @@ function computeBase(statMap, hits, dmgType = []) {
   return baseDamage;
 }
 
-function computeBonuses(statMap, dmgType) {
+export function computeBonuses(statMap, dmgType) {
   // Crit
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
   const critDamage = computeTotalStat("CD", statMap);
@@ -58,7 +58,7 @@ function computeBonuses(statMap, dmgType) {
   return critMult * dmgBonusMult;
 }
 
-function computeReductions(statMap, element) {
+export function computeReductions(statMap, element) {
   // Enemy resistance
   const allShred = statMap[`SHRED_ALL`] ?? 0;
   const elementShred = statMap[`SHRED_${element}`] ?? 0;
@@ -79,22 +79,4 @@ function computeReductions(statMap, element) {
   const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
 
   return resMult * defMult;
-}
-
-export function computeDamage(characterId, build, calcs, team) {
-  const element = CHARACTERS["genshin-impact"][characterId];
-  const statMap = compileStatMap("genshin-impact", characterId, build, team, "combat");
-
-  let damage = 0;
-  for (const ability of calcs.rotation) {
-    const { dmgType, hits, times = 1 } = ability;
-
-    const baseDmg = computeBase(statMap, hits);
-    const bonuses = computeBonuses(statMap, dmgType);
-    const reductions = computeReductions(statMap, element);
-
-    damage += baseDmg * bonuses * reductions * times;
-  }
-
-  return damage;
 }

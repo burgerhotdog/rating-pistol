@@ -19,23 +19,40 @@
           "PERCENT_RS": 0.2
         }
       },
-      "next": {
-        "constant": {
-          "AMP_BA": 0.38
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_ATK": 0.2
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_BA": 0.38
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1102",
+        "1505"
+      ],
+      "weaponId": "21020015",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-1",
+        "2-1",
+        "7-1",
+        "7-2",
+        "7-3",
+        "7-4",
+        "8-1"
       ]
     }
   },
@@ -77,12 +94,40 @@
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1103"
+      ],
+      "weaponId": "21050024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-1",
+        "6-2",
+        "3-3",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "2-1",
+        "2-2",
+        "7-1",
+        "7-1",
+        "7-1",
+        "7-1",
+        "8-1"
       ]
     }
   },
@@ -107,13 +152,32 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
+      "team": [
+        "1104",
+        "1102",
+        "1505"
+      ],
       "weaponId": "21040015",
-      "setBonuses": [
-        [
-          "1",
-          "5"
-        ]
+      "setCounts": {
+        "1": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-1",
+        "7-1",
+        "7-2",
+        "7-4",
+        "7-3",
+        "7-4",
+        "7-2",
+        "7-4",
+        "7-3",
+        "7-4",
+        "7-2",
+        "7-5",
+        "7-6",
+        "8-1"
       ]
     }
   },
@@ -127,7 +191,7 @@
         "BASE_HP": 9087,
         "BASE_ATK": 300,
         "BASE_DEF": 953,
-        "PERCENT_FIRE": 0.12,
+        "PERCENT_FUSION": 0.12,
         "PERCENT_ATK": 0.12
       }
     },
@@ -143,12 +207,24 @@
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "2",
-          "5"
-        ]
+    "defaults": {
+      "team": [
+        "1202",
+        "1206",
+        "1207"
+      ],
+      "weaponId": "21030045",
+      "setCounts": {
+        "2": 5
+      },
+      "rotation": [
+        "6-1",
+        "7-3",
+        "7-2",
+        "3-1",
+        "7-3",
+        "7-2",
+        "8-1"
       ]
     }
   },
@@ -162,7 +238,7 @@
         "BASE_HP": 10512,
         "BASE_ATK": 425,
         "BASE_DEF": 1246,
-        "PERCENT_FIRE": 0.12,
+        "PERCENT_FUSION": 0.12,
         "PERCENT_ATK": 0.12
       }
     },
@@ -173,13 +249,32 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
+      "team": [
+        "1203",
+        "1207",
+        "1505"
+      ],
       "weaponId": "21050015",
-      "setBonuses": [
-        [
-          "2",
-          "5"
-        ]
+      "setCounts": {
+        "2": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-8",
+        "3-6",
+        "3-1",
+        "3-2",
+        "3-3",
+        "3-4",
+        "3-6",
+        "3-1",
+        "3-2",
+        "3-3",
+        "3-4",
+        "3-6",
+        "7-2",
+        "8-1"
       ]
     }
   },
@@ -193,28 +288,65 @@
         "BASE_HP": 10025,
         "BASE_ATK": 250,
         "BASE_DEF": 1136,
-        "PERCENT_FIRE": 0.12,
+        "PERCENT_FUSION": 0.12,
         "PERCENT_ATK": 0.12
       }
     },
     "buffs": {
-      "next": {
-        "constant": {
-          "AMP_HA": 0.38
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_ATK": 0.2
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "8",
-          "5"
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HA": 0.38
+        }
+      }
+    ],
+    "states": [
+      {
+        "name": "Burning Rhapsody",
+        "stateEffects": [
+          {
+            "type": "considered",
+            "cause": "BA",
+            "effect": "3-2"
+          },
+          {
+            "type": "considered",
+            "cause": "HA",
+            "effect": "3-2",
+            "times": 2
+          }
         ]
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1204",
+        "1505"
+      ],
+      "weaponId": "21030015",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "7-1",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "7-1",
+        "3-1",
+        "8-1"
       ]
     }
   },
@@ -239,13 +371,63 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
+      "team": [
+        {
+          "memberId": "1301",
+          "rotation": [
+            "3-2",
+            "1302-7-2",
+            "3-1",
+            "1302-7-2",
+            "7-2",
+            "1302-7-2",
+            "3-3",
+            "3-4",
+            "1302-7-2",
+            "3-3",
+            "3-4",
+            "1302-7-2",
+            "3-3",
+            "7-2",
+            "1302-7-2",
+            "3-3",
+            "3-4",
+            "1302-7-2",
+            "3-3",
+            "3-4",
+            "1302-7-2",
+            "3-3",
+            "7-2",
+            "1302-7-2",
+            "8-1"
+          ]
+        },
+        "1302",
+        "1505"
+      ],
       "weaponId": "21010015",
-      "setBonuses": [
-        [
-          "3",
-          "5"
-        ]
+      "setCounts": {
+        "3": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-2",
+        "3-1",
+        "7-2",
+        "3-3",
+        "3-4",
+        "3-3",
+        "3-4",
+        "3-3",
+        "7-2",
+        "3-3",
+        "3-4",
+        "3-3",
+        "3-4",
+        "3-3",
+        "7-2",
+        "8-1"
       ]
     }
   },
@@ -263,152 +445,39 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RL": 0.25,
           "AMP_ELECTRO": 0.2
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1302",
+        "1505"
+      ],
       "weaponId": "21050016",
-      "setBonuses": [
-        [
-          "13",
-          "5"
-        ]
+      "setCounts": {
+        "13": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-4",
+        "2-1",
+        "1-5",
+        "2-2",
+        "3-1",
+        "1-1",
+        "7-1",
+        "7-2",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "team": [
-          null,
-          "1302",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Raging Storm",
-            "category": "Intro Skill",
-            "dmgType": [
-              "ELECTRO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.1432,
-                "times": 10
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 4",
-            "category": "Normal Attack",
-            "dmgType": [
-              "ELECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.7516
-              }
-            ]
-          },
-          {
-            "name": "Magnetic Roar",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "ELECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.5965,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Lightning Execution",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "ELECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.8947,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Thundering Wrath",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 1.1656,
-                "times": 7
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 1",
-            "category": "Normal Attack",
-            "dmgType": [
-              "ELECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2881
-              }
-            ]
-          },
-          {
-            "name": "Chameleon Cipher",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 1.7893,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Judgement Strike",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "ELECTRO",
-              "RS",
-              "CA"
-            ],
-            "hits": [
-              {
-                "mv": 0.7864
-              }
-            ],
-            "times": 18
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1303": {
     "name": "Yuanwu",
@@ -436,12 +505,24 @@
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "13",
-          "5"
-        ]
+    "defaults": {
+      "team": [
+        null,
+        "1303",
+        "1505"
+      ],
+      "weaponId": "21040044",
+      "setCounts": {
+        "13": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "3-1",
+        "2-3",
+        "2-4",
+        "2-1",
+        "8-1"
       ]
     }
   },
@@ -472,12 +553,30 @@
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
+    "defaults": {
+      "team": [
+        null,
+        "1402",
+        "1505"
+      ],
+      "weaponId": "21020015",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-5",
+        "1-7",
+        "3-1",
+        "1-1",
+        "1-5",
+        "1-7",
+        "2-1",
+        "7-2",
+        "8-1"
       ]
     }
   },
@@ -509,12 +608,40 @@
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_AERO": 0.23
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1403",
+        "1505"
+      ],
+      "weaponId": "21030015",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-1",
+        "2-1",
+        "2-1",
+        "2-1",
+        "2-1",
+        "2-1",
+        "2-1",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "1-5",
+        "8-1"
       ]
     }
   },
@@ -532,137 +659,54 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
-      "weaponId": "21010016",
-      "setBonuses": [
-        [
-          "4",
-          "5"
-        ]
-      ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "AERO"
+    "defaults": {
+      "team": [
+        {
+          "memberId": "1404",
+          "rotation": [
+            "6-1",
+            "7-1",
+            "1204-3-3",
+            "3-1",
+            "1204-3-3",
+            "2-1",
+            "3-1",
+            "1204-3-3",
+            "3-2",
+            "1204-3-3",
+            "3-3",
+            "1204-3-3",
+            "3-1",
+            "1204-3-3",
+            "3-2",
+            "1204-3-3",
+            "3-3",
+            "1204-3-3",
+            "2-1",
+            "8-1"
+          ]
         },
-        "team": [
-          "1404",
-          "1204",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Tactical Strike",
-            "category": "Intro Skill",
-            "dmgType": [
-              "AERO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 1.9881
-              }
-            ]
-          },
-          {
-            "name": "Emerald Storm - Finale",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 1.4291,
-                "times": 2
-              },
-              {
-                "mv": 4.2873
-              }
-            ]
-          },
-          {
-            "name": "Windqueller",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "AERO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 1.0636,
-                "times": 4
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Lance of Qinqloong Stage 1",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "AERO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6552,
-                "times": 8
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Lance of Qinqloong Stage 2",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "AERO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6155,
-                "times": 8
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Lance of Qinqloong Stage 3",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "AERO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6676,
-                "times": 8
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Discipline",
-            "category": "Outro Skill",
-            "dmgType": [
-              "AERO",
-              "OS"
-            ],
-            "hits": [
-              {
-                "mv": 3.134,
-                "times": 2
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+        "1204",
+        "1505"
+      ],
+      "weaponId": "21010016",
+      "setCounts": {
+        "4": 5
+      },
+      "rotation": [
+        "6-1",
+        "7-1",
+        "2-1",
+        "3-1",
+        "3-2",
+        "3-3",
+        "3-1",
+        "3-2",
+        "3-3",
+        "2-1",
+        "8-1"
+      ]
+    }
   },
   "1405": {
     "name": "Jianxin",
@@ -678,19 +722,31 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RL": 0.38
         }
       }
-    },
-    "preset": {
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1405",
+        "1505"
+      ],
+      "weaponId": "21040024",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-1",
+        "3-2",
+        "2-2",
+        "8-1"
       ]
     }
   },
@@ -711,17 +767,32 @@
     "buffs": {
       "team": {
         "constant": {
-          "PERCENT_ATK": 0.2,
-          "AMP_ALL": 0.15
+          "PERCENT_ATK": 0.2
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1503"
+      ],
+      "weaponId": "21050024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -746,23 +817,34 @@
           "PERCENT_HA": 0.4
         }
       },
-      "next": {
-        "constant": {
-          "AMP_RS": 0.38
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_DEF": 0.15
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_RS": 0.38
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1601",
+        "1505"
+      ],
+      "weaponId": "21010024",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -788,23 +870,34 @@
           "PERCENT_HAVOC": 0.3
         }
       },
-      "next": {
-        "constant": {
-          "AMP_HAVOC": 0.23
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_ATK": 0.2
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HAVOC": 0.23
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1602",
+        "1505"
+      ],
+      "weaponId": "21020015",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -822,188 +915,42 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RL": 0.25,
           "AMP_FUSION": 0.2
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        "1205",
+        "1206",
+        "1207"
+      ],
       "weaponId": "21020016",
-      "setBonuses": [
-        [
-          "2",
-          "5"
-        ]
+      "setCounts": {
+        "2": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-3",
+        "1-10",
+        "1-3",
+        "1-4",
+        "2-2",
+        "2-1",
+        "2-2",
+        "2-1",
+        "2-2",
+        "7-1",
+        "3-1",
+        "7-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
-        "team": [
-          "1205",
-          "1206",
-          "1207"
-        ],
-        "rotation": [
-          {
-            "name": "Obedience of Rules",
-            "category": "Intro Skill",
-            "dmgType": [
-              "FUSION",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.445
-              },
-              {
-                "mv": 0.2596,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "True Sight - Charge",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "FUSION",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.7268
-              },
-              {
-                "mv": 1.0902
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Heavy Attack",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 1.2327
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3645,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 4",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.507
-              },
-              {
-                "mv": 0.2958,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "True Sight - Conquest",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "FUSION",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.5895,
-                "times": 2
-              },
-              {
-                "mv": 0.8252
-              },
-              {
-                "mv": 0.9431
-              }
-            ],
-            "times": 3
-          },
-          {
-            "name": "True Sight - Capture",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "FUSION",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.8188,
-                "times": 3
-              },
-              {
-                "mv": 1.6376
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Flaming Sacrifice",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "FUSION",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.3925,
-                "times": 5
-              },
-              {
-                "mv": 4.5785
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Radiance of Fealty",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "FUSION",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 12.1275
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1304": {
     "name": "Jinhsi",
@@ -1019,196 +966,53 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
-      "weaponId": "21010026",
-      "setBonuses": [
-        [
-          "5",
-          "5"
-        ]
-      ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
+    "defaults": {
+      "team": [
+        {
+          "memberId": "1304",
+          "rotation": [
+            "6-1",
+            "1105-3-1",
+            "2-2",
+            "1105-3-1",
+            "3-1",
+            "1105-3-1",
+            "7-7",
+            "1105-3-1",
+            "7-1",
+            "1105-3-1",
+            "7-2",
+            "1105-3-1",
+            "7-3",
+            "1105-3-1",
+            "7-4",
+            "1105-3-1",
+            "7-8",
+            "7-9",
+            "1105-3-1",
+            "8-1"
+          ]
         },
-        "team": [
-          "1304",
-          "1105",
-          "1503"
-        ],
-        "rotation": [
-          {
-            "name": "Loong's Halo",
-            "category": "Intro Skill",
-            "dmgType": [
-              "SPECTRO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 1.5905
-              }
-            ]
-          },
-          {
-            "name": "Overflowing Radiance",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.0987,
-                "times": 4
-              },
-              {
-                "mv": 0.2959,
-                "times": 4
-              },
-              {
-                "mv": 0.3945
-              }
-            ]
-          },
-          {
-            "name": "Crescent Divinity",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 1.0076
-              },
-              {
-                "mv": 0.7557,
-                "times": 2
-              },
-              {
-                "mv": 2.519
-              }
-            ]
-          },
-          {
-            "name": "Incarnation - Basic Attack Stage 1",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.8862
-              }
-            ]
-          },
-          {
-            "name": "Incarnation - Basic Attack Stage 2",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.7797
-              },
-              {
-                "mv": 0.2599,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Incarnation - Basic Attack Stage 3",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.9944
-              },
-              {
-                "mv": 0.663
-              }
-            ]
-          },
-          {
-            "name": "Incarnation - Basic Attack Stage 4",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.1867,
-                "times": 6
-              },
-              {
-                "mv": 0.7467
-              }
-            ]
-          },
-          {
-            "name": "Illuminous Epiphany - Solar Flare",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.1989,
-                "times": 6
-              }
-            ]
-          },
-          {
-            "name": "Illuminous Epiphany - Stella Glamor",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "bonus": {
-              "FLAT_MV": 22.27
-            },
-            "hits": [
-              {
-                "mv": 3.4792
-              }
-            ]
-          },
-          {
-            "name": "Purge of Light",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "SPECTRO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 4.9981
-              },
-              {
-                "mv": 11.6622
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+        "1105",
+        "1503"
+      ],
+      "weaponId": "21010026",
+      "setCounts": {
+        "5": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-2",
+        "7-7",
+        "7-1",
+        "7-2",
+        "7-3",
+        "7-4",
+        "7-8",
+        "7-9",
+        "3-1"
+      ]
+    }
   },
   "1105": {
     "name": "Zhezhi",
@@ -1224,167 +1028,39 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RS": 0.25,
           "AMP_GLACIO": 0.2
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1105",
+        "1505"
+      ],
       "weaponId": "21050026",
-      "setBonuses": [
-        [
-          "13",
-          "5"
-        ]
+      "setCounts": {
+        "13": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-1",
+        "1-2",
+        "1-3",
+        "2-1",
+        "7-1",
+        "7-2",
+        "7-2",
+        "7-3",
+        "3-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "GLACIO"
-        },
-        "team": [
-          "1107",
-          "1105",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Radiant Ruin",
-            "category": "Intro Skill",
-            "dmgType": [
-              "GLACIO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.8616,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 1",
-            "category": "Normal Attack",
-            "dmgType": [
-              "GLACIO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.4176,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 2",
-            "category": "Normal Attack",
-            "dmgType": [
-              "GLACIO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2055,
-                "times": 5
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "GLACIO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1.3361
-              }
-            ]
-          },
-          {
-            "name": "Manifestation",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "GLACIO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.9842,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Conjuration",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "GLACIO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.8301,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Stroke of Genius",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "GLACIO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 2.9822
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Creation's Zenith",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "GLACIO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1.1929,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Living Canvas",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "GLACIO",
-              "BA",
-              "CA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6521
-              }
-            ],
-            "times": 21
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1305": {
     "name": "Xiangli Yao",
@@ -1400,171 +1076,59 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
-      "weaponId": "21040016",
-      "setBonuses": [
-        [
-          "3",
-          "5"
-        ]
-      ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
+    "defaults": {
+      "team": [
+        {
+          "memberId": "1305",
+          "rotation": [
+            "6-1",
+            "1302-7-2",
+            "2-1",
+            "3-1",
+            "1302-7-2",
+            "3-5",
+            "7-3",
+            "1302-7-2",
+            "7-2",
+            "1302-7-2",
+            "3-2",
+            "3-3",
+            "1302-7-2",
+            "3-4",
+            "7-2",
+            "1302-7-2",
+            "3-5",
+            "7-3",
+            "1302-7-2",
+            "7-2",
+            "1302-7-2",
+            "8-1"
+          ]
         },
-        "team": [
-          "1305",
-          "1302",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Principle",
-            "category": "Intro Skill",
-            "dmgType": [
-              "ELECTRO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.9941,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Cogitation Model",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 14.6606
-              }
-            ]
-          },
-          {
-            "name": "Divergence",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.4959,
-                "times": 3
-              },
-              {
-                "mv": 1.7355,
-                "times": 2
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Revamp",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "ELECTRO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 0.2187,
-                "times": 4
-              },
-              {
-                "mv": 0.6561,
-                "times": 2
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Law of Reigns",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "ELECTRO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 0.9573,
-                "times": 4
-              },
-              {
-                "mv": 2.5528
-              }
-            ],
-            "times": 3
-          },
-          {
-            "name": "Pivot - Impale Stage 1",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1.1967
-              }
-            ]
-          },
-          {
-            "name": "Pivot - Impale Stage 2",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6092,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Pivot - Impale Stage 3",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1.3325,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Chain Rule",
-            "category": "Outro Skill",
-            "dmgType": [
-              "ELECTRO",
-              "OS"
-            ],
-            "hits": [
-              {
-                "mv": 2.3763
-              }
-            ],
-            "times": 3
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+        "1302",
+        "1505"
+      ],
+      "weaponId": "21040016",
+      "setCounts": {
+        "3": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "3-1",
+        "3-5",
+        "7-3",
+        "7-2",
+        "3-2",
+        "3-3",
+        "3-4",
+        "7-2",
+        "3-5",
+        "7-3",
+        "7-2",
+        "8-1"
+      ]
+    }
   },
   "1106": {
     "name": "Youhu",
@@ -1580,19 +1144,28 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_CA": 1
         }
       }
-    },
-    "preset": {
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1106"
+      ],
+      "weaponId": "21040024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -1616,21 +1189,44 @@
           "PERCENT_ER": 0.1
         }
       },
-      "team": {
+      "ally": {
         "constant": {
-          "AMP_ALL": 0.15,
-          "PERCENT_CR": 0.125,
+          "PERCENT_CR": 0.125
+        }
+      },
+      "first": {
+        "constant": {
           "PERCENT_CD": 0.25
         }
       }
     },
-    "preset": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1505"
+      ],
       "weaponId": "21050036",
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-2",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "7-2",
+        "2-1"
       ]
     }
   },
@@ -1654,23 +1250,34 @@
           "PERCENT_BA": 0.3
         }
       },
-      "next": {
-        "constant": {
-          "AMP_RS": 0.38
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_ATK": 0.2
         }
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_RS": 0.38
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1504",
+        "1505"
+      ],
+      "weaponId": "21010045",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -1688,190 +1295,30 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "defaults": {
+      "team": [
+        "1603",
+        "1606",
+        "1505"
+      ],
       "weaponId": "21020026",
-      "setBonuses": [
-        [
-          "6",
-          "5"
-        ]
+      "setCounts": {
+        "6": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "3-1",
+        "2-2",
+        "2-3",
+        "2-4",
+        "2-6",
+        "2-5",
+        "7-1",
+        "2-7",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
-        "team": [
-          "1603",
-          "1606",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Everblooming",
-            "category": "Intro Skill",
-            "dmgType": [
-              "HAVOC",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 1.9881
-              }
-            ]
-          },
-          {
-            "name": "Crimson Blossom",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1.1362,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Fervor Efflorescent",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "HAVOC",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 12.0281
-              }
-            ]
-          },
-          {
-            "name": "Vining Waltz Stage 1",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.9633
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Vining Waltz Stage 2",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.4563,
-                "times": 2
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Vining Waltz Stage 3",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2195,
-                "times": 6
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Blazing Waltz",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2195,
-                "times": 19
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Vining Waltz Stage 4",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6759,
-                "times": 3
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Ephemeral",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 12.6245
-              }
-            ]
-          },
-          {
-            "name": "Floral Ravage",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.5261,
-                "times": 5
-              }
-            ]
-          },
-          {
-            "name": "Twining",
-            "category": "Outro Skill",
-            "dmgType": [
-              "HAVOC",
-              "OS"
-            ],
-            "hits": [
-              {
-                "mv": 3.2924
-              },
-              {
-                "mv": 4.5902
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1107": {
     "name": "Carlotta",
@@ -1894,179 +1341,58 @@
         }
       }
     },
-    "preset": {
-      "weaponId": "21030016",
-      "setBonuses": [
-        [
-          "10",
-          "5"
-        ]
-      ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "GLACIO"
+    "defaults": {
+      "team": [
+        {
+          "memberId": "1107",
+          "rotation": [
+            "6-1",
+            "1105-3-1",
+            "2-1",
+            "1105-3-1",
+            "2-2",
+            "1105-3-1",
+            "1-8",
+            "1105-3-1",
+            "7-1",
+            "1105-3-1",
+            "3-1",
+            "1105-3-1",
+            "3-2",
+            "1105-3-1",
+            "3-2",
+            "1105-3-1",
+            "3-2",
+            "1105-3-1",
+            "3-2",
+            "1105-3-1",
+            "3-3",
+            "1105-3-1",
+            "8-1"
+          ]
         },
-        "team": [
-          "1107",
-          "1105",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Wintertime Aria",
-            "category": "Intro Skill",
-            "dmgType": [
-              "GLACIO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 1.7893
-              },
-              {
-                "mv": 0.5965,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Art of Violence",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "GLACIO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 1.4411,
-                "times": 2
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Chromatic Splendor",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "GLACIO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 1.1273,
-                "times": 2
-              },
-              {
-                "mv": 3.3818
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Mid-air Attack",
-            "category": "Normal Attack",
-            "dmgType": [
-              "GLACIO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1.0478
-              }
-            ]
-          },
-          {
-            "name": "Imminent Oblivion",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "GLACIO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.6683,
-                "times": 5
-              },
-              {
-                "mv": 5.0121
-              }
-            ]
-          },
-          {
-            "name": "Era of New Wave",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "GLACIO",
-              "RS"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.8
-            },
-            "hits": [
-              {
-                "mv": 4.0271
-              }
-            ]
-          },
-          {
-            "name": "Death Knell",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "GLACIO",
-              "RS"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.8
-            },
-            "hits": [
-              {
-                "mv": 1.8364
-              },
-              {
-                "mv": 0.145,
-                "times": 4
-              }
-            ],
-            "times": 4
-          },
-          {
-            "name": "Fatal Finale",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "GLACIO",
-              "RS"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.8
-            },
-            "hits": [
-              {
-                "mv": 6.4433
-              }
-            ]
-          },
-          {
-            "name": "Closing Remark",
-            "category": "Outro Skill",
-            "dmgType": [
-              "GLACIO",
-              "OS"
-            ],
-            "hits": [
-              {
-                "mv": 7.942
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+        "1105",
+        "1505"
+      ],
+      "weaponId": "21030016",
+      "setCounts": {
+        "10": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "2-2",
+        "1-8",
+        "7-1",
+        "3-1",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-3",
+        "8-1"
+      ]
+    }
   },
   "1606": {
     "name": "Roccia",
@@ -2083,142 +1409,37 @@
       }
     },
     "buffs": {
-      "next": {
-        "constant": {
-          "AMP_BA": 0.25,
-          "AMP_HAVOC": 0.2
-        }
-      },
       "ally": {
         "constant": {
           "FLAT_ATK": 200
         }
       }
     },
-    "preset": {
-      "weaponId": "21040026",
-      "setBonuses": [
-        [
-          "12",
-          "5"
-        ]
-      ]
-    },
-    "calcs": [
+    "effects": [
       {
-        "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
-        "team": [
-          null,
-          "1606",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Pero, Help",
-            "category": "Intro Skill",
-            "dmgType": [
-              "HAVOC",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 1.6899
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 4",
-            "category": "Normal Attack",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 1.0419,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Acrobatic Trick",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.6147,
-                "times": 8
-              }
-            ]
-          },
-          {
-            "name": "Real Fantasy Stage 1",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 3.2208
-              }
-            ]
-          },
-          {
-            "name": "Real Fantasy Stage 2",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 3.3997
-              }
-            ]
-          },
-          {
-            "name": "Real Fantasy Stage 3",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 3.5786
-              }
-            ]
-          },
-          {
-            "name": "Commedia Improvviso!",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "HAVOC",
-              "HA"
-            ],
-            "bonus": {
-              "FLAT_ATK": 200
-            },
-            "hits": [
-              {
-                "mv": 2.7834,
-                "times": 3
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_BA": 0.25,
+          "AMP_HAVOC": 0.2
+        }
       }
-    ]
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1606",
+        "1505"
+      ],
+      "weaponId": "21040026",
+      "setCounts": {
+        "12": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
+      ]
+    }
   },
   "1206": {
     "name": "Brant",
@@ -2250,172 +1471,33 @@
             "max": 2600
           }
         }
-      },
-      "next": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RS": 0.25,
           "AMP_FUSION": 0.2
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1206",
+        "1207"
+      ],
       "weaponId": "21020036",
-      "setBonuses": [
-        [
-          "14",
-          "5"
-        ]
+      "setCounts": {
+        "14": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
-        "team": [
-          "1205",
-          "1206",
-          "1207"
-        ],
-        "rotation": [
-          {
-            "name": "Applaud for Me!",
-            "category": "Intro Skill",
-            "dmgType": [
-              "FUSION",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 2.0279
-              },
-              {
-                "mv": 0.507
-              }
-            ]
-          },
-          {
-            "name": "To the Horizon",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "FUSION",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 0.8506,
-                "times": 4
-              },
-              {
-                "mv": 3.4021
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Attack Stage 2",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.8492,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Attack Stage 2: Charged Attack",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3287,
-                "times": 6
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Attack Stage 2: Flip",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.338
-              },
-              {
-                "mv": 0.5915
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2817,
-                "times": 6
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Attack Stage 3: Flip",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.338
-              },
-              {
-                "mv": 0.5915
-              }
-            ]
-          },
-          {
-            "name": "Returned from Ashes",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.4722,
-                "times": 2
-              },
-              {
-                "mv": 0.9444
-              },
-              {
-                "mv": 1.8887,
-                "times": 2
-              },
-              {
-                "mv": 13.2209
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1506": {
     "name": "Phoebe",
@@ -2431,166 +1513,31 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "ally": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_FRAZZLE": 1,
-          "SHRED_SPECTRO": 0.1
+          "IGNORE_SPECTRO": 0.1
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        "1507",
+        "1506",
+        "1505"
+      ],
       "weaponId": "21050046",
-      "setBonuses": [
-        [
-          "8",
-          "5"
-        ]
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
-        "team": [
-          "1507",
-          "1506",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Golden Grace",
-            "category": "Intro Skill",
-            "dmgType": [
-              "SPECTRO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 1.9881
-              }
-            ]
-          },
-          {
-            "name": "To Where Light Shines",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.6263,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Utter Confession",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 1.8788
-              }
-            ]
-          },
-          {
-            "name": "Dawn of Enlightenment",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "SPECTRO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 4.016
-              }
-            ]
-          },
-          {
-            "name": "Chamuel's Star Stage 1",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "SPECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.5935
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Chamuel's Star Stage 2",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "SPECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3977,
-                "times": 2
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Chamuel's Star Stage 3",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "SPECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2893,
-                "times": 6
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Starflash",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.8269,
-                "times": 3
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Attentive Heart",
-            "category": "Outro Skill",
-            "dmgType": [
-              "SPECTRO",
-              "OS"
-            ],
-            "hits": [
-              {
-                "mv": 5.2841
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1607": {
     "name": "Cantarella",
@@ -2606,194 +1553,31 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RS": 0.25,
           "AMP_HAVOC": 0.2
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        "1608",
+        "1607",
+        "1411"
+      ],
       "weaponId": "21050056",
-      "setBonuses": [
-        [
-          "12",
-          "5"
-        ]
+      "setCounts": {
+        "12": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
-        "team": [
-          "1608",
-          "1607",
-          "1411"
-        ],
-        "rotation": [
-          {
-            "name": "Ripple",
-            "category": "Intro Skill",
-            "dmgType": [
-              "HAVOC",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.4225,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.7257,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Graceful Step",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.736,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Flowing Suffocation",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 3.76
-              }
-            ]
-          },
-          {
-            "name": "Delusive Dive",
-            "category": "Normal Attack",
-            "dmgType": [
-              "HAVOC",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.5305,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Flickering Reverie",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 1.9623
-              }
-            ]
-          },
-          {
-            "name": "Phantom String Stage 1",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3533,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Phantom String Stage 2",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6293,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Phantom String Stage 3",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6462,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Perception Drain",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 6.6799,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Diffusion",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "HAVOC",
-              "BA",
-              "CA"
-            ],
-            "hits": [
-              {
-                "mv": 0.1454,
-                "times": 21
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1407": {
     "name": "Ciaccona",
@@ -2809,181 +1593,30 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "ally": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_EROSION": 1
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        "1409",
+        "1407",
+        "1508"
+      ],
       "weaponId": "21030026",
-      "setBonuses": [
-        [
-          "16",
-          "5"
-        ]
+      "setCounts": {
+        "16": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
-        "team": [
-          "1409",
-          "1407",
-          "1508"
-        ],
-        "rotation": [
-          {
-            "name": "Roaming with the Wind",
-            "category": "Intro Skill",
-            "dmgType": [
-              "AERO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 1.8911
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3302,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 4",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6114,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Attack Stage 1",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.5543,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Attack Stage 2",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2446,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 4",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.6114,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Harmonic Allegro",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "AERO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.4039,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Quadruple Downbeat",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3141,
-                "times": 10
-              },
-              {
-                "mv": 3.1403
-              }
-            ]
-          },
-          {
-            "name": "Improvised Symphonic Poem",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 11.0042
-              }
-            ]
-          },
-          {
-            "name": "Symphonic Poem - Tonic",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 0.0612,
-                "times": 20
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1507": {
     "name": "Zani",
@@ -3004,202 +1637,32 @@
         "constant": {
           "AMP_FRAZZLE": 0.2
         }
-      },
-      "ally": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_SPECTRO": 0.2
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        "1507",
+        "1506",
+        "1505"
+      ],
       "weaponId": "21040036",
-      "setBonuses": [
-        [
-          "11",
-          "5"
-        ]
+      "setCounts": {
+        "11": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "SPECTRO"
-        },
-        "team": [
-          "1507",
-          "1506",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Immediate Execution",
-            "category": "Intro Skill",
-            "dmgType": [
-              "SPECTRO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.2424,
-                "times": 5
-              },
-              {
-                "mv": 0.808
-              }
-            ]
-          },
-          {
-            "name": "Standard Defense Protocol",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.6394
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "SPECTRO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.4242,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Targeted Action",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "SPECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.8619
-              },
-              {
-                "mv": 0.2873
-              },
-              {
-                "mv": 1.7237
-              }
-            ]
-          },
-          {
-            "name": "Rekindle",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "SPECTRO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 3.1852
-              }
-            ]
-          },
-          {
-            "name": "Heavy Slash - Daybreak",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "HA",
-              "FRAZZLE"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.25
-            },
-            "hits": [
-              {
-                "mv": 1.9881
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Heavy Slash - Dawning",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "HA",
-              "FRAZZLE"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.25
-            },
-            "hits": [
-              {
-                "mv": 4.2407
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Heavy Slash - Nightfall",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "SPECTRO",
-              "HA",
-              "FRAZZLE"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.25
-            },
-            "hits": [
-              {
-                "mv": 1.352
-              },
-              {
-                "mv": 2.6243
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "The Last Stand",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "SPECTRO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 1.9112
-              },
-              {
-                "mv": 10.8296
-              }
-            ]
-          },
-          {
-            "name": "Beacon For the Future",
-            "category": "Outro Skill",
-            "dmgType": [
-              "SPECTRO",
-              "OS"
-            ],
-            "hits": [
-              {
-                "mv": 1.5
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1207": {
     "name": "Lupa",
@@ -3227,186 +1690,33 @@
           "PERCENT_FUSION": 0.2,
           "PERCENT_ATK": 0.24
         }
-      },
-      "next": {
-        "constant": {
-          "AMP_FUSION": 0.2,
-          "AMP_BA": 0.25
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_BA": 0.25,
+          "AMP_FUSION": 0.2
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        "1205",
+        "1206",
+        "1207"
+      ],
       "weaponId": "21010036",
-      "setBonuses": [
-        [
-          "18",
-          "5"
-        ]
+      "setCounts": {
+        "18": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
-        "team": [
-          "1205",
-          "1206",
-          "1207"
-        ],
-        "rotation": [
-          {
-            "name": "Nowhere to Run!",
-            "category": "Intro Skill",
-            "dmgType": [
-              "FUSION",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 7.9357
-              },
-              {
-                "mv": 0.496,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Fire-Kissed Glory",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "FUSION",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 8.2044
-              }
-            ]
-          },
-          {
-            "name": "Foebreaker",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "FUSION",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 3.0446
-              }
-            ]
-          },
-          {
-            "name": "Mid-Air Attack Stage 1",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.7673
-              }
-            ]
-          },
-          {
-            "name": "Mid-Air Attack Stage 2",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.7723
-              },
-              {
-                "mv": 0.1931,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Mid-Air Attack - Firestrike",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2848
-              },
-              {
-                "mv": 0.2848
-              }
-            ]
-          },
-          {
-            "name": "Heavy Attack - Wolf's Claw",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.7215
-              },
-              {
-                "mv": 0.1804,
-                "times": 4
-              },
-              {
-                "mv": 0.9619
-              }
-            ]
-          },
-          {
-            "name": "Dance With the Wolf - Climax",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "FUSION",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 0.7563
-              },
-              {
-                "mv": 0.5672,
-                "times": 4
-              },
-              {
-                "mv": 4.5375
-              }
-            ]
-          },
-          {
-            "name": "Set the Arena Ablaze",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "FUSION",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.4235
-              },
-              {
-                "mv": 1.694
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1409": {
     "name": "Cartethyia",
@@ -3427,276 +1737,32 @@
         "constant": {
           "PERCENT_ALL": 0.6
         }
-      },
-      "ally": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_AERO": 0.175
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        "1409",
+        "1407",
+        "1508"
+      ],
       "weaponId": "21020056",
-      "setBonuses": [
-        [
-          "17",
-          "5"
-        ]
+      "setCounts": {
+        "17": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
-        "team": [
-          "1409",
-          "1407",
-          "1508"
-        ],
-        "rotation": [
-          {
-            "name": "Sword to Mark Tide's Trace",
-            "category": "Intro Skill",
-            "dmgType": [
-              "AERO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0208,
-                "times": 3
-              },
-              {
-                "attr": "HP",
-                "mv": 0.0624
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 2",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0394
-              },
-              {
-                "attr": "HP",
-                "mv": 0.0394
-              },
-              {
-                "attr": "HP",
-                "mv": 0.0525
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0428,
-                "times": 4
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 4",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0252,
-                "times": 3
-              },
-              {
-                "attr": "HP",
-                "mv": 0.0754
-              }
-            ]
-          },
-          {
-            "name": "Sword to Bear Their Names",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0689,
-                "times": 3
-              },
-              {
-                "attr": "HP",
-                "mv": 0.0886
-              }
-            ]
-          },
-          {
-            "name": "Mid-air Attack",
-            "category": "Normal Attack",
-            "dmgType": [
-              "AERO",
-              "BA",
-              "EROSION"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.1129,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Fleurdelys Sword to Answer Waves' Call",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0186,
-                "times": 4
-              },
-              {
-                "attr": "HP",
-                "mv": 0.1736
-              }
-            ]
-          },
-          {
-            "name": "Fleurdelys Mid-air Attack Stage 3",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.022
-              }
-            ]
-          },
-          {
-            "name": "Fleurdelys Basic Attack Stage 3",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0213,
-                "times": 3
-              },
-              {
-                "attr": "HP",
-                "mv": 0.0426
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Fleurdelys Basic Attack Stage 4",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0274,
-                "times": 5
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Fleurdelys Basic Attack Stage 5",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "BA"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.072
-              },
-              {
-                "attr": "HP",
-                "mv": 0.288
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Fleurdelys May Tempest Break the Tides",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.0186,
-                "times": 2
-              },
-              {
-                "attr": "HP",
-                "mv": 0.0703,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Fleurdelys Blade of Howling Squall",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "bonus": {
-              "AMP_ALL": 1
-            },
-            "hits": [
-              {
-                "attr": "HP",
-                "mv": 0.1312,
-                "times": 7
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1608": {
     "name": "Phrolova",
@@ -3717,261 +1783,35 @@
         "constant": {
           "PERCENT_CD": 0.6
         }
-      },
-      "next": {
-        "constant": {
-          "AMP_HAVOC": 0.2,
-          "AMP_HA": 0.25
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HA": 0.25,
+          "AMP_HAVOC": 0.2
         }
       }
-    },
-    "preset": {
+    ],
+    "match": [],
+    "defaults": {
+      "team": [
+        "1608",
+        "1607",
+        "1411"
+      ],
       "weaponId": "21050066",
-      "setBonuses": [
-        [
-          "19",
-          "3"
-        ]
+      "setCounts": {
+        "19": 3,
+        "6": 2
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "HAVOC"
-        },
-        "team": [
-          "1608",
-          "1607",
-          "1411"
-        ],
-        "rotation": [
-          {
-            "name": "Suite of Immortality",
-            "category": "Intro Skill",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 5.9643
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3269,
-                "times": 6
-              }
-            ]
-          },
-          {
-            "name": "Murmurs in a Haunting Dream",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.2321,
-                "times": 4
-              },
-              {
-                "mv": 0.4641
-              },
-              {
-                "mv": 3.2482
-              }
-            ]
-          },
-          {
-            "name": "Whispers in a Fleeting Dream",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 1.0597,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Murmurs in a Haunting Dream",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.2321,
-                "times": 4
-              },
-              {
-                "mv": 0.4641
-              },
-              {
-                "mv": 3.2482
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 1",
-            "category": "Normal Attack",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.5345,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 2",
-            "category": "Normal Attack",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.9543
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "HAVOC",
-              "BA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3269,
-                "times": 6
-              }
-            ]
-          },
-          {
-            "name": "Murmurs in a Haunting Dream",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.2321,
-                "times": 4
-              },
-              {
-                "mv": 0.4641
-              },
-              {
-                "mv": 3.2482
-              }
-            ]
-          },
-          {
-            "name": "Scarlet Coda",
-            "category": "Normal Attack",
-            "dmgType": [
-              "HAVOC",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 0.3301,
-                "times": 2
-              },
-              {
-                "mv": 0.1238,
-                "times": 8
-              },
-              {
-                "mv": 4.951
-              }
-            ]
-          },
-          {
-            "name": "Enhanced Attack - Hecate Strings",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "HAVOC",
-              "ES"
-            ],
-            "bonus": {
-              "PERCENT_ATK": 1.2
-            },
-            "hits": [
-              {
-                "mv": 1.0438
-              },
-              {
-                "mv": 2.4355
-              }
-            ],
-            "times": 3
-          },
-          {
-            "name": "Enhanced Attack - Hecate Winds",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "HAVOC",
-              "ES"
-            ],
-            "bonus": {
-              "PERCENT_ATK": 1.2
-            },
-            "hits": [
-              {
-                "mv": 0.9916
-              },
-              {
-                "mv": 2.3137
-              }
-            ],
-            "times": 3
-          },
-          {
-            "name": "Enhanced Attack - Hecate Cadenza",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "HAVOC",
-              "ES"
-            ],
-            "bonus": {
-              "PERCENT_ATK": 1.2
-            },
-            "hits": [
-              {
-                "mv": 1.0438
-              },
-              {
-                "mv": 2.4355
-              }
-            ],
-            "times": 3
-          }
-        ]
-      }
-    ]
+    }
   },
   "1306": {
     "name": "Augusta",
@@ -3992,9 +1832,13 @@
         "constant": {
           "PERCENT_ELECTRO": 0.15
         }
-      },
-      "next": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_GLACIO": 0.15,
           "AMP_FUSION": 0.15,
           "AMP_ELECTRO": 0.15,
@@ -4003,222 +1847,23 @@
           "AMP_HAVOC": 0.15
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        "1306",
+        "1410",
+        "1505"
+      ],
       "weaponId": "21010046",
-      "setBonuses": [
-        [
-          "20",
-          "3"
-        ]
+      "setCounts": {
+        "20": 3,
+        "3": 2
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "ELECTRO"
-        },
-        "team": [
-          "1306",
-          "1410",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Stride of Goldenflare",
-            "category": "Intro Skill",
-            "dmgType": [
-              "ELECTRO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.9941,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Heavy Attack - Thunderoar: Backstep",
-            "category": "Normal Attack",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.5368
-              }
-            ]
-          },
-          {
-            "name": "Heavy Attack - Thunderoar: Spinslash",
-            "category": "Normal Attack",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 1.4172,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Warrior's Blade",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "ELECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 2.187,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Heavy Attack - Thunderoar: Backstep",
-            "category": "Normal Attack",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.5368
-              }
-            ]
-          },
-          {
-            "name": "Heavy Attack - Thunderoar: Spinslash",
-            "category": "Normal Attack",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 1.4172,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Sword of Eternal Oath",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.3299,
-                "times": 2
-              },
-              {
-                "mv": 1.3194,
-                "times": 3
-              },
-              {
-                "mv": 0.3299,
-                "times": 2
-              },
-              {
-                "mv": 5.717
-              }
-            ]
-          },
-          {
-            "name": "Undying Sunlight: Strike",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "ELECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 1.3917,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Undying Sunlight: Leap",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "ELECTRO",
-              "RS"
-            ],
-            "hits": [
-              {
-                "mv": 2.2267
-              },
-              {
-                "mv": 0.2784,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Undying Sunlight: Plunge",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.8659
-              },
-              {
-                "mv": 7.7924
-              }
-            ]
-          },
-          {
-            "name": "Sublime is the Sun - Sunborne",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 1.1929
-              }
-            ],
-            "times": 9
-          },
-          {
-            "name": "Sublime is the Sun - Everbright Protector",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "ELECTRO",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 2.3858
-              },
-              {
-                "mv": 8.9465
-              },
-              {
-                "mv": 0.0597,
-                "times": 10
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1410": {
     "name": "Iuno",
@@ -4235,166 +1880,37 @@
       }
     },
     "buffs": {
-      "next": {
-        "constant": {
-          "AMP_HA": 0.5
-        }
-      },
       "team": {
         "constant": {
           "AMP_ALL": 0.4
         }
       }
     },
-    "preset": {
-      "weaponId": "21040046",
-      "setBonuses": [
-        [
-          "20",
-          "3"
-        ]
-      ]
-    },
-    "calcs": [
+    "effects": [
       {
-        "name": "Damage",
-        "type": {
-          "element": "AERO"
-        },
-        "team": [
-          "1306",
-          "1410",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Illuminated Manifestation",
-            "category": "Intro Skill",
-            "dmgType": [
-              "AERO",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.1591,
-                "times": 7
-              }
-            ]
-          },
-          {
-            "name": "Beneath Lunar Tides",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 10.9346
-              }
-            ]
-          },
-          {
-            "name": "Flux - Moonbow",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 2.5051
-              }
-            ]
-          },
-          {
-            "name": "Enhanced Moonbow - Basic Attack Stage 1",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 2.0597
-              }
-            ]
-          },
-          {
-            "name": "Enhanced Moonbow - Basic Attack Stage 2",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 0.9543,
-                "times": 3
-              }
-            ]
-          },
-          {
-            "name": "Enhanced Moonbow - Basic Attack Stage 3",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 2.6641,
-                "times": 2
-              }
-            ]
-          },
-          {
-            "name": "Enhanced Arc Beyond the Edge",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 3.1919,
-                "times": 2
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Absolute Fullness",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "AERO",
-              "RL"
-            ],
-            "hits": [
-              {
-                "mv": 1.5905
-              }
-            ]
-          },
-          {
-            "name": "From Gloom to Gleam",
-            "category": "Outro Skill",
-            "dmgType": [
-              "AERO",
-              "OS"
-            ],
-            "hits": [
-              {
-                "mv": 1
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HA": 0.5
+        }
       }
-    ]
+    ],
+    "defaults": {
+      "team": [
+        "1306",
+        "1410",
+        "1505"
+      ],
+      "weaponId": "21040046",
+      "setCounts": {
+        "20": 3,
+        "4": 2
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
+      ]
+    }
   },
   "1208": {
     "name": "Galbrena",
@@ -4417,225 +1933,22 @@
         }
       }
     },
-    "preset": {
+    "defaults": {
+      "team": [
+        "1208",
+        "1411",
+        "1505"
+      ],
       "weaponId": "21030036",
-      "setBonuses": [
-        [
-          "22",
-          "3"
-        ]
+      "setCounts": {
+        "22": 3,
+        "2": 2
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
-    },
-    "calcs": [
-      {
-        "name": "Damage",
-        "type": {
-          "element": "FUSION"
-        },
-        "team": [
-          "1208",
-          "1411",
-          "1505"
-        ],
-        "rotation": [
-          {
-            "name": "Hellflare Overload",
-            "category": "Intro Skill",
-            "dmgType": [
-              "FUSION",
-              "IS"
-            ],
-            "hits": [
-              {
-                "mv": 0.9412
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack Stage 2",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.2631,
-                "times": 2
-              },
-              {
-                "mv": 0.7891
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Basic Attack Stage 3",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.286,
-                "times": 2
-              },
-              {
-                "mv": 0.4289,
-                "times": 2
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Basic Attack Stage 4",
-            "category": "Normal Attack",
-            "dmgType": [
-              "FUSION",
-              "ES"
-            ],
-            "hits": [
-              {
-                "mv": 1.7786
-              }
-            ]
-          },
-          {
-            "name": "Ascent of Malice",
-            "category": "Resonance Skill",
-            "dmgType": [
-              "FUSION",
-              "HA"
-            ],
-            "hits": [
-              {
-                "mv": 0.5157
-              }
-            ]
-          },
-          {
-            "name": "Hellfire Absolution",
-            "category": "Resonance Liberation",
-            "dmgType": [
-              "FUSION",
-              "ES"
-            ],
-            "hits": [
-              {
-                "mv": 1.109
-              },
-              {
-                "mv": 0.9074,
-                "times": 11
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack - Seraphic Execution Stage 2",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "FUSION",
-              "HA"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.85
-            },
-            "hits": [
-              {
-                "mv": 0.2784,
-                "times": 2
-              },
-              {
-                "mv": 0.8351
-              }
-            ]
-          },
-          {
-            "name": "Basic Attack - Seraphic Execution Stage 3",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "FUSION",
-              "HA"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.85
-            },
-            "hits": [
-              {
-                "mv": 0.2432,
-                "times": 3
-              },
-              {
-                "mv": 1.7021
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Basic Attack - Seraphic Execution Stage 4",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "FUSION",
-              "ES"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.85
-            },
-            "hits": [
-              {
-                "mv": 0.1815,
-                "times": 3
-              },
-              {
-                "mv": 1.2702
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Basic Attack - Seraphic Execution Stage 5",
-            "category": "Forte Circuit",
-            "dmgType": [
-              "FUSION",
-              "ES"
-            ],
-            "bonus": {
-              "PERCENT_MV": 0.85
-            },
-            "hits": [
-              {
-                "mv": 0.6728
-              },
-              {
-                "mv": 1.5699
-              }
-            ],
-            "times": 2
-          },
-          {
-            "name": "Ashen Pursuit",
-            "category": "Outro Skill",
-            "dmgType": [
-              "FUSION",
-              "OS"
-            ],
-            "hits": [
-              {
-                "mv": 0.795,
-                "times": 3
-              },
-              {
-                "mv": 5.565
-              }
-            ]
-          }
-        ],
-        "match": [
-          "ER"
-        ]
-      }
-    ]
+    }
   },
   "1411": {
     "name": "Qiuyuan",
@@ -4652,19 +1965,40 @@
       }
     },
     "buffs": {
-      "next": {
+      "self": {
         "constant": {
-          "AMP_ES": 0.5
+          "PERCENT_ATK": 0.1
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_CD": 0.3
         }
       }
     },
-    "preset": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ES": 0.5
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1208",
+        "1411",
+        "1505"
+      ],
       "weaponId": "21020066",
-      "setBonuses": [
-        [
-          "21",
-          "3"
-        ]
+      "setCounts": {
+        "21": 3,
+        "4": 2
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -4682,12 +2016,28 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
-      "setBonuses": [
-        [
-          "7",
-          "5"
-        ]
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1307"
+      ],
+      "weaponId": "21050024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -4705,13 +2055,33 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_HAVOC": 0.2,
+          "IGNORE_DEF": 0.18
+        }
+      },
+      "team": {
+        "constant": {
+          "IGNORE_DEF": 0.06
+        }
+      }
+    },
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1508"
+      ],
       "weaponId": "21010056",
-      "setBonuses": [
-        [
-          "23",
-          "3"
-        ]
+      "setCounts": {
+        "23": 3,
+        "6": 2
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -4729,20 +2099,28 @@
         "PERCENT_DEF": 0.152
       }
     },
-    "buffs": {
-      "team": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
           "AMP_ALL": 0.25
         }
       }
-    },
-    "preset": {
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1209"
+      ],
       "weaponId": "21010066",
-      "setBonuses": [
-        [
-          "25",
-          "5"
-        ]
+      "setCounts": {
+        "25": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -4760,13 +2138,47 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_SPECTRO": 0.25
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ALL": 0.24
+        }
+      },
+      "next": {
+        "constant": {
+          "AMP_ALL": 0.15,
+          "AMP_RL": 0.25
+        }
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ALL": 0.15,
+          "AMP_RL": 0.25
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1509",
+        "1209"
+      ],
       "weaponId": "21030046",
-      "setBonuses": [
-        [
-          "24",
-          "5"
-        ]
+      "setCounts": {
+        "24": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -4784,13 +2196,35 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_CD": 0.6
+        }
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
+          "AMP_ALL": 0.2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1210",
+        "1509",
+        "1209"
+      ],
       "weaponId": "21020076",
-      "setBonuses": [
-        [
-          "27",
-          "5"
-        ]
+      "setCounts": {
+        "27": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -4808,13 +2242,27 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_ATK": 0.25,
+          "AMP_ALL": 0.3
+        }
+      }
+    },
+    "defaults": {
+      "team": [
+        "1510",
+        "1509",
+        "1209"
+      ],
       "weaponId": "21040056",
-      "setBonuses": [
-        [
-          "26",
-          "5"
-        ]
+      "setCounts": {
+        "26": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   },
@@ -4832,13 +2280,44 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "preset": {
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_AERO": 0.3,
+          "PERCENT_ES": 0.3
+        },
+        "variable": {
+          "PERCENT_ES": {
+            "source": [
+              "ER",
+              0.01
+            ],
+            "offset": 1.25,
+            "value": 0.02,
+            "max": 0.5
+          }
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_AERO": 0.18,
+          "PERCENT_ES": 0.18
+        }
+      }
+    },
+    "defaults": {
+      "team": [
+        "1412",
+        "1411",
+        "1505"
+      ],
       "weaponId": "21040066",
-      "setBonuses": [
-        [
-          "29",
-          "5"
-        ]
+      "setCounts": {
+        "29": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
       ]
     }
   }

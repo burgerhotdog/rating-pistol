@@ -24,7 +24,16 @@
     "RL": "Resonance Liberation",
     "IS": "Intro Skill",
     "OS": "Outro Skill",
-    "ES": "Echo Skill"
+    "ES": "Echo Skill",
+    "DC": "Dodge Counter",
+    "MBA": "Mid-air Basic Attack",
+    "MHA": "Mid-air Heavy Attack",
+    "MDC": "Mid-air Dodge Counter",
+    "CA": "Coordinated Attack",
+    "JA": "Jump Attack",
+    "HK": "Hold",
+    "RK": "Release",
+    "AUTO": ""
   },
   "WEAPON_TYPES": [
     "BROADBLADE",
@@ -45,20 +54,20 @@
     {},
     {
       "FLAT_HP": {
-        "NAME": "HP",
+        "NAME": "Flat HP",
         "VALUE": 2280
       }
     },
     {},
     {
       "FLAT_ATK": {
-        "NAME": "ATK",
+        "NAME": "Flat ATK",
         "VALUE": 100
       }
     },
     {
       "FLAT_ATK": {
-        "NAME": "ATK",
+        "NAME": "Flat ATK",
         "VALUE": 150
       }
     }
@@ -170,17 +179,17 @@
   ],
   "SUB_STAT_TYPES": {
     "FLAT_HP": {
-      "NAME": "HP",
+      "NAME": "Flat HP",
       "VALUE": 580,
       "WEIGHT": 1
     },
     "FLAT_ATK": {
-      "NAME": "ATK",
+      "NAME": "Flat ATK",
       "VALUE": 60,
       "WEIGHT": 1
     },
     "FLAT_DEF": {
-      "NAME": "DEF",
+      "NAME": "Flat DEF",
       "VALUE": 70,
       "WEIGHT": 1
     },
@@ -258,50 +267,6 @@
     },
     "CD": {
       "label": "CRIT DMG",
-      "isPercent": true
-    },
-    "RS": {
-      "label": "Resonance Skill DMG Bonus",
-      "isPercent": true
-    },
-    "BA": {
-      "label": "Basic Attack DMG Bonus",
-      "isPercent": true
-    },
-    "HA": {
-      "label": "Heavy Attack DMG Bonus",
-      "isPercent": true
-    },
-    "RL": {
-      "label": "Resonance Liberation DMG Bonus",
-      "isPercent": true
-    },
-    "GLACIO": {
-      "label": "Glacio DMG Bonus",
-      "isPercent": true
-    },
-    "FUSION": {
-      "label": "Fusion DMG Bonus",
-      "isPercent": true
-    },
-    "ELECTRO": {
-      "label": "Electro DMG Bonus",
-      "isPercent": true
-    },
-    "AERO": {
-      "label": "Aero DMG Bonus",
-      "isPercent": true
-    },
-    "SPECTRO": {
-      "label": "Spectro DMG Bonus",
-      "isPercent": true
-    },
-    "HAVOC": {
-      "label": "Havoc DMG Bonus",
-      "isPercent": true
-    },
-    "HB": {
-      "label": "Healing Bonus",
       "isPercent": true
     }
   }

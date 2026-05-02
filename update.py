@@ -6,6 +6,7 @@ from update import (
     parse_image,
     read_json,
     write_json,
+    mv_parser
 )
 
 def parse_data(GAME, data, id_type):
@@ -79,13 +80,18 @@ def main():
     url_base = f"https://static.nanoka.cc/{GAME['link']}/{version}/en/"
     if character_ids:
         path = f"src/data/{GAME['id']}/character.json"
+        mv_path = f"src/data/{GAME['id']}/mv.json"
         json_data = read_json(path)
+        mv_data = read_json(mv_path)
         mapped_id_type = GAME["lang"]["id_type"].get("character", "character")
         for ID in character_ids:
             data = requests.get(f"{url_base}{mapped_id_type}/{ID}.json").json()
             parse_image(GAME, data, ID, "character")
             json_data[ID] = parse_data(GAME, data, "character")
-        write_json(f"src/data/{GAME['id']}/character.json", json_data)
+            if GAME['id'] == "wuthering-waves":
+                mv_data[ID] = mv_parser(GAME['id'], data)
+        # write_json(f"src/data/{GAME['id']}/character.json", json_data)
+        write_json(mv_path, mv_data)
 
     if weapon_ids:
         path = f"src/data/{GAME['id']}/weapon.json"

@@ -1,10 +1,12 @@
+import { useParams } from 'react-router-dom';
 import { Box, Divider, Stack } from '@mui/material';
 import HeaderEnka from './HeaderEnka';
 import HeaderNav from './HeaderNav';
 import HeaderOcr from './HeaderOcr';
 import HeaderUser from './HeaderUser';
 
-export const Header = ({ gameId }) => {
+export const Header = () => {
+  const { gameId } = useParams();
   return (
     <Box
       display="flex"
@@ -12,19 +14,11 @@ export const Header = ({ gameId }) => {
       alignItems="center"
       py={2}
     >
-      <HeaderNav gamePath={gameId} />
+      <HeaderNav />
 
       <Stack direction="row" alignItems="center" spacing={1}>
-        {gameId && (
-          <>
-            {gameId === 'wuthering-waves'
-              ? <HeaderOcr />
-              : <HeaderEnka gamePath={gameId} />
-            }
-            <Divider orientation="vertical" flexItem />
-          </>
-        )}
-
+        {gameId === 'wuthering-waves' ? <HeaderOcr /> : <HeaderEnka />}
+        <Divider orientation="vertical" flexItem />
         <HeaderUser />
       </Stack>
     </Box>

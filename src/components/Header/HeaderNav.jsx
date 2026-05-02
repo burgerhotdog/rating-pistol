@@ -1,18 +1,12 @@
+import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Stack, Box, Typography } from '@mui/material';
 import { ICON_ASSETS } from '@/assets';
+import { VERSION } from '@/data';
 
-const GAME_IDS = [
-  'genshin-impact',
-  'honkai-star-rail',
-  'wuthering-waves',
-  'zenless-zone-zero',
-];
-
-const HeaderNav = ({ gamePath }) => {
+const HeaderNav = () => {
+  const { gameId } = useParams();
   const [isFanHovered, setIsFanHovered] = useState(false);
-  const isHomePage = gamePath === '';
 
   return (
     <Stack direction="row" alignItems="center" spacing={1}>
@@ -49,18 +43,18 @@ const HeaderNav = ({ gamePath }) => {
           position: 'relative',
           width: 40,
           height: 40,
-          visibility: isHomePage ? 'hidden' : 'visible',
-          pointerEvents: isHomePage ? 'none' : 'auto',
+          visibility: 'visible',
+          pointerEvents: 'auto',
         }}
       >
-        {GAME_IDS.map((gameId, index) => {
-          const isActiveGame = gamePath === gameId;
+        {Object.keys(VERSION).map((id, index) => {
+          const isActiveGame = gameId === id;
           return (
-            <Link key={gameId} to={gameId}>
+            <Link key={id} to={`/${id}`}>
               <Box
                 component="img"
-                alt={gameId}
-                src={ICON_ASSETS[gameId]}
+                alt={id}
+                src={ICON_ASSETS[id]}
                 sx={{
                   position: 'absolute',
                   left: 0,

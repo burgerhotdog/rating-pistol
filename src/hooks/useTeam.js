@@ -1,23 +1,68 @@
-import { useEffect, useState } from "react";
-import { CHARACTERS } from "@/data";
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { useBuild } from '@/contexts';
+import { CHARACTERS } from '@/data';
+import { getSetCounts, formatRotation } from '@/utils';
 
-export function useTeam(gameId, characterId, calcsIndex) {
-  const [team, setTeam] = useState([]);
+const NULL_MEMBER = {
+  memberId: null,
+  weaponId: null,
+  setCounts: {},
+  rotation: [],
+};
 
-  useEffect(() => {
-    const size = (gameId === "genshin-impact" || gameId === "honkai-star-rail") ? 4 : 3;
-    const defaultTeam = CHARACTERS[gameId][characterId]?.calcs?.[calcsIndex]?.team;
+export function useTeam() {
+  const { gameId, characterId } = useParams();
+  const teamSize = ['genshin-impact', 'honkai-star-rail'].includes(gameId) ? 4 : 3;
+  const build = useBuild().getBuilds(gameId)[characterId];
+  if (!build) throw new Error(`build does not exist for characterId ${characterId}`);
 
-    const newTeam = defaultTeam
-      ? [...defaultTeam, ...new Array(size - 1).fill(null)].slice(0, size)
-      : [characterId, ...new Array(size - 1).fill(null)];
+  const defaultTeam = CHARACTERS[gameId][characterId].defaults?.team ?? [characterId, ...Array(teamSize - 1).fill(null)];
+  function initTeam(defaultTeam) {
+    const mappedTeam = defaultTeam.map(item => {
+      // null case
+      if (!item) {
+        return { ...NULL_MEMBER };
+      }
 
-    setTeam(newTeam);
-  }, [gameId, characterId, calcsIndex]);
+      // map case
+      if (item.memberId) {
+        const { defaults = {} } = CHARACTERS[gameId][item.memberId];
+        return {
+          memberId: item.memberId,
+          weaponId: item.weaponId ?? defaults.weaponId ?? NULL_MEMBER.weaponId,
+          setCounts: item.setCounts ?? defaults.setCounts ?? NULL_MEMBER.setCounts,
+          rotation: formatRotation(item.memberId, item.rotation ?? defaults.rotation ?? NULL_MEMBER.rotation),
+        };
+      }
 
-  function updateTeam(index, id) {
+      // string case
+      const { defaults = {} } = CHARACTERS[gameId][item];
+      return {
+        memberId: item,
+        weaponId: defaults.weaponId ?? NULL_MEMBER.weaponId,
+        setCounts: defaults.setCounts ?? NULL_MEMBER.setCounts,
+        rotation: formatRotation(item, defaults.rotation ?? NULL_MEMBER.rotation),
+      };
+    });
+
+    // add build to current character
+    return mappedTeam.map(member => {
+      if (member.memberId !== characterId) return { ...member };
+      return {
+        ...member,
+        weaponId: build.weaponId,
+        setCounts: getSetCounts(build.equipList),
+        build,
+      };
+    });
+  }
+
+  const [team, setTeam] = useState(initTeam(defaultTeam));
+
+  function updateTeam(index, member) {
     if (index < 0 || index >= team.length) return;
-    setTeam(prev => prev.with(index, id));
+    setTeam(prev => prev.with(index, member));
   }
 
   function replaceTeam(newTeam) {

@@ -1,4 +1,4 @@
-import jsQR from "jsqr";
+import jsQR from 'jsqr';
 
 const QR_REGION = { x: 1486, y: 80, w: 185, h: 185 };
 const QR_URL = "https://discord.com/invite/wutheringwaves";

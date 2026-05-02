@@ -1,11 +1,13 @@
-import { Box, Card, Divider, Paper, Stack, ToggleButton, ToggleButtonGroup, Tooltip as MuiTooltip, Typography } from "@mui/material";
+import { Box, Card, Divider, Paper, Stack, ToggleButton, ToggleButtonGroup, Tooltip as MuiTooltip, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import PersonIcon from '@mui/icons-material/Person';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTERS, MISC } from "@/data";
+import { CHARACTERS, MISC } from '@/data';
+import { sumRotationDmg } from '@/utils';
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -16,31 +18,22 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLoading, gameId, characterId, teamWeeklyScores }) => {
+export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats, team, actionMap }) => {
   const theme = useTheme();
+  const { gameId, characterId } = useParams();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element] ?? '#8884d8';
+  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const [viewMode, setViewMode] = useState('team');
 
   if (isLoading || !weeklyScores) return null;
 
-  const hasTeamData = teamWeeklyScores && Object.keys(teamWeeklyScores).length > 0;
+  const hasTeamData = teamFinalStats && Object.keys(teamFinalStats).length > 0;
   const showTeam = viewMode === 'team' && hasTeamData;
 
-  // Teammate benchmark damage at final week (constant contribution)
-  const teammatesBenchmark = hasTeamData
-    ? Object.values(teamWeeklyScores).reduce((sum, scores) => sum + (scores[scores.length - 1] ?? 0), 0)
-    : 0;
-
-  // Team totals: main char's weekly scores + teammates' fixed benchmark damage
-  const teamScores = hasTeamData
-    ? weeklyScores.map(score => score + teammatesBenchmark)
-    : null;
-
-  const activeScores = showTeam ? teamScores : weeklyScores;
+  const activeScores = weeklyScores.map(actionMap => sumRotationDmg(actionMap, (showTeam ? {} : { ownerId: characterId })));
   const benchmarkRating = activeScores[activeScores.length - 1];
-  const activeUserRating = showTeam ? (rating ?? 0) + teammatesBenchmark : (rating ?? 0);
+  const activeUserRating = sumRotationDmg(actionMap, (showTeam ? {} : { ownerId: characterId }));
   const scaledBuildRating = activeUserRating / benchmarkRating * 100;
 
   const data = activeScores.map((dmg, index) => {
@@ -48,14 +41,14 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLo
     return {
       week: index,
       damage: dmg,
-      q1: showTeam ? dmg : (dist?.q1 ?? dmg),
-      iqr: showTeam ? 0 : (dist ? dist.q3 - dist.q1 : 0),
-      p10: showTeam ? dmg : (dist?.p10 ?? dmg),
-      p90band: showTeam ? 0 : (dist ? dist.p90 - dist.p10 : 0),
+      q1: showTeam ? dmg : (sumRotationDmg(dist?.q1, (showTeam ? {} : { ownerId: characterId })) ?? dmg),
+      iqr: showTeam ? 0 : (dist ? sumRotationDmg(dist.q3, (showTeam ? {} : { ownerId: characterId })) - sumRotationDmg(dist.q1, (showTeam ? {} : { ownerId: characterId })) : 0),
+      p10: showTeam ? dmg : (sumRotationDmg(dist?.p10, (showTeam ? {} : { ownerId: characterId })) ?? dmg),
+      p90band: showTeam ? 0 : (dist ? sumRotationDmg(dist.p90, (showTeam ? {} : { ownerId: characterId })) - sumRotationDmg(dist.p10, (showTeam ? {} : { ownerId: characterId })) : 0),
     };
   });
   const yMin = 0;
-  const distMax = (!showTeam && weeklyDistribution) ? Math.max(...weeklyDistribution.map(d => d.p90)) : 0;
+  const distMax = (!showTeam && weeklyDistribution) ? Math.max(...weeklyDistribution.map(d => sumRotationDmg(d.p90, (showTeam ? {} : { ownerId: characterId })))) : 0;
   const yMax = Math.max(benchmarkRating, activeUserRating, distMax) * 1.08;
 
   const formatDamage = (v) => {
@@ -168,7 +161,7 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, rating, isLo
                   </Typography>
                   {!showTeam && dist && (
                     <Typography variant="body2" color="text.secondary">
-                      Q1–Q3: {dist.q1.toLocaleString('en-US', { maximumFractionDigits: 0 })} – {dist.q3.toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                      Q1-Q3: {sumRotationDmg(dist.q1, (showTeam ? {} : { ownerId: characterId })).toLocaleString('en-US', { maximumFractionDigits: 0 })} - {sumRotationDmg(dist.q3, (showTeam ? {} : { ownerId: characterId })).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
                   )}
                   {percentGain != null && (

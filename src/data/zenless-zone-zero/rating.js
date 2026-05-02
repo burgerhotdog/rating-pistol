@@ -1,4 +1,4 @@
-import { computeTotalStat, compileStatMap } from "@/utils";
+import { computeTotalStat, compileStatMap } from '@/utils';
 
 const CHARACTER_LEVEL = 60;
 const ENEMY_LEVEL = 70;
@@ -63,13 +63,4 @@ export function computeReductions(statMap, calcs) {
   const defMult = (CHARACTER_LEVEL + 100) / (k * (ENEMY_LEVEL + 100) + (CHARACTER_LEVEL + 100));
 
   return resMult * defMult;
-}
-
-export function computeDamage(characterId, build, calcs, team) {
-  const statMap = compileStatMap("zenless-zone-zero", characterId, build, team, "combat");
-
-  const baseDmg = computeBase(statMap, calcs);
-  const bonuses = computeBonuses(statMap, calcs);
-  const reductions = computeReductions(statMap, calcs);
-  return baseDmg * bonuses * reductions;
 }
