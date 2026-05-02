@@ -1,4 +1,4 @@
-import { computeDamage, computeTotalStat, compileStatMap, simulateRotation } from '@/utils';
+import { computeTotalStat, compileStatMap, simulateRotation } from '@/utils';
 import { matchPenalty } from './helpers/matchPenalty';
 
 export function createTrial(matchTargets, gameId, characterId, build, match, team) {

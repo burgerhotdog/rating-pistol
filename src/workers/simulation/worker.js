@@ -2,31 +2,14 @@ import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from
 import { findBenchmarkWeek, getAverageScores, findRelativeError } from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
-import { advanceTrialWuwa } from './advanceTrialWuwa';
-import { findPreferred, findPreferredWuwa } from './findPreferred';
+import { findPreferred } from './findPreferred';
 import { CHARACTERS, MISC } from '@/data';
 
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
 
-function getPreferredMainStats(isWuwa, trial, gameId, characterId, match, team, matchTargets) {
-  return isWuwa
-    ? findPreferredWuwa(trial, gameId, characterId, match, team, matchTargets)
-    : findPreferred(trial, gameId, characterId, match, team, matchTargets);
-}
-
-function advanceOneWeek(isWuwa, preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, match, team) {
-  if (isWuwa) {
-    advanceTrialWuwa(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
-    return;
-  }
-
-  advanceTrial(preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, match, team);
-}
-
 function simulateCharacter({ gameId, characterId, build, team, setIdList, reportProgress = false }) {
-  const isWuwa = gameId === 'wuthering-waves';
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, 'menu'));
@@ -37,22 +20,14 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
     trials.push(createTrial(matchTargets, gameId, characterId, build, match, team));
   }
 
-  const preferredMainStats = getPreferredMainStats(
-    isWuwa,
-    trials[0],
-    gameId,
-    characterId,
-    match,
-    team,
-    matchTargets,
-  );
+  const preferredMainStats = findPreferred(trials[0], gameId, characterId, match, team, matchTargets);
 
   let lastBenchmarkWeek = null;
   let lastDiff = null;
 
   for (let week = 1; week <= MAX_WEEKS; week++) {
     for (const trial of trials) {
-      advanceOneWeek(isWuwa, preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, match, team);
+      advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
     }
 
     while (trials.length < MAX_TRIALS) {
@@ -61,7 +36,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
 
       const trial = createTrial(matchTargets, gameId, characterId, build, match, team);
       for (let w = 1; w <= week; w++) {
-        advanceOneWeek(isWuwa, preferredMainStats, trial, setIdList, matchTargets, gameId, characterId, match, team);
+        advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
       }
       trials.push(trial);
     }
@@ -107,7 +82,7 @@ self.onmessage = ({ data }) => {
     const memberSetIdList = Object.entries(setCounts)
       .flatMap(([setId, count]) => Array(count).fill(setId))
       .concat(Array(NUM_MAINSTATS).fill(null))
-      .slice(0, 5);
+      .slice(0, NUM_MAINSTATS);
 
     const memberBuild = { weaponId, equipList: new Array(NUM_MAINSTATS).fill(null) };
 
@@ -152,7 +127,7 @@ self.onmessage = ({ data }) => {
   // Per-week score percentiles for distribution bands
   const weeklyDistribution = [];
   for (let week = 0; week <= lastBenchmarkWeek; week++) {
-    const values = trials.map(t => t.scores[week]).sort((a, b) => a - b);
+    const values = trials.map(t => t.scores[week]).sort((a, b) => sumRotationDmg(a) - sumRotationDmg(b));
     const n = values.length;
     weeklyDistribution.push({
       min: values[0],
