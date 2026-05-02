@@ -3,7 +3,7 @@ export * from './Navbar';
 export * from './StatsPanel';
 export * from './RadarChart';
 export * from './LineChart';
-export * from './CustomTable';
+export * from './SubstatPriority';
 export * from './Bar';
 export * from './CustomAvatar';
 export * from './TeamConfig';

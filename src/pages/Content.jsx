@@ -5,7 +5,7 @@ import {
   StatsPanel,
   CustomLineChart,
   CustomRadarChart,
-  CustomTable,
+  SubstatPriority,
 } from '@/components';
 import { useSimulation, useTeam } from '@/hooks';
 
@@ -73,7 +73,7 @@ export const Content = () => {
                   />
                 </Box>
                 <Box flex={2} minWidth={0} ml={1} display="flex" flexDirection="column" gap={1}>
-                  <CustomTable
+                  <SubstatPriority
                     team={team}
                     isLoading={isLoading}
                     teamFinalStats={teamFinalStats}

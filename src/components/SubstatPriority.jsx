@@ -1,10 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Box, Card, Tooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import { useBuild } from '@/contexts';
-import { MISC, CHARACTERS } from '@/data';
-import { useSimulateRotation } from '@/hooks';
-import { simulateRotation, normalizeTeam, sumRotationDmg } from '@/utils';
 import {
   ResponsiveContainer,
   BarChart,
@@ -14,18 +10,17 @@ import {
   Tooltip as Tooltip2,
   Cell,
 } from 'recharts';
+import { MISC, CHARACTERS } from '@/data';
+import { useSimulateRotation } from '@/hooks';
+import { simulateRotation, normalizeTeam, sumRotationDmg } from '@/utils';
 
-export const CustomTable = ({ team, isLoading, teamFinalStats }) => {
+export const SubstatPriority = ({ isLoading, team, teamFinalStats }) => {
   const { gameId, characterId } = useParams();
-  const build = useBuild().getBuilds(gameId)[characterId];
-  const element = CHARACTERS[gameId]?.[characterId]?.element;
-  const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
-  const { SUB_STAT_TYPES } = MISC[gameId];
-  const actionMap = useSimulateRotation(team, teamFinalStats);
-  const rating = sumRotationDmg(actionMap, { ownerId: characterId });
-  if (isLoading || !build || rating == null) return null;
+  const { element } = CHARACTERS[gameId][characterId];
+  const rating = sumRotationDmg(useSimulateRotation(team, teamFinalStats), { ownerId: characterId });
+  if (isLoading) return null;
 
-  const newRatings = Object.entries(SUB_STAT_TYPES)
+  const newRatings = Object.entries(MISC[gameId].SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
       const teamWithSubstat = team.map(m => {
         if (m.memberId !== characterId) return m;
@@ -54,7 +49,7 @@ export const CustomTable = ({ team, isLoading, teamFinalStats }) => {
   const maxDiff = newRatings.length ? newRatings[0].diff : 1;
 
   const chartData = newRatings.map(({ name, diff }) => ({
-    name: SUB_STAT_TYPES[name].NAME,
+    name: MISC[gameId].SUB_STAT_TYPES[name].NAME,
     value: diff,
   }));
 
@@ -89,7 +84,7 @@ export const CustomTable = ({ team, isLoading, teamFinalStats }) => {
               {chartData.map((entry, index) => (
                 <Cell
                   key={index}
-                  fill={elementColor}
+                  fill={MISC[gameId].ELEMENT_COLORS[element]}
                   opacity={0.4 + 0.6 * (entry.value / maxDiff)}
                 />
               ))}
