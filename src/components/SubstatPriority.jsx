@@ -59,6 +59,28 @@ export const SubstatPriority = ({ isLoading, team, teamFinalStats }) => {
   );
   const chartHeight = Math.max(220, chartData.length * 28);
 
+  const renderYAxisTick = ({ x, y, payload }) => (
+    <foreignObject x={x - yAxisWidth + 6} y={y - 10} width={yAxisWidth - 12} height={20}>
+      <Box sx={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+        <Typography
+          noWrap
+          title={payload.value}
+          sx={{
+            maxWidth: '100%',
+            fontSize: 12,
+            lineHeight: 1,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            color: 'text.secondary',
+          }}
+        >
+          {payload.value}
+        </Typography>
+      </Box>
+    </foreignObject>
+  );
+
   return (
     <Card sx={{ flex: 1, overflow: 'hidden' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0.5 }}>
@@ -87,6 +109,7 @@ export const SubstatPriority = ({ isLoading, team, teamFinalStats }) => {
                   width={yAxisWidth}
                   interval={0}
                   tickMargin={6}
+                  tick={renderYAxisTick}
                 />
                 <Tooltip2
                   allowEscapeViewBox={{ x: true, y: true }}

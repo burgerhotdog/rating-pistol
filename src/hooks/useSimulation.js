@@ -97,6 +97,7 @@ export function useSimulation(team) {
   
     setResult(prev => ({
       ...prev,
+      simCharacter: characterId,
       isLoading: true,
       completed: 0,
       diff: null,
