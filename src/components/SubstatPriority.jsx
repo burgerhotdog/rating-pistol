@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Box, Card, Tooltip, Typography } from '@mui/material';
+import { Box, Card, Paper, Tooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import {
   ResponsiveContainer,
@@ -53,8 +53,14 @@ export const SubstatPriority = ({ isLoading, team, teamFinalStats }) => {
     value: diff,
   }));
 
+  const yAxisWidth = Math.min(
+    180,
+    Math.max(100, Math.max(...chartData.map(({ name }) => name.length), 0) * 7 + 16)
+  );
+  const chartHeight = Math.max(220, chartData.length * 28);
+
   return (
-    <Card sx={{ flex: 1, overflow: 'auto' }}>
+    <Card sx={{ flex: 1, overflow: 'hidden' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, px: 2, pt: 1.5, pb: 0.5 }}>
         <Typography variant="subtitle2" fontWeight="bold">Substat Priority</Typography>
         <Tooltip title="Damage increase from gaining one extra roll of each substat. Prioritize farming for the stats at the top." placement="top" arrow>
@@ -62,35 +68,65 @@ export const SubstatPriority = ({ isLoading, team, teamFinalStats }) => {
         </Tooltip>
       </Box>
       <Box sx={{ width: '100%', height: 220, px: 2, pb: 2 }}>
-        <ResponsiveContainer>
-          <BarChart
-            data={chartData}
-            layout="vertical"
-            margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
-          >
-            <XAxis
-              type="number"
-              tickFormatter={(v) => `+${v.toFixed(1)}%`}
-            />
-            <YAxis
-              type="category"
-              dataKey="name"
-              width={100}
-            />
-            <Tooltip2
-              formatter={(value) => `+${value.toFixed(2)}%`}
-            />
-            <Bar dataKey="value" radius={[4, 4, 4, 4]}>
-              {chartData.map((entry, index) => (
-                <Cell
-                  key={index}
-                  fill={MISC[gameId].ELEMENT_COLORS[element]}
-                  opacity={0.4 + 0.6 * (entry.value / maxDiff)}
+        <Box sx={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
+          <Box sx={{ width: '100%', height: chartHeight }}>
+            <ResponsiveContainer>
+              <BarChart
+                data={chartData}
+                layout="vertical"
+                margin={{ top: 5, right: 20, left: 10, bottom: 5 }}
+                barCategoryGap={10}
+              >
+                <XAxis
+                  type="number"
+                  tickFormatter={(v) => `+${v.toFixed(1)}%`}
                 />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+                <YAxis
+                  type="category"
+                  dataKey="name"
+                  width={yAxisWidth}
+                  interval={0}
+                  tickMargin={6}
+                />
+                <Tooltip2
+                  allowEscapeViewBox={{ x: true, y: true }}
+                  wrapperStyle={{ pointerEvents: 'none', zIndex: 10 }}
+                  content={({ active, payload, label }) => {
+                    if (!active || !payload?.length) return null;
+                    const value = payload[0].value;
+                    return (
+                      <Paper
+                        elevation={4}
+                        sx={{
+                          p: 1.5,
+                          minWidth: 0,
+                          border: 1,
+                          borderColor: 'divider',
+                        }}
+                      >
+                        <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                          {label}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          Damage gain: +{Number(value).toFixed(2)}%
+                        </Typography>
+                      </Paper>
+                    );
+                  }}
+                />
+                <Bar dataKey="value" radius={[4, 4, 4, 4]}>
+                  {chartData.map((entry, index) => (
+                    <Cell
+                      key={index}
+                      fill={MISC[gameId].ELEMENT_COLORS[element]}
+                      opacity={0.4 + 0.6 * (entry.value / maxDiff)}
+                    />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </Box>
+        </Box>
       </Box>
     </Card>
   );

@@ -64,21 +64,19 @@ export const Content = () => {
                 />
               </Box>
 
-              <Box display="flex" flexDirection="row" sx={{ flex: 2, minHeight: 300, mt: 1 }}>
-                <Box flex={3} display="flex" flexDirection="column" minWidth={0} gap={1}>
-                  <CustomRadarChart
-                    combinedSimEquips={finalStats}
-                    isLoading={isLoading}
-                    benchmarkWeek={weeklyScores ? weeklyScores.length - 1 : null}
-                  />
-                </Box>
-                <Box flex={2} minWidth={0} ml={1} display="flex" flexDirection="column" gap={1}>
-                  <SubstatPriority
-                    team={team}
-                    isLoading={isLoading}
-                    teamFinalStats={teamFinalStats}
-                  />
-                </Box>
+              <Box display="flex" flexDirection="row" sx={{ flex: 1, minHeight: 100, mt: 1 }}>
+                <CustomRadarChart
+                  combinedSimEquips={finalStats}
+                  isLoading={isLoading}
+                  benchmarkWeek={weeklyScores ? weeklyScores.length - 1 : null}
+                />
+              </Box>
+              <Box display="flex" flexDirection="row" sx={{ flex: 1, minHeight: 100, mt: 1 }}>
+                <SubstatPriority
+                  team={team}
+                  isLoading={isLoading}
+                  teamFinalStats={teamFinalStats}
+                />
               </Box>
             </Box>
           )
