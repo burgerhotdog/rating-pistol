@@ -1,4 +1,4 @@
-import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
+import { mergeEquipList, computeTotalStat, compileStatMap, normalizeTeam, sumRotationDmg, simulateRotation } from '@/utils';
 import { findBenchmarkWeek, getAverageScores, findRelativeError } from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
@@ -140,5 +140,27 @@ self.onmessage = ({ data }) => {
     });
   }
 
-  self.postMessage({ type: 'done', completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, weeklyDistribution, teamFinalStats });
+  const normalizedTeam = normalizeTeam(team, teamFinalStats);
+  const actionMap = simulateRotation(gameId, normalizedTeam);
+
+  const actionMapsWithSub = Object.fromEntries(Object.entries(MISC[gameId].SUB_STAT_TYPES)
+    .map(([id, { VALUE }]) => {
+      const teamWithSubstat = team.map(m => {
+        if (m.memberId !== characterId) return m;
+        return {
+          ...m,
+          build: {
+            ...m.build,
+            equipList: [
+              ...m.build.equipList,
+              { mainStatId: id, mainStatValue: VALUE, subStatList: [] },
+            ],
+          },
+        };
+      });
+      const normalizedTeam = normalizeTeam(teamWithSubstat, teamFinalStats);
+      return [id, simulateRotation(gameId, normalizedTeam)];
+    }));
+
+  self.postMessage({ type: 'done', completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, weeklyDistribution, teamFinalStats, actionMap, actionMapsWithSub });
 };

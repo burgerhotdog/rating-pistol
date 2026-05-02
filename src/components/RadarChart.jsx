@@ -7,7 +7,7 @@ import { CHARACTERS, MISC } from '@/data';
 import { computeTotalStat, mergeStatMaps, compileStatMap } from '@/utils';
 import { useTheme } from '@mui/material/styles';
 
-export const CustomRadarChart = ({ combinedSimEquips, isLoading, benchmarkWeek }) => {
+export const CustomRadarChart = ({ combinedSimEquips, isLoading }) => {
   const { gameId, characterId } = useParams();
   const build = useBuild().getBuilds(gameId)[characterId];
   const theme = useTheme();

@@ -19,14 +19,13 @@ const InfoLabel = ({ label, tip }) => (
   </Box>
 );
 
-export const CustomLineChart = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats, team }) => {
+export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading, teamFinalStats, team, actionMap }) => {
   const theme = useTheme();
   const { gameId, characterId } = useParams();
   const disabledColor = theme.palette.action.disabled;
   const element = CHARACTERS[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const [viewMode, setViewMode] = useState('team');
-  const rating = useSimulateRotation(team, teamFinalStats);
 
   if (isLoading || !weeklyScores) return null;
 
@@ -35,7 +34,7 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, isLoading, t
 
   const activeScores = weeklyScores.map(actionMap => sumRotationDmg(actionMap, (showTeam ? {} : { ownerId: characterId })));
   const benchmarkRating = activeScores[activeScores.length - 1];
-  const activeUserRating = sumRotationDmg(rating, (showTeam ? {} : { ownerId: characterId }));
+  const activeUserRating = sumRotationDmg(actionMap, (showTeam ? {} : { ownerId: characterId }));
   const scaledBuildRating = activeUserRating / benchmarkRating * 100;
 
   const data = activeScores.map((dmg, index) => {

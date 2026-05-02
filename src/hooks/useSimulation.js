@@ -62,46 +62,23 @@ export function useSimulation(team) {
   const build = useBuild().getBuilds(gameId)[characterId];
 
   const workerRef = useRef(null);
-  const [result, setResult] = useState({
-    weeklyScores: null,
-    finalStats: null,
-    preferredMainStats: null,
-    mainStatDist: null,
-    weeklyDistribution: null,
-    isLoading: false,
-    completed: 0,
-  });
-  
+  const [result, setResult] = useState({});
   
   useEffect(() => {
     const payload = { gameId, characterId, build, team };
-    const validationError = validatePayload(payload);
-    if (validationError) {
-      console.log(validationError);
+    const error = validatePayload(payload);
+    if (error) {
+      console.log(error);
       workerRef.current?.terminate();
       workerRef.current = null;
-      setResult({
-        isDisabled: true,
-        weeklyScores: null,
-        finalStats: null,
-        preferredMainStats: null,
-        mainStatDist: null,
-        weeklyDistribution: null,
-        isLoading: false,
-        completed: 0,
-        diff: null,
-        simCharacter: characterId,
-      });
+      setResult({ error });
       return;
     }
   
-    setResult(prev => ({
-      ...prev,
+    setResult({
       simCharacter: characterId,
       isLoading: true,
-      completed: 0,
-      diff: null,
-    }));
+    });
   
     workerRef.current?.terminate();
 
@@ -124,6 +101,7 @@ export function useSimulation(team) {
       if (data.type === 'done') {
         setResult(prev => ({
           ...prev,
+          isFarmingDone: true,
           completed: data.completed,
           weeklyScores: data.weeklyScores,
           finalStats: data.finalStats,
@@ -133,6 +111,8 @@ export function useSimulation(team) {
           isLoading: false,
           simCharacter: characterId,
           teamFinalStats: data.teamFinalStats,
+          actionMap: data.actionMap,
+          actionMapsWithSub: data.actionMapsWithSub,
         }));
 
         worker.terminate();
