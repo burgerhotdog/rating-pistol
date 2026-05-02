@@ -26,7 +26,7 @@ export const CustomLineChart = ({ weeklyScores, weeklyDistribution, isLoading, t
   const element = CHARACTERS[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const [viewMode, setViewMode] = useState('team');
-  const rating = useSimulateRotation(team.map(member => member.memberId === characterId ? { ...member } : { ...member, build: { weaponId: member.weaponId, statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } }));
+  const rating = useSimulateRotation(team, teamFinalStats);
 
   if (isLoading || !weeklyScores) return null;
 

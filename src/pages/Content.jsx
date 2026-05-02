@@ -76,6 +76,7 @@ export const Content = () => {
                   <CustomTable
                     team={team}
                     isLoading={isLoading}
+                    teamFinalStats={teamFinalStats}
                   />
                 </Box>
               </Box>

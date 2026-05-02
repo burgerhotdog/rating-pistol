@@ -3,7 +3,8 @@ import { Box, Card, Tooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { useBuild } from '@/contexts';
 import { MISC, CHARACTERS } from '@/data';
-import { computeDamage } from '@/utils';
+import { useSimulateRotation } from '@/hooks';
+import { simulateRotation, normalizeTeam, sumRotationDmg } from '@/utils';
 import {
   ResponsiveContainer,
   BarChart,
@@ -14,17 +15,34 @@ import {
   Cell,
 } from 'recharts';
 
-export const CustomTable = ({ rating, team, isLoading }) => {
+export const CustomTable = ({ team, isLoading, teamFinalStats }) => {
   const { gameId, characterId } = useParams();
   const build = useBuild().getBuilds(gameId)[characterId];
   const element = CHARACTERS[gameId]?.[characterId]?.element;
   const elementColor = MISC[gameId]?.ELEMENT_COLORS?.[element];
   const { SUB_STAT_TYPES } = MISC[gameId];
+  const actionMap = useSimulateRotation(team, teamFinalStats);
+  const rating = sumRotationDmg(actionMap, { ownerId: characterId });
   if (isLoading || !build || rating == null) return null;
 
   const newRatings = Object.entries(SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
-      const newRating = computeDamage(gameId, characterId, { ...build, equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }] }, team);
+      const teamWithSubstat = team.map(m => {
+        if (m.memberId !== characterId) return m;
+        return {
+          ...m,
+          build: {
+            ...m.build,
+            equipList: [
+              ...m.build.equipList,
+              { mainStatId: id, mainStatValue: VALUE, subStatList: [] },
+            ],
+          },
+        };
+      });
+      const normalizedTeam = normalizeTeam(teamWithSubstat, teamFinalStats);
+      const actionMap = simulateRotation(gameId, normalizedTeam);
+      const newRating = sumRotationDmg(actionMap, { ownerId: characterId });
       return {
         name: id,
         diff: newRating / rating * 100 - 100,

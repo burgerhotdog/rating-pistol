@@ -1,11 +1,48 @@
 import { useParams } from 'react-router-dom';
-import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Avatar } from '@mui/material';
+import { Chip, CardContent, Box, CardHeader, Card, Divider, Stack, Typography, Skeleton, Avatar, Tooltip } from '@mui/material';
 import { MISC, CHARACTERS, WEAPONS, SETS } from '@/data';
 import { computeTotalStat, compileStatMap, mergeStatMaps } from '@/utils';
 import { CustomAvatar } from '@/components';
 import { useBuild } from '@/contexts';
 import { TeamMemberDialog } from '@/components/TeamMemberDialog';
 import { useState } from 'react';
+
+function getRelativeTime(dateString) {
+  if (!dateString) return 'Unknown';
+  
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return 'Unknown';
+  
+  const now = new Date();
+  const diffMs = now - date;
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  
+  if (diffDays === 0) return 'Today';
+  if (diffDays === 1) return '1 day ago';
+  if (diffDays < 30) return `${diffDays} days ago`;
+  
+  const diffMonths = Math.floor(diffDays / 30);
+  if (diffMonths === 1) return '1 month ago';
+  if (diffMonths < 12) return `${diffMonths} months ago`;
+  
+  const diffYears = Math.floor(diffDays / 365);
+  return diffYears === 1 ? '1 year ago' : `${diffYears} years ago`;
+}
+
+function formatFullDate(dateString) {
+  if (!dateString) return 'Unknown';
+  
+  const date = new Date(dateString);
+  if (isNaN(date.getTime())) return 'Unknown';
+  
+  return date.toLocaleString(undefined, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
 
 function constructBuffMap(buffs, buffTypes) {
   if (!buffs) return {};
@@ -154,23 +191,32 @@ export const StatsPanel = ({ team, updateTeam }) => {
   }
 
   return (
-    <Card sx={{ width: 300 }}>
+    <Card sx={{ width: 300, display: 'flex', flexDirection: 'column' }}>
       <CardHeader
         avatar={<CustomAvatar gameId={gameId} characterId={characterId} />}
         title={CHARACTERS[gameId]?.[characterId]?.name ?? ""}
         subheader={
-          <Chip
-            label={CHARACTERS[gameId]?.[characterId]?.element ?? ""}
-            variant="outlined"
-            size="small"
-            sx={{
-              color: MISC[gameId]?.ELEMENT_COLORS[CHARACTERS[gameId]?.[characterId]?.element]
-            }}
-          />
+          <Stack direction="row" spacing={0.5} sx={{ mt: 0.25 }}>
+            <Chip
+              label={CHARACTERS[gameId]?.[characterId]?.element ?? ""}
+              variant="outlined"
+              size="small"
+              sx={{
+                color: MISC[gameId]?.ELEMENT_COLORS[CHARACTERS[gameId]?.[characterId]?.element]
+              }}
+            />
+            {CHARACTERS[gameId]?.[characterId]?.type && (
+              <Chip
+                label={CHARACTERS[gameId]?.[characterId]?.type}
+                variant="outlined"
+                size="small"
+              />
+            )}
+          </Stack>
         }
       />
 
-      <CardContent>
+      <CardContent sx={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
         <Stack gap={1}>
           {Object.entries(MENU_STATS).map(([id, { label, isPercent }]) => {
             const totalValue = computeTotalStat(id, statMap);
@@ -250,11 +296,15 @@ export const StatsPanel = ({ team, updateTeam }) => {
           </Typography>
         )}
 
+        <Box sx={{ flexGrow: 1 }} />
+
         <Divider sx={{ my: 2 }} />
 
-        <Typography variant="caption" color="text.secondary">
-          Last Updated: {build?.lastUpdated ?? 'Unknown'}
-        </Typography>
+        <Tooltip title={formatFullDate(build?.lastUpdated)}>
+          <Typography variant="caption" color="text.secondary">
+            Last updated {getRelativeTime(build?.lastUpdated)}
+          </Typography>
+        </Tooltip>
       </CardContent>
     </Card>
   );

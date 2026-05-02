@@ -72,12 +72,3 @@ export function computeReductions(statMap, calcs) {
 
   return resMult * defMult * brokenMult;
 }
-
-export function computeDamage(characterId, build, calcs, team) {
-  const statMap = compileStatMap("honkai-star-rail", characterId, build, team, "combat");
-
-  const baseDmg = computeBase(statMap, calcs);
-  const bonuses = computeBonuses(statMap, calcs);
-  const reductions = computeReductions(statMap, calcs);
-  return baseDmg * bonuses * reductions;
-}

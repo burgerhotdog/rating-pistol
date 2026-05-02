@@ -61,37 +61,3 @@ export function computeReductions(statMap, element, dmgTypes) {
 
   return resMult * defMult;
 }
-
-export function computeDamage(characterId, build, rotation, team) {
-  const { element } = CHARACTERS["wuthering-waves"][characterId];
-  const statMap = compileStatMap("wuthering-waves", characterId, build, team, "combat");
-
-  let damage = 0;
-  for (const step of rotation) {
-    const {
-      ownerId,
-      considered,
-      special,
-      modifiers,
-      attr,
-      multipliers,
-    } = getSkill("wuthering-waves", step);
-
-    if (ownerId !== characterId) continue;
-    if (considered === "HEAL") continue;
-    if (considered === "SHIELD") continue;
-    if (considered === "BUFF") continue;
-    if (!multipliers) continue;
-
-    const dmgTypes = [considered, special].filter(Boolean);
-    const adjustedStatMap = modifiers ? mergeStatMaps(statMap, modifiers) : statMap;
-
-    const baseDmg = computeBase(adjustedStatMap, attr, multipliers);
-    const bonuses = computeBonuses(adjustedStatMap, element, dmgTypes);
-    const reductions = computeReductions(adjustedStatMap, element, dmgTypes);
-
-    damage += baseDmg * bonuses * reductions;
-  }
-
-  return damage;
-}

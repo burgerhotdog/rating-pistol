@@ -64,12 +64,3 @@ export function computeReductions(statMap, calcs) {
 
   return resMult * defMult;
 }
-
-export function computeDamage(characterId, build, calcs, team) {
-  const statMap = compileStatMap("zenless-zone-zero", characterId, build, team, "combat");
-
-  const baseDmg = computeBase(statMap, calcs);
-  const bonuses = computeBonuses(statMap, calcs);
-  const reductions = computeReductions(statMap, calcs);
-  return baseDmg * bonuses * reductions;
-}

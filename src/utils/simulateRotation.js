@@ -60,6 +60,21 @@ function parseTeammateEffects(gameId, memberId, index, team) {
   return effectStatMap;
 }
 
+export function normalizeTeam(team, teamFinalStats = {}) {
+  return team.map(m => {
+    if (m.build) return m;
+    const finalStats = teamFinalStats[m.memberId];
+    return {
+      ...m,
+      build: {
+        weaponId: m.weaponId,
+        setCounts: m.setCounts,
+        ...(finalStats ? { statMap: finalStats } : {}),
+      },
+    };
+  });
+}
+
 export function simulateRotation(gameId, team) {
   const actionMap = {};
 
