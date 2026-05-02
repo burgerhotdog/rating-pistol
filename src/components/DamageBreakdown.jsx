@@ -32,14 +32,14 @@ function resolveOwnerLabel(gameId, ownerId) {
 /**
  * Builds chart data grouped by damage type (uses getSkill to resolve `considered`).
  */
-function buildDmgTypeData(actionMap, gameId) {
+function buildDmgTypeData(actionMap, gameId, characterId) {
   const totals = {};
-  for (const actionKey of Object.keys(actionMap)) {
-    const { considered } = getSkill(gameId, actionKey);
+  for (const [actionKey, { damage }] of Object.entries(actionMap)) {
+    const { ownerId, considered } = getSkill(gameId, actionKey);
+    if (ownerId !== characterId) continue;
+
     const label = resolveDmgTypeLabel(gameId, considered);
-    const [ownerId, skillId, actionId] = actionKey.split('-');
-    const dmg = sumRotationDmg(actionMap, { ownerId, skillId, actionId });
-    totals[label] = (totals[label] ?? 0) + dmg;
+    totals[label] = (totals[label] ?? 0) + damage;
   }
   return Object.entries(totals)
     .map(([name, value]) => ({ name, value }))
@@ -70,9 +70,9 @@ export const DamageBreakdown = ({ actionMap }) => {
   const total = sumRotationDmg(actionMap);
   const data = (groupBy === 'owner'
     ? buildOwnerData(actionMap, gameId)
-    : buildDmgTypeData(actionMap, gameId))
-    .sort((a, b) => b.value - a.value);
-  const element = CHARACTERS?.[gameId]?.[characterId]?.element;
+    : buildDmgTypeData(actionMap, gameId, characterId)).sort((a, b) => b.value - a.value);
+
+  const element = CHARACTERS[gameId][characterId].element;
   const monoColor = MISC?.[gameId]?.ELEMENT_COLORS?.[element] ?? theme.palette.primary.main;
 
   const getSliceFill = (index, count) => {
@@ -148,12 +148,11 @@ export const DamageBreakdown = ({ actionMap }) => {
                 content={({ active, payload }) => {
                   if (!active || !payload?.length) return null;
                   const { name, value } = payload[0].payload;
-                  const pct = ((value / total) * 100).toFixed(1);
                   return (
                     <Paper elevation={4} sx={{ p: 1.5, border: 1, borderColor: 'divider' }}>
                       <Typography variant="subtitle2" fontWeight="bold">{name}</Typography>
                       <Typography variant="body2" color="text.secondary">
-                        {pct}% of total
+                        {value.toLocaleString('en-US', { maximumFractionDigits: 0 })} damage
                       </Typography>
                     </Paper>
                   );

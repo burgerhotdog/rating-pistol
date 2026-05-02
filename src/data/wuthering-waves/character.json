@@ -19,17 +19,21 @@
           "PERCENT_RS": 0.2
         }
       },
-      "next": {
-        "constant": {
-          "AMP_BA": 0.38
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_ATK": 0.2
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_BA": 0.38
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -90,6 +94,15 @@
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -280,17 +293,21 @@
       }
     },
     "buffs": {
-      "next": {
-        "constant": {
-          "AMP_HA": 0.38
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_ATK": 0.2
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HA": 0.38
+        }
+      }
+    ],
     "states": [
       {
         "name": "Burning Rhapsody",
@@ -428,14 +445,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RL": 0.25,
           "AMP_ELECTRO": 0.2
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         null,
@@ -589,6 +608,15 @@
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_AERO": 0.23
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -694,13 +722,15 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RL": 0.38
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         null,
@@ -737,11 +767,19 @@
     "buffs": {
       "team": {
         "constant": {
-          "PERCENT_ATK": 0.2,
-          "AMP_ALL": 0.15
+          "PERCENT_ATK": 0.2
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -779,17 +817,21 @@
           "PERCENT_HA": 0.4
         }
       },
-      "next": {
-        "constant": {
-          "AMP_RS": 0.38
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_DEF": 0.15
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_RS": 0.38
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -828,17 +870,21 @@
           "PERCENT_HAVOC": 0.3
         }
       },
-      "next": {
-        "constant": {
-          "AMP_HAVOC": 0.23
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_ATK": 0.2
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HAVOC": 0.23
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -869,14 +915,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RL": 0.25,
           "AMP_FUSION": 0.2
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1205",
@@ -980,14 +1028,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RS": 0.25,
           "AMP_GLACIO": 0.2
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         null,
@@ -1094,13 +1144,15 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_CA": 1
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         null,
@@ -1142,17 +1194,21 @@
           "PERCENT_CR": 0.125
         }
       },
-      "team": {
-        "constant": {
-          "AMP_ALL": 0.15
-        }
-      },
       "first": {
         "constant": {
           "PERCENT_CD": 0.25
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -1194,17 +1250,21 @@
           "PERCENT_BA": 0.3
         }
       },
-      "next": {
-        "constant": {
-          "AMP_RS": 0.38
-        }
-      },
       "team": {
         "constant": {
           "PERCENT_ATK": 0.2
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_RS": 0.38
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -1349,18 +1409,22 @@
       }
     },
     "buffs": {
-      "next": {
-        "constant": {
-          "AMP_BA": 0.25,
-          "AMP_HAVOC": 0.2
-        }
-      },
       "ally": {
         "constant": {
           "FLAT_ATK": 200
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_BA": 0.25,
+          "AMP_HAVOC": 0.2
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -1407,14 +1471,18 @@
             "max": 2600
           }
         }
-      },
-      "next": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RS": 0.25,
           "AMP_FUSION": 0.2
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         null,
@@ -1445,14 +1513,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "ally": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_FRAZZLE": 1,
-          "SHRED_SPECTRO": 0.1
+          "IGNORE_SPECTRO": 0.1
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1507",
@@ -1483,14 +1553,16 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_RS": 0.25,
           "AMP_HAVOC": 0.2
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1608",
@@ -1521,13 +1593,15 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "ally": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_EROSION": 1
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1409",
@@ -1563,13 +1637,17 @@
         "constant": {
           "AMP_FRAZZLE": 0.2
         }
-      },
-      "ally": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_SPECTRO": 0.2
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1507",
@@ -1612,14 +1690,18 @@
           "PERCENT_FUSION": 0.2,
           "PERCENT_ATK": 0.24
         }
-      },
-      "next": {
-        "constant": {
-          "AMP_FUSION": 0.2,
-          "AMP_BA": 0.25
-        }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_BA": 0.25,
+          "AMP_FUSION": 0.2
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1205",
@@ -1655,13 +1737,17 @@
         "constant": {
           "PERCENT_ALL": 0.6
         }
-      },
-      "ally": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_AERO": 0.175
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1409",
@@ -1697,14 +1783,18 @@
         "constant": {
           "PERCENT_CD": 0.6
         }
-      },
-      "next": {
-        "constant": {
-          "AMP_HAVOC": 0.2,
-          "AMP_HA": 0.25
-        }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HA": 0.25,
+          "AMP_HAVOC": 0.2
+        }
+      }
+    ],
     "match": [],
     "defaults": {
       "team": [
@@ -1742,9 +1832,13 @@
         "constant": {
           "PERCENT_ELECTRO": 0.15
         }
-      },
-      "next": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_GLACIO": 0.15,
           "AMP_FUSION": 0.15,
           "AMP_ELECTRO": 0.15,
@@ -1753,7 +1847,7 @@
           "AMP_HAVOC": 0.15
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1306",
@@ -1786,17 +1880,21 @@
       }
     },
     "buffs": {
-      "next": {
-        "constant": {
-          "AMP_HA": 0.5
-        }
-      },
       "team": {
         "constant": {
           "AMP_ALL": 0.4
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HA": 0.5
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1306",
@@ -1876,13 +1974,17 @@
         "constant": {
           "PERCENT_CD": 0.3
         }
-      },
-      "next": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
           "AMP_ES": 0.5
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1208",
@@ -1914,6 +2016,15 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -1988,13 +2099,15 @@
         "PERCENT_DEF": 0.152
       }
     },
-    "buffs": {
-      "team": {
-        "constant": {
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
           "AMP_ALL": 0.25
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         null,
@@ -2043,6 +2156,16 @@
         }
       }
     },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ALL": 0.15,
+          "AMP_RL": 0.25
+        }
+      }
+    ],
     "defaults": {
       "team": [
         null,
@@ -2078,13 +2201,17 @@
         "constant": {
           "PERCENT_CD": 0.6
         }
-      },
-      "team": {
-        "constant": {
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
           "AMP_ALL": 0.2
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1210",
