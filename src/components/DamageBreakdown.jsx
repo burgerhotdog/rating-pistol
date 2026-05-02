@@ -1,16 +1,33 @@
 import { useParams } from 'react-router-dom';
 import { Box, Card, Paper, ToggleButton, ToggleButtonGroup, Tooltip as MuiTooltip, Typography } from '@mui/material';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 import { useState } from 'react';
+import { CHARACTERS, MISC } from '@/data';
 import { sumRotationDmg, getSkill } from '@/utils';
-
-const COLORS = ['#6366f1', '#22c55e', '#f59e0b', '#ef4444', '#06b6d4', '#ec4899', '#8b5cf6', '#14b8a6'];
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;
   return `${(percent * 100).toFixed(0)}%`;
 };
+
+const FALLBACK_DMG_TYPE_LABELS = {
+  HEAL: 'Healing',
+  SHIELD: 'Shield',
+  BUFF: 'Buff',
+};
+
+function resolveDmgTypeLabel(gameId, dmgTypeId) {
+  if (!dmgTypeId) return 'Unknown';
+  const mapped = MISC?.[gameId]?.ABILITY_TYPES?.[dmgTypeId];
+  if (mapped) return mapped;
+  return FALLBACK_DMG_TYPE_LABELS[dmgTypeId] ?? dmgTypeId;
+}
+
+function resolveOwnerLabel(gameId, ownerId) {
+  return CHARACTERS?.[gameId]?.[ownerId]?.name ?? ownerId;
+}
 
 /**
  * Builds chart data grouped by damage type (uses getSkill to resolve `considered`).
@@ -19,7 +36,7 @@ function buildDmgTypeData(actionMap, gameId) {
   const totals = {};
   for (const actionKey of Object.keys(actionMap)) {
     const { considered } = getSkill(gameId, actionKey);
-    const label = considered ?? 'Unknown';
+    const label = resolveDmgTypeLabel(gameId, considered);
     const [ownerId, skillId, actionId] = actionKey.split('-');
     const dmg = sumRotationDmg(actionMap, { ownerId, skillId, actionId });
     totals[label] = (totals[label] ?? 0) + dmg;
@@ -32,26 +49,47 @@ function buildDmgTypeData(actionMap, gameId) {
 /**
  * Builds chart data grouped by owner (character).
  */
-function buildOwnerData(actionMap) {
+function buildOwnerData(actionMap, gameId) {
   const ownerIds = [...new Set(Object.keys(actionMap).map(k => k.split('-')[0]))];
   return ownerIds
     .map(ownerId => ({
-      name: ownerId,
+      ownerId,
+      name: resolveOwnerLabel(gameId, ownerId),
       value: sumRotationDmg(actionMap, { ownerId }),
     }))
     .filter(d => d.value > 0);
 }
 
 export const DamageBreakdown = ({ actionMap }) => {
-  const { gameId } = useParams();
-  const [groupBy, setGroupBy] = useState('dmgType');
+  const { gameId, characterId } = useParams();
+  const theme = useTheme();
+  const [groupBy, setGroupBy] = useState('owner');
 
   if (!actionMap) return null;
 
   const total = sumRotationDmg(actionMap);
-  const data = groupBy === 'owner'
-    ? buildOwnerData(actionMap)
-    : buildDmgTypeData(actionMap, gameId);
+  const data = (groupBy === 'owner'
+    ? buildOwnerData(actionMap, gameId)
+    : buildDmgTypeData(actionMap, gameId))
+    .sort((a, b) => b.value - a.value);
+  const element = CHARACTERS?.[gameId]?.[characterId]?.element;
+  const monoColor = MISC?.[gameId]?.ELEMENT_COLORS?.[element] ?? theme.palette.primary.main;
+
+  const getSliceFill = (index, count) => {
+    if (count <= 1) return alpha(monoColor, 0.95);
+    const rank = index / (count - 1);
+    const amount = 0.12 + rank * 0.32;
+    const toned = index % 2 === 0
+      ? lighten(monoColor, amount)
+      : darken(monoColor, amount * 0.7);
+    return alpha(toned, 0.94);
+  };
+
+  const getOwnerSliceFill = (ownerId) => {
+    const ownerElement = CHARACTERS?.[gameId]?.[ownerId]?.element;
+    const ownerElementColor = MISC?.[gameId]?.ELEMENT_COLORS?.[ownerElement];
+    return alpha(ownerElementColor ?? monoColor, 0.95);
+  };
 
   return (
     <Card sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
@@ -96,7 +134,14 @@ export const DamageBreakdown = ({ actionMap }) => {
                 animationDuration={600}
               >
                 {data.map((entry, index) => (
-                  <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
+                  <Cell
+                    key={entry.name}
+                    fill={groupBy === 'owner'
+                      ? getOwnerSliceFill(entry.ownerId)
+                      : getSliceFill(index, data.length)}
+                    stroke={alpha(theme.palette.background.paper, 0.85)}
+                    strokeWidth={2}
+                  />
                 ))}
               </Pie>
               <Tooltip

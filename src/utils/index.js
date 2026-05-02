@@ -7,3 +7,4 @@ export * from './getMember';
 export * from './getSetCounts';
 export * from './simulateRotation';
 export * from './sumRotationDmg';
+export * from './formatRotation';

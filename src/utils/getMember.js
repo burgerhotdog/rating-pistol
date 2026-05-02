@@ -1,4 +1,5 @@
 import { CHARACTERS } from '@/data';
+import { formatRotation } from '@/utils';
 
 export function getMember(gameId, characterId) {
   const data = CHARACTERS[gameId][characterId];
@@ -8,6 +9,6 @@ export function getMember(gameId, characterId) {
     memberId: characterId,
     weaponId: data.defaults?.weaponId ?? null,
     setCounts: data.defaults?.setCounts ?? {},
-    rotation: data.defaults?.rotation ?? [],
+    rotation: formatRotation(characterId, data.defaults?.rotation ?? []),
   };
 }

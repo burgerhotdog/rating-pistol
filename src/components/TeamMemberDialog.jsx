@@ -27,7 +27,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
 import { CHARACTERS, WEAPONS, SETS, MISC } from '@/data';
-import { getSkill, getSkillList, getMember } from '@/utils';
+import { getSkill, getSkillList, getMember, formatRotation } from '@/utils';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
@@ -679,11 +679,11 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
         }}
       >
         <List dense sx={{ p: 0.5 }}>
-          {rotation.map((skillKey, index) => {
-            const { input, name, ownerId } = getSkill(gameId, skillKey);
+          {rotation.map((actionKey, index) => {
+            const { input, name, ownerId } = getSkill(gameId, actionKey);
             return (
               <ListItem
-                key={`${skillKey}-${index}`}
+                key={`${actionKey}-${index}`}
                 secondaryAction={
                   <Stack direction="row" spacing={0.5}>
                     <IconButton size="small" onClick={() => moveSkill(index, -1)}>
@@ -831,7 +831,7 @@ export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }
             characterId={draft.memberId}
             teamIds={team.map(member => member.memberId)}
             rotation={draft.rotation}
-            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation }))}
+            onChange={(rotation) => setDraft(prev => ({ ...prev, rotation: formatRotation(draft.memberId, rotation) }))}
           />
         </DialogContent>
 

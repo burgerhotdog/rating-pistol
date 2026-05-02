@@ -51,7 +51,7 @@ export const Content = () => {
             <Bar completed={completed} diff={1} />
           )
         ) : (
-          <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 0 }}>
+          <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 0, gap: 1 }}>
             <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 250 }}>
               <BenchmarkProgress
                 weeklyScores={weeklyScores}
@@ -63,7 +63,7 @@ export const Content = () => {
               />
             </Box>
 
-            <Box display="flex" flexDirection="row" sx={{ flex: 1, minHeight: 100, mt: 1 }}>
+            <Box display="flex" flexDirection="row" sx={{ flex: 1, minHeight: 100, gap: 1 }}>
               <CustomRadarChart
                 combinedSimEquips={finalStats}
                 isLoading={isLoading}
@@ -73,7 +73,7 @@ export const Content = () => {
               />
             </Box>
 
-            <Box display="flex" flexDirection="row" sx={{ flex: 1, minHeight: 100, mt: 1 }}>
+            <Box display="flex" flexDirection="row" sx={{ flex: 1, minHeight: 100 }}>
               <SubstatPriority
                 isLoading={isLoading}
                 actionMap={actionMap}

@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useBuild } from '@/contexts';
 import { CHARACTERS } from '@/data';
-import { getSetCounts } from '@/utils';
+import { getSetCounts, formatRotation } from '@/utils';
 
 const NULL_MEMBER = {
   memberId: null,
@@ -10,14 +10,6 @@ const NULL_MEMBER = {
   setCounts: {},
   rotation: [],
 };
-
-function formatRotation(memberId, rotation) {
-  if (!rotation) throw new Error('attempting to format undefined rotation');
-  return rotation.map(key => {
-    if (key.split('-').length === 3) return key;
-    return `${memberId}-${key}`;
-  });
-}
 
 export function useTeam() {
   const { gameId, characterId } = useParams();
