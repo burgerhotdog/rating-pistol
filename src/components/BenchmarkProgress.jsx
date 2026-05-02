@@ -7,7 +7,6 @@ import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import { CHARACTERS, MISC } from '@/data';
-import { useSimulateRotation } from '@/hooks';
 import { sumRotationDmg } from '@/utils';
 
 const InfoLabel = ({ label, tip }) => (

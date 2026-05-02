@@ -1,5 +1,5 @@
-import { mergeEquipList, computeTotalStat, compileStatMap, normalizeTeam, sumRotationDmg, simulateRotation } from '@/utils';
-import { findBenchmarkWeek, getAverageScores, findRelativeError } from './helpers';
+import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
+import { findBenchmarkWeek, getAverageScores, findRelativeError, simulateRotation, normalizeTeam } from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';

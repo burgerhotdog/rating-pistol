@@ -1,7 +1,7 @@
 import { CHARACTERS, MVS, RATING } from '@/data';
 import { compileStatMap, mergeStatMaps, getSkill } from '@/utils';
 
-export function simulateAction(gameId, actionKey, statMap) {
+function simulateAction(gameId, actionKey, statMap) {
   const [characterId, skillId, actionId] = actionKey.split('-');
   const { element } = CHARACTERS[gameId][characterId];
   const { computeBase, computeBonuses, computeReductions } = RATING[gameId];

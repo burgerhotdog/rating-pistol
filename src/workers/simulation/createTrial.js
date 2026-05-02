@@ -1,5 +1,5 @@
-import { computeTotalStat, compileStatMap, simulateRotation } from '@/utils';
-import { matchPenalty } from './helpers/matchPenalty';
+import { computeTotalStat, compileStatMap } from '@/utils';
+import { matchPenalty, simulateRotation } from './helpers';
 
 export function createTrial(matchTargets, gameId, characterId, build, match, team) {
   const startingBuild = {

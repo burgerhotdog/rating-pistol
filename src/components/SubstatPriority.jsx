@@ -11,8 +11,7 @@ import {
   Cell,
 } from 'recharts';
 import { MISC, CHARACTERS } from '@/data';
-import { useSimulateRotation } from '@/hooks';
-import { simulateRotation, normalizeTeam, sumRotationDmg } from '@/utils';
+import { sumRotationDmg } from '@/utils';
 
 export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => {
   const { gameId, characterId } = useParams();
