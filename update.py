@@ -90,7 +90,7 @@ def main():
             json_data[ID] = parse_data(GAME, data, "character")
             if GAME['id'] == "wuthering-waves":
                 mv_data[ID] = mv_parser(GAME['id'], data)
-        # write_json(f"src/data/{GAME['id']}/character.json", json_data)
+        write_json(f"src/data/{GAME['id']}/character.json", json_data)
         write_json(mv_path, mv_data)
 
     if weapon_ids:

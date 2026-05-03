@@ -1950,5 +1950,50 @@
         }
       }
     }
+  },
+  "21020086": {
+    "name": "Frostburn",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "constant": {
+        "BASE_ATK": 587,
+        "PERCENT_CR": 0.243,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "AMP_GLACIO": 0.28,
+          "IGNORE_DEF_RL": 0.1,
+          "AMP_CHAFE": 0.2
+        }
+      }
+    }
+  },
+  "21050076": {
+    "name": "Forged Dwarf Star",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "constant": {
+        "BASE_ATK": 500,
+        "PERCENT_CR": 0.36,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "buffs": {
+      "self": {
+        "constant": {
+          "PERCENT_RL": 0.36
+        }
+      },
+      "team": {
+        "constant": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
   }
 }

@@ -50,7 +50,8 @@ def mv_parser(game_id, data):
                 skill_group_data = data["skill_trees"][group_id]["skill"]
 
                 skills = {}
-                for skill_id, skill_data in skill_group_data["level"].items():
+                action_id = 1
+                for _, skill_data in skill_group_data["level"].items():
                     if "%" not in skill_data["param"][0][0]:
                         continue # skip invalid entries
 
@@ -72,12 +73,13 @@ def mv_parser(game_id, data):
                     # format multipliers list
                     multipliers = format_multipliers(skill_data["param"][0])
 
-                    skills[skill_id] = {
+                    skills[str(action_id)] = {
                         "name": skill_data["name"],
-                        **({"input": ""} if group_id == "7" else {}),
                         **({"attr": attr} if attr else {}),
                         "multipliers": multipliers,
                     }
+
+                    action_id += 1
 
                 mv_dict[group_id] = { "name": skill_group_data["name"], "skills": skills }
 

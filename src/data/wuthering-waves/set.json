@@ -598,5 +598,44 @@
         }
       }
     }
+  },
+  "30": {
+    "name": "Wishes of Quiet Snowfall",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_GLACIO": 0.1
+          }
+        }
+      },
+      "5": {
+        "buffs": {
+          "self": {
+            "constant": {
+              "PERCENT_CR": 0.25
+            }
+          },
+          "next": {
+            "constant": {
+              "PERCENT_GLACIO": 0.25
+            }
+          }
+        }
+      }
+    }
+  },
+  "31": {
+    "name": "Reel of Spliced Memories",
+    "setBonus": {
+      "2": {
+        "stats": {
+          "constant": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      },
+      "5": {}
+    }
   }
 }
