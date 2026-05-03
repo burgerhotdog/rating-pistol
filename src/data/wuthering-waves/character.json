@@ -2567,5 +2567,53 @@
         "8-1"
       ]
     }
+  },
+  "1108": {
+    "name": "Hiyuki",
+    "quality": "5",
+    "element": "GLACIO",
+    "type": "SWORD",
+    "stats": {
+      "constant": {
+        "BASE_HP": 10300,
+        "BASE_ATK": 462,
+        "BASE_DEF": 1112,
+        "PERCENT_CR": 0.08,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
+          "AMP_GLACIO": 0.2
+        }
+      }
+    ]
+  },
+  "1211": {
+    "name": "Denia",
+    "quality": "5",
+    "element": "FUSION",
+    "type": "RECTIFIER",
+    "stats": {
+      "constant": {
+        "BASE_HP": 11025,
+        "BASE_ATK": 425,
+        "BASE_DEF": 1148,
+        "PERCENT_CD": 0.16,
+        "PERCENT_ATK": 0.12
+      }
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ALL": 0.4
+        }
+      }
+    ]
   }
 }
