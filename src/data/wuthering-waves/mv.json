@@ -2485,7 +2485,7 @@
             }
           ]
         },
-        "9": {
+        "8": {
           "name": "Dodge Counter",
           "input": "DC",
           "multipliers": [
@@ -6414,7 +6414,7 @@
             }
           ]
         },
-        "8": {
+        "7": {
           "name": "Aimed Shot",
           "input": "HA",
           "multipliers": [
@@ -6444,7 +6444,7 @@
             }
           ]
         },
-        "9": {
+        "8": {
           "name": "Fully Charged Aimed Shot",
           "input": "HA",
           "multipliers": [
@@ -6474,7 +6474,7 @@
             }
           ]
         },
-        "10": {
+        "9": {
           "name": "Dodge Counter",
           "input": "DC",
           "multipliers": [
