@@ -295,13 +295,83 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "name": "Lion's Vigor",
+        "trigger": "3-1",
+        "target": "self",
+        "duration": 14000,
+        "statMap": {
           "PERCENT_GLACIO": 0.5
         }
+      },
+      {
+        "name": "Lion's Pride",
+        "target": "self",
+        "statMap": {
+          "PERCENT_IS": 0.5
+        }
+      },
+      {
+        "name": "Diligent Practice",
+        "trigger": [
+          "7-2",
+          "7-3"
+        ],
+        "target": "self",
+        "duration": 3000,
+        "maxProcs": 1,
+        "actionKeyFilter": "1104-7-4",
+        "statMap": {
+          "PERCENT_MV": 1.5
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "3-1",
+        "target": "self",
+        "duration": 14000,
+        "statMap": {
+          "PERCENT_BA": 0.2,
+          "PERCENT_RS": 0.1
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "8-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_GLACIO": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "trigger": "3-1",
+        "target": "self",
+        "maxProcs": 1,
+        "statMap": {
+          "FLAT_MV": 2
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "7-4",
+        "target": "self",
+        "maxProcs": 1,
+        "actionKeyFilter": [
+          "1104-7-2",
+          "1104-7-3"
+        ],
+        "statMap": {
+          "PERCENT_BA": 1
+        }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1104",
