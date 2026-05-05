@@ -1070,6 +1070,17 @@
               ]
             }
           ]
+        },
+        "2": {
+          "name": "Stimulus Feedback",
+          "input": "AUTO",
+          "considered": "HEAL",
+          "attr": "HP",
+          "multipliers": [
+            {
+              "mv": 0.25
+            }
+          ]
         }
       }
     },
@@ -1083,7 +1094,8 @@
             {
               "mv": 0.0154
             }
-          ]
+          ],
+          "times": 10
         }
       }
     }

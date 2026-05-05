@@ -15,6 +15,7 @@
     },
     "effects": [
       {
+        "name": "Silversnow",
         "trigger": "8-1",
         "target": "next",
         "duration": 14000,
@@ -23,6 +24,7 @@
         }
       },
       {
+        "name": "Condensation",
         "trigger": "6-1",
         "target": "self",
         "duration": 8000,
@@ -31,6 +33,66 @@
         }
       },
       {
+        "name": "Avalanche",
+        "trigger": "1-5",
+        "target": "self",
+        "duration": 8000,
+        "actionKeyFilter": [
+          "1102-7-2",
+          "1102-7-3",
+          "1102-7-4"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "trigger": "1-5",
+        "target": "self",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "target": "self",
+        "chance": 0.7,
+        "statMap": {
+          "PERCENT_ALL": 0.35
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "3-1",
+        "target": "self",
+        "duration": 5000,
+        "maxProcs": 1,
+        "actionKeyFilter": "1102-7-1",
+        "statMap": {
+          "PERCENT_HA": 1.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "target": "self",
+        "actionKeyFilter": [
+          "1102-7-2",
+          "1102-7-3",
+          "1102-7-4"
+        ],
+        "statMap": {
+          "PERCENT_CD": 1
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
         "trigger": [
           "7-2",
           "7-4"
@@ -40,14 +102,6 @@
         "maxStacks": 2,
         "statMap": {
           "PERCENT_ATK": 0.1
-        }
-      },
-      {
-        "trigger": "1-5",
-        "target": "self",
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_CR": 0.15
         }
       }
     ],
@@ -87,32 +141,86 @@
         "PERCENT_HP": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HP": 0.12,
-          "PERCENT_GLACIO": 0.15,
-          "PERCENT_HB": 0.15
-        }
+    "effects": [
+      {
+        "name": "Emergency Plan",
+        "trigger": "2-1",
+        "target": "self",
+        "maxProcs": 1,
+        "procs": [
+          {
+            "action": "2-2"
+          }
+        ]
       },
-      "next": {
-        "constant": {
-          "AMP_ALL": 0.15
-        }
+      {
+        "name": "Remnant Entities",
+        "trigger": "3-3",
+        "target": "active",
+        "maxProcs": 4,
+        "procs": [
+          {
+            "action": "3-1"
+          },
+          {
+            "action": "3-2"
+          }
+        ]
       },
-      "first": {
-        "constant": {
+      {
+        "name": "Overflowing Frost",
+        "trigger": "6-1",
+        "target": "self",
+        "maxProcs": 1,
+        "procs": [
+          {
+            "action": "6-2"
+          }
+        ]
+      },
+      {
+        "name": "Concentration",
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4"
+        ],
+        "target": "self",
+        "maxStacks": 4,
+        "maxProcs": 1,
+        "procs": [
+          {
+            "actionKeyTrigger": [
+              "1103-1-5",
+              "1103-2-1"
+            ],
+            "action": "7-1"
+          }
+        ]
+      },
+      {
+        "name": "Harmonic Range",
+        "trigger": "2-1",
+        "target": "first",
+        "duration": 35000,
+        "statMap": {
           "PERCENT_ATK": 0.15
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_GLACIO": 0.12
-        }
-      }
-    },
-    "effects": [
       {
+        "name": "Stimulus Feedback",
+        "trigger": "1-5",
+        "target": "self",
+        "maxProcs": 1,
+        "procs": [
+          {
+            "action": "7-2"
+          }
+        ]
+      },
+      {
+        "name": "Rejuvinating Flow",
         "trigger": "8-1",
         "target": "next",
         "statMap": {
@@ -120,13 +228,35 @@
         }
       },
       {
-        "name": "Remnant Entities",
+        "name": "Sequence Node 2",
+        "rank": 2,
+        "trigger": "2-1",
+        "target": "self",
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_GLACIO": 0.15,
+          "PERCENT_HB": 0.15
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "6-1",
+        "target": "self",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_HP": 0.12
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "2-1",
         "target": "team",
-        "procs": [
-          {
-            "action": "3-1"
-          }
-        ]
+        "duration": 35000,
+        "statMap": {
+          "PERCENT_GLACIO": 0.12
+        }
       }
     ],
     "defaults": {
@@ -141,18 +271,12 @@
       },
       "rotation": [
         "6-1",
-        "6-2",
         "3-3",
         "1-1",
         "1-2",
         "1-3",
         "1-4",
         "2-1",
-        "2-2",
-        "7-1",
-        "7-1",
-        "7-1",
-        "7-1",
         "8-1"
       ]
     }

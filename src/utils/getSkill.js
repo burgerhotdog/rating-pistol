@@ -74,5 +74,6 @@ export function getSkill(gameId, actionKey) {
     offset: skill.offset ?? 0,
     attr: skill.attr ?? DEFAULT_ATTR,
     multipliers: skill.multipliers,
+    times: skill.times ?? 1, 
   };
 }
