@@ -6,5 +6,6 @@ export * from './getSkill';
 export * from './getMember';
 export * from './getSetCounts';
 export * from './sumRotationDmg';
+export * from './sumRotationTime';
 export * from './formatRotation';
 export * from './getEffect';

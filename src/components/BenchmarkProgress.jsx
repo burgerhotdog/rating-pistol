@@ -7,7 +7,7 @@ import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
 import { CHARACTERS, MISC } from '@/data';
-import { sumRotationDmg } from '@/utils';
+import { sumRotationDmg, sumRotationTime } from '@/utils';
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -31,9 +31,12 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
   const hasTeamData = teamFinalStats && Object.keys(teamFinalStats).length > 0;
   const showTeam = viewMode === 'team' && hasTeamData;
 
-  const activeScores = weeklyScores.map(actionMap => sumRotationDmg(actionMap, (showTeam ? {} : { ownerId: characterId })));
+  const filter = showTeam ? {} : { ownerId: characterId };
+  const rotationTime = sumRotationTime(gameId, team, filter);
+  const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
+  const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap, filter)));
   const benchmarkRating = activeScores[activeScores.length - 1];
-  const activeUserRating = sumRotationDmg(actionMap, (showTeam ? {} : { ownerId: characterId }));
+  const activeUserRating = toDps(sumRotationDmg(actionMap, filter));
   const scaledBuildRating = activeUserRating / benchmarkRating * 100;
 
   const data = activeScores.map((dmg, index) => {
@@ -41,14 +44,14 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
     return {
       week: index,
       damage: dmg,
-      q1: showTeam ? dmg : (sumRotationDmg(dist?.q1, (showTeam ? {} : { ownerId: characterId })) ?? dmg),
-      iqr: showTeam ? 0 : (dist ? sumRotationDmg(dist.q3, (showTeam ? {} : { ownerId: characterId })) - sumRotationDmg(dist.q1, (showTeam ? {} : { ownerId: characterId })) : 0),
-      p10: showTeam ? dmg : (sumRotationDmg(dist?.p10, (showTeam ? {} : { ownerId: characterId })) ?? dmg),
-      p90band: showTeam ? 0 : (dist ? sumRotationDmg(dist.p90, (showTeam ? {} : { ownerId: characterId })) - sumRotationDmg(dist.p10, (showTeam ? {} : { ownerId: characterId })) : 0),
+      q1: showTeam ? dmg : (toDps(sumRotationDmg(dist?.q1, filter)) ?? dmg),
+      iqr: showTeam ? 0 : (dist ? toDps(sumRotationDmg(dist.q3, filter)) - toDps(sumRotationDmg(dist.q1, filter)) : 0),
+      p10: showTeam ? dmg : (toDps(sumRotationDmg(dist?.p10, filter)) ?? dmg),
+      p90band: showTeam ? 0 : (dist ? toDps(sumRotationDmg(dist.p90, filter)) - toDps(sumRotationDmg(dist.p10, filter)) : 0),
     };
   });
   const yMin = 0;
-  const distMax = (!showTeam && weeklyDistribution) ? Math.max(...weeklyDistribution.map(d => sumRotationDmg(d.p90, (showTeam ? {} : { ownerId: characterId })))) : 0;
+  const distMax = (!showTeam && weeklyDistribution) ? Math.max(...weeklyDistribution.map(d => toDps(sumRotationDmg(d.p90, filter)))) : 0;
   const yMax = Math.max(benchmarkRating, activeUserRating, distMax) * 1.08;
 
   const formatDamage = (v) => {
@@ -82,7 +85,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
             domain={[yMin, yMax]}
             tick={{ fontSize: 12 }}
             tickFormatter={formatDamage}
-            label={{ value: 'Damage', angle: -90, position: 'insideLeft', fontSize: 12 }}
+            label={{ value: 'DPS', angle: -90, position: 'insideLeft', fontSize: 12 }}
           />
 
           <ReferenceLine
@@ -161,7 +164,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                   </Typography>
                   {!showTeam && dist && (
                     <Typography variant="body2" color="text.secondary">
-                      Q1-Q3: {sumRotationDmg(dist.q1, (showTeam ? {} : { ownerId: characterId })).toLocaleString('en-US', { maximumFractionDigits: 0 })} - {sumRotationDmg(dist.q3, (showTeam ? {} : { ownerId: characterId })).toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                      Q1-Q3: {toDps(sumRotationDmg(dist.q1, filter)).toLocaleString('en-US', { maximumFractionDigits: 0 })} - {toDps(sumRotationDmg(dist.q3, filter)).toLocaleString('en-US', { maximumFractionDigits: 0 })}
                     </Typography>
                   )}
                   {percentGain != null && (
@@ -204,7 +207,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
         )}
         <Box>
           <InfoLabel
-            label="Potential"
+            label="Rating"
             tip={showTeam
               ? "Your team's total damage as a percentage of the team benchmark. Reflects how your character's current build contributes relative to the team's expected optimum."
               : "Your build's damage as a percentage of the benchmark. Above 100% means your build exceeds the expected stopping point."}
@@ -216,7 +219,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
         <Divider />
         <Box>
           <InfoLabel
-            label={showTeam ? "Team Score" : "Your Score"}
+            label={showTeam ? "Team DPS" : "Solo DPS"}
             tip={showTeam
               ? "Your character's current damage plus teammates' simulated benchmark damage."
               : "Total calculated damage for your current build's rotation."}
@@ -227,7 +230,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
         </Box>
         <Box>
           <InfoLabel
-            label={showTeam ? "Team Benchmark" : "Benchmark"}
+            label={showTeam ? "Benchmark" : "Benchmark"}
             tip={showTeam
               ? "Sum of each character's simulated average damage at the benchmark week."
               : "Average damage of simulated builds at the week where farming becomes resin-inefficient (<1% weekly gain)."}

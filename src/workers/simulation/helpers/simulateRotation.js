@@ -194,8 +194,8 @@ export function simulateRotation(gameId, rawTeam) {
   const passivesMap = {};
   for (const { memberId, rank } of team) {
     const resolved = resolveActionEffects(gameId, memberId, rank);
-    actionEffects[memberId] = resolved.active;
-    passivesMap[memberId] = resolved.passive;
+    actionEffects[memberId] = resolved.active ?? {};
+    passivesMap[memberId] = resolved.passive ?? [];
   }
 
   // first build member contexts before calculating damage
@@ -215,7 +215,7 @@ export function simulateRotation(gameId, rawTeam) {
     const { activeEffectMap, statMap } = context;
 
     for (const actionKey of rotation) {
-      const { considered, duration: actionDuration = 0, offset = 0 } = getSkill(gameId, actionKey);
+      const { considered, duration: actionDuration = 1000, offset = 500 } = getSkill(gameId, actionKey);
       // remove effects that expire before action occurs
       for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
         if (effectEntry.timeRemaining - offset <= 0) {
