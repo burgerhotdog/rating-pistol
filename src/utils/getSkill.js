@@ -73,5 +73,6 @@ export function getSkill(gameId, actionKey) {
     modifiers: skill.modifiers,
     attr: skill.attr ?? DEFAULT_ATTR,
     multipliers: skill.multipliers,
+    duration: skill.duration ?? 0,
   };
 }

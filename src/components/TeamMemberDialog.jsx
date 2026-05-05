@@ -517,7 +517,7 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange }) {
   );
 }
 
-function SkillSelectDialog({ gameId, characterId, teamIds, open, onClose, onSelect }) {
+function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
 
   const options = useMemo(() => {
@@ -527,15 +527,6 @@ function SkillSelectDialog({ gameId, characterId, teamIds, open, onClose, onSele
       keys = getSkillList(gameId, characterId);
     } catch {
       return [];
-    }
-
-    for (const memberId of teamIds) {
-      if (memberId === characterId) continue;
-      const memberSkillList = getSkillList(gameId, memberId).filter(skillKey => {
-        const { input } = getSkill(gameId, skillKey);
-        return input === 'CA';
-      });
-      keys = [...keys, ...memberSkillList];
     }
 
     const lower = search.toLowerCase();
@@ -554,7 +545,7 @@ function SkillSelectDialog({ gameId, characterId, teamIds, open, onClose, onSele
         const text = `${name} ${skillKey}`.toLowerCase();
         return text.includes(lower);
       });
-  }, [gameId, characterId, teamIds, search]);
+  }, [gameId, characterId, search]);
 
   const handleSelect = (skillKey) => {
     onSelect(skillKey);
@@ -637,7 +628,7 @@ function PickerButton({ label, imageUrl, name, onClick }) {
   );
 }
 
-function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
+function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
 
@@ -757,7 +748,6 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
       <SkillSelectDialog
         gameId={gameId}
         characterId={characterId}
-        teamIds={teamIds}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
         onSelect={(skillKey) => onChange([...rotation, skillKey])}
@@ -766,7 +756,7 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
   );
 }
 
-export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }) {
+export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   const [draft, setDraft] = useState(member);
   const [charDialogOpen, setCharDialogOpen] = useState(false);
   const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
@@ -829,7 +819,6 @@ export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }
           <RotationEditor
             gameId={gameId}
             characterId={draft.memberId}
-            teamIds={team.map(member => member.memberId)}
             rotation={draft.rotation}
             onChange={(rotation) => setDraft(prev => ({ ...prev, rotation: formatRotation(draft.memberId, rotation) }))}
           />

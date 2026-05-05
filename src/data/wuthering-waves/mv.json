@@ -313,6 +313,7 @@
       "name": "Freezing Thorns",
       "skills": {
         "1": {
+          "duration": 1000,
           "multipliers": [
             {
               "mv": [
@@ -378,7 +379,6 @@
         },
         "2": {
           "name": "Glacier Burst",
-          "input": "AUTO",
           "considered": "RS",
           "multipliers": [
             {
@@ -409,7 +409,6 @@
         },
         "3": {
           "name": "Ice Prism Burst",
-          "input": "AUTO",
           "considered": "RS",
           "multipliers": [
             {
@@ -440,7 +439,6 @@
         },
         "4": {
           "name": "Ice Thorn Burst",
-          "input": "AUTO",
           "considered": "RS",
           "multipliers": [
             {
