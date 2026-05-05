@@ -48,7 +48,7 @@ function simulateAction(gameId, actionKey, statMap, activeEffectMap) {
 }
 
 function parseActiveEffects(gameId, memberId, team) {
-  const index = team.indexOf(m => m.memberId === memberId);
+  const index = team.findIndex(m => m.memberId === memberId);
 
   const teammateOrder = [
     ...team.slice(index),

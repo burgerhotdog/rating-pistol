@@ -28,10 +28,6 @@
         "duration": 8000
       },
       {
-        "trigger": [
-          "7-2",
-          "7-4"
-        ],
         "target": "team",
         "statMap": {
           "PERCENT_ATK": 0.1
@@ -102,7 +98,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_ALL": 0.15
@@ -110,7 +105,6 @@
       },
       {
         "name": "Remnant Entities",
-        "trigger": "3-1",
         "target": "team",
         "procs": [
           {
@@ -317,7 +311,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_HA": 0.38
@@ -325,7 +318,6 @@
       },
       {
         "name": "Burning Rhapsody",
-        "trigger": "3-1",
         "target": "team",
         "procs": [
           {
@@ -432,7 +424,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_RL": 0.25,
@@ -441,7 +432,6 @@
       },
       {
         "name": "Punishment Mark",
-        "trigger": "3-1",
         "target": "team",
         "procs": [
           {
@@ -503,7 +493,6 @@
     "effects": [
       {
         "name": "Thunder Wedge",
-        "trigger": "2-1",
         "target": "team",
         "procs": [
           {
@@ -617,7 +606,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_AERO": 0.23
@@ -707,7 +695,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_RL": 0.38
@@ -756,7 +743,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "team",
         "statMap": {
           "AMP_ALL": 0.15
@@ -823,7 +809,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_RS": 0.38
@@ -885,7 +870,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_HAVOC": 0.23
@@ -935,11 +919,10 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_RL": 0.25,
-              "AMP_FUSION": 0.2
+          "AMP_FUSION": 0.2
         }
       }
     ],
@@ -1024,11 +1007,10 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_RS": 0.25,
-              "AMP_GLACIO": 0.2
+          "AMP_GLACIO": 0.2
         }
       },
       {
@@ -1124,7 +1106,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_CA": 1
@@ -1189,7 +1170,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "team",
         "statMap": {
           "AMP_ALL": 0.15
@@ -1245,7 +1225,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_RS": 0.38
@@ -1391,11 +1370,10 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_BA": 0.25,
-              "AMP_HAVOC": 0.2
+          "AMP_HAVOC": 0.2
         }
       }
     ],
@@ -1455,11 +1433,10 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_RS": 0.25,
-              "AMP_FUSION": 0.2
+          "AMP_FUSION": 0.2
         }
       }
     ],
@@ -1503,11 +1480,10 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "ally",
         "statMap": {
           "AMP_FRAZZLE": 1,
-              "IGNORE_SPECTRO": 0.1
+          "IGNORE_SPECTRO": 0.1
         }
       }
     ],
@@ -1555,7 +1531,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_RS": 0.25,
@@ -1604,7 +1579,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "ally",
         "statMap": {
           "AMP_EROSION": 1
@@ -1658,7 +1632,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "ally",
         "statMap": {
           "AMP_SPECTRO": 0.2
@@ -1722,11 +1695,10 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_BA": 0.25,
-              "AMP_FUSION": 0.2
+          "AMP_FUSION": 0.2
         }
       }
     ],
@@ -1776,7 +1748,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "ally",
         "statMap": {
           "AMP_AERO": 0.175
@@ -1839,7 +1810,6 @@
     "match": [],
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_HA": 0.25,
@@ -1897,15 +1867,14 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_GLACIO": 0.15,
-              "AMP_FUSION": 0.15,
-              "AMP_ELECTRO": 0.15,
-              "AMP_AERO": 0.15,
-              "AMP_SPECTRO": 0.15,
-              "AMP_HAVOC": 0.15
+          "AMP_FUSION": 0.15,
+          "AMP_ELECTRO": 0.15,
+          "AMP_AERO": 0.15,
+          "AMP_SPECTRO": 0.15,
+          "AMP_HAVOC": 0.15
         }
       }
     ],
@@ -1968,7 +1937,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_HA": 0.5
@@ -2080,7 +2048,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_ES": 0.5
@@ -2127,7 +2094,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "team",
         "statMap": {
           "AMP_ALL": 0.15
@@ -2227,7 +2193,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "team",
         "statMap": {
           "AMP_ALL": 0.25
@@ -2284,11 +2249,10 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_ALL": 0.15,
-              "AMP_RL": 0.25
+          "AMP_RL": 0.25
         }
       }
     ],
@@ -2338,7 +2302,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "ally",
         "statMap": {
           "AMP_ALL": 0.2
@@ -2510,7 +2473,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "ally",
         "statMap": {
           "AMP_GLACIO": 0.2
@@ -2567,7 +2529,6 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_ALL": 0.4
