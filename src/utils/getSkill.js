@@ -69,7 +69,6 @@ export function getSkill(gameId, actionKey) {
     input,
     considered,
     special: skill.special,
-    effects: Array.isArray(skill.effects) ? skill.effects : skill.effects == null ? [] : [skill.effects],
     modifiers: skill.modifiers,
     duration: skill.duration ?? 0,
     offset: skill.offset ?? 0,

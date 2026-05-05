@@ -123,7 +123,6 @@
         },
         "5": {
           "name": "Basic Attack 5",
-          "effects": 3,
           "multipliers": [
             {
               "mv": [
@@ -314,7 +313,6 @@
       "name": "Freezing Thorns",
       "skills": {
         "1": {
-          "effects": 1,
           "multipliers": [
             {
               "mv": [
@@ -381,7 +379,6 @@
         "2": {
           "name": "Glacier Burst",
           "considered": "RS",
-          "effects": 2,
           "multipliers": [
             {
               "mv": [
@@ -442,7 +439,6 @@
         "4": {
           "name": "Ice Thorn Burst",
           "considered": "RS",
-          "effects": 2,
           "multipliers": [
             {
               "mv": [
@@ -475,9 +471,7 @@
     "8": {
       "name": "Silversnow",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -1085,7 +1079,6 @@
         "1": {
           "considered": "HEAL",
           "attr": "HP",
-          "effects": 0,
           "multipliers": [
             {
               "mv": 0.0154
@@ -3281,7 +3274,6 @@
       "name": "Violent Finale",
       "skills": {
         "1": {
-          "effects": 1,
           "multipliers": [
             {
               "mv": [
@@ -3442,9 +3434,7 @@
     "8": {
       "name": "Rage Transposition",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -4691,7 +4681,6 @@
       "name": "Thundering Wrath",
       "skills": {
         "1": {
-          "effects": 1,
           "multipliers": [
             {
               "mv": [
@@ -4825,9 +4814,7 @@
     "8": {
       "name": "Strategist",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -5130,7 +5117,6 @@
       "name": "Leihuang Master",
       "skills": {
         "1": {
-          "effects": 0,
           "attr": "DEF",
           "multipliers": [
             {
@@ -6652,9 +6638,7 @@
     "8": {
       "name": "Dissolving Mist",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -8189,9 +8173,7 @@
     "8": {
       "name": "Transcendence",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -8998,7 +8980,6 @@
       "skills": {
         "1": {
           "considered": "HEAL",
-          "effects": 0,
           "multipliers": [
             {
               "mv": 0.19,
@@ -9678,9 +9659,7 @@
     "8": {
       "name": "Iron Will",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -10285,9 +10264,7 @@
     "8": {
       "name": "Duality",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -11031,9 +11008,7 @@
     "8": {
       "name": "Strategy of Duality",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -12571,9 +12546,7 @@
     "8": {
       "name": "Carve and Draw",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -14144,9 +14117,7 @@
     "8": {
       "name": "Timeless Classics",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -14798,9 +14769,7 @@
     "8": {
       "name": "Binary Butterfly",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -15587,9 +15556,7 @@
     "8": {
       "name": "Escorting",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -17620,9 +17587,7 @@
     "8": {
       "name": "Applause, Please!",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -18806,9 +18771,7 @@
     "8": {
       "name": "The Course is Set!",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -19378,7 +19341,6 @@
       "name": "Attentive Heart",
       "skills": {
         "1": {
-          "effects": 0,
           "multipliers": [
             {
               "mv": 5.2841
@@ -20210,9 +20172,7 @@
     "8": {
       "name": "Gentle Tentacles",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -20767,9 +20727,7 @@
     "8": {
       "name": "Windcalling Tune",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -21592,7 +21550,6 @@
       "skills": {
         "1": {
           "special": "FRAZZLE",
-          "effects": 0,
           "multipliers": [
             {
               "mv": 1.5
@@ -22876,9 +22833,7 @@
     "8": {
       "name": "Stand by Me, Warrior",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -24535,9 +24490,7 @@
     "8": {
       "name": "Wind's Divine Blessing",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -25335,9 +25288,7 @@
     "8": {
       "name": "Unfinished Piece",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -26217,9 +26168,7 @@
     "8": {
       "name": "Battlesong of the Unyielding",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -27344,7 +27293,6 @@
       "name": "From Gloom to Gleam",
       "skills": {
         "1": {
-          "effects": 0,
           "multipliers": [
             {
               "mv": 1
@@ -29800,7 +29748,6 @@
       "skills": {
         "1": {
           "considered": "ES",
-          "effects": 0,
           "multipliers": [
             {
               "mv": 1
@@ -30421,7 +30368,6 @@
       "skills": {
         "1": {
           "considered": "HEAL",
-          "effects": 0,
           "multipliers": [
             {
               "mv": 0.18
@@ -32708,9 +32654,7 @@
     "8": {
       "name": "Recursion",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -33867,7 +33811,6 @@
       "name": "Let's Hit the Road!",
       "skills": {
         "1": {
-          "effects": 0,
           "multipliers": [
             {
               "mv": 1
@@ -35350,9 +35293,7 @@
     "8": {
       "name": "Silent Protection",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -38753,9 +38694,7 @@
     "8": {
       "name": "Snowlight Blessing",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   },
@@ -39787,9 +39726,7 @@
     "8": {
       "name": "Unfinished Lies",
       "skills": {
-        "1": {
-          "effects": 0
-        }
+        "1": {}
       }
     }
   }

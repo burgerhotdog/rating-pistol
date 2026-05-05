@@ -23,7 +23,7 @@ function simulateAction(gameId, actionKey, statMap, activeEffectMap) {
     modifiers,
     attr,
     multipliers,
-  } = getSkill("wuthering-waves", actionKey);
+  } = getSkill(gameId, actionKey);
   if (considered === "HEAL") return {};
   if (considered === "SHIELD") return {};
   if (considered === "BUFF") return {};
@@ -47,7 +47,7 @@ function simulateAction(gameId, actionKey, statMap, activeEffectMap) {
   return { damage: baseDmg * bonuses * reductions };
 }
 
-function parseActiveEffects(gameId, memberId, team) {
+function parseActiveEffects(gameId, memberId, team, actionEffects) {
   const index = team.findIndex(m => m.memberId === memberId);
 
   const teammateOrder = [
@@ -59,7 +59,7 @@ function parseActiveEffects(gameId, memberId, team) {
   const activeEffectMap = {};
 
   for (const actionKey of allyActionOrder) {
-    const { ownerId, duration = 0, offset = 0, effects } = getSkill(gameId, actionKey);
+    const { ownerId, duration = 0, offset = 0 } = getSkill(gameId, actionKey);
     const validTargets = resolveValidTargets(team, index, ownerId);
 
     // remove effects that expire before action occurs
@@ -70,9 +70,8 @@ function parseActiveEffects(gameId, memberId, team) {
     }
 
     // add effects triggered by current action
-    for (const effectIndex of effects) {
-      const effectKey = `${ownerId}-${effectIndex}`;
-      const { target, maxStacks = 1, duration, maxProcs } = getEffect(gameId, effectKey);
+    for (const effect of actionEffects[ownerId][actionKey] ?? []) {
+      const { effectKey, target, maxStacks = 1, duration, maxProcs } = effect;
       if (!validTargets.includes(target)) continue; // wrong target
 
       const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
@@ -112,17 +111,43 @@ export function normalizeTeam(team, teamFinalStats = {}) {
   });
 }
 
+function resolveActionEffects(gameId, characterId) {
+  const { effects } = CHARACTERS[gameId][characterId];
+  if (!effects) return {};
+
+  const resolved = {};
+  for (const [effectIndex, effect] of effects.entries()) {
+    const effectKey = `${characterId}-${effectIndex}`;
+    const { trigger } = effect;
+    if (!trigger) throw new Error(`invalid trigger for effect in characterId ${characterId}`);
+
+    const triggers = Array.isArray(trigger) ? trigger : [trigger];
+    for (const key of triggers) {
+      const actionKey = `${characterId}-${key}`
+      if (!resolved[actionKey]) resolved[actionKey] = [];
+      resolved[actionKey].push({ effectKey, ...effect });
+    }
+  }
+  return resolved;
+}
+
 export function simulateRotation(gameId, rawTeam) {
   // remove null members
   const team = rawTeam.filter(member => member.memberId);
+
+  // member actionEffects
+  const actionEffects = {};
+  for (const { memberId } of team) {
+    actionEffects[memberId] = resolveActionEffects(gameId, memberId);
+  }
 
   // first build member contexts before calculating damage
   // this contains info on buffs applied before each member's rotation
   const memberContexts = {};
   for (const { memberId, build = {} } of team) {
     memberContexts[memberId] = {
-      activeEffectMap: parseActiveEffects(gameId, memberId, team),
       statMap: compileStatMap(gameId, memberId, build, team, 'combat'),
+      activeEffectMap: parseActiveEffects(gameId, memberId, team, actionEffects),
     };
   }
 
@@ -133,7 +158,7 @@ export function simulateRotation(gameId, rawTeam) {
     const { activeEffectMap, statMap } = context;
 
     for (const actionKey of rotation) {
-      const { considered, effects = [], duration = 0, offset = 0 } = getSkill(gameId, actionKey);
+      const { considered, duration = 0, offset = 0 } = getSkill(gameId, actionKey);
       // remove effects that expire before action occurs
       for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
         if (effectEntry.timeRemaining - offset <= 0) {
@@ -142,9 +167,8 @@ export function simulateRotation(gameId, rawTeam) {
       }
 
       // add effects triggered by current action before computing damage
-      for (const effectIndex of effects) {
-        const effectKey = `${memberId}-${effectIndex}`;
-        const { target, maxStacks = 1, duration, maxProcs } = getEffect(gameId, effectKey);
+      for (const effect of actionEffects[memberId][actionKey] ?? []) {
+        const { effectKey, target, maxStacks = 1, duration, maxProcs } = effect;
         if (target !== 'self' && target !== 'team') continue; // wrong target
 
         const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
