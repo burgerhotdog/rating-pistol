@@ -59,12 +59,10 @@ function parseActiveEffects(gameId, memberId, team) {
   const activeEffectMap = {};
 
   for (const actionKey of allyActionOrder) {
-    const [ownerId, skillId, actionId] = actionKey.split('-');
+    const { ownerId, duration = 0, offset = 0, effects } = getSkill(gameId, actionKey);
     const validTargets = resolveValidTargets(team, index, ownerId);
-    const actionTrigger = `${skillId}-${actionId}`;
 
     // remove effects that expire before action occurs
-    const { duration = 0, offset = 0 } = getSkill(gameId, actionKey);
     for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
       if (effectEntry.timeRemaining - offset <= 0) {
         delete activeEffectMap[effectKey];
@@ -72,16 +70,12 @@ function parseActiveEffects(gameId, memberId, team) {
     }
 
     // add effects triggered by current action
-    const { effects = [] } = CHARACTERS[gameId][ownerId];
-    for (const [effectIndex, effect] of effects.entries()) {
-      const { trigger, target } = effect;
-      if (trigger !== actionTrigger) continue; // wrong trigger
+    for (const effectIndex of effects) {
+      const effectKey = `${ownerId}-${effectIndex}`;
+      const { target, maxStacks = 1, duration, maxProcs } = getEffect(gameId, effectKey);
       if (!validTargets.includes(target)) continue; // wrong target
 
-      const { maxStacks = 1, duration, maxProcs } = effect;
-      const effectKey = `${ownerId}-${effectIndex}`;
       const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
-
       // just refresh buff timer if already max stacks
       activeEffectMap[effectKey] = {
         stacks: Math.min(currentStacks + 1, maxStacks),
@@ -138,13 +132,9 @@ export function simulateRotation(gameId, rawTeam) {
     const context = memberContexts[memberId];
     const { activeEffectMap, statMap } = context;
 
-    const { effects = [] } = CHARACTERS[gameId][memberId];
     for (const actionKey of rotation) {
-      const [, skillId, actionId] = actionKey.split('-');
-      const actionTrigger = `${skillId}-${actionId}`;
-
+      const { considered, effects = [], duration = 0, offset = 0 } = getSkill(gameId, actionKey);
       // remove effects that expire before action occurs
-      const { duration = 0, offset = 0 } = getSkill(gameId, actionKey);
       for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
         if (effectEntry.timeRemaining - offset <= 0) {
           delete activeEffectMap[effectKey];
@@ -152,17 +142,13 @@ export function simulateRotation(gameId, rawTeam) {
       }
 
       // add effects triggered by current action before computing damage
-      for (const [effectIndex, effect] of effects.entries()) {
-        const { trigger, target } = effect;
-        if (trigger !== actionTrigger) continue; // wrong trigger
+      for (const effectIndex of effects) {
+        const effectKey = `${memberId}-${effectIndex}`;
+        const { target, maxStacks = 1, duration, maxProcs } = getEffect(gameId, effectKey);
         if (target !== 'self' && target !== 'team') continue; // wrong target
 
-        const { maxStacks = 1, duration, maxProcs } = effect;
-        const effectKey = `${memberId}-${effectIndex}`;
         const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
-
-        // just refresh buff timer if already max stacks
-        activeEffectMap[effectKey] = {
+        activeEffectMap[effectKey] = { // just refresh buff timer if already max stacks
           stacks: Math.min(currentStacks + 1, maxStacks),
           timeRemaining: duration ?? Infinity,
           procsRemaining: maxProcs ?? Infinity,
@@ -177,7 +163,6 @@ export function simulateRotation(gameId, rawTeam) {
       };
 
       // proc effects in activeEffectMap that have procs
-      const { considered } = getSkill(gameId, actionKey);
       for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
         const { ownerId, procs } = getEffect(gameId, effectKey);
         if (!procs) continue;

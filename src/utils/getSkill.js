@@ -69,10 +69,11 @@ export function getSkill(gameId, actionKey) {
     input,
     considered,
     special: skill.special,
-    effects: skill.effects,
+    effects: Array.isArray(skill.effects) ? skill.effects : skill.effects == null ? [] : [skill.effects],
     modifiers: skill.modifiers,
+    duration: skill.duration ?? 0,
+    offset: skill.offset ?? 0,
     attr: skill.attr ?? DEFAULT_ATTR,
     multipliers: skill.multipliers,
-    duration: skill.duration ?? 0,
   };
 }

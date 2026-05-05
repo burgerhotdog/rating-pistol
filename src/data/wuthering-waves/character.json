@@ -15,14 +15,12 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_BA": 0.38
         }
       },
       {
-        "trigger": "6-1",
         "target": "self",
         "statMap": {
           "PERCENT_RS": 0.2

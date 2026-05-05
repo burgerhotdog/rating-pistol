@@ -313,7 +313,7 @@
       "name": "Freezing Thorns",
       "skills": {
         "1": {
-          "duration": 1000,
+          "effects": 1,
           "multipliers": [
             {
               "mv": [
@@ -472,7 +472,9 @@
     "8": {
       "name": "Silversnow",
       "skills": {
-        "1": {}
+        "1": {
+          "effects": 0
+        }
       }
     }
   },
