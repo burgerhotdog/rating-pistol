@@ -159,7 +159,7 @@ export function normalizeTeam(team, teamFinalStats = {}) {
   });
 }
 
-function resolveActionEffects(gameId, characterId) {
+function resolveActionEffects(gameId, characterId, memberRank = 0) {
   const { effects } = CHARACTERS[gameId][characterId];
   if (!effects) return {};
 
@@ -168,6 +168,7 @@ function resolveActionEffects(gameId, characterId) {
   for (const [effectIndex, effect] of effects.entries()) {
     const effectKey = `${characterId}-${effectIndex}`;
     const { trigger } = effect;
+    if (effect.rank != null && memberRank < effect.rank) continue;
 
     if (!trigger) {
       passive.push({ effectKey, ...effect });
@@ -191,8 +192,8 @@ export function simulateRotation(gameId, rawTeam) {
   // member actionEffects
   const actionEffects = {};
   const passivesMap = {};
-  for (const { memberId } of team) {
-    const resolved = resolveActionEffects(gameId, memberId);
+  for (const { memberId, rank } of team) {
+    const resolved = resolveActionEffects(gameId, memberId, rank);
     actionEffects[memberId] = resolved.active;
     passivesMap[memberId] = resolved.passive;
   }

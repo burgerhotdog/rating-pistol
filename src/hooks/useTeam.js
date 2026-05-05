@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useBuild } from '@/contexts';
-import { CHARACTERS } from '@/data';
+import { CHARACTERS, WEAPONS } from '@/data';
 import { getSetCounts, formatRotation } from '@/utils';
 
 const NULL_MEMBER = {
@@ -46,7 +46,7 @@ export function useTeam() {
       };
     });
 
-    // add build to current character
+    // add build and ranks to current character
     return mappedTeam.map(member => {
       if (member.memberId !== characterId) return { ...member };
       return {
@@ -54,6 +54,15 @@ export function useTeam() {
         weaponId: build.weaponId,
         setCounts: getSetCounts(build.equipList),
         build,
+      };
+    }).map(m => {
+      const charQuality = m.memberId ? CHARACTERS[gameId][m.memberId]?.quality : null;
+      const weaponQuality = m.weaponId ? WEAPONS[gameId][m.weaponId]?.quality : null;
+
+      return {
+        ...m,
+        rank: charQuality === null ? null : (charQuality === "5" ? 0 : 6),
+        weaponRank: weaponQuality === null ? null : (weaponQuality === "5" ? 1 : 5),
       };
     });
   }
