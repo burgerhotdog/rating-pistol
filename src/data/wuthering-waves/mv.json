@@ -123,6 +123,7 @@
         },
         "5": {
           "name": "Basic Attack 5",
+          "effects": 3,
           "multipliers": [
             {
               "mv": [

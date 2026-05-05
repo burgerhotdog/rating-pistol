@@ -16,24 +16,32 @@
     "effects": [
       {
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_BA": 0.38
         }
       },
       {
         "target": "self",
+        "duration": 8000,
         "statMap": {
           "PERCENT_RS": 0.2
-        },
-        "duration": 8000
+        }
       },
       {
         "target": "team",
+        "duration": 20000,
+        "maxStacks": 2,
         "statMap": {
           "PERCENT_ATK": 0.1
-        },
-        "duration": 20000,
-        "maxStacks": 2
+        }
+      },
+      {
+        "target": "self",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
       }
     ],
     "defaults": {
