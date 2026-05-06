@@ -379,6 +379,7 @@
         "2": {
           "name": "Glacier Burst",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -409,6 +410,7 @@
         "3": {
           "name": "Ice Prism Burst",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -439,6 +441,7 @@
         "4": {
           "name": "Ice Thorn Burst",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -3893,6 +3896,7 @@
         "3": {
           "name": "Hounds Roar 1",
           "input": "BA",
+          "duration": 500,
           "multipliers": [
             {
               "mv": [
@@ -3923,6 +3927,7 @@
         "4": {
           "name": "Hounds Roar 2",
           "input": "BA",
+          "duration": 500,
           "multipliers": [
             {
               "mv": [
@@ -4303,6 +4308,16 @@
                 3.407,
                 3.5683
               ]
+            }
+          ]
+        },
+        "3": {
+          "name": "Phantom",
+          "input": "CA",
+          "considered": "RL",
+          "multipliers": [
+            {
+              "mv": 1
             }
           ]
         }
