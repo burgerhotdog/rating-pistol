@@ -1,8 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
 
 export const Bar = ({ completed, diff, currentMember }) => {
-  const [initialDiff, setInitialDiff] = useState(diff);
+  const initialDiffRef = useRef(null);
+  const prevMemberRef = useRef(currentMember);
+
+  if (prevMemberRef.current !== currentMember) {
+    prevMemberRef.current = currentMember;
+    initialDiffRef.current = diff ?? null;
+  }
+
+  const value = diff ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
 
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -13,7 +21,7 @@ export const Bar = ({ completed, diff, currentMember }) => {
 
         <LinearProgress
           variant="determinate"
-          value={Math.min(Math.max(((initialDiff - diff) / (initialDiff - 0.01)) * 100, 0), 100)}
+          value={value}
           sx={{
             height: 6,
             borderRadius: 3,

@@ -46,11 +46,11 @@ export const Content = () => {
 
       {(!error && simCharacter === characterId) && (
         isLoading ? (
-          diff ? (
-            <Bar key={characterId} completed={completed} diff={diff} currentMember={currentMember} />
-          ) : (
-            <Bar completed={completed} diff={1} currentMember={currentMember} />
-          )
+          <Bar
+            completed={completed}
+            diff={diff}
+            currentMember={currentMember}
+          />
         ) : (
           <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 0, gap: 1 }}>
             <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 250 }}>

@@ -695,7 +695,7 @@
         "trigger": "3-2",
         "duration": 17000,
         "maxStacks": 50,
-        "actionFilter": "7-1",
+        "actionFilter": "3-2",
         "statMap": {
           "PERCENT_RL": 0.015
         }
