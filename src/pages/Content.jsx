@@ -27,6 +27,8 @@ export const Content = () => {
     actionMap,
     actionMapsWithSub,
     currentMember,
+    trial,
+    statusMessage,
   } = useSimulation(team);
 
   return (
@@ -50,6 +52,8 @@ export const Content = () => {
             completed={completed}
             diff={diff}
             currentMember={currentMember}
+            trial={trial}
+            statusMessage={statusMessage}
           />
         ) : (
           <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 0, gap: 1 }}>

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
 
-export const Bar = ({ completed, diff, currentMember }) => {
+export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) => {
   const initialDiffRef = useRef(null);
   const prevMemberRef = useRef(currentMember);
 
@@ -16,7 +16,7 @@ export const Bar = ({ completed, diff, currentMember }) => {
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Stack spacing={2} sx={{ width: '50%', maxWidth: 360 }}>
         <Typography variant="body2" color="text.secondary" textAlign="center">
-          Running simulation…
+          {statusMessage || 'Running simulation...'}
         </Typography>
 
         <LinearProgress
@@ -32,7 +32,7 @@ export const Bar = ({ completed, diff, currentMember }) => {
 
         <Box display="flex" justifyContent="space-between">
           <Typography variant="caption" color="text.secondary">
-            {currentMember ? `${currentMember}: Week ${completed}` : ''}
+            {currentMember ? `${currentMember}: Week ${completed}: Trial ${trial}` : ''}
           </Typography>
         </Box>
       </Stack>
