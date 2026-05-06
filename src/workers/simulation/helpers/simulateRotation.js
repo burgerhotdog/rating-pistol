@@ -13,11 +13,11 @@ function resolveValidTargets(team, index, ownerId) {
 }
 
 function matchesEffectFilter(effect, actionKey) {
-  const { actionKeyFilter } = effect;
-  if (!actionKeyFilter) return true;
+  const { actionFilter } = effect;
+  if (!actionFilter) return true;
 
-  const filterKeys = Array.isArray(actionKeyFilter) ? actionKeyFilter : [actionKeyFilter];
-  return filterKeys.includes(actionKey);
+  const filterKeys = Array.isArray(actionFilter) ? actionFilter : [actionFilter];
+  return filterKeys.includes(actionKey.split('-').slice(1));
 }
 
 function simulateAction(gameId, actionKey, statMap, activeEffectMap, passivesMap) {
@@ -119,7 +119,7 @@ function parseActiveEffects(gameId, memberId, team, actionEffects) {
 
     // add effects triggered by current action
     for (const effect of actionEffects[ownerId][actionKey] ?? []) {
-      const { effectKey, target, maxStacks = 1, duration: effectDuration, maxProcs } = effect;
+      const { effectKey, target = 'self', maxStacks = 1, duration: effectDuration, maxProcs } = effect;
       if (!validTargets.includes(target)) continue; // wrong target
 
       const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
@@ -225,7 +225,7 @@ export function simulateRotation(gameId, rawTeam) {
 
       // add effects triggered by current action before computing damage
       for (const effect of actionEffects[memberId][actionKey] ?? []) {
-        const { effectKey, target, maxStacks = 1, duration: effectDuration, maxProcs } = effect;
+        const { effectKey, target = 'self', maxStacks = 1, duration: effectDuration, maxProcs } = effect;
         if (target !== 'self' && target !== 'team') continue; // wrong target
 
         const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
