@@ -29,38 +29,23 @@ function simulateAction(gameId, actionKey, statMap, activeEffectMap, passivesMap
   const dmgTypes = [considered, special].filter(Boolean);
   if (input === 'CA') dmgTypes.push('CA');
 
-  const effectStatMap = Object.entries(activeEffectMap)
-    .map(([effectKey, { stacks }]) => {
-      const effect = getEffectMeta(gameId, effectKey);
-      const { statMap } = effect;
-      if (!statMap) return null;
-      if (!matchesEffectFilter(effect, actionKey)) return null;
+  const effectStatMap = {};
+  for (const [effectKey, { stacks }] of Object.entries(activeEffectMap)) {
+    const effect = getEffectMeta(gameId, effectKey);
+    if (!effect.statMap || !matchesEffectFilter(effect, actionKey)) continue;
+    for (const [statId, val] of Object.entries(effect.statMap)) {
+      effectStatMap[statId] = (effectStatMap[statId] ?? 0) + val * stacks;
+    }
+  }
 
-      return Object.fromEntries(
-        Object.entries(statMap).map(([statId, statValue]) => [
-          statId,
-          statValue * stacks,
-        ])
-      );
-    })
-    .filter(Boolean)
-    .reduce((acc, m) => mergeStatMaps(acc, m), {});
-
-  const passiveStatMap = passivesMap
-    .map(effect => {
-      const { chance = 1, statMap } = effect;
-      if (!statMap) return null;
-      if (!matchesEffectFilter(effect, actionKey)) return null;
-
-      return Object.fromEntries(
-        Object.entries(statMap).map(([statId, statValue]) => [
-          statId,
-          statValue * chance,
-        ])
-      );
-    })
-    .filter(Boolean)
-    .reduce((acc, m) => mergeStatMaps(acc, m), {});
+  const passiveStatMap = {};
+  for (const effect of passivesMap) {
+    const { chance = 1, statMap } = effect;
+    if (!statMap || !matchesEffectFilter(effect, actionKey)) continue;
+    for (const [statId, val] of Object.entries(statMap)) {
+      passiveStatMap[statId] = (passiveStatMap[statId] ?? 0) + val * chance;
+    }
+  }
 
   const statMapWithEffects = mergeStatMaps(statMap, effectStatMap, passiveStatMap);
   const adjustedStatMap = modifiers ? mergeStatMaps(statMapWithEffects, modifiers) : statMapWithEffects;
@@ -174,6 +159,7 @@ function resolveActionEffects(gameId, characterId, memberRank) {
 export function simulateRotation(gameId, rawTeam) {
   // remove null members
   const team = rawTeam.filter(member => member.memberId);
+  const memberIndex = Object.fromEntries(team.map((m, i) => [m.memberId, i]));
 
   const actionEffects = {};
   const passivesMap = {};
@@ -211,10 +197,8 @@ export function simulateRotation(gameId, rawTeam) {
       // add effects triggered by current action
       for (const [id, activeEffectMap] of Object.entries(activeEffectMapMap)) {
         const validTargets = ['team', id === actionOwnerId ? 'self' : 'ally'];
-        const idx = team.findIndex(m => m.memberId === id);
-        if (idx === 0) validTargets.push('first');
-        const ownerIdx = team.findIndex(m => m.memberId === actionOwnerId);
-        if (((idx + 1) % team.length) === ownerIdx) validTargets.push('next');
+        if (memberIndex[id] === 0) validTargets.push('first');
+        if (((memberIndex[id] + 1) % team.length) === memberIndex[actionOwnerId]) validTargets.push('next');
 
         for (const effect of actionEffects[actionOwnerId][actionKey] ?? []) {
           const {
@@ -264,10 +248,8 @@ export function simulateRotation(gameId, rawTeam) {
       // add effects triggered by current action before computing damage
       for (const [id, activeEffectMap] of Object.entries(activeEffectMapMap)) {
         const validTargets = [team, id === memberId ? 'self' : 'ally'];
-        const idx = team.findIndex(m => m.memberId === id);
-        if (idx === 0) validTargets.push('first');
-        const ownerIdx = team.findIndex(m => m.memberId === memberId);
-        if (((idx + 1) % team.length) === ownerIdx) validTargets.push('next');
+        if (memberIndex[id] === 0) validTargets.push('first');
+        if (((memberIndex[id] + 1) % team.length) === memberIndex[memberId]) validTargets.push('next');
 
         for (const effect of actionEffects[memberId][actionKey] ?? []) {
           const {
