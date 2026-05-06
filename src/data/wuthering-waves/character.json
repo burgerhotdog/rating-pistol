@@ -908,19 +908,116 @@
     },
     "effects": [
       {
+        "name": "Execution Mode",
+        "trigger": "2-1",
+        "duration": 10000,
+        "maxProcs": 4,
+        "procs": {
+          "filter": "BA",
+          "action": "2-3"
+        }
+      },
+      {
+        "name": "Punishment Mark",
+        "trigger": "7-1",
+        "target": "team",
+        "duration": 18000,
+        "procs": {
+          "action": "7-2"
+        }
+      },
+      {
+        "name": "Pain Immersion",
+        "trigger": "2-1",
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "name": "Sinner's Mark",
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "1-7",
+          "3-1",
+          "6-1"
+        ],
+        "maxProcs": 1,
+        "actionFilter": "2-2",
+        "statMap": {
+          "PERCENT_RS": 0.1
+        }
+      },
+      {
+        "name": "Deadly Focus",
+        "trigger": "2-2",
+        "duration": 4000,
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      },
+      {
+        "name": "Strategist",
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RL": 0.25,
           "AMP_ELECTRO": 0.2
         }
       },
       {
-        "trigger": "7-1",
-        "name": "Punishment Mark",
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "actionFilter": [
+          "2-1",
+          "2-2"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.7
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 0.55
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "7-2",
         "target": "team",
-        "procs": {
-          "action": "7-2"
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_RL": 1
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "3-1",
+        "duration": 30000,
+        "maxProcs": 4,
+        "actionFilter": "3-1",
+        "proc": {
+          "filter": "BA",
+          "action": "7-3"
         }
       }
     ],
@@ -962,25 +1059,77 @@
         "PERCENT_DEF": 0.152
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "name": "Thunder Wedge",
+        "trigger": "2-1",
+        "target": "team",
+        "duration": 12000,
+        "procs": {
+          "action": "2-2"
+        }
+      },
+      {
+        "name": "Detonate",
+        "trigger": [
+          "2-4",
+          "3-1"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-3"
+        }
+      },
+      {
+        "name": "Reserved Confidence",
+        "trigger": "8-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-1"
+        }
+      },
+      {
+        "name": "Thunderweaver",
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 0.4
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "statMap": {
+          "FLAT_MV": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-10"
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "trigger": "2-1",
+        "duration": 12000,
+        "statMap": {
           "PERCENT_RL": 0.5
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_DEF": 0.32
-        }
-      }
-    },
-    "effects": [
       {
+        "name": "Sequence Node 6",
+        "rank": 6,
         "trigger": "2-1",
-        "name": "Thunder Wedge",
         "target": "team",
-        "procs": {
-          "action": "2-2"
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_DEF": 0.32
         }
       }
     ],
@@ -998,7 +1147,6 @@
         "6-1",
         "2-1",
         "3-1",
-        "2-3",
         "2-4",
         "2-1",
         "8-1"

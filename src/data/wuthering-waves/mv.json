@@ -4781,6 +4781,15 @@
               ]
             }
           ]
+        },
+        "3": {
+          "name": "Furious Thunder",
+          "considered": "RS",
+          "multipliers": [
+            {
+              "mv": 4.1959
+            }
+          ]
         }
       }
     },
@@ -5667,6 +5676,16 @@
                 0.5922
               ],
               "times": 2
+            }
+          ]
+        },
+        "10": {
+          "name": "Shield",
+          "considered": "SHIELD",
+          "attr": "DEF",
+          "multipliers": [
+            {
+              "mv": 2
             }
           ]
         }
