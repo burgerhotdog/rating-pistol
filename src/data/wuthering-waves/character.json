@@ -627,13 +627,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
-    },
     "effects": [
       {
         "name": "Burning Rhapsody",
