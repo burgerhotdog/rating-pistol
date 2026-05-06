@@ -10,7 +10,7 @@ export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) =>
     initialDiffRef.current = diff ?? null;
   }
 
-  const value = diff ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
+  const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
 
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
