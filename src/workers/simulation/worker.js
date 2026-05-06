@@ -9,7 +9,7 @@ const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
 
-function simulateCharacter({ gameId, characterId, build, team, setIdList, reportProgress = false }) {
+function simulateCharacter({ gameId, characterId, build, team, setIdList}) {
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, 'menu'));
@@ -26,8 +26,9 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
   let lastDiff = null;
 
   for (let week = 1; week <= MAX_WEEKS; week++) {
-    for (const trial of trials) {
+    for (const [trialIndex, trial] of trials.entries()) {
       advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
+      self.postMessage({ type: 'progress', trial: trialIndex + 1 });
     }
 
     while (trials.length < MAX_TRIALS) {
@@ -45,8 +46,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
     const { benchmarkWeek, diff } = findBenchmarkWeek(weeklyScores);
     lastDiff = diff;
 
-    if (reportProgress) self.postMessage({ type: 'progress', completed: week, diff });
-
+    self.postMessage({ type: 'progress', currentMember: characterId, completed: week, diff });
     if (benchmarkWeek !== -1 && benchmarkWeek <= week) {
       lastBenchmarkWeek = benchmarkWeek;
       break;
@@ -74,6 +74,7 @@ self.onmessage = ({ data }) => {
   const teamFinalStats = {};
 
   // Generate benchmark builds for teammates
+  self.postMessage({ type: 'progress', statusMessage: 'Configuring teammate builds' });
   for (let ti = team.length - 1; ti >= 0; ti--) {
     const member = team[ti];
     const { memberId, weaponId, setCounts } = member;
@@ -105,13 +106,13 @@ self.onmessage = ({ data }) => {
   }
 
   // Run farming simulation for current character
+  self.postMessage({ type: 'progress', statusMessage: 'Running simulation' });
   const currentResult = simulateCharacter({
     gameId,
     characterId,
     build,
     team: team.map(member => member.memberId === characterId ? { ...member } : { ...member, build: { weaponId: member.weaponId, statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } }),
     setIdList,
-    reportProgress: true,
   });
 
   const { trials, preferredMainStats, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;

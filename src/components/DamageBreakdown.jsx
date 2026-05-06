@@ -5,7 +5,7 @@ import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 import { useState } from 'react';
 import { CHARACTERS, MISC } from '@/data';
-import { sumRotationDmg, getSkill } from '@/utils';
+import { sumRotationDmg, getActionMeta } from '@/utils';
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;
@@ -30,12 +30,12 @@ function resolveOwnerLabel(gameId, ownerId) {
 }
 
 /**
- * Builds chart data grouped by damage type (uses getSkill to resolve `considered`).
+ * Builds chart data grouped by damage type (uses getActionMeta to resolve `considered`).
  */
 function buildDmgTypeData(actionMap, gameId, characterId) {
   const totals = {};
   for (const [actionKey, { damage }] of Object.entries(actionMap)) {
-    const { ownerId, considered } = getSkill(gameId, actionKey);
+    const { ownerId, considered } = getActionMeta(gameId, actionKey);
     if (ownerId !== characterId) continue;
 
     const label = resolveDmgTypeLabel(gameId, considered);

@@ -26,6 +26,9 @@ export const Content = () => {
     teamFinalStats,
     actionMap,
     actionMapsWithSub,
+    currentMember,
+    trial,
+    statusMessage,
   } = useSimulation(team);
 
   return (
@@ -45,11 +48,13 @@ export const Content = () => {
 
       {(!error && simCharacter === characterId) && (
         isLoading ? (
-          diff ? (
-            <Bar key={characterId} completed={completed} diff={diff} />
-          ) : (
-            <Bar completed={completed} diff={1} />
-          )
+          <Bar
+            completed={completed}
+            diff={diff}
+            currentMember={currentMember}
+            trial={trial}
+            statusMessage={statusMessage}
+          />
         ) : (
           <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 0, gap: 1 }}>
             <Box display="flex" flexDirection="column" sx={{ flex: 1, minHeight: 250 }}>

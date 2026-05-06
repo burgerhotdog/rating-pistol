@@ -378,8 +378,8 @@
         },
         "2": {
           "name": "Glacier Burst",
-          "input": "AUTO",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -409,8 +409,8 @@
         },
         "3": {
           "name": "Ice Prism Burst",
-          "input": "AUTO",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -440,8 +440,8 @@
         },
         "4": {
           "name": "Ice Thorn Burst",
-          "input": "AUTO",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -474,7 +474,9 @@
     "8": {
       "name": "Silversnow",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -1073,6 +1075,17 @@
               ]
             }
           ]
+        },
+        "2": {
+          "name": "Stimulus Feedback",
+          "input": "AUTO",
+          "considered": "HEAL",
+          "attr": "HP",
+          "multipliers": [
+            {
+              "mv": 0.25
+            }
+          ]
         }
       }
     },
@@ -1086,7 +1099,8 @@
             {
               "mv": 0.0154
             }
-          ]
+          ],
+          "times": 10
         }
       }
     }
@@ -2169,8 +2183,9 @@
       "name": "Heroic Bullets",
       "skills": {
         "1": {
-          "name": "Thermobaric Bullets",
+          "name": "DAKA DAKA! (Thermobaric Bullets x30)",
           "input": "RS",
+          "duration": 3000,
           "multipliers": [
             {
               "mv": [
@@ -2196,7 +2211,8 @@
                 0.3629
               ]
             }
-          ]
+          ],
+          "times": 30
         },
         "2": {
           "name": "Boom Boom",
@@ -2227,37 +2243,6 @@
               ]
             }
           ]
-        },
-        "3": {
-          "name": "Thermobaric Bullets (x30)",
-          "input": "RS",
-          "multipliers": [
-            {
-              "mv": [
-                0.1,
-                0.1082,
-                0.1164,
-                0.1279,
-                0.1361,
-                0.1456,
-                0.1587,
-                0.1718,
-                0.1849,
-                0.1989,
-                0.2153,
-                0.2317,
-                0.2481,
-                0.2645,
-                0.2809,
-                0.2973,
-                0.3137,
-                0.3301,
-                0.3465,
-                0.3629
-              ]
-            }
-          ],
-          "times": 30
         }
       }
     },
@@ -2800,7 +2785,9 @@
             }
           ]
         },
-        "8": {}
+        "8": {
+          "duration": 0
+        }
       }
     },
     "6": {
@@ -3277,13 +3264,6 @@
       "name": "Violent Finale",
       "skills": {
         "1": {
-          "effects": [
-            {
-              "type": "state",
-              "target": "team",
-              "index": 1
-            }
-          ],
           "multipliers": [
             {
               "mv": [
@@ -3340,37 +3320,6 @@
               ]
             }
           ]
-        },
-        "3": {
-          "name": "Marcato (x2)",
-          "input": "CA",
-          "multipliers": [
-            {
-              "mv": [
-                0.16,
-                0.1732,
-                0.1863,
-                0.2047,
-                0.2178,
-                0.2329,
-                0.2539,
-                0.2748,
-                0.2958,
-                0.3181,
-                0.3444,
-                0.3706,
-                0.3969,
-                0.4231,
-                0.4493,
-                0.4756,
-                0.5018,
-                0.5281,
-                0.5543,
-                0.5805
-              ]
-            }
-          ],
-          "times": 2
         }
       }
     },
@@ -3444,7 +3393,9 @@
     "8": {
       "name": "Rage Transposition",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -3945,6 +3896,7 @@
         "3": {
           "name": "Hounds Roar 1",
           "input": "BA",
+          "duration": 500,
           "multipliers": [
             {
               "mv": [
@@ -3975,6 +3927,7 @@
         "4": {
           "name": "Hounds Roar 2",
           "input": "BA",
+          "duration": 500,
           "multipliers": [
             {
               "mv": [
@@ -4355,6 +4308,16 @@
                 3.407,
                 3.5683
               ]
+            }
+          ]
+        },
+        "3": {
+          "name": "Phantom",
+          "input": "CA",
+          "considered": "RL",
+          "multipliers": [
+            {
+              "mv": 1
             }
           ]
         }
@@ -4818,13 +4781,24 @@
               ]
             }
           ]
+        },
+        "3": {
+          "name": "Furious Thunder",
+          "considered": "RS",
+          "multipliers": [
+            {
+              "mv": 4.1959
+            }
+          ]
         }
       }
     },
     "8": {
       "name": "Strategist",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -5704,13 +5678,25 @@
               "times": 2
             }
           ]
+        },
+        "10": {
+          "name": "Shield",
+          "considered": "SHIELD",
+          "attr": "DEF",
+          "multipliers": [
+            {
+              "mv": 2
+            }
+          ]
         }
       }
     },
     "8": {
       "name": "Lightning Manipulation",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -6229,7 +6215,9 @@
     "8": {
       "name": "Whispering Breeze",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -6648,7 +6636,9 @@
     "8": {
       "name": "Dissolving Mist",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -8183,7 +8173,9 @@
     "8": {
       "name": "Transcendence",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -9669,7 +9661,9 @@
     "8": {
       "name": "Iron Will",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -10274,7 +10268,9 @@
     "8": {
       "name": "Duality",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -11018,7 +11014,9 @@
     "8": {
       "name": "Strategy of Duality",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -12148,7 +12146,9 @@
     "8": {
       "name": "Temporal Bender",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -12556,7 +12556,9 @@
     "8": {
       "name": "Carve and Draw",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -14127,7 +14129,9 @@
     "8": {
       "name": "Timeless Classics",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -14779,7 +14783,9 @@
     "8": {
       "name": "Binary Butterfly",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -15566,7 +15572,9 @@
     "8": {
       "name": "Escorting",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -17597,7 +17605,9 @@
     "8": {
       "name": "Applause, Please!",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -18781,7 +18791,9 @@
     "8": {
       "name": "The Course is Set!",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -20182,7 +20194,9 @@
     "8": {
       "name": "Gentle Tentacles",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -20737,7 +20751,9 @@
     "8": {
       "name": "Windcalling Tune",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -22843,7 +22859,9 @@
     "8": {
       "name": "Stand by Me, Warrior",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -24500,7 +24518,9 @@
     "8": {
       "name": "Wind's Divine Blessing",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -25298,7 +25318,9 @@
     "8": {
       "name": "Unfinished Piece",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -26178,7 +26200,9 @@
     "8": {
       "name": "Battlesong of the Unyielding",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -31703,7 +31727,9 @@
     "8": {
       "name": "Unraveling - Law Zero",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -32664,7 +32690,9 @@
     "8": {
       "name": "Recursion",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -35303,7 +35331,9 @@
     "8": {
       "name": "Silent Protection",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -38704,7 +38734,9 @@
     "8": {
       "name": "Snowlight Blessing",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   },
@@ -39736,7 +39768,9 @@
     "8": {
       "name": "Unfinished Lies",
       "skills": {
-        "1": {}
+        "1": {
+          "duration": 0
+        }
       }
     }
   }

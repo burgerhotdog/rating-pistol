@@ -1,19 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useRef } from 'react';
 import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
 
-export const Bar = ({ completed, diff }) => {
-  const [initialDiff, setInitialDiff] = useState(diff);
+export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) => {
+  const initialDiffRef = useRef(null);
+  const prevMemberRef = useRef(currentMember);
+
+  if (prevMemberRef.current !== currentMember) {
+    prevMemberRef.current = currentMember;
+    initialDiffRef.current = diff ?? null;
+  }
+
+  const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
 
   return (
     <Card sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Stack spacing={2} sx={{ width: '50%', maxWidth: 360 }}>
         <Typography variant="body2" color="text.secondary" textAlign="center">
-          Running simulation…
+          {statusMessage || 'Running simulation...'}
         </Typography>
 
         <LinearProgress
           variant="determinate"
-          value={Math.min(Math.max(((initialDiff - diff) / (initialDiff - 0.01)) * 100, 0), 100)}
+          value={value}
           sx={{
             height: 6,
             borderRadius: 3,
@@ -24,7 +32,7 @@ export const Bar = ({ completed, diff }) => {
 
         <Box display="flex" justifyContent="space-between">
           <Typography variant="caption" color="text.secondary">
-            Week {completed}
+            {currentMember ? `${currentMember}: Week ${completed}: Trial ${trial}` : ''}
           </Typography>
         </Box>
       </Stack>

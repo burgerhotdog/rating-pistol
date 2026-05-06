@@ -13,24 +13,119 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "name": "Silversnow",
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_BA": 0.38
+        }
+      },
+      {
+        "name": "Glacier",
+        "trigger": "3-1",
+        "duration": 5000,
+        "maxProcs": 1,
+        "procs": {
+          "actionKeyTrigger": "1102-7-1",
+          "action": "7-2"
+        }
+      },
+      {
+        "name": "Ice Prism",
+        "trigger": "2-1",
+        "duration": 5000,
+        "maxProcs": 1,
+        "procs": {
+          "actionKeyTrigger": "1102-7-1",
+          "action": "7-3"
+        }
+      },
+      {
+        "name": "Ice Thorn",
+        "trigger": "6-1",
+        "duration": 8000,
+        "maxProcs": 1,
+        "procs": {
+          "actionKeyTrigger": "1102-7-1",
+          "action": "7-4"
+        }
+      },
+      {
+        "name": "Condensation",
+        "trigger": "6-1",
+        "duration": 8000,
+        "statMap": {
           "PERCENT_RS": 0.2
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
-    },
-    "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "name": "Avalanche",
+        "trigger": "1-5",
+        "duration": 8000,
+        "actionFilter": [
+          "7-2",
+          "7-3",
+          "7-4"
+        ],
         "statMap": {
-          "AMP_BA": 0.38
+          "PERCENT_RS": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "trigger": "1-5",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "chance": 0.7,
+        "statMap": {
+          "PERCENT_ALL": 0.35
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "3-1",
+        "duration": 5000,
+        "maxProcs": 1,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_HA": 1.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "actionFilter": [
+          "7-2",
+          "7-3",
+          "7-4"
+        ],
+        "statMap": {
+          "PERCENT_CD": 1
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": [
+          "7-2",
+          "7-4"
+        ],
+        "target": "team",
+        "duration": 20000,
+        "maxStacks": 2,
+        "statMap": {
+          "PERCENT_ATK": 0.1
         }
       }
     ],
@@ -49,9 +144,6 @@
         "3-1",
         "2-1",
         "7-1",
-        "7-2",
-        "7-3",
-        "7-4",
         "8-1"
       ]
     }
@@ -70,36 +162,108 @@
         "PERCENT_HP": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HP": 0.12,
+    "effects": [
+      {
+        "name": "Emergency Plan",
+        "trigger": "2-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-2"
+        }
+      },
+      {
+        "name": "Remnant Entities",
+        "trigger": "3-3",
+        "target": "active",
+        "maxProcs": 4,
+        "procs": [
+          {
+            "action": "3-1"
+          },
+          {
+            "action": "3-2"
+          }
+        ]
+      },
+      {
+        "name": "Overflowing Frost",
+        "trigger": "6-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "6-2"
+        }
+      },
+      {
+        "name": "Concentration",
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4"
+        ],
+        "maxStacks": 4,
+        "maxProcs": 1,
+        "procs": {
+          "actionKeyTrigger": [
+            "1103-1-5",
+            "1103-2-1"
+          ],
+          "action": "7-1"
+        }
+      },
+      {
+        "name": "Harmonic Range",
+        "trigger": "2-1",
+        "target": "first",
+        "duration": 35000,
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      {
+        "name": "Stimulus Feedback",
+        "trigger": "1-5",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-2"
+        }
+      },
+      {
+        "name": "Rejuvinating Flow",
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 36000,
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      },
+      {
+        "name": "Sequence Node 2",
+        "rank": 2,
+        "trigger": "2-1",
+        "duration": 12000,
+        "statMap": {
           "PERCENT_GLACIO": 0.15,
           "PERCENT_HB": 0.15
         }
       },
-      "next": {
-        "constant": {
-          "AMP_ALL": 0.15
-        }
-      },
-      "first": {
-        "constant": {
-          "PERCENT_ATK": 0.15
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_GLACIO": 0.12
-        }
-      }
-    },
-    "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "6-1",
+        "duration": 10000,
         "statMap": {
-          "AMP_ALL": 0.15
+          "PERCENT_HP": 0.12
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "2-1",
+        "target": "team",
+        "duration": 35000,
+        "statMap": {
+          "PERCENT_GLACIO": 0.12
         }
       }
     ],
@@ -115,18 +279,12 @@
       },
       "rotation": [
         "6-1",
-        "6-2",
         "3-3",
         "1-1",
         "1-2",
         "1-3",
         "1-4",
         "2-1",
-        "2-2",
-        "7-1",
-        "7-1",
-        "7-1",
-        "7-1",
         "8-1"
       ]
     }
@@ -145,13 +303,77 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "name": "Lion's Vigor",
+        "trigger": "3-1",
+        "duration": 14000,
+        "statMap": {
           "PERCENT_GLACIO": 0.5
         }
+      },
+      {
+        "name": "Lion's Pride",
+        "statMap": {
+          "PERCENT_IS": 0.5
+        }
+      },
+      {
+        "name": "Diligent Practice",
+        "trigger": [
+          "7-2",
+          "7-3"
+        ],
+        "duration": 3000,
+        "maxProcs": 1,
+        "actionFilter": "7-4",
+        "statMap": {
+          "PERCENT_MV": 1.5
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "3-1",
+        "duration": 14000,
+        "statMap": {
+          "PERCENT_BA": 0.2,
+          "PERCENT_RS": 0.1
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "8-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_GLACIO": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "statMap": {
+          "FLAT_MV": 2
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "7-4",
+        "maxProcs": 1,
+        "actionFilter": [
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_BA": 1
+        }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1104",
@@ -195,18 +417,59 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.6
+    "effects": [
+      {
+        "name": "Scorching Magazine",
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_RS": 0.5
         }
       },
-      "team": {
-        "constant": {
+      {
+        "name": "Numbingly Spicy!",
+        "trigger": "7-1",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.3
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_CR": 1
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "actionFilter": "3-1",
+        "chance": 0.5,
+        "statMap": {
+          "PERCENT_RL": 0.4
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "trigger": "7-1",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.3
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "7-2",
+        "target": "team",
+        "duration": 15000,
+        "statMap": {
           "PERCENT_BA": 0.25
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         "1202",
@@ -219,10 +482,10 @@
       },
       "rotation": [
         "6-1",
-        "7-3",
+        "7-1",
         "7-2",
         "3-1",
-        "7-3",
+        "7-1",
         "7-2",
         "8-1"
       ]
@@ -249,6 +512,105 @@
         }
       }
     },
+    "effects": [
+      {
+        "name": "Angry Cosmos",
+        "actionFilter": [
+          "3-1",
+          "3-2",
+          "3-3",
+          "3-4",
+          "3-5",
+          "3-6",
+          "3-7",
+          "7-2"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.1
+        }
+      },
+      {
+        "name": "Woolies Cheer Dance",
+        "trigger": [
+          "2-1",
+          "3-6"
+        ],
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_FUSION": 0.1
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-7",
+          "1-8",
+          "3-1",
+          "3-2",
+          "3-3",
+          "3-4",
+          "3-7"
+        ],
+        "maxStacks": 4,
+        "duration": 6000,
+        "statMap": {
+          "PERCENT_FUSION": 0.03
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "actionFilter": [
+          "7-1",
+          "7-2"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.4
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "target": "team",
+        "actionFilter": "7-2",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_FUSION": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "statMap": {
+          "PERCENT_RS": 0.35
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": [
+          "3-1",
+          "3-2",
+          "3-3",
+          "3-4",
+          "3-5",
+          "3-6",
+          "3-7",
+          "7-2"
+        ],
+        "maxStacks": 6,
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.05
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1203",
@@ -292,38 +654,116 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
-    },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
-        "statMap": {
-          "AMP_HA": 0.38
-        }
-      }
-    ],
-    "states": [
-      {
         "name": "Burning Rhapsody",
-        "stateEffects": [
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 10000,
+        "procs": [
           {
-            "type": "considered",
-            "cause": "BA",
-            "effect": "3-2"
+            "filter": "BA",
+            "action": "3-2"
           },
           {
-            "type": "considered",
-            "cause": "HA",
-            "effect": "3-2",
+            "filter": "HA",
+            "action": "3-2",
             "times": 2
           }
         ]
+      },
+      {
+        "name": "Rage Transposition",
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_HA": 0.38
+        }
+      },
+      {
+        "name": "Harmonic Control",
+        "trigger": "2-1",
+        "duration": 8000,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_RS": 0.25
+        }
+      },
+      {
+        "name": "Rhythmic Vibrato",
+        "trigger": "3-2",
+        "duration": 17000,
+        "maxStacks": 50,
+        "actionFilter": "3-2",
+        "statMap": {
+          "PERCENT_RL": 0.015
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "effectModifiers": {
+          "effectIndex": 0,
+          "add": {
+            "procs": {
+              "filter": "RS",
+              "action": "3-2",
+              "times": 2
+            }
+          }
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "3-1",
+        "duration": 10000,
+        "actionFilter": "3-2",
+        "statMap": {
+          "PERCENT_CD": 0.3
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "effectModifiers": [
+          {
+            "effectIndex": 0,
+            "add": {
+              "duration": 7000
+            }
+          },
+          {
+            "effectIndex": 5,
+            "add": {
+              "duration": 7000
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "trigger": [
+          "2-1",
+          "7-1"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "action": "3-2",
+          "times": 4
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
       }
     ],
     "defaults": {
@@ -364,45 +804,67 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "name": "Bloodshed Awaken",
+        "trigger": "7-1",
+        "duration": 15000,
+        "statMap": {
           "PERCENT_RL": 0.1
         }
+      },
+      {
+        "name": "Sequence Node 2",
+        "rank": 2,
+        "trigger": [
+          "3-2",
+          "6-1"
+        ],
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_RS": 0.3
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "3-1",
+        "duration": 11000,
+        "statMap": {
+          "PERCENT_ELECTRO": 0.25
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "8-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ELECTRO": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "statMap": {
+          "PERCENT_IS": 0.5
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "7-2",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-3",
+          "times": 2
+        }
       }
-    },
+    ],
     "defaults": {
       "team": [
-        {
-          "memberId": "1301",
-          "rotation": [
-            "3-2",
-            "1302-7-2",
-            "3-1",
-            "1302-7-2",
-            "7-2",
-            "1302-7-2",
-            "3-3",
-            "3-4",
-            "1302-7-2",
-            "3-3",
-            "3-4",
-            "1302-7-2",
-            "3-3",
-            "7-2",
-            "1302-7-2",
-            "3-3",
-            "3-4",
-            "1302-7-2",
-            "3-3",
-            "3-4",
-            "1302-7-2",
-            "3-3",
-            "7-2",
-            "1302-7-2",
-            "8-1"
-          ]
-        },
+        "1301",
         "1302",
         "1505"
       ],
@@ -411,7 +873,6 @@
         "3": 5
       },
       "rotation": [
-        "6-1",
         "3-2",
         "3-1",
         "7-2",
@@ -447,11 +908,116 @@
     },
     "effects": [
       {
+        "name": "Execution Mode",
+        "trigger": "2-1",
+        "duration": 10000,
+        "maxProcs": 4,
+        "procs": {
+          "filter": "BA",
+          "action": "2-3"
+        }
+      },
+      {
+        "name": "Punishment Mark",
+        "trigger": "7-1",
+        "target": "team",
+        "duration": 18000,
+        "procs": {
+          "action": "7-2"
+        }
+      },
+      {
+        "name": "Pain Immersion",
+        "trigger": "2-1",
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "name": "Sinner's Mark",
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "1-7",
+          "3-1",
+          "6-1"
+        ],
+        "maxProcs": 1,
+        "actionFilter": "2-2",
+        "statMap": {
+          "PERCENT_RS": 0.1
+        }
+      },
+      {
+        "name": "Deadly Focus",
+        "trigger": "2-2",
+        "duration": 4000,
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      },
+      {
+        "name": "Strategist",
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RL": 0.25,
           "AMP_ELECTRO": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "actionFilter": [
+          "2-1",
+          "2-2"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.7
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 0.55
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "7-2",
+        "target": "team",
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_RL": 1
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "3-1",
+        "duration": 30000,
+        "maxProcs": 4,
+        "actionFilter": "3-1",
+        "proc": {
+          "filter": "BA",
+          "action": "7-3"
         }
       }
     ],
@@ -493,18 +1059,80 @@
         "PERCENT_DEF": 0.152
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "name": "Thunder Wedge",
+        "trigger": "2-1",
+        "target": "team",
+        "duration": 12000,
+        "procs": {
+          "action": "2-2"
+        }
+      },
+      {
+        "name": "Detonate",
+        "trigger": [
+          "2-4",
+          "3-1"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-3"
+        }
+      },
+      {
+        "name": "Reserved Confidence",
+        "trigger": "8-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-1"
+        }
+      },
+      {
+        "name": "Thunderweaver",
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 0.4
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "statMap": {
+          "FLAT_MV": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-10"
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "trigger": "2-1",
+        "duration": 12000,
+        "statMap": {
           "PERCENT_RL": 0.5
         }
       },
-      "team": {
-        "constant": {
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "2-1",
+        "target": "team",
+        "duration": 15000,
+        "statMap": {
           "PERCENT_DEF": 0.32
         }
       }
-    },
+    ],
     "defaults": {
       "team": [
         null,
@@ -519,7 +1147,6 @@
         "6-1",
         "2-1",
         "3-1",
-        "2-3",
         "2-4",
         "2-1",
         "8-1"
@@ -661,31 +1288,7 @@
     },
     "defaults": {
       "team": [
-        {
-          "memberId": "1404",
-          "rotation": [
-            "6-1",
-            "7-1",
-            "1204-3-3",
-            "3-1",
-            "1204-3-3",
-            "2-1",
-            "3-1",
-            "1204-3-3",
-            "3-2",
-            "1204-3-3",
-            "3-3",
-            "1204-3-3",
-            "3-1",
-            "1204-3-3",
-            "3-2",
-            "1204-3-3",
-            "3-3",
-            "1204-3-3",
-            "2-1",
-            "8-1"
-          ]
-        },
+        "1404",
         "1204",
         "1505"
       ],
@@ -777,6 +1380,14 @@
         "target": "team",
         "statMap": {
           "AMP_ALL": 0.15
+        }
+      },
+      {
+        "name": "Photosynthesis Mark",
+        "trigger": "3-1",
+        "target": "team",
+        "procs": {
+          "action": "3-3"
         }
       }
     ],
@@ -993,31 +1604,7 @@
     },
     "defaults": {
       "team": [
-        {
-          "memberId": "1304",
-          "rotation": [
-            "6-1",
-            "1105-3-1",
-            "2-2",
-            "1105-3-1",
-            "3-1",
-            "1105-3-1",
-            "7-7",
-            "1105-3-1",
-            "7-1",
-            "1105-3-1",
-            "7-2",
-            "1105-3-1",
-            "7-3",
-            "1105-3-1",
-            "7-4",
-            "1105-3-1",
-            "7-8",
-            "7-9",
-            "1105-3-1",
-            "8-1"
-          ]
-        },
+        "1304",
         "1105",
         "1503"
       ],
@@ -1061,6 +1648,14 @@
           "AMP_RS": 0.25,
           "AMP_GLACIO": 0.2
         }
+      },
+      {
+        "trigger": "3-1",
+        "name": "Inklit Spirit",
+        "target": "team",
+        "procs": {
+          "action": "3-1"
+        }
       }
     ],
     "defaults": {
@@ -1103,33 +1698,7 @@
     },
     "defaults": {
       "team": [
-        {
-          "memberId": "1305",
-          "rotation": [
-            "6-1",
-            "1302-7-2",
-            "2-1",
-            "3-1",
-            "1302-7-2",
-            "3-5",
-            "7-3",
-            "1302-7-2",
-            "7-2",
-            "1302-7-2",
-            "3-2",
-            "3-3",
-            "1302-7-2",
-            "3-4",
-            "7-2",
-            "1302-7-2",
-            "3-5",
-            "7-3",
-            "1302-7-2",
-            "7-2",
-            "1302-7-2",
-            "8-1"
-          ]
-        },
+        "1305",
         "1302",
         "1505"
       ],
@@ -1391,34 +1960,7 @@
     },
     "defaults": {
       "team": [
-        {
-          "memberId": "1107",
-          "rotation": [
-            "6-1",
-            "1105-3-1",
-            "2-1",
-            "1105-3-1",
-            "2-2",
-            "1105-3-1",
-            "1-8",
-            "1105-3-1",
-            "7-1",
-            "1105-3-1",
-            "3-1",
-            "1105-3-1",
-            "3-2",
-            "1105-3-1",
-            "3-2",
-            "1105-3-1",
-            "3-2",
-            "1105-3-1",
-            "3-2",
-            "1105-3-1",
-            "3-3",
-            "1105-3-1",
-            "8-1"
-          ]
-        },
+        "1107",
         "1105",
         "1505"
       ],
@@ -1910,6 +2452,7 @@
         }
       }
     },
+    "match": [],
     "effects": [
       {
         "trigger": "8-1",
@@ -1920,7 +2463,6 @@
         }
       }
     ],
-    "match": [],
     "defaults": {
       "team": [
         "1608",
@@ -1929,8 +2471,8 @@
       ],
       "weaponId": "21050066",
       "setCounts": {
-        "19": 3,
-        "6": 2
+        "6": 2,
+        "19": 3
       },
       "rotation": [
         "6-2",
@@ -1991,8 +2533,8 @@
       ],
       "weaponId": "21010046",
       "setCounts": {
-        "20": 3,
-        "3": 2
+        "3": 2,
+        "20": 3
       },
       "rotation": [
         "6-1",
@@ -2057,8 +2599,8 @@
       ],
       "weaponId": "21040046",
       "setCounts": {
-        "20": 3,
-        "4": 2
+        "4": 2,
+        "20": 3
       },
       "rotation": [
         "6-1",
@@ -2103,8 +2645,8 @@
       ],
       "weaponId": "21030036",
       "setCounts": {
-        "22": 3,
-        "2": 2
+        "2": 2,
+        "22": 3
       },
       "rotation": [
         "6-1",
@@ -2169,8 +2711,8 @@
       ],
       "weaponId": "21020066",
       "setCounts": {
-        "21": 3,
-        "4": 2
+        "4": 2,
+        "21": 3
       },
       "rotation": [
         "6-1",
@@ -2267,8 +2809,8 @@
       ],
       "weaponId": "21010056",
       "setCounts": {
-        "23": 3,
-        "6": 2
+        "6": 2,
+        "23": 3
       },
       "rotation": [
         "6-1",

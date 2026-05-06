@@ -13,6 +13,7 @@ import {
   IconButton,
   List,
   ListItem,
+  MenuItem,
   Stack,
   TextField,
   Typography,
@@ -27,7 +28,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
 import { CHARACTERS, WEAPONS, SETS, MISC } from '@/data';
-import { getSkill, getSkillList, getMember, formatRotation } from '@/utils';
+import { getActionMeta, getActionList, getMember, formatRotation } from '@/utils';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
@@ -200,7 +201,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
       const firstEnabled = allPieceTiers.find(t => enabledTiers.has(t)) ?? null;
       setPieceFilter(firstEnabled);
     }
-  }, [open]);
+  }, [open, allPieceTiers, enabledTiers]);
 
   const options = useMemo(() => {
     const lower = search.toLowerCase();
@@ -483,10 +484,6 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange }) {
         )}
       </Stack>
 
-      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
-        Pieces used: {usedPieces}/{capacity}
-      </Typography>
-
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap sx={{ mt: 1 }}>
         <Button
           size="small"
@@ -517,32 +514,23 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange }) {
   );
 }
 
-function SkillSelectDialog({ gameId, characterId, teamIds, open, onClose, onSelect }) {
+function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
 
   const options = useMemo(() => {
     if (!characterId) return [];
     let keys = [];
     try {
-      keys = getSkillList(gameId, characterId);
+      keys = getActionList(gameId, characterId);
     } catch {
       return [];
-    }
-
-    for (const memberId of teamIds) {
-      if (memberId === characterId) continue;
-      const memberSkillList = getSkillList(gameId, memberId).filter(skillKey => {
-        const { input } = getSkill(gameId, skillKey);
-        return input === 'CA';
-      });
-      keys = [...keys, ...memberSkillList];
     }
 
     const lower = search.toLowerCase();
     return keys
       .map(skillKey => {
         try {
-          const skill = getSkill(gameId, skillKey);
+          const skill = getActionMeta(gameId, skillKey);
           return { skillKey, name: skill.name, ownerId: skill.ownerId };
         } catch (err) {
           console.log(err);
@@ -554,7 +542,7 @@ function SkillSelectDialog({ gameId, characterId, teamIds, open, onClose, onSele
         const text = `${name} ${skillKey}`.toLowerCase();
         return text.includes(lower);
       });
-  }, [gameId, characterId, teamIds, search]);
+  }, [gameId, characterId, search]);
 
   const handleSelect = (skillKey) => {
     onSelect(skillKey);
@@ -598,38 +586,69 @@ function SkillSelectDialog({ gameId, characterId, teamIds, open, onClose, onSele
   );
 }
 
-function PickerButton({ label, imageUrl, name, onClick }) {
+function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = false }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" gap={0.5}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      gap={0.5}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <Typography variant="caption" color="text.secondary">
         {label}
       </Typography>
-      <Card sx={{ width: 80 }}>
-        <CardActionArea onClick={onClick}>
-          {imageUrl ? (
-            <CardMedia
-              image={imageUrl}
-              title={name}
-              sx={{ width: 80, height: 80 }}
-            />
-          ) : (
-            <Box
-              sx={{
-                width: 80,
-                height: 80,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                bgcolor: 'action.hover',
-              }}
-            >
-              <Typography variant="caption" color="text.secondary" textAlign="center">
-                None
-              </Typography>
-            </Box>
-          )}
-        </CardActionArea>
-      </Card>
+      <Box position="relative">
+        <Card sx={{ width: 80 }}>
+          <CardActionArea onClick={onClick} disabled={disabled}>
+            {imageUrl ? (
+              <CardMedia
+                image={imageUrl}
+                title={name}
+                sx={{ width: 80, height: 80 }}
+              />
+            ) : (
+              <Box
+                sx={{
+                  width: 80,
+                  height: 80,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  bgcolor: 'action.hover',
+                }}
+              >
+                <Typography variant="caption" color="text.secondary" textAlign="center">
+                  None
+                </Typography>
+              </Box>
+            )}
+          </CardActionArea>
+        </Card>
+
+        {hovered && onClear && !disabled && (name || imageUrl) && (
+          <IconButton
+            size="small"
+            onClick={(e) => { e.stopPropagation(); onClear(); }}
+            sx={{
+              position: 'absolute',
+              top: -6,
+              right: -6,
+              bgcolor: 'background.paper',
+              border: '1px solid',
+              borderColor: 'divider',
+              width: 18,
+              height: 18,
+              '&:hover': { bgcolor: 'error.main', color: '#fff', borderColor: 'error.main' },
+            }}
+          >
+            <CloseIcon sx={{ fontSize: 11 }} />
+          </IconButton>
+        )}
+      </Box>
       <Typography variant="caption" noWrap sx={{ maxWidth: 80 }}>
         {name ?? '—'}
       </Typography>
@@ -637,7 +656,7 @@ function PickerButton({ label, imageUrl, name, onClick }) {
   );
 }
 
-function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
+function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
 
@@ -680,7 +699,7 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
       >
         <List dense sx={{ p: 0.5 }}>
           {rotation.map((actionKey, index) => {
-            const { input, name, ownerId } = getSkill(gameId, actionKey);
+            const { input, name, ownerId } = getActionMeta(gameId, actionKey);
             return (
               <ListItem
                 key={`${actionKey}-${index}`}
@@ -757,7 +776,6 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
       <SkillSelectDialog
         gameId={gameId}
         characterId={characterId}
-        teamIds={teamIds}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
         onSelect={(skillKey) => onChange([...rotation, skillKey])}
@@ -766,7 +784,7 @@ function RotationEditor({ gameId, characterId, teamIds, rotation, onChange }) {
   );
 }
 
-export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }) {
+export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   const [draft, setDraft] = useState(member);
   const [charDialogOpen, setCharDialogOpen] = useState(false);
   const [weaponDialogOpen, setWeaponDialogOpen] = useState(false);
@@ -777,8 +795,23 @@ export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }
   const weaponData = WEAPONS[gameId]?.[draft.weaponId];
   const weaponType = memberData?.type ?? null;
 
+  const getDefaultRank = (memberId) => {
+    if (!memberId) return null;
+    return CHARACTERS[gameId][memberId]?.quality === '5' ? 0 : 6;
+  };
+
+  const getDefaultWeaponRank = (weaponId) => {
+    if (!weaponId) return null;
+    return WEAPONS[gameId][weaponId]?.quality === '5' ? 1 : 5;
+  };
+
   const handleCharacterSelect = (charId) => {
-    setDraft(getMember(gameId, charId));
+    const nextMember = getMember(gameId, charId);
+    setDraft({
+      ...nextMember,
+      rank: getDefaultRank(nextMember.memberId),
+      weaponRank: getDefaultWeaponRank(nextMember.weaponId),
+    });
   };
 
   const handleSave = () => {
@@ -791,6 +824,9 @@ export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }
     onClose();
   };
 
+  const rankOptions = [0, 1, 2, 3, 4, 5, 6];
+  const weaponRankOptions = [1, 2, 3, 4, 5];
+
   return (
     <>
       <Dialog open={open} onClose={handleCancel} fullWidth maxWidth="md">
@@ -798,22 +834,77 @@ export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }
 
         <DialogContent>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="flex-start" mt={1}>
-            <Stack direction="row" spacing={2}>
-              {/* Character */}
-              <PickerButton
-                label="Character"
-                imageUrl={`${gameId}/character/${draft.memberId}.webp`}
-                name={memberData?.name ?? null}
-                onClick={() => setCharDialogOpen(true)}
-              />
+            <Stack direction="row" spacing={2} alignItems="flex-start">
+              <Stack spacing={1} alignItems="center">
+                {/* Character */}
+                <PickerButton
+                  label="Character"
+                  imageUrl={`${gameId}/character/${draft.memberId}.webp`}
+                  name={memberData?.name ?? null}
+                  onClick={() => setCharDialogOpen(true)}
+                  onClear={() => setDraft(prev => ({
+                    ...prev,
+                    memberId: null,
+                    weaponId: null,
+                    setCounts: {},
+                    rotation: [],
+                    rank: null,
+                    weaponRank: null,
+                  }))}
+                />
 
-              {/* Weapon */}
-              <PickerButton
-                label="Weapon"
-                imageUrl={`${gameId}/weapon/${draft.weaponId}.webp`}
-                name={weaponData?.name ?? null}
-                onClick={() => setWeaponDialogOpen(true)}
-              />
+                <TextField
+                  select
+                  size="small"
+                  value={draft.rank ?? ''}
+                  onChange={(e) => setDraft(prev => ({ ...prev, rank: Number(e.target.value) }))}
+                  disabled={!draft.memberId}
+                  sx={{ width: 120 }}
+                >
+                  <MenuItem value="" disabled>
+                    
+                  </MenuItem>
+                  {rankOptions.map(rank => (
+                    <MenuItem key={rank} value={rank}>
+                      {`S${rank}`}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Stack>
+
+              <Stack spacing={1} alignItems="center">
+                {/* Weapon */}
+                <PickerButton
+                  label="Weapon"
+                  imageUrl={`${gameId}/weapon/${draft.weaponId}.webp`}
+                  name={weaponData?.name ?? null}
+                  onClick={() => setWeaponDialogOpen(true)}
+                  disabled={!draft.memberId}
+                  onClear={() => setDraft(prev => ({
+                    ...prev,
+                    weaponId: null,
+                    weaponRank: null,
+                  }))}
+                />
+
+                <TextField
+                  select
+                  size="small"
+                  value={draft.weaponRank ?? ''}
+                  onChange={(e) => setDraft(prev => ({ ...prev, weaponRank: Number(e.target.value) }))}
+                  disabled={!draft.weaponId}
+                  sx={{ width: 120 }}
+                >
+                  <MenuItem value="" disabled>
+                    
+                  </MenuItem>
+                  {weaponRankOptions.map(rank => (
+                    <MenuItem key={`weapon-rank-${rank}`} value={rank}>
+                      {`S${rank}`}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              </Stack>
             </Stack>
 
             <Box sx={{ flex: 1, minWidth: { xs: '100%', sm: 280 } }}>
@@ -829,7 +920,6 @@ export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }
           <RotationEditor
             gameId={gameId}
             characterId={draft.memberId}
-            teamIds={team.map(member => member.memberId)}
             rotation={draft.rotation}
             onChange={(rotation) => setDraft(prev => ({ ...prev, rotation: formatRotation(draft.memberId, rotation) }))}
           />
@@ -853,7 +943,11 @@ export function TeamMemberDialog({ gameId, member, team, open, onClose, onSave }
         weaponType={weaponType}
         open={weaponDialogOpen}
         onClose={() => setWeaponDialogOpen(false)}
-        onSelect={(weaponId) => setDraft(prev => ({ ...prev, weaponId }))}
+        onSelect={(weaponId) => setDraft(prev => ({
+          ...prev,
+          weaponId,
+          weaponRank: getDefaultWeaponRank(weaponId),
+        }))}
       />
     </>
   );

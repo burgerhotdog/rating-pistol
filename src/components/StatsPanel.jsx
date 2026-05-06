@@ -263,7 +263,6 @@ export const StatsPanel = ({ team, updateTeam }) => {
           <TeamMemberDialog
             gameId={gameId}
             member={team[dialogIndex]}
-            team={team}
             open={dialogIndex !== null}
             onClose={() => setDialogIndex(null)}
             onSave={(updatedMember) => updateTeam(dialogIndex, updatedMember)}
