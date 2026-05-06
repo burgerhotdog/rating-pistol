@@ -195,7 +195,7 @@ function applyTriggeredEffects({
       validTargets.push('next');
     }
 
-    for (const effect of actionEffects[sourceId]?.[actionKey] ?? []) {
+    for (const effect of actionEffects[sourceId][actionKey] ?? []) {
       const {
         effectKey,
         target = 'self',
