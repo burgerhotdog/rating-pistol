@@ -692,10 +692,8 @@
       },
       {
         "name": "Rhythmic Vibrato",
-        "trigger": [
-          "3-2",
-          "3-3"
-        ],
+        "trigger": "3-2",
+        "duration": 17000,
         "maxStacks": 50,
         "actionFilter": "7-1",
         "statMap": {

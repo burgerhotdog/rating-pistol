@@ -185,6 +185,7 @@ function applyTriggeredEffects({
   actionKey,
   actionEffects,
   activeEffectMapMap,
+  times = 1,
 }) {
   for (const [id, activeEffectMap] of Object.entries(activeEffectMapMap)) {
     const validTargets = ['team', id === sourceId ? 'self' : 'ally'];
@@ -208,7 +209,7 @@ function applyTriggeredEffects({
       const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
 
       activeEffectMap[effectKey] = {
-        stacks: Math.min(currentStacks + 1, maxStacks),
+        stacks: Math.min(currentStacks + times, maxStacks),
         timeRemaining: duration ?? Infinity,
         procsRemaining: maxProcs ?? Infinity,
       };
@@ -297,6 +298,16 @@ export function simulateRotation(gameId, rawTeam) {
             activeEffectMapMap[effectOwnerId],
             passivesMap[effectOwnerId]
           );
+
+          applyTriggeredEffects({
+            team,
+            memberIndex,
+            sourceId: effectOwnerId,
+            actionKey: effectActionKey,
+            actionEffects,
+            activeEffectMapMap,
+            times,
+          });
 
           actionMap[effectActionKey] = {
             damage: (actionMap[effectActionKey]?.damage ?? 0) + procDamage * effectEntry.stacks * times,
