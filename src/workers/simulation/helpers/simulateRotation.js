@@ -217,6 +217,78 @@ function applyTriggeredEffects({
   }
 }
 
+function processProcEffects({
+  gameId,
+  sourceId,
+  actionKey,
+  considered,
+  actionEffects,
+  activeEffectMapMap,
+  statMapMap,
+  passivesMap,
+  team,
+  memberIndex,
+  actionMap = null,
+}) {
+  for (const [effectKey, effectEntry] of Object.entries(activeEffectMapMap[sourceId] ?? {})) {
+    const { ownerId: effectOwnerId, procs } = getEffectMeta(gameId, effectKey);
+    if (!procs) continue;
+
+    let remaining = effectEntry.procsRemaining;
+    for (const { action, actionKeyTrigger, filter, times = 1 } of toArray(procs)) {
+      if (actionKeyTrigger && !toArray(actionKeyTrigger).includes(actionKey)) continue;
+
+      const matchesFilter = !filter || (typeof filter === 'string' ? filter === considered : filter.includes(considered));
+      if (!matchesFilter) continue;
+
+      const effectActionKey = `${effectOwnerId}-${action}`;
+
+      if (actionMap) {
+        const { damage: procDamage = 0, healing: procHealing = 0 } = simulateAction(
+          gameId,
+          effectActionKey,
+          statMapMap[effectOwnerId],
+          activeEffectMapMap[effectOwnerId],
+          passivesMap[effectOwnerId]
+        );
+
+        actionMap[effectActionKey] = {
+          damage: (actionMap[effectActionKey]?.damage ?? 0) + procDamage * effectEntry.stacks * times,
+          healing: (actionMap[effectActionKey]?.healing ?? 0) + procHealing * effectEntry.stacks * times,
+        };
+      }
+
+      applyTriggeredEffects({
+        team,
+        memberIndex,
+        sourceId: effectOwnerId,
+        actionKey: effectActionKey,
+        actionEffects,
+        activeEffectMapMap,
+        times,
+      });
+
+      remaining -= times;
+    }
+
+    effectEntry.procsRemaining = remaining;
+  }
+}
+
+function decayProcCounts(gameId, activeEffectMapMap, actionKey) {
+  for (const activeEffectMap of Object.values(activeEffectMapMap)) {
+    for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
+      if (effectEntry.procsRemaining === Infinity) continue;
+
+      const effectMeta = getEffectMeta(gameId, effectKey);
+      if (!matchesEffectFilter(effectMeta, actionKey)) continue;
+
+      if (!effectMeta.procs) effectEntry.procsRemaining -= 1;
+      if (effectEntry.procsRemaining <= 0) delete activeEffectMap[effectKey];
+    }
+  }
+}
+
 export function simulateRotation(gameId, rawTeam) {
   // remove null members
   const team = rawTeam.filter(member => member.memberId);
@@ -242,7 +314,7 @@ export function simulateRotation(gameId, rawTeam) {
     ].slice(1).reverse().flatMap(m => m.rotation);
     const activeEffectMapMap = Object.fromEntries(team.map(m => [m.memberId, {}]));
     for (const actionKey of prevRotationActionOrder) {
-      const { ownerId: actionOwnerId, duration: actionDuration = 1000, offset = 500 } = getActionMeta(gameId, actionKey);
+      const { ownerId: actionOwnerId, considered, duration: actionDuration = 1000, offset = 500 } = getActionMeta(gameId, actionKey);
 
       expireEffects(activeEffectMapMap, offset);
       applyTriggeredEffects({
@@ -253,6 +325,19 @@ export function simulateRotation(gameId, rawTeam) {
         actionEffects,
         activeEffectMapMap,
       });    
+      processProcEffects({
+        gameId,
+        sourceId: actionOwnerId,
+        actionKey,
+        considered,
+        actionEffects,
+        activeEffectMapMap,
+        statMapMap,
+        passivesMap,
+        team,
+        memberIndex,
+      });
+      decayProcCounts(gameId, activeEffectMapMap, actionKey);
       tickEffectDurations(activeEffectMapMap, actionDuration);
     }
 
@@ -277,61 +362,21 @@ export function simulateRotation(gameId, rawTeam) {
         healing: (actionMap[actionKey]?.healing ?? 0) + healing,
       };
 
-      // proc effects in activeEffectMap that have procs
-      for (const [effectKey, effectEntry] of Object.entries(activeEffectMapMap[memberId])) {
-        const { ownerId: effectOwnerId, procs } = getEffectMeta(gameId, effectKey);
-        if (!procs) continue;
+      processProcEffects({
+        gameId,
+        sourceId: memberId,
+        actionKey,
+        considered,
+        actionEffects,
+        activeEffectMapMap,
+        statMapMap,
+        passivesMap,
+        team,
+        memberIndex,
+        actionMap,
+      });
 
-        let remaining = effectEntry.procsRemaining;
-        for (const { action, actionKeyTrigger, filter, times = 1 } of toArray(procs)) {
-          if (actionKeyTrigger && !toArray(actionKeyTrigger).includes(actionKey)) continue;
-
-          const matchesFilter = !filter || (typeof filter === 'string' ? filter === considered : filter.includes(considered));
-          if (!matchesFilter) continue;
-          
-          const effectActionKey = `${effectOwnerId}-${action}`;
-
-          const { damage: procDamage = 0, healing: procHealing = 0 } = simulateAction(
-            gameId,
-            effectActionKey,
-            statMapMap[effectOwnerId],
-            activeEffectMapMap[effectOwnerId],
-            passivesMap[effectOwnerId]
-          );
-
-          applyTriggeredEffects({
-            team,
-            memberIndex,
-            sourceId: effectOwnerId,
-            actionKey: effectActionKey,
-            actionEffects,
-            activeEffectMapMap,
-            times,
-          });
-
-          actionMap[effectActionKey] = {
-            damage: (actionMap[effectActionKey]?.damage ?? 0) + procDamage * effectEntry.stacks * times,
-            healing: (actionMap[effectActionKey]?.healing ?? 0) + procHealing * effectEntry.stacks * times,
-          };
-
-          remaining -= times;
-        }
-        effectEntry.procsRemaining = remaining;
-      }
-
-      // tick down procsRemaining and delete if invalid
-      for (const activeEffectMap of Object.values(activeEffectMapMap)) {
-        for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
-          if (effectEntry.procsRemaining === Infinity) continue;
-
-          const effectMeta = getEffectMeta(gameId, effectKey);
-          if (!matchesEffectFilter(effectMeta, actionKey)) continue;
-
-          if (!effectMeta.procs) effectEntry.procsRemaining -= 1;
-          
-          if (effectEntry.procsRemaining <= 0) delete activeEffectMap[effectKey];
-        }
-      }
+      decayProcCounts(gameId, activeEffectMapMap, actionKey);
 
       tickEffectDurations(activeEffectMapMap, actionDuration);
     }
