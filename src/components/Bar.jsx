@@ -24,7 +24,7 @@ export const Bar = ({ completed, diff, currentMember }) => {
 
         <Box display="flex" justifyContent="space-between">
           <Typography variant="caption" color="text.secondary">
-            {currentMember ? `${currentMember} ` : ''}Week {completed}
+            {currentMember ? `${currentMember}: Week ${completed}` : ''}
           </Typography>
         </Box>
       </Stack>
