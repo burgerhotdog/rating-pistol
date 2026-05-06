@@ -144,6 +144,29 @@ function parseActiveEffects(gameId, memberId, team, actionEffects) {
   return activeEffectMap;
 }
 
+function applyEffectModifiers(effect, effectKey, effectModifiers = []) {
+  let resolved = effect;
+
+  for (const modifier of effectModifiers) {
+    const { effectKey: targetEffectKey, add = {}, set = {} } = modifier;
+    if (targetEffectKey && targetEffectKey !== effectKey) continue;
+
+    if (resolved === effect) resolved = { ...effect };
+
+    for (const [field, value] of Object.entries(add)) {
+      if (typeof value !== 'number') continue;
+      if (typeof resolved[field] !== 'number') continue;
+      resolved[field] += value;
+    }
+
+    for (const [field, value] of Object.entries(set)) {
+      resolved[field] = value;
+    }
+  }
+
+  return resolved;
+}
+
 export function normalizeTeam(team, teamFinalStats = {}) {
   return team.map(m => {
     if (m.build) return m;
@@ -163,15 +186,24 @@ function resolveActionEffects(gameId, characterId, memberRank = 0) {
   const { effects } = CHARACTERS[gameId][characterId];
   if (!effects) return {};
 
+  const unlockedEffects = effects.filter(effect => {
+    if (effect.rank == null) return true;
+    return memberRank >= effect.rank;
+  });
+
+  const effectModifiers = unlockedEffects.flatMap(effect => effect.effectModifiers ?? []);
+
   const passive = [];
   const active = {};
   for (const [effectIndex, effect] of effects.entries()) {
     const effectKey = `${characterId}-${effectIndex}`;
-    const { trigger } = effect;
     if (effect.rank != null && memberRank < effect.rank) continue;
 
+    const resolvedEffect = applyEffectModifiers(effect, effectKey, effectModifiers);
+    const { trigger } = resolvedEffect;
+
     if (!trigger) {
-      passive.push({ effectKey, ...effect });
+      passive.push({ effectKey, ...resolvedEffect });
       continue;
     }
 
@@ -179,7 +211,7 @@ function resolveActionEffects(gameId, characterId, memberRank = 0) {
     for (const key of triggers) {
       const actionKey = `${characterId}-${key}`
       if (!active[actionKey]) active[actionKey] = [];
-      active[actionKey].push({ effectKey, ...effect });
+      active[actionKey].push({ effectKey, ...resolvedEffect });
     }
   }
   return { active, passive };

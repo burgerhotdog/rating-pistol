@@ -714,7 +714,15 @@
       },
       {
         "name": "Sequence Node 4",
-        "rank": 4
+        "rank": 4,
+        "effectModifiers": [
+          {
+            "effectKey": "1204-0",
+            "add": {
+              "duration": 7000
+            }
+          }
+        ]
       },
       {
         "name": "Sequence Node 5",
