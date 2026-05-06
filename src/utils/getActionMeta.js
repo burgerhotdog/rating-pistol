@@ -11,7 +11,7 @@ const DEFAULT_GROUP_INPUT = {
 const DEFAULT_ATTR = "ATK";
 const SPECIAL_INPUTS = new Set(["CA", "JA", "HK", "RK", "AUTO"]);
 
-function getSkillMap(gameId, characterId) {
+function getActionMetaMap(gameId, characterId) {
   const skillMap = MVS[gameId]?.[characterId];
   if (!skillMap) {
     throw new Error(`Skill map doesn't exist for character "${characterId}"`);
@@ -19,9 +19,9 @@ function getSkillMap(gameId, characterId) {
   return skillMap;
 }
 
-export function getSkillList(gameId, characterId) {
+export function getActionList(gameId, characterId) {
   if (!characterId) return [];
-  const skillMap = getSkillMap(gameId, characterId);
+  const skillMap = getActionMetaMap(gameId, characterId);
 
   return Object.entries(skillMap).flatMap(([skillId, { skills }]) =>
     Object.keys(skills).map(actionId => `${characterId}-${skillId}-${actionId}`)
@@ -44,11 +44,11 @@ function formatName(name, considered) {
   return name;
 }
 
-export function getSkill(gameId, actionKey) {
+export function getActionMeta(gameId, actionKey) {
   if (!actionKey.includes('-')) throw new Error(`Invalid actionKey "${actionKey}"`);
   const [ownerId, skillId, actionId] = actionKey.split('-');
 
-  const skillMap = getSkillMap(gameId, ownerId);
+  const skillMap = getActionMetaMap(gameId, ownerId);
 
   const group = skillMap[skillId];
   if (!group) throw new Error(`Unknown group "${skillId}" in character "${ownerId}" in game "${gameId}"`);

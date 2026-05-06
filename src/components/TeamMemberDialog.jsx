@@ -28,7 +28,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
 import { CHARACTERS, WEAPONS, SETS, MISC } from '@/data';
-import { getSkill, getSkillList, getMember, formatRotation } from '@/utils';
+import { getActionMeta, getActionList, getMember, formatRotation } from '@/utils';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
@@ -521,7 +521,7 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
     if (!characterId) return [];
     let keys = [];
     try {
-      keys = getSkillList(gameId, characterId);
+      keys = getActionList(gameId, characterId);
     } catch {
       return [];
     }
@@ -530,7 +530,7 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
     return keys
       .map(skillKey => {
         try {
-          const skill = getSkill(gameId, skillKey);
+          const skill = getActionMeta(gameId, skillKey);
           return { skillKey, name: skill.name, ownerId: skill.ownerId };
         } catch (err) {
           console.log(err);
@@ -699,7 +699,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
       >
         <List dense sx={{ p: 0.5 }}>
           {rotation.map((actionKey, index) => {
-            const { input, name, ownerId } = getSkill(gameId, actionKey);
+            const { input, name, ownerId } = getActionMeta(gameId, actionKey);
             return (
               <ListItem
                 key={`${actionKey}-${index}`}

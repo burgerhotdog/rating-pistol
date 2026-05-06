@@ -1,22 +1,11 @@
 import { CHARACTERS, RATING } from '@/data';
-import { compileStatMap, mergeStatMaps, getSkill, getEffectMeta, computeTotalStat, toArray } from '@/utils';
-
-function resolveValidTargets(team, index, ownerId) {
-  const ownerIndex = team.findIndex(m => m.memberId === ownerId);
-  const nextIndex = (index + 1) % team.length;
-  return [
-    'team',
-    'ally',
-    ...(index === 0 ? ['first'] : []),
-    ...(ownerIndex === nextIndex ? ['next'] : []),
-  ];
-}
+import { compileStatMap, mergeStatMaps, getActionMeta, getEffectMeta, computeTotalStat, toArray } from '@/utils';
 
 function matchesEffectFilter(effect, actionKey) {
   const { actionFilter } = effect;
   if (!actionFilter) return true;
 
-  return toArray(actionFilter).includes(actionKey.split('-').slice(1));
+  return toArray(actionFilter).includes(actionKey.split('-').slice(1).join('-'));
 }
 
 function simulateAction(gameId, actionKey, statMap, activeEffectMap, passivesMap) {
@@ -31,7 +20,7 @@ function simulateAction(gameId, actionKey, statMap, activeEffectMap, passivesMap
     attr,
     multipliers,
     times,
-  } = getSkill(gameId, actionKey);
+  } = getActionMeta(gameId, actionKey);
 
   if (considered === "SHIELD") return {};
   if (considered === "BUFF") return {};
@@ -94,61 +83,16 @@ function simulateAction(gameId, actionKey, statMap, activeEffectMap, passivesMap
   return { damage: baseDmg * bonuses * reductions * times };
 }
 
-function parseActiveEffects(gameId, memberId, team, actionEffects) {
-  const index = team.findIndex(m => m.memberId === memberId);
-
-  const teammateOrder = [
-    ...team.slice(index),
-    ...team.slice(0, index),
-  ].slice(1).reverse();
-
-  const allyActionOrder = teammateOrder.flatMap(member => member.rotation);
-  const activeEffectMap = {};
-
-  for (const actionKey of allyActionOrder) {
-    const { ownerId, duration: actionDuration = 0, offset = 0 } = getSkill(gameId, actionKey);
-    const validTargets = resolveValidTargets(team, index, ownerId);
-
-    // remove effects that expire before action occurs
-    for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
-      if (effectEntry.timeRemaining - offset <= 0) {
-        delete activeEffectMap[effectKey];
-      }
-    }
-
-    // add effects triggered by current action
-    for (const effect of actionEffects[ownerId][actionKey] ?? []) {
-      const { effectKey, target = 'self', maxStacks = 1, duration: effectDuration, maxProcs } = effect;
-      if (!validTargets.includes(target)) continue; // wrong target
-
-      const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
-      // just refresh buff timer if already max stacks
-      activeEffectMap[effectKey] = {
-        stacks: Math.min(currentStacks + 1, maxStacks),
-        timeRemaining: effectDuration ?? Infinity,
-        procsRemaining: maxProcs ?? Infinity,
-      };
-    }
-
-    // subtract action duration from time remaining from all effects and delete if it expires
-    for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
-      if (effectEntry.timeRemaining - actionDuration <= 0) {
-        delete activeEffectMap[effectKey];
-      } else {
-        effectEntry.timeRemaining -= actionDuration;
-      }
-    }
-  }
-
-  return activeEffectMap;
-}
-
 function applyEffectModifiers(effectIndex, effectMeta, allEffectModifiers) {
   let resolved = effectMeta;
 
   for (const { effectIndex: modEffectIndex, add = {}, set = {} } of allEffectModifiers) {
     if (modEffectIndex !== effectIndex) continue;
-    if (resolved === effectMeta) resolved = { ...effectMeta }; // prevent mutation
+    if (resolved === effectMeta) resolved = {
+      ...effectMeta,
+      statMap: effectMeta.statMap ? { ...effectMeta.statMap } : undefined,
+      procs: effectMeta.procs ? [...toArray(effectMeta.procs)] : undefined,
+    }; // prevent mutation
 
     for (const [field, value] of Object.entries(add)) {
       if (field === 'statMap') {
@@ -231,118 +175,180 @@ export function simulateRotation(gameId, rawTeam) {
   // remove null members
   const team = rawTeam.filter(member => member.memberId);
 
-  // member actionEffects
   const actionEffects = {};
   const passivesMap = {};
-  for (const { memberId, rank } of team) {
+  const statMapMap = {};
+  for (const { memberId, rank, build = {} } of team) {
     const resolved = resolveActionEffects(gameId, memberId, rank);
     actionEffects[memberId] = resolved.active ?? {};
     passivesMap[memberId] = resolved.passive ?? [];
+    statMapMap[memberId] = compileStatMap(gameId, memberId, build, team, 'combat');
   }
 
-  // first build member contexts before calculating damage
-  // this contains info on buffs applied before each member's rotation
-  const memberContexts = {};
-  for (const { memberId, build = {} } of team) {
-    memberContexts[memberId] = {
-      statMap: compileStatMap(gameId, memberId, build, team, 'combat'),
-      activeEffectMap: parseActiveEffects(gameId, memberId, team, actionEffects),
-    };
-  }
-
-  // now calculate the damage/healing/shielding produced by each action
   const actionMap = {};
-  for (const { memberId, rotation } of team) {
-    const context = memberContexts[memberId];
-    const { activeEffectMap, statMap } = context;
+  for (const [index, { memberId, rotation }] of team.entries()) {
+    // create activeEffects iterators
+    const prevRotationActionOrder = [
+      ...team.slice(index),
+      ...team.slice(0, index),
+      team[index],
+    ].slice(1).reverse().flatMap(m => m.rotation);
+    const activeEffectMapMap = Object.fromEntries(team.map(m => [m.memberId, {}]));
+    for (const actionKey of prevRotationActionOrder) {
+      const {
+        ownerId: actionOwnerId,
+        duration: actionDuration = 0,
+        offset = 0,
+      } = getActionMeta(gameId, actionKey);
 
-    for (const actionKey of rotation) {
-      const { considered, duration: actionDuration = 1000, offset = 500 } = getSkill(gameId, actionKey);
       // remove effects that expire before action occurs
-      for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
-        if (effectEntry.timeRemaining - offset <= 0) {
-          delete activeEffectMap[effectKey];
+      for (const activeEffectMap of Object.values(activeEffectMapMap)) {
+        for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
+          if (effectEntry.timeRemaining - offset <= 0) delete activeEffectMap[effectKey];
+        }
+      }
+
+      // add effects triggered by current action
+      for (const [id, activeEffectMap] of Object.entries(activeEffectMapMap)) {
+        const validTargets = ['team', id === actionOwnerId ? 'self' : 'ally'];
+        const idx = team.findIndex(m => m.memberId === id);
+        if (idx === 0) validTargets.push('first');
+        const ownerIdx = team.findIndex(m => m.memberId === actionOwnerId);
+        if (((idx + 1) % team.length) === ownerIdx) validTargets.push('next');
+
+        for (const effect of actionEffects[actionOwnerId][actionKey] ?? []) {
+          const {
+            effectKey,
+            target = 'self',
+            maxStacks = 1,
+            duration: effectDuration,
+            maxProcs,
+          } = effect;
+          if (!validTargets.includes(target)) continue; // wrong target
+
+          const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
+
+          // just refresh buff timer if already max stacks
+          activeEffectMap[effectKey] = {
+            stacks: Math.min(currentStacks + 1, maxStacks),
+            timeRemaining: effectDuration ?? Infinity,
+            procsRemaining: maxProcs ?? Infinity,
+          };
+        }
+      }
+
+      // subtract action duration from time remaining from all effects and delete if it expires
+      for (const activeEffectMap of Object.values(activeEffectMapMap)) {
+        for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
+          if (effectEntry.timeRemaining - actionDuration <= 0) delete activeEffectMap[effectKey];
+          else effectEntry.timeRemaining -= actionDuration;
+        }
+      }
+    }
+
+    // now iterate through each action
+    for (const actionKey of rotation) {
+      const {
+        considered,
+        duration: actionDuration = 1000,
+        offset = 500,
+      } = getActionMeta(gameId, actionKey);
+
+      // remove effects that expire before action occurs
+      for (const activeEffectMap of Object.values(activeEffectMapMap)) {
+        for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
+          if (effectEntry.timeRemaining - offset <= 0) delete activeEffectMap[effectKey];
         }
       }
 
       // add effects triggered by current action before computing damage
-      for (const effect of actionEffects[memberId][actionKey] ?? []) {
-        const { effectKey, target = 'self', maxStacks = 1, duration: effectDuration, maxProcs } = effect;
-        if (target !== 'self' && target !== 'team') continue; // wrong target
+      for (const [id, activeEffectMap] of Object.entries(activeEffectMapMap)) {
+        const validTargets = [team, id === memberId ? 'self' : 'ally'];
+        const idx = team.findIndex(m => m.memberId === id);
+        if (idx === 0) validTargets.push('first');
+        const ownerIdx = team.findIndex(m => m.memberId === memberId);
+        if (((idx + 1) % team.length) === ownerIdx) validTargets.push('next');
 
-        const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
-        activeEffectMap[effectKey] = { // just refresh buff timer if already max stacks
-          stacks: Math.min(currentStacks + 1, maxStacks),
-          timeRemaining: effectDuration ?? Infinity,
-          procsRemaining: maxProcs ?? Infinity,
-        };
+        for (const effect of actionEffects[memberId][actionKey] ?? []) {
+          const {
+            effectKey,
+            target = 'self',
+            maxStacks = 1,
+            duration: effectDuration,
+            maxProcs,
+          } = effect;
+          if (!validTargets.includes(target)) continue; // wrong target
+
+          const currentStacks = activeEffectMap[effectKey]?.stacks ?? 0;
+
+          // just refresh buff timer if already max stacks
+          activeEffectMap[effectKey] = {
+            stacks: Math.min(currentStacks + 1, maxStacks),
+            timeRemaining: effectDuration ?? Infinity,
+            procsRemaining: maxProcs ?? Infinity,
+          };
+        }
       }
 
       // damage calculation
-      const { damage = 0, healing = 0 } = simulateAction(gameId, actionKey, statMap, activeEffectMap, passivesMap[memberId]);
+      const { damage = 0, healing = 0 } = simulateAction(gameId, actionKey, statMapMap[memberId], activeEffectMapMap[memberId], passivesMap[memberId]);
       actionMap[actionKey] = {
         damage: (actionMap[actionKey]?.damage ?? 0) + damage,
         healing: (actionMap[actionKey]?.healing ?? 0) + healing,
       };
 
-      // tick procsRemaining for non procs type effects
-      for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
-        if (effectEntry.procsRemaining === Infinity) continue;
-
-        const effectMeta = getEffectMeta(gameId, effectKey);
-        if (effectMeta.procs) continue; // these will be handled separately
-
-        if (!matchesEffectFilter(effectMeta, actionKey)) continue;
-
-        effectEntry.procsRemaining -= 1;
-        if (effectEntry.procsRemaining <= 0) delete activeEffectMap[effectKey];
-      }
-
       // proc effects in activeEffectMap that have procs
-      for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
-        const { ownerId, procs } = getEffectMeta(gameId, effectKey);
+      for (const [effectKey, effectEntry] of Object.entries(activeEffectMapMap[memberId])) {
+        const { ownerId: effectOwnerId, procs } = getEffectMeta(gameId, effectKey);
         if (!procs) continue;
 
         let remaining = effectEntry.procsRemaining;
         for (const { action, actionKeyTrigger, filter, times = 1 } of toArray(procs)) {
           if (actionKeyTrigger && !toArray(actionKeyTrigger).includes(actionKey)) continue;
 
-          const actualTimes = Math.min(times, remaining);
-          if (actualTimes === 0) continue;
-
           const matchesFilter = !filter || (typeof filter === 'string' ? filter === considered : filter.includes(considered));
           if (!matchesFilter) continue;
           
-          const effectActionkey = `${ownerId}-${action}`;
-          const ownerContext = memberContexts[ownerId];
-
-          // adjust ownerContext to account for the rotation time that has passed
+          const effectActionKey = `${effectOwnerId}-${action}`;
 
           const { damage: procDamage = 0, healing: procHealing = 0 } = simulateAction(
             gameId,
-            effectActionkey,
-            ownerContext.statMap,
-            ownerContext.activeEffectMap,
-            passivesMap[ownerId]
+            effectActionKey,
+            statMapMap[effectOwnerId],
+            activeEffectMapMap[effectOwnerId],
+            passivesMap[effectOwnerId]
           );
 
-          actionMap[effectActionkey] = {
-            damage: (actionMap[effectActionkey]?.damage ?? 0) + procDamage * effectEntry.stacks * actualTimes,
-            healing: (actionMap[effectActionkey]?.healing ?? 0) + procHealing * effectEntry.stacks * actualTimes,
+          actionMap[effectActionKey] = {
+            damage: (actionMap[effectActionKey]?.damage ?? 0) + procDamage * effectEntry.stacks * times,
+            healing: (actionMap[effectActionKey]?.healing ?? 0) + procHealing * effectEntry.stacks * times,
           };
 
-          remaining -= actualTimes;
+          remaining -= times;
         }
-
-        // delete effects if all procs are used up
-        if (remaining === 0) delete activeEffectMap[effectKey];
         effectEntry.procsRemaining = remaining;
       }
 
+      // tick down procsRemaining and delete if invalid
+      for (const activeEffectMap of Object.values(activeEffectMapMap)) {
+        for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
+          if (effectEntry.procsRemaining === Infinity) continue;
+
+          const effectMeta = getEffectMeta(gameId, effectKey);
+          if (!matchesEffectFilter(effectMeta, actionKey)) continue;
+
+          if (!effectMeta.procs) effectEntry.procsRemaining -= 1;
+          
+          if (effectEntry.procsRemaining <= 0) delete activeEffectMap[effectKey];
+        }
+      }
+
       // subtract action duration from time remaining from all effects and delete if it expires
-      for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
-        if (effectEntry.timeRemaining - actionDuration <= 0) delete activeEffectMap[effectKey];
-        else effectEntry.timeRemaining -= actionDuration;
+      for (const activeEffectMap of Object.values(activeEffectMapMap)) {
+        for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
+          if (effectEntry.timeRemaining - actionDuration <= 0) delete activeEffectMap[effectKey];
+          else effectEntry.timeRemaining -= actionDuration;
+        }
       }
     }
   }
