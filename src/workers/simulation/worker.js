@@ -9,7 +9,7 @@ const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
 
-function simulateCharacter({ gameId, characterId, build, team, setIdList, reportProgress = false }) {
+function simulateCharacter({ gameId, characterId, build, team, setIdList, reportProgress = true }) {
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, 'menu'));
@@ -45,7 +45,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, report
     const { benchmarkWeek, diff } = findBenchmarkWeek(weeklyScores);
     lastDiff = diff;
 
-    if (reportProgress) self.postMessage({ type: 'progress', completed: week, diff });
+    if (reportProgress) self.postMessage({ type: 'progress', currentMember: characterId, completed: week, diff });
 
     if (benchmarkWeek !== -1 && benchmarkWeek <= week) {
       lastBenchmarkWeek = benchmarkWeek;

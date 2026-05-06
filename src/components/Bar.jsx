@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, Card, LinearProgress, Stack, Typography } from '@mui/material';
 
-export const Bar = ({ completed, diff }) => {
+export const Bar = ({ completed, diff, currentMember }) => {
   const [initialDiff, setInitialDiff] = useState(diff);
 
   return (
@@ -24,7 +24,7 @@ export const Bar = ({ completed, diff }) => {
 
         <Box display="flex" justifyContent="space-between">
           <Typography variant="caption" color="text.secondary">
-            Week {completed}
+            {currentMember ? `${currentMember} ` : ''}Week {completed}
           </Typography>
         </Box>
       </Stack>

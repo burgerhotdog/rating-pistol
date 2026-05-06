@@ -1,6 +1,6 @@
 import { CHARACTERS } from '@/data';
 
-export function getEffectMetaMeta(gameId, effectKey) {
+export function getEffectMeta(gameId, effectKey) {
   const dashIndex = effectKey.indexOf('-');
 
   const ownerId = effectKey.slice(0, dashIndex);

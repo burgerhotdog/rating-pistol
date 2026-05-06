@@ -92,6 +92,7 @@ export function useSimulation(team) {
       if (data.type === 'progress') {
         setResult(prev => ({
           ...prev,
+          currentMember: data.currentMember,
           completed: data.completed,
           diff: data.diff,
         }));
