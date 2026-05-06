@@ -140,11 +140,9 @@
         "name": "Emergency Plan",
         "trigger": "2-1",
         "maxProcs": 1,
-        "procs": [
-          {
-            "action": "2-2"
-          }
-        ]
+        "procs": {
+          "action": "2-2"
+        }
       },
       {
         "name": "Remnant Entities",
@@ -164,11 +162,9 @@
         "name": "Overflowing Frost",
         "trigger": "6-1",
         "maxProcs": 1,
-        "procs": [
-          {
-            "action": "6-2"
-          }
-        ]
+        "procs": {
+          "action": "6-2"
+        }
       },
       {
         "name": "Concentration",
@@ -180,15 +176,13 @@
         ],
         "maxStacks": 4,
         "maxProcs": 1,
-        "procs": [
-          {
-            "actionKeyTrigger": [
-              "1103-1-5",
-              "1103-2-1"
-            ],
-            "action": "7-1"
-          }
-        ]
+        "procs": {
+          "actionKeyTrigger": [
+            "1103-1-5",
+            "1103-2-1"
+          ],
+          "action": "7-1"
+        }
       },
       {
         "name": "Harmonic Range",
@@ -203,11 +197,9 @@
         "name": "Stimulus Feedback",
         "trigger": "1-5",
         "maxProcs": 1,
-        "procs": [
-          {
-            "action": "7-2"
-          }
-        ]
+        "procs": {
+          "action": "7-2"
+        }
       },
       {
         "name": "Rejuvinating Flow",
@@ -693,20 +685,22 @@
       {
         "name": "Sequence Node 1",
         "rank": 1,
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 10000,
-        "procs": [
-          {
-            "filter": "RS",
-            "action": "3-2",
-            "times": 2
+        "effectModifiers": {
+          "effectIndex": 0,
+          "add": {
+            "procs": {
+              "filter": "RS",
+              "action": "3-2",
+              "times": 2
+            }
           }
-        ]
+        }
       },
       {
         "name": "Sequence Node 3",
         "rank": 3,
+        "trigger": "3-1",
+        "duration": 10000,
         "actionFilter": "3-2",
         "statMap": {
           "PERCENT_CD": 0.3
@@ -717,7 +711,13 @@
         "rank": 4,
         "effectModifiers": [
           {
-            "effectKey": "1204-0",
+            "effectIndex": 0,
+            "add": {
+              "duration": 7000
+            }
+          },
+          {
+            "effectIndex": 5,
             "add": {
               "duration": 7000
             }
@@ -732,12 +732,10 @@
           "7-1"
         ],
         "maxProcs": 1,
-        "procs": [
-          {
-            "action": "3-2",
-            "times": 4
-          }
-        ]
+        "procs": {
+          "action": "3-2",
+          "times": 4
+        }
       },
       {
         "name": "Sequence Node 6",
@@ -853,11 +851,9 @@
         "trigger": "7-1",
         "name": "Punishment Mark",
         "target": "team",
-        "procs": [
-          {
-            "action": "7-2"
-          }
-        ]
+        "procs": {
+          "action": "7-2"
+        }
       }
     ],
     "defaults": {
@@ -915,11 +911,9 @@
         "trigger": "2-1",
         "name": "Thunder Wedge",
         "target": "team",
-        "procs": [
-          {
-            "action": "2-2"
-          }
-        ]
+        "procs": {
+          "action": "2-2"
+        }
       }
     ],
     "defaults": {
@@ -1176,11 +1170,9 @@
         "name": "Photosynthesis Mark",
         "trigger": "3-1",
         "target": "team",
-        "procs": [
-          {
-            "action": "3-3"
-          }
-        ]
+        "procs": {
+          "action": "3-3"
+        }
       }
     ],
     "defaults": {
@@ -1445,11 +1437,9 @@
         "trigger": "3-1",
         "name": "Inklit Spirit",
         "target": "team",
-        "procs": [
-          {
-            "action": "3-1"
-          }
-        ]
+        "procs": {
+          "action": "3-1"
+        }
       }
     ],
     "defaults": {

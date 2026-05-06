@@ -1,5 +1,5 @@
 import { CHARACTERS, RATING } from '@/data';
-import { compileStatMap, mergeStatMaps, getSkill, getEffect, computeTotalStat } from '@/utils';
+import { compileStatMap, mergeStatMaps, getSkill, getEffectMeta, computeTotalStat, toArray } from '@/utils';
 
 function resolveValidTargets(team, index, ownerId) {
   const ownerIndex = team.findIndex(m => m.memberId === ownerId);
@@ -16,8 +16,7 @@ function matchesEffectFilter(effect, actionKey) {
   const { actionFilter } = effect;
   if (!actionFilter) return true;
 
-  const filterKeys = Array.isArray(actionFilter) ? actionFilter : [actionFilter];
-  return filterKeys.includes(actionKey.split('-').slice(1));
+  return toArray(actionFilter).includes(actionKey.split('-').slice(1));
 }
 
 function simulateAction(gameId, actionKey, statMap, activeEffectMap, passivesMap) {
@@ -43,7 +42,7 @@ function simulateAction(gameId, actionKey, statMap, activeEffectMap, passivesMap
 
   const effectStatMap = Object.entries(activeEffectMap)
     .map(([effectKey, { stacks }]) => {
-      const effect = getEffect(gameId, effectKey);
+      const effect = getEffectMeta(gameId, effectKey);
       const { statMap } = effect;
       if (!statMap) return null;
       if (!matchesEffectFilter(effect, actionKey)) return null;
@@ -144,19 +143,31 @@ function parseActiveEffects(gameId, memberId, team, actionEffects) {
   return activeEffectMap;
 }
 
-function applyEffectModifiers(effect, effectKey, effectModifiers = []) {
-  let resolved = effect;
+function applyEffectModifiers(effectIndex, effectMeta, allEffectModifiers) {
+  let resolved = effectMeta;
 
-  for (const modifier of effectModifiers) {
-    const { effectKey: targetEffectKey, add = {}, set = {} } = modifier;
-    if (targetEffectKey && targetEffectKey !== effectKey) continue;
-
-    if (resolved === effect) resolved = { ...effect };
+  for (const { effectIndex: modEffectIndex, add = {}, set = {} } of allEffectModifiers) {
+    if (modEffectIndex !== effectIndex) continue;
+    if (resolved === effectMeta) resolved = { ...effectMeta }; // prevent mutation
 
     for (const [field, value] of Object.entries(add)) {
-      if (typeof value !== 'number') continue;
-      if (typeof resolved[field] !== 'number') continue;
-      resolved[field] += value;
+      if (field === 'statMap') {
+        resolved.statMap = mergeStatMaps(resolved.statMap ?? {}, value);
+        continue;
+      }
+
+      if (field === 'procs') {
+        resolved.procs = [...toArray(resolved.procs), ...toArray(value)];
+        continue;
+      }
+
+      if (typeof value === 'number') {
+        resolved[field] = (resolved[field] ?? 0) + value;
+      }
+
+      if (typeof value === 'string') {
+        resolved[field] = [...toArray(resolved[field]), value];
+      }
     }
 
     for (const [field, value] of Object.entries(set)) {
@@ -182,7 +193,7 @@ export function normalizeTeam(team, teamFinalStats = {}) {
   });
 }
 
-function resolveActionEffects(gameId, characterId, memberRank = 0) {
+function resolveActionEffects(gameId, characterId, memberRank) {
   const { effects } = CHARACTERS[gameId][characterId];
   if (!effects) return {};
 
@@ -191,7 +202,7 @@ function resolveActionEffects(gameId, characterId, memberRank = 0) {
     return memberRank >= effect.rank;
   });
 
-  const effectModifiers = unlockedEffects.flatMap(effect => effect.effectModifiers ?? []);
+  const allEffectModifiers = unlockedEffects.flatMap(meta => toArray(meta.effectModifiers));
 
   const passive = [];
   const active = {};
@@ -199,7 +210,7 @@ function resolveActionEffects(gameId, characterId, memberRank = 0) {
     const effectKey = `${characterId}-${effectIndex}`;
     if (effect.rank != null && memberRank < effect.rank) continue;
 
-    const resolvedEffect = applyEffectModifiers(effect, effectKey, effectModifiers);
+    const resolvedEffect = applyEffectModifiers(effectIndex, effect, allEffectModifiers);
     const { trigger } = resolvedEffect;
 
     if (!trigger) {
@@ -207,8 +218,7 @@ function resolveActionEffects(gameId, characterId, memberRank = 0) {
       continue;
     }
 
-    const triggers = Array.isArray(trigger) ? trigger : [trigger];
-    for (const key of triggers) {
+    for (const key of toArray(trigger)) {
       const actionKey = `${characterId}-${key}`
       if (!active[actionKey]) active[actionKey] = [];
       active[actionKey].push({ effectKey, ...resolvedEffect });
@@ -279,10 +289,10 @@ export function simulateRotation(gameId, rawTeam) {
       for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
         if (effectEntry.procsRemaining === Infinity) continue;
 
-        const effect = getEffect(gameId, effectKey);
-        if (effect.procs) continue; // these will be handled separately
+        const effectMeta = getEffectMeta(gameId, effectKey);
+        if (effectMeta.procs) continue; // these will be handled separately
 
-        if (!matchesEffectFilter(effect, actionKey)) continue;
+        if (!matchesEffectFilter(effectMeta, actionKey)) continue;
 
         effectEntry.procsRemaining -= 1;
         if (effectEntry.procsRemaining <= 0) delete activeEffectMap[effectKey];
@@ -290,15 +300,12 @@ export function simulateRotation(gameId, rawTeam) {
 
       // proc effects in activeEffectMap that have procs
       for (const [effectKey, effectEntry] of Object.entries(activeEffectMap)) {
-        const { ownerId, procs } = getEffect(gameId, effectKey);
+        const { ownerId, procs } = getEffectMeta(gameId, effectKey);
         if (!procs) continue;
 
         let remaining = effectEntry.procsRemaining;
-        for (const { action, actionKeyTrigger, filter, times = 1 } of procs) {
-          if (actionKeyTrigger) {
-            const actionKeyTriggerFilter = Array.isArray(actionKeyTrigger) ? actionKeyTrigger : [actionKeyTrigger];
-            if (!actionKeyTriggerFilter.includes(actionKey)) continue;
-          }
+        for (const { action, actionKeyTrigger, filter, times = 1 } of toArray(procs)) {
+          if (actionKeyTrigger && !toArray(actionKeyTrigger).includes(actionKey)) continue;
 
           const actualTimes = Math.min(times, remaining);
           if (actualTimes === 0) continue;
@@ -308,6 +315,8 @@ export function simulateRotation(gameId, rawTeam) {
           
           const effectActionkey = `${ownerId}-${action}`;
           const ownerContext = memberContexts[ownerId];
+
+          // adjust ownerContext to account for the rotation time that has passed
 
           const { damage: procDamage = 0, healing: procHealing = 0 } = simulateAction(
             gameId,

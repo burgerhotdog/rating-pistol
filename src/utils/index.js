@@ -8,4 +8,5 @@ export * from './getSetCounts';
 export * from './sumRotationDmg';
 export * from './sumRotationTime';
 export * from './formatRotation';
-export * from './getEffect';
+export * from './getEffectMeta';
+export * from './toArray';
