@@ -9,7 +9,7 @@ const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
 
-function simulateCharacter({ gameId, characterId, build, team, setIdList}) {
+function simulateCharacter({ gameId, characterId, build, team, setIdList, threshold = 0.01 }) {
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, 'menu'));
@@ -33,7 +33,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList}) {
 
     while (trials.length < MAX_TRIALS) {
       const values = trials.map(trial => sumRotationDmg(trial.scores[week]));
-      if (findRelativeError(values) <= 0.005) break;
+      if (findRelativeError(values) <= threshold) break;
 
       const trial = createTrial(matchTargets, gameId, characterId, build, match, team);
       for (let w = 1; w <= week; w++) {
@@ -74,7 +74,7 @@ self.onmessage = ({ data }) => {
   const teamFinalStats = {};
 
   // Generate benchmark builds for teammates
-  self.postMessage({ type: 'progress', statusMessage: 'Configuring teammate builds', currentMember: null, completed: 0 });
+  self.postMessage({ type: 'progress', statusMessage: 'Calibrating teammates', currentMember: null, completed: 0 });
   for (let ti = team.length - 1; ti >= 0; ti--) {
     const member = team[ti];
     const { memberId, weaponId, setCounts } = member;
@@ -94,6 +94,7 @@ self.onmessage = ({ data }) => {
       build: memberBuild,
       team,
       setIdList: memberSetIdList,
+      threshold: 0.01,
     });
     
     const finalStats = {};

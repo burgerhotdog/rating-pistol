@@ -6500,6 +6500,7 @@
           "name": "Mist Bullet",
           "input": "AUTO",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -6526,7 +6527,8 @@
               ]
             }
           ]
-        }
+        },
+        "2": {}
       }
     },
     "3": {
@@ -6603,6 +6605,7 @@
           "name": "Mist Bullet",
           "input": "AUTO",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -6629,6 +6632,11 @@
               ]
             }
           ]
+        },
+        "2": {
+          "name": "Mistcloak Dash",
+          "input": "DA",
+          "considered": "INPUT"
         }
       }
     },
@@ -7599,6 +7607,9 @@
       "name": "Purification Force Field",
       "skills": {
         "1": {
+          "name": "Purification Force Field Continuous",
+          "input": "AUTO",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -7628,7 +7639,7 @@
         "2": {
           "name": "Purification Force Field Explosion",
           "input": "AUTO",
-          "considered": "RL",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -7654,6 +7665,9 @@
               ]
             }
           ]
+        },
+        "3": {
+          "duration": 0
         }
       }
     },
@@ -7718,7 +7732,6 @@
       "skills": {
         "1": {
           "name": "Pushing Punch",
-          "input": "AUTO",
           "considered": "HA",
           "multipliers": [
             {
@@ -7749,6 +7762,7 @@
         "2": {
           "name": "Zhoutian Progress Continuous",
           "input": "HA",
+          "duration": 0.25,
           "multipliers": [
             {
               "mv": [
@@ -7777,8 +7791,7 @@
         },
         "3": {
           "name": "Minor Zhoutian Shock",
-          "input": "AUTO",
-          "considered": "HA",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7807,8 +7820,7 @@
         },
         "4": {
           "name": "Major Zhoutian: Inner Shock",
-          "input": "AUTO",
-          "considered": "HA",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7837,8 +7849,7 @@
         },
         "5": {
           "name": "Major Zhoutian: Outer Shock",
-          "input": "AUTO",
-          "considered": "HA",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7867,7 +7878,6 @@
         },
         "6": {
           "name": "Yielding Pull",
-          "input": "AUTO",
           "considered": "HA",
           "multipliers": [
             {
@@ -7897,8 +7907,8 @@
         },
         "7": {
           "name": "Incomplete Minor Zhoutian Final",
-          "input": "AUTO",
           "considered": "SHIELD",
+          "duration": 0,
           "multipliers": [
             {
               "flat": [
@@ -7952,8 +7962,8 @@
         },
         "8": {
           "name": "Minor Zhoutian Final",
-          "input": "AUTO",
           "considered": "SHIELD",
+          "duration": 0,
           "multipliers": [
             {
               "flat": [
@@ -8007,8 +8017,8 @@
         },
         "9": {
           "name": "Major Zhoutian: Inner Final",
-          "input": "AUTO",
           "considered": "SHIELD",
+          "duration": 0,
           "multipliers": [
             {
               "flat": [
@@ -8062,8 +8072,8 @@
         },
         "10": {
           "name": "Major Zhoutian: Outer Final",
-          "input": "AUTO",
           "considered": "SHIELD",
+          "duration": 0,
           "multipliers": [
             {
               "flat": [
@@ -8117,8 +8127,8 @@
         },
         "11": {
           "name": "Shield",
-          "input": "AUTO",
           "considered": "HEAL",
+          "duration": 0,
           "multipliers": [
             {
               "flat": [
@@ -8167,6 +8177,15 @@
                 0.9989,
                 1.0462
               ]
+            }
+          ]
+        },
+        "12": {
+          "name": "Special Chi Counter",
+          "considered": "HA",
+          "multipliers": [
+            {
+              "mv": 5.5667
             }
           ]
         }
@@ -8779,7 +8798,7 @@
       "name": "Starflower Blooms",
       "skills": {
         "1": {
-          "name": "Heavy Attack: Starflower Blooms",
+          "name": "Starflower Blooms: Heavy Attack",
           "input": "HA",
           "multipliers": [
             {
@@ -8833,8 +8852,8 @@
           ]
         },
         "2": {
-          "name": "Mid-air Attack: Starflower Blooms 1",
-          "input": "BA",
+          "name": "Starflower Blooms: Mid-air Attack 1",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -8863,8 +8882,8 @@
           ]
         },
         "3": {
-          "name": "Mid-air Attack: Starflower Blooms 2",
-          "input": "BA",
+          "name": "Starflower Blooms: Mid-air Attack 2",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -8893,8 +8912,8 @@
           ]
         },
         "4": {
-          "name": "Mid-air Attack: Starflower Blooms 3",
-          "input": "BA",
+          "name": "Starflower Blooms: Mid-air Attack 3",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -8926,6 +8945,7 @@
         "5": {
           "input": "AUTO",
           "considered": "HEAL",
+          "duration": 0,
           "multipliers": [
             {
               "flat": [
@@ -8974,6 +8994,26 @@
                 0.5184,
                 0.5429
               ]
+            }
+          ]
+        },
+        "6": {
+          "name": "Blossom Healing",
+          "considered": "HEAL",
+          "duration": 0,
+          "multipliers": [
+            {
+              "mv": 0.19
+            }
+          ]
+        },
+        "7": {
+          "name": "Sequence Node 1 Blossom Healing",
+          "considered": "HEAL",
+          "duration": 0,
+          "multipliers": [
+            {
+              "mv": 0.2
             }
           ]
         }
@@ -9655,6 +9695,16 @@
                 1.0291,
                 1.0778
               ]
+            }
+          ]
+        },
+        "7": {
+          "name": "Sequence Node 4 Healing",
+          "considered": "HEALING",
+          "attr": "HP",
+          "multipliers": [
+            {
+              "mv": 0.25
             }
           ]
         }

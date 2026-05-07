@@ -96,6 +96,7 @@ export function useSimulation(team) {
           ...('completed' in data ? { completed: data.completed } : {}),
           ...('diff' in data ? { diff: data.diff } : {}),
           ...('trial' in data ? { trial: data.trial } : {}),
+          ...('statusMessage' in data ? { statusMessage: data.statusMessage } : {}),
         }));
         return;
       }

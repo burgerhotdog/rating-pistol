@@ -1260,26 +1260,119 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.15,
-          "PERCENT_AERO": 0.25,
-          "PERCENT_CR": 0.08
-        }
-      },
-      "next": {
-        "constant": {
-          "AMP_AERO": 0.23
-        }
-      }
-    },
     "effects": [
       {
+        "name": "Mist Avatar",
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-1",
+          "times": 6
+        }
+      },
+      {
+        "name": "Flower in the Mist",
+        "trigger": "3-1",
+        "duration": 10000,
+        "actionFilter": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "1-9"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      },
+      {
+        "name": "Perfect Performance",
+        "actionFilter": [
+          "1-7",
+          "1-8"
+        ],
+        "statMap": {
+          "PERCENT_CR": 1
+        }
+      },
+      {
+        "name": "Mist Drops",
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "1-9"
+        ],
+        "maxStacks": 6,
+        "maxProcs": 1,
+        "procs": {
+          "actionKeyTrigger": "1403-7-2",
+          "action": "7-1"
+        }
+      },
+      {
+        "name": "Dissolving Mist",
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_AERO": 0.23
+        }
+      },
+      {
+        "name": "Sequence Node 2",
+        "rank": 2,
+        "trigger": "2-2",
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "effectModifiers": {
+          "effectIndex": 1,
+          "add": {
+            "statMap": {
+              "PERCENT_MV": 1
+            }
+          }
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "actionFilter": [
+          "2-1",
+          "7-1"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.3
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "trigger": "7-2",
+        "duration": 6000,
+        "statMap": {
+          "PERCENT_AERO": 0.25
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "3-1",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_CR": 0.08,
+          "PERCENT_HA": 0.5
         }
       }
     ],
@@ -1296,12 +1389,7 @@
       "rotation": [
         "6-1",
         "3-1",
-        "2-1",
-        "2-1",
-        "2-1",
-        "2-1",
-        "2-1",
-        "2-1",
+        "2-2",
         "1-1",
         "1-2",
         "1-3",
@@ -1459,11 +1547,111 @@
     },
     "effects": [
       {
+        "name": "Purification Force Field",
+        "trigger": "3-3",
+        "target": "team",
+        "duration": 1000,
+        "maxProcs": 1,
+        "procs": [
+          {
+            "action": "3-1",
+            "times": 16
+          },
+          {
+            "action": "3-2"
+          }
+        ]
+      },
+      {
+        "name": "Minor Zhoutian",
+        "trigger": "7-3",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-8"
+        }
+      },
+      {
+        "name": "Major Zhoutian Inner",
+        "trigger": "7-4",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-9"
+        }
+      },
+      {
+        "name": "Major Zhoutian Outer",
+        "trigger": "7-5",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-10"
+        }
+      },
+      {
+        "name": "Zhoutian Shield Healing",
+        "trigger": [
+          "7-7",
+          "7-8",
+          "7-9",
+          "7-10"
+        ],
+        "target": "team",
+        "duration": 30000,
+        "procs": {
+          "action": "7-11"
+        }
+      },
+      {
+        "name": "Formless Release",
+        "actionFilter": [
+          "3-1",
+          "3-2"
+        ],
+        "statMap": {
+          "PERCENT_RL": 0.2
+        }
+      },
+      {
+        "name": "Reflection",
+        "statMap": {
+          "PERCENT_SS": 0.2
+        }
+      },
+      {
+        "name": "Transcendence",
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RL": 0.38
         }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "7-2",
+        "duration": 14000,
+        "actionFilter": [
+          "3-1",
+          "3-2"
+        ],
+        "statMap": {
+          "PERCENT_RL": 0.8
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "7-1",
+        "duration": 5000,
+        "maxProcs": 1,
+        "procs": [
+          {
+            "action": "7-12"
+          },
+          {
+            "action": "7-10"
+          }
+        ]
       }
     ],
     "defaults": {
@@ -1478,9 +1666,30 @@
       },
       "rotation": [
         "6-1",
-        "3-1",
-        "3-2",
         "2-2",
+        "3-3",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-3",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-4",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-5",
         "8-1"
       ]
     }
@@ -1501,19 +1710,125 @@
     },
     "effects": [
       {
+        "name": "Photosynthesis Mark Cast Healing",
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "3-2"
+        }
+      },
+      {
+        "name": "Photosynthesis Mark Coordinated Attack",
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 12000,
+        "cooldown": 1000,
+        "procs": [
+          {
+            "action": "3-3"
+          },
+          {
+            "action": "3-4"
+          }
+        ]
+      },
+      {
+        "name": "Starflower Blooms",
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-5",
+          "times": 3
+        }
+      },
+      {
+        "name": "Blossom 1",
         "trigger": "8-1",
         "target": "team",
+        "duration": 30000,
         "statMap": {
           "AMP_ALL": 0.15
         }
       },
       {
-        "name": "Photosynthesis Mark",
-        "trigger": "3-1",
-        "target": "team",
+        "name": "Blossom 2",
+        "trigger": "8-1",
+        "maxProcs": 1,
         "procs": {
-          "action": "3-3"
+          "action": "7-6",
+          "times": 6
         }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "effectModifiers": {
+          "effectIndex": 4,
+          "add": {
+            "procs": {
+              "action": "7-7",
+              "times": 6
+            }
+          }
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "actionFilter": "7-4",
+        "statMap": {
+          "PERCENT_HB": 0.12
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": [
+          "3-1",
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "8-1"
+        ],
+        "target": "team",
+        "duration": 24000,
+        "statMap": {
+          "PERCENT_SPECTRO": 0.15
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "chance": 0.5,
+        "statMap": {
+          "PERCENT_HB": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4"
+        ],
+        "maxProcs": 1,
+        "procs": [
+          {
+            "action": "3-3"
+          },
+          {
+            "action": "3-4",
+            "times": 3
+          }
+        ]
       }
     ],
     "defaults": {
@@ -1551,25 +1866,126 @@
         "PERCENT_DEF": 0.152
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.4,
-          "PERCENT_HA": 0.4
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_DEF": 0.15
-        }
-      }
-    },
     "effects": [
       {
+        "name": "Rocksteady Shield Healing",
+        "trigger": "2-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-2"
+        }
+      },
+      {
+        "name": "Timed Counters 1",
+        "trigger": "7-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-4"
+        }
+      },
+      {
+        "name": "Timed Counters 2",
+        "trigger": "7-2",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-5"
+        }
+      },
+      {
+        "name": "Timed Counters 3",
+        "trigger": "7-3",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-6"
+        }
+      },
+      {
+        "name": "Steadfast Protection",
+        "trigger": "2-1",
+        "target": "team",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_DEF": 0.15
+        }
+      },
+      {
+        "name": "Iron Will",
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RS": 0.38
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "actionFilter": [
+          "7-4",
+          "7-5",
+          "7-6"
+        ],
+        "statMap": {
+          "PERCENT_SS": 0.4
+        }
+      },
+      {
+        "name": "Sequence Node 2",
+        "rank": 2,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_CR": 0.2,
+          "PERCENT_CD": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "effectModifiers": {
+          "effectIndex": 4,
+          "add": {
+            "duration": 15000
+          }
+        }
+      },
+      {
+        "name": "Sequence Node 4a",
+        "rank": 4,
+        "trigger": "1-6",
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_DEF": 0.5
+        }
+      },
+      {
+        "name": "Sequence Node 4b",
+        "rank": 4,
+        "trigger": "1-6",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-7"
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_BA": 0.5
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": "2-1",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_BA": 0.4,
+          "PERCENT_HA": 0.4
         }
       }
     ],
@@ -1612,26 +2028,131 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.3,
-          "PERCENT_RL": 0.3,
+    "effects": [
+      {
+        "name": "Incinerating Will",
+        "trigger": "2-3",
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "name": "Scarlet Burst",
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "3-2"
+        }
+      },
+      {
+        "name": "Crimson Light",
+        "trigger": "1-6",
+        "maxProcs": 2,
+        "actionFilter": [
+          "2-2",
+          "2-3"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      {
+        "name": "Overflow",
+        "trigger": [
+          "2-4",
+          "2-5",
+          "2-6"
+        ],
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_HA": 0.3
+        }
+      },
+      {
+        "name": "Duality",
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_HAVOC": 0.23
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "2-1",
+          "2-2",
+          "2-3",
+          "2-4",
+          "2-5",
+          "2-6",
+          "3-1",
+          "3-2"
+        ],
+        "maxStacks": 6,
+        "duration": 6000,
+        "statMap": {
+          "PERCENT_ATK": 0.05
+        }
+      },
+      {
+        "name": "Sequence Node 2",
+        "rank": 2,
+        "effectModifiers": {
+          "effectIndex": 0,
+          "add": {
+            "statMap": {
+              "PERCENT_ALL": 0.2
+            }
+          }
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "statMap": {
+          "PERCENT_RL": 0.3
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4"
+        ],
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "statMap": {
           "PERCENT_HAVOC": 0.3
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
-      }
-    },
-    "effects": [
       {
-        "trigger": "8-1",
-        "target": "next",
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "trigger": [
+          "7-1",
+          "7-3"
+        ],
+        "target": "team",
+        "duration": 20000,
         "statMap": {
-          "AMP_HAVOC": 0.23
+          "PERCENT_ATK": 0.2
         }
       }
     ],

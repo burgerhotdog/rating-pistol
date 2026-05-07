@@ -36,7 +36,7 @@ export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) =>
 
         <Box display="flex" justifyContent="space-between">
           <Typography variant="caption" color="text.secondary">
-            {currentMember ? (completed === 0 ? `${currentMember}: Calculating baseline...` : `${currentMember}: Week ${completed}: Trial ${trial}`) : ''}
+            {currentMember ? (completed === 0 ? `${currentMember}: Constructing baseline scores...` : `${currentMember}: Week ${completed}: Trial ${trial}`) : ''}
           </Typography>
         </Box>
       </Stack>
