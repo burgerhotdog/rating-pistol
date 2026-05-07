@@ -9697,6 +9697,16 @@
               ]
             }
           ]
+        },
+        "7": {
+          "name": "Sequence Node 4 Healing",
+          "considered": "HEALING",
+          "attr": "HP",
+          "multipliers": [
+            {
+              "mv": 0.25
+            }
+          ]
         }
       }
     },
