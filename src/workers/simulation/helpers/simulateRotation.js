@@ -6,24 +6,24 @@ const ENEMY_LEVEL = 100;
 const BASE_RES = 0.1;
 
 function computeBase(statMap, attr, multipliers) {
-  let baseDamage = 0;
   const flatMv = statMap.FLAT_MV ?? 0;
   const percentMv = statMap.PERCENT_MV ?? 0;
-  for (const part of multipliers) {
-    const { times = 1 } = part;
-    const mv = Array.isArray(part.mv) ? part.mv[9] : part.mv;
-    baseDamage += computeTotalStat(attr, statMap) * ((mv + flatMv) * (1 + percentMv)) * times;
+  const attrValue = computeTotalStat(attr, statMap);
+
+  let baseDamage = 0;
+  for (const { mv: rawMv, times = 1 } of multipliers) {
+    const mv = Array.isArray(rawMv) ? rawMv[9] : rawMv;
+    const mvValue = (mv + flatMv) * (1 + percentMv);
+    baseDamage += attrValue * mvValue * times;
   }
   return baseDamage;
 }
 
 function computeBonuses(statMap, element, dmgTypes) {
-  // Crit multiplier
   const critRate = Math.max(Math.min(computeTotalStat("CR", statMap), 1), 0);
   const critDamage = computeTotalStat("CD", statMap) - 1;
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
-  // Damage bonus and amp multipliers
   let dmgBonusMult = 1 + computeTotalStat("ALL", statMap);
   let ampMult = 1 + (statMap["AMP_ALL"] ?? 0);
 
