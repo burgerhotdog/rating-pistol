@@ -7,7 +7,11 @@ export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) =>
 
   if (prevMemberRef.current !== currentMember) {
     prevMemberRef.current = currentMember;
-    initialDiffRef.current = diff ?? null;
+    initialDiffRef.current = null;
+  }
+
+  if (initialDiffRef.current === null && diff != null) {
+    initialDiffRef.current = diff;
   }
 
   const value = diff != null ? Math.min(Math.max(((initialDiffRef.current - diff) / (initialDiffRef.current - 0.01)) ** 2, 0), 1) * 100 : 0;
@@ -32,7 +36,7 @@ export const Bar = ({ completed, diff, currentMember, trial, statusMessage }) =>
 
         <Box display="flex" justifyContent="space-between">
           <Typography variant="caption" color="text.secondary">
-            {currentMember ? `${currentMember}: Week ${completed}: Trial ${trial}` : ''}
+            {currentMember ? (completed === 0 ? `${currentMember}: Calculating baseline...` : `${currentMember}: Week ${completed}: Trial ${trial}`) : ''}
           </Typography>
         </Box>
       </Stack>

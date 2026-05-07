@@ -92,11 +92,10 @@ export function useSimulation(team) {
       if (data.type === 'progress') {
         setResult(prev => ({
           ...prev,
-          ...(data.currentMember ? { currentMember: CHARACTERS[gameId][data.currentMember].name } : {}),
-          ...(data.completed ? { completed: data.completed } : {}),
-          ...(data.diff ? { diff: data.diff } : {}),
-          ...(data.trial ? { trial: data.trial } : {}),
-          ...(data.statusMessage != null ? { statusMessage: data.statusMessage } : {}),
+          ...('currentMember' in data ? { currentMember: data.currentMember ? CHARACTERS[gameId][data.currentMember].name : null } : {}),
+          ...('completed' in data ? { completed: data.completed } : {}),
+          ...('diff' in data ? { diff: data.diff } : {}),
+          ...('trial' in data ? { trial: data.trial } : {}),
         }));
         return;
       }
