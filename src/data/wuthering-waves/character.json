@@ -2199,11 +2199,111 @@
     },
     "effects": [
       {
+        "name": "Fiery Feather",
+        "trigger": "3-1",
+        "duration": 10000,
+        "maxProcs": 1,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_ATK": 0.25
+        }
+      },
+      {
+        "name": "Secret Strategist",
+        "actionFilter": [
+          "2-2",
+          "2-3"
+        ],
+        "statMap": {
+          "PERCENT_FUSION": 0.1
+        }
+      },
+      {
+        "name": "Sweeping Force",
+        "actionFilter": [
+          "7-1",
+          "3-1"
+        ],
+        "statMap": {
+          "PERCENT_FUSION": 0.2,
+          "IGNORE_DEF": 0.15
+        }
+      },
+      {
+        "name": "Strategy of Duality",
         "trigger": "8-1",
         "target": "next",
+        "duration": 10000,
         "statMap": {
           "AMP_RL": 0.25,
           "AMP_FUSION": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "actionFilter": [
+          "2-1",
+          "2-2",
+          "2-3",
+          "7-1"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.1
+        }
+      },
+      {
+        "name": "Sequence Node 2",
+        "rank": 2,
+        "trigger": [
+          "2-2",
+          "2-3",
+          "3-1"
+        ],
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_CR": 0.25
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_RL": 0.8
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "6-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 0.5,
+          "PERCENT_ALL": 0.5
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "actionFilter": [
+          "2-1",
+          "2-2",
+          "2-3",
+          "7-1",
+          "3-1"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.4
         }
       }
     ],
@@ -2248,6 +2348,91 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "effects": [
+      {
+        "name": "Illuminous Epiphany",
+        "trigger": "7-8",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-9"
+        }
+      },
+      {
+        "name": "Radiant Surge",
+        "statMap": {
+          "PERCENT_SPECTRO": 0.2
+        }
+      },
+      {
+        "name": "Converged Flash",
+        "actionFilter": "6-1",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "7-7"
+        ],
+        "maxStacks": 4,
+        "duration": 6000,
+        "maxProcs": 2,
+        "actionFilter": "6-1",
+        "statMap": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": "6-1",
+        "maxStacks": 2,
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.25
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": [
+          "3-1",
+          "7-8",
+          "7-9"
+        ],
+        "target": "team",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "actionFilter": [
+          "7-8",
+          "7-9",
+          "7-10"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.45
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1304",
@@ -2267,8 +2452,9 @@
         "7-3",
         "7-4",
         "7-8",
-        "7-9",
-        "3-1"
+        "7-10",
+        "3-1",
+        "8-1"
       ]
     }
   },
@@ -2288,19 +2474,105 @@
     },
     "effects": [
       {
+        "name": "Inklit Spirit",
+        "trigger": "3-2",
+        "target": "team",
+        "duration": 30000,
+        "maxProcs": 21,
+        "procs": {
+          "action": "3-1"
+        }
+      },
+      {
+        "name": "Creation's Zenith",
+        "trigger": "7-3",
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_BA": 0.18
+        }
+      },
+      {
+        "name": "Calligrapher's Touch",
+        "trigger": [
+          "7-2",
+          "7-3"
+        ],
+        "maxStacks": 3,
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_ATK": 0.06
+        }
+      },
+      {
+        "name": "Carve and Draw",
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RS": 0.25,
           "AMP_GLACIO": 0.2
         }
       },
       {
-        "trigger": "3-1",
-        "name": "Inklit Spirit",
+        "name": "Sequence Node 1",
+        "rank": 1,
+        "trigger": "7-3",
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_CR": 0.1
+        }
+      },
+      {
+        "name": "Sequence Node 2",
+        "rank": 2,
+        "effectModifiers": {
+          "effectIndex": 0,
+          "add": {
+            "maxProcs": 6
+          }
+        }
+      },
+      {
+        "name": "Sequence Node 3",
+        "rank": 3,
+        "trigger": [
+          "2-1",
+          "7-2",
+          "7-3"
+        ],
+        "maxStacks": 3,
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      {
+        "name": "Sequence Node 4",
+        "rank": 4,
+        "trigger": "3-2",
         "target": "team",
-        "procs": {
-          "action": "3-1"
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "name": "Sequence Node 5",
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 0.467
+        }
+      },
+      {
+        "name": "Sequence Node 6",
+        "rank": 6,
+        "actionFilter": [
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 1.2
         }
       }
     ],
@@ -2324,7 +2596,8 @@
         "7-2",
         "7-2",
         "7-3",
-        "3-1"
+        "3-2",
+        "8-1"
       ]
     }
   },

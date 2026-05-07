@@ -11688,7 +11688,7 @@
       "name": "Luminal Synthesis",
       "skills": {
         "1": {
-          "name": "Incarnation - Basic Attack 1",
+          "name": "Incarnation: Basic Attack 1",
           "input": "BA",
           "considered": "RS",
           "multipliers": [
@@ -11718,7 +11718,7 @@
           ]
         },
         "2": {
-          "name": "Incarnation - Basic Attack 2",
+          "name": "Incarnation: Basic Attack 2",
           "input": "BA",
           "considered": "RS",
           "multipliers": [
@@ -11794,7 +11794,7 @@
           ]
         },
         "3": {
-          "name": "Incarnation - Basic Attack 3",
+          "name": "Incarnation: Basic Attack 3",
           "input": "BA",
           "considered": "RS",
           "multipliers": [
@@ -11847,7 +11847,7 @@
           ]
         },
         "4": {
-          "name": "Incarnation - Basic Attack 4",
+          "name": "Incarnation: Basic Attack 4",
           "input": "BA",
           "considered": "RS",
           "multipliers": [
@@ -11901,7 +11901,7 @@
           ]
         },
         "5": {
-          "name": "Incarnation - Heavy Attack",
+          "name": "Incarnation: Heavy Attack",
           "input": "HA",
           "multipliers": [
             {
@@ -11953,8 +11953,8 @@
           ]
         },
         "6": {
-          "name": "Incarnation - Dodge Counter",
-          "input": "BA",
+          "name": "Incarnation: Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -12136,7 +12136,8 @@
         },
         "9": {
           "name": "Illuminous Epiphany: Stella Glamor",
-          "input": "RS",
+          "input": "AUTO",
+          "considered": "RS",
           "multipliers": [
             {
               "mv": [
@@ -12167,6 +12168,7 @@
           "name": "Additional multiplier per Incandescence",
           "input": "AUTO",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -12191,7 +12193,8 @@
                 0.776
               ]
             }
-          ]
+          ],
+          "times": 50
         }
       }
     },
@@ -12473,6 +12476,9 @@
               ]
             }
           ]
+        },
+        "2": {
+          "duration": 0
         }
       }
     },
