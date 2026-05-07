@@ -74,7 +74,7 @@ self.onmessage = ({ data }) => {
   const teamFinalStats = {};
 
   // Generate benchmark builds for teammates
-  self.postMessage({ type: 'progress', statusMessage: 'Configuring teammate builds' });
+  self.postMessage({ type: 'progress', statusMessage: 'Configuring teammate builds', currentMember: null, completed: 0 });
   for (let ti = team.length - 1; ti >= 0; ti--) {
     const member = team[ti];
     const { memberId, weaponId, setCounts } = member;
@@ -87,6 +87,7 @@ self.onmessage = ({ data }) => {
 
     const memberBuild = { weaponId, equipList: new Array(NUM_MAINSTATS).fill(null) };
 
+    self.postMessage({ type: 'progress', currentMember: memberId, completed: 0, diff: null });
     const memberResult = simulateCharacter({
       gameId,
       characterId: memberId,
@@ -106,7 +107,7 @@ self.onmessage = ({ data }) => {
   }
 
   // Run farming simulation for current character
-  self.postMessage({ type: 'progress', statusMessage: 'Running simulation' });
+  self.postMessage({ type: 'progress', statusMessage: 'Running simulation', currentMember: characterId, completed: 0, diff: null });
   const currentResult = simulateCharacter({
     gameId,
     characterId,
