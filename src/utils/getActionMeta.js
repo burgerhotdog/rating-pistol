@@ -9,7 +9,7 @@ const DEFAULT_GROUP_INPUT = {
   "8": "OS",
 };
 const DEFAULT_ATTR = "ATK";
-const SPECIAL_INPUTS = new Set(["CA", "JA", "HK", "RK", "AUTO"]);
+const SPECIAL_INPUTS = new Set(["CA", "JA", "DA", "HK", "RK", "AUTO"]);
 
 function getActionMetaMap(gameId, characterId) {
   const skillMap = MVS[gameId]?.[characterId];
