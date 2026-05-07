@@ -6124,8 +6124,7 @@
       "skills": {
         "1": {
           "name": "Stormy Strike",
-          "input": "AUTO",
-          "considered": "HA",
+          "input": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6156,7 +6155,7 @@
         },
         "2": {
           "name": "Mid-air Attack: Feather Release",
-          "input": "BA",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -7263,9 +7262,12 @@
       "name": "Discipline",
       "skills": {
         "1": {
+          "input": "CA",
+          "duration": 0,
           "multipliers": [
             {
-              "mv": 3.134
+              "mv": 3.134,
+              "times": 2
             }
           ]
         }
