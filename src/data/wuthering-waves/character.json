@@ -922,6 +922,7 @@
         "trigger": "7-1",
         "target": "team",
         "duration": 18000,
+        "cooldown": 1000,
         "procs": {
           "action": "7-2"
         }

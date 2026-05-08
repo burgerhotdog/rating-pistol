@@ -238,6 +238,17 @@ function tickEffectDurations(activeEffectMapMap, delta) {
   }
 }
 
+function tickProcCooldowns(procCooldownMap, delta) {
+  for (const [cooldownKey, cooldownRemaining] of Object.entries(procCooldownMap)) {
+    const nextValue = cooldownRemaining - delta;
+    if (nextValue <= 0) {
+      delete procCooldownMap[cooldownKey];
+    } else {
+      procCooldownMap[cooldownKey] = nextValue;
+    }
+  }
+}
+
 function applyTriggeredEffects({
   team,
   memberIndex,
@@ -288,18 +299,24 @@ function processProcEffects({
   passivesMap,
   team,
   memberIndex,
+  procCooldownMap,
   actionMap = null,
 }) {
   for (const [effectKey, effectEntry] of Object.entries(activeEffectMapMap[sourceId] ?? {})) {
-    const { ownerId: effectOwnerId, procs } = getEffectMeta(gameId, effectKey);
+    const { ownerId: effectOwnerId, procs, cooldown: effectCooldown = 0 } = getEffectMeta(gameId, effectKey);
     if (!procs) continue;
 
     let remaining = effectEntry.procsRemaining;
-    for (const { action, actionKeyTrigger, filter, times = 1 } of toArray(procs)) {
+    for (const [procIndex, procMeta] of toArray(procs).entries()) {
+      const { action, actionKeyTrigger, filter, times = 1, cooldown: procCooldown = null } = procMeta;
       if (actionKeyTrigger && !toArray(actionKeyTrigger).includes(actionKey)) continue;
 
       const matchesFilter = !filter || (typeof filter === 'string' ? filter === considered : filter.includes(considered));
       if (!matchesFilter) continue;
+
+      const cooldown = procCooldown ?? effectCooldown;
+      const cooldownKey = procCooldown == null ? effectKey : `${effectKey}-${procIndex}`;
+      if ((procCooldownMap[cooldownKey] ?? 0) > 0) continue;
 
       const effectActionKey = `${effectOwnerId}-${action}`;
 
@@ -327,6 +344,10 @@ function processProcEffects({
         activeEffectMapMap,
         times,
       });
+
+      if (cooldown > 0) {
+        procCooldownMap[cooldownKey] = cooldown;
+      }
 
       remaining -= times;
     }
@@ -373,10 +394,12 @@ export function simulateRotation(gameId, rawTeam) {
       team[index],
     ].slice(1).reverse().flatMap(m => m.rotation);
     const activeEffectMapMap = Object.fromEntries(team.map(m => [m.memberId, {}]));
+    const procCooldownMap = {};
     for (const actionKey of prevRotationActionOrder) {
       const { ownerId: actionOwnerId, considered, duration: actionDuration = 1000, offset = 500 } = getActionMeta(gameId, actionKey);
 
       expireEffects(activeEffectMapMap, offset);
+      tickProcCooldowns(procCooldownMap, offset);
       applyTriggeredEffects({
         team,
         memberIndex,
@@ -396,9 +419,11 @@ export function simulateRotation(gameId, rawTeam) {
         passivesMap,
         team,
         memberIndex,
+        procCooldownMap,
       });
       decayProcCounts(gameId, activeEffectMapMap, actionKey);
       tickEffectDurations(activeEffectMapMap, actionDuration);
+      tickProcCooldowns(procCooldownMap, actionDuration);
     }
 
     // now iterate through each action
@@ -406,6 +431,7 @@ export function simulateRotation(gameId, rawTeam) {
       const { considered, duration: actionDuration = 1000, offset = 500 } = getActionMeta(gameId, actionKey);
 
       expireEffects(activeEffectMapMap, offset);
+      tickProcCooldowns(procCooldownMap, offset);
       applyTriggeredEffects({
         team,
         memberIndex,
@@ -433,12 +459,14 @@ export function simulateRotation(gameId, rawTeam) {
         passivesMap,
         team,
         memberIndex,
+        procCooldownMap,
         actionMap,
       });
 
       decayProcCounts(gameId, activeEffectMapMap, actionKey);
 
       tickEffectDurations(activeEffectMapMap, actionDuration);
+      tickProcCooldowns(procCooldownMap, actionDuration);
     }
   }
 
