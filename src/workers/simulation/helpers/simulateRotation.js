@@ -175,6 +175,7 @@ function resolveActionEffects(gameId, characterId, rank) {
       maxStacks: meta.maxStacks ?? 1,
       duration: meta.duration ?? Infinity,
       maxProcs: meta.maxProcs ?? Infinity,
+      cooldown: meta.cooldown ?? 0,
       ...(meta.statMap && {
         statMap: {
           ...meta.statMap,
