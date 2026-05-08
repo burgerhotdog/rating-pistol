@@ -167,32 +167,57 @@ export function normalizeTeam(team, teamFinalStats = {}) {
   });
 }
 
-function toActionKeyArray(value, characterId) {
-  if (!value) return undefined;
-  return (Array.isArray(value) ? value : [value]).map(
-    id => `${characterId}-${id}`
-  );
-}
-
 function resolveActionEffects(gameId, characterId, rank) {
   const { effects = [] } = CHARACTERS[gameId][characterId];
   const unlockedEffects = effects.filter(meta => (meta.rank ?? 0) <= rank).map(meta => {
     const resolved = {
-      ...(meta.trigger && { trigger: toActionKeyArray(meta.trigger, characterId) }),
       target: meta.target ?? 'self',
       maxStacks: meta.maxStacks ?? 1,
       duration: meta.duration ?? Infinity,
       maxProcs: meta.maxProcs ?? Infinity,
-      ...(meta.actionFilter && { actionFilter: toActionKeyArray(meta.actionFilter, characterId) }),
-      statMap: { ...meta.statMap },
-      ...(meta.procs && { procs: toArray(meta.procs) }),
+      ...(meta.statMap && {
+        statMap: {
+          ...meta.statMap,
+        },
+      }),
+      ...(meta.trigger && {
+        trigger: toArray(meta.trigger).map(id => `${characterId}-${id}`),
+      }),
+      ...(meta.actionFilter && {
+        actionFilter: toArray(meta.actionFilter).map(id => `${characterId}-${id}`),
+      }),
+      ...(meta.procs && {
+        procs: toArray(meta.procs).map(proc => ({
+          times: proc.times ?? 1,
+          action: toArray(proc.action).map(id => `${characterId}-${id}`),
+          ...(proc.filter && {
+            filter: toArray(proc.filter),
+          }),
+          ...(proc.actionKeyTrigger && {
+            actionKeyTrigger: toArray(proc.actionKeyTrigger).map(id => `${characterId}-${id}`),
+          }),
+        })),
+      }),
     };
 
-    for (const [rankLock, { duration, maxProcs, statMap }] of Object.entries(meta.modifiers ?? {})) {
+    for (const [rankLock, { duration, maxProcs, statMap, procs }] of Object.entries(meta.rankModifiers ?? {})) {
       if (Number(rankLock) > rank) continue;
       if (duration) resolved.duration += duration;
       if (maxProcs) resolved.maxProcs += maxProcs;
-      if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap)
+      if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
+      if (procs) {
+        const resolvedProcs = toArray(procs).map(proc => ({
+          times: proc.times ?? 1,
+          action: toArray(proc.action).map(id => `${characterId}-${id}`),
+          ...(proc.filter && {
+            filter: toArray(proc.filter),
+          }),
+          ...(proc.actionKeyTrigger && {
+            actionKeyTrigger: toArray(proc.actionKeyTrigger).map(id => `${characterId}-${id}`),
+          }),
+        }));
+        resolved.procs = [...(resolved.procs ?? []), ...resolvedProcs];
+      }
     }
 
     return resolved;

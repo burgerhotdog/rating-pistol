@@ -670,7 +670,19 @@
             "action": "3-2",
             "times": 2
           }
-        ]
+        ],
+        "rankModifiers": {
+          "1": {
+            "procs": {
+              "filter": "RS",
+              "action": "3-2",
+              "times": 2
+            }
+          },
+          "4": {
+            "duration": 7000
+          }
+        }
       },
       {
         "name": "Rage Transposition",
@@ -701,20 +713,6 @@
         }
       },
       {
-        "name": "Sequence Node 1",
-        "rank": 1,
-        "effectModifiers": {
-          "effectIndex": 0,
-          "add": {
-            "procs": {
-              "filter": "RS",
-              "action": "3-2",
-              "times": 2
-            }
-          }
-        }
-      },
-      {
         "name": "Sequence Node 3",
         "rank": 3,
         "trigger": "3-1",
@@ -722,25 +720,12 @@
         "actionFilter": "3-2",
         "statMap": {
           "PERCENT_CD": 0.3
-        }
-      },
-      {
-        "name": "Sequence Node 4",
-        "rank": 4,
-        "effectModifiers": [
-          {
-            "effectIndex": 0,
-            "add": {
-              "duration": 7000
-            }
-          },
-          {
-            "effectIndex": 5,
-            "add": {
-              "duration": 7000
-            }
+        },
+        "rankModifiers": {
+          "4": {
+            "duration": 7000
           }
-        ]
+        }
       },
       {
         "name": "Sequence Node 5",
@@ -1286,6 +1271,13 @@
         ],
         "statMap": {
           "PERCENT_ATK": 0.1
+        },
+        "rankModifiers": {
+          "3": {
+            "statMap": {
+              "PERCENT_MV": 1
+            }
+          }
         }
       },
       {
@@ -1332,18 +1324,6 @@
         "duration": 8000,
         "statMap": {
           "PERCENT_ATK": 0.15
-        }
-      },
-      {
-        "name": "Sequence Node 3",
-        "rank": 3,
-        "effectModifiers": {
-          "effectIndex": 1,
-          "add": {
-            "statMap": {
-              "PERCENT_MV": 1
-            }
-          }
         }
       },
       {
@@ -1763,14 +1743,9 @@
         "procs": {
           "action": "7-6",
           "times": 6
-        }
-      },
-      {
-        "name": "Sequence Node 1",
-        "rank": 1,
-        "effectModifiers": {
-          "effectIndex": 4,
-          "add": {
+        },
+        "rankModifiers": {
+          "1": {
             "procs": {
               "action": "7-7",
               "times": 6
@@ -1907,6 +1882,11 @@
         "duration": 15000,
         "statMap": {
           "PERCENT_DEF": 0.15
+        },
+        "rankModifiers": {
+          "3": {
+            "duration": 15000
+          }
         }
       },
       {
@@ -1937,16 +1917,6 @@
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_CD": 0.2
-        }
-      },
-      {
-        "name": "Sequence Node 3",
-        "rank": 3,
-        "effectModifiers": {
-          "effectIndex": 4,
-          "add": {
-            "duration": 15000
-          }
         }
       },
       {
@@ -2036,6 +2006,13 @@
         "duration": 12000,
         "statMap": {
           "PERCENT_ALL": 0.2
+        },
+        "rankModifiers": {
+          "2": {
+            "statMap": {
+              "PERCENT_ALL": 0.2
+            }
+          }
         }
       },
       {
@@ -2102,18 +2079,6 @@
         "duration": 6000,
         "statMap": {
           "PERCENT_ATK": 0.05
-        }
-      },
-      {
-        "name": "Sequence Node 2",
-        "rank": 2,
-        "effectModifiers": {
-          "effectIndex": 0,
-          "add": {
-            "statMap": {
-              "PERCENT_ALL": 0.2
-            }
-          }
         }
       },
       {
@@ -2482,6 +2447,11 @@
         "maxProcs": 21,
         "procs": {
           "action": "3-1"
+        },
+        "rankModifiers": {
+          "2": {
+            "maxProcs": 6
+          }
         }
       },
       {
@@ -2521,16 +2491,6 @@
         "duration": 27000,
         "statMap": {
           "PERCENT_CR": 0.1
-        }
-      },
-      {
-        "name": "Sequence Node 2",
-        "rank": 2,
-        "effectModifiers": {
-          "effectIndex": 0,
-          "add": {
-            "maxProcs": 6
-          }
         }
       },
       {
