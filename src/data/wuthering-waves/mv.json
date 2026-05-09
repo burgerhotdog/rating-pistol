@@ -14074,7 +14074,6 @@
           ]
         },
         "2": {
-          "input": "AUTO",
           "considered": "HEAL",
           "multipliers": [
             {
@@ -14129,7 +14128,6 @@
         },
         "3": {
           "name": "Double Pun Bonus",
-          "input": "AUTO",
           "considered": "HEAL",
           "multipliers": [
             {
@@ -14442,7 +14440,6 @@
           ]
         },
         "2": {
-          "input": "AUTO",
           "considered": "HEAL",
           "attr": "HP",
           "multipliers": [
@@ -14555,6 +14552,9 @@
               ]
             }
           ]
+        },
+        "2": {
+          "duration": 0
         }
       }
     },

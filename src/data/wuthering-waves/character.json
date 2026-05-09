@@ -2709,10 +2709,52 @@
     },
     "effects": [
       {
+        "trigger": "2-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-2"
+        }
+      },
+      {
+        "trigger": "6-1",
+        "duration": "14000",
+        "statMap": {
+          "PERCENT_GLACIO": 0.15
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_CA": 1
+        }
+      },
+      {
+        "rank": 3,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": "6-1",
+        "duration": 14000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": [
+          "2-3",
+          "2-4",
+          "2-5",
+          "2-6"
+        ],
+        "maxStacks": 4,
+        "duration": 7000,
+        "statMap": {
+          "PERCENT_CD": 0.15
         }
       }
     ],
@@ -2774,8 +2816,63 @@
     },
     "effects": [
       {
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-1",
+          "times": 5
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "active",
+        "duration": 30000,
+        "cooldown": 3000,
+        "procs": {
+          "action": "3-1"
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_CR": 0.125
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "first",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_CD": 0.25
+        }
+      },
+      {
+        "trigger": "3-2",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ER": 0.1
+        }
+      },
+      {
+        "trigger": "6-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "6-3"
+        }
+      },
+      {
+        "trigger": "6-2",
+        "maxProcs": 1,
+        "procs": {
+          "action": "6-4"
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "team",
+        "duration": 30000,
         "statMap": {
           "AMP_ALL": 0.15
         }
