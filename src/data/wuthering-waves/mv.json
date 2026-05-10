@@ -14595,9 +14595,6 @@
         "2": {
           "name": "Discernment",
           "considered": "RL",
-          "modifiers": {
-            "PERCENT_CR": 1
-          },
           "attr": "HP",
           "multipliers": [
             {
@@ -14746,7 +14743,6 @@
       "skills": {
         "1": {
           "name": "Flare Star Butterfly",
-          "input": "AUTO",
           "considered": "BA",
           "multipliers": [
             {
@@ -14808,7 +14804,7 @@
         },
         "3": {
           "name": "Transmutation",
-          "input": "BA",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
