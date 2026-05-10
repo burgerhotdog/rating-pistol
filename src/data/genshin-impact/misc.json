@@ -1,5 +1,7 @@
 {
   "TITLE": "Genshin Impact",
+  "MAX_LEVEL": 90,
+  "ENEMY_RES": 0.1,
   "NUM_MAINSTATS": 5,
   "NUM_SUBSTATS": 4,
   "EQUIP_NAMES": [

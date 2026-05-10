@@ -1,5 +1,7 @@
 {
   "TITLE": "Wuthering Waves",
+  "MAX_LEVEL": 90,
+  "ENEMY_RES": 0.1,
   "NUM_MAINSTATS": 5,
   "NUM_SUBSTATS": 5,
   "EQUIP_NAMES": [

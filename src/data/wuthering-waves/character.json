@@ -29,8 +29,8 @@
         "duration": 5000,
         "maxProcs": 1,
         "procs": {
-          "actionKeyTrigger": "1102-7-1",
-          "action": "7-2"
+          "actionKeyTrigger": "7-1",
+          "actions": "7-2"
         }
       },
       {
@@ -39,8 +39,8 @@
         "duration": 5000,
         "maxProcs": 1,
         "procs": {
-          "actionKeyTrigger": "1102-7-1",
-          "action": "7-3"
+          "actionKeyTrigger": "7-1",
+          "actions": "7-3"
         }
       },
       {
@@ -49,8 +49,8 @@
         "duration": 8000,
         "maxProcs": 1,
         "procs": {
-          "actionKeyTrigger": "1102-7-1",
-          "action": "7-4"
+          "actionKeyTrigger": "7-1",
+          "actions": "7-4"
         }
       },
       {
@@ -168,7 +168,7 @@
         "trigger": "2-1",
         "maxProcs": 1,
         "procs": {
-          "action": "2-2"
+          "actions": "2-2"
         }
       },
       {
@@ -178,10 +178,10 @@
         "maxProcs": 4,
         "procs": [
           {
-            "action": "3-1"
+            "actions": "3-1"
           },
           {
-            "action": "3-2"
+            "actions": "3-2"
           }
         ]
       },
@@ -190,7 +190,7 @@
         "trigger": "6-1",
         "maxProcs": 1,
         "procs": {
-          "action": "6-2"
+          "actions": "6-2"
         }
       },
       {
@@ -205,10 +205,10 @@
         "maxProcs": 1,
         "procs": {
           "actionKeyTrigger": [
-            "1103-1-5",
-            "1103-2-1"
+            "1-5",
+            "2-1"
           ],
-          "action": "7-1"
+          "actions": "7-1"
         }
       },
       {
@@ -225,7 +225,7 @@
         "trigger": "1-5",
         "maxProcs": 1,
         "procs": {
-          "action": "7-2"
+          "actions": "7-2"
         }
       },
       {
@@ -663,11 +663,11 @@
         "procs": [
           {
             "filter": "BA",
-            "action": "3-2"
+            "actions": "3-2"
           },
           {
             "filter": "HA",
-            "action": "3-2",
+            "actions": "3-2",
             "times": 2
           }
         ],
@@ -675,7 +675,7 @@
           "1": {
             "procs": {
               "filter": "RS",
-              "action": "3-2",
+              "actions": "3-2",
               "times": 2
             }
           },
@@ -736,7 +736,7 @@
         ],
         "maxProcs": 1,
         "procs": {
-          "action": "3-2",
+          "actions": "3-2",
           "times": 4
         }
       },
@@ -842,7 +842,7 @@
         "trigger": "7-2",
         "maxProcs": 1,
         "procs": {
-          "action": "7-3",
+          "actions": "7-3",
           "times": 2
         }
       }
@@ -899,7 +899,7 @@
         "maxProcs": 4,
         "procs": {
           "filter": "BA",
-          "action": "2-3"
+          "actions": "2-3"
         }
       },
       {
@@ -909,7 +909,7 @@
         "duration": 18000,
         "cooldown": 1000,
         "procs": {
-          "action": "7-2"
+          "actions": "7-2"
         }
       },
       {
@@ -1003,7 +1003,7 @@
         "actionFilter": "3-1",
         "proc": {
           "filter": "BA",
-          "action": "7-3"
+          "actions": "7-3"
         }
       }
     ],
@@ -1052,7 +1052,7 @@
         "target": "team",
         "duration": 12000,
         "procs": {
-          "action": "2-2"
+          "actions": "2-2"
         }
       },
       {
@@ -1063,7 +1063,7 @@
         ],
         "maxProcs": 1,
         "procs": {
-          "action": "2-3"
+          "actions": "2-3"
         }
       },
       {
@@ -1071,7 +1071,7 @@
         "trigger": "8-1",
         "maxProcs": 1,
         "procs": {
-          "action": "2-1"
+          "actions": "2-1"
         }
       },
       {
@@ -1096,7 +1096,7 @@
         "trigger": "3-1",
         "maxProcs": 1,
         "procs": {
-          "action": "7-10"
+          "actions": "7-10"
         }
       },
       {
@@ -1252,7 +1252,7 @@
         "trigger": "2-2",
         "maxProcs": 1,
         "procs": {
-          "action": "2-1",
+          "actions": "2-1",
           "times": 6
         }
       },
@@ -1304,8 +1304,8 @@
         "maxStacks": 6,
         "maxProcs": 1,
         "procs": {
-          "actionKeyTrigger": "1403-7-2",
-          "action": "7-1"
+          "actionKeyTrigger": "7-2",
+          "actions": "7-1"
         }
       },
       {
@@ -1535,11 +1535,11 @@
         "maxProcs": 1,
         "procs": [
           {
-            "action": "3-1",
+            "actions": "3-1",
             "times": 16
           },
           {
-            "action": "3-2"
+            "actions": "3-2"
           }
         ]
       },
@@ -1548,7 +1548,7 @@
         "trigger": "7-3",
         "maxProcs": 1,
         "procs": {
-          "action": "7-8"
+          "actions": "7-8"
         }
       },
       {
@@ -1556,7 +1556,7 @@
         "trigger": "7-4",
         "maxProcs": 1,
         "procs": {
-          "action": "7-9"
+          "actions": "7-9"
         }
       },
       {
@@ -1564,7 +1564,7 @@
         "trigger": "7-5",
         "maxProcs": 1,
         "procs": {
-          "action": "7-10"
+          "actions": "7-10"
         }
       },
       {
@@ -1578,7 +1578,7 @@
         "target": "team",
         "duration": 30000,
         "procs": {
-          "action": "7-11"
+          "actions": "7-11"
         }
       },
       {
@@ -1627,10 +1627,10 @@
         "maxProcs": 1,
         "procs": [
           {
-            "action": "7-12"
+            "actions": "7-12"
           },
           {
-            "action": "7-10"
+            "actions": "7-10"
           }
         ]
       }
@@ -1695,7 +1695,7 @@
         "trigger": "3-1",
         "maxProcs": 1,
         "procs": {
-          "action": "3-2"
+          "actions": "3-2"
         }
       },
       {
@@ -1706,10 +1706,10 @@
         "cooldown": 1000,
         "procs": [
           {
-            "action": "3-3"
+            "actions": "3-3"
           },
           {
-            "action": "3-4"
+            "actions": "3-4"
           }
         ]
       },
@@ -1723,7 +1723,7 @@
         ],
         "maxProcs": 1,
         "procs": {
-          "action": "7-5",
+          "actions": "7-5",
           "times": 3
         }
       },
@@ -1741,13 +1741,13 @@
         "trigger": "8-1",
         "maxProcs": 1,
         "procs": {
-          "action": "7-6",
+          "actions": "7-6",
           "times": 6
         },
         "rankModifiers": {
           "1": {
             "procs": {
-              "action": "7-7",
+              "actions": "7-7",
               "times": 6
             }
           }
@@ -1798,10 +1798,10 @@
         "maxProcs": 1,
         "procs": [
           {
-            "action": "3-3"
+            "actions": "3-3"
           },
           {
-            "action": "3-4",
+            "actions": "3-4",
             "times": 3
           }
         ]
@@ -1848,7 +1848,7 @@
         "trigger": "2-1",
         "maxProcs": 1,
         "procs": {
-          "action": "2-2"
+          "actions": "2-2"
         }
       },
       {
@@ -1856,7 +1856,7 @@
         "trigger": "7-1",
         "maxProcs": 1,
         "procs": {
-          "action": "7-4"
+          "actions": "7-4"
         }
       },
       {
@@ -1864,7 +1864,7 @@
         "trigger": "7-2",
         "maxProcs": 1,
         "procs": {
-          "action": "7-5"
+          "actions": "7-5"
         }
       },
       {
@@ -1872,7 +1872,7 @@
         "trigger": "7-3",
         "maxProcs": 1,
         "procs": {
-          "action": "7-6"
+          "actions": "7-6"
         }
       },
       {
@@ -1934,7 +1934,7 @@
         "trigger": "1-6",
         "maxProcs": 1,
         "procs": {
-          "action": "7-7"
+          "actions": "7-7"
         }
       },
       {
@@ -2020,7 +2020,7 @@
         "trigger": "3-1",
         "maxProcs": 1,
         "procs": {
-          "action": "3-2"
+          "actions": "3-2"
         }
       },
       {
@@ -2320,7 +2320,7 @@
         "trigger": "7-8",
         "maxProcs": 1,
         "procs": {
-          "action": "7-9"
+          "actions": "7-9"
         }
       },
       {
@@ -2446,7 +2446,7 @@
         "duration": 30000,
         "maxProcs": 21,
         "procs": {
-          "action": "3-1"
+          "actions": "3-1"
         },
         "rankModifiers": {
           "2": {
@@ -2712,7 +2712,7 @@
         "trigger": "2-1",
         "maxProcs": 1,
         "procs": {
-          "action": "2-2"
+          "actions": "2-2"
         }
       },
       {
@@ -2819,7 +2819,7 @@
         "trigger": "2-2",
         "maxProcs": 1,
         "procs": {
-          "action": "2-1",
+          "actions": "2-1",
           "times": 5
         }
       },
@@ -2829,7 +2829,7 @@
         "duration": 30000,
         "cooldown": 3000,
         "procs": {
-          "action": "3-1"
+          "actions": "3-1"
         }
       },
       {
@@ -2859,14 +2859,14 @@
         "trigger": "6-1",
         "maxProcs": 1,
         "procs": {
-          "action": "6-3"
+          "actions": "6-3"
         }
       },
       {
         "trigger": "6-2",
         "maxProcs": 1,
         "procs": {
-          "action": "6-4"
+          "actions": "6-4"
         }
       },
       {
