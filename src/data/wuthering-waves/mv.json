@@ -11688,7 +11688,7 @@
       "name": "Luminal Synthesis",
       "skills": {
         "1": {
-          "name": "Incarnation - Basic Attack 1",
+          "name": "Incarnation: Basic Attack 1",
           "input": "BA",
           "considered": "RS",
           "multipliers": [
@@ -11718,7 +11718,7 @@
           ]
         },
         "2": {
-          "name": "Incarnation - Basic Attack 2",
+          "name": "Incarnation: Basic Attack 2",
           "input": "BA",
           "considered": "RS",
           "multipliers": [
@@ -11794,7 +11794,7 @@
           ]
         },
         "3": {
-          "name": "Incarnation - Basic Attack 3",
+          "name": "Incarnation: Basic Attack 3",
           "input": "BA",
           "considered": "RS",
           "multipliers": [
@@ -11847,7 +11847,7 @@
           ]
         },
         "4": {
-          "name": "Incarnation - Basic Attack 4",
+          "name": "Incarnation: Basic Attack 4",
           "input": "BA",
           "considered": "RS",
           "multipliers": [
@@ -11901,7 +11901,7 @@
           ]
         },
         "5": {
-          "name": "Incarnation - Heavy Attack",
+          "name": "Incarnation: Heavy Attack",
           "input": "HA",
           "multipliers": [
             {
@@ -11953,8 +11953,8 @@
           ]
         },
         "6": {
-          "name": "Incarnation - Dodge Counter",
-          "input": "BA",
+          "name": "Incarnation: Dodge Counter",
+          "input": "DC",
           "multipliers": [
             {
               "mv": [
@@ -12136,7 +12136,8 @@
         },
         "9": {
           "name": "Illuminous Epiphany: Stella Glamor",
-          "input": "RS",
+          "input": "AUTO",
+          "considered": "RS",
           "multipliers": [
             {
               "mv": [
@@ -12167,6 +12168,7 @@
           "name": "Additional multiplier per Incandescence",
           "input": "AUTO",
           "considered": "RS",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -12191,7 +12193,8 @@
                 0.776
               ]
             }
-          ]
+          ],
+          "times": 50
         }
       }
     },
@@ -12473,6 +12476,9 @@
               ]
             }
           ]
+        },
+        "2": {
+          "duration": 0
         }
       }
     },
@@ -14068,7 +14074,6 @@
           ]
         },
         "2": {
-          "input": "AUTO",
           "considered": "HEAL",
           "multipliers": [
             {
@@ -14123,7 +14128,6 @@
         },
         "3": {
           "name": "Double Pun Bonus",
-          "input": "AUTO",
           "considered": "HEAL",
           "multipliers": [
             {
@@ -14436,7 +14440,6 @@
           ]
         },
         "2": {
-          "input": "AUTO",
           "considered": "HEAL",
           "attr": "HP",
           "multipliers": [
@@ -14549,6 +14552,9 @@
               ]
             }
           ]
+        },
+        "2": {
+          "duration": 0
         }
       }
     },
@@ -14589,9 +14595,6 @@
         "2": {
           "name": "Discernment",
           "considered": "RL",
-          "modifiers": {
-            "PERCENT_CR": 1
-          },
           "attr": "HP",
           "multipliers": [
             {
@@ -14740,7 +14743,6 @@
       "skills": {
         "1": {
           "name": "Flare Star Butterfly",
-          "input": "AUTO",
           "considered": "BA",
           "multipliers": [
             {
@@ -14802,7 +14804,7 @@
         },
         "3": {
           "name": "Transmutation",
-          "input": "BA",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -14878,7 +14880,7 @@
         "2": {
           "name": "Glitter",
           "input": "AUTO",
-          "considered": "BA",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -14908,6 +14910,7 @@
         },
         "3": {
           "name": "Yellow Light: Plunging Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -15105,6 +15108,7 @@
         },
         "8": {
           "name": "Red Light: Plunging Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -15135,7 +15139,6 @@
         "9": {
           "name": "Red Light: Dodge Counter",
           "input": "DC",
-          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -15187,6 +15190,10 @@
               "times": 5
             }
           ]
+        },
+        "10": {
+          "name": "Yellow Light: Zoom (1 second)",
+          "input": "DA"
         }
       }
     },
@@ -15325,7 +15332,6 @@
       "skills": {
         "1": {
           "name": "Glare",
-          "input": "AUTO",
           "considered": "BA",
           "multipliers": [
             {
@@ -15590,7 +15596,6 @@
         },
         "8": {
           "name": "Single Laser Beam",
-          "input": "OS",
           "considered": "BA",
           "multipliers": [
             {
@@ -15618,6 +15623,10 @@
               ]
             }
           ]
+        },
+        "9": {
+          "name": "Channeled Dash (1 second)",
+          "input": "DA"
         }
       }
     },
@@ -16273,9 +16282,6 @@
           "multipliers": [
             {
               "mv": 3.2924
-            },
-            {
-              "mv": 4.5902
             }
           ]
         }

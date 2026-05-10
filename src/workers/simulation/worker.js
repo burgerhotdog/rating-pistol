@@ -1,5 +1,5 @@
 import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
-import { findBenchmarkWeek, getAverageScores, findRelativeError, simulateRotation, normalizeTeam } from './helpers';
+import { findBenchmarkWeek, getAverageScores, findRelativeError, simulateRotation } from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
@@ -8,6 +8,21 @@ import { CHARACTERS, MISC } from '@/data';
 const MIN_TRIALS = 100;
 const MAX_TRIALS = 1000;
 const MAX_WEEKS = 20;
+
+function normalizeTeam(team, teamFinalStats = {}) {
+  return team.map(m => {
+    if (m.build) return m;
+    const finalStats = teamFinalStats[m.memberId];
+    return {
+      ...m,
+      build: {
+        weaponId: m.weaponId,
+        setCounts: m.setCounts,
+        ...(finalStats ? { statMap: finalStats } : {}),
+      },
+    };
+  });
+}
 
 function simulateCharacter({ gameId, characterId, build, team, setIdList, threshold = 0.01 }) {
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];

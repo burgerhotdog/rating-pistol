@@ -15,7 +15,6 @@
     },
     "effects": [
       {
-        "name": "Silversnow",
         "trigger": "8-1",
         "target": "next",
         "duration": 14000,
@@ -24,37 +23,33 @@
         }
       },
       {
-        "name": "Glacier",
         "trigger": "3-1",
         "duration": 5000,
         "maxProcs": 1,
         "procs": {
-          "actionKeyTrigger": "1102-7-1",
-          "action": "7-2"
+          "actionKeyTrigger": "7-1",
+          "actions": "7-2"
         }
       },
       {
-        "name": "Ice Prism",
         "trigger": "2-1",
         "duration": 5000,
         "maxProcs": 1,
         "procs": {
-          "actionKeyTrigger": "1102-7-1",
-          "action": "7-3"
+          "actionKeyTrigger": "7-1",
+          "actions": "7-3"
         }
       },
       {
-        "name": "Ice Thorn",
         "trigger": "6-1",
         "duration": 8000,
         "maxProcs": 1,
         "procs": {
-          "actionKeyTrigger": "1102-7-1",
-          "action": "7-4"
+          "actionKeyTrigger": "7-1",
+          "actions": "7-4"
         }
       },
       {
-        "name": "Condensation",
         "trigger": "6-1",
         "duration": 8000,
         "statMap": {
@@ -62,7 +57,6 @@
         }
       },
       {
-        "name": "Avalanche",
         "trigger": "1-5",
         "duration": 8000,
         "actionFilter": [
@@ -75,7 +69,6 @@
         }
       },
       {
-        "name": "Sequence Node 1",
         "rank": 1,
         "trigger": "1-5",
         "duration": 10000,
@@ -84,7 +77,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "chance": 0.7,
         "statMap": {
@@ -92,7 +84,6 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "trigger": "3-1",
         "duration": 5000,
@@ -103,7 +94,6 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "actionFilter": [
           "7-2",
@@ -115,7 +105,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": [
           "7-2",
@@ -164,37 +153,33 @@
     },
     "effects": [
       {
-        "name": "Emergency Plan",
         "trigger": "2-1",
         "maxProcs": 1,
         "procs": {
-          "action": "2-2"
+          "actions": "2-2"
         }
       },
       {
-        "name": "Remnant Entities",
         "trigger": "3-3",
         "target": "active",
         "maxProcs": 4,
         "procs": [
           {
-            "action": "3-1"
+            "actions": "3-1"
           },
           {
-            "action": "3-2"
+            "actions": "3-2"
           }
         ]
       },
       {
-        "name": "Overflowing Frost",
         "trigger": "6-1",
         "maxProcs": 1,
         "procs": {
-          "action": "6-2"
+          "actions": "6-2"
         }
       },
       {
-        "name": "Concentration",
         "trigger": [
           "1-1",
           "1-2",
@@ -205,14 +190,13 @@
         "maxProcs": 1,
         "procs": {
           "actionKeyTrigger": [
-            "1103-1-5",
-            "1103-2-1"
+            "1-5",
+            "2-1"
           ],
-          "action": "7-1"
+          "actions": "7-1"
         }
       },
       {
-        "name": "Harmonic Range",
         "trigger": "2-1",
         "target": "first",
         "duration": 35000,
@@ -221,15 +205,13 @@
         }
       },
       {
-        "name": "Stimulus Feedback",
         "trigger": "1-5",
         "maxProcs": 1,
         "procs": {
-          "action": "7-2"
+          "actions": "7-2"
         }
       },
       {
-        "name": "Rejuvinating Flow",
         "trigger": "8-1",
         "target": "next",
         "duration": 36000,
@@ -238,7 +220,6 @@
         }
       },
       {
-        "name": "Sequence Node 2",
         "rank": 2,
         "trigger": "2-1",
         "duration": 12000,
@@ -248,7 +229,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "trigger": "6-1",
         "duration": 10000,
@@ -257,7 +237,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "2-1",
         "target": "team",
@@ -305,7 +284,6 @@
     },
     "effects": [
       {
-        "name": "Lion's Vigor",
         "trigger": "3-1",
         "duration": 14000,
         "statMap": {
@@ -313,13 +291,11 @@
         }
       },
       {
-        "name": "Lion's Pride",
         "statMap": {
           "PERCENT_IS": 0.5
         }
       },
       {
-        "name": "Diligent Practice",
         "trigger": [
           "7-2",
           "7-3"
@@ -332,7 +308,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "trigger": "3-1",
         "duration": 14000,
@@ -342,7 +317,6 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "trigger": "8-1",
         "target": "team",
@@ -352,7 +326,6 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "trigger": "3-1",
         "maxProcs": 1,
@@ -361,7 +334,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "7-4",
         "maxProcs": 1,
@@ -419,14 +391,12 @@
     },
     "effects": [
       {
-        "name": "Scorching Magazine",
         "actionFilter": "7-2",
         "statMap": {
           "PERCENT_RS": 0.5
         }
       },
       {
-        "name": "Numbingly Spicy!",
         "trigger": "7-1",
         "duration": 10000,
         "statMap": {
@@ -434,7 +404,6 @@
         }
       },
       {
-        "name": "Sequence Node 1",
         "rank": 1,
         "actionFilter": "7-2",
         "statMap": {
@@ -442,7 +411,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "actionFilter": "3-1",
         "chance": 0.5,
@@ -451,7 +419,6 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "trigger": "7-1",
         "duration": 10000,
@@ -460,7 +427,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "7-2",
         "target": "team",
@@ -514,7 +480,6 @@
     },
     "effects": [
       {
-        "name": "Angry Cosmos",
         "actionFilter": [
           "3-1",
           "3-2",
@@ -530,7 +495,6 @@
         }
       },
       {
-        "name": "Woolies Cheer Dance",
         "trigger": [
           "2-1",
           "3-6"
@@ -541,7 +505,6 @@
         }
       },
       {
-        "name": "Sequence Node 1",
         "rank": 1,
         "trigger": [
           "1-1",
@@ -564,7 +527,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "actionFilter": [
           "7-1",
@@ -575,7 +537,6 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "target": "team",
         "actionFilter": "7-2",
@@ -585,14 +546,12 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "statMap": {
           "PERCENT_RS": 0.35
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": [
           "3-1",
@@ -656,24 +615,34 @@
     },
     "effects": [
       {
-        "name": "Burning Rhapsody",
         "trigger": "3-1",
         "target": "team",
         "duration": 10000,
         "procs": [
           {
             "filter": "BA",
-            "action": "3-2"
+            "actions": "3-2"
           },
           {
             "filter": "HA",
-            "action": "3-2",
+            "actions": "3-2",
             "times": 2
           }
-        ]
+        ],
+        "rankModifiers": {
+          "1": {
+            "procs": {
+              "filter": "RS",
+              "actions": "3-2",
+              "times": 2
+            }
+          },
+          "4": {
+            "duration": 7000
+          }
+        }
       },
       {
-        "name": "Rage Transposition",
         "trigger": "8-1",
         "target": "next",
         "duration": 14000,
@@ -682,7 +651,6 @@
         }
       },
       {
-        "name": "Harmonic Control",
         "trigger": "2-1",
         "duration": 8000,
         "actionFilter": "7-1",
@@ -691,7 +659,6 @@
         }
       },
       {
-        "name": "Rhythmic Vibrato",
         "trigger": "3-2",
         "duration": 17000,
         "maxStacks": 50,
@@ -701,49 +668,20 @@
         }
       },
       {
-        "name": "Sequence Node 1",
-        "rank": 1,
-        "effectModifiers": {
-          "effectIndex": 0,
-          "add": {
-            "procs": {
-              "filter": "RS",
-              "action": "3-2",
-              "times": 2
-            }
-          }
-        }
-      },
-      {
-        "name": "Sequence Node 3",
         "rank": 3,
         "trigger": "3-1",
         "duration": 10000,
         "actionFilter": "3-2",
         "statMap": {
           "PERCENT_CD": 0.3
+        },
+        "rankModifiers": {
+          "4": {
+            "duration": 7000
+          }
         }
       },
       {
-        "name": "Sequence Node 4",
-        "rank": 4,
-        "effectModifiers": [
-          {
-            "effectIndex": 0,
-            "add": {
-              "duration": 7000
-            }
-          },
-          {
-            "effectIndex": 5,
-            "add": {
-              "duration": 7000
-            }
-          }
-        ]
-      },
-      {
-        "name": "Sequence Node 5",
         "rank": 5,
         "trigger": [
           "2-1",
@@ -751,12 +689,11 @@
         ],
         "maxProcs": 1,
         "procs": {
-          "action": "3-2",
+          "actions": "3-2",
           "times": 4
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "3-1",
         "target": "team",
@@ -806,7 +743,6 @@
     },
     "effects": [
       {
-        "name": "Bloodshed Awaken",
         "trigger": "7-1",
         "duration": 15000,
         "statMap": {
@@ -814,7 +750,6 @@
         }
       },
       {
-        "name": "Sequence Node 2",
         "rank": 2,
         "trigger": [
           "3-2",
@@ -826,7 +761,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "trigger": "3-1",
         "duration": 11000,
@@ -835,7 +769,6 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "trigger": "8-1",
         "target": "team",
@@ -845,19 +778,17 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "statMap": {
           "PERCENT_IS": 0.5
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "7-2",
         "maxProcs": 1,
         "procs": {
-          "action": "7-3",
+          "actions": "7-3",
           "times": 2
         }
       }
@@ -908,26 +839,24 @@
     },
     "effects": [
       {
-        "name": "Execution Mode",
         "trigger": "2-1",
         "duration": 10000,
         "maxProcs": 4,
         "procs": {
           "filter": "BA",
-          "action": "2-3"
+          "actions": "2-3"
         }
       },
       {
-        "name": "Punishment Mark",
         "trigger": "7-1",
         "target": "team",
         "duration": 18000,
+        "cooldown": 1000,
         "procs": {
-          "action": "7-2"
+          "actions": "7-2"
         }
       },
       {
-        "name": "Pain Immersion",
         "trigger": "2-1",
         "duration": 5000,
         "statMap": {
@@ -935,7 +864,6 @@
         }
       },
       {
-        "name": "Sinner's Mark",
         "trigger": [
           "1-1",
           "1-2",
@@ -954,7 +882,6 @@
         }
       },
       {
-        "name": "Deadly Focus",
         "trigger": "2-2",
         "duration": 4000,
         "statMap": {
@@ -962,7 +889,6 @@
         }
       },
       {
-        "name": "Strategist",
         "trigger": "8-1",
         "target": "next",
         "duration": 14000,
@@ -972,7 +898,6 @@
         }
       },
       {
-        "name": "Sequence Node 1",
         "rank": 1,
         "actionFilter": [
           "2-1",
@@ -983,7 +908,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "actionFilter": "7-2",
         "statMap": {
@@ -991,7 +915,6 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "trigger": "7-2",
         "target": "team",
@@ -1001,7 +924,6 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "actionFilter": "3-1",
         "statMap": {
@@ -1009,7 +931,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "3-1",
         "duration": 30000,
@@ -1017,7 +938,7 @@
         "actionFilter": "3-1",
         "proc": {
           "filter": "BA",
-          "action": "7-3"
+          "actions": "7-3"
         }
       }
     ],
@@ -1061,42 +982,37 @@
     },
     "effects": [
       {
-        "name": "Thunder Wedge",
         "trigger": "2-1",
         "target": "team",
         "duration": 12000,
         "procs": {
-          "action": "2-2"
+          "actions": "2-2"
         }
       },
       {
-        "name": "Detonate",
         "trigger": [
           "2-4",
           "3-1"
         ],
         "maxProcs": 1,
         "procs": {
-          "action": "2-3"
+          "actions": "2-3"
         }
       },
       {
-        "name": "Reserved Confidence",
         "trigger": "8-1",
         "maxProcs": 1,
         "procs": {
-          "action": "2-1"
+          "actions": "2-1"
         }
       },
       {
-        "name": "Thunderweaver",
         "actionFilter": "7-1",
         "statMap": {
           "PERCENT_MV": 0.4
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "trigger": "2-2",
         "maxProcs": 1,
@@ -1105,16 +1021,14 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "trigger": "3-1",
         "maxProcs": 1,
         "procs": {
-          "action": "7-10"
+          "actions": "7-10"
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "trigger": "2-1",
         "duration": 12000,
@@ -1123,7 +1037,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "2-1",
         "target": "team",
@@ -1169,7 +1082,6 @@
     },
     "effects": [
       {
-        "name": "Lazuline Mercy",
         "trigger": "6-1",
         "duration": 8000,
         "statMap": {
@@ -1177,7 +1089,6 @@
         }
       },
       {
-        "name": "Sequence Node 1",
         "rank": 1,
         "trigger": "6-1",
         "duration": 8000,
@@ -1186,14 +1097,12 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "statMap": {
           "PERCENT_RS": 0.4
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "actionFilter": "7-2",
         "statMap": {
@@ -1201,7 +1110,6 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "actionFilter": "3-1",
         "statMap": {
@@ -1209,7 +1117,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "7-2",
         "target": "team",
@@ -1262,16 +1169,14 @@
     },
     "effects": [
       {
-        "name": "Mist Avatar",
         "trigger": "2-2",
         "maxProcs": 1,
         "procs": {
-          "action": "2-1",
+          "actions": "2-1",
           "times": 6
         }
       },
       {
-        "name": "Flower in the Mist",
         "trigger": "3-1",
         "duration": 10000,
         "actionFilter": [
@@ -1285,10 +1190,16 @@
         ],
         "statMap": {
           "PERCENT_ATK": 0.1
+        },
+        "rankModifiers": {
+          "3": {
+            "statMap": {
+              "PERCENT_MV": 1
+            }
+          }
         }
       },
       {
-        "name": "Perfect Performance",
         "actionFilter": [
           "1-7",
           "1-8"
@@ -1298,7 +1209,6 @@
         }
       },
       {
-        "name": "Mist Drops",
         "trigger": [
           "1-1",
           "1-2",
@@ -1311,12 +1221,11 @@
         "maxStacks": 6,
         "maxProcs": 1,
         "procs": {
-          "actionKeyTrigger": "1403-7-2",
-          "action": "7-1"
+          "actionKeyTrigger": "7-2",
+          "actions": "7-1"
         }
       },
       {
-        "name": "Dissolving Mist",
         "trigger": "8-1",
         "target": "next",
         "duration": 14000,
@@ -1325,7 +1234,6 @@
         }
       },
       {
-        "name": "Sequence Node 2",
         "rank": 2,
         "trigger": "2-2",
         "duration": 8000,
@@ -1334,19 +1242,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
-        "rank": 3,
-        "effectModifiers": {
-          "effectIndex": 1,
-          "add": {
-            "statMap": {
-              "PERCENT_MV": 1
-            }
-          }
-        }
-      },
-      {
-        "name": "Sequence Node 4",
         "rank": 4,
         "actionFilter": [
           "2-1",
@@ -1357,7 +1252,6 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "trigger": "7-2",
         "duration": 6000,
@@ -1366,7 +1260,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "3-1",
         "duration": 10000,
@@ -1415,14 +1308,12 @@
     },
     "effects": [
       {
-        "name": "Resolve",
         "actionFilter": "2-1",
         "statMap": {
           "PERCENT_RS": 0.2
         }
       },
       {
-        "name": "Heavenly Balance",
         "trigger": "6-1",
         "duration": 15000,
         "statMap": {
@@ -1430,13 +1321,11 @@
         }
       },
       {
-        "name": "Tempest Taming",
         "statMap": {
           "PERCENT_CD": 0.12
         }
       },
       {
-        "name": "Sequence Node 2",
         "rank": 2,
         "trigger": "6-1",
         "duration": 15000,
@@ -1445,7 +1334,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "trigger": [
           "2-1",
@@ -1460,7 +1348,6 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "trigger": [
           "3-1",
@@ -1473,7 +1360,6 @@
         }
       },
       {
-        "name": "Sequence Node 5a",
         "rank": 5,
         "actionFilter": "8-1",
         "statMap": {
@@ -1481,7 +1367,6 @@
         }
       },
       {
-        "name": "Sequence Node 5b",
         "rank": 5,
         "trigger": "6-1",
         "statMap": {
@@ -1489,7 +1374,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": [
           "1-6",
@@ -1547,47 +1431,42 @@
     },
     "effects": [
       {
-        "name": "Purification Force Field",
         "trigger": "3-3",
         "target": "team",
         "duration": 1000,
         "maxProcs": 1,
         "procs": [
           {
-            "action": "3-1",
+            "actions": "3-1",
             "times": 16
           },
           {
-            "action": "3-2"
+            "actions": "3-2"
           }
         ]
       },
       {
-        "name": "Minor Zhoutian",
         "trigger": "7-3",
         "maxProcs": 1,
         "procs": {
-          "action": "7-8"
+          "actions": "7-8"
         }
       },
       {
-        "name": "Major Zhoutian Inner",
         "trigger": "7-4",
         "maxProcs": 1,
         "procs": {
-          "action": "7-9"
+          "actions": "7-9"
         }
       },
       {
-        "name": "Major Zhoutian Outer",
         "trigger": "7-5",
         "maxProcs": 1,
         "procs": {
-          "action": "7-10"
+          "actions": "7-10"
         }
       },
       {
-        "name": "Zhoutian Shield Healing",
         "trigger": [
           "7-7",
           "7-8",
@@ -1597,11 +1476,10 @@
         "target": "team",
         "duration": 30000,
         "procs": {
-          "action": "7-11"
+          "actions": "7-11"
         }
       },
       {
-        "name": "Formless Release",
         "actionFilter": [
           "3-1",
           "3-2"
@@ -1611,13 +1489,11 @@
         }
       },
       {
-        "name": "Reflection",
         "statMap": {
           "PERCENT_SS": 0.2
         }
       },
       {
-        "name": "Transcendence",
         "trigger": "8-1",
         "target": "next",
         "duration": 14000,
@@ -1626,7 +1502,6 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "trigger": "7-2",
         "duration": 14000,
@@ -1639,17 +1514,16 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "7-1",
         "duration": 5000,
         "maxProcs": 1,
         "procs": [
           {
-            "action": "7-12"
+            "actions": "7-12"
           },
           {
-            "action": "7-10"
+            "actions": "7-10"
           }
         ]
       }
@@ -1710,30 +1584,27 @@
     },
     "effects": [
       {
-        "name": "Photosynthesis Mark Cast Healing",
         "trigger": "3-1",
         "maxProcs": 1,
         "procs": {
-          "action": "3-2"
+          "actions": "3-2"
         }
       },
       {
-        "name": "Photosynthesis Mark Coordinated Attack",
         "trigger": "3-1",
         "target": "team",
         "duration": 12000,
         "cooldown": 1000,
         "procs": [
           {
-            "action": "3-3"
+            "actions": "3-3"
           },
           {
-            "action": "3-4"
+            "actions": "3-4"
           }
         ]
       },
       {
-        "name": "Starflower Blooms",
         "trigger": [
           "7-1",
           "7-2",
@@ -1742,12 +1613,11 @@
         ],
         "maxProcs": 1,
         "procs": {
-          "action": "7-5",
+          "actions": "7-5",
           "times": 3
         }
       },
       {
-        "name": "Blossom 1",
         "trigger": "8-1",
         "target": "team",
         "duration": 30000,
@@ -1756,29 +1626,22 @@
         }
       },
       {
-        "name": "Blossom 2",
         "trigger": "8-1",
         "maxProcs": 1,
         "procs": {
-          "action": "7-6",
+          "actions": "7-6",
           "times": 6
-        }
-      },
-      {
-        "name": "Sequence Node 1",
-        "rank": 1,
-        "effectModifiers": {
-          "effectIndex": 4,
-          "add": {
+        },
+        "rankModifiers": {
+          "1": {
             "procs": {
-              "action": "7-7",
+              "actions": "7-7",
               "times": 6
             }
           }
         }
       },
       {
-        "name": "Sequence Node 3",
         "rank": 3,
         "actionFilter": "7-4",
         "statMap": {
@@ -1786,7 +1649,6 @@
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "trigger": [
           "3-1",
@@ -1803,7 +1665,6 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "chance": 0.5,
         "statMap": {
@@ -1811,7 +1672,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": [
           "7-1",
@@ -1822,10 +1682,10 @@
         "maxProcs": 1,
         "procs": [
           {
-            "action": "3-3"
+            "actions": "3-3"
           },
           {
-            "action": "3-4",
+            "actions": "3-4",
             "times": 3
           }
         ]
@@ -1868,48 +1728,47 @@
     },
     "effects": [
       {
-        "name": "Rocksteady Shield Healing",
         "trigger": "2-1",
         "maxProcs": 1,
         "procs": {
-          "action": "2-2"
+          "actions": "2-2"
         }
       },
       {
-        "name": "Timed Counters 1",
         "trigger": "7-1",
         "maxProcs": 1,
         "procs": {
-          "action": "7-4"
+          "actions": "7-4"
         }
       },
       {
-        "name": "Timed Counters 2",
         "trigger": "7-2",
         "maxProcs": 1,
         "procs": {
-          "action": "7-5"
+          "actions": "7-5"
         }
       },
       {
-        "name": "Timed Counters 3",
         "trigger": "7-3",
         "maxProcs": 1,
         "procs": {
-          "action": "7-6"
+          "actions": "7-6"
         }
       },
       {
-        "name": "Steadfast Protection",
         "trigger": "2-1",
         "target": "team",
         "duration": 15000,
         "statMap": {
           "PERCENT_DEF": 0.15
+        },
+        "rankModifiers": {
+          "3": {
+            "duration": 15000
+          }
         }
       },
       {
-        "name": "Iron Will",
         "trigger": "8-1",
         "target": "next",
         "duration": 14000,
@@ -1918,7 +1777,6 @@
         }
       },
       {
-        "name": "Sequence Node 1",
         "rank": 1,
         "actionFilter": [
           "7-4",
@@ -1930,7 +1788,6 @@
         }
       },
       {
-        "name": "Sequence Node 2",
         "rank": 2,
         "actionFilter": "3-1",
         "statMap": {
@@ -1939,17 +1796,6 @@
         }
       },
       {
-        "name": "Sequence Node 3",
-        "rank": 3,
-        "effectModifiers": {
-          "effectIndex": 4,
-          "add": {
-            "duration": 15000
-          }
-        }
-      },
-      {
-        "name": "Sequence Node 4a",
         "rank": 4,
         "trigger": "1-6",
         "duration": 5000,
@@ -1958,16 +1804,14 @@
         }
       },
       {
-        "name": "Sequence Node 4b",
         "rank": 4,
         "trigger": "1-6",
         "maxProcs": 1,
         "procs": {
-          "action": "7-7"
+          "actions": "7-7"
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "actionFilter": [
           "7-1",
@@ -1979,7 +1823,6 @@
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": "2-1",
         "duration": 30000,
@@ -2030,23 +1873,27 @@
     },
     "effects": [
       {
-        "name": "Incinerating Will",
         "trigger": "2-3",
         "duration": 12000,
         "statMap": {
           "PERCENT_ALL": 0.2
+        },
+        "rankModifiers": {
+          "2": {
+            "statMap": {
+              "PERCENT_ALL": 0.2
+            }
+          }
         }
       },
       {
-        "name": "Scarlet Burst",
         "trigger": "3-1",
         "maxProcs": 1,
         "procs": {
-          "action": "3-2"
+          "actions": "3-2"
         }
       },
       {
-        "name": "Crimson Light",
         "trigger": "1-6",
         "maxProcs": 2,
         "actionFilter": [
@@ -2058,7 +1905,6 @@
         }
       },
       {
-        "name": "Overflow",
         "trigger": [
           "2-4",
           "2-5",
@@ -2070,7 +1916,6 @@
         }
       },
       {
-        "name": "Duality",
         "trigger": "8-1",
         "target": "next",
         "duration": 14000,
@@ -2079,7 +1924,6 @@
         }
       },
       {
-        "name": "Sequence Node 1",
         "rank": 1,
         "trigger": [
           "1-1",
@@ -2104,26 +1948,12 @@
         }
       },
       {
-        "name": "Sequence Node 2",
-        "rank": 2,
-        "effectModifiers": {
-          "effectIndex": 0,
-          "add": {
-            "statMap": {
-              "PERCENT_ALL": 0.2
-            }
-          }
-        }
-      },
-      {
-        "name": "Sequence Node 3",
         "rank": 3,
         "statMap": {
           "PERCENT_RL": 0.3
         }
       },
       {
-        "name": "Sequence Node 4",
         "rank": 4,
         "actionFilter": [
           "7-1",
@@ -2136,14 +1966,12 @@
         }
       },
       {
-        "name": "Sequence Node 5",
         "rank": 5,
         "statMap": {
           "PERCENT_HAVOC": 0.3
         }
       },
       {
-        "name": "Sequence Node 6",
         "rank": 6,
         "trigger": [
           "7-1",
@@ -2199,11 +2027,101 @@
     },
     "effects": [
       {
+        "trigger": "3-1",
+        "duration": 10000,
+        "maxProcs": 1,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_ATK": 0.25
+        }
+      },
+      {
+        "actionFilter": [
+          "2-2",
+          "2-3"
+        ],
+        "statMap": {
+          "PERCENT_FUSION": 0.1
+        }
+      },
+      {
+        "actionFilter": [
+          "7-1",
+          "3-1"
+        ],
+        "statMap": {
+          "PERCENT_FUSION": 0.2,
+          "IGNORE_DEF": 0.15
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "next",
+        "duration": 10000,
         "statMap": {
           "AMP_RL": 0.25,
           "AMP_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "actionFilter": [
+          "2-1",
+          "2-2",
+          "2-3",
+          "7-1"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.1
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": [
+          "2-2",
+          "2-3",
+          "3-1"
+        ],
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_CR": 0.25
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_RL": 0.8
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "6-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 0.5,
+          "PERCENT_ALL": 0.5
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "2-1",
+          "2-2",
+          "2-3",
+          "7-1",
+          "3-1"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.4
         }
       }
     ],
@@ -2248,6 +2166,83 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "effects": [
+      {
+        "trigger": "7-8",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-9"
+        }
+      },
+      {
+        "statMap": {
+          "PERCENT_SPECTRO": 0.2
+        }
+      },
+      {
+        "actionFilter": "6-1",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "7-7"
+        ],
+        "maxStacks": 4,
+        "duration": 6000,
+        "maxProcs": 2,
+        "actionFilter": "6-1",
+        "statMap": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "6-1",
+        "maxStacks": 2,
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.25
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": [
+          "3-1",
+          "7-8",
+          "7-9"
+        ],
+        "target": "team",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "7-8",
+          "7-9",
+          "7-10"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.45
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1304",
@@ -2267,8 +2262,9 @@
         "7-3",
         "7-4",
         "7-8",
-        "7-9",
-        "3-1"
+        "7-10",
+        "3-1",
+        "8-1"
       ]
     }
   },
@@ -2288,19 +2284,91 @@
     },
     "effects": [
       {
+        "trigger": "3-2",
+        "target": "team",
+        "duration": 30000,
+        "maxProcs": 21,
+        "procs": {
+          "actions": "3-1"
+        },
+        "rankModifiers": {
+          "2": {
+            "maxProcs": 6
+          }
+        }
+      },
+      {
+        "trigger": "7-3",
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_BA": 0.18
+        }
+      },
+      {
+        "trigger": [
+          "7-2",
+          "7-3"
+        ],
+        "maxStacks": 3,
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_ATK": 0.06
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RS": 0.25,
           "AMP_GLACIO": 0.2
         }
       },
       {
-        "trigger": "3-1",
-        "name": "Inklit Spirit",
+        "rank": 1,
+        "trigger": "7-3",
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_CR": 0.1
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": [
+          "2-1",
+          "7-2",
+          "7-3"
+        ],
+        "maxStacks": 3,
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "3-2",
         "target": "team",
-        "procs": {
-          "action": "3-1"
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 0.467
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 1.2
         }
       }
     ],
@@ -2324,7 +2392,8 @@
         "7-2",
         "7-2",
         "7-3",
-        "3-1"
+        "3-2",
+        "8-1"
       ]
     }
   },
@@ -2342,6 +2411,87 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "effects": [
+      {
+        "trigger": [
+          "2-1",
+          "3-5",
+          "7-1",
+          "7-2"
+        ],
+        "duration": 8000,
+        "maxStacks": 4,
+        "statMap": {
+          "PERCENT_ELECTRO": 0.05
+        }
+      },
+      {
+        "rank": 1,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 0.48
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": [
+          "2-1",
+          "3-1",
+          "3-5",
+          "7-1",
+          "7-2"
+        ],
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_CD": 0.3
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "3-1",
+        "duration": 24000,
+        "maxProcs": 5,
+        "actionFilter": [
+          "2-1",
+          "3-5",
+          "7-1",
+          "7-2"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.63
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_RL": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "8-1",
+        "statMap": {
+          "PERCENT_MV": 2.22
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 1
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 0.76
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1305",
@@ -2386,10 +2536,52 @@
     },
     "effects": [
       {
+        "trigger": "2-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "2-2"
+        }
+      },
+      {
+        "trigger": "6-1",
+        "duration": "14000",
+        "statMap": {
+          "PERCENT_GLACIO": 0.15
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_CA": 1
+        }
+      },
+      {
+        "rank": 3,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": "6-1",
+        "duration": 14000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": [
+          "2-3",
+          "2-4",
+          "2-5",
+          "2-6"
+        ],
+        "maxStacks": 4,
+        "duration": 7000,
+        "statMap": {
+          "PERCENT_CD": 0.15
         }
       }
     ],
@@ -2432,27 +2624,126 @@
         "PERCENT_HP": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ER": 0.1
-        }
-      },
-      "ally": {
-        "constant": {
-          "PERCENT_CR": 0.125
-        }
-      },
-      "first": {
-        "constant": {
-          "PERCENT_CD": 0.25
-        }
-      }
-    },
     "effects": [
+      {
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "2-1",
+          "times": 5
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "actionFilter": "2-2",
+        "statMap": {
+          "PERCENT_HB": 0.7
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "active",
+        "duration": 30000,
+        "cooldown": 3000,
+        "procs": {
+          "actions": "3-1"
+        },
+        "rankModifiers": {
+          "1": {
+            "duration": 10000
+          }
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_CR": 0.125
+        },
+        "rankModifiers": {
+          "1": {
+            "duration": 10000
+          },
+          "2": {
+            "statMap": {
+              "PERCENT_ATK": 0.4
+            }
+          }
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "first",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_CD": 0.25
+        },
+        "rankModifiers": {
+          "1": {
+            "duration": 10000
+          }
+        }
+      },
+      {
+        "trigger": "3-2",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ER": 0.1
+        },
+        "rankModifiers": {
+          "1": {
+            "duration": 10000
+          }
+        }
+      },
+      {
+        "trigger": [
+          "7-2",
+          "7-3"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-1",
+          "times": 5
+        }
+      },
+      {
+        "trigger": "6-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "6-3"
+        }
+      },
+      {
+        "trigger": "6-2",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "6-4"
+        }
+      },
+      {
+        "trigger": "6-2",
+        "maxProcs": 1,
+        "actionFilter": "6-2",
+        "statMap": {
+          "PERCENT_CR": "1"
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 0.42,
+              "PERCENT_CD": 5
+            }
+          }
+        }
+      },
       {
         "trigger": "8-1",
         "target": "team",
+        "duration": 30000,
         "statMap": {
           "AMP_ALL": 0.15
         }
@@ -2475,7 +2766,9 @@
         "1-3",
         "1-4",
         "7-2",
-        "2-1"
+        "2-2",
+        "3-2",
+        "8-1"
       ]
     }
   },
@@ -2493,22 +2786,67 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "rank": 4,
+        "statMap": {
           "PERCENT_BA": 0.3
         }
       },
-      "team": {
-        "constant": {
+      {
+        "rank": 3,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_RL": 0.3
+        }
+      },
+      {
+        "trigger": "1-10",
+        "maxProcs": 1,
+        "procs": {
+          "action": "1-2",
+          "times": 2
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 20000,
+        "statMap": {
           "PERCENT_ATK": 0.2
         }
-      }
-    },
-    "effects": [
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "7-6",
+          "7-7"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.2
+        }
+      },
+      {
+        "trigger": "7-9",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-1",
+          "times": 2
+        }
+      },
+      {
+        "trigger": "8-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-8",
+          "times": 4
+        }
+      },
       {
         "trigger": "8-1",
         "target": "next",
+        "duration": 10000,
         "statMap": {
           "AMP_RS": 0.38
         }
@@ -2533,12 +2871,9 @@
         "7-4",
         "7-7",
         "1-1",
-        "7-1",
-        "7-1",
-        "7-1",
-        "7-1",
-        "7-1",
-        "7-1",
+        "7-9",
+        "7-9",
+        "7-9",
         "7-6",
         "8-1"
       ]
@@ -2558,6 +2893,107 @@
         "PERCENT_ATK": 0.12
       }
     },
+    "effects": [
+      {
+        "rank": 2,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 1.2
+            }
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "7-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_ATK": 0.58
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "6-1",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_BA": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "6-1",
+        "statMap": {
+          "PERCENT_MV": 3.03
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "8-1",
+        "statMap": {
+          "PERCENT_MV": 0.68
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": "6-1",
+        "duration": 18000,
+        "statMap": {
+          "PERCENT_CD": 0.28
+        }
+      },
+      {
+        "trigger": "7-1",
+        "duration": 15000,
+        "actionFilter": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-7",
+          "1-8",
+          "2-1",
+          "2-2",
+          "2-3",
+          "2-4",
+          "2-5",
+          "2-6",
+          "2-7",
+          "2-8",
+          "2-9"
+        ],
+        "statMap": {
+          "PERCENT_MV": 1
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 4
+            }
+          }
+        }
+      },
+      {
+        "trigger": "7-1",
+        "maxProcs": 1,
+        "actionFilter": "8-1",
+        "statMap": {
+          "FLAT_MV": 4.5902
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1603",
@@ -2578,6 +3014,11 @@
         "2-6",
         "2-5",
         "7-1",
+        "2-2",
+        "2-3",
+        "2-4",
+        "2-6",
+        "2-5",
         "2-7",
         "8-1"
       ]

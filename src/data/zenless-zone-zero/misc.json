@@ -1,5 +1,7 @@
 {
   "TITLE": "Zenless Zone Zero",
+  "MAX_LEVEL": 60,
+  "ENEMY_RES": -0.2,
   "NUM_MAINSTATS": 6,
   "NUM_SUBSTATS": 4,
   "EQUIP_NAMES": [

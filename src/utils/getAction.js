@@ -44,7 +44,7 @@ function formatName(name, considered) {
   return name;
 }
 
-export function getActionMeta(gameId, actionKey) {
+export function getAction(gameId, actionKey) {
   if (!actionKey.includes('-')) throw new Error(`Invalid actionKey "${actionKey}"`);
   const [ownerId, skillId, actionId] = actionKey.split('-');
 
