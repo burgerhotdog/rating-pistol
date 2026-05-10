@@ -14880,7 +14880,7 @@
         "2": {
           "name": "Glitter",
           "input": "AUTO",
-          "considered": "BA",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -14910,6 +14910,7 @@
         },
         "3": {
           "name": "Yellow Light: Plunging Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -15107,6 +15108,7 @@
         },
         "8": {
           "name": "Red Light: Plunging Attack",
+          "input": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -15137,7 +15139,6 @@
         "9": {
           "name": "Red Light: Dodge Counter",
           "input": "DC",
-          "considered": "BA",
           "multipliers": [
             {
               "mv": [
@@ -15189,6 +15190,10 @@
               "times": 5
             }
           ]
+        },
+        "10": {
+          "name": "Yellow Light: Zoom (1 second)",
+          "input": "DA"
         }
       }
     },
@@ -15327,7 +15332,6 @@
       "skills": {
         "1": {
           "name": "Glare",
-          "input": "AUTO",
           "considered": "BA",
           "multipliers": [
             {
@@ -15592,7 +15596,6 @@
         },
         "8": {
           "name": "Single Laser Beam",
-          "input": "OS",
           "considered": "BA",
           "multipliers": [
             {
@@ -15620,6 +15623,10 @@
               ]
             }
           ]
+        },
+        "9": {
+          "name": "Channeled Dash (1 second)",
+          "input": "DA"
         }
       }
     },
@@ -16275,9 +16282,6 @@
           "multipliers": [
             {
               "mv": 3.2924
-            },
-            {
-              "mv": 4.5902
             }
           ]
         }
