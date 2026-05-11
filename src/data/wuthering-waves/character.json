@@ -3318,25 +3318,62 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_FUSION": 0.15
-        },
-        "variable": {
+    "effects": [
+      {
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "3-2",
+          "times": 3
+        }
+      },
+      {
+        "trigger": "3-1",
+        "duration": 12000,
+        "variableStatMap": {
           "FLAT_ATK": {
-            "source": [
-              "ER",
-              0.01
-            ],
+            "source": "ER",
+            "step": 0.01,
             "offset": 1.5,
-            "value": 20,
-            "max": 2600
+            "value": 8,
+            "max": 1040
           }
         }
-      }
-    },
-    "effects": [
+      },
+      {
+        "variableStatMap": {
+          "FLAT_ATK": {
+            "source": "ER",
+            "step": 0.01,
+            "offset": 1.5,
+            "value": 12,
+            "max": 1560
+          }
+        }
+      },
+      {
+        "trigger": "6-1",
+        "maxProcs": 4,
+        "procs": {
+          "action": "7-2",
+          "times": 3
+        }
+      },
+      {
+        "trigger": "7-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-3"
+        },
+        "rankModifiers": {
+          "4": {
+            "procs": {
+              "action": "7-5",
+              "times": 3
+            }
+          }
+        }
+      },
       {
         "actionFilter": "7-2",
         "statMap": {
@@ -3355,19 +3392,10 @@
           "1-14",
           "1-15",
           "1-16",
-          "2-1",
-          "2-2",
-          "3-1",
-          "6-1",
           "7-1"
         ],
         "statMap": {
           "PERCENT_FUSION": 0.15
-        }
-      },
-      {
-        "statMap": {
-          "FLAT_ATK": 1560
         }
       },
       {
@@ -3377,6 +3405,90 @@
         "statMap": {
           "AMP_RS": 0.25,
           "AMP_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": [
+          "1-9",
+          "1-13",
+          "1-15",
+          "6-1"
+        ],
+        "maxStacks": 3,
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "1-7",
+          "1-8",
+          "1-9",
+          "1-10",
+          "1-11",
+          "1-12",
+          "1-13",
+          "1-14",
+          "1-15",
+          "1-16",
+          "7-1"
+        ],
+        "statMap": {
+          "PERCENT_CR": 0.3
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": "8-1",
+        "target": "team",
+        "maxProcs": 2,
+        "cooldown": 1000,
+        "duration": 20000,
+        "procs": {
+          "filter": "RS",
+          "action": "7-4"
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 0.42
+        }
+      },
+      {
+        "rank": 4,
+        "actionFilter": "7-3",
+        "statMap": {
+          "PERCENT_SS": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "statMap": {
+          "PERCENT_BA": 0.15
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "1-7",
+          "1-8",
+          "1-9",
+          "1-10",
+          "1-11",
+          "1-12",
+          "1-13",
+          "1-14",
+          "1-15",
+          "1-16",
+          "7-1"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.3
         }
       }
     ],

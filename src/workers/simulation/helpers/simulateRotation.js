@@ -56,6 +56,43 @@ function computeReductions(gameId, statMap, element, dmgTypes) {
   return resMult * defMult;
 }
 
+function mergeVariableStatMaps(...maps) {
+  return maps.reduce((acc, map = {}) => {
+    for (const [statId, details] of Object.entries(map)) {
+      (acc[statId] ??= []).push(details);
+    }
+    return acc;
+  }, {});
+}
+
+function resolveVariableStatMap(variableStatMap = {}, sourceStatMap = {}) {
+  const resolved = {};
+  for (const [statId, detailList] of Object.entries(variableStatMap)) {
+    for (const details of detailList) {
+      const { source, step, offset = 0, value, max = Infinity } = details;
+
+      const totalStat = computeTotalStat(source, sourceStatMap);
+      const mult = Math.max((totalStat - offset) / step, 0);
+      const variableStatValue = Math.min(mult * value, max);
+      resolved[statId] = (resolved[statId] ?? 0) + variableStatValue;
+    }
+  }
+  return resolved;
+}
+
+function applyEffectStatMap(baseStatMap, effectDefinition, sourceStatMap, multiplier = 1) {
+  const { statMap = {}, variableStatMap = {} } = effectDefinition;
+
+  for (const [statId, val] of Object.entries(statMap)) {
+    baseStatMap[statId] = (baseStatMap[statId] ?? 0) + val * multiplier;
+  }
+
+  const resolvedVariableStatMap = resolveVariableStatMap(variableStatMap, sourceStatMap);
+  for (const [statId, val] of Object.entries(resolvedVariableStatMap)) {
+    baseStatMap[statId] = (baseStatMap[statId] ?? 0) + val * multiplier;
+  }
+}
+
 function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, activeId, members }) {
   const { element } = CHARACTERS[gameId][actionOwner];
   const {
@@ -80,22 +117,20 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.team)) {
     const effectOwner = effectKey.slice(0, 4);
     const effectIndex = effectKey.slice(5);
-    const { actionFilter, statMap } = members[effectOwner].effectDefinitions[effectIndex];
+    const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
+    const { actionFilter } = effectDefinition;
     if (actionFilter && !actionFilter.includes(actionKey)) continue;
-    for (const [statId, val] of Object.entries(statMap)) {
-      effectStatMap[statId] = (effectStatMap[statId] ?? 0) + val * stacks;
-    }
+    applyEffectStatMap(effectStatMap, effectDefinition, members[effectOwner].statMap, stacks);
   }
   // Apply active-target effects only if the action owner matches the current actor
   if (activeId === actionOwner) {
     for (const [effectKey, { stacks }] of Object.entries(effectTrackers.active)) {
       const effectOwner = effectKey.slice(0, 4);
       const effectIndex = effectKey.slice(5);
-      const { actionFilter, statMap } = members[effectOwner].effectDefinitions[effectIndex];
+      const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
+      const { actionFilter } = effectDefinition;
       if (actionFilter && !actionFilter.includes(actionKey)) continue;
-      for (const [statId, val] of Object.entries(statMap)) {
-        effectStatMap[statId] = (effectStatMap[statId] ?? 0) + val * stacks;
-      }
+      applyEffectStatMap(effectStatMap, effectDefinition, members[effectOwner].statMap, stacks);
     }
   }
   
@@ -103,21 +138,19 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.byMember[actionOwner])) {
     const effectOwner = effectKey.slice(0, 4);
     const effectIndex = effectKey.slice(5);
-    const { actionFilter, statMap } = members[effectOwner].effectDefinitions[effectIndex];
+    const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
+    const { actionFilter } = effectDefinition;
     if (actionFilter && !actionFilter.includes(actionKey)) continue;
-    for (const [statId, val] of Object.entries(statMap)) {
-      effectStatMap[statId] = (effectStatMap[statId] ?? 0) + val * stacks;
-    }
+    applyEffectStatMap(effectStatMap, effectDefinition, members[effectOwner].statMap, stacks);
   }
 
   const passiveStatMap = {};
   for (const effectIndex of members[actionOwner].passiveEffects) {
-    const { chance = 1, statMap, actionFilter } = members[actionOwner].effectDefinitions[effectIndex];
+    const effectDefinition = members[actionOwner].effectDefinitions[effectIndex];
+    const { chance = 1, actionFilter } = effectDefinition;
 
     if (actionFilter && !actionFilter.includes(actionKey)) continue;
-    for (const [statId, val] of Object.entries(statMap)) {
-      passiveStatMap[statId] = (passiveStatMap[statId] ?? 0) + val * chance;
-    }
+    applyEffectStatMap(passiveStatMap, effectDefinition, members[actionOwner].statMap, chance);
   }
 
   const statMapWithEffects = mergeStatMaps(members[actionOwner].statMap, effectStatMap, passiveStatMap);
@@ -166,18 +199,21 @@ const normalizeEffects = (gameId, characterId, rank) => {
       cooldown: meta.cooldown ?? 0,
       actionFilter: meta.actionFilter && toArray(meta.actionFilter),
       statMap: { ...meta.statMap },
+      variableStatMap: mergeVariableStatMaps(meta.variableStatMap),
       procs: toArray(meta.procs).map(proc => normalizeProc(proc)),
     };
 
     for (const [rankReq, modifier] of Object.entries(meta.rankModifiers ?? {})) {
       if (Number(rankReq) > rank) continue;
 
-      const { duration, maxProcs, statMap, procs } = modifier;
+      const { duration, maxProcs, statMap, variableStatMap, procs } = modifier;
 
       if (duration) resolved.duration += duration;
       if (maxProcs) resolved.maxProcs += maxProcs;
       if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
-
+      if (variableStatMap) {
+        resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, variableStatMap);
+      }
       if (procs) {
         resolved.procs.push(...toArray(procs).map(proc => normalizeProc(proc)));
       }
@@ -191,8 +227,7 @@ const normalizeEffects = (gameId, characterId, rank) => {
     }
 
     for (const action of trigger) {
-      if (!effectsByAction[action]) effectsByAction[action] = [];
-      effectsByAction[action].push(index);
+      (effectsByAction[action] ??= []).push(index);
     }
   });
 
@@ -300,7 +335,6 @@ function processProcEffects({
       const { procs, cooldown } = effectDef;
       if (!procs) continue;
 
-      let remaining = effectTracker.procsRemaining;
       for (const { filter, actionKeyTrigger, actions, times } of procs) {
         if (filter && !filter.includes(considered)) continue;
         if (actionKeyTrigger && !actionKeyTrigger.includes(actionKey)) continue;
@@ -328,10 +362,9 @@ function processProcEffects({
         }
 
         if (cooldown > 0) procCooldownMap[effectKey] = cooldown;
-        remaining -= times;
       }
 
-      effectTracker.procsRemaining = remaining;
+      effectTracker.procsRemaining--;
     }
   }
 
