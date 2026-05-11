@@ -2660,8 +2660,13 @@
         "trigger": "3-2",
         "target": "team",
         "duration": 30000,
-        "statMap": {
-          "PERCENT_CR": 0.125
+        "variableStatMap": {
+          "PERCENT_CR": {
+            "source": "ER",
+            "step": 0.002,
+            "value": 0.0001,
+            "max": 0.125
+          }
         },
         "rankModifiers": {
           "1": {
@@ -2678,8 +2683,13 @@
         "trigger": "3-2",
         "target": "first",
         "duration": 30000,
-        "statMap": {
-          "PERCENT_CD": 0.25
+        "variableStatMap": {
+          "PERCENT_CD": {
+            "source": "ER",
+            "step": 0.001,
+            "value": 0.0001,
+            "max": 0.25
+          }
         },
         "rankModifiers": {
           "1": {
@@ -2725,11 +2735,9 @@
         }
       },
       {
-        "trigger": "6-2",
-        "maxProcs": 1,
         "actionFilter": "6-2",
         "statMap": {
-          "PERCENT_CR": "1"
+          "PERCENT_CR": 1
         },
         "rankModifiers": {
           "6": {
@@ -3177,8 +3185,14 @@
         "trigger": "3-1",
         "target": "team",
         "duration": 30000,
-        "statMap": {
-          "FLAT_ATK": 200
+        "variableStatMap": {
+          "FLAT_ATK": {
+            "source": "CR",
+            "step": 0.001,
+            "offset": 0.5,
+            "value": 1,
+            "max": 200
+          }
         }
       },
       {

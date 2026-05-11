@@ -166,12 +166,13 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
 
   // Build stat map from effects
   const effectStatMap = {};
+  const shortActionKey = getShortActionKey(actionKey);
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.team)) {
     const effectOwner = effectKey.slice(0, 4);
     const effectIndex = effectKey.slice(5);
     const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
     const { actionFilter } = effectDefinition;
-    if (actionFilter && !actionFilter.includes(actionKey)) continue;
+    if (actionFilter && !actionFilter.includes(shortActionKey)) continue;
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
@@ -182,7 +183,7 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
       const effectIndex = effectKey.slice(5);
       const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
       const { actionFilter } = effectDefinition;
-      if (actionFilter && !actionFilter.includes(actionKey)) continue;
+      if (actionFilter && !actionFilter.includes(shortActionKey)) continue;
       const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
       applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
     }
@@ -194,7 +195,7 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
     const effectIndex = effectKey.slice(5);
     const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
     const { actionFilter } = effectDefinition;
-    if (actionFilter && !actionFilter.includes(actionKey)) continue;
+    if (actionFilter && !actionFilter.includes(shortActionKey)) continue;
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
@@ -204,7 +205,7 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
     const effectDefinition = members[actionOwner].effectDefinitions[effectIndex];
     const { chance = 1, actionFilter } = effectDefinition;
 
-    if (actionFilter && !actionFilter.includes(actionKey)) continue;
+    if (actionFilter && !actionFilter.includes(getShortActionKey(actionKey))) continue;
     const actionOwnerCurrentStats = getOrComputeStatMap(actionOwner);
     applyEffectStatMap(passiveStatMap, effectDefinition, actionOwnerCurrentStats, chance);
   }
