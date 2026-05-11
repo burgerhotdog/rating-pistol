@@ -80,6 +80,49 @@ function resolveVariableStatMap(variableStatMap = {}, sourceStatMap = {}) {
   return resolved;
 }
 
+function getCurrentStatMap(memberId, effectTrackers, members) {
+  const baseStats = { ...members[memberId].statMap };
+
+  function addConstantEffectStats(trackerMap) {
+    for (const [effectKey, { stacks }] of Object.entries(trackerMap)) {
+      const effectOwner = effectKey.slice(0, 4);
+      const effectIndex = effectKey.slice(5);
+      const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
+
+      const { statMap = {} } = effectDefinition;
+      for (const [statId, val] of Object.entries(statMap)) {
+        baseStats[statId] = (baseStats[statId] ?? 0) + val * stacks;
+      }
+    }
+  }
+
+  // First, add all constant effects
+  addConstantEffectStats(effectTrackers.byMember[memberId] ?? {});
+  addConstantEffectStats(effectTrackers.team ?? {});
+  addConstantEffectStats(effectTrackers.active ?? {});
+
+  // Then, resolve and add variable effects using base+constant stats
+  function addVariableEffectStats(trackerMap) {
+    for (const [effectKey, { stacks }] of Object.entries(trackerMap)) {
+      const effectOwner = effectKey.slice(0, 4);
+      const effectIndex = effectKey.slice(5);
+      const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
+
+      const { variableStatMap = {} } = effectDefinition;
+      const resolvedVariableStatMap = resolveVariableStatMap(variableStatMap, baseStats);
+      for (const [statId, val] of Object.entries(resolvedVariableStatMap)) {
+        baseStats[statId] = (baseStats[statId] ?? 0) + val * stacks;
+      }
+    }
+  }
+
+  addVariableEffectStats(effectTrackers.byMember[memberId] ?? {});
+  addVariableEffectStats(effectTrackers.team ?? {});
+  addVariableEffectStats(effectTrackers.active ?? {});
+
+  return baseStats;
+}
+
 function applyEffectStatMap(baseStatMap, effectDefinition, sourceStatMap, multiplier = 1) {
   const { statMap = {}, variableStatMap = {} } = effectDefinition;
 
@@ -112,6 +155,15 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
   const dmgTypes = [considered, special].filter(Boolean);
   if (input === 'CA') dmgTypes.push('CA');
 
+  // Cache for stat maps to avoid recomputing for the same member
+  const statMapCache = {};
+  const getOrComputeStatMap = (memberId) => {
+    if (!statMapCache[memberId]) {
+      statMapCache[memberId] = getCurrentStatMap(memberId, effectTrackers, members);
+    }
+    return statMapCache[memberId];
+  };
+
   // Build stat map from effects
   const effectStatMap = {};
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.team)) {
@@ -120,7 +172,8 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
     const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
     const { actionFilter } = effectDefinition;
     if (actionFilter && !actionFilter.includes(actionKey)) continue;
-    applyEffectStatMap(effectStatMap, effectDefinition, members[effectOwner].statMap, stacks);
+    const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
+    applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
   // Apply active-target effects only if the action owner matches the current actor
   if (activeId === actionOwner) {
@@ -130,7 +183,8 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
       const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
       const { actionFilter } = effectDefinition;
       if (actionFilter && !actionFilter.includes(actionKey)) continue;
-      applyEffectStatMap(effectStatMap, effectDefinition, members[effectOwner].statMap, stacks);
+      const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
+      applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
     }
   }
   
@@ -141,7 +195,8 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
     const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
     const { actionFilter } = effectDefinition;
     if (actionFilter && !actionFilter.includes(actionKey)) continue;
-    applyEffectStatMap(effectStatMap, effectDefinition, members[effectOwner].statMap, stacks);
+    const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
+    applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
 
   const passiveStatMap = {};
@@ -150,7 +205,8 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
     const { chance = 1, actionFilter } = effectDefinition;
 
     if (actionFilter && !actionFilter.includes(actionKey)) continue;
-    applyEffectStatMap(passiveStatMap, effectDefinition, members[actionOwner].statMap, chance);
+    const actionOwnerCurrentStats = getOrComputeStatMap(actionOwner);
+    applyEffectStatMap(passiveStatMap, effectDefinition, actionOwnerCurrentStats, chance);
   }
 
   const statMapWithEffects = mergeStatMaps(members[actionOwner].statMap, effectStatMap, passiveStatMap);
