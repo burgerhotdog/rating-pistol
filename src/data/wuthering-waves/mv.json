@@ -17001,7 +17001,6 @@
         },
         "2": {
           "name": "Death Knell",
-          "input": "BA",
           "considered": "RS",
           "multipliers": [
             {
@@ -17057,7 +17056,6 @@
         },
         "3": {
           "name": "Fatal Finale",
-          "input": "BA",
           "considered": "RS",
           "multipliers": [
             {
@@ -17211,6 +17209,7 @@
       "name": "Closing Remark",
       "skills": {
         "1": {
+          "duration": 0,
           "multipliers": [
             {
               "mv": 7.942

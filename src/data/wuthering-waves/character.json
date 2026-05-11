@@ -3040,9 +3040,32 @@
     },
     "effects": [
       {
-        "rank": 1,
+        "trigger": [
+          "2-2",
+          "3-2",
+          "6-1",
+          "7-1"
+        ],
+        "duration": 4000,
         "statMap": {
-          "PERCENT_CR": 0.125
+          "IGNORE_DEF": 0.18
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_CR": 0.125
+            }
+          }
+        }
+      },
+      {
+        "actionFilter": [
+          "3-1",
+          "3-2",
+          "3-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
         }
       },
       {
@@ -3053,10 +3076,20 @@
         }
       },
       {
-        "rank": 5,
-        "actionFilter": "7-1",
+        "rank": 3,
+        "actionFilter": [
+          "2-1",
+          "2-2"
+        ],
         "statMap": {
-          "PERCENT_MV": 0.47
+          "PERCENT_MV": 0.93
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "8-1",
+        "statMap": {
+          "FLAT_MV": 10.3218
         }
       },
       {
@@ -3066,9 +3099,24 @@
           "1-7",
           "7-1"
         ],
+        "target": "team",
         "duration": 30000,
         "statMap": {
           "PERCENT_RS": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 0.47
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": "3-2",
+        "statMap": {
+          "PERCENT_FLAT": 1.866
         }
       }
     ],
@@ -3094,6 +3142,8 @@
         "3-2",
         "3-2",
         "3-3",
+        "2-1",
+        "2-2",
         "8-1"
       ]
     }
@@ -3114,25 +3164,6 @@
     },
     "effects": [
       {
-        "rank": 5,
-        "actionFilter": [
-          "1-5",
-          "7-1",
-          "7-2",
-          "7-3"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.8
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_MV": 0.2
-        }
-      },
-      {
         "trigger": [
           "1-5",
           "2-1"
@@ -3140,6 +3171,60 @@
         "duration": 12000,
         "statMap": {
           "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "FLAT_ATK": 200
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_BA": 0.25,
+          "AMP_HAVOC": 0.2
+        }
+      },
+      {
+        "trigger": "8-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-4"
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": "7-3",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_HAVOC": 0.1
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
+        "maxStacks": 3,
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_HAVOC": 0.1
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "6-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_CR": 0.1,
+          "PERCENT_CD": 0.3
         }
       },
       {
@@ -3156,10 +3241,22 @@
         }
       },
       {
-        "trigger": "3-1",
-        "duration": 30000,
+        "rank": 5,
+        "actionFilter": [
+          "1-5",
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
         "statMap": {
-          "FLAT_ATK": 200
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 0.2
         }
       },
       {
@@ -3182,52 +3279,6 @@
         "actionFilter": "7-3",
         "statMap": {
           "PERCENT_MV": 1
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": "6-1",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_CR": 0.1,
-          "PERCENT_CD": 0.3
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": [
-          "7-1",
-          "7-2",
-          "7-3"
-        ],
-        "maxStacks": 3,
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_HAVOC": 0.1
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": "7-3",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_HAVOC": 0.1
-        }
-      },
-      {
-        "trigger": "8-1",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-4"
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_BA": 0.25,
-          "AMP_HAVOC": 0.2
         }
       }
     ],
@@ -3287,8 +3338,42 @@
     },
     "effects": [
       {
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_HB": 0.2
+        }
+      },
+      {
+        "actionFilter": [
+          "1-7",
+          "1-8",
+          "1-9",
+          "1-10",
+          "1-11",
+          "1-12",
+          "1-13",
+          "1-14",
+          "1-15",
+          "1-16",
+          "2-1",
+          "2-2",
+          "3-1",
+          "6-1",
+          "7-1"
+        ],
+        "statMap": {
+          "PERCENT_FUSION": 0.15
+        }
+      },
+      {
+        "statMap": {
+          "FLAT_ATK": 1560
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RS": 0.25,
           "AMP_FUSION": 0.2
