@@ -3692,13 +3692,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_FRAZZLE": 0.2
-        }
-      }
-    },
     "effects": [
       {
         "trigger": "8-1",
@@ -3749,20 +3742,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.12
-        }
-      },
-      "team": {
-        "constant": {
-          "IGNORE_FUSION": 0.15,
-          "PERCENT_FUSION": 0.2,
-          "PERCENT_ATK": 0.24
-        }
-      }
-    },
     "effects": [
       {
         "trigger": "8-1",
@@ -3808,13 +3787,6 @@
         "BASE_DEF": 611,
         "PERCENT_CR": 0.08,
         "PERCENT_HP": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ALL": 0.6
-        }
       }
     },
     "effects": [
@@ -3872,13 +3844,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_CD": 0.6
-        }
-      }
-    },
     "match": [],
     "effects": [
       {
@@ -3929,13 +3894,6 @@
         "BASE_DEF": 1112,
         "PERCENT_CR": 0.08,
         "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ELECTRO": 0.15
-        }
       }
     },
     "effects": [
@@ -4002,13 +3960,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "team": {
-        "constant": {
-          "AMP_ALL": 0.4
-        }
-      }
-    },
     "effects": [
       {
         "trigger": "8-1",
@@ -4057,13 +4008,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_ALL": 0.2
-        }
-      }
-    },
     "defaults": {
       "team": [
         "1208",
@@ -4107,18 +4051,6 @@
         "BASE_DEF": 1197,
         "PERCENT_CR": 0.08,
         "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.1
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_CD": 0.3
-        }
       }
     },
     "effects": [
@@ -4215,19 +4147,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HAVOC": 0.2,
-          "IGNORE_DEF": 0.18
-        }
-      },
-      "team": {
-        "constant": {
-          "IGNORE_DEF": 0.06
-        }
-      }
-    },
     "defaults": {
       "team": [
         null,
@@ -4313,18 +4232,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_SPECTRO": 0.25
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_ALL": 0.24
-        }
-      }
-    },
     "effects": [
       {
         "trigger": "8-1",
@@ -4370,13 +4277,6 @@
         "BASE_DEF": 1148,
         "PERCENT_CR": 0.08,
         "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_CD": 0.6
-        }
       }
     },
     "effects": [
@@ -4431,14 +4331,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.25,
-          "AMP_ALL": 0.3
-        }
-      }
-    },
     "defaults": {
       "team": [
         "1510",
@@ -4482,31 +4374,6 @@
         "BASE_DEF": 1136,
         "PERCENT_CR": 0.08,
         "PERCENT_ATK": 0.12
-      }
-    },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_AERO": 0.3,
-          "PERCENT_ES": 0.3
-        },
-        "variable": {
-          "PERCENT_ES": {
-            "source": [
-              "ER",
-              0.01
-            ],
-            "offset": 1.25,
-            "value": 0.02,
-            "max": 0.5
-          }
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_AERO": 0.18,
-          "PERCENT_ES": 0.18
-        }
       }
     },
     "defaults": {
