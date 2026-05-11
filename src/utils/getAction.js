@@ -69,7 +69,6 @@ export function getAction(gameId, actionKey) {
     input,
     considered,
     special: skill.special,
-    modifiers: skill.modifiers,
     duration: skill.duration,
     offset: skill.offset,
     attr: skill.attr ?? DEFAULT_ATTR,

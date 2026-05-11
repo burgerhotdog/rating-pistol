@@ -142,7 +142,6 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
     input,
     considered,
     special,
-    modifiers,
     attr,
     multipliers,
     times,
@@ -211,22 +210,21 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
   }
 
   const statMapWithEffects = mergeStatMaps(members[actionOwner].statMap, effectStatMap, passiveStatMap);
-  const adjustedStatMap = modifiers ? mergeStatMaps(statMapWithEffects, modifiers) : statMapWithEffects;
 
   if (considered === "HEAL") {
     const baseHealing = multipliers.map(mult => {
       const { flat, mv } = mult;
       if (flat) return Array.isArray(flat) ? flat[9] : flat;
-      if (mv) return Array.isArray(mv) ? (mv[9] * computeTotalStat(attr, adjustedStatMap)) : (mv * computeTotalStat(attr, adjustedStatMap));
+      if (mv) return Array.isArray(mv) ? (mv[9] * computeTotalStat(attr, statMapWithEffects)) : (mv * computeTotalStat(attr, statMapWithEffects));
     }).reduce((acc, val) => acc + val, 0);
 
-    const healingBonus = computeTotalStat("HB", adjustedStatMap);
+    const healingBonus = computeTotalStat("HB", statMapWithEffects);
     return { healing: baseHealing * (1 + healingBonus) * times };
   };
 
-  const baseDmg = computeBase(adjustedStatMap, attr, multipliers);
-  const bonuses = computeBonuses(adjustedStatMap, element, dmgTypes);
-  const reductions = computeReductions(gameId, adjustedStatMap, element, dmgTypes);
+  const baseDmg = computeBase(statMapWithEffects, attr, multipliers);
+  const bonuses = computeBonuses(statMapWithEffects, element, dmgTypes);
+  const reductions = computeReductions(gameId, statMapWithEffects, element, dmgTypes);
 
   return { damage: baseDmg * bonuses * reductions * times };
 }
