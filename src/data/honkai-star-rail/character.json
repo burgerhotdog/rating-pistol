@@ -2,7 +2,7 @@
   "1001": {
     "name": "March 7th",
     "quality": "4",
-    "element": "Ice",
+    "element": "ICE",
     "type": "PRESERVATION",
     "stats": {
       "constant": {
@@ -19,7 +19,7 @@
   "1002": {
     "name": "Dan Heng",
     "quality": "4",
-    "element": "Wind",
+    "element": "WIND",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -36,7 +36,7 @@
   "1003": {
     "name": "Himeko",
     "quality": "5",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -53,7 +53,7 @@
   "1004": {
     "name": "Welt",
     "quality": "5",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -70,7 +70,7 @@
   "1008": {
     "name": "Arlan",
     "quality": "4",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -87,7 +87,7 @@
   "1009": {
     "name": "Asta",
     "quality": "4",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -104,7 +104,7 @@
   "1013": {
     "name": "Herta",
     "quality": "4",
-    "element": "Ice",
+    "element": "ICE",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -121,7 +121,7 @@
   "1101": {
     "name": "Bronya",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -138,7 +138,7 @@
   "1102": {
     "name": "Seele",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -155,7 +155,7 @@
   "1103": {
     "name": "Serval",
     "quality": "4",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -172,7 +172,7 @@
   "1104": {
     "name": "Gepard",
     "quality": "5",
-    "element": "Ice",
+    "element": "ICE",
     "type": "PRESERVATION",
     "stats": {
       "constant": {
@@ -189,7 +189,7 @@
   "1105": {
     "name": "Natasha",
     "quality": "4",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "ABUNDANCE",
     "stats": {
       "constant": {
@@ -206,7 +206,7 @@
   "1106": {
     "name": "Pela",
     "quality": "4",
-    "element": "Ice",
+    "element": "ICE",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -223,7 +223,7 @@
   "1107": {
     "name": "Clara",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -240,7 +240,7 @@
   "1108": {
     "name": "Sampo",
     "quality": "4",
-    "element": "Wind",
+    "element": "WIND",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -257,7 +257,7 @@
   "1109": {
     "name": "Hook",
     "quality": "4",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -274,7 +274,7 @@
   "1201": {
     "name": "Qingque",
     "quality": "4",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -291,7 +291,7 @@
   "1202": {
     "name": "Tingyun",
     "quality": "4",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -308,7 +308,7 @@
   "1204": {
     "name": "Jing Yuan",
     "quality": "5",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -325,7 +325,7 @@
   "1206": {
     "name": "Sushang",
     "quality": "4",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -342,7 +342,7 @@
   "1209": {
     "name": "Yanqing",
     "quality": "5",
-    "element": "Ice",
+    "element": "ICE",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -359,7 +359,7 @@
   "1211": {
     "name": "Bailu",
     "quality": "5",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "ABUNDANCE",
     "stats": {
       "constant": {
@@ -376,7 +376,7 @@
   "1006": {
     "name": "Silver Wolf",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -393,7 +393,7 @@
   "1203": {
     "name": "Luocha",
     "quality": "5",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "ABUNDANCE",
     "stats": {
       "constant": {
@@ -410,7 +410,7 @@
   "1207": {
     "name": "Yukong",
     "quality": "4",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -427,7 +427,7 @@
   "1005": {
     "name": "Kafka",
     "quality": "5",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -444,7 +444,7 @@
   "1111": {
     "name": "Luka",
     "quality": "4",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -461,7 +461,7 @@
   "1205": {
     "name": "Blade",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -478,7 +478,7 @@
   "1110": {
     "name": "Lynx",
     "quality": "4",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "ABUNDANCE",
     "stats": {
       "constant": {
@@ -495,7 +495,7 @@
   "1208": {
     "name": "Fu Xuan",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "PRESERVATION",
     "stats": {
       "constant": {
@@ -512,7 +512,7 @@
   "1213": {
     "name": "Dan Heng • Imbibitor Lunae",
     "quality": "5",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -529,7 +529,7 @@
   "1112": {
     "name": "Topaz & Numby",
     "quality": "5",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -546,7 +546,7 @@
   "1210": {
     "name": "Guinaifen",
     "quality": "4",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -563,7 +563,7 @@
   "1212": {
     "name": "Jingliu",
     "quality": "5",
-    "element": "Ice",
+    "element": "ICE",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -580,7 +580,7 @@
   "1215": {
     "name": "Hanya",
     "quality": "4",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -597,7 +597,7 @@
   "1217": {
     "name": "Huohuo",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "ABUNDANCE",
     "stats": {
       "constant": {
@@ -614,7 +614,7 @@
   "1302": {
     "name": "Argenti",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -631,7 +631,7 @@
   "1214": {
     "name": "Xueyi",
     "quality": "4",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -648,7 +648,7 @@
   "1303": {
     "name": "Ruan Mei",
     "quality": "5",
-    "element": "Ice",
+    "element": "ICE",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -665,7 +665,7 @@
   "1305": {
     "name": "Dr. Ratio",
     "quality": "5",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -682,7 +682,7 @@
   "1306": {
     "name": "Sparkle",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -699,7 +699,7 @@
   "1307": {
     "name": "Black Swan",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -716,7 +716,7 @@
   "1312": {
     "name": "Misha",
     "quality": "4",
-    "element": "Ice",
+    "element": "ICE",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -733,7 +733,7 @@
   "1301": {
     "name": "Gallagher",
     "quality": "4",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "ABUNDANCE",
     "stats": {
       "constant": {
@@ -750,7 +750,7 @@
   "1304": {
     "name": "Aventurine",
     "quality": "5",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "PRESERVATION",
     "stats": {
       "constant": {
@@ -767,7 +767,7 @@
   "1308": {
     "name": "Acheron",
     "quality": "5",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -784,7 +784,7 @@
   "1309": {
     "name": "Robin",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -801,7 +801,7 @@
   "1315": {
     "name": "Boothill",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -818,7 +818,7 @@
   "1310": {
     "name": "Firefly",
     "quality": "5",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -835,7 +835,7 @@
   "1314": {
     "name": "Jade",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -852,7 +852,7 @@
   "1218": {
     "name": "Jiaoqiu",
     "quality": "5",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -869,7 +869,7 @@
   "1221": {
     "name": "Yunli",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -886,7 +886,7 @@
   "1224": {
     "name": "March 7th",
     "quality": "4",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -903,7 +903,7 @@
   "1220": {
     "name": "Feixiao",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -920,7 +920,7 @@
   "1222": {
     "name": "Lingsha",
     "quality": "5",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "ABUNDANCE",
     "stats": {
       "constant": {
@@ -937,7 +937,7 @@
   "1223": {
     "name": "Moze",
     "quality": "4",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -954,7 +954,7 @@
   "1317": {
     "name": "Rappa",
     "quality": "5",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -971,7 +971,7 @@
   "1225": {
     "name": "Fugue",
     "quality": "5",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -988,7 +988,7 @@
   "1313": {
     "name": "Sunday",
     "quality": "5",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -1005,7 +1005,7 @@
   "1401": {
     "name": "The Herta",
     "quality": "5",
-    "element": "Ice",
+    "element": "ICE",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -1022,7 +1022,7 @@
   "1402": {
     "name": "Aglaea",
     "quality": "5",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "REMEMBRANCE",
     "stats": {
       "constant": {
@@ -1039,7 +1039,7 @@
   "1403": {
     "name": "Tribbie",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -1056,7 +1056,7 @@
   "1404": {
     "name": "Mydei",
     "quality": "5",
-    "element": "Imaginary",
+    "element": "IMAGINARY",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -1073,7 +1073,7 @@
   "1405": {
     "name": "Anaxa",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "ERUDITION",
     "stats": {
       "constant": {
@@ -1090,7 +1090,7 @@
   "1407": {
     "name": "Castorice",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "REMEMBRANCE",
     "stats": {
       "constant": {
@@ -1107,7 +1107,7 @@
   "1406": {
     "name": "Cipher",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -1124,7 +1124,7 @@
   "1409": {
     "name": "Hyacine",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "REMEMBRANCE",
     "stats": {
       "constant": {
@@ -1141,7 +1141,7 @@
   "1014": {
     "name": "Saber",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -1158,7 +1158,7 @@
   "1015": {
     "name": "Archer",
     "quality": "5",
-    "element": "Quantum",
+    "element": "QUANTUM",
     "type": "HUNT",
     "stats": {
       "constant": {
@@ -1175,7 +1175,7 @@
   "1408": {
     "name": "Phainon",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "DESTRUCTION",
     "stats": {
       "constant": {
@@ -1192,7 +1192,7 @@
   "1410": {
     "name": "Hysilens",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -1209,7 +1209,7 @@
   "1412": {
     "name": "Cerydra",
     "quality": "5",
-    "element": "Wind",
+    "element": "WIND",
     "type": "HARMONY",
     "stats": {
       "constant": {
@@ -1226,7 +1226,7 @@
   "1413": {
     "name": "Evernight",
     "quality": "5",
-    "element": "Ice",
+    "element": "ICE",
     "type": "REMEMBRANCE",
     "stats": {
       "constant": {
@@ -1243,7 +1243,7 @@
   "1414": {
     "name": "Dan Heng • Permansor Terrae",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "PRESERVATION",
     "stats": {
       "constant": {
@@ -1260,7 +1260,7 @@
   "1415": {
     "name": "Cyrene",
     "quality": "5",
-    "element": "Ice",
+    "element": "ICE",
     "type": "REMEMBRANCE",
     "stats": {
       "constant": {
@@ -1277,7 +1277,7 @@
   "1321": {
     "name": "The Dahlia",
     "quality": "5",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "NIHILITY",
     "stats": {
       "constant": {
@@ -1294,7 +1294,7 @@
   "1501": {
     "name": "Sparxie",
     "quality": "5",
-    "element": "Fire",
+    "element": "FIRE",
     "type": "ELATION",
     "stats": {
       "constant": {
@@ -1311,7 +1311,7 @@
   "1502": {
     "name": "Yao Guang",
     "quality": "5",
-    "element": "Physical",
+    "element": "PHYSICAL",
     "type": "ELATION",
     "stats": {
       "constant": {
@@ -1328,7 +1328,7 @@
   "1504": {
     "name": "Ashveil",
     "quality": "5",
-    "element": "Lightning",
+    "element": "LIGHTNING",
     "type": "HUNT",
     "stats": {
       "constant": {
