@@ -17657,6 +17657,15 @@
               ]
             }
           ]
+        },
+        "4": {
+          "name": "Super Attractive Magic Box",
+          "considered": "ES",
+          "multipliers": [
+            {
+              "flat": 100
+            }
+          ]
         }
       }
     },
