@@ -1,8 +1,13 @@
-export function mergeStatMaps(...maps) {
-  return maps.reduce((acc, map = {}) => {
-    for (const [statId, value] of Object.entries(map)) {
-      acc[statId] = (acc[statId] ?? 0) + value;
+export const mergeStatMaps = (...maps) => {
+  const merged = {};
+
+  for (const map of maps) {
+    if (!map) continue;
+
+    for (const stat in map) {
+      merged[stat] = (merged[stat] ?? 0) + map[stat];
     }
-    return acc;
-  }, {});
-}
+  }
+
+  return merged;
+};

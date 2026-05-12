@@ -5,8 +5,8 @@ import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
 import { CHARACTERS, MISC } from '@/data';
 
-const MIN_TRIALS = 100;
-const MAX_TRIALS = 1000;
+const MIN_TRIALS = 50;
+const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
 function normalizeTeam(team, teamFinalStats = {}) {
@@ -24,7 +24,8 @@ function normalizeTeam(team, teamFinalStats = {}) {
   });
 }
 
-function simulateCharacter({ gameId, characterId, build, team, setIdList, threshold = 0.01 }) {
+function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
+  const simulationStartMs = performance.now();
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, 'menu'));
@@ -39,23 +40,45 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, thresh
 
   let lastBenchmarkWeek = null;
   let lastDiff = null;
+  const weekTimingsMs = [];
 
   for (let week = 1; week <= MAX_WEEKS; week++) {
+    const weekStartMs = performance.now();
+    const trialLoopStartMs = performance.now();
+    let trialCount = 0;
     for (const [trialIndex, trial] of trials.entries()) {
       advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
       self.postMessage({ type: 'progress', trial: trialIndex + 1 });
+      trialCount += 1;
     }
+    const trialLoopMs = performance.now() - trialLoopStartMs;
+
+    const adaptiveStartMs = performance.now();
+    let adaptiveTrialsCreated = 0;
 
     while (trials.length < MAX_TRIALS) {
       const values = trials.map(trial => sumRotationDmg(trial.scores[week]));
-      if (findRelativeError(values) <= threshold) break;
+      if (findRelativeError(values) <= 0.005) break;
 
       const trial = createTrial(matchTargets, gameId, characterId, build, match, team);
       for (let w = 1; w <= week; w++) {
         advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
       }
       trials.push(trial);
+      adaptiveTrialsCreated += 1;
     }
+    const adaptiveMs = performance.now() - adaptiveStartMs;
+
+    const avgTrialMs = trialCount > 0 ? trialLoopMs / trialCount : 0;
+    weekTimingsMs.push({
+      week,
+      trialCount,
+      trialLoopMs: Math.round(trialLoopMs),
+      avgTrialMs: Math.round(avgTrialMs),
+      adaptiveTrialsCreated,
+      adaptiveMs: Math.round(adaptiveMs),
+      totalWeekMs: Math.round(performance.now() - weekStartMs),
+    });
 
     const weeklyScores = getAverageScores(trials, week);
     const { benchmarkWeek, diff } = findBenchmarkWeek(weeklyScores);
@@ -78,18 +101,28 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList, thresh
     benchmarkWeek: lastBenchmarkWeek,
     weeklyScores,
     diff: lastDiff,
+    timingsMs: {
+      totalSimulationMs: Math.round(performance.now() - simulationStartMs),
+      weekTimingsMs,
+    },
   };
 }
 
 self.onmessage = ({ data }) => {
+  const workerStartMs = performance.now();
   const { gameId, characterId, build, team } = data;
   const { NUM_MAINSTATS } = MISC[gameId];
   const setIdList = build.equipList.map(equip => equip?.setId);
+  const timings = {
+    teammateCalibrationMs: 0,
+    mainSimulationMs: 0,
+  };
 
   const teamFinalStats = {};
 
   // Generate benchmark builds for teammates
   self.postMessage({ type: 'progress', statusMessage: 'Calibrating teammates', currentMember: null, completed: 0 });
+  const teammateCalibrationStartMs = performance.now();
   for (let ti = team.length - 1; ti >= 0; ti--) {
     const member = team[ti];
     const { memberId, weaponId, setCounts } = member;
@@ -109,7 +142,6 @@ self.onmessage = ({ data }) => {
       build: memberBuild,
       team,
       setIdList: memberSetIdList,
-      threshold: 0.01,
     });
     
     const finalStats = {};
@@ -121,9 +153,11 @@ self.onmessage = ({ data }) => {
     }
     teamFinalStats[memberId] = finalStats;
   }
+  timings.teammateCalibrationMs = Math.round(performance.now() - teammateCalibrationStartMs);
 
   // Run farming simulation for current character
   self.postMessage({ type: 'progress', statusMessage: 'Running simulation', currentMember: characterId, completed: 0, diff: null });
+  const mainSimulationStartMs = performance.now();
   const currentResult = simulateCharacter({
     gameId,
     characterId,
@@ -131,6 +165,8 @@ self.onmessage = ({ data }) => {
     team: team.map(member => member.memberId === characterId ? { ...member } : { ...member, build: { weaponId: member.weaponId, statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } }),
     setIdList,
   });
+  timings.weekTimingsMs = currentResult.timingsMs.weekTimingsMs;
+  timings.mainSimulationMs = Math.round(performance.now() - mainSimulationStartMs);
 
   const { trials, preferredMainStats, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;
 
@@ -160,7 +196,6 @@ self.onmessage = ({ data }) => {
 
   const normalizedTeam = normalizeTeam(team, teamFinalStats);
   const actionMap = simulateRotation(gameId, normalizedTeam);
-
   const actionMapsWithSub = Object.fromEntries(Object.entries(MISC[gameId].SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
       const teamWithSubstat = team.map(m => {
@@ -179,6 +214,18 @@ self.onmessage = ({ data }) => {
       const normalizedTeam = normalizeTeam(teamWithSubstat, teamFinalStats);
       return [id, simulateRotation(gameId, normalizedTeam)];
     }));
+  timings.totalWorkerMs = Math.round(performance.now() - workerStartMs);
 
-  self.postMessage({ type: 'done', completed: lastBenchmarkWeek, weeklyScores, finalStats, preferredMainStats, weeklyDistribution, teamFinalStats, actionMap, actionMapsWithSub });
+  self.postMessage({
+    type: 'done',
+    completed: lastBenchmarkWeek,
+    weeklyScores,
+    finalStats,
+    preferredMainStats,
+    weeklyDistribution,
+    teamFinalStats,
+    actionMap,
+    actionMapsWithSub,
+    timings,
+  });
 };

@@ -116,7 +116,12 @@ export function useSimulation(team) {
           teamFinalStats: data.teamFinalStats,
           actionMap: data.actionMap,
           actionMapsWithSub: data.actionMapsWithSub,
+          timings: data.timings,
         }));
+
+        if (import.meta.env.DEV) {
+          console.log('[simulation timings]', data.timings);
+        }
 
         worker.terminate();
         if (workerRef.current === worker) workerRef.current = null;

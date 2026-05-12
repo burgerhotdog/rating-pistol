@@ -169,7 +169,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
                   )}
                   {percentGain != null && (
                     <Typography variant="body2" color={percentGain >= 0 ? 'success.main' : 'error.main'}>
-                      {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(2)}% vs prev
+                      {percentGain >= 0 ? '+' : ''}{percentGain.toFixed(1)}% vs prev
                     </Typography>
                   )}
                 </Paper>
