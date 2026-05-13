@@ -4327,10 +4327,98 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_ALL": 1
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_CD": 1
+            }
+          },
+          "3": {
+            "statMap": {
+              "PERCENT_MV": 1
+            }
+          }
+        }
+      },
+      {
         "target": "ally",
         "statMap": {
+          "PERCENT_HB": 0.2
+        }
+      },
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.6
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "duration": 20000,
+        "statMap": {
           "AMP_AERO": 0.175
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-6",
+          "1-5",
+          "6-1"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "1-7",
+          "1-8",
+          "1-9",
+          "1-10"
+        ],
+        "statMap": {
+          "PERCENT_MV": 2
+        }
+      },
+      {
+        "rank": 4,
+        "target": "team",
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "3-1",
+          "6-2",
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "7-5",
+          "7-6",
+          "7-7",
+          "7-8",
+          "7-9",
+          "7-10",
+          "7-11",
+          "7-12",
+          "7-13",
+          "7-14"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.4
         }
       }
     ],
@@ -4350,7 +4438,7 @@
         "1-3",
         "1-4",
         "2-1",
-        "1-7",
+        "1-10",
         "3-1",
         "7-13",
         "7-12",
