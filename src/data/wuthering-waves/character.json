@@ -1992,7 +1992,7 @@
       ],
       "weaponId": "21020015",
       "setCounts": {
-        "8": 5
+        "12": 5
       },
       "rotation": [
         "6-1",
@@ -3546,12 +3546,149 @@
     },
     "effects": [
       {
-        "trigger": "8-1",
-        "target": "ally",
+        "trigger": "2-1",
+        "duration": 30000,
+        "cooldown": 500,
+        "procs": {
+          "actionKeyTrigger": [
+            "1-1",
+            "1-2",
+            "1-3",
+            "1-6"
+          ],
+          "action": "2-2"
+        }
+      },
+      {
+        "trigger": "7-1",
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 2.55
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_MV": 2.25
+            }
+          }
+        }
+      },
+      {
+        "trigger": "7-1",
+        "actionFilter": "7-3",
+        "statMap": {
+          "AMP_ALL": 2.56
+        },
+        "rankModifiers": {
+          "3": {
+            "statMap": {
+              "PERCENT_MV": 0.91
+            }
+          }
+        }
+      },
+      {
+        "trigger": [
+          "7-1",
+          "7-2"
+        ],
+        "statMap": {
+          "PERCENT_SPECTRO": 0.12
+        }
+      },
+      {
+        "trigger": "7-1",
+        "actionFilter": "8-1",
+        "statMap": {
+          "PERCENT_MV": 2.55
+        },
+        "rankModifiers": {
+          "2": {
+            "statMap": {
+              "AMP_OS": 1.2
+            }
+          }
+        }
+      },
+      {
+        "trigger": "8-2",
+        "target": "team",
         "duration": 30000,
         "statMap": {
-          "AMP_FRAZZLE": 1,
           "IGNORE_SPECTRO": 0.1
+        }
+      },
+      {
+        "trigger": "8-2",
+        "target": "active",
+        "duration": 30000,
+        "statMap": {
+          "AMP_FRAZZLE": 1
+        },
+        "rankModifiers": {
+          "2": {
+            "statMap": {
+              "AMP_FRAZZLE": 1.2
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": "7-2",
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 0.90
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "7-2",
+        "actionFilter": "7-3",
+        "statMap": {
+          "PERCENT_MV": 2.49
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "2-3",
+          "2-4",
+          "2-5",
+          "1-6",
+          "1-7"
+        ],
+        "target": "team",
+        "duration": 30,
+        "statMap": {
+          "IGNORE_SPECTRO": 0.1
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": "6-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_SPECTRO": 0.12
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "2-1",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "2-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-3"
         }
       }
     ],
@@ -3568,7 +3705,7 @@
       "rotation": [
         "6-1",
         "2-1",
-        "2-2",
+        "2-1",
         "7-2",
         "3-1",
         "2-3",
@@ -3599,11 +3736,137 @@
     },
     "effects": [
       {
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-3"
+        }
+      },
+      {
+        "trigger": "3-1",
+        "target": "active",
+        "duration": 30000,
+        "cooldown": 1000,
+        "maxProcs": 21,
+        "procs": {
+          "action": "3-2"
+        },
+        "rankModifiers": {
+          "5": {
+            "maxProcs": 5
+          }
+        }
+      },
+      {
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "7-6"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-7",
+          "times": 3
+        }
+      },
+      {
+        "trigger": "7-5",
+        "maxProcs": 1,
+        "procs": [
+          {
+            "action": "2-3"
+          },
+          {
+            "action": "7-8",
+            "times": 3
+          }
+        ]
+      },
+      {
+        "statMap": {
+          "PERCENT_HB": 0.2
+        },
+        "rankModifiers": {
+          "4": {
+            "statMap": {
+              "PERCENT_HB": 0.25
+            }
+          }
+        }
+      },
+      {
+        "trigger": [
+          "2-2",
+          "3-1",
+          "7-5"
+        ],
+        "maxStacks": 2,
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_HAVOC": 0.06
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "next",
+        "duration": 14000,
         "statMap": {
           "AMP_RS": 0.25,
           "AMP_HAVOC": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "actionFilter": [
+          "2-1",
+          "2-2",
+          "7-5"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "2-3"
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": "2-3",
+        "statMap": {
+          "PERCENT_MV": 2.45
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 3.7
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "3-1",
+        "duration": 10000,
+        "statMap": {
+          "IGNORE_DEF": 0.3
         }
       }
     ],
@@ -3648,10 +3911,83 @@
     },
     "effects": [
       {
+        "statMap": {
+          "PERCENT_AERO": 0.24
+        }
+      },
+      {
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "3-2"
+        }
+      },
+      {
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_HA": 0.3
+        },
+        "rankModifiers": {
+          "4": {
+            "statMap": {
+              "IGNORE_DEF": 0.45
+            }
+          }
+        }
+      },
+      {
         "trigger": "8-1",
-        "target": "ally",
+        "target": "team",
+        "duration": 30000,
         "statMap": {
           "AMP_EROSION": 1
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4"
+        ],
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.35
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_AERO": 0.4
+        }
+      },
+      {
+        "rank": 4,
+        "actionFilter": [
+          "3-1",
+          "3-2",
+          "7-2"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.45
+        }
+      },
+      {
+        "rank": 5,
+        "statMap": {
+          "PERCENT_RL": 0.4
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "1-4",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-2"
         }
       }
     ],
@@ -3695,10 +4031,108 @@
     },
     "effects": [
       {
+        "trigger": [
+          "2-3",
+          "2-4"
+        ],
+        "duration": 14000,
+        "statMap": {
+          "AMP_FRAZZLE": 0.2
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_SPECTRO": 0.5
+            }
+          }
+        }
+      },
+      {
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "7-5"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.25
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 0.4
+            }
+          }
+        }
+      },
+      {
+        "trigger": "7-3",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-4",
+          "times": 40
+        }
+      },
+      {
+        "trigger": "6-1",
+        "duration": 14000,
+        "statMap": {
+          "PERCENT_SPECTRO": 0.12
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "ally",
+        "duration": 20000,
         "statMap": {
           "AMP_SPECTRO": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "statMap": {
+          "PERCENT_CR": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "2-3",
+          "2-4"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "3-2",
+        "statMap": {
+          "PERCENT_MV": 12
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "6-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": "7-3",
+        "statMap": {
+          "FLAT_MV": 16
         }
       }
     ],
@@ -3745,11 +4179,112 @@
     },
     "effects": [
       {
+        "actionFilter": "2-2",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 35000,
+        "statMap": {
+          "PERCENT_ATK": 0.18,
+          "PERCENT_FUSION": 0.2,
+          "IGNORE_FUSION": 0.15
+        }
+      },
+      {
+        "trigger": [
+          "2-2",
+          "1-6",
+          "1-7",
+          "1-11",
+          "3-1",
+          "7-1",
+          "7-2"
+        ],
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        }
+      },
+      {
+        "trigger": [
+          "7-1",
+          "7-2"
+        ],
+        "target": "next",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-3"
+        }
+      },
+      {
         "trigger": "8-1",
         "target": "next",
         "statMap": {
           "AMP_BA": 0.25,
           "AMP_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": "3-1",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_CR": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": [
+          "3-1",
+          "1-6",
+          "1-7",
+          "1-11"
+        ],
+        "target": "team",
+        "maxStacks": 2,
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "6-2",
+        "statMap": {
+          "PERCENT_MV": 1
+        }
+      },
+      {
+        "rank": 4,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 1.25
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": [
+          "6-1",
+          "6-2"
+        ],
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_RL": 0.15
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "7-2",
+          "3-1",
+          "6-2"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.3
         }
       }
     ],
@@ -3764,7 +4299,7 @@
         "18": 5
       },
       "rotation": [
-        "6-1",
+        "6-2",
         "3-1",
         "3-2",
         "1-8",

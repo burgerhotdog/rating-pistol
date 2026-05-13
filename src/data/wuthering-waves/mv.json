@@ -18964,7 +18964,7 @@
           ] 
         },
         "4": {
-          "name": "Sequence Node 2",
+          "name": "Sequence Node 2 Explosion",
           "considered": "BA",
           "duration": 0,
           "multipliers": [
@@ -18974,7 +18974,7 @@
           ]
         },
         "5": {
-          "name": "Sequence Node 4",
+          "name": "Sequence Node 4 Healing",
           "considered": "HEAL",
           "duration": 0,
           "attr": "ER",
@@ -19561,6 +19561,17 @@
       "name": "Attentive Heart",
       "skills": {
         "1": {
+          "name": "Attentive Heart (Absolution)",
+          "duration": 0,
+          "multipliers": [
+            {
+              "mv": 5.2841
+            }
+          ]
+        },
+        "2": {
+          "name": "Attentive Heart (Confession)",
+          "duration": 0,
           "multipliers": [
             {
               "mv": 5.2841
@@ -19967,8 +19978,7 @@
                 0.2413,
                 0.2533,
                 0.2652
-              ],
-              "times": 21
+              ]
             }
           ]
         }
@@ -20279,7 +20289,6 @@
         },
         "7": {
           "name": "Trance",
-          "input": "AUTO",
           "considered": "HEAL",
           "multipliers": [
             {
@@ -20334,7 +20343,6 @@
         },
         "8": {
           "name": "Perception Drain",
-          "input": "AUTO",
           "considered": "HEAL",
           "multipliers": [
             {
@@ -20823,6 +20831,7 @@
         "2": {
           "name": "Symphonic Poem: Tonic",
           "input": "AUTO",
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -20941,6 +20950,16 @@
                 5.4716,
                 5.7306
               ]
+            }
+          ]
+        },
+        "2": {
+          "name": "Sequence Node 6 Proc",
+          "considered": "RL",
+          "duration": 0,
+          "multipliers": [
+            {
+              "mv": 2.2
             }
           ]
         }
@@ -21737,6 +21756,38 @@
           ]
         },
         "4": {
+          "name": "Additional Multiplier Per Blaze",
+          "considered": "HA",
+          "special": "FRAZZLE",
+          "duration": 0,
+          "multipliers": [
+            {
+              "mv": [
+                0.05,
+                0.0541,
+                0.0582,
+                0.064,
+                0.0681,
+                0.0728,
+                0.0794,
+                0.0849,
+                0.0925,
+                0.0995,
+                0.1077,
+                0.1159,
+                0.1241,
+                0.1323,
+                0.1405,
+                0.1487,
+                0.1569,
+                0.1651,
+                0.1733,
+                0.1815
+              ]
+            }
+          ]
+        },
+        "5": {
           "name": "Heavy Slash - Lightsmash",
           "considered": "HA",
           "special": "FRAZZLE",
@@ -21774,6 +21825,7 @@
       "skills": {
         "1": {
           "special": "FRAZZLE",
+          "duration": 0,
           "multipliers": [
             {
               "mv": 1.5
@@ -22999,7 +23051,6 @@
         },
         "3": {
           "name": "Set the Arena Ablaze",
-          "input": "AUTO",
           "considered": "RS",
           "multipliers": [
             {
