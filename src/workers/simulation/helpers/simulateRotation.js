@@ -136,16 +136,9 @@ function applyEffectStatMap(baseStatMap, effectDefinition, sourceStatMap, multip
   }
 }
 
-function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, activeId, members }) {
+function simulateAction({ gameId, action, effectTrackers, activeId, members }) {
+  const { ownerId: actionOwner, shortKey, input, considered, special, attr, multipliers, times } = action;
   const { element } = CHARACTERS[gameId][actionOwner];
-  const {
-    input,
-    considered,
-    special,
-    attr,
-    multipliers,
-    times,
-  } = getAction(gameId, actionKey);
 
   if (considered === "SHIELD") return {};
   if (considered === "BUFF") return {};
@@ -165,13 +158,12 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
 
   // Build stat map from effects
   const effectStatMap = {};
-  const shortActionKey = getShortActionKey(actionKey);
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.team)) {
     const effectOwner = effectKey.slice(0, 4);
     const effectIndex = effectKey.slice(5);
     const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
     const { actionFilter } = effectDefinition;
-    if (actionFilter && !actionFilter.includes(shortActionKey)) continue;
+    if (actionFilter && !actionFilter.includes(shortKey)) continue;
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
@@ -182,7 +174,7 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
       const effectIndex = effectKey.slice(5);
       const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
       const { actionFilter } = effectDefinition;
-      if (actionFilter && !actionFilter.includes(shortActionKey)) continue;
+      if (actionFilter && !actionFilter.includes(shortKey)) continue;
       const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
       applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
     }
@@ -194,7 +186,7 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
     const effectIndex = effectKey.slice(5);
     const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
     const { actionFilter } = effectDefinition;
-    if (actionFilter && !actionFilter.includes(shortActionKey)) continue;
+    if (actionFilter && !actionFilter.includes(shortKey)) continue;
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
@@ -204,7 +196,7 @@ function simulateAction({ gameId, actionOwner, actionKey, effectTrackers, active
     const effectDefinition = members[actionOwner].effectDefinitions[effectIndex];
     const { chance = 1, actionFilter } = effectDefinition;
 
-    if (actionFilter && !actionFilter.includes(getShortActionKey(actionKey))) continue;
+    if (actionFilter && !actionFilter.includes(shortKey)) continue;
     const actionOwnerCurrentStats = getOrComputeStatMap(actionOwner);
     applyEffectStatMap(passiveStatMap, effectDefinition, actionOwnerCurrentStats, chance);
   }
@@ -380,6 +372,23 @@ const normalizeEffects = (gameId, member) => {
   return { passiveEffects, effectsByAction, effectsByInput, effectDefinitions };
 };
 
+function precomputeAction(gameId, ownerId, actionKey) {
+  const { input, considered, special, attr, multipliers, times, duration, offset } = getAction(gameId, actionKey);
+  return {
+    actionKey,
+    ownerId,
+    shortKey: actionKey.slice(ownerId.length + 1),
+    input,
+    considered,
+    special,
+    attr,
+    multipliers,
+    times,
+    duration,
+    offset,
+  };
+}
+
 function advanceEffects(effectTrackers, offset, duration) {
   function advanceMap(map) {
     for (const [effectKey, effectData] of Object.entries(map)) {
@@ -410,17 +419,15 @@ function tickProcCooldowns(procCooldownMap, delta) {
   }
 }
 
-function applyEffects({ gameId, members, actionKey, effectTrackers, times = 1 }) {
-  const actionOwner = getActionOwner(actionKey);
-  const shortActionKey = getShortActionKey(actionKey);
-  const { input, considered, special } = getAction(gameId, actionKey);
+function applyEffects({ action, members, effectTrackers, times = 1 }) {
+  const { ownerId: actionOwner, shortKey, input, considered, special } = action;
 
   const member = members[actionOwner];
   if (!member) return;
 
   const { effectsByAction, effectsByInput, effectDefinitions } = member;
 
-  const triggeredEffects = new Set(effectsByAction[shortActionKey] ?? []);
+  const triggeredEffects = new Set(effectsByAction[shortKey] ?? []);
   for (const triggerFilterKey of [input, considered, special].filter(Boolean)) {
     for (const effect of (effectsByInput[triggerFilterKey] ?? [])) {
       triggeredEffects.add(effect);
@@ -469,13 +476,12 @@ function applyEffects({ gameId, members, actionKey, effectTrackers, times = 1 })
 function processProcEffects({
   gameId,
   members,
-  actionKey,
-  considered,
+  action,
   effectTrackers,
   procCooldownMap,
   actionMap = null,
 }) {
-  const actionOwner = actionKey.split('-')[0];
+  const { actionKey, ownerId: actionOwner, considered } = action;
   const { byMember, team, active } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
@@ -493,14 +499,14 @@ function processProcEffects({
         if (filter && !filter.includes(considered)) continue;
         if (actionKeyTrigger && !actionKeyTrigger.includes(actionKey)) continue;
 
-        for (const action of actions) {
-          const procActionKey = effectOwner + '-' + action;
+        for (const procActionId of actions) {
+          const procActionKey = effectOwner + '-' + procActionId;
+          const procAction = precomputeAction(gameId, effectOwner, procActionKey);
 
           if (actionMap) {
             const { damage: procDamage = 0, healing: procHealing = 0 } = simulateAction({
               gameId,
-              actionOwner: effectOwner,
-              actionKey: procActionKey,
+              action: procAction,
               effectTrackers,
               activeId: actionOwner,
               members,
@@ -512,7 +518,7 @@ function processProcEffects({
             };
           }
 
-          applyEffects({ gameId, members, actionKey: procActionKey, effectTrackers, times });
+          applyEffects({ action: procAction, members, effectTrackers, times });
         }
 
         if (cooldown > 0) procCooldownMap[effectKey] = cooldown;
@@ -527,9 +533,9 @@ function processProcEffects({
   processTrackerMap(active);
 }
 
-function decayProcCounts(gameId, members, effectTrackers, actionKey) {
+function decayProcCounts(members, effectTrackers, action) {
   const { team, active, byMember } = effectTrackers;
-  const shortActionKey = getShortActionKey(actionKey);
+  const { shortKey } = action;
 
   function decayMap(trackerMap) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
@@ -538,7 +544,7 @@ function decayProcCounts(gameId, members, effectTrackers, actionKey) {
       const effectOwner = effectKey.slice(0, 4);
       const effectIndex = effectKey.slice(5);
       const { actionFilter, procs } = members[effectOwner].effectDefinitions[effectIndex];
-      if (actionFilter && !actionFilter.includes(shortActionKey)) continue;
+      if (actionFilter && !actionFilter.includes(shortKey)) continue;
 
       if (!procs) effectTracker.procsRemaining -= 1;
       if (effectTracker.procsRemaining <= 0) delete trackerMap[effectKey];
@@ -550,6 +556,29 @@ function decayProcCounts(gameId, members, effectTrackers, actionKey) {
   for (const map of Object.values(byMember)) decayMap(map);
 }
 
+// Module-level cache: rotation pre-processing depends only on gameId + rotations,
+// not on builds, so it can be reused across all simulateRotation calls in this worker.
+const rotationCache = new Map();
+
+// WeakMap caches keyed on the build object reference.
+// Non-focus team members always pass the same build reference → always hits after first call.
+// The focus character passes a new build reference only when a better build is found → misses on change.
+const normalizeEffectsCache = new WeakMap();
+const compileStatMapCache = new WeakMap();
+
+function getProcessedRotation(gameId, team) {
+  const cacheKey = gameId + '|' + team.map(m => m.memberId + ':' + m.rotation.join(',')).join('|');
+  if (rotationCache.has(cacheKey)) return rotationCache.get(cacheKey);
+
+  const processedRotation = [...team].reverse().map(({ memberId, rotation }) => ({
+    memberId,
+    processedRotation: rotation.map(actionKey => precomputeAction(gameId, memberId, actionKey)),
+  }));
+
+  rotationCache.set(cacheKey, processedRotation);
+  return processedRotation;
+}
+
 export function simulateRotation(gameId, rawTeam) {
   // remove null members
   const team = rawTeam.filter(m => m.memberId);
@@ -558,10 +587,23 @@ export function simulateRotation(gameId, rawTeam) {
   const members = Object.fromEntries(
     team.map((member, index) => {
       const { memberId, build = {} } = member;
-      const { passiveEffects, effectsByAction, effectsByInput, effectDefinitions } = normalizeEffects(gameId, member);
+
+      let normalizedEffects = normalizeEffectsCache.get(build);
+      if (!normalizedEffects) {
+        normalizedEffects = normalizeEffects(gameId, member);
+        normalizeEffectsCache.set(build, normalizedEffects);
+      }
+
+      let statMap = compileStatMapCache.get(build);
+      if (!statMap) {
+        statMap = compileStatMap(gameId, memberId, build, team, 'menu');
+        compileStatMapCache.set(build, statMap);
+      }
+
+      const { passiveEffects, effectsByAction, effectsByInput, effectDefinitions } = normalizedEffects;
       return [memberId, {
         index,
-        statMap: compileStatMap(gameId, memberId, build, team, 'menu'),
+        statMap,
         passiveEffects,
         effectsByAction,
         effectsByInput,
@@ -570,46 +612,47 @@ export function simulateRotation(gameId, rawTeam) {
     })
   );
 
-  const actionMap = {};
-  for (const [index, { memberId, rotation }] of team.entries()) {
-    // create structure for tracking active effects for each member
-    const prevRotationActionOrder = [
-      ...team.slice(index),
-      ...team.slice(0, index),
-      team[index],
-    ].slice(1).reverse().flatMap(m => m.rotation);
+  // Circular rotation order: reverse team array so that the priming pass
+  // naturally produces the correct steady-state for each member's turn.
+  // e.g. for team [A, B, C] the game cycle is C→B→A→C→B→A→...
+  // Rotation pre-processing is cached at the module level since rotations
+  // are fixed for the lifetime of a worker — only builds change between calls.
+  const rotationOrder = getProcessedRotation(gameId, team);
 
-    const effectTrackers = {
-      byMember: Object.fromEntries(team.map(m => [m.memberId, {}])),
-      team: {},
-      active: {},
-    };
+  const effectTrackers = {
+    byMember: Object.fromEntries(team.map(m => [m.memberId, {}])),
+    team: {},
+    active: {},
+  };
+  const procCooldownMap = {};
 
-    const procCooldownMap = {};
-    for (const actionKey of prevRotationActionOrder) {
-      const { considered, duration: actionDuration = 1000, offset = 500 } = getAction(gameId, actionKey);
+  // Priming pass: one full cycle to establish steady-state effect conditions
+  for (const { processedRotation } of rotationOrder) {
+    for (const action of processedRotation) {
+      const { duration: actionDuration = 1000, offset = 500 } = action;
 
-      applyEffects({ gameId, members, actionKey, effectTrackers });
+      applyEffects({ action, members, effectTrackers });
       advanceEffects(effectTrackers, offset, actionDuration);
       tickProcCooldowns(procCooldownMap, offset);
-      processProcEffects({ gameId, members, actionKey, considered, effectTrackers, procCooldownMap });
-      decayProcCounts(gameId, members, effectTrackers, actionKey);
+      processProcEffects({ gameId, members, action, effectTrackers, procCooldownMap });
+      decayProcCounts(members, effectTrackers, action);
       tickProcCooldowns(procCooldownMap, actionDuration);
     }
+  }
 
-    // now iterate through each action
-    for (const actionKey of rotation) {
-      const { considered, duration: actionDuration = 1000, offset = 500 } = getAction(gameId, actionKey);
+  // Damage pass: one full cycle, tracking damage for every action
+  const actionMap = {};
+  for (const { memberId, processedRotation } of rotationOrder) {
+    for (const action of processedRotation) {
+      const { actionKey, duration: actionDuration = 1000, offset = 500 } = action;
 
-      applyEffects({ gameId, members, actionKey, effectTrackers });
+      applyEffects({ action, members, effectTrackers });
       advanceEffects(effectTrackers, offset, actionDuration);
       tickProcCooldowns(procCooldownMap, offset);
 
-      // damage calculation
       const { damage = 0, healing = 0 } = simulateAction({
         gameId,
-        actionOwner: memberId,
-        actionKey,
+        action,
         effectTrackers,
         activeId: memberId,
         members,
@@ -619,8 +662,8 @@ export function simulateRotation(gameId, rawTeam) {
         healing: (actionMap[actionKey]?.healing ?? 0) + healing,
       };
 
-      processProcEffects({ gameId, members, actionKey, considered, effectTrackers, procCooldownMap, actionMap });
-      decayProcCounts(gameId, members, effectTrackers, actionKey);
+      processProcEffects({ gameId, members, action, effectTrackers, procCooldownMap, actionMap });
+      decayProcCounts(members, effectTrackers, action);
       tickProcCooldowns(procCooldownMap, actionDuration);
     }
   }
@@ -628,5 +671,4 @@ export function simulateRotation(gameId, rawTeam) {
   return actionMap;
 }
 
-const getActionOwner = (actionKey) => actionKey.split('-')[0];
-const getShortActionKey = (actionKey) => actionKey.split('-').slice(1).join('-');
+

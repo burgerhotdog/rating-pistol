@@ -3548,6 +3548,7 @@
       {
         "trigger": "8-1",
         "target": "ally",
+        "duration": 30000,
         "statMap": {
           "AMP_FRAZZLE": 1,
           "IGNORE_SPECTRO": 0.1

@@ -1,8 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Box } from '@mui/material';
-import { useBuild } from '@/contexts';
+import { useBuild, useAuth } from '@/contexts';
 
 const HeaderOcr = () => {
+  const navigate = useNavigate();
+  const { gameId } = useParams();
+  const { user } = useAuth();
   const { saveBuildEntries } = useBuild();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -28,7 +32,7 @@ const HeaderOcr = () => {
       workerRef.current.postMessage({ imageBitmap }, [imageBitmap]);
     });
 
-    workerRef.current.onmessage = ({ data }) => {
+    workerRef.current.onmessage = async ({ data }) => {
       const { success, entry, error: workerError } = data;
       if (!success) {
         setError(workerError);
@@ -37,9 +41,11 @@ const HeaderOcr = () => {
         return;
       }
 
-      saveBuildEntries('wuthering-waves', [entry]);
+      const characterId = entry[0];
+      await saveBuildEntries('wuthering-waves', [entry]);
       setError(null);
       setIsLoading(false);
+      navigate(`/${gameId}/${characterId}`, { replace: true });
     };
 
     workerRef.current.onerror = () => {
