@@ -851,7 +851,7 @@
         "trigger": "7-1",
         "target": "team",
         "duration": 18000,
-        "cooldown": 1000,
+        "procsCooldown": 1000,
         "procs": {
           "actions": "7-2"
         }
@@ -1594,7 +1594,7 @@
         "trigger": "3-1",
         "target": "team",
         "duration": 12000,
-        "cooldown": 1000,
+        "procsCooldown": 1000,
         "procs": [
           {
             "actions": "3-3"
@@ -2646,7 +2646,7 @@
         "trigger": "3-2",
         "target": "active",
         "duration": 30000,
-        "cooldown": 3000,
+        "procsCooldown": 3000,
         "procs": {
           "actions": "3-1"
         },
@@ -3459,7 +3459,7 @@
         "trigger": "8-1",
         "target": "team",
         "maxProcs": 2,
-        "cooldown": 1000,
+        "procsCooldown": 1000,
         "duration": 20000,
         "procs": {
           "filter": "RS",
@@ -3548,7 +3548,7 @@
       {
         "trigger": "2-1",
         "duration": 30000,
-        "cooldown": 500,
+        "procsCooldown": 500,
         "procs": {
           "actionKeyTrigger": [
             "1-1",
@@ -3746,7 +3746,7 @@
         "trigger": "3-1",
         "target": "active",
         "duration": 30000,
-        "cooldown": 1000,
+        "procsCooldown": 1000,
         "maxProcs": 21,
         "procs": {
           "action": "3-2"
