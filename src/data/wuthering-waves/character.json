@@ -471,13 +471,6 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_FUSION": 0.1
-        }
-      }
-    },
     "effects": [
       {
         "actionFilter": [

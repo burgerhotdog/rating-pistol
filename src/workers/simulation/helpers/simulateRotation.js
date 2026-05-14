@@ -252,16 +252,6 @@ const normalizeProc = (proc) => ({
   times: proc.times ?? 1,
 });
 
-const normalizeLegacyBuffsAsEffects = (buffs = {}) => {
-  return Object.entries(buffs).flatMap(([target, buffData]) => {
-    if (!buffData) return [];
-    const statMap = { ...(buffData.constant ?? {}) };
-    if (Object.keys(statMap).length === 0) return [];
-
-    return [{ target, statMap }];
-  });
-};
-
 const getSetCounts = (member) => {
   if (member.setCounts) return member.setCounts;
   if (member.build?.setCounts) return member.build.setCounts;
@@ -391,13 +381,6 @@ const normalizeEffects = (gameId, member) => {
   registerSourceEffects(characterData.effects, rank);
   registerSourceEffects(weaponData.effects, weaponRank);
   for (const setBonus of setBonuses) registerSourceEffects(toArray(setBonus), Infinity);
-
-  // Legacy support while data migrates from buffs -> effects.
-  registerSourceEffects(normalizeLegacyBuffsAsEffects(characterData.buffs), Infinity);
-  registerSourceEffects(normalizeLegacyBuffsAsEffects(weaponData.buffs), Infinity);
-  for (const setBonus of setBonuses) {
-    registerSourceEffects(normalizeLegacyBuffsAsEffects(setBonus.buffs), Infinity);
-  }
 
   return { passiveEffects, effectsByAction, effectsByInput, effectsByConsidered, effectDefinitions };
 };
