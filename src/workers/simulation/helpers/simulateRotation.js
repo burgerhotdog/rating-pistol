@@ -294,6 +294,20 @@ const normalizeEffects = (gameId, member) => {
   const effectsByInput = {};
   const passiveEffects = [];
 
+  function applyRankModifier(resolved, modifier = {}) {
+    const { duration, maxProcs, statMap, variableStatMap, procs } = modifier;
+
+    if (duration) resolved.duration += duration;
+    if (maxProcs) resolved.maxProcs += maxProcs;
+    if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
+    if (variableStatMap) {
+      resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, variableStatMap);
+    }
+    if (procs) {
+      resolved.procs.push(...toArray(procs).map(proc => normalizeProc(proc)));
+    }
+  }
+
   let index = 0;
   function registerSourceEffects(sourceEffects = [], sourceRank = Infinity) {
     sourceEffects
@@ -320,17 +334,21 @@ const normalizeEffects = (gameId, member) => {
 
         for (const [rankReq, modifier] of Object.entries(meta.rankModifiers ?? {})) {
           if (Number(rankReq) > sourceRank) continue;
+          applyRankModifier(resolved, modifier);
+        }
 
-          const { duration, maxProcs, statMap, variableStatMap, procs } = modifier;
+        // Simplified shorthand for repeated rank increments. Defaults to weapon ranks R2-R5.
+        if (meta.rankIncrements) {
+          const { statMap } = meta.rankIncrements;
 
-          if (duration) resolved.duration += duration;
-          if (maxProcs) resolved.maxProcs += maxProcs;
-          if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
-          if (variableStatMap) {
-            resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, variableStatMap);
-          }
-          if (procs) {
-            resolved.procs.push(...toArray(procs).map(proc => normalizeProc(proc)));
+          for (const [stat, r1Value] of Object.entries(statMap)) {
+            const max = statMap[stat];
+            const increment = (max - r1Value) / 4; // Divide difference across R2-R5.
+
+            for (let rank = 2; rank <= 5; rank++) {
+              const interpolatedValue = r1Value + increment * (rank - 1);
+              applyRankModifier(resolved, { statMap: { [stat]: interpolatedValue } });
+            }
           }
         }
 

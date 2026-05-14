@@ -6,9 +6,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+        "PERCENT_ATK": 0.095
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.4
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.8
+          }
+        }
+      }
+    ]
   },
   "21010012": {
     "name": "Tyro Broadblade",
@@ -46,7 +58,6 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_ATK": 0.364,
         "PERCENT_ER": 0.128
       }
     },
