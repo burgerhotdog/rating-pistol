@@ -165,9 +165,20 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
+
   // Apply active-target effects only if the action owner matches the current actor
   if (activeId === actionOwner) {
     for (const [effectKey, { stacks }] of Object.entries(effectTrackers.active)) {
+      const effectOwner = effectKey.slice(0, 4);
+      const effectIndex = effectKey.slice(5);
+      const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
+      const { actionFilter } = effectDefinition;
+      if (actionFilter && !actionFilter.includes(shortKey)) continue;
+      const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
+      applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
+    }
+  } else {
+    for (const [effectKey, { stacks }] of Object.entries(effectTrackers.inactive)) {
       const effectOwner = effectKey.slice(0, 4);
       const effectIndex = effectKey.slice(5);
       const effectDefinition = members[effectOwner].effectDefinitions[effectIndex];
@@ -330,15 +341,14 @@ const normalizeEffects = (gameId, member) => {
 
         // Simplified shorthand for repeated rank increments. Defaults to weapon ranks R2-R5.
         if (meta.rankIncrements) {
-          const { statMap } = meta.rankIncrements;
+          const { statMap: r5StatMap } = meta.rankIncrements;
 
-          for (const [stat, r1Value] of Object.entries(statMap)) {
-            const max = statMap[stat];
-            const increment = (max - r1Value) / 4; // Divide difference across R2-R5.
+          for (const [stat, r5Value] of Object.entries(r5StatMap)) {
+            const r1Value = resolved.statMap[stat] ?? 0;
+            const increment = (r5Value - r1Value) / 4; // Divide difference across R2-R5.
 
-            for (let rank = 2; rank <= 5; rank++) {
-              const interpolatedValue = r1Value + increment * (rank - 1);
-              applyRankModifier(resolved, { statMap: { [stat]: interpolatedValue } });
+            for (let rank = 2; rank <= Math.min(sourceRank, 5); rank++) {
+              applyRankModifier(resolved, { statMap: { [stat]: increment } });
             }
           }
         }
@@ -454,6 +464,7 @@ export const simulateRotation = (gameId, rawTeam) => {
     byMember: Object.fromEntries(team.map(m => [m.memberId, {}])),
     team: {},
     active: {},
+    inactive: {},
   };
   const procCooldownMap = {};
 
@@ -543,7 +554,7 @@ function applyEffects({ action, members, effectTrackers, times = 1 }) {
   for (const effect of triggeredEffects) {
     const { target } = effectDefinitions[effect];
 
-    if (target === 'team' || target === 'active') {
+    if (target === 'team' || target === 'active' || target === 'inactive') {
       applyEffect(effectTrackers[target], effect);
       continue;
     }
@@ -567,9 +578,10 @@ function advanceEffects(effectTrackers, offset, duration) {
     }
   }
 
-  const { byMember, team, active } = effectTrackers;
+  const { byMember, team, active, inactive } = effectTrackers;
   advanceMap(team);
   advanceMap(active);
+  advanceMap(inactive);
   for (const memberMap of Object.values(byMember)) {
     advanceMap(memberMap);
   }
@@ -595,7 +607,7 @@ function processProcEffects({
   actionMap = null,
 }) {
   const { actionKey, ownerId: actionOwner, considered } = action;
-  const { byMember, team, active } = effectTrackers;
+  const { byMember, team, active, inactive } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
@@ -644,10 +656,11 @@ function processProcEffects({
   processTrackerMap(byMember[actionOwner] ?? {});
   processTrackerMap(team);
   processTrackerMap(active);
+  processTrackerMap(inactive);
 }
 
 function decayProcCounts(members, effectTrackers, action) {
-  const { team, active, byMember } = effectTrackers;
+  const { team, active, inactive, byMember } = effectTrackers;
   const { shortKey } = action;
 
   function decayMap(trackerMap) {
@@ -666,5 +679,6 @@ function decayProcCounts(members, effectTrackers, action) {
 
   decayMap(team);
   decayMap(active);
+  decayMap(inactive);
   for (const map of Object.values(byMember)) decayMap(map);
 }

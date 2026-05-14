@@ -1433,22 +1433,45 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ALL": 0.24
+          }
         }
+      },
+      {
+        "triggerFilter": "IS",
+        "statMap": {
+          "PERCENT_RS": 0.24
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.48
+          }
+        },
+        "duration": 12000
+      },
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_RS": 0.24
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.48
+          }
+        },
+        "duration": 12000
       }
-    }
+    ]
   },
   "21010063": {
     "name": "Beguiling Melody",
@@ -1468,17 +1491,52 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.486
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.56
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
+      },
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RL",
+          "IS",
+          "OS",
+          "ES"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.08
+          }
+        },
+        "maxStacks": 4
+      },
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_RS": 0.2
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.4
+          }
+        },
+        "maxStacks": 2
       }
-    }
+    ]
   },
   "21040016": {
     "name": "Verity's Handle",
@@ -1487,22 +1545,33 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ALL": 0.24
+          }
         }
+      },
+      {
+        "triggerFilter": "RL",
+        "statMap": {
+          "PERCENT_RL": 0.48
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.96
+          }
+        },
+        "duration": 23000
       }
-    }
+    ]
   },
   "21050026": {
     "name": "Rime-Draped Sprouts",
@@ -1511,17 +1580,46 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CD": 0.72,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.72
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.52
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
+      },
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_BA": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.24
+          }
+        },
+        "duration": 6000,
+        "maxStacks": 3
+      },
+      {
+        "triggerFilter": "OS",
+        "statMap": {
+          "PERCENT_BA": 0.52
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 1.04
+          }
+        },
+        "duration": 27000
       }
-    }
+    ]
   },
   "21010084": {
     "name": "Waning Redshift",
@@ -1533,13 +1631,21 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
+        },
+        "duration": 16000,
+        "cooldown": 20000
       }
-    }
+    ]
   },
   "21020084": {
     "name": "Endless Collapse",
@@ -1551,13 +1657,21 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
+        },
+        "duration": 16000,
+        "cooldown": 20000
       }
-    }
+    ]
   },
   "21030084": {
     "name": "Relativistic Jet",
@@ -1569,13 +1683,21 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
+        },
+        "duration": 16000,
+        "cooldown": 20000
       }
-    }
+    ]
   },
   "21040084": {
     "name": "Celestial Spiral",
@@ -1587,13 +1709,21 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
+        },
+        "duration": 16000,
+        "cooldown": 20000
       }
-    }
+    ]
   },
   "21050036": {
     "name": "Stellar Symphony",
@@ -1602,17 +1732,34 @@
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_ER": 0.77,
-        "PERCENT_HP": 0.12
+        "PERCENT_ER": 0.77
       }
     },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.14
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HP": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HP": 0.24
+          }
         }
+      },
+      {
+        "triggerFilter": "RS",
+        "target": "team",
+        "statMap": {
+          "PERCENT_ATK": 0.14
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.28
+          }
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21050084": {
     "name": "Fusion Accretion",
@@ -1624,13 +1771,21 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.2
-        }
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
+        },
+        "duration": 16000,
+        "cooldown": 20000
       }
-    }
+    ]
   },
   "21020017": {
     "name": "Somnoire Anchor",
@@ -1642,14 +1797,31 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.4,
-          "PERCENT_CR": 0.12
-        }
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.02,
+          "PERCENT_CR": 0.006
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.04,
+            "PERCENT_CR": 0.012
+          }
+        },
+        "duration": 3000,
+        "maxStacks": 10
       }
-    }
+    ]
   },
   "21020026": {
     "name": "Red Spring",
@@ -1658,17 +1830,36 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.7
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12,
+          "PERCENT_BA": 0.2
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24,
+            "PERCENT_BA": 0.4
+          }
         }
+      },
+      {
+        "triggerFilter": "BA",
+        "statMap": {
+          "PERCENT_BA": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
+        },
+        "duration": 14000,
+        "maxStacks": 3
       }
-    }
+    ]
   },
   "21010094": {
     "name": "Meditations on Mercy",
@@ -1680,13 +1871,31 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES",
+          "CA"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        },
+        "duration": 10000,
+        "maxStacks": 4,
+        "cooldown": 1000
       }
-    }
+    ]
   },
   "21020094": {
     "name": "Fables of Wisdom",
@@ -1698,13 +1907,31 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES",
+          "CA"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        },
+        "duration": 10000,
+        "maxStacks": 4,
+        "cooldown": 1000
       }
-    }
+    ]
   },
   "21030016": {
     "name": "The Last Dance",
@@ -1713,17 +1940,36 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CD": 0.72,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.72
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
+      },
+      {
+        "triggerFilter": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.48
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.96
+          }
+        },
+        "duration": 5000
       }
-    }
+    ]
   },
   "21030094": {
     "name": "Romance in Farewell",
@@ -1735,13 +1981,31 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES",
+          "CA"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        },
+        "duration": 10000,
+        "maxStacks": 4,
+        "cooldown": 1000
       }
-    }
+    ]
   },
   "21040026": {
     "name": "Tragicomedy",
@@ -1754,13 +2018,33 @@
         "PERCENT_ATK": 0.12
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
+      },
+      {
+        "triggerFilter": [
+          "BA",
+          "IS"
+        ],
+        "statMap": {
+          "PERCENT_HA": 0.48
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HA": 0.96
+          }
+        },
+        "duration": 3000
       }
-    }
+    ]
   },
   "21040094": {
     "name": "Legend of Drunken Hero",
@@ -1772,13 +2056,31 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES",
+          "CA"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        },
+        "duration": 10000,
+        "maxStacks": 4,
+        "cooldown": 1000
       }
-    }
+    ]
   },
   "21050017": {
     "name": "Call of the Abyss",
@@ -1790,13 +2092,20 @@
         "PERCENT_ER": 0.518
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HB": 0.32
-        }
+    "effects": [
+      {
+        "triggerFilter": "RL",
+        "statMap": {
+          "PERCENT_HB": 0.16
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HB": 0.32
+          }
+        },
+        "duration": 15000
       }
-    }
+    ]
   },
   "21050094": {
     "name": "Waltz in Masquerade",
@@ -1808,13 +2117,31 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.32
-        }
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES",
+          "CA"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        },
+        "duration": 10000,
+        "maxStacks": 4,
+        "cooldown": 1000
       }
-    }
+    ]
   },
   "21020036": {
     "name": "Unflickering Valor",
@@ -1823,17 +2150,45 @@
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_ER": 0.77,
-        "PERCENT_CR": 0.08
+        "PERCENT_ER": 0.77
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_CR": 0.08
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_CR": 0.16
+          }
         }
+      },
+      {
+        "triggerFilter": "RL",
+        "statMap": {
+          "PERCENT_BA": 0.24
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.48
+          }
+        },
+        "duration": 10000
+      },
+      {
+        "triggerFilter": "BA",
+        "statMap": {
+          "PERCENT_BA": 0.24
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.48
+          }
+        },
+        "duration": 4000
       }
-    }
+    ]
   },
   "21050027": {
     "name": "Ocean's Gift",
@@ -1845,13 +2200,29 @@
         "PERCENT_ATK": 0.182
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_SPECTRO": 0.4
-        }
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES"
+        ],
+        "statMap": {
+          "PERCENT_SPECTRO": 0.06
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_SPECTRO": 0.1
+          }
+        },
+        "duration": 6000,
+        "maxStacks": 4
       }
-    }
+    ]
   },
   "21050046": {
     "name": "Luminous Hymn",
@@ -1860,23 +2231,57 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.36
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.42,
-          "PERCENT_HA": 0.42
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       },
-      "ally": {
-        "constant": {
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES"
+        ],
+        "statMap": {
+          "PERCENT_BA": 0.14,
+          "PERCENT_HA": 0.14
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.28,
+            "PERCENT_HA": 0.28
+          }
+        },
+        "duration": 6000,
+        "maxStacks": 3
+      },
+      {
+        "triggerFilter": "OS",
+        "target": "team",
+        "statMap": {
           "AMP_FRAZZLE": 0.3
-        }
+        },
+        "rankIncrements": {
+          "statMap": {
+            "AMP_FRAZZLE": 0.6
+          }
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21020046": {
     "name": "Bloodpact's Pledge",
@@ -1888,18 +2293,29 @@
         "PERCENT_ER": 0.388
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.26
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_RS": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.26
+          }
         }
       },
-      "team": {
-        "constant": {
-          "PERCENT_AERO": 0.26
+      {
+        "target": "team",
+        "statMap": {
+          "AMP_AERO": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "AMP_AERO": 0.26
+          }
         }
       }
-    }
+    ]
   },
   "21050056": {
     "name": "Whispers of Sirens",
@@ -1908,18 +2324,25 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CD": 0.72,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.72
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12,
           "PERCENT_BA": 0.4,
           "IGNORE_HAVOC": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24,
+            "PERCENT_BA": 0.8,
+            "IGNORE_HAVOC": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21030026": {
     "name": "Woodland Aria",
@@ -1928,22 +2351,62 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.36
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_AERO": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       },
-      "team": {
-        "constant": {
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES"
+        ],
+        "statMap": {
+          "PERCENT_AERO": 0.24
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_AERO": 0.48
+          }
+        },
+        "duration": 10000
+      },
+      {
+        "triggerFilter": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES"
+        ],
+        "target": "team",
+        "statMap": {
           "IGNORE_AERO": 0.1
-        }
+        },
+        "rankIncrements": {
+          "statMap": {
+            "IGNORE_AERO": 0.16
+          }
+        },
+        "duration": 20000
       }
-    }
+    ]
   },
   "21040036": {
     "name": "Blazing Justice",
@@ -1952,18 +2415,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.486
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "IGNORE_DEF": 0.08,
-          "AMP_FRAZZLE": 0.5
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21010036": {
     "name": "Wildfire Mark",
@@ -1972,22 +2438,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.486
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.24
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_FUSION": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21020056": {
     "name": "Defier's Thorn",
@@ -1996,17 +2461,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_HP": 0.842
+        "PERCENT_HP": 0.722
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "IGNORE_DEF": 0.08,
-          "AMP_ALL": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HP": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HP": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21050066": {
     "name": "Lethean Elegy",
@@ -2015,19 +2484,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.32,
-          "AMP_ES": 0.32,
-          "IGNORE_DEF": 0.08
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21010046": {
     "name": "Thunderflare Dominion",
@@ -2036,18 +2507,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 675,
-        "PERCENT_CR": 0.121,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.121
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.2,
-          "IGNORE_DEF_HA": 0.36
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21010104": {
     "name": "Aureate Zenith",
@@ -2059,14 +2533,22 @@
         "PERCENT_CD": 0.405
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_HA": 0.345
-        }
+    "effects": [
+      {
+        "triggerFilter": "RL",
+        "statMap": {
+          "PERCENT_ATK": 0.072,
+          "PERCENT_HA": 0.108
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.23,
+            "PERCENT_HA": 0.345
+          }
+        },
+        "duration": 15000
       }
-    }
+    ]
   },
   "21020104": {
     "name": "Feather Edge",
@@ -2078,14 +2560,22 @@
         "PERCENT_CR": 0.202
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_RL": 0.345
-        }
+    "effects": [
+      {
+        "triggerFilter": "RL",
+        "statMap": {
+          "PERCENT_ATK": 0.072,
+          "PERCENT_RL": 0.108
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.23,
+            "PERCENT_RL": 0.345
+          }
+        },
+        "duration": 15000
       }
-    }
+    ]
   },
   "21030104": {
     "name": "Solar Flame",
@@ -2097,14 +2587,27 @@
         "PERCENT_CR": 0.202
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.36,
-          "PERCENT_HA": 0.36
-        }
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.022,
+          "PERCENT_HA": 0.022
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.072,
+            "PERCENT_HA": 0.072
+          }
+        },
+        "duration": 7000,
+        "maxStacks": 4,
+        "cooldown": 1000
       }
-    }
+    ]
   },
   "21040046": {
     "name": "Moongazer's Sigil",
@@ -2113,18 +2616,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.36
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.2,
-          "IGNORE_DEF_RL": 0.36
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21040104": {
     "name": "Aether Strike",
@@ -2136,14 +2642,22 @@
         "PERCENT_CD": 0.405
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_RL": 0.345
-        }
+    "effects": [
+      {
+        "triggerFilter": "RL",
+        "statMap": {
+          "PERCENT_ATK": 0.072,
+          "PERCENT_RL": 0.108
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.23,
+            "PERCENT_RL": 0.345
+          }
+        },
+        "duration": 15000
       }
-    }
+    ]
   },
   "21050104": {
     "name": "Radiant Dawn",
@@ -2155,14 +2669,22 @@
         "PERCENT_CD": 0.405
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.288,
-          "PERCENT_BA": 0.288
-        }
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.09,
+          "PERCENT_BA": 0.09
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.288,
+            "PERCENT_BA": 0.288
+          }
+        },
+        "duration": 10000
       }
-    }
+    ]
   },
   "21020066": {
     "name": "Emerald Sentence",
@@ -2171,22 +2693,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.6
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_ES": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21030036": {
     "name": "Lux & Umbra",
@@ -2195,19 +2716,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.486
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_HA": 0.24,
-          "AMP_ES": 0.24,
-          "IGNORE_DEF": 0.08
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21010056": {
     "name": "Kumokiri",
@@ -2216,27 +2739,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.36
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.24
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_GLACIO": 0.24,
-          "PERCENT_FUSION": 0.24,
-          "PERCENT_ELECTRO": 0.24,
-          "PERCENT_AERO": 0.24,
-          "PERCENT_SPECTRO": 0.24,
-          "PERCENT_HAVOC": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21010045": {
     "name": "Radiance Cleaver",
@@ -2245,17 +2762,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.486
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21010066": {
     "name": "Starfield Calibrator",
@@ -2264,17 +2785,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_ER": 0.77,
-        "PERCENT_DEF": 0.16
+        "PERCENT_ER": 0.77
       }
     },
-    "buffs": {
-      "team": {
-        "constant": {
-          "PERCENT_CD": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_DEF": 0.16
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_DEF": 0.32
+          }
         }
       }
-    }
+    ]
   },
   "21020045": {
     "name": "Laser Shearer",
@@ -2283,17 +2808,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_ER": 0.388,
-        "PERCENT_ATK": 0.12
+        "PERCENT_ER": 0.388
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21030045": {
     "name": "Phasic Homogenizer",
@@ -2302,22 +2831,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.486
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_GLACIO": 0.2,
-          "PERCENT_FUSION": 0.2,
-          "PERCENT_ELECTRO": 0.2,
-          "PERCENT_AERO": 0.2,
-          "PERCENT_SPECTRO": 0.2,
-          "PERCENT_HAVOC": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21030046": {
     "name": "Spectrum Blaster",
@@ -2326,22 +2854,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.36
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_ALL": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21040045": {
     "name": "Pulsation Bracer",
@@ -2350,17 +2877,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21050045": {
     "name": "Boson Astrolabe",
@@ -2369,18 +2900,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 525,
-        "PERCENT_ER": 0.388,
-        "PERCENT_ATK": 0.12
+        "PERCENT_ER": 0.388
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.12,
-          "PERCENT_BA": 0.12
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21020076": {
     "name": "Everbright Polestar",
@@ -2389,23 +2923,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "IGNORE_DEF_RL": 0.32,
-          "IGNORE_FUSION_RL": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ALL": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21040056": {
     "name": "Daybreaker's Spine",
@@ -2414,19 +2946,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_SPECTRO": 0.2,
-          "AMP_BA": 0.2,
-          "IGNORE_DEF_BA": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21040066": {
     "name": "Solsworn Ciphers",
@@ -2435,18 +2969,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CD": 0.486
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_ES": 0.32,
-          "IGNORE_DEF_ES": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21020086": {
     "name": "Frostburn",
@@ -2455,19 +2992,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "AMP_GLACIO": 0.28,
-          "IGNORE_DEF_RL": 0.1,
-          "AMP_CHAFE": 0.2
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21050076": {
     "name": "Forged Dwarf Star",
@@ -2476,21 +3015,20 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_ATK": 0.12
+        "PERCENT_CR": 0.36
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.36
-        }
-      },
-      "team": {
-        "constant": {
-          "PERCENT_ATK": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   }
 }
