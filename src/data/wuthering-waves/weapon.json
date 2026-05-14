@@ -12,11 +12,11 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.4
+          "PERCENT_ATK": 0.04
         },
         "rankIncrements": {
           "statMap": {
-            "PERCENT_ATK": 0.8
+            "PERCENT_ATK": 0.08
           }
         }
       }
@@ -29,9 +29,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+        "PERCENT_ATK": 0.123
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.05
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      }
+    ]
   },
   "21010013": {
     "name": "Broadblade of Night",
@@ -43,13 +55,20 @@
         "PERCENT_ATK": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16
+          }
         }
       }
-    }
+    ]
   },
   "21010015": {
     "name": "Lustrous Razor",
@@ -58,16 +77,34 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_ER": 0.128
+        "PERCENT_ATK": 0.365
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.21
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": 0.128
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ER": 0.256
+          }
+        }
+      },
+      {
+        "triggerFilter": "RS",
+        "maxStacks": 3,
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_RL": 0.07
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RL": 0.14
+          }
         }
       }
-    }
+    ]
   },
   "21010016": {
     "name": "Verdant Summit",
@@ -76,22 +113,37 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CD": 0.486,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
+        "PERCENT_CD": 0.486
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.48
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ALL": 0.24
+          }
+        }
+      },
+      {
+        "triggerFilter": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_HA": 0.24
+        },
+        "maxStacks": 2,
+        "duration": 14000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HA": 0.48
+          }
         }
       }
-    }
+    ]
   },
   "21010023": {
     "name": "Originite: Type I",
@@ -122,10 +174,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 412,
-        "PERCENT_ER": 0.324,
-        "PERCENT_ATK": 0.24
+        "PERCENT_ER": 0.324
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
+        }
+      }
+    ]
   },
   "21010043": {
     "name": "Broadblade of Voyager",
@@ -148,14 +211,22 @@
         "PERCENT_DEF": 0.615
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16,
-          "PERCENT_DEF": 0.3
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "statMap": {
+          "PERCENT_ATK": 0.08,
+          "PERCENT_DEF": 0.15
+        },
+        "duration": 15000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16,
+            "PERCENT_DEF": 0.3
+          }
         }
       }
-    }
+    ]
   },
   "21010053": {
     "name": "Guardian Broadblade",
@@ -164,11 +235,23 @@
     "stats": {
       "constant": {
         "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243,
-        "PERCENT_BA": 0.24,
-        "PERCENT_HA": 0.24
+        "PERCENT_ATK": 0.243
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_BA": 0.12,
+          "PERCENT_HA": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.24,
+            "PERCENT_HA": 0.24
+          }
+        }
+      }
+    ]
   },
   "21010064": {
     "name": "Helios Cleaver",
@@ -180,13 +263,20 @@
         "PERCENT_ATK": 0.303
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.09
+        },
+        "duration": 12000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.18
+          }
         }
       }
-    }
+    ]
   },
   "21010074": {
     "name": "Autumntrace",
@@ -198,13 +288,25 @@
         "PERCENT_CR": 0.202
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.64
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "maxStacks": 5,
+        "duration": 7000,
+        "cooldown": 1000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.128
+          }
         }
       }
-    }
+    ]
   },
   "21020011": {
     "name": "Training Sword",
@@ -213,9 +315,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+        "PERCENT_ATK": 0.095
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        }
+      }
+    ]
   },
   "21020012": {
     "name": "Tyro Sword",
@@ -224,9 +338,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+        "PERCENT_ATK": 0.123
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.05
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      }
+    ]
   },
   "21020013": {
     "name": "Sword of Night",
@@ -238,13 +364,20 @@
         "PERCENT_ATK": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16
+          }
         }
       }
-    }
+    ]
   },
   "21020015": {
     "name": "Emerald of Genesis",
@@ -253,17 +386,34 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ER": 0.128
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.12
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": 0.128
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ER": 0.256
+          }
         }
+      },
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.06
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.12
+          }
+        },
+        "maxStacks": 2,
+        "duration": 10000
       }
-    }
+    ]
   },
   "21020023": {
     "name": "Originite: Type II",
@@ -297,13 +447,18 @@
         "PERCENT_ATK": 0.364
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HA": 0.36
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HA": 0.18
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HA": 0.36
+          }
         }
       }
-    }
+    ]
   },
   "21020043": {
     "name": "Sword of Voyager",
@@ -326,13 +481,20 @@
         "PERCENT_ATK": 0.303
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.3
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        },
+        "duration": 15000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.3
+          }
         }
       }
-    }
+    ]
   },
   "21020053": {
     "name": "Guardian Sword",
@@ -341,10 +503,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 300,
-        "PERCENT_HP": 0.303,
-        "PERCENT_RS": 0.24
+        "PERCENT_HP": 0.303
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_RS": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.24
+          }
+        }
+      }
+    ]
   },
   "21020064": {
     "name": "Lunar Cutter",
@@ -356,13 +529,18 @@
         "PERCENT_ATK": 0.303
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.07
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.14
+          }
         }
       }
-    }
+    ]
   },
   "21020074": {
     "name": "Lumingloss",
@@ -374,14 +552,23 @@
         "PERCENT_ATK": 0.364
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.64,
-          "PERCENT_HA": 0.64
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_BA": 0.2,
+          "PERCENT_HA": 0.2
+        },
+        "duration": 10000,
+        "cooldown": 1000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.64,
+            "PERCENT_HA": 0.64
+          }
         }
       }
-    }
+    ]
   },
   "21030011": {
     "name": "Training Pistols",
@@ -390,9 +577,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+        "PERCENT_ATK": 0.095
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        }
+      }
+    ]
   },
   "21030012": {
     "name": "Tyro Pistols",
@@ -401,9 +600,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+        "PERCENT_ATK": 0.123
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.05
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      }
+    ]
   },
   "21030013": {
     "name": "Pistols of Night",
@@ -415,13 +626,20 @@
         "PERCENT_ATK": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16
+          }
         }
       }
-    }
+    ]
   },
   "21030015": {
     "name": "Static Mist",
@@ -430,17 +648,34 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ER": 0.128
+        "PERCENT_CR": 0.243
       }
     },
-    "buffs": {
-      "next": {
-        "constant": {
-          "PERCENT_ATK": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": 0.128
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ER": 0.256
+          }
         }
+      },
+      {
+        "triggerFilter": "OS",
+        "target": "next",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
+        },
+        "duration": 14000
       }
-    }
+    ]
   },
   "21030023": {
     "name": "Originite: Type III",
@@ -474,13 +709,18 @@
         "PERCENT_ATK": 0.364
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
         }
       }
-    }
+    ]
   },
   "21030043": {
     "name": "Pistols of Voyager",
@@ -503,13 +743,20 @@
         "PERCENT_ATK": 0.303
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.4
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "statMap": {
+          "PERCENT_RS": 0.2
+        },
+        "duration": 15000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.4
+          }
         }
       }
-    }
+    ]
   },
   "21030053": {
     "name": "Guardian Pistols",
@@ -518,10 +765,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 300,
-        "PERCENT_ATK": 0.303,
-        "PERCENT_RS": 0.24
+        "PERCENT_ATK": 0.303
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_RS": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.24
+          }
+        }
+      }
+    ]
   },
   "21030064": {
     "name": "Novaburst",
@@ -533,13 +791,18 @@
         "PERCENT_ATK": 0.303
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.8
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16
+          }
         }
       }
-    }
+    ]
   },
   "21030074": {
     "name": "Thunderbolt",
@@ -551,13 +814,25 @@
         "PERCENT_ATK": 0.364
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RS": 0.69
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.07
+        },
+        "maxStacks": 3,
+        "duration": 10000,
+        "cooldown": 1000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.23
+          }
         }
       }
-    }
+    ]
   },
   "21040011": {
     "name": "Training Gauntlets",
@@ -566,9 +841,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+        "PERCENT_ATK": 0.095
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        }
+      }
+    ]
   },
   "21040012": {
     "name": "Tyro Gauntlets",
@@ -577,9 +864,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+        "PERCENT_ATK": 0.123
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.05
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      }
+    ]
   },
   "21040013": {
     "name": "Gauntlets of Night",
@@ -591,13 +890,20 @@
         "PERCENT_ATK": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16
+          }
         }
       }
-    }
+    ]
   },
   "21040015": {
     "name": "Abyss Surges",
@@ -606,18 +912,45 @@
     "stats": {
       "constant": {
         "BASE_ATK": 587,
-        "PERCENT_ATK": 0.364,
-        "PERCENT_ER": 0.128
+        "PERCENT_ATK": 0.364
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.1,
-          "PERCENT_RS": 0.1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": 0.128
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ER": 0.256
+          }
         }
+      },
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_BA": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.2
+          }
+        },
+        "duration": 8000
+      },
+      {
+        "triggerFilter": "BA",
+        "statMap": {
+          "PERCENT_RS": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.2
+          }
+        },
+        "duration": 8000
       }
-    }
+    ]
   },
   "21040023": {
     "name": "Originite: Type IV",
@@ -651,14 +984,18 @@
         "PERCENT_ER": 0.388
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16,
-          "PERCENT_DC": 1
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.8
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16
+          }
         }
       }
-    }
+    ]
   },
   "21040043": {
     "name": "Gauntlets of Voyager",
@@ -681,13 +1018,20 @@
         "PERCENT_DEF": 0.615
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.4
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "statMap": {
+          "PERCENT_RL": 0.2
+        },
+        "duration": 15000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RL": 0.4
+          }
         }
       }
-    }
+    ]
   },
   "21040053": {
     "name": "Guardian Gauntlets",
@@ -696,10 +1040,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 300,
-        "PERCENT_DEF": 0.384,
-        "PERECNT_RL": 0.24
+        "PERCENT_DEF": 0.384
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_RL": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RL": 0.24
+          }
+        }
+      }
+    ]
   },
   "21040064": {
     "name": "Hollow Mirage",
@@ -711,14 +1066,21 @@
         "PERCENT_ATK": 0.303
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.15,
-          "PERCENT_DEF": 0.15
+    "effects": [
+      {
+        "triggerFilter": "RL",
+        "statMap": {
+          "PERCENT_ATK": 0.09,
+          "PERCENT_DEF": 0.09
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.15,
+            "PERCENT_DEF": 0.15
+          }
         }
       }
-    }
+    ]
   },
   "21040074": {
     "name": "Stonard",
@@ -730,13 +1092,20 @@
         "PERCENT_CR": 0.202
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_RL": 0.54
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_RL": 0.18
+        },
+        "duration": 15000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RL": 0.54
+          }
         }
       }
-    }
+    ]
   },
   "21050011": {
     "name": "Training Rectifier",
@@ -745,9 +1114,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 190,
-        "PERCENT_ATK": 0.175
+        "PERCENT_ATK": 0.095
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.04
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.08
+          }
+        }
+      }
+    ]
   },
   "21050012": {
     "name": "Tyro Rectifier",
@@ -756,9 +1137,21 @@
     "stats": {
       "constant": {
         "BASE_ATK": 209,
-        "PERCENT_ATK": 0.223
+        "PERCENT_ATK": 0.123
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.05
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.1
+          }
+        }
+      }
+    ]
   },
   "21050013": {
     "name": "Rectifier of Night",
@@ -770,13 +1163,20 @@
         "PERCENT_ATK": 0.243
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16
+          }
         }
       }
-    }
+    ]
   },
   "21050015": {
     "name": "Cosmic Ripples",
@@ -785,17 +1185,35 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_ATK": 0.539,
-        "PERCENT_ER": 0.128
+        "PERCENT_ATK": 0.539
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_BA": 0.16
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ER": 0.128
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ER": 0.256
+          }
         }
+      },
+      {
+        "triggerFilter": "BA",
+        "statMap": {
+          "PERCENT_BA": 0.032
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.064
+          }
+        },
+        "maxStacks": 5,
+        "cooldown": 500,
+        "duration": 8000
       }
-    }
+    ]
   },
   "21050016": {
     "name": "Stringmaster",
@@ -804,22 +1222,45 @@
     "stats": {
       "constant": {
         "BASE_ATK": 500,
-        "PERCENT_CR": 0.36,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ELECTRO": 0.12,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_SPECTRO": 0.12,
-        "PERCENT_HAVOC": 0.12
+        "PERCENT_CR": 0.36
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ALL": 0.24
+          }
+        }
+      },
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
+        },
+        "maxStacks": 2,
+        "duration": 5000
+      },
+      {
+        "target": "inactive",
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21050023": {
     "name": "Originite: Type V",
@@ -853,13 +1294,20 @@
         "PERCENT_ER": 0.518
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.24
+    "effects": [
+      {
+        "triggerFilter": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "duration": 10000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
         }
       }
-    }
+    ]
   },
   "21050043": {
     "name": "Rectifier of Voyager",
@@ -882,14 +1330,22 @@
         "PERCENT_ATK": 0.364
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.16,
-          "PERCENT_HP": 0.2
+    "effects": [
+      {
+        "triggerFilter": "IS",
+        "statMap": {
+          "PERCENT_ATK": 0.08,
+          "PERCENT_HP": 0.1
+        },
+        "duration": 15000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.16,
+            "PERCENT_HP": 0.2
+          }
         }
       }
-    }
+    ]
   },
   "21050053": {
     "name": "Guardian Rectifier",
@@ -898,11 +1354,23 @@
     "stats": {
       "constant": {
         "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243,
-        "PERCENT_BA": 0.24,
-        "PERCENT_HA": 0.24
+        "PERCENT_ATK": 0.243
       }
-    }
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_BA": 0.12,
+          "PERCENT_HA": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.24,
+            "PERCENT_HA": 0.24
+          }
+        }
+      }
+    ]
   },
   "21050064": {
     "name": "Comet Flare",
@@ -914,13 +1382,24 @@
         "PERCENT_HP": 0.303
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_HB": 0.18
+    "effects": [
+      {
+        "triggerFilter": [
+          "BA",
+          "HA"
+        ],
+        "statMap": {
+          "PERCENT_HB": 0.03
+        },
+        "duration": 8000,
+        "cooldown": 600,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HB": 0.06
+          }
         }
       }
-    }
+    ]
   },
   "21050074": {
     "name": "Augment",
@@ -932,13 +1411,20 @@
         "PERCENT_CR": 0.202
       }
     },
-    "buffs": {
-      "self": {
-        "constant": {
-          "PERCENT_ATK": 0.48
+    "effects": [
+      {
+        "triggerFilter": "RL",
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        },
+        "duration": 15000,
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.48
+          }
         }
       }
-    }
+    ]
   },
   "21010026": {
     "name": "Ages of Harvest",
