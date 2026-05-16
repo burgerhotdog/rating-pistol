@@ -8,7 +8,7 @@
         }
       },
       "5": {
-        "triggerInput": [
+        "applyOnInput": [
           "BA",
           "HA"
         ],
@@ -29,7 +29,7 @@
         }
       },
       "5": {
-        "triggerInput": "RS",
+        "applyOnInput": "RS",
         "statMap": {
           "PERCENT_FUSION": 0.3
         },
@@ -46,7 +46,7 @@
         }
       },
       "5": {
-        "triggerInput": [
+        "applyOnInput": [
           "HA",
           "RS"
         ],
@@ -67,7 +67,7 @@
         }
       },
       "5": {
-        "triggerInput": "IS",
+        "applyOnInput": "IS",
         "statMap": {
           "PERCENT_AERO": 0.3
         },
@@ -84,7 +84,7 @@
         }
       },
       "5": {
-        "triggerInput": "IS",
+        "applyOnInput": "IS",
         "statMap": {
           "PERCENT_SPECTRO": 0.3
         },
@@ -101,7 +101,7 @@
         }
       },
       "5": {
-        "triggerInput": [
+        "applyOnInput": [
           "BA",
           "HA"
         ],
@@ -122,7 +122,7 @@
         }
       },
       "5": {
-        "triggerConsidered": "HEAL",
+        "applyOnConsidered": "HEAL",
         "target": "team",
         "statMap": {
           "PERCENT_ATK": 0.15
@@ -140,7 +140,7 @@
         }
       },
       "5": {
-        "triggerInput": "OS",
+        "applyOnInput": "OS",
         "target": "next",
         "statMap": {
           "PERCENT_ATK": 0.225
@@ -159,13 +159,13 @@
       },
       "5": [
         {
-          "triggerInput": "IS",
-          "triggerCooldown": 1500,
-          "abortInput": "OS",
+          "applyOnInput": "IS",
+          "removeOnInput": "OS",
           "statMap": {
             "PERCENT_ATK": 0.05
           },
-          "maxStacks": 4
+          "maxStacks": 4,
+          "applyCooldown": 1500
         },
         {
           "statMap": {
@@ -185,7 +185,7 @@
       },
       "5": [
         {
-          "triggerInput": "RS",
+          "applyOnInput": "RS",
           "statMap": {
             "PERCENT_GLACIO": 0.225
           },
@@ -193,7 +193,7 @@
           "maxStacks": 2
         },
         {
-          "triggerInput": "RL",
+          "applyOnInput": "RL",
           "statMap": {
             "PERCENT_RS": 0.18
           },
@@ -228,7 +228,7 @@
         }
       },
       "5": {
-        "triggerInput": "OS",
+        "applyOnInput": "OS",
         "target": "next",
         "statMap": {
           "PERCENT_HAVOC": 0.15
@@ -252,7 +252,7 @@
           }
         },
         {
-          "triggerInput": "CA",
+          "applyOnInput": "CA",
           "target": "active",
           "statMap": {
             "PERCENT_ATK": 0.2
@@ -293,7 +293,7 @@
           }
         },
         {
-          "triggerInput": "IS",
+          "applyOnInput": "IS",
           "target": "team",
           "statMap": {
             "PERCENT_AERO": 0.15
@@ -328,7 +328,7 @@
       },
       "5": [
         {
-          "triggerInput": "RL",
+          "applyOnInput": "RL",
           "target": "team",
           "statMap": {
             "PERCENT_FUSION": 0.15
@@ -336,7 +336,7 @@
           "duration": 35000
         },
         {
-          "triggerInput": "RL",
+          "applyOnInput": "RL",
           "statMap": {
             "PERCENT_RL": 0.2
           },
@@ -360,14 +360,14 @@
     "name": "Crown of Valor",
     "setBonus": {
       "3": {
-        "triggerConsidered": "SHIELD",
-        "triggerCooldown": 500,
+        "applyOnConsidered": "SHIELD",
         "statMap": {
           "PERCENT_ATK": 0.06,
           "PERCENT_CD": 0.04
         },
         "duration": 4000,
-        "maxStacks": 5
+        "maxStacks": 5,
+        "applyCooldown": 500
       }
     }
   },
@@ -376,14 +376,14 @@
     "setBonus": {
       "3": [
         {
-          "triggerInput": "ES",
+          "applyOnInput": "ES",
           "statMap": {
             "PERCENT_HA": 0.3
           },
           "duration": 4000
         },
         {
-          "triggerInput": "ES",
+          "applyOnInput": "ES",
           "target": "team",
           "statMap": {
             "PERCENT_ES": 0.04
@@ -399,7 +399,7 @@
     "setBonus": {
       "3": [
         {
-          "triggerConsidered": "ES",
+          "applyOnConsidered": "ES",
           "statMap": {
             "PERCENT_CR_HA": 0.2,
             "PERCENT_FUSION": 0.08
@@ -407,7 +407,7 @@
           "duration": 6000
         },
         {
-          "triggerConsidered": "HA",
+          "applyOnConsidered": "HA",
           "statMap": {
             "PERCENT_CR_ES": 0.2,
             "PERCENT_FUSION": 0.08
@@ -437,7 +437,7 @@
         }
       },
       "5": {
-        "triggerInput": "OS",
+        "applyOnInput": "OS",
         "target": "next",
         "statMap": {
           "PERCENT_ATK": 0.3
@@ -455,7 +455,7 @@
         }
       },
       "5": {
-        "triggerConsidered": "HEAL",
+        "applyOnConsidered": "HEAL",
         "target": "team",
         "statMap": {
           "PERCENT_ATK": 0.25
@@ -474,7 +474,7 @@
       },
       "5": [
         {
-          "triggerConsidered": "BA",
+          "applyOnConsidered": "BA",
           "statMap": {
             "PERCENT_SPECTRO": 0.1
           },
@@ -482,8 +482,8 @@
           "maxStacks": 3
         },
         {
-          "triggerInput": "RL",
-          "abortInput": "OS",
+          "applyOnInput": "RL",
+          "removeOnInput": "OS",
           "statMap": {
             "PERCENT_BA": 0.4
           }
@@ -522,7 +522,7 @@
           }
         },
         {
-          "triggerInput": "OS",
+          "applyOnInput": "OS",
           "target": "next",
           "statMap": {
             "PERCENT_FUSION": 0.25
@@ -541,7 +541,7 @@
         }
       },
       "5": {
-        "triggerConsidered": "ES",
+        "applyOnConsidered": "ES",
         "statMap": {
           "PERCENT_CR_ES": 0.2,
           "PERCENT_AERO": 0.15
@@ -565,14 +565,14 @@
           }
         },
         {
-          "triggerConsidered": "RL",
+          "applyOnConsidered": "RL",
           "statMap": {
             "PERCENT_CR": 0.25
           },
           "duration": 30000
         },
         {
-          "triggerInput": "OS",
+          "applyOnInput": "OS",
           "target": "next",
           "statMap": {
             "PERCENT_GLACIO": 0.25
