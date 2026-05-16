@@ -8,7 +8,7 @@
         }
       },
       "5": {
-        "triggerFilter": [
+        "triggerInput": [
           "BA",
           "HA"
         ],
@@ -29,7 +29,7 @@
         }
       },
       "5": {
-        "triggerFilter": "RS",
+        "triggerInput": "RS",
         "statMap": {
           "PERCENT_FUSION": 0.3
         },
@@ -46,7 +46,7 @@
         }
       },
       "5": {
-        "triggerFilter": [
+        "triggerInput": [
           "HA",
           "RS"
         ],
@@ -67,7 +67,7 @@
         }
       },
       "5": {
-        "triggerFilter": "IS",
+        "triggerInput": "IS",
         "statMap": {
           "PERCENT_AERO": 0.3
         },
@@ -84,7 +84,7 @@
         }
       },
       "5": {
-        "triggerFilter": "IS",
+        "triggerInput": "IS",
         "statMap": {
           "PERCENT_SPECTRO": 0.3
         },
@@ -101,7 +101,7 @@
         }
       },
       "5": {
-        "triggerFilter": [
+        "triggerInput": [
           "BA",
           "HA"
         ],
@@ -293,6 +293,7 @@
           }
         },
         {
+          "triggerInput": "IS",
           "target": "team",
           "statMap": {
             "PERCENT_AERO": 0.15
@@ -359,10 +360,14 @@
     "name": "Crown of Valor",
     "setBonus": {
       "3": {
+        "triggerConsidered": "SHIELD",
+        "triggerCooldown": 500,
         "statMap": {
-          "PERCENT_ATK": 0.3,
-          "PERCENT_CD": 0.2
-        }
+          "PERCENT_ATK": 0.06,
+          "PERCENT_CD": 0.04
+        },
+        "duration": 4000,
+        "maxStacks": 5
       }
     }
   },
@@ -392,13 +397,24 @@
   "22": {
     "name": "Flamewing's Shadow",
     "setBonus": {
-      "3": {
-        "statMap": {
-          "PERCENT_CR_HA": 0.2,
-          "PERCENT_CR_ES": 0.2,
-          "PERCENT_FUSION": 0.16
+      "3": [
+        {
+          "triggerConsidered": "ES",
+          "statMap": {
+            "PERCENT_CR_HA": 0.2,
+            "PERCENT_FUSION": 0.08
+          },
+          "duration": 6000
+        },
+        {
+          "triggerConsidered": "HA",
+          "statMap": {
+            "PERCENT_CR_ES": 0.2,
+            "PERCENT_FUSION": 0.08
+          },
+          "duration": 6000
         }
-      }
+      ]
     }
   },
   "23": {
@@ -456,12 +472,23 @@
           "PERCENT_SPECTRO": 0.1
         }
       },
-      "5": {
-        "statMap": {
-          "PERCENT_SPECTRO": 0.3,
-          "PERCENT_BA": 0.4
+      "5": [
+        {
+          "triggerConsidered": "BA",
+          "statMap": {
+            "PERCENT_SPECTRO": 0.1
+          },
+          "duration": 10000,
+          "maxStacks": 3
+        },
+        {
+          "triggerInput": "RL",
+          "abortInput": "OS",
+          "statMap": {
+            "PERCENT_BA": 0.4
+          }
         }
-      }
+      ]
     }
   },
   "27": {
@@ -514,10 +541,12 @@
         }
       },
       "5": {
+        "triggerConsidered": "ES",
         "statMap": {
           "PERCENT_CR_ES": 0.2,
           "PERCENT_AERO": 0.15
-        }
+        },
+        "duration": 5000
       }
     }
   },
@@ -532,14 +561,23 @@
       "5": [
         {
           "statMap": {
-            "PERCENT_CR": 0.25
+            "PERCENT_GLACIO": 0.1
           }
         },
         {
+          "triggerConsidered": "RL",
+          "statMap": {
+            "PERCENT_CR": 0.25
+          },
+          "duration": 30000
+        },
+        {
+          "triggerInput": "OS",
           "target": "next",
           "statMap": {
             "PERCENT_GLACIO": 0.25
-          }
+          },
+          "duration": 15000
         }
       ]
     }
