@@ -5,13 +5,11 @@
     "element": "GLACIO",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 10062,
-        "BASE_ATK": 275,
-        "BASE_DEF": 941,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10062,
+      "BASE_ATK": 275,
+      "BASE_DEF": 941,
+      "PERCENT_GLACIO": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -143,13 +141,11 @@
     "element": "GLACIO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 12812,
-        "BASE_ATK": 212,
-        "BASE_DEF": 1002,
-        "PERCENT_HB": 0.12,
-        "PERCENT_HP": 0.12
-      }
+      "BASE_HP": 12812,
+      "BASE_ATK": 212,
+      "BASE_DEF": 1002,
+      "PERCENT_HB": 0.12,
+      "PERCENT_HP": 0.12
     },
     "effects": [
       {
@@ -274,13 +270,11 @@
     "element": "GLACIO",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10387,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1209,
-        "PERCENT_GLACIO": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10387,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1209,
+      "PERCENT_GLACIO": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -375,19 +369,409 @@
       ]
     }
   },
+  "1105": {
+    "name": "Zhezhi",
+    "quality": "5",
+    "element": "GLACIO",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_HP": 12250,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "3-2",
+        "target": "team",
+        "duration": 30000,
+        "maxProcs": 21,
+        "procs": {
+          "actions": "3-1"
+        },
+        "rankModifiers": {
+          "2": {
+            "maxProcs": 6
+          }
+        }
+      },
+      {
+        "trigger": "7-3",
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_BA": 0.18
+        }
+      },
+      {
+        "trigger": [
+          "7-2",
+          "7-3"
+        ],
+        "maxStacks": 3,
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_ATK": 0.06
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_RS": 0.25,
+          "AMP_GLACIO": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": "7-3",
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_CR": 0.1
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": [
+          "2-1",
+          "7-2",
+          "7-3"
+        ],
+        "maxStacks": 3,
+        "duration": 27000,
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "3-2",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 0.467
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 1.2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1105",
+        "1505"
+      ],
+      "weaponId": "21050026",
+      "setCounts": {
+        "13": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-1",
+        "1-2",
+        "1-3",
+        "2-1",
+        "7-1",
+        "7-2",
+        "7-2",
+        "7-3",
+        "3-2",
+        "8-1"
+      ]
+    }
+  },
+  "1106": {
+    "name": "Youhu",
+    "quality": "4",
+    "element": "GLACIO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 9975,
+      "BASE_ATK": 262,
+      "BASE_DEF": 1051,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "2-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "2-2"
+        }
+      },
+      {
+        "trigger": "6-1",
+        "duration": "14000",
+        "statMap": {
+          "PERCENT_GLACIO": 0.15
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_CA": 1
+        }
+      },
+      {
+        "rank": 3,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": "6-1",
+        "duration": 14000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": [
+          "2-3",
+          "2-4",
+          "2-5",
+          "2-6"
+        ],
+        "maxStacks": 4,
+        "duration": 7000,
+        "statMap": {
+          "PERCENT_CD": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1106"
+      ],
+      "weaponId": "21040024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "3-1",
+        "2-1",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "2-1",
+        "2-1",
+        "8-1"
+      ]
+    }
+  },
+  "1107": {
+    "name": "Carlotta",
+    "quality": "5",
+    "element": "GLACIO",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_HP": 12450,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1197,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": [
+          "2-2",
+          "3-2",
+          "6-1",
+          "7-1"
+        ],
+        "duration": 4000,
+        "statMap": {
+          "IGNORE_DEF": 0.18
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_CR": 0.125
+            }
+          }
+        }
+      },
+      {
+        "actionFilter": [
+          "3-1",
+          "3-2",
+          "3-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": "3-3",
+        "statMap": {
+          "PERCENT_MV": 1.26
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": [
+          "2-1",
+          "2-2"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.93
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "8-1",
+        "statMap": {
+          "FLAT_MV": 10.3218
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": [
+          "1-6",
+          "1-7",
+          "7-1"
+        ],
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_RS": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 0.47
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": "3-2",
+        "statMap": {
+          "PERCENT_FLAT": 1.866
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1107",
+        "1105",
+        "1505"
+      ],
+      "weaponId": "21030016",
+      "setCounts": {
+        "10": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "2-2",
+        "1-8",
+        "7-1",
+        "3-1",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-3",
+        "2-1",
+        "2-2",
+        "8-1"
+      ]
+    }
+  },
+  "1108": {
+    "name": "Hiyuki",
+    "quality": "5",
+    "element": "GLACIO",
+    "type": "SWORD",
+    "stats": {
+      "BASE_HP": 10300,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1112,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
+          "AMP_GLACIO": 0.2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1108",
+        "1509",
+        "1508"
+      ],
+      "weaponId": "21020086",
+      "setCounts": {
+        "30": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-3",
+        "1-4",
+        "3-1",
+        "2-2",
+        "2-3",
+        "1-7",
+        "1-8",
+        "1-9",
+        "1-10",
+        "1-11",
+        "7-1",
+        "7-1",
+        "7-1",
+        "1-13",
+        "3-2",
+        "3-3",
+        "3-3",
+        "3-3",
+        "8-1"
+      ]
+    }
+  },
   "1202": {
     "name": "Chixia",
     "quality": "4",
     "element": "FUSION",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 9087,
-        "BASE_ATK": 300,
-        "BASE_DEF": 953,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 9087,
+      "BASE_ATK": 300,
+      "BASE_DEF": 953,
+      "PERCENT_FUSION": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -463,13 +847,11 @@
     "element": "FUSION",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 10512,
-        "BASE_ATK": 425,
-        "BASE_DEF": 1246,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10512,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1246,
+      "PERCENT_FUSION": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -598,13 +980,11 @@
     "element": "FUSION",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_HP": 10025,
-        "BASE_ATK": 250,
-        "BASE_DEF": 1136,
-        "PERCENT_FUSION": 0.12,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10025,
+      "BASE_ATK": 250,
+      "BASE_DEF": 1136,
+      "PERCENT_FUSION": 0.12,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -720,1303 +1100,17 @@
       ]
     }
   },
-  "1301": {
-    "name": "Calcharo",
-    "quality": "5",
-    "element": "ELECTRO",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10500,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1185,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "7-1",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_RL": 0.1
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": [
-          "3-2",
-          "6-1"
-        ],
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_RS": 0.3
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": "3-1",
-        "duration": 11000,
-        "statMap": {
-          "PERCENT_ELECTRO": 0.25
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "8-1",
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_ELECTRO": 0.2
-        }
-      },
-      {
-        "rank": 5,
-        "statMap": {
-          "PERCENT_IS": 0.5
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "7-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-3",
-          "times": 2
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1301",
-        "1302",
-        "1505"
-      ],
-      "weaponId": "21010015",
-      "setCounts": {
-        "3": 5
-      },
-      "rotation": [
-        "3-2",
-        "3-1",
-        "7-2",
-        "3-3",
-        "3-4",
-        "3-3",
-        "3-4",
-        "3-3",
-        "7-2",
-        "3-3",
-        "3-4",
-        "3-3",
-        "3-4",
-        "3-3",
-        "7-2",
-        "8-1"
-      ]
-    }
-  },
-  "1302": {
-    "name": "Yinlin",
-    "quality": "5",
-    "element": "ELECTRO",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_HP": 11000,
-        "BASE_ATK": 400,
-        "BASE_DEF": 1283,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "2-1",
-        "duration": 10000,
-        "maxProcs": 4,
-        "procs": {
-          "filter": "BA",
-          "actions": "2-3"
-        }
-      },
-      {
-        "trigger": "7-1",
-        "target": "team",
-        "duration": 18000,
-        "procsCooldown": 1000,
-        "procs": {
-          "actions": "7-2"
-        }
-      },
-      {
-        "trigger": "2-1",
-        "duration": 5000,
-        "statMap": {
-          "PERCENT_CR": 0.15
-        }
-      },
-      {
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-6",
-          "1-7",
-          "3-1",
-          "6-1"
-        ],
-        "maxProcs": 1,
-        "actionFilter": "2-2",
-        "statMap": {
-          "PERCENT_RS": 0.1
-        }
-      },
-      {
-        "trigger": "2-2",
-        "duration": 4000,
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_RL": 0.25,
-          "AMP_ELECTRO": 0.2
-        }
-      },
-      {
-        "rank": 1,
-        "actionFilter": [
-          "2-1",
-          "2-2"
-        ],
-        "statMap": {
-          "PERCENT_RS": 0.7
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": "7-2",
-        "statMap": {
-          "PERCENT_MV": 0.55
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "7-2",
-        "target": "team",
-        "duration": 12000,
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_RL": 1
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "3-1",
-        "duration": 30000,
-        "maxProcs": 4,
-        "actionFilter": "3-1",
-        "proc": {
-          "filter": "BA",
-          "actions": "7-3"
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1302",
-        "1505"
-      ],
-      "weaponId": "21050016",
-      "setCounts": {
-        "13": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-4",
-        "2-1",
-        "1-5",
-        "2-2",
-        "3-1",
-        "1-1",
-        "7-1",
-        "7-2",
-        "8-1"
-      ]
-    }
-  },
-  "1303": {
-    "name": "Yuanwu",
-    "quality": "4",
-    "element": "ELECTRO",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 8525,
-        "BASE_ATK": 225,
-        "BASE_DEF": 1637,
-        "PERCENT_ICE": 0.12,
-        "PERCENT_DEF": 0.152
-      }
-    },
-    "effects": [
-      {
-        "trigger": "2-1",
-        "target": "team",
-        "duration": 12000,
-        "procs": {
-          "actions": "2-2"
-        }
-      },
-      {
-        "trigger": [
-          "2-4",
-          "3-1"
-        ],
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-3"
-        }
-      },
-      {
-        "trigger": "8-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-1"
-        }
-      },
-      {
-        "actionFilter": "7-1",
-        "statMap": {
-          "PERCENT_MV": 0.4
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": "2-2",
-        "maxProcs": 1,
-        "statMap": {
-          "FLAT_MV": 0.2
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "3-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-10"
-        }
-      },
-      {
-        "rank": 5,
-        "trigger": "2-1",
-        "duration": 12000,
-        "statMap": {
-          "PERCENT_RL": 0.5
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "2-1",
-        "target": "team",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_DEF": 0.32
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1303",
-        "1505"
-      ],
-      "weaponId": "21040044",
-      "setCounts": {
-        "13": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "2-4",
-        "2-1",
-        "8-1"
-      ]
-    }
-  },
-  "1402": {
-    "name": "Yangyang",
-    "quality": "4",
-    "element": "AERO",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10200,
-        "BASE_ATK": 250,
-        "BASE_DEF": 1099,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "6-1",
-        "duration": 8000,
-        "statMap": {
-          "PERCENT_AERO": 0.08
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": "6-1",
-        "duration": 8000,
-        "statMap": {
-          "PERCENT_AERO": 0.15
-        }
-      },
-      {
-        "rank": 3,
-        "statMap": {
-          "PERCENT_RS": 0.4
-        }
-      },
-      {
-        "rank": 4,
-        "actionFilter": "7-2",
-        "statMap": {
-          "PERCENT_BA": 0.95
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_RL": 0.85
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "7-2",
-        "target": "team",
-        "duration": 20000,
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1402",
-        "1505"
-      ],
-      "weaponId": "21020015",
-      "setCounts": {
-        "8": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-5",
-        "1-7",
-        "3-1",
-        "1-1",
-        "1-5",
-        "1-7",
-        "2-1",
-        "7-2",
-        "8-1"
-      ]
-    }
-  },
-  "1403": {
-    "name": "Aalto",
-    "quality": "4",
-    "element": "AERO",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 9850,
-        "BASE_ATK": 262,
-        "BASE_DEF": 1075,
-        "PERCENT_AERO": 0.12,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "2-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-1",
-          "times": 6
-        }
-      },
-      {
-        "trigger": "3-1",
-        "duration": 10000,
-        "actionFilter": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-6",
-          "1-9"
-        ],
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankModifiers": {
-          "3": {
-            "statMap": {
-              "PERCENT_MV": 1
-            }
-          }
-        }
-      },
-      {
-        "actionFilter": [
-          "1-7",
-          "1-8"
-        ],
-        "statMap": {
-          "PERCENT_CR": 1
-        }
-      },
-      {
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-6",
-          "1-9"
-        ],
-        "maxStacks": 6,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": "7-2",
-          "actions": "7-1"
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_AERO": 0.23
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": "2-2",
-        "duration": 8000,
-        "statMap": {
-          "PERCENT_ATK": 0.15
-        }
-      },
-      {
-        "rank": 4,
-        "actionFilter": [
-          "2-1",
-          "7-1"
-        ],
-        "statMap": {
-          "PERCENT_RS": 0.3
-        }
-      },
-      {
-        "rank": 5,
-        "trigger": "7-2",
-        "duration": 6000,
-        "statMap": {
-          "PERCENT_AERO": 0.25
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "3-1",
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_CR": 0.08,
-          "PERCENT_HA": 0.5
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1403",
-        "1505"
-      ],
-      "weaponId": "21030015",
-      "setCounts": {
-        "8": 5
-      },
-      "rotation": [
-        "6-1",
-        "3-1",
-        "2-2",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "1-5",
-        "8-1"
-      ]
-    }
-  },
-  "1404": {
-    "name": "Jiyan",
-    "quality": "5",
-    "element": "AERO",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10487,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1185,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "actionFilter": "2-1",
-        "statMap": {
-          "PERCENT_RS": 0.2
-        }
-      },
-      {
-        "trigger": "6-1",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
-      },
-      {
-        "statMap": {
-          "PERCENT_CD": 0.12
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": "6-1",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_ATK": 0.28
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": [
-          "2-1",
-          "3-1",
-          "6-1",
-          "7-1"
-        ],
-        "duration": 8000,
-        "statMap": {
-          "PERCENT_CR": 0.16,
-          "PERCENT_CD": 0.32
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": [
-          "3-1",
-          "7-1"
-        ],
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_HA": 0.25
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "8-1",
-        "statMap": {
-          "PERCENT_MV": 1.2
-        }
-      },
-      {
-        "rank": 5,
-        "trigger": "6-1",
-        "statMap": {
-          "PERCENT_ATK": 0.45
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": [
-          "1-6",
-          "1-7",
-          "1-8",
-          "2-1",
-          "6-1"
-        ],
-        "maxStacks": 2,
-        "maxProcs": 1,
-        "actionFilter": "7-1",
-        "statMap": {
-          "FLAT_MV": 1.2
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1404",
-        "1204",
-        "1505"
-      ],
-      "weaponId": "21010016",
-      "setCounts": {
-        "4": 5
-      },
-      "rotation": [
-        "6-1",
-        "7-1",
-        "2-1",
-        "3-1",
-        "3-2",
-        "3-3",
-        "3-1",
-        "3-2",
-        "3-3",
-        "2-1",
-        "8-1"
-      ]
-    }
-  },
-  "1405": {
-    "name": "Jianxin",
-    "quality": "5",
-    "element": "AERO",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 14112,
-        "BASE_ATK": 337,
-        "BASE_DEF": 1124,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "3-3",
-        "target": "team",
-        "duration": 1000,
-        "maxProcs": 1,
-        "procs": [
-          {
-            "actions": "3-1",
-            "times": 16
-          },
-          {
-            "actions": "3-2"
-          }
-        ]
-      },
-      {
-        "trigger": "7-3",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-8"
-        }
-      },
-      {
-        "trigger": "7-4",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-9"
-        }
-      },
-      {
-        "trigger": "7-5",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-10"
-        }
-      },
-      {
-        "trigger": [
-          "7-7",
-          "7-8",
-          "7-9",
-          "7-10"
-        ],
-        "target": "team",
-        "duration": 30000,
-        "procs": {
-          "actions": "7-11"
-        }
-      },
-      {
-        "actionFilter": [
-          "3-1",
-          "3-2"
-        ],
-        "statMap": {
-          "PERCENT_RL": 0.2
-        }
-      },
-      {
-        "statMap": {
-          "PERCENT_SS": 0.2
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_RL": 0.38
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "7-2",
-        "duration": 14000,
-        "actionFilter": [
-          "3-1",
-          "3-2"
-        ],
-        "statMap": {
-          "PERCENT_RL": 0.8
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "7-1",
-        "duration": 5000,
-        "maxProcs": 1,
-        "procs": [
-          {
-            "actions": "7-12"
-          },
-          {
-            "actions": "7-10"
-          }
-        ]
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1405",
-        "1505"
-      ],
-      "weaponId": "21040024",
-      "setCounts": {
-        "8": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-2",
-        "3-3",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-3",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-4",
-        "7-2",
-        "7-2",
-        "7-2",
-        "7-5",
-        "8-1"
-      ]
-    }
-  },
-  "1503": {
-    "name": "Verina",
-    "quality": "5",
-    "element": "SPECTRO",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_HP": 14237,
-        "BASE_ATK": 337,
-        "BASE_DEF": 1099,
-        "PERCENT_HB": 0.12,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "3-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "3-2"
-        }
-      },
-      {
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 12000,
-        "procsCooldown": 1000,
-        "procs": [
-          {
-            "actions": "3-3"
-          },
-          {
-            "actions": "3-4"
-          }
-        ]
-      },
-      {
-        "trigger": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4"
-        ],
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-5",
-          "times": 3
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "AMP_ALL": 0.15
-        }
-      },
-      {
-        "trigger": "8-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-6",
-          "times": 6
-        },
-        "rankModifiers": {
-          "1": {
-            "procs": {
-              "actions": "7-7",
-              "times": 6
-            }
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": "7-4",
-        "statMap": {
-          "PERCENT_HB": 0.12
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": [
-          "3-1",
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4",
-          "8-1"
-        ],
-        "target": "team",
-        "duration": 24000,
-        "statMap": {
-          "PERCENT_SPECTRO": 0.15
-        }
-      },
-      {
-        "rank": 5,
-        "chance": 0.5,
-        "statMap": {
-          "PERCENT_HB": 0.2
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4"
-        ],
-        "maxProcs": 1,
-        "procs": [
-          {
-            "actions": "3-3"
-          },
-          {
-            "actions": "3-4",
-            "times": 3
-          }
-        ]
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1503"
-      ],
-      "weaponId": "21050024",
-      "setCounts": {
-        "7": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "7-2",
-        "7-3",
-        "7-4",
-        "8-1"
-      ]
-    }
-  },
-  "1601": {
-    "name": "Taoqi",
-    "quality": "4",
-    "element": "HAVOC",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 8950,
-        "BASE_ATK": 225,
-        "BASE_DEF": 1564,
-        "PERCENT_HAVOC": 0.12,
-        "PERCENT_DEF": 0.152
-      }
-    },
-    "effects": [
-      {
-        "trigger": "2-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-2"
-        }
-      },
-      {
-        "trigger": "7-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-4"
-        }
-      },
-      {
-        "trigger": "7-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-5"
-        }
-      },
-      {
-        "trigger": "7-3",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-6"
-        }
-      },
-      {
-        "trigger": "2-1",
-        "target": "team",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_DEF": 0.15
-        },
-        "rankModifiers": {
-          "3": {
-            "duration": 15000
-          }
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_RS": 0.38
-        }
-      },
-      {
-        "rank": 1,
-        "actionFilter": [
-          "7-4",
-          "7-5",
-          "7-6"
-        ],
-        "statMap": {
-          "PERCENT_SS": 0.4
-        }
-      },
-      {
-        "rank": 2,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_CR": 0.2,
-          "PERCENT_CD": 0.2
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "1-6",
-        "duration": 5000,
-        "statMap": {
-          "PERCENT_DEF": 0.5
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "1-6",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-7"
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": [
-          "7-1",
-          "7-2",
-          "7-3"
-        ],
-        "statMap": {
-          "PERCENT_BA": 0.5
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "2-1",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_BA": 0.4,
-          "PERCENT_HA": 0.4
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1601",
-        "1505"
-      ],
-      "weaponId": "21010024",
-      "setCounts": {
-        "8": 5
-      },
-      "rotation": [
-        "6-1",
-        "7-1",
-        "7-2",
-        "7-3",
-        "3-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "2-1",
-        "8-1"
-      ]
-    }
-  },
-  "1602": {
-    "name": "Danjin",
-    "quality": "4",
-    "element": "HAVOC",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_HP": 9437,
-        "BASE_ATK": 262,
-        "BASE_DEF": 1148,
-        "PERCENT_HAVOC": 0.12,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "2-3",
-        "duration": 12000,
-        "statMap": {
-          "PERCENT_ALL": 0.2
-        },
-        "rankModifiers": {
-          "2": {
-            "statMap": {
-              "PERCENT_ALL": 0.2
-            }
-          }
-        }
-      },
-      {
-        "trigger": "3-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "3-2"
-        }
-      },
-      {
-        "trigger": "1-6",
-        "maxProcs": 2,
-        "actionFilter": [
-          "2-2",
-          "2-3"
-        ],
-        "statMap": {
-          "PERCENT_RS": 0.2
-        }
-      },
-      {
-        "trigger": [
-          "2-4",
-          "2-5",
-          "2-6"
-        ],
-        "duration": 5000,
-        "statMap": {
-          "PERCENT_HA": 0.3
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_HAVOC": 0.23
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-6",
-          "2-1",
-          "2-2",
-          "2-3",
-          "2-4",
-          "2-5",
-          "2-6",
-          "3-1",
-          "3-2"
-        ],
-        "maxStacks": 6,
-        "duration": 6000,
-        "statMap": {
-          "PERCENT_ATK": 0.05
-        }
-      },
-      {
-        "rank": 3,
-        "statMap": {
-          "PERCENT_RL": 0.3
-        }
-      },
-      {
-        "rank": 4,
-        "actionFilter": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4"
-        ],
-        "statMap": {
-          "PERCENT_CR": 0.15
-        }
-      },
-      {
-        "rank": 5,
-        "statMap": {
-          "PERCENT_HAVOC": 0.3
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": [
-          "7-1",
-          "7-3"
-        ],
-        "target": "team",
-        "duration": 20000,
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1602",
-        "1505"
-      ],
-      "weaponId": "21020015",
-      "setCounts": {
-        "12": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-2",
-        "2-3",
-        "3-1",
-        "2-1",
-        "1-2",
-        "1-3",
-        "2-4",
-        "2-5",
-        "2-6",
-        "7-1",
-        "7-2",
-        "8-1"
-      ]
-    }
-  },
   "1205": {
     "name": "Changli",
     "quality": "5",
     "element": "FUSION",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 10387,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1099,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10387,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1099,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -2145,1185 +1239,17 @@
       ]
     }
   },
-  "1304": {
-    "name": "Jinhsi",
-    "quality": "5",
-    "element": "SPECTRO",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10825,
-        "BASE_ATK": 412,
-        "BASE_DEF": 1258,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "7-8",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "7-9"
-        }
-      },
-      {
-        "statMap": {
-          "PERCENT_SPECTRO": 0.2
-        }
-      },
-      {
-        "actionFilter": "6-1",
-        "statMap": {
-          "PERCENT_MV": 0.5
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4",
-          "7-7"
-        ],
-        "maxStacks": 4,
-        "duration": 6000,
-        "maxProcs": 2,
-        "actionFilter": "6-1",
-        "statMap": {
-          "PERCENT_RS": 0.2
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": "6-1",
-        "maxStacks": 2,
-        "duration": 20000,
-        "statMap": {
-          "PERCENT_ATK": 0.25
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": [
-          "3-1",
-          "7-8",
-          "7-9"
-        ],
-        "target": "team",
-        "duration": 20000,
-        "statMap": {
-          "PERCENT_ALL": 0.2
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_MV": 1.2
-        }
-      },
-      {
-        "rank": 6,
-        "actionFilter": [
-          "7-8",
-          "7-9",
-          "7-10"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.45
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1304",
-        "1105",
-        "1503"
-      ],
-      "weaponId": "21010026",
-      "setCounts": {
-        "5": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-2",
-        "7-7",
-        "7-1",
-        "7-2",
-        "7-3",
-        "7-4",
-        "7-8",
-        "7-10",
-        "3-1",
-        "8-1"
-      ]
-    }
-  },
-  "1105": {
-    "name": "Zhezhi",
-    "quality": "5",
-    "element": "GLACIO",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_HP": 12250,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "3-2",
-        "target": "team",
-        "duration": 30000,
-        "maxProcs": 21,
-        "procs": {
-          "actions": "3-1"
-        },
-        "rankModifiers": {
-          "2": {
-            "maxProcs": 6
-          }
-        }
-      },
-      {
-        "trigger": "7-3",
-        "duration": 27000,
-        "statMap": {
-          "PERCENT_BA": 0.18
-        }
-      },
-      {
-        "trigger": [
-          "7-2",
-          "7-3"
-        ],
-        "maxStacks": 3,
-        "duration": 27000,
-        "statMap": {
-          "PERCENT_ATK": 0.06
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_RS": 0.25,
-          "AMP_GLACIO": 0.2
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": "7-3",
-        "duration": 27000,
-        "statMap": {
-          "PERCENT_CR": 0.1
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": [
-          "2-1",
-          "7-2",
-          "7-3"
-        ],
-        "maxStacks": 3,
-        "duration": 27000,
-        "statMap": {
-          "PERCENT_ATK": 0.15
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "3-2",
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_MV": 0.467
-        }
-      },
-      {
-        "rank": 6,
-        "actionFilter": [
-          "7-2",
-          "7-3"
-        ],
-        "statMap": {
-          "PERCENT_MV": 1.2
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1105",
-        "1505"
-      ],
-      "weaponId": "21050026",
-      "setCounts": {
-        "13": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "2-1",
-        "7-1",
-        "7-2",
-        "7-2",
-        "7-3",
-        "3-2",
-        "8-1"
-      ]
-    }
-  },
-  "1305": {
-    "name": "Xiangli Yao",
-    "quality": "5",
-    "element": "ELECTRO",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10625,
-        "BASE_ATK": 425,
-        "BASE_DEF": 1222,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": [
-          "2-1",
-          "3-5",
-          "7-1",
-          "7-2"
-        ],
-        "duration": 8000,
-        "maxStacks": 4,
-        "statMap": {
-          "PERCENT_ELECTRO": 0.05
-        }
-      },
-      {
-        "rank": 1,
-        "actionFilter": "7-2",
-        "statMap": {
-          "PERCENT_MV": 0.48
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": [
-          "2-1",
-          "3-1",
-          "3-5",
-          "7-1",
-          "7-2"
-        ],
-        "duration": 8000,
-        "statMap": {
-          "PERCENT_CD": 0.3
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": "3-1",
-        "duration": 24000,
-        "maxProcs": 5,
-        "actionFilter": [
-          "2-1",
-          "3-5",
-          "7-1",
-          "7-2"
-        ],
-        "statMap": {
-          "PERCENT_ALL": 0.63
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_RL": 0.25
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "8-1",
-        "statMap": {
-          "PERCENT_MV": 2.22
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_MV": 1
-        }
-      },
-      {
-        "rank": 6,
-        "actionFilter": "7-2",
-        "statMap": {
-          "PERCENT_MV": 0.76
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1305",
-        "1302",
-        "1505"
-      ],
-      "weaponId": "21040016",
-      "setCounts": {
-        "3": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "3-5",
-        "7-3",
-        "7-2",
-        "3-2",
-        "3-3",
-        "3-4",
-        "7-2",
-        "3-5",
-        "7-3",
-        "7-2",
-        "8-1"
-      ]
-    }
-  },
-  "1106": {
-    "name": "Youhu",
-    "quality": "4",
-    "element": "GLACIO",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 9975,
-        "BASE_ATK": 262,
-        "BASE_DEF": 1051,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "2-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-2"
-        }
-      },
-      {
-        "trigger": "6-1",
-        "duration": "14000",
-        "statMap": {
-          "PERCENT_GLACIO": 0.15
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "statMap": {
-          "AMP_CA": 1
-        }
-      },
-      {
-        "rank": 3,
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
-      },
-      {
-        "rank": 5,
-        "trigger": "6-1",
-        "duration": 14000,
-        "statMap": {
-          "PERCENT_CR": 0.15
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": [
-          "2-3",
-          "2-4",
-          "2-5",
-          "2-6"
-        ],
-        "maxStacks": 4,
-        "duration": 7000,
-        "statMap": {
-          "PERCENT_CD": 0.15
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1106"
-      ],
-      "weaponId": "21040024",
-      "setCounts": {
-        "7": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "2-1",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "2-1",
-        "2-1",
-        "8-1"
-      ]
-    }
-  },
-  "1505": {
-    "name": "Shorekeeper",
-    "quality": "5",
-    "element": "SPECTRO",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_HP": 16712,
-        "BASE_ATK": 287,
-        "BASE_DEF": 1099,
-        "PERCENT_HB": 0.12,
-        "PERCENT_HP": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "2-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "2-1",
-          "times": 5
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "2-2",
-        "maxProcs": 1,
-        "actionFilter": "2-2",
-        "statMap": {
-          "PERCENT_HB": 0.7
-        }
-      },
-      {
-        "trigger": "3-2",
-        "target": "active",
-        "duration": 30000,
-        "procsCooldown": 3000,
-        "procs": {
-          "actions": "3-1"
-        },
-        "rankModifiers": {
-          "1": {
-            "duration": 10000
-          }
-        }
-      },
-      {
-        "trigger": "3-2",
-        "target": "team",
-        "duration": 30000,
-        "variableStatMap": {
-          "PERCENT_CR": {
-            "source": "ER",
-            "step": 0.002,
-            "value": 0.0001,
-            "max": 0.125
-          }
-        },
-        "rankModifiers": {
-          "1": {
-            "duration": 10000
-          },
-          "2": {
-            "statMap": {
-              "PERCENT_ATK": 0.4
-            }
-          }
-        }
-      },
-      {
-        "trigger": "3-2",
-        "target": "first",
-        "duration": 30000,
-        "variableStatMap": {
-          "PERCENT_CD": {
-            "source": "ER",
-            "step": 0.001,
-            "value": 0.0001,
-            "max": 0.25
-          }
-        },
-        "rankModifiers": {
-          "1": {
-            "duration": 10000
-          }
-        }
-      },
-      {
-        "trigger": "3-2",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_ER": 0.1
-        },
-        "rankModifiers": {
-          "1": {
-            "duration": 10000
-          }
-        }
-      },
-      {
-        "trigger": [
-          "7-2",
-          "7-3"
-        ],
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-1",
-          "times": 5
-        }
-      },
-      {
-        "trigger": "6-1",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "6-3"
-        }
-      },
-      {
-        "trigger": "6-2",
-        "maxProcs": 1,
-        "procs": {
-          "actions": "6-4"
-        }
-      },
-      {
-        "actionFilter": "6-2",
-        "statMap": {
-          "PERCENT_CR": 1
-        },
-        "rankModifiers": {
-          "6": {
-            "statMap": {
-              "PERCENT_MV": 0.42,
-              "PERCENT_CD": 5
-            }
-          }
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "AMP_ALL": 0.15
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1505"
-      ],
-      "weaponId": "21050036",
-      "setCounts": {
-        "7": 5
-      },
-      "rotation": [
-        "6-2",
-        "1-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "7-2",
-        "2-2",
-        "3-2",
-        "8-1"
-      ]
-    }
-  },
-  "1504": {
-    "name": "Lumi",
-    "quality": "4",
-    "element": "ELECTRO",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 8500,
-        "BASE_ATK": 337,
-        "BASE_DEF": 879,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "rank": 4,
-        "statMap": {
-          "PERCENT_BA": 0.3
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_RL": 0.3
-        }
-      },
-      {
-        "trigger": "1-10",
-        "maxProcs": 1,
-        "procs": {
-          "action": "1-2",
-          "times": 2
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 20000,
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
-      },
-      {
-        "rank": 2,
-        "actionFilter": [
-          "7-6",
-          "7-7"
-        ],
-        "statMap": {
-          "IGNORE_DEF": 0.2
-        }
-      },
-      {
-        "trigger": "7-9",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-1",
-          "times": 2
-        }
-      },
-      {
-        "trigger": "8-1",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-8",
-          "times": 4
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 10000,
-        "statMap": {
-          "AMP_RS": 0.38
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1504",
-        "1505"
-      ],
-      "weaponId": "21010045",
-      "setCounts": {
-        "8": 5
-      },
-      "rotation": [
-        "6-1",
-        "3-1",
-        "7-6",
-        "7-2",
-        "7-3",
-        "7-4",
-        "7-7",
-        "1-1",
-        "7-9",
-        "7-9",
-        "7-9",
-        "7-6",
-        "8-1"
-      ]
-    }
-  },
-  "1603": {
-    "name": "Camellya",
-    "quality": "5",
-    "element": "HAVOC",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10325,
-        "BASE_ATK": 450,
-        "BASE_DEF": 1161,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "rank": 2,
-        "actionFilter": "7-1",
-        "statMap": {
-          "PERCENT_MV": 1.2
-        },
-        "rankModifiers": {
-          "6": {
-            "statMap": {
-              "PERCENT_MV": 1.2
-            }
-          }
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_MV": 0.5
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": "7-1",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_ATK": 0.58
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "6-1",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_BA": 0.25
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "6-1",
-        "statMap": {
-          "PERCENT_MV": 3.03
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "8-1",
-        "statMap": {
-          "PERCENT_MV": 0.68
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": "6-1",
-        "duration": 18000,
-        "statMap": {
-          "PERCENT_CD": 0.28
-        }
-      },
-      {
-        "trigger": "7-1",
-        "duration": 15000,
-        "actionFilter": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-7",
-          "1-8",
-          "2-1",
-          "2-2",
-          "2-3",
-          "2-4",
-          "2-5",
-          "2-6",
-          "2-7",
-          "2-8",
-          "2-9"
-        ],
-        "statMap": {
-          "PERCENT_MV": 1
-        },
-        "rankModifiers": {
-          "6": {
-            "statMap": {
-              "PERCENT_MV": 4
-            }
-          }
-        }
-      },
-      {
-        "trigger": "7-1",
-        "maxProcs": 1,
-        "actionFilter": "8-1",
-        "statMap": {
-          "FLAT_MV": 4.5902
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1603",
-        "1606",
-        "1505"
-      ],
-      "weaponId": "21020026",
-      "setCounts": {
-        "6": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-1",
-        "3-1",
-        "2-2",
-        "2-3",
-        "2-4",
-        "2-6",
-        "2-5",
-        "7-1",
-        "2-2",
-        "2-3",
-        "2-4",
-        "2-6",
-        "2-5",
-        "2-7",
-        "8-1"
-      ]
-    }
-  },
-  "1107": {
-    "name": "Carlotta",
-    "quality": "5",
-    "element": "GLACIO",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 12450,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1197,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": [
-          "2-2",
-          "3-2",
-          "6-1",
-          "7-1"
-        ],
-        "duration": 4000,
-        "statMap": {
-          "IGNORE_DEF": 0.18
-        },
-        "rankModifiers": {
-          "1": {
-            "statMap": {
-              "PERCENT_CR": 0.125
-            }
-          }
-        }
-      },
-      {
-        "actionFilter": [
-          "3-1",
-          "3-2",
-          "3-3"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.8
-        }
-      },
-      {
-        "rank": 2,
-        "actionFilter": "3-3",
-        "statMap": {
-          "PERCENT_MV": 1.26
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": [
-          "2-1",
-          "2-2"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.93
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": "8-1",
-        "statMap": {
-          "FLAT_MV": 10.3218
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": [
-          "1-6",
-          "1-7",
-          "7-1"
-        ],
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_RS": 0.25
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "7-1",
-        "statMap": {
-          "PERCENT_MV": 0.47
-        }
-      },
-      {
-        "rank": 6,
-        "actionFilter": "3-2",
-        "statMap": {
-          "PERCENT_FLAT": 1.866
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1107",
-        "1105",
-        "1505"
-      ],
-      "weaponId": "21030016",
-      "setCounts": {
-        "10": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-1",
-        "2-2",
-        "1-8",
-        "7-1",
-        "3-1",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-3",
-        "2-1",
-        "2-2",
-        "8-1"
-      ]
-    }
-  },
-  "1606": {
-    "name": "Roccia",
-    "quality": "5",
-    "element": "HAVOC",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 12250,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": [
-          "1-5",
-          "2-1"
-        ],
-        "duration": 12000,
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
-      },
-      {
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 30000,
-        "variableStatMap": {
-          "FLAT_ATK": {
-            "source": "CR",
-            "step": 0.001,
-            "offset": 0.5,
-            "value": 1,
-            "max": 200
-          }
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_BA": 0.25,
-          "AMP_HAVOC": 0.2
-        }
-      },
-      {
-        "trigger": "8-1",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-4"
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": "7-3",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_HAVOC": 0.1
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": [
-          "7-1",
-          "7-2",
-          "7-3"
-        ],
-        "maxStacks": 3,
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_HAVOC": 0.1
-        }
-      },
-      {
-        "rank": 3,
-        "trigger": "6-1",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_CR": 0.1,
-          "PERCENT_CD": 0.3
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "2-1",
-        "duration": 12000,
-        "actionFilter": [
-          "7-1",
-          "7-2",
-          "7-3"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.6
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": [
-          "1-5",
-          "7-1",
-          "7-2",
-          "7-3"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.8
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_MV": 0.2
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "3-1",
-        "duration": 12000,
-        "actionFilter": [
-          "7-1",
-          "7-2",
-          "7-3"
-        ],
-        "statMap": {
-          "IGNORE_DEF": 0.6
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "3-1",
-        "duration": 12000,
-        "actionFilter": "7-3",
-        "statMap": {
-          "PERCENT_MV": 1
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1606",
-        "1505"
-      ],
-      "weaponId": "21040026",
-      "setCounts": {
-        "12": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-4",
-        "2-1",
-        "7-1",
-        "7-2",
-        "7-3",
-        "3-1",
-        "8-1"
-      ]
-    }
-  },
   "1206": {
     "name": "Brant",
     "quality": "5",
     "element": "FUSION",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_HP": 11675,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1307,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 11675,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1307,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -3523,19 +1449,2310 @@
       ]
     }
   },
+  "1207": {
+    "name": "Lupa",
+    "quality": "5",
+    "element": "FUSION",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 11912,
+      "BASE_ATK": 387,
+      "BASE_DEF": 1185,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "actionFilter": "2-2",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 35000,
+        "statMap": {
+          "PERCENT_ATK": 0.18,
+          "PERCENT_FUSION": 0.2,
+          "IGNORE_FUSION": 0.15
+        }
+      },
+      {
+        "trigger": [
+          "2-2",
+          "1-6",
+          "1-7",
+          "1-11",
+          "3-1",
+          "7-1",
+          "7-2"
+        ],
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        }
+      },
+      {
+        "trigger": [
+          "7-1",
+          "7-2"
+        ],
+        "target": "next",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-3"
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_BA": 0.25,
+          "AMP_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": "3-1",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_CR": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": [
+          "3-1",
+          "1-6",
+          "1-7",
+          "1-11"
+        ],
+        "target": "team",
+        "maxStacks": 2,
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_FUSION": 0.2
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "6-2",
+        "statMap": {
+          "PERCENT_MV": 1
+        }
+      },
+      {
+        "rank": 4,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 1.25
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": [
+          "6-1",
+          "6-2"
+        ],
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_RL": 0.15
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "7-2",
+          "3-1",
+          "6-2"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.3
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1205",
+        "1206",
+        "1207"
+      ],
+      "weaponId": "21010036",
+      "setCounts": {
+        "18": 5
+      },
+      "rotation": [
+        "6-2",
+        "3-1",
+        "3-2",
+        "1-8",
+        "1-9",
+        "1-11",
+        "1-7",
+        "7-2",
+        "8-1"
+      ]
+    }
+  },
+  "1208": {
+    "name": "Galbrena",
+    "quality": "5",
+    "element": "FUSION",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_HP": 10300,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1112,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
+    },
+    "defaults": {
+      "team": [
+        "1208",
+        "1411",
+        "1505"
+      ],
+      "weaponId": "21030036",
+      "setCounts": {
+        "2": 2,
+        "22": 3
+      },
+      "rotation": [
+        "6-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "1-2",
+        "1-3",
+        "2-2",
+        "3-1",
+        "7-2",
+        "7-3",
+        "7-4",
+        "7-5",
+        "7-3",
+        "7-4",
+        "7-5",
+        "8-1"
+      ]
+    }
+  },
+  "1209": {
+    "name": "Mornye",
+    "quality": "5",
+    "element": "FUSION",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 15375,
+      "BASE_ATK": 287,
+      "BASE_DEF": 1356,
+      "PERCENT_OHB": 0.12,
+      "PERCENT_DEF": 0.152
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
+          "AMP_ALL": 0.25
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1209"
+      ],
+      "weaponId": "21010066",
+      "setCounts": {
+        "25": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-5",
+        "1-6",
+        "1-7",
+        "2-1",
+        "7-4",
+        "3-1",
+        "8-1"
+      ]
+    }
+  },
+  "1210": {
+    "name": "Aemeath",
+    "quality": "5",
+    "element": "FUSION",
+    "type": "SWORD",
+    "stats": {
+      "BASE_HP": 11025,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1148,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "statMap": {
+          "AMP_ALL": 0.2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1210",
+        "1509",
+        "1209"
+      ],
+      "weaponId": "21020076",
+      "setCounts": {
+        "27": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-3",
+        "1-4",
+        "3-1",
+        "2-4",
+        "2-5",
+        "2-6",
+        "7-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "7-2",
+        "2-8",
+        "3-2",
+        "8-1"
+      ]
+    }
+  },
+  "1211": {
+    "name": "Denia",
+    "quality": "5",
+    "element": "FUSION",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_HP": 11025,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1148,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ALL": 0.4
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1211",
+        "1508"
+      ],
+      "weaponId": "21050076",
+      "setCounts": {
+        "28": 5
+      },
+      "rotation": [
+        "6-1",
+        "8-1"
+      ]
+    }
+  },
+  "1301": {
+    "name": "Calcharo",
+    "quality": "5",
+    "element": "ELECTRO",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 10500,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1185,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "7-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_RL": 0.1
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": [
+          "3-2",
+          "6-1"
+        ],
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_RS": 0.3
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "3-1",
+        "duration": 11000,
+        "statMap": {
+          "PERCENT_ELECTRO": 0.25
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "8-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ELECTRO": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "statMap": {
+          "PERCENT_IS": 0.5
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "7-2",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-3",
+          "times": 2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1301",
+        "1302",
+        "1505"
+      ],
+      "weaponId": "21010015",
+      "setCounts": {
+        "3": 5
+      },
+      "rotation": [
+        "3-2",
+        "3-1",
+        "7-2",
+        "3-3",
+        "3-4",
+        "3-3",
+        "3-4",
+        "3-3",
+        "7-2",
+        "3-3",
+        "3-4",
+        "3-3",
+        "3-4",
+        "3-3",
+        "7-2",
+        "8-1"
+      ]
+    }
+  },
+  "1302": {
+    "name": "Yinlin",
+    "quality": "5",
+    "element": "ELECTRO",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_HP": 11000,
+      "BASE_ATK": 400,
+      "BASE_DEF": 1283,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "2-1",
+        "duration": 10000,
+        "maxProcs": 4,
+        "procs": {
+          "filter": "BA",
+          "actions": "2-3"
+        }
+      },
+      {
+        "trigger": "7-1",
+        "target": "team",
+        "duration": 18000,
+        "procsCooldown": 1000,
+        "procs": {
+          "actions": "7-2"
+        }
+      },
+      {
+        "trigger": "2-1",
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "1-7",
+          "3-1",
+          "6-1"
+        ],
+        "maxProcs": 1,
+        "actionFilter": "2-2",
+        "statMap": {
+          "PERCENT_RS": 0.1
+        }
+      },
+      {
+        "trigger": "2-2",
+        "duration": 4000,
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_RL": 0.25,
+          "AMP_ELECTRO": 0.2
+        }
+      },
+      {
+        "rank": 1,
+        "actionFilter": [
+          "2-1",
+          "2-2"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.7
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 0.55
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "7-2",
+        "target": "team",
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_RL": 1
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "3-1",
+        "duration": 30000,
+        "maxProcs": 4,
+        "actionFilter": "3-1",
+        "proc": {
+          "filter": "BA",
+          "actions": "7-3"
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1302",
+        "1505"
+      ],
+      "weaponId": "21050016",
+      "setCounts": {
+        "13": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-4",
+        "2-1",
+        "1-5",
+        "2-2",
+        "3-1",
+        "1-1",
+        "7-1",
+        "7-2",
+        "8-1"
+      ]
+    }
+  },
+  "1303": {
+    "name": "Yuanwu",
+    "quality": "4",
+    "element": "ELECTRO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 8525,
+      "BASE_ATK": 225,
+      "BASE_DEF": 1637,
+      "PERCENT_ICE": 0.12,
+      "PERCENT_DEF": 0.152
+    },
+    "effects": [
+      {
+        "trigger": "2-1",
+        "target": "team",
+        "duration": 12000,
+        "procs": {
+          "actions": "2-2"
+        }
+      },
+      {
+        "trigger": [
+          "2-4",
+          "3-1"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "actions": "2-3"
+        }
+      },
+      {
+        "trigger": "8-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "2-1"
+        }
+      },
+      {
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 0.4
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "statMap": {
+          "FLAT_MV": 0.2
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-10"
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": "2-1",
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_RL": 0.5
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "2-1",
+        "target": "team",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_DEF": 0.32
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1303",
+        "1505"
+      ],
+      "weaponId": "21040044",
+      "setCounts": {
+        "13": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "3-1",
+        "2-4",
+        "2-1",
+        "8-1"
+      ]
+    }
+  },
+  "1304": {
+    "name": "Jinhsi",
+    "quality": "5",
+    "element": "SPECTRO",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 10825,
+      "BASE_ATK": 412,
+      "BASE_DEF": 1258,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "7-8",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-9"
+        }
+      },
+      {
+        "statMap": {
+          "PERCENT_SPECTRO": 0.2
+        }
+      },
+      {
+        "actionFilter": "6-1",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "7-7"
+        ],
+        "maxStacks": 4,
+        "duration": 6000,
+        "maxProcs": 2,
+        "actionFilter": "6-1",
+        "statMap": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "6-1",
+        "maxStacks": 2,
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.25
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": [
+          "3-1",
+          "7-8",
+          "7-9"
+        ],
+        "target": "team",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "7-8",
+          "7-9",
+          "7-10"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.45
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1304",
+        "1105",
+        "1503"
+      ],
+      "weaponId": "21010026",
+      "setCounts": {
+        "5": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-2",
+        "7-7",
+        "7-1",
+        "7-2",
+        "7-3",
+        "7-4",
+        "7-8",
+        "7-10",
+        "3-1",
+        "8-1"
+      ]
+    }
+  },
+  "1305": {
+    "name": "Xiangli Yao",
+    "quality": "5",
+    "element": "ELECTRO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 10625,
+      "BASE_ATK": 425,
+      "BASE_DEF": 1222,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": [
+          "2-1",
+          "3-5",
+          "7-1",
+          "7-2"
+        ],
+        "duration": 8000,
+        "maxStacks": 4,
+        "statMap": {
+          "PERCENT_ELECTRO": 0.05
+        }
+      },
+      {
+        "rank": 1,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 0.48
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": [
+          "2-1",
+          "3-1",
+          "3-5",
+          "7-1",
+          "7-2"
+        ],
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_CD": 0.3
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "3-1",
+        "duration": 24000,
+        "maxProcs": 5,
+        "actionFilter": [
+          "2-1",
+          "3-5",
+          "7-1",
+          "7-2"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.63
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_RL": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "8-1",
+        "statMap": {
+          "PERCENT_MV": 2.22
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 1
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_MV": 0.76
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1305",
+        "1302",
+        "1505"
+      ],
+      "weaponId": "21040016",
+      "setCounts": {
+        "3": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "3-1",
+        "3-5",
+        "7-3",
+        "7-2",
+        "3-2",
+        "3-3",
+        "3-4",
+        "7-2",
+        "3-5",
+        "7-3",
+        "7-2",
+        "8-1"
+      ]
+    }
+  },
+  "1306": {
+    "name": "Augusta",
+    "quality": "5",
+    "element": "ELECTRO",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 10300,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1112,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_GLACIO": 0.15,
+          "AMP_FUSION": 0.15,
+          "AMP_ELECTRO": 0.15,
+          "AMP_AERO": 0.15,
+          "AMP_SPECTRO": 0.15,
+          "AMP_HAVOC": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1306",
+        "1410",
+        "1505"
+      ],
+      "weaponId": "21010046",
+      "setCounts": {
+        "3": 2,
+        "20": 3
+      },
+      "rotation": [
+        "6-1",
+        "1-9",
+        "1-10",
+        "2-1",
+        "1-9",
+        "1-10",
+        "3-1",
+        "7-1",
+        "7-2",
+        "7-3",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-2",
+        "3-3",
+        "8-1"
+      ]
+    }
+  },
+  "1307": {
+    "name": "Buling",
+    "quality": "4",
+    "element": "ELECTRO",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_HP": 10625,
+      "BASE_ATK": 225,
+      "BASE_DEF": 1258,
+      "PERCENT_HB": 0.12,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1307"
+      ],
+      "weaponId": "21050024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-1",
+        "1-2",
+        "1-5",
+        "2-1",
+        "1-4",
+        "1-7",
+        "1-10",
+        "7-1",
+        "8-1"
+      ]
+    }
+  },
+  "1402": {
+    "name": "Yangyang",
+    "quality": "4",
+    "element": "AERO",
+    "type": "SWORD",
+    "stats": {
+      "BASE_HP": 10200,
+      "BASE_ATK": 250,
+      "BASE_DEF": 1099,
+      "PERCENT_AERO": 0.12,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "6-1",
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_AERO": 0.08
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": "6-1",
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_AERO": 0.15
+        }
+      },
+      {
+        "rank": 3,
+        "statMap": {
+          "PERCENT_RS": 0.4
+        }
+      },
+      {
+        "rank": 4,
+        "actionFilter": "7-2",
+        "statMap": {
+          "PERCENT_BA": 0.95
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_RL": 0.85
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "7-2",
+        "target": "team",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1402",
+        "1505"
+      ],
+      "weaponId": "21020015",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-5",
+        "1-7",
+        "3-1",
+        "1-1",
+        "1-5",
+        "1-7",
+        "2-1",
+        "7-2",
+        "8-1"
+      ]
+    }
+  },
+  "1403": {
+    "name": "Aalto",
+    "quality": "4",
+    "element": "AERO",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_HP": 9850,
+      "BASE_ATK": 262,
+      "BASE_DEF": 1075,
+      "PERCENT_AERO": 0.12,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "2-1",
+          "times": 6
+        }
+      },
+      {
+        "trigger": "3-1",
+        "duration": 10000,
+        "actionFilter": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "1-9"
+        ],
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankModifiers": {
+          "3": {
+            "statMap": {
+              "PERCENT_MV": 1
+            }
+          }
+        }
+      },
+      {
+        "actionFilter": [
+          "1-7",
+          "1-8"
+        ],
+        "statMap": {
+          "PERCENT_CR": 1
+        }
+      },
+      {
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "1-9"
+        ],
+        "maxStacks": 6,
+        "maxProcs": 1,
+        "procs": {
+          "actionKeyTrigger": "7-2",
+          "actions": "7-1"
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_AERO": 0.23
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": "2-2",
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        }
+      },
+      {
+        "rank": 4,
+        "actionFilter": [
+          "2-1",
+          "7-1"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.3
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": "7-2",
+        "duration": 6000,
+        "statMap": {
+          "PERCENT_AERO": 0.25
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "3-1",
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_CR": 0.08,
+          "PERCENT_HA": 0.5
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1403",
+        "1505"
+      ],
+      "weaponId": "21030015",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-1",
+        "2-2",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "1-5",
+        "8-1"
+      ]
+    }
+  },
+  "1404": {
+    "name": "Jiyan",
+    "quality": "5",
+    "element": "AERO",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 10487,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1185,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "actionFilter": "2-1",
+        "statMap": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      {
+        "trigger": "6-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      },
+      {
+        "statMap": {
+          "PERCENT_CD": 0.12
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": "6-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_ATK": 0.28
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": [
+          "2-1",
+          "3-1",
+          "6-1",
+          "7-1"
+        ],
+        "duration": 8000,
+        "statMap": {
+          "PERCENT_CR": 0.16,
+          "PERCENT_CD": 0.32
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": [
+          "3-1",
+          "7-1"
+        ],
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_HA": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "8-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        }
+      },
+      {
+        "rank": 5,
+        "trigger": "6-1",
+        "statMap": {
+          "PERCENT_ATK": 0.45
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": [
+          "1-6",
+          "1-7",
+          "1-8",
+          "2-1",
+          "6-1"
+        ],
+        "maxStacks": 2,
+        "maxProcs": 1,
+        "actionFilter": "7-1",
+        "statMap": {
+          "FLAT_MV": 1.2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1404",
+        "1204",
+        "1505"
+      ],
+      "weaponId": "21010016",
+      "setCounts": {
+        "4": 5
+      },
+      "rotation": [
+        "6-1",
+        "7-1",
+        "2-1",
+        "3-1",
+        "3-2",
+        "3-3",
+        "3-1",
+        "3-2",
+        "3-3",
+        "2-1",
+        "8-1"
+      ]
+    }
+  },
+  "1405": {
+    "name": "Jianxin",
+    "quality": "5",
+    "element": "AERO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 14112,
+      "BASE_ATK": 337,
+      "BASE_DEF": 1124,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "3-3",
+        "target": "team",
+        "duration": 1000,
+        "maxProcs": 1,
+        "procs": [
+          {
+            "actions": "3-1",
+            "times": 16
+          },
+          {
+            "actions": "3-2"
+          }
+        ]
+      },
+      {
+        "trigger": "7-3",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-8"
+        }
+      },
+      {
+        "trigger": "7-4",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-9"
+        }
+      },
+      {
+        "trigger": "7-5",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-10"
+        }
+      },
+      {
+        "trigger": [
+          "7-7",
+          "7-8",
+          "7-9",
+          "7-10"
+        ],
+        "target": "team",
+        "duration": 30000,
+        "procs": {
+          "actions": "7-11"
+        }
+      },
+      {
+        "actionFilter": [
+          "3-1",
+          "3-2"
+        ],
+        "statMap": {
+          "PERCENT_RL": 0.2
+        }
+      },
+      {
+        "statMap": {
+          "PERCENT_SS": 0.2
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_RL": 0.38
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "7-2",
+        "duration": 14000,
+        "actionFilter": [
+          "3-1",
+          "3-2"
+        ],
+        "statMap": {
+          "PERCENT_RL": 0.8
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "7-1",
+        "duration": 5000,
+        "maxProcs": 1,
+        "procs": [
+          {
+            "actions": "7-12"
+          },
+          {
+            "actions": "7-10"
+          }
+        ]
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1405",
+        "1505"
+      ],
+      "weaponId": "21040024",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-2",
+        "3-3",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-3",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-4",
+        "7-2",
+        "7-2",
+        "7-2",
+        "7-5",
+        "8-1"
+      ]
+    }
+  },
+  "1407": {
+    "name": "Ciaccona",
+    "quality": "5",
+    "element": "AERO",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_HP": 12237,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_AERO": 0.24
+        }
+      },
+      {
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "3-2"
+        }
+      },
+      {
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_HA": 0.3
+        },
+        "rankModifiers": {
+          "4": {
+            "statMap": {
+              "IGNORE_DEF": 0.45
+            }
+          }
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "AMP_EROSION": 1
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4"
+        ],
+        "duration": 10000,
+        "statMap": {
+          "PERCENT_ATK": 0.35
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_AERO": 0.4
+        }
+      },
+      {
+        "rank": 4,
+        "actionFilter": [
+          "3-1",
+          "3-2",
+          "7-2"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.45
+        }
+      },
+      {
+        "rank": 5,
+        "statMap": {
+          "PERCENT_RL": 0.4
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "1-4",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-2"
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1409",
+        "1407",
+        "1508"
+      ],
+      "weaponId": "21030026",
+      "setCounts": {
+        "16": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-3",
+        "1-4",
+        "1-8",
+        "1-9",
+        "1-4",
+        "2-1",
+        "7-1",
+        "3-1",
+        "8-1"
+      ]
+    }
+  },
+  "1409": {
+    "name": "Cartethyia",
+    "quality": "5",
+    "element": "AERO",
+    "type": "SWORD",
+    "stats": {
+      "BASE_HP": 14800,
+      "BASE_ATK": 312,
+      "BASE_DEF": 611,
+      "PERCENT_CR": 0.08,
+      "PERCENT_HP": 0.12
+    },
+    "effects": [
+      {
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_ALL": 1
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_CD": 1
+            }
+          },
+          "3": {
+            "statMap": {
+              "PERCENT_MV": 1
+            }
+          }
+        }
+      },
+      {
+        "target": "ally",
+        "statMap": {
+          "PERCENT_HB": 0.2
+        }
+      },
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.6
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "duration": 20000,
+        "statMap": {
+          "AMP_AERO": 0.175
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-6",
+          "1-5",
+          "6-1"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "1-7",
+          "1-8",
+          "1-9",
+          "1-10"
+        ],
+        "statMap": {
+          "PERCENT_MV": 2
+        }
+      },
+      {
+        "rank": 4,
+        "target": "team",
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": [
+          "3-1",
+          "6-2",
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "7-5",
+          "7-6",
+          "7-7",
+          "7-8",
+          "7-9",
+          "7-10",
+          "7-11",
+          "7-12",
+          "7-13",
+          "7-14"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.4
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1409",
+        "1407",
+        "1508"
+      ],
+      "weaponId": "21020056",
+      "setCounts": {
+        "17": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "2-1",
+        "1-10",
+        "3-1",
+        "7-13",
+        "7-12",
+        "7-3",
+        "7-4",
+        "7-5",
+        "7-14",
+        "7-3",
+        "7-4",
+        "7-5",
+        "3-1",
+        "8-1"
+      ]
+    }
+  },
+  "1410": {
+    "name": "Iuno",
+    "quality": "5",
+    "element": "AERO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 10525,
+      "BASE_ATK": 450,
+      "BASE_DEF": 1124,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_HA": 0.5
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1306",
+        "1410",
+        "1505"
+      ],
+      "weaponId": "21040046",
+      "setCounts": {
+        "4": 2,
+        "20": 3
+      },
+      "rotation": [
+        "6-1",
+        "3-1",
+        "7-1",
+        "7-3",
+        "7-4",
+        "7-5",
+        "7-7",
+        "7-7",
+        "7-13",
+        "8-1"
+      ]
+    }
+  },
+  "1411": {
+    "name": "Qiuyuan",
+    "quality": "5",
+    "element": "AERO",
+    "type": "SWORD",
+    "stats": {
+      "BASE_HP": 12237,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ES": 0.5
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1208",
+        "1411",
+        "1505"
+      ],
+      "weaponId": "21020066",
+      "setCounts": {
+        "4": 2,
+        "21": 3
+      },
+      "rotation": [
+        "6-1",
+        "7-3",
+        "7-4",
+        "3-1",
+        "7-5",
+        "7-6",
+        "7-7",
+        "2-1",
+        "8-1"
+      ]
+    }
+  },
+  "1412": {
+    "name": "Sigrika",
+    "quality": "5",
+    "element": "AERO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 10775,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1136,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "defaults": {
+      "team": [
+        "1412",
+        "1411",
+        "1505"
+      ],
+      "weaponId": "21040066",
+      "setCounts": {
+        "29": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "1-5",
+        "7-3",
+        "3-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "1-5",
+        "7-2",
+        "7-5",
+        "8-1"
+      ]
+    }
+  },
+  "1503": {
+    "name": "Verina",
+    "quality": "5",
+    "element": "SPECTRO",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_HP": 14237,
+      "BASE_ATK": 337,
+      "BASE_DEF": 1099,
+      "PERCENT_HB": 0.12,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "3-2"
+        }
+      },
+      {
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 12000,
+        "procsCooldown": 1000,
+        "procs": [
+          {
+            "actions": "3-3"
+          },
+          {
+            "actions": "3-4"
+          }
+        ]
+      },
+      {
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-5",
+          "times": 3
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      },
+      {
+        "trigger": "8-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-6",
+          "times": 6
+        },
+        "rankModifiers": {
+          "1": {
+            "procs": {
+              "actions": "7-7",
+              "times": 6
+            }
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "7-4",
+        "statMap": {
+          "PERCENT_HB": 0.12
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": [
+          "3-1",
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "8-1"
+        ],
+        "target": "team",
+        "duration": 24000,
+        "statMap": {
+          "PERCENT_SPECTRO": 0.15
+        }
+      },
+      {
+        "rank": 5,
+        "chance": 0.5,
+        "statMap": {
+          "PERCENT_HB": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4"
+        ],
+        "maxProcs": 1,
+        "procs": [
+          {
+            "actions": "3-3"
+          },
+          {
+            "actions": "3-4",
+            "times": 3
+          }
+        ]
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1503"
+      ],
+      "weaponId": "21050024",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "3-1",
+        "7-2",
+        "7-3",
+        "7-4",
+        "8-1"
+      ]
+    }
+  },
+  "1504": {
+    "name": "Lumi",
+    "quality": "4",
+    "element": "ELECTRO",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 8500,
+      "BASE_ATK": 337,
+      "BASE_DEF": 879,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "rank": 4,
+        "statMap": {
+          "PERCENT_BA": 0.3
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_RL": 0.3
+        }
+      },
+      {
+        "trigger": "1-10",
+        "maxProcs": 1,
+        "procs": {
+          "action": "1-2",
+          "times": 2
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "7-6",
+          "7-7"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.2
+        }
+      },
+      {
+        "trigger": "7-9",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-1",
+          "times": 2
+        }
+      },
+      {
+        "trigger": "8-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-8",
+          "times": 4
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 10000,
+        "statMap": {
+          "AMP_RS": 0.38
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1504",
+        "1505"
+      ],
+      "weaponId": "21010045",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-1",
+        "7-6",
+        "7-2",
+        "7-3",
+        "7-4",
+        "7-7",
+        "1-1",
+        "7-9",
+        "7-9",
+        "7-9",
+        "7-6",
+        "8-1"
+      ]
+    }
+  },
+  "1505": {
+    "name": "Shorekeeper",
+    "quality": "5",
+    "element": "SPECTRO",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_HP": 16712,
+      "BASE_ATK": 287,
+      "BASE_DEF": 1099,
+      "PERCENT_HB": 0.12,
+      "PERCENT_HP": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "2-1",
+          "times": 5
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "2-2",
+        "maxProcs": 1,
+        "actionFilter": "2-2",
+        "statMap": {
+          "PERCENT_HB": 0.7
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "active",
+        "duration": 30000,
+        "procsCooldown": 3000,
+        "procs": {
+          "actions": "3-1"
+        },
+        "rankModifiers": {
+          "1": {
+            "duration": 10000
+          }
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "team",
+        "duration": 30000,
+        "variableStatMap": {
+          "PERCENT_CR": {
+            "source": "ER",
+            "step": 0.002,
+            "value": 0.0001,
+            "max": 0.125
+          }
+        },
+        "rankModifiers": {
+          "1": {
+            "duration": 10000
+          },
+          "2": {
+            "statMap": {
+              "PERCENT_ATK": 0.4
+            }
+          }
+        }
+      },
+      {
+        "trigger": "3-2",
+        "target": "first",
+        "duration": 30000,
+        "variableStatMap": {
+          "PERCENT_CD": {
+            "source": "ER",
+            "step": 0.001,
+            "value": 0.0001,
+            "max": 0.25
+          }
+        },
+        "rankModifiers": {
+          "1": {
+            "duration": 10000
+          }
+        }
+      },
+      {
+        "trigger": "3-2",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ER": 0.1
+        },
+        "rankModifiers": {
+          "1": {
+            "duration": 10000
+          }
+        }
+      },
+      {
+        "trigger": [
+          "7-2",
+          "7-3"
+        ],
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-1",
+          "times": 5
+        }
+      },
+      {
+        "trigger": "6-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "6-3"
+        }
+      },
+      {
+        "trigger": "6-2",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "6-4"
+        }
+      },
+      {
+        "actionFilter": "6-2",
+        "statMap": {
+          "PERCENT_CR": 1
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 0.42,
+              "PERCENT_CD": 5
+            }
+          }
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "AMP_ALL": 0.15
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1505"
+      ],
+      "weaponId": "21050036",
+      "setCounts": {
+        "7": 5
+      },
+      "rotation": [
+        "6-2",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "7-2",
+        "2-2",
+        "3-2",
+        "8-1"
+      ]
+    }
+  },
   "1506": {
     "name": "Phoebe",
     "quality": "5",
     "element": "SPECTRO",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 10825,
-        "BASE_ATK": 412,
-        "BASE_DEF": 1258,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10825,
+      "BASE_ATK": 412,
+      "BASE_DEF": 1258,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -3631,7 +3848,7 @@
         "trigger": "7-2",
         "actionFilter": "3-1",
         "statMap": {
-          "PERCENT_MV": 0.90
+          "PERCENT_MV": 0.9
         }
       },
       {
@@ -3713,19 +3930,887 @@
       ]
     }
   },
+  "1507": {
+    "name": "Zani",
+    "quality": "5",
+    "element": "SPECTRO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 10775,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1136,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": [
+          "2-3",
+          "2-4"
+        ],
+        "duration": 14000,
+        "statMap": {
+          "AMP_FRAZZLE": 0.2
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_SPECTRO": 0.5
+            }
+          }
+        }
+      },
+      {
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4",
+          "7-5"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.25
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 0.4
+            }
+          }
+        }
+      },
+      {
+        "trigger": "7-3",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-4",
+          "times": 40
+        }
+      },
+      {
+        "trigger": "6-1",
+        "duration": 14000,
+        "statMap": {
+          "PERCENT_SPECTRO": 0.12
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "ally",
+        "duration": 20000,
+        "statMap": {
+          "AMP_SPECTRO": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "statMap": {
+          "PERCENT_CR": 0.2
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": [
+          "2-3",
+          "2-4"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "3-2",
+        "statMap": {
+          "PERCENT_MV": 12
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "6-1",
+        "target": "team",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        }
+      },
+      {
+        "rank": 6,
+        "actionFilter": "7-3",
+        "statMap": {
+          "FLAT_MV": 16
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1507",
+        "1506",
+        "1505"
+      ],
+      "weaponId": "21040036",
+      "setCounts": {
+        "11": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "1-3",
+        "2-3",
+        "3-1",
+        "7-1",
+        "7-2",
+        "7-3",
+        "7-1",
+        "7-2",
+        "7-3",
+        "3-2",
+        "8-1"
+      ]
+    }
+  },
+  "1508": {
+    "name": "Chisa",
+    "quality": "5",
+    "element": "HAVOC",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 10775,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1136,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "defaults": {
+      "team": [
+        null,
+        null,
+        "1508"
+      ],
+      "weaponId": "21010056",
+      "setCounts": {
+        "6": 2,
+        "23": 3
+      },
+      "rotation": [
+        "6-1",
+        "1-2",
+        "1-7",
+        "1-3",
+        "3-1",
+        "2-2",
+        "7-2",
+        "7-5",
+        "7-7",
+        "7-10",
+        "8-1"
+      ]
+    }
+  },
+  "1509": {
+    "name": "Lynae",
+    "quality": "5",
+    "element": "SPECTRO",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_HP": 12237,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "statMap": {
+          "AMP_ALL": 0.15,
+          "AMP_RL": 0.25
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1509",
+        "1209"
+      ],
+      "weaponId": "21030046",
+      "setCounts": {
+        "24": 5
+      },
+      "rotation": [
+        "6-1",
+        "3-1",
+        "2-1",
+        "1-8",
+        "7-3",
+        "7-4",
+        "7-5",
+        "7-2",
+        "8-1"
+      ]
+    }
+  },
+  "1510": {
+    "name": "Luuk Herssen",
+    "quality": "5",
+    "element": "SPECTRO",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 10300,
+      "BASE_ATK": 462,
+      "BASE_DEF": 1112,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
+    },
+    "defaults": {
+      "team": [
+        "1510",
+        "1509",
+        "1209"
+      ],
+      "weaponId": "21040056",
+      "setCounts": {
+        "26": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-9",
+        "1-10",
+        "2-2",
+        "2-5",
+        "1-6",
+        "1-9",
+        "1-10",
+        "2-3",
+        "2-5",
+        "1-6",
+        "1-9",
+        "1-10",
+        "2-4",
+        "7-1",
+        "3-1",
+        "8-1"
+      ]
+    }
+  },
+  "1601": {
+    "name": "Taoqi",
+    "quality": "4",
+    "element": "HAVOC",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_HP": 8950,
+      "BASE_ATK": 225,
+      "BASE_DEF": 1564,
+      "PERCENT_HAVOC": 0.12,
+      "PERCENT_DEF": 0.152
+    },
+    "effects": [
+      {
+        "trigger": "2-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "2-2"
+        }
+      },
+      {
+        "trigger": "7-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-4"
+        }
+      },
+      {
+        "trigger": "7-2",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-5"
+        }
+      },
+      {
+        "trigger": "7-3",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-6"
+        }
+      },
+      {
+        "trigger": "2-1",
+        "target": "team",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_DEF": 0.15
+        },
+        "rankModifiers": {
+          "3": {
+            "duration": 15000
+          }
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_RS": 0.38
+        }
+      },
+      {
+        "rank": 1,
+        "actionFilter": [
+          "7-4",
+          "7-5",
+          "7-6"
+        ],
+        "statMap": {
+          "PERCENT_SS": 0.4
+        }
+      },
+      {
+        "rank": 2,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_CR": 0.2,
+          "PERCENT_CD": 0.2
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "1-6",
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_DEF": 0.5
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "1-6",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "7-7"
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_BA": 0.5
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "2-1",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_BA": 0.4,
+          "PERCENT_HA": 0.4
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1601",
+        "1505"
+      ],
+      "weaponId": "21010024",
+      "setCounts": {
+        "8": 5
+      },
+      "rotation": [
+        "6-1",
+        "7-1",
+        "7-2",
+        "7-3",
+        "3-1",
+        "1-1",
+        "1-2",
+        "1-3",
+        "1-4",
+        "2-1",
+        "8-1"
+      ]
+    }
+  },
+  "1602": {
+    "name": "Danjin",
+    "quality": "4",
+    "element": "HAVOC",
+    "type": "SWORD",
+    "stats": {
+      "BASE_HP": 9437,
+      "BASE_ATK": 262,
+      "BASE_DEF": 1148,
+      "PERCENT_HAVOC": 0.12,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": "2-3",
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_ALL": 0.2
+        },
+        "rankModifiers": {
+          "2": {
+            "statMap": {
+              "PERCENT_ALL": 0.2
+            }
+          }
+        }
+      },
+      {
+        "trigger": "3-1",
+        "maxProcs": 1,
+        "procs": {
+          "actions": "3-2"
+        }
+      },
+      {
+        "trigger": "1-6",
+        "maxProcs": 2,
+        "actionFilter": [
+          "2-2",
+          "2-3"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.2
+        }
+      },
+      {
+        "trigger": [
+          "2-4",
+          "2-5",
+          "2-6"
+        ],
+        "duration": 5000,
+        "statMap": {
+          "PERCENT_HA": 0.3
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_HAVOC": 0.23
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-6",
+          "2-1",
+          "2-2",
+          "2-3",
+          "2-4",
+          "2-5",
+          "2-6",
+          "3-1",
+          "3-2"
+        ],
+        "maxStacks": 6,
+        "duration": 6000,
+        "statMap": {
+          "PERCENT_ATK": 0.05
+        }
+      },
+      {
+        "rank": 3,
+        "statMap": {
+          "PERCENT_RL": 0.3
+        }
+      },
+      {
+        "rank": 4,
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3",
+          "7-4"
+        ],
+        "statMap": {
+          "PERCENT_CR": 0.15
+        }
+      },
+      {
+        "rank": 5,
+        "statMap": {
+          "PERCENT_HAVOC": 0.3
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": [
+          "7-1",
+          "7-3"
+        ],
+        "target": "team",
+        "duration": 20000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1602",
+        "1505"
+      ],
+      "weaponId": "21020015",
+      "setCounts": {
+        "12": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-2",
+        "2-3",
+        "3-1",
+        "2-1",
+        "1-2",
+        "1-3",
+        "2-4",
+        "2-5",
+        "2-6",
+        "7-1",
+        "7-2",
+        "8-1"
+      ]
+    }
+  },
+  "1603": {
+    "name": "Camellya",
+    "quality": "5",
+    "element": "HAVOC",
+    "type": "SWORD",
+    "stats": {
+      "BASE_HP": 10325,
+      "BASE_ATK": 450,
+      "BASE_DEF": 1161,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "rank": 2,
+        "actionFilter": "7-1",
+        "statMap": {
+          "PERCENT_MV": 1.2
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 1.2
+            }
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 0.5
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "7-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_ATK": 0.58
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "6-1",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_BA": 0.25
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "6-1",
+        "statMap": {
+          "PERCENT_MV": 3.03
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "8-1",
+        "statMap": {
+          "PERCENT_MV": 0.68
+        }
+      },
+      {
+        "rank": 1,
+        "trigger": "6-1",
+        "duration": 18000,
+        "statMap": {
+          "PERCENT_CD": 0.28
+        }
+      },
+      {
+        "trigger": "7-1",
+        "duration": 15000,
+        "actionFilter": [
+          "1-1",
+          "1-2",
+          "1-3",
+          "1-4",
+          "1-5",
+          "1-7",
+          "1-8",
+          "2-1",
+          "2-2",
+          "2-3",
+          "2-4",
+          "2-5",
+          "2-6",
+          "2-7",
+          "2-8",
+          "2-9"
+        ],
+        "statMap": {
+          "PERCENT_MV": 1
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 4
+            }
+          }
+        }
+      },
+      {
+        "trigger": "7-1",
+        "maxProcs": 1,
+        "actionFilter": "8-1",
+        "statMap": {
+          "FLAT_MV": 4.5902
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        "1603",
+        "1606",
+        "1505"
+      ],
+      "weaponId": "21020026",
+      "setCounts": {
+        "6": 5
+      },
+      "rotation": [
+        "6-1",
+        "2-1",
+        "3-1",
+        "2-2",
+        "2-3",
+        "2-4",
+        "2-6",
+        "2-5",
+        "7-1",
+        "2-2",
+        "2-3",
+        "2-4",
+        "2-6",
+        "2-5",
+        "2-7",
+        "8-1"
+      ]
+    }
+  },
+  "1606": {
+    "name": "Roccia",
+    "quality": "5",
+    "element": "HAVOC",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_HP": 12250,
+      "BASE_ATK": 375,
+      "BASE_DEF": 1197,
+      "PERCENT_CD": 0.16,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "trigger": [
+          "1-5",
+          "2-1"
+        ],
+        "duration": 12000,
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      {
+        "trigger": "3-1",
+        "target": "team",
+        "duration": 30000,
+        "variableStatMap": {
+          "FLAT_ATK": {
+            "source": "CR",
+            "step": 0.001,
+            "offset": 0.5,
+            "value": 1,
+            "max": 200
+          }
+        }
+      },
+      {
+        "trigger": "8-1",
+        "target": "next",
+        "duration": 14000,
+        "statMap": {
+          "AMP_BA": 0.25,
+          "AMP_HAVOC": 0.2
+        }
+      },
+      {
+        "trigger": "8-1",
+        "maxProcs": 1,
+        "procs": {
+          "action": "7-4"
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": "7-3",
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_HAVOC": 0.1
+        }
+      },
+      {
+        "rank": 2,
+        "trigger": [
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
+        "maxStacks": 3,
+        "duration": 30000,
+        "statMap": {
+          "PERCENT_HAVOC": 0.1
+        }
+      },
+      {
+        "rank": 3,
+        "trigger": "6-1",
+        "duration": 15000,
+        "statMap": {
+          "PERCENT_CR": 0.1,
+          "PERCENT_CD": 0.3
+        }
+      },
+      {
+        "rank": 4,
+        "trigger": "2-1",
+        "duration": 12000,
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.6
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": [
+          "1-5",
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "rank": 5,
+        "actionFilter": "3-1",
+        "statMap": {
+          "PERCENT_MV": 0.2
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "3-1",
+        "duration": 12000,
+        "actionFilter": [
+          "7-1",
+          "7-2",
+          "7-3"
+        ],
+        "statMap": {
+          "IGNORE_DEF": 0.6
+        }
+      },
+      {
+        "rank": 6,
+        "trigger": "3-1",
+        "duration": 12000,
+        "actionFilter": "7-3",
+        "statMap": {
+          "PERCENT_MV": 1
+        }
+      }
+    ],
+    "defaults": {
+      "team": [
+        null,
+        "1606",
+        "1505"
+      ],
+      "weaponId": "21040026",
+      "setCounts": {
+        "12": 5
+      },
+      "rotation": [
+        "6-1",
+        "1-4",
+        "2-1",
+        "7-1",
+        "7-2",
+        "7-3",
+        "3-1",
+        "8-1"
+      ]
+    }
+  },
   "1607": {
     "name": "Cantarella",
     "quality": "5",
     "element": "HAVOC",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 11600,
-        "BASE_ATK": 400,
-        "BASE_DEF": 1099,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 11600,
+      "BASE_ATK": 400,
+      "BASE_DEF": 1099,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "effects": [
       {
@@ -3888,578 +4973,17 @@
       ]
     }
   },
-  "1407": {
-    "name": "Ciaccona",
-    "quality": "5",
-    "element": "AERO",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 12237,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_AERO": 0.24
-        }
-      },
-      {
-        "trigger": "3-1",
-        "maxProcs": 1,
-        "procs": {
-          "action": "3-2"
-        }
-      },
-      {
-        "actionFilter": "7-1",
-        "statMap": {
-          "PERCENT_HA": 0.3
-        },
-        "rankModifiers": {
-          "4": {
-            "statMap": {
-              "IGNORE_DEF": 0.45
-            }
-          }
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "AMP_EROSION": 1
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4"
-        ],
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_ATK": 0.35
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_AERO": 0.4
-        }
-      },
-      {
-        "rank": 4,
-        "actionFilter": [
-          "3-1",
-          "3-2",
-          "7-2"
-        ],
-        "statMap": {
-          "IGNORE_DEF": 0.45
-        }
-      },
-      {
-        "rank": 5,
-        "statMap": {
-          "PERCENT_RL": 0.4
-        }
-      },
-      {
-        "rank": 6,
-        "trigger": "1-4",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-2"
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1409",
-        "1407",
-        "1508"
-      ],
-      "weaponId": "21030026",
-      "setCounts": {
-        "16": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-3",
-        "1-4",
-        "1-8",
-        "1-9",
-        "1-4",
-        "2-1",
-        "7-1",
-        "3-1",
-        "8-1"
-      ]
-    }
-  },
-  "1507": {
-    "name": "Zani",
-    "quality": "5",
-    "element": "SPECTRO",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10775,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1136,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": [
-          "2-3",
-          "2-4"
-        ],
-        "duration": 14000,
-        "statMap": {
-          "AMP_FRAZZLE": 0.2
-        },
-        "rankModifiers": {
-          "1": {
-            "statMap": {
-              "PERCENT_SPECTRO": 0.5
-            }
-          }
-        }
-      },
-      {
-        "actionFilter": [
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4",
-          "7-5"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.25
-        },
-        "rankModifiers": {
-          "6": {
-            "statMap": {
-              "PERCENT_MV": 0.4
-            }
-          }
-        }
-      },
-      {
-        "trigger": "7-3",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-4",
-          "times": 40
-        }
-      },
-      {
-        "trigger": "6-1",
-        "duration": 14000,
-        "statMap": {
-          "PERCENT_SPECTRO": 0.12
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "ally",
-        "duration": 20000,
-        "statMap": {
-          "AMP_SPECTRO": 0.2
-        }
-      },
-      {
-        "rank": 2,
-        "statMap": {
-          "PERCENT_CR": 0.2
-        }
-      },
-      {
-        "rank": 2,
-        "actionFilter": [
-          "2-3",
-          "2-4"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.8
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": "3-2",
-        "statMap": {
-          "PERCENT_MV": 12
-        }
-      },
-      {
-        "rank": 4,
-        "trigger": "6-1",
-        "target": "team",
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
-      },
-      {
-        "rank": 5,
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_MV": 1.2
-        }
-      },
-      {
-        "rank": 6,
-        "actionFilter": "7-3",
-        "statMap": {
-          "FLAT_MV": 16
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1507",
-        "1506",
-        "1505"
-      ],
-      "weaponId": "21040036",
-      "setCounts": {
-        "11": 5
-      },
-      "rotation": [
-        "6-1",
-        "2-1",
-        "1-3",
-        "2-3",
-        "3-1",
-        "7-1",
-        "7-2",
-        "7-3",
-        "7-1",
-        "7-2",
-        "7-3",
-        "3-2",
-        "8-1"
-      ]
-    }
-  },
-  "1207": {
-    "name": "Lupa",
-    "quality": "5",
-    "element": "FUSION",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 11912,
-        "BASE_ATK": 387,
-        "BASE_DEF": 1185,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "actionFilter": "2-2",
-        "statMap": {
-          "PERCENT_MV": 0.5
-        }
-      },
-      {
-        "trigger": "3-1",
-        "target": "team",
-        "duration": 35000,
-        "statMap": {
-          "PERCENT_ATK": 0.18,
-          "PERCENT_FUSION": 0.2,
-          "IGNORE_FUSION": 0.15
-        }
-      },
-      {
-        "trigger": [
-          "2-2",
-          "1-6",
-          "1-7",
-          "1-11",
-          "3-1",
-          "7-1",
-          "7-2"
-        ],
-        "duration": 8000,
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        }
-      },
-      {
-        "trigger": [
-          "7-1",
-          "7-2"
-        ],
-        "target": "next",
-        "maxProcs": 1,
-        "procs": {
-          "action": "7-3"
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "statMap": {
-          "AMP_BA": 0.25,
-          "AMP_FUSION": 0.2
-        }
-      },
-      {
-        "rank": 1,
-        "trigger": "3-1",
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_CR": 0.2
-        }
-      },
-      {
-        "rank": 2,
-        "trigger": [
-          "3-1",
-          "1-6",
-          "1-7",
-          "1-11"
-        ],
-        "target": "team",
-        "maxStacks": 2,
-        "duration": 30000,
-        "statMap": {
-          "PERCENT_FUSION": 0.2
-        }
-      },
-      {
-        "rank": 3,
-        "actionFilter": "6-2",
-        "statMap": {
-          "PERCENT_MV": 1
-        }
-      },
-      {
-        "rank": 4,
-        "actionFilter": "7-2",
-        "statMap": {
-          "PERCENT_MV": 1.25
-        }
-      },
-      {
-        "rank": 5,
-        "trigger": [
-          "6-1",
-          "6-2"
-        ],
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_RL": 0.15
-        }
-      },
-      {
-        "rank": 6,
-        "actionFilter": [
-          "7-2",
-          "3-1",
-          "6-2"
-        ],
-        "statMap": {
-          "IGNORE_DEF": 0.3
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1205",
-        "1206",
-        "1207"
-      ],
-      "weaponId": "21010036",
-      "setCounts": {
-        "18": 5
-      },
-      "rotation": [
-        "6-2",
-        "3-1",
-        "3-2",
-        "1-8",
-        "1-9",
-        "1-11",
-        "1-7",
-        "7-2",
-        "8-1"
-      ]
-    }
-  },
-  "1409": {
-    "name": "Cartethyia",
-    "quality": "5",
-    "element": "AERO",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_HP": 14800,
-        "BASE_ATK": 312,
-        "BASE_DEF": 611,
-        "PERCENT_CR": 0.08,
-        "PERCENT_HP": 0.12
-      }
-    },
-    "effects": [
-      {
-        "actionFilter": "3-1",
-        "statMap": {
-          "PERCENT_ALL": 1
-        },
-        "rankModifiers": {
-          "1": {
-            "statMap": {
-              "PERCENT_CD": 1
-            }
-          },
-          "3": {
-            "statMap": {
-              "PERCENT_MV": 1
-            }
-          }
-        }
-      },
-      {
-        "target": "ally",
-        "statMap": {
-          "PERCENT_HB": 0.2
-        }
-      },
-      {
-        "statMap": {
-          "PERCENT_ALL": 0.6
-        }
-      },
-      {
-        "trigger": "8-1",
-        "target": "ally",
-        "duration": 20000,
-        "statMap": {
-          "AMP_AERO": 0.175
-        }
-      },
-      {
-        "rank": 2,
-        "actionFilter": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-6",
-          "1-5",
-          "6-1"
-        ],
-        "statMap": {
-          "PERCENT_MV": 0.5
-        }
-      },
-      {
-        "rank": 2,
-        "actionFilter": [
-          "1-7",
-          "1-8",
-          "1-9",
-          "1-10"
-        ],
-        "statMap": {
-          "PERCENT_MV": 2
-        }
-      },
-      {
-        "rank": 4,
-        "target": "team",
-        "statMap": {
-          "PERCENT_ALL": 0.2
-        }
-      },
-      {
-        "rank": 6,
-        "actionFilter": [
-          "3-1",
-          "6-2",
-          "7-1",
-          "7-2",
-          "7-3",
-          "7-4",
-          "7-5",
-          "7-6",
-          "7-7",
-          "7-8",
-          "7-9",
-          "7-10",
-          "7-11",
-          "7-12",
-          "7-13",
-          "7-14"
-        ],
-        "statMap": {
-          "PERCENT_ALL": 0.4
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1409",
-        "1407",
-        "1508"
-      ],
-      "weaponId": "21020056",
-      "setCounts": {
-        "17": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "2-1",
-        "1-10",
-        "3-1",
-        "7-13",
-        "7-12",
-        "7-3",
-        "7-4",
-        "7-5",
-        "7-14",
-        "7-3",
-        "7-4",
-        "7-5",
-        "3-1",
-        "8-1"
-      ]
-    }
-  },
   "1608": {
     "name": "Phrolova",
     "quality": "5",
     "element": "HAVOC",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_HP": 10775,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1136,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
+      "BASE_HP": 10775,
+      "BASE_ATK": 437,
+      "BASE_DEF": 1136,
+      "PERCENT_CR": 0.08,
+      "PERCENT_ATK": 0.12
     },
     "match": [],
     "effects": [
@@ -4495,624 +5019,6 @@
         "3-3",
         "1-5",
         "7-1",
-        "8-1"
-      ]
-    }
-  },
-  "1306": {
-    "name": "Augusta",
-    "quality": "5",
-    "element": "ELECTRO",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10300,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1112,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "statMap": {
-          "AMP_GLACIO": 0.15,
-          "AMP_FUSION": 0.15,
-          "AMP_ELECTRO": 0.15,
-          "AMP_AERO": 0.15,
-          "AMP_SPECTRO": 0.15,
-          "AMP_HAVOC": 0.15
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1306",
-        "1410",
-        "1505"
-      ],
-      "weaponId": "21010046",
-      "setCounts": {
-        "3": 2,
-        "20": 3
-      },
-      "rotation": [
-        "6-1",
-        "1-9",
-        "1-10",
-        "2-1",
-        "1-9",
-        "1-10",
-        "3-1",
-        "7-1",
-        "7-2",
-        "7-3",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-2",
-        "3-3",
-        "8-1"
-      ]
-    }
-  },
-  "1410": {
-    "name": "Iuno",
-    "quality": "5",
-    "element": "AERO",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10525,
-        "BASE_ATK": 450,
-        "BASE_DEF": 1124,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "statMap": {
-          "AMP_HA": 0.5
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1306",
-        "1410",
-        "1505"
-      ],
-      "weaponId": "21040046",
-      "setCounts": {
-        "4": 2,
-        "20": 3
-      },
-      "rotation": [
-        "6-1",
-        "3-1",
-        "7-1",
-        "7-3",
-        "7-4",
-        "7-5",
-        "7-7",
-        "7-7",
-        "7-13",
-        "8-1"
-      ]
-    }
-  },
-  "1208": {
-    "name": "Galbrena",
-    "quality": "5",
-    "element": "FUSION",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10300,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1112,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "defaults": {
-      "team": [
-        "1208",
-        "1411",
-        "1505"
-      ],
-      "weaponId": "21030036",
-      "setCounts": {
-        "2": 2,
-        "22": 3
-      },
-      "rotation": [
-        "6-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "1-2",
-        "1-3",
-        "2-2",
-        "3-1",
-        "7-2",
-        "7-3",
-        "7-4",
-        "7-5",
-        "7-3",
-        "7-4",
-        "7-5",
-        "8-1"
-      ]
-    }
-  },
-  "1411": {
-    "name": "Qiuyuan",
-    "quality": "5",
-    "element": "AERO",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_HP": 12237,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "statMap": {
-          "AMP_ES": 0.5
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1208",
-        "1411",
-        "1505"
-      ],
-      "weaponId": "21020066",
-      "setCounts": {
-        "4": 2,
-        "21": 3
-      },
-      "rotation": [
-        "6-1",
-        "7-3",
-        "7-4",
-        "3-1",
-        "7-5",
-        "7-6",
-        "7-7",
-        "2-1",
-        "8-1"
-      ]
-    }
-  },
-  "1307": {
-    "name": "Buling",
-    "quality": "4",
-    "element": "ELECTRO",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10625,
-        "BASE_ATK": 225,
-        "BASE_DEF": 1258,
-        "PERCENT_HB": 0.12,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "team",
-        "statMap": {
-          "AMP_ALL": 0.15
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1307"
-      ],
-      "weaponId": "21050024",
-      "setCounts": {
-        "7": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-1",
-        "1-2",
-        "1-5",
-        "2-1",
-        "1-4",
-        "1-7",
-        "1-10",
-        "7-1",
-        "8-1"
-      ]
-    }
-  },
-  "1508": {
-    "name": "Chisa",
-    "quality": "5",
-    "element": "HAVOC",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10775,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1136,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1508"
-      ],
-      "weaponId": "21010056",
-      "setCounts": {
-        "6": 2,
-        "23": 3
-      },
-      "rotation": [
-        "6-1",
-        "1-2",
-        "1-7",
-        "1-3",
-        "3-1",
-        "2-2",
-        "7-2",
-        "7-5",
-        "7-7",
-        "7-10",
-        "8-1"
-      ]
-    }
-  },
-  "1209": {
-    "name": "Mornye",
-    "quality": "5",
-    "element": "FUSION",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_HP": 15375,
-        "BASE_ATK": 287,
-        "BASE_DEF": 1356,
-        "PERCENT_OHB": 0.12,
-        "PERCENT_DEF": 0.152
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "team",
-        "statMap": {
-          "AMP_ALL": 0.25
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        null,
-        "1209"
-      ],
-      "weaponId": "21010066",
-      "setCounts": {
-        "25": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-5",
-        "1-6",
-        "1-7",
-        "2-1",
-        "7-4",
-        "3-1",
-        "8-1"
-      ]
-    }
-  },
-  "1509": {
-    "name": "Lynae",
-    "quality": "5",
-    "element": "SPECTRO",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 12237,
-        "BASE_ATK": 375,
-        "BASE_DEF": 1197,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "statMap": {
-          "AMP_ALL": 0.15,
-          "AMP_RL": 0.25
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1509",
-        "1209"
-      ],
-      "weaponId": "21030046",
-      "setCounts": {
-        "24": 5
-      },
-      "rotation": [
-        "6-1",
-        "3-1",
-        "2-1",
-        "1-8",
-        "7-3",
-        "7-4",
-        "7-5",
-        "7-2",
-        "8-1"
-      ]
-    }
-  },
-  "1210": {
-    "name": "Aemeath",
-    "quality": "5",
-    "element": "FUSION",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_HP": 11025,
-        "BASE_ATK": 425,
-        "BASE_DEF": 1148,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "ally",
-        "statMap": {
-          "AMP_ALL": 0.2
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1210",
-        "1509",
-        "1209"
-      ],
-      "weaponId": "21020076",
-      "setCounts": {
-        "27": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-3",
-        "1-4",
-        "3-1",
-        "2-4",
-        "2-5",
-        "2-6",
-        "7-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "7-2",
-        "2-8",
-        "3-2",
-        "8-1"
-      ]
-    }
-  },
-  "1510": {
-    "name": "Luuk Herssen",
-    "quality": "5",
-    "element": "SPECTRO",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10300,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1112,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "defaults": {
-      "team": [
-        "1510",
-        "1509",
-        "1209"
-      ],
-      "weaponId": "21040056",
-      "setCounts": {
-        "26": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-9",
-        "1-10",
-        "2-2",
-        "2-5",
-        "1-6",
-        "1-9",
-        "1-10",
-        "2-3",
-        "2-5",
-        "1-6",
-        "1-9",
-        "1-10",
-        "2-4",
-        "7-1",
-        "3-1",
-        "8-1"
-      ]
-    }
-  },
-  "1412": {
-    "name": "Sigrika",
-    "quality": "5",
-    "element": "AERO",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10775,
-        "BASE_ATK": 437,
-        "BASE_DEF": 1136,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "defaults": {
-      "team": [
-        "1412",
-        "1411",
-        "1505"
-      ],
-      "weaponId": "21040066",
-      "setCounts": {
-        "29": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "1-5",
-        "7-3",
-        "3-1",
-        "1-2",
-        "1-3",
-        "1-4",
-        "1-5",
-        "7-2",
-        "7-5",
-        "8-1"
-      ]
-    }
-  },
-  "1108": {
-    "name": "Hiyuki",
-    "quality": "5",
-    "element": "GLACIO",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_HP": 10300,
-        "BASE_ATK": 462,
-        "BASE_DEF": 1112,
-        "PERCENT_CR": 0.08,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "ally",
-        "statMap": {
-          "AMP_GLACIO": 0.2
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        "1108",
-        "1509",
-        "1508"
-      ],
-      "weaponId": "21020086",
-      "setCounts": {
-        "30": 5
-      },
-      "rotation": [
-        "6-1",
-        "1-3",
-        "1-4",
-        "3-1",
-        "2-2",
-        "2-3",
-        "1-7",
-        "1-8",
-        "1-9",
-        "1-10",
-        "1-11",
-        "7-1",
-        "7-1",
-        "7-1",
-        "1-13",
-        "3-2",
-        "3-3",
-        "3-3",
-        "3-3",
-        "8-1"
-      ]
-    }
-  },
-  "1211": {
-    "name": "Denia",
-    "quality": "5",
-    "element": "FUSION",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_HP": 11025,
-        "BASE_ATK": 425,
-        "BASE_DEF": 1148,
-        "PERCENT_CD": 0.16,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "trigger": "8-1",
-        "target": "next",
-        "statMap": {
-          "AMP_ALL": 0.4
-        }
-      }
-    ],
-    "defaults": {
-      "team": [
-        null,
-        "1211",
-        "1508"
-      ],
-      "weaponId": "21050076",
-      "setCounts": {
-        "28": 5
-      },
-      "rotation": [
-        "6-1",
         "8-1"
       ]
     }

@@ -28,7 +28,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
   const simulationStartMs = performance.now();
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
-    return computeTotalStat(stat, compileStatMap(gameId, characterId, build, team, 'menu'));
+    return computeTotalStat(stat, compileStatMap(gameId, characterId, build));
   });
 
   const trials = [];

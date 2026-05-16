@@ -101,7 +101,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
 
     // Compute new match penalty and damage with new build
     const newPenalty = match.reduce((acc, stat, index) => {
-      const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
+      const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
@@ -148,7 +148,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
 
       // Compute new match penalty and damage with new build
       const newPenalty = match.reduce((acc, stat, index) => {
-        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
+        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
@@ -204,7 +204,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
 
       // Compute new match penalty and damage with new build
       const newPenalty = match.reduce((acc, stat, index) => {
-        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild, team, "menu"));
+        const currentValue = computeTotalStat(stat, compileStatMap("wuthering-waves", characterId, newBuild));
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);

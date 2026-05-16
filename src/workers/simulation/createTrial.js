@@ -10,7 +10,7 @@ export function createTrial(matchTargets, gameId, characterId, build, match, tea
   return {
     build: startingBuild,
     penalty: match.reduce((acc, stat, index) => {
-      const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, startingBuild, team, 'menu'));
+      const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, startingBuild));
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1),

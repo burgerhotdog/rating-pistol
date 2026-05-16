@@ -16,7 +16,7 @@ export function findPreferred(trial, gameId, characterId, match, team, matchTarg
       const testDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: testBuild } : { ...member }));
       
       const testPenalty = match.reduce((acc, stat, index) => {
-        const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, testBuild, team, "menu"));
+        const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, testBuild));
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1)

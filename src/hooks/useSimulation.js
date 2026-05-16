@@ -13,7 +13,7 @@ function validatePayload({ gameId, characterId, build, team }) {
   const { element, stats: characterStats } = characterData;
   if (!element) return `missing "element" for characterId "${characterId}"`;
   if (!characterStats) return `missing "stats" for characterId "${characterId}"`;
-  const { BASE_HP, BASE_ATK, BASE_DEF } = characterStats.constant;
+  const { BASE_HP, BASE_ATK, BASE_DEF } = characterStats;
   if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for characterId "${characterId}"`;
   const characterMvs = MVS[gameId][characterId];
   if (!characterMvs) return `missing "mvs" for characterId "${characterId}"`;
@@ -40,7 +40,7 @@ function validatePayload({ gameId, characterId, build, team }) {
     const { name, element, stats } = memberData;
     if (!element) return `missing "element" for memberId "${memberId}"`;
     if (!stats) return `missing "stats" for memberId "${memberId}"`;
-    const { BASE_HP, BASE_ATK, BASE_DEF } = stats.constant;
+    const { BASE_HP, BASE_ATK, BASE_DEF } = stats;
     if (!BASE_HP || !BASE_ATK || !BASE_DEF) return `missing base stats for memberId "${memberId}"`;
     if (!MVS[gameId][memberId]) return `missing "mvs" for memberId "${memberId}"`;
 

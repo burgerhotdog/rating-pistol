@@ -4,81 +4,67 @@
     "quality": "1",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
-      }
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
+          "PERCENT_ATK": 0.08
         }
       }
-    ]
+    }
   },
   "21010012": {
     "name": "Tyro Broadblade",
     "quality": "2",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
-      }
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.05
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.05
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.1
-          }
+          "PERCENT_ATK": 0.1
         }
       }
-    ]
+    }
   },
   "21010013": {
     "name": "Broadblade of Night",
     "quality": "3",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
     },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "duration": 10000,
+    "effects": {
+      "triggerInput": "IS",
+      "duration": 10000,
+      "statMap": {
+        "PERCENT_ATK": 0.08
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.08
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16
-          }
+          "PERCENT_ATK": 0.16
         }
       }
-    ]
+    }
   },
   "21010015": {
     "name": "Lustrous Razor",
     "quality": "5",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_ATK": 0.365
-      }
+      "BASE_ATK": 587,
+      "PERCENT_ATK": 0.365
     },
     "effects": [
       {
@@ -92,7 +78,7 @@
         }
       },
       {
-        "triggerFilter": "RS",
+        "triggerInput": "RS",
         "maxStacks": 3,
         "duration": 12000,
         "statMap": {
@@ -111,10 +97,8 @@
     "quality": "5",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
     "effects": [
       {
@@ -128,7 +112,7 @@
         }
       },
       {
-        "triggerFilter": [
+        "triggerInput": [
           "IS",
           "RL"
         ],
@@ -150,10 +134,8 @@
     "quality": "3",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_DEF": 0.384
-      }
+      "BASE_ATK": 300,
+      "PERCENT_DEF": 0.384
     }
   },
   "21010024": {
@@ -161,44 +143,100 @@
     "quality": "4",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
     }
+  },
+  "21010026": {
+    "name": "Ages of Harvest",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ALL": 0.24
+          }
+        }
+      },
+      {
+        "triggerInput": "IS",
+        "statMap": {
+          "PERCENT_RS": 0.24
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.48
+          }
+        },
+        "duration": 12000
+      },
+      {
+        "triggerInput": "RS",
+        "statMap": {
+          "PERCENT_RS": 0.24
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.48
+          }
+        },
+        "duration": 12000
+      }
+    ]
   },
   "21010034": {
     "name": "Broadblade#41",
     "quality": "4",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ER": 0.324
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.324
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": 0.24
         }
       }
-    ]
+    }
+  },
+  "21010036": {
+    "name": "Wildfire Mark",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
   },
   "21010043": {
     "name": "Broadblade of Voyager",
     "quality": "3",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ER": 0.324
-      }
+      "BASE_ATK": 300,
+      "PERCENT_ER": 0.324
     }
   },
   "21010044": {
@@ -206,188 +244,320 @@
     "quality": "4",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_DEF": 0.615
-      }
+      "BASE_ATK": 337,
+      "PERCENT_DEF": 0.615
     },
-    "effects": [
-      {
-        "triggerFilter": "IS",
+    "effects": {
+      "triggerInput": "IS",
+      "statMap": {
+        "PERCENT_ATK": 0.08,
+        "PERCENT_DEF": 0.15
+      },
+      "duration": 15000,
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.08,
-          "PERCENT_DEF": 0.15
-        },
-        "duration": 15000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16,
-            "PERCENT_DEF": 0.3
-          }
+          "PERCENT_ATK": 0.16,
+          "PERCENT_DEF": 0.3
         }
       }
-    ]
+    }
+  },
+  "21010045": {
+    "name": "Radiance Cleaver",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21010046": {
+    "name": "Thunderflare Dominion",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 675,
+      "PERCENT_CR": 0.121
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
   },
   "21010053": {
     "name": "Guardian Broadblade",
     "quality": "3",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_BA": 0.12,
+        "PERCENT_HA": 0.12
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_BA": 0.12,
-          "PERCENT_HA": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.24,
-            "PERCENT_HA": 0.24
-          }
+          "PERCENT_BA": 0.24,
+          "PERCENT_HA": 0.24
         }
       }
-    ]
+    }
+  },
+  "21010056": {
+    "name": "Kumokiri",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21010063": {
+    "name": "Beguiling Melody",
+    "quality": "3",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 300,
+      "PERCENT_ATK": 0.303
+    }
   },
   "21010064": {
     "name": "Helios Cleaver",
     "quality": "4",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "effects": [
-      {
-        "triggerFilter": "RS",
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_ATK": 0.09
+      },
+      "duration": 12000,
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.09
-        },
-        "duration": 12000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.18
-          }
+          "PERCENT_ATK": 0.18
         }
       }
-    ]
+    }
+  },
+  "21010066": {
+    "name": "Starfield Calibrator",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_DEF": 0.16
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_DEF": 0.32
+        }
+      }
+    }
   },
   "21010074": {
     "name": "Autumntrace",
     "quality": "4",
     "type": "BROADBLADE",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
     },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA"
-        ],
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA"
+      ],
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "maxStacks": 5,
+      "duration": 7000,
+      "procsCooldown": 1000,
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "maxStacks": 5,
-        "duration": 7000,
-        "procsCooldown": 1000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.128
-          }
+          "PERCENT_ATK": 0.128
         }
       }
-    ]
+    }
+  },
+  "21010084": {
+    "name": "Waning Redshift",
+    "quality": "4",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_ATK": 0.1
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      "duration": 16000,
+      "procsCooldown": 20000
+    }
+  },
+  "21010094": {
+    "name": "Meditations on Mercy",
+    "quality": "4",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA",
+        "RS",
+        "RL",
+        "IS",
+        "OS",
+        "ES",
+        "CA"
+      ],
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        }
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "procsCooldown": 1000
+    }
+  },
+  "21010104": {
+    "name": "Aureate Zenith",
+    "quality": "4",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
+    },
+    "effects": {
+      "triggerInput": "RL",
+      "statMap": {
+        "PERCENT_ATK": 0.072,
+        "PERCENT_HA": 0.108
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.23,
+          "PERCENT_HA": 0.345
+        }
+      },
+      "duration": 15000
+    }
   },
   "21020011": {
     "name": "Training Sword",
     "quality": "1",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
-      }
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
+          "PERCENT_ATK": 0.08
         }
       }
-    ]
+    }
   },
   "21020012": {
     "name": "Tyro Sword",
     "quality": "2",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
-      }
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.05
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.05
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.1
-          }
+          "PERCENT_ATK": 0.1
         }
       }
-    ]
+    }
   },
   "21020013": {
     "name": "Sword of Night",
     "quality": "3",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
     },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "duration": 10000,
+    "effects": {
+      "triggerInput": "IS",
+      "duration": 10000,
+      "statMap": {
+        "PERCENT_ATK": 0.08
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.08
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16
-          }
+          "PERCENT_ATK": 0.16
         }
       }
-    ]
+    }
   },
   "21020015": {
     "name": "Emerald of Genesis",
     "quality": "5",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
     "effects": [
       {
@@ -401,7 +571,7 @@
         }
       },
       {
-        "triggerFilter": "RS",
+        "triggerInput": "RS",
         "statMap": {
           "PERCENT_ATK": 0.06
         },
@@ -415,1084 +585,13 @@
       }
     ]
   },
-  "21020023": {
-    "name": "Originite: Type II",
-    "quality": "3",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
-    }
-  },
-  "21020024": {
-    "name": "Overture",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
-    }
-  },
-  "21020034": {
-    "name": "Sword#18",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_HA": 0.18
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HA": 0.36
-          }
-        }
-      }
-    ]
-  },
-  "21020043": {
-    "name": "Sword of Voyager",
-    "quality": "3",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ER": 0.324
-      }
-    }
-  },
-  "21020044": {
-    "name": "Commando of Conviction",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "statMap": {
-          "PERCENT_ATK": 0.15
-        },
-        "duration": 15000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.3
-          }
-        }
-      }
-    ]
-  },
-  "21020053": {
-    "name": "Guardian Sword",
-    "quality": "3",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_HP": 0.303
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_RS": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21020064": {
-    "name": "Lunar Cutter",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.07
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.14
-          }
-        }
-      }
-    ]
-  },
-  "21020074": {
-    "name": "Lumingloss",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_BA": 0.2,
-          "PERCENT_HA": 0.2
-        },
-        "duration": 10000,
-        "procsCooldown": 1000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.64,
-            "PERCENT_HA": 0.64
-          }
-        }
-      }
-    ]
-  },
-  "21030011": {
-    "name": "Training Pistols",
-    "quality": "1",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
-        }
-      }
-    ]
-  },
-  "21030012": {
-    "name": "Tyro Pistols",
-    "quality": "2",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.05
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.1
-          }
-        }
-      }
-    ]
-  },
-  "21030013": {
-    "name": "Pistols of Night",
-    "quality": "3",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16
-          }
-        }
-      }
-    ]
-  },
-  "21030015": {
-    "name": "Static Mist",
-    "quality": "5",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ER": 0.128
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ER": 0.256
-          }
-        }
-      },
-      {
-        "triggerFilter": "OS",
-        "target": "next",
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        },
-        "duration": 14000
-      }
-    ]
-  },
-  "21030023": {
-    "name": "Originite: Type III",
-    "quality": "3",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
-    }
-  },
-  "21030024": {
-    "name": "Cadenza",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
-    }
-  },
-  "21030034": {
-    "name": "Pistols#26",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        }
-      }
-    ]
-  },
-  "21030043": {
-    "name": "Pistols of Voyager",
-    "quality": "3",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ATK": 0.303
-      }
-    }
-  },
-  "21030044": {
-    "name": "Undying Flame",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "statMap": {
-          "PERCENT_RS": 0.2
-        },
-        "duration": 15000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.4
-          }
-        }
-      }
-    ]
-  },
-  "21030053": {
-    "name": "Guardian Pistols",
-    "quality": "3",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ATK": 0.303
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_RS": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21030064": {
-    "name": "Novaburst",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.8
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16
-          }
-        }
-      }
-    ]
-  },
-  "21030074": {
-    "name": "Thunderbolt",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA"
-        ],
-        "statMap": {
-          "PERCENT_RS": 0.07
-        },
-        "maxStacks": 3,
-        "duration": 10000,
-        "procsCooldown": 1000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.23
-          }
-        }
-      }
-    ]
-  },
-  "21040011": {
-    "name": "Training Gauntlets",
-    "quality": "1",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
-        }
-      }
-    ]
-  },
-  "21040012": {
-    "name": "Tyro Gauntlets",
-    "quality": "2",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.05
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.1
-          }
-        }
-      }
-    ]
-  },
-  "21040013": {
-    "name": "Gauntlets of Night",
-    "quality": "3",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16
-          }
-        }
-      }
-    ]
-  },
-  "21040015": {
-    "name": "Abyss Surges",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_ATK": 0.364
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ER": 0.128
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ER": 0.256
-          }
-        }
-      },
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_BA": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.2
-          }
-        },
-        "duration": 8000
-      },
-      {
-        "triggerFilter": "BA",
-        "statMap": {
-          "PERCENT_RS": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.2
-          }
-        },
-        "duration": 8000
-      }
-    ]
-  },
-  "21040023": {
-    "name": "Originite: Type IV",
-    "quality": "3",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_CD": 0.405
-      }
-    }
-  },
-  "21040024": {
-    "name": "Marcato",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
-    }
-  },
-  "21040034": {
-    "name": "Gauntlets#21D",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ER": 0.388
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.8
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16
-          }
-        }
-      }
-    ]
-  },
-  "21040043": {
-    "name": "Gauntlets of Voyager",
-    "quality": "3",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_DEF": 0.307
-      }
-    }
-  },
-  "21040044": {
-    "name": "Amity Accord",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_DEF": 0.615
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "statMap": {
-          "PERCENT_RL": 0.2
-        },
-        "duration": 15000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RL": 0.4
-          }
-        }
-      }
-    ]
-  },
-  "21040053": {
-    "name": "Guardian Gauntlets",
-    "quality": "3",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_DEF": 0.384
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_RL": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RL": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21040064": {
-    "name": "Hollow Mirage",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ATK": 0.303
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RL",
-        "statMap": {
-          "PERCENT_ATK": 0.09,
-          "PERCENT_DEF": 0.09
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.15,
-            "PERCENT_DEF": 0.15
-          }
-        }
-      }
-    ]
-  },
-  "21040074": {
-    "name": "Stonard",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_RL": 0.18
-        },
-        "duration": 15000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RL": 0.54
-          }
-        }
-      }
-    ]
-  },
-  "21050011": {
-    "name": "Training Rectifier",
-    "quality": "1",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 190,
-        "PERCENT_ATK": 0.095
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
-        }
-      }
-    ]
-  },
-  "21050012": {
-    "name": "Tyro Rectifier",
-    "quality": "2",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 209,
-        "PERCENT_ATK": 0.123
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.05
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.1
-          }
-        }
-      }
-    ]
-  },
-  "21050013": {
-    "name": "Rectifier of Night",
-    "quality": "3",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16
-          }
-        }
-      }
-    ]
-  },
-  "21050015": {
-    "name": "Cosmic Ripples",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_ATK": 0.539
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ER": 0.128
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ER": 0.256
-          }
-        }
-      },
-      {
-        "triggerFilter": "BA",
-        "statMap": {
-          "PERCENT_BA": 0.032
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.064
-          }
-        },
-        "maxStacks": 5,
-        "procsCooldown": 500,
-        "duration": 8000
-      }
-    ]
-  },
-  "21050016": {
-    "name": "Stringmaster",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ALL": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ALL": 0.24
-          }
-        }
-      },
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        },
-        "maxStacks": 2,
-        "duration": 5000
-      },
-      {
-        "target": "inactive",
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21050023": {
-    "name": "Originite: Type V",
-    "quality": "3",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_HP": 0.303
-      }
-    }
-  },
-  "21050024": {
-    "name": "Variation",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
-    }
-  },
-  "21050034": {
-    "name": "Rectifier#25",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "duration": 10000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21050043": {
-    "name": "Rectifier of Voyager",
-    "quality": "3",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ER": 0.324
-      }
-    }
-  },
-  "21050044": {
-    "name": "Jinzhou Keeper",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 387,
-        "PERCENT_ATK": 0.364
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "IS",
-        "statMap": {
-          "PERCENT_ATK": 0.08,
-          "PERCENT_HP": 0.1
-        },
-        "duration": 15000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.16,
-            "PERCENT_HP": 0.2
-          }
-        }
-      }
-    ]
-  },
-  "21050053": {
-    "name": "Guardian Rectifier",
-    "quality": "3",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 325,
-        "PERCENT_ATK": 0.243
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_BA": 0.12,
-          "PERCENT_HA": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.24,
-            "PERCENT_HA": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21050064": {
-    "name": "Comet Flare",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_HP": 0.303
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA"
-        ],
-        "statMap": {
-          "PERCENT_HB": 0.03
-        },
-        "duration": 8000,
-        "procsCooldown": 600,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HB": 0.06
-          }
-        }
-      }
-    ]
-  },
-  "21050074": {
-    "name": "Augment",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RL",
-        "statMap": {
-          "PERCENT_ATK": 0.15
-        },
-        "duration": 15000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.48
-          }
-        }
-      }
-    ]
-  },
-  "21010026": {
-    "name": "Ages of Harvest",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ALL": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ALL": 0.24
-          }
-        }
-      },
-      {
-        "triggerFilter": "IS",
-        "statMap": {
-          "PERCENT_RS": 0.24
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.48
-          }
-        },
-        "duration": 12000
-      },
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_RS": 0.24
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.48
-          }
-        },
-        "duration": 12000
-      }
-    ]
-  },
-  "21010063": {
-    "name": "Beguiling Melody",
-    "quality": "3",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 300,
-        "PERCENT_ATK": 0.303
-      }
-    }
-  },
   "21020016": {
     "name": "Blazing Brilliance",
     "quality": "5",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
     "effects": [
       {
@@ -1506,7 +605,7 @@
         }
       },
       {
-        "triggerFilter": [
+        "triggerInput": [
           "BA",
           "HA",
           "RL",
@@ -1525,7 +624,7 @@
         "maxStacks": 4
       },
       {
-        "triggerFilter": "RS",
+        "triggerInput": "RS",
         "statMap": {
           "PERCENT_RS": 0.2
         },
@@ -1538,300 +637,63 @@
       }
     ]
   },
-  "21040016": {
-    "name": "Verity's Handle",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ALL": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ALL": 0.24
-          }
-        }
-      },
-      {
-        "triggerFilter": "RL",
-        "statMap": {
-          "PERCENT_RL": 0.48
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.96
-          }
-        },
-        "duration": 23000
-      }
-    ]
-  },
-  "21050026": {
-    "name": "Rime-Draped Sprouts",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CD": 0.72
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      },
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_BA": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.24
-          }
-        },
-        "duration": 6000,
-        "maxStacks": 3
-      },
-      {
-        "triggerFilter": "OS",
-        "statMap": {
-          "PERCENT_BA": 0.52
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 1.04
-          }
-        },
-        "duration": 27000
-      }
-    ]
-  },
-  "21010084": {
-    "name": "Waning Redshift",
-    "quality": "4",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        },
-        "duration": 16000,
-        "procsCooldown": 20000
-      }
-    ]
-  },
-  "21020084": {
-    "name": "Endless Collapse",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        },
-        "duration": 16000,
-        "procsCooldown": 20000
-      }
-    ]
-  },
-  "21030084": {
-    "name": "Relativistic Jet",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        },
-        "duration": 16000,
-        "procsCooldown": 20000
-      }
-    ]
-  },
-  "21040084": {
-    "name": "Celestial Spiral",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        },
-        "duration": 16000,
-        "procsCooldown": 20000
-      }
-    ]
-  },
-  "21050036": {
-    "name": "Stellar Symphony",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ER": 0.77
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_HP": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HP": 0.24
-          }
-        }
-      },
-      {
-        "triggerFilter": "RS",
-        "target": "team",
-        "statMap": {
-          "PERCENT_ATK": 0.14
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.28
-          }
-        },
-        "duration": 30000
-      }
-    ]
-  },
-  "21050084": {
-    "name": "Fusion Accretion",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
-        },
-        "duration": 16000,
-        "procsCooldown": 20000
-      }
-    ]
-  },
   "21020017": {
     "name": "Somnoire Anchor",
     "quality": "4",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
     },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES"
-        ],
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA",
+        "RS",
+        "RL",
+        "IS",
+        "OS",
+        "ES"
+      ],
+      "statMap": {
+        "PERCENT_ATK": 0.02,
+        "PERCENT_CR": 0.006
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.02,
-          "PERCENT_CR": 0.006
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.04,
-            "PERCENT_CR": 0.012
-          }
-        },
-        "duration": 3000,
-        "maxStacks": 10
-      }
-    ]
+          "PERCENT_ATK": 0.04,
+          "PERCENT_CR": 0.012
+        }
+      },
+      "duration": 3000,
+      "maxStacks": 10
+    }
+  },
+  "21020023": {
+    "name": "Originite: Type II",
+    "quality": "3",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    }
+  },
+  "21020024": {
+    "name": "Overture",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
+    }
   },
   "21020026": {
     "name": "Red Spring",
     "quality": "5",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
     "effects": [
       {
@@ -1847,7 +709,7 @@
         }
       },
       {
-        "triggerFilter": "BA",
+        "triggerInput": "BA",
         "statMap": {
           "PERCENT_BA": 0.1
         },
@@ -1861,297 +723,32 @@
       }
     ]
   },
-  "21010094": {
-    "name": "Meditations on Mercy",
-    "quality": "4",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES",
-          "CA"
-        ],
-        "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
-        },
-        "duration": 10000,
-        "maxStacks": 4,
-        "procsCooldown": 1000
-      }
-    ]
-  },
-  "21020094": {
-    "name": "Fables of Wisdom",
+  "21020034": {
+    "name": "Sword#18",
     "quality": "4",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
     },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES",
-          "CA"
-        ],
-        "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
-        },
-        "duration": 10000,
-        "maxStacks": 4,
-        "procsCooldown": 1000
-      }
-    ]
-  },
-  "21030016": {
-    "name": "The Last Dance",
-    "quality": "5",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CD": 0.72
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
+    "effects": {
+      "statMap": {
+        "PERCENT_HA": 0.18
       },
-      {
-        "triggerFilter": [
-          "IS",
-          "RL"
-        ],
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_RS": 0.48
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.96
-          }
-        },
-        "duration": 5000
-      }
-    ]
-  },
-  "21030094": {
-    "name": "Romance in Farewell",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES",
-          "CA"
-        ],
-        "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
-        },
-        "duration": 10000,
-        "maxStacks": 4,
-        "procsCooldown": 1000
-      }
-    ]
-  },
-  "21040026": {
-    "name": "Tragicomedy",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243,
-        "PERCENT_ATK": 0.12
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_HA": 0.36
         }
-      },
-      {
-        "triggerFilter": [
-          "BA",
-          "IS"
-        ],
-        "statMap": {
-          "PERCENT_HA": 0.48
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HA": 0.96
-          }
-        },
-        "duration": 3000
       }
-    ]
-  },
-  "21040094": {
-    "name": "Legend of Drunken Hero",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES",
-          "CA"
-        ],
-        "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
-        },
-        "duration": 10000,
-        "maxStacks": 4,
-        "procsCooldown": 1000
-      }
-    ]
-  },
-  "21050017": {
-    "name": "Call of the Abyss",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 337,
-        "PERCENT_ER": 0.518
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RL",
-        "statMap": {
-          "PERCENT_HB": 0.16
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HB": 0.32
-          }
-        },
-        "duration": 15000
-      }
-    ]
-  },
-  "21050094": {
-    "name": "Waltz in Masquerade",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES",
-          "CA"
-        ],
-        "statMap": {
-          "PERCENT_ATK": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.08
-          }
-        },
-        "duration": 10000,
-        "maxStacks": 4,
-        "procsCooldown": 1000
-      }
-    ]
+    }
   },
   "21020036": {
     "name": "Unflickering Valor",
     "quality": "5",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ER": 0.77
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
     },
     "effects": [
       {
@@ -2165,7 +762,7 @@
         }
       },
       {
-        "triggerFilter": "RL",
+        "triggerInput": "RL",
         "statMap": {
           "PERCENT_BA": 0.24
         },
@@ -2177,7 +774,7 @@
         "duration": 10000
       },
       {
-        "triggerFilter": "BA",
+        "triggerInput": "BA",
         "statMap": {
           "PERCENT_BA": 0.24
         },
@@ -2190,108 +787,62 @@
       }
     ]
   },
-  "21050027": {
-    "name": "Ocean's Gift",
-    "quality": "4",
-    "type": "RECTIFIER",
+  "21020043": {
+    "name": "Sword of Voyager",
+    "quality": "3",
+    "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 462,
-        "PERCENT_ATK": 0.182
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES"
-        ],
-        "statMap": {
-          "PERCENT_SPECTRO": 0.06
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_SPECTRO": 0.1
-          }
-        },
-        "duration": 6000,
-        "maxStacks": 4
-      }
-    ]
+      "BASE_ATK": 300,
+      "PERCENT_ER": 0.324
+    }
   },
-  "21050046": {
-    "name": "Luminous Hymn",
-    "quality": "5",
-    "type": "RECTIFIER",
+  "21020044": {
+    "name": "Commando of Conviction",
+    "quality": "4",
+    "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "effects": [
-      {
+    "effects": {
+      "triggerInput": "IS",
+      "statMap": {
+        "PERCENT_ATK": 0.15
+      },
+      "duration": 15000,
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": 0.3
         }
-      },
-      {
-        "triggerFilter": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES"
-        ],
-        "statMap": {
-          "PERCENT_BA": 0.14,
-          "PERCENT_HA": 0.14
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.28,
-            "PERCENT_HA": 0.28
-          }
-        },
-        "duration": 6000,
-        "maxStacks": 3
-      },
-      {
-        "triggerFilter": "OS",
-        "target": "team",
-        "statMap": {
-          "AMP_FRAZZLE": 0.3
-        },
-        "rankIncrements": {
-          "statMap": {
-            "AMP_FRAZZLE": 0.6
-          }
-        },
-        "duration": 30000
       }
-    ]
+    }
+  },
+  "21020045": {
+    "name": "Laser Shearer",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_ER": 0.388
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
   },
   "21020046": {
     "name": "Bloodpact's Pledge",
     "quality": "5",
     "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_ER": 0.388
-      }
+      "BASE_ATK": 587,
+      "PERCENT_ER": 0.388
     },
     "effects": [
       {
@@ -2317,42 +868,321 @@
       }
     ]
   },
-  "21050056": {
-    "name": "Whispers of Sirens",
-    "quality": "5",
-    "type": "RECTIFIER",
+  "21020053": {
+    "name": "Guardian Sword",
+    "quality": "3",
+    "type": "SWORD",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CD": 0.72
+      "BASE_ATK": 300,
+      "PERCENT_HP": 0.303
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_RS": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_RS": 0.24
+        }
       }
+    }
+  },
+  "21020056": {
+    "name": "Defier's Thorn",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_HP": 0.722
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_HP": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_HP": 0.24
+        }
+      }
+    }
+  },
+  "21020064": {
+    "name": "Lunar Cutter",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.07
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.14
+        }
+      }
+    }
+  },
+  "21020066": {
+    "name": "Emerald Sentence",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21020074": {
+    "name": "Lumingloss",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_BA": 0.2,
+        "PERCENT_HA": 0.2
+      },
+      "duration": 10000,
+      "procsCooldown": 1000,
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_BA": 0.64,
+          "PERCENT_HA": 0.64
+        }
+      }
+    }
+  },
+  "21020076": {
+    "name": "Everbright Polestar",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ALL": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ALL": 0.24
+        }
+      }
+    }
+  },
+  "21020084": {
+    "name": "Endless Collapse",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_ATK": 0.1
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      "duration": 16000,
+      "procsCooldown": 20000
+    }
+  },
+  "21020086": {
+    "name": "Frostburn",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21020094": {
+    "name": "Fables of Wisdom",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA",
+        "RS",
+        "RL",
+        "IS",
+        "OS",
+        "ES",
+        "CA"
+      ],
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        }
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "procsCooldown": 1000
+    }
+  },
+  "21020104": {
+    "name": "Feather Edge",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
+    },
+    "effects": {
+      "triggerInput": "RL",
+      "statMap": {
+        "PERCENT_ATK": 0.072,
+        "PERCENT_RL": 0.108
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.23,
+          "PERCENT_RL": 0.345
+        }
+      },
+      "duration": 15000
+    }
+  },
+  "21030011": {
+    "name": "Training Pistols",
+    "quality": "1",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        }
+      }
+    }
+  },
+  "21030012": {
+    "name": "Tyro Pistols",
+    "quality": "2",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.05
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      }
+    }
+  },
+  "21030013": {
+    "name": "Pistols of Night",
+    "quality": "3",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "triggerInput": "IS",
+      "duration": 10000,
+      "statMap": {
+        "PERCENT_ATK": 0.08
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.16
+        }
+      }
+    }
+  },
+  "21030015": {
+    "name": "Static Mist",
+    "quality": "5",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12,
-          "PERCENT_BA": 0.4,
-          "IGNORE_HAVOC": 0.12
+          "PERCENT_ER": 0.128
         },
         "rankIncrements": {
           "statMap": {
-            "PERCENT_ATK": 0.24,
-            "PERCENT_BA": 0.8,
-            "IGNORE_HAVOC": 0.24
+            "PERCENT_ER": 0.256
           }
         }
+      },
+      {
+        "triggerInput": "OS",
+        "target": "next",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.2
+          }
+        },
+        "duration": 14000
       }
     ]
   },
-  "21030026": {
-    "name": "Woodland Aria",
+  "21030016": {
+    "name": "The Last Dance",
     "quality": "5",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
     },
     "effects": [
       {
@@ -2366,7 +1196,61 @@
         }
       },
       {
-        "triggerFilter": [
+        "triggerInput": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_RS": 0.48
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.96
+          }
+        },
+        "duration": 5000
+      }
+    ]
+  },
+  "21030023": {
+    "name": "Originite: Type III",
+    "quality": "3",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    }
+  },
+  "21030024": {
+    "name": "Cadenza",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
+    }
+  },
+  "21030026": {
+    "name": "Woodland Aria",
+    "quality": "5",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
+        }
+      },
+      {
+        "triggerInput": [
           "BA",
           "HA",
           "RS",
@@ -2386,7 +1270,7 @@
         "duration": 10000
       },
       {
-        "triggerFilter": [
+        "triggerInput": [
           "BA",
           "HA",
           "RS",
@@ -2408,523 +1292,369 @@
       }
     ]
   },
-  "21040036": {
-    "name": "Blazing Justice",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21010036": {
-    "name": "Wildfire Mark",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21020056": {
-    "name": "Defier's Thorn",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_HP": 0.722
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_HP": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HP": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21050066": {
-    "name": "Lethean Elegy",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21010046": {
-    "name": "Thunderflare Dominion",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 675,
-        "PERCENT_CR": 0.121
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
-  },
-  "21010104": {
-    "name": "Aureate Zenith",
-    "quality": "4",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CD": 0.405
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RL",
-        "statMap": {
-          "PERCENT_ATK": 0.072,
-          "PERCENT_HA": 0.108
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.23,
-            "PERCENT_HA": 0.345
-          }
-        },
-        "duration": 15000
-      }
-    ]
-  },
-  "21020104": {
-    "name": "Feather Edge",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RL",
-        "statMap": {
-          "PERCENT_ATK": 0.072,
-          "PERCENT_RL": 0.108
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.23,
-            "PERCENT_RL": 0.345
-          }
-        },
-        "duration": 15000
-      }
-    ]
-  },
-  "21030104": {
-    "name": "Solar Flame",
+  "21030034": {
+    "name": "Pistols#26",
     "quality": "4",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CR": 0.202
-      }
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
     },
-    "effects": [
-      {
-        "triggerFilter": [
-          "BA",
-          "HA"
-        ],
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.1
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.022,
-          "PERCENT_HA": 0.022
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.072,
-            "PERCENT_HA": 0.072
-          }
-        },
-        "duration": 7000,
-        "maxStacks": 4,
-        "procsCooldown": 1000
-      }
-    ]
-  },
-  "21040046": {
-    "name": "Moongazer's Sigil",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": 0.2
         }
       }
-    ]
-  },
-  "21040104": {
-    "name": "Aether Strike",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CD": 0.405
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RL",
-        "statMap": {
-          "PERCENT_ATK": 0.072,
-          "PERCENT_RL": 0.108
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.23,
-            "PERCENT_RL": 0.345
-          }
-        },
-        "duration": 15000
-      }
-    ]
-  },
-  "21050104": {
-    "name": "Radiant Dawn",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_CD": 0.405
-      }
-    },
-    "effects": [
-      {
-        "triggerFilter": "RS",
-        "statMap": {
-          "PERCENT_ATK": 0.09,
-          "PERCENT_BA": 0.09
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.288,
-            "PERCENT_BA": 0.288
-          }
-        },
-        "duration": 10000
-      }
-    ]
-  },
-  "21020066": {
-    "name": "Emerald Sentence",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
+    }
   },
   "21030036": {
     "name": "Lux & Umbra",
     "quality": "5",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": 0.24
         }
       }
-    ]
+    }
   },
-  "21010056": {
-    "name": "Kumokiri",
-    "quality": "5",
-    "type": "BROADBLADE",
+  "21030043": {
+    "name": "Pistols of Voyager",
+    "quality": "3",
+    "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
+      "BASE_ATK": 300,
+      "PERCENT_ATK": 0.303
+    }
   },
-  "21010045": {
-    "name": "Radiance Cleaver",
-    "quality": "5",
-    "type": "BROADBLADE",
+  "21030044": {
+    "name": "Undying Flame",
+    "quality": "4",
+    "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
-      }
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
     },
-    "effects": [
-      {
+    "effects": {
+      "triggerInput": "IS",
+      "statMap": {
+        "PERCENT_RS": 0.2
+      },
+      "duration": 15000,
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_RS": 0.4
         }
       }
-    ]
-  },
-  "21010066": {
-    "name": "Starfield Calibrator",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 412,
-        "PERCENT_ER": 0.77
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_DEF": 0.16
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_DEF": 0.32
-          }
-        }
-      }
-    ]
-  },
-  "21020045": {
-    "name": "Laser Shearer",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_ER": 0.388
-      }
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
-        }
-      }
-    ]
+    }
   },
   "21030045": {
     "name": "Phasic Homogenizer",
     "quality": "5",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": 0.24
         }
       }
-    ]
+    }
   },
   "21030046": {
     "name": "Spectrum Blaster",
     "quality": "5",
     "type": "PISTOLS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": 0.24
         }
       }
-    ]
+    }
   },
-  "21040045": {
-    "name": "Pulsation Bracer",
+  "21030053": {
+    "name": "Guardian Pistols",
+    "quality": "3",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 300,
+      "PERCENT_ATK": 0.303
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_RS": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_RS": 0.24
+        }
+      }
+    }
+  },
+  "21030064": {
+    "name": "Novaburst",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.8
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.16
+        }
+      }
+    }
+  },
+  "21030074": {
+    "name": "Thunderbolt",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA"
+      ],
+      "statMap": {
+        "PERCENT_RS": 0.07
+      },
+      "maxStacks": 3,
+      "duration": 10000,
+      "procsCooldown": 1000,
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_RS": 0.23
+        }
+      }
+    }
+  },
+  "21030084": {
+    "name": "Relativistic Jet",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_ATK": 0.1
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      "duration": 16000,
+      "procsCooldown": 20000
+    }
+  },
+  "21030094": {
+    "name": "Romance in Farewell",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA",
+        "RS",
+        "RL",
+        "IS",
+        "OS",
+        "ES",
+        "CA"
+      ],
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        }
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "procsCooldown": 1000
+    }
+  },
+  "21030104": {
+    "name": "Solar Flame",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA"
+      ],
+      "statMap": {
+        "PERCENT_ATK": 0.022,
+        "PERCENT_HA": 0.022
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.072,
+          "PERCENT_HA": 0.072
+        }
+      },
+      "duration": 7000,
+      "maxStacks": 4,
+      "procsCooldown": 1000
+    }
+  },
+  "21040011": {
+    "name": "Training Gauntlets",
+    "quality": "1",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        }
+      }
+    }
+  },
+  "21040012": {
+    "name": "Tyro Gauntlets",
+    "quality": "2",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.05
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      }
+    }
+  },
+  "21040013": {
+    "name": "Gauntlets of Night",
+    "quality": "3",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "triggerInput": "IS",
+      "duration": 10000,
+      "statMap": {
+        "PERCENT_ATK": 0.08
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.16
+        }
+      }
+    }
+  },
+  "21040015": {
+    "name": "Abyss Surges",
     "quality": "5",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
+      "BASE_ATK": 587,
+      "PERCENT_ATK": 0.364
     },
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12
+          "PERCENT_ER": 0.128
         },
         "rankIncrements": {
           "statMap": {
-            "PERCENT_ATK": 0.24
+            "PERCENT_ER": 0.256
           }
         }
-      }
-    ]
-  },
-  "21050045": {
-    "name": "Boson Astrolabe",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "constant": {
-        "BASE_ATK": 525,
-        "PERCENT_ER": 0.388
-      }
-    },
-    "effects": [
+      },
       {
+        "triggerInput": "RS",
         "statMap": {
-          "PERCENT_ATK": 0.12
+          "PERCENT_BA": 0.1
         },
         "rankIncrements": {
           "statMap": {
-            "PERCENT_ATK": 0.24
+            "PERCENT_BA": 0.2
           }
-        }
+        },
+        "duration": 8000
+      },
+      {
+        "triggerInput": "BA",
+        "statMap": {
+          "PERCENT_RS": 0.1
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.2
+          }
+        },
+        "duration": 8000
       }
     ]
   },
-  "21020076": {
-    "name": "Everbright Polestar",
+  "21040016": {
+    "name": "Verity's Handle",
     "quality": "5",
-    "type": "SWORD",
+    "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
     "effects": [
       {
@@ -2936,44 +1666,487 @@
             "PERCENT_ALL": 0.24
           }
         }
+      },
+      {
+        "triggerInput": "RL",
+        "statMap": {
+          "PERCENT_RL": 0.48
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_RS": 0.96
+          }
+        },
+        "duration": 23000
       }
     ]
+  },
+  "21040023": {
+    "name": "Originite: Type IV",
+    "quality": "3",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 300,
+      "PERCENT_CD": 0.405
+    }
+  },
+  "21040024": {
+    "name": "Marcato",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
+    }
+  },
+  "21040026": {
+    "name": "Tragicomedy",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243,
+      "PERCENT_ATK": 0.12
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
+        }
+      },
+      {
+        "triggerInput": [
+          "BA",
+          "IS"
+        ],
+        "statMap": {
+          "PERCENT_HA": 0.48
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HA": 0.96
+          }
+        },
+        "duration": 3000
+      }
+    ]
+  },
+  "21040034": {
+    "name": "Gauntlets#21D",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 387,
+      "PERCENT_ER": 0.388
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.8
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.16
+        }
+      }
+    }
+  },
+  "21040036": {
+    "name": "Blazing Justice",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21040043": {
+    "name": "Gauntlets of Voyager",
+    "quality": "3",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 325,
+      "PERCENT_DEF": 0.307
+    }
+  },
+  "21040044": {
+    "name": "Amity Accord",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 337,
+      "PERCENT_DEF": 0.615
+    },
+    "effects": {
+      "triggerInput": "IS",
+      "statMap": {
+        "PERCENT_RL": 0.2
+      },
+      "duration": 15000,
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_RL": 0.4
+        }
+      }
+    }
+  },
+  "21040045": {
+    "name": "Pulsation Bracer",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21040046": {
+    "name": "Moongazer's Sigil",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21040053": {
+    "name": "Guardian Gauntlets",
+    "quality": "3",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 300,
+      "PERCENT_DEF": 0.384
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_RL": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_RL": 0.24
+        }
+      }
+    }
   },
   "21040056": {
     "name": "Daybreaker's Spine",
     "quality": "5",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": 0.24
         }
       }
-    ]
+    }
+  },
+  "21040064": {
+    "name": "Hollow Mirage",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_ATK": 0.303
+    },
+    "effects": {
+      "triggerInput": "RL",
+      "statMap": {
+        "PERCENT_ATK": 0.09,
+        "PERCENT_DEF": 0.09
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.15,
+          "PERCENT_DEF": 0.15
+        }
+      }
+    }
   },
   "21040066": {
     "name": "Solsworn Ciphers",
     "quality": "5",
     "type": "GAUNTLETS",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CD": 0.486
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
       }
+    }
+  },
+  "21040074": {
+    "name": "Stonard",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_RL": 0.18
+      },
+      "duration": 15000,
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_RL": 0.54
+        }
+      }
+    }
+  },
+  "21040084": {
+    "name": "Celestial Spiral",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_ATK": 0.1
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      "duration": 16000,
+      "procsCooldown": 20000
+    }
+  },
+  "21040094": {
+    "name": "Legend of Drunken Hero",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA",
+        "RS",
+        "RL",
+        "IS",
+        "OS",
+        "ES",
+        "CA"
+      ],
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        }
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "procsCooldown": 1000
+    }
+  },
+  "21040104": {
+    "name": "Aether Strike",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
+    },
+    "effects": {
+      "triggerInput": "RL",
+      "statMap": {
+        "PERCENT_ATK": 0.072,
+        "PERCENT_RL": 0.108
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.23,
+          "PERCENT_RL": 0.345
+        }
+      },
+      "duration": 15000
+    }
+  },
+  "21050011": {
+    "name": "Training Rectifier",
+    "quality": "1",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 190,
+      "PERCENT_ATK": 0.095
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        }
+      }
+    }
+  },
+  "21050012": {
+    "name": "Tyro Rectifier",
+    "quality": "2",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 209,
+      "PERCENT_ATK": 0.123
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.05
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        }
+      }
+    }
+  },
+  "21050013": {
+    "name": "Rectifier of Night",
+    "quality": "3",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "triggerInput": "IS",
+      "duration": 10000,
+      "statMap": {
+        "PERCENT_ATK": 0.08
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.16
+        }
+      }
+    }
+  },
+  "21050015": {
+    "name": "Cosmic Ripples",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_ATK": 0.539
     },
     "effects": [
       {
+        "statMap": {
+          "PERCENT_ER": 0.128
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ER": 0.256
+          }
+        }
+      },
+      {
+        "triggerInput": "BA",
+        "statMap": {
+          "PERCENT_BA": 0.032
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.064
+          }
+        },
+        "maxStacks": 5,
+        "procsCooldown": 500,
+        "duration": 8000
+      }
+    ]
+  },
+  "21050016": {
+    "name": "Stringmaster",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ALL": 0.24
+          }
+        }
+      },
+      {
+        "triggerInput": "RS",
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
+        },
+        "maxStacks": 2,
+        "duration": 5000
+      },
+      {
+        "target": "inactive",
         "statMap": {
           "PERCENT_ATK": 0.12
         },
@@ -2985,15 +2158,52 @@
       }
     ]
   },
-  "21020086": {
-    "name": "Frostburn",
-    "quality": "5",
-    "type": "SWORD",
+  "21050017": {
+    "name": "Call of the Abyss",
+    "quality": "4",
+    "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 587,
-        "PERCENT_CR": 0.243
-      }
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
+    },
+    "effects": {
+      "triggerInput": "RL",
+      "statMap": {
+        "PERCENT_HB": 0.16
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_HB": 0.32
+        }
+      },
+      "duration": 15000
+    }
+  },
+  "21050023": {
+    "name": "Originite: Type V",
+    "quality": "3",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 300,
+      "PERCENT_HP": 0.303
+    }
+  },
+  "21050024": {
+    "name": "Variation",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
+    }
+  },
+  "21050026": {
+    "name": "Rime-Draped Sprouts",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
     },
     "effects": [
       {
@@ -3005,30 +2215,430 @@
             "PERCENT_ATK": 0.24
           }
         }
+      },
+      {
+        "triggerInput": "RS",
+        "statMap": {
+          "PERCENT_BA": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.24
+          }
+        },
+        "duration": 6000,
+        "maxStacks": 3
+      },
+      {
+        "triggerInput": "OS",
+        "statMap": {
+          "PERCENT_BA": 0.52
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 1.04
+          }
+        },
+        "duration": 27000
       }
     ]
+  },
+  "21050027": {
+    "name": "Ocean's Gift",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA",
+        "RS",
+        "RL",
+        "IS",
+        "OS",
+        "ES"
+      ],
+      "statMap": {
+        "PERCENT_SPECTRO": 0.06
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_SPECTRO": 0.1
+        }
+      },
+      "duration": 6000,
+      "maxStacks": 4
+    }
+  },
+  "21050034": {
+    "name": "Rectifier#25",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "duration": 10000,
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21050036": {
+    "name": "Stellar Symphony",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HP": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_HP": 0.24
+          }
+        }
+      },
+      {
+        "triggerInput": "RS",
+        "target": "team",
+        "statMap": {
+          "PERCENT_ATK": 0.14
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.28
+          }
+        },
+        "duration": 30000
+      }
+    ]
+  },
+  "21050043": {
+    "name": "Rectifier of Voyager",
+    "quality": "3",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 300,
+      "PERCENT_ER": 0.324
+    }
+  },
+  "21050044": {
+    "name": "Jinzhou Keeper",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 387,
+      "PERCENT_ATK": 0.364
+    },
+    "effects": {
+      "triggerInput": "IS",
+      "statMap": {
+        "PERCENT_ATK": 0.08,
+        "PERCENT_HP": 0.1
+      },
+      "duration": 15000,
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.16,
+          "PERCENT_HP": 0.2
+        }
+      }
+    }
+  },
+  "21050045": {
+    "name": "Boson Astrolabe",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 525,
+      "PERCENT_ER": 0.388
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21050046": {
+    "name": "Luminous Hymn",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": 0.12
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_ATK": 0.24
+          }
+        }
+      },
+      {
+        "triggerInput": [
+          "BA",
+          "HA",
+          "RS",
+          "RL",
+          "IS",
+          "OS",
+          "ES"
+        ],
+        "statMap": {
+          "PERCENT_BA": 0.14,
+          "PERCENT_HA": 0.14
+        },
+        "rankIncrements": {
+          "statMap": {
+            "PERCENT_BA": 0.28,
+            "PERCENT_HA": 0.28
+          }
+        },
+        "duration": 6000,
+        "maxStacks": 3
+      },
+      {
+        "triggerInput": "OS",
+        "target": "team",
+        "statMap": {
+          "AMP_FRAZZLE": 0.3
+        },
+        "rankIncrements": {
+          "statMap": {
+            "AMP_FRAZZLE": 0.6
+          }
+        },
+        "duration": 30000
+      }
+    ]
+  },
+  "21050053": {
+    "name": "Guardian Rectifier",
+    "quality": "3",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 325,
+      "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_BA": 0.12,
+        "PERCENT_HA": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_BA": 0.24,
+          "PERCENT_HA": 0.24
+        }
+      }
+    }
+  },
+  "21050056": {
+    "name": "Whispers of Sirens",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12,
+        "PERCENT_BA": 0.4,
+        "IGNORE_HAVOC": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24,
+          "PERCENT_BA": 0.8,
+          "IGNORE_HAVOC": 0.24
+        }
+      }
+    }
+  },
+  "21050064": {
+    "name": "Comet Flare",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_HP": 0.303
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA"
+      ],
+      "statMap": {
+        "PERCENT_HB": 0.03
+      },
+      "duration": 8000,
+      "procsCooldown": 600,
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_HB": 0.06
+        }
+      }
+    }
+  },
+  "21050066": {
+    "name": "Lethean Elegy",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.24
+        }
+      }
+    }
+  },
+  "21050074": {
+    "name": "Augment",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
+    },
+    "effects": {
+      "triggerInput": "RL",
+      "statMap": {
+        "PERCENT_ATK": 0.15
+      },
+      "duration": 15000,
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.48
+        }
+      }
+    }
   },
   "21050076": {
     "name": "Forged Dwarf Star",
     "quality": "5",
     "type": "RECTIFIER",
     "stats": {
-      "constant": {
-        "BASE_ATK": 500,
-        "PERCENT_CR": 0.36
-      }
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
     },
-    "effects": [
-      {
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": 0.12
+      },
+      "rankIncrements": {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": 0.24
         }
       }
-    ]
+    }
+  },
+  "21050084": {
+    "name": "Fusion Accretion",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_ATK": 0.1
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.2
+        }
+      },
+      "duration": 16000,
+      "procsCooldown": 20000
+    }
+  },
+  "21050094": {
+    "name": "Waltz in Masquerade",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "triggerInput": [
+        "BA",
+        "HA",
+        "RS",
+        "RL",
+        "IS",
+        "OS",
+        "ES",
+        "CA"
+      ],
+      "statMap": {
+        "PERCENT_ATK": 0.04
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.08
+        }
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "procsCooldown": 1000
+    }
+  },
+  "21050104": {
+    "name": "Radiant Dawn",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
+    },
+    "effects": {
+      "triggerInput": "RS",
+      "statMap": {
+        "PERCENT_ATK": 0.09,
+        "PERCENT_BA": 0.09
+      },
+      "rankIncrements": {
+        "statMap": {
+          "PERCENT_ATK": 0.288,
+          "PERCENT_BA": 0.288
+        }
+      },
+      "duration": 10000
+    }
   }
 }

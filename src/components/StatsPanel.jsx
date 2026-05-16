@@ -102,7 +102,7 @@ export const StatsPanel = ({ team, updateTeam }) => {
   const { MENU_STATS } = MISC[gameId];
   const [dialogIndex, setDialogIndex] = useState(null);
 
-  const statMap = build ? compileStatMap(gameId, characterId, build, [], "menu") : {};
+  const statMap = build ? compileStatMap(gameId, characterId, build) : {};
   const characterIndex = team.findIndex(({ memberId }) => memberId === characterId);
   const isFirst = characterIndex === 0;
 
