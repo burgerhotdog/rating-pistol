@@ -9,12 +9,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
@@ -28,12 +26,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.05
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
@@ -49,12 +45,10 @@
       "triggerInput": "IS",
       "duration": 10000,
       "statMap": {
-        "PERCENT_ATK": 0.08
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16
-        }
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
       }
     }
   },
@@ -69,12 +63,10 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ER": 0.128
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ER": 0.256
-          }
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
       },
       {
@@ -82,12 +74,10 @@
         "maxStacks": 3,
         "duration": 12000,
         "statMap": {
-          "PERCENT_RL": 0.07
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RL": 0.14
-          }
+          "PERCENT_RL": [
+            0.07,
+            0.14
+          ]
         }
       }
     ]
@@ -103,12 +93,10 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ALL": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ALL": 0.24
-          }
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
@@ -117,15 +105,13 @@
           "RL"
         ],
         "statMap": {
-          "PERCENT_HA": 0.24
+          "PERCENT_HA": [
+            0.24,
+            0.48
+          ]
         },
         "maxStacks": 2,
-        "duration": 14000,
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HA": 0.48
-          }
-        }
+        "duration": 14000
       }
     ]
   },
@@ -158,35 +144,29 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ALL": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ALL": 0.24
-          }
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
         "triggerInput": "IS",
         "statMap": {
-          "PERCENT_RS": 0.24
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.48
-          }
+          "PERCENT_RS": [
+            0.24,
+            0.48
+          ]
         },
         "duration": 12000
       },
       {
         "triggerInput": "RS",
         "statMap": {
-          "PERCENT_RS": 0.24
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.48
-          }
+          "PERCENT_RS": [
+            0.24,
+            0.48
+          ]
         },
         "duration": 12000
       }
@@ -202,12 +182,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -221,12 +199,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -250,16 +226,16 @@
     "effects": {
       "triggerInput": "IS",
       "statMap": {
-        "PERCENT_ATK": 0.08,
-        "PERCENT_DEF": 0.15
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ],
+        "PERCENT_DEF": [
+          0.15,
+          0.3
+        ]
       },
-      "duration": 15000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16,
-          "PERCENT_DEF": 0.3
-        }
-      }
+      "duration": 15000
     }
   },
   "21010045": {
@@ -272,12 +248,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -291,12 +265,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -310,14 +282,14 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_BA": 0.12,
-        "PERCENT_HA": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_BA": 0.24,
-          "PERCENT_HA": 0.24
-        }
+        "PERCENT_BA": [
+          0.12,
+          0.24
+        ],
+        "PERCENT_HA": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -331,12 +303,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -360,14 +330,12 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_ATK": 0.09
+        "PERCENT_ATK": [
+          0.09,
+          0.18
+        ]
       },
-      "duration": 12000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.18
-        }
-      }
+      "duration": 12000
     }
   },
   "21010066": {
@@ -380,12 +348,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_DEF": 0.16
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_DEF": 0.32
-        }
+        "PERCENT_DEF": [
+          0.16,
+          0.32
+        ]
       }
     }
   },
@@ -403,16 +369,14 @@
         "HA"
       ],
       "statMap": {
-        "PERCENT_ATK": 0.04
+        "PERCENT_ATK": [
+          0.04,
+          0.128
+        ]
       },
       "maxStacks": 5,
       "duration": 7000,
-      "procsCooldown": 1000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.128
-        }
-      }
+      "procsCooldown": 1000
     }
   },
   "21010084": {
@@ -426,12 +390,10 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_ATK": 0.1
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
       },
       "duration": 16000,
       "procsCooldown": 20000
@@ -457,12 +419,10 @@
         "CA"
       ],
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       },
       "duration": 10000,
       "maxStacks": 4,
@@ -480,14 +440,14 @@
     "effects": {
       "triggerInput": "RL",
       "statMap": {
-        "PERCENT_ATK": 0.072,
-        "PERCENT_HA": 0.108
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_HA": 0.345
-        }
+        "PERCENT_ATK": [
+          0.072,
+          0.23
+        ],
+        "PERCENT_HA": [
+          0.108,
+          0.345
+        ]
       },
       "duration": 15000
     }
@@ -502,12 +462,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
@@ -521,12 +479,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.05
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
@@ -542,12 +498,10 @@
       "triggerInput": "IS",
       "duration": 10000,
       "statMap": {
-        "PERCENT_ATK": 0.08
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16
-        }
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
       }
     }
   },
@@ -562,23 +516,19 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ER": 0.128
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ER": 0.256
-          }
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
       },
       {
         "triggerInput": "RS",
         "statMap": {
-          "PERCENT_ATK": 0.06
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.12
-          }
+          "PERCENT_ATK": [
+            0.06,
+            0.12
+          ]
         },
         "maxStacks": 2,
         "duration": 10000
@@ -596,12 +546,10 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
@@ -614,24 +562,20 @@
           "ES"
         ],
         "statMap": {
-          "PERCENT_RS": 0.04
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.08
-          }
+          "PERCENT_RS": [
+            0.04,
+            0.08
+          ]
         },
         "maxStacks": 4
       },
       {
         "triggerInput": "RS",
         "statMap": {
-          "PERCENT_RS": 0.2
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.4
-          }
+          "PERCENT_RS": [
+            0.2,
+            0.4
+          ]
         },
         "maxStacks": 2
       }
@@ -656,14 +600,14 @@
         "ES"
       ],
       "statMap": {
-        "PERCENT_ATK": 0.02,
-        "PERCENT_CR": 0.006
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.04,
-          "PERCENT_CR": 0.012
-        }
+        "PERCENT_ATK": [
+          0.02,
+          0.04
+        ],
+        "PERCENT_CR": [
+          0.006,
+          0.012
+        ]
       },
       "duration": 3000,
       "maxStacks": 10
@@ -698,25 +642,23 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12,
-          "PERCENT_BA": 0.2
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24,
-            "PERCENT_BA": 0.4
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ],
+          "PERCENT_BA": [
+            0.2,
+            0.4
+          ]
         }
       },
       {
         "triggerInput": "BA",
         "statMap": {
-          "PERCENT_BA": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
+          "PERCENT_BA": [
+            0.1,
+            0.2
+          ]
         },
         "duration": 14000,
         "maxStacks": 3
@@ -733,12 +675,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_HA": 0.18
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_HA": 0.36
-        }
+        "PERCENT_HA": [
+          0.18,
+          0.36
+        ]
       }
     }
   },
@@ -753,35 +693,29 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_CR": 0.08
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_CR": 0.16
-          }
+          "PERCENT_CR": [
+            0.08,
+            0.16
+          ]
         }
       },
       {
         "triggerInput": "RL",
         "statMap": {
-          "PERCENT_BA": 0.24
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.48
-          }
+          "PERCENT_BA": [
+            0.24,
+            0.48
+          ]
         },
         "duration": 10000
       },
       {
         "triggerInput": "BA",
         "statMap": {
-          "PERCENT_BA": 0.24
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.48
-          }
+          "PERCENT_BA": [
+            0.24,
+            0.48
+          ]
         },
         "duration": 4000
       }
@@ -807,14 +741,12 @@
     "effects": {
       "triggerInput": "IS",
       "statMap": {
-        "PERCENT_ATK": 0.15
+        "PERCENT_ATK": [
+          0.15,
+          0.3
+        ]
       },
-      "duration": 15000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.3
-        }
-      }
+      "duration": 15000
     }
   },
   "21020045": {
@@ -827,12 +759,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -847,23 +777,20 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_RS": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.26
-          }
+          "PERCENT_RS": [
+            0.1,
+            0.26
+          ]
         }
       },
       {
+        "triggerInput": "IS",
         "target": "team",
         "statMap": {
-          "AMP_AERO": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "AMP_AERO": 0.26
-          }
+          "AMP_AERO": [
+            0.1,
+            0.26
+          ]
         }
       }
     ]
@@ -878,12 +805,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_RS": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_RS": 0.24
-        }
+        "PERCENT_RS": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -897,12 +822,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_HP": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_HP": 0.24
-        }
+        "PERCENT_HP": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -916,12 +839,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.07
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.14
-        }
+        "PERCENT_ATK": [
+          0.07,
+          0.14
+        ]
       }
     }
   },
@@ -935,12 +856,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -955,17 +874,17 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_BA": 0.2,
-        "PERCENT_HA": 0.2
+        "PERCENT_BA": [
+          0.2,
+          0.64
+        ],
+        "PERCENT_HA": [
+          0.2,
+          0.64
+        ]
       },
       "duration": 10000,
-      "procsCooldown": 1000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_BA": 0.64,
-          "PERCENT_HA": 0.64
-        }
-      }
+      "procsCooldown": 1000
     }
   },
   "21020076": {
@@ -978,12 +897,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ALL": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ALL": 0.24
-        }
+        "PERCENT_ALL": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -998,12 +915,10 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_ATK": 0.1
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
       },
       "duration": 16000,
       "procsCooldown": 20000
@@ -1019,12 +934,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1048,12 +961,10 @@
         "CA"
       ],
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       },
       "duration": 10000,
       "maxStacks": 4,
@@ -1071,14 +982,14 @@
     "effects": {
       "triggerInput": "RL",
       "statMap": {
-        "PERCENT_ATK": 0.072,
-        "PERCENT_RL": 0.108
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_RL": 0.345
-        }
+        "PERCENT_ATK": [
+          0.072,
+          0.23
+        ],
+        "PERCENT_RL": [
+          0.108,
+          0.345
+        ]
       },
       "duration": 15000
     }
@@ -1093,12 +1004,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
@@ -1112,12 +1021,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.05
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
@@ -1133,12 +1040,10 @@
       "triggerInput": "IS",
       "duration": 10000,
       "statMap": {
-        "PERCENT_ATK": 0.08
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16
-        }
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
       }
     }
   },
@@ -1153,24 +1058,20 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ER": 0.128
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ER": 0.256
-          }
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
       },
       {
         "triggerInput": "OS",
         "target": "next",
         "statMap": {
-          "PERCENT_ATK": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.2
-          }
+          "PERCENT_ATK": [
+            0.1,
+            0.2
+          ]
         },
         "duration": 14000
       }
@@ -1187,12 +1088,10 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
@@ -1201,12 +1100,10 @@
           "RL"
         ],
         "statMap": {
-          "PERCENT_RS": 0.48
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.96
-          }
+          "PERCENT_RS": [
+            0.48,
+            0.96
+          ]
         },
         "duration": 5000
       }
@@ -1241,12 +1138,10 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
@@ -1260,12 +1155,10 @@
           "ES"
         ],
         "statMap": {
-          "PERCENT_AERO": 0.24
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_AERO": 0.48
-          }
+          "PERCENT_AERO": [
+            0.24,
+            0.48
+          ]
         },
         "duration": 10000
       },
@@ -1281,12 +1174,10 @@
         ],
         "target": "team",
         "statMap": {
-          "IGNORE_AERO": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "IGNORE_AERO": 0.16
-          }
+          "IGNORE_AERO": [
+            0.1,
+            0.16
+          ]
         },
         "duration": 20000
       }
@@ -1302,12 +1193,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.1
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
       }
     }
   },
@@ -1321,12 +1210,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1350,14 +1237,12 @@
     "effects": {
       "triggerInput": "IS",
       "statMap": {
-        "PERCENT_RS": 0.2
+        "PERCENT_RS": [
+          0.2,
+          0.4
+        ]
       },
-      "duration": 15000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_RS": 0.4
-        }
-      }
+      "duration": 15000
     }
   },
   "21030045": {
@@ -1370,12 +1255,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1389,12 +1272,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1408,12 +1289,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_RS": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_RS": 0.24
-        }
+        "PERCENT_RS": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1427,12 +1306,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.8
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16
-        }
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
       }
     }
   },
@@ -1450,16 +1327,14 @@
         "HA"
       ],
       "statMap": {
-        "PERCENT_RS": 0.07
+        "PERCENT_RS": [
+          0.07,
+          0.23
+        ]
       },
       "maxStacks": 3,
       "duration": 10000,
-      "procsCooldown": 1000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_RS": 0.23
-        }
-      }
+      "procsCooldown": 1000
     }
   },
   "21030084": {
@@ -1473,12 +1348,10 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_ATK": 0.1
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
       },
       "duration": 16000,
       "procsCooldown": 20000
@@ -1504,12 +1377,10 @@
         "CA"
       ],
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       },
       "duration": 10000,
       "maxStacks": 4,
@@ -1529,19 +1400,19 @@
         "BA",
         "HA"
       ],
+      "triggerCooldown": 1000,
       "statMap": {
-        "PERCENT_ATK": 0.022,
-        "PERCENT_HA": 0.022
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.072,
-          "PERCENT_HA": 0.072
-        }
+        "PERCENT_ATK": [
+          0.022,
+          0.072
+        ],
+        "PERCENT_HA": [
+          0.022,
+          0.072
+        ]
       },
       "duration": 7000,
-      "maxStacks": 4,
-      "procsCooldown": 1000
+      "maxStacks": 4
     }
   },
   "21040011": {
@@ -1554,12 +1425,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
@@ -1573,12 +1442,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.05
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
@@ -1594,12 +1461,10 @@
       "triggerInput": "IS",
       "duration": 10000,
       "statMap": {
-        "PERCENT_ATK": 0.08
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16
-        }
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
       }
     }
   },
@@ -1614,35 +1479,29 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ER": 0.128
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ER": 0.256
-          }
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
       },
       {
         "triggerInput": "RS",
         "statMap": {
-          "PERCENT_BA": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.2
-          }
+          "PERCENT_BA": [
+            0.1,
+            0.2
+          ]
         },
         "duration": 8000
       },
       {
         "triggerInput": "BA",
         "statMap": {
-          "PERCENT_RS": 0.1
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.2
-          }
+          "PERCENT_RS": [
+            0.1,
+            0.2
+          ]
         },
         "duration": 8000
       }
@@ -1659,23 +1518,19 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ALL": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ALL": 0.24
-          }
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
         "triggerInput": "RL",
         "statMap": {
-          "PERCENT_RL": 0.48
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_RS": 0.96
-          }
+          "PERCENT_RL": [
+            0.48,
+            0.96
+          ]
         },
         "duration": 23000
       }
@@ -1705,18 +1560,15 @@
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 587,
-      "PERCENT_CR": 0.243,
-      "PERCENT_ATK": 0.12
+      "PERCENT_CR": 0.243
     },
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
@@ -1725,12 +1577,10 @@
           "IS"
         ],
         "statMap": {
-          "PERCENT_HA": 0.48
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HA": 0.96
-          }
+          "PERCENT_HA": [
+            0.48,
+            0.96
+          ]
         },
         "duration": 3000
       }
@@ -1746,12 +1596,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.8
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16
-        }
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
       }
     }
   },
@@ -1765,12 +1613,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1794,14 +1640,12 @@
     "effects": {
       "triggerInput": "IS",
       "statMap": {
-        "PERCENT_RL": 0.2
+        "PERCENT_RL": [
+          0.2,
+          0.4
+        ]
       },
-      "duration": 15000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_RL": 0.4
-        }
-      }
+      "duration": 15000
     }
   },
   "21040045": {
@@ -1814,12 +1658,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1833,12 +1675,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1852,12 +1692,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_RL": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_RL": 0.24
-        }
+        "PERCENT_RL": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1871,12 +1709,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1891,14 +1727,14 @@
     "effects": {
       "triggerInput": "RL",
       "statMap": {
-        "PERCENT_ATK": 0.09,
-        "PERCENT_DEF": 0.09
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.15,
-          "PERCENT_DEF": 0.15
-        }
+        "PERCENT_ATK": [
+          0.09,
+          0.15
+        ],
+        "PERCENT_DEF": [
+          0.09,
+          0.15
+        ]
       }
     }
   },
@@ -1912,12 +1748,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -1932,14 +1766,12 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_RL": 0.18
+        "PERCENT_RL": [
+          0.18,
+          0.54
+        ]
       },
-      "duration": 15000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_RL": 0.54
-        }
-      }
+      "duration": 15000
     }
   },
   "21040084": {
@@ -1953,12 +1785,10 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_ATK": 0.1
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
       },
       "duration": 16000,
       "procsCooldown": 20000
@@ -1984,12 +1814,10 @@
         "CA"
       ],
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       },
       "duration": 10000,
       "maxStacks": 4,
@@ -2007,14 +1835,14 @@
     "effects": {
       "triggerInput": "RL",
       "statMap": {
-        "PERCENT_ATK": 0.072,
-        "PERCENT_RL": 0.108
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.23,
-          "PERCENT_RL": 0.345
-        }
+        "PERCENT_ATK": [
+          0.072,
+          0.23
+        ],
+        "PERCENT_RL": [
+          0.108,
+          0.345
+        ]
       },
       "duration": 15000
     }
@@ -2029,12 +1857,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       }
     }
   },
@@ -2048,12 +1874,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.05
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
+        "PERCENT_ATK": [
+          0.05,
+          0.1
+        ]
       }
     }
   },
@@ -2069,12 +1893,10 @@
       "triggerInput": "IS",
       "duration": 10000,
       "statMap": {
-        "PERCENT_ATK": 0.08
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16
-        }
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ]
       }
     }
   },
@@ -2089,26 +1911,22 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ER": 0.128
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ER": 0.256
-          }
+          "PERCENT_ER": [
+            0.128,
+            0.256
+          ]
         }
       },
       {
         "triggerInput": "BA",
+        "triggerCooldown": 500,
         "statMap": {
-          "PERCENT_BA": 0.032
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.064
-          }
+          "PERCENT_BA": [
+            0.032,
+            0.064
+          ]
         },
         "maxStacks": 5,
-        "procsCooldown": 500,
         "duration": 8000
       }
     ]
@@ -2124,23 +1942,19 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ALL": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ALL": 0.24
-          }
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
         "triggerInput": "RS",
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         },
         "maxStacks": 2,
         "duration": 5000
@@ -2148,12 +1962,10 @@
       {
         "target": "inactive",
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       }
     ]
@@ -2169,12 +1981,10 @@
     "effects": {
       "triggerInput": "RL",
       "statMap": {
-        "PERCENT_HB": 0.16
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_HB": 0.32
-        }
+        "PERCENT_HB": [
+          0.16,
+          0.32
+        ]
       },
       "duration": 15000
     }
@@ -2208,23 +2018,19 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
         "triggerInput": "RS",
         "statMap": {
-          "PERCENT_BA": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.24
-          }
+          "PERCENT_BA": [
+            0.12,
+            0.24
+          ]
         },
         "duration": 6000,
         "maxStacks": 3
@@ -2232,12 +2038,10 @@
       {
         "triggerInput": "OS",
         "statMap": {
-          "PERCENT_BA": 0.52
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 1.04
-          }
+          "PERCENT_BA": [
+            0.52,
+            1.04
+          ]
         },
         "duration": 27000
       }
@@ -2262,12 +2066,10 @@
         "ES"
       ],
       "statMap": {
-        "PERCENT_SPECTRO": 0.06
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_SPECTRO": 0.1
-        }
+        "PERCENT_SPECTRO": [
+          0.06,
+          0.1
+        ]
       },
       "duration": 6000,
       "maxStacks": 4
@@ -2284,14 +2086,12 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_ATK": 0.12
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       },
-      "duration": 10000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
-      }
+      "duration": 10000
     }
   },
   "21050036": {
@@ -2305,24 +2105,20 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_HP": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_HP": 0.24
-          }
+          "PERCENT_HP": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
         "triggerInput": "RS",
         "target": "team",
         "statMap": {
-          "PERCENT_ATK": 0.14
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.28
-          }
+          "PERCENT_ATK": [
+            0.14,
+            0.28
+          ]
         },
         "duration": 30000
       }
@@ -2348,16 +2144,16 @@
     "effects": {
       "triggerInput": "IS",
       "statMap": {
-        "PERCENT_ATK": 0.08,
-        "PERCENT_HP": 0.1
+        "PERCENT_ATK": [
+          0.08,
+          0.16
+        ],
+        "PERCENT_HP": [
+          0.1,
+          0.2
+        ]
       },
-      "duration": 15000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.16,
-          "PERCENT_HP": 0.2
-        }
-      }
+      "duration": 15000
     }
   },
   "21050045": {
@@ -2370,12 +2166,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -2390,12 +2184,10 @@
     "effects": [
       {
         "statMap": {
-          "PERCENT_ATK": 0.12
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_ATK": 0.24
-          }
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
         }
       },
       {
@@ -2409,14 +2201,14 @@
           "ES"
         ],
         "statMap": {
-          "PERCENT_BA": 0.14,
-          "PERCENT_HA": 0.14
-        },
-        "rankIncrements": {
-          "statMap": {
-            "PERCENT_BA": 0.28,
-            "PERCENT_HA": 0.28
-          }
+          "PERCENT_BA": [
+            0.14,
+            0.28
+          ],
+          "PERCENT_HA": [
+            0.14,
+            0.28
+          ]
         },
         "duration": 6000,
         "maxStacks": 3
@@ -2425,12 +2217,10 @@
         "triggerInput": "OS",
         "target": "team",
         "statMap": {
-          "AMP_FRAZZLE": 0.3
-        },
-        "rankIncrements": {
-          "statMap": {
-            "AMP_FRAZZLE": 0.6
-          }
+          "AMP_FRAZZLE": [
+            0.3,
+            0.6
+          ]
         },
         "duration": 30000
       }
@@ -2446,14 +2236,14 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_BA": 0.12,
-        "PERCENT_HA": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_BA": 0.24,
-          "PERCENT_HA": 0.24
-        }
+        "PERCENT_BA": [
+          0.12,
+          0.24
+        ],
+        "PERCENT_HA": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -2467,16 +2257,18 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12,
-        "PERCENT_BA": 0.4,
-        "IGNORE_HAVOC": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24,
-          "PERCENT_BA": 0.8,
-          "IGNORE_HAVOC": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ],
+        "PERCENT_BA": [
+          0.4,
+          0.8
+        ],
+        "IGNORE_HAVOC": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -2494,15 +2286,13 @@
         "HA"
       ],
       "statMap": {
-        "PERCENT_HB": 0.03
+        "PERCENT_HB": [
+          0.03,
+          0.06
+        ]
       },
       "duration": 8000,
-      "procsCooldown": 600,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_HB": 0.06
-        }
-      }
+      "procsCooldown": 600
     }
   },
   "21050066": {
@@ -2515,12 +2305,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -2535,14 +2323,12 @@
     "effects": {
       "triggerInput": "RL",
       "statMap": {
-        "PERCENT_ATK": 0.15
+        "PERCENT_ATK": [
+          0.15,
+          0.48
+        ]
       },
-      "duration": 15000,
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.48
-        }
-      }
+      "duration": 15000
     }
   },
   "21050076": {
@@ -2555,12 +2341,10 @@
     },
     "effects": {
       "statMap": {
-        "PERCENT_ATK": 0.12
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.24
-        }
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
       }
     }
   },
@@ -2575,12 +2359,10 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_ATK": 0.1
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.2
-        }
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
       },
       "duration": 16000,
       "procsCooldown": 20000
@@ -2606,12 +2388,10 @@
         "CA"
       ],
       "statMap": {
-        "PERCENT_ATK": 0.04
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.08
-        }
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
       },
       "duration": 10000,
       "maxStacks": 4,
@@ -2629,14 +2409,14 @@
     "effects": {
       "triggerInput": "RS",
       "statMap": {
-        "PERCENT_ATK": 0.09,
-        "PERCENT_BA": 0.09
-      },
-      "rankIncrements": {
-        "statMap": {
-          "PERCENT_ATK": 0.288,
-          "PERCENT_BA": 0.288
-        }
+        "PERCENT_ATK": [
+          0.09,
+          0.288
+        ],
+        "PERCENT_BA": [
+          0.09,
+          0.288
+        ]
       },
       "duration": 10000
     }

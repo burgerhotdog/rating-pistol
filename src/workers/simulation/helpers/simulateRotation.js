@@ -255,6 +255,12 @@ function applyEffectStatMap(baseStatMap, effectDefinition, sourceStatMap, multip
   }
 }
 
+const resolveRankedValue = (value, rank) => {
+  if (!Array.isArray(value)) return value;
+  const [r1, r5] = value;
+  return r1 + (r5 - r1) / 4 * (Math.min(rank, 5) - 1);
+};
+
 const normalizeProc = (memberId, proc) => ({
   filter: proc.filter && toArray(proc.filter),
   actionKeyTrigger: proc.actionKeyTrigger && toArray(proc.actionKeyTrigger).map(sk => `${memberId}-${sk}`),
@@ -361,7 +367,9 @@ const normalizeEffects = (gameId, member) => {
         procsCooldown: effect.procsCooldown ?? 0,
         triggerCooldown: effect.triggerCooldown ?? 0,
         actionFilter: effect.actionFilter && toArray(effect.actionFilter).map(shortKey => `${memberId}-${shortKey}`),
-        statMap: { ...effect.statMap },
+        statMap: Object.fromEntries(
+          Object.entries(effect.statMap ?? {}).map(([k, v]) => [k, resolveRankedValue(v, sourceRank)])
+        ),
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
         procs: toArray(effect.procs).map(proc => normalizeProc(memberId, proc)),
       };
@@ -370,19 +378,6 @@ const normalizeEffects = (gameId, member) => {
         for (const [rankReq, modifier] of Object.entries(effect.rankModifiers)) {
           if (Number(rankReq) <= sourceRank) {
             applyRankModifier(resolved, modifier);
-          }
-        }
-      }
-
-      if (effect.rankIncrements) {
-        const { statMap: r5StatMap } = effect.rankIncrements;
-
-        for (const [stat, r5Value] of Object.entries(r5StatMap)) {
-          const r1Value = resolved.statMap[stat] ?? 0;
-          const increment = (r5Value - r1Value) / 4;
-
-          for (let rank = 2; rank <= Math.min(sourceRank, 5); rank++) {
-            applyRankModifier(resolved, { statMap: { [stat]: increment } });
           }
         }
       }
