@@ -8,7 +8,7 @@
         }
       },
       "5": {
-        "applyOnInput": [
+        "applyOnCast": [
           "BA",
           "HA"
         ],
@@ -29,7 +29,7 @@
         }
       },
       "5": {
-        "applyOnInput": "RS",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_FUSION": 0.3
         },
@@ -46,7 +46,7 @@
         }
       },
       "5": {
-        "applyOnInput": [
+        "applyOnCast": [
           "HA",
           "RS"
         ],
@@ -67,7 +67,7 @@
         }
       },
       "5": {
-        "applyOnInput": "IS",
+        "applyOnCast": "IS",
         "statMap": {
           "PERCENT_AERO": 0.3
         },
@@ -84,7 +84,7 @@
         }
       },
       "5": {
-        "applyOnInput": "IS",
+        "applyOnCast": "IS",
         "statMap": {
           "PERCENT_SPECTRO": 0.3
         },
@@ -101,7 +101,7 @@
         }
       },
       "5": {
-        "applyOnInput": [
+        "applyOnCast": [
           "BA",
           "HA"
         ],
@@ -122,7 +122,7 @@
         }
       },
       "5": {
-        "applyOnConsidered": "HEAL",
+        "applyOnType": "HEAL",
         "target": "team",
         "statMap": {
           "PERCENT_ATK": 0.15
@@ -140,7 +140,7 @@
         }
       },
       "5": {
-        "applyOnInput": "OS",
+        "applyOnCast": "OS",
         "target": "next",
         "statMap": {
           "PERCENT_ATK": 0.225
@@ -159,8 +159,8 @@
       },
       "5": [
         {
-          "applyOnInput": "IS",
-          "removeOnInput": "OS",
+          "applyOnCast": "IS",
+          "removeOnCast": "OS",
           "statMap": {
             "PERCENT_ATK": 0.05
           },
@@ -185,7 +185,7 @@
       },
       "5": [
         {
-          "applyOnInput": "RS",
+          "applyOnCast": "RS",
           "statMap": {
             "PERCENT_GLACIO": 0.225
           },
@@ -193,7 +193,7 @@
           "maxStacks": 2
         },
         {
-          "applyOnInput": "RL",
+          "applyOnCast": "RL",
           "statMap": {
             "PERCENT_RS": 0.18
           },
@@ -228,7 +228,7 @@
         }
       },
       "5": {
-        "applyOnInput": "OS",
+        "applyOnCast": "OS",
         "target": "next",
         "statMap": {
           "PERCENT_HAVOC": 0.15
@@ -252,7 +252,7 @@
           }
         },
         {
-          "applyOnInput": "CA",
+          "applyOnCast": "CA",
           "target": "active",
           "statMap": {
             "PERCENT_ATK": 0.2
@@ -293,7 +293,7 @@
           }
         },
         {
-          "applyOnInput": "IS",
+          "applyOnCast": "IS",
           "target": "team",
           "statMap": {
             "PERCENT_AERO": 0.15
@@ -328,7 +328,7 @@
       },
       "5": [
         {
-          "applyOnInput": "RL",
+          "applyOnCast": "RL",
           "target": "team",
           "statMap": {
             "PERCENT_FUSION": 0.15
@@ -336,7 +336,7 @@
           "duration": 35000
         },
         {
-          "applyOnInput": "RL",
+          "applyOnCast": "RL",
           "statMap": {
             "PERCENT_RL": 0.2
           },
@@ -360,7 +360,7 @@
     "name": "Crown of Valor",
     "setBonus": {
       "3": {
-        "applyOnConsidered": "SHIELD",
+        "applyOnType": "SHIELD",
         "statMap": {
           "PERCENT_ATK": 0.06,
           "PERCENT_CD": 0.04
@@ -376,14 +376,14 @@
     "setBonus": {
       "3": [
         {
-          "applyOnInput": "ES",
+          "applyOnCast": "ES",
           "statMap": {
             "PERCENT_HA": 0.3
           },
           "duration": 4000
         },
         {
-          "applyOnInput": "ES",
+          "applyOnCast": "ES",
           "target": "team",
           "statMap": {
             "PERCENT_ES": 0.04
@@ -437,7 +437,7 @@
         }
       },
       "5": {
-        "applyOnInput": "OS",
+        "applyOnCast": "OS",
         "target": "next",
         "statMap": {
           "PERCENT_ATK": 0.3
@@ -455,7 +455,7 @@
         }
       },
       "5": {
-        "applyOnConsidered": "HEAL",
+        "applyOnType": "HEAL",
         "target": "team",
         "statMap": {
           "PERCENT_ATK": 0.25
@@ -482,8 +482,8 @@
           "maxStacks": 3
         },
         {
-          "applyOnInput": "RL",
-          "removeOnInput": "OS",
+          "applyOnCast": "RL",
+          "removeOnCast": "OS",
           "statMap": {
             "PERCENT_BA": 0.4
           }
@@ -522,7 +522,7 @@
           }
         },
         {
-          "applyOnInput": "OS",
+          "applyOnCast": "OS",
           "target": "next",
           "statMap": {
             "PERCENT_FUSION": 0.25
@@ -572,7 +572,7 @@
           "duration": 30000
         },
         {
-          "applyOnInput": "OS",
+          "applyOnCast": "OS",
           "target": "next",
           "statMap": {
             "PERCENT_GLACIO": 0.25

@@ -152,7 +152,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -183,7 +183,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -213,7 +213,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -347,7 +347,7 @@
       "skills": {
         "1": {
           "name": "Detonate",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -603,7 +603,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -633,7 +633,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -663,7 +663,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -726,8 +726,8 @@
           ]
         },
         "2": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -787,7 +787,7 @@
       "skills": {
         "1": {
           "name": "Remnant Entities",
-          "input": "CA",
+          "cast": "CA",
           "considered": "RL",
           "attr": "HP",
           "multipliers": [
@@ -819,8 +819,8 @@
         },
         "2": {
           "name": "Remnant Entities",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -874,7 +874,7 @@
           ]
         },
         "3": {
-          "considered": "HEAL",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -961,8 +961,8 @@
           ]
         },
         "2": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -1022,8 +1022,8 @@
       "skills": {
         "1": {
           "name": "Concentration",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -1078,8 +1078,8 @@
         },
         "2": {
           "name": "Stimulus Feedback",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -1093,7 +1093,7 @@
       "name": "Rejuvinating Flow",
       "skills": {
         "1": {
-          "considered": "HEAL",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -1312,7 +1312,7 @@
         },
         "7": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -1342,7 +1342,7 @@
         },
         "8": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -1372,7 +1372,7 @@
         },
         "9": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -1538,7 +1538,7 @@
       "skills": {
         "1": {
           "name": "Glorious Plunge",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -1568,7 +1568,7 @@
         },
         "2": {
           "name": "Feral Gyrate 1",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -1623,7 +1623,7 @@
         },
         "3": {
           "name": "Feral Gyrate 2",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -1654,7 +1654,7 @@
         },
         "4": {
           "name": "Mountain Roamer",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -1685,7 +1685,7 @@
         },
         "5": {
           "name": "Stormy Kicks",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -1740,7 +1740,7 @@
         },
         "6": {
           "name": "Tail Strike",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -1908,7 +1908,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -1938,7 +1938,7 @@
         },
         "6": {
           "name": "Full Charge Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -1968,7 +1968,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -1998,7 +1998,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -2184,7 +2184,7 @@
       "skills": {
         "1": {
           "name": "DAKA DAKA! (Thermobaric Bullets x30)",
-          "input": "RS",
+          "cast": "RS",
           "duration": 3000,
           "multipliers": [
             {
@@ -2216,7 +2216,7 @@
         },
         "2": {
           "name": "Boom Boom",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -2412,7 +2412,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -2442,7 +2442,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -2472,7 +2472,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -2571,7 +2571,7 @@
       "skills": {
         "1": {
           "name": "Cosmos: Frolicking 1",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2602,7 +2602,7 @@
         },
         "2": {
           "name": "Cosmos: Frolicking 2",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2633,7 +2633,7 @@
         },
         "3": {
           "name": "Cosmos: Frolicking 3",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2664,7 +2664,7 @@
         },
         "4": {
           "name": "Cosmos: Frolicking 4",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -2695,7 +2695,7 @@
         },
         "5": {
           "name": "Cosmos: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -2725,7 +2725,7 @@
         },
         "6": {
           "name": "Cosmos: Rampage",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -2756,7 +2756,7 @@
         },
         "7": {
           "name": "Cosmos: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -2828,7 +2828,7 @@
       "skills": {
         "1": {
           "name": "Cloudy Frenzy",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -2859,7 +2859,7 @@
         },
         "2": {
           "name": "Cosmos: Rupture",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -3077,7 +3077,7 @@
         },
         "5": {
           "name": "Aimed Shot",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -3107,7 +3107,7 @@
         },
         "6": {
           "name": "Fully Charged Aimed Shot",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -3137,7 +3137,7 @@
         },
         "7": {
           "name": "Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -3167,7 +3167,7 @@
         },
         "8": {
           "name": "Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -3197,7 +3197,7 @@
         },
         "9": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -3293,7 +3293,7 @@
         },
         "2": {
           "name": "Marcato",
-          "input": "CA",
+          "cast": "CA",
           "multipliers": [
             {
               "mv": [
@@ -3360,7 +3360,7 @@
       "name": "Fury Fugue",
       "skills": {
         "1": {
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -3572,7 +3572,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -3603,7 +3603,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -3633,7 +3633,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -3864,7 +3864,7 @@
         },
         "2": {
           "name": "\"Necessary Means\"",
-          "input": "IS",
+          "cast": "IS",
           "multipliers": [
             {
               "mv": [
@@ -3895,7 +3895,7 @@
         },
         "3": {
           "name": "Hounds Roar 1",
-          "input": "BA",
+          "cast": "BA",
           "duration": 500,
           "multipliers": [
             {
@@ -3926,7 +3926,7 @@
         },
         "4": {
           "name": "Hounds Roar 2",
-          "input": "BA",
+          "cast": "BA",
           "duration": 500,
           "multipliers": [
             {
@@ -3983,7 +3983,7 @@
         },
         "5": {
           "name": "Hounds Roar 3",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -4013,7 +4013,7 @@
         },
         "6": {
           "name": "Hounds Roar 4",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -4044,7 +4044,7 @@
         },
         "7": {
           "name": "Hounds Roar 5",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -4075,7 +4075,7 @@
         },
         "8": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -4106,7 +4106,7 @@
         },
         "9": {
           "name": "Dodge Counter",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -4202,7 +4202,7 @@
       "skills": {
         "1": {
           "name": "\"Mercy\"",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -4257,7 +4257,7 @@
         },
         "2": {
           "name": "\"Death Messenger\"",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -4313,7 +4313,7 @@
         },
         "3": {
           "name": "Phantom",
-          "input": "CA",
+          "cast": "CA",
           "considered": "RL",
           "multipliers": [
             {
@@ -4463,7 +4463,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -4494,7 +4494,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -4524,7 +4524,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -4619,7 +4619,7 @@
         },
         "3": {
           "name": "Electromagnetic Blast",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "RS",
           "multipliers": [
             {
@@ -4722,7 +4722,7 @@
       "name": "Chameleon Cipher",
       "skills": {
         "1": {
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -4753,7 +4753,7 @@
         },
         "2": {
           "name": "Judgment Strike",
-          "input": "CA",
+          "cast": "CA",
           "considered": "RS",
           "multipliers": [
             {
@@ -5006,7 +5006,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -5036,7 +5036,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -5066,7 +5066,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -5131,7 +5131,7 @@
         },
         "2": {
           "name": "Thunder Wedge Coordinated Attack",
-          "input": "CA",
+          "cast": "CA",
           "considered": "RS",
           "attr": "DEF",
           "multipliers": [
@@ -5163,7 +5163,7 @@
         },
         "3": {
           "name": "Thunder Wedge Detonation",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "RS",
           "attr": "DEF",
           "multipliers": [
@@ -5299,7 +5299,7 @@
       "skills": {
         "1": {
           "name": "Thunder Uprising",
-          "input": "RS",
+          "cast": "RS",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5330,7 +5330,7 @@
         },
         "2": {
           "name": "Lightning Infused Basic Attack 1",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5361,7 +5361,7 @@
         },
         "3": {
           "name": "Lightning Infused Basic Attack 2",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5393,7 +5393,7 @@
         },
         "4": {
           "name": "Lightning Infused Basic Attack 3",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5450,7 +5450,7 @@
         },
         "5": {
           "name": "Lightning Infused Basic Attack 4",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5482,7 +5482,7 @@
         },
         "6": {
           "name": "Lightning Infused Basic Attack 5",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5538,7 +5538,7 @@
         },
         "7": {
           "name": "Lightning Infused Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5569,7 +5569,7 @@
         },
         "8": {
           "name": "Thunderweaver",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5625,7 +5625,7 @@
         },
         "9": {
           "name": "Lightning Infused Dodge Counter",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5681,7 +5681,7 @@
         },
         "10": {
           "name": "Shield",
-          "considered": "SHIELD",
+          "type": "SHIELD",
           "attr": "DEF",
           "multipliers": [
             {
@@ -5848,7 +5848,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -5879,7 +5879,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -5909,7 +5909,7 @@
         },
         "7": {
           "name": "Zephyr Song",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -5940,7 +5940,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -6124,7 +6124,7 @@
       "skills": {
         "1": {
           "name": "Stormy Strike",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6155,7 +6155,7 @@
         },
         "2": {
           "name": "Mid-air Attack: Feather Release",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -6373,7 +6373,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -6403,7 +6403,7 @@
         },
         "7": {
           "name": "Aimed Shot",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6433,7 +6433,7 @@
         },
         "8": {
           "name": "Fully Charged Aimed Shot",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6463,7 +6463,7 @@
         },
         "9": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -6498,7 +6498,7 @@
       "skills": {
         "1": {
           "name": "Mist Bullet",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "RS",
           "duration": 0,
           "multipliers": [
@@ -6603,7 +6603,7 @@
       "skills": {
         "1": {
           "name": "Mist Bullet",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "RS",
           "duration": 0,
           "multipliers": [
@@ -6635,7 +6635,7 @@
         },
         "2": {
           "name": "Mistcloak Dash",
-          "input": "DA",
+          "cast": "DA",
           "considered": "INPUT"
         }
       }
@@ -6828,7 +6828,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6859,7 +6859,7 @@
         },
         "7": {
           "name": "Windborne Strike",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "HA",
           "multipliers": [
             {
@@ -6890,7 +6890,7 @@
         },
         "8": {
           "name": "Abyssal Slash",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "HA",
           "multipliers": [
             {
@@ -6921,7 +6921,7 @@
         },
         "9": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -7009,7 +7009,7 @@
         },
         "12": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -7079,7 +7079,7 @@
       "skills": {
         "1": {
           "name": "Lance Of Qingloong 1",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7110,7 +7110,7 @@
         },
         "2": {
           "name": "Lance Of Qingloong 2",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7141,7 +7141,7 @@
         },
         "3": {
           "name": "Lance Of Qingloong 3",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7210,7 +7210,7 @@
       "skills": {
         "1": {
           "name": "Emerald Storm: Finale",
-          "input": "RL",
+          "cast": "RL",
           "considered": "HA",
           "multipliers": [
             {
@@ -7270,7 +7270,7 @@
       "name": "Discipline",
       "skills": {
         "1": {
-          "input": "CA",
+          "cast": "CA",
           "duration": 0,
           "multipliers": [
             {
@@ -7429,7 +7429,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7459,7 +7459,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -7488,7 +7488,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -7608,7 +7608,7 @@
       "skills": {
         "1": {
           "name": "Purification Force Field Continuous",
-          "input": "AUTO",
+          "cast": "AUTO",
           "duration": 0,
           "multipliers": [
             {
@@ -7638,7 +7638,7 @@
         },
         "2": {
           "name": "Purification Force Field Explosion",
-          "input": "AUTO",
+          "cast": "AUTO",
           "duration": 0,
           "multipliers": [
             {
@@ -7761,7 +7761,7 @@
         },
         "2": {
           "name": "Zhoutian Progress Continuous",
-          "input": "HA",
+          "cast": "HA",
           "duration": 0.25,
           "multipliers": [
             {
@@ -7791,7 +7791,7 @@
         },
         "3": {
           "name": "Minor Zhoutian Shock",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7820,7 +7820,7 @@
         },
         "4": {
           "name": "Major Zhoutian: Inner Shock",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7849,7 +7849,7 @@
         },
         "5": {
           "name": "Major Zhoutian: Outer Shock",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -7907,7 +7907,7 @@
         },
         "7": {
           "name": "Incomplete Minor Zhoutian Final",
-          "considered": "SHIELD",
+          "type": "SHIELD",
           "duration": 0,
           "multipliers": [
             {
@@ -7962,7 +7962,7 @@
         },
         "8": {
           "name": "Minor Zhoutian Final",
-          "considered": "SHIELD",
+          "type": "SHIELD",
           "duration": 0,
           "multipliers": [
             {
@@ -8017,7 +8017,7 @@
         },
         "9": {
           "name": "Major Zhoutian: Inner Final",
-          "considered": "SHIELD",
+          "type": "SHIELD",
           "duration": 0,
           "multipliers": [
             {
@@ -8072,7 +8072,7 @@
         },
         "10": {
           "name": "Major Zhoutian: Outer Final",
-          "considered": "SHIELD",
+          "type": "SHIELD",
           "duration": 0,
           "multipliers": [
             {
@@ -8127,7 +8127,7 @@
         },
         "11": {
           "name": "Shield",
-          "considered": "HEAL",
+          "type": "HEAL",
           "duration": 0,
           "multipliers": [
             {
@@ -8352,7 +8352,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -8470,7 +8470,7 @@
         },
         "10": {
           "name": "Mid-air Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -8500,7 +8500,7 @@
         },
         "11": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -8620,8 +8620,8 @@
           ]
         },
         "2": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -8675,7 +8675,7 @@
         },
         "3": {
           "name": "Photosynthesis Mark",
-          "input": "CA",
+          "cast": "CA",
           "considered": "RL",
           "multipliers": [
             {
@@ -8706,8 +8706,8 @@
         },
         "4": {
           "name": "Photosynthesis Mark",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -8799,7 +8799,7 @@
       "skills": {
         "1": {
           "name": "Starflower Blooms: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -8853,7 +8853,7 @@
         },
         "2": {
           "name": "Starflower Blooms: Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -8883,7 +8883,7 @@
         },
         "3": {
           "name": "Starflower Blooms: Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -8913,7 +8913,7 @@
         },
         "4": {
           "name": "Starflower Blooms: Mid-air Attack 3",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -8943,8 +8943,8 @@
           ]
         },
         "5": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "duration": 0,
           "multipliers": [
             {
@@ -8999,7 +8999,7 @@
         },
         "6": {
           "name": "Blossom Healing",
-          "considered": "HEAL",
+          "type": "HEAL",
           "duration": 0,
           "multipliers": [
             {
@@ -9009,7 +9009,7 @@
         },
         "7": {
           "name": "Sequence Node 1 Blossom Healing",
-          "considered": "HEAL",
+          "type": "HEAL",
           "duration": 0,
           "multipliers": [
             {
@@ -9023,7 +9023,7 @@
       "name": "Blossom",
       "skills": {
         "1": {
-          "considered": "HEAL",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": 0.19,
@@ -9156,7 +9156,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -9186,7 +9186,7 @@
         },
         "6": {
           "name": "Strategic Parry",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "HA",
           "attr": "DEF",
           "multipliers": [
@@ -9218,7 +9218,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -9248,7 +9248,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -9311,8 +9311,8 @@
           ]
         },
         "2": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9439,7 +9439,7 @@
       "skills": {
         "1": {
           "name": "Timed Counters 1",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9470,7 +9470,7 @@
         },
         "2": {
           "name": "Timed Counters 2",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9501,7 +9501,7 @@
         },
         "3": {
           "name": "Timed Counters 3",
-          "input": "BA",
+          "cast": "BA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9532,8 +9532,8 @@
         },
         "4": {
           "name": "Timed Counters 1",
-          "input": "AUTO",
-          "considered": "SHIELD",
+          "cast": "AUTO",
+          "type": "SHIELD",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9588,8 +9588,8 @@
         },
         "5": {
           "name": "Timed Counters 2",
-          "input": "AUTO",
-          "considered": "SHIELD",
+          "cast": "AUTO",
+          "type": "SHIELD",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9644,8 +9644,8 @@
         },
         "6": {
           "name": "Timed Counters 3",
-          "input": "AUTO",
-          "considered": "SHIELD",
+          "cast": "AUTO",
+          "type": "SHIELD",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9700,7 +9700,7 @@
         },
         "7": {
           "name": "Sequence Node 4 Healing",
-          "considered": "HEALING",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -9812,7 +9812,7 @@
         },
         "4": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -9843,7 +9843,7 @@
         },
         "5": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -9873,7 +9873,7 @@
         },
         "6": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -10123,7 +10123,7 @@
         },
         "2": {
           "name": "Scarlet Burst",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "RL",
           "multipliers": [
             {
@@ -10193,7 +10193,7 @@
       "skills": {
         "1": {
           "name": "Chaoscleave",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -10224,7 +10224,7 @@
         },
         "2": {
           "name": "Scatterbloom",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -10255,7 +10255,7 @@
         },
         "3": {
           "name": "Full Energy Chaoscleave",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -10286,7 +10286,7 @@
         },
         "4": {
           "name": "Full Energy Scatterbloom",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -10471,7 +10471,7 @@
         },
         "5": {
           "name": "Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "BA",
           "multipliers": [
             {
@@ -10501,7 +10501,7 @@
         },
         "6": {
           "name": "Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "BA",
           "multipliers": [
             {
@@ -10532,7 +10532,7 @@
         },
         "7": {
           "name": "Mid-air Attack 3",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "BA",
           "multipliers": [
             {
@@ -10563,7 +10563,7 @@
         },
         "8": {
           "name": "Mid-air Attack 4",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "BA",
           "multipliers": [
             {
@@ -10617,7 +10617,7 @@
         },
         "9": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -10670,7 +10670,7 @@
         },
         "10": {
           "name": "Mid-air Heavy Attack",
-          "input": "MHA",
+          "cast": "MHA",
           "considered": "HA",
           "multipliers": [
             {
@@ -10700,7 +10700,7 @@
         },
         "11": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -10787,7 +10787,7 @@
         },
         "2": {
           "name": "True Sight: Conquest",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RS",
           "multipliers": [
             {
@@ -10864,7 +10864,7 @@
         },
         "3": {
           "name": "True Sight: Charge",
-          "input": "JA",
+          "cast": "JA",
           "considered": "RS",
           "multipliers": [
             {
@@ -11009,7 +11009,7 @@
       "name": "Flaming Sacrifice",
       "skills": {
         "1": {
-          "input": "HA",
+          "cast": "HA",
           "considered": "RS",
           "multipliers": [
             {
@@ -11261,7 +11261,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -11337,7 +11337,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -11412,7 +11412,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -11689,7 +11689,7 @@
       "skills": {
         "1": {
           "name": "Incarnation: Basic Attack 1",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RS",
           "multipliers": [
             {
@@ -11719,7 +11719,7 @@
         },
         "2": {
           "name": "Incarnation: Basic Attack 2",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RS",
           "multipliers": [
             {
@@ -11795,7 +11795,7 @@
         },
         "3": {
           "name": "Incarnation: Basic Attack 3",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RS",
           "multipliers": [
             {
@@ -11848,7 +11848,7 @@
         },
         "4": {
           "name": "Incarnation: Basic Attack 4",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RS",
           "multipliers": [
             {
@@ -11902,7 +11902,7 @@
         },
         "5": {
           "name": "Incarnation: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -11954,7 +11954,7 @@
         },
         "6": {
           "name": "Incarnation: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -12030,7 +12030,7 @@
         },
         "7": {
           "name": "Crescent Divinity",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -12106,7 +12106,7 @@
         },
         "8": {
           "name": "Illuminous Epiphany: Solar Flare",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -12136,7 +12136,7 @@
         },
         "9": {
           "name": "Illuminous Epiphany: Stella Glamor",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "RS",
           "multipliers": [
             {
@@ -12166,7 +12166,7 @@
         },
         "10": {
           "name": "Additional multiplier per Incandescence",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "RS",
           "duration": 0,
           "multipliers": [
@@ -12299,7 +12299,7 @@
         },
         "4": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -12328,7 +12328,7 @@
         },
         "5": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -12381,7 +12381,7 @@
         },
         "6": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -12449,7 +12449,7 @@
       "skills": {
         "1": {
           "name": "Inklit Spirit",
-          "input": "CA",
+          "cast": "CA",
           "considered": "BA",
           "multipliers": [
             {
@@ -12520,7 +12520,7 @@
       "skills": {
         "1": {
           "name": "Conjuration",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -12550,7 +12550,7 @@
         },
         "2": {
           "name": "Stroke of Genius",
-          "input": "RS",
+          "cast": "RS",
           "considered": "BA",
           "multipliers": [
             {
@@ -12580,7 +12580,7 @@
         },
         "3": {
           "name": "Creation's Zenith",
-          "input": "RS",
+          "cast": "RS",
           "considered": "BA",
           "multipliers": [
             {
@@ -12798,7 +12798,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -12829,7 +12829,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -12859,7 +12859,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -12955,7 +12955,7 @@
         },
         "2": {
           "name": "Pivot - Impale 1",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -12985,7 +12985,7 @@
         },
         "3": {
           "name": "Pivot - Impale 2",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -13016,7 +13016,7 @@
         },
         "4": {
           "name": "Pivot - Impale 3",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -13047,7 +13047,7 @@
         },
         "5": {
           "name": "Divergence",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -13103,7 +13103,7 @@
         },
         "6": {
           "name": "Dodge Counter: Unfathomed",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -13198,7 +13198,7 @@
       "skills": {
         "1": {
           "name": "Decipher",
-          "input": "RS",
+          "cast": "RS",
           "considered": "RL",
           "multipliers": [
             {
@@ -13229,7 +13229,7 @@
         },
         "2": {
           "name": "Law of Reigns",
-          "input": "RS",
+          "cast": "RS",
           "considered": "RL",
           "multipliers": [
             {
@@ -13285,7 +13285,7 @@
         },
         "3": {
           "name": "Mid-air Attack: Revamp",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -13527,7 +13527,7 @@
         },
         "5": {
           "name": "Heavy Attack: Frostfall",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -13558,7 +13558,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -13588,7 +13588,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -13651,8 +13651,8 @@
           ]
         },
         "2": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -13706,7 +13706,7 @@
         },
         "3": {
           "name": "Chime",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -13785,7 +13785,7 @@
         },
         "4": {
           "name": "Ruyi",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -13839,7 +13839,7 @@
         },
         "5": {
           "name": "Ding",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -13894,7 +13894,7 @@
         },
         "6": {
           "name": "Mask",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -14043,7 +14043,7 @@
       "name": "Poetic Essence",
       "skills": {
         "1": {
-          "input": "HA",
+          "cast": "HA",
           "considered": "RS",
           "multipliers": [
             {
@@ -14074,7 +14074,7 @@
           ]
         },
         "2": {
-          "considered": "HEAL",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -14128,7 +14128,7 @@
         },
         "3": {
           "name": "Double Pun Bonus",
-          "considered": "HEAL",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -14315,7 +14315,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -14374,7 +14374,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -14410,7 +14410,7 @@
       "skills": {
         "1": {
           "name": "Dim Star Butterfly",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "RS",
           "multipliers": [
             {
@@ -14440,7 +14440,7 @@
           ]
         },
         "2": {
-          "considered": "HEAL",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -14499,8 +14499,8 @@
       "name": "End Loop",
       "skills": {
         "1": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -14626,8 +14626,8 @@
         },
         "3": {
           "name": "Enlightenment",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -14682,8 +14682,8 @@
         },
         "4": {
           "name": "Discernment",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "HP",
           "multipliers": [
             {
@@ -14773,7 +14773,7 @@
         },
         "2": {
           "name": "Illation",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -14804,7 +14804,7 @@
         },
         "3": {
           "name": "Transmutation",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -14879,7 +14879,7 @@
         },
         "2": {
           "name": "Glitter",
-          "input": "AUTO",
+          "cast": "AUTO",
           "duration": 0,
           "multipliers": [
             {
@@ -14910,7 +14910,7 @@
         },
         "3": {
           "name": "Yellow Light: Plunging Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -15076,7 +15076,7 @@
         },
         "7": {
           "name": "Red Light: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "considered": "BA",
           "multipliers": [
             {
@@ -15108,7 +15108,7 @@
         },
         "8": {
           "name": "Red Light: Plunging Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -15138,7 +15138,7 @@
         },
         "9": {
           "name": "Red Light: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -15193,7 +15193,7 @@
         },
         "10": {
           "name": "Yellow Light: Zoom (1 second)",
-          "input": "DA"
+          "cast": "DA"
         }
       }
     },
@@ -15362,7 +15362,7 @@
         },
         "2": {
           "name": "Red Spotlight: Basic Attack 1",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -15392,7 +15392,7 @@
         },
         "3": {
           "name": "Red Spotlight: Basic Attack 2",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -15447,7 +15447,7 @@
         },
         "4": {
           "name": "Red Spotlight: Basic Attack 3",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -15501,7 +15501,7 @@
         },
         "5": {
           "name": "Red Spotlight: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "considered": "BA",
           "multipliers": [
             {
@@ -15533,7 +15533,7 @@
         },
         "6": {
           "name": "Energized Pounce",
-          "input": "RS",
+          "cast": "RS",
           "considered": "BA",
           "multipliers": [
             {
@@ -15565,7 +15565,7 @@
         },
         "7": {
           "name": "Energized Rebound",
-          "input": "RS",
+          "cast": "RS",
           "considered": "BA",
           "multipliers": [
             {
@@ -15626,7 +15626,7 @@
         },
         "9": {
           "name": "Channeled Dash (1 second)",
-          "input": "DA"
+          "cast": "DA"
         }
       }
     },
@@ -15794,7 +15794,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -15825,7 +15825,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -15856,7 +15856,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -15923,7 +15923,7 @@
         },
         "2": {
           "name": "Vining Waltz 1",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -15953,7 +15953,7 @@
         },
         "3": {
           "name": "Vining Waltz 2",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -15984,7 +15984,7 @@
         },
         "4": {
           "name": "Vining Waltz 3",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -16015,7 +16015,7 @@
         },
         "5": {
           "name": "Vining Waltz 4",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -16046,7 +16046,7 @@
         },
         "6": {
           "name": "Blazing Waltz",
-          "input": "HK",
+          "cast": "HK",
           "considered": "BA",
           "multipliers": [
             {
@@ -16109,7 +16109,7 @@
         },
         "8": {
           "name": "Vining Ronde",
-          "input": "JA",
+          "cast": "JA",
           "considered": "BA",
           "multipliers": [
             {
@@ -16141,7 +16141,7 @@
         },
         "9": {
           "name": "Atonement",
-          "input": "DC",
+          "cast": "DC",
           "considered": "BA",
           "multipliers": [
             {
@@ -16244,7 +16244,7 @@
       "skills": {
         "1": {
           "name": "Ephemeral",
-          "input": "RS",
+          "cast": "RS",
           "considered": "BA",
           "multipliers": [
             {
@@ -16536,7 +16536,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -16616,7 +16616,7 @@
         },
         "7": {
           "name": "Containment Tactics",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -16696,7 +16696,7 @@
         },
         "8": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -16779,7 +16779,7 @@
         },
         "10": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -17149,7 +17149,7 @@
       "skills": {
         "1": {
           "name": "Imminent Oblivion",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RS",
           "multipliers": [
             {
@@ -17368,7 +17368,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -17398,7 +17398,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -17428,7 +17428,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -17566,7 +17566,7 @@
       "skills": {
         "1": {
           "name": "Real Fantasy 1",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -17597,7 +17597,7 @@
         },
         "2": {
           "name": "Real Fantasy 2",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -17628,7 +17628,7 @@
         },
         "3": {
           "name": "Real Fantasy 3",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -17874,7 +17874,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -17904,7 +17904,7 @@
         },
         "6": {
           "name": "Rhapsodic Riff",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -17934,7 +17934,7 @@
         },
         "7": {
           "name": "Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -17964,7 +17964,7 @@
         },
         "8": {
           "name": "Mid-air Attack 1: Charged Attack",
-          "input": "HK",
+          "cast": "HK",
           "multipliers": [
             {
               "mv": [
@@ -18043,7 +18043,7 @@
         },
         "9": {
           "name": "Mid-air Attack 1: Flip",
-          "input": "RK",
+          "cast": "RK",
           "multipliers": [
             {
               "mv": [
@@ -18097,7 +18097,7 @@
         },
         "10": {
           "name": "Mid-air Attack 1 Slash",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -18128,7 +18128,7 @@
         },
         "11": {
           "name": "Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -18182,7 +18182,7 @@
         },
         "12": {
           "name": "Mid-air Attack 2: Charged Attack",
-          "input": "HK",
+          "cast": "HK",
           "multipliers": [
             {
               "mv": [
@@ -18213,7 +18213,7 @@
         },
         "13": {
           "name": "Mid-air Attack 2: Flip",
-          "input": "RK",
+          "cast": "RK",
           "multipliers": [
             {
               "mv": [
@@ -18267,7 +18267,7 @@
         },
         "14": {
           "name": "Mid-air Attack 3",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -18298,7 +18298,7 @@
         },
         "15": {
           "name": "Mid-air Attack 3: Flip",
-          "input": "RK",
+          "cast": "RK",
           "multipliers": [
             {
               "mv": [
@@ -18352,7 +18352,7 @@
         },
         "16": {
           "name": "Mid-air Attack 4",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -18431,7 +18431,7 @@
         },
         "17": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -18631,8 +18631,8 @@
           ]
         },
         "2": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "attr": "ER",
           "multipliers": [
             {
@@ -18749,7 +18749,7 @@
       "skills": {
         "1": {
           "name": "Returned from Ashes",
-          "input": "RS",
+          "cast": "RS",
           "considered": "BA",
           "multipliers": [
             {
@@ -18854,7 +18854,7 @@
         },
         "2": {
           "name": "Waves of Acclaims",
-          "considered": "HEAL",
+          "type": "HEAL",
           "duration": 0,
           "attr": "ER",
           "multipliers": [
@@ -18909,7 +18909,7 @@
           ] 
         },
         "3": {
-          "considered": "SHIELD",
+          "type": "SHIELD",
           "duration": 0,
           "attr": "ER",
           "multipliers": [
@@ -18975,7 +18975,7 @@
         },
         "5": {
           "name": "Sequence Node 4 Healing",
-          "considered": "HEAL",
+          "type": "HEAL",
           "duration": 0,
           "attr": "ER",
           "multipliers": [
@@ -19113,7 +19113,7 @@
         },
         "4": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -19144,7 +19144,7 @@
         },
         "5": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -19175,7 +19175,7 @@
         },
         "6": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -19206,7 +19206,7 @@
         },
         "7": {
           "name": "Chamuel's Star: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -19271,7 +19271,7 @@
         },
         "2": {
           "name": "Ring of Mirrors: Refracted Holy Light",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "BA",
           "multipliers": [
             {
@@ -19303,7 +19303,7 @@
         },
         "3": {
           "name": "Chamuel's Star: Basic Attack 1",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -19333,7 +19333,7 @@
         },
         "4": {
           "name": "Chamuel's Star: Basic Attack 2",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -19364,7 +19364,7 @@
         },
         "5": {
           "name": "Chamuel's Star: Basic Attack 3",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -19466,7 +19466,7 @@
       "skills": {
         "1": {
           "name": "Absolution Litany",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -19496,7 +19496,7 @@
         },
         "2": {
           "name": "Utter Confession",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -19526,7 +19526,7 @@
         },
         "3": {
           "name": "Starflash",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -19676,7 +19676,7 @@
         },
         "4": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -19707,7 +19707,7 @@
         },
         "5": {
           "name": "Delusive Dive",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -19738,7 +19738,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -19792,7 +19792,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -19887,7 +19887,7 @@
         },
         "3": {
           "name": "Jolt",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "BA",
           "multipliers": [
             {
@@ -19953,7 +19953,7 @@
         },
         "2": {
           "name": "Diffusion",
-          "input": "CA",
+          "cast": "CA",
           "considered": "BA",
           "multipliers": [
             {
@@ -20078,7 +20078,7 @@
       "skills": {
         "1": {
           "name": "Phantom Sting 1",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -20109,7 +20109,7 @@
         },
         "2": {
           "name": "Phantom Sting 2",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -20140,7 +20140,7 @@
         },
         "3": {
           "name": "Phantom Sting 3",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -20171,7 +20171,7 @@
         },
         "4": {
           "name": "Abysmal Vortex",
-          "input": "JA",
+          "cast": "JA",
           "considered": "BA",
           "multipliers": [
             {
@@ -20226,7 +20226,7 @@
         },
         "5": {
           "name": "Perception Drain",
-          "input": "RS",
+          "cast": "RS",
           "considered": "BA",
           "multipliers": [
             {
@@ -20258,7 +20258,7 @@
         },
         "6": {
           "name": "Shadowy Sweep",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -20289,7 +20289,7 @@
         },
         "7": {
           "name": "Trance",
-          "considered": "HEAL",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -20343,7 +20343,7 @@
         },
         "8": {
           "name": "Perception Drain",
-          "considered": "HEAL",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -20579,7 +20579,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -20609,7 +20609,7 @@
         },
         "6": {
           "name": "Aimed Shot",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -20639,7 +20639,7 @@
         },
         "7": {
           "name": "Fully Charged Aimed Shot",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -20669,7 +20669,7 @@
         },
         "8": {
           "name": "Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -20700,7 +20700,7 @@
         },
         "9": {
           "name": "Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -20731,7 +20731,7 @@
         },
         "10": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -20830,7 +20830,7 @@
         },
         "2": {
           "name": "Symphonic Poem: Tonic",
-          "input": "AUTO",
+          "cast": "AUTO",
           "duration": 0,
           "multipliers": [
             {
@@ -20900,7 +20900,7 @@
       "skills": {
         "1": {
           "name": "Quadruple Downbeat",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -21152,7 +21152,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -21183,7 +21183,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -21213,7 +21213,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -21637,7 +21637,7 @@
       "skills": {
         "1": {
           "name": "Heavy Slash - Daybreak",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "special": "FRAZZLE",
           "multipliers": [
@@ -21669,7 +21669,7 @@
         },
         "2": {
           "name": "Heavy Slash - Dawning",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "special": "FRAZZLE",
           "multipliers": [
@@ -21701,7 +21701,7 @@
         },
         "3": {
           "name": "Heavy Slash - Nightfall",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "special": "FRAZZLE",
           "multipliers": [
@@ -22079,7 +22079,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -22133,7 +22133,7 @@
         },
         "6": {
           "name": "Heavy Attack - Wolf's Gnawing",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -22187,7 +22187,7 @@
         },
         "7": {
           "name": "Heavy Attack - Wolf's Claw",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -22266,7 +22266,7 @@
         },
         "8": {
           "name": "Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -22296,7 +22296,7 @@
         },
         "9": {
           "name": "Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -22351,7 +22351,7 @@
         },
         "10": {
           "name": "Mid-air Attack 3",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -22405,7 +22405,7 @@
         },
         "11": {
           "name": "Mid-air Attack - Firestrike",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "HA",
           "multipliers": [
             {
@@ -22460,7 +22460,7 @@
         },
         "12": {
           "name": "Plunging Attack",
-          "input": "MHA",
+          "cast": "MHA",
           "considered": "BA",
           "multipliers": [
             {
@@ -22593,7 +22593,7 @@
         },
         "14": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -22743,7 +22743,7 @@
         },
         "2": {
           "name": "Foebreaker",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -22891,7 +22891,7 @@
       "skills": {
         "1": {
           "name": "Dance With the Wolf",
-          "input": "RS",
+          "cast": "RS",
           "considered": "RL",
           "multipliers": [
             {
@@ -22971,7 +22971,7 @@
         },
         "2": {
           "name": "Dance With the Wolf: Climax",
-          "input": "RS",
+          "cast": "RS",
           "considered": "RL",
           "multipliers": [
             {
@@ -23385,7 +23385,7 @@
         },
         "5": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "attr": "HP",
           "multipliers": [
             {
@@ -23488,7 +23488,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "considered": "BA",
           "attr": "HP",
           "multipliers": [
@@ -23545,7 +23545,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "special": "EROSION",
           "attr": "HP",
           "multipliers": [
@@ -23577,7 +23577,7 @@
         },
         "8": {
           "name": "Mid-air Attack 1 Sword Shadow Recalled",
-          "input": "MBA",
+          "cast": "MBA",
           "special": "EROSION",
           "attr": "HP",
           "multipliers": [
@@ -23609,7 +23609,7 @@
         },
         "9": {
           "name": "Mid-air Attack 2 Sword Shadows Recalled",
-          "input": "MBA",
+          "cast": "MBA",
           "special": "EROSION",
           "attr": "HP",
           "multipliers": [
@@ -23642,7 +23642,7 @@
         },
         "10": {
           "name": "Mid-air Attack 3 Sword Shadows Recalled",
-          "input": "MBA",
+          "cast": "MBA",
           "special": "EROSION",
           "attr": "HP",
           "multipliers": [
@@ -23889,7 +23889,7 @@
       "skills": {
         "1": {
           "name": "Fleurdelys: Basic Attack 1",
-          "input": "BA",
+          "cast": "BA",
           "attr": "HP",
           "multipliers": [
             {
@@ -23920,7 +23920,7 @@
         },
         "2": {
           "name": "Fleurdelys: Basic Attack 2",
-          "input": "BA",
+          "cast": "BA",
           "attr": "HP",
           "multipliers": [
             {
@@ -24023,7 +24023,7 @@
         },
         "3": {
           "name": "Fleurdelys: Basic Attack 3",
-          "input": "BA",
+          "cast": "BA",
           "attr": "HP",
           "multipliers": [
             {
@@ -24126,7 +24126,7 @@
         },
         "4": {
           "name": "Fleurdelys: Basic Attack 4",
-          "input": "BA",
+          "cast": "BA",
           "attr": "HP",
           "multipliers": [
             {
@@ -24158,7 +24158,7 @@
         },
         "5": {
           "name": "Fleurdelys: Basic Attack 5",
-          "input": "BA",
+          "cast": "BA",
           "attr": "HP",
           "multipliers": [
             {
@@ -24213,7 +24213,7 @@
         },
         "6": {
           "name": "Fleurdelys: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "attr": "HP",
           "multipliers": [
             {
@@ -24316,7 +24316,7 @@
         },
         "7": {
           "name": "Fleurdelys: Upward Cut",
-          "input": "JA",
+          "cast": "JA",
           "considered": "BA",
           "attr": "HP",
           "multipliers": [
@@ -24349,7 +24349,7 @@
         },
         "8": {
           "name": "Fleurdelys: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "considered": "BA",
           "attr": "HP",
           "multipliers": [
@@ -24405,7 +24405,7 @@
         },
         "9": {
           "name": "Fleurdelys: Enhanced Heavy Attack",
-          "input": "BA",
+          "cast": "BA",
           "attr": "HP",
           "multipliers": [
             {
@@ -24461,7 +24461,7 @@
         },
         "10": {
           "name": "Fleurdelys: Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "attr": "HP",
           "multipliers": [
             {
@@ -24540,7 +24540,7 @@
         },
         "11": {
           "name": "Fleurdelys: Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "attr": "HP",
           "multipliers": [
             {
@@ -24619,7 +24619,7 @@
         },
         "12": {
           "name": "Fleurdelys: Mid-air Attack 3",
-          "input": "MHA",
+          "cast": "MHA",
           "considered": "BA",
           "attr": "HP",
           "multipliers": [
@@ -24651,7 +24651,7 @@
         },
         "13": {
           "name": "Fleurdelys: Sword to Answer Waves' Call",
-          "input": "RS",
+          "cast": "RS",
           "attr": "HP",
           "multipliers": [
             {
@@ -24707,7 +24707,7 @@
         },
         "14": {
           "name": "May Tempest Break the Tides",
-          "input": "RS",
+          "cast": "RS",
           "attr": "HP",
           "multipliers": [
             {
@@ -24868,7 +24868,7 @@
         },
         "4": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -24899,7 +24899,7 @@
         },
         "5": {
           "name": "Scarlet Coda",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RS",
           "multipliers": [
             {
@@ -24980,7 +24980,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -25010,7 +25010,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -25079,7 +25079,7 @@
       "skills": {
         "1": {
           "name": "Hecate: Basic Attack 1",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "ES",
           "multipliers": [
             {
@@ -25110,7 +25110,7 @@
         },
         "2": {
           "name": "Hecate: Basic Attack 2",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "ES",
           "multipliers": [
             {
@@ -25142,7 +25142,7 @@
         },
         "3": {
           "name": "Hecate: Enhanced Attack: Strings",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "ES",
           "multipliers": [
             {
@@ -25197,7 +25197,7 @@
         },
         "4": {
           "name": "Hecate: Enhanced Attack: Winds",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "ES",
           "multipliers": [
             {
@@ -25252,7 +25252,7 @@
         },
         "5": {
           "name": "Hecate: Enhanced Attack: Cadenza",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "ES",
           "multipliers": [
             {
@@ -25428,7 +25428,7 @@
       "skills": {
         "1": {
           "name": "Movement of Fate and Finality",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RS",
           "multipliers": [
             {
@@ -25485,7 +25485,7 @@
         },
         "2": {
           "name": "Murmurs in a Haunting Dream",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -25698,7 +25698,7 @@
         },
         "5": {
           "name": "Heavy Attack: Steelclash",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -25729,7 +25729,7 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -25760,7 +25760,7 @@
         },
         "7": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -25791,7 +25791,7 @@
         },
         "8": {
           "name": "Mid-air Dodge Counter",
-          "input": "MDC",
+          "cast": "MDC",
           "multipliers": [
             {
               "mv": [
@@ -25822,7 +25822,7 @@
         },
         "9": {
           "name": "Heavy Attack - Thunderoar: Backstep",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -25852,7 +25852,7 @@
         },
         "10": {
           "name": "Heavy Attack - Thunderoar: Spinslash",
-          "input": "RK",
+          "cast": "RK",
           "considered": "HA",
           "multipliers": [
             {
@@ -25884,7 +25884,7 @@
         },
         "11": {
           "name": "Heavy Attack - Thunderoar: Uppercut",
-          "input": "JA",
+          "cast": "JA",
           "considered": "HA",
           "multipliers": [
             {
@@ -25916,7 +25916,7 @@
         },
         "12": {
           "name": "Dodge Counter - Heavy Attack: Steelclash",
-          "input": "DC",
+          "cast": "DC",
           "considered": "HA",
           "multipliers": [
             {
@@ -25948,7 +25948,7 @@
         },
         "13": {
           "name": "Dodge Counter - Thunderoar: Backstep",
-          "input": "DC",
+          "cast": "DC",
           "considered": "HA",
           "multipliers": [
             {
@@ -26123,7 +26123,7 @@
         },
         "2": {
           "name": "Sublime is the Sun - Sunborne",
-          "input": "RL",
+          "cast": "RL",
           "considered": "HA",
           "multipliers": [
             {
@@ -26154,7 +26154,7 @@
         },
         "3": {
           "name": "Sublime is the Sun - Everbright Protector",
-          "input": "RL",
+          "cast": "RL",
           "considered": "HA",
           "multipliers": [
             {
@@ -26273,7 +26273,7 @@
       "skills": {
         "1": {
           "name": "Undying Sunlight: Strike",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -26304,7 +26304,7 @@
         },
         "2": {
           "name": "Undying Sunlight: Leap",
-          "input": "RS",
+          "cast": "RS",
           "multipliers": [
             {
               "mv": [
@@ -26359,7 +26359,7 @@
         },
         "3": {
           "name": "Undying Sunlight: Plunge",
-          "input": "RS",
+          "cast": "RS",
           "considered": "HA",
           "multipliers": [
             {
@@ -26414,7 +26414,7 @@
         },
         "4": {
           "name": "Undying Sunlight: Strike",
-          "input": "MDC",
+          "cast": "MDC",
           "considered": "RS",
           "multipliers": [
             {
@@ -26598,7 +26598,7 @@
         },
         "4": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -26629,7 +26629,7 @@
         },
         "5": {
           "name": "Moonring: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -26776,7 +26776,7 @@
         },
         "9": {
           "name": "Moonbow: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "considered": "RL",
           "multipliers": [
             {
@@ -27102,7 +27102,7 @@
       "skills": {
         "1": {
           "name": "Flux: Moonbow",
-          "input": "JA",
+          "cast": "JA",
           "considered": "RL",
           "multipliers": [
             {
@@ -27133,7 +27133,7 @@
         },
         "2": {
           "name": "Flux: Moonring",
-          "input": "JA",
+          "cast": "JA",
           "considered": "RL",
           "multipliers": [
             {
@@ -27165,7 +27165,7 @@
         },
         "3": {
           "name": "Enhanced Moonbow: Basic Attack 1",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -27196,7 +27196,7 @@
         },
         "4": {
           "name": "Enhanced Moonbow: Basic Attack 2",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -27228,7 +27228,7 @@
         },
         "5": {
           "name": "Enhanced Moonbow: Basic Attack 3",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -27260,7 +27260,7 @@
         },
         "6": {
           "name": "Enhanced Moonbow: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "considered": "RL",
           "multipliers": [
             {
@@ -27292,7 +27292,7 @@
         },
         "7": {
           "name": "Enhanced Arc Beyond the Edge",
-          "input": "RS",
+          "cast": "RS",
           "considered": "RL",
           "multipliers": [
             {
@@ -27324,8 +27324,8 @@
         },
         "8": {
           "name": "Moonbow: Basic Attack 1",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -27355,8 +27355,8 @@
         },
         "9": {
           "name": "Moonbow: Basic Attack 2",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -27386,8 +27386,8 @@
         },
         "10": {
           "name": "Moonbow: Basic Attack 3",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -27417,8 +27417,8 @@
         },
         "11": {
           "name": "Moonbow: Dodge Counter",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -27448,8 +27448,8 @@
         },
         "12": {
           "name": "Arc Beyond the Edge",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -27479,7 +27479,7 @@
         },
         "13": {
           "name": "Absolute Fullness",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -27510,8 +27510,8 @@
         },
         "14": {
           "name": "Absolute Fullness",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -27541,8 +27541,8 @@
         },
         "15": {
           "name": "Full Moon Domain",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -27831,7 +27831,7 @@
         },
         "5": {
           "name": "Blood for Blood",
-          "input": "DC",
+          "cast": "DC",
           "considered": "HA",
           "multipliers": [
             {
@@ -27934,7 +27934,7 @@
         },
         "6": {
           "name": "Ashfall Barrage Plunging Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "HA",
           "multipliers": [
             {
@@ -27965,7 +27965,7 @@
         },
         "7": {
           "name": "Ashfall Barrage Sustained Fire",
-          "input": "MHA",
+          "cast": "MHA",
           "multipliers": [
             {
               "mv": [
@@ -27995,7 +27995,7 @@
         },
         "8": {
           "name": "Volley of Death 1",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28049,7 +28049,7 @@
         },
         "9": {
           "name": "Volley of Death 2",
-          "input": "HK",
+          "cast": "HK",
           "considered": "HA",
           "multipliers": [
             {
@@ -28081,7 +28081,7 @@
         },
         "10": {
           "name": "Volley of Death 3",
-          "input": "HK",
+          "cast": "HK",
           "considered": "ES",
           "multipliers": [
             {
@@ -28347,7 +28347,7 @@
       "skills": {
         "1": {
           "name": "Seraphic Execution 1",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -28378,7 +28378,7 @@
         },
         "2": {
           "name": "Seraphic Execution 2",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -28457,7 +28457,7 @@
         },
         "3": {
           "name": "Seraphic Execution 3",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -28513,7 +28513,7 @@
         },
         "4": {
           "name": "Seraphic Execution 4",
-          "input": "BA",
+          "cast": "BA",
           "considered": "ES",
           "multipliers": [
             {
@@ -28569,7 +28569,7 @@
         },
         "5": {
           "name": "Seraphic Execution 5",
-          "input": "BA",
+          "cast": "BA",
           "considered": "ES",
           "multipliers": [
             {
@@ -28624,7 +28624,7 @@
         },
         "6": {
           "name": "Flamewing Verdict 1",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -28678,7 +28678,7 @@
         },
         "7": {
           "name": "Flamewing Verdict 2",
-          "input": "HK",
+          "cast": "HK",
           "considered": "HA",
           "multipliers": [
             {
@@ -28710,7 +28710,7 @@
         },
         "8": {
           "name": "Flamewing Verdict 3",
-          "input": "HK",
+          "cast": "HK",
           "considered": "ES",
           "multipliers": [
             {
@@ -28766,7 +28766,7 @@
         },
         "9": {
           "name": "Purgatory Scourge",
-          "input": "DC",
+          "cast": "DC",
           "considered": "HA",
           "multipliers": [
             {
@@ -28822,7 +28822,7 @@
         },
         "10": {
           "name": "Hellsent Barrage Plunging Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "HA",
           "multipliers": [
             {
@@ -28853,7 +28853,7 @@
         },
         "11": {
           "name": "Hellsent Barrage Sustained Fire",
-          "input": "MHA",
+          "cast": "MHA",
           "multipliers": [
             {
               "mv": [
@@ -28883,7 +28883,7 @@
         },
         "12": {
           "name": "Ravage",
-          "input": "RS",
+          "cast": "RS",
           "considered": "HA",
           "multipliers": [
             {
@@ -29168,7 +29168,7 @@
         },
         "4": {
           "name": "Mid-air Attack DMG",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -29198,7 +29198,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29228,7 +29228,7 @@
         },
         "6": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "considered": "HA",
           "multipliers": [
             {
@@ -29520,7 +29520,7 @@
       "skills": {
         "1": {
           "name": "Thus Spoke the Blade: Inkwash 1",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -29575,7 +29575,7 @@
         },
         "2": {
           "name": "Thus Spoke the Blade: Inkwash 2",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -29654,7 +29654,7 @@
         },
         "3": {
           "name": "Thus Spoke the Blade: Inkwash 3",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -29734,7 +29734,7 @@
         },
         "4": {
           "name": "Thus Spoke the Blade: Inkwash 4",
-          "input": "BA",
+          "cast": "BA",
           "considered": "HA",
           "multipliers": [
             {
@@ -29765,7 +29765,7 @@
         },
         "5": {
           "name": "Thus Spoke the Blade: To Teach",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -29891,7 +29891,7 @@
         },
         "6": {
           "name": "Thus Spoke the Blade: To Save",
-          "input": "HK",
+          "cast": "HK",
           "considered": "HA",
           "multipliers": [
             {
@@ -29995,7 +29995,7 @@
         },
         "7": {
           "name": "Thus Spoke the Blade: To Sacrifice",
-          "input": "HK",
+          "cast": "HK",
           "considered": "HA",
           "multipliers": [
             {
@@ -30165,7 +30165,7 @@
         },
         "5": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -30195,7 +30195,7 @@
         },
         "6": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -30226,7 +30226,7 @@
         },
         "7": {
           "name": "Mountain Over Thunder",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -30256,7 +30256,7 @@
         },
         "8": {
           "name": "Thunder Over Mountain",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -30286,8 +30286,8 @@
         },
         "9": {
           "name": "Twin Mountains",
-          "input": "HA",
-          "considered": "HEAL",
+          "cast": "HA",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -30341,8 +30341,8 @@
         },
         "10": {
           "name": "Twin Thunders",
-          "input": "HA",
-          "considered": "HEAL",
+          "cast": "HA",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -30430,7 +30430,7 @@
         },
         "2": {
           "name": "Pull-in Effect Continuous",
-          "input": "AUTO",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -30526,8 +30526,8 @@
           ]
         },
         "2": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -30586,7 +30586,7 @@
       "skills": {
         "1": {
           "name": "Flashing Thunder Spell - Harmony",
-          "input": "RL",
+          "cast": "RL",
           "multipliers": [
             {
               "mv": [
@@ -30650,7 +30650,7 @@
       "name": "Exorcism Spell",
       "skills": {
         "1": {
-          "considered": "HEAL",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": 0.18
@@ -30881,8 +30881,8 @@
         },
         "5": {
           "name": "Death Snip",
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "mv": [
@@ -31044,7 +31044,7 @@
         },
         "8": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -31075,7 +31075,7 @@
         },
         "9": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -31105,7 +31105,7 @@
         },
         "10": {
           "name": "Severed Facet",
-          "input": "HK",
+          "cast": "HK",
           "considered": "HA",
           "multipliers": [
             {
@@ -31137,7 +31137,7 @@
         },
         "11": {
           "name": "Hanging Finality",
-          "input": "HK",
+          "cast": "HK",
           "multipliers": [
             {
               "mv": [
@@ -31216,7 +31216,7 @@
         },
         "12": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -31294,7 +31294,7 @@
         },
         "13": {
           "name": "Eye of Unraveling - Retraction",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -31388,7 +31388,7 @@
         },
         "3": {
           "name": "Serrated Loop Hold",
-          "input": "HK",
+          "cast": "HK",
           "multipliers": [
             {
               "mv": [
@@ -31451,8 +31451,8 @@
           ]
         },
         "2": {
-          "input": "AUTO",
-          "considered": "HEAL",
+          "cast": "AUTO",
+          "type": "HEAL",
           "multipliers": [
             {
               "flat": [
@@ -31544,7 +31544,7 @@
       "skills": {
         "1": {
           "name": "Sawring - Blitz 1",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -31576,7 +31576,7 @@
         },
         "2": {
           "name": "Sawring - Blitz 2",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -31608,7 +31608,7 @@
         },
         "3": {
           "name": "Sawring - Blitz Stage 2 Hold",
-          "input": "HK",
+          "cast": "HK",
           "considered": "RL",
           "multipliers": [
             {
@@ -31640,7 +31640,7 @@
         },
         "4": {
           "name": "Sawring - Blitz Stage 2: Discordance",
-          "input": "RK",
+          "cast": "RK",
           "considered": "RL",
           "multipliers": [
             {
@@ -31672,7 +31672,7 @@
         },
         "5": {
           "name": "Sawring - Blitz 3",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -31704,7 +31704,7 @@
         },
         "6": {
           "name": "Sawring - Blitz Stage 3 Hold",
-          "input": "HK",
+          "cast": "HK",
           "considered": "RL",
           "multipliers": [
             {
@@ -31736,7 +31736,7 @@
         },
         "7": {
           "name": "Sawring - Blitz Stage 3: Falltone",
-          "input": "RK",
+          "cast": "RK",
           "considered": "RL",
           "multipliers": [
             {
@@ -31768,7 +31768,7 @@
         },
         "8": {
           "name": "Chainsaw Mode - Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "considered": "RL",
           "multipliers": [
             {
@@ -31800,7 +31800,7 @@
         },
         "9": {
           "name": "Chainsaw Mode - Dodge Counter Hold",
-          "input": "HK",
+          "cast": "HK",
           "considered": "RL",
           "multipliers": [
             {
@@ -31832,7 +31832,7 @@
         },
         "10": {
           "name": "Sawring - Eradication",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -31887,7 +31887,7 @@
         },
         "11": {
           "name": "Bonus DMG Multiplier per Ring of Chainsaw",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "BUFF",
           "multipliers": [
             {
@@ -31918,8 +31918,8 @@
         },
         "12": {
           "name": "Sawring - Eradication",
-          "input": "AUTO",
-          "considered": "SHIELD",
+          "cast": "AUTO",
+          "type": "SHIELD",
           "multipliers": [
             {
               "flat": [
@@ -32318,7 +32318,7 @@
         },
         "8": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -32396,7 +32396,7 @@
         },
         "9": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -32426,7 +32426,7 @@
         },
         "10": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -32456,7 +32456,7 @@
         },
         "11": {
           "name": "Wide Field Observation Mode: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -32492,7 +32492,7 @@
       "skills": {
         "1": {
           "name": "Wide Field Observation Mode: Distributed Array",
-          "considered": "HEAL",
+          "type": "HEAL",
           "attr": "DEF",
           "multipliers": [
             {
@@ -32547,7 +32547,7 @@
         },
         "2": {
           "name": "Expectation Error",
-          "considered": "HEAL",
+          "type": "HEAL",
           "attr": "DEF",
           "multipliers": [
             {
@@ -32602,7 +32602,7 @@
         },
         "3": {
           "name": "Optimal Solution",
-          "input": "AUTO",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -32632,7 +32632,7 @@
         },
         "4": {
           "name": "Wide Field Observation Mode: Distributed Array",
-          "input": "AUTO",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -32735,7 +32735,7 @@
       "skills": {
         "1": {
           "name": "Syntony Field",
-          "considered": "HEAL",
+          "type": "HEAL",
           "attr": "DEF",
           "multipliers": [
             {
@@ -32821,7 +32821,7 @@
         },
         "3": {
           "name": "Geopotential Shift",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -32875,7 +32875,7 @@
         },
         "4": {
           "name": "Wide Field Observation Mode: Inversion",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -33086,7 +33086,7 @@
         },
         "4": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -33116,7 +33116,7 @@
         },
         "5": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -33170,7 +33170,7 @@
         },
         "6": {
           "name": "Spark Collision Lv. 1",
-          "input": "HA",
+          "cast": "HA",
           "considered": "BA",
           "multipliers": [
             {
@@ -33202,7 +33202,7 @@
         },
         "7": {
           "name": "Spark Collision Lv. 2",
-          "input": "HA",
+          "cast": "HA",
           "considered": "BA",
           "multipliers": [
             {
@@ -33234,7 +33234,7 @@
         },
         "8": {
           "name": "Spark Collision Lv. 3",
-          "input": "HA",
+          "cast": "HA",
           "considered": "BA",
           "multipliers": [
             {
@@ -33511,7 +33511,7 @@
         },
         "14": {
           "name": "Kaleidoscopic Parade: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -33541,7 +33541,7 @@
         },
         "15": {
           "name": "Kaleidoscopic Parade: Ground Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "considered": "BA",
           "multipliers": [
             {
@@ -33573,7 +33573,7 @@
         },
         "16": {
           "name": "Kaleidoscopic Parade: Graffiti Blast",
-          "input": "RK",
+          "cast": "RK",
           "multipliers": [
             {
               "mv": [
@@ -33603,7 +33603,7 @@
         },
         "17": {
           "name": "Kaleidoscopic Parade: Mid-Air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -33657,7 +33657,7 @@
         },
         "18": {
           "name": "Kaleidoscopic Parade: Mid-air Heavy Attack",
-          "input": "MHA",
+          "cast": "MHA",
           "considered": "BA",
           "multipliers": [
             {
@@ -33811,7 +33811,7 @@
         },
         "2": {
           "name": "To a Vivid Tomorrow!",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -33906,7 +33906,7 @@
       "skills": {
         "1": {
           "name": "Kaleidoscopic Parade: Iridescent Splash",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -33936,7 +33936,7 @@
         },
         "2": {
           "name": "Kaleidoscopic Parade: Visual Impact",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -33966,7 +33966,7 @@
         },
         "3": {
           "name": "Kaleidoscopic Parade: Polychrome Leap 1",
-          "input": "JA",
+          "cast": "JA",
           "considered": "BA",
           "multipliers": [
             {
@@ -33998,7 +33998,7 @@
         },
         "4": {
           "name": "Kaleidoscopic Parade: Polychrome Leap 2",
-          "input": "JA",
+          "cast": "JA",
           "considered": "BA",
           "multipliers": [
             {
@@ -34030,7 +34030,7 @@
         },
         "5": {
           "name": "Kaleidoscopic Parade: Polychrome Leap 3",
-          "input": "JA",
+          "cast": "JA",
           "considered": "BA",
           "multipliers": [
             {
@@ -34062,7 +34062,7 @@
         },
         "6": {
           "name": "Tune Rupture Response - Spectral Analysis",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "TR",
           "attr": "TUNE",
           "multipliers": [
@@ -34351,7 +34351,7 @@
         },
         "5": {
           "name": "Heavy Attack Charged I",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -34406,7 +34406,7 @@
         },
         "6": {
           "name": "Heavy Attack Charged II",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -34462,7 +34462,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -34492,7 +34492,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -34707,7 +34707,7 @@
         },
         "3": {
           "name": "Mech: Basic Attack 1",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -34738,7 +34738,7 @@
         },
         "4": {
           "name": "Mech: Basic Attack 2",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -34792,7 +34792,7 @@
         },
         "5": {
           "name": "Mech: Basic Attack 3",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -34871,7 +34871,7 @@
         },
         "6": {
           "name": "Mech: Basic Attack 4",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -34925,7 +34925,7 @@
         },
         "7": {
           "name": "Mech: Heavy Attack Charged I",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -34956,7 +34956,7 @@
         },
         "8": {
           "name": "Mech: Heavy Attack Charged II",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -34987,7 +34987,7 @@
         },
         "9": {
           "name": "Mech: Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35042,7 +35042,7 @@
         },
         "10": {
           "name": "Mech: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -35326,7 +35326,7 @@
       "skills": {
         "1": {
           "name": "Mech: Seraphic Duet: Encore",
-          "input": "RS",
+          "cast": "RS",
           "considered": "RL",
           "multipliers": [
             {
@@ -35407,7 +35407,7 @@
         },
         "2": {
           "name": "Seraphic Duet: Overture",
-          "input": "RS",
+          "cast": "RS",
           "considered": "RL",
           "multipliers": [
             {
@@ -35513,7 +35513,7 @@
         },
         "3": {
           "name": "Tune Rupture Response - Starburst",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "TR",
           "attr": "TUNE",
           "multipliers": [
@@ -35545,7 +35545,7 @@
         },
         "4": {
           "name": "Seraphic Duet Bonus DMG (Per Instance)",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "BUFF",
           "attr": "TUNE",
           "multipliers": [
@@ -35757,7 +35757,7 @@
         },
         "5": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -35787,7 +35787,7 @@
         },
         "6": {
           "name": "Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35817,7 +35817,7 @@
         },
         "7": {
           "name": "Mid-air Attack 2 Scythe: Dissection",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35895,7 +35895,7 @@
         },
         "8": {
           "name": "Mid-air Attack 3 Scythe: Dissection",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -35973,7 +35973,7 @@
         },
         "9": {
           "name": "Mid-air Attack 2 Scythe: Resection",
-          "input": "JA",
+          "cast": "JA",
           "multipliers": [
             {
               "mv": [
@@ -36027,7 +36027,7 @@
         },
         "10": {
           "name": "Mid-air Attack 3 Scythe: Resection",
-          "input": "JA",
+          "cast": "JA",
           "multipliers": [
             {
               "mv": [
@@ -36081,7 +36081,7 @@
         },
         "11": {
           "name": "Mid-air Attack 4",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -36111,7 +36111,7 @@
         },
         "12": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -36165,7 +36165,7 @@
         },
         "13": {
           "name": "Mid-air Dodge Counter",
-          "input": "MDC",
+          "cast": "MDC",
           "multipliers": [
             {
               "mv": [
@@ -36345,7 +36345,7 @@
         },
         "5": {
           "name": "Golden Impale",
-          "input": "BA",
+          "cast": "BA",
           "multipliers": [
             {
               "mv": [
@@ -36375,7 +36375,7 @@
         },
         "6": {
           "name": "Ichor Deposit",
-          "input": "AUTO",
+          "cast": "AUTO",
           "considered": "BA",
           "multipliers": [
             {
@@ -36504,7 +36504,7 @@
       "skills": {
         "1": {
           "name": "Gavel of Earthshaker",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -36868,7 +36868,7 @@
         },
         "6": {
           "name": "Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -36899,7 +36899,7 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -36929,7 +36929,7 @@
         },
         "8": {
           "name": "Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -37007,7 +37007,7 @@
         },
         "9": {
           "name": "Mid-air Dodge Counter",
-          "input": "MDC",
+          "cast": "MDC",
           "multipliers": [
             {
               "mv": [
@@ -37037,7 +37037,7 @@
         },
         "10": {
           "name": "Decipher: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "considered": "ES",
           "multipliers": [
             {
@@ -37381,7 +37381,7 @@
       "skills": {
         "1": {
           "name": "Schemata of Runes",
-          "input": "HA",
+          "cast": "HA",
           "considered": "ES",
           "multipliers": [
             {
@@ -37625,7 +37625,7 @@
         },
         "5": {
           "name": "Learn My True Name",
-          "input": "RS",
+          "cast": "RS",
           "considered": "ES",
           "multipliers": [
             {
@@ -37835,7 +37835,7 @@
         },
         "4": {
           "name": "Present Self: Frost Splinter",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -37891,7 +37891,7 @@
         },
         "5": {
           "name": "Present Self: Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -37921,7 +37921,7 @@
         },
         "6": {
           "name": "Present Self: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -38270,7 +38270,7 @@
         },
         "12": {
           "name": "Foreclaimed Self: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -38301,7 +38301,7 @@
         },
         "13": {
           "name": "Foreclaimed Self: Bitterfrost",
-          "input": "HA",
+          "cast": "HA",
           "considered": "RL",
           "multipliers": [
             {
@@ -38357,7 +38357,7 @@
         },
         "14": {
           "name": "Foreclaimed Self: Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "RL",
           "multipliers": [
             {
@@ -38436,7 +38436,7 @@
         },
         "15": {
           "name": "Foreclaimed Self: Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "considered": "RL",
           "multipliers": [
             {
@@ -38539,7 +38539,7 @@
         },
         "16": {
           "name": "Foreclaimed Self: Mid-air Attack 3",
-          "input": "MHA",
+          "cast": "MHA",
           "considered": "RL",
           "multipliers": [
             {
@@ -38570,7 +38570,7 @@
         },
         "17": {
           "name": "Foreclaimed Self: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "considered": "RL",
           "multipliers": [
             {
@@ -38714,7 +38714,7 @@
         },
         "3": {
           "name": "Frostblight: Petalfall",
-          "input": "MRS",
+          "cast": "MRS",
           "multipliers": [
             {
               "mv": [
@@ -38924,7 +38924,7 @@
       "skills": {
         "1": {
           "name": "Iai",
-          "input": "BA",
+          "cast": "BA",
           "considered": "RL",
           "multipliers": [
             {
@@ -39113,7 +39113,7 @@
         },
         "5": {
           "name": "Stagecraft Form: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -39144,7 +39144,7 @@
         },
         "6": {
           "name": "Stagecraft Form: Mid-air Attack",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -39198,7 +39198,7 @@
         },
         "7": {
           "name": "Stagecraft Form: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [
@@ -39394,7 +39394,7 @@
         },
         "12": {
           "name": "Breakdown Form: Heavy Attack",
-          "input": "HA",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -39424,7 +39424,7 @@
         },
         "13": {
           "name": "Breakdown Form: Mid-air Attack 1",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -39454,7 +39454,7 @@
         },
         "14": {
           "name": "Breakdown Form: Mid-air Attack 2",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -39509,7 +39509,7 @@
         },
         "15": {
           "name": "Breakdown Form: Mid-air Attack 3",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -39539,7 +39539,7 @@
         },
         "16": {
           "name": "Breakdown Form: Mid-air Attack 4",
-          "input": "MBA",
+          "cast": "MBA",
           "multipliers": [
             {
               "mv": [
@@ -39593,7 +39593,7 @@
         },
         "17": {
           "name": "Breakdown Form: Mid-air Heavy Attack",
-          "input": "MHA",
+          "cast": "MHA",
           "multipliers": [
             {
               "mv": [
@@ -39647,7 +39647,7 @@
         },
         "18": {
           "name": "Breakdown Form: Dodge Counter",
-          "input": "DC",
+          "cast": "DC",
           "multipliers": [
             {
               "mv": [

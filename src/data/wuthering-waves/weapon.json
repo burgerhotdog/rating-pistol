@@ -42,7 +42,7 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_ATK": [
           0.08,
@@ -70,7 +70,7 @@
         }
       },
       {
-        "applyOnInput": "RS",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_RL": [
             0.07,
@@ -100,7 +100,7 @@
         }
       },
       {
-        "applyOnInput": [
+        "applyOnCast": [
           "IS",
           "RL"
         ],
@@ -133,45 +133,6 @@
       "PERCENT_ER": 0.518
     }
   },
-  "21010026": {
-    "name": "Ages of Harvest",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ALL": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": "IS",
-        "statMap": {
-          "PERCENT_RS": [
-            0.24,
-            0.48
-          ]
-        },
-        "duration": 12000
-      },
-      {
-        "applyOnInput": "RS",
-        "statMap": {
-          "PERCENT_RS": [
-            0.24,
-            0.48
-          ]
-        },
-        "duration": 12000
-      }
-    ]
-  },
   "21010034": {
     "name": "Broadblade#41",
     "quality": "4",
@@ -179,23 +140,6 @@
     "stats": {
       "BASE_ATK": 412,
       "PERCENT_ER": 0.324
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21010036": {
-    "name": "Wildfire Mark",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CD": 0.486
     },
     "effects": {
       "statMap": {
@@ -224,7 +168,7 @@
       "PERCENT_DEF": 0.615
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_ATK": [
           0.08,
@@ -236,40 +180,6 @@
         ]
       },
       "duration": 15000
-    }
-  },
-  "21010045": {
-    "name": "Radiance Cleaver",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CD": 0.486
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21010046": {
-    "name": "Thunderflare Dominion",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 675,
-      "PERCENT_CR": 0.121
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
     }
   },
   "21010053": {
@@ -293,32 +203,6 @@
       }
     }
   },
-  "21010056": {
-    "name": "Kumokiri",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 500,
-      "PERCENT_CR": 0.36
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21010063": {
-    "name": "Beguiling Melody",
-    "quality": "3",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 300,
-      "PERCENT_ATK": 0.303
-    }
-  },
   "21010064": {
     "name": "Helios Cleaver",
     "quality": "4",
@@ -328,7 +212,7 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnInput": "RS",
+      "applyOnCast": "RS",
       "statMap": {
         "PERCENT_ATK": [
           0.09,
@@ -336,23 +220,6 @@
         ]
       },
       "duration": 12000
-    }
-  },
-  "21010066": {
-    "name": "Starfield Calibrator",
-    "quality": "5",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_ER": 0.77
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_DEF": [
-          0.16,
-          0.32
-        ]
-      }
     }
   },
   "21010074": {
@@ -364,7 +231,7 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnInput": [
+      "applyOnCast": [
         "BA",
         "HA"
       ],
@@ -377,79 +244,6 @@
       "duration": 7000,
       "maxStacks": 5,
       "applyCooldown": 1000
-    }
-  },
-  "21010084": {
-    "name": "Waning Redshift",
-    "quality": "4",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": "RS",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000,
-      "applyCooldown": 20000
-    }
-  },
-  "21010094": {
-    "name": "Meditations on Mercy",
-    "quality": "4",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA",
-        "RS",
-        "RL",
-        "IS",
-        "OS",
-        "ES",
-        "CA"
-      ],
-      "statMap": {
-        "PERCENT_ATK": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4,
-      "applyCooldown": 1000
-    }
-  },
-  "21010104": {
-    "name": "Aureate Zenith",
-    "quality": "4",
-    "type": "BROADBLADE",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_CD": 0.405
-    },
-    "effects": {
-      "applyOnInput": "RL",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.072,
-          0.23
-        ],
-        "PERCENT_HA": [
-          0.108,
-          0.345
-        ]
-      },
-      "duration": 15000
     }
   },
   "21020011": {
@@ -495,7 +289,7 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_ATK": [
           0.08,
@@ -523,7 +317,7 @@
         }
       },
       {
-        "applyOnInput": "RS",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_ATK": [
             0.06,
@@ -534,86 +328,6 @@
         "maxStacks": 2
       }
     ]
-  },
-  "21020016": {
-    "name": "Blazing Brilliance",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CD": 0.486
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": [
-          "BA",
-          "HA",
-          "RL",
-          "IS",
-          "ES"
-        ],
-        "statMap": {
-          "PERCENT_RS": [
-            0.04,
-            0.08
-          ]
-        },
-        "maxStacks": 4,
-        "removeOnInput": "OS"
-      },
-      {
-        "applyOnInput": "RS",
-        "statMap": {
-          "PERCENT_RS": [
-            0.2,
-            0.4
-          ]
-        },
-        "maxStacks": 2,
-        "removeOnInput": "OS"
-      }
-    ]
-  },
-  "21020017": {
-    "name": "Somnoire Anchor",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA",
-        "RS",
-        "RL",
-        "IS",
-        "OS",
-        "ES"
-      ],
-      "statMap": {
-        "PERCENT_ATK": [
-          0.02,
-          0.04
-        ],
-        "PERCENT_CR": [
-          0.006,
-          0.012
-        ]
-      },
-      "duration": 3000,
-      "maxStacks": 10,
-      "removeOnInput": "OS"
-    }
   },
   "21020023": {
     "name": "Originite: Type II",
@@ -633,40 +347,6 @@
       "PERCENT_ER": 0.518
     }
   },
-  "21020026": {
-    "name": "Red Spring",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": [
-            0.12,
-            0.24
-          ],
-          "PERCENT_BA": [
-            0.2,
-            0.4
-          ]
-        }
-      },
-      {
-        "applyOnInput": "BA",
-        "statMap": {
-          "PERCENT_BA": [
-            0.1,
-            0.2
-          ]
-        },
-        "duration": 14000,
-        "maxStacks": 3
-      }
-    ]
-  },
   "21020034": {
     "name": "Sword#18",
     "quality": "4",
@@ -683,45 +363,6 @@
         ]
       }
     }
-  },
-  "21020036": {
-    "name": "Unflickering Valor",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_ER": 0.77
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_CR": [
-            0.08,
-            0.16
-          ]
-        }
-      },
-      {
-        "applyOnInput": "RL",
-        "statMap": {
-          "PERCENT_BA": [
-            0.24,
-            0.48
-          ]
-        },
-        "duration": 10000
-      },
-      {
-        "applyOnInput": "BA",
-        "statMap": {
-          "PERCENT_BA": [
-            0.24,
-            0.48
-          ]
-        },
-        "duration": 4000
-      }
-    ]
   },
   "21020043": {
     "name": "Sword of Voyager",
@@ -741,7 +382,7 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_ATK": [
           0.15,
@@ -750,52 +391,6 @@
       },
       "duration": 15000
     }
-  },
-  "21020045": {
-    "name": "Laser Shearer",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_ER": 0.388
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21020046": {
-    "name": "Bloodpact's Pledge",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_ER": 0.388
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_RS": [
-            0.1,
-            0.26
-          ]
-        }
-      },
-      {
-        "applyOnInput": "IS",
-        "target": "team",
-        "statMap": {
-          "AMP_AERO": [
-            0.1,
-            0.26
-          ]
-        }
-      }
-    ]
   },
   "21020053": {
     "name": "Guardian Sword",
@@ -808,23 +403,6 @@
     "effects": {
       "statMap": {
         "PERCENT_RS": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21020056": {
-    "name": "Defier's Thorn",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_HP": 0.722
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_HP": [
           0.12,
           0.24
         ]
@@ -848,23 +426,6 @@
       }
     }
   },
-  "21020066": {
-    "name": "Emerald Sentence",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
   "21020074": {
     "name": "Lumingloss",
     "quality": "4",
@@ -874,7 +435,7 @@
       "PERCENT_ATK": 0.364
     },
     "effects": {
-      "applyOnInput": "RS",
+      "applyOnCast": "RS",
       "statMap": {
         "PERCENT_BA": [
           0.2,
@@ -887,113 +448,6 @@
       },
       "duration": 10000,
       "applyCooldown": 1000
-    }
-  },
-  "21020076": {
-    "name": "Everbright Polestar",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ALL": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21020084": {
-    "name": "Endless Collapse",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": "RS",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000,
-      "applyCooldown": 20000
-    }
-  },
-  "21020086": {
-    "name": "Frostburn",
-    "quality": "5",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21020094": {
-    "name": "Fables of Wisdom",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA",
-        "RS",
-        "RL",
-        "IS",
-        "OS",
-        "ES",
-        "CA"
-      ],
-      "statMap": {
-        "PERCENT_ATK": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4,
-      "applyCooldown": 1000
-    }
-  },
-  "21020104": {
-    "name": "Feather Edge",
-    "quality": "4",
-    "type": "SWORD",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_CR": 0.202
-    },
-    "effects": {
-      "applyOnInput": "RL",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.072,
-          0.23
-        ],
-        "PERCENT_RL": [
-          0.108,
-          0.345
-        ]
-      },
-      "duration": 15000
     }
   },
   "21030011": {
@@ -1039,7 +493,7 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_ATK": [
           0.08,
@@ -1067,7 +521,7 @@
         }
       },
       {
-        "applyOnInput": "OS",
+        "applyOnCast": "OS",
         "target": "next",
         "statMap": {
           "PERCENT_ATK": [
@@ -1076,38 +530,6 @@
           ]
         },
         "duration": 14000
-      }
-    ]
-  },
-  "21030016": {
-    "name": "The Last Dance",
-    "quality": "5",
-    "type": "PISTOLS",
-    "stats": {
-      "BASE_ATK": 500,
-      "PERCENT_CD": 0.72
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": [
-          "IS",
-          "RL"
-        ],
-        "statMap": {
-          "PERCENT_RS": [
-            0.48,
-            0.96
-          ]
-        },
-        "duration": 5000
       }
     ]
   },
@@ -1129,62 +551,6 @@
       "PERCENT_ER": 0.518
     }
   },
-  "21030026": {
-    "name": "Woodland Aria",
-    "quality": "5",
-    "type": "PISTOLS",
-    "stats": {
-      "BASE_ATK": 500,
-      "PERCENT_CR": 0.36
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES"
-        ],
-        "statMap": {
-          "PERCENT_AERO": [
-            0.24,
-            0.48
-          ]
-        },
-        "duration": 10000
-      },
-      {
-        "applyOnInput": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES"
-        ],
-        "target": "team",
-        "statMap": {
-          "IGNORE_AERO": [
-            0.1,
-            0.16
-          ]
-        },
-        "duration": 20000
-      }
-    ]
-  },
   "21030034": {
     "name": "Pistols#26",
     "quality": "4",
@@ -1198,23 +564,6 @@
         "PERCENT_ATK": [
           0.1,
           0.2
-        ]
-      }
-    }
-  },
-  "21030036": {
-    "name": "Lux & Umbra",
-    "quality": "5",
-    "type": "PISTOLS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CD": 0.486
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
         ]
       }
     }
@@ -1237,7 +586,7 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_RS": [
           0.2,
@@ -1245,40 +594,6 @@
         ]
       },
       "duration": 15000
-    }
-  },
-  "21030045": {
-    "name": "Phasic Homogenizer",
-    "quality": "5",
-    "type": "PISTOLS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CD": 0.486
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21030046": {
-    "name": "Spectrum Blaster",
-    "quality": "5",
-    "type": "PISTOLS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
     }
   },
   "21030053": {
@@ -1324,7 +639,7 @@
       "PERCENT_ATK": 0.364
     },
     "effects": {
-      "applyOnInput": [
+      "applyOnCast": [
         "BA",
         "HA"
       ],
@@ -1336,84 +651,6 @@
       },
       "maxStacks": 3,
       "duration": 10000,
-      "applyCooldown": 1000
-    }
-  },
-  "21030084": {
-    "name": "Relativistic Jet",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": "RS",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000,
-      "applyCooldown": 20000
-    }
-  },
-  "21030094": {
-    "name": "Romance in Farewell",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA",
-        "RS",
-        "RL",
-        "IS",
-        "OS",
-        "ES",
-        "CA"
-      ],
-      "statMap": {
-        "PERCENT_ATK": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4,
-      "applyCooldown": 1000
-    }
-  },
-  "21030104": {
-    "name": "Solar Flame",
-    "quality": "4",
-    "type": "PISTOLS",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_CR": 0.202
-    },
-    "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA"
-      ],
-      "statMap": {
-        "PERCENT_ATK": [
-          0.022,
-          0.072
-        ],
-        "PERCENT_HA": [
-          0.022,
-          0.072
-        ]
-      },
-      "duration": 7000,
-      "maxStacks": 4,
       "applyCooldown": 1000
     }
   },
@@ -1460,7 +697,7 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_ATK": [
           0.08,
@@ -1488,7 +725,7 @@
         }
       },
       {
-        "applyOnInput": "RS",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_BA": [
             0.1,
@@ -1498,7 +735,7 @@
         "duration": 8000
       },
       {
-        "applyOnInput": "BA",
+        "applyOnCast": "BA",
         "statMap": {
           "PERCENT_RS": [
             0.1,
@@ -1506,35 +743,6 @@
           ]
         },
         "duration": 8000
-      }
-    ]
-  },
-  "21040016": {
-    "name": "Verity's Handle",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ALL": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": "RL",
-        "statMap": {
-          "PERCENT_RL": [
-            0.48,
-            0.96
-          ]
-        },
-        "duration": 23000
       }
     ]
   },
@@ -1556,38 +764,6 @@
       "PERCENT_ER": 0.518
     }
   },
-  "21040026": {
-    "name": "Tragicomedy",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": [
-          "BA",
-          "IS"
-        ],
-        "statMap": {
-          "PERCENT_HA": [
-            0.48,
-            0.96
-          ]
-        },
-        "duration": 3000
-      }
-    ]
-  },
   "21040034": {
     "name": "Gauntlets#21D",
     "quality": "4",
@@ -1601,23 +777,6 @@
         "PERCENT_ATK": [
           0.08,
           0.16
-        ]
-      }
-    }
-  },
-  "21040036": {
-    "name": "Blazing Justice",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CD": 0.486
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
         ]
       }
     }
@@ -1640,7 +799,7 @@
       "PERCENT_DEF": 0.615
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_RL": [
           0.2,
@@ -1648,40 +807,6 @@
         ]
       },
       "duration": 15000
-    }
-  },
-  "21040045": {
-    "name": "Pulsation Bracer",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21040046": {
-    "name": "Moongazer's Sigil",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 500,
-      "PERCENT_CR": 0.36
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
     }
   },
   "21040053": {
@@ -1701,23 +826,6 @@
       }
     }
   },
-  "21040056": {
-    "name": "Daybreaker's Spine",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CR": 0.243
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
   "21040064": {
     "name": "Hollow Mirage",
     "quality": "4",
@@ -1727,7 +835,7 @@
       "PERCENT_ATK": 0.303
     },
     "effects": {
-      "applyOnInput": "RL",
+      "applyOnCast": "RL",
       "statMap": {
         "PERCENT_ATK": [
           0.09,
@@ -1736,23 +844,6 @@
         "PERCENT_DEF": [
           0.09,
           0.15
-        ]
-      }
-    }
-  },
-  "21040066": {
-    "name": "Solsworn Ciphers",
-    "quality": "5",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 587,
-      "PERCENT_CD": 0.486
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
         ]
       }
     }
@@ -1766,84 +857,11 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnInput": "RS",
+      "applyOnCast": "RS",
       "statMap": {
         "PERCENT_RL": [
           0.18,
           0.54
-        ]
-      },
-      "duration": 15000
-    }
-  },
-  "21040084": {
-    "name": "Celestial Spiral",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": "RS",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000,
-      "applyCooldown": 20000
-    }
-  },
-  "21040094": {
-    "name": "Legend of Drunken Hero",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA",
-        "RS",
-        "RL",
-        "IS",
-        "OS",
-        "ES",
-        "CA"
-      ],
-      "statMap": {
-        "PERCENT_ATK": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4,
-      "applyCooldown": 1000
-    }
-  },
-  "21040104": {
-    "name": "Aether Strike",
-    "quality": "4",
-    "type": "GAUNTLETS",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_CD": 0.405
-    },
-    "effects": {
-      "applyOnInput": "RL",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.072,
-          0.23
-        ],
-        "PERCENT_RL": [
-          0.108,
-          0.345
         ]
       },
       "duration": 15000
@@ -1892,7 +910,7 @@
       "PERCENT_ATK": 0.243
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_ATK": [
           0.08,
@@ -1920,7 +938,7 @@
         }
       },
       {
-        "applyOnInput": "BA",
+        "applyOnCast": "BA",
         "statMap": {
           "PERCENT_BA": [
             0.032,
@@ -1951,7 +969,7 @@
         }
       },
       {
-        "applyOnInput": "RS",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_ATK": [
             0.12,
@@ -1962,7 +980,7 @@
         "maxStacks": 2
       },
       {
-        "applyOnInput": "IS",
+        "applyOnCast": "IS",
         "target": "inactive",
         "statMap": {
           "PERCENT_ATK": [
@@ -1972,25 +990,6 @@
         }
       }
     ]
-  },
-  "21050017": {
-    "name": "Call of the Abyss",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 337,
-      "PERCENT_ER": 0.518
-    },
-    "effects": {
-      "applyOnInput": "RL",
-      "statMap": {
-        "PERCENT_HB": [
-          0.16,
-          0.32
-        ]
-      },
-      "duration": 15000
-    }
   },
   "21050023": {
     "name": "Originite: Type V",
@@ -2010,74 +1009,6 @@
       "PERCENT_ER": 0.518
     }
   },
-  "21050026": {
-    "name": "Rime-Draped Sprouts",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 500,
-      "PERCENT_CD": 0.72
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": "RS",
-        "statMap": {
-          "PERCENT_BA": [
-            0.12,
-            0.24
-          ]
-        },
-        "duration": 6000,
-        "maxStacks": 3
-      },
-      {
-        "applyOnInput": "OS",
-        "statMap": {
-          "PERCENT_BA": [
-            0.52,
-            1.04
-          ]
-        },
-        "duration": 27000
-      }
-    ]
-  },
-  "21050027": {
-    "name": "Ocean's Gift",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA",
-        "RS",
-        "RL",
-        "IS",
-        "OS",
-        "ES"
-      ],
-      "statMap": {
-        "PERCENT_SPECTRO": [
-          0.06,
-          0.1
-        ]
-      },
-      "duration": 6000,
-      "maxStacks": 4
-    }
-  },
   "21050034": {
     "name": "Rectifier#25",
     "quality": "4",
@@ -2087,7 +1018,7 @@
       "PERCENT_ER": 0.518
     },
     "effects": {
-      "applyOnInput": "RS",
+      "applyOnCast": "RS",
       "statMap": {
         "PERCENT_ATK": [
           0.12,
@@ -2096,36 +1027,6 @@
       },
       "duration": 10000
     }
-  },
-  "21050036": {
-    "name": "Stellar Symphony",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_ER": 0.77
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_HP": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": "RS",
-        "target": "team",
-        "statMap": {
-          "PERCENT_ATK": [
-            0.14,
-            0.28
-          ]
-        },
-        "duration": 30000
-      }
-    ]
   },
   "21050043": {
     "name": "Rectifier of Voyager",
@@ -2145,7 +1046,7 @@
       "PERCENT_ATK": 0.364
     },
     "effects": {
-      "applyOnInput": "IS",
+      "applyOnCast": "IS",
       "statMap": {
         "PERCENT_ATK": [
           0.08,
@@ -2158,76 +1059,6 @@
       },
       "duration": 15000
     }
-  },
-  "21050045": {
-    "name": "Boson Astrolabe",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 525,
-      "PERCENT_ER": 0.388
-    },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
-      }
-    }
-  },
-  "21050046": {
-    "name": "Luminous Hymn",
-    "quality": "5",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 500,
-      "PERCENT_CR": 0.36
-    },
-    "effects": [
-      {
-        "statMap": {
-          "PERCENT_ATK": [
-            0.12,
-            0.24
-          ]
-        }
-      },
-      {
-        "applyOnInput": [
-          "BA",
-          "HA",
-          "RS",
-          "RL",
-          "IS",
-          "OS",
-          "ES"
-        ],
-        "statMap": {
-          "PERCENT_BA": [
-            0.14,
-            0.28
-          ],
-          "PERCENT_HA": [
-            0.14,
-            0.28
-          ]
-        },
-        "duration": 6000,
-        "maxStacks": 3
-      },
-      {
-        "applyOnInput": "OS",
-        "target": "team",
-        "statMap": {
-          "AMP_FRAZZLE": [
-            0.3,
-            0.6
-          ]
-        },
-        "duration": 30000
-      }
-    ]
   },
   "21050053": {
     "name": "Guardian Rectifier",
@@ -2249,6 +1080,722 @@
         ]
       }
     }
+  },
+  "21050064": {
+    "name": "Comet Flare",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_HP": 0.303
+    },
+    "effects": {
+      "applyOnCast": [
+        "BA",
+        "HA"
+      ],
+      "statMap": {
+        "PERCENT_HB": [
+          0.03,
+          0.06
+        ]
+      },
+      "duration": 8000,
+      "applyCooldown": 600
+    }
+  },
+  "21050074": {
+    "name": "Augment",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
+    },
+    "effects": {
+      "applyOnCast": "RL",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.15,
+          0.48
+        ]
+      },
+      "duration": 15000
+    }
+  },
+  "21010026": {
+    "name": "Ages of Harvest",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCast": "IS",
+        "statMap": {
+          "PERCENT_RS": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 12000
+      },
+      {
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_RS": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 12000
+      }
+    ]
+  },
+  "21010063": {
+    "name": "Beguiling Melody",
+    "quality": "3",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 300,
+      "PERCENT_ATK": 0.303
+    }
+  },
+  "21020016": {
+    "name": "Blazing Brilliance",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCast": [
+          "BA",
+          "HA",
+          "RL",
+          "IS",
+          "ES"
+        ],
+        "statMap": {
+          "PERCENT_RS": [
+            0.04,
+            0.08
+          ]
+        },
+        "maxStacks": 4,
+        "removeOnCast": "OS"
+      },
+      {
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_RS": [
+            0.2,
+            0.4
+          ]
+        },
+        "maxStacks": 2,
+        "removeOnCast": "OS"
+      }
+    ]
+  },
+  "21040016": {
+    "name": "Verity's Handle",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCast": "RL",
+        "statMap": {
+          "PERCENT_RL": [
+            0.48,
+            0.96
+          ]
+        },
+        "duration": 23000
+      }
+    ]
+  },
+  "21050026": {
+    "name": "Rime-Draped Sprouts",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCast": "RS",
+        "statMap": {
+          "PERCENT_BA": [
+            0.12,
+            0.24
+          ]
+        },
+        "duration": 6000,
+        "maxStacks": 3
+      },
+      {
+        "applyOnCast": "OS",
+        "statMap": {
+          "PERCENT_BA": [
+            0.52,
+            1.04
+          ]
+        },
+        "duration": 27000
+      }
+    ]
+  },
+  "21010084": {
+    "name": "Waning Redshift",
+    "quality": "4",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnCast": "RS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000,
+      "applyCooldown": 20000
+    }
+  },
+  "21020084": {
+    "name": "Endless Collapse",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnCast": "RS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000,
+      "applyCooldown": 20000
+    }
+  },
+  "21030084": {
+    "name": "Relativistic Jet",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnCast": "RS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000,
+      "applyCooldown": 20000
+    }
+  },
+  "21040084": {
+    "name": "Celestial Spiral",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnCast": "RS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000,
+      "applyCooldown": 20000
+    }
+  },
+  "21050036": {
+    "name": "Stellar Symphony",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HP": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCast": "RS",
+        "target": "team",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.14,
+            0.28
+          ]
+        },
+        "duration": 30000
+      }
+    ]
+  },
+  "21050084": {
+    "name": "Fusion Accretion",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnCast": "RS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.1,
+          0.2
+        ]
+      },
+      "duration": 16000,
+      "applyCooldown": 20000
+    }
+  },
+  "21020017": {
+    "name": "Somnoire Anchor",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnType": "DAMAGE",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.02,
+          0.04
+        ],
+        "PERCENT_CR": [
+          0.006,
+          0.012
+        ]
+      },
+      "duration": 3000,
+      "maxStacks": 10,
+      "removeOnCast": "OS"
+    }
+  },
+  "21020026": {
+    "name": "Red Spring",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ],
+          "PERCENT_BA": [
+            0.2,
+            0.4
+          ]
+        }
+      },
+      {
+        "applyOnCast": "BA",
+        "statMap": {
+          "PERCENT_BA": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 14000,
+        "maxStacks": 3
+      }
+    ]
+  },
+  "21010094": {
+    "name": "Meditations on Mercy",
+    "quality": "4",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnType": "DAMAGE",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "applyCooldown": 1000
+    }
+  },
+  "21020094": {
+    "name": "Fables of Wisdom",
+    "quality": "4",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnType": "DAMAGE",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "applyCooldown": 1000
+    }
+  },
+  "21030016": {
+    "name": "The Last Dance",
+    "quality": "5",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CD": 0.72
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCast": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_RS": [
+            0.48,
+            0.96
+          ]
+        },
+        "duration": 5000
+      }
+    ]
+  },
+  "21030094": {
+    "name": "Romance in Farewell",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnType": "DAMAGE",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "applyCooldown": 1000
+    }
+  },
+  "21040026": {
+    "name": "Tragicomedy",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCast": [
+          "BA",
+          "IS"
+        ],
+        "statMap": {
+          "PERCENT_HA": [
+            0.48,
+            0.96
+          ]
+        },
+        "duration": 3000
+      }
+    ]
+  },
+  "21040094": {
+    "name": "Legend of Drunken Hero",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnType": "DAMAGE",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "applyCooldown": 1000
+    }
+  },
+  "21050017": {
+    "name": "Call of the Abyss",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 337,
+      "PERCENT_ER": 0.518
+    },
+    "effects": {
+      "applyOnCast": "RL",
+      "statMap": {
+        "PERCENT_HB": [
+          0.16,
+          0.32
+        ]
+      },
+      "duration": 15000
+    }
+  },
+  "21050094": {
+    "name": "Waltz in Masquerade",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnType": "DAMAGE",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.04,
+          0.08
+        ]
+      },
+      "duration": 10000,
+      "maxStacks": 4,
+      "applyCooldown": 1000
+    }
+  },
+  "21020036": {
+    "name": "Unflickering Valor",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_CR": [
+            0.08,
+            0.16
+          ]
+        }
+      },
+      {
+        "applyOnCast": "RL",
+        "statMap": {
+          "PERCENT_BA": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 10000
+      },
+      {
+        "applyOnCast": "BA",
+        "statMap": {
+          "PERCENT_BA": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 4000
+      }
+    ]
+  },
+  "21050027": {
+    "name": "Ocean's Gift",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 462,
+      "PERCENT_ATK": 0.182
+    },
+    "effects": {
+      "applyOnType": "DAMAGE",
+      "statMap": {
+        "PERCENT_SPECTRO": [
+          0.06,
+          0.1
+        ]
+      },
+      "duration": 6000,
+      "maxStacks": 4
+    }
+  },
+  "21050046": {
+    "name": "Luminous Hymn",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnType": "DAMAGE",
+        "statMap": {
+          "PERCENT_BA": [
+            0.14,
+            0.28
+          ],
+          "PERCENT_HA": [
+            0.14,
+            0.28
+          ]
+        },
+        "duration": 6000,
+        "maxStacks": 3
+      },
+      {
+        "applyOnCast": "OS",
+        "target": "team",
+        "statMap": {
+          "AMP_FRAZZLE": [
+            0.3,
+            0.6
+          ]
+        },
+        "duration": 30000
+      }
+    ]
+  },
+  "21020046": {
+    "name": "Bloodpact's Pledge",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_ER": 0.388
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_RS": [
+            0.1,
+            0.26
+          ]
+        }
+      },
+      {
+        "applyOnCast": "IS",
+        "target": "team",
+        "statMap": {
+          "AMP_AERO": [
+            0.1,
+            0.26
+          ]
+        }
+      }
+    ]
   },
   "21050056": {
     "name": "Whispers of Sirens",
@@ -2275,27 +1822,95 @@
       }
     }
   },
-  "21050064": {
-    "name": "Comet Flare",
-    "quality": "4",
-    "type": "RECTIFIER",
+  "21030026": {
+    "name": "Woodland Aria",
+    "quality": "5",
+    "type": "PISTOLS",
     "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_HP": 0.303
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnType": "DAMAGE",
+        "statMap": {
+          "PERCENT_AERO": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 10000
+      },
+      {
+        "applyOnType": "DAMAGE",
+        "target": "team",
+        "statMap": {
+          "IGNORE_AERO": [
+            0.1,
+            0.16
+          ]
+        },
+        "duration": 20000
+      }
+    ]
+  },
+  "21040036": {
+    "name": "Blazing Justice",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
     },
     "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA"
-      ],
       "statMap": {
-        "PERCENT_HB": [
-          0.03,
-          0.06
+        "PERCENT_ATK": [
+          0.12,
+          0.24
         ]
-      },
-      "duration": 8000,
-      "applyCooldown": 600
+      }
+    }
+  },
+  "21010036": {
+    "name": "Wildfire Mark",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21020056": {
+    "name": "Defier's Thorn",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_HP": 0.722
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_HP": [
+          0.12,
+          0.24
+        ]
+      }
     }
   },
   "21050066": {
@@ -2315,23 +1930,396 @@
       }
     }
   },
-  "21050074": {
-    "name": "Augment",
+  "21010046": {
+    "name": "Thunderflare Dominion",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 675,
+      "PERCENT_CR": 0.121
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21010104": {
+    "name": "Aureate Zenith",
     "quality": "4",
-    "type": "RECTIFIER",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
+    },
+    "effects": {
+      "applyOnCast": "RL",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.072,
+          0.23
+        ],
+        "PERCENT_HA": [
+          0.108,
+          0.345
+        ]
+      },
+      "duration": 15000
+    }
+  },
+  "21020104": {
+    "name": "Feather Edge",
+    "quality": "4",
+    "type": "SWORD",
     "stats": {
       "BASE_ATK": 412,
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnInput": "RL",
+      "applyOnCast": "RL",
       "statMap": {
         "PERCENT_ATK": [
-          0.15,
-          0.48
+          0.072,
+          0.23
+        ],
+        "PERCENT_RL": [
+          0.108,
+          0.345
         ]
       },
       "duration": 15000
+    }
+  },
+  "21030104": {
+    "name": "Solar Flame",
+    "quality": "4",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CR": 0.202
+    },
+    "effects": {
+      "applyOnCast": [
+        "BA",
+        "HA"
+      ],
+      "statMap": {
+        "PERCENT_ATK": [
+          0.022,
+          0.072
+        ],
+        "PERCENT_HA": [
+          0.022,
+          0.072
+        ]
+      },
+      "duration": 7000,
+      "maxStacks": 4,
+      "applyCooldown": 1000
+    }
+  },
+  "21040046": {
+    "name": "Moongazer's Sigil",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21040104": {
+    "name": "Aether Strike",
+    "quality": "4",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
+    },
+    "effects": {
+      "applyOnCast": "RL",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.072,
+          0.23
+        ],
+        "PERCENT_RL": [
+          0.108,
+          0.345
+        ]
+      },
+      "duration": 15000
+    }
+  },
+  "21050104": {
+    "name": "Radiant Dawn",
+    "quality": "4",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_CD": 0.405
+    },
+    "effects": {
+      "applyOnCast": "RS",
+      "statMap": {
+        "PERCENT_ATK": [
+          0.09,
+          0.288
+        ],
+        "PERCENT_BA": [
+          0.09,
+          0.288
+        ]
+      },
+      "duration": 10000
+    }
+  },
+  "21020066": {
+    "name": "Emerald Sentence",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21030036": {
+    "name": "Lux & Umbra",
+    "quality": "5",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21010056": {
+    "name": "Kumokiri",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 500,
+      "PERCENT_CR": 0.36
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21010045": {
+    "name": "Radiance Cleaver",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21010066": {
+    "name": "Starfield Calibrator",
+    "quality": "5",
+    "type": "BROADBLADE",
+    "stats": {
+      "BASE_ATK": 412,
+      "PERCENT_ER": 0.77
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_DEF": [
+          0.16,
+          0.32
+        ]
+      }
+    }
+  },
+  "21020045": {
+    "name": "Laser Shearer",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_ER": 0.388
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21030045": {
+    "name": "Phasic Homogenizer",
+    "quality": "5",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21030046": {
+    "name": "Spectrum Blaster",
+    "quality": "5",
+    "type": "PISTOLS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21040045": {
+    "name": "Pulsation Bracer",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21050045": {
+    "name": "Boson Astrolabe",
+    "quality": "5",
+    "type": "RECTIFIER",
+    "stats": {
+      "BASE_ATK": 525,
+      "PERCENT_ER": 0.388
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21020076": {
+    "name": "Everbright Polestar",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ALL": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21040056": {
+    "name": "Daybreaker's Spine",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21040066": {
+    "name": "Solsworn Ciphers",
+    "quality": "5",
+    "type": "GAUNTLETS",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CD": 0.486
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
+    }
+  },
+  "21020086": {
+    "name": "Frostburn",
+    "quality": "5",
+    "type": "SWORD",
+    "stats": {
+      "BASE_ATK": 587,
+      "PERCENT_CR": 0.243
+    },
+    "effects": {
+      "statMap": {
+        "PERCENT_ATK": [
+          0.12,
+          0.24
+        ]
+      }
     }
   },
   "21050076": {
@@ -2349,79 +2337,6 @@
           0.24
         ]
       }
-    }
-  },
-  "21050084": {
-    "name": "Fusion Accretion",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": "RS",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.1,
-          0.2
-        ]
-      },
-      "duration": 16000,
-      "applyCooldown": 20000
-    }
-  },
-  "21050094": {
-    "name": "Waltz in Masquerade",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 462,
-      "PERCENT_ATK": 0.182
-    },
-    "effects": {
-      "applyOnInput": [
-        "BA",
-        "HA",
-        "RS",
-        "RL",
-        "IS",
-        "OS",
-        "ES",
-        "CA"
-      ],
-      "statMap": {
-        "PERCENT_ATK": [
-          0.04,
-          0.08
-        ]
-      },
-      "duration": 10000,
-      "maxStacks": 4,
-      "applyCooldown": 1000
-    }
-  },
-  "21050104": {
-    "name": "Radiant Dawn",
-    "quality": "4",
-    "type": "RECTIFIER",
-    "stats": {
-      "BASE_ATK": 412,
-      "PERCENT_CD": 0.405
-    },
-    "effects": {
-      "applyOnInput": "RS",
-      "statMap": {
-        "PERCENT_ATK": [
-          0.09,
-          0.288
-        ],
-        "PERCENT_BA": [
-          0.09,
-          0.288
-        ]
-      },
-      "duration": 10000
     }
   }
 }

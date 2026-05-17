@@ -1,6 +1,6 @@
 import { MVS } from '@/data';
 
-const DEFAULT_GROUP_INPUT = {
+const DEFAULT_GROUP_CAST = {
   "1": "BA",
   "2": "RS",
   "3": "RL",
@@ -9,7 +9,7 @@ const DEFAULT_GROUP_INPUT = {
   "8": "OS",
 };
 const DEFAULT_ATTR = "ATK";
-const SPECIAL_INPUTS = new Set(["CA", "JA", "DA", "HK", "RK", "AUTO"]);
+const SPECIAL_CASTS = new Set(["CA", "JA", "DA", "HK", "RK", "AUTO"]);
 
 function getActionMetaMap(gameId, characterId) {
   const skillMap = MVS[gameId]?.[characterId];
@@ -33,14 +33,14 @@ function formatConsidered(considered, input, skillId) {
 
   if (input.endsWith("DC")) return "BA";
   if (input.startsWith("M")) return input.slice(1);
-  if (SPECIAL_INPUTS.has(input)) return DEFAULT_GROUP_INPUT[skillId];
+  if (SPECIAL_CASTS.has(input)) return DEFAULT_GROUP_CAST[skillId];
 
   return input;
 }
 
-function formatName(name, considered) {
-  if (considered === "HEAL") return `${name} Healing`;
-  if (considered === "SHIELD") return `${name} Shield`;
+function formatName(name, type) {
+  if (type === "HEAL") return `${name} Healing`;
+  if (type === "SHIELD") return `${name} Shield`;
   return name;
 }
 
@@ -57,16 +57,18 @@ export function getAction(gameId, actionKey) {
   const skill = group.skills?.[actionId];
   if (!skill) throw new Error(`Unknown skill "${actionId}" in group "${skillId}" in character "${ownerId}" in game "${gameId}"`);
 
-  const input = skill.input ?? DEFAULT_GROUP_INPUT[skillId];
-  if (!input) throw new Error(`Missing input for skill "${actionKey}" in character "${ownerId}" in game "${gameId}"`);
+  const type = skill.type ?? 'DAMAGE';
+  const cast = skill.cast ?? DEFAULT_GROUP_CAST[skillId];
+  if (!cast) throw new Error(`Missing input for skill "${actionKey}" in character "${ownerId}" in game "${gameId}"`);
 
-  const considered = formatConsidered(skill.considered, input, skillId);
+  const considered = formatConsidered(skill.considered, cast, skillId);
   if (!considered || considered === "AUTO") throw new Error(`Invalid considered for skill "${actionKey}" in character "${ownerId}" in game "${gameId}"`);
 
   return {
     ownerId,
-    name: formatName(skill.name ?? group.name, considered),
-    input,
+    name: formatName(skill.name ?? group.name, type),
+    type,
+    cast,
     considered,
     special: skill.special,
     duration: skill.duration,

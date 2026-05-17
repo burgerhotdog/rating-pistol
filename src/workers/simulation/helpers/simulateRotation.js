@@ -1,7 +1,7 @@
 import { CHARACTERS, WEAPONS, SETS, MISC, MVS } from '@/data';
 import { compileStatMap, mergeStatMaps, computeTotalStat, toArray } from '@/utils';
 
-const DEFAULT_INPUT = {
+const DEFAULT_CAST = {
   "1": "BA",
   "2": "RS",
   "3": "RL",
@@ -9,7 +9,7 @@ const DEFAULT_INPUT = {
   "7": "AUTO",
   "8": "OS",
 };
-const SPECIAL_INPUTS = new Set(["CA", "JA", "DA", "HK", "RK", "AUTO"]);
+const SPECIAL_CASTS = new Set(["CA", "JA", "DA", "HK", "RK", "AUTO"]);
 
 const actionsCache = new Map();
 const normalizeEffectsCache = new WeakMap();
@@ -137,11 +137,11 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
 };
 
 const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) => {
-  const { owner: actionOwner, actionKey, input, considered, special, attr, multipliers, times } = action;
+  const { owner: actionOwner, actionKey, type, input, considered, special, attr, multipliers, times } = action;
   const { element } = CHARACTERS[gameId][actionOwner];
 
-  if (considered === 'SHIELD') return {};
-  if (considered === 'BUFF') return {};
+  if (type === 'SHIELD') return {};
+  if (type === 'BUFF') return {};
   if (!multipliers) return {};
 
   const dmgTypes = [considered, special].filter(Boolean);
@@ -209,7 +209,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
 
   const statMapWithEffects = mergeStatMaps(members[actionOwner].statMap, effectStatMap);
 
-  if (considered === 'HEAL') {
+  if (type === 'HEAL') {
     const baseHealing = multipliers.map(mult => {
       const { flat, mv } = mult;
       if (flat) return Array.isArray(flat) ? flat[9] : flat;
@@ -293,14 +293,16 @@ const normalizeActions = (gameId, memberId) => {
       const meta = skills[actionRef];
 
       const actionKey = `${memberId}-${nodeRef}-${actionRef}`;
-      const input = meta.input ?? DEFAULT_INPUT[nodeRef];
-      const considered = meta.considered ?? (input.endsWith("DC") ? "BA" : input.startsWith("M") ? input.slice(1) : SPECIAL_INPUTS.has(input) ? DEFAULT_INPUT[nodeRef] : input);
+      const type = meta.type ?? 'DAMAGE';
+      const cast = meta.cast ?? DEFAULT_CAST[nodeRef];
+      const considered = meta.considered ?? (cast.endsWith("DC") ? "BA" : cast.startsWith("M") ? cast.slice(1) : SPECIAL_CASTS.has(cast) ? DEFAULT_CAST[nodeRef] : cast);
 
       resolved[actionKey] = {
         actionKey,
         owner: memberId,
         skill: nodeRef,
-        input,
+        type,
+        cast,
         considered,
         special: meta.special,
         duration: meta.duration ?? 1000,
@@ -348,7 +350,7 @@ const normalizeEffects = (gameId, member) => {
         effectKey,
         chance: effect.chance ?? 1,
         applyCooldown: effect.applyCooldown ?? 0,
-        removeOnInput: effect.removeOnInput && toArray(effect.removeOnInput),
+        removeOnCast: effect.removeOnCast && toArray(effect.removeOnCast),
         target: effect.target ?? 'self',
         maxStacks: effect.maxStacks ?? 1,
         duration: effect.duration ?? Infinity,
@@ -371,21 +373,23 @@ const normalizeEffects = (gameId, member) => {
       }
 
       const applyOnAction = toArray(effect.applyOnAction).map(shortKey => `${memberId}-${shortKey}`);
-      const applyOnInput = toArray(effect.applyOnInput);
+      const applyOnType = toArray(effect.applyOnType);
+      const applyOnCast = toArray(effect.applyOnCast);
       const applyOnConsidered = toArray(effect.applyOnConsidered);
 
-      if (!applyOnAction.length && !applyOnInput.length && !applyOnConsidered.length) {
+      if (!applyOnAction.length && !applyOnCast.length && !applyOnConsidered.length) {
         resolved.isPassive = true;
       } else {
         const actions = actionsCache.get(memberId);
         for (const actionKey in actions) {
-          const { input, considered, special } = actions[actionKey];
+          const { type, cast, considered, special } = actions[actionKey];
 
           const actionMatch = applyOnAction.includes(actionKey);
-          const inputMatch = applyOnInput.includes(input);
+          const typeMatch = applyOnType.includes(type);
+          const castMatch = applyOnCast.includes(cast);
           const consideredMatch = applyOnConsidered.includes(considered) || applyOnConsidered.includes(special);
 
-          if (actionMatch || inputMatch || consideredMatch) {
+          if (actionMatch || typeMatch || castMatch || consideredMatch) {
             (effectsByAction[actionKey] ??= []).push(effectKey);
           }
         }
@@ -501,15 +505,15 @@ function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, 
   const member = members[actionOwner];
   if (!member) return;
 
-  // Abort effects owned by the action owner if the current input is in their removeOnInput
+  // Abort effects owned by the action owner if the current input is in their removeOnCast
   if (input) {
     const abortFromMap = (trackerMap) => {
       for (const effectKey of Object.keys(trackerMap)) {
         const effectOwner = effectKey.slice(0, 4);
         if (effectOwner !== actionOwner) continue;
         const effectDef = members[effectOwner]?.effectDefinitions[effectKey];
-        if (!effectDef?.removeOnInput) continue;
-        if (effectDef.removeOnInput.includes(input)) delete trackerMap[effectKey];
+        if (!effectDef?.removeOnCast) continue;
+        if (effectDef.removeOnCast.includes(input)) delete trackerMap[effectKey];
       }
     };
 
