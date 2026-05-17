@@ -160,12 +160,12 @@
       "5": [
         {
           "applyOnCast": "IS",
-          "removeOnCast": "OS",
           "statMap": {
             "PERCENT_ATK": 0.05
           },
           "maxStacks": 4,
-          "applyCooldown": 1500
+          "applyCooldown": 1500,
+          "removeOnCast": "OS"
         },
         {
           "statMap": {
@@ -483,10 +483,10 @@
         },
         {
           "applyOnCast": "RL",
-          "removeOnCast": "OS",
           "statMap": {
             "PERCENT_BA": 0.4
-          }
+          },
+          "removeOnCast": "OS"
         }
       ]
     }

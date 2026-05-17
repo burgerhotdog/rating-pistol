@@ -507,7 +507,7 @@ function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, 
 
   // Abort effects owned by the action owner if the current input is in their removeOnCast
   if (input) {
-    const abortFromMap = (trackerMap) => {
+    const removeFromMap = (trackerMap) => {
       for (const effectKey of Object.keys(trackerMap)) {
         const effectOwner = effectKey.slice(0, 4);
         if (effectOwner !== actionOwner) continue;
@@ -517,11 +517,11 @@ function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, 
       }
     };
 
-    abortFromMap(effectTrackers.team);
-    abortFromMap(effectTrackers.active);
-    abortFromMap(effectTrackers.inactive);
+    removeFromMap(effectTrackers.team);
+    removeFromMap(effectTrackers.active);
+    removeFromMap(effectTrackers.inactive);
     for (const memberMap of Object.values(effectTrackers.byMember)) {
-      abortFromMap(memberMap);
+      removeFromMap(memberMap);
     }
   }
 
