@@ -12,22 +12,14 @@ const DEFAULT_CAST = {
 const SPECIAL_CASTS = new Set(["CA", "JA", "DA", "HK", "RK", "AUTO"]);
 
 const actionsCache = new Map();
-const normalizeEffectsCache = new WeakMap();
+const normalizeEffectsCache = new Map();
 const compileStatMapCache = new WeakMap();
 
-const computeBase = (statMap, attr, multipliers) => {
+const computeBase = (statMap, attr, sumMvTimes, sumTimes, sumFlat) => {
   const flatMv = statMap.FLAT_MV ?? 0;
   const percentMv = statMap.PERCENT_MV ?? 0;
   const attrValue = computeTotalStat(attr, statMap);
-
-  let baseDamage = 0;
-  for (const { mv: rawMv, times = 1 } of multipliers) {
-    const mv = Array.isArray(rawMv) ? rawMv[9] : rawMv;
-    const mvValue = (mv + flatMv) * (1 + percentMv);
-    baseDamage += attrValue * mvValue * times;
-  }
-
-  return baseDamage;
+  return sumFlat + attrValue * (sumMvTimes + flatMv * sumTimes) * (1 + percentMv);
 };
 
 const computeBonuses = (statMap, element, dmgTypes) => {
@@ -137,12 +129,12 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
 };
 
 const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) => {
-  const { owner: actionOwner, actionKey, type, input, considered, special, attr, multipliers, times } = action;
+  const { owner: actionOwner, actionKey, type, input, considered, special, attr, hasMultipliers, sumMvTimes, sumTimes, sumFlat, times } = action;
   const { element } = CHARACTERS[gameId][actionOwner];
 
   if (type === 'SHIELD') return {};
   if (type === 'BUFF') return {};
-  if (!multipliers) return {};
+  if (!hasMultipliers) return {};
 
   const dmgTypes = [considered, special].filter(Boolean);
   if (input === 'CA') dmgTypes.push('CA');
@@ -209,22 +201,17 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
 
   const statMapWithEffects = mergeStatMaps(members[actionOwner].statMap, effectStatMap);
 
+  const baseValue = computeBase(statMapWithEffects, attr, sumMvTimes, sumTimes, sumFlat);
+
   if (type === 'HEAL') {
-    const baseHealing = multipliers.map(mult => {
-      const { flat, mv } = mult;
-      if (flat) return Array.isArray(flat) ? flat[9] : flat;
-      if (mv) return Array.isArray(mv) ? (mv[9] * computeTotalStat(attr, statMapWithEffects)) : (mv * computeTotalStat(attr, statMapWithEffects));
-    }).reduce((acc, val) => acc + val, 0);
-
     const healingBonus = computeTotalStat('HB', statMapWithEffects);
-    return { healing: baseHealing * (1 + healingBonus) * times };
-  };
+    return { healing: baseValue * (1 + healingBonus) * times };
+  }
 
-  const baseDmg = computeBase(statMapWithEffects, attr, multipliers);
   const bonuses = computeBonuses(statMapWithEffects, element, dmgTypes);
   const reductions = computeReductions(gameId, statMapWithEffects, element, dmgTypes);
 
-  return { damage: baseDmg * bonuses * reductions * times };
+  return { damage: baseValue * bonuses * reductions * times };
 };
 
 function applyEffectStatMap(baseStatMap, effectDefinition, sourceStatMap, multiplier = 1) {
@@ -297,6 +284,19 @@ const normalizeActions = (gameId, memberId) => {
       const cast = meta.cast ?? DEFAULT_CAST[nodeRef];
       const considered = meta.considered ?? (cast.endsWith("DC") ? "BA" : cast.startsWith("M") ? cast.slice(1) : SPECIAL_CASTS.has(cast) ? DEFAULT_CAST[nodeRef] : cast);
 
+      let sumMvTimes = 0;
+      let sumTimes = 0;
+      let sumFlat = 0;
+      for (const { mv: rawMv, flat: rawFlat, times = 1 } of meta.multipliers ?? []) {
+        if (rawMv != null) {
+          sumMvTimes += (Array.isArray(rawMv) ? rawMv[9] : rawMv) * times;
+          sumTimes += times;
+        }
+        if (rawFlat != null) {
+          sumFlat += Array.isArray(rawFlat) ? rawFlat[9] : rawFlat;
+        }
+      }
+
       resolved[actionKey] = {
         actionKey,
         owner: memberId,
@@ -308,7 +308,10 @@ const normalizeActions = (gameId, memberId) => {
         duration: meta.duration ?? 1000,
         offset: meta.offset ?? 500,
         attr: meta.attr ?? 'ATK',
-        multipliers: meta.multipliers,
+        hasMultipliers: !!meta.multipliers,
+        sumMvTimes,
+        sumTimes,
+        sumFlat,
         times: meta.times ?? 1,
       };
     }
@@ -377,7 +380,7 @@ const normalizeEffects = (gameId, member) => {
       const applyOnCast = toArray(effect.applyOnCast);
       const applyOnConsidered = toArray(effect.applyOnConsidered);
 
-      if (!applyOnAction.length && !applyOnCast.length && !applyOnConsidered.length) {
+      if (!applyOnAction.length && !applyOnType.length && !applyOnCast.length && !applyOnConsidered.length) {
         resolved.isPassive = true;
       } else {
         const actions = actionsCache.get(memberId);
@@ -424,10 +427,13 @@ export const simulateRotation = (gameId, rawTeam) => {
       actionsCache.set(memberId, normalizeActions(gameId, memberId));
     }
 
-    let normalizedEffects = normalizeEffectsCache.get(build);
+    const setCounts = getSetCounts(member);
+    const setCacheKey = Object.keys(setCounts).sort().map(k => `${k}:${setCounts[k]}`).join(',');
+    const effectsCacheKey = `${gameId}-${memberId}-${member.rank ?? 0}-${member.weaponId}-${member.weaponRank ?? 1}-${setCacheKey}`;
+    let normalizedEffects = normalizeEffectsCache.get(effectsCacheKey);
     if (!normalizedEffects) {
       normalizedEffects = normalizeEffects(gameId, member);
-      normalizeEffectsCache.set(build, normalizedEffects);
+      normalizeEffectsCache.set(effectsCacheKey, normalizedEffects);
     }
 
     let statMap = compileStatMapCache.get(build);
