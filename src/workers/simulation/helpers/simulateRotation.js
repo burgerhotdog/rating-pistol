@@ -36,12 +36,13 @@ const computeBonuses = (statMap, element, dmgTypes) => {
   return critMult * dmgBonusMult * ampMult;
 };
 
-const computeReductions = (gameId, statMap, element, dmgTypes) => {
+const computeReductions = (gameId, statMap, element, dmgTypes, defShred = 0, resShred = 0) => {
   const { MAX_LEVEL, ENEMY_RES } = MISC[gameId];
 
   // Enemy resistance multiplier
-  let resIgnore = statMap[`IGNORE_${element}`] ?? 0;
-  for (const type of dmgTypes) resIgnore += statMap[`IGNORE_${element}_${type}`] ?? 0;
+  let resIgnore = statMap[`IGNORE_${element}_RES`] ?? 0;
+  for (const type of dmgTypes) resIgnore += statMap[`IGNORE_${element}_RES_${type}`] ?? 0;
+  resIgnore += resShred;
   const totalRes = ENEMY_RES - resIgnore;
   let resMult;
   if (totalRes < 0) {
@@ -56,6 +57,7 @@ const computeReductions = (gameId, statMap, element, dmgTypes) => {
   const enemyDef = 8 * (MAX_LEVEL + 10) + 792;
   let defIgnore = statMap['IGNORE_DEF'] ?? 0;
   for (const type of dmgTypes) defIgnore += statMap[`IGNORE_DEF_${type}`] ?? 0;
+  defIgnore += defShred;
   const defMult = (800 + 8 * MAX_LEVEL) / (800 + 8 * MAX_LEVEL + enemyDef * (1 - defIgnore))
 
   return resMult * defMult;
@@ -204,7 +206,17 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   }
 
   const bonuses = computeBonuses(statMapWithEffects, element, considered);
-  const reductions = computeReductions(gameId, statMapWithEffects, element, considered);
+
+  let enemyDefShred = 0;
+  let enemyResShred = 0;
+  for (const [effectKey, { stacks }] of Object.entries(effectTrackers.enemy)) {
+    const effectOwner = effectKey.slice(0, 4);
+    const { statMap: enemyStatMap = {} } = members[effectOwner].effectDefinitions[effectKey];
+    enemyDefShred += (enemyStatMap['DEF_SHRED'] ?? 0) * stacks;
+    enemyResShred += (enemyStatMap[`${element}_RES_SHRED`] ?? 0) * stacks;
+  }
+
+  const reductions = computeReductions(gameId, statMapWithEffects, element, considered, enemyDefShred, enemyResShred);
 
   return { damage: baseValue * bonuses * reductions * times };
 };
@@ -455,6 +467,7 @@ export const simulateRotation = (gameId, rawTeam) => {
     team: {},
     active: {},
     inactive: {},
+    enemy: {},
   };
   const applyCooldownMap = {};
   const procCooldownMap = {};
@@ -568,7 +581,7 @@ function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, 
 
     if (applyCooldownMap[effectKey]) continue;
 
-    if (applyTo === 'team' || applyTo === 'active' || applyTo === 'inactive') {
+    if (applyTo === 'team' || applyTo === 'active' || applyTo === 'inactive' || applyTo === 'enemy') {
       applyEffect(effectTrackers[applyTo], effect);
       if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
       continue;
@@ -594,10 +607,11 @@ function advanceEffects(effectTrackers, offset, duration) {
     }
   }
 
-  const { byMember, team, active, inactive } = effectTrackers;
+  const { byMember, team, active, inactive, enemy } = effectTrackers;
   advanceMap(team);
   advanceMap(active);
   advanceMap(inactive);
+  advanceMap(enemy);
   for (const memberMap of Object.values(byMember)) {
     advanceMap(memberMap);
   }
@@ -623,7 +637,7 @@ function processProcEffects({
   actionMap = null,
 }) {
   const { actionKey, owner: actionOwner, considered } = action;
-  const { byMember, team, active, inactive } = effectTrackers;
+  const { byMember, team, active, inactive, enemy } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
@@ -677,10 +691,11 @@ function processProcEffects({
   processTrackerMap(team);
   processTrackerMap(active);
   processTrackerMap(inactive);
+  processTrackerMap(enemy);
 }
 
 function decayProcCounts(members, effectTrackers, action) {
-  const { team, active, inactive, byMember } = effectTrackers;
+  const { team, active, inactive, enemy, byMember } = effectTrackers;
   const { actionKey } = action;
 
   function decayMap(trackerMap) {
@@ -699,5 +714,6 @@ function decayProcCounts(members, effectTrackers, action) {
   decayMap(team);
   decayMap(active);
   decayMap(inactive);
+  decayMap(enemy);
   for (const map of Object.values(byMember)) decayMap(map);
 }

@@ -1475,7 +1475,7 @@
         "statMap": {
           "PERCENT_ATK": 0.18,
           "PERCENT_FUSION": 0.2,
-          "IGNORE_FUSION": 0.15
+          "IGNORE_FUSION_RES": 0.15
         }
       },
       {
@@ -3825,7 +3825,7 @@
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
-          "IGNORE_SPECTRO": 0.1
+          "IGNORE_SPECTRO_RES": 0.1
         }
       },
       {
@@ -3874,7 +3874,7 @@
         "applyTo": "team",
         "duration": 30,
         "statMap": {
-          "IGNORE_SPECTRO": 0.1
+          "IGNORE_SPECTRO_RES": 0.1
         }
       },
       {

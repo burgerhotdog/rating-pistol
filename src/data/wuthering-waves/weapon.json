@@ -1815,7 +1815,7 @@
           0.4,
           0.8
         ],
-        "IGNORE_HAVOC": [
+        "IGNORE_HAVOC_RES": [
           0.12,
           0.24
         ]
@@ -1853,7 +1853,7 @@
         "applyIfActionType": "DAMAGE",
         "applyTo": "team",
         "statMap": {
-          "IGNORE_AERO": [
+          "IGNORE_AERO_RES": [
             0.1,
             0.16
           ]
