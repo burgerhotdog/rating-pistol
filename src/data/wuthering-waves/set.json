@@ -53,8 +53,8 @@
         "statMap": {
           "PERCENT_ELECTRO": 0.15
         },
-        "maxStacks": 2,
-        "duration": 15000
+        "duration": 15000,
+        "maxStacks": 2
       }
     }
   },
@@ -108,8 +108,8 @@
         "statMap": {
           "PERCENT_HAVOC": 0.075
         },
-        "maxStacks": 4,
-        "duration": 15000
+        "duration": 15000,
+        "maxStacks": 4
       }
     }
   },
@@ -122,8 +122,8 @@
         }
       },
       "5": {
-        "applyOnType": "HEAL",
-        "target": "team",
+        "applyIfActionType": "HEAL",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_ATK": 0.15
         },
@@ -141,7 +141,7 @@
       },
       "5": {
         "applyOnCast": "OS",
-        "target": "next",
+        "applyTo": "next",
         "statMap": {
           "PERCENT_ATK": 0.225
         },
@@ -229,7 +229,7 @@
       },
       "5": {
         "applyOnCast": "OS",
-        "target": "next",
+        "applyTo": "next",
         "statMap": {
           "PERCENT_HAVOC": 0.15
         },
@@ -252,8 +252,8 @@
           }
         },
         {
-          "applyOnConsidered": "CA",
-          "target": "active",
+          "applyIfConsidered": "CA",
+          "applyTo": "active",
           "statMap": {
             "PERCENT_ATK": 0.2
           },
@@ -294,7 +294,7 @@
         },
         {
           "applyOnCast": "IS",
-          "target": "team",
+          "applyTo": "team",
           "statMap": {
             "PERCENT_AERO": 0.15
           }
@@ -329,7 +329,7 @@
       "5": [
         {
           "applyOnCast": "RL",
-          "target": "team",
+          "applyTo": "team",
           "statMap": {
             "PERCENT_FUSION": 0.15
           },
@@ -360,7 +360,7 @@
     "name": "Crown of Valor",
     "setBonus": {
       "3": {
-        "applyOnType": "SHIELD",
+        "applyIfActionType": "SHIELD",
         "applyCooldown": 500,
         "statMap": {
           "PERCENT_ATK": 0.06,
@@ -384,7 +384,7 @@
         },
         {
           "applyOnCast": "ES",
-          "target": "team",
+          "applyTo": "team",
           "statMap": {
             "PERCENT_ES": 0.04
           },
@@ -399,7 +399,7 @@
     "setBonus": {
       "3": [
         {
-          "applyOnConsidered": "ES",
+          "applyIfConsidered": "ES",
           "statMap": {
             "PERCENT_CR_HA": 0.2,
             "PERCENT_FUSION": 0.08
@@ -407,7 +407,7 @@
           "duration": 6000
         },
         {
-          "applyOnConsidered": "HA",
+          "applyIfConsidered": "HA",
           "statMap": {
             "PERCENT_CR_ES": 0.2,
             "PERCENT_FUSION": 0.08
@@ -438,7 +438,7 @@
       },
       "5": {
         "applyOnCast": "OS",
-        "target": "next",
+        "applyTo": "next",
         "statMap": {
           "PERCENT_ATK": 0.3
         },
@@ -455,8 +455,8 @@
         }
       },
       "5": {
-        "applyOnType": "HEAL",
-        "target": "team",
+        "applyIfActionType": "HEAL",
+        "applyTo": "team",
         "statMap": {
           "PERCENT_ATK": 0.25
         },
@@ -474,7 +474,7 @@
       },
       "5": [
         {
-          "applyOnConsidered": "BA",
+          "applyIfConsidered": "BA",
           "statMap": {
             "PERCENT_SPECTRO": 0.1
           },
@@ -523,7 +523,7 @@
         },
         {
           "applyOnCast": "OS",
-          "target": "next",
+          "applyTo": "next",
           "statMap": {
             "PERCENT_FUSION": 0.25
           },
@@ -541,7 +541,7 @@
         }
       },
       "5": {
-        "applyOnConsidered": "ES",
+        "applyIfConsidered": "ES",
         "statMap": {
           "PERCENT_CR_ES": 0.2,
           "PERCENT_AERO": 0.15
@@ -565,7 +565,7 @@
           }
         },
         {
-          "applyOnConsidered": "RL",
+          "applyIfConsidered": "RL",
           "statMap": {
             "PERCENT_CR": 0.25
           },
@@ -573,7 +573,7 @@
         },
         {
           "applyOnCast": "OS",
-          "target": "next",
+          "applyTo": "next",
           "statMap": {
             "PERCENT_GLACIO": 0.25
           },

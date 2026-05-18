@@ -6,10 +6,8 @@ const DEFAULT_CAST = {
   "2": "RS",
   "3": "RL",
   "6": "IS",
-  "7": "AUTO",
   "8": "OS",
 };
-const SPECIAL_CASTS = new Set(["CA", "JA", "DA", "HK", "RK", "AUTO"]);
 
 const actionsCache = new Map();
 const normalizeEffectsCache = new Map();
@@ -129,15 +127,12 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
 };
 
 const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) => {
-  const { owner: actionOwner, actionKey, type, input, considered, special, attr, hasMultipliers, sumMvTimes, sumTimes, sumFlat, times } = action;
+  const { owner: actionOwner, actionKey, type, considered, attr, hasMultipliers, sumMvTimes, sumTimes, sumFlat, times } = action;
   const { element } = CHARACTERS[gameId][actionOwner];
 
   if (type === 'SHIELD') return {};
   if (type === 'BUFF') return {};
   if (!hasMultipliers) return {};
-
-  const dmgTypes = [considered, special].filter(Boolean);
-  if (input === 'CA') dmgTypes.push('CA');
 
   // Cache for stat maps to avoid recomputing for the same member
   const statMapCache = {};
@@ -208,8 +203,8 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
     return { healing: baseValue * (1 + healingBonus) * times };
   }
 
-  const bonuses = computeBonuses(statMapWithEffects, element, dmgTypes);
-  const reductions = computeReductions(gameId, statMapWithEffects, element, dmgTypes);
+  const bonuses = computeBonuses(statMapWithEffects, element, considered);
+  const reductions = computeReductions(gameId, statMapWithEffects, element, considered);
 
   return { damage: baseValue * bonuses * reductions * times };
 };
@@ -281,8 +276,8 @@ const normalizeActions = (gameId, memberId) => {
 
       const actionKey = `${memberId}-${nodeRef}-${actionRef}`;
       const type = meta.type ?? 'DAMAGE';
-      const cast = meta.cast ?? DEFAULT_CAST[nodeRef];
-      const considered = meta.considered ?? (cast.endsWith("DC") ? "BA" : cast.startsWith("M") ? cast.slice(1) : SPECIAL_CASTS.has(cast) ? DEFAULT_CAST[nodeRef] : cast);
+      const cast = toArray(meta.cast ?? DEFAULT_CAST[nodeRef]);
+      const considered = toArray(meta.considered ?? cast);
 
       let sumMvTimes = 0;
       let sumTimes = 0;
@@ -355,7 +350,7 @@ const normalizeEffects = (gameId, member) => {
         chance: effect.chance ?? 1,
         applyCooldown: effect.applyCooldown ?? 0,
         removeOnCast: effect.removeOnCast && toArray(effect.removeOnCast),
-        target: effect.target ?? 'self',
+        applyTo: effect.applyTo ?? 'self',
         maxStacks: effect.maxStacks ?? 1,
         duration: effect.duration ?? Infinity,
         maxProcs: effect.maxProcs ?? Infinity,
@@ -377,21 +372,21 @@ const normalizeEffects = (gameId, member) => {
       }
 
       const applyOnAction = toArray(effect.applyOnAction).map(shortKey => `${memberId}-${shortKey}`);
-      const applyOnType = toArray(effect.applyOnType);
       const applyOnCast = toArray(effect.applyOnCast);
-      const applyOnConsidered = toArray(effect.applyOnConsidered);
+      const applyIfActionType = toArray(effect.applyIfActionType);
+      const applyIfConsidered = toArray(effect.applyIfConsidered);
 
-      if (!applyOnAction.length && !applyOnType.length && !applyOnCast.length && !applyOnConsidered.length) {
+      if (!applyOnAction.length && !applyIfActionType.length && !applyOnCast.length && !applyIfConsidered.length) {
         resolved.isPassive = true;
       } else {
         const actions = actionsCache.get(memberId);
         for (const actionKey in actions) {
-          const { type, cast, considered, special } = actions[actionKey];
+          const { type, cast, considered } = actions[actionKey];
 
           const actionMatch = applyOnAction.includes(actionKey);
-          const typeMatch = applyOnType.includes(type);
-          const castMatch = applyOnCast.includes(cast);
-          const consideredMatch = applyOnConsidered.includes(considered) || applyOnConsidered.includes(special);
+          const castMatch = cast.some(c => applyOnCast.includes(c));
+          const typeMatch = applyIfActionType.includes(type);
+          const consideredMatch = considered.some(c => applyIfConsidered.includes(c));
 
           const isCast = actionMatch || castMatch;
           const isContact = typeMatch || consideredMatch;
@@ -569,18 +564,18 @@ function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, 
   }
 
   for (const effect of triggeredEffects) {
-    const { target, effectKey, applyCooldown } = effectDefinitions[effect];
+    const { applyTo, effectKey, applyCooldown } = effectDefinitions[effect];
 
     if (applyCooldownMap[effectKey]) continue;
 
-    if (target === 'team' || target === 'active' || target === 'inactive') {
-      applyEffect(effectTrackers[target], effect);
+    if (applyTo === 'team' || applyTo === 'active' || applyTo === 'inactive') {
+      applyEffect(effectTrackers[applyTo], effect);
       if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
       continue;
     }
 
     for (const [id, validTargets] of Object.entries(validTargetsById)) {
-      if (validTargets.includes(target)) {
+      if (validTargets.includes(applyTo)) {
         applyEffect(effectTrackers.byMember[id], effect);
       }
     }
@@ -643,7 +638,7 @@ function processProcEffects({
 
       let procFired = false;
       for (const { filter, actionKeyTrigger, actions, times } of procs) {
-        if (filter && !filter.includes(considered)) continue;
+        if (filter && !considered.some(c => filter.includes(c))) continue;
         if (actionKeyTrigger && !actionKeyTrigger.includes(actionKey)) continue;
 
         for (const procActionId of actions) {

@@ -519,23 +519,11 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
 
   const options = useMemo(() => {
     if (!characterId) return [];
-    let keys = [];
-    try {
-      keys = getActionList(gameId, characterId);
-    } catch {
-      return [];
-    }
-
     const lower = search.toLowerCase();
-    return keys
+    return getActionList(gameId, characterId)
       .map(skillKey => {
-        try {
-          const skill = getAction(gameId, skillKey);
-          return { skillKey, name: skill.name, ownerId: skill.ownerId };
-        } catch (err) {
-          console.log(err);
-          return null;
-        }
+        const skill = getAction(gameId, skillKey);
+        return { skillKey, name: skill.name, ownerId: skill.ownerId };
       })
       .filter(Boolean)
       .filter(({ name, skillKey }) => {
@@ -699,7 +687,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
       >
         <List dense sx={{ p: 0.5 }}>
           {rotation.map((actionKey, index) => {
-            const { input, name, ownerId } = getAction(gameId, actionKey);
+            const { cast, name, ownerId } = getAction(gameId, actionKey);
             return (
               <ListItem
                 key={`${actionKey}-${index}`}
@@ -720,17 +708,16 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
               >
                 <Stack direction="row" spacing={1} alignItems="center" sx={{ width: '100%' }}>
                   <Box sx={{ width: 200, flexShrink: 0 }}>
-                    {(input && input !== "AUTO") ? (
+                    {cast[0] ? (
                       <Chip
                         size="small"
-                        label={abilityTypeLabels[input]}
-                        disabled={input === "CA"}
+                        label={abilityTypeLabels[cast[0]]}
                         variant="outlined"
                         sx={{ height: 20, maxWidth: '100%' }}
                       />
                     ) : null}
                   </Box>
-                  <Typography variant="body2" color={input === "CA" ? "text.disabled" : "text.primary"} noWrap>
+                  <Typography variant="body2" noWrap>
                     {`${ownerId !== characterId ? `${CHARACTERS[gameId][ownerId].name}: ` : ""}${name}`}
                   </Typography>
                 </Stack>

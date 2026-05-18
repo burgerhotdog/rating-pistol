@@ -1,15 +1,14 @@
 import { MVS } from '@/data';
+import { toArray } from '@/utils';
 
-const DEFAULT_GROUP_CAST = {
+const DEFAULT_CAST = {
   "1": "BA",
   "2": "RS",
   "3": "RL",
   "6": "IS",
-  "7": "AUTO",
   "8": "OS",
 };
 const DEFAULT_ATTR = "ATK";
-const SPECIAL_CASTS = new Set(["CA", "JA", "DA", "HK", "RK", "AUTO"]);
 
 function getActionMetaMap(gameId, characterId) {
   const skillMap = MVS[gameId]?.[characterId];
@@ -26,16 +25,6 @@ export function getActionList(gameId, characterId) {
   return Object.entries(skillMap).flatMap(([skillId, { skills }]) =>
     Object.keys(skills).map(actionId => `${characterId}-${skillId}-${actionId}`)
   );
-}
-
-function formatConsidered(considered, input, skillId) {
-  if (considered) return considered;
-
-  if (input.endsWith("DC")) return "BA";
-  if (input.startsWith("M")) return input.slice(1);
-  if (SPECIAL_CASTS.has(input)) return DEFAULT_GROUP_CAST[skillId];
-
-  return input;
 }
 
 function formatName(name, type) {
@@ -58,11 +47,8 @@ export function getAction(gameId, actionKey) {
   if (!skill) throw new Error(`Unknown skill "${actionId}" in group "${skillId}" in character "${ownerId}" in game "${gameId}"`);
 
   const type = skill.type ?? 'DAMAGE';
-  const cast = skill.cast ?? DEFAULT_GROUP_CAST[skillId];
-  if (!cast) throw new Error(`Missing input for skill "${actionKey}" in character "${ownerId}" in game "${gameId}"`);
-
-  const considered = formatConsidered(skill.considered, cast, skillId);
-  if (!considered || considered === "AUTO") throw new Error(`Invalid considered for skill "${actionKey}" in character "${ownerId}" in game "${gameId}"`);
+  const cast = toArray(skill.cast ?? DEFAULT_CAST[skillId]);
+  const considered = toArray(skill.considered ?? cast);
 
   return {
     ownerId,

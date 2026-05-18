@@ -787,9 +787,11 @@
       "skills": {
         "1": {
           "name": "Remnant Entities",
-          "cast": "AUTO",
-          "considered": "RL",
-          "special": "CA",
+          "cast": "CA",
+          "considered": [
+            "RL",
+            "CA"
+          ],
           "attr": "HP",
           "multipliers": [
             {
@@ -820,8 +822,8 @@
         },
         "2": {
           "name": "Remnant Entities",
-          "cast": "AUTO",
           "type": "HEAL",
+          "cast": "CA",
           "attr": "HP",
           "multipliers": [
             {
@@ -3294,8 +3296,11 @@
         },
         "2": {
           "name": "Marcato",
-          "cast": "AUTO",
-          "special": "CA",
+          "cast": "CA",
+          "considered": [
+            "RL",
+            "CA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -4315,9 +4320,11 @@
         },
         "3": {
           "name": "Phantom",
-          "cast": "AUTO",
-          "considered": "RL",
-          "special": "CA",
+          "cast": "CA",
+          "considered": [
+            "RL",
+            "CA"
+          ],
           "multipliers": [
             {
               "mv": 1
@@ -4756,8 +4763,11 @@
         },
         "2": {
           "name": "Judgment Strike",
-          "considered": "RS",
-          "special": "CA",
+          "cast": "CA",
+          "considered": [
+            "RS",
+            "CA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -5134,9 +5144,11 @@
         },
         "2": {
           "name": "Thunder Wedge Coordinated Attack",
-          "cast": "AUTO",
-          "considered": "RS",
-          "special": "CA",
+          "cast": "CA",
+          "considered": [
+            "RS",
+            "CA"
+          ],
           "attr": "DEF",
           "multipliers": [
             {
@@ -7274,7 +7286,14 @@
       "name": "Discipline",
       "skills": {
         "1": {
-          "special": "CA",
+          "cast": [
+            "OS",
+            "CA"
+          ],
+          "considered": [
+            "OS",
+            "CA"
+          ],
           "duration": 0,
           "multipliers": [
             {
@@ -8679,8 +8698,11 @@
         },
         "3": {
           "name": "Photosynthesis Mark",
-          "cast": "AUTO",
-          "special": "CA",
+          "cast": "CA",
+          "considered": [
+            "RL",
+            "CA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -12453,9 +12475,11 @@
       "skills": {
         "1": {
           "name": "Inklit Spirit",
-          "cast": "AUTO",
-          "considered": "BA",
-          "special": "CA",
+          "cast": "CA",
+          "considered": [
+            "BA",
+            "CA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -19959,8 +19983,10 @@
         "2": {
           "name": "Diffusion",
           "cast": "AUTO",
-          "considered": "BA",
-          "special": "CA",
+          "considered": [
+            "BA",
+            "CA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -21337,7 +21363,10 @@
         },
         "3": {
           "name": "Targeted Action",
-          "special": "FRAZZLE",
+          "considered": [
+            "RS",
+            "FRAZZLE"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -21415,7 +21444,10 @@
         },
         "4": {
           "name": "Forcible Riposte",
-          "special": "FRAZZLE",
+          "considered": [
+            "RS",
+            "FRAZZLE"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -21644,8 +21676,10 @@
         "1": {
           "name": "Heavy Slash - Daybreak",
           "cast": "BA",
-          "considered": "HA",
-          "special": "FRAZZLE",
+          "considered": [
+            "HA",
+            "FRAZZLE"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -21676,8 +21710,10 @@
         "2": {
           "name": "Heavy Slash - Dawning",
           "cast": "BA",
-          "considered": "HA",
-          "special": "FRAZZLE",
+          "considered": [
+            "HA",
+            "FRAZZLE"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -21708,8 +21744,10 @@
         "3": {
           "name": "Heavy Slash - Nightfall",
           "cast": "BA",
-          "considered": "HA",
-          "special": "FRAZZLE",
+          "considered": [
+            "HA",
+            "FRAZZLE"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -21763,8 +21801,10 @@
         },
         "4": {
           "name": "Additional Multiplier Per Blaze",
-          "considered": "HA",
-          "special": "FRAZZLE",
+          "considered": [
+            "HA",
+            "FRAZZLE"
+          ],
           "duration": 0,
           "multipliers": [
             {
@@ -21795,8 +21835,10 @@
         },
         "5": {
           "name": "Heavy Slash - Lightsmash",
-          "considered": "HA",
-          "special": "FRAZZLE",
+          "considered": [
+            "HA",
+            "FRAZZLE"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -21830,7 +21872,10 @@
       "name": "Beacon For the Future",
       "skills": {
         "1": {
-          "special": "FRAZZLE",
+          "considered": [
+            "OS",
+            "FRAZZLE"
+          ],
           "duration": 0,
           "multipliers": [
             {
@@ -23552,7 +23597,10 @@
         "7": {
           "name": "Mid-air Attack",
           "cast": "MBA",
-          "special": "EROSION",
+          "considered": [
+            "BA",
+            "EROSION"
+          ],
           "attr": "HP",
           "multipliers": [
             {
@@ -23584,7 +23632,10 @@
         "8": {
           "name": "Mid-air Attack 1 Sword Shadow Recalled",
           "cast": "MBA",
-          "special": "EROSION",
+          "considered": [
+            "BA",
+            "EROSION"
+          ],
           "attr": "HP",
           "multipliers": [
             {
@@ -23616,7 +23667,10 @@
         "9": {
           "name": "Mid-air Attack 2 Sword Shadows Recalled",
           "cast": "MBA",
-          "special": "EROSION",
+          "considered": [
+            "BA",
+            "EROSION"
+          ],
           "attr": "HP",
           "multipliers": [
             {
@@ -23649,7 +23703,10 @@
         "10": {
           "name": "Mid-air Attack 3 Sword Shadows Recalled",
           "cast": "MBA",
-          "special": "EROSION",
+          "considered": [
+            "BA",
+            "EROSION"
+          ],
           "attr": "HP",
           "multipliers": [
             {

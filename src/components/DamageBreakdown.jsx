@@ -38,7 +38,7 @@ function buildDmgTypeData(actionMap, gameId, characterId) {
     const { ownerId, considered } = getAction(gameId, actionKey);
     if (ownerId !== characterId) continue;
 
-    const label = resolveDmgTypeLabel(gameId, considered);
+    const label = resolveDmgTypeLabel(gameId, considered[0]);
     totals[label] = (totals[label] ?? 0) + damage;
   }
   return Object.entries(totals)
