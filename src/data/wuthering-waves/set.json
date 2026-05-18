@@ -15,8 +15,8 @@
         "statMap": {
           "PERCENT_GLACIO": 0.1
         },
-        "maxStacks": 3,
-        "duration": 15000
+        "duration": 15000,
+        "maxStacks": 3
       }
     }
   },
@@ -160,11 +160,11 @@
       "5": [
         {
           "applyOnCast": "IS",
+          "applyCooldown": 1500,
           "statMap": {
             "PERCENT_ATK": 0.05
           },
           "maxStacks": 4,
-          "applyCooldown": 1500,
           "removeOnCast": "OS"
         },
         {
@@ -252,7 +252,7 @@
           }
         },
         {
-          "applyOnCast": "CA",
+          "applyOnConsidered": "CA",
           "target": "active",
           "statMap": {
             "PERCENT_ATK": 0.2
@@ -361,13 +361,13 @@
     "setBonus": {
       "3": {
         "applyOnType": "SHIELD",
+        "applyCooldown": 500,
         "statMap": {
           "PERCENT_ATK": 0.06,
           "PERCENT_CD": 0.04
         },
         "duration": 4000,
-        "maxStacks": 5,
-        "applyCooldown": 500
+        "maxStacks": 5
       }
     }
   },

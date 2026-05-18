@@ -322,7 +322,8 @@ const normalizeActions = (gameId, memberId) => {
 
 const normalizeEffects = (gameId, member) => {
   const { memberId, rank, weaponId, weaponRank } = member;
-  const effectsByAction = {};
+  const castEffectsByAction = {};
+  const contactEffectsByAction = {};
   const effectDefinitions = {};
 
   function applyRankModifier(resolved, modifier = {}) {
@@ -392,9 +393,11 @@ const normalizeEffects = (gameId, member) => {
           const castMatch = applyOnCast.includes(cast);
           const consideredMatch = applyOnConsidered.includes(considered) || applyOnConsidered.includes(special);
 
-          if (actionMatch || typeMatch || castMatch || consideredMatch) {
-            (effectsByAction[actionKey] ??= []).push(effectKey);
-          }
+          const isCast = actionMatch || castMatch;
+          const isContact = typeMatch || consideredMatch;
+
+          if (isCast) (castEffectsByAction[actionKey] ??= []).push(effectKey);
+          if (isContact) (contactEffectsByAction[actionKey] ??= []).push(effectKey);
         }
       }
 
@@ -411,7 +414,7 @@ const normalizeEffects = (gameId, member) => {
     registerEffects(setBonusEffects, Infinity);
   }
 
-  return { effectsByAction, effectDefinitions };
+  return { castEffectsByAction, contactEffectsByAction, effectDefinitions };
 };
 
 export const simulateRotation = (gameId, rawTeam) => {
@@ -442,11 +445,12 @@ export const simulateRotation = (gameId, rawTeam) => {
       compileStatMapCache.set(build, statMap);
     }
 
-    const { effectsByAction, effectDefinitions } = normalizedEffects;
+    const { castEffectsByAction, contactEffectsByAction, effectDefinitions } = normalizedEffects;
     members[memberId] = {
       index,
       statMap,
-      effectsByAction,
+      castEffectsByAction,
+      contactEffectsByAction,
       effectDefinitions,
     };
   }
@@ -466,10 +470,11 @@ export const simulateRotation = (gameId, rawTeam) => {
       const action = actionsCache.get(memberId)[actionKey];
       const { duration, offset } = action;
 
-      applyEffects({ action, members, effectTrackers, applyCooldownMap });
+      applyEffects({ action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
       advanceEffects(effectTrackers, offset, duration);
       tickProcCooldowns(procCooldownMap, offset);
       tickProcCooldowns(applyCooldownMap, offset);
+      applyEffects({ action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
       processProcEffects({ gameId, members, action, effectTrackers, procCooldownMap });
       decayProcCounts(members, effectTrackers, action);
       tickProcCooldowns(procCooldownMap, duration);
@@ -484,7 +489,7 @@ export const simulateRotation = (gameId, rawTeam) => {
       const action = actionsCache.get(memberId)[actionKey];
       const { owner: activeId, duration, offset } = action;
 
-      applyEffects({ action, members, effectTrackers, applyCooldownMap });
+      applyEffects({ action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
       advanceEffects(effectTrackers, offset, duration);
       tickProcCooldowns(procCooldownMap, offset);
       tickProcCooldowns(applyCooldownMap, offset);
@@ -495,6 +500,7 @@ export const simulateRotation = (gameId, rawTeam) => {
         healing: (actionMap[actionKey]?.healing ?? 0) + healing,
       };
 
+      applyEffects({ action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
       processProcEffects({ gameId, members, action, effectTrackers, procCooldownMap, actionMap });
       decayProcCounts(members, effectTrackers, action);
       tickProcCooldowns(procCooldownMap, duration);
@@ -505,14 +511,15 @@ export const simulateRotation = (gameId, rawTeam) => {
   return actionMap;
 };
 
-function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, times = 1 }) {
+function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, times = 1, trigger = 'cast' }) {
   const { owner: actionOwner, actionKey, input } = action;
 
   const member = members[actionOwner];
   if (!member) return;
 
-  // Abort effects owned by the action owner if the current input is in their removeOnCast
-  if (input) {
+  // Abort effects owned by the action owner if the current input is in their removeOnCast.
+  // Only runs during the cast phase to avoid double-removal.
+  if (trigger === 'cast' && input) {
     const removeFromMap = (trackerMap) => {
       for (const effectKey of Object.keys(trackerMap)) {
         const effectOwner = effectKey.slice(0, 4);
@@ -531,9 +538,12 @@ function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, 
     }
   }
 
-  const { effectsByAction, effectDefinitions } = member;
+  const effectsByAction = trigger === 'contact'
+    ? member.contactEffectsByAction
+    : member.castEffectsByAction;
 
   const triggeredEffects = new Set(effectsByAction[actionKey] ?? []);
+  const { effectDefinitions } = member;
   if (triggeredEffects.size === 0) return;
 
   const memberIds = Object.keys(effectTrackers.byMember);
@@ -640,6 +650,8 @@ function processProcEffects({
           const procActionKey = effectOwner + '-' + procActionId;
           const procAction = actionsCache.get(effectOwner)[procActionKey];
 
+          applyEffects({ action: procAction, members, effectTrackers, times, trigger: 'cast' });
+
           if (actionMap) {
             const { damage: procDamage = 0, healing: procHealing = 0 } = simulateAction({
               gameId,
@@ -655,7 +667,7 @@ function processProcEffects({
             };
           }
 
-          applyEffects({ action: procAction, members, effectTrackers, times });
+          applyEffects({ action: procAction, members, effectTrackers, times, trigger: 'contact' });
         }
 
         if (procsCooldown > 0) procCooldownMap[effectKey] = procsCooldown;

@@ -787,8 +787,9 @@
       "skills": {
         "1": {
           "name": "Remnant Entities",
-          "cast": "CA",
+          "cast": "AUTO",
           "considered": "RL",
+          "special": "CA",
           "attr": "HP",
           "multipliers": [
             {
@@ -3293,7 +3294,8 @@
         },
         "2": {
           "name": "Marcato",
-          "cast": "CA",
+          "cast": "AUTO",
+          "special": "CA",
           "multipliers": [
             {
               "mv": [
@@ -4313,8 +4315,9 @@
         },
         "3": {
           "name": "Phantom",
-          "cast": "CA",
+          "cast": "AUTO",
           "considered": "RL",
+          "special": "CA",
           "multipliers": [
             {
               "mv": 1
@@ -4753,8 +4756,8 @@
         },
         "2": {
           "name": "Judgment Strike",
-          "cast": "CA",
           "considered": "RS",
+          "special": "CA",
           "multipliers": [
             {
               "mv": [
@@ -5131,8 +5134,9 @@
         },
         "2": {
           "name": "Thunder Wedge Coordinated Attack",
-          "cast": "CA",
+          "cast": "AUTO",
           "considered": "RS",
+          "special": "CA",
           "attr": "DEF",
           "multipliers": [
             {
@@ -7270,7 +7274,7 @@
       "name": "Discipline",
       "skills": {
         "1": {
-          "cast": "CA",
+          "special": "CA",
           "duration": 0,
           "multipliers": [
             {
@@ -8675,8 +8679,8 @@
         },
         "3": {
           "name": "Photosynthesis Mark",
-          "cast": "CA",
-          "considered": "RL",
+          "cast": "AUTO",
+          "special": "CA",
           "multipliers": [
             {
               "mv": [
@@ -12449,8 +12453,9 @@
       "skills": {
         "1": {
           "name": "Inklit Spirit",
-          "cast": "CA",
+          "cast": "AUTO",
           "considered": "BA",
+          "special": "CA",
           "multipliers": [
             {
               "mv": [
@@ -19953,8 +19958,9 @@
         },
         "2": {
           "name": "Diffusion",
-          "cast": "CA",
+          "cast": "AUTO",
           "considered": "BA",
+          "special": "CA",
           "multipliers": [
             {
               "mv": [
