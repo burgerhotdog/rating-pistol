@@ -1851,9 +1851,9 @@
       },
       {
         "applyIfActionType": "DAMAGE",
-        "applyTo": "team",
+        "applyTo": "enemy",
         "statMap": {
-          "IGNORE_AERO_RES": [
+          "SHRED_AERO_RES": [
             0.1,
             0.16
           ]

@@ -212,8 +212,8 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.enemy)) {
     const effectOwner = effectKey.slice(0, 4);
     const { statMap: enemyStatMap = {} } = members[effectOwner].effectDefinitions[effectKey];
-    enemyDefShred += (enemyStatMap['DEF_SHRED'] ?? 0) * stacks;
-    enemyResShred += (enemyStatMap[`${element}_RES_SHRED`] ?? 0) * stacks;
+    enemyDefShred += (enemyStatMap['SHRED_DEF'] ?? 0) * stacks;
+    enemyResShred += (enemyStatMap[`SHRED_${element}_RES`] ?? 0) * stacks;
   }
 
   const reductions = computeReductions(gameId, statMapWithEffects, element, considered, enemyDefShred, enemyResShred);
@@ -385,10 +385,11 @@ const normalizeEffects = (gameId, member) => {
 
       const applyOnAction = toArray(effect.applyOnAction).map(shortKey => `${memberId}-${shortKey}`);
       const applyOnCast = toArray(effect.applyOnCast);
+      const applyIfAction = toArray(effect.applyIfAction).map(shortKey => `${memberId}-${shortKey}`);
       const applyIfActionType = toArray(effect.applyIfActionType);
       const applyIfConsidered = toArray(effect.applyIfConsidered);
 
-      if (!applyOnAction.length && !applyIfActionType.length && !applyOnCast.length && !applyIfConsidered.length) {
+      if (!applyOnAction.length && !applyIfActionType.length && !applyOnCast.length && !applyIfConsidered.length && !applyIfAction.length) {
         resolved.isPassive = true;
       } else {
         const actions = actionsCache.get(memberId);
@@ -397,11 +398,12 @@ const normalizeEffects = (gameId, member) => {
 
           const actionMatch = applyOnAction.includes(actionKey);
           const castMatch = cast.some(c => applyOnCast.includes(c));
+          const ifActionMatch = applyIfAction.includes(actionKey);
           const typeMatch = applyIfActionType.includes(type);
           const consideredMatch = considered.some(c => applyIfConsidered.includes(c));
 
           const isCast = actionMatch || castMatch;
-          const isContact = typeMatch || consideredMatch;
+          const isContact = ifActionMatch || typeMatch || consideredMatch;
 
           if (isCast) (castEffectsByAction[actionKey] ??= []).push(effectKey);
           if (isContact) (contactEffectsByAction[actionKey] ??= []).push(effectKey);
