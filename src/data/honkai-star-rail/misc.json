@@ -330,5 +330,6 @@
       "label": "Imaginary DMG Bonus",
       "isPercent": true
     }
-  }
+  },
+  "NEGATIVE_STATUSES": {}
 }

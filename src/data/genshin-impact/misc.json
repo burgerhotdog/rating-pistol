@@ -302,5 +302,6 @@
       "label": "Physical DMG Bonus",
       "isPercent": true
     }
-  }
+  },
+  "NEGATIVE_STATUSES": {}
 }

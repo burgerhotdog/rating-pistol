@@ -13,50 +13,32 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
-        "applyTo": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_BA": 0.38
-        }
-      },
-      {
-        "applyOnAction": "3-1",
-        "duration": 5000,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": "7-1",
-          "actions": "7-2"
-        }
-      },
-      {
         "applyOnAction": "2-1",
-        "duration": 5000,
-        "maxProcs": 1,
         "procs": {
           "actionKeyTrigger": "7-1",
           "actions": "7-3"
-        }
+        },
+        "maxProcs": 1,
+        "duration": 5000
       },
       {
-        "applyOnAction": "6-1",
-        "duration": 8000,
-        "maxProcs": 1,
+        "applyOnAction": "3-1",
         "procs": {
           "actionKeyTrigger": "7-1",
-          "actions": "7-4"
-        }
+          "actions": "7-2"
+        },
+        "maxProcs": 1,
+        "duration": 5000
       },
       {
-        "applyOnAction": "6-1",
-        "duration": 8000,
+        "applyOnCast": "IS",
         "statMap": {
           "PERCENT_RS": 0.2
-        }
+        },
+        "duration": 8000
       },
       {
         "applyOnAction": "1-5",
-        "duration": 8000,
         "actionFilter": [
           "7-2",
           "7-3",
@@ -64,15 +46,33 @@
         ],
         "statMap": {
           "PERCENT_RS": 0.2
-        }
+        },
+        "duration": 8000
+      },
+      {
+        "applyOnAction": "6-1",
+        "procs": {
+          "actionKeyTrigger": "7-1",
+          "actions": "7-4"
+        },
+        "maxProcs": 1,
+        "duration": 8000
+      },
+      {
+        "applyOnAction": "8-1",
+        "applyTo": "next",
+        "statMap": {
+          "AMP_BA": 0.38
+        },
+        "duration": 14000
       },
       {
         "rank": 1,
         "applyOnAction": "1-5",
-        "duration": 10000,
         "statMap": {
           "PERCENT_CR": 0.15
-        }
+        },
+        "duration": 10000
       },
       {
         "rank": 3,
@@ -84,12 +84,12 @@
       {
         "rank": 4,
         "applyOnAction": "3-1",
-        "duration": 5000,
-        "maxProcs": 1,
         "actionFilter": "7-1",
         "statMap": {
           "PERCENT_HA": 1.2
-        }
+        },
+        "maxProcs": 1,
+        "duration": 5000
       },
       {
         "rank": 5,
@@ -109,11 +109,11 @@
           "7-4"
         ],
         "applyTo": "team",
-        "duration": 20000,
-        "maxStacks": 2,
         "statMap": {
           "PERCENT_ATK": 0.1
-        }
+        },
+        "duration": 20000,
+        "maxStacks": 2
       }
     ],
     "defaults": {
@@ -150,10 +150,10 @@
     "effects": [
       {
         "applyOnAction": "2-1",
-        "maxProcs": 1,
         "procs": {
           "actions": "2-2"
-        }
+        },
+        "maxProcs": 1
       },
       {
         "applyOnAction": "3-3",
@@ -195,10 +195,10 @@
       {
         "applyOnAction": "2-1",
         "applyTo": "first",
-        "duration": 35000,
         "statMap": {
           "PERCENT_ATK": 0.15
-        }
+        },
+        "duration": 35000
       },
       {
         "applyOnAction": "1-5",
@@ -210,36 +210,36 @@
       {
         "applyOnAction": "8-1",
         "applyTo": "next",
-        "duration": 36000,
         "statMap": {
           "AMP_ALL": 0.15
-        }
+        },
+        "duration": 36000
       },
       {
         "rank": 2,
         "applyOnAction": "2-1",
-        "duration": 12000,
         "statMap": {
           "PERCENT_GLACIO": 0.15,
           "PERCENT_HB": 0.15
-        }
+        },
+        "duration": 12000
       },
       {
         "rank": 3,
         "applyOnAction": "6-1",
-        "duration": 10000,
         "statMap": {
           "PERCENT_HP": 0.12
-        }
+        },
+        "duration": 10000
       },
       {
         "rank": 6,
         "applyOnAction": "2-1",
         "applyTo": "team",
-        "duration": 35000,
         "statMap": {
           "PERCENT_GLACIO": 0.12
-        }
+        },
+        "duration": 35000
       }
     ],
     "defaults": {

@@ -132,8 +132,8 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   const { owner: actionOwner, actionKey, type, considered, attr, hasMultipliers, sumMvTimes, sumTimes, sumFlat, times } = action;
   const { element } = CHARACTERS[gameId][actionOwner];
 
-  if (type === 'SHIELD') return {};
-  if (type === 'BUFF') return {};
+  if (type === 'shield') return {};
+  if (type === 'buff') return {};
   if (!hasMultipliers) return {};
 
   // Cache for stat maps to avoid recomputing for the same member
@@ -200,7 +200,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
 
   const baseValue = computeBase(statMapWithEffects, attr, sumMvTimes, sumTimes, sumFlat);
 
-  if (type === 'HEAL') {
+  if (type === 'heal') {
     const healingBonus = computeTotalStat('HB', statMapWithEffects);
     return { healing: baseValue * (1 + healingBonus) * times };
   }
@@ -287,7 +287,7 @@ const normalizeActions = (gameId, memberId) => {
       const meta = skills[actionRef];
 
       const actionKey = `${memberId}-${nodeRef}-${actionRef}`;
-      const type = meta.type ?? 'DAMAGE';
+      const type = meta.type ?? 'damage';
       const cast = toArray(meta.cast ?? DEFAULT_CAST[nodeRef]);
       const considered = toArray(meta.considered ?? cast);
 
@@ -312,8 +312,8 @@ const normalizeActions = (gameId, memberId) => {
         cast,
         considered,
         special: meta.special,
-        duration: meta.duration ?? 1000,
-        offset: meta.offset ?? 500,
+        duration: meta.duration ?? (cast ? 1000 : 0),
+        offset: meta.offset ?? (cast ? 500 : 0),
         attr: meta.attr ?? 'ATK',
         hasMultipliers: !!meta.multipliers,
         sumMvTimes,
@@ -371,6 +371,8 @@ const normalizeEffects = (gameId, member) => {
         statMap: Object.fromEntries(
           Object.entries(effect.statMap ?? {}).map(([k, v]) => [k, resolveRankedValue(v, rank)])
         ),
+        statusMap: effect.statusMap ?? {},
+        applyIfEnemyStatus: effect.applyIfEnemyStatus ?? null,
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
         procs: toArray(effect.procs).map(proc => normalizeProc(memberId, proc)),
       };
@@ -470,6 +472,7 @@ export const simulateRotation = (gameId, rawTeam) => {
     active: {},
     inactive: {},
     enemy: {},
+    enemyStatuses: {},
   };
   const applyCooldownMap = {};
   const procCooldownMap = {};
@@ -480,11 +483,12 @@ export const simulateRotation = (gameId, rawTeam) => {
       const action = actionsCache.get(memberId)[actionKey];
       const { duration, offset } = action;
 
-      applyEffects({ action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
+      applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
       advanceEffects(effectTrackers, offset, duration);
+      tickEnemyStatuses(gameId, effectTrackers, duration);
       tickProcCooldowns(procCooldownMap, offset);
       tickProcCooldowns(applyCooldownMap, offset);
-      applyEffects({ action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
+      applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
       processProcEffects({ gameId, members, action, effectTrackers, procCooldownMap });
       decayProcCounts(members, effectTrackers, action);
       tickProcCooldowns(procCooldownMap, duration);
@@ -499,8 +503,9 @@ export const simulateRotation = (gameId, rawTeam) => {
       const action = actionsCache.get(memberId)[actionKey];
       const { owner: activeId, duration, offset } = action;
 
-      applyEffects({ action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
+      applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
       advanceEffects(effectTrackers, offset, duration);
+      tickEnemyStatuses(gameId, effectTrackers, duration);
       tickProcCooldowns(procCooldownMap, offset);
       tickProcCooldowns(applyCooldownMap, offset);
 
@@ -510,7 +515,7 @@ export const simulateRotation = (gameId, rawTeam) => {
         healing: (actionMap[actionKey]?.healing ?? 0) + healing,
       };
 
-      applyEffects({ action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
+      applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
       processProcEffects({ gameId, members, action, effectTrackers, procCooldownMap, actionMap });
       decayProcCounts(members, effectTrackers, action);
       tickProcCooldowns(procCooldownMap, duration);
@@ -521,7 +526,7 @@ export const simulateRotation = (gameId, rawTeam) => {
   return actionMap;
 };
 
-function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, times = 1, trigger = 'cast' }) {
+function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap = {}, times = 1, trigger = 'cast' }) {
   const { owner: actionOwner, actionKey, input } = action;
 
   const member = members[actionOwner];
@@ -579,12 +584,47 @@ function applyEffects({ action, members, effectTrackers, applyCooldownMap = {}, 
   }
 
   for (const effect of triggeredEffects) {
-    const { applyTo, effectKey, applyCooldown } = effectDefinitions[effect];
+    const { applyTo, effectKey, applyCooldown, applyIfEnemyStatus } = effectDefinitions[effect];
 
     if (applyCooldownMap[effectKey]) continue;
 
-    if (applyTo === 'team' || applyTo === 'active' || applyTo === 'inactive' || applyTo === 'enemy') {
+    if (applyIfEnemyStatus) {
+      const hasStatus = (applyIfEnemyStatus === true || applyIfEnemyStatus === 'ANY')
+        ? hasAnyNegativeStatus(gameId, effectTrackers)
+        : hasEnemyStatus(applyIfEnemyStatus, effectTrackers) > 0;
+      if (!hasStatus) continue;
+    }
+
+    if (applyTo === 'team' || applyTo === 'active' || applyTo === 'inactive') {
       applyEffect(effectTrackers[applyTo], effect);
+      if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+      continue;
+    }
+
+    if (applyTo === 'enemy') {
+      const { statMap: effectStatMap = {}, statusMap = {} } = effectDefinitions[effect];
+
+      if (Object.keys(effectStatMap).length > 0) {
+        applyEffect(effectTrackers.enemy, effect);
+      }
+
+      for (const [statusName, stacksToAdd] of Object.entries(statusMap)) {
+        const statusDef = MISC[gameId].NEGATIVE_STATUSES?.[statusName];
+        if (!statusDef) continue;
+
+        const current = effectTrackers.enemyStatuses[statusName];
+        if (!current) {
+          effectTrackers.enemyStatuses[statusName] = {
+            stacks: Math.min(stacksToAdd * times, statusDef.maxStacks),
+            tickTimer: statusDef.tickInterval,
+            ...(statusDef.duration != null ? { duration: statusDef.duration } : {}),
+          };
+        } else {
+          current.stacks = Math.min(current.stacks + stacksToAdd * times, statusDef.maxStacks);
+          if (statusDef.refreshOnApply) current.duration = statusDef.duration;
+        }
+      }
+
       if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
       continue;
     }
@@ -661,7 +701,7 @@ function processProcEffects({
           const procActionKey = effectOwner + '-' + procActionId;
           const procAction = actionsCache.get(effectOwner)[procActionKey];
 
-          applyEffects({ action: procAction, members, effectTrackers, times, trigger: 'cast' });
+          applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'cast' });
 
           if (actionMap) {
             const { damage: procDamage = 0, healing: procHealing = 0 } = simulateAction({
@@ -678,7 +718,7 @@ function processProcEffects({
             };
           }
 
-          applyEffects({ action: procAction, members, effectTrackers, times, trigger: 'contact' });
+          applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'contact' });
         }
 
         if (procsCooldown > 0) procCooldownMap[effectKey] = procsCooldown;
@@ -718,4 +758,41 @@ function decayProcCounts(members, effectTrackers, action) {
   decayMap(inactive);
   decayMap(enemy);
   for (const map of Object.values(byMember)) decayMap(map);
+}
+
+function hasEnemyStatus(statusName, effectTrackers) {
+  return effectTrackers.enemyStatuses[statusName]?.stacks ?? 0;
+}
+
+function hasAnyNegativeStatus(gameId, effectTrackers) {
+  const statuses = MISC[gameId].NEGATIVE_STATUSES ?? {};
+  return Object.keys(statuses).some(name => hasEnemyStatus(name, effectTrackers) > 0);
+}
+
+function tickEnemyStatuses(gameId, effectTrackers, elapsed) {
+  const statuses = MISC[gameId].NEGATIVE_STATUSES ?? {};
+  for (const [statusName, statusDef] of Object.entries(statuses)) {
+    const state = effectTrackers.enemyStatuses[statusName];
+    if (!state) continue;
+
+    if (state.duration !== undefined) {
+      state.duration -= elapsed;
+      if (state.duration <= 0) {
+        delete effectTrackers.enemyStatuses[statusName];
+        continue;
+      }
+    }
+
+    state.tickTimer -= elapsed;
+    while (state.tickTimer <= 0 && state.stacks > 0) {
+      if (statusDef.consumesOnTick) {
+        state.stacks--;
+        if (state.stacks === 0) {
+          delete effectTrackers.enemyStatuses[statusName];
+          break;
+        }
+      }
+      state.tickTimer += statusDef.tickInterval;
+    }
+  }
 }

@@ -266,5 +266,6 @@
       "label": "Energy Regen",
       "isPercent": false
     }
-  }
+  },
+  "NEGATIVE_STATUSES": {}
 }

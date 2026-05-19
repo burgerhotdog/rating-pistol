@@ -183,7 +183,11 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "cast": "MBA",
+          "cast": "MAA",
+          "considered": [
+            "BA",
+            "MAA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -214,6 +218,10 @@
         "8": {
           "name": "Dodge Counter",
           "cast": "DC",
+          "considered": [
+            "BA",
+            "DC"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -379,7 +387,6 @@
         "2": {
           "name": "Glacier Burst",
           "considered": "RS",
-          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -410,7 +417,6 @@
         "3": {
           "name": "Ice Prism Burst",
           "considered": "RS",
-          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -441,7 +447,6 @@
         "4": {
           "name": "Ice Thorn Burst",
           "considered": "RS",
-          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -475,6 +480,7 @@
       "name": "Silversnow",
       "skills": {
         "1": {
+          "type": "buff",
           "duration": 0
         }
       }
@@ -633,7 +639,11 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "cast": "MBA",
+          "cast": "MAA",
+          "considered": [
+            "BA",
+            "MAA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -664,6 +674,10 @@
         "7": {
           "name": "Dodge Counter",
           "cast": "DC",
+          "considered": [
+            "BA",
+            "DC"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -726,8 +740,9 @@
           ]
         },
         "2": {
-          "cast": "AUTO",
           "type": "HEAL",
+          "cast": null,
+          "considered": "RS",
           "attr": "HP",
           "multipliers": [
             {
