@@ -7301,21 +7301,8 @@
       "name": "Discipline",
       "skills": {
         "1": {
-          "cast": [
-            "OS",
-            "CA"
-          ],
-          "considered": [
-            "OS",
-            "CA"
-          ],
-          "duration": 0,
-          "multipliers": [
-            {
-              "mv": 3.134,
-              "times": 2
-            }
-          ]
+          "type": "buff",
+          "duration": 0
         }
       }
     }

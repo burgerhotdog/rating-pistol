@@ -130,7 +130,8 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
 
 const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) => {
   const { owner: actionOwner, actionKey, type, considered, attr, hasMultipliers, sumMvTimes, sumTimes, sumFlat, times } = action;
-  const { element } = CHARACTERS[gameId][actionOwner];
+  const ownerElement = CHARACTERS[gameId][actionOwner].element;
+  const element = action.element ?? ownerElement;
 
   if (type === 'shield') return {};
   if (type === 'buff') return {};
@@ -240,10 +241,60 @@ const resolveRankedValue = (value, rank) => {
   return r1 + (r5 - r1) / 4 * (Math.min(rank, 5) - 1);
 };
 
-const normalizeProc = (memberId, proc) => ({
+const resolveMultiplierValue = (value) => {
+  if (value == null) return 0;
+  return Array.isArray(value) ? value[9] : value;
+};
+
+const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex) => {
+  const inline = proc.action ?? proc.inlineAction
+    ?? (proc.multipliers || proc.mv != null || proc.flat != null ? proc : null);
+  if (!inline) return null;
+
+  const cast = toArray(inline.cast ?? []);
+  const considered = toArray(inline.considered ?? cast);
+
+  let sumMvTimes = 0;
+  let sumTimes = 0;
+  let sumFlat = 0;
+  const multipliers = inline.multipliers
+    ? toArray(inline.multipliers)
+    : [{ mv: inline.mv, flat: inline.flat, times: 1 }];
+
+  for (const { mv: rawMv, flat: rawFlat, times = 1 } of multipliers) {
+    if (rawMv != null) {
+      sumMvTimes += resolveMultiplierValue(rawMv) * times;
+      sumTimes += times;
+    }
+    if (rawFlat != null) {
+      sumFlat += resolveMultiplierValue(rawFlat);
+    }
+  }
+
+  return {
+    actionKey: `${effectKey}-proc-${procIndex}`,
+    owner: memberId,
+    skill: inline.skill ?? 'PROC',
+    type: inline.type ?? 'damage',
+    element: inline.element,
+    cast,
+    considered,
+    duration: inline.duration ?? (cast.length ? 1000 : 0),
+    offset: inline.offset ?? (cast.length ? 500 : 0),
+    attr: inline.attr ?? 'ATK',
+    hasMultipliers: sumMvTimes > 0 || sumFlat > 0,
+    sumMvTimes,
+    sumTimes,
+    sumFlat,
+    times: inline.times ?? 1,
+  };
+};
+
+const normalizeProc = (memberId, effectKey, proc, procIndex) => ({
   filter: proc.filter && toArray(proc.filter),
   actionKeyTrigger: proc.actionKeyTrigger && toArray(proc.actionKeyTrigger).map(sk => `${memberId}-${sk}`),
   actions: toArray(proc.actions),
+  inlineAction: normalizeInlineProcAction(memberId, effectKey, proc, procIndex),
   times: proc.times ?? 1,
 });
 
@@ -309,9 +360,9 @@ const normalizeActions = (gameId, memberId) => {
         owner: memberId,
         skill: nodeRef,
         type,
+        element: meta.element ?? CHARACTERS[gameId][memberId].element,
         cast,
         considered,
-        special: meta.special,
         duration: meta.duration ?? (cast ? 1000 : 0),
         offset: meta.offset ?? (cast ? 500 : 0),
         attr: meta.attr ?? 'ATK',
@@ -346,7 +397,9 @@ const normalizeEffects = (gameId, member) => {
     }
 
     if (procs) {
-      resolved.procs.push(...toArray(procs).map(proc => normalizeProc(memberId, proc)));
+      resolved.procs.push(
+        ...toArray(procs).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, procIndex))
+      );
     }
   }
 
@@ -374,7 +427,7 @@ const normalizeEffects = (gameId, member) => {
         statusMap: effect.statusMap ?? {},
         applyIfEnemyStatus: effect.applyIfEnemyStatus ?? null,
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
-        procs: toArray(effect.procs).map(proc => normalizeProc(memberId, proc)),
+        procs: toArray(effect.procs).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex)),
       };
 
       if (effect.rankModifiers) {
@@ -693,13 +746,23 @@ function processProcEffects({
       if (!procs) continue;
 
       let procFired = false;
-      for (const { filter, actionKeyTrigger, actions, times } of procs) {
+      for (const { filter, actionKeyTrigger, actions, inlineAction, times } of procs) {
         if (filter && !considered.some(c => filter.includes(c))) continue;
         if (actionKeyTrigger && !actionKeyTrigger.includes(actionKey)) continue;
 
+        const procActions = [];
         for (const procActionId of actions) {
           const procActionKey = effectOwner + '-' + procActionId;
           const procAction = actionsCache.get(effectOwner)[procActionKey];
+          if (!procAction) continue;
+          procActions.push(procAction);
+        }
+        if (inlineAction) {
+          procActions.push(inlineAction);
+        }
+
+        for (const procAction of procActions) {
+          const { actionKey: procActionKey } = procAction;
 
           applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'cast' });
 

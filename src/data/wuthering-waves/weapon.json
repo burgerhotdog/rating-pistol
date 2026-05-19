@@ -122,6 +122,25 @@
     "stats": {
       "BASE_ATK": 300,
       "PERCENT_DEF": 0.384
+    },
+    "effects": {
+      "applyOnCast": "RS",
+      "applyCooldown": 12000,
+      "procs": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": [
+            {
+              "mv": [
+                0.03,
+                0.06
+              ]
+            }
+          ]
+        }
+      },
+      "maxProcs": 1
     }
   },
   "21010024": {

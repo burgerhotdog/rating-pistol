@@ -1295,6 +1295,29 @@
         }
       },
       {
+        "applyOnAction": "8-1",
+        "applyTo": "next",
+        "procs": {
+          "filter": "HA",
+          "action": {
+            "type": "damage",
+            "attr": "ATK",
+            "element": "AERO",
+            "considered": [
+              "OS",
+              "CA"
+            ],
+            "multipliers": [
+              {
+                "mv": 3.134
+              }
+            ]
+          }
+        },
+        "maxProcs": 2,
+        "duration": 8000
+      },
+      {
         "rank": 2,
         "applyOnAction": "6-1",
         "duration": 15000,

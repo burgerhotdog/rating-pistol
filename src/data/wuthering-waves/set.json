@@ -227,14 +227,33 @@
           "PERCENT_HAVOC": 0.1
         }
       },
-      "5": {
-        "applyOnCast": "OS",
-        "applyTo": "next",
-        "statMap": {
-          "PERCENT_HAVOC": 0.15
+      "5": [
+        {
+          "applyOnCast": "OS",
+          "procs": {
+            "action": {
+              "type": "damage",
+              "attr": "ATK",
+              "element": "HAVOC",
+              "considered": "OS",
+              "multipliers": [
+                {
+                  "mv": 4.8
+                }
+              ]
+            }
+          },
+          "maxProcs": 1
         },
-        "duration": 15000
-      }
+        {
+          "applyOnCast": "OS",
+          "applyTo": "next",
+          "statMap": {
+            "PERCENT_HAVOC": 0.15
+          },
+          "duration": 15000
+        }
+      ]
     }
   },
   "13": {
