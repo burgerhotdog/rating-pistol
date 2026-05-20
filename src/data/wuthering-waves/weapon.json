@@ -126,21 +126,19 @@
     "effects": {
       "applyOnCast": "RS",
       "applyCooldown": 12000,
-      "procs": {
+      "followUpAction": {
         "action": {
           "type": "heal",
           "attr": "HP",
-          "multipliers": [
-            {
-              "mv": [
-                0.03,
-                0.06
-              ]
-            }
-          ]
+          "multipliers": {
+            "mv": [
+              0.03,
+              0.06
+            ]
+          }
         }
       },
-      "maxProcs": 1
+      "maxUses": 1
     }
   },
   "21010024": {
@@ -232,6 +230,7 @@
     },
     "effects": {
       "applyOnCast": "RS",
+      "applyCooldown": 12000,
       "statMap": {
         "PERCENT_ATK": [
           0.09,
@@ -250,10 +249,11 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnCast": [
+      "applyIfConsidered": [
         "BA",
         "HA"
       ],
+      "applyCooldown": 1000,
       "statMap": {
         "PERCENT_ATK": [
           0.04,
@@ -261,8 +261,7 @@
         ]
       },
       "duration": 7000,
-      "maxStacks": 5,
-      "applyCooldown": 1000
+      "maxStacks": 5
     }
   },
   "21020011": {
@@ -355,6 +354,23 @@
     "stats": {
       "BASE_ATK": 325,
       "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "applyOnCast": "RL",
+      "applyCooldown": 20000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.05,
+              0.1
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21020024": {
@@ -374,14 +390,33 @@
       "BASE_ATK": 387,
       "PERCENT_ATK": 0.364
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_HA": [
-          0.18,
-          0.36
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HA": [
+            0.18,
+            0.36
+          ]
+        }
+      },
+      {
+        "applyIfConsidered": "HA",
+        "applyCooldown": 8000,
+        "followUpAction": {
+          "action": {
+            "type": "heal",
+            "attr": "HP",
+            "multipliers": {
+              "mv": [
+                0.05,
+                0.1
+              ]
+            }
+          }
+        },
+        "maxUses": 1
       }
-    }
+    ]
   },
   "21020043": {
     "name": "Sword of Voyager",
@@ -559,6 +594,23 @@
     "stats": {
       "BASE_ATK": 325,
       "PERCENT_ATK": 0.243
+    },
+    "effects": {
+      "applyOnCast": "DC",
+      "applyCooldown": 6000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.016,
+              0.032
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21030024": {
@@ -772,6 +824,23 @@
     "stats": {
       "BASE_ATK": 300,
       "PERCENT_CD": 0.405
+    },
+    "effects": {
+      "applyIfConsidered": "BA",
+      "applyCooldown": 3000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.005,
+              0.011
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21040024": {
@@ -1017,6 +1086,23 @@
     "stats": {
       "BASE_ATK": 300,
       "PERCENT_HP": 0.303
+    },
+    "effects": {
+      "applyOnCast": "IS",
+      "applyCooldown": 20000,
+      "followUpAction": {
+        "action": {
+          "type": "heal",
+          "attr": "HP",
+          "multipliers": {
+            "mv": [
+              0.05,
+              0.1
+            ]
+          }
+        }
+      },
+      "maxUses": 1
     }
   },
   "21050024": {

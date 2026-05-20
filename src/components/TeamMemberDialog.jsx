@@ -27,8 +27,8 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
-import { CHARACTERS, WEAPONS, SETS, MISC } from '@/data';
-import { getAction, getActionList, getMember, formatRotation } from '@/utils';
+import { CHARACTERS, MVS, WEAPONS, SETS, MISC } from '@/data';
+import { normalizeAction, getMember, formatRotation } from '@/utils';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
@@ -519,21 +519,27 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
 
   const options = useMemo(() => {
     if (!characterId) return [];
-    const lower = search.toLowerCase();
-    return getActionList(gameId, characterId)
-      .map(skillKey => {
-        const skill = getAction(gameId, skillKey);
-        return { skillKey, name: skill.name, ownerId: skill.ownerId };
-      })
-      .filter(Boolean)
-      .filter(({ name, skillKey }) => {
-        const text = `${name} ${skillKey}`.toLowerCase();
-        return text.includes(lower);
-      });
-  }, [gameId, characterId, search]);
+    const actionList = [];
 
-  const handleSelect = (skillKey) => {
-    onSelect(skillKey);
+    for (const [skillId, skillGroup] of Object.entries(MVS[gameId][characterId])) {
+      for (const actionId in skillGroup) {
+        const actionKey = `${characterId}-${skillId}-${actionId}`;
+        const { name } = normalizeAction(gameId, characterId, skillId, actionId);
+
+        actionList.push({ actionKey, name });
+      }
+    }
+
+    return actionList;
+  }, [gameId, characterId]);
+
+  const searchOptions = useMemo(() => {
+    const lower = search.toLowerCase();
+    return options.filter(({ name }) => name.toLowerCase().includes(lower));
+  }, [options, search]);
+
+  const handleSelect = (actionKey) => {
+    onSelect(actionKey);
     setSearch('');
     onClose();
   };
@@ -552,18 +558,18 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
         />
 
         <Stack spacing={1}>
-          {options.map(({ skillKey, name }) => (
+          {searchOptions.map(({ actionKey, name }) => (
             <Button
-              key={skillKey}
+              key={actionKey}
               variant="outlined"
-              onClick={() => handleSelect(skillKey)}
+              onClick={() => handleSelect(actionKey)}
               sx={{ justifyContent: 'flex-start', textTransform: 'none' }}
             >
               {name}
             </Button>
           ))}
 
-          {options.length === 0 && (
+          {searchOptions.length === 0 && (
             <Typography variant="body2" color="text.secondary">
               No skills available for this character.
             </Typography>
@@ -687,7 +693,8 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
       >
         <List dense sx={{ p: 0.5 }}>
           {rotation.map((actionKey, index) => {
-            const { cast, name, ownerId } = getAction(gameId, actionKey);
+            const [ownerId, skillId, actionId] = actionKey.split('-');
+            const { cast, name } = normalizeAction(gameId, ownerId, skillId, actionId);
             return (
               <ListItem
                 key={`${actionKey}-${index}`}
@@ -765,7 +772,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         characterId={characterId}
         open={skillDialogOpen}
         onClose={() => setSkillDialogOpen(false)}
-        onSelect={(skillKey) => onChange([...rotation, skillKey])}
+        onSelect={(actionKey) => onChange([...rotation, actionKey])}
       />
     </Box>
   );

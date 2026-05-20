@@ -1,13 +1,5 @@
 import { CHARACTERS, WEAPONS, SETS, MISC, MVS } from '@/data';
-import { compileStatMap, mergeStatMaps, computeTotalStat, toArray } from '@/utils';
-
-const DEFAULT_CAST = {
-  "1": "BA",
-  "2": "RS",
-  "3": "RL",
-  "6": "IS",
-  "8": "OS",
-};
+import { compileStatMap, mergeStatMaps, computeTotalStat, toArray, normalizeAction } from '@/utils';
 
 const actionsCache = new Map();
 const normalizeEffectsCache = new Map();
@@ -151,8 +143,8 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.team)) {
     const effectOwner = effectKey.slice(0, 4);
     const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-    const { actionFilter } = effectDefinition;
-    if (actionFilter && !actionFilter.includes(actionKey)) continue;
+    const { useIfAction } = effectDefinition;
+    if (useIfAction && !useIfAction.includes(actionKey)) continue;
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
@@ -162,8 +154,8 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
     for (const [effectKey, { stacks }] of Object.entries(effectTrackers.active)) {
       const effectOwner = effectKey.slice(0, 4);
       const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-      const { actionFilter } = effectDefinition;
-      if (actionFilter && !actionFilter.includes(actionKey)) continue;
+      const { useIfAction } = effectDefinition;
+      if (useIfAction && !useIfAction.includes(actionKey)) continue;
       const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
       applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
     }
@@ -171,8 +163,8 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
     for (const [effectKey, { stacks }] of Object.entries(effectTrackers.inactive)) {
       const effectOwner = effectKey.slice(0, 4);
       const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-      const { actionFilter } = effectDefinition;
-      if (actionFilter && !actionFilter.includes(actionKey)) continue;
+      const { useIfAction } = effectDefinition;
+      if (useIfAction && !useIfAction.includes(actionKey)) continue;
       const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
       applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
     }
@@ -182,16 +174,16 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.byMember[actionOwner])) {
     const effectOwner = effectKey.slice(0, 4);
     const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-    const { actionFilter } = effectDefinition;
-    if (actionFilter && !actionFilter.includes(actionKey)) continue;
+    const { useIfAction } = effectDefinition;
+    if (useIfAction && !useIfAction.includes(actionKey)) continue;
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
 
   for (const effectDefinition of Object.values(members[actionOwner].effectDefinitions)) {
-    const { isPassive, chance, actionFilter } = effectDefinition;
+    const { isPassive, chance, useIfAction } = effectDefinition;
     if (!isPassive) continue;
-    if (actionFilter && !actionFilter.includes(actionKey)) continue;
+    if (useIfAction && !useIfAction.includes(actionKey)) continue;
 
     const passiveMemberCurrentStats = getOrComputeStatMap(actionOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, passiveMemberCurrentStats, chance);
@@ -291,8 +283,8 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex) => {
 };
 
 const normalizeProc = (memberId, effectKey, proc, procIndex) => ({
-  filter: proc.filter && toArray(proc.filter),
-  actionKeyTrigger: proc.actionKeyTrigger && toArray(proc.actionKeyTrigger).map(sk => `${memberId}-${sk}`),
+  useIfConsidered: proc.useIfConsidered && toArray(proc.useIfConsidered),
+  useIfAction: proc.useIfAction && toArray(proc.useIfAction).map(sk => `${memberId}-${sk}`),
   actions: toArray(proc.actions),
   inlineAction: normalizeInlineProcAction(memberId, effectKey, proc, procIndex),
   times: proc.times ?? 1,
@@ -335,43 +327,10 @@ const normalizeActions = (gameId, memberId) => {
     const { skills } = rawSkillTree[nodeRef];
 
     for (const actionRef in skills) {
-      const meta = skills[actionRef];
-
       const actionKey = `${memberId}-${nodeRef}-${actionRef}`;
-      const type = meta.type ?? 'damage';
-      const cast = toArray(meta.cast ?? DEFAULT_CAST[nodeRef]);
-      const considered = toArray(meta.considered ?? cast);
+      const normalized = normalizeAction(gameId, memberId, nodeRef, actionRef);
 
-      let sumMvTimes = 0;
-      let sumTimes = 0;
-      let sumFlat = 0;
-      for (const { mv: rawMv, flat: rawFlat, times = 1 } of meta.multipliers ?? []) {
-        if (rawMv != null) {
-          sumMvTimes += (Array.isArray(rawMv) ? rawMv[9] : rawMv) * times;
-          sumTimes += times;
-        }
-        if (rawFlat != null) {
-          sumFlat += Array.isArray(rawFlat) ? rawFlat[9] : rawFlat;
-        }
-      }
-
-      resolved[actionKey] = {
-        actionKey,
-        owner: memberId,
-        skill: nodeRef,
-        type,
-        element: meta.element ?? CHARACTERS[gameId][memberId].element,
-        cast,
-        considered,
-        duration: meta.duration ?? (cast ? 1000 : 0),
-        offset: meta.offset ?? (cast ? 500 : 0),
-        attr: meta.attr ?? 'ATK',
-        hasMultipliers: !!meta.multipliers,
-        sumMvTimes,
-        sumTimes,
-        sumFlat,
-        times: meta.times ?? 1,
-      };
+      resolved[actionKey] = { actionKey, ...normalized };
     }
   }
 
@@ -385,10 +344,10 @@ const normalizeEffects = (gameId, member) => {
   const effectDefinitions = {};
 
   function applyRankModifier(resolved, modifier = {}) {
-    const { duration, maxProcs, statMap, variableStatMap, procs } = modifier;
+    const { duration, maxUses, statMap, variableStatMap, followUpAction } = modifier;
 
     if (duration) resolved.duration += duration;
-    if (maxProcs) resolved.maxProcs += maxProcs;
+    if (maxUses) resolved.maxUses += maxUses;
 
     if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
 
@@ -396,9 +355,9 @@ const normalizeEffects = (gameId, member) => {
       resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, variableStatMap);
     }
 
-    if (procs) {
-      resolved.procs.push(
-        ...toArray(procs).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, procIndex))
+    if (followUpAction) {
+      resolved.followUpAction.push(
+        ...toArray(followUpAction).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, procIndex))
       );
     }
   }
@@ -418,16 +377,16 @@ const normalizeEffects = (gameId, member) => {
         applyTo: effect.applyTo ?? 'self',
         maxStacks: effect.maxStacks ?? 1,
         duration: effect.duration ?? Infinity,
-        maxProcs: effect.maxProcs ?? Infinity,
-        procsCooldown: effect.procsCooldown ?? 0,
-        actionFilter: effect.actionFilter && toArray(effect.actionFilter).map(shortKey => `${memberId}-${shortKey}`),
+        maxUses: effect.maxUses ?? Infinity,
+        followUpActionCooldown: effect.followUpActionCooldown ?? 0,
+        useIfAction: effect.useIfAction && toArray(effect.useIfAction).map(shortKey => `${memberId}-${shortKey}`),
         statMap: Object.fromEntries(
           Object.entries(effect.statMap ?? {}).map(([k, v]) => [k, resolveRankedValue(v, rank)])
         ),
         statusMap: effect.statusMap ?? {},
         applyIfEnemyStatus: effect.applyIfEnemyStatus ?? null,
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
-        procs: toArray(effect.procs).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex)),
+        followUpAction: toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex)),
       };
 
       if (effect.rankModifiers) {
@@ -627,12 +586,12 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
   );
 
   function applyEffect(tracker, effect) {
-    const { effectKey, maxStacks, duration, maxProcs } = effectDefinitions[effect];
+    const { effectKey, maxStacks, duration, maxUses } = effectDefinitions[effect];
     const currentStacks = tracker[effectKey]?.stacks ?? 0;
     tracker[effectKey] = {
       stacks: Math.min(currentStacks + times, maxStacks),
       timeRemaining: duration,
-      procsRemaining: maxProcs,
+      followUpActionRemaining: maxUses,
     };
   }
 
@@ -742,13 +701,13 @@ function processProcEffects({
       const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
       if (!effectDef) continue;
 
-      const { procs, procsCooldown } = effectDef;
-      if (!procs) continue;
+      const { followUpAction, followUpActionCooldown } = effectDef;
+      if (!followUpAction) continue;
 
       let procFired = false;
-      for (const { filter, actionKeyTrigger, actions, inlineAction, times } of procs) {
-        if (filter && !considered.some(c => filter.includes(c))) continue;
-        if (actionKeyTrigger && !actionKeyTrigger.includes(actionKey)) continue;
+      for (const { useIfConsidered, useIfAction, actions, inlineAction, times } of followUpAction) {
+        if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
+        if (useIfAction && !useIfAction.includes(actionKey)) continue;
 
         const procActions = [];
         for (const procActionId of actions) {
@@ -784,11 +743,11 @@ function processProcEffects({
           applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'contact' });
         }
 
-        if (procsCooldown > 0) procCooldownMap[effectKey] = procsCooldown;
+        if (followUpActionCooldown > 0) procCooldownMap[effectKey] = followUpActionCooldown;
         procFired = true;
       }
 
-      if (procFired) effectTracker.procsRemaining--;
+      if (procFired) effectTracker.followUpActionRemaining--;
     }
   }
 
@@ -805,14 +764,14 @@ function decayProcCounts(members, effectTrackers, action) {
 
   function decayMap(trackerMap) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
-      if (effectTracker.procsRemaining === Infinity) continue;
+      if (effectTracker.followUpActionRemaining === Infinity) continue;
 
       const effectOwner = effectKey.slice(0, 4);
-      const { actionFilter, procs } = members[effectOwner].effectDefinitions[effectKey];
-      if (actionFilter && !actionFilter.includes(actionKey)) continue;
+      const { useIfAction, followUpAction } = members[effectOwner].effectDefinitions[effectKey];
+      if (useIfAction && !useIfAction.includes(actionKey)) continue;
 
-      if (!procs) effectTracker.procsRemaining -= 1;
-      if (effectTracker.procsRemaining <= 0) delete trackerMap[effectKey];
+      if (!followUpAction) effectTracker.followUpActionRemaining -= 1;
+      if (effectTracker.followUpActionRemaining <= 0) delete trackerMap[effectKey];
     }
   }
 

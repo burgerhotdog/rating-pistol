@@ -230,20 +230,16 @@
       "5": [
         {
           "applyOnCast": "OS",
-          "procs": {
+          "followUpAction": {
             "action": {
-              "type": "damage",
-              "attr": "ATK",
               "element": "HAVOC",
               "considered": "OS",
-              "multipliers": [
-                {
-                  "mv": 4.8
-                }
-              ]
+              "multipliers": {
+                "mv": 4.8
+              }
             }
           },
-          "maxProcs": 1
+          "maxUses": 1
         },
         {
           "applyOnCast": "OS",

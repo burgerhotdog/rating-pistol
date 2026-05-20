@@ -1,0 +1,53 @@
+import { CHARACTERS, MVS } from '@/data';
+import { toArray } from '@/utils';
+
+const DEFAULT_CAST = {
+  "1": "BA",
+  "2": "RS",
+  "3": "RL",
+  "6": "IS",
+  "8": "OS",
+};
+
+export const normalizeAction = (gameId, characterId, skillId, actionId, level = 10) => {
+  const action = MVS[gameId][characterId][skillId].skills[actionId];
+  const { element: ownerElement } = CHARACTERS[gameId][characterId];
+  
+  const type = action.type ?? 'damage';
+  const element = type && (action.element ?? ownerElement);
+  const cast = toArray(action.cast ?? DEFAULT_CAST[skillId]);
+  const considered = toArray(action.considered ?? cast);
+  const duration = action.duration ?? ((cast && !cast.includes('OS')) ? 1000 : 0);
+  const offset = action.offset ?? ((cast && !cast.includes('OS')) ? 500 : 0);
+  const attr = action.attr ?? 'ATK';
+
+  let sumFlat = 0;
+  let sumMv = 0;
+  let sumTimes = 0;
+  for (const { mv, flat, times = 1 } of toArray(action.multipliers)) {
+    if (flat) {
+      sumFlat += flat[level-1];
+    }
+    if (mv) {
+      sumMv += mv[level-1] * times;
+      sumTimes += times;
+    }
+  }
+
+  return {
+    owner: characterId,
+    skill: skillId,
+    type,
+    element,
+    cast,
+    considered,
+    duration,
+    offset,
+    attr,
+    hasMultipliers: !!action.multipliers,
+    sumFlat,
+    sumMv,
+    sumTimes,
+    times: action.times ?? 1,
+  };
+}

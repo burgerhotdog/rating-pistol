@@ -2,7 +2,7 @@ export * from './mergeEquipList';
 export * from './computeTotalStat';
 export * from './mergeStatMaps';
 export * from './compileStatMap';
-export * from './getAction';
+export * from './normalizeAction';
 export * from './getMember';
 export * from './getSetCounts';
 export * from './sumRotationDmg';

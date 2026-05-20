@@ -14,20 +14,20 @@
     "effects": [
       {
         "applyOnAction": "2-1",
-        "procs": {
-          "actionKeyTrigger": "7-1",
+        "followUpAction": {
+          "useIfAction": "7-1",
           "actions": "7-3"
         },
-        "maxProcs": 1,
+        "maxUses": 1,
         "duration": 5000
       },
       {
         "applyOnAction": "3-1",
-        "procs": {
-          "actionKeyTrigger": "7-1",
+        "followUpAction": {
+          "useIfAction": "7-1",
           "actions": "7-2"
         },
-        "maxProcs": 1,
+        "maxUses": 1,
         "duration": 5000
       },
       {
@@ -39,7 +39,7 @@
       },
       {
         "applyOnAction": "1-5",
-        "actionFilter": [
+        "useIfAction": [
           "7-2",
           "7-3",
           "7-4"
@@ -51,11 +51,11 @@
       },
       {
         "applyOnAction": "6-1",
-        "procs": {
-          "actionKeyTrigger": "7-1",
+        "followUpAction": {
+          "useIfAction": "7-1",
           "actions": "7-4"
         },
-        "maxProcs": 1,
+        "maxUses": 1,
         "duration": 8000
       },
       {
@@ -84,16 +84,16 @@
       {
         "rank": 4,
         "applyOnAction": "3-1",
-        "actionFilter": "7-1",
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_HA": 1.2
         },
-        "maxProcs": 1,
+        "maxUses": 1,
         "duration": 5000
       },
       {
         "rank": 5,
-        "actionFilter": [
+        "useIfAction": [
           "7-2",
           "7-3",
           "7-4"
@@ -150,16 +150,16 @@
     "effects": [
       {
         "applyOnAction": "2-1",
-        "procs": {
+        "followUpAction": {
           "actions": "2-2"
         },
-        "maxProcs": 1
+        "maxUses": 1
       },
       {
         "applyOnAction": "3-3",
         "applyTo": "active",
-        "maxProcs": 4,
-        "procs": [
+        "maxUses": 4,
+        "followUpAction": [
           {
             "actions": "3-1"
           },
@@ -170,8 +170,8 @@
       },
       {
         "applyOnAction": "6-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "6-2"
         }
       },
@@ -183,9 +183,9 @@
           "1-4"
         ],
         "maxStacks": 4,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": [
+        "maxUses": 1,
+        "followUpAction": {
+          "useIfAction": [
             "1-5",
             "2-1"
           ],
@@ -202,8 +202,8 @@
       },
       {
         "applyOnAction": "1-5",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-2"
         }
       },
@@ -295,8 +295,8 @@
           "7-3"
         ],
         "duration": 3000,
-        "maxProcs": 1,
-        "actionFilter": "7-4",
+        "maxUses": 1,
+        "useIfAction": "7-4",
         "statMap": {
           "PERCENT_MV": 1.5
         }
@@ -322,7 +322,7 @@
       {
         "rank": 5,
         "applyOnAction": "3-1",
-        "maxProcs": 1,
+        "maxUses": 1,
         "statMap": {
           "FLAT_MV": 2
         }
@@ -330,8 +330,8 @@
       {
         "rank": 6,
         "applyOnAction": "7-4",
-        "maxProcs": 1,
-        "actionFilter": [
+        "maxUses": 1,
+        "useIfAction": [
           "7-2",
           "7-3"
         ],
@@ -383,7 +383,7 @@
     },
     "effects": [
       {
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "statMap": {
           "PERCENT_RS": 0.5
         }
@@ -397,14 +397,14 @@
       },
       {
         "rank": 1,
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "statMap": {
           "PERCENT_CR": 1
         }
       },
       {
         "rank": 3,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "chance": 0.5,
         "statMap": {
           "PERCENT_RL": 0.4
@@ -463,7 +463,7 @@
     },
     "effects": [
       {
-        "actionFilter": [
+        "useIfAction": [
           "3-1",
           "3-2",
           "3-3",
@@ -511,7 +511,7 @@
       },
       {
         "rank": 3,
-        "actionFilter": [
+        "useIfAction": [
           "7-1",
           "7-2"
         ],
@@ -522,7 +522,7 @@
       {
         "rank": 4,
         "applyTo": "team",
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "duration": 30000,
         "statMap": {
           "PERCENT_FUSION": 0.2
@@ -599,21 +599,21 @@
         "applyOnAction": "3-1",
         "applyTo": "team",
         "duration": 10000,
-        "procs": [
+        "followUpAction": [
           {
-            "filter": "BA",
+            "useIfConsidered": "BA",
             "actions": "3-2"
           },
           {
-            "filter": "HA",
+            "useIfConsidered": "HA",
             "actions": "3-2",
             "times": 2
           }
         ],
         "rankModifiers": {
           "1": {
-            "procs": {
-              "filter": "RS",
+            "followUpAction": {
+              "useIfConsidered": "RS",
               "actions": "3-2",
               "times": 2
             }
@@ -634,7 +634,7 @@
       {
         "applyOnAction": "2-1",
         "duration": 8000,
-        "actionFilter": "7-1",
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_RS": 0.25
         }
@@ -643,7 +643,7 @@
         "applyOnAction": "3-2",
         "duration": 17000,
         "maxStacks": 50,
-        "actionFilter": "3-2",
+        "useIfAction": "3-2",
         "statMap": {
           "PERCENT_RL": 0.015
         }
@@ -652,7 +652,7 @@
         "rank": 3,
         "applyOnAction": "3-1",
         "duration": 10000,
-        "actionFilter": "3-2",
+        "useIfAction": "3-2",
         "statMap": {
           "PERCENT_CD": 0.3
         },
@@ -668,8 +668,8 @@
           "2-1",
           "7-1"
         ],
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "3-2",
           "times": 4
         }
@@ -765,8 +765,8 @@
       {
         "rank": 6,
         "applyOnAction": "7-2",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-3",
           "times": 2
         }
@@ -818,9 +818,9 @@
       {
         "applyOnAction": "2-1",
         "duration": 10000,
-        "maxProcs": 4,
-        "procs": {
-          "filter": "BA",
+        "maxUses": 4,
+        "followUpAction": {
+          "useIfConsidered": "BA",
           "actions": "2-3"
         }
       },
@@ -828,10 +828,10 @@
         "applyOnAction": "7-1",
         "applyTo": "team",
         "duration": 18000,
-        "procs": {
+        "followUpAction": {
           "actions": "7-2"
         },
-        "procsCooldown": 1000
+        "followUpActionCooldown": 1000
       },
       {
         "applyOnAction": "2-1",
@@ -852,8 +852,8 @@
           "3-1",
           "6-1"
         ],
-        "maxProcs": 1,
-        "actionFilter": "2-2",
+        "maxUses": 1,
+        "useIfAction": "2-2",
         "statMap": {
           "PERCENT_RS": 0.1
         }
@@ -876,7 +876,7 @@
       },
       {
         "rank": 1,
-        "actionFilter": [
+        "useIfAction": [
           "2-1",
           "2-2"
         ],
@@ -886,7 +886,7 @@
       },
       {
         "rank": 3,
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "statMap": {
           "PERCENT_MV": 0.55
         }
@@ -902,7 +902,7 @@
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_RL": 1
         }
@@ -911,10 +911,10 @@
         "rank": 6,
         "applyOnAction": "3-1",
         "duration": 30000,
-        "maxProcs": 4,
-        "actionFilter": "3-1",
+        "maxUses": 4,
+        "useIfAction": "3-1",
         "proc": {
-          "filter": "BA",
+          "useIfConsidered": "BA",
           "actions": "7-3"
         }
       }
@@ -960,7 +960,7 @@
         "applyOnAction": "2-1",
         "applyTo": "team",
         "duration": 12000,
-        "procs": {
+        "followUpAction": {
           "actions": "2-2"
         }
       },
@@ -969,20 +969,20 @@
           "2-4",
           "3-1"
         ],
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "2-3"
         }
       },
       {
         "applyOnAction": "8-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "2-1"
         }
       },
       {
-        "actionFilter": "7-1",
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_MV": 0.4
         }
@@ -990,7 +990,7 @@
       {
         "rank": 3,
         "applyOnAction": "2-2",
-        "maxProcs": 1,
+        "maxUses": 1,
         "statMap": {
           "FLAT_MV": 0.2
         }
@@ -998,8 +998,8 @@
       {
         "rank": 4,
         "applyOnAction": "3-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-10"
         }
       },
@@ -1077,14 +1077,14 @@
       },
       {
         "rank": 4,
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "statMap": {
           "PERCENT_BA": 0.95
         }
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_RL": 0.85
         }
@@ -1141,8 +1141,8 @@
     "effects": [
       {
         "applyOnAction": "2-2",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "2-1",
           "times": 6
         }
@@ -1150,7 +1150,7 @@
       {
         "applyOnAction": "3-1",
         "duration": 10000,
-        "actionFilter": [
+        "useIfAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -1171,7 +1171,7 @@
         }
       },
       {
-        "actionFilter": [
+        "useIfAction": [
           "1-7",
           "1-8"
         ],
@@ -1190,9 +1190,9 @@
           "1-9"
         ],
         "maxStacks": 6,
-        "maxProcs": 1,
-        "procs": {
-          "actionKeyTrigger": "7-2",
+        "maxUses": 1,
+        "followUpAction": {
+          "useIfAction": "7-2",
           "actions": "7-1"
         }
       },
@@ -1214,7 +1214,7 @@
       },
       {
         "rank": 4,
-        "actionFilter": [
+        "useIfAction": [
           "2-1",
           "7-1"
         ],
@@ -1277,7 +1277,7 @@
     },
     "effects": [
       {
-        "actionFilter": "2-1",
+        "useIfAction": "2-1",
         "statMap": {
           "PERCENT_RS": 0.2
         }
@@ -1297,8 +1297,8 @@
       {
         "applyOnAction": "8-1",
         "applyTo": "next",
-        "procs": {
-          "filter": "HA",
+        "followUpAction": {
+          "useIfConsidered": "HA",
           "action": {
             "type": "damage",
             "attr": "ATK",
@@ -1314,7 +1314,7 @@
             ]
           }
         },
-        "maxProcs": 2,
+        "maxUses": 2,
         "duration": 8000
       },
       {
@@ -1353,7 +1353,7 @@
       },
       {
         "rank": 5,
-        "actionFilter": "8-1",
+        "useIfAction": "8-1",
         "statMap": {
           "PERCENT_MV": 1.2
         }
@@ -1375,8 +1375,8 @@
           "6-1"
         ],
         "maxStacks": 2,
-        "maxProcs": 1,
-        "actionFilter": "7-1",
+        "maxUses": 1,
+        "useIfAction": "7-1",
         "statMap": {
           "FLAT_MV": 1.2
         }
@@ -1424,8 +1424,8 @@
         "applyOnAction": "3-3",
         "applyTo": "team",
         "duration": 1000,
-        "maxProcs": 1,
-        "procs": [
+        "maxUses": 1,
+        "followUpAction": [
           {
             "actions": "3-1",
             "times": 16
@@ -1437,22 +1437,22 @@
       },
       {
         "applyOnAction": "7-3",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-8"
         }
       },
       {
         "applyOnAction": "7-4",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-9"
         }
       },
       {
         "applyOnAction": "7-5",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-10"
         }
       },
@@ -1465,12 +1465,12 @@
         ],
         "applyTo": "team",
         "duration": 30000,
-        "procs": {
+        "followUpAction": {
           "actions": "7-11"
         }
       },
       {
-        "actionFilter": [
+        "useIfAction": [
           "3-1",
           "3-2"
         ],
@@ -1495,7 +1495,7 @@
         "rank": 4,
         "applyOnAction": "7-2",
         "duration": 14000,
-        "actionFilter": [
+        "useIfAction": [
           "3-1",
           "3-2"
         ],
@@ -1507,8 +1507,8 @@
         "rank": 6,
         "applyOnAction": "7-1",
         "duration": 5000,
-        "maxProcs": 1,
-        "procs": [
+        "maxUses": 1,
+        "followUpAction": [
           {
             "actions": "7-12"
           },
@@ -1573,8 +1573,8 @@
     "effects": [
       {
         "applyOnAction": "3-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "3-2"
         }
       },
@@ -1582,7 +1582,7 @@
         "applyOnAction": "3-1",
         "applyTo": "team",
         "duration": 12000,
-        "procs": [
+        "followUpAction": [
           {
             "actions": "3-3"
           },
@@ -1590,7 +1590,7 @@
             "actions": "3-4"
           }
         ],
-        "procsCooldown": 1000
+        "followUpActionCooldown": 1000
       },
       {
         "applyOnAction": [
@@ -1599,8 +1599,8 @@
           "7-3",
           "7-4"
         ],
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-5",
           "times": 3
         }
@@ -1615,14 +1615,14 @@
       },
       {
         "applyOnAction": "8-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-6",
           "times": 6
         },
         "rankModifiers": {
           "1": {
-            "procs": {
+            "followUpAction": {
               "actions": "7-7",
               "times": 6
             }
@@ -1631,7 +1631,7 @@
       },
       {
         "rank": 3,
-        "actionFilter": "7-4",
+        "useIfAction": "7-4",
         "statMap": {
           "PERCENT_HB": 0.12
         }
@@ -1667,8 +1667,8 @@
           "7-3",
           "7-4"
         ],
-        "maxProcs": 1,
-        "procs": [
+        "maxUses": 1,
+        "followUpAction": [
           {
             "actions": "3-3"
           },
@@ -1715,29 +1715,29 @@
     "effects": [
       {
         "applyOnAction": "2-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "2-2"
         }
       },
       {
         "applyOnAction": "7-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-4"
         }
       },
       {
         "applyOnAction": "7-2",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-5"
         }
       },
       {
         "applyOnAction": "7-3",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-6"
         }
       },
@@ -1764,7 +1764,7 @@
       },
       {
         "rank": 1,
-        "actionFilter": [
+        "useIfAction": [
           "7-4",
           "7-5",
           "7-6"
@@ -1775,7 +1775,7 @@
       },
       {
         "rank": 2,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_CR": 0.2,
           "PERCENT_CD": 0.2
@@ -1792,14 +1792,14 @@
       {
         "rank": 4,
         "applyOnAction": "1-6",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-7"
         }
       },
       {
         "rank": 5,
-        "actionFilter": [
+        "useIfAction": [
           "7-1",
           "7-2",
           "7-3"
@@ -1872,15 +1872,15 @@
       },
       {
         "applyOnAction": "3-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "3-2"
         }
       },
       {
         "applyOnAction": "1-6",
-        "maxProcs": 2,
-        "actionFilter": [
+        "maxUses": 2,
+        "useIfAction": [
           "2-2",
           "2-3"
         ],
@@ -1939,7 +1939,7 @@
       },
       {
         "rank": 4,
-        "actionFilter": [
+        "useIfAction": [
           "7-1",
           "7-2",
           "7-3",
@@ -2011,14 +2011,14 @@
       {
         "applyOnAction": "3-1",
         "duration": 10000,
-        "maxProcs": 1,
-        "actionFilter": "7-1",
+        "maxUses": 1,
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_ATK": 0.25
         }
       },
       {
-        "actionFilter": [
+        "useIfAction": [
           "2-2",
           "2-3"
         ],
@@ -2027,7 +2027,7 @@
         }
       },
       {
-        "actionFilter": [
+        "useIfAction": [
           "7-1",
           "3-1"
         ],
@@ -2047,7 +2047,7 @@
       },
       {
         "rank": 1,
-        "actionFilter": [
+        "useIfAction": [
           "2-1",
           "2-2",
           "2-3",
@@ -2071,7 +2071,7 @@
       },
       {
         "rank": 3,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_RL": 0.8
         }
@@ -2087,7 +2087,7 @@
       },
       {
         "rank": 5,
-        "actionFilter": "7-1",
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_MV": 0.5,
           "PERCENT_ALL": 0.5
@@ -2095,7 +2095,7 @@
       },
       {
         "rank": 6,
-        "actionFilter": [
+        "useIfAction": [
           "2-1",
           "2-2",
           "2-3",
@@ -2149,8 +2149,8 @@
     "effects": [
       {
         "applyOnAction": "7-8",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "7-9"
         }
       },
@@ -2160,7 +2160,7 @@
         }
       },
       {
-        "actionFilter": "6-1",
+        "useIfAction": "6-1",
         "statMap": {
           "PERCENT_MV": 0.5
         }
@@ -2176,8 +2176,8 @@
         ],
         "maxStacks": 4,
         "duration": 6000,
-        "maxProcs": 2,
-        "actionFilter": "6-1",
+        "maxUses": 2,
+        "useIfAction": "6-1",
         "statMap": {
           "PERCENT_RS": 0.2
         }
@@ -2206,14 +2206,14 @@
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 1.2
         }
       },
       {
         "rank": 6,
-        "actionFilter": [
+        "useIfAction": [
           "7-8",
           "7-9",
           "7-10"
@@ -2265,13 +2265,13 @@
         "applyOnAction": "3-2",
         "applyTo": "team",
         "duration": 30000,
-        "maxProcs": 21,
-        "procs": {
+        "maxUses": 21,
+        "followUpAction": {
           "actions": "3-1"
         },
         "rankModifiers": {
           "2": {
-            "maxProcs": 6
+            "maxUses": 6
           }
         }
       },
@@ -2334,14 +2334,14 @@
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 0.467
         }
       },
       {
         "rank": 6,
-        "actionFilter": [
+        "useIfAction": [
           "7-2",
           "7-3"
         ],
@@ -2403,7 +2403,7 @@
       },
       {
         "rank": 1,
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "statMap": {
           "PERCENT_MV": 0.48
         }
@@ -2426,8 +2426,8 @@
         "rank": 3,
         "applyOnAction": "3-1",
         "duration": 24000,
-        "maxProcs": 5,
-        "actionFilter": [
+        "maxUses": 5,
+        "useIfAction": [
           "2-1",
           "3-5",
           "7-1",
@@ -2448,21 +2448,21 @@
       },
       {
         "rank": 5,
-        "actionFilter": "8-1",
+        "useIfAction": "8-1",
         "statMap": {
           "PERCENT_MV": 2.22
         }
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 1
         }
       },
       {
         "rank": 6,
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "statMap": {
           "PERCENT_MV": 0.76
         }
@@ -2511,8 +2511,8 @@
     "effects": [
       {
         "applyOnAction": "2-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "2-2"
         }
       },
@@ -2599,8 +2599,8 @@
     "effects": [
       {
         "applyOnAction": "2-2",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "2-1",
           "times": 5
         }
@@ -2608,8 +2608,8 @@
       {
         "rank": 4,
         "applyOnAction": "2-2",
-        "maxProcs": 1,
-        "actionFilter": "2-2",
+        "maxUses": 1,
+        "useIfAction": "2-2",
         "statMap": {
           "PERCENT_HB": 0.7
         }
@@ -2618,10 +2618,10 @@
         "applyOnAction": "3-2",
         "applyTo": "active",
         "duration": 30000,
-        "procs": {
+        "followUpAction": {
           "actions": "3-1"
         },
-        "procsCooldown": 3000,
+        "followUpActionCooldown": 3000,
         "rankModifiers": {
           "1": {
             "duration": 10000
@@ -2686,28 +2686,28 @@
           "7-2",
           "7-3"
         ],
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-1",
           "times": 5
         }
       },
       {
         "applyOnAction": "6-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "6-3"
         }
       },
       {
         "applyOnAction": "6-2",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "actions": "6-4"
         }
       },
       {
-        "actionFilter": "6-2",
+        "useIfAction": "6-2",
         "statMap": {
           "PERCENT_CR": 1
         },
@@ -2773,15 +2773,15 @@
       },
       {
         "rank": 3,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_RL": 0.3
         }
       },
       {
         "applyOnAction": "1-10",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "1-2",
           "times": 2
         }
@@ -2797,7 +2797,7 @@
       },
       {
         "rank": 2,
-        "actionFilter": [
+        "useIfAction": [
           "7-6",
           "7-7"
         ],
@@ -2807,16 +2807,16 @@
       },
       {
         "applyOnAction": "7-9",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-1",
           "times": 2
         }
       },
       {
         "applyOnAction": "8-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-8",
           "times": 4
         }
@@ -2872,7 +2872,7 @@
     "effects": [
       {
         "rank": 2,
-        "actionFilter": "7-1",
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_MV": 1.2
         },
@@ -2886,7 +2886,7 @@
       },
       {
         "rank": 3,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 0.5
         }
@@ -2909,14 +2909,14 @@
       },
       {
         "rank": 5,
-        "actionFilter": "6-1",
+        "useIfAction": "6-1",
         "statMap": {
           "PERCENT_MV": 3.03
         }
       },
       {
         "rank": 5,
-        "actionFilter": "8-1",
+        "useIfAction": "8-1",
         "statMap": {
           "PERCENT_MV": 0.68
         }
@@ -2932,7 +2932,7 @@
       {
         "applyOnAction": "7-1",
         "duration": 15000,
-        "actionFilter": [
+        "useIfAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -2963,8 +2963,8 @@
       },
       {
         "applyOnAction": "7-1",
-        "maxProcs": 1,
-        "actionFilter": "8-1",
+        "maxUses": 1,
+        "useIfAction": "8-1",
         "statMap": {
           "FLAT_MV": 4.5902
         }
@@ -3033,7 +3033,7 @@
         }
       },
       {
-        "actionFilter": [
+        "useIfAction": [
           "3-1",
           "3-2",
           "3-3"
@@ -3044,14 +3044,14 @@
       },
       {
         "rank": 2,
-        "actionFilter": "3-3",
+        "useIfAction": "3-3",
         "statMap": {
           "PERCENT_MV": 1.26
         }
       },
       {
         "rank": 3,
-        "actionFilter": [
+        "useIfAction": [
           "2-1",
           "2-2"
         ],
@@ -3061,7 +3061,7 @@
       },
       {
         "rank": 3,
-        "actionFilter": "8-1",
+        "useIfAction": "8-1",
         "statMap": {
           "FLAT_MV": 10.3218
         }
@@ -3081,14 +3081,14 @@
       },
       {
         "rank": 5,
-        "actionFilter": "7-1",
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_MV": 0.47
         }
       },
       {
         "rank": 6,
-        "actionFilter": "3-2",
+        "useIfAction": "3-2",
         "statMap": {
           "PERCENT_FLAT": 1.866
         }
@@ -3170,8 +3170,8 @@
       },
       {
         "applyOnAction": "8-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-4"
         }
       },
@@ -3209,7 +3209,7 @@
         "rank": 4,
         "applyOnAction": "2-1",
         "duration": 12000,
-        "actionFilter": [
+        "useIfAction": [
           "7-1",
           "7-2",
           "7-3"
@@ -3220,7 +3220,7 @@
       },
       {
         "rank": 5,
-        "actionFilter": [
+        "useIfAction": [
           "1-5",
           "7-1",
           "7-2",
@@ -3232,7 +3232,7 @@
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 0.2
         }
@@ -3241,7 +3241,7 @@
         "rank": 6,
         "applyOnAction": "3-1",
         "duration": 12000,
-        "actionFilter": [
+        "useIfAction": [
           "7-1",
           "7-2",
           "7-3"
@@ -3254,7 +3254,7 @@
         "rank": 6,
         "applyOnAction": "3-1",
         "duration": 12000,
-        "actionFilter": "7-3",
+        "useIfAction": "7-3",
         "statMap": {
           "PERCENT_MV": 1
         }
@@ -3297,8 +3297,8 @@
     "effects": [
       {
         "applyOnAction": "3-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "3-2",
           "times": 3
         }
@@ -3329,21 +3329,21 @@
       },
       {
         "applyOnAction": "6-1",
-        "maxProcs": 4,
-        "procs": {
+        "maxUses": 4,
+        "followUpAction": {
           "action": "7-2",
           "times": 3
         }
       },
       {
         "applyOnAction": "7-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-3"
         },
         "rankModifiers": {
           "4": {
-            "procs": {
+            "followUpAction": {
               "action": "7-5",
               "times": 3
             }
@@ -3351,13 +3351,13 @@
         }
       },
       {
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "statMap": {
           "PERCENT_HB": 0.2
         }
       },
       {
-        "actionFilter": [
+        "useIfAction": [
           "1-7",
           "1-8",
           "1-9",
@@ -3399,7 +3399,7 @@
       },
       {
         "rank": 2,
-        "actionFilter": [
+        "useIfAction": [
           "1-7",
           "1-8",
           "1-9",
@@ -3420,24 +3420,24 @@
         "rank": 2,
         "applyOnAction": "8-1",
         "applyTo": "team",
-        "maxProcs": 2,
+        "maxUses": 2,
         "duration": 20000,
-        "procs": {
-          "filter": "RS",
+        "followUpAction": {
+          "useIfConsidered": "RS",
           "action": "7-4"
         },
-        "procsCooldown": 1000
+        "followUpActionCooldown": 1000
       },
       {
         "rank": 3,
-        "actionFilter": "7-1",
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_MV": 0.42
         }
       },
       {
         "rank": 4,
-        "actionFilter": "7-3",
+        "useIfAction": "7-3",
         "statMap": {
           "PERCENT_SS": 0.2
         }
@@ -3450,7 +3450,7 @@
       },
       {
         "rank": 6,
-        "actionFilter": [
+        "useIfAction": [
           "1-7",
           "1-8",
           "1-9",
@@ -3508,8 +3508,8 @@
       {
         "applyOnAction": "2-1",
         "duration": 30000,
-        "procs": {
-          "actionKeyTrigger": [
+        "followUpAction": {
+          "useIfAction": [
             "1-1",
             "1-2",
             "1-3",
@@ -3517,11 +3517,11 @@
           ],
           "action": "2-2"
         },
-        "procsCooldown": 500
+        "followUpActionCooldown": 500
       },
       {
         "applyOnAction": "7-1",
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 2.55
         },
@@ -3535,7 +3535,7 @@
       },
       {
         "applyOnAction": "7-1",
-        "actionFilter": "7-3",
+        "useIfAction": "7-3",
         "statMap": {
           "AMP_ALL": 2.56
         },
@@ -3558,7 +3558,7 @@
       },
       {
         "applyOnAction": "7-1",
-        "actionFilter": "8-1",
+        "useIfAction": "8-1",
         "statMap": {
           "PERCENT_MV": 2.55
         },
@@ -3596,7 +3596,7 @@
       {
         "rank": 1,
         "applyOnAction": "7-2",
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 0.9
         }
@@ -3604,7 +3604,7 @@
       {
         "rank": 3,
         "applyOnAction": "7-2",
-        "actionFilter": "7-3",
+        "useIfAction": "7-3",
         "statMap": {
           "PERCENT_MV": 2.49
         }
@@ -3646,8 +3646,8 @@
       {
         "rank": 6,
         "applyOnAction": "2-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-3"
         }
       }
@@ -3695,8 +3695,8 @@
     "effects": [
       {
         "applyOnAction": "2-2",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "2-3"
         }
       },
@@ -3704,14 +3704,14 @@
         "applyOnAction": "3-1",
         "applyTo": "active",
         "duration": 30000,
-        "maxProcs": 21,
-        "procs": {
+        "maxUses": 21,
+        "followUpAction": {
           "action": "3-2"
         },
-        "procsCooldown": 1000,
+        "followUpActionCooldown": 1000,
         "rankModifiers": {
           "5": {
-            "maxProcs": 5
+            "maxUses": 5
           }
         }
       },
@@ -3723,16 +3723,16 @@
           "7-4",
           "7-6"
         ],
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-7",
           "times": 3
         }
       },
       {
         "applyOnAction": "7-5",
-        "maxProcs": 1,
-        "procs": [
+        "maxUses": 1,
+        "followUpAction": [
           {
             "action": "2-3"
           },
@@ -3777,7 +3777,7 @@
       },
       {
         "rank": 1,
-        "actionFilter": [
+        "useIfAction": [
           "2-1",
           "2-2",
           "7-5"
@@ -3789,28 +3789,28 @@
       {
         "rank": 2,
         "applyOnAction": "3-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "2-3"
         }
       },
       {
         "rank": 2,
-        "actionFilter": "2-3",
+        "useIfAction": "2-3",
         "statMap": {
           "PERCENT_MV": 2.45
         }
       },
       {
         "rank": 3,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 3.7
         }
       },
       {
         "rank": 6,
-        "actionFilter": [
+        "useIfAction": [
           "7-1",
           "7-2",
           "7-3"
@@ -3873,13 +3873,13 @@
       },
       {
         "applyOnAction": "3-1",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "3-2"
         }
       },
       {
-        "actionFilter": "7-1",
+        "useIfAction": "7-1",
         "statMap": {
           "PERCENT_HA": 0.3
         },
@@ -3923,7 +3923,7 @@
       },
       {
         "rank": 4,
-        "actionFilter": [
+        "useIfAction": [
           "3-1",
           "3-2",
           "7-2"
@@ -3941,8 +3941,8 @@
       {
         "rank": 6,
         "applyOnAction": "1-4",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-2"
         }
       }
@@ -4002,7 +4002,7 @@
         }
       },
       {
-        "actionFilter": [
+        "useIfAction": [
           "7-1",
           "7-2",
           "7-3",
@@ -4022,8 +4022,8 @@
       },
       {
         "applyOnAction": "7-3",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-4",
           "times": 40
         }
@@ -4051,7 +4051,7 @@
       },
       {
         "rank": 2,
-        "actionFilter": [
+        "useIfAction": [
           "2-3",
           "2-4"
         ],
@@ -4061,7 +4061,7 @@
       },
       {
         "rank": 3,
-        "actionFilter": "3-2",
+        "useIfAction": "3-2",
         "statMap": {
           "PERCENT_MV": 12
         }
@@ -4077,14 +4077,14 @@
       },
       {
         "rank": 5,
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 1.2
         }
       },
       {
         "rank": 6,
-        "actionFilter": "7-3",
+        "useIfAction": "7-3",
         "statMap": {
           "FLAT_MV": 16
         }
@@ -4131,7 +4131,7 @@
     },
     "effects": [
       {
-        "actionFilter": "2-2",
+        "useIfAction": "2-2",
         "statMap": {
           "PERCENT_MV": 0.5
         }
@@ -4167,8 +4167,8 @@
           "7-2"
         ],
         "applyTo": "next",
-        "maxProcs": 1,
-        "procs": {
+        "maxUses": 1,
+        "followUpAction": {
           "action": "7-3"
         }
       },
@@ -4205,14 +4205,14 @@
       },
       {
         "rank": 3,
-        "actionFilter": "6-2",
+        "useIfAction": "6-2",
         "statMap": {
           "PERCENT_MV": 1
         }
       },
       {
         "rank": 4,
-        "actionFilter": "7-2",
+        "useIfAction": "7-2",
         "statMap": {
           "PERCENT_MV": 1.25
         }
@@ -4230,7 +4230,7 @@
       },
       {
         "rank": 6,
-        "actionFilter": [
+        "useIfAction": [
           "7-2",
           "3-1",
           "6-2"
@@ -4277,7 +4277,7 @@
     },
     "effects": [
       {
-        "actionFilter": "3-1",
+        "useIfAction": "3-1",
         "statMap": {
           "PERCENT_ALL": 1
         },
@@ -4315,7 +4315,7 @@
       },
       {
         "rank": 2,
-        "actionFilter": [
+        "useIfAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -4330,7 +4330,7 @@
       },
       {
         "rank": 2,
-        "actionFilter": [
+        "useIfAction": [
           "1-7",
           "1-8",
           "1-9",
@@ -4349,7 +4349,7 @@
       },
       {
         "rank": 6,
-        "actionFilter": [
+        "useIfAction": [
           "3-1",
           "6-2",
           "7-1",
