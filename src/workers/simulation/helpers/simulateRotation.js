@@ -238,7 +238,7 @@ const resolveMultiplierValue = (value) => {
   return Array.isArray(value) ? value[9] : value;
 };
 
-const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex) => {
+const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = Infinity) => {
   const inline = proc.action ?? proc.inlineAction
     ?? (proc.multipliers || proc.mv != null || proc.flat != null ? proc : null);
   if (!inline) return null;
@@ -255,11 +255,17 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex) => {
 
   for (const { mv: rawMv, flat: rawFlat, times = 1 } of multipliers) {
     if (rawMv != null) {
-      sumMvTimes += resolveMultiplierValue(rawMv) * times;
+      const mv = Array.isArray(rawMv) && rawMv.length === 2
+        ? resolveRankedValue(rawMv, rank)
+        : resolveMultiplierValue(rawMv);
+      sumMvTimes += mv * times;
       sumTimes += times;
     }
     if (rawFlat != null) {
-      sumFlat += resolveMultiplierValue(rawFlat);
+      const flat = Array.isArray(rawFlat) && rawFlat.length === 2
+        ? resolveRankedValue(rawFlat, rank)
+        : resolveMultiplierValue(rawFlat);
+      sumFlat += flat;
     }
   }
 
@@ -282,11 +288,11 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex) => {
   };
 };
 
-const normalizeProc = (memberId, effectKey, proc, procIndex) => ({
+const normalizeProc = (memberId, effectKey, proc, procIndex, rank = Infinity) => ({
   useIfConsidered: proc.useIfConsidered && toArray(proc.useIfConsidered),
   useIfAction: proc.useIfAction && toArray(proc.useIfAction).map(sk => `${memberId}-${sk}`),
   actions: toArray(proc.actions),
-  inlineAction: normalizeInlineProcAction(memberId, effectKey, proc, procIndex),
+  inlineAction: normalizeInlineProcAction(memberId, effectKey, proc, procIndex, rank),
   times: proc.times ?? 1,
 });
 
@@ -357,7 +363,7 @@ const normalizeEffects = (gameId, member) => {
 
     if (followUpAction) {
       resolved.followUpAction.push(
-        ...toArray(followUpAction).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, procIndex))
+        ...toArray(followUpAction).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, procIndex, rank))
       );
     }
   }
@@ -386,7 +392,7 @@ const normalizeEffects = (gameId, member) => {
         statusMap: effect.statusMap ?? {},
         applyIfEnemyStatus: effect.applyIfEnemyStatus ?? null,
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
-        followUpAction: toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex)),
+        followUpAction: toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank)),
       };
 
       if (effect.rankModifiers) {
@@ -397,27 +403,29 @@ const normalizeEffects = (gameId, member) => {
         }
       }
 
-      const applyOnAction = toArray(effect.applyOnAction).map(shortKey => `${memberId}-${shortKey}`);
-      const applyOnCast = toArray(effect.applyOnCast);
-      const applyIfAction = toArray(effect.applyIfAction).map(shortKey => `${memberId}-${shortKey}`);
-      const applyIfActionType = toArray(effect.applyIfActionType);
-      const applyIfConsidered = toArray(effect.applyIfConsidered);
+      const applyOnCastAction = toArray(effect.applyOnCastAction).map(shortKey => `${memberId}-${shortKey}`);
+      const applyOnCastSkill = toArray(effect.applyOnCastSkill);
+      const applyOnContactAction = toArray(effect.applyOnContactAction).map(shortKey => `${memberId}-${shortKey}`);
+      const applyOnContactSkill = toArray(effect.applyOnContactSkill);
+      const applyOnContactType = toArray(effect.applyOnContactType);
+      const applyOnContactConsidered = toArray(effect.applyOnContactConsidered);
 
-      if (!applyOnAction.length && !applyIfActionType.length && !applyOnCast.length && !applyIfConsidered.length && !applyIfAction.length) {
+      if (!applyOnCastAction.length && !applyOnCastSkill.length && !applyOnContactAction.length && !applyOnContactSkill.length && !applyOnContactType.length && !applyOnContactConsidered.length) {
         resolved.isPassive = true;
       } else {
         const actions = actionsCache.get(memberId);
         for (const actionKey in actions) {
           const { type, cast, considered } = actions[actionKey];
 
-          const actionMatch = applyOnAction.includes(actionKey);
-          const castMatch = cast.some(c => applyOnCast.includes(c));
-          const ifActionMatch = applyIfAction.includes(actionKey);
-          const typeMatch = applyIfActionType.includes(type);
-          const consideredMatch = considered.some(c => applyIfConsidered.includes(c));
+          const castActionMatch = applyOnCastAction.includes(actionKey);
+          const castSkillMatch = cast.some(c => applyOnCastSkill.includes(c));
+          const contactActionMatch = applyOnContactAction.includes(actionKey);
+          const contactSkillMatch = cast.some(c => applyOnContactSkill.includes(c));
+          const typeMatch = applyOnContactType.includes(type);
+          const consideredMatch = considered.some(c => applyOnContactConsidered.includes(c));
 
-          const isCast = actionMatch || castMatch;
-          const isContact = ifActionMatch || typeMatch || consideredMatch;
+          const isCast = castActionMatch || castSkillMatch;
+          const isContact = contactActionMatch || contactSkillMatch || typeMatch || consideredMatch;
 
           if (isCast) (castEffectsByAction[actionKey] ??= []).push(effectKey);
           if (isContact) (contactEffectsByAction[actionKey] ??= []).push(effectKey);

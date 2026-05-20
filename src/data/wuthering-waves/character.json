@@ -13,7 +13,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "followUpAction": {
           "useIfAction": "7-1",
           "actions": "7-3"
@@ -22,7 +22,7 @@
         "duration": 5000
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "followUpAction": {
           "useIfAction": "7-1",
           "actions": "7-2"
@@ -31,14 +31,14 @@
         "duration": 5000
       },
       {
-        "applyOnCast": "IS",
+        "applyOnCastSkill": "IS",
         "statMap": {
           "PERCENT_RS": 0.2
         },
         "duration": 8000
       },
       {
-        "applyOnAction": "1-5",
+        "applyOnCastAction": "1-5",
         "useIfAction": [
           "7-2",
           "7-3",
@@ -50,7 +50,7 @@
         "duration": 8000
       },
       {
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "followUpAction": {
           "useIfAction": "7-1",
           "actions": "7-4"
@@ -59,7 +59,7 @@
         "duration": 8000
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_BA": 0.38
@@ -68,7 +68,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": "1-5",
+        "applyOnCastAction": "1-5",
         "statMap": {
           "PERCENT_CR": 0.15
         },
@@ -83,7 +83,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "useIfAction": "7-1",
         "statMap": {
           "PERCENT_HA": 1.2
@@ -104,7 +104,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-2",
           "7-4"
         ],
@@ -149,14 +149,14 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "followUpAction": {
           "actions": "2-2"
         },
         "maxUses": 1
       },
       {
-        "applyOnAction": "3-3",
+        "applyOnCastAction": "3-3",
         "applyTo": "active",
         "maxUses": 4,
         "followUpAction": [
@@ -169,14 +169,14 @@
         ]
       },
       {
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "6-2"
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -193,7 +193,7 @@
         }
       },
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "applyTo": "first",
         "statMap": {
           "PERCENT_ATK": 0.15
@@ -201,14 +201,14 @@
         "duration": 35000
       },
       {
-        "applyOnAction": "1-5",
+        "applyOnCastAction": "1-5",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-2"
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_ALL": 0.15
@@ -217,7 +217,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "statMap": {
           "PERCENT_GLACIO": 0.15,
           "PERCENT_HB": 0.15
@@ -226,7 +226,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "statMap": {
           "PERCENT_HP": 0.12
         },
@@ -234,7 +234,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "applyTo": "team",
         "statMap": {
           "PERCENT_GLACIO": 0.12
@@ -278,7 +278,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 14000,
         "statMap": {
           "PERCENT_GLACIO": 0.5
@@ -290,7 +290,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-2",
           "7-3"
         ],
@@ -303,7 +303,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 14000,
         "statMap": {
           "PERCENT_BA": 0.2,
@@ -312,7 +312,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -321,7 +321,7 @@
       },
       {
         "rank": 5,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "maxUses": 1,
         "statMap": {
           "FLAT_MV": 2
@@ -329,7 +329,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "7-4",
+        "applyOnCastAction": "7-4",
         "maxUses": 1,
         "useIfAction": [
           "7-2",
@@ -389,7 +389,7 @@
         }
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "duration": 10000,
         "statMap": {
           "PERCENT_ATK": 0.3
@@ -412,7 +412,7 @@
       },
       {
         "rank": 5,
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "duration": 10000,
         "statMap": {
           "PERCENT_ATK": 0.3
@@ -420,7 +420,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "applyTo": "team",
         "duration": 15000,
         "statMap": {
@@ -478,7 +478,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-1",
           "3-6"
         ],
@@ -489,7 +489,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -536,7 +536,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "3-1",
           "3-2",
           "3-3",
@@ -596,7 +596,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "team",
         "duration": 10000,
         "followUpAction": [
@@ -624,7 +624,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -632,7 +632,7 @@
         }
       },
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "duration": 8000,
         "useIfAction": "7-1",
         "statMap": {
@@ -640,7 +640,7 @@
         }
       },
       {
-        "applyOnAction": "3-2",
+        "applyOnCastAction": "3-2",
         "duration": 17000,
         "maxStacks": 50,
         "useIfAction": "3-2",
@@ -650,7 +650,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 10000,
         "useIfAction": "3-2",
         "statMap": {
@@ -664,7 +664,7 @@
       },
       {
         "rank": 5,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-1",
           "7-1"
         ],
@@ -676,7 +676,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "team",
         "duration": 20000,
         "statMap": {
@@ -722,7 +722,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "duration": 15000,
         "statMap": {
           "PERCENT_RL": 0.1
@@ -730,7 +730,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "3-2",
           "6-1"
         ],
@@ -741,7 +741,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 11000,
         "statMap": {
           "PERCENT_ELECTRO": 0.25
@@ -749,7 +749,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -764,7 +764,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-3",
@@ -816,7 +816,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "duration": 10000,
         "maxUses": 4,
         "followUpAction": {
@@ -825,7 +825,7 @@
         }
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "applyTo": "team",
         "duration": 18000,
         "followUpAction": {
@@ -834,14 +834,14 @@
         "followUpActionCooldown": 1000
       },
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "duration": 5000,
         "statMap": {
           "PERCENT_CR": 0.15
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -859,14 +859,14 @@
         }
       },
       {
-        "applyOnAction": "2-2",
+        "applyOnCastAction": "2-2",
         "duration": 4000,
         "statMap": {
           "PERCENT_ATK": 0.1
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -893,7 +893,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "applyTo": "team",
         "duration": 12000,
         "statMap": {
@@ -909,7 +909,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 30000,
         "maxUses": 4,
         "useIfAction": "3-1",
@@ -957,7 +957,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "applyTo": "team",
         "duration": 12000,
         "followUpAction": {
@@ -965,7 +965,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-4",
           "3-1"
         ],
@@ -975,7 +975,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "2-1"
@@ -989,7 +989,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "2-2",
+        "applyOnCastAction": "2-2",
         "maxUses": 1,
         "statMap": {
           "FLAT_MV": 0.2
@@ -997,7 +997,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-10"
@@ -1005,7 +1005,7 @@
       },
       {
         "rank": 5,
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "duration": 12000,
         "statMap": {
           "PERCENT_RL": 0.5
@@ -1013,7 +1013,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "applyTo": "team",
         "duration": 15000,
         "statMap": {
@@ -1055,7 +1055,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 8000,
         "statMap": {
           "PERCENT_AERO": 0.08
@@ -1063,7 +1063,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 8000,
         "statMap": {
           "PERCENT_AERO": 0.15
@@ -1091,7 +1091,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "applyTo": "team",
         "duration": 20000,
         "statMap": {
@@ -1140,7 +1140,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-2",
+        "applyOnCastAction": "2-2",
         "maxUses": 1,
         "followUpAction": {
           "actions": "2-1",
@@ -1148,7 +1148,7 @@
         }
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 10000,
         "useIfAction": [
           "1-1",
@@ -1180,7 +1180,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -1197,7 +1197,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -1206,7 +1206,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": "2-2",
+        "applyOnCastAction": "2-2",
         "duration": 8000,
         "statMap": {
           "PERCENT_ATK": 0.15
@@ -1224,7 +1224,7 @@
       },
       {
         "rank": 5,
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "duration": 6000,
         "statMap": {
           "PERCENT_AERO": 0.25
@@ -1232,7 +1232,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 10000,
         "statMap": {
           "PERCENT_CR": 0.08,
@@ -1283,7 +1283,7 @@
         }
       },
       {
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 15000,
         "statMap": {
           "PERCENT_ATK": 0.1
@@ -1295,7 +1295,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "followUpAction": {
           "useIfConsidered": "HA",
@@ -1319,7 +1319,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 15000,
         "statMap": {
           "PERCENT_ATK": 0.28
@@ -1327,7 +1327,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-1",
           "3-1",
           "6-1",
@@ -1341,7 +1341,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "3-1",
           "7-1"
         ],
@@ -1360,14 +1360,14 @@
       },
       {
         "rank": 5,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "statMap": {
           "PERCENT_ATK": 0.45
         }
       },
       {
         "rank": 6,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-6",
           "1-7",
           "1-8",
@@ -1421,7 +1421,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "3-3",
+        "applyOnCastAction": "3-3",
         "applyTo": "team",
         "duration": 1000,
         "maxUses": 1,
@@ -1436,28 +1436,28 @@
         ]
       },
       {
-        "applyOnAction": "7-3",
+        "applyOnCastAction": "7-3",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-8"
         }
       },
       {
-        "applyOnAction": "7-4",
+        "applyOnCastAction": "7-4",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-9"
         }
       },
       {
-        "applyOnAction": "7-5",
+        "applyOnCastAction": "7-5",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-10"
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-7",
           "7-8",
           "7-9",
@@ -1484,7 +1484,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -1493,7 +1493,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "duration": 14000,
         "useIfAction": [
           "3-1",
@@ -1505,7 +1505,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "duration": 5000,
         "maxUses": 1,
         "followUpAction": [
@@ -1572,14 +1572,14 @@
     },
     "effects": [
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "3-2"
         }
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "team",
         "duration": 12000,
         "followUpAction": [
@@ -1593,7 +1593,7 @@
         "followUpActionCooldown": 1000
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-1",
           "7-2",
           "7-3",
@@ -1606,7 +1606,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -1614,7 +1614,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-6",
@@ -1638,7 +1638,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "3-1",
           "7-1",
           "7-2",
@@ -1661,7 +1661,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-1",
           "7-2",
           "7-3",
@@ -1714,35 +1714,35 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "2-2"
         }
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-4"
         }
       },
       {
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-5"
         }
       },
       {
-        "applyOnAction": "7-3",
+        "applyOnCastAction": "7-3",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-6"
         }
       },
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "applyTo": "team",
         "duration": 15000,
         "statMap": {
@@ -1755,7 +1755,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -1783,7 +1783,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "1-6",
+        "applyOnCastAction": "1-6",
         "duration": 5000,
         "statMap": {
           "PERCENT_DEF": 0.5
@@ -1791,7 +1791,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "1-6",
+        "applyOnCastAction": "1-6",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-7"
@@ -1810,7 +1810,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "duration": 30000,
         "statMap": {
           "PERCENT_BA": 0.4,
@@ -1857,7 +1857,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-3",
+        "applyOnCastAction": "2-3",
         "duration": 12000,
         "statMap": {
           "PERCENT_ALL": 0.2
@@ -1871,14 +1871,14 @@
         }
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "3-2"
         }
       },
       {
-        "applyOnAction": "1-6",
+        "applyOnCastAction": "1-6",
         "maxUses": 2,
         "useIfAction": [
           "2-2",
@@ -1889,7 +1889,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-4",
           "2-5",
           "2-6"
@@ -1900,7 +1900,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -1909,7 +1909,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -1957,7 +1957,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-1",
           "7-3"
         ],
@@ -2009,7 +2009,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 10000,
         "maxUses": 1,
         "useIfAction": "7-1",
@@ -2037,7 +2037,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 10000,
         "statMap": {
@@ -2059,7 +2059,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-2",
           "2-3",
           "3-1"
@@ -2078,7 +2078,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -2148,7 +2148,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "7-8",
+        "applyOnCastAction": "7-8",
         "maxUses": 1,
         "followUpAction": {
           "actions": "7-9"
@@ -2167,7 +2167,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-1",
           "7-2",
           "7-3",
@@ -2184,7 +2184,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "maxStacks": 2,
         "duration": 20000,
         "statMap": {
@@ -2193,7 +2193,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "3-1",
           "7-8",
           "7-9"
@@ -2262,7 +2262,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "3-2",
+        "applyOnCastAction": "3-2",
         "applyTo": "team",
         "duration": 30000,
         "maxUses": 21,
@@ -2276,14 +2276,14 @@
         }
       },
       {
-        "applyOnAction": "7-3",
+        "applyOnCastAction": "7-3",
         "duration": 27000,
         "statMap": {
           "PERCENT_BA": 0.18
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-2",
           "7-3"
         ],
@@ -2294,7 +2294,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -2304,7 +2304,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": "7-3",
+        "applyOnCastAction": "7-3",
         "duration": 27000,
         "statMap": {
           "PERCENT_CR": 0.1
@@ -2312,7 +2312,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-1",
           "7-2",
           "7-3"
@@ -2325,7 +2325,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "3-2",
+        "applyOnCastAction": "3-2",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -2389,7 +2389,7 @@
     },
     "effects": [
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-1",
           "3-5",
           "7-1",
@@ -2410,7 +2410,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-1",
           "3-1",
           "3-5",
@@ -2424,7 +2424,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 24000,
         "maxUses": 5,
         "useIfAction": [
@@ -2439,7 +2439,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -2510,21 +2510,21 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "2-2"
         }
       },
       {
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": "14000",
         "statMap": {
           "PERCENT_GLACIO": 0.15
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_CA": 1
@@ -2538,7 +2538,7 @@
       },
       {
         "rank": 5,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 14000,
         "statMap": {
           "PERCENT_CR": 0.15
@@ -2546,7 +2546,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-3",
           "2-4",
           "2-5",
@@ -2598,7 +2598,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-2",
+        "applyOnCastAction": "2-2",
         "maxUses": 1,
         "followUpAction": {
           "actions": "2-1",
@@ -2607,7 +2607,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "2-2",
+        "applyOnCastAction": "2-2",
         "maxUses": 1,
         "useIfAction": "2-2",
         "statMap": {
@@ -2615,7 +2615,7 @@
         }
       },
       {
-        "applyOnAction": "3-2",
+        "applyOnCastAction": "3-2",
         "applyTo": "active",
         "duration": 30000,
         "followUpAction": {
@@ -2629,7 +2629,7 @@
         }
       },
       {
-        "applyOnAction": "3-2",
+        "applyOnCastAction": "3-2",
         "applyTo": "team",
         "duration": 30000,
         "variableStatMap": {
@@ -2652,7 +2652,7 @@
         }
       },
       {
-        "applyOnAction": "3-2",
+        "applyOnCastAction": "3-2",
         "applyTo": "first",
         "duration": 30000,
         "variableStatMap": {
@@ -2670,7 +2670,7 @@
         }
       },
       {
-        "applyOnAction": "3-2",
+        "applyOnCastAction": "3-2",
         "duration": 30000,
         "statMap": {
           "PERCENT_ER": 0.1
@@ -2682,7 +2682,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-2",
           "7-3"
         ],
@@ -2693,14 +2693,14 @@
         }
       },
       {
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "maxUses": 1,
         "followUpAction": {
           "actions": "6-3"
         }
       },
       {
-        "applyOnAction": "6-2",
+        "applyOnCastAction": "6-2",
         "maxUses": 1,
         "followUpAction": {
           "actions": "6-4"
@@ -2721,7 +2721,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -2779,7 +2779,7 @@
         }
       },
       {
-        "applyOnAction": "1-10",
+        "applyOnCastAction": "1-10",
         "maxUses": 1,
         "followUpAction": {
           "action": "1-2",
@@ -2788,7 +2788,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "team",
         "duration": 20000,
         "statMap": {
@@ -2806,7 +2806,7 @@
         }
       },
       {
-        "applyOnAction": "7-9",
+        "applyOnCastAction": "7-9",
         "maxUses": 1,
         "followUpAction": {
           "action": "7-1",
@@ -2814,7 +2814,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "maxUses": 1,
         "followUpAction": {
           "action": "7-8",
@@ -2822,7 +2822,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 10000,
         "statMap": {
@@ -2893,7 +2893,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "duration": 15000,
         "statMap": {
           "PERCENT_ATK": 0.58
@@ -2901,7 +2901,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 30000,
         "statMap": {
           "PERCENT_BA": 0.25
@@ -2923,14 +2923,14 @@
       },
       {
         "rank": 1,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 18000,
         "statMap": {
           "PERCENT_CD": 0.28
         }
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "duration": 15000,
         "useIfAction": [
           "1-1",
@@ -2962,7 +2962,7 @@
         }
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "maxUses": 1,
         "useIfAction": "8-1",
         "statMap": {
@@ -3014,7 +3014,7 @@
     },
     "effects": [
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-2",
           "3-2",
           "6-1",
@@ -3068,7 +3068,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-6",
           "1-7",
           "7-1"
@@ -3136,7 +3136,7 @@
     },
     "effects": [
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-5",
           "2-1"
         ],
@@ -3146,7 +3146,7 @@
         }
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "team",
         "duration": 30000,
         "variableStatMap": {
@@ -3160,7 +3160,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -3169,7 +3169,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "maxUses": 1,
         "followUpAction": {
           "action": "7-4"
@@ -3177,7 +3177,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": "7-3",
+        "applyOnCastAction": "7-3",
         "duration": 30000,
         "statMap": {
           "PERCENT_HAVOC": 0.1
@@ -3185,7 +3185,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-1",
           "7-2",
           "7-3"
@@ -3198,7 +3198,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 15000,
         "statMap": {
           "PERCENT_CR": 0.1,
@@ -3207,7 +3207,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "duration": 12000,
         "useIfAction": [
           "7-1",
@@ -3239,7 +3239,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 12000,
         "useIfAction": [
           "7-1",
@@ -3252,7 +3252,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 12000,
         "useIfAction": "7-3",
         "statMap": {
@@ -3296,7 +3296,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
           "action": "3-2",
@@ -3304,7 +3304,7 @@
         }
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 12000,
         "variableStatMap": {
           "FLAT_ATK": {
@@ -3328,7 +3328,7 @@
         }
       },
       {
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "maxUses": 4,
         "followUpAction": {
           "action": "7-2",
@@ -3336,7 +3336,7 @@
         }
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "maxUses": 1,
         "followUpAction": {
           "action": "7-3"
@@ -3375,7 +3375,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -3385,7 +3385,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-9",
           "1-13",
           "1-15",
@@ -3418,7 +3418,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "team",
         "maxUses": 2,
         "duration": 20000,
@@ -3506,7 +3506,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "duration": 30000,
         "followUpAction": {
           "useIfAction": [
@@ -3520,7 +3520,7 @@
         "followUpActionCooldown": 500
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 2.55
@@ -3534,7 +3534,7 @@
         }
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "useIfAction": "7-3",
         "statMap": {
           "AMP_ALL": 2.56
@@ -3548,7 +3548,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-1",
           "7-2"
         ],
@@ -3557,7 +3557,7 @@
         }
       },
       {
-        "applyOnAction": "7-1",
+        "applyOnCastAction": "7-1",
         "useIfAction": "8-1",
         "statMap": {
           "PERCENT_MV": 2.55
@@ -3571,7 +3571,7 @@
         }
       },
       {
-        "applyOnAction": "8-2",
+        "applyOnCastAction": "8-2",
         "applyTo": "enemy",
         "statMap": {
           "SHRED_SPECTRO_RES": 0.1
@@ -3579,7 +3579,7 @@
         "duration": 30000
       },
       {
-        "applyOnAction": "8-2",
+        "applyOnCastAction": "8-2",
         "applyTo": "active",
         "duration": 30000,
         "statMap": {
@@ -3595,7 +3595,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "useIfAction": "3-1",
         "statMap": {
           "PERCENT_MV": 0.9
@@ -3603,7 +3603,7 @@
       },
       {
         "rank": 3,
-        "applyOnAction": "7-2",
+        "applyOnCastAction": "7-2",
         "useIfAction": "7-3",
         "statMap": {
           "PERCENT_MV": 2.49
@@ -3611,7 +3611,7 @@
       },
       {
         "rank": 4,
-        "applyIfAction": [
+        "applyOnContactAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -3629,7 +3629,7 @@
       },
       {
         "rank": 5,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 15000,
         "statMap": {
           "PERCENT_SPECTRO": 0.12
@@ -3637,7 +3637,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.1
@@ -3645,7 +3645,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "2-1",
+        "applyOnCastAction": "2-1",
         "maxUses": 1,
         "followUpAction": {
           "action": "7-3"
@@ -3694,14 +3694,14 @@
     },
     "effects": [
       {
-        "applyOnAction": "2-2",
+        "applyOnCastAction": "2-2",
         "maxUses": 1,
         "followUpAction": {
           "action": "2-3"
         }
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "active",
         "duration": 30000,
         "maxUses": 21,
@@ -3716,7 +3716,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-1",
           "7-2",
           "7-3",
@@ -3730,7 +3730,7 @@
         }
       },
       {
-        "applyOnAction": "7-5",
+        "applyOnCastAction": "7-5",
         "maxUses": 1,
         "followUpAction": [
           {
@@ -3755,7 +3755,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-2",
           "3-1",
           "7-5"
@@ -3767,7 +3767,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "duration": 14000,
         "statMap": {
@@ -3788,7 +3788,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
           "action": "2-3"
@@ -3821,7 +3821,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 10000,
         "statMap": {
           "IGNORE_DEF": 0.3
@@ -3872,7 +3872,7 @@
         }
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
           "action": "3-2"
@@ -3892,7 +3892,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -3901,7 +3901,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -3914,7 +3914,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -3940,7 +3940,7 @@
       },
       {
         "rank": 6,
-        "applyOnAction": "1-4",
+        "applyOnCastAction": "1-4",
         "maxUses": 1,
         "followUpAction": {
           "action": "7-2"
@@ -3985,7 +3985,7 @@
     },
     "effects": [
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-3",
           "2-4"
         ],
@@ -4021,7 +4021,7 @@
         }
       },
       {
-        "applyOnAction": "7-3",
+        "applyOnCastAction": "7-3",
         "maxUses": 1,
         "followUpAction": {
           "action": "7-4",
@@ -4029,14 +4029,14 @@
         }
       },
       {
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "duration": 14000,
         "statMap": {
           "PERCENT_SPECTRO": 0.12
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "ally",
         "duration": 20000,
         "statMap": {
@@ -4068,7 +4068,7 @@
       },
       {
         "rank": 4,
-        "applyOnAction": "6-1",
+        "applyOnCastAction": "6-1",
         "applyTo": "team",
         "duration": 30000,
         "statMap": {
@@ -4137,7 +4137,7 @@
         }
       },
       {
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "applyTo": "team",
         "duration": 35000,
         "statMap": {
@@ -4147,7 +4147,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "2-2",
           "1-6",
           "1-7",
@@ -4162,7 +4162,7 @@
         }
       },
       {
-        "applyOnAction": [
+        "applyOnCastAction": [
           "7-1",
           "7-2"
         ],
@@ -4173,7 +4173,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_BA": 0.25,
@@ -4182,7 +4182,7 @@
       },
       {
         "rank": 1,
-        "applyOnAction": "3-1",
+        "applyOnCastAction": "3-1",
         "duration": 10000,
         "statMap": {
           "PERCENT_CR": 0.2
@@ -4190,7 +4190,7 @@
       },
       {
         "rank": 2,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "3-1",
           "1-6",
           "1-7",
@@ -4219,7 +4219,7 @@
       },
       {
         "rank": 5,
-        "applyOnAction": [
+        "applyOnCastAction": [
           "6-1",
           "6-2"
         ],
@@ -4306,7 +4306,7 @@
         }
       },
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "ally",
         "duration": 20000,
         "statMap": {
@@ -4419,7 +4419,7 @@
     "match": [],
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_HA": 0.25,
@@ -4468,7 +4468,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_GLACIO": 0.15,
@@ -4530,7 +4530,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_HA": 0.5
@@ -4619,7 +4619,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_ES": 0.5
@@ -4664,7 +4664,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "team",
         "statMap": {
           "AMP_ALL": 0.15
@@ -4747,7 +4747,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "team",
         "statMap": {
           "AMP_ALL": 0.25
@@ -4790,7 +4790,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_ALL": 0.15,
@@ -4835,7 +4835,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "ally",
         "statMap": {
           "AMP_ALL": 0.2
@@ -4968,7 +4968,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "ally",
         "statMap": {
           "AMP_GLACIO": 0.2
@@ -5023,7 +5023,7 @@
     },
     "effects": [
       {
-        "applyOnAction": "8-1",
+        "applyOnCastAction": "8-1",
         "applyTo": "next",
         "statMap": {
           "AMP_ALL": 0.4
