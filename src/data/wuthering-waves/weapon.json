@@ -1960,8 +1960,11 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnCast": "RS",
-        "applyTo": "team",
+        "applyOnAction": [
+          "1406-7-4",
+          "1408-7-4"
+        ],
+        "applyTo": "active",
         "statMap": {
           "AMP_AERO": [
             0.1,

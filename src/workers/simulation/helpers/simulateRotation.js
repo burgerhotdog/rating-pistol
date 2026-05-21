@@ -120,7 +120,7 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
   return baseStats;
 };
 
-const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) => {
+const simulateAction = ({ gameId, action, effectTrackers, activeId, members, allEffectDefinitions }) => {
   const { owner: actionOwner, actionKey, type, considered, attr, hasMultipliers, sumMvTimes, sumTimes, sumFlat, times } = action;
   const ownerElement = CHARACTERS[gameId][actionOwner].element;
   const element = action.element ?? ownerElement;
@@ -140,58 +140,40 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
 
   // Build stat map from effects
   const effectStatMap = {};
-  for (const [effectKey, { stacks }] of Object.entries(effectTrackers.team)) {
-    const effectOwner = effectKey.split('-')[0];
-    const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-    const { useIfAction, useIfConsidered } = effectDefinition;
+  // Tracked effects
+  const trackersToEval = [
+    ...Object.entries(members[actionOwner].effectDefinitions).filter(([, { isPassive }]) => isPassive),
+    ...Object.entries(effectTrackers.team),
+    ...Object.entries(activeId === actionOwner ? effectTrackers.active : effectTrackers.inactive),
+    ...Object.entries(effectTrackers.byMember[actionOwner]),
+  ];
+  for (const [effectKey, { stacks }] of trackersToEval) {
+    const {
+      useIfAction,
+      useIfConsidered,
+      statMap,
+      variableStatMap,
+      chance = 1,
+    } = allEffectDefinitions[effectKey];
+
     if (useIfAction && !useIfAction.includes(actionKey)) continue;
     if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-    const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
-    applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
-  }
 
-  // Apply active-target effects only if the action owner matches the current actor
-  if (activeId === actionOwner) {
-    for (const [effectKey, { stacks }] of Object.entries(effectTrackers.active)) {
-      const effectOwner = effectKey.split('-')[0];
-      const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-      const { useIfAction, useIfConsidered } = effectDefinition;
-      if (useIfAction && !useIfAction.includes(actionKey)) continue;
-      if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-      const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
-      applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
+    if (statMap) {
+      for (const [statId, value] of Object.entries(statMap)) {
+        effectStatMap[statId] ??= 0
+        effectStatMap[statId] += value * chance * stacks;
+      }
     }
-  } else {
-    for (const [effectKey, { stacks }] of Object.entries(effectTrackers.inactive)) {
-      const effectOwner = effectKey.split('-')[0];
-      const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-      const { useIfAction, useIfConsidered } = effectDefinition;
-      if (useIfAction && !useIfAction.includes(actionKey)) continue;
-      if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-      const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
-      applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
+
+    if (variableStatMap) {
+      const effectOwnerCurrentStats = getOrComputeStatMap(effectKey.split('-')[0]);
+      const resolvedVariableStatMap = resolveVariableStatMap(variableStatMap, effectOwnerCurrentStats);
+      for (const [statId, value] of Object.entries(resolvedVariableStatMap)) {
+        effectStatMap[statId] ??= 0
+        effectStatMap[statId] += value * chance * stacks;
+      }
     }
-  }
-  
-  // Include character-specific effects
-  for (const [effectKey, { stacks }] of Object.entries(effectTrackers.byMember[actionOwner])) {
-    const effectOwner = effectKey.split('-')[0];
-    const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-    const { useIfAction, useIfConsidered } = effectDefinition;
-    if (useIfAction && !useIfAction.includes(actionKey)) continue;
-    if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-    const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
-    applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
-  }
-
-  for (const effectDefinition of Object.values(members[actionOwner].effectDefinitions)) {
-    const { isPassive, chance, useIfAction, useIfConsidered } = effectDefinition;
-    if (!isPassive) continue;
-    if (useIfAction && !useIfAction.includes(actionKey)) continue;
-    if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-
-    const passiveMemberCurrentStats = getOrComputeStatMap(actionOwner);
-    applyEffectStatMap(effectStatMap, effectDefinition, passiveMemberCurrentStats, chance);
   }
 
   const statMapWithEffects = mergeStatMaps(members[actionOwner].statMap, effectStatMap);
@@ -218,19 +200,6 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
 
   return { damage: baseValue * bonuses * reductions * times };
 };
-
-function applyEffectStatMap(baseStatMap, effectDefinition, sourceStatMap, multiplier = 1) {
-  const { statMap = {}, variableStatMap = {} } = effectDefinition;
-
-  for (const [statId, val] of Object.entries(statMap)) {
-    baseStatMap[statId] = (baseStatMap[statId] ?? 0) + val * multiplier;
-  }
-
-  const resolvedVariableStatMap = resolveVariableStatMap(variableStatMap, sourceStatMap);
-  for (const [statId, val] of Object.entries(resolvedVariableStatMap)) {
-    baseStatMap[statId] = (baseStatMap[statId] ?? 0) + val * multiplier;
-  }
-}
 
 const resolveRankedValue = (value, rank) => {
   if (!Array.isArray(value)) return value;
@@ -410,7 +379,11 @@ const normalizeEffects = (gameId, member) => {
       }
 
       const applyWhen = effect.applyWhen;
-      const applyOnAction = toArray(effect.applyOnAction).map(shortKey => `${memberId}-${shortKey}`);
+      const applyOnAction = toArray(effect.applyOnAction).map(key => {
+        const segments = key.split('-');
+        if (segments.length === 3) return key;
+        return `${memberId}-${key}`;
+      });
       const applyOnType = toArray(effect.applyOnType);
       const applyOnCast = toArray(effect.applyOnCast);
       const applyOnConsidered = toArray(effect.applyOnConsidered);
@@ -461,6 +434,7 @@ export const simulateRotation = (gameId, rawTeam) => {
 
   // normalize actions and effects
   const members = {};
+  const allEffectDefinitions = {};
   for (const [index, member] of team.entries()) {
     const { memberId, build = {} } = member;
 
@@ -470,7 +444,7 @@ export const simulateRotation = (gameId, rawTeam) => {
 
     const setCounts = getSetCounts(member);
     const setCacheKey = Object.keys(setCounts).sort().map(k => `${k}:${setCounts[k]}`).join(',');
-    const effectsCacheKey = `${gameId}-${memberId}-${member.rank ?? 0}-${member.weaponId}-${member.weaponRank ?? 1}-${setCacheKey}`;
+    const effectsCacheKey = `${gameId}-${memberId}-${member.rank}-${member.weaponId}-${member.weaponRank}-${setCacheKey}`;
     let normalizedEffects = normalizeEffectsCache.get(effectsCacheKey);
     if (!normalizedEffects) {
       normalizedEffects = normalizeEffects(gameId, member);
@@ -484,6 +458,7 @@ export const simulateRotation = (gameId, rawTeam) => {
     }
 
     const { castEffectsByAction, contactEffectsByAction, effectDefinitions } = normalizedEffects;
+    Object.assign(allEffectDefinitions, effectDefinitions);
     members[memberId] = {
       index,
       statMap,
@@ -536,14 +511,14 @@ export const simulateRotation = (gameId, rawTeam) => {
       tickProcCooldowns(procCooldownMap, offset);
       tickProcCooldowns(applyCooldownMap, offset);
 
-      const { damage = 0, healing = 0 } = simulateAction({ gameId, action, effectTrackers, activeId, members });
+      const { damage = 0, healing = 0 } = simulateAction({ gameId, action, effectTrackers, activeId, members, allEffectDefinitions });
       actionMap[actionKey] = {
         damage: (actionMap[actionKey]?.damage ?? 0) + damage,
         healing: (actionMap[actionKey]?.healing ?? 0) + healing,
       };
 
       applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
-      processProcEffects({ gameId, members, action, effectTrackers, procCooldownMap, actionMap });
+      processProcEffects({ gameId, members, action, effectTrackers, procCooldownMap, actionMap, allEffectDefinitions });
       decayProcCounts(members, effectTrackers, action);
       tickProcCooldowns(procCooldownMap, duration);
       tickProcCooldowns(applyCooldownMap, duration);
@@ -704,6 +679,7 @@ function processProcEffects({
   effectTrackers,
   procCooldownMap,
   actionMap = null,
+  allEffectDefinitions,
 }) {
   const { actionKey, owner: actionOwner, considered } = action;
   const { byMember, team, active, inactive, enemy } = effectTrackers;
@@ -747,6 +723,7 @@ function processProcEffects({
               effectTrackers,
               activeId: actionOwner,
               members,
+              allEffectDefinitions,
             });
 
             actionMap[procActionKey] = {
