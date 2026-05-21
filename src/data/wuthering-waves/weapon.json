@@ -2018,14 +2018,30 @@
       "BASE_ATK": 587,
       "PERCENT_CD": 0.486
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCastSkill": "BA",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.08,
+            0.16
+          ],
+          "AMP_FRAZZLE": [
+            0.5,
+            1
+          ]
+        },
+        "duration": 6000
       }
-    }
+    ]
   },
   "21010036": {
     "name": "Wildfire Mark",
@@ -2035,14 +2051,40 @@
       "BASE_ATK": 587,
       "PERCENT_CD": 0.486
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCastSkill": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_RL": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 10000
+      },
+      {
+        "applyOnContactConsidered": "HA",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_FUSION": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21020056": {
     "name": "Defier's Thorn",
@@ -2052,14 +2094,40 @@
       "BASE_ATK": 412,
       "PERCENT_HP": 0.722
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_HP": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_HP": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCastSkill": [
+          "IS",
+          "BA"
+        ],
+        "statMap": {
+          "IGNORE_DEF": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyOnContactType": "damage",
+        "applyIfEnemyStatus": "EROSION",
+        "statMap": {
+          "AMP_ALL": [
+            0.2,
+            0.4
+          ]
+        },
+        "maxUses": 1
       }
-    }
+    ]
   },
   "21050066": {
     "name": "Lethean Elegy",
@@ -2069,14 +2137,34 @@
       "BASE_ATK": 587,
       "PERCENT_CR": 0.243
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnContactConsidered": "ES",
+        "statMap": {
+          "PERCENT_RS": [
+            0.32,
+            0.64
+          ],
+          "AMP_ES": [
+            0.32,
+            0.64
+          ],
+          "IGNORE_DEF": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 12000
       }
-    }
+    ]
   },
   "21010046": {
     "name": "Thunderflare Dominion",
@@ -2086,14 +2174,42 @@
       "BASE_ATK": 675,
       "PERCENT_CR": 0.121
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCastSkill": [
+          "IS",
+          "RS"
+        ],
+        "statMap": {
+          "PERCENT_HA": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyOnContactType": "shield",
+        "applyCooldown": 500,
+        "useIfConsidered": "HA",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.072,
+            0.12
+          ]
+        },
+        "duration": 7000,
+        "maxStacks": 5
       }
-    }
+    ]
   },
   "21010104": {
     "name": "Aureate Zenith",
@@ -2150,10 +2266,11 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnCastSkill": [
+      "applyOnContactConsidered": [
         "BA",
         "HA"
       ],
+      "applyCooldown": 1000,
       "statMap": {
         "PERCENT_ATK": [
           0.022,
@@ -2165,8 +2282,7 @@
         ]
       },
       "duration": 7000,
-      "maxStacks": 4,
-      "applyCooldown": 1000
+      "maxStacks": 4
     }
   },
   "21040046": {
@@ -2177,14 +2293,52 @@
       "BASE_ATK": 500,
       "PERCENT_CR": 0.36
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCastSkill": [
+          "IS",
+          "RL"
+        ],
+        "statMap": {
+          "PERCENT_RL": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyOnContactType": "shield",
+        "useIfConsidered": "RL",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.072,
+            0.12
+          ]
+        },
+        "duration": 7000,
+        "maxStacks": 5
+      },
+      {
+        "applyOnCastSkill": "IS",
+        "useIfConsidered": "RL",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.36,
+            0.6
+          ]
+        },
+        "duration": 3000
       }
-    }
+    ]
   },
   "21040104": {
     "name": "Aether Strike",
@@ -2240,14 +2394,39 @@
       "BASE_ATK": 587,
       "PERCENT_CR": 0.243
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCastSkill": "ES",
+        "removeOnCast": "OS",
+        "statMap": {
+          "PERCENT_HA": [
+            0.3,
+            0.6
+          ]
+        },
+        "duration": 12000,
+        "maxStacks": 2
+      },
+      {
+        "applyOnCastSkill": "IS",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ES": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 30000
       }
-    }
+    ]
   },
   "21030036": {
     "name": "Lux & Umbra",
@@ -2257,14 +2436,44 @@
       "BASE_ATK": 587,
       "PERCENT_CD": 0.486
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnContactConsidered": "ES",
+        "statMap": {
+          "AMP_HA": [
+            0.24,
+            0.48
+          ],
+          "IGNORE_DEF": [
+            0.04,
+            0.08
+          ]
+        },
+        "duration": 6000
+      },
+      {
+        "applyOnContactConsidered": "HA",
+        "statMap": {
+          "AMP_ES": [
+            0.24,
+            0.48
+          ],
+          "IGNORE_DEF": [
+            0.04,
+            0.08
+          ]
+        },
+        "duration": 6000
       }
-    }
+    ]
   },
   "21010056": {
     "name": "Kumokiri",
@@ -2274,14 +2483,48 @@
       "BASE_ATK": 500,
       "PERCENT_CR": 0.36
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyOnCastSkill": "IS",
+        "statMap": {
+          "PERCENT_RL": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyOnContactType": "damage",
+        "applyIfEnemyStatus": true,
+        "statMap": {
+          "PERCENT_RL": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 15000,
+        "maxStacks": 2
+      },
+      {
+        "applyOnCastSkill": "IS",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ALL": [
+            0.24,
+            0.48
+          ]
+        }
       }
-    }
+    ]
   },
   "21010045": {
     "name": "Radiance Cleaver",

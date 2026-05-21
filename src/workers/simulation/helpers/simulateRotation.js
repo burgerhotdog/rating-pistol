@@ -143,8 +143,9 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.team)) {
     const effectOwner = effectKey.slice(0, 4);
     const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-    const { useIfAction } = effectDefinition;
+    const { useIfAction, useIfConsidered } = effectDefinition;
     if (useIfAction && !useIfAction.includes(actionKey)) continue;
+    if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
@@ -154,8 +155,9 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
     for (const [effectKey, { stacks }] of Object.entries(effectTrackers.active)) {
       const effectOwner = effectKey.slice(0, 4);
       const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-      const { useIfAction } = effectDefinition;
+      const { useIfAction, useIfConsidered } = effectDefinition;
       if (useIfAction && !useIfAction.includes(actionKey)) continue;
+      if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
       const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
       applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
     }
@@ -163,8 +165,9 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
     for (const [effectKey, { stacks }] of Object.entries(effectTrackers.inactive)) {
       const effectOwner = effectKey.slice(0, 4);
       const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-      const { useIfAction } = effectDefinition;
+      const { useIfAction, useIfConsidered } = effectDefinition;
       if (useIfAction && !useIfAction.includes(actionKey)) continue;
+      if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
       const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
       applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
     }
@@ -174,16 +177,18 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.byMember[actionOwner])) {
     const effectOwner = effectKey.slice(0, 4);
     const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
-    const { useIfAction } = effectDefinition;
+    const { useIfAction, useIfConsidered } = effectDefinition;
     if (useIfAction && !useIfAction.includes(actionKey)) continue;
+    if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
     const effectOwnerCurrentStats = getOrComputeStatMap(effectOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, effectOwnerCurrentStats, stacks);
   }
 
   for (const effectDefinition of Object.values(members[actionOwner].effectDefinitions)) {
-    const { isPassive, chance, useIfAction } = effectDefinition;
+    const { isPassive, chance, useIfAction, useIfConsidered } = effectDefinition;
     if (!isPassive) continue;
     if (useIfAction && !useIfAction.includes(actionKey)) continue;
+    if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
 
     const passiveMemberCurrentStats = getOrComputeStatMap(actionOwner);
     applyEffectStatMap(effectStatMap, effectDefinition, passiveMemberCurrentStats, chance);
@@ -386,6 +391,7 @@ const normalizeEffects = (gameId, member) => {
         maxUses: effect.maxUses ?? Infinity,
         followUpActionCooldown: effect.followUpActionCooldown ?? 0,
         useIfAction: effect.useIfAction && toArray(effect.useIfAction).map(shortKey => `${memberId}-${shortKey}`),
+        useIfConsidered: effect.useIfConsidered && toArray(effect.useIfConsidered),
         statMap: Object.fromEntries(
           Object.entries(effect.statMap ?? {}).map(([k, v]) => [k, resolveRankedValue(v, rank)])
         ),
