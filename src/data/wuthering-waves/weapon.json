@@ -2030,7 +2030,8 @@
       },
       {
         "applyWhen": "contact",
-        "applyOnType": "damage",
+        "applyOnType": "inflict",
+        "applyIfInflict": "EROSION",
         "statMap": {
           "PERCENT_AERO": [
             0.24,
@@ -2565,8 +2566,8 @@
       },
       {
         "applyWhen": "contact",
-        "applyOnType": "damage",
-        "applyIfEnemyStatus": true,
+        "applyOnType": "inflict",
+        "applyIfInflict": true,
         "statMap": {
           "PERCENT_RL": [
             0.08,

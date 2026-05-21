@@ -366,6 +366,7 @@ const normalizeEffects = (gameId, member) => {
         ),
         statusMap: effect.statusMap ?? {},
         applyIfEnemyStatus: effect.applyIfEnemyStatus ?? null,
+        applyIfInflict: effect.applyIfInflict ?? null,
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
         followUpAction: toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank)),
       };
@@ -392,6 +393,7 @@ const normalizeEffects = (gameId, member) => {
         resolved.isPassive = true;
       } else {
         const actions = actionsCache.get(memberId);
+        const inflictMatch = applyOnType.includes('inflict');
         for (const actionKey in actions) {
           const { type, cast, considered } = actions[actionKey];
 
@@ -400,7 +402,7 @@ const normalizeEffects = (gameId, member) => {
           const castMatch = cast.some(c => applyOnCast.includes(c));
           const consideredMatch = considered.some(c => applyOnConsidered.includes(c));
 
-          if (actionMatch || castMatch || typeMatch || consideredMatch) {
+          if (actionMatch || castMatch || typeMatch || consideredMatch || inflictMatch) {
             if (applyWhen === 'cast') {
               (castEffectsByAction[actionKey] ??= []).push(effectKey);
             }
@@ -575,6 +577,8 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
     })
   );
 
+  const inflictedStatuses = new Set();
+
   function applyEffect(tracker, effect) {
     const { effectKey, maxStacks, duration, maxUses } = effectDefinitions[effect];
     const currentStacks = tracker[effectKey]?.stacks ?? 0;
@@ -586,9 +590,10 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
   }
 
   for (const effect of triggeredEffects) {
-    const { applyTo, effectKey, applyCooldown, applyIfEnemyStatus } = effectDefinitions[effect];
+    const { applyTo, effectKey, applyCooldown, applyIfEnemyStatus, applyIfInflict } = effectDefinitions[effect];
 
     if (applyCooldownMap[effectKey]) continue;
+    if (applyIfInflict) continue;
 
     if (applyIfEnemyStatus) {
       const hasStatus = (applyIfEnemyStatus === true || applyIfEnemyStatus === 'ANY')
@@ -615,6 +620,7 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
         if (!statusDef) continue;
 
         const current = effectTrackers.enemyStatuses[statusName];
+        const stacksBefore = current?.stacks ?? 0;
         if (!current) {
           effectTrackers.enemyStatuses[statusName] = {
             stacks: Math.min(stacksToAdd * times, statusDef.maxStacks),
@@ -625,8 +631,28 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
           current.stacks = Math.min(current.stacks + stacksToAdd * times, statusDef.maxStacks);
           if (statusDef.refreshOnApply) current.duration = statusDef.duration;
         }
+        if ((effectTrackers.enemyStatuses[statusName]?.stacks ?? 0) > stacksBefore) inflictedStatuses.add(statusName);
       }
 
+      if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+      continue;
+    }
+
+    for (const [id, validTargets] of Object.entries(validTargetsById)) {
+      if (validTargets.includes(applyTo)) {
+        applyEffect(effectTrackers.byMember[id], effect);
+      }
+    }
+    if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
+  }
+
+  for (const effect of triggeredEffects) {
+    const { applyTo, effectKey, applyCooldown, applyIfInflict } = effectDefinitions[effect];
+    if (!applyIfInflict || !inflictedStatuses.has(applyIfInflict)) continue;
+    if (applyCooldownMap[effectKey]) continue;
+
+    if (applyTo === 'team' || applyTo === 'active' || applyTo === 'inactive') {
+      applyEffect(effectTrackers[applyTo], effect);
       if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
       continue;
     }
