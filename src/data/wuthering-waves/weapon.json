@@ -70,7 +70,8 @@
         }
       },
       {
-        "applyOnCastSkill": "RS",
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_RL": [
             0.07,
@@ -100,7 +101,8 @@
         }
       },
       {
-        "applyOnCastSkill": [
+        "applyWhen": "cast",
+        "applyOnCast": [
           "IS",
           "RL"
         ],
@@ -249,7 +251,8 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnContactConsidered": [
+      "applyWhen": "contact",
+      "applyOnConsidered": [
         "BA",
         "HA"
       ],
@@ -335,7 +338,8 @@
         }
       },
       {
-        "applyOnCastSkill": "RS",
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_ATK": [
             0.06,
@@ -400,7 +404,8 @@
         }
       },
       {
-        "applyOnContactConsidered": "HA",
+        "applyWhen": "contact",
+        "applyOnConsidered": "HA",
         "applyCooldown": 8000,
         "followUpAction": {
           "action": {
@@ -578,7 +583,8 @@
         }
       },
       {
-        "applyOnCastSkill": "OS",
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
         "applyTo": "next",
         "statMap": {
           "PERCENT_ATK": [
@@ -713,7 +719,8 @@
       "PERCENT_ATK": 0.364
     },
     "effects": {
-      "applyOnContactSkill": [
+      "applyWhen": "contact",
+      "applyOnCast": [
         "BA",
         "HA"
       ],
@@ -799,7 +806,8 @@
         }
       },
       {
-        "applyOnContactSkill": "RS",
+        "applyWhen": "contact",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_BA": [
             0.1,
@@ -809,7 +817,8 @@
         "duration": 8000
       },
       {
-        "applyOnContactSkill": "BA",
+        "applyWhen": "contact",
+        "applyOnCast": "BA",
         "statMap": {
           "PERCENT_RS": [
             0.1,
@@ -829,7 +838,8 @@
       "PERCENT_CD": 0.405
     },
     "effects": {
-      "applyOnContactConsidered": "BA",
+      "applyWhen": "contact",
+      "applyOnConsidered": "BA",
       "applyCooldown": 3000,
       "followUpAction": {
         "action": {
@@ -1051,7 +1061,8 @@
         }
       },
       {
-        "applyOnContactConsidered": "BA",
+        "applyWhen": "contact",
+        "applyOnConsidered": "BA",
         "applyCooldown": 500,
         "statMap": {
           "PERCENT_BA": [
@@ -1082,7 +1093,8 @@
         }
       },
       {
-        "applyOnContactConsidered": "RS",
+        "applyWhen": "contact",
+        "applyOnConsidered": "RS",
         "statMap": {
           "PERCENT_ATK": [
             0.12,
@@ -1093,7 +1105,8 @@
         "maxStacks": 2
       },
       {
-        "applyOnCastSkill": "IS",
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
         "applyTo": "inactive",
         "statMap": {
           "PERCENT_ATK": [
@@ -1220,7 +1233,8 @@
       "PERCENT_HP": 0.303
     },
     "effects": {
-      "applyOnContactConsidered": [
+      "applyWhen": "contact",
+      "applyOnConsidered": [
         "BA",
         "HA"
       ],
@@ -1272,7 +1286,8 @@
         }
       },
       {
-        "applyOnCastSkill": "IS",
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
         "statMap": {
           "PERCENT_RS": [
             0.24,
@@ -1282,7 +1297,8 @@
         "duration": 12000
       },
       {
-        "applyOnCastSkill": "RS",
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_RS": [
             0.24,
@@ -1320,7 +1336,8 @@
         }
       },
       {
-        "applyOnContactType": "damage",
+        "applyWhen": "contact",
+        "applyOnType": "damage",
         "applyCooldown": 500,
         "statMap": {
           "PERCENT_RS": [
@@ -1331,7 +1348,8 @@
         "maxStacks": 4
       },
       {
-        "applyOnCastSkill": "RS",
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
         "applyCooldown": 500,
         "statMap": {
           "PERCENT_RS": [
@@ -1361,7 +1379,8 @@
         }
       },
       {
-        "applyOnCastSkill": "RL",
+        "applyWhen": "cast",
+        "applyOnCast": "RL",
         "statMap": {
           "PERCENT_RL": [
             0.48,
@@ -1390,7 +1409,8 @@
         }
       },
       {
-        "applyOnCastSkill": "RS",
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
         "statMap": {
           "PERCENT_BA": [
             0.12,
@@ -1401,7 +1421,8 @@
         "maxStacks": 3
       },
       {
-        "applyOnCastSkill": "OS",
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
         "statMap": {
           "PERCENT_BA": [
             0.52,
@@ -1510,7 +1531,8 @@
         }
       },
       {
-        "applyOnCastSkill": "RS",
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
         "applyTo": "team",
         "statMap": {
           "PERCENT_ATK": [
@@ -1551,7 +1573,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnContactType": "damage",
+      "applyWhen": "contact",
+      "applyOnType": "damage",
       "removeOnCast": "OS",
       "statMap": {
         "PERCENT_ATK": [
@@ -1589,7 +1612,8 @@
         }
       },
       {
-        "applyOnContactConsidered": "BA",
+        "applyWhen": "contact",
+        "applyOnConsidered": "BA",
         "applyCooldown": 1000,
         "statMap": {
           "PERCENT_BA": [
@@ -1611,7 +1635,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnContactType": "damage",
+      "applyWhen": "contact",
+      "applyOnType": "damage",
       "applyIfEnemyStatus": true,
       "applyCooldown": 1000,
       "statMap": {
@@ -1633,7 +1658,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnContactType": "damage",
+      "applyWhen": "contact",
+      "applyOnType": "damage",
       "applyIfEnemyStatus": true,
       "applyCooldown": 1000,
       "statMap": {
@@ -1664,7 +1690,8 @@
         }
       },
       {
-        "applyOnCastSkill": [
+        "applyWhen": "cast",
+        "applyOnCast": [
           "IS",
           "RL"
         ],
@@ -1687,7 +1714,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnContactType": "damage",
+      "applyWhen": "contact",
+      "applyOnType": "damage",
       "applyIfEnemyStatus": true,
       "applyCooldown": 1000,
       "statMap": {
@@ -1718,7 +1746,8 @@
         }
       },
       {
-        "applyOnCastSkill": [
+        "applyWhen": "cast",
+        "applyOnCast": [
           "BA",
           "IS"
         ],
@@ -1741,7 +1770,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnContactType": "damage",
+      "applyWhen": "contact",
+      "applyOnType": "damage",
       "applyIfEnemyStatus": true,
       "applyCooldown": 1000,
       "statMap": {
@@ -1782,7 +1812,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnContactType": "damage",
+      "applyWhen": "contact",
+      "applyOnType": "damage",
       "applyIfEnemyStatus": true,
       "applyCooldown": 1000,
       "statMap": {
@@ -1813,7 +1844,8 @@
         }
       },
       {
-        "applyOnCastSkill": "RL",
+        "applyWhen": "cast",
+        "applyOnCast": "RL",
         "statMap": {
           "PERCENT_BA": [
             0.24,
@@ -1823,7 +1855,8 @@
         "duration": 10000
       },
       {
-        "applyOnContactConsidered": "BA",
+        "applyWhen": "contact",
+        "applyOnConsidered": "BA",
         "statMap": {
           "PERCENT_BA": [
             0.24,
@@ -1843,7 +1876,8 @@
       "PERCENT_ATK": 0.182
     },
     "effects": {
-      "applyOnContactType": "damage",
+      "applyWhen": "contact",
+      "applyOnType": "damage",
       "applyIfEnemyStatus": "FRAZZLE",
       "applyCooldown": 1000,
       "statMap": {
@@ -1874,7 +1908,8 @@
         }
       },
       {
-        "applyOnContactType": "damage",
+        "applyWhen": "contact",
+        "applyOnType": "damage",
         "applyIfEnemyStatus": "FRAZZLE",
         "statMap": {
           "PERCENT_BA": [
@@ -1890,8 +1925,9 @@
         "maxStacks": 3
       },
       {
-        "applyOnCastSkill": "OS",
-        "applyTo": "team",
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
+        "applyTo": "enemy",
         "statMap": {
           "AMP_FRAZZLE": [
             0.3,
@@ -1912,7 +1948,8 @@
     },
     "effects": [
       {
-        "applyOnContactType": "heal",
+        "applyWhen": "contact",
+        "applyOnType": "heal",
         "statMap": {
           "PERCENT_RS": [
             0.1,
@@ -1922,7 +1959,8 @@
         "duration": 6000
       },
       {
-        "applyOnCastSkill": "RS",
+        "applyWhen": "cast",
+        "applyOnCast": "RS",
         "applyTo": "team",
         "statMap": {
           "AMP_AERO": [
@@ -1952,7 +1990,8 @@
         }
       },
       {
-        "applyOnCastSkill": "ES",
+        "applyWhen": "cast",
+        "applyOnCast": "ES",
         "removeOnCast": "OS",
         "statMap": {
           "PERCENT_BA": [
@@ -1987,7 +2026,8 @@
         }
       },
       {
-        "applyOnContactType": "damage",
+        "applyWhen": "contact",
+        "applyOnType": "damage",
         "statMap": {
           "PERCENT_AERO": [
             0.24,
@@ -1997,7 +2037,8 @@
         "duration": 10000
       },
       {
-        "applyOnContactType": "damage",
+        "applyWhen": "contact",
+        "applyOnType": "damage",
         "applyIfEnemyStatus": "EROSION",
         "applyTo": "enemy",
         "statMap": {
@@ -2028,7 +2069,8 @@
         }
       },
       {
-        "applyOnCastSkill": "BA",
+        "applyWhen": "cast",
+        "applyOnCast": "BA",
         "statMap": {
           "IGNORE_DEF": [
             0.08,
@@ -2061,7 +2103,8 @@
         }
       },
       {
-        "applyOnCastSkill": [
+        "applyWhen": "cast",
+        "applyOnCast": [
           "IS",
           "RL"
         ],
@@ -2074,7 +2117,8 @@
         "duration": 10000
       },
       {
-        "applyOnContactConsidered": "HA",
+        "applyWhen": "contact",
+        "applyOnConsidered": "HA",
         "applyTo": "team",
         "statMap": {
           "PERCENT_FUSION": [
@@ -2104,7 +2148,8 @@
         }
       },
       {
-        "applyOnCastSkill": [
+        "applyWhen": "cast",
+        "applyOnCast": [
           "IS",
           "BA"
         ],
@@ -2117,7 +2162,8 @@
         "duration": 15000
       },
       {
-        "applyOnContactType": "damage",
+        "applyWhen": "contact",
+        "applyOnType": "damage",
         "applyIfEnemyStatus": "EROSION",
         "statMap": {
           "AMP_ALL": [
@@ -2147,7 +2193,8 @@
         }
       },
       {
-        "applyOnContactConsidered": "ES",
+        "applyWhen": "contact",
+        "applyOnConsidered": "ES",
         "statMap": {
           "PERCENT_RS": [
             0.32,
@@ -2184,7 +2231,8 @@
         }
       },
       {
-        "applyOnCastSkill": [
+        "applyWhen": "cast",
+        "applyOnCast": [
           "IS",
           "RS"
         ],
@@ -2197,7 +2245,8 @@
         "duration": 15000
       },
       {
-        "applyOnContactType": "shield",
+        "applyWhen": "contact",
+        "applyOnType": "shield",
         "applyCooldown": 500,
         "useIfConsidered": "HA",
         "statMap": {
@@ -2266,7 +2315,8 @@
       "PERCENT_CR": 0.202
     },
     "effects": {
-      "applyOnContactConsidered": [
+      "applyWhen": "contact",
+      "applyOnConsidered": [
         "BA",
         "HA"
       ],
@@ -2303,7 +2353,8 @@
         }
       },
       {
-        "applyOnCastSkill": [
+        "applyWhen": "cast",
+        "applyOnCast": [
           "IS",
           "RL"
         ],
@@ -2316,7 +2367,8 @@
         "duration": 15000
       },
       {
-        "applyOnContactType": "shield",
+        "applyWhen": "contact",
+        "applyOnType": "shield",
         "useIfConsidered": "RL",
         "statMap": {
           "IGNORE_DEF": [
@@ -2328,7 +2380,8 @@
         "maxStacks": 5
       },
       {
-        "applyOnCastSkill": "IS",
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
         "useIfConsidered": "RL",
         "statMap": {
           "IGNORE_DEF": [
@@ -2404,7 +2457,8 @@
         }
       },
       {
-        "applyOnCastSkill": "ES",
+        "applyWhen": "cast",
+        "applyOnCast": "ES",
         "removeOnCast": "OS",
         "statMap": {
           "PERCENT_HA": [
@@ -2416,7 +2470,8 @@
         "maxStacks": 2
       },
       {
-        "applyOnCastSkill": "IS",
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
         "applyTo": "team",
         "statMap": {
           "PERCENT_ES": [
@@ -2446,7 +2501,8 @@
         }
       },
       {
-        "applyOnContactConsidered": "ES",
+        "applyWhen": "contact",
+        "applyOnConsidered": "ES",
         "statMap": {
           "AMP_HA": [
             0.24,
@@ -2460,7 +2516,8 @@
         "duration": 6000
       },
       {
-        "applyOnContactConsidered": "HA",
+        "applyWhen": "contact",
+        "applyOnConsidered": "HA",
         "statMap": {
           "AMP_ES": [
             0.24,
@@ -2493,7 +2550,8 @@
         }
       },
       {
-        "applyOnCastSkill": "IS",
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
         "statMap": {
           "PERCENT_RL": [
             0.08,
@@ -2503,7 +2561,8 @@
         "duration": 15000
       },
       {
-        "applyOnContactType": "damage",
+        "applyWhen": "contact",
+        "applyOnType": "damage",
         "applyIfEnemyStatus": true,
         "statMap": {
           "PERCENT_RL": [
@@ -2515,7 +2574,8 @@
         "maxStacks": 2
       },
       {
-        "applyOnCastSkill": "IS",
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
         "applyTo": "team",
         "statMap": {
           "PERCENT_ALL": [

@@ -12,29 +12,29 @@ const computeBase = (statMap, attr, sumMvTimes, sumTimes, sumFlat) => {
   return sumFlat + attrValue * (sumMvTimes + flatMv * sumTimes) * (1 + percentMv);
 };
 
-const computeBonuses = (statMap, element, dmgTypes) => {
+const computeBonuses = (statMap, element, dmgTypes, enemyStatMap) => {
   const critRate = Math.max(Math.min(computeTotalStat('CR', statMap), 1), 0);
   const critDamage = computeTotalStat('CD', statMap) - 1;
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
 
-  let dmgBonusMult = 1 + computeTotalStat('ALL', statMap);
-  let ampMult = 1 + (statMap['AMP_ALL'] ?? 0);
+  let dmgBonusMult = 1 + (statMap['PERCENT_ALL'] ?? 0) + (enemyStatMap['PERCENT_ALL'] ?? 0);
+  let ampMult = 1 + (statMap['AMP_ALL'] ?? 0) + (enemyStatMap['AMP_ALL'] ?? 0);
 
   for (const type of [element, ...dmgTypes]) {
-    dmgBonusMult += computeTotalStat(type, statMap);
-    ampMult += statMap[`AMP_${type}`] ?? 0;
+    dmgBonusMult += (statMap[`PERCENT_${type}`] ?? 0) + (enemyStatMap[`PERCENT_${type}`] ?? 0);
+    ampMult += (statMap[`AMP_${type}`] ?? 0) + (enemyStatMap[`AMP_${type}`] ?? 0);
   }
 
   return critMult * dmgBonusMult * ampMult;
 };
 
-const computeReductions = (gameId, statMap, element, dmgTypes, defShred = 0, resShred = 0) => {
+const computeReductions = (gameId, statMap, element, dmgTypes, enemyStatMap) => {
   const { MAX_LEVEL, ENEMY_RES } = MISC[gameId];
 
   // Enemy resistance multiplier
   let resIgnore = statMap[`IGNORE_${element}_RES`] ?? 0;
   for (const type of dmgTypes) resIgnore += statMap[`IGNORE_${element}_RES_${type}`] ?? 0;
-  resIgnore += resShred;
+  resIgnore += enemyStatMap[`SHRED_${element}_RES`] ?? 0;
   const totalRes = ENEMY_RES - resIgnore;
   let resMult;
   if (totalRes < 0) {
@@ -49,7 +49,7 @@ const computeReductions = (gameId, statMap, element, dmgTypes, defShred = 0, res
   const enemyDef = 8 * (MAX_LEVEL + 10) + 792;
   let defIgnore = statMap['IGNORE_DEF'] ?? 0;
   for (const type of dmgTypes) defIgnore += statMap[`IGNORE_DEF_${type}`] ?? 0;
-  defIgnore += defShred;
+  defIgnore += enemyStatMap['SHRED_DEF'] ?? 0;
   const defMult = (800 + 8 * MAX_LEVEL) / (800 + 8 * MAX_LEVEL + enemyDef * (1 - defIgnore))
 
   return resMult * defMult;
@@ -84,7 +84,7 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
 
   function addConstantEffectStats(trackerMap) {
     for (const [effectKey, { stacks }] of Object.entries(trackerMap)) {
-      const effectOwner = effectKey.slice(0, 4);
+      const effectOwner = effectKey.split('-')[0];
       const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
 
       const { statMap = {} } = effectDefinition;
@@ -102,7 +102,7 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
   // Then, resolve and add variable effects using base+constant stats
   function addVariableEffectStats(trackerMap) {
     for (const [effectKey, { stacks }] of Object.entries(trackerMap)) {
-      const effectOwner = effectKey.slice(0, 4);
+      const effectOwner = effectKey.split('-')[0];
       const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
 
       const { variableStatMap = {} } = effectDefinition;
@@ -141,7 +141,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   // Build stat map from effects
   const effectStatMap = {};
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.team)) {
-    const effectOwner = effectKey.slice(0, 4);
+    const effectOwner = effectKey.split('-')[0];
     const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
     const { useIfAction, useIfConsidered } = effectDefinition;
     if (useIfAction && !useIfAction.includes(actionKey)) continue;
@@ -153,7 +153,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   // Apply active-target effects only if the action owner matches the current actor
   if (activeId === actionOwner) {
     for (const [effectKey, { stacks }] of Object.entries(effectTrackers.active)) {
-      const effectOwner = effectKey.slice(0, 4);
+      const effectOwner = effectKey.split('-')[0];
       const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
       const { useIfAction, useIfConsidered } = effectDefinition;
       if (useIfAction && !useIfAction.includes(actionKey)) continue;
@@ -163,7 +163,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
     }
   } else {
     for (const [effectKey, { stacks }] of Object.entries(effectTrackers.inactive)) {
-      const effectOwner = effectKey.slice(0, 4);
+      const effectOwner = effectKey.split('-')[0];
       const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
       const { useIfAction, useIfConsidered } = effectDefinition;
       if (useIfAction && !useIfAction.includes(actionKey)) continue;
@@ -175,7 +175,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
   
   // Include character-specific effects
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.byMember[actionOwner])) {
-    const effectOwner = effectKey.slice(0, 4);
+    const effectOwner = effectKey.split('-')[0];
     const effectDefinition = members[effectOwner].effectDefinitions[effectKey];
     const { useIfAction, useIfConsidered } = effectDefinition;
     if (useIfAction && !useIfAction.includes(actionKey)) continue;
@@ -203,18 +203,18 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members }) =
     return { healing: baseValue * (1 + healingBonus) * times };
   }
 
-  const bonuses = computeBonuses(statMapWithEffects, element, considered);
-
-  let enemyDefShred = 0;
-  let enemyResShred = 0;
+  const enemyStatMap = {};
   for (const [effectKey, { stacks }] of Object.entries(effectTrackers.enemy)) {
-    const effectOwner = effectKey.slice(0, 4);
-    const { statMap: enemyStatMap = {} } = members[effectOwner].effectDefinitions[effectKey];
-    enemyDefShred += (enemyStatMap['SHRED_DEF'] ?? 0) * stacks;
-    enemyResShred += (enemyStatMap[`SHRED_${element}_RES`] ?? 0) * stacks;
+    const [effectOwner] = effectKey.split('-');
+    const { statMap } = members[effectOwner].effectDefinitions[effectKey];
+    for (const stat in statMap) {
+      enemyStatMap[stat] ??= 0;
+      enemyStatMap[stat] += statMap[stat] * stacks;
+    }
   }
 
-  const reductions = computeReductions(gameId, statMapWithEffects, element, considered, enemyDefShred, enemyResShred);
+  const bonuses = computeBonuses(statMapWithEffects, element, considered, enemyStatMap);
+  const reductions = computeReductions(gameId, statMapWithEffects, element, considered, enemyStatMap);
 
   return { damage: baseValue * bonuses * reductions * times };
 };
@@ -409,32 +409,33 @@ const normalizeEffects = (gameId, member) => {
         }
       }
 
-      const applyOnCastAction = toArray(effect.applyOnCastAction).map(shortKey => `${memberId}-${shortKey}`);
-      const applyOnCastSkill = toArray(effect.applyOnCastSkill);
-      const applyOnContactAction = toArray(effect.applyOnContactAction).map(shortKey => `${memberId}-${shortKey}`);
-      const applyOnContactSkill = toArray(effect.applyOnContactSkill);
-      const applyOnContactType = toArray(effect.applyOnContactType);
-      const applyOnContactConsidered = toArray(effect.applyOnContactConsidered);
+      const applyWhen = effect.applyWhen;
+      const applyOnAction = toArray(effect.applyOnAction).map(shortKey => `${memberId}-${shortKey}`);
+      const applyOnType = toArray(effect.applyOnType);
+      const applyOnCast = toArray(effect.applyOnCast);
+      const applyOnConsidered = toArray(effect.applyOnConsidered);
 
-      if (!applyOnCastAction.length && !applyOnCastSkill.length && !applyOnContactAction.length && !applyOnContactSkill.length && !applyOnContactType.length && !applyOnContactConsidered.length) {
+      if (!applyWhen) {
         resolved.isPassive = true;
       } else {
         const actions = actionsCache.get(memberId);
         for (const actionKey in actions) {
           const { type, cast, considered } = actions[actionKey];
 
-          const castActionMatch = applyOnCastAction.includes(actionKey);
-          const castSkillMatch = cast.some(c => applyOnCastSkill.includes(c));
-          const contactActionMatch = applyOnContactAction.includes(actionKey);
-          const contactSkillMatch = cast.some(c => applyOnContactSkill.includes(c));
-          const typeMatch = applyOnContactType.includes(type);
-          const consideredMatch = considered.some(c => applyOnContactConsidered.includes(c));
+          const actionMatch = applyOnAction.includes(actionKey);
+          const typeMatch = applyOnType.includes(type);
+          const castMatch = cast.some(c => applyOnCast.includes(c));
+          const consideredMatch = considered.some(c => applyOnConsidered.includes(c));
 
-          const isCast = castActionMatch || castSkillMatch;
-          const isContact = contactActionMatch || contactSkillMatch || typeMatch || consideredMatch;
+          if (actionMatch || castMatch || typeMatch || consideredMatch) {
+            if (applyWhen === 'cast') {
+              (castEffectsByAction[actionKey] ??= []).push(effectKey);
+            }
 
-          if (isCast) (castEffectsByAction[actionKey] ??= []).push(effectKey);
-          if (isContact) (contactEffectsByAction[actionKey] ??= []).push(effectKey);
+            if (applyWhen === 'contact') {
+              (contactEffectsByAction[actionKey] ??= []).push(effectKey);
+            }
+          }
         }
       }
 
@@ -563,7 +564,7 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
   if (trigger === 'cast' && input) {
     const removeFromMap = (trackerMap) => {
       for (const effectKey of Object.keys(trackerMap)) {
-        const effectOwner = effectKey.slice(0, 4);
+        const effectOwner = effectKey.split('-')[0];
         if (effectOwner !== actionOwner) continue;
         const effectDef = members[effectOwner]?.effectDefinitions[effectKey];
         if (!effectDef?.removeOnCast) continue;
@@ -780,7 +781,7 @@ function decayProcCounts(members, effectTrackers, action) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
       if (effectTracker.followUpActionRemaining === Infinity) continue;
 
-      const effectOwner = effectKey.slice(0, 4);
+      const effectOwner = effectKey.split('-')[0];
       const { useIfAction, followUpAction } = members[effectOwner].effectDefinitions[effectKey];
       if (useIfAction && !useIfAction.includes(actionKey)) continue;
 
