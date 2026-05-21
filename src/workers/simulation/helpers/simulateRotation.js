@@ -147,7 +147,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members, all
     ...Object.entries(activeId === actionOwner ? effectTrackers.active : effectTrackers.inactive),
     ...Object.entries(effectTrackers.byMember[actionOwner]),
   ];
-  for (const [effectKey, { stacks }] of trackersToEval) {
+  for (const [effectKey, { stacks = 1 }] of trackersToEval) {
     const {
       useIfAction,
       useIfConsidered,

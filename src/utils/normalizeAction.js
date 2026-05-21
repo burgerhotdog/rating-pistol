@@ -13,7 +13,13 @@ export const normalizeAction = (gameId, characterId, skillId, actionId, level = 
   const action = MVS[gameId][characterId][skillId].skills[actionId];
   const { element: ownerElement } = CHARACTERS[gameId][characterId];
   
+  let name = action.name ?? MVS[gameId][characterId][skillId].name ?? '';
   const type = action.type ?? 'damage';
+
+  if (type !== 'damage') {
+    name = `${name} ${type}`;
+  }
+
   const element = type && (action.element ?? ownerElement);
   const cast = toArray(action.cast ?? DEFAULT_CAST[skillId]);
   const considered = toArray(action.considered ?? cast);
@@ -37,6 +43,7 @@ export const normalizeAction = (gameId, characterId, skillId, actionId, level = 
   return {
     owner: characterId,
     skill: skillId,
+    name,
     type,
     element,
     cast,
@@ -46,7 +53,7 @@ export const normalizeAction = (gameId, characterId, skillId, actionId, level = 
     attr,
     hasMultipliers: !!action.multipliers,
     sumFlat,
-    sumMv,
+    sumMvTimes: sumMv,
     sumTimes,
     times: action.times ?? 1,
   };

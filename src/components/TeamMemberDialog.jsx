@@ -522,7 +522,7 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
     const actionList = [];
 
     for (const [skillId, skillGroup] of Object.entries(MVS[gameId][characterId])) {
-      for (const actionId in skillGroup) {
+      for (const actionId in skillGroup.skills) {
         const actionKey = `${characterId}-${skillId}-${actionId}`;
         const { name } = normalizeAction(gameId, characterId, skillId, actionId);
 
