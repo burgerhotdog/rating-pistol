@@ -480,8 +480,7 @@
       "name": "Silversnow",
       "skills": {
         "1": {
-          "type": "buff",
-          "duration": 0
+          "type": "buff"
         }
       }
     }
