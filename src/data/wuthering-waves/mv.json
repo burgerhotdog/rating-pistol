@@ -4332,35 +4332,13 @@
               ]
             }
           ]
-        },
-        "3": {
-          "name": "Phantom",
-          "cast": "CA",
-          "considered": [
-            "RL",
-            "CA"
-          ],
-          "multipliers": [
-            {
-              "mv": 1
-            }
-          ]
         }
       }
     },
     "8": {
       "name": "Shadowy Raid",
       "skills": {
-        "1": {
-          "multipliers": [
-            {
-              "mv": 1.9598
-            },
-            {
-              "mv": 3.9196
-            }
-          ]
-        }
+        "1": {}
       }
     }
   },

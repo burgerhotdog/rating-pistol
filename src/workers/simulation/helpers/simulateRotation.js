@@ -265,7 +265,7 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = 
 const normalizeProc = (memberId, effectKey, proc, procIndex, rank = Infinity) => ({
   useIfConsidered: proc.useIfConsidered && toArray(proc.useIfConsidered),
   useIfAction: proc.useIfAction && toArray(proc.useIfAction).map(sk => `${memberId}-${sk}`),
-  actions: toArray(proc.actions),
+  action: toArray(proc.action),
   inlineAction: normalizeInlineProcAction(memberId, effectKey, proc, procIndex, rank),
   times: proc.times ?? 1,
 });
@@ -722,12 +722,12 @@ function processProcEffects({
       if (!followUpAction) continue;
 
       let procFired = false;
-      for (const { useIfConsidered, useIfAction, actions, inlineAction, times } of followUpAction) {
+      for (const { useIfConsidered, useIfAction, action, inlineAction, times } of followUpAction) {
         if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
         if (useIfAction && !useIfAction.includes(actionKey)) continue;
 
         const procActions = [];
-        for (const procActionId of actions) {
+        for (const procActionId of action) {
           const procActionKey = effectOwner + '-' + procActionId;
           const procAction = actionsCache.get(effectOwner)[procActionKey];
           if (!procAction) continue;

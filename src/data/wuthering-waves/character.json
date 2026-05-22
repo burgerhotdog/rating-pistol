@@ -17,7 +17,7 @@
         "applyOnAction": "2-1",
         "followUpAction": {
           "useIfAction": "7-1",
-          "actions": "7-3"
+          "action": "7-3"
         },
         "maxUses": 1,
         "duration": 5000
@@ -27,7 +27,7 @@
         "applyOnAction": "3-1",
         "followUpAction": {
           "useIfAction": "7-1",
-          "actions": "7-2"
+          "action": "7-2"
         },
         "maxUses": 1,
         "duration": 5000
@@ -58,7 +58,7 @@
         "applyOnAction": "6-1",
         "followUpAction": {
           "useIfAction": "7-1",
-          "actions": "7-4"
+          "action": "7-4"
         },
         "maxUses": 1,
         "duration": 8000
@@ -161,7 +161,7 @@
         "applyWhen": "cast",
         "applyOnAction": "2-1",
         "followUpAction": {
-          "actions": "2-2"
+          "action": "2-2"
         },
         "maxUses": 1
       },
@@ -172,10 +172,10 @@
         "maxUses": 4,
         "followUpAction": [
           {
-            "actions": "3-1"
+            "action": "3-1"
           },
           {
-            "actions": "3-2"
+            "action": "3-2"
           }
         ]
       },
@@ -184,7 +184,7 @@
         "applyOnAction": "6-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "6-2"
+          "action": "6-2"
         }
       },
       {
@@ -202,7 +202,7 @@
             "1-5",
             "2-1"
           ],
-          "actions": "7-1"
+          "action": "7-1"
         }
       },
       {
@@ -219,7 +219,7 @@
         "applyOnAction": "1-5",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-2"
+          "action": "7-2"
         }
       },
       {
@@ -634,11 +634,11 @@
         "followUpAction": [
           {
             "useIfConsidered": "BA",
-            "actions": "3-2"
+            "action": "3-2"
           },
           {
             "useIfConsidered": "HA",
-            "actions": "3-2",
+            "action": "3-2",
             "times": 2
           }
         ],
@@ -646,7 +646,7 @@
           "1": {
             "followUpAction": {
               "useIfConsidered": "RS",
-              "actions": "3-2",
+              "action": "3-2",
               "times": 2
             }
           },
@@ -707,7 +707,7 @@
         ],
         "maxUses": 1,
         "followUpAction": {
-          "actions": "3-2",
+          "action": "3-2",
           "times": 4
         }
       },
@@ -762,10 +762,28 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "7-1",
-        "duration": 15000,
         "statMap": {
           "PERCENT_RL": 0.1
-        }
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "8-1",
+        "followUpAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": [
+              {
+                "mv": 1.9598
+              },
+              {
+                "mv": 3.9196
+              }
+            ]
+          }
+        },
+        "maxUses": 1
       },
       {
         "rank": 2,
@@ -774,29 +792,29 @@
           "3-2",
           "6-1"
         ],
-        "duration": 15000,
         "statMap": {
           "PERCENT_RS": 0.3
-        }
+        },
+        "duration": 15000
       },
       {
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "3-1",
-        "duration": 11000,
         "statMap": {
           "PERCENT_ELECTRO": 0.25
-        }
+        },
+        "duration": 11000
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "8-1",
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_ELECTRO": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -808,11 +826,20 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "7-2",
-        "maxUses": 1,
         "followUpAction": {
-          "actions": "7-3",
+          "action": {
+            "cast": "CA",
+            "considered": [
+              "RL",
+              "CA"
+            ],
+            "multipliers": {
+              "mv": 1
+            }
+          },
           "times": 2
-        }
+        },
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -865,7 +892,7 @@
         "maxUses": 4,
         "followUpAction": {
           "useIfConsidered": "BA",
-          "actions": "2-3"
+          "action": "2-3"
         }
       },
       {
@@ -874,7 +901,7 @@
         "applyTo": "team",
         "duration": 18000,
         "followUpAction": {
-          "actions": "7-2"
+          "action": "7-2"
         },
         "followUpActionCooldown": 1000
       },
@@ -966,7 +993,7 @@
         "useIfAction": "3-1",
         "proc": {
           "useIfConsidered": "BA",
-          "actions": "7-3"
+          "action": "7-3"
         }
       }
     ],
@@ -1013,7 +1040,7 @@
         "applyTo": "team",
         "duration": 12000,
         "followUpAction": {
-          "actions": "2-2"
+          "action": "2-2"
         }
       },
       {
@@ -1024,7 +1051,7 @@
         ],
         "maxUses": 1,
         "followUpAction": {
-          "actions": "2-3"
+          "action": "2-3"
         }
       },
       {
@@ -1032,7 +1059,7 @@
         "applyOnAction": "8-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "2-1"
+          "action": "2-1"
         }
       },
       {
@@ -1056,7 +1083,7 @@
         "applyOnAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-10"
+          "action": "7-10"
         }
       },
       {
@@ -1205,7 +1232,7 @@
         "applyOnAction": "2-2",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "2-1",
+          "action": "2-1",
           "times": 6
         }
       },
@@ -1257,7 +1284,7 @@
         "maxUses": 1,
         "followUpAction": {
           "useIfAction": "7-2",
-          "actions": "7-1"
+          "action": "7-1"
         }
       },
       {
@@ -1503,11 +1530,11 @@
         "maxUses": 1,
         "followUpAction": [
           {
-            "actions": "3-1",
+            "action": "3-1",
             "times": 16
           },
           {
-            "actions": "3-2"
+            "action": "3-2"
           }
         ]
       },
@@ -1516,7 +1543,7 @@
         "applyOnAction": "7-3",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-8"
+          "action": "7-8"
         }
       },
       {
@@ -1524,7 +1551,7 @@
         "applyOnAction": "7-4",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-9"
+          "action": "7-9"
         }
       },
       {
@@ -1532,7 +1559,7 @@
         "applyOnAction": "7-5",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-10"
+          "action": "7-10"
         }
       },
       {
@@ -1546,7 +1573,7 @@
         "applyTo": "team",
         "duration": 30000,
         "followUpAction": {
-          "actions": "7-11"
+          "action": "7-11"
         }
       },
       {
@@ -1593,10 +1620,10 @@
         "maxUses": 1,
         "followUpAction": [
           {
-            "actions": "7-12"
+            "action": "7-12"
           },
           {
-            "actions": "7-10"
+            "action": "7-10"
           }
         ]
       }
@@ -1659,7 +1686,7 @@
         "applyOnAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "3-2"
+          "action": "3-2"
         }
       },
       {
@@ -1669,10 +1696,10 @@
         "duration": 12000,
         "followUpAction": [
           {
-            "actions": "3-3"
+            "action": "3-3"
           },
           {
-            "actions": "3-4"
+            "action": "3-4"
           }
         ],
         "followUpActionCooldown": 1000
@@ -1687,7 +1714,7 @@
         ],
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-5",
+          "action": "7-5",
           "times": 3
         }
       },
@@ -1705,13 +1732,13 @@
         "applyOnAction": "8-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-6",
+          "action": "7-6",
           "times": 6
         },
         "rankModifiers": {
           "1": {
             "followUpAction": {
-              "actions": "7-7",
+              "action": "7-7",
               "times": 6
             }
           }
@@ -1760,10 +1787,10 @@
         "maxUses": 1,
         "followUpAction": [
           {
-            "actions": "3-3"
+            "action": "3-3"
           },
           {
-            "actions": "3-4",
+            "action": "3-4",
             "times": 3
           }
         ]
@@ -1808,7 +1835,7 @@
         "applyOnAction": "2-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "2-2"
+          "action": "2-2"
         }
       },
       {
@@ -1816,7 +1843,7 @@
         "applyOnAction": "7-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-4"
+          "action": "7-4"
         }
       },
       {
@@ -1824,7 +1851,7 @@
         "applyOnAction": "7-2",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-5"
+          "action": "7-5"
         }
       },
       {
@@ -1832,7 +1859,7 @@
         "applyOnAction": "7-3",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-6"
+          "action": "7-6"
         }
       },
       {
@@ -1892,7 +1919,7 @@
         "applyOnAction": "1-6",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-7"
+          "action": "7-7"
         }
       },
       {
@@ -1975,7 +2002,7 @@
         "applyOnAction": "3-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "3-2"
+          "action": "3-2"
         }
       },
       {
@@ -2262,7 +2289,7 @@
         "applyOnAction": "7-8",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "7-9"
+          "action": "7-9"
         }
       },
       {
@@ -2382,7 +2409,7 @@
         "duration": 30000,
         "maxUses": 21,
         "followUpAction": {
-          "actions": "3-1"
+          "action": "3-1"
         },
         "rankModifiers": {
           "2": {
@@ -2639,7 +2666,7 @@
         "applyOnAction": "2-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "2-2"
+          "action": "2-2"
         }
       },
       {
@@ -2732,7 +2759,7 @@
         "applyOnAction": "2-2",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "2-1",
+          "action": "2-1",
           "times": 5
         }
       },
@@ -2752,7 +2779,7 @@
         "applyTo": "active",
         "duration": 30000,
         "followUpAction": {
-          "actions": "3-1"
+          "action": "3-1"
         },
         "followUpActionCooldown": 3000,
         "rankModifiers": {
@@ -2834,7 +2861,7 @@
         "applyOnAction": "6-1",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "6-3"
+          "action": "6-3"
         }
       },
       {
@@ -2842,7 +2869,7 @@
         "applyOnAction": "6-2",
         "maxUses": 1,
         "followUpAction": {
-          "actions": "6-4"
+          "action": "6-4"
         }
       },
       {
