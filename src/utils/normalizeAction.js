@@ -20,7 +20,9 @@ export const normalizeAction = (gameId, characterId, skillId, actionId, level = 
     name = `${name} ${type}`;
   }
 
-  const element = type && (action.element ?? ownerElement);
+  const element = type === 'damage'
+    ? (action.element ?? ownerElement)
+    : undefined;
   const cast = toArray(action.cast ?? DEFAULT_CAST[skillId]);
   const considered = toArray(action.considered ?? cast);
   const duration = action.duration ?? ((cast && !cast.includes('OS')) ? 1000 : 0);
@@ -47,7 +49,7 @@ export const normalizeAction = (gameId, characterId, skillId, actionId, level = 
     type,
     element,
     cast,
-    considered,
+    considered: [...considered, ...(element ? [element] : [])],
     duration,
     offset,
     attr,

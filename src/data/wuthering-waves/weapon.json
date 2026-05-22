@@ -2598,14 +2598,28 @@
       "BASE_ATK": 587,
       "PERCENT_CD": 0.486
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "STRAIN",
+        "statMap": {
+          "PERCENT_RL": [
+            0.24,
+            0.36
+          ]
+        },
+        "duration": 3000
       }
-    }
+    ]
   },
   "21010066": {
     "name": "Starfield Calibrator",
@@ -2615,14 +2629,27 @@
       "BASE_ATK": 412,
       "PERCENT_ER": 0.77
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_DEF": [
-          0.16,
-          0.32
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_DEF": [
+            0.16,
+            0.32
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "heal",
+        "statMap": {
+          "PERCENT_CD": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 4000
       }
-    }
+    ]
   },
   "21020045": {
     "name": "Laser Shearer",
@@ -2632,14 +2659,28 @@
       "BASE_ATK": 587,
       "PERCENT_ER": 0.388
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "STRAIN",
+        "statMap": {
+          "PERCENT_RS": [
+            0.24,
+            0.36
+          ]
+        },
+        "duration": 3000
       }
-    }
+    ]
   },
   "21030045": {
     "name": "Phasic Homogenizer",
@@ -2649,14 +2690,27 @@
       "BASE_ATK": 587,
       "PERCENT_CD": 0.486
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "break",
+        "statMap": {
+          "PERCENT_ALL": [
+            0.2,
+            0.3
+          ]
+        },
+        "duration": 14000
       }
-    }
+    ]
   },
   "21030046": {
     "name": "Spectrum Blaster",
@@ -2666,14 +2720,47 @@
       "BASE_ATK": 587,
       "PERCENT_CR": 0.243
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": [
+          "IS",
+          "BA"
+        ],
+        "statMap": {
+          "PERCENT_BA": [
+            0.36,
+            0.72
+          ]
+        },
+        "duration": 4000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": [
+          "RUPTURE",
+          "STRAIN"
+        ],
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ALL": [
+            0.08,
+            0.16
+          ]
+        },
+        "duration": 30000,
+        "maxStacks": 3
       }
-    }
+    ]
   },
   "21040045": {
     "name": "Pulsation Bracer",
@@ -2683,14 +2770,30 @@
       "BASE_ATK": 587,
       "PERCENT_CR": 0.243
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "applyIfEnemyStatus": "STRAIN",
+        "applyCooldown": 500,
+        "statMap": {
+          "PERCENT_BA": [
+            0.06,
+            0.09
+          ]
+        },
+        "duration": 3000,
+        "maxStacks": 4
       }
-    }
+    ]
   },
   "21050045": {
     "name": "Boson Astrolabe",
@@ -2700,14 +2803,31 @@
       "BASE_ATK": 525,
       "PERCENT_ER": 0.388
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "break",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.18
+          ],
+          "PERCENT_BA": [
+            0.12,
+            0.18
+          ]
+        },
+        "duration": 14000
       }
-    }
+    ]
   },
   "21020076": {
     "name": "Everbright Polestar",
@@ -2717,14 +2837,36 @@
       "BASE_ATK": 587,
       "PERCENT_CR": 0.243
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ALL": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ALL": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyifInflict": [
+          "RUPTURE",
+          "BURST"
+        ],
+        "useIfConsidered": "RL",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.32,
+            0.64
+          ],
+          "IGNORE_FUSION_RES": [
+            0.1,
+            0.3
+          ]
+        },
+        "duration": 8000
       }
-    }
+    ]
   },
   "21040056": {
     "name": "Daybreaker's Spine",
@@ -2734,14 +2876,44 @@
       "BASE_ATK": 587,
       "PERCENT_CR": 0.243
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "BA",
+        "statMap": {
+          "PERCENT_SPECTRO": [
+            0.2,
+            0.4
+          ]
+        },
+        "duration": 4000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": "STRAIN",
+        "useIfConsidered": "BA",
+        "statMap": {
+          "AMP_BA": [
+            0.2,
+            0.4
+          ],
+          "IGNORE_DEF": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 6000
       }
-    }
+    ]
   },
   "21040066": {
     "name": "Solsworn Ciphers",
@@ -2751,14 +2923,42 @@
       "BASE_ATK": 587,
       "PERCENT_CD": 0.486
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": [
+          "IS",
+          "ES"
+        ],
+        "statMap": {
+          "AMP_ES": [
+            0.32,
+            0.64
+          ]
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnConsidered": "ES",
+        "useIfConsidered": "AERO",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 6000
       }
-    }
+    ]
   },
   "21020086": {
     "name": "Frostburn",
@@ -2768,14 +2968,53 @@
       "BASE_ATK": 587,
       "PERCENT_CR": 0.243
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": "CHAFE",
+        "statMap": {
+          "AMP_GLACIO": [
+            0.28,
+            0.56
+          ]
+        },
+        "duration": 6000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": "CHAFE",
+        "useIfConsidered": "RL",
+        "statMap": {
+          "IGNORE_DEF": [
+            0.1,
+            0.2
+          ]
+        },
+        "duration": 6000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "applyTo": "enemy",
+        "removeOnCast": "OS",
+        "statMap": {
+          "AMP_CHAFE": [
+            0.2,
+            0.4
+          ]
+        }
       }
-    }
+    ]
   },
   "21050076": {
     "name": "Forged Dwarf Star",
@@ -2785,13 +3024,42 @@
       "BASE_ATK": 500,
       "PERCENT_CR": 0.36
     },
-    "effects": {
-      "statMap": {
-        "PERCENT_ATK": [
-          0.12,
-          0.24
-        ]
+    "effects": [
+      {
+        "statMap": {
+          "PERCENT_ATK": [
+            0.12,
+            0.24
+          ]
+        }
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "inflict",
+        "applyIfInflict": [
+          "BURST",
+          "STRAIN"
+        ],
+        "statMap": {
+          "PERCENT_RL": [
+            0.36,
+            0.72
+          ]
+        },
+        "duration": 5000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "IS",
+        "applyTo": "team",
+        "statMap": {
+          "PERCENT_ATK": [
+            0.24,
+            0.48
+          ]
+        },
+        "duration": 15000
       }
-    }
+    ]
   }
 }

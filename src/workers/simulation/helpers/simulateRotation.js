@@ -12,7 +12,7 @@ const computeBase = (statMap, attr, sumMvTimes, sumTimes, sumFlat) => {
   return sumFlat + attrValue * (sumMvTimes + flatMv * sumTimes) * (1 + percentMv);
 };
 
-const computeBonuses = (statMap, element, dmgTypes, enemyStatMap) => {
+const computeBonuses = (statMap, dmgTypes, enemyStatMap) => {
   const critRate = Math.max(Math.min(computeTotalStat('CR', statMap), 1), 0);
   const critDamage = computeTotalStat('CD', statMap) - 1;
   const critMult = critRate * (1 + critDamage) + (1 - critRate);
@@ -20,7 +20,7 @@ const computeBonuses = (statMap, element, dmgTypes, enemyStatMap) => {
   let dmgBonusMult = 1 + (statMap['PERCENT_ALL'] ?? 0) + (enemyStatMap['PERCENT_ALL'] ?? 0);
   let ampMult = 1 + (statMap['AMP_ALL'] ?? 0) + (enemyStatMap['AMP_ALL'] ?? 0);
 
-  for (const type of [element, ...dmgTypes]) {
+  for (const type of dmgTypes) {
     dmgBonusMult += (statMap[`PERCENT_${type}`] ?? 0) + (enemyStatMap[`PERCENT_${type}`] ?? 0);
     ampMult += (statMap[`AMP_${type}`] ?? 0) + (enemyStatMap[`AMP_${type}`] ?? 0);
   }
@@ -28,13 +28,11 @@ const computeBonuses = (statMap, element, dmgTypes, enemyStatMap) => {
   return critMult * dmgBonusMult * ampMult;
 };
 
-const computeReductions = (gameId, statMap, element, dmgTypes, enemyStatMap) => {
+const computeReductions = (gameId, statMap, element, enemyStatMap) => {
   const { MAX_LEVEL, ENEMY_RES } = MISC[gameId];
 
   // Enemy resistance multiplier
-  let resIgnore = statMap[`IGNORE_${element}_RES`] ?? 0;
-  for (const type of dmgTypes) resIgnore += statMap[`IGNORE_${element}_RES_${type}`] ?? 0;
-  resIgnore += enemyStatMap[`SHRED_${element}_RES`] ?? 0;
+  const resIgnore = (statMap[`IGNORE_${element}_RES`] ?? 0) + (enemyStatMap[`SHRED_${element}_RES`] ?? 0);
   const totalRes = ENEMY_RES - resIgnore;
   let resMult;
   if (totalRes < 0) {
@@ -47,9 +45,7 @@ const computeReductions = (gameId, statMap, element, dmgTypes, enemyStatMap) => 
 
   // Enemy defense multiplier
   const enemyDef = 8 * (MAX_LEVEL + 10) + 792;
-  let defIgnore = statMap['IGNORE_DEF'] ?? 0;
-  for (const type of dmgTypes) defIgnore += statMap[`IGNORE_DEF_${type}`] ?? 0;
-  defIgnore += enemyStatMap['SHRED_DEF'] ?? 0;
+  const defIgnore = (statMap['IGNORE_DEF'] ?? 0) + (enemyStatMap['SHRED_DEF'] ?? 0);
   const defMult = (800 + 8 * MAX_LEVEL) / (800 + 8 * MAX_LEVEL + enemyDef * (1 - defIgnore))
 
   return resMult * defMult;
@@ -121,9 +117,7 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
 };
 
 const simulateAction = ({ gameId, action, effectTrackers, activeId, members, allEffectDefinitions }) => {
-  const { owner: actionOwner, actionKey, type, considered, attr, hasMultipliers, sumMvTimes, sumTimes, sumFlat, times } = action;
-  const ownerElement = CHARACTERS[gameId][actionOwner].element;
-  const element = action.element ?? ownerElement;
+  const { owner: actionOwner, actionKey, element, type, considered, attr, hasMultipliers, sumMvTimes, sumTimes, sumFlat, times } = action;
 
   if (type === 'shield') return {};
   if (type === 'buff') return {};
@@ -195,8 +189,8 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members, all
     }
   }
 
-  const bonuses = computeBonuses(statMapWithEffects, element, considered, enemyStatMap);
-  const reductions = computeReductions(gameId, statMapWithEffects, element, considered, enemyStatMap);
+  const bonuses = computeBonuses(statMapWithEffects, considered, enemyStatMap);
+  const reductions = computeReductions(gameId, statMapWithEffects, element, enemyStatMap);
 
   return { damage: baseValue * bonuses * reductions * times };
 };
