@@ -509,6 +509,8 @@ export const simulateRotation = (gameId, rawTeam) => {
 
       const { damage = 0, healing = 0 } = simulateAction({ gameId, action, effectTrackers, activeId, members, allEffectDefinitions });
       actionMap[actionKey] = {
+        owner: action.owner,
+        considered: action.considered,
         damage: (actionMap[actionKey]?.damage ?? 0) + damage,
         healing: (actionMap[actionKey]?.healing ?? 0) + healing,
       };
@@ -747,6 +749,8 @@ function processProcEffects({
             });
 
             actionMap[procActionKey] = {
+              owner: procAction.owner,
+              considered: procAction.considered,
               damage: (actionMap[procActionKey]?.damage ?? 0) + procDamage * effectTracker.stacks * times,
               healing: (actionMap[procActionKey]?.healing ?? 0) + procHealing * effectTracker.stacks * times,
             };

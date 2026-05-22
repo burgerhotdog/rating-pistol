@@ -14,7 +14,8 @@ const NULL_MEMBER = {
 export function useTeam() {
   const { gameId, characterId } = useParams();
   const teamSize = ['genshin-impact', 'honkai-star-rail'].includes(gameId) ? 4 : 3;
-  const build = useBuild().getBuilds(gameId)[characterId];
+  const builds = useBuild().getBuilds(gameId);
+  const build = builds[characterId];
   if (!build) throw new Error(`build does not exist for characterId ${characterId}`);
 
   const defaultTeam = CHARACTERS[gameId][characterId].defaults?.team ?? [characterId, ...Array(teamSize - 1).fill(null)];
@@ -63,6 +64,21 @@ export function useTeam() {
         ...m,
         rank: charQuality === null ? null : (charQuality === "5" ? 0 : 6),
         weaponRank: weaponQuality === null ? null : (weaponQuality === "5" ? 1 : 5),
+      };
+    }).map(m => {
+      // For the current character the toggle is not applicable
+      if (!m.memberId || m.memberId === characterId) return { ...m, useUserBuild: false };
+
+      // For teammates: use stored build by default when one exists
+      const storedBuild = builds[m.memberId];
+      if (!storedBuild) return { ...m, useUserBuild: false };
+
+      return {
+        ...m,
+        useUserBuild: true,
+        build: storedBuild,
+        weaponId: storedBuild.weaponId,
+        setCounts: getSetCounts(storedBuild.equipList),
       };
     });
   }

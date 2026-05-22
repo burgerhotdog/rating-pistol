@@ -5,7 +5,7 @@ import { alpha, darken, lighten, useTheme } from '@mui/material/styles';
 import { ResponsiveContainer, Pie, PieChart, Tooltip, Cell, Legend } from 'recharts';
 import { useState } from 'react';
 import { CHARACTERS, MISC } from '@/data';
-import { sumRotationDmg, normalizeAction } from '@/utils';
+import { sumRotationDmg } from '@/utils';
 
 const renderLabel = ({ percent }) => {
   if (percent < 0.05) return null;
@@ -34,12 +34,10 @@ function resolveOwnerLabel(gameId, ownerId) {
  */
 function buildDmgTypeData(actionMap, gameId, characterId) {
   const totals = {};
-  for (const [actionKey, { damage }] of Object.entries(actionMap)) {
-    const [ownerId, skillId, actionId] = actionKey.split('-');
-    const { considered } = normalizeAction(gameId, ownerId, skillId, actionId);
-    if (ownerId !== characterId) continue;
+  for (const [, { owner, considered, damage }] of Object.entries(actionMap)) {
+    if (owner !== characterId) continue;
 
-    const label = resolveDmgTypeLabel(gameId, considered[0]);
+    const label = resolveDmgTypeLabel(gameId, considered?.[0]);
     totals[label] = (totals[label] ?? 0) + damage;
   }
   return Object.entries(totals)

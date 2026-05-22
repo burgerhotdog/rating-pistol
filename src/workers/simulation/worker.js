@@ -127,6 +127,7 @@ self.onmessage = ({ data }) => {
     const member = team[ti];
     const { memberId, weaponId, setCounts } = member;
     if (!memberId || memberId === characterId) continue;
+    if (member.build) continue; // user build attached — skip calibration
 
     const memberSetIdList = Object.entries(setCounts)
       .flatMap(([setId, count]) => Array(count).fill(setId))
@@ -162,7 +163,11 @@ self.onmessage = ({ data }) => {
     gameId,
     characterId,
     build,
-    team: team.map(member => member.memberId === characterId ? { ...member } : { ...member, build: { weaponId: member.weaponId, statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } }),
+    team: team.map(member => {
+      if (member.memberId === characterId) return { ...member };
+      if (member.build) return { ...member }; // user build — preserve as-is
+      return { ...member, build: { weaponId: member.weaponId, statMap: teamFinalStats[member.memberId], setCounts: member.setCounts } };
+    }),
     setIdList,
   });
   timings.weekTimingsMs = currentResult.timingsMs.weekTimingsMs;

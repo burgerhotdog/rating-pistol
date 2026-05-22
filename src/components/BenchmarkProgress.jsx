@@ -28,7 +28,7 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
 
   if (isLoading || !weeklyScores) return null;
 
-  const hasTeamData = teamFinalStats && Object.keys(teamFinalStats).length > 0;
+  const hasTeamData = team.some(m => m.memberId && m.memberId !== characterId);
   const showTeam = viewMode === 'team' && hasTeamData;
 
   const filter = showTeam ? {} : { ownerId: characterId };
