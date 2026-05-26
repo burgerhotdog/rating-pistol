@@ -457,49 +457,59 @@
         "useIfAction": "7-2",
         "statMap": {
           "PERCENT_RS": 0.5
+        },
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_CR": 1
+            }
+          }
         }
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "7-1",
-        "duration": 10000,
         "statMap": {
           "PERCENT_ATK": 0.3
+        },
+        "duration": 10000,
+        "rankModifiers": {
+          "5": {
+            "statMap": {
+              "PERCENT_ATK": 0.3
+            }
+          }
         }
       },
       {
-        "rank": 1,
-        "useIfAction": "7-2",
-        "statMap": {
-          "PERCENT_CR": 1
-        }
+        "applyWhen": "cast",
+        "applyOnAction": "8-1",
+        "followUpAction": {
+          "action": {
+            "multipliers": {
+              "mv": 5.3
+            }
+          }
+        },
+        "maxUses": 1
       },
       {
         "rank": 3,
         "useIfAction": "3-1",
-        "chance": 0.5,
         "statMap": {
           "PERCENT_RL": 0.4
-        }
-      },
-      {
-        "rank": 5,
-        "applyWhen": "cast",
-        "applyOnAction": "7-1",
-        "duration": 10000,
-        "statMap": {
-          "PERCENT_ATK": 0.3
-        }
+        },
+        "chance": 0.5
       },
       {
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "7-2",
         "applyTo": "team",
-        "duration": 15000,
         "statMap": {
           "PERCENT_BA": 0.25
-        }
+        },
+        "duration": 15000
       }
     ],
     "defaults": {

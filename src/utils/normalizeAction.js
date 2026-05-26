@@ -9,6 +9,8 @@ const DEFAULT_CAST = {
   "8": "OS",
 };
 
+const ALT_BA = new Set(['MA', 'DC']);
+
 export const normalizeAction = (gameId, characterId, skillId, actionId, level = 10) => {
   const action = MVS[gameId][characterId][skillId].skills[actionId];
   const { element: ownerElement } = CHARACTERS[gameId][characterId];
@@ -24,7 +26,7 @@ export const normalizeAction = (gameId, characterId, skillId, actionId, level = 
     ? (action.element ?? ownerElement)
     : undefined;
   const cast = toArray(action.cast ?? DEFAULT_CAST[skillId]);
-  const considered = toArray(action.considered ?? cast);
+  const considered = toArray(action.considered ?? (ALT_BA.has(cast) ? ['BA', cast] : cast));
   const duration = action.duration ?? ((cast && !cast.includes('OS')) ? 1000 : 0);
   const offset = action.offset ?? ((cast && !cast.includes('OS')) ? 500 : 0);
   const attr = action.attr ?? 'ATK';
