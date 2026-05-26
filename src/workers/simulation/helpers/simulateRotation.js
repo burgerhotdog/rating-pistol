@@ -145,6 +145,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members, all
     const {
       useIfAction,
       useIfConsidered,
+      useIfType,
       statMap,
       variableStatMap,
       chance = 1,
@@ -152,6 +153,7 @@ const simulateAction = ({ gameId, action, effectTrackers, activeId, members, all
 
     if (useIfAction && !useIfAction.includes(actionKey)) continue;
     if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
+    if (useIfType && !useIfType.includes(type)) continue;
 
     if (statMap) {
       for (const [statId, value] of Object.entries(statMap)) {
@@ -258,6 +260,7 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = 
 
 const normalizeProc = (memberId, effectKey, proc, procIndex, rank = Infinity) => ({
   useIfConsidered: proc.useIfConsidered && toArray(proc.useIfConsidered),
+  useIfCast: proc.useIfCast && toArray(proc.useIfCast),
   useIfAction: proc.useIfAction && toArray(proc.useIfAction).map(sk => `${memberId}-${sk}`),
   action: toArray(proc.action),
   inlineAction: normalizeInlineProcAction(memberId, effectKey, proc, procIndex, rank),
@@ -355,6 +358,7 @@ const normalizeEffects = (gameId, member) => {
         followUpActionCooldown: effect.followUpActionCooldown ?? 0,
         useIfAction: effect.useIfAction && toArray(effect.useIfAction).map(shortKey => `${memberId}-${shortKey}`),
         useIfConsidered: effect.useIfConsidered && toArray(effect.useIfConsidered),
+        useIfType: effect.useIfType && toArray(effect.useIfType),
         statMap: Object.fromEntries(
           Object.entries(effect.statMap ?? {}).map(([k, v]) => [k, resolveRankedValue(v, rank)])
         ),
@@ -707,7 +711,7 @@ function processProcEffects({
   actionMap = null,
   allEffectDefinitions,
 }) {
-  const { actionKey, owner: actionOwner, considered } = action;
+  const { actionKey, owner: actionOwner, considered, cast, type } = action;
   const { byMember, team, active, inactive, enemy } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
@@ -718,13 +722,16 @@ function processProcEffects({
       const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
       if (!effectDef) continue;
 
+      if (effectDef.useIfType && !effectDef.useIfType.includes(type)) continue;
+
       const { followUpAction, followUpActionCooldown, followUpActionInterval } = effectDef;
       if (!followUpAction) continue;
       if (followUpActionInterval) continue;
 
       let procFired = false;
-      for (const { useIfConsidered, useIfAction, action, inlineAction, times } of followUpAction) {
+      for (const { useIfConsidered, useIfCast, useIfAction, action, inlineAction, times } of followUpAction) {
         if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
+        if (useIfCast && !(cast ?? []).some(c => useIfCast.includes(c))) continue;
         if (useIfAction && !useIfAction.includes(actionKey)) continue;
 
         const procActions = [];

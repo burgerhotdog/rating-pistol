@@ -786,10 +786,6 @@
         "1": {
           "name": "Remnant Entities",
           "cast": "CA",
-          "considered": [
-            "RL",
-            "CA"
-          ],
           "attr": "HP",
           "multipliers": [
             {
@@ -3259,10 +3255,6 @@
         "2": {
           "name": "Marcato",
           "cast": "CA",
-          "considered": [
-            "RL",
-            "CA"
-          ],
           "multipliers": [
             {
               "mv": [
@@ -4073,8 +4065,11 @@
         },
         "9": {
           "name": "Dodge Counter",
-          "cast": "BA",
-          "considered": "RL",
+          "cast": "DC",
+          "considered": [
+            "RL",
+            "DC"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -4567,8 +4562,7 @@
         },
         "3": {
           "name": "Electromagnetic Blast",
-          "cast": "AUTO",
-          "considered": "RS",
+          "cast": "CA",
           "multipliers": [
             {
               "mv": [
@@ -4730,15 +4724,6 @@
                 1.3702,
                 1.4351
               ]
-            }
-          ]
-        },
-        "3": {
-          "name": "Furious Thunder",
-          "considered": "RS",
-          "multipliers": [
-            {
-              "mv": 4.1959
             }
           ]
         }
@@ -5083,10 +5068,6 @@
         "2": {
           "name": "Thunder Wedge Coordinated Attack",
           "cast": "CA",
-          "considered": [
-            "RS",
-            "CA"
-          ],
           "attr": "DEF",
           "multipliers": [
             {
@@ -5117,7 +5098,7 @@
         },
         "3": {
           "name": "Thunder Wedge Detonation",
-          "cast": "AUTO",
+          "cast": null,
           "considered": "RS",
           "attr": "DEF",
           "multipliers": [
@@ -5632,25 +5613,13 @@
               "times": 2
             }
           ]
-        },
-        "10": {
-          "name": "Shield",
-          "type": "shield",
-          "attr": "DEF",
-          "multipliers": [
-            {
-              "mv": 2
-            }
-          ]
         }
       }
     },
     "8": {
       "name": "Lightning Manipulation",
       "skills": {
-        "1": {
-          "duration": 0
-        }
+        "1": {}
       }
     }
   },
