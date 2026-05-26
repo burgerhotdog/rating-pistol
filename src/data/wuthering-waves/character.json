@@ -547,19 +547,12 @@
     },
     "effects": [
       {
-        "useIfAction": [
-          "3-1",
-          "3-2",
-          "3-3",
-          "3-4",
-          "3-5",
-          "3-6",
-          "3-7",
-          "7-2"
-        ],
+        "applyWhen": "cast",
+        "applyOnAction": "3-8",
         "statMap": {
           "PERCENT_ALL": 0.1
-        }
+        },
+        "duration": 10000
       },
       {
         "applyWhen": "cast",
@@ -567,33 +560,34 @@
           "2-1",
           "3-6"
         ],
-        "duration": 10000,
         "statMap": {
           "PERCENT_FUSION": 0.1
-        }
+        },
+        "duration": 10000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "8-1",
+        "followUpAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 1.7676
+            }
+          }
+        },
+        "followUpActionInterval": 1500,
+        "duration": 6000
       },
       {
         "rank": 1,
-        "applyWhen": "cast",
-        "applyOnAction": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4",
-          "1-5",
-          "1-7",
-          "1-8",
-          "3-1",
-          "3-2",
-          "3-3",
-          "3-4",
-          "3-7"
-        ],
-        "maxStacks": 4,
-        "duration": 6000,
+        "applyWhen": "contact",
+        "applyOnCast": "BA",
         "statMap": {
           "PERCENT_FUSION": 0.03
-        }
+        },
+        "duration": 6000,
+        "maxStacks": 4
       },
       {
         "rank": 3,
@@ -607,12 +601,13 @@
       },
       {
         "rank": 4,
+        "applyWhen": "cast",
+        "applyOnAction": "7-2",
         "applyTo": "team",
-        "useIfAction": "7-2",
-        "duration": 30000,
         "statMap": {
           "PERCENT_FUSION": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -622,7 +617,7 @@
       },
       {
         "rank": 6,
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": [
           "3-1",
           "3-2",
@@ -633,11 +628,11 @@
           "3-7",
           "7-2"
         ],
-        "maxStacks": 6,
-        "duration": 10000,
         "statMap": {
           "PERCENT_ATK": 0.05
-        }
+        },
+        "duration": 10000,
+        "maxStacks": 6
       }
     ],
     "defaults": {
@@ -685,8 +680,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "3-1",
-        "applyTo": "team",
-        "duration": 10000,
+        "applyTo": "active",
         "followUpAction": [
           {
             "useIfConsidered": "BA",
@@ -698,6 +692,8 @@
             "times": 2
           }
         ],
+        "followUpActionCooldown": 350,
+        "duration": 10000,
         "rankModifiers": {
           "1": {
             "followUpAction": {
@@ -713,41 +709,47 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "8-1",
-        "applyTo": "next",
-        "duration": 14000,
-        "statMap": {
-          "AMP_HA": 0.38
-        }
-      },
-      {
-        "applyWhen": "cast",
         "applyOnAction": "2-1",
-        "duration": 8000,
         "useIfAction": "7-1",
         "statMap": {
-          "PERCENT_RS": 0.25
-        }
+          "PERCENT_ALL": 0.25
+        },
+        "duration": 8000
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "3-2",
-        "duration": 17000,
-        "maxStacks": 50,
+        "applyCooldown": 350,
         "useIfAction": "3-2",
         "statMap": {
-          "PERCENT_RL": 0.015
+          "PERCENT_ALL": 0.015
+        },
+        "duration": 10000,
+        "maxStacks": 50,
+        "rankModifiers": {
+          "4": {
+            "duration": 7000
+          }
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "8-1",
+        "applyTo": "next",
+        "statMap": {
+          "AMP_HA": 0.38
+        },
+        "duration": 14000
       },
       {
         "rank": 3,
         "applyWhen": "cast",
         "applyOnAction": "3-1",
-        "duration": 10000,
         "useIfAction": "3-2",
         "statMap": {
           "PERCENT_CD": 0.3
         },
+        "duration": 10000,
         "rankModifiers": {
           "4": {
             "duration": 7000
@@ -756,26 +758,26 @@
       },
       {
         "rank": 5,
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": [
           "2-1",
           "7-1"
         ],
-        "maxUses": 1,
         "followUpAction": {
           "action": "3-2",
           "times": 4
-        }
+        },
+        "maxUses": 1
       },
       {
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "3-1",
         "applyTo": "team",
-        "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 20000
       }
     ],
     "defaults": {

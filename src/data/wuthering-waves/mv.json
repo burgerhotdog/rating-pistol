@@ -2890,14 +2890,7 @@
     "8": {
       "name": "Thermal Field",
       "skills": {
-        "1": {
-          "multipliers": [
-            {
-              "mv": 1.7676,
-              "times": 4
-            }
-          ]
-        }
+        "1": {}
       }
     }
   },
@@ -3369,9 +3362,7 @@
     "8": {
       "name": "Rage Transposition",
       "skills": {
-        "1": {
-          "duration": 0
-        }
+        "1": {}
       }
     }
   },
