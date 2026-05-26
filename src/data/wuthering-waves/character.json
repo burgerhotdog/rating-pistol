@@ -169,41 +169,32 @@
         "applyWhen": "cast",
         "applyOnAction": "3-3",
         "applyTo": "active",
-        "maxUses": 4,
         "followUpAction": [
           {
             "action": "3-1"
           },
           {
-            "action": "3-2"
+            "action": "3-2",
+            "times": 3
           }
-        ]
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "6-1",
-        "maxUses": 1,
-        "followUpAction": {
-          "action": "6-2"
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": [
-          "1-1",
-          "1-2",
-          "1-3",
-          "1-4"
         ],
-        "maxStacks": 4,
-        "maxUses": 1,
-        "followUpAction": {
-          "useIfAction": [
-            "1-5",
-            "2-1"
-          ],
-          "action": "7-1"
+        "maxUses": 4,
+        "rankModifiers": {
+          "4": {
+            "maxUses": 2
+          }
         }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "HA",
+        "applyOnAction": "2-1",
+        "followUpAction": {
+          "action": "7-1",
+          "times": 3
+        },
+        "followUpActionCooldown": 2000,
+        "maxUses": 4
       },
       {
         "applyWhen": "cast",
@@ -215,12 +206,43 @@
         "duration": 35000
       },
       {
-        "applyWhen": "cast",
-        "applyOnAction": "1-5",
-        "maxUses": 1,
+        "applyWhen": "contact",
+        "applyOnCast": "HA",
         "followUpAction": {
-          "action": "7-2"
-        }
+          "action": {
+            "type": "heal",
+            "attr": "HP",
+            "multipliers": {
+              "mv": 0.0025
+            }
+          }
+        },
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnAction": "6-1",
+        "followUpAction": {
+          "action": "6-2",
+          "times": 3
+        },
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "8-1",
+        "applyTo": "next",
+        "followUpAction": {
+          "action": {
+            "type": "heal",
+            "attr": "HP",
+            "multipliers": {
+              "mv": 0.0154
+            }
+          }
+        },
+        "followUpActionCooldown": 3000,
+        "duration": 30000
       },
       {
         "applyWhen": "cast",
@@ -249,6 +271,20 @@
           "PERCENT_HP": 0.12
         },
         "duration": 10000
+      },
+      {
+        "rank": 4,
+        "useIfAction": "3-2",
+        "statMap": {
+          "PERCENT_MV": 0.2
+        }
+      },
+      {
+        "rank": 4,
+        "useIfAction": "3-1",
+        "statMap": {
+          "FLAT_MV": 0.012
+        }
       },
       {
         "rank": 6,

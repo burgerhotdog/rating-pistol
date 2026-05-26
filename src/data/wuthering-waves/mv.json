@@ -183,10 +183,10 @@
         },
         "7": {
           "name": "Mid-air Attack",
-          "cast": "MAA",
+          "cast": "MA",
           "considered": [
             "BA",
-            "MAA"
+            "MA"
           ],
           "multipliers": [
             {
@@ -638,10 +638,10 @@
         },
         "6": {
           "name": "Mid-air Attack",
-          "cast": "MAA",
+          "cast": "MA",
           "considered": [
             "BA",
-            "MAA"
+            "MA"
           ],
           "multipliers": [
             {
@@ -739,7 +739,7 @@
           ]
         },
         "2": {
-          "type": "HEAL",
+          "type": "heal",
           "cast": null,
           "considered": "RS",
           "attr": "HP",
@@ -836,8 +836,12 @@
         },
         "2": {
           "name": "Remnant Entities",
-          "type": "HEAL",
-          "cast": "CA",
+          "type": "heal",
+          "cast": null,
+          "considered": [
+            "RL",
+            "CA"
+          ],
           "attr": "HP",
           "multipliers": [
             {
@@ -891,7 +895,7 @@
           ]
         },
         "3": {
-          "type": "HEAL",
+          "type": "heal",
           "attr": "HP",
           "multipliers": [
             {
@@ -978,8 +982,8 @@
           ]
         },
         "2": {
-          "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
+          "cast": null,
           "attr": "HP",
           "multipliers": [
             {
@@ -1039,8 +1043,7 @@
       "skills": {
         "1": {
           "name": "Concentration",
-          "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "HP",
           "multipliers": [
             {
@@ -1092,33 +1095,13 @@
               ]
             }
           ]
-        },
-        "2": {
-          "name": "Stimulus Feedback",
-          "cast": "AUTO",
-          "type": "HEAL",
-          "attr": "HP",
-          "multipliers": [
-            {
-              "mv": 0.25
-            }
-          ]
         }
       }
     },
     "8": {
       "name": "Rejuvinating Flow",
       "skills": {
-        "1": {
-          "type": "HEAL",
-          "attr": "HP",
-          "multipliers": [
-            {
-              "mv": 0.0154
-            }
-          ],
-          "times": 10
-        }
+        "1": {}
       }
     }
   },
@@ -5689,7 +5672,7 @@
         },
         "10": {
           "name": "Shield",
-          "type": "SHIELD",
+          "type": "shield",
           "attr": "DEF",
           "multipliers": [
             {
@@ -7909,7 +7892,7 @@
         },
         "7": {
           "name": "Incomplete Minor Zhoutian Final",
-          "type": "SHIELD",
+          "type": "shield",
           "duration": 0,
           "multipliers": [
             {
@@ -7964,7 +7947,7 @@
         },
         "8": {
           "name": "Minor Zhoutian Final",
-          "type": "SHIELD",
+          "type": "shield",
           "duration": 0,
           "multipliers": [
             {
@@ -8019,7 +8002,7 @@
         },
         "9": {
           "name": "Major Zhoutian: Inner Final",
-          "type": "SHIELD",
+          "type": "shield",
           "duration": 0,
           "multipliers": [
             {
@@ -8074,7 +8057,7 @@
         },
         "10": {
           "name": "Major Zhoutian: Outer Final",
-          "type": "SHIELD",
+          "type": "shield",
           "duration": 0,
           "multipliers": [
             {
@@ -8129,7 +8112,7 @@
         },
         "11": {
           "name": "Shield",
-          "type": "HEAL",
+          "type": "heal",
           "duration": 0,
           "multipliers": [
             {
@@ -8623,7 +8606,7 @@
         },
         "2": {
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -8712,7 +8695,7 @@
         "4": {
           "name": "Photosynthesis Mark",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -8949,7 +8932,7 @@
         },
         "5": {
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "duration": 0,
           "multipliers": [
             {
@@ -9004,7 +8987,7 @@
         },
         "6": {
           "name": "Blossom Healing",
-          "type": "HEAL",
+          "type": "heal",
           "duration": 0,
           "multipliers": [
             {
@@ -9014,7 +8997,7 @@
         },
         "7": {
           "name": "Sequence Node 1 Blossom Healing",
-          "type": "HEAL",
+          "type": "heal",
           "duration": 0,
           "multipliers": [
             {
@@ -9028,7 +9011,7 @@
       "name": "Blossom",
       "skills": {
         "1": {
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": 0.19,
@@ -9317,7 +9300,7 @@
         },
         "2": {
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9538,7 +9521,7 @@
         "4": {
           "name": "Timed Counters 1",
           "cast": "AUTO",
-          "type": "SHIELD",
+          "type": "shield",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9594,7 +9577,7 @@
         "5": {
           "name": "Timed Counters 2",
           "cast": "AUTO",
-          "type": "SHIELD",
+          "type": "shield",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9650,7 +9633,7 @@
         "6": {
           "name": "Timed Counters 3",
           "cast": "AUTO",
-          "type": "SHIELD",
+          "type": "shield",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9705,7 +9688,7 @@
         },
         "7": {
           "name": "Sequence Node 4 Healing",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "HP",
           "multipliers": [
             {
@@ -13660,7 +13643,7 @@
         },
         "2": {
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -14082,7 +14065,7 @@
           ]
         },
         "2": {
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -14136,7 +14119,7 @@
         },
         "3": {
           "name": "Double Pun Bonus",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -14448,7 +14431,7 @@
           ]
         },
         "2": {
-          "type": "HEAL",
+          "type": "heal",
           "attr": "HP",
           "multipliers": [
             {
@@ -14508,7 +14491,7 @@
       "skills": {
         "1": {
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "HP",
           "multipliers": [
             {
@@ -14635,7 +14618,7 @@
         "3": {
           "name": "Enlightenment",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "HP",
           "multipliers": [
             {
@@ -14691,7 +14674,7 @@
         "4": {
           "name": "Discernment",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "HP",
           "multipliers": [
             {
@@ -18640,7 +18623,7 @@
         },
         "2": {
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "ER",
           "multipliers": [
             {
@@ -18862,7 +18845,7 @@
         },
         "2": {
           "name": "Waves of Acclaims",
-          "type": "HEAL",
+          "type": "heal",
           "duration": 0,
           "attr": "ER",
           "multipliers": [
@@ -18917,7 +18900,7 @@
           ] 
         },
         "3": {
-          "type": "SHIELD",
+          "type": "shield",
           "duration": 0,
           "attr": "ER",
           "multipliers": [
@@ -18983,7 +18966,7 @@
         },
         "5": {
           "name": "Sequence Node 4 Healing",
-          "type": "HEAL",
+          "type": "heal",
           "duration": 0,
           "attr": "ER",
           "multipliers": [
@@ -20300,7 +20283,7 @@
         },
         "7": {
           "name": "Trance",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -20354,7 +20337,7 @@
         },
         "8": {
           "name": "Perception Drain",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -27367,7 +27350,7 @@
         "8": {
           "name": "Moonbow: Basic Attack 1",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -27398,7 +27381,7 @@
         "9": {
           "name": "Moonbow: Basic Attack 2",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -27429,7 +27412,7 @@
         "10": {
           "name": "Moonbow: Basic Attack 3",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -27460,7 +27443,7 @@
         "11": {
           "name": "Moonbow: Dodge Counter",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -27491,7 +27474,7 @@
         "12": {
           "name": "Arc Beyond the Edge",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -27553,7 +27536,7 @@
         "14": {
           "name": "Absolute Fullness",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -27584,7 +27567,7 @@
         "15": {
           "name": "Full Moon Domain",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -30329,7 +30312,7 @@
         "9": {
           "name": "Twin Mountains",
           "cast": "HA",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -30384,7 +30367,7 @@
         "10": {
           "name": "Twin Thunders",
           "cast": "HA",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -30569,7 +30552,7 @@
         },
         "2": {
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -30692,7 +30675,7 @@
       "name": "Exorcism Spell",
       "skills": {
         "1": {
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": 0.18
@@ -30924,7 +30907,7 @@
         "5": {
           "name": "Death Snip",
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "mv": [
@@ -31494,7 +31477,7 @@
         },
         "2": {
           "cast": "AUTO",
-          "type": "HEAL",
+          "type": "heal",
           "multipliers": [
             {
               "flat": [
@@ -31930,7 +31913,7 @@
         "11": {
           "name": "Bonus DMG Multiplier per Ring of Chainsaw",
           "cast": "AUTO",
-          "considered": "BUFF",
+          "considered": "buff",
           "multipliers": [
             {
               "mv": [
@@ -31961,7 +31944,7 @@
         "12": {
           "name": "Sawring - Eradication",
           "cast": "AUTO",
-          "type": "SHIELD",
+          "type": "shield",
           "multipliers": [
             {
               "flat": [
@@ -32534,7 +32517,7 @@
       "skills": {
         "1": {
           "name": "Wide Field Observation Mode: Distributed Array",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "DEF",
           "multipliers": [
             {
@@ -32589,7 +32572,7 @@
         },
         "2": {
           "name": "Expectation Error",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "DEF",
           "multipliers": [
             {
@@ -32777,7 +32760,7 @@
       "skills": {
         "1": {
           "name": "Syntony Field",
-          "type": "HEAL",
+          "type": "heal",
           "attr": "DEF",
           "multipliers": [
             {
@@ -35588,7 +35571,7 @@
         "4": {
           "name": "Seraphic Duet Bonus DMG (Per Instance)",
           "cast": "AUTO",
-          "considered": "BUFF",
+          "considered": "buff",
           "attr": "TUNE",
           "multipliers": [
             {
