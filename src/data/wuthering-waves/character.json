@@ -178,6 +178,7 @@
             "times": 3
           }
         ],
+        "followUpActionInterval": 2500,
         "maxUses": 4,
         "rankModifiers": {
           "4": {
@@ -193,7 +194,7 @@
           "action": "7-1",
           "times": 3
         },
-        "followUpActionCooldown": 2000,
+        "followUpActionInterval": 2000,
         "maxUses": 4
       },
       {
@@ -241,7 +242,7 @@
             }
           }
         },
-        "followUpActionCooldown": 3000,
+        "followUpActionInterval": 3000,
         "duration": 30000
       },
       {
@@ -335,9 +336,17 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "3-1",
-        "duration": 14000,
         "statMap": {
           "PERCENT_GLACIO": 0.5
+        },
+        "duration": 14000,
+        "rankModifiers": {
+          "3": {
+            "statMap": {
+              "PERCENT_BA": 0.2,
+              "PERCENT_RS": 0.1
+            }
+          }
         }
       },
       {
@@ -351,38 +360,38 @@
           "7-2",
           "7-3"
         ],
-        "duration": 3000,
-        "maxUses": 1,
         "useIfAction": "7-4",
         "statMap": {
           "PERCENT_MV": 1.5
-        }
+        },
+        "duration": 3000,
+        "maxUses": 1
       },
       {
-        "rank": 3,
         "applyWhen": "cast",
-        "applyOnAction": "3-1",
-        "duration": 14000,
-        "statMap": {
-          "PERCENT_BA": 0.2,
-          "PERCENT_RS": 0.1
-        }
+        "applyOnAction": "8-1",
+        "followUpAction": {
+          "action": {
+            "multipliers": {
+              "mv": 5.8794
+            }
+          }
+        },
+        "maxUses": 1
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "8-1",
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_GLACIO": 0.2
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
-        "applyWhen": "cast",
-        "applyOnAction": "3-1",
-        "maxUses": 1,
+        "useIfAction": "3-1",
         "statMap": {
           "FLAT_MV": 2
         }
@@ -391,14 +400,15 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "7-4",
-        "maxUses": 1,
         "useIfAction": [
           "7-2",
           "7-3"
         ],
         "statMap": {
           "PERCENT_BA": 1
-        }
+        },
+        "duration": 3000,
+        "maxUses": 1
       }
     ],
     "defaults": {

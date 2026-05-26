@@ -363,6 +363,7 @@ const normalizeEffects = (gameId, member) => {
         applyIfInflict: effect.applyIfInflict ?? null,
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
         followUpAction: toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank)),
+        followUpActionInterval: effect.followUpActionInterval,
       };
 
       if (effect.rankModifiers) {
@@ -484,6 +485,7 @@ export const simulateRotation = (gameId, rawTeam) => {
       applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
       advanceEffects(effectTrackers, offset, duration);
       tickEnemyStatuses(gameId, effectTrackers, duration);
+      tickIntervalProcs({ gameId, members, effectTrackers, activeId: memberId, elapsed: duration, procCooldownMap });
       tickProcCooldowns(procCooldownMap, offset);
       tickProcCooldowns(applyCooldownMap, offset);
       applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
@@ -504,6 +506,7 @@ export const simulateRotation = (gameId, rawTeam) => {
       applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
       advanceEffects(effectTrackers, offset, duration);
       tickEnemyStatuses(gameId, effectTrackers, duration);
+      tickIntervalProcs({ gameId, members, effectTrackers, activeId, elapsed: duration, procCooldownMap, actionMap, allEffectDefinitions });
       tickProcCooldowns(procCooldownMap, offset);
       tickProcCooldowns(applyCooldownMap, offset);
 
@@ -576,12 +579,13 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
   const inflictedStatuses = new Set();
 
   function applyEffect(tracker, effect) {
-    const { effectKey, maxStacks, duration, maxUses } = effectDefinitions[effect];
+    const { effectKey, maxStacks, duration, maxUses, followUpActionInterval } = effectDefinitions[effect];
     const currentStacks = tracker[effectKey]?.stacks ?? 0;
     tracker[effectKey] = {
       stacks: Math.min(currentStacks + times, maxStacks),
       timeRemaining: duration,
       followUpActionRemaining: maxUses,
+      ...(followUpActionInterval ? { procTimer: tracker[effectKey]?.procTimer ?? followUpActionInterval } : {}),
     };
   }
 
@@ -714,8 +718,9 @@ function processProcEffects({
       const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
       if (!effectDef) continue;
 
-      const { followUpAction, followUpActionCooldown } = effectDef;
+      const { followUpAction, followUpActionCooldown, followUpActionInterval } = effectDef;
       if (!followUpAction) continue;
+      if (followUpActionInterval) continue;
 
       let procFired = false;
       for (const { useIfConsidered, useIfAction, action, inlineAction, times } of followUpAction) {
@@ -805,6 +810,75 @@ function hasEnemyStatus(statusName, effectTrackers) {
 function hasAnyNegativeStatus(gameId, effectTrackers) {
   const statuses = MISC[gameId].NEGATIVE_STATUSES ?? {};
   return Object.keys(statuses).some(name => hasEnemyStatus(name, effectTrackers) > 0);
+}
+
+function tickIntervalProcs({ gameId, members, effectTrackers, activeId, elapsed, procCooldownMap, actionMap = null, allEffectDefinitions }) {
+  const { byMember, team, active, inactive, enemy } = effectTrackers;
+
+  function processTrackerMap(trackerMap) {
+    for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
+      const [effectOwner] = effectKey.split('-');
+      const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
+      if (!effectDef) continue;
+
+      const { followUpAction, followUpActionCooldown, followUpActionInterval } = effectDef;
+      if (!followUpAction?.length || !followUpActionInterval) continue;
+      if (procCooldownMap[effectKey]) continue;
+
+      effectTracker.procTimer -= elapsed;
+
+      while (effectTracker.procTimer <= 0) {
+        for (const { action: procActionIds, inlineAction, times } of followUpAction) {
+          const procActions = [];
+          for (const procActionId of procActionIds) {
+            const procActionKey = effectOwner + '-' + procActionId;
+            const procAction = actionsCache.get(effectOwner)?.[procActionKey];
+            if (!procAction) continue;
+            procActions.push(procAction);
+          }
+          if (inlineAction) procActions.push(inlineAction);
+
+          for (const procAction of procActions) {
+            const { actionKey: procActionKey } = procAction;
+
+            applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'cast' });
+
+            if (actionMap) {
+              const { damage: procDamage = 0, healing: procHealing = 0 } = simulateAction({
+                gameId,
+                action: procAction,
+                effectTrackers,
+                activeId,
+                members,
+                allEffectDefinitions,
+              });
+
+              actionMap[procActionKey] = {
+                owner: procAction.owner,
+                considered: procAction.considered,
+                damage: (actionMap[procActionKey]?.damage ?? 0) + procDamage * effectTracker.stacks * times,
+                healing: (actionMap[procActionKey]?.healing ?? 0) + procHealing * effectTracker.stacks * times,
+              };
+            }
+
+            applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'contact' });
+          }
+        }
+
+        effectTracker.procTimer += followUpActionInterval;
+        if (followUpActionCooldown > 0) {
+          procCooldownMap[effectKey] = followUpActionCooldown;
+          break;
+        }
+      }
+    }
+  }
+
+  for (const memberMap of Object.values(byMember)) processTrackerMap(memberMap);
+  processTrackerMap(team);
+  processTrackerMap(active);
+  processTrackerMap(inactive);
+  processTrackerMap(enemy);
 }
 
 function tickEnemyStatuses(gameId, effectTrackers, elapsed) {

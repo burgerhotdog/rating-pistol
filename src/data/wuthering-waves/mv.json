@@ -1342,7 +1342,11 @@
         },
         "8": {
           "name": "Mid-air Attack",
-          "cast": "MBA",
+          "cast": "MA",
+          "considered": [
+            "BA",
+            "MA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -1373,6 +1377,10 @@
         "9": {
           "name": "Dodge Counter",
           "cast": "DC",
+          "considered": [
+            "BA",
+            "DC"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -1740,7 +1748,11 @@
         },
         "6": {
           "name": "Tail Strike",
-          "cast": "BA",
+          "cast": "MA",
+          "considered": [
+            "BA",
+            "MA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -1774,13 +1786,7 @@
     "8": {
       "name": "Frosty Marks",
       "skills": {
-        "1": {
-          "multipliers": [
-            {
-              "mv": 5.8794
-            }
-          ]
-        }
+        "1": {}
       }
     }
   },
