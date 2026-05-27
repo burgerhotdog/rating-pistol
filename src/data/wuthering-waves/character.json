@@ -1215,19 +1215,19 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "6-1",
-        "duration": 8000,
         "statMap": {
           "PERCENT_AERO": 0.08
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 1,
         "applyWhen": "cast",
         "applyOnAction": "6-1",
-        "duration": 8000,
         "statMap": {
           "PERCENT_AERO": 0.15
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 3,
@@ -1254,10 +1254,10 @@
         "applyWhen": "cast",
         "applyOnAction": "7-2",
         "applyTo": "team",
-        "duration": 20000,
         "statMap": {
           "PERCENT_ATK": 0.2
-        }
+        },
+        "duration": 20000
       }
     ],
     "defaults": {
