@@ -723,6 +723,7 @@
           ]
         },
         "2": {
+          "name": "Emergency Plan Healing",
           "type": "heal",
           "cast": null,
           "considered": "RS",
@@ -815,7 +816,7 @@
           ]
         },
         "2": {
-          "name": "Remnant Entities",
+          "name": "Remnant Entities Healing",
           "type": "heal",
           "cast": null,
           "considered": [
@@ -875,6 +876,7 @@
           ]
         },
         "3": {
+          "name": "Momentary Union Healing",
           "type": "heal",
           "attr": "HP",
           "multipliers": [
@@ -962,6 +964,7 @@
           ]
         },
         "2": {
+          "name": "Overflowing Frost Healing",
           "type": "heal",
           "cast": null,
           "attr": "HP",
@@ -1022,7 +1025,7 @@
       "name": "Cycle of Life",
       "skills": {
         "1": {
-          "name": "Concentration",
+          "name": "Concentration Healing",
           "type": "heal",
           "attr": "HP",
           "multipliers": [
@@ -5831,9 +5834,8 @@
           ]
         },
         "7": {
-          "name": "Zephyr Song",
-          "cast": "BA",
-          "considered": "HA",
+          "name": "Heavy Attack: Zephyr Song",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -5954,6 +5956,7 @@
       "name": "Wind Spirals",
       "skills": {
         "1": {
+          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -6046,7 +6049,7 @@
       "name": "Echoing Feathers",
       "skills": {
         "1": {
-          "name": "Stormy Strike",
+          "name": "Heavy Attack: Stormy Strike",
           "cast": "HA",
           "multipliers": [
             {
@@ -6079,6 +6082,10 @@
         "2": {
           "name": "Mid-air Attack: Feather Release",
           "cast": "MA",
+          "considered": [
+            "BA",
+            "MA"
+          ],
           "multipliers": [
             {
               "mv": [
@@ -6419,9 +6426,8 @@
       "skills": {
         "1": {
           "name": "Mist Bullet",
-          "cast": "AUTO",
+          "cast": null,
           "considered": "RS",
-          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -6449,7 +6455,9 @@
             }
           ]
         },
-        "2": {}
+        "2": {
+          "name": "Mist Avatar"
+        }
       }
     },
     "3": {
@@ -6524,9 +6532,7 @@
       "skills": {
         "1": {
           "name": "Mist Bullet",
-          "cast": "AUTO",
           "considered": "RS",
-          "duration": 0,
           "multipliers": [
             {
               "mv": [
@@ -6556,17 +6562,14 @@
         },
         "2": {
           "name": "Mistcloak Dash",
-          "cast": "DA",
-          "considered": "INPUT"
+          "cast": "DASH"
         }
       }
     },
     "8": {
       "name": "Dissolving Mist",
       "skills": {
-        "1": {
-          "duration": 0
-        }
+        "1": {}
       }
     }
   },
@@ -6779,9 +6782,8 @@
           ]
         },
         "7": {
-          "name": "Windborne Strike",
-          "cast": "AUTO",
-          "considered": "HA",
+          "name": "Heavy Attack: Windborne Strike",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6810,9 +6812,8 @@
           ]
         },
         "8": {
-          "name": "Abyssal Slash",
-          "cast": "AUTO",
-          "considered": "HA",
+          "name": "Heavy Attack: Abyssal Slash",
+          "cast": "HA",
           "multipliers": [
             {
               "mv": [
@@ -6871,7 +6872,8 @@
           ]
         },
         "10": {
-          "name": "Banner Of Triumph",
+          "name": "Mid-air Attack: Banner Of Triumph",
+          "cast": "MA",
           "multipliers": [
             {
               "mv": [
@@ -6999,7 +7001,7 @@
       "name": "Emerald Storm - Prelude",
       "skills": {
         "1": {
-          "name": "Lance Of Qingloong 1",
+          "name": "Heavy Attack: Lance Of Qingloong 1",
           "cast": "HA",
           "multipliers": [
             {
@@ -7030,7 +7032,7 @@
           ]
         },
         "2": {
-          "name": "Lance Of Qingloong 2",
+          "name": "Heavy Attack: Lance Of Qingloong 2",
           "cast": "HA",
           "multipliers": [
             {
@@ -7061,7 +7063,7 @@
           ]
         },
         "3": {
-          "name": "Lance Of Qingloong 3",
+          "name": "Heavy Attack: Lance Of Qingloong 3",
           "cast": "HA",
           "multipliers": [
             {
@@ -7090,7 +7092,8 @@
               "times": 8
             }
           ]
-        }
+        },
+        "4": {}
       }
     },
     "6": {
@@ -7130,7 +7133,7 @@
       "name": "Qingloong at War",
       "skills": {
         "1": {
-          "name": "Emerald Storm: Finale",
+          "name": "Resonance Liberation: Emerald Storm: Finale",
           "cast": "RL",
           "considered": "HA",
           "multipliers": [
@@ -7190,10 +7193,7 @@
     "8": {
       "name": "Discipline",
       "skills": {
-        "1": {
-          "type": "buff",
-          "duration": 0
-        }
+        "1": {}
       }
     }
   },
@@ -7523,8 +7523,8 @@
       "skills": {
         "1": {
           "name": "Purification Force Field Continuous",
-          "cast": "AUTO",
-          "duration": 0,
+          "cast": null,
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -7553,8 +7553,8 @@
         },
         "2": {
           "name": "Purification Force Field Explosion",
-          "cast": "AUTO",
-          "duration": 0,
+          "cast": null,
+          "considered": "RL",
           "multipliers": [
             {
               "mv": [
@@ -7821,7 +7821,7 @@
           ]
         },
         "7": {
-          "name": "Incomplete Minor Zhoutian Final",
+          "name": "Incomplete Minor Zhoutian Final Shield",
           "type": "shield",
           "duration": 0,
           "multipliers": [
@@ -7876,7 +7876,7 @@
           ]
         },
         "8": {
-          "name": "Minor Zhoutian Final",
+          "name": "Minor Zhoutian Final Shield",
           "type": "shield",
           "duration": 0,
           "multipliers": [
@@ -7931,7 +7931,7 @@
           ]
         },
         "9": {
-          "name": "Major Zhoutian: Inner Final",
+          "name": "Major Zhoutian: Inner Final Shield",
           "type": "shield",
           "duration": 0,
           "multipliers": [
@@ -7986,7 +7986,7 @@
           ]
         },
         "10": {
-          "name": "Major Zhoutian: Outer Final",
+          "name": "Major Zhoutian: Outer Final Shield",
           "type": "shield",
           "duration": 0,
           "multipliers": [
@@ -8041,7 +8041,7 @@
           ]
         },
         "11": {
-          "name": "Shield",
+          "name": "Shield Healing",
           "type": "heal",
           "duration": 0,
           "multipliers": [
@@ -8094,24 +8094,13 @@
               ]
             }
           ]
-        },
-        "12": {
-          "name": "Special Chi Counter",
-          "considered": "HA",
-          "multipliers": [
-            {
-              "mv": 5.5667
-            }
-          ]
         }
       }
     },
     "8": {
       "name": "Transcendence",
       "skills": {
-        "1": {
-          "duration": 0
-        }
+        "1": {}
       }
     }
   },
@@ -8535,8 +8524,9 @@
           ]
         },
         "2": {
-          "cast": "AUTO",
+          "name": "Arboreal Flourish Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "flat": [
@@ -8623,9 +8613,9 @@
           ]
         },
         "4": {
-          "name": "Photosynthesis Mark",
-          "cast": "AUTO",
+          "name": "Photosynthesis Mark Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "flat": [
@@ -8861,8 +8851,9 @@
           ]
         },
         "5": {
-          "cast": "AUTO",
+          "name": "Starflower Blooms Healing",
           "type": "heal",
+          "cast": "AUTO",
           "duration": 0,
           "multipliers": [
             {
@@ -8941,6 +8932,7 @@
       "name": "Blossom",
       "skills": {
         "1": {
+          "name": "Blossom Healing",
           "type": "heal",
           "multipliers": [
             {
@@ -9229,8 +9221,9 @@
           ]
         },
         "2": {
-          "cast": "AUTO",
+          "name": "Fortified Defense Healing",
           "type": "heal",
+          "cast": "AUTO",
           "attr": "DEF",
           "multipliers": [
             {
@@ -9449,7 +9442,7 @@
           ]
         },
         "4": {
-          "name": "Timed Counters 1",
+          "name": "Timed Counters 1 Shield",
           "cast": "AUTO",
           "type": "shield",
           "attr": "DEF",
@@ -9505,7 +9498,7 @@
           ]
         },
         "5": {
-          "name": "Timed Counters 2",
+          "name": "Timed Counters 2 Shield",
           "cast": "AUTO",
           "type": "shield",
           "attr": "DEF",
@@ -9561,7 +9554,7 @@
           ]
         },
         "6": {
-          "name": "Timed Counters 3",
+          "name": "Timed Counters 3 Shield",
           "cast": "AUTO",
           "type": "shield",
           "attr": "DEF",
@@ -13572,8 +13565,9 @@
           ]
         },
         "2": {
-          "cast": "AUTO",
+          "name": "Scroll Divination Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "flat": [
@@ -13995,6 +13989,7 @@
           ]
         },
         "2": {
+          "name": "Poetic Essence Healing",
           "type": "heal",
           "multipliers": [
             {
@@ -14048,7 +14043,7 @@
           ]
         },
         "3": {
-          "name": "Double Pun Bonus",
+          "name": "Double Pun Bonus Healing",
           "type": "heal",
           "multipliers": [
             {
@@ -14361,6 +14356,7 @@
           ]
         },
         "2": {
+          "name": "Chaos Theory Healing",
           "type": "heal",
           "attr": "HP",
           "multipliers": [
@@ -14420,8 +14416,9 @@
       "name": "End Loop",
       "skills": {
         "1": {
-          "cast": "AUTO",
+          "name": "End Loop",
           "type": "heal",
+          "cast": "AUTO",
           "attr": "HP",
           "multipliers": [
             {
@@ -14546,9 +14543,9 @@
           ]
         },
         "3": {
-          "name": "Enlightenment",
-          "cast": "AUTO",
+          "name": "Enlightenment Healing",
           "type": "heal",
+          "cast": "AUTO",
           "attr": "HP",
           "multipliers": [
             {
@@ -14602,9 +14599,9 @@
           ]
         },
         "4": {
-          "name": "Discernment",
-          "cast": "AUTO",
+          "name": "Discernment Healing",
           "type": "heal",
+          "cast": "AUTO",
           "attr": "HP",
           "multipliers": [
             {
@@ -18552,8 +18549,9 @@
           ]
         },
         "2": {
-          "cast": "AUTO",
+          "name": "To the Horizon Healing",
           "type": "heal",
+          "cast": "AUTO",
           "attr": "ER",
           "multipliers": [
             {
@@ -18774,7 +18772,7 @@
           ]
         },
         "2": {
-          "name": "Waves of Acclaims",
+          "name": "Waves of Acclaims Healing",
           "type": "heal",
           "duration": 0,
           "attr": "ER",
@@ -18830,6 +18828,7 @@
           ] 
         },
         "3": {
+          "name": "Ocean Odyssey Shield",
           "type": "shield",
           "duration": 0,
           "attr": "ER",
@@ -20212,7 +20211,7 @@
           ]
         },
         "7": {
-          "name": "Trance",
+          "name": "Trance Healing",
           "type": "heal",
           "multipliers": [
             {
@@ -20266,7 +20265,7 @@
           ]
         },
         "8": {
-          "name": "Perception Drain",
+          "name": "Perception Drain Healing",
           "type": "heal",
           "multipliers": [
             {
@@ -27278,9 +27277,9 @@
           ]
         },
         "8": {
-          "name": "Moonbow: Basic Attack 1",
-          "cast": "AUTO",
+          "name": "Moonbow: Basic Attack 1 Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -27309,9 +27308,9 @@
           ]
         },
         "9": {
-          "name": "Moonbow: Basic Attack 2",
-          "cast": "AUTO",
+          "name": "Moonbow: Basic Attack 2 Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -27340,9 +27339,9 @@
           ]
         },
         "10": {
-          "name": "Moonbow: Basic Attack 3",
-          "cast": "AUTO",
+          "name": "Moonbow: Basic Attack 3 Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -27371,9 +27370,9 @@
           ]
         },
         "11": {
-          "name": "Moonbow: Dodge Counter",
-          "cast": "AUTO",
+          "name": "Moonbow: Dodge Counter Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -27402,9 +27401,9 @@
           ]
         },
         "12": {
-          "name": "Arc Beyond the Edge",
-          "cast": "AUTO",
+          "name": "Arc Beyond the Edge Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -27464,9 +27463,9 @@
           ]
         },
         "14": {
-          "name": "Absolute Fullness",
-          "cast": "AUTO",
+          "name": "Absolute Fullness Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -27495,9 +27494,9 @@
           ]
         },
         "15": {
-          "name": "Full Moon Domain",
-          "cast": "AUTO",
+          "name": "Full Moon Domain Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -30240,9 +30239,9 @@
           ]
         },
         "9": {
-          "name": "Twin Mountains",
-          "cast": "HA",
+          "name": "Twin Mountains Healing",
           "type": "heal",
+          "cast": "HA",
           "multipliers": [
             {
               "flat": [
@@ -30295,9 +30294,9 @@
           ]
         },
         "10": {
-          "name": "Twin Thunders",
-          "cast": "HA",
+          "name": "Twin Thunders Healing",
           "type": "heal",
+          "cast": "HA",
           "multipliers": [
             {
               "flat": [
@@ -30481,8 +30480,9 @@
           ]
         },
         "2": {
-          "cast": "AUTO",
+          "name": "Summon and Smite Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -30605,6 +30605,7 @@
       "name": "Exorcism Spell",
       "skills": {
         "1": {
+          "name": "Exorcism Spell Healing",
           "type": "heal",
           "multipliers": [
             {
@@ -30835,9 +30836,9 @@
           ]
         },
         "5": {
-          "name": "Death Snip",
-          "cast": "AUTO",
+          "name": "Death Snip Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "mv": [
@@ -31406,8 +31407,9 @@
           ]
         },
         "2": {
-          "cast": "AUTO",
+          "name": "Moment of Nihility Healing",
           "type": "heal",
+          "cast": "AUTO",
           "multipliers": [
             {
               "flat": [
@@ -31872,7 +31874,7 @@
           ]
         },
         "12": {
-          "name": "Sawring - Eradication",
+          "name": "Sawring - Eradication Shield",
           "cast": "AUTO",
           "type": "shield",
           "multipliers": [
@@ -32446,7 +32448,7 @@
       "name": "Resolution",
       "skills": {
         "1": {
-          "name": "Wide Field Observation Mode: Distributed Array",
+          "name": "Wide Field Observation Mode: Distributed Array Healing",
           "type": "heal",
           "attr": "DEF",
           "multipliers": [
@@ -32501,7 +32503,7 @@
           ]
         },
         "2": {
-          "name": "Expectation Error",
+          "name": "Expectation Error Healing",
           "type": "heal",
           "attr": "DEF",
           "multipliers": [
@@ -32689,7 +32691,7 @@
       "name": "Mass-Energy Equivalence",
       "skills": {
         "1": {
-          "name": "Syntony Field",
+          "name": "Syntony Field Healing",
           "type": "heal",
           "attr": "DEF",
           "multipliers": [

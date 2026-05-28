@@ -1218,16 +1218,14 @@
         "statMap": {
           "PERCENT_AERO": 0.08
         },
-        "duration": 8000
-      },
-      {
-        "rank": 1,
-        "applyWhen": "cast",
-        "applyOnAction": "6-1",
-        "statMap": {
-          "PERCENT_AERO": 0.15
-        },
-        "duration": 8000
+        "duration": 8000,
+        "rankModifiers": {
+          "1": {
+            "statMap": {
+              "PERCENT_AERO": 0.15
+            }
+          }
+        }
       },
       {
         "rank": 3,
@@ -1239,14 +1237,14 @@
         "rank": 4,
         "useIfAction": "7-2",
         "statMap": {
-          "PERCENT_BA": 0.95
+          "PERCENT_ALL": 0.95
         }
       },
       {
         "rank": 5,
         "useIfAction": "3-1",
         "statMap": {
-          "PERCENT_RL": 0.85
+          "PERCENT_ALL": 0.85
         }
       },
       {
@@ -1303,16 +1301,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "2-2",
-        "maxUses": 1,
         "followUpAction": {
           "action": "2-1",
           "times": 6
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "3-1",
-        "duration": 10000,
         "useIfAction": [
           "1-1",
           "1-2",
@@ -1320,31 +1317,59 @@
           "1-4",
           "1-5",
           "1-6",
+          "1-7",
+          "1-8",
           "1-9"
         ],
         "statMap": {
           "PERCENT_ATK": 0.1
         },
-        "rankModifiers": {
-          "3": {
-            "statMap": {
-              "PERCENT_MV": 1
-            }
-          }
-        }
+        "duration": 10000
       },
       {
-        "useIfAction": [
-          "1-7",
-          "1-8"
-        ],
-        "statMap": {
-          "PERCENT_CR": 1
-        }
+        "applyWhen": "contact",
+        "applyOnAction": "7-2",
+        "followUpAction": {
+          "action": "7-1",
+          "times": 6
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": [
+          "1-7",
+          "1-8"
+        ],
+        "applyCooldown": 30000,
+        "statMap": {
+          "PERCENT_CR": 1
+        },
+        "maxUses": 1
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "8-1",
+        "applyTo": "next",
+        "statMap": {
+          "AMP_AERO": 0.23
+        },
+        "duration": 14000
+      },
+      {
+        "rank": 2,
+        "applyWhen": "cast",
+        "applyOnAction": "2-2",
+        "statMap": {
+          "PERCENT_ATK": 0.15
+        },
+        "duration": 8000
+      },
+      {
+        "rank": 3,
+        "applyWhen": "cast",
+        "applyOnAction": "3-1",
+        "useIfAction": [
           "1-1",
           "1-2",
           "1-3",
@@ -1353,30 +1378,10 @@
           "1-6",
           "1-9"
         ],
-        "maxStacks": 6,
-        "maxUses": 1,
-        "followUpAction": {
-          "useIfAction": "7-2",
-          "action": "7-1"
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "8-1",
-        "applyTo": "next",
-        "duration": 14000,
         "statMap": {
-          "AMP_AERO": 0.23
-        }
-      },
-      {
-        "rank": 2,
-        "applyWhen": "cast",
-        "applyOnAction": "2-2",
-        "duration": 8000,
-        "statMap": {
-          "PERCENT_ATK": 0.15
-        }
+          "PERCENT_MV": 1
+        },
+        "duration": 10000
       },
       {
         "rank": 4,
@@ -1385,27 +1390,39 @@
           "7-1"
         ],
         "statMap": {
-          "PERCENT_RS": 0.3
+          "PERCENT_ALL": 0.3
         }
       },
       {
         "rank": 5,
         "applyWhen": "cast",
         "applyOnAction": "7-2",
-        "duration": 6000,
         "statMap": {
           "PERCENT_AERO": 0.25
-        }
+        },
+        "duration": 6000
       },
       {
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "3-1",
-        "duration": 10000,
         "statMap": {
-          "PERCENT_CR": 0.08,
-          "PERCENT_HA": 0.5
-        }
+          "PERCENT_CR": 0.08
+        },
+        "duration": 10000
+      },
+      {
+        "rank": 6,
+        "applyWhen": "cast",
+        "applyOnAction": "3-1",
+        "useIfAction": [
+          "1-7",
+          "1-8"
+        ],
+        "statMap": {
+          "PERCENT_ALL": 0.5
+        },
+        "duration": 10000
       }
     ],
     "defaults": {
@@ -1445,6 +1462,22 @@
     },
     "effects": [
       {
+        "applyWhen": "cast",
+        "applyOnAction": "6-1",
+        "statMap": {
+          "PERCENT_ATK": 0.1
+        },
+        "duration": 15000
+      },
+      {
+        "applyWhen": "contact",
+        "applyOnType": "damage",
+        "statMap": {
+          "PERCENT_CD": 0.12
+        },
+        "duration": 8000
+      },
+      {
         "useIfAction": "2-1",
         "statMap": {
           "PERCENT_RS": 0.2
@@ -1452,49 +1485,35 @@
       },
       {
         "applyWhen": "cast",
-        "applyOnAction": "6-1",
-        "duration": 15000,
-        "statMap": {
-          "PERCENT_ATK": 0.1
-        }
-      },
-      {
-        "statMap": {
-          "PERCENT_CD": 0.12
-        }
-      },
-      {
-        "applyWhen": "cast",
         "applyOnAction": "8-1",
         "applyTo": "next",
         "followUpAction": {
-          "useIfConsidered": "HA",
+          "useIfCast": "HA",
           "action": {
             "type": "damage",
-            "attr": "ATK",
-            "element": "AERO",
+            "cast": "CA",
             "considered": [
               "OS",
               "CA"
             ],
-            "multipliers": [
-              {
-                "mv": 3.134
-              }
-            ]
+            "multipliers": {
+              "mv": 3.134
+            }
           }
         },
-        "maxUses": 2,
-        "duration": 8000
+        "followUpActionCooldown": 1000,
+        "duration": 8000,
+        "maxUses": 2
       },
       {
         "rank": 2,
         "applyWhen": "cast",
         "applyOnAction": "6-1",
-        "duration": 15000,
+        "applyCooldown": 15000,
         "statMap": {
           "PERCENT_ATK": 0.28
-        }
+        },
+        "duration": 15000
       },
       {
         "rank": 3,
@@ -1502,14 +1521,14 @@
         "applyOnAction": [
           "2-1",
           "3-1",
-          "6-1",
-          "7-1"
+          "7-1",
+          "6-1"
         ],
-        "duration": 8000,
         "statMap": {
           "PERCENT_CR": 0.16,
           "PERCENT_CD": 0.32
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 4,
@@ -1519,10 +1538,10 @@
           "7-1"
         ],
         "applyTo": "team",
-        "duration": 30000,
         "statMap": {
           "PERCENT_HA": 0.25
-        }
+        },
+        "duration": 30000
       },
       {
         "rank": 5,
@@ -1534,27 +1553,26 @@
       {
         "rank": 5,
         "applyWhen": "cast",
-        "applyOnAction": "6-1",
+        "applyOnType": "damage",
         "statMap": {
           "PERCENT_ATK": 0.45
-        }
+        },
+        "duration": 8000
       },
       {
         "rank": 6,
         "applyWhen": "cast",
+        "applyOnCast": "HA",
         "applyOnAction": [
-          "1-6",
-          "1-7",
-          "1-8",
-          "2-1",
-          "6-1"
+          "6-1",
+          "2-1"
         ],
-        "maxStacks": 2,
-        "maxUses": 1,
         "useIfAction": "7-1",
         "statMap": {
           "FLAT_MV": 1.2
-        }
+        },
+        "maxStacks": 2,
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -1598,9 +1616,6 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "3-3",
-        "applyTo": "team",
-        "duration": 1000,
-        "maxUses": 1,
         "followUpAction": [
           {
             "action": "3-1",
@@ -1609,31 +1624,32 @@
           {
             "action": "3-2"
           }
-        ]
+        ],
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "7-3",
-        "maxUses": 1,
         "followUpAction": {
           "action": "7-8"
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "7-4",
-        "maxUses": 1,
         "followUpAction": {
           "action": "7-9"
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "7-5",
-        "maxUses": 1,
         "followUpAction": {
           "action": "7-10"
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
@@ -1644,10 +1660,10 @@
           "7-10"
         ],
         "applyTo": "team",
-        "duration": 30000,
         "followUpAction": {
           "action": "7-11"
-        }
+        },
+        "duration": 30000
       },
       {
         "useIfAction": [
@@ -1667,38 +1683,43 @@
         "applyWhen": "cast",
         "applyOnAction": "8-1",
         "applyTo": "next",
-        "duration": 14000,
         "statMap": {
           "AMP_RL": 0.38
-        }
+        },
+        "duration": 14000
       },
       {
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "7-2",
-        "duration": 14000,
         "useIfAction": [
           "3-1",
           "3-2"
         ],
         "statMap": {
-          "PERCENT_RL": 0.8
-        }
+          "PERCENT_ALL": 0.8
+        },
+        "duration": 14000
       },
       {
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "7-1",
-        "duration": 5000,
-        "maxUses": 1,
         "followUpAction": [
           {
-            "action": "7-12"
+            "action": {
+              "considered": "HA",
+              "multipliers": {
+                "mv": 5.5667
+              }
+            }
           },
           {
             "action": "7-10"
           }
-        ]
+        ],
+        "duration": 5000,
+        "maxUses": 1
       }
     ],
     "defaults": {
@@ -5055,6 +5076,7 @@
       "BASE_HP": 15375,
       "BASE_ATK": 287,
       "BASE_DEF": 1356,
+      "TUNE_BREAK_BOOST": 10,
       "PERCENT_OHB": 0.12,
       "PERCENT_DEF": 0.152
     },
@@ -5099,6 +5121,7 @@
       "BASE_HP": 12237,
       "BASE_ATK": 375,
       "BASE_DEF": 1197,
+      "TUNE_BREAK_BOOST": 10,
       "PERCENT_CR": 0.08,
       "PERCENT_ATK": 0.12
     },
@@ -5145,6 +5168,7 @@
       "BASE_HP": 11025,
       "BASE_ATK": 425,
       "BASE_DEF": 1148,
+      "TUNE_BREAK_BOOST": 10,
       "PERCENT_CR": 0.08,
       "PERCENT_ATK": 0.12
     },
@@ -5196,6 +5220,7 @@
       "BASE_HP": 10300,
       "BASE_ATK": 462,
       "BASE_DEF": 1112,
+      "TUNE_BREAK_BOOST": 10,
       "PERCENT_CR": 0.08,
       "PERCENT_ATK": 0.12
     },
@@ -5335,6 +5360,7 @@
       "BASE_HP": 11025,
       "BASE_ATK": 425,
       "BASE_DEF": 1148,
+      "TUNE_BREAK_BOOST": 10,
       "PERCENT_CD": 0.16,
       "PERCENT_ATK": 0.12
     },

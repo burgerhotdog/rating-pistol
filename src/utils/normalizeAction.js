@@ -15,12 +15,8 @@ export const normalizeAction = (gameId, characterId, skillId, actionId, level = 
   const action = MVS[gameId][characterId][skillId].skills[actionId];
   const { element: ownerElement } = CHARACTERS[gameId][characterId];
   
-  let name = action.name ?? MVS[gameId][characterId][skillId].name ?? '';
+  const name = action.name ?? MVS[gameId][characterId][skillId].name ?? '';
   const type = action.type ?? 'damage';
-
-  if (type !== 'damage') {
-    name = `${name} ${type}`;
-  }
 
   const element = type === 'damage'
     ? (action.element ?? ownerElement)
@@ -28,7 +24,7 @@ export const normalizeAction = (gameId, characterId, skillId, actionId, level = 
   const cast = toArray(action.cast ?? DEFAULT_CAST[skillId]);
   const considered = toArray(action.considered ?? (ALT_CAST.has(cast) ? [DEFAULT_CAST[skillId], cast] : cast));
   const duration = action.duration ?? ((cast && !cast.includes('OS')) ? 1000 : 0);
-  const offset = action.offset ?? ((cast && !cast.includes('OS')) ? 500 : 0);
+  const offset = Math.min(duration, action.offset ?? ((cast && !cast.includes('OS')) ? 500 : 0));
   const attr = action.attr ?? 'ATK';
 
   let sumFlat = 0;
