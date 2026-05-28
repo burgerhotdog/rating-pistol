@@ -1,6 +1,6 @@
 import { MISC } from '@/data';
 import { computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
-import { weightedLottery, matchPenalty, simulateRotation } from './helpers';
+import { weightedLottery, matchPenalty, evaluateRotationSummary } from './helpers';
 
 const DAILY_STAMINA = 240;
 const WEEKLY_STAMINA = 120;
@@ -66,7 +66,7 @@ function assignMainStat(costIndex) {
   return { mainStatId, mainStatValue };
 }
 
-export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team) {
+export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, summary) {
   const totalStaminaPerWeek = DAILY_STAMINA * 7 + WEEKLY_STAMINA;
   const totalDropsPerWeek = Math.floor((totalStaminaPerWeek / COST_PER_RUN) * DROPS_PER_RUN);
 
@@ -105,7 +105,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
-    const newDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: newBuild } : { ...member }));
+    const newDamage = evaluateRotationSummary(summary, characterId, compileStatMap('wuthering-waves', characterId, newBuild));
 
     // Compare with latest and replace if needed
     if (sumRotationDmg(newDamage, characterId) * newPenalty > sumRotationDmg(latestDamage, characterId) * latestPenalty) {
@@ -152,7 +152,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
-      const newDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: newBuild } : { ...member }));
+      const newDamage = evaluateRotationSummary(summary, characterId, compileStatMap('wuthering-waves', characterId, newBuild));
 
       // Compare new damage with buffer and replace if better
       if (sumRotationDmg(newDamage, characterId) * newPenalty > sumRotationDmg(bufferDamage, characterId) * bufferPenalty) {
@@ -208,7 +208,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
-      const newDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: newBuild } : { ...member }));
+      const newDamage = evaluateRotationSummary(summary, characterId, compileStatMap('wuthering-waves', characterId, newBuild));
 
       // Compare new damage with buffer and replace if better
       if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {

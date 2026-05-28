@@ -1,30 +1,22 @@
 import { CHARACTERS, MVS } from '@/data';
 import { toArray } from '@/utils';
 
-const DEFAULT_CAST = {
-  "1": "BA",
-  "2": "RS",
-  "3": "RL",
-  "6": "IS",
-  "8": "OS",
-};
-
-const ALT_CAST = new Set(['MA', 'DC', 'CA']);
+const ALT_CAST = new Set(['MA', 'DC', 'CA', 'JA', 'DA']);
 
 export const normalizeAction = (gameId, characterId, skillId, actionId, level = 10) => {
-  const action = MVS[gameId][characterId][skillId].skills[actionId];
+  const action = MVS[gameId][characterId][skillId][actionId];
   const { element: ownerElement } = CHARACTERS[gameId][characterId];
   
-  const name = action.name ?? MVS[gameId][characterId][skillId].name ?? '';
+  const name = action.name ?? '';
   const type = action.type ?? 'damage';
+  const element = action.element ?? ownerElement;
 
-  const element = type === 'damage'
-    ? (action.element ?? ownerElement)
-    : undefined;
-  const cast = toArray(action.cast ?? DEFAULT_CAST[skillId]);
-  const considered = toArray(action.considered ?? (ALT_CAST.has(cast) ? [DEFAULT_CAST[skillId], cast] : cast));
+  const cast = toArray(action.cast ?? skillId);
+  const considered = toArray(action.considered ?? (ALT_CAST.has(cast[0]) ? [skillId, cast] : cast));
+
   const duration = action.duration ?? ((cast && !cast.includes('OS')) ? 1000 : 0);
   const offset = Math.min(duration, action.offset ?? ((cast && !cast.includes('OS')) ? 500 : 0));
+
   const attr = action.attr ?? 'ATK';
 
   let sumFlat = 0;

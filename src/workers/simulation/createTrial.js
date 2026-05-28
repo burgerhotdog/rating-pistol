@@ -1,7 +1,7 @@
 import { computeTotalStat, compileStatMap } from '@/utils';
-import { matchPenalty, simulateRotation } from './helpers';
+import { matchPenalty, evaluateRotationSummary } from './helpers';
 
-export function createTrial(matchTargets, gameId, characterId, build, match, team) {
+export function createTrial(matchTargets, gameId, characterId, build, match, team, summary) {
   const startingBuild = {
     weaponId: build.weaponId,
     equipList: build.equipList.map(() => null),
@@ -14,6 +14,6 @@ export function createTrial(matchTargets, gameId, characterId, build, match, tea
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1),
-    scores: [simulateRotation(gameId, team.map(member => member.memberId === characterId ? { ...member, build: startingBuild } : { ...member }))],
+    scores: [evaluateRotationSummary(summary, characterId, compileStatMap(gameId, characterId, startingBuild))],
   };
 }

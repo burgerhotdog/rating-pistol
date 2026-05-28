@@ -1,5 +1,5 @@
 import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
-import { findBenchmarkWeek, getAverageScores, findRelativeError, simulateRotation } from './helpers';
+import { findBenchmarkWeek, getAverageScores, findRelativeError, summarizeRotation, evaluateRotationSummary } from './helpers';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
@@ -9,21 +9,6 @@ const MIN_TRIALS = 50;
 const MAX_TRIALS = 500;
 const MAX_WEEKS = 20;
 
-function normalizeTeam(team, teamFinalStats = {}) {
-  return team.map(m => {
-    if (m.build) return m;
-    const finalStats = teamFinalStats[m.memberId];
-    return {
-      ...m,
-      build: {
-        weaponId: m.weaponId,
-        setCounts: m.setCounts,
-        ...(finalStats ? { statMap: finalStats } : {}),
-      },
-    };
-  });
-}
-
 function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
   const simulationStartMs = performance.now();
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
@@ -31,12 +16,15 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build));
   });
 
+  // Compute the rotation summary once — shared across all trials and all weeks
+  const summary = summarizeRotation(gameId, team, characterId);
+
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) {
-    trials.push(createTrial(matchTargets, gameId, characterId, build, match, team));
+    trials.push(createTrial(matchTargets, gameId, characterId, build, match, team, summary));
   }
 
-  const preferredMainStats = findPreferred(trials[0], gameId, characterId, match, team, matchTargets);
+  const preferredMainStats = findPreferred(trials[0], gameId, characterId, match, team, matchTargets, summary);
 
   let lastBenchmarkWeek = null;
   let lastDiff = null;
@@ -47,7 +35,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
     const trialLoopStartMs = performance.now();
     let trialCount = 0;
     for (const [trialIndex, trial] of trials.entries()) {
-      advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
+      advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, summary);
       self.postMessage({ type: 'progress', trial: trialIndex + 1 });
       trialCount += 1;
     }
@@ -60,9 +48,9 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
       const values = trials.map(trial => sumRotationDmg(trial.scores[week]));
       if (findRelativeError(values) <= 0.005) break;
 
-      const trial = createTrial(matchTargets, gameId, characterId, build, match, team);
+      const trial = createTrial(matchTargets, gameId, characterId, build, match, team, summary);
       for (let w = 1; w <= week; w++) {
-        advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team);
+        advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, summary);
       }
       trials.push(trial);
       adaptiveTrialsCreated += 1;
@@ -98,6 +86,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
     matchTargets,
     trials,
     preferredMainStats,
+    summary,
     benchmarkWeek: lastBenchmarkWeek,
     weeklyScores,
     diff: lastDiff,
@@ -173,7 +162,7 @@ self.onmessage = ({ data }) => {
   timings.weekTimingsMs = currentResult.timingsMs.weekTimingsMs;
   timings.mainSimulationMs = Math.round(performance.now() - mainSimulationStartMs);
 
-  const { trials, preferredMainStats, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;
+  const { trials, preferredMainStats, summary: currentSummary, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;
 
   const finalStats = {};
   for (let i = 0; i < trials.length; i++) {
@@ -199,25 +188,16 @@ self.onmessage = ({ data }) => {
     });
   }
 
-  const normalizedTeam = normalizeTeam(team, teamFinalStats);
-  const actionMap = simulateRotation(gameId, normalizedTeam);
+  // Build actionMap using the character's actual equipped build (same as what
+  // normalizeTeam returned for the character — m.build is the top-level build).
+  const actionMap = evaluateRotationSummary(currentSummary, characterId, compileStatMap(gameId, characterId, build));
   const actionMapsWithSub = Object.fromEntries(Object.entries(MISC[gameId].SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
-      const teamWithSubstat = team.map(m => {
-        if (m.memberId !== characterId) return m;
-        return {
-          ...m,
-          build: {
-            ...m.build,
-            equipList: [
-              ...m.build.equipList,
-              { mainStatId: id, mainStatValue: VALUE, subStatList: [] },
-            ],
-          },
-        };
-      });
-      const normalizedTeam = normalizeTeam(teamWithSubstat, teamFinalStats);
-      return [id, simulateRotation(gameId, normalizedTeam)];
+      const buildWithSub = {
+        ...build,
+        equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }],
+      };
+      return [id, evaluateRotationSummary(currentSummary, characterId, compileStatMap(gameId, characterId, buildWithSub))];
     }));
   timings.totalWorkerMs = Math.round(performance.now() - workerStartMs);
 

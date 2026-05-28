@@ -203,11 +203,6 @@ const resolveRankedValue = (value, rank) => {
   return r1 + (r5 - r1) / 4 * (Math.min(rank, 5) - 1);
 };
 
-const resolveMultiplierValue = (value) => {
-  if (value == null) return 0;
-  return Array.isArray(value) ? value[9] : value;
-};
-
 const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = Infinity) => {
   const inline = proc.action ?? proc.inlineAction
     ?? (proc.multipliers || proc.mv != null || proc.flat != null ? proc : null);
@@ -227,14 +222,14 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = 
     if (rawMv != null) {
       const mv = Array.isArray(rawMv) && rawMv.length === 2
         ? resolveRankedValue(rawMv, rank)
-        : resolveMultiplierValue(rawMv);
+        : rawMv;
       sumMvTimes += mv * times;
       sumTimes += times;
     }
     if (rawFlat != null) {
       const flat = Array.isArray(rawFlat) && rawFlat.length === 2
         ? resolveRankedValue(rawFlat, rank)
-        : resolveMultiplierValue(rawFlat);
+        : rawFlat;
       sumFlat += flat;
     }
   }
@@ -297,15 +292,13 @@ const getActiveSetBonuses = (gameId, member) => {
 };
 
 const normalizeActions = (gameId, memberId) => {
-  const rawSkillTree = MVS[gameId][memberId];
+  const skillTree = MVS[gameId][memberId];
   const resolved = {};
 
-  for (const nodeRef in rawSkillTree) {
-    const { skills } = rawSkillTree[nodeRef];
-
-    for (const actionRef in skills) {
-      const actionKey = `${memberId}-${nodeRef}-${actionRef}`;
-      const normalized = normalizeAction(gameId, memberId, nodeRef, actionRef);
+  for (const [skillId, skillDef] of Object.entries(skillTree)) {
+    for (const [actionId, actionDef] of Object.entries(skillDef)) {
+      const actionKey = `${memberId}-${skillId}-${actionId}`;
+      const normalized = normalizeAction(gameId, memberId, skillId, actionId);
 
       resolved[actionKey] = { actionKey, ...normalized };
     }

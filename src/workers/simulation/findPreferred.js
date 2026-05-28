@@ -1,8 +1,8 @@
 import { MISC } from '@/data';
 import { compileStatMap, computeTotalStat, sumRotationDmg } from '@/utils';
-import { matchPenalty, simulateRotation } from './helpers';
+import { matchPenalty, evaluateRotationSummary } from './helpers';
 
-export function findPreferred(trial, gameId, characterId, match, team, matchTargets) {
+export function findPreferred(trial, gameId, characterId, match, team, matchTargets, summary) {
   const { MAIN_STAT_TYPES } = MISC[gameId];
 
   return MAIN_STAT_TYPES.map((statOptions, costIndex) => {
@@ -13,7 +13,7 @@ export function findPreferred(trial, gameId, characterId, match, team, matchTarg
       const testObj = { mainStatId: id, mainStatValue: data.VALUE, subStatList: [] };
       const testBuild = { ...trial.build, equipList: [testObj] };
 
-      const testDamage = simulateRotation('wuthering-waves', team.map(member => member.memberId === characterId ? { ...member, build: testBuild } : { ...member }));
+      const testDamage = evaluateRotationSummary(summary, characterId, compileStatMap(gameId, characterId, testBuild));
       
       const testPenalty = match.reduce((acc, stat, index) => {
         const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, testBuild));

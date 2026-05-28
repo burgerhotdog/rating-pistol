@@ -529,12 +529,13 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
     if (!characterId) return [];
     const actionList = [];
 
-    for (const [skillId, skillGroup] of Object.entries(MVS[gameId][characterId])) {
-      for (const actionId in skillGroup.skills) {
-        const actionKey = `${characterId}-${skillId}-${actionId}`;
-        const { name } = normalizeAction(gameId, characterId, skillId, actionId);
-
-        actionList.push({ actionKey, name });
+    const skillTree = MVS[gameId][characterId];
+    for (const [skillId, skillDef] of Object.entries(skillTree)) {
+      for (const [actionId, actionDef] of Object.entries(skillDef)) {
+        actionList.push({
+          actionKey: `${characterId}-${skillId}-${actionId}`,
+          name: actionDef.name,
+        });
       }
     }
 
