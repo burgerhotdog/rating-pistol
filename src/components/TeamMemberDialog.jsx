@@ -192,7 +192,7 @@ function SetSelectDialog({ gameId, open, onClose, onSelect, remainingCapacity })
         if (Number.isFinite(n)) tiers.add(n);
       }
     }
-    return [...tiers].sort((a, b) => a - b);
+    return [...tiers].sort((a, b) => b - a);
   }, [gameId]);
 
   // Which tiers are possible given remaining capacity
