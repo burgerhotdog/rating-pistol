@@ -11,6 +11,8 @@ import {
   DialogContent,
   DialogTitle,
   Chip,
+  Divider,
+  // Chip kept for SetIcon piece-count badge
   FormControlLabel,
   IconButton,
   List,
@@ -522,30 +524,55 @@ function SetCountsEditor({ gameId, memberId, setCounts, onChange, disabled = fal
   );
 }
 
+const SKILL_GROUP_ORDER = ['BA', 'RS', 'FC', 'RL', 'IS', 'OS'];
+const SKILL_GROUP_LABELS = {
+  BA: 'Normal Attack',
+  RS: 'Resonance Skill',
+  FC: 'Forte Circuit',
+  RL: 'Resonance Liberation',
+  IS: 'Intro Skill',
+  OS: 'Outro Skill',
+};
+
 function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
+  const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
 
-  const options = useMemo(() => {
-    if (!characterId) return [];
-    const actionList = [];
-
+  // Build grouped actions: { skillId: [{ actionKey, name }, ...] }
+  const groupedOptions = useMemo(() => {
+    if (!characterId || !MVS[gameId]?.[characterId]) return {};
     const skillTree = MVS[gameId][characterId];
+    const groups = {};
     for (const [skillId, skillDef] of Object.entries(skillTree)) {
-      for (const [actionId, actionDef] of Object.entries(skillDef)) {
-        actionList.push({
-          actionKey: `${characterId}-${skillId}-${actionId}`,
-          name: actionDef.name,
-        });
-      }
+      groups[skillId] = Object.entries(skillDef).map(([actionId, actionDef]) => ({
+        actionKey: `${characterId}-${skillId}-${actionId}`,
+        name: actionDef.name,
+      }));
     }
-
-    return actionList;
+    return groups;
   }, [gameId, characterId]);
 
-  const searchOptions = useMemo(() => {
+  // Ordered list of skill group keys present for this character
+  const skillOrder = useMemo(() => {
+    const keys = Object.keys(groupedOptions);
+    return [
+      ...SKILL_GROUP_ORDER.filter(k => keys.includes(k)),
+      ...keys.filter(k => !SKILL_GROUP_ORDER.includes(k)),
+    ];
+  }, [groupedOptions]);
+
+  // Apply search filter per group
+  const filteredGroups = useMemo(() => {
     const lower = search.toLowerCase();
-    return options.filter(({ name }) => name.toLowerCase().includes(lower));
-  }, [options, search]);
+    const result = {};
+    for (const skillId of skillOrder) {
+      const actions = groupedOptions[skillId] ?? [];
+      result[skillId] = lower
+        ? actions.filter(({ name }) => name.toLowerCase().includes(lower))
+        : actions;
+    }
+    return result;
+  }, [groupedOptions, skillOrder, search]);
 
   const handleSelect = (actionKey) => {
     onSelect(actionKey);
@@ -553,37 +580,92 @@ function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
     onClose();
   };
 
+  const totalVisible = skillOrder.reduce((sum, id) => sum + (filteredGroups[id]?.length ?? 0), 0);
+
+  // Split into top row (all except OS) and bottom row (OS only)
+  const topIds = skillOrder.filter(id => id !== 'OS');
+  const hasOs = skillOrder.includes('OS');
+
+  const renderColumn = (skillId) => {
+    const filtered = filteredGroups[skillId] ?? [];
+    const total = groupedOptions[skillId]?.length ?? 0;
+    const label = SKILL_GROUP_LABELS[skillId] ?? abilityTypeLabels[skillId] ?? skillId;
+    return (
+      <Box key={skillId}>
+        <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 'bold', display: 'block', mb: 0.5 }}>
+          {label}{' '}
+          <Typography variant="caption" color="text.disabled" component="span">
+            {search ? `(${filtered.length}/${total})` : `(${total})`}
+          </Typography>
+        </Typography>
+        <Stack spacing={0.5}>
+          {filtered.map(({ actionKey, name }) => (
+            <Button
+              key={actionKey}
+              variant="outlined"
+              size="small"
+              onClick={() => handleSelect(actionKey)}
+              sx={{ justifyContent: 'flex-start', textTransform: 'none', fontSize: '0.75rem' }}
+            >
+              {name}
+            </Button>
+          ))}
+        </Stack>
+      </Box>
+    );
+  };
+
   return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
-      <DialogTitle>Select Skill</DialogTitle>
+    <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
+      <DialogTitle>Select Action</DialogTitle>
       <DialogContent>
         <TextField
           fullWidth
           size="small"
-          placeholder="Search skills..."
+          placeholder="Search actions..."
           value={search}
           onChange={e => setSearch(e.target.value)}
           sx={{ mb: 2 }}
         />
 
-        <Stack spacing={1}>
-          {searchOptions.map(({ actionKey, name }) => (
-            <Button
-              key={actionKey}
-              variant="outlined"
-              onClick={() => handleSelect(actionKey)}
-              sx={{ justifyContent: 'flex-start', textTransform: 'none' }}
-            >
-              {name}
-            </Button>
-          ))}
+        {totalVisible === 0 ? (
+          <Typography variant="body2" color="text.secondary">
+            No skills available for this character.
+          </Typography>
+        ) : (
+          <Stack spacing={2}>
+            {/* Top row: all groups except OS */}
+            {topIds.length > 0 && (
+              <Box
+                sx={{
+                  display: 'grid',
+                  gridTemplateColumns: `repeat(${topIds.length}, 1fr)`,
+                  gap: 1,
+                  alignItems: 'start',
+                }}
+              >
+                {topIds.map(renderColumn)}
+              </Box>
+            )}
 
-          {searchOptions.length === 0 && (
-            <Typography variant="body2" color="text.secondary">
-              No skills available for this character.
-            </Typography>
-          )}
-        </Stack>
+            {/* Bottom row: OS centered at same column width as top grid */}
+            {hasOs && (
+              <>
+                <Divider />
+                <Box
+                  sx={{
+                    display: 'grid',
+                    gridTemplateColumns: `repeat(${topIds.length}, 1fr)`,
+                  }}
+                >
+                  <Box sx={{ gridColumn: `${Math.ceil(topIds.length / 2)}` }}>
+                    {renderColumn('OS')}
+                  </Box>
+                </Box>
+              </>
+            )}
+          </Stack>
+        )}
       </DialogContent>
     </Dialog>
   );
@@ -756,7 +838,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
           startIcon={<AddIcon />}
           onClick={() => setSkillDialogOpen(true)}
         >
-          Add Skill
+          Add Action
         </Button>
         <Button
           size="small"
