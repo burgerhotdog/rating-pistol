@@ -1961,8 +1961,8 @@
       {
         "applyWhen": "cast",
         "applyOnAction": [
-          "1406-7-4",
-          "1408-7-4"
+          "1406-FC-4",
+          "1408-FC-4"
         ],
         "applyTo": "active",
         "statMap": {

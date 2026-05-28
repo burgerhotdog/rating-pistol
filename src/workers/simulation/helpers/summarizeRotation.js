@@ -38,32 +38,24 @@ const resolveVariableStatMap = (variableStatMap = {}, sourceStatMap = {}) => {
 };
 
 const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = Infinity) => {
-  const inline = proc.action ?? proc.inlineAction
-    ?? (proc.multipliers || proc.mv != null || proc.flat != null ? proc : null);
+  const inline = proc.action;
   if (!inline) return null;
 
-  const cast = toArray(inline.cast ?? []);
+  const cast = toArray(inline.cast);
   const considered = toArray(inline.considered ?? cast);
 
   let sumMvTimes = 0;
   let sumTimes = 0;
   let sumFlat = 0;
-  const multipliers = inline.multipliers
-    ? toArray(inline.multipliers)
-    : [{ mv: inline.mv, flat: inline.flat, times: 1 }];
 
-  for (const { mv: rawMv, flat: rawFlat, times = 1 } of multipliers) {
+  for (const { mv: rawMv, flat: rawFlat, times = 1 } of toArray(inline.multipliers)) {
     if (rawMv != null) {
-      const mv = Array.isArray(rawMv) && rawMv.length === 2
-        ? resolveRankedValue(rawMv, rank)
-        : rawMv;
+      const mv = Array.isArray(rawMv) ? resolveRankedValue(rawMv, rank) : rawMv;
       sumMvTimes += mv * times;
       sumTimes += times;
     }
     if (rawFlat != null) {
-      const flat = Array.isArray(rawFlat) && rawFlat.length === 2
-        ? resolveRankedValue(rawFlat, rank)
-        : rawFlat;
+      const flat = Array.isArray(rawFlat) ? resolveRankedValue(rawFlat, rank) : rawFlat;
       sumFlat += flat;
     }
   }

@@ -1778,16 +1778,15 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "maxUses": 1,
         "followUpAction": {
           "action": "RL-2"
-        }
+        },
+        "maxUses": 1
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
         "applyTo": "team",
-        "duration": 12000,
         "followUpAction": [
           {
             "action": "RL-3"
@@ -1796,7 +1795,8 @@
             "action": "RL-4"
           }
         ],
-        "followUpActionCooldown": 1000
+        "followUpActionCooldown": 1000,
+        "duration": 12000
       },
       {
         "applyWhen": "cast",
