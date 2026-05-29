@@ -33,7 +33,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
 import { CHARACTERS, MVS, WEAPONS, SETS, MISC } from '@/data';
-import { normalizeAction, getMember, formatRotation, getSetCounts } from '@/utils';
+import { getMember, formatRotation, getSetCounts } from '@/utils';
 import { useBuild } from '@/contexts';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
@@ -785,7 +785,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         <List dense sx={{ p: 0.5 }}>
           {rotation.map((actionKey, index) => {
             const [ownerId, skillId, actionId] = actionKey.split('-');
-            const { cast, name } = normalizeAction(gameId, ownerId, skillId, actionId);
+            const { cast, name } = MVS[gameId][ownerId][skillId][actionId];
             return (
               <ListItem
                 key={`${actionKey}-${index}`}
@@ -806,17 +806,18 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
               >
                 <Stack direction="row" spacing={1} alignItems="center" sx={{ width: '100%' }}>
                   <Box sx={{ width: 200, flexShrink: 0 }}>
-                    {cast[0] ? (
+                    {cast.map(castType => (
                       <Chip
+                        key={castType}
                         size="small"
-                        label={abilityTypeLabels[cast[0]]}
+                        label={abilityTypeLabels[castType]}
                         variant="outlined"
                         sx={{ height: 20, maxWidth: '100%' }}
                       />
-                    ) : null}
+                    ))}
                   </Box>
                   <Typography variant="body2" noWrap>
-                    {`${ownerId !== characterId ? `${CHARACTERS[gameId][ownerId].name}: ` : ""}${name}`}
+                    {name}
                   </Typography>
                 </Stack>
               </ListItem>

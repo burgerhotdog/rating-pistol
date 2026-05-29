@@ -1,12 +1,9 @@
 import { CHARACTERS, WEAPONS, SETS, MISC, MVS } from '@/data';
-import { compileStatMap, mergeStatMaps, computeTotalStat, toArray, normalizeAction } from '@/utils';
+import { compileStatMap, mergeStatMaps, computeTotalStat, toArray } from '@/utils';
 
-// Re-use the same caches as simulateRotation to avoid duplicating work
 const actionsCache = new Map();
 const normalizeEffectsCache = new Map();
 const compileStatMapCache = new WeakMap();
-
-// ─── Helpers duplicated from simulateRotation (private to this module) ────────
 
 const resolveRankedValue = (value, rank) => {
   if (!Array.isArray(value)) return value;
@@ -61,7 +58,7 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = 
   }
 
   return {
-    actionKey: `${effectKey}-proc-${procIndex}`,
+    key: `${effectKey}-proc-${procIndex}`,
     owner: memberId,
     skill: inline.skill ?? 'PROC',
     type: inline.type ?? 'damage',
@@ -113,16 +110,48 @@ const getActiveSetBonuses = (gameId, member) => {
   return activeBonuses;
 };
 
-const normalizeActions = (gameId, memberId) => {
-  const skillTree = MVS[gameId][memberId];
+const normalizeActions = (gameId, memberId, memberRank) => {
   const resolved = {};
 
-  for (const [skillId, skillDef] of Object.entries(skillTree)) {
-    for (const [actionId, actionDef] of Object.entries(skillDef)) {
-      const actionKey = `${memberId}-${skillId}-${actionId}`;
-      const normalized = normalizeAction(gameId, memberId, skillId, actionId);
+  // Resolve Skill Level
+  const maxLevel = gameId === 'zenless-zone-zero' ? 12 : 10;
+  const addBySkillId = {};
 
-      resolved[actionKey] = { actionKey, ...normalized };
+  const { skillLevelMods = [] } = CHARACTERS[gameId][memberId];
+  for (const { rank, skillId, add } of skillLevelMods) {
+    if (rank > memberRank) continue;
+    addBySkillId[skillId] = add;
+  }
+
+  // Main loop
+  const skillTree = MVS[gameId][memberId];
+  for (const [skillId, skill] of Object.entries(skillTree)) {
+    const level = maxLevel + (addBySkillId[skillId] ?? 0);
+
+    for (const action of Object.values(skill)) {
+      const { key, multipliers } = action;
+
+      let sumFlat = 0;
+      let sumMv = 0;
+      let sumTimes = 0;
+      for (const { mv, flat, times = 1 } of (multipliers ?? [])) {
+        if (flat) {
+          sumFlat += flat[level-1];
+        }
+        if (mv) {
+          sumMv += mv[level-1] * times;
+          sumTimes += times;
+        }
+      }
+
+      resolved[key] = {
+        ...action,
+        hasMultipliers: !!action.multipliers,
+        sumFlat,
+        sumMvTimes: sumMv,
+        sumTimes,
+        times: 1,
+      };
     }
   }
 
@@ -252,7 +281,7 @@ const buildFootprint = ({
 }) => {
   const {
     owner: actionOwner,
-    actionKey,
+    key: actionKey,
     element,
     type,
     considered,
@@ -261,7 +290,7 @@ const buildFootprint = ({
     sumMvTimes,
     sumTimes,
     sumFlat,
-    times,
+    times = 1,
   } = action;
 
   // Base shape
@@ -509,7 +538,7 @@ function hasAnyNegativeStatus(gameId, effectTrackers) {
 }
 
 function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap = {}, times = 1, trigger = 'cast' }) {
-  const { owner: actionOwner, actionKey, input } = action;
+  const { owner: actionOwner, key: actionKey, input } = action;
   const member = members[actionOwner];
   if (!member) return;
 
@@ -678,7 +707,7 @@ function tickEnemyStatuses(gameId, effectTrackers, elapsed) {
 
 function decayProcCounts(members, effectTrackers, action) {
   const { team, active, inactive, enemy, byMember } = effectTrackers;
-  const { actionKey } = action;
+  const { key: actionKey } = action;
 
   function decayMap(trackerMap) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
@@ -710,7 +739,7 @@ function recordProcEffectFootprints({
   characterId,
   allEffectDefinitions,
 }) {
-  const { actionKey, owner: actionOwner, considered, cast, type } = action;
+  const { key: actionKey, owner: actionOwner, considered, cast, type } = action;
   const { byMember, team, active, inactive, enemy } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
@@ -862,15 +891,15 @@ export const summarizeRotation = (gameId, rawTeam, characterId) => {
   const allEffectDefinitions = {};
 
   for (const [index, member] of team.entries()) {
-    const { memberId, build = {} } = member;
+    const { memberId, rank, build = {} } = member;
 
     if (!actionsCache.get(memberId)) {
-      actionsCache.set(memberId, normalizeActions(gameId, memberId));
+      actionsCache.set(memberId, normalizeActions(gameId, memberId, rank));
     }
 
     const setCounts = getSetCounts(member);
     const setCacheKey = Object.keys(setCounts).sort().map(k => `${k}:${setCounts[k]}`).join(',');
-    const effectsCacheKey = `${gameId}-${memberId}-${member.rank}-${member.weaponId}-${member.weaponRank}-${setCacheKey}`;
+    const effectsCacheKey = `${gameId}-${memberId}-${rank}-${member.weaponId}-${member.weaponRank}-${setCacheKey}`;
     let normalizedEffects = normalizeEffectsCache.get(effectsCacheKey);
     if (!normalizedEffects) {
       normalizedEffects = normalizeEffects(gameId, member);
@@ -964,7 +993,7 @@ export const summarizeRotation = (gameId, rawTeam, characterId) => {
 
 // Priming-pass versions that advance state without recording footprints
 function _processProcEffectsNoRecord({ gameId, members, action, effectTrackers, procCooldownMap }) {
-  const { actionKey, owner: actionOwner, considered, cast, type } = action;
+  const { key: actionKey, owner: actionOwner, considered, cast, type } = action;
   const { byMember, team, active, inactive, enemy } = effectTrackers;
 
   function processTrackerMap(trackerMap) {

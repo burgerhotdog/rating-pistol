@@ -6,8 +6,25 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import { ResponsiveContainer, ComposedChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine } from 'recharts';
-import { CHARACTERS, MISC } from '@/data';
-import { sumRotationDmg, sumRotationTime } from '@/utils';
+import { CHARACTERS, MVS, MISC } from '@/data';
+import { sumRotationDmg } from '@/utils';
+
+function sumRotationTime(gameId, team) {
+  let total = 0;
+
+  for (const member of team) {
+    const { rotation = [] } = member;
+
+    for (const actionKey of rotation) {
+      const [ownerId, skillId, actionId] = actionKey.split('-');
+      const { duration } = MVS[gameId][ownerId][skillId][actionId];
+
+      total += duration;
+    }
+  }
+
+  return total;
+}
 
 const InfoLabel = ({ label, tip }) => (
   <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
@@ -32,8 +49,10 @@ export const BenchmarkProgress = ({ weeklyScores, weeklyDistribution, isLoading,
   const showTeam = viewMode === 'team' && hasTeamData;
 
   const filter = showTeam ? {} : { ownerId: characterId };
-  const rotationTime = sumRotationTime(gameId, team, filter);
+
+  const rotationTime = sumRotationTime(gameId, team);
   const toDps = (dmg) => rotationTime > 0 ? dmg / rotationTime * 1000 : 0;
+
   const activeScores = weeklyScores.map(actionMap => toDps(sumRotationDmg(actionMap, filter)));
   const benchmarkRating = activeScores[activeScores.length - 1];
   const activeUserRating = toDps(sumRotationDmg(actionMap, filter));
