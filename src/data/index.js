@@ -47,9 +47,9 @@ const normalizeActions = (gameId, json) => {
 
         if (actionRaw.duration != null) {
           actionDef.duration = actionRaw.duration;
-        } else if (actionDef.cast.includes('OS')) {
-          actionDef.duration = 0;
         } else if (!actionDef.cast.length) {
+          actionDef.duration = 0;
+        } else if (['OS', 'CA'].some(type => actionDef.cast.includes(type))) {
           actionDef.duration = 0;
         } else {
           actionDef.duration = 1000;

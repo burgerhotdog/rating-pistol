@@ -387,7 +387,6 @@
       },
       "2": {
         "name": "Glacier Burst",
-        "cast": "FC",
         "considered": "RS",
         "multipliers": [
           {
@@ -418,7 +417,6 @@
       },
       "3": {
         "name": "Ice Prism Burst",
-        "cast": "FC",
         "considered": "RS",
         "multipliers": [
           {
@@ -449,7 +447,6 @@
       },
       "4": {
         "name": "Ice Thorn Burst",
-        "cast": "FC",
         "considered": "RS",
         "multipliers": [
           {
@@ -744,7 +741,6 @@
       "2": {
         "name": "Emergency Plan Healing",
         "type": "heal",
-        "cast": null,
         "considered": "RS",
         "attr": "HP",
         "multipliers": [
@@ -835,7 +831,6 @@
       "2": {
         "name": "Remnant Entities Healing",
         "type": "heal",
-        "cast": null,
         "considered": [
           "RL",
           "CA"
@@ -985,7 +980,6 @@
       "2": {
         "name": "Overflowing Frost Healing",
         "type": "heal",
-        "cast": null,
         "considered": null,
         "attr": "HP",
         "multipliers": [
@@ -1044,7 +1038,6 @@
       "1": {
         "name": "Concentration Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "attr": "HP",
         "multipliers": [
@@ -5214,7 +5207,6 @@
       },
       "3": {
         "name": "Thunder Wedge Detonation",
-        "cast": null,
         "considered": "RS",
         "attr": "DEF",
         "multipliers": [
@@ -6564,7 +6556,6 @@
     "RS": {
       "1": {
         "name": "Mist Bullet",
-        "cast": null,
         "considered": "RS",
         "multipliers": [
           {
@@ -6669,7 +6660,6 @@
     "FC": {
       "1": {
         "name": "Mist Bullet",
-        "cast": "FC",
         "considered": "RS",
         "multipliers": [
           {
@@ -7686,7 +7676,6 @@
     "RL": {
       "1": {
         "name": "Purification Force Field Continuous",
-        "cast": null,
         "considered": "RL",
         "multipliers": [
           {
@@ -7716,7 +7705,6 @@
       },
       "2": {
         "name": "Purification Force Field Explosion",
-        "cast": null,
         "considered": "RL",
         "multipliers": [
           {
@@ -7810,7 +7798,6 @@
     "FC": {
       "1": {
         "name": "Pushing Punch",
-        "cast": "FC",
         "considered": "HA",
         "multipliers": [
           {
@@ -7961,7 +7948,6 @@
       },
       "6": {
         "name": "Yielding Pull",
-        "cast": "FC",
         "considered": "HA",
         "multipliers": [
           {
@@ -7992,7 +7978,6 @@
       "7": {
         "name": "Incomplete Minor Zhoutian Final Shield",
         "type": "shield",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "multipliers": [
@@ -8049,7 +8034,6 @@
       "8": {
         "name": "Minor Zhoutian Final Shield",
         "type": "shield",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "multipliers": [
@@ -8106,7 +8090,6 @@
       "9": {
         "name": "Major Zhoutian: Inner Final Shield",
         "type": "shield",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "multipliers": [
@@ -8163,7 +8146,6 @@
       "10": {
         "name": "Major Zhoutian: Outer Final Shield",
         "type": "shield",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "multipliers": [
@@ -8220,7 +8202,6 @@
       "11": {
         "name": "Shield Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "multipliers": [
@@ -8725,7 +8706,6 @@
       "2": {
         "name": "Arboreal Flourish Healing",
         "type": "heal",
-        "cast": null,
         "considered": null,
         "multipliers": [
           {
@@ -8815,7 +8795,6 @@
       "4": {
         "name": "Photosynthesis Mark Healing",
         "type": "heal",
-        "cast": null,
         "considered": null,
         "multipliers": [
           {
@@ -9112,7 +9091,6 @@
       "6": {
         "name": "Blossom Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "multipliers": [
@@ -9124,7 +9102,6 @@
       "7": {
         "name": "Sequence Node 1 Blossom Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "multipliers": [
@@ -9830,7 +9807,6 @@
       "7": {
         "name": "Sequence Node 4 Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "attr": "HP",
         "multipliers": [
@@ -14265,7 +14241,6 @@
       "2": {
         "name": "Poetic Essence Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "multipliers": [
           {
@@ -14321,7 +14296,6 @@
       "3": {
         "name": "Double Pun Bonus Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "multipliers": [
           {
@@ -14946,7 +14920,6 @@
     "FC": {
       "1": {
         "name": "Flare Star Butterfly",
-        "cast": "FC",
         "considered": "BA",
         "multipliers": [
           {
@@ -15546,7 +15519,6 @@
     "FC": {
       "1": {
         "name": "Glare",
-        "cast": "FC",
         "considered": "BA",
         "multipliers": [
           {
@@ -15814,7 +15786,6 @@
       },
       "8": {
         "name": "Single Laser Beam",
-        "cast": "FC",
         "considered": "BA",
         "multipliers": [
           {
@@ -17906,7 +17877,6 @@
       },
       "4": {
         "name": "Super Attractive Magic Box",
-        "cast": "FC",
         "considered": "ES",
         "multipliers": [
           {
@@ -19121,7 +19091,6 @@
       "2": {
         "name": "Waves of Acclaims Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "attr": "ER",
@@ -19179,7 +19148,6 @@
       "3": {
         "name": "Ocean Odyssey Shield",
         "type": "shield",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "attr": "ER",
@@ -19236,7 +19204,6 @@
       },
       "4": {
         "name": "Sequence Node 2 Explosion",
-        "cast": "FC",
         "considered": "BA",
         "duration": 0,
         "multipliers": [
@@ -19248,7 +19215,6 @@
       "5": {
         "name": "Sequence Node 4 Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "duration": 0,
         "attr": "ER",
@@ -20586,7 +20552,6 @@
       "7": {
         "name": "Trance Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "multipliers": [
           {
@@ -20642,7 +20607,6 @@
       "8": {
         "name": "Perception Drain Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "multipliers": [
           {
@@ -21264,7 +21228,6 @@
       },
       "2": {
         "name": "Sequence Node 6 Proc",
-        "cast": "FC",
         "considered": "RL",
         "duration": 0,
         "multipliers": [
@@ -22090,7 +22053,6 @@
       },
       "4": {
         "name": "Additional Multiplier Per Blaze",
-        "cast": "FC",
         "considered": [
           "HA",
           "FRAZZLE"
@@ -22125,7 +22087,6 @@
       },
       "5": {
         "name": "Heavy Slash - Lightsmash",
-        "cast": "FC",
         "considered": [
           "HA",
           "FRAZZLE"
@@ -23407,7 +23368,6 @@
       },
       "3": {
         "name": "Set the Arena Ablaze",
-        "cast": "FC",
         "considered": "RS",
         "multipliers": [
           {
@@ -31037,7 +30997,6 @@
       },
       "2": {
         "name": "Five Thunders Spell Array Continuous",
-        "cast": "FC",
         "considered": "RL",
         "multipliers": [
           {
@@ -33188,7 +33147,6 @@
       "1": {
         "name": "Syntony Field Healing",
         "type": "heal",
-        "cast": "FC",
         "considered": "FC",
         "attr": "DEF",
         "multipliers": [
@@ -33244,7 +33202,6 @@
       },
       "2": {
         "name": "Syntony Field",
-        "cast": "FC",
         "considered": "RL",
         "multipliers": [
           {
@@ -33362,7 +33319,6 @@
       },
       "5": {
         "name": "Tune Rupture Response - Particle Jet",
-        "cast": "FC",
         "considered": "TR",
         "attr": "TUNE",
         "multipliers": [
@@ -37924,7 +37880,6 @@
       },
       "2": {
         "name": "Runic Outburst",
-        "cast": "FC",
         "considered": "ES",
         "multipliers": [
           {
@@ -38003,7 +37958,6 @@
       },
       "3": {
         "name": "Runic Chain Whip",
-        "cast": "FC",
         "considered": "ES",
         "multipliers": [
           {
@@ -38060,7 +38014,6 @@
       },
       "4": {
         "name": "Runic Soliskin",
-        "cast": "FC",
         "considered": "ES",
         "multipliers": [
           {
@@ -40535,7 +40488,6 @@
     "FC": {
       "1": {
         "name": "Erosion Field DMG per tick",
-        "cast": "FC",
         "considered": "RL",
         "multipliers": [
           {

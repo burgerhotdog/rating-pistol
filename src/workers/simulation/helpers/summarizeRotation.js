@@ -1,16 +1,27 @@
 import { CHARACTERS, WEAPONS, SETS, MISC, MVS } from '@/data';
 import { compileStatMap, mergeStatMaps, computeTotalStat, toArray } from '@/utils';
 
+// Keyed by memberId — stores normalized actions (pre-summed mv/flat at skill level)
 const actionsCache = new Map();
+// Keyed by a string encoding memberId+rank+weapon+sets — stores castEffectsByAction / contactEffectsByAction / effectDefinitions
 const normalizeEffectsCache = new Map();
+// Keyed by the build object identity — stores the compiled stat map for that exact build
 const compileStatMapCache = new WeakMap();
 
+// Maximum proc recursion depth. Prevents runaway chains from bad data.
+// No real game mechanic uses depth > 1 today; 4 provides future headroom.
+const MAX_PROC_DEPTH = 4;
+
+// Linearly interpolates a [r1, r5] array to the correct value for the given rank (1–5).
+// Plain numbers are returned as-is.
 const resolveRankedValue = (value, rank) => {
   if (!Array.isArray(value)) return value;
   const [r1, r5] = value;
   return r1 + (r5 - r1) / 4 * (Math.min(rank, 5) - 1);
 };
 
+// Combines multiple variableStatMap objects into one, collecting each stat's detail
+// objects into an array so they can all be resolved together by resolveVariableStatMap.
 const mergeVariableStatMaps = (...maps) => {
   return maps.reduce((acc, map = {}) => {
     for (const [statId, details] of Object.entries(map)) {
@@ -20,6 +31,9 @@ const mergeVariableStatMaps = (...maps) => {
   }, {});
 };
 
+// Evaluates each variable-stat entry against the current sourceStatMap.
+// Each entry scales a stat (statId) proportionally to another stat (source),
+// e.g. "gain +2% ATK per 100 DEF above 500". Results are capped at `max`.
 const resolveVariableStatMap = (variableStatMap = {}, sourceStatMap = {}) => {
   const resolved = {};
   for (const [statId, detailList] of Object.entries(variableStatMap)) {
@@ -34,6 +48,9 @@ const resolveVariableStatMap = (variableStatMap = {}, sourceStatMap = {}) => {
   return resolved;
 };
 
+// Converts an inline action definition embedded in a followUpAction/combo entry into
+// a normalized action object (same shape as entries in actionsCache), with mv/flat sums
+// resolved at the given rank. Returns null if the proc has no inline action.
 const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = Infinity) => {
   const inline = proc.action;
   if (!inline) return null;
@@ -76,6 +93,8 @@ const normalizeInlineProcAction = (memberId, effectKey, proc, procIndex, rank = 
   };
 };
 
+// Normalizes a single proc entry (from followUpAction or combo array) into a
+// consistent shape with resolved useIf* conditions and a ready inlineAction (if any).
 const normalizeProc = (memberId, effectKey, proc, procIndex, rank = Infinity) => ({
   useIfConsidered: proc.useIfConsidered && toArray(proc.useIfConsidered),
   useIfCast: proc.useIfCast && toArray(proc.useIfCast),
@@ -85,6 +104,8 @@ const normalizeProc = (memberId, effectKey, proc, procIndex, rank = Infinity) =>
   times: proc.times ?? 1,
 });
 
+// Returns a { setId: pieceCount } map for the member, preferring pre-computed
+// setCounts over re-deriving from equipList.
 const getSetCounts = (member) => {
   if (member.setCounts) return member.setCounts;
   if (member.build?.setCounts) return member.build.setCounts;
@@ -96,6 +117,7 @@ const getSetCounts = (member) => {
   }, {});
 };
 
+// Returns the effect arrays for every set bonus that meets its piece threshold.
 const getActiveSetBonuses = (gameId, member) => {
   const setCounts = getSetCounts(member);
   const activeBonuses = [];
@@ -110,10 +132,13 @@ const getActiveSetBonuses = (gameId, member) => {
   return activeBonuses;
 };
 
+// Enriches every action in MVS[gameId][memberId] with pre-summed damage multipliers
+// (sumMvTimes, sumTimes, sumFlat) at the correct skill level for memberRank.
+// Results are cached in actionsCache by memberId.
 const normalizeActions = (gameId, memberId, memberRank) => {
   const resolved = {};
 
-  // Resolve Skill Level
+  // Determine effective skill level: base max + any rank-unlocked additions
   const maxLevel = gameId === 'zenless-zone-zero' ? 12 : 10;
   const addBySkillId = {};
 
@@ -123,7 +148,7 @@ const normalizeActions = (gameId, memberId, memberRank) => {
     addBySkillId[skillId] = add;
   }
 
-  // Main loop
+  // Sum mv/flat multipliers at the resolved level for each action
   const skillTree = MVS[gameId][memberId];
   for (const [skillId, skill] of Object.entries(skillTree)) {
     const level = maxLevel + (addBySkillId[skillId] ?? 0);
@@ -158,12 +183,19 @@ const normalizeActions = (gameId, memberId, memberRank) => {
   return resolved;
 };
 
+// Converts raw effect definitions from character, weapon, and active set bonuses into
+// three look-up structures used at simulation time:
+//   castEffectsByAction    — { actionKey: [effectKey, ...] } for effects applied on cast
+//   contactEffectsByAction — { actionKey: [effectKey, ...] } for effects applied on hit
+//   effectDefinitions      — { effectKey: resolvedEffect } for all effects
 const normalizeEffects = (gameId, member) => {
   const { memberId, rank, weaponId, weaponRank } = member;
   const castEffectsByAction = {};
   const contactEffectsByAction = {};
   const effectDefinitions = {};
 
+  // Applies a rankModifiers entry on top of an already-resolved effect definition,
+  // adjusting duration, maxUses, statMap, variableStatMap, or followUpAction.
   function applyRankModifier(resolved, modifier = {}) {
     const { duration, maxUses, statMap, variableStatMap, followUpAction } = modifier;
     if (duration) resolved.duration += duration;
@@ -180,10 +212,15 @@ const normalizeEffects = (gameId, member) => {
   }
 
   let effectIndex = 0;
+  // Processes a list of raw effects (from character / weapon / set JSON), normalizes
+  // each into effectDefinitions, and registers it in castEffectsByAction /
+  // contactEffectsByAction based on what actions trigger it.
   function registerEffects(rawEffects, rank = Infinity) {
     const unlockedEffects = toArray(rawEffects).filter(e => (e.rank ?? 0) <= rank);
     for (const effect of unlockedEffects) {
       const effectKey = `${memberId}-${effectIndex}`;
+      const followUpProcs = toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank));
+      const comboProcs = toArray(effect.combo).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, followUpProcs.length + procIndex, rank));
       const resolved = {
         effectKey,
         chance: effect.chance ?? 1,
@@ -204,7 +241,8 @@ const normalizeEffects = (gameId, member) => {
         applyIfEnemyStatus: effect.applyIfEnemyStatus ?? null,
         applyIfInflict: effect.applyIfInflict ?? null,
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
-        followUpAction: toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank)),
+        followUpAction: followUpProcs,
+        combo: comboProcs,
         followUpActionInterval: effect.followUpActionInterval,
       };
 
@@ -225,8 +263,11 @@ const normalizeEffects = (gameId, member) => {
       const applyOnConsidered = toArray(effect.applyOnConsidered);
 
       if (!applyWhen) {
+        // No trigger condition — effect is always active (passive)
         resolved.isPassive = true;
       } else {
+        // Walk every action to find which ones trigger this effect, and register
+        // it in the appropriate By-Action map (cast or contact).
         const actions = actionsCache.get(memberId);
         const inflictMatch = applyOnType.includes('inflict');
         for (const actionKey in actions) {
@@ -247,6 +288,7 @@ const normalizeEffects = (gameId, member) => {
     }
   }
 
+  // Register effects from character, weapon, and active set bonuses (in that order)
   registerEffects(CHARACTERS[gameId][memberId].effects, rank);
   registerEffects(WEAPONS[gameId][weaponId].effects, weaponRank);
   const setBonuses = getActiveSetBonuses(gameId, member);
@@ -334,11 +376,15 @@ const buildFootprint = ({
   footprint.enemyStatMap = enemyStatMap;
 
   // ── Classify effect contributions ─────────────────────────────────────────
+  // Effects are split into three buckets:
+  //   constantEffectContribs   — flat stat boosts, same for every build
+  //   fixedVariableContribs    — teammate variable effects (owner stat is fixed)
+  //   charVariableEffectSpecs  — character's own variable effects (must be re-resolved per artifact build)
   const constantEffectContribs = {};
   const fixedVariableContribs = {};
   const charVariableEffectSpecs = [];
 
-  // Passive effects owned by the action owner
+  // Include passive effects from the owner's own definitions plus all active tracker maps
   const trackersToEval = [
     ...Object.entries(members[actionOwner].effectDefinitions).filter(([, { isPassive }]) => isPassive),
     ...Object.entries(effectTrackers.team),
@@ -443,6 +489,8 @@ const buildFootprint = ({
 
 // ─── Damage math (mirrors simulateRotation) ───────────────────────────────────
 
+// Base damage before crits/bonuses/reductions:
+//   sumFlat + attr × (sumMvTimes + FLAT_MV × sumTimes) × (1 + PERCENT_MV)
 const computeBase = (statMap, attr, sumMvTimes, sumTimes, sumFlat) => {
   const flatMv = statMap.FLAT_MV ?? 0;
   const percentMv = statMap.PERCENT_MV ?? 0;
@@ -450,6 +498,8 @@ const computeBase = (statMap, attr, sumMvTimes, sumTimes, sumFlat) => {
   return sumFlat + attrValue * (sumMvTimes + flatMv * sumTimes) * (1 + percentMv);
 };
 
+// Combined multiplier from crits, damage bonus (PERCENT_*), and amplification (AMP_*).
+// dmgTypes is the action's `considered` array — each type adds its own PERCENT/AMP bonus.
 const computeBonuses = (statMap, dmgTypes, enemyStatMap) => {
   const critRate = Math.max(Math.min(computeTotalStat('CR', statMap), 1), 0);
   const critDamage = computeTotalStat('CD', statMap) - 1;
@@ -466,6 +516,8 @@ const computeBonuses = (statMap, dmgTypes, enemyStatMap) => {
   return critMult * dmgBonusMult * ampMult;
 };
 
+// Resistance and defence reduction multipliers applied to final damage.
+// Uses the game's standard resistance brackets and the character-level def formula.
 const computeReductions = (gameId, statMap, element, enemyStatMap) => {
   const { MAX_LEVEL, ENEMY_RES } = MISC[gameId];
 
@@ -489,6 +541,9 @@ const computeReductions = (gameId, statMap, element, enemyStatMap) => {
 
 // ─── getCurrentStatMap (mirrors simulateRotation) ─────────────────────────────
 
+// Computes a member's effective stat map at the current moment by layering active
+// effects on top of their base compiled stat map. Two-pass: constant effects first
+// (so variable effects can reference the updated values in pass 2).
 const getCurrentStatMap = (memberId, effectTrackers, members) => {
   const baseStats = { ...members[memberId].statMap };
 
@@ -528,19 +583,25 @@ const getCurrentStatMap = (memberId, effectTrackers, members) => {
 
 // ─── Effect application (verbatim from simulateRotation) ─────────────────────
 
+// Returns the current stack count for an enemy status (e.g. Burn, Freeze).
 function hasEnemyStatus(statusName, effectTrackers) {
   return effectTrackers.enemyStatuses[statusName]?.stacks ?? 0;
 }
 
+// Returns true if any negative status is currently applied to the enemy.
 function hasAnyNegativeStatus(gameId, effectTrackers) {
   const statuses = MISC[gameId].NEGATIVE_STATUSES ?? {};
   return Object.keys(statuses).some(name => hasEnemyStatus(name, effectTrackers) > 0);
 }
 
+// Core effect-application function. For a given action + trigger ('cast' or 'contact'),
+// looks up registered effect keys, checks all conditions and cooldowns, then writes
+// updated stacks/timers into the relevant tracker maps. Returns the set of effectKeys
+// that were actually applied (used to drive combo proc processing).
 function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap = {}, times = 1, trigger = 'cast' }) {
   const { owner: actionOwner, key: actionKey, input } = action;
   const member = members[actionOwner];
-  if (!member) return;
+  if (!member) return [];
 
   if (trigger === 'cast' && input) {
     const removeFromMap = (trackerMap) => {
@@ -564,7 +625,7 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
 
   const triggeredEffects = new Set(effectsByAction[actionKey] ?? []);
   const { effectDefinitions } = member;
-  if (triggeredEffects.size === 0) return;
+  if (triggeredEffects.size === 0) return [];
 
   const memberIds = Object.keys(effectTrackers.byMember);
   const teamSize = memberIds.length;
@@ -579,6 +640,7 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
   );
 
   const inflictedStatuses = new Set();
+  const appliedSet = new Set();
 
   function applyEffect(tracker, effect) {
     const { effectKey, maxStacks, duration, maxUses, followUpActionInterval } = effectDefinitions[effect];
@@ -589,6 +651,7 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
       followUpActionRemaining: maxUses,
       ...(followUpActionInterval ? { procTimer: tracker[effectKey]?.procTimer ?? followUpActionInterval } : {}),
     };
+    appliedSet.add(effectKey);
   }
 
   for (const effect of triggeredEffects) {
@@ -657,8 +720,13 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
     }
     if (applyCooldown > 0) applyCooldownMap[effectKey] = applyCooldown;
   }
+
+  return [...appliedSet];
 }
 
+// Advances (and expires) all active effects by the action's timing window.
+// `offset` is used to check expiry (effects expiring before the action mid-point
+// are gone), while `duration` is the full advance applied to survivors.
 function advanceEffects(effectTrackers, offset, duration) {
   function advanceMap(map) {
     for (const [effectKey, effectData] of Object.entries(map)) {
@@ -677,6 +745,7 @@ function advanceEffects(effectTrackers, offset, duration) {
   for (const memberMap of Object.values(byMember)) advanceMap(memberMap);
 }
 
+// Decrements all active proc/apply cooldowns by `delta` ms and removes expired ones.
 function tickProcCooldowns(procCooldownMap, delta) {
   for (const [cooldownKey, cooldownRemaining] of Object.entries(procCooldownMap)) {
     const nextValue = cooldownRemaining - delta;
@@ -685,6 +754,8 @@ function tickProcCooldowns(procCooldownMap, delta) {
   }
 }
 
+// Advances enemy status timers (Burn, Freeze, etc.), firing tick-based stack
+// consumption and expiring statuses that have run out of duration.
 function tickEnemyStatuses(gameId, effectTrackers, elapsed) {
   const statuses = MISC[gameId].NEGATIVE_STATUSES ?? {};
   for (const [statusName, statusDef] of Object.entries(statuses)) {
@@ -705,6 +776,8 @@ function tickEnemyStatuses(gameId, effectTrackers, elapsed) {
   }
 }
 
+// Decrements `followUpActionRemaining` for all effects that triggered a followUp on
+// this action, and removes effects that have exhausted their remaining uses.
 function decayProcCounts(members, effectTrackers, action) {
   const { team, active, inactive, enemy, byMember } = effectTrackers;
   const { key: actionKey } = action;
@@ -727,23 +800,68 @@ function decayProcCounts(members, effectTrackers, action) {
   for (const map of Object.values(byMember)) decayMap(map);
 }
 
-// ─── Footprint-recording variants of processProcEffects / tickIntervalProcs ──
+// ─── Unified recursive proc helpers ──────────────────────────────────────────
+//
+// These three functions handle all proc triggering. They call processAction
+// recursively, so proc actions go through the same cast → footprint → contact
+// → followUp pipeline as top-level rotation actions. `depth` limits the chain
+// length; `onFootprint` is null during the priming pass and a push callback
+// during the recording pass.
 
-function recordProcEffectFootprints({
-  gameId,
-  members,
-  action,
-  effectTrackers,
-  procCooldownMap,
-  footprints,
-  characterId,
-  allEffectDefinitions,
-}) {
+// Fires combo procs registered on the effects that were applied by the current
+// action. Combo procs are immediate (triggered at the moment the effect is applied).
+function processComboProcs(appliedEffectKeys, action, ctx, depth, onFootprint) {
+  if (depth >= MAX_PROC_DEPTH) return;
+  const { members, effectTrackers } = ctx;
+  const { key: actionKey, considered, cast } = action;
+
+  for (const effectKey of appliedEffectKeys) {
+    const [effectOwner] = effectKey.split('-');
+    const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
+    if (!effectDef?.combo?.length) continue;
+
+    const stacks = (
+      effectTrackers.team[effectKey] ??
+      effectTrackers.active[effectKey] ??
+      effectTrackers.inactive[effectKey] ??
+      effectTrackers.enemy[effectKey] ??
+      effectTrackers.byMember[effectOwner]?.[effectKey]
+    )?.stacks ?? 1;
+
+    for (const { useIfConsidered, useIfCast, useIfAction, action: procActionIds, inlineAction, times } of effectDef.combo) {
+      if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
+      if (useIfCast && !(cast ?? []).some(c => useIfCast.includes(c))) continue;
+      if (useIfAction && !useIfAction.includes(actionKey)) continue;
+
+      // Snapshot proc actions before recursing to prevent mid-iteration mutation
+      const procActions = [];
+      for (const procActionId of procActionIds) {
+        const procActionKey = effectOwner + '-' + procActionId;
+        const procAction = actionsCache.get(effectOwner)?.[procActionKey];
+        if (!procAction) continue;
+        procActions.push(procAction);
+      }
+      if (inlineAction) procActions.push(inlineAction);
+
+      for (const procAction of procActions) {
+        processAction(procAction, ctx, depth + 1, onFootprint, stacks * times, times);
+      }
+    }
+  }
+}
+
+// Fires action-triggered followUp procs from all active tracker maps.
+// These are one-shot or limited-use procs that fire when a matching action occurs,
+// as opposed to interval procs which fire on a timer.
+function processFollowUpProcs(action, ctx, depth, onFootprint) {
+  if (depth >= MAX_PROC_DEPTH) return;
+  const { members, effectTrackers, procCooldownMap } = ctx;
   const { key: actionKey, owner: actionOwner, considered, cast, type } = action;
   const { byMember, team, active, inactive, enemy } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
-    for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
+    const entries = Object.entries(trackerMap); // snapshot before recursing
+    for (const [effectKey, effectTracker] of entries) {
       if (procCooldownMap[effectKey]) continue;
       const [effectOwner] = effectKey.split('-');
       const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
@@ -760,6 +878,7 @@ function recordProcEffectFootprints({
         if (useIfCast && !(cast ?? []).some(c => useIfCast.includes(c))) continue;
         if (useIfAction && !useIfAction.includes(actionKey)) continue;
 
+        // Snapshot proc actions before recursing to prevent mid-iteration mutation
         const procActions = [];
         for (const procActionId of procActionIds) {
           const procActionKey = effectOwner + '-' + procActionId;
@@ -769,24 +888,14 @@ function recordProcEffectFootprints({
         }
         if (inlineAction) procActions.push(inlineAction);
 
+        // Set cooldown BEFORE recursing so re-entrant calls to processFollowUpProcs
+        // (from within the proc action itself) see it as blocked and skip.
+        if (followUpActionCooldown > 0) procCooldownMap[effectKey] = followUpActionCooldown;
+
         for (const procAction of procActions) {
-          applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'cast' });
-
-          footprints.push(buildFootprint({
-            gameId,
-            action: procAction,
-            effectTrackers,
-            activeId: actionOwner,
-            members,
-            allEffectDefinitions,
-            characterId,
-            repeatCount: effectTracker.stacks * times,
-          }));
-
-          applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'contact' });
+          processAction(procAction, ctx, depth + 1, onFootprint, effectTracker.stacks * times, times);
         }
 
-        if (followUpActionCooldown > 0) procCooldownMap[effectKey] = followUpActionCooldown;
         procFired = true;
       }
 
@@ -801,21 +910,17 @@ function recordProcEffectFootprints({
   processTrackerMap(enemy);
 }
 
-function recordIntervalProcFootprints({
-  gameId,
-  members,
-  effectTrackers,
-  activeId,
-  elapsed,
-  procCooldownMap,
-  footprints,
-  characterId,
-  allEffectDefinitions,
-}) {
+// Fires timer-based (interval) followUp procs. Called once per rotation action with
+// the action's duration as `elapsed`. Effects fire repeatedly while their timer is <= 0,
+// re-arming after each fire by adding followUpActionInterval back to the timer.
+function processIntervalProcs(ctx, elapsed, depth, onFootprint) {
+  if (depth >= MAX_PROC_DEPTH) return;
+  const { members, effectTrackers, procCooldownMap } = ctx;
   const { byMember, team, active, inactive, enemy } = effectTrackers;
 
   function processTrackerMap(trackerMap) {
-    for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
+    const entries = Object.entries(trackerMap); // snapshot before recursing
+    for (const [effectKey, effectTracker] of entries) {
       const [effectOwner] = effectKey.split('-');
       const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
       if (!effectDef) continue;
@@ -828,6 +933,7 @@ function recordIntervalProcFootprints({
 
       while (effectTracker.procTimer <= 0) {
         for (const { action: procActionIds, inlineAction, times } of followUpAction) {
+          // Snapshot proc actions before recursing to prevent mid-iteration mutation
           const procActions = [];
           for (const procActionId of procActionIds) {
             const procActionKey = effectOwner + '-' + procActionId;
@@ -838,20 +944,7 @@ function recordIntervalProcFootprints({
           if (inlineAction) procActions.push(inlineAction);
 
           for (const procAction of procActions) {
-            applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'cast' });
-
-            footprints.push(buildFootprint({
-              gameId,
-              action: procAction,
-              effectTrackers,
-              activeId,
-              members,
-              allEffectDefinitions,
-              characterId,
-              repeatCount: effectTracker.stacks * times,
-            }));
-
-            applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'contact' });
+            processAction(procAction, ctx, depth + 1, onFootprint, effectTracker.stacks * times, times);
           }
         }
 
@@ -869,6 +962,71 @@ function recordIntervalProcFootprints({
   processTrackerMap(active);
   processTrackerMap(inactive);
   processTrackerMap(enemy);
+}
+
+/**
+ * Process a single action through the full simulation pipeline.
+ * Called recursively for proc actions (combo, followUp, interval).
+ *
+ * At depth 0: drives timing, cooldown ticks, and decay (i.e. the main rotation action).
+ * At depth > 0: applies effects and records footprints only (proc actions).
+ *
+ * @param {Object}   action       - Normalized action object from actionsCache
+ * @param {Object}   ctx          - Shared simulation context
+ * @param {number}   depth        - Current recursion depth (0 = top-level rotation action)
+ * @param {Function} onFootprint  - Called with each built footprint; null in priming pass
+ * @param {number}   repeatCount  - Damage repeat multiplier (stacks × times for procs)
+ * @param {number}   applyTimes   - Stack count to pass to applyEffects for proc actions
+ */
+function processAction(action, ctx, depth, onFootprint, repeatCount = 1, applyTimes = 1) {
+  if (depth >= MAX_PROC_DEPTH) return;
+  const { gameId, members, effectTrackers, applyCooldownMap, procCooldownMap, allEffectDefinitions, characterId } = ctx;
+
+  // ── Cast phase: apply cast effects, then fire any combo procs they triggered ──
+  const castApplied = depth === 0
+    ? applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'cast' })
+    : applyEffects({ gameId, action, members, effectTrackers, times: applyTimes, trigger: 'cast' });
+  processComboProcs(castApplied, action, ctx, depth, onFootprint);
+
+  // ── Timing (top-level actions only): advance effect timers, fire interval procs ──
+  if (depth === 0) {
+    const { duration, offset } = action;
+    advanceEffects(effectTrackers, offset, duration);
+    tickEnemyStatuses(gameId, effectTrackers, duration);
+    processIntervalProcs(ctx, duration, depth, onFootprint);
+    tickProcCooldowns(procCooldownMap, offset);
+    tickProcCooldowns(applyCooldownMap, offset);
+  }
+
+  // ── Footprint: snapshot current effect state for evaluateRotationSummary ──
+  onFootprint?.(buildFootprint({
+    gameId,
+    action,
+    effectTrackers,
+    activeId: ctx.activeId,
+    members,
+    allEffectDefinitions,
+    characterId,
+    repeatCount,
+  }));
+
+  // ── Contact phase: apply on-hit effects, then fire any combo procs they triggered ──
+  const contactApplied = depth === 0
+    ? applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' })
+    : applyEffects({ gameId, action, members, effectTrackers, times: applyTimes, trigger: 'contact' });
+  processComboProcs(contactApplied, action, ctx, depth, onFootprint);
+
+  // ── FollowUp procs: fire any action-triggered followUp procs from active effects ──
+  // Cooldown is set before recursing inside processFollowUpProcs, so re-entrant
+  // calls naturally skip already-fired effects without needing a depth guard.
+  processFollowUpProcs(action, ctx, depth, onFootprint);
+
+  // ── Decay/cooldowns (top-level actions only) ──
+  if (depth === 0) {
+    decayProcCounts(members, effectTrackers, action);
+    tickProcCooldowns(procCooldownMap, action.duration);
+    tickProcCooldowns(applyCooldownMap, action.duration);
+  }
 }
 
 // ─── Public API ───────────────────────────────────────────────────────────────
@@ -928,168 +1086,35 @@ export const summarizeRotation = (gameId, rawTeam, characterId) => {
   const applyCooldownMap = {};
   const procCooldownMap = {};
 
-  // ── Priming pass (identical to simulateRotation) ──────────────────────────
+  // Shared context object threaded through all processAction calls. activeId is
+  // mutated per rotation action to track which member is the current rotation actor.
+  const ctx = { gameId, members, effectTrackers, applyCooldownMap, procCooldownMap, allEffectDefinitions, characterId, activeId: null };
+
+  // ── Priming pass ──────────────────────────────────────────────────────────
+  // Replay the full rotation without recording footprints to warm up the effect
+  // trackers into a steady-state snapshot (effects that will actually be active).
   for (const { memberId, rotation } of team.toReversed()) {
     for (const actionKey of rotation) {
-      const action = actionsCache.get(memberId)[actionKey];
-      const { duration, offset } = action;
-
-      applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
-      advanceEffects(effectTrackers, offset, duration);
-      tickEnemyStatuses(gameId, effectTrackers, duration);
-      tickProcCooldowns(procCooldownMap, offset);
-      tickProcCooldowns(applyCooldownMap, offset);
-      // Interval procs in priming pass — just advance timers, no footprint needed
-      _tickIntervalProcsNoRecord({ gameId, members, effectTrackers, activeId: memberId, elapsed: duration, procCooldownMap });
-      applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
-      _processProcEffectsNoRecord({ gameId, members, action, effectTrackers, procCooldownMap });
-      decayProcCounts(members, effectTrackers, action);
-      tickProcCooldowns(procCooldownMap, duration);
-      tickProcCooldowns(applyCooldownMap, duration);
+      ctx.activeId = memberId;
+      processAction(actionsCache.get(memberId)[actionKey], ctx, 0, null);
     }
   }
 
   // ── Damage pass: record footprints ────────────────────────────────────────
+  // Replay the rotation a second time, this time capturing a footprint at each
+  // damage evaluation point. The footprints are later re-evaluated cheaply by
+  // evaluateRotationSummary with different character builds.
   const footprints = [];
 
   for (const { memberId, rotation } of team.toReversed()) {
     for (const actionKey of rotation) {
-      const action = actionsCache.get(memberId)[actionKey];
-      const { owner: activeId, duration, offset } = action;
-
-      applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'cast' });
-      advanceEffects(effectTrackers, offset, duration);
-      tickEnemyStatuses(gameId, effectTrackers, duration);
-
-      recordIntervalProcFootprints({
-        gameId, members, effectTrackers, activeId, elapsed: duration,
-        procCooldownMap, footprints, characterId, allEffectDefinitions,
-      });
-
-      tickProcCooldowns(procCooldownMap, offset);
-      tickProcCooldowns(applyCooldownMap, offset);
-
-      // Main action footprint
-      footprints.push(buildFootprint({
-        gameId, action, effectTrackers, activeId, members, allEffectDefinitions,
-        characterId, repeatCount: 1,
-      }));
-
-      applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' });
-
-      recordProcEffectFootprints({
-        gameId, members, action, effectTrackers, procCooldownMap,
-        footprints, characterId, allEffectDefinitions,
-      });
-
-      decayProcCounts(members, effectTrackers, action);
-      tickProcCooldowns(procCooldownMap, duration);
-      tickProcCooldowns(applyCooldownMap, duration);
+      ctx.activeId = memberId;
+      processAction(actionsCache.get(memberId)[actionKey], ctx, 0, fp => footprints.push(fp));
     }
   }
 
   return { gameId, footprints };
 };
-
-// Priming-pass versions that advance state without recording footprints
-function _processProcEffectsNoRecord({ gameId, members, action, effectTrackers, procCooldownMap }) {
-  const { key: actionKey, owner: actionOwner, considered, cast, type } = action;
-  const { byMember, team, active, inactive, enemy } = effectTrackers;
-
-  function processTrackerMap(trackerMap) {
-    for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
-      if (procCooldownMap[effectKey]) continue;
-      const [effectOwner] = effectKey.split('-');
-      const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
-      if (!effectDef) continue;
-      if (effectDef.useIfType && !effectDef.useIfType.includes(type)) continue;
-
-      const { followUpAction, followUpActionCooldown, followUpActionInterval } = effectDef;
-      if (!followUpAction) continue;
-      if (followUpActionInterval) continue;
-
-      let procFired = false;
-      for (const { useIfConsidered, useIfCast, useIfAction, action: procActionIds, inlineAction, times } of followUpAction) {
-        if (useIfConsidered && !considered.some(c => useIfConsidered.includes(c))) continue;
-        if (useIfCast && !(cast ?? []).some(c => useIfCast.includes(c))) continue;
-        if (useIfAction && !useIfAction.includes(actionKey)) continue;
-
-        const procActions = [];
-        for (const procActionId of procActionIds) {
-          const procActionKey = effectOwner + '-' + procActionId;
-          const procAction = actionsCache.get(effectOwner)?.[procActionKey];
-          if (!procAction) continue;
-          procActions.push(procAction);
-        }
-        if (inlineAction) procActions.push(inlineAction);
-
-        for (const procAction of procActions) {
-          applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'cast' });
-          applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'contact' });
-        }
-
-        if (followUpActionCooldown > 0) procCooldownMap[effectKey] = followUpActionCooldown;
-        procFired = true;
-      }
-
-      if (procFired) effectTracker.followUpActionRemaining--;
-    }
-  }
-
-  processTrackerMap(byMember[actionOwner] ?? {});
-  processTrackerMap(team);
-  processTrackerMap(active);
-  processTrackerMap(inactive);
-  processTrackerMap(enemy);
-}
-
-function _tickIntervalProcsNoRecord({ gameId, members, effectTrackers, _activeId, elapsed, procCooldownMap }) {
-  const { byMember, team, active, inactive, enemy } = effectTrackers;
-
-  function processTrackerMap(trackerMap) {
-    for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
-      const [effectOwner] = effectKey.split('-');
-      const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
-      if (!effectDef) continue;
-
-      const { followUpAction, followUpActionCooldown, followUpActionInterval } = effectDef;
-      if (!followUpAction?.length || !followUpActionInterval) continue;
-      if (procCooldownMap[effectKey]) continue;
-
-      effectTracker.procTimer -= elapsed;
-
-      while (effectTracker.procTimer <= 0) {
-        for (const { action: procActionIds, inlineAction, times } of followUpAction) {
-          const procActions = [];
-          for (const procActionId of procActionIds) {
-            const procActionKey = effectOwner + '-' + procActionId;
-            const procAction = actionsCache.get(effectOwner)?.[procActionKey];
-            if (!procAction) continue;
-            procActions.push(procAction);
-          }
-          if (inlineAction) procActions.push(inlineAction);
-
-          for (const procAction of procActions) {
-            applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'cast' });
-            applyEffects({ gameId, action: procAction, members, effectTrackers, times, trigger: 'contact' });
-          }
-        }
-
-        effectTracker.procTimer += followUpActionInterval;
-        if (followUpActionCooldown > 0) {
-          procCooldownMap[effectKey] = followUpActionCooldown;
-          break;
-        }
-      }
-    }
-  }
-
-  for (const memberMap of Object.values(byMember)) processTrackerMap(memberMap);
-  processTrackerMap(team);
-  processTrackerMap(active);
-  processTrackerMap(inactive);
-  processTrackerMap(enemy);
-}
 
 // ─── evaluateRotationSummary ──────────────────────────────────────────────────
 
