@@ -197,7 +197,7 @@ const normalizeEffects = (gameId, member) => {
   // Applies a rankModifiers entry on top of an already-resolved effect definition,
   // adjusting duration, maxUses, statMap, variableStatMap, or followUpAction.
   function applyRankModifier(resolved, modifier = {}) {
-    const { duration, maxUses, statMap, variableStatMap, followUpAction } = modifier;
+    const { duration, maxUses, statMap, variableStatMap, followUpAction, combo } = modifier;
     if (duration) resolved.duration += duration;
     if (maxUses) resolved.maxUses += maxUses;
     if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
@@ -207,6 +207,11 @@ const normalizeEffects = (gameId, member) => {
     if (followUpAction) {
       resolved.followUpAction.push(
         ...toArray(followUpAction).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, procIndex, rank))
+      );
+    }
+    if (combo) {
+      resolved.combo.push(
+        ...toArray(combo).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, 100 + procIndex, rank))
       );
     }
   }
@@ -220,7 +225,7 @@ const normalizeEffects = (gameId, member) => {
     for (const effect of unlockedEffects) {
       const effectKey = `${memberId}-${effectIndex}`;
       const followUpProcs = toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank));
-      const comboProcs = toArray(effect.combo).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, followUpProcs.length + procIndex, rank));
+      const comboProcs = toArray(effect.combo).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 100 + procIndex, rank));
       const resolved = {
         effectKey,
         chance: effect.chance ?? 1,

@@ -193,7 +193,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -224,7 +227,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [

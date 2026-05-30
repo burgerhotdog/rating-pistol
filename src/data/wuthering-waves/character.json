@@ -158,12 +158,11 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RS-1",
-        "followUpAction": {
+        "combo": {
           "action": "RS-2"
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "cast",
@@ -209,7 +208,7 @@
       {
         "applyWhen": "contact",
         "applyOnCast": "HA",
-        "followUpAction": {
+        "combo": {
           "action": {
             "type": "heal",
             "attr": "HP",
@@ -217,17 +216,15 @@
               "mv": 0.0025
             }
           }
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "contact",
         "applyOnAction": "IS-1",
-        "followUpAction": {
+        "combo": {
           "action": "IS-2",
           "times": 3
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "cast",
@@ -368,16 +365,15 @@
         "maxUses": 1
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "OS-1",
-        "followUpAction": {
+        "combo": {
           "action": {
             "multipliers": {
               "mv": 5.8794
             }
           }
-        },
-        "maxUses": 1
+        }
       },
       {
         "rank": 4,
@@ -484,14 +480,13 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "followUpAction": {
+        "combo": {
           "action": {
             "multipliers": {
               "mv": 5.3
             }
           }
-        },
-        "maxUses": 1
+        }
       },
       {
         "rank": 3,
@@ -1148,7 +1143,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "followUpAction": {
+        "combo": {
           "action": {
             "type": "shield",
             "attr": "DEF",
@@ -1156,8 +1151,7 @@
               "mv": 2
             }
           }
-        },
-        "maxUses": 1
+        }
       },
       {
         "rank": 5,
@@ -1301,11 +1295,10 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-2",
-        "followUpAction": {
+        "combo": {
           "action": "RS-1",
           "times": 6
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "cast",
@@ -1329,11 +1322,10 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "FC-2",
-        "followUpAction": {
+        "combo": {
           "action": "FC-1",
           "times": 6
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "cast",
@@ -1630,26 +1622,23 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-3",
-        "followUpAction": {
+        "combo": {
           "action": "FC-8"
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-4",
-        "followUpAction": {
+        "combo": {
           "action": "FC-9"
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-5",
-        "followUpAction": {
+        "combo": {
           "action": "FC-10"
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "cast",
@@ -1778,10 +1767,9 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "followUpAction": {
+        "combo": {
           "action": "RL-2"
-        },
-        "maxUses": 1
+        }
       },
       {
         "applyWhen": "cast",
@@ -1806,8 +1794,7 @@
           "FC-3",
           "FC-4"
         ],
-        "maxUses": 1,
-        "followUpAction": {
+        "combo": {
           "action": "FC-5",
           "times": 3
         }
@@ -1824,14 +1811,13 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "maxUses": 1,
-        "followUpAction": {
+        "combo": {
           "action": "FC-6",
           "times": 6
         },
         "rankModifiers": {
           "1": {
-            "followUpAction": {
+            "combo": {
               "action": "FC-7",
               "times": 6
             }
