@@ -13,24 +13,15 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
-        "applyOnAction": "RS-1",
-        "followUpAction": {
-          "useIfAction": "FC-1",
-          "action": "FC-3"
-        },
-        "maxUses": 1,
-        "duration": 5000
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "RL-1",
-        "followUpAction": {
-          "useIfAction": "FC-1",
-          "action": "FC-2"
-        },
-        "maxUses": 1,
-        "duration": 5000
+        "applyWhen": "contact",
+        "applyOnAction": "FC-1",
+        "combo": {
+          "action": [
+            "FC-2",
+            "FC-3",
+            "FC-4"
+          ]
+        }
       },
       {
         "applyWhen": "cast",
@@ -49,18 +40,8 @@
           "FC-4"
         ],
         "statMap": {
-          "PERCENT_RS": 0.2
+          "PERCENT_ALL": 0.2
         },
-        "duration": 8000
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "IS-1",
-        "followUpAction": {
-          "useIfAction": "FC-1",
-          "action": "FC-4"
-        },
-        "maxUses": 1,
         "duration": 8000
       },
       {
@@ -94,10 +75,10 @@
         "applyOnAction": "RL-1",
         "useIfAction": "FC-1",
         "statMap": {
-          "PERCENT_HA": 1.2
+          "PERCENT_ALL": 1.2
         },
-        "maxUses": 1,
-        "duration": 5000
+        "duration": 5000,
+        "maxUses": 1
       },
       {
         "rank": 5,
@@ -168,15 +149,9 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-3",
         "applyTo": "active",
-        "followUpAction": [
-          {
-            "action": "RL-1"
-          },
-          {
-            "action": "RL-2",
-            "times": 3
-          }
-        ],
+        "followUpAction": {
+          "action": "RL-1"
+        },
         "followUpActionInterval": 2500,
         "maxUses": 4,
         "rankModifiers": {
@@ -187,11 +162,18 @@
       },
       {
         "applyWhen": "cast",
+        "applyOnAction": "RL-1",
+        "combo": {
+          "action": "RL-2",
+          "times": 3
+        }
+      },
+      {
+        "applyWhen": "cast",
         "applyOnCast": "HA",
         "applyOnAction": "RS-1",
         "followUpAction": {
-          "action": "FC-1",
-          "times": 3
+          "action": "FC-1"
         },
         "followUpActionInterval": 2000,
         "maxUses": 4
@@ -365,10 +347,11 @@
         "maxUses": 1
       },
       {
-        "applyWhen": "contact",
+        "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "combo": {
           "action": {
+            "considered": "OS",
             "multipliers": {
               "mv": 5.8794
             }
@@ -396,12 +379,9 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "FC-4",
-        "useIfAction": [
-          "FC-2",
-          "FC-3"
-        ],
+        "useIfCast": "BA",
         "statMap": {
-          "PERCENT_BA": 1
+          "PERCENT_ALL": 1
         },
         "duration": 3000,
         "maxUses": 1

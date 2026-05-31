@@ -360,7 +360,7 @@
     },
     "FC": {
       "1": {
-        "name": "Detonate",
+        "name": "Heavy Attack: Detonate",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -485,8 +485,7 @@
     "OS": {
       "1": {
         "name": "Silversnow",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -651,7 +650,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -682,7 +684,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -747,7 +752,7 @@
       "2": {
         "name": "Emergency Plan Healing",
         "type": "heal",
-        "considered": "RS",
+        "considered": "RSH",
         "attr": "HP",
         "multipliers": [
           {
@@ -805,7 +810,10 @@
       "1": {
         "name": "Remnant Entities",
         "cast": "CA",
-        "considered": "CA",
+        "considered": [
+          "RL",
+          "CA"
+        ],
         "attr": "HP",
         "multipliers": [
           {
@@ -837,10 +845,7 @@
       "2": {
         "name": "Remnant Entities Healing",
         "type": "heal",
-        "considered": [
-          "RL",
-          "CA"
-        ],
+        "considered": "RLH",
         "attr": "HP",
         "multipliers": [
           {
@@ -897,7 +902,7 @@
         "name": "Momentary Union Healing",
         "type": "heal",
         "cast": "RL",
-        "considered": "RL",
+        "considered": "RLH",
         "attr": "HP",
         "multipliers": [
           {
@@ -986,7 +991,7 @@
       "2": {
         "name": "Overflowing Frost Healing",
         "type": "heal",
-        "considered": null,
+        "considered": "ISH",
         "attr": "HP",
         "multipliers": [
           {
@@ -1044,7 +1049,6 @@
       "1": {
         "name": "Concentration Healing",
         "type": "heal",
-        "considered": "FC",
         "attr": "HP",
         "multipliers": [
           {
@@ -1101,8 +1105,7 @@
     "OS": {
       "1": {
         "name": "Rejuvinating Flow",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -1355,7 +1358,10 @@
       "8": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -1386,7 +1392,10 @@
       "9": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -1550,7 +1559,7 @@
     },
     "FC": {
       "1": {
-        "name": "Glorious Plunge",
+        "name": "Heavy Attack: Glorious Plunge",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -1581,7 +1590,7 @@
         ]
       },
       "2": {
-        "name": "Feral Gyrate 1",
+        "name": "Basic Attack: Feral Gyrate 1",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1637,7 +1646,7 @@
         ]
       },
       "3": {
-        "name": "Feral Gyrate 2",
+        "name": "Basic Attack: Feral Gyrate 2",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1669,7 +1678,7 @@
         ]
       },
       "4": {
-        "name": "Mountain Roamer",
+        "name": "Resonance Skill: Mountain Roamer",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -1701,7 +1710,7 @@
         ]
       },
       "5": {
-        "name": "Stormy Kicks",
+        "name": "Basic Attack: Stormy Kicks",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -1757,9 +1766,12 @@
         ]
       },
       "6": {
-        "name": "Tail Strike",
+        "name": "Mid-air Attack: Tail Strike",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -1792,8 +1804,7 @@
     "OS": {
       "1": {
         "name": "Frosty Marks",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
