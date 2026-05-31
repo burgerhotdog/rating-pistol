@@ -62,7 +62,7 @@ function buildOwnerData(actionMap, gameId) {
 export const DamageBreakdown = ({ actionMap }) => {
   const { gameId, characterId } = useParams();
   const theme = useTheme();
-  const [groupBy, setGroupBy] = useState('owner');
+  const [groupBy, setGroupBy] = useState('dmgType');
 
   if (!actionMap) return null;
 

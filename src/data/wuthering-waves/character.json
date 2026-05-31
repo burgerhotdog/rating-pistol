@@ -149,10 +149,10 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-3",
         "applyTo": "active",
-        "followUpAction": {
+        "interval": {
           "action": "RL-1"
         },
-        "followUpActionInterval": 2500,
+        "intervalCooldown": 2500,
         "maxUses": 4,
         "rankModifiers": {
           "4": {
@@ -172,10 +172,10 @@
         "applyWhen": "cast",
         "applyOnCast": "HA",
         "applyOnAction": "RS-1",
-        "followUpAction": {
+        "interval": {
           "action": "FC-1"
         },
-        "followUpActionInterval": 2000,
+        "intervalCooldown": 2000,
         "maxUses": 4
       },
       {
@@ -212,7 +212,7 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "followUpAction": {
+        "interval": {
           "action": {
             "type": "heal",
             "attr": "HP",
@@ -221,7 +221,7 @@
             }
           }
         },
-        "followUpActionInterval": 3000,
+        "intervalCooldown": 3000,
         "duration": 30000
       },
       {
@@ -432,7 +432,7 @@
       {
         "useIfAction": "FC-2",
         "statMap": {
-          "PERCENT_RS": 0.5
+          "PERCENT_ALL": 0.5
         },
         "rankModifiers": {
           "1": {
@@ -443,16 +443,26 @@
         }
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
+        "applyOnAction": "FC-3",
+        "interval": {
+          "action": "FC-1"
+        },
+        "intervalCooldown": 100,
+        "maxUses": 30
+      },
+      {
+        "applyWhen": "contact",
         "applyOnAction": "FC-1",
         "statMap": {
-          "PERCENT_ATK": 0.3
+          "PERCENT_ATK": 0.01
         },
         "duration": 10000,
+        "maxStacks": 30,
         "rankModifiers": {
           "5": {
             "statMap": {
-              "PERCENT_ATK": 0.3
+              "PERCENT_ATK": 0.01
             }
           }
         }
@@ -462,6 +472,7 @@
         "applyOnAction": "OS-1",
         "combo": {
           "action": {
+            "considered": "OS",
             "multipliers": {
               "mv": 5.3
             }
@@ -499,10 +510,10 @@
       },
       "rotation": [
         "IS-1",
-        "FC-1",
+        "FC-3",
         "FC-2",
         "RL-1",
-        "FC-1",
+        "FC-3",
         "FC-2",
         "OS-1"
       ]
@@ -543,7 +554,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "followUpAction": {
+        "interval": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -551,7 +562,7 @@
             }
           }
         },
-        "followUpActionInterval": 1500,
+        "intervalCooldown": 1500,
         "duration": 6000
       },
       {
@@ -1791,18 +1802,30 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
-          "action": "FC-6",
-          "times": 6
-        },
-        "rankModifiers": {
-          "1": {
-            "combo": {
-              "action": "FC-7",
-              "times": 6
+        "interval": {
+          "action": {
+            "type": "heal",
+            "multipliers": {
+              "mv": 0.19
             }
           }
-        }
+        },
+        "intervalCooldown": 1000,
+        "duration": 6000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "interval": {
+          "action": {
+            "type": "heal",
+            "multipliers": {
+              "mv": 0.2
+            }
+          }
+        },
+        "intervalCooldown": 5000,
+        "duration": 30000
       },
       {
         "rank": 3,
@@ -2611,6 +2634,23 @@
         }
       },
       {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "applyTo": "next",
+        "useIfCast": "BA",
+        "followUpAction": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 2.3763
+            }
+          }
+        },
+        "followUpActionCooldown": 2000,
+        "duration": 8000,
+        "maxUses": 3
+      },
+      {
         "rank": 1,
         "useIfAction": "FC-2",
         "statMap": {
@@ -3103,6 +3143,60 @@
     },
     "effects": [
       {
+        "applyWhen": "cast",
+        "applyOnAction": "FC-1",
+        "duration": 15000,
+        "useIfAction": [
+          "BA-1",
+          "BA-2",
+          "BA-3",
+          "BA-4",
+          "BA-5",
+          "BA-7",
+          "BA-8",
+          "RS-1",
+          "RS-2",
+          "RS-3",
+          "RS-4",
+          "RS-5",
+          "RS-6",
+          "RS-7",
+          "RS-8",
+          "RS-9"
+        ],
+        "statMap": {
+          "PERCENT_MV": 1
+        },
+        "rankModifiers": {
+          "6": {
+            "statMap": {
+              "PERCENT_MV": 4
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "combo": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 3.2924
+            }
+          }
+        }
+      },
+      {
+        "rank": 1,
+        "applyWhen": "cast",
+        "applyOnAction": "IS-1",
+        "duration": 18000,
+        "statMap": {
+          "PERCENT_CD": 0.28
+        }
+      },
+      {
         "rank": 2,
         "useIfAction": "FC-1",
         "statMap": {
@@ -3153,57 +3247,6 @@
         "useIfAction": "OS-1",
         "statMap": {
           "PERCENT_MV": 0.68
-        }
-      },
-      {
-        "rank": 1,
-        "applyWhen": "cast",
-        "applyOnAction": "IS-1",
-        "duration": 18000,
-        "statMap": {
-          "PERCENT_CD": 0.28
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "FC-1",
-        "duration": 15000,
-        "useIfAction": [
-          "BA-1",
-          "BA-2",
-          "BA-3",
-          "BA-4",
-          "BA-5",
-          "BA-7",
-          "BA-8",
-          "RS-1",
-          "RS-2",
-          "RS-3",
-          "RS-4",
-          "RS-5",
-          "RS-6",
-          "RS-7",
-          "RS-8",
-          "RS-9"
-        ],
-        "statMap": {
-          "PERCENT_MV": 1
-        },
-        "rankModifiers": {
-          "6": {
-            "statMap": {
-              "PERCENT_MV": 4
-            }
-          }
-        }
-      },
-      {
-        "applyWhen": "cast",
-        "applyOnAction": "FC-1",
-        "maxUses": 1,
-        "useIfAction": "OS-1",
-        "statMap": {
-          "FLAT_MV": 4.5902
         }
       }
     ],
@@ -3278,6 +3321,18 @@
         ],
         "statMap": {
           "PERCENT_MV": 0.8
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "combo": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 7.942
+            }
+          }
         }
       },
       {
@@ -3827,6 +3882,18 @@
           "2": {
             "statMap": {
               "AMP_OS": 1.2
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnCast": "OS",
+        "combo": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 5.2841
             }
           }
         }
@@ -4829,6 +4896,18 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
+        "combo": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 1
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
         "applyTo": "next",
         "statMap": {
           "AMP_HA": 0.5
@@ -4872,6 +4951,26 @@
       "PERCENT_CD": 0.16,
       "PERCENT_ATK": 0.12
     },
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "combo": {
+          "action": {
+            "considered": "OS",
+            "multipliers": [
+              {
+                "mv": 0.795,
+                "times": 3
+              },
+              {
+                "mv": 5.565
+              }
+            ]
+          }
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1208",
@@ -4965,10 +5064,25 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
+        "interval": {
+          "action": {
+            "type": "heal",
+            "multipliers": {
+              "mv": 0.18
+            }
+          }
+        },
+        "intervalCooldown": 1000,
+        "duration": 16000
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
         "applyTo": "team",
         "statMap": {
           "AMP_ALL": 0.15
-        }
+        },
+        "duration": 30000
       }
     ],
     "defaults": {
@@ -5095,11 +5209,24 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
+        "combo": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 1
+            }
+          }
+        }
+      },
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
         "applyTo": "next",
         "statMap": {
           "AMP_ALL": 0.15,
           "AMP_RL": 0.25
-        }
+        },
+        "duration": 14000
       }
     ],
     "defaults": {
@@ -5190,6 +5317,20 @@
       "PERCENT_CR": 0.08,
       "PERCENT_ATK": 0.12
     },
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "combo": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 5
+            }
+          }
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1510",
@@ -5233,6 +5374,20 @@
       "PERCENT_CR": 0.08,
       "PERCENT_ATK": 0.12
     },
+    "effects": [
+      {
+        "applyWhen": "cast",
+        "applyOnAction": "OS-1",
+        "combo": {
+          "action": {
+            "considered": "OS",
+            "multipliers": {
+              "mv": 7.95
+            }
+          }
+        }
+      }
+    ],
     "defaults": {
       "team": [
         "1412",

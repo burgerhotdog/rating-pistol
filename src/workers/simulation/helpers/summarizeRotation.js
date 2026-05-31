@@ -195,19 +195,14 @@ const normalizeEffects = (gameId, member) => {
   const effectDefinitions = {};
 
   // Applies a rankModifiers entry on top of an already-resolved effect definition,
-  // adjusting duration, maxUses, statMap, variableStatMap, or followUpAction.
+  // adjusting duration, maxUses, statMap, variableStatMap, or combo.
   function applyRankModifier(resolved, modifier = {}) {
-    const { duration, maxUses, statMap, variableStatMap, followUpAction, combo } = modifier;
+    const { duration, maxUses, statMap, variableStatMap, combo } = modifier;
     if (duration) resolved.duration += duration;
     if (maxUses) resolved.maxUses += maxUses;
     if (statMap) resolved.statMap = mergeStatMaps(resolved.statMap, statMap);
     if (variableStatMap) {
       resolved.variableStatMap = mergeVariableStatMaps(resolved.variableStatMap, variableStatMap);
-    }
-    if (followUpAction) {
-      resolved.followUpAction.push(
-        ...toArray(followUpAction).map((proc, procIndex) => normalizeProc(memberId, resolved.effectKey, proc, procIndex, rank))
-      );
     }
     if (combo) {
       resolved.combo.push(
@@ -226,6 +221,7 @@ const normalizeEffects = (gameId, member) => {
       const effectKey = `${memberId}-${effectIndex}`;
       const followUpProcs = toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank));
       const comboProcs = toArray(effect.combo).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 100 + procIndex, rank));
+      const intervalProcs = toArray(effect.interval).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 200 + procIndex, rank));
       const resolved = {
         effectKey,
         chance: effect.chance ?? 1,
@@ -248,7 +244,8 @@ const normalizeEffects = (gameId, member) => {
         variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
         followUpAction: followUpProcs,
         combo: comboProcs,
-        followUpActionInterval: effect.followUpActionInterval,
+        intervalAction: intervalProcs,
+        intervalCooldown: effect.intervalCooldown,
       };
 
       if (effect.rankModifiers) {
@@ -648,13 +645,13 @@ function applyEffects({ gameId, action, members, effectTrackers, applyCooldownMa
   const appliedSet = new Set();
 
   function applyEffect(tracker, effect) {
-    const { effectKey, maxStacks, duration, maxUses, followUpActionInterval } = effectDefinitions[effect];
+    const { effectKey, maxStacks, duration, maxUses, intervalCooldown } = effectDefinitions[effect];
     const currentStacks = tracker[effectKey]?.stacks ?? 0;
     tracker[effectKey] = {
       stacks: Math.min(currentStacks + times, maxStacks),
       timeRemaining: duration,
       followUpActionRemaining: maxUses,
-      ...(followUpActionInterval ? { procTimer: tracker[effectKey]?.procTimer ?? followUpActionInterval } : {}),
+      ...(intervalCooldown ? { procTimer: tracker[effectKey]?.procTimer ?? intervalCooldown } : {}),
     };
     appliedSet.add(effectKey);
   }
@@ -791,9 +788,9 @@ function decayProcCounts(members, effectTrackers, action) {
     for (const [effectKey, effectTracker] of Object.entries(trackerMap)) {
       if (effectTracker.followUpActionRemaining === Infinity) continue;
       const effectOwner = effectKey.split('-')[0];
-      const { useIfAction, followUpAction } = members[effectOwner].effectDefinitions[effectKey];
+      const { useIfAction, followUpAction, intervalAction } = members[effectOwner].effectDefinitions[effectKey];
       if (useIfAction && !useIfAction.includes(actionKey)) continue;
-      if (!followUpAction) effectTracker.followUpActionRemaining -= 1;
+      if (!followUpAction && !intervalAction) effectTracker.followUpActionRemaining -= 1;
       if (effectTracker.followUpActionRemaining <= 0) delete trackerMap[effectKey];
     }
   }
@@ -873,9 +870,8 @@ function processFollowUpProcs(action, ctx, depth, onFootprint) {
       if (!effectDef) continue;
       if (effectDef.useIfType && !effectDef.useIfType.includes(type)) continue;
 
-      const { followUpAction, followUpActionCooldown, followUpActionInterval } = effectDef;
-      if (!followUpAction) continue;
-      if (followUpActionInterval) continue;
+      const { followUpAction, followUpActionCooldown } = effectDef;
+      if (!followUpAction?.length) continue;
 
       let procFired = false;
       for (const { useIfConsidered, useIfCast, useIfAction, action: procActionIds, inlineAction, times } of followUpAction) {
@@ -915,9 +911,9 @@ function processFollowUpProcs(action, ctx, depth, onFootprint) {
   processTrackerMap(enemy);
 }
 
-// Fires timer-based (interval) followUp procs. Called once per rotation action with
+// Fires timer-based (interval) procs. Called once per rotation action with
 // the action's duration as `elapsed`. Effects fire repeatedly while their timer is <= 0,
-// re-arming after each fire by adding followUpActionInterval back to the timer.
+// re-arming after each fire by adding intervalCooldown back to the timer.
 function processIntervalProcs(ctx, elapsed, depth, onFootprint) {
   if (depth >= MAX_PROC_DEPTH) return;
   const { members, effectTrackers, procCooldownMap } = ctx;
@@ -930,14 +926,14 @@ function processIntervalProcs(ctx, elapsed, depth, onFootprint) {
       const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
       if (!effectDef) continue;
 
-      const { followUpAction, followUpActionCooldown, followUpActionInterval } = effectDef;
-      if (!followUpAction?.length || !followUpActionInterval) continue;
+      const { intervalAction, intervalCooldown } = effectDef;
+      if (!intervalAction?.length || !intervalCooldown) continue;
       if (procCooldownMap[effectKey]) continue;
 
       effectTracker.procTimer -= elapsed;
 
       while (effectTracker.procTimer <= 0) {
-        for (const { action: procActionIds, inlineAction, times } of followUpAction) {
+        for (const { action: procActionIds, inlineAction, times } of intervalAction) {
           // Snapshot proc actions before recursing to prevent mid-iteration mutation
           const procActions = [];
           for (const procActionId of procActionIds) {
@@ -953,9 +949,67 @@ function processIntervalProcs(ctx, elapsed, depth, onFootprint) {
           }
         }
 
-        effectTracker.procTimer += followUpActionInterval;
-        if (followUpActionCooldown > 0) {
-          procCooldownMap[effectKey] = followUpActionCooldown;
+        effectTracker.procTimer += intervalCooldown;
+        effectTracker.followUpActionRemaining--;
+        if (effectTracker.followUpActionRemaining <= 0) {
+          delete trackerMap[effectKey];
+          break;
+        }
+      }
+    }
+  }
+
+  for (const memberMap of Object.values(byMember)) processTrackerMap(memberMap);
+  processTrackerMap(team);
+  processTrackerMap(active);
+  processTrackerMap(inactive);
+  processTrackerMap(enemy);
+}
+
+// Fires interval procs for effects that were just applied on contact during this action.
+// Only processes the supplied `contactApplied` effect keys, with `elapsed = duration - offset`
+// representing the remaining window after the contact point.
+function processContactIntervalProcs(contactApplied, ctx, elapsed, depth, onFootprint) {
+  if (depth >= MAX_PROC_DEPTH) return;
+  const { members, effectTrackers, procCooldownMap } = ctx;
+  const { byMember, team, active, inactive, enemy } = effectTrackers;
+  const appliedSet = new Set(contactApplied);
+
+  function processTrackerMap(trackerMap) {
+    const entries = Object.entries(trackerMap); // snapshot before recursing
+    for (const [effectKey, effectTracker] of entries) {
+      if (!appliedSet.has(effectKey)) continue;
+      const [effectOwner] = effectKey.split('-');
+      const effectDef = members[effectOwner]?.effectDefinitions?.[effectKey];
+      if (!effectDef) continue;
+
+      const { intervalAction, intervalCooldown } = effectDef;
+      if (!intervalAction?.length || !intervalCooldown) continue;
+      if (procCooldownMap[effectKey]) continue;
+
+      effectTracker.procTimer -= elapsed;
+
+      while (effectTracker.procTimer <= 0) {
+        for (const { action: procActionIds, inlineAction, times } of intervalAction) {
+          // Snapshot proc actions before recursing to prevent mid-iteration mutation
+          const procActions = [];
+          for (const procActionId of procActionIds) {
+            const procActionKey = effectOwner + '-' + procActionId;
+            const procAction = actionsCache.get(effectOwner)?.[procActionKey];
+            if (!procAction) continue;
+            procActions.push(procAction);
+          }
+          if (inlineAction) procActions.push(inlineAction);
+
+          for (const procAction of procActions) {
+            processAction(procAction, ctx, depth + 1, onFootprint, effectTracker.stacks * times, times);
+          }
+        }
+
+        effectTracker.procTimer += intervalCooldown;
+        effectTracker.followUpActionRemaining--;
+        if (effectTracker.followUpActionRemaining <= 0) {
+          delete trackerMap[effectKey];
           break;
         }
       }
@@ -1020,6 +1074,12 @@ function processAction(action, ctx, depth, onFootprint, repeatCount = 1, applyTi
     ? applyEffects({ gameId, action, members, effectTrackers, applyCooldownMap, trigger: 'contact' })
     : applyEffects({ gameId, action, members, effectTrackers, times: applyTimes, trigger: 'contact' });
   processComboProcs(contactApplied, action, ctx, depth, onFootprint);
+
+  // ── Contact interval procs: fire interval effects applied on contact, using remaining window ──
+  if (depth === 0) {
+    const { duration, offset } = action;
+    processContactIntervalProcs(contactApplied, ctx, duration - offset, depth, onFootprint);
+  }
 
   // ── FollowUp procs: fire any action-triggered followUp procs from active effects ──
   // Cooldown is set before recursing inside processFollowUpProcs, so re-entrant

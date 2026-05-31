@@ -1937,7 +1937,7 @@
         ]
       },
       "5": {
-        "name": "Heavy Attack",
+        "name": "Aimed Shot",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -1968,7 +1968,7 @@
         ]
       },
       "6": {
-        "name": "Full Charge Heavy Attack",
+        "name": "Full Charge Aimed Shot",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -2001,7 +2001,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -2032,7 +2035,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -2214,10 +2220,8 @@
     },
     "FC": {
       "1": {
-        "name": "DAKA DAKA! (Thermobaric Bullets x30)",
-        "cast": "RS",
+        "name": "Thermobaric Bullets",
         "considered": "RS",
-        "duration": 3000,
         "multipliers": [
           {
             "mv": [
@@ -2241,8 +2245,7 @@
               0.3301,
               0.3465,
               0.3629
-            ],
-            "times": 30
+            ]
           }
         ]
       },
@@ -2276,13 +2279,18 @@
             ]
           }
         ]
+      },
+      "3": {
+        "name": "Resonance Skill: DAKA DAKA!",
+        "cast": "RS",
+        "duration": 3500,
+        "offset": 500
       }
     },
     "OS": {
       "1": {
         "name": "Leaping Flames",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -2479,7 +2487,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -2510,7 +2521,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -2800,7 +2814,10 @@
       "7": {
         "name": "Cosmos: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -2961,8 +2978,7 @@
     "OS": {
       "1": {
         "name": "Thermal Field",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -3183,7 +3199,10 @@
       "7": {
         "name": "Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -3214,7 +3233,10 @@
       "8": {
         "name": "Mid-air Attack 2",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -3245,7 +3267,10 @@
       "9": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -3440,8 +3465,7 @@
     "OS": {
       "1": {
         "name": "Rage Transposition",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -3657,7 +3681,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -3688,7 +3715,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -4381,8 +4411,7 @@
     "OS": {
       "1": {
         "name": "Shadowy Raid",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -4549,7 +4578,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -4580,7 +4612,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -4846,9 +4881,7 @@
     "OS": {
       "1": {
         "name": "Strategist",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -5096,7 +5129,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -5127,7 +5163,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -5751,8 +5790,7 @@
     "OS": {
       "1": {
         "name": "Lightning Manipulation",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -5943,7 +5981,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -6005,7 +6046,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -6281,8 +6325,7 @@
     "OS": {
       "1": {
         "name": "Whispering Breeze",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -6448,7 +6491,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -6541,7 +6587,10 @@
       "9": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -6714,8 +6763,7 @@
     "OS": {
       "1": {
         "name": "Dissolving Mist",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -7001,7 +7049,10 @@
       "9": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -7032,7 +7083,10 @@
       "10": {
         "name": "Mid-air Attack: Banner Of Triumph",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -7094,7 +7148,10 @@
       "12": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -7355,8 +7412,7 @@
     "OS": {
       "1": {
         "name": "Discipline",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -7545,7 +7601,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -7575,7 +7634,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -8276,8 +8338,7 @@
     "OS": {
       "1": {
         "name": "Transcendence",
-        "cast": "OS",
-        "considered": "OS"
+        "cast": "OS"
       }
     }
   },
@@ -8473,7 +8534,10 @@
       "7": {
         "name": "Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -8504,7 +8568,10 @@
       "8": {
         "name": "Mid-air Attack 2",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -8535,7 +8602,10 @@
       "9": {
         "name": "Mid-air Attack 3",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -8601,7 +8671,10 @@
       "11": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -8957,7 +9030,10 @@
       "2": {
         "name": "Starflower Blooms: Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -8988,7 +9064,10 @@
       "3": {
         "name": "Starflower Blooms: Mid-air Attack 2",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -9019,7 +9098,10 @@
       "4": {
         "name": "Starflower Blooms: Mid-air Attack 3",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -9104,42 +9186,12 @@
             ]
           }
         ]
-      },
-      "6": {
-        "name": "Blossom Healing",
-        "type": "heal",
-        "considered": "FC",
-        "duration": 0,
-        "multipliers": [
-          {
-            "mv": 0.19
-          }
-        ]
-      },
-      "7": {
-        "name": "Sequence Node 1 Blossom Healing",
-        "type": "heal",
-        "considered": "FC",
-        "duration": 0,
-        "multipliers": [
-          {
-            "mv": 0.2
-          }
-        ]
       }
     },
     "OS": {
       "1": {
-        "name": "Blossom Healing",
-        "type": "heal",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 0.19,
-            "times": 6
-          }
-        ]
+        "name": "Blossom",
+        "cast": "OS"
       }
     }
   },
@@ -9335,7 +9387,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -9366,7 +9421,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -9836,9 +9894,7 @@
     "OS": {
       "1": {
         "name": "Iron Will",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -9972,7 +10028,10 @@
       "5": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10003,7 +10062,10 @@
       "6": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -10457,9 +10519,7 @@
     "OS": {
       "1": {
         "name": "Duality",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -10845,7 +10905,10 @@
       "11": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -11207,9 +11270,7 @@
     "OS": {
       "1": {
         "name": "Strategy of Duality",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -11486,7 +11547,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -11562,7 +11626,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -12105,7 +12172,10 @@
       "6": {
         "name": "Incarnation: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -12353,9 +12423,7 @@
     "OS": {
       "1": {
         "name": "Temporal Bender",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -12486,7 +12554,10 @@
       "5": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -12540,7 +12611,10 @@
       "6": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -12773,9 +12847,7 @@
     "OS": {
       "1": {
         "name": "Carve and Draw",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -12998,7 +13070,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -13029,7 +13104,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -13514,15 +13592,8 @@
     },
     "OS": {
       "1": {
-        "name": "Outro Skill",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 2.3763,
-            "times": 3
-          }
-        ]
+        "name": "Chain Rule",
+        "cast": "OS"
       }
     }
   },
@@ -13735,7 +13806,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -13766,7 +13840,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -14369,9 +14446,7 @@
     "OS": {
       "1": {
         "name": "Timeless Classics",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -14568,7 +14643,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -15000,7 +15078,10 @@
       "3": {
         "name": "Transmutation",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -15032,9 +15113,7 @@
     "OS": {
       "1": {
         "name": "Binary Butterfly",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -15107,7 +15186,10 @@
       "3": {
         "name": "Yellow Light: Plunging Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -15312,7 +15394,10 @@
       "8": {
         "name": "Red Light: Plunging Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -15343,7 +15428,10 @@
       "9": {
         "name": "Red Light: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -15840,9 +15928,7 @@
     "OS": {
       "1": {
         "name": "Escorting",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -16042,7 +16128,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -16074,7 +16163,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -16495,13 +16587,7 @@
     "OS": {
       "1": {
         "name": "Twining",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 3.2924
-          }
-        ]
+        "cast": "OS"
       }
     }
   },
@@ -16924,7 +17010,10 @@
       "8": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -17010,7 +17099,10 @@
       "10": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -17438,14 +17530,7 @@
     "OS": {
       "1": {
         "name": "Closing Remark",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0,
-        "multipliers": [
-          {
-            "mv": 7.942
-          }
-        ]
+        "cast": "OS"
       }
     }
   },
@@ -17636,7 +17721,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -17667,7 +17755,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -17905,9 +17996,7 @@
     "OS": {
       "1": {
         "name": "Applause, Please!",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -18177,7 +18266,10 @@
       "7": {
         "name": "Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18343,7 +18435,10 @@
       "10": {
         "name": "Mid-air Attack 1 Slash",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18375,7 +18470,10 @@
       "11": {
         "name": "Mid-air Attack 2",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18517,7 +18615,10 @@
       "14": {
         "name": "Mid-air Attack 3",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18604,7 +18705,10 @@
       "16": {
         "name": "Mid-air Attack 4",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -18684,7 +18788,10 @@
       "17": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -19245,9 +19352,7 @@
     "OS": {
       "1": {
         "name": "The Course is Set!",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -19406,7 +19511,10 @@
       "5": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -19438,7 +19546,10 @@
       "6": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -19470,7 +19581,10 @@
       "7": {
         "name": "Chamuel's Star: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -19826,25 +19940,11 @@
     "OS": {
       "1": {
         "name": "Attentive Heart (Absolution)",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0,
-        "multipliers": [
-          {
-            "mv": 5.2841
-          }
-        ]
+        "cast": "OS"
       },
       "2": {
         "name": "Attentive Heart (Confession)",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0,
-        "multipliers": [
-          {
-            "mv": 5.2841
-          }
-        ]
+        "cast": "OS"
       }
     }
   },
@@ -20012,7 +20112,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -20067,7 +20170,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -20537,7 +20643,10 @@
       "6": {
         "name": "Shadowy Sweep",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -20680,9 +20789,7 @@
     "OS": {
       "1": {
         "name": "Gentle Tentacles",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -20959,7 +21066,10 @@
       "8": {
         "name": "Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -20991,7 +21101,10 @@
       "9": {
         "name": "Mid-air Attack 2",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -21023,7 +21136,10 @@
       "10": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -21257,9 +21373,7 @@
     "OS": {
       "1": {
         "name": "Windcalling Tune",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -21482,7 +21596,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -21513,7 +21630,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -22594,7 +22714,10 @@
       "8": {
         "name": "Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -22625,7 +22748,10 @@
       "9": {
         "name": "Mid-air Attack 2",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -22681,7 +22807,10 @@
       "10": {
         "name": "Mid-air Attack 3",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -22926,7 +23055,10 @@
       "14": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -23441,9 +23573,7 @@
     "OS": {
       "1": {
         "name": "Stand by Me, Warrior",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -23725,7 +23855,10 @@
       "5": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "attr": "HP",
         "multipliers": [
           {
@@ -24568,7 +24701,10 @@
       "6": {
         "name": "Fleurdelys: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "attr": "HP",
         "multipliers": [
           {
@@ -24818,7 +24954,10 @@
       "10": {
         "name": "Fleurdelys: Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "attr": "HP",
         "multipliers": [
           {
@@ -24898,7 +25037,10 @@
       "11": {
         "name": "Fleurdelys: Mid-air Attack 2",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "attr": "HP",
         "multipliers": [
           {
@@ -25126,9 +25268,7 @@
     "OS": {
       "1": {
         "name": "Wind's Divine Blessing",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -25345,7 +25485,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -25376,7 +25519,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -25930,9 +26076,7 @@
     "OS": {
       "1": {
         "name": "Unfinished Piece",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -26100,7 +26244,10 @@
       "6": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -26132,7 +26279,10 @@
       "7": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -26819,9 +26969,7 @@
     "OS": {
       "1": {
         "name": "Battlesong of the Unyielding",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -26973,7 +27121,10 @@
       "4": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -27005,7 +27156,10 @@
       "5": {
         "name": "Moonring: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -27961,13 +28115,7 @@
     "OS": {
       "1": {
         "name": "From Gloom to Gleam",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 1
-          }
-        ]
+        "cast": "OS"
       }
     }
   },
@@ -29327,17 +29475,7 @@
     "OS": {
       "1": {
         "name": "Ashen Pursuit",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 0.795,
-            "times": 3
-          },
-          {
-            "mv": 5.565
-          }
-        ]
+        "cast": "OS"
       }
     }
   },
@@ -29559,7 +29697,10 @@
       "4": {
         "name": "Mid-air Attack DMG",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -30558,7 +30699,10 @@
       "5": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -30589,7 +30733,10 @@
       "6": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -31045,15 +31192,8 @@
     },
     "OS": {
       "1": {
-        "name": "Exorcism Spell Healing",
-        "type": "heal",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 0.18
-          }
-        ]
+        "name": "Exorcism Spell",
+        "cast": "OS"
       }
     }
   },
@@ -31483,7 +31623,10 @@
       "9": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -31626,7 +31769,10 @@
       "12": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -31705,7 +31851,10 @@
       "13": {
         "name": "Eye of Unraveling - Retraction",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -32388,9 +32537,7 @@
     "OS": {
       "1": {
         "name": "Unraveling - Law Zero",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -32822,7 +32969,10 @@
       "9": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -32853,7 +33003,10 @@
       "10": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -32884,7 +33037,10 @@
       "11": {
         "name": "Wide Field Observation Mode: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -33369,9 +33525,7 @@
     "OS": {
       "1": {
         "name": "Recursion",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -33521,7 +33675,10 @@
       "4": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -33552,7 +33709,10 @@
       "5": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -33958,7 +34118,10 @@
       "14": {
         "name": "Kaleidoscopic Parade: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -34052,7 +34215,10 @@
       "17": {
         "name": "Kaleidoscopic Parade: Mid-Air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -34356,7 +34522,10 @@
       "1": {
         "name": "Kaleidoscopic Parade: Iridescent Splash",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -34387,7 +34556,10 @@
       "2": {
         "name": "Kaleidoscopic Parade: Visual Impact",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -34547,13 +34719,7 @@
     "OS": {
       "1": {
         "name": "Let's Hit the Road!",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 1
-          }
-        ]
+        "cast": "OS"
       }
     }
   },
@@ -34919,7 +35085,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -34950,7 +35119,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -35451,7 +35623,10 @@
       "9": {
         "name": "Mech: Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -35507,7 +35682,10 @@
       "10": {
         "name": "Mech: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -36043,9 +36221,7 @@
     "OS": {
       "1": {
         "name": "Silent Protection",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -36258,7 +36434,10 @@
       "6": {
         "name": "Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -36289,7 +36468,10 @@
       "7": {
         "name": "Mid-air Attack 2 Scythe: Dissection",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -36368,7 +36550,10 @@
       "8": {
         "name": "Mid-air Attack 3 Scythe: Dissection",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -36557,7 +36742,10 @@
       "11": {
         "name": "Mid-air Attack 4",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -36588,7 +36776,10 @@
       "12": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -36982,7 +37173,10 @@
       "1": {
         "name": "Gavel of Earthshaker",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -37014,13 +37208,7 @@
     "OS": {
       "1": {
         "name": "Bow to the Last Light",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 5
-          }
-        ]
+        "cast": "OS"
       }
     }
   },
@@ -37385,7 +37573,10 @@
       "7": {
         "name": "Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -37416,7 +37607,10 @@
       "8": {
         "name": "Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -38167,13 +38361,7 @@
     "OS": {
       "1": {
         "name": "In This Very Moment",
-        "cast": "OS",
-        "considered": "OS",
-        "multipliers": [
-          {
-            "mv": 7.95
-          }
-        ]
+        "cast": "OS"
       }
     }
   },
@@ -38380,7 +38568,10 @@
       "5": {
         "name": "Present Self: Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -38411,7 +38602,10 @@
       "6": {
         "name": "Present Self: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -39478,9 +39672,7 @@
     "OS": {
       "1": {
         "name": "Snowlight Blessing",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   },
@@ -39647,7 +39839,10 @@
       "6": {
         "name": "Stagecraft Form: Mid-air Attack",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -39702,7 +39897,10 @@
       "7": {
         "name": "Stagecraft Form: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -39938,7 +40136,10 @@
       "13": {
         "name": "Breakdown Form: Mid-air Attack 1",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -39969,7 +40170,10 @@
       "14": {
         "name": "Breakdown Form: Mid-air Attack 2",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -40025,7 +40229,10 @@
       "15": {
         "name": "Breakdown Form: Mid-air Attack 3",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -40056,7 +40263,10 @@
       "16": {
         "name": "Breakdown Form: Mid-air Attack 4",
         "cast": "MA",
-        "considered": "MA",
+        "considered": [
+          "BA",
+          "MA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -40166,7 +40376,10 @@
       "18": {
         "name": "Breakdown Form: Dodge Counter",
         "cast": "DC",
-        "considered": "DC",
+        "considered": [
+          "BA",
+          "DC"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -40537,9 +40750,7 @@
     "OS": {
       "1": {
         "name": "Unfinished Lies",
-        "cast": "OS",
-        "considered": "OS",
-        "duration": 0
+        "cast": "OS"
       }
     }
   }
