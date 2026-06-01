@@ -2423,7 +2423,7 @@
         ]
       },
       "5": {
-        "name": "Wooly Strike",
+        "name": "Basic Attack: Wooly Strike",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2621,7 +2621,7 @@
     },
     "RL": {
       "1": {
-        "name": "Cosmos: Frolicking 1",
+        "name": "Cosmos: Basic Attack: Frolicking 1",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2653,7 +2653,7 @@
         ]
       },
       "2": {
-        "name": "Cosmos: Frolicking 2",
+        "name": "Cosmos: Basic Attack: Frolicking 2",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2685,7 +2685,7 @@
         ]
       },
       "3": {
-        "name": "Cosmos: Frolicking 3",
+        "name": "Cosmos: Basic Attack: Frolicking 3",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2717,7 +2717,7 @@
         ]
       },
       "4": {
-        "name": "Cosmos: Frolicking 4",
+        "name": "Cosmos: Basic Attack: Frolicking 4",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -2780,7 +2780,7 @@
         ]
       },
       "6": {
-        "name": "Cosmos: Rampage",
+        "name": "Cosmos: Resonance Skill: Rampage",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -2849,7 +2849,6 @@
       "8": {
         "name": "Cosmos Rave",
         "cast": "RL",
-        "considered": "RL",
         "duration": 0
       }
     },
@@ -2888,8 +2887,8 @@
     },
     "FC": {
       "1": {
-        "name": "Cloudy Frenzy",
-        "cast": "HA",
+        "name": "Resonance Liberation: Cloudy Frenzy",
+        "cast": "RL",
         "considered": "RL",
         "multipliers": [
           {
@@ -2919,8 +2918,8 @@
         ]
       },
       "2": {
-        "name": "Cosmos: Rupture",
-        "cast": "HA",
+        "name": "Cosmos: Resonance Liberation: Rupture",
+        "cast": "RL",
         "considered": "RL",
         "multipliers": [
           {
@@ -3367,7 +3366,10 @@
       "2": {
         "name": "Marcato",
         "cast": "CA",
-        "considered": "CA",
+        "considered": [
+          "RL",
+          "CA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -3431,7 +3433,7 @@
     },
     "FC": {
       "1": {
-        "name": "Fury Fugue",
+        "name": "Resonance Skill: Fury Fugue",
         "cast": "RS",
         "considered": "RS",
         "multipliers": [
@@ -3983,7 +3985,7 @@
         ]
       },
       "3": {
-        "name": "Hounds Roar 1",
+        "name": "Deathblade Gear: Basic Attack: Hounds Roar 1",
         "cast": "BA",
         "considered": "BA",
         "duration": 500,
@@ -4015,7 +4017,7 @@
         ]
       },
       "4": {
-        "name": "Hounds Roar 2",
+        "name": "Deathblade Gear: Basic Attack: Hounds Roar 2",
         "cast": "BA",
         "considered": "BA",
         "duration": 500,
@@ -4073,7 +4075,7 @@
         ]
       },
       "5": {
-        "name": "Hounds Roar 3",
+        "name": "Deathblade Gear: Basic Attack: Hounds Roar 3",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4104,7 +4106,7 @@
         ]
       },
       "6": {
-        "name": "Hounds Roar 4",
+        "name": "Deathblade Gear: Basic Attack: Hounds Roar 4",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4136,7 +4138,7 @@
         ]
       },
       "7": {
-        "name": "Hounds Roar 5",
+        "name": "Deathblade Gear: Basic Attack: Hounds Roar 5",
         "cast": "BA",
         "considered": "BA",
         "multipliers": [
@@ -4168,7 +4170,7 @@
         ]
       },
       "8": {
-        "name": "Heavy Attack",
+        "name": "Deathblade Gear: Heavy Attack",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -4200,7 +4202,7 @@
         ]
       },
       "9": {
-        "name": "Dodge Counter",
+        "name": "Deathblade Gear: Dodge Counter",
         "cast": "DC",
         "considered": [
           "RL",
@@ -4296,7 +4298,7 @@
     },
     "FC": {
       "1": {
-        "name": "\"Mercy\"",
+        "name": "Heavy Attack: \"Mercy\"",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [
@@ -4352,7 +4354,7 @@
         ]
       },
       "2": {
-        "name": "\"Death Messenger\"",
+        "name": "Deathblade Gear: Heavy Attack: \"Death Messenger\"",
         "cast": "HA",
         "considered": "RL",
         "multipliers": [
@@ -4713,7 +4715,10 @@
       "3": {
         "name": "Electromagnetic Blast",
         "cast": "CA",
-        "considered": "CA",
+        "considered": [
+          "RS",
+          "CA"
+        ],
         "multipliers": [
           {
             "mv": [
@@ -4812,7 +4817,7 @@
     },
     "FC": {
       "1": {
-        "name": "Chameleon Cipher",
+        "name": "Heavy Attack: Chameleon Cipher",
         "cast": "HA",
         "considered": "HA",
         "multipliers": [

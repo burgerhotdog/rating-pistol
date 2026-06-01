@@ -703,7 +703,7 @@
         "duration": 8000
       },
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RL-2",
         "applyCooldown": 350,
         "useIfAction": "RL-2",
@@ -749,11 +749,10 @@
           "RS-1",
           "FC-1"
         ],
-        "followUpAction": {
+        "combo": {
           "action": "RL-2",
           "times": 4
-        },
-        "maxUses": 1
+        }
       },
       {
         "rank": 6,
@@ -814,7 +813,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "followUpAction": {
+        "combo": {
           "action": {
             "considered": "OS",
             "multipliers": [
@@ -826,15 +825,14 @@
               }
             ]
           }
-        },
-        "maxUses": 1
+        }
       },
       {
         "rank": 2,
         "applyWhen": "cast",
         "applyOnAction": [
-          "RL-2",
-          "IS-1"
+          "IS-1",
+          "RL-2"
         ],
         "statMap": {
           "PERCENT_RS": 0.3
@@ -862,15 +860,19 @@
       },
       {
         "rank": 5,
+        "useIfAction": [
+          "IS-1",
+          "RL-2"
+        ],
         "statMap": {
-          "PERCENT_IS": 0.5
+          "PERCENT_ALL": 0.5
         }
       },
       {
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "FC-2",
-        "followUpAction": {
+        "combo": {
           "action": {
             "cast": "CA",
             "considered": [
@@ -882,8 +884,7 @@
             }
           },
           "times": 2
-        },
-        "maxUses": 1
+        }
       }
     ],
     "defaults": {
