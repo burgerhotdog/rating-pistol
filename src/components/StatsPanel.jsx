@@ -51,7 +51,7 @@ function constructBuffMap(buffs, buffTypes) {
 }
 
 function formatBuffStat(gameId, menuStats, statId, value) {
-  const abilityTypes = MISC[gameId]?.ABILITY_TYPES ?? {};
+  const abilityTypes = MISC[gameId]?.SKILL_TYPES ?? {};
   const formatSigned = (num) => `${num >= 0 ? '+' : ''}${num.toFixed(1)}%`;
 
   if (statId.startsWith('PERCENT_')) {

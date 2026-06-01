@@ -20,7 +20,7 @@
     "HYDRO": "#00c1ff",
     "PYRO": "#ff603f"
   },
-  "ABILITY_TYPES": {
+  "SKILL_TYPES": {
     "NA": "Normal Attack",
     "CA": "Charged Attack",
     "PA": "Plunge Attack",

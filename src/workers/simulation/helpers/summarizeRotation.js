@@ -215,86 +215,108 @@ const normalizeEffects = (gameId, member) => {
   // Processes a list of raw effects (from character / weapon / set JSON), normalizes
   // each into effectDefinitions, and registers it in castEffectsByAction /
   // contactEffectsByAction based on what actions trigger it.
-  function registerEffects(rawEffects, rank = Infinity) {
-    const unlockedEffects = toArray(rawEffects).filter(e => (e.rank ?? 0) <= rank);
-    for (const effect of unlockedEffects) {
-      const effectKey = `${memberId}-${effectIndex}`;
-      const followUpProcs = toArray(effect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank));
-      const comboProcs = toArray(effect.combo).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 100 + procIndex, rank));
-      const intervalProcs = toArray(effect.interval).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 200 + procIndex, rank));
-      const resolved = {
-        effectKey,
-        chance: effect.chance ?? 1,
-        applyCooldown: effect.applyCooldown ?? 0,
-        removeOnCast: effect.removeOnCast && toArray(effect.removeOnCast),
-        applyTo: effect.applyTo ?? 'self',
-        maxStacks: effect.maxStacks ?? 1,
-        duration: effect.duration ?? Infinity,
-        maxUses: effect.maxUses ?? Infinity,
-        followUpActionCooldown: effect.followUpActionCooldown ?? 0,
-        useIfAction: effect.useIfAction && toArray(effect.useIfAction).map(shortKey => `${memberId}-${shortKey}`),
-        useIfConsidered: effect.useIfConsidered && toArray(effect.useIfConsidered),
-        useIfType: effect.useIfType && toArray(effect.useIfType),
-        statMap: Object.fromEntries(
-          Object.entries(effect.statMap ?? {}).map(([k, v]) => [k, resolveRankedValue(v, rank)])
-        ),
-        statusMap: effect.statusMap ?? {},
-        applyIfEnemyStatus: effect.applyIfEnemyStatus ?? null,
-        applyIfInflict: effect.applyIfInflict ?? null,
-        variableStatMap: mergeVariableStatMaps(effect.variableStatMap),
-        followUpAction: followUpProcs,
-        combo: comboProcs,
-        intervalAction: intervalProcs,
-        intervalCooldown: effect.intervalCooldown,
-      };
+  function registerEffect(rawEffect, rank = Infinity) {
+    const resolved = {};
 
-      if (effect.rankModifiers) {
-        for (const [rankReq, modifier] of Object.entries(effect.rankModifiers)) {
-          if (Number(rankReq) <= rank) applyRankModifier(resolved, modifier);
-        }
-      }
+    const effectKey = `${memberId}-${effectIndex}`;
+    resolved.effectKey = effectKey;
+    resolved.chance = rawEffect.chance ?? 1;
+    resolved.applyCooldown = rawEffect.applyCooldown ?? 0;
 
-      const applyWhen = effect.applyWhen;
-      const applyOnAction = toArray(effect.applyOnAction).map(key => {
-        const segments = key.split('-');
-        if (segments.length === 3) return key;
-        return `${memberId}-${key}`;
-      });
-      const applyOnType = toArray(effect.applyOnType);
-      const applyOnCast = toArray(effect.applyOnCast);
-      const applyOnConsidered = toArray(effect.applyOnConsidered);
-
-      if (!applyWhen) {
-        // No trigger condition — effect is always active (passive)
-        resolved.isPassive = true;
-      } else {
-        // Walk every action to find which ones trigger this effect, and register
-        // it in the appropriate By-Action map (cast or contact).
-        const actions = actionsCache.get(memberId);
-        const inflictMatch = applyOnType.includes('inflict');
-        for (const actionKey in actions) {
-          const { type, cast, considered } = actions[actionKey];
-          const actionMatch = applyOnAction.includes(actionKey);
-          const typeMatch = applyOnType.includes(type);
-          const castMatch = cast.some(c => applyOnCast.includes(c));
-          const consideredMatch = considered.some(c => applyOnConsidered.includes(c));
-          if (actionMatch || castMatch || typeMatch || consideredMatch || inflictMatch) {
-            if (applyWhen === 'cast') (castEffectsByAction[actionKey] ??= []).push(effectKey);
-            if (applyWhen === 'contact') (contactEffectsByAction[actionKey] ??= []).push(effectKey);
-          }
-        }
-      }
-
-      effectDefinitions[effectKey] = resolved;
-      effectIndex++;
+    if (rawEffect.removeOnCast) {
+      resolved.removeOnCast = toArray(rawEffect.removeOnCast);
     }
+
+    resolved.applyTo = rawEffect.applyTo ?? 'self';
+    resolved.maxStacks = rawEffect.maxStacks ?? 1;
+    resolved.duration = rawEffect.duration ?? Infinity;
+    resolved.maxUses = rawEffect.maxUses ?? Infinity;
+    resolved.followUpActionCooldown = rawEffect.followUpActionCooldown ?? 0;
+
+    if (rawEffect.useIfAction) {
+      resolved.useIfAction = toArray(rawEffect.useIfAction).map(sk => `${memberId}-${sk}`);
+    }
+
+    if (rawEffect.useIfConsidered) {
+      resolved.useIfConsidered = toArray(rawEffect.useIfConsidered);
+    }
+
+    if (rawEffect.useIfType) {
+      resolved.useIfType = toArray(rawEffect.useIfType);
+    }
+
+    if (rawEffect.statMap) {
+      const resolvedStatMap = {};
+
+      for (const [stat, value] of Object.entries(rawEffect.statMap)) {
+        resolvedStatMap[stat] = resolveRankedValue(value, rank);
+      }
+
+      resolved.statMap = resolvedStatMap;
+    }
+
+    resolved.statusMap = rawEffect.statusMap ?? {};
+    resolved.applyIfEnemyStatus = rawEffect.applyIfEnemyStatus ?? null;
+    resolved.applyIfInflict = rawEffect.applyIfInflict ?? null;
+    resolved.variableStatMap = mergeVariableStatMaps(rawEffect.variableStatMap);
+    resolved.followUpAction = toArray(rawEffect.followUpAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, procIndex, rank));
+    resolved.combo = toArray(rawEffect.comboAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 100 + procIndex, rank));
+    resolved.intervalAction = toArray(rawEffect.intervalAction).map((proc, procIndex) => normalizeProc(memberId, effectKey, proc, 200 + procIndex, rank));
+    resolved.intervalCooldown = rawEffect.intervalCooldown;
+
+    if (rawEffect.rankModifiers) {
+      for (const [rankReq, modifier] of Object.entries(rawEffect.rankModifiers)) {
+        if (Number(rankReq) <= rank) applyRankModifier(resolved, modifier);
+      }
+    }
+
+    const applyWhen = rawEffect.applyWhen;
+    const applyOnAction = toArray(rawEffect.applyOnAction).map(key => {
+      const segments = key.split('-');
+      if (segments.length === 3) return key;
+      return `${memberId}-${key}`;
+    });
+    const applyOnType = toArray(rawEffect.applyOnType);
+    const applyOnCast = toArray(rawEffect.applyOnCast);
+    const applyOnConsidered = toArray(rawEffect.applyOnConsidered);
+
+    if (!applyWhen) {
+      // No trigger condition — effect is always active (passive)
+      resolved.isPassive = true;
+    } else {
+      // Walk every action to find which ones trigger this effect, and register
+      // it in the appropriate By-Action map (cast or contact).
+      const actions = actionsCache.get(memberId);
+      const inflictMatch = applyOnType.includes('inflict');
+      for (const actionKey in actions) {
+        const { type, cast, considered } = actions[actionKey];
+        const actionMatch = applyOnAction.includes(actionKey);
+        const typeMatch = applyOnType.includes(type);
+        const castMatch = cast.some(c => applyOnCast.includes(c));
+        const consideredMatch = considered.some(c => applyOnConsidered.includes(c));
+        if (actionMatch || castMatch || typeMatch || consideredMatch || inflictMatch) {
+          if (applyWhen === 'cast') (castEffectsByAction[actionKey] ??= []).push(effectKey);
+          if (applyWhen === 'contact') (contactEffectsByAction[actionKey] ??= []).push(effectKey);
+        }
+      }
+    }
+
+    effectDefinitions[effectKey] = resolved;
+    effectIndex++;
   }
 
-  // Register effects from character, weapon, and active set bonuses (in that order)
-  registerEffects(CHARACTERS[gameId][memberId].effects, rank);
-  registerEffects(WEAPONS[gameId][weaponId].effects, weaponRank);
-  const setBonuses = getActiveSetBonuses(gameId, member);
-  for (const setBonusEffects of setBonuses) registerEffects(setBonusEffects, Infinity);
+  for (const effect of toArray(CHARACTERS[gameId][memberId].effects)) {
+    if ((effect.rank ?? 0) > rank) continue;
+    registerEffect(effect, rank);
+  }
+
+  for (const effect of toArray(WEAPONS[gameId][weaponId].effects)) {
+    registerEffect(effect, weaponRank);
+  }
+
+  for (const effect of getActiveSetBonuses(gameId, member).flatMap(toArray)) {
+    registerEffect(effect);
+  }
 
   return { castEffectsByAction, contactEffectsByAction, effectDefinitions };
 };

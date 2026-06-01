@@ -12,11 +12,9 @@ import {
   DialogTitle,
   Chip,
   Divider,
-  // Chip kept for SetIcon piece-count badge
   FormControlLabel,
+  GlobalStyles,
   IconButton,
-  List,
-  ListItem,
   MenuItem,
   Stack,
   Switch,
@@ -26,12 +24,15 @@ import {
   ToggleButtonGroup,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import CloseIcon from '@mui/icons-material/Close';
+import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
+import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { CHARACTERS, MVS, WEAPONS, SETS, MISC } from '@/data';
 import { getMember, formatRotation, getSetCounts } from '@/utils';
 import { useBuild } from '@/contexts';
@@ -536,7 +537,7 @@ const SKILL_GROUP_LABELS = {
 
 function SkillSelectDialog({ gameId, characterId, open, onClose, onSelect }) {
   const [search, setSearch] = useState('');
-  const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
+  const abilityTypeLabels = MISC[gameId]?.SKILL_TYPES ?? {};
 
   // Build grouped actions: { skillId: [{ actionKey, name }, ...] }
   const groupedOptions = useMemo(() => {
@@ -741,16 +742,114 @@ function PickerButton({ label, imageUrl, name, onClick, onClear, disabled = fals
   );
 }
 
+// ─── Rotation drag-and-drop helpers ────────────────────────────────────────
+
+function SortableRotationItem({ id, actionKey, gameId, skillTypeLabels, onRemove }) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
+  const [ownerId, skillId, actionId] = actionKey.split('-');
+  const { cast, name, prefix } = MVS[gameId][ownerId][skillId][actionId];
+
+  return (
+    <Box
+      ref={setNodeRef}
+      style={style}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 1,
+        py: 0.5,
+        px: 1,
+        borderBottom: '1px solid',
+        borderColor: 'divider',
+        bgcolor: isDragging ? 'action.selected' : 'transparent',
+        '&:last-child': { borderBottom: 'none' },
+        '& .rotation-delete': { opacity: 0, transition: 'opacity 0.15s' },
+        '&:hover .rotation-delete': { opacity: 1 },
+      }}
+    >
+      {/* Drag handle */}
+      <Box
+        {...attributes}
+        {...listeners}
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          cursor: isDragging ? 'grabbing' : 'grab',
+          color: 'text.disabled',
+          flexShrink: 0,
+        }}
+      >
+        <DragIndicatorIcon sx={{ fontSize: 18 }} />
+      </Box>
+
+      {/* Action name */}
+      <Typography variant="body2" noWrap sx={{ flex: 1, minWidth: 0 }}>
+        {name}
+      </Typography>
+
+      {/* Cast type chips */}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5, flexShrink: 0 }}>
+        {cast.map(castType => (
+          <Chip
+            key={castType}
+            size="small"
+            label={skillTypeLabels[castType] ?? castType}
+            variant="outlined"
+            sx={{ height: 20, fontSize: '0.65rem', '& .MuiChip-label': { px: '5px' } }}
+          />
+        ))}
+      </Box>
+
+      {/* Prefix badge */}
+      {prefix && (
+        <Chip
+          size="small"
+          label={prefix}
+          sx={{
+            height: 20,
+            fontSize: '0.65rem',
+            flexShrink: 0,
+            '& .MuiChip-label': { px: '6px' },
+          }}
+        />
+      )}
+
+      {/* Delete — hover only */}
+      <IconButton className="rotation-delete" size="small" onClick={onRemove} sx={{ flexShrink: 0 }}>
+        <DeleteOutlineIcon fontSize="small" />
+      </IconButton>
+    </Box>
+  );
+}
+
 function RotationEditor({ gameId, characterId, rotation, onChange }) {
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
-  const abilityTypeLabels = MISC[gameId]?.ABILITY_TYPES ?? {};
+  const [dragging, setDragging] = useState(false);
+  const skillTypeLabels = MISC[gameId]?.SKILL_TYPES ?? {};
 
-  const moveSkill = (index, direction) => {
-    const nextIndex = index + direction;
-    if (nextIndex < 0 || nextIndex >= rotation.length) return;
-    const next = [...rotation];
-    [next[index], next[nextIndex]] = [next[nextIndex], next[index]];
-    onChange(next);
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
+  );
+
+  const sortableIds = useMemo(
+    () => rotation.map((key, i) => `${key}__${i}`),
+    [rotation],
+  );
+
+  const handleDragEnd = ({ active, over }) => {
+    setDragging(false);
+    if (over && active.id !== over.id) {
+      const oldIndex = sortableIds.indexOf(active.id);
+      const newIndex = sortableIds.indexOf(over.id);
+      onChange(arrayMove(rotation, oldIndex, newIndex));
+    }
   };
 
   const removeSkill = (index) => {
@@ -767,6 +866,7 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
 
   return (
     <Box mt={2.5}>
+      {dragging && <GlobalStyles styles={{ '*': { cursor: 'grabbing !important' } }} />}
       <Typography variant="subtitle2" sx={{ mb: 1 }}>
         Rotation
       </Typography>
@@ -775,62 +875,51 @@ function RotationEditor({ gameId, characterId, rotation, onChange }) {
         sx={{
           maxHeight: 220,
           overflowY: 'auto',
-          pr: 0.5,
           border: 1,
           borderColor: 'divider',
           borderRadius: 1,
           mb: 1,
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'rgba(255,255,255,0.18) transparent',
+          '&::-webkit-scrollbar': { width: 5 },
+          '&::-webkit-scrollbar-track': { background: 'transparent' },
+          '&::-webkit-scrollbar-thumb': {
+            background: 'rgba(255,255,255,0.18)',
+            borderRadius: 3,
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: 'rgba(255,255,255,0.32)',
+          },
         }}
       >
-        <List dense sx={{ p: 0.5 }}>
-          {rotation.map((actionKey, index) => {
-            const [ownerId, skillId, actionId] = actionKey.split('-');
-            const { cast, name } = MVS[gameId][ownerId][skillId][actionId];
-            return (
-              <ListItem
-                key={`${actionKey}-${index}`}
-                secondaryAction={
-                  <Stack direction="row" spacing={0.5}>
-                    <IconButton size="small" onClick={() => moveSkill(index, -1)}>
-                      <ArrowUpwardIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton size="small" onClick={() => moveSkill(index, 1)}>
-                      <ArrowDownwardIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton size="small" onClick={() => removeSkill(index)}>
-                      <DeleteOutlineIcon fontSize="small" />
-                    </IconButton>
-                  </Stack>
-                }
-                sx={{ py: 0.25, pr: 14 }}
-              >
-                <Stack direction="row" spacing={1} alignItems="center" sx={{ width: '100%' }}>
-                  <Box sx={{ width: 200, flexShrink: 0 }}>
-                    {cast.map(castType => (
-                      <Chip
-                        key={castType}
-                        size="small"
-                        label={abilityTypeLabels[castType]}
-                        variant="outlined"
-                        sx={{ height: 20, maxWidth: '100%' }}
-                      />
-                    ))}
-                  </Box>
-                  <Typography variant="body2" noWrap>
-                    {name}
-                  </Typography>
-                </Stack>
-              </ListItem>
-            );
-          })}
-        </List>
+        {rotation.length > 0 ? (
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            modifiers={[restrictToVerticalAxis]}
+            onDragStart={() => setDragging(true)}
+            onDragEnd={handleDragEnd}
+            onDragCancel={() => setDragging(false)}
+          >
+            <SortableContext items={sortableIds} strategy={verticalListSortingStrategy}>
+              {rotation.map((actionKey, index) => (
+                <SortableRotationItem
+                  key={sortableIds[index]}
+                  id={sortableIds[index]}
+                  actionKey={actionKey}
+                  gameId={gameId}
+                  skillTypeLabels={skillTypeLabels}
+                  onRemove={() => removeSkill(index)}
+                />
+              ))}
+            </SortableContext>
+          </DndContext>
+        ) : (
+          <Typography variant="body2" color="text.secondary" sx={{ p: 2, textAlign: 'center' }}>
+            Rotation is empty.
+          </Typography>
+        )}
       </Box>
-
-      {rotation.length === 0 && (
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-          Rotation is empty.
-        </Typography>
-      )}
 
       <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
         <Button

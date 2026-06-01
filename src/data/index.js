@@ -52,7 +52,7 @@ const normalizeActions = (gameId, json) => {
         } else if (['OS', 'CA'].some(type => actionDef.cast.includes(type))) {
           actionDef.duration = 0;
         } else {
-          actionDef.duration = 1000;
+          actionDef.duration = 600;
         }
 
         if (actionRaw.offset != null) {
@@ -64,6 +64,10 @@ const normalizeActions = (gameId, json) => {
         if (actionRaw.multipliers) {
           actionDef.attr = actionRaw.attr ?? 'ATK';
           actionDef.multipliers = actionRaw.multipliers;
+        }
+
+        if (actionRaw.prefix) {
+          actionDef.prefix = actionRaw.prefix;
         }
 
         skillDef[actionId] = actionDef;

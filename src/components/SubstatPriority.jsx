@@ -16,12 +16,12 @@ import { sumRotationDmg } from '@/utils';
 export const SubstatPriority = ({ isLoading, actionMap, actionMapsWithSub }) => {
   const { gameId, characterId } = useParams();
   const { element } = CHARACTERS[gameId][characterId];
-  const rating = sumRotationDmg(actionMap, { ownerId: characterId });
+  const rating = sumRotationDmg(actionMap);
   if (isLoading) return null;
 
   const newRatings = Object.entries(actionMapsWithSub)
     .map(([id, actionMap]) => {
-      const newRating = sumRotationDmg(actionMap, { ownerId: characterId });
+      const newRating = sumRotationDmg(actionMap);
       return {
         name: id,
         diff: newRating / rating * 100 - 100,

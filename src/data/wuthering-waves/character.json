@@ -15,7 +15,7 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "FC-1",
-        "combo": {
+        "comboAction": {
           "action": [
             "FC-2",
             "FC-3",
@@ -141,7 +141,7 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "RS-1",
-        "combo": {
+        "comboAction": {
           "action": "RS-2"
         }
       },
@@ -149,7 +149,7 @@
         "applyWhen": "cast",
         "applyOnAction": "RL-3",
         "applyTo": "active",
-        "interval": {
+        "intervalAction": {
           "action": "RL-1"
         },
         "intervalCooldown": 2500,
@@ -163,7 +163,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "combo": {
+        "comboAction": {
           "action": "RL-2",
           "times": 3
         }
@@ -172,7 +172,7 @@
         "applyWhen": "cast",
         "applyOnCast": "HA",
         "applyOnAction": "RS-1",
-        "interval": {
+        "intervalAction": {
           "action": "FC-1"
         },
         "intervalCooldown": 2000,
@@ -190,7 +190,7 @@
       {
         "applyWhen": "contact",
         "applyOnCast": "HA",
-        "combo": {
+        "comboAction": {
           "action": {
             "type": "heal",
             "attr": "HP",
@@ -203,7 +203,7 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "IS-1",
-        "combo": {
+        "comboAction": {
           "action": "IS-2",
           "times": 3
         }
@@ -212,7 +212,7 @@
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
         "applyTo": "next",
-        "interval": {
+        "intervalAction": {
           "action": {
             "type": "heal",
             "attr": "HP",
@@ -349,7 +349,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -445,7 +445,7 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "FC-3",
-        "interval": {
+        "intervalAction": {
           "action": "FC-1"
         },
         "intervalCooldown": 100,
@@ -470,7 +470,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -554,7 +554,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "interval": {
+        "intervalAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -749,7 +749,7 @@
           "RS-1",
           "FC-1"
         ],
-        "combo": {
+        "comboAction": {
           "action": "RL-2",
           "times": 4
         }
@@ -813,7 +813,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": [
@@ -872,7 +872,7 @@
         "rank": 6,
         "applyWhen": "cast",
         "applyOnAction": "FC-2",
-        "combo": {
+        "comboAction": {
           "action": {
             "cast": "CA",
             "considered": [
@@ -931,7 +931,7 @@
     },
     "effects": [
       {
-        "applyWhen": "cast",
+        "applyWhen": "contact",
         "applyOnAction": "RS-1",
         "followUpAction": {
           "useIfCast": [
@@ -1056,7 +1056,6 @@
         "RL-1",
         "BA-1",
         "FC-1",
-        "FC-2",
         "OS-1"
       ]
     }
@@ -1135,7 +1134,7 @@
         "rank": 4,
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "type": "shield",
             "attr": "DEF",
@@ -1287,7 +1286,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RS-2",
-        "combo": {
+        "comboAction": {
           "action": "RS-1",
           "times": 6
         }
@@ -1314,7 +1313,7 @@
       {
         "applyWhen": "contact",
         "applyOnAction": "FC-2",
-        "combo": {
+        "comboAction": {
           "action": "FC-1",
           "times": 6
         }
@@ -1614,21 +1613,21 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-3",
-        "combo": {
+        "comboAction": {
           "action": "FC-8"
         }
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-4",
-        "combo": {
+        "comboAction": {
           "action": "FC-9"
         }
       },
       {
         "applyWhen": "cast",
         "applyOnAction": "FC-5",
-        "combo": {
+        "comboAction": {
           "action": "FC-10"
         }
       },
@@ -1759,7 +1758,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "RL-1",
-        "combo": {
+        "comboAction": {
           "action": "RL-2"
         }
       },
@@ -1786,7 +1785,7 @@
           "FC-3",
           "FC-4"
         ],
-        "combo": {
+        "comboAction": {
           "action": "FC-5",
           "times": 3
         }
@@ -1803,7 +1802,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "interval": {
+        "intervalAction": {
           "action": {
             "type": "heal",
             "multipliers": {
@@ -1817,7 +1816,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "interval": {
+        "intervalAction": {
           "action": {
             "type": "heal",
             "multipliers": {
@@ -3179,7 +3178,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -3327,7 +3326,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -3890,7 +3889,7 @@
       {
         "applyWhen": "cast",
         "applyOnCast": "OS",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -4897,7 +4896,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -4956,7 +4955,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": [
@@ -5065,7 +5064,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "interval": {
+        "intervalAction": {
           "action": {
             "type": "heal",
             "multipliers": {
@@ -5210,7 +5209,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -5322,7 +5321,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
@@ -5379,7 +5378,7 @@
       {
         "applyWhen": "cast",
         "applyOnAction": "OS-1",
-        "combo": {
+        "comboAction": {
           "action": {
             "considered": "OS",
             "multipliers": {
