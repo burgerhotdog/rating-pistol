@@ -1,5 +1,6 @@
 import { mergeEquipList, computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
-import { findBenchmarkWeek, getAverageScores, findRelativeError, summarizeRotation, evaluateRotationSummary } from './helpers';
+import { findBenchmarkWeek, getAverageScores, findRelativeError} from './helpers';
+import { compileRotation, evaluateRotation } from './rotationSim';
 import { createTrial } from './createTrial';
 import { advanceTrial } from './advanceTrial';
 import { findPreferred } from './findPreferred';
@@ -11,20 +12,21 @@ const MAX_WEEKS = 20;
 
 function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
   const simulationStartMs = performance.now();
+
   const match = CHARACTERS[gameId][characterId].match ?? ['ER'];
   const matchTargets = match.map(stat => {
     return computeTotalStat(stat, compileStatMap(gameId, characterId, build));
   });
 
-  // Compute the rotation summary once — shared across all trials and all weeks
-  const summary = summarizeRotation(gameId, team, characterId);
+  // Compile the rotation to enable fast computations across all trials and weeks
+  const compiledRotation = compileRotation(gameId, team, characterId);
 
   const trials = [];
   for (let i = 0; i < MIN_TRIALS; i++) {
-    trials.push(createTrial(matchTargets, gameId, characterId, build, match, team, summary));
+    trials.push(createTrial(matchTargets, gameId, characterId, build, match, team, compiledRotation));
   }
 
-  const preferredMainStats = findPreferred(trials[0], gameId, characterId, match, team, matchTargets, summary);
+  const preferredMainStats = findPreferred(trials[0], gameId, characterId, match, team, matchTargets, compiledRotation);
 
   let lastBenchmarkWeek = null;
   let lastDiff = null;
@@ -35,7 +37,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
     const trialLoopStartMs = performance.now();
     let trialCount = 0;
     for (const [trialIndex, trial] of trials.entries()) {
-      advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, summary);
+      advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, compiledRotation);
       self.postMessage({ type: 'progress', trial: trialIndex + 1 });
       trialCount += 1;
     }
@@ -48,9 +50,9 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
       const values = trials.map(trial => sumRotationDmg(trial.scores[week]));
       if (findRelativeError(values) <= 0.005) break;
 
-      const trial = createTrial(matchTargets, gameId, characterId, build, match, team, summary);
+      const trial = createTrial(matchTargets, gameId, characterId, build, match, team, compiledRotation);
       for (let w = 1; w <= week; w++) {
-        advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, summary);
+        advanceTrial(preferredMainStats, trial, setIdList, matchTargets, characterId, match, team, compiledRotation);
       }
       trials.push(trial);
       adaptiveTrialsCreated += 1;
@@ -86,7 +88,7 @@ function simulateCharacter({ gameId, characterId, build, team, setIdList }) {
     matchTargets,
     trials,
     preferredMainStats,
-    summary,
+    compiledRotation,
     benchmarkWeek: lastBenchmarkWeek,
     weeklyScores,
     diff: lastDiff,
@@ -162,7 +164,7 @@ self.onmessage = ({ data }) => {
   timings.weekTimingsMs = currentResult.timingsMs.weekTimingsMs;
   timings.mainSimulationMs = Math.round(performance.now() - mainSimulationStartMs);
 
-  const { trials, preferredMainStats, summary: currentSummary, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;
+  const { trials, preferredMainStats, compiledRotation, benchmarkWeek: lastBenchmarkWeek, weeklyScores } = currentResult;
 
   const finalStats = {};
   for (let i = 0; i < trials.length; i++) {
@@ -190,14 +192,14 @@ self.onmessage = ({ data }) => {
 
   // Build actionMap using the character's actual equipped build (same as what
   // normalizeTeam returned for the character — m.build is the top-level build).
-  const actionMap = evaluateRotationSummary(currentSummary, compileStatMap(gameId, characterId, build));
+  const actionMap = evaluateRotation(compiledRotation, compileStatMap(gameId, characterId, build));
   const actionMapsWithSub = Object.fromEntries(Object.entries(MISC[gameId].SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
       const buildWithSub = {
         ...build,
         equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }],
       };
-      return [id, evaluateRotationSummary(currentSummary, compileStatMap(gameId, characterId, buildWithSub))];
+      return [id, evaluateRotation(compiledRotation, compileStatMap(gameId, characterId, buildWithSub))];
     }));
   timings.totalWorkerMs = Math.round(performance.now() - workerStartMs);
 

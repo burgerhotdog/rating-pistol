@@ -1,6 +1,7 @@
 import { MISC } from '@/data';
 import { computeTotalStat, compileStatMap, sumRotationDmg } from '@/utils';
-import { weightedLottery, matchPenalty, evaluateRotationSummary } from './helpers';
+import { weightedLottery, matchPenalty } from './helpers';
+import { evaluateRotation } from './rotationSim';
 
 const DAILY_STAMINA = 240;
 const WEEKLY_STAMINA = 120;
@@ -105,7 +106,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1);
-    const newDamage = evaluateRotationSummary(summary, compileStatMap('wuthering-waves', characterId, newBuild));
+    const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
 
     // Compare with latest and replace if needed
     if (sumRotationDmg(newDamage, characterId) * newPenalty > sumRotationDmg(latestDamage, characterId) * latestPenalty) {
@@ -152,7 +153,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
-      const newDamage = evaluateRotationSummary(summary, compileStatMap('wuthering-waves', characterId, newBuild));
+      const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
 
       // Compare new damage with buffer and replace if better
       if (sumRotationDmg(newDamage, characterId) * newPenalty > sumRotationDmg(bufferDamage, characterId) * bufferPenalty) {
@@ -208,7 +209,7 @@ export function advanceTrial(preferredMainStats, trial, setIdList, matchTargets,
         const targetValue = matchTargets[index];
         return acc * matchPenalty(currentValue, targetValue);
       }, 1);
-      const newDamage = evaluateRotationSummary(summary, compileStatMap('wuthering-waves', characterId, newBuild));
+      const newDamage = evaluateRotation(summary, compileStatMap('wuthering-waves', characterId, newBuild));
 
       // Compare new damage with buffer and replace if better
       if (sumRotationDmg(newDamage) * newPenalty > sumRotationDmg(bufferDamage) * bufferPenalty) {

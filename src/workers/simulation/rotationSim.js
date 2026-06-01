@@ -1129,7 +1129,7 @@ function processAction(action, ctx, depth, onFootprint, repeatCount = 1, applyTi
  * @param {string} characterId - the character whose build will vary
  * @returns {{ footprints: Array }}
  */
-export const summarizeRotation = (gameId, rawTeam, characterId) => {
+export const compileRotation = (gameId, rawTeam, characterId) => {
   const team = rawTeam.filter(m => m.memberId);
 
   const members = {};
@@ -1214,7 +1214,7 @@ export const summarizeRotation = (gameId, rawTeam, characterId) => {
  * @param {Object} newCharCompiledStatMap  - output of compileStatMap for the new build
  * @returns {Object} actionMap  - same shape as simulateRotation's return value
  */
-export const evaluateRotationSummary = (summary, newCharCompiledStatMap) => {
+export const evaluateRotation = (summary, newCharCompiledStatMap) => {
   const { gameId, characterId, footprints } = summary;
   const actionMap = {};
 
@@ -1266,7 +1266,7 @@ export const evaluateRotationSummary = (summary, newCharCompiledStatMap) => {
     // charVariableEffectSpecs is non-empty. In the latter case owner may differ.
     const isCharAction = owner === characterId;
     // For teammate actions with charVariableEffectSpecs, ownerBaseStatMap was
-    // stored in the footprint during summarizeRotation.
+    // stored in the footprint during compileRotation.
     const ownerBaseStatMap = isCharAction ? newCharCompiledStatMap : footprint.ownerBaseStatMap ?? {};
 
     // ── Two-pass variable resolution (mirrors getCurrentStatMap logic) ────────
