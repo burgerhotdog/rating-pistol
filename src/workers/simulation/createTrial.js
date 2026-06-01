@@ -14,6 +14,6 @@ export function createTrial(matchTargets, gameId, characterId, build, match, tea
       const targetValue = matchTargets[index];
       return acc * matchPenalty(currentValue, targetValue);
     }, 1),
-    scores: [evaluateRotationSummary(summary, characterId, compileStatMap(gameId, characterId, startingBuild))],
+    scores: [evaluateRotationSummary(summary, compileStatMap(gameId, characterId, startingBuild))],
   };
 }

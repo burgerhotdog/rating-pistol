@@ -190,14 +190,14 @@ self.onmessage = ({ data }) => {
 
   // Build actionMap using the character's actual equipped build (same as what
   // normalizeTeam returned for the character — m.build is the top-level build).
-  const actionMap = evaluateRotationSummary(currentSummary, characterId, compileStatMap(gameId, characterId, build));
+  const actionMap = evaluateRotationSummary(currentSummary, compileStatMap(gameId, characterId, build));
   const actionMapsWithSub = Object.fromEntries(Object.entries(MISC[gameId].SUB_STAT_TYPES)
     .map(([id, { VALUE }]) => {
       const buildWithSub = {
         ...build,
         equipList: [...build.equipList, { mainStatId: id, mainStatValue: VALUE, subStatList: [] }],
       };
-      return [id, evaluateRotationSummary(currentSummary, characterId, compileStatMap(gameId, characterId, buildWithSub))];
+      return [id, evaluateRotationSummary(currentSummary, compileStatMap(gameId, characterId, buildWithSub))];
     }));
   timings.totalWorkerMs = Math.round(performance.now() - workerStartMs);
 

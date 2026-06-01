@@ -13,7 +13,7 @@ export function findPreferred(trial, gameId, characterId, match, team, matchTarg
       const testObj = { mainStatId: id, mainStatValue: data.VALUE, subStatList: [] };
       const testBuild = { ...trial.build, equipList: [testObj] };
 
-      const testDamage = evaluateRotationSummary(summary, characterId, compileStatMap(gameId, characterId, testBuild));
+      const testDamage = evaluateRotationSummary(summary, compileStatMap(gameId, characterId, testBuild));
       
       const testPenalty = match.reduce((acc, stat, index) => {
         const currentValue = computeTotalStat(stat, compileStatMap(gameId, characterId, testBuild));

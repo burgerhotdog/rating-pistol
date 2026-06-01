@@ -1178,7 +1178,7 @@ export const summarizeRotation = (gameId, rawTeam, characterId) => {
     }
   }
 
-  return { gameId, footprints };
+  return { gameId, characterId, footprints };
 };
 
 // ─── evaluateRotationSummary ──────────────────────────────────────────────────
@@ -1192,8 +1192,8 @@ export const summarizeRotation = (gameId, rawTeam, characterId) => {
  * @param {Object} newCharCompiledStatMap  - output of compileStatMap for the new build
  * @returns {Object} actionMap  - same shape as simulateRotation's return value
  */
-export const evaluateRotationSummary = (summary, characterId, newCharCompiledStatMap) => {
-  const { gameId, footprints } = summary;
+export const evaluateRotationSummary = (summary, newCharCompiledStatMap) => {
+  const { gameId, characterId, footprints } = summary;
   const actionMap = {};
 
   for (const footprint of footprints) {
