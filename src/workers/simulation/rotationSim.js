@@ -1,19 +1,13 @@
 import { CHARACTERS, WEAPONS, SETS, MISC, MVS } from '@/data';
 import { compileStatMap, mergeStatMaps, computeTotalStat, toArray } from '@/utils';
 
-// Keyed by memberId — stores normalized actions (pre-summed mv/flat at skill level)
 const actionsCache = new Map();
-// Keyed by a string encoding memberId+rank+weapon+sets — stores castEffectsByAction / contactEffectsByAction / effectDefinitions
 const normalizeEffectsCache = new Map();
-// Keyed by the build object identity — stores the compiled stat map for that exact build
 const compileStatMapCache = new WeakMap();
 
-// Maximum proc recursion depth. Prevents runaway chains from bad data.
-// No real game mechanic uses depth > 1 today; 4 provides future headroom.
 const MAX_PROC_DEPTH = 4;
 
 // Linearly interpolates a [r1, r5] array to the correct value for the given rank (1–5).
-// Plain numbers are returned as-is.
 const resolveRankedValue = (value, rank) => {
   if (!Array.isArray(value)) return value;
   const [r1, r5] = value;
@@ -1116,19 +1110,6 @@ function processAction(action, ctx, depth, onFootprint, repeatCount = 1, applyTi
   }
 }
 
-// ─── Public API ───────────────────────────────────────────────────────────────
-
-/**
- * Run the rotation once and record the full effect state at every damage
- * evaluation point. The returned summary can be passed to
- * `evaluateRotationSummary` many times with different character builds
- * without re-running the effect simulation.
- *
- * @param {string} gameId
- * @param {Array}  rawTeam   - same format as simulateRotation's team param
- * @param {string} characterId - the character whose build will vary
- * @returns {{ footprints: Array }}
- */
 export const compileRotation = (gameId, rawTeam, characterId) => {
   const team = rawTeam.filter(m => m.memberId);
 
@@ -1203,17 +1184,6 @@ export const compileRotation = (gameId, rawTeam, characterId) => {
   return { gameId, characterId, footprints };
 };
 
-// ─── evaluateRotationSummary ──────────────────────────────────────────────────
-
-/**
- * Re-evaluate a previously recorded summary with a new character stat map.
- * Much cheaper than a full simulateRotation call.
- *
- * @param {{ footprints: Array }} summary
- * @param {string} characterId
- * @param {Object} newCharCompiledStatMap  - output of compileStatMap for the new build
- * @returns {Object} actionMap  - same shape as simulateRotation's return value
- */
 export const evaluateRotation = (summary, newCharCompiledStatMap) => {
   const { gameId, characterId, footprints } = summary;
   const actionMap = {};
