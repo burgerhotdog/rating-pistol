@@ -1,7 +1,7 @@
 {
   "11101": {
     "name": "Dull Blade",
-    "quality": "1",
+    "quality": 1,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -11,7 +11,7 @@
   },
   "11201": {
     "name": "Silver Sword",
-    "quality": "2",
+    "quality": 2,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -21,7 +21,7 @@
   },
   "11301": {
     "name": "Cool Steel",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -32,7 +32,7 @@
   },
   "11302": {
     "name": "Harbinger of Dawn",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -43,7 +43,7 @@
   },
   "11303": {
     "name": "Traveler's Handy Sword",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -54,7 +54,7 @@
   },
   "11304": {
     "name": "Dark Iron Sword",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -65,7 +65,7 @@
   },
   "11305": {
     "name": "Fillet Blade",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -76,7 +76,7 @@
   },
   "11306": {
     "name": "Skyrider Sword",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -87,7 +87,7 @@
   },
   "11401": {
     "name": "Favonius Sword",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -98,7 +98,7 @@
   },
   "11402": {
     "name": "The Flute",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -109,7 +109,7 @@
   },
   "11403": {
     "name": "Sacrificial Sword",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -120,7 +120,7 @@
   },
   "11404": {
     "name": "Royal Longsword",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -131,7 +131,7 @@
   },
   "11405": {
     "name": "Lion's Roar",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -142,7 +142,7 @@
   },
   "11406": {
     "name": "Prototype Rancour",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -153,7 +153,7 @@
   },
   "11407": {
     "name": "Iron Sting",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -164,7 +164,7 @@
   },
   "11408": {
     "name": "Blackcliff Longsword",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -175,7 +175,7 @@
   },
   "11409": {
     "name": "The Black Sword",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -186,7 +186,7 @@
   },
   "11412": {
     "name": "Sword of Descension",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -197,7 +197,7 @@
   },
   "11501": {
     "name": "Aquila Favonia",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -208,7 +208,7 @@
   },
   "11502": {
     "name": "Skyward Blade",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -219,7 +219,7 @@
   },
   "12101": {
     "name": "Waster Greatsword",
-    "quality": "1",
+    "quality": 1,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -229,7 +229,7 @@
   },
   "12201": {
     "name": "Old Merc's Pal",
-    "quality": "2",
+    "quality": 2,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -239,7 +239,7 @@
   },
   "12301": {
     "name": "Ferrous Shadow",
-    "quality": "3",
+    "quality": 3,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -250,7 +250,7 @@
   },
   "12302": {
     "name": "Bloodtainted Greatsword",
-    "quality": "3",
+    "quality": 3,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -261,7 +261,7 @@
   },
   "12303": {
     "name": "White Iron Greatsword",
-    "quality": "3",
+    "quality": 3,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -272,7 +272,7 @@
   },
   "12305": {
     "name": "Debate Club",
-    "quality": "3",
+    "quality": 3,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -283,7 +283,7 @@
   },
   "12306": {
     "name": "Skyrider Greatsword",
-    "quality": "3",
+    "quality": 3,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -294,7 +294,7 @@
   },
   "12401": {
     "name": "Favonius Greatsword",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -305,7 +305,7 @@
   },
   "12402": {
     "name": "The Bell",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -316,7 +316,7 @@
   },
   "12403": {
     "name": "Sacrificial Greatsword",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -327,7 +327,7 @@
   },
   "12404": {
     "name": "Royal Greatsword",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -338,7 +338,7 @@
   },
   "12405": {
     "name": "Rainslasher",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -349,7 +349,7 @@
   },
   "12406": {
     "name": "Prototype Archaic",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -360,7 +360,7 @@
   },
   "12407": {
     "name": "Whiteblind",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -371,7 +371,7 @@
   },
   "12408": {
     "name": "Blackcliff Slasher",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -382,7 +382,7 @@
   },
   "12409": {
     "name": "Serpent Spine",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -393,7 +393,7 @@
   },
   "12501": {
     "name": "Skyward Pride",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -404,7 +404,7 @@
   },
   "12502": {
     "name": "Wolf's Gravestone",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -415,7 +415,7 @@
   },
   "13101": {
     "name": "Beginner's Protector",
-    "quality": "1",
+    "quality": 1,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -425,7 +425,7 @@
   },
   "13201": {
     "name": "Iron Point",
-    "quality": "2",
+    "quality": 2,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -435,7 +435,7 @@
   },
   "13301": {
     "name": "White Tassel",
-    "quality": "3",
+    "quality": 3,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -446,7 +446,7 @@
   },
   "13302": {
     "name": "Halberd",
-    "quality": "3",
+    "quality": 3,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -457,7 +457,7 @@
   },
   "13303": {
     "name": "Black Tassel",
-    "quality": "3",
+    "quality": 3,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -468,7 +468,7 @@
   },
   "13401": {
     "name": "Dragon's Bane",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -479,7 +479,7 @@
   },
   "13402": {
     "name": "Prototype Starglitter",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -490,7 +490,7 @@
   },
   "13403": {
     "name": "Crescent Pike",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -501,7 +501,7 @@
   },
   "13404": {
     "name": "Blackcliff Pole",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -512,7 +512,7 @@
   },
   "13405": {
     "name": "Deathmatch",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -523,7 +523,7 @@
   },
   "13407": {
     "name": "Favonius Lance",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -534,7 +534,7 @@
   },
   "13502": {
     "name": "Skyward Spine",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -545,7 +545,7 @@
   },
   "13505": {
     "name": "Primordial Jade Winged-Spear",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -556,7 +556,7 @@
   },
   "14101": {
     "name": "Apprentice's Notes",
-    "quality": "1",
+    "quality": 1,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -566,7 +566,7 @@
   },
   "14201": {
     "name": "Pocket Grimoire",
-    "quality": "2",
+    "quality": 2,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -576,7 +576,7 @@
   },
   "14301": {
     "name": "Magic Guide",
-    "quality": "3",
+    "quality": 3,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -587,7 +587,7 @@
   },
   "14302": {
     "name": "Thrilling Tales of Dragon Slayers",
-    "quality": "3",
+    "quality": 3,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -598,7 +598,7 @@
   },
   "14303": {
     "name": "Otherworldly Story",
-    "quality": "3",
+    "quality": 3,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -609,7 +609,7 @@
   },
   "14304": {
     "name": "Emerald Orb",
-    "quality": "3",
+    "quality": 3,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -620,7 +620,7 @@
   },
   "14305": {
     "name": "Twin Nephrite",
-    "quality": "3",
+    "quality": 3,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -631,7 +631,7 @@
   },
   "14401": {
     "name": "Favonius Codex",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -642,7 +642,7 @@
   },
   "14402": {
     "name": "The Widsith",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -653,7 +653,7 @@
   },
   "14403": {
     "name": "Sacrificial Fragments",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -664,7 +664,7 @@
   },
   "14404": {
     "name": "Royal Grimoire",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -675,7 +675,7 @@
   },
   "14405": {
     "name": "Solar Pearl",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -686,7 +686,7 @@
   },
   "14406": {
     "name": "Prototype Amber",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -697,7 +697,7 @@
   },
   "14407": {
     "name": "Mappa Mare",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -708,7 +708,7 @@
   },
   "14408": {
     "name": "Blackcliff Agate",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -719,7 +719,7 @@
   },
   "14409": {
     "name": "Eye of Perception",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -730,7 +730,7 @@
   },
   "14501": {
     "name": "Skyward Atlas",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -741,7 +741,7 @@
   },
   "14502": {
     "name": "Lost Prayer to the Sacred Winds",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -752,7 +752,7 @@
   },
   "15101": {
     "name": "Hunter's Bow",
-    "quality": "1",
+    "quality": 1,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -762,7 +762,7 @@
   },
   "15201": {
     "name": "",
-    "quality": "2",
+    "quality": 2,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -772,7 +772,7 @@
   },
   "15301": {
     "name": "Raven Bow",
-    "quality": "3",
+    "quality": 3,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -783,7 +783,7 @@
   },
   "15302": {
     "name": "Sharpshooter's Oath",
-    "quality": "3",
+    "quality": 3,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -794,7 +794,7 @@
   },
   "15303": {
     "name": "Recurve Bow",
-    "quality": "3",
+    "quality": 3,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -805,7 +805,7 @@
   },
   "15304": {
     "name": "Slingshot",
-    "quality": "3",
+    "quality": 3,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -816,7 +816,7 @@
   },
   "15305": {
     "name": "Messenger",
-    "quality": "3",
+    "quality": 3,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -827,7 +827,7 @@
   },
   "15401": {
     "name": "Favonius Warbow",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -838,7 +838,7 @@
   },
   "15402": {
     "name": "The Stringless",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -849,7 +849,7 @@
   },
   "15403": {
     "name": "Sacrificial Bow",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -860,7 +860,7 @@
   },
   "15404": {
     "name": "Royal Bow",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -871,7 +871,7 @@
   },
   "15405": {
     "name": "Rust",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -882,7 +882,7 @@
   },
   "15406": {
     "name": "Prototype Crescent",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -893,7 +893,7 @@
   },
   "15407": {
     "name": "Compound Bow",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -904,7 +904,7 @@
   },
   "15408": {
     "name": "Blackcliff Warbow",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -915,7 +915,7 @@
   },
   "15409": {
     "name": "The Viridescent Hunt",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -926,7 +926,7 @@
   },
   "15501": {
     "name": "Skyward Harp",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -937,7 +937,7 @@
   },
   "15502": {
     "name": "Amos' Bow",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -948,7 +948,7 @@
   },
   "12504": {
     "name": "The Unforged",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -959,7 +959,7 @@
   },
   "13408": {
     "name": "Royal Spear",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -970,7 +970,7 @@
   },
   "13504": {
     "name": "Vortex Vanquisher",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -981,7 +981,7 @@
   },
   "14504": {
     "name": "Memory of Dust",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -992,7 +992,7 @@
   },
   "11413": {
     "name": "Festering Desire",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1003,7 +1003,7 @@
   },
   "11504": {
     "name": "Summit Shaper",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1014,7 +1014,7 @@
   },
   "12411": {
     "name": "Snow-Tombed Starsilver",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1025,7 +1025,7 @@
   },
   "13409": {
     "name": "Dragonspine Spear",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1036,7 +1036,7 @@
   },
   "14412": {
     "name": "Frostbearer",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1047,7 +1047,7 @@
   },
   "11505": {
     "name": "Primordial Jade Cutter",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1058,7 +1058,7 @@
   },
   "12410": {
     "name": "Lithic Blade",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1069,7 +1069,7 @@
   },
   "13406": {
     "name": "Lithic Spear",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1080,7 +1080,7 @@
   },
   "13501": {
     "name": "Staff of Homa",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1101,7 +1101,7 @@
   },
   "11410": {
     "name": "The Alley Flash",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1112,7 +1112,7 @@
   },
   "14410": {
     "name": "Wine and Song",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1123,7 +1123,7 @@
   },
   "15410": {
     "name": "Alley Hunter",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1134,7 +1134,7 @@
   },
   "15413": {
     "name": "Windblume Ode",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1145,7 +1145,7 @@
   },
   "15503": {
     "name": "Elegy for the End",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1156,7 +1156,7 @@
   },
   "12503": {
     "name": "Song of Broken Pines",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1167,7 +1167,7 @@
   },
   "11503": {
     "name": "Freedom-Sworn",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1178,7 +1178,7 @@
   },
   "14413": {
     "name": "Dodoco Tales",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1189,7 +1189,7 @@
   },
   "15412": {
     "name": "Mitternachts Waltz",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1200,7 +1200,7 @@
   },
   "11414": {
     "name": "Amenoma Kageuchi",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1211,7 +1211,7 @@
   },
   "11509": {
     "name": "Mistsplitter Reforged",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1222,7 +1222,7 @@
   },
   "12414": {
     "name": "Katsuragikiri Nagamasa",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1233,7 +1233,7 @@
   },
   "13414": {
     "name": "Kitain Cross Spear",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1244,7 +1244,7 @@
   },
   "14414": {
     "name": "Hakushin Ring",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1255,7 +1255,7 @@
   },
   "15414": {
     "name": "Hamayumi",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1266,7 +1266,7 @@
   },
   "15509": {
     "name": "Thundering Pulse",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1277,7 +1277,7 @@
   },
   "12412": {
     "name": "Luxurious Sea-Lord",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1288,7 +1288,7 @@
   },
   "13415": {
     "name": "\"The Catch\"",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1299,7 +1299,7 @@
   },
   "13509": {
     "name": "Engulfing Lightning",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1326,7 +1326,7 @@
   },
   "14506": {
     "name": "Everlasting Moonglow",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1337,7 +1337,7 @@
   },
   "15415": {
     "name": "Predator",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1348,7 +1348,7 @@
   },
   "12416": {
     "name": "Akuoumaru",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1359,7 +1359,7 @@
   },
   "13416": {
     "name": "Wavebreaker's Fin",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1370,7 +1370,7 @@
   },
   "15416": {
     "name": "Mouun's Moon",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1381,7 +1381,7 @@
   },
   "15507": {
     "name": "Polar Star",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1392,7 +1392,7 @@
   },
   "11415": {
     "name": "Cinnabar Spindle",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1403,7 +1403,7 @@
   },
   "12510": {
     "name": "Redhorn Stonethresher",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1414,7 +1414,7 @@
   },
   "13507": {
     "name": "Calamity Queller",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1425,7 +1425,7 @@
   },
   "14415": {
     "name": "Oathsworn Eye",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1436,7 +1436,7 @@
   },
   "14509": {
     "name": "Kagura's Verity",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1447,7 +1447,7 @@
   },
   "11510": {
     "name": "Haran Geppaku Futsu",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1458,7 +1458,7 @@
   },
   "15411": {
     "name": "Fading Twilight",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1469,7 +1469,7 @@
   },
   "15508": {
     "name": "Aqua Simulacra",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1480,7 +1480,7 @@
   },
   "11416": {
     "name": "Kagotsurube Isshin",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1491,7 +1491,7 @@
   },
   "11417": {
     "name": "Sapwood Blade",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1502,7 +1502,7 @@
   },
   "12417": {
     "name": "Forest Regalia",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1513,7 +1513,7 @@
   },
   "13417": {
     "name": "Moonpiercer",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1524,7 +1524,7 @@
   },
   "14417": {
     "name": "Fruit of Fulfillment",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1535,7 +1535,7 @@
   },
   "15417": {
     "name": "King's Squire",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1546,7 +1546,7 @@
   },
   "15418": {
     "name": "End of the Line",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1557,7 +1557,7 @@
   },
   "15511": {
     "name": "Hunter's Path",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1568,7 +1568,7 @@
   },
   "11418": {
     "name": "Xiphos' Moonlight",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1579,7 +1579,7 @@
   },
   "11511": {
     "name": "Key of Khaj-Nisut",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1590,7 +1590,7 @@
   },
   "12415": {
     "name": "Makhaira Aquamarine",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1601,7 +1601,7 @@
   },
   "13419": {
     "name": "Missive Windspear",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1612,7 +1612,7 @@
   },
   "13511": {
     "name": "Staff of the Scarlet Sands",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1632,7 +1632,7 @@
   },
   "14416": {
     "name": "Wandering Evenstar",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1643,7 +1643,7 @@
   },
   "14511": {
     "name": "A Thousand Floating Dreams",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1654,7 +1654,7 @@
   },
   "11422": {
     "name": "Toukabou Shigure",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1665,7 +1665,7 @@
   },
   "14512": {
     "name": "Tulaytullah's Remembrance",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1676,7 +1676,7 @@
   },
   "11512": {
     "name": "Light of Foliar Incision",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1687,7 +1687,7 @@
   },
   "12418": {
     "name": "Mailed Flower",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1698,7 +1698,7 @@
   },
   "12511": {
     "name": "Beacon of the Reed Sea",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1709,7 +1709,7 @@
   },
   "14505": {
     "name": "Jadefall's Splendor",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1720,7 +1720,7 @@
   },
   "15419": {
     "name": "Ibis Piercer",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1731,7 +1731,7 @@
   },
   "11424": {
     "name": "Wolf-Fang",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1742,7 +1742,7 @@
   },
   "11425": {
     "name": "Finale of the Deep",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1753,7 +1753,7 @@
   },
   "11426": {
     "name": "Fleuve Cendre Ferryman",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1764,7 +1764,7 @@
   },
   "12424": {
     "name": "Talking Stick",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1775,7 +1775,7 @@
   },
   "12425": {
     "name": "Tidal Shadow",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1786,7 +1786,7 @@
   },
   "13424": {
     "name": "Ballad of the Fjords",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1797,7 +1797,7 @@
   },
   "13425": {
     "name": "Rightful Reward",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1808,7 +1808,7 @@
   },
   "14424": {
     "name": "Sacrificial Jade",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1819,7 +1819,7 @@
   },
   "14425": {
     "name": "Flowing Purity",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1830,7 +1830,7 @@
   },
   "15424": {
     "name": "Scion of the Blazing Sun",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1841,7 +1841,7 @@
   },
   "15425": {
     "name": "Song of Stillness",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1852,7 +1852,7 @@
   },
   "15512": {
     "name": "The First Great Magic",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1863,7 +1863,7 @@
   },
   "11427": {
     "name": "The Dockhand's Assistant",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1874,7 +1874,7 @@
   },
   "12427": {
     "name": "Portable Power Saw",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1885,7 +1885,7 @@
   },
   "13427": {
     "name": "Prospector's Drill",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -1896,7 +1896,7 @@
   },
   "14426": {
     "name": "Ballad of the Boundless Blue",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1907,7 +1907,7 @@
   },
   "14513": {
     "name": "Cashflow Supervision",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1918,7 +1918,7 @@
   },
   "14514": {
     "name": "Tome of the Eternal Flow",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1929,7 +1929,7 @@
   },
   "15427": {
     "name": "Range Gauge",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -1940,7 +1940,7 @@
   },
   "11428": {
     "name": "Sword of Narzissenkreuz",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1951,7 +1951,7 @@
   },
   "11513": {
     "name": "Splendor of Tranquil Waters",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -1962,7 +1962,7 @@
   },
   "12426": {
     "name": "\"Ultimate Overlord's Mega Magic Sword\"",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1973,7 +1973,7 @@
   },
   "12512": {
     "name": "Verdict",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -1984,7 +1984,7 @@
   },
   "14515": {
     "name": "Crane's Echoing Call",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -1995,7 +1995,7 @@
   },
   "11514": {
     "name": "Uraku Misugiri",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2006,7 +2006,7 @@
   },
   "13426": {
     "name": "Dialogues of the Desert Sages",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2017,7 +2017,7 @@
   },
   "13512": {
     "name": "Crimson Moon's Semblance",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2028,7 +2028,7 @@
   },
   "11515": {
     "name": "Absolution",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2039,7 +2039,7 @@
   },
   "15426": {
     "name": "Cloudforged",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2050,7 +2050,7 @@
   },
   "15513": {
     "name": "Silvershower Heartstrings",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2061,7 +2061,7 @@
   },
   "13513": {
     "name": "Lumidouce Elegy",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2072,7 +2072,7 @@
   },
   "11431": {
     "name": "Flute of Ezpitzal",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2083,7 +2083,7 @@
   },
   "12431": {
     "name": "Earth Shaker",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2094,7 +2094,7 @@
   },
   "12513": {
     "name": "Fang of the Mountain King",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2105,7 +2105,7 @@
   },
   "13431": {
     "name": "Footprint of the Rainbow",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2116,7 +2116,7 @@
   },
   "14427": {
     "name": "Ash-Graven Drinking Horn",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2127,7 +2127,7 @@
   },
   "14431": {
     "name": "Ring of Yaxche",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2138,7 +2138,7 @@
   },
   "14516": {
     "name": "Surf's Up",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2149,7 +2149,7 @@
   },
   "15431": {
     "name": "Chain Breaker",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2160,7 +2160,7 @@
   },
   "11430": {
     "name": "Sturdy Bone",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2171,7 +2171,7 @@
   },
   "11516": {
     "name": "Peak Patrol Song",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2182,7 +2182,7 @@
   },
   "12430": {
     "name": "Fruitful Hook",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2193,7 +2193,7 @@
   },
   "13430": {
     "name": "Mountain-Bracing Bolt",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2204,7 +2204,7 @@
   },
   "11432": {
     "name": "Calamity of Eshu",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2215,7 +2215,7 @@
   },
   "14430": {
     "name": "Waveriding Whirl",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2226,7 +2226,7 @@
   },
   "15430": {
     "name": "Flower-Wreathed Feathers",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2237,7 +2237,7 @@
   },
   "15514": {
     "name": "Astral Vulture's Crimson Plumage",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2248,7 +2248,7 @@
   },
   "12514": {
     "name": "A Thousand Blazing Suns",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2259,7 +2259,7 @@
   },
   "14517": {
     "name": "Starcaller's Watch",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2270,7 +2270,7 @@
   },
   "13432": {
     "name": "Tamayuratei no Ohanashi",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2281,7 +2281,7 @@
   },
   "14518": {
     "name": "Sunny Morning Sleep-In",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2292,7 +2292,7 @@
   },
   "14519": {
     "name": "Vivid Notions",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2303,7 +2303,7 @@
   },
   "13514": {
     "name": "Symphonist of Scents",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2314,7 +2314,7 @@
   },
   "15432": {
     "name": "Sequence of Solitude",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2325,7 +2325,7 @@
   },
   "11517": {
     "name": "Azurelight",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2336,7 +2336,7 @@
   },
   "13515": {
     "name": "Fractured Halo",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2347,7 +2347,7 @@
   },
   "11433": {
     "name": "Serenity's Call",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2358,7 +2358,7 @@
   },
   "12433": {
     "name": "Master Key",
-    "quality": "4",
+    "quality": 4,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2369,7 +2369,7 @@
   },
   "13433": {
     "name": "Prospector's Shovel",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2380,7 +2380,7 @@
   },
   "13516": {
     "name": "Bloodsoaked Ruins",
-    "quality": "5",
+    "quality": 5,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2391,7 +2391,7 @@
   },
   "14432": {
     "name": "Etherlight Spindlelute",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2402,7 +2402,7 @@
   },
   "14433": {
     "name": "Blackmarrow Lantern",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2413,7 +2413,7 @@
   },
   "14520": {
     "name": "Nightweaver's Looking Glass",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2424,7 +2424,7 @@
   },
   "15433": {
     "name": "Snare Hook",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2435,7 +2435,7 @@
   },
   "13434": {
     "name": "Sacrificer's Staff",
-    "quality": "4",
+    "quality": 4,
     "type": "POLEARM",
     "stats": {
       "constant": {
@@ -2446,7 +2446,7 @@
   },
   "14434": {
     "name": "Dawning Frost",
-    "quality": "4",
+    "quality": 4,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2457,7 +2457,7 @@
   },
   "14521": {
     "name": "Reliquary of Truth",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2468,7 +2468,7 @@
   },
   "11518": {
     "name": "Athame Artis",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2479,7 +2479,7 @@
   },
   "15434": {
     "name": "Rainbow Serpent's Rain Bow",
-    "quality": "4",
+    "quality": 4,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2490,7 +2490,7 @@
   },
   "15515": {
     "name": "The Daybreak Chronicles",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {
@@ -2501,7 +2501,7 @@
   },
   "11519": {
     "name": "Lightbearing Moonshard",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "constant": {
@@ -2512,7 +2512,7 @@
   },
   "14522": {
     "name": "Nocturne's Curtain Call",
-    "quality": "5",
+    "quality": 5,
     "type": "CATALYST",
     "stats": {
       "constant": {
@@ -2523,7 +2523,7 @@
   },
   "12515": {
     "name": "Gest of the Mighty Wolf",
-    "quality": "5",
+    "quality": 5,
     "type": "CLAYMORE",
     "stats": {
       "constant": {
@@ -2534,7 +2534,7 @@
   },
   "15516": {
     "name": "Golden Frostbound Oath",
-    "quality": "5",
+    "quality": 5,
     "type": "BOW",
     "stats": {
       "constant": {

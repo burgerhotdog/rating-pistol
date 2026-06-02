@@ -1,7 +1,7 @@
 {
   "21010011": {
     "name": "Training Broadblade",
-    "quality": "1",
+    "quality": 1,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 190,
@@ -18,7 +18,7 @@
   },
   "21010012": {
     "name": "Tyro Broadblade",
-    "quality": "2",
+    "quality": 2,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 209,
@@ -35,7 +35,7 @@
   },
   "21010013": {
     "name": "Broadblade of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 325,
@@ -54,7 +54,7 @@
   },
   "21010015": {
     "name": "Lustrous Razor",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 587,
@@ -85,7 +85,7 @@
   },
   "21010016": {
     "name": "Verdant Summit",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 587,
@@ -119,7 +119,7 @@
   },
   "21010023": {
     "name": "Originite: Type I",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 300,
@@ -145,7 +145,7 @@
   },
   "21010024": {
     "name": "Discord",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 337,
@@ -154,7 +154,7 @@
   },
   "21010034": {
     "name": "Broadblade#41",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 412,
@@ -171,7 +171,7 @@
   },
   "21010043": {
     "name": "Broadblade of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 300,
@@ -180,7 +180,7 @@
   },
   "21010044": {
     "name": "Dauntless Evernight",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 337,
@@ -203,7 +203,7 @@
   },
   "21010053": {
     "name": "Guardian Broadblade",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 325,
@@ -224,7 +224,7 @@
   },
   "21010064": {
     "name": "Helios Cleaver",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 412,
@@ -244,7 +244,7 @@
   },
   "21010074": {
     "name": "Autumntrace",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 412,
@@ -269,7 +269,7 @@
   },
   "21020011": {
     "name": "Training Sword",
-    "quality": "1",
+    "quality": 1,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 190,
@@ -286,7 +286,7 @@
   },
   "21020012": {
     "name": "Tyro Sword",
-    "quality": "2",
+    "quality": 2,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 209,
@@ -303,7 +303,7 @@
   },
   "21020013": {
     "name": "Sword of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 325,
@@ -322,7 +322,7 @@
   },
   "21020015": {
     "name": "Emerald of Genesis",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 587,
@@ -353,7 +353,7 @@
   },
   "21020023": {
     "name": "Originite: Type II",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 325,
@@ -379,7 +379,7 @@
   },
   "21020024": {
     "name": "Overture",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 337,
@@ -388,7 +388,7 @@
   },
   "21020034": {
     "name": "Sword#18",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 387,
@@ -425,7 +425,7 @@
   },
   "21020043": {
     "name": "Sword of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 300,
@@ -434,7 +434,7 @@
   },
   "21020044": {
     "name": "Commando of Conviction",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 412,
@@ -453,7 +453,7 @@
   },
   "21020053": {
     "name": "Guardian Sword",
-    "quality": "3",
+    "quality": 3,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 300,
@@ -470,7 +470,7 @@
   },
   "21020064": {
     "name": "Lunar Cutter",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 412,
@@ -490,7 +490,7 @@
   },
   "21020074": {
     "name": "Lumingloss",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 387,
@@ -514,7 +514,7 @@
   },
   "21030011": {
     "name": "Training Pistols",
-    "quality": "1",
+    "quality": 1,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 190,
@@ -531,7 +531,7 @@
   },
   "21030012": {
     "name": "Tyro Pistols",
-    "quality": "2",
+    "quality": 2,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 209,
@@ -548,7 +548,7 @@
   },
   "21030013": {
     "name": "Pistols of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 325,
@@ -567,7 +567,7 @@
   },
   "21030015": {
     "name": "Static Mist",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 587,
@@ -598,7 +598,7 @@
   },
   "21030023": {
     "name": "Originite: Type III",
-    "quality": "3",
+    "quality": 3,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 325,
@@ -624,7 +624,7 @@
   },
   "21030024": {
     "name": "Cadenza",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 337,
@@ -633,7 +633,7 @@
   },
   "21030034": {
     "name": "Pistols#26",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 387,
@@ -650,7 +650,7 @@
   },
   "21030043": {
     "name": "Pistols of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 300,
@@ -659,7 +659,7 @@
   },
   "21030044": {
     "name": "Undying Flame",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 412,
@@ -678,7 +678,7 @@
   },
   "21030053": {
     "name": "Guardian Pistols",
-    "quality": "3",
+    "quality": 3,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 300,
@@ -695,7 +695,7 @@
   },
   "21030064": {
     "name": "Novaburst",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 412,
@@ -712,7 +712,7 @@
   },
   "21030074": {
     "name": "Thunderbolt",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 387,
@@ -737,7 +737,7 @@
   },
   "21040011": {
     "name": "Training Gauntlets",
-    "quality": "1",
+    "quality": 1,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 190,
@@ -754,7 +754,7 @@
   },
   "21040012": {
     "name": "Tyro Gauntlets",
-    "quality": "2",
+    "quality": 2,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 209,
@@ -771,7 +771,7 @@
   },
   "21040013": {
     "name": "Gauntlets of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 325,
@@ -790,7 +790,7 @@
   },
   "21040015": {
     "name": "Abyss Surges",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 587,
@@ -831,7 +831,7 @@
   },
   "21040023": {
     "name": "Originite: Type IV",
-    "quality": "3",
+    "quality": 3,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 300,
@@ -858,7 +858,7 @@
   },
   "21040024": {
     "name": "Marcato",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 337,
@@ -867,7 +867,7 @@
   },
   "21040034": {
     "name": "Gauntlets#21D",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 387,
@@ -906,7 +906,7 @@
   },
   "21040043": {
     "name": "Gauntlets of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 325,
@@ -915,7 +915,7 @@
   },
   "21040044": {
     "name": "Amity Accord",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 337,
@@ -934,7 +934,7 @@
   },
   "21040053": {
     "name": "Guardian Gauntlets",
-    "quality": "3",
+    "quality": 3,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 300,
@@ -951,7 +951,7 @@
   },
   "21040064": {
     "name": "Hollow Mirage",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 412,
@@ -973,7 +973,7 @@
   },
   "21040074": {
     "name": "Stonard",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 412,
@@ -992,7 +992,7 @@
   },
   "21050011": {
     "name": "Training Rectifier",
-    "quality": "1",
+    "quality": 1,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 190,
@@ -1009,7 +1009,7 @@
   },
   "21050012": {
     "name": "Tyro Rectifier",
-    "quality": "2",
+    "quality": 2,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 209,
@@ -1026,7 +1026,7 @@
   },
   "21050013": {
     "name": "Rectifier of Night",
-    "quality": "3",
+    "quality": 3,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 325,
@@ -1045,7 +1045,7 @@
   },
   "21050015": {
     "name": "Cosmic Ripples",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 500,
@@ -1077,7 +1077,7 @@
   },
   "21050016": {
     "name": "Stringmaster",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 500,
@@ -1119,7 +1119,7 @@
   },
   "21050023": {
     "name": "Originite: Type V",
-    "quality": "3",
+    "quality": 3,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 300,
@@ -1145,7 +1145,7 @@
   },
   "21050024": {
     "name": "Variation",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 337,
@@ -1154,7 +1154,7 @@
   },
   "21050034": {
     "name": "Rectifier#25",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 337,
@@ -1173,7 +1173,7 @@
   },
   "21050043": {
     "name": "Rectifier of Voyager",
-    "quality": "3",
+    "quality": 3,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 300,
@@ -1182,7 +1182,7 @@
   },
   "21050044": {
     "name": "Jinzhou Keeper",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 387,
@@ -1205,7 +1205,7 @@
   },
   "21050053": {
     "name": "Guardian Rectifier",
-    "quality": "3",
+    "quality": 3,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 325,
@@ -1226,7 +1226,7 @@
   },
   "21050064": {
     "name": "Comet Flare",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 412,
@@ -1251,7 +1251,7 @@
   },
   "21050074": {
     "name": "Augment",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 412,
@@ -1270,7 +1270,7 @@
   },
   "21010026": {
     "name": "Ages of Harvest",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 587,
@@ -1311,7 +1311,7 @@
   },
   "21010063": {
     "name": "Beguiling Melody",
-    "quality": "3",
+    "quality": 3,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 300,
@@ -1320,7 +1320,7 @@
   },
   "21020016": {
     "name": "Blazing Brilliance",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 587,
@@ -1363,7 +1363,7 @@
   },
   "21040016": {
     "name": "Verity's Handle",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 587,
@@ -1393,7 +1393,7 @@
   },
   "21050026": {
     "name": "Rime-Draped Sprouts",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 500,
@@ -1435,7 +1435,7 @@
   },
   "21010084": {
     "name": "Waning Redshift",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 462,
@@ -1455,7 +1455,7 @@
   },
   "21020084": {
     "name": "Endless Collapse",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 462,
@@ -1475,7 +1475,7 @@
   },
   "21030084": {
     "name": "Relativistic Jet",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 462,
@@ -1495,7 +1495,7 @@
   },
   "21040084": {
     "name": "Celestial Spiral",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 462,
@@ -1515,7 +1515,7 @@
   },
   "21050036": {
     "name": "Stellar Symphony",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 412,
@@ -1546,7 +1546,7 @@
   },
   "21050084": {
     "name": "Fusion Accretion",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 462,
@@ -1566,7 +1566,7 @@
   },
   "21020017": {
     "name": "Somnoire Anchor",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 462,
@@ -1592,7 +1592,7 @@
   },
   "21020026": {
     "name": "Red Spring",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 587,
@@ -1628,7 +1628,7 @@
   },
   "21010094": {
     "name": "Meditations on Mercy",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 462,
@@ -1651,7 +1651,7 @@
   },
   "21020094": {
     "name": "Fables of Wisdom",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 462,
@@ -1674,7 +1674,7 @@
   },
   "21030016": {
     "name": "The Last Dance",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 500,
@@ -1707,7 +1707,7 @@
   },
   "21030094": {
     "name": "Romance in Farewell",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 462,
@@ -1730,7 +1730,7 @@
   },
   "21040026": {
     "name": "Tragicomedy",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 587,
@@ -1763,7 +1763,7 @@
   },
   "21040094": {
     "name": "Legend of Drunken Hero",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 462,
@@ -1786,7 +1786,7 @@
   },
   "21050017": {
     "name": "Call of the Abyss",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 337,
@@ -1805,7 +1805,7 @@
   },
   "21050094": {
     "name": "Waltz in Masquerade",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 462,
@@ -1828,7 +1828,7 @@
   },
   "21020036": {
     "name": "Unflickering Valor",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 412,
@@ -1869,7 +1869,7 @@
   },
   "21050027": {
     "name": "Ocean's Gift",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 462,
@@ -1892,7 +1892,7 @@
   },
   "21050046": {
     "name": "Luminous Hymn",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 500,
@@ -1940,7 +1940,7 @@
   },
   "21020046": {
     "name": "Bloodpact's Pledge",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 587,
@@ -1977,7 +1977,7 @@
   },
   "21050056": {
     "name": "Whispers of Sirens",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 500,
@@ -2013,7 +2013,7 @@
   },
   "21030026": {
     "name": "Woodland Aria",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 500,
@@ -2057,7 +2057,7 @@
   },
   "21040036": {
     "name": "Blazing Justice",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 587,
@@ -2091,7 +2091,7 @@
   },
   "21010036": {
     "name": "Wildfire Mark",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 587,
@@ -2136,7 +2136,7 @@
   },
   "21020056": {
     "name": "Defier's Thorn",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 412,
@@ -2181,7 +2181,7 @@
   },
   "21050066": {
     "name": "Lethean Elegy",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 587,
@@ -2219,7 +2219,7 @@
   },
   "21010046": {
     "name": "Thunderflare Dominion",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 675,
@@ -2266,7 +2266,7 @@
   },
   "21010104": {
     "name": "Aureate Zenith",
-    "quality": "4",
+    "quality": 4,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 412,
@@ -2289,7 +2289,7 @@
   },
   "21020104": {
     "name": "Feather Edge",
-    "quality": "4",
+    "quality": 4,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 412,
@@ -2312,7 +2312,7 @@
   },
   "21030104": {
     "name": "Solar Flame",
-    "quality": "4",
+    "quality": 4,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 412,
@@ -2341,7 +2341,7 @@
   },
   "21040046": {
     "name": "Moongazer's Sigil",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 500,
@@ -2399,7 +2399,7 @@
   },
   "21040104": {
     "name": "Aether Strike",
-    "quality": "4",
+    "quality": 4,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 412,
@@ -2422,7 +2422,7 @@
   },
   "21050104": {
     "name": "Radiant Dawn",
-    "quality": "4",
+    "quality": 4,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 412,
@@ -2445,7 +2445,7 @@
   },
   "21020066": {
     "name": "Emerald Sentence",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 587,
@@ -2489,7 +2489,7 @@
   },
   "21030036": {
     "name": "Lux & Umbra",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 587,
@@ -2538,7 +2538,7 @@
   },
   "21010056": {
     "name": "Kumokiri",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 500,
@@ -2592,7 +2592,7 @@
   },
   "21010045": {
     "name": "Radiance Cleaver",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 587,
@@ -2623,7 +2623,7 @@
   },
   "21010066": {
     "name": "Starfield Calibrator",
-    "quality": "5",
+    "quality": 5,
     "type": "BROADBLADE",
     "stats": {
       "BASE_ATK": 412,
@@ -2653,7 +2653,7 @@
   },
   "21020045": {
     "name": "Laser Shearer",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 587,
@@ -2684,7 +2684,7 @@
   },
   "21030045": {
     "name": "Phasic Homogenizer",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 587,
@@ -2714,7 +2714,7 @@
   },
   "21030046": {
     "name": "Spectrum Blaster",
-    "quality": "5",
+    "quality": 5,
     "type": "PISTOLS",
     "stats": {
       "BASE_ATK": 587,
@@ -2764,7 +2764,7 @@
   },
   "21040045": {
     "name": "Pulsation Bracer",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 587,
@@ -2797,7 +2797,7 @@
   },
   "21050045": {
     "name": "Boson Astrolabe",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 525,
@@ -2831,7 +2831,7 @@
   },
   "21020076": {
     "name": "Everbright Polestar",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 587,
@@ -2870,7 +2870,7 @@
   },
   "21040056": {
     "name": "Daybreaker's Spine",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 587,
@@ -2917,7 +2917,7 @@
   },
   "21040066": {
     "name": "Solsworn Ciphers",
-    "quality": "5",
+    "quality": 5,
     "type": "GAUNTLETS",
     "stats": {
       "BASE_ATK": 587,
@@ -2962,7 +2962,7 @@
   },
   "21020086": {
     "name": "Frostburn",
-    "quality": "5",
+    "quality": 5,
     "type": "SWORD",
     "stats": {
       "BASE_ATK": 587,
@@ -3018,7 +3018,7 @@
   },
   "21050076": {
     "name": "Forged Dwarf Star",
-    "quality": "5",
+    "quality": 5,
     "type": "RECTIFIER",
     "stats": {
       "BASE_ATK": 500,

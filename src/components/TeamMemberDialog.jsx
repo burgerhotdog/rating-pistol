@@ -1061,7 +1061,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
                   size="small"
                 />
               }
-              label={buildLocked ? 'Using my build' : 'What if mode'}
+              label={buildLocked ? 'Using own build' : 'Using trial build'}
               sx={{ mb: 1 }}
             />
           )}

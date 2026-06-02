@@ -1,7 +1,7 @@
 {
   "1011": {
     "name": "Anby",
-    "quality": "4",
+    "quality": 4,
     "element": "ELECTRIC",
     "type": "STUN",
     "stats": {
@@ -17,7 +17,7 @@
   },
   "1021": {
     "name": "Nekomata",
-    "quality": "5",
+    "quality": 5,
     "element": "PHYSICAL",
     "type": "ATTACK",
     "stats": {
@@ -34,7 +34,7 @@
   },
   "1031": {
     "name": "Nicole",
-    "quality": "4",
+    "quality": 4,
     "element": "ETHER",
     "type": "SUPPORT",
     "stats": {
@@ -51,7 +51,7 @@
   },
   "1041": {
     "name": "Soldier 11",
-    "quality": "5",
+    "quality": 5,
     "element": "FIRE",
     "type": "ATTACK",
     "stats": {
@@ -68,7 +68,7 @@
   },
   "1061": {
     "name": "Corin",
-    "quality": "4",
+    "quality": 4,
     "element": "PHYSICAL",
     "type": "ATTACK",
     "stats": {
@@ -85,7 +85,7 @@
   },
   "1081": {
     "name": "Billy",
-    "quality": "4",
+    "quality": 4,
     "element": "PHYSICAL",
     "type": "ATTACK",
     "stats": {
@@ -102,7 +102,7 @@
   },
   "1101": {
     "name": "Koleda",
-    "quality": "5",
+    "quality": 5,
     "element": "FIRE",
     "type": "STUN",
     "stats": {
@@ -118,7 +118,7 @@
   },
   "1111": {
     "name": "Anton",
-    "quality": "4",
+    "quality": 4,
     "element": "ELECTRIC",
     "type": "ATTACK",
     "stats": {
@@ -135,7 +135,7 @@
   },
   "1121": {
     "name": "Ben",
-    "quality": "4",
+    "quality": 4,
     "element": "FIRE",
     "type": "DEFENSE",
     "stats": {
@@ -152,7 +152,7 @@
   },
   "1131": {
     "name": "Soukaku",
-    "quality": "4",
+    "quality": 4,
     "element": "ICE",
     "type": "SUPPORT",
     "stats": {
@@ -169,7 +169,7 @@
   },
   "1141": {
     "name": "Lycaon",
-    "quality": "5",
+    "quality": 5,
     "element": "ICE",
     "type": "STUN",
     "stats": {
@@ -185,7 +185,7 @@
   },
   "1151": {
     "name": "Lucy",
-    "quality": "4",
+    "quality": 4,
     "element": "FIRE",
     "type": "SUPPORT",
     "stats": {
@@ -202,7 +202,7 @@
   },
   "1181": {
     "name": "Grace",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "ANOMALY",
     "stats": {
@@ -218,7 +218,7 @@
   },
   "1191": {
     "name": "Ellen",
-    "quality": "5",
+    "quality": 5,
     "element": "ICE",
     "type": "ATTACK",
     "stats": {
@@ -235,7 +235,7 @@
   },
   "1211": {
     "name": "Rina",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "SUPPORT",
     "stats": {
@@ -252,7 +252,7 @@
   },
   "1241": {
     "name": "Zhu Yuan",
-    "quality": "5",
+    "quality": 5,
     "element": "ETHER",
     "type": "ATTACK",
     "stats": {
@@ -269,7 +269,7 @@
   },
   "1281": {
     "name": "Piper",
-    "quality": "4",
+    "quality": 4,
     "element": "PHYSICAL",
     "type": "ANOMALY",
     "stats": {
@@ -286,7 +286,7 @@
   },
   "1251": {
     "name": "Qingyi",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "STUN",
     "stats": {
@@ -302,7 +302,7 @@
   },
   "1261": {
     "name": "Jane",
-    "quality": "5",
+    "quality": 5,
     "element": "PHYSICAL",
     "type": "ANOMALY",
     "stats": {
@@ -318,7 +318,7 @@
   },
   "1271": {
     "name": "Seth",
-    "quality": "4",
+    "quality": 4,
     "element": "ELECTRIC",
     "type": "DEFENSE",
     "stats": {
@@ -335,7 +335,7 @@
   },
   "1071": {
     "name": "Caesar",
-    "quality": "5",
+    "quality": 5,
     "element": "PHYSICAL",
     "type": "DEFENSE",
     "stats": {
@@ -351,7 +351,7 @@
   },
   "1171": {
     "name": "Burnice",
-    "quality": "5",
+    "quality": 5,
     "element": "FIRE",
     "type": "ANOMALY",
     "stats": {
@@ -368,7 +368,7 @@
   },
   "1161": {
     "name": "Lighter",
-    "quality": "5",
+    "quality": 5,
     "element": "FIRE",
     "type": "STUN",
     "stats": {
@@ -384,7 +384,7 @@
   },
   "1221": {
     "name": "Yanagi",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "ANOMALY",
     "stats": {
@@ -400,7 +400,7 @@
   },
   "1091": {
     "name": "Miyabi",
-    "quality": "5",
+    "quality": 5,
     "element": "ICE",
     "type": "ANOMALY",
     "stats": {
@@ -416,7 +416,7 @@
   },
   "1201": {
     "name": "Harumasa",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "ATTACK",
     "stats": {
@@ -433,7 +433,7 @@
   },
   "1311": {
     "name": "Astra Yao",
-    "quality": "5",
+    "quality": 5,
     "element": "ETHER",
     "type": "SUPPORT",
     "stats": {
@@ -450,7 +450,7 @@
   },
   "1321": {
     "name": "Evelyn",
-    "quality": "5",
+    "quality": 5,
     "element": "FIRE",
     "type": "ATTACK",
     "stats": {
@@ -467,7 +467,7 @@
   },
   "1351": {
     "name": "Pulchra",
-    "quality": "4",
+    "quality": 4,
     "element": "PHYSICAL",
     "type": "STUN",
     "stats": {
@@ -483,7 +483,7 @@
   },
   "1361": {
     "name": "Trigger",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "STUN",
     "stats": {
@@ -499,7 +499,7 @@
   },
   "1381": {
     "name": "Soldier 0 - Anby",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "ATTACK",
     "stats": {
@@ -516,7 +516,7 @@
   },
   "1291": {
     "name": "Hugo",
-    "quality": "5",
+    "quality": 5,
     "element": "ICE",
     "type": "ATTACK",
     "stats": {
@@ -533,7 +533,7 @@
   },
   "1331": {
     "name": "Vivian",
-    "quality": "5",
+    "quality": 5,
     "element": "ETHER",
     "type": "ANOMALY",
     "stats": {
@@ -549,7 +549,7 @@
   },
   "1371": {
     "name": "Yixuan",
-    "quality": "5",
+    "quality": 5,
     "element": "ETHER",
     "type": "RUPTURE",
     "stats": {
@@ -567,7 +567,7 @@
   },
   "1391": {
     "name": "Ju Fufu",
-    "quality": "5",
+    "quality": 5,
     "element": "FIRE",
     "type": "STUN",
     "stats": {
@@ -584,7 +584,7 @@
   },
   "1421": {
     "name": "Pan Yinhu",
-    "quality": "4",
+    "quality": 4,
     "element": "PHYSICAL",
     "type": "DEFENSE",
     "stats": {
@@ -601,7 +601,7 @@
   },
   "1401": {
     "name": "Alice",
-    "quality": "5",
+    "quality": 5,
     "element": "PHYSICAL",
     "type": "ANOMALY",
     "stats": {
@@ -617,7 +617,7 @@
   },
   "1411": {
     "name": "Yuzuha",
-    "quality": "5",
+    "quality": 5,
     "element": "PHYSICAL",
     "type": "SUPPORT",
     "stats": {
@@ -633,7 +633,7 @@
   },
   "1301": {
     "name": "Orphie & Magus",
-    "quality": "5",
+    "quality": 5,
     "element": "FIRE",
     "type": "ATTACK",
     "stats": {
@@ -650,7 +650,7 @@
   },
   "1461": {
     "name": "Seed",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "ATTACK",
     "stats": {
@@ -667,7 +667,7 @@
   },
   "1051": {
     "name": "Yidhari",
-    "quality": "5",
+    "quality": 5,
     "element": "ICE",
     "type": "RUPTURE",
     "stats": {
@@ -684,7 +684,7 @@
   },
   "1441": {
     "name": "Manato",
-    "quality": "4",
+    "quality": 4,
     "element": "FIRE",
     "type": "RUPTURE",
     "stats": {
@@ -701,7 +701,7 @@
   },
   "1451": {
     "name": "Lucia",
-    "quality": "5",
+    "quality": 5,
     "element": "ETHER",
     "type": "SUPPORT",
     "stats": {
@@ -718,7 +718,7 @@
   },
   "1471": {
     "name": "Banyue",
-    "quality": "5",
+    "quality": 5,
     "element": "FIRE",
     "type": "RUPTURE",
     "stats": {
@@ -735,7 +735,7 @@
   },
   "1481": {
     "name": "Dialyn",
-    "quality": "5",
+    "quality": 5,
     "element": "PHYSICAL",
     "type": "STUN",
     "stats": {
@@ -752,7 +752,7 @@
   },
   "1341": {
     "name": "Zhao",
-    "quality": "5",
+    "quality": 5,
     "element": "ICE",
     "type": "DEFENSE",
     "stats": {
@@ -769,7 +769,7 @@
   },
   "1431": {
     "name": "Ye Shunguang",
-    "quality": "5",
+    "quality": 5,
     "element": "PHYSICAL",
     "type": "ATTACK",
     "stats": {
@@ -786,7 +786,7 @@
   },
   "1491": {
     "name": "Sunna",
-    "quality": "5",
+    "quality": 5,
     "element": "PHYSICAL",
     "type": "SUPPORT",
     "stats": {
@@ -803,7 +803,7 @@
   },
   "1501": {
     "name": "Aria",
-    "quality": "5",
+    "quality": 5,
     "element": "ETHER",
     "type": "ANOMALY",
     "stats": {
@@ -819,7 +819,7 @@
   },
   "1511": {
     "name": "Nangong Yu",
-    "quality": "5",
+    "quality": 5,
     "element": "ETHER",
     "type": "STUN",
     "stats": {
@@ -835,7 +835,7 @@
   },
   "1521": {
     "name": "Cissia",
-    "quality": "5",
+    "quality": 5,
     "element": "ELECTRIC",
     "type": "ATTACK",
     "stats": {

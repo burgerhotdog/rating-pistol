@@ -1,18 +1,11 @@
 import { CHARACTERS, WEAPONS, SETS, MISC, MVS } from '@/data';
-import { compileStatMap, mergeStatMaps, computeTotalStat, toArray, getSetCounts } from '@/utils';
+import { resolveRankedValue, compileStatMap, mergeStatMaps, computeTotalStat, toArray, getSetCounts } from '@/utils';
 
 const actionsCache = new Map();
 const normalizeEffectsCache = new Map();
 const compileStatMapCache = new WeakMap();
 
 const MAX_PROC_DEPTH = 4;
-
-// Linearly interpolates a [r1, r5] array to the correct value for the given rank (1–5).
-const resolveRankedValue = (value, rank) => {
-  if (!Array.isArray(value)) return value;
-  const [r1, r5] = value;
-  return r1 + (r5 - r1) / 4 * (Math.min(rank, 5) - 1);
-};
 
 // Combines multiple variableStatMap objects into one, collecting each stat's detail
 // objects into an array so they can all be resolved together by resolveVariableStatMap.
@@ -1176,8 +1169,8 @@ export const compileRotation = (gameId, rawTeam, characterId) => {
   return { gameId, characterId, footprints };
 };
 
-export const evaluateRotation = (summary, newCharCompiledStatMap) => {
-  const { gameId, characterId, footprints } = summary;
+export const evaluateRotation = (compiledRotation, newCharCompiledStatMap) => {
+  const { gameId, characterId, footprints } = compiledRotation;
   const actionMap = {};
 
   for (const footprint of footprints) {
