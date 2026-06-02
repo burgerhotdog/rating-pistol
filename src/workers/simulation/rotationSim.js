@@ -1,5 +1,5 @@
 import { CHARACTERS, WEAPONS, SETS, MISC, MVS } from '@/data';
-import { compileStatMap, mergeStatMaps, computeTotalStat, toArray } from '@/utils';
+import { compileStatMap, mergeStatMaps, computeTotalStat, toArray, getSetCounts } from '@/utils';
 
 const actionsCache = new Map();
 const normalizeEffectsCache = new Map();
@@ -98,22 +98,17 @@ const normalizeProc = (memberId, effectKey, proc, procIndex, rank = Infinity) =>
   times: proc.times ?? 1,
 });
 
-// Returns a { setId: pieceCount } map for the member, preferring pre-computed
-// setCounts over re-deriving from equipList.
-const getSetCounts = (member) => {
-  if (member.setCounts) return member.setCounts;
-  if (member.build?.setCounts) return member.build.setCounts;
-  return (member.build?.equipList ?? []).reduce((acc, equip) => {
-    const setId = equip?.setId;
-    if (!setId) return acc;
-    acc[setId] = (acc[setId] ?? 0) + 1;
-    return acc;
-  }, {});
-};
-
 // Returns the effect arrays for every set bonus that meets its piece threshold.
 const getActiveSetBonuses = (gameId, member) => {
-  const setCounts = getSetCounts(member);
+  let setCounts = {};
+  if (member.setCounts) {
+    setCounts = member.setCounts;
+  } else if (member.build?.setCounts) {
+    setCounts = member.build.setCounts;
+  } else {
+    setCounts = getSetCounts(member.build?.equipList ?? []);
+  }
+
   const activeBonuses = [];
   for (const [setId, activePieces] of Object.entries(setCounts)) {
     const setBonuses = SETS[gameId]?.[setId]?.setBonus;
@@ -1123,13 +1118,10 @@ export const compileRotation = (gameId, rawTeam, characterId) => {
       actionsCache.set(memberId, normalizeActions(gameId, memberId, rank));
     }
 
-    const setCounts = getSetCounts(member);
-    const setCacheKey = Object.keys(setCounts).sort().map(k => `${k}:${setCounts[k]}`).join(',');
-    const effectsCacheKey = `${gameId}-${memberId}-${rank}-${member.weaponId}-${member.weaponRank}-${setCacheKey}`;
-    let normalizedEffects = normalizeEffectsCache.get(effectsCacheKey);
+    let normalizedEffects = normalizeEffectsCache.get(memberId);
     if (!normalizedEffects) {
       normalizedEffects = normalizeEffects(gameId, member);
-      normalizeEffectsCache.set(effectsCacheKey, normalizedEffects);
+      normalizeEffectsCache.set(memberId, normalizedEffects);
     }
 
     let statMap = compileStatMapCache.get(build);
