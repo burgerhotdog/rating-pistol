@@ -1,21 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useBuild } from '@/contexts';
-import { CHARACTERS, WEAPONS } from '@/data';
-import { getSetCounts, formatRotation } from '@/utils';
+import { CHARACTERS } from '@/data';
+import { getMember, getDefaultWeaponRank, applyStoredBuild, formatRotation } from '@/utils';
 
 const getTeamSize = (gameId) =>
   gameId === 'genshin-impact' || gameId === 'honkai-star-rail' ? 4 : 3;
-
-const getDefaultCharacterRank = (gameId, characterId) => {
-  const { quality } = CHARACTERS[gameId][characterId];
-  return quality === 5 ? 0 : 6;
-};
-
-const getDefaultWeaponRank = (gameId, weaponId) => {
-  const { quality } = WEAPONS[gameId][weaponId];
-  return quality === 5 ? 1 : 5;
-};
 
 const normalizeMemberPreset = (gameId, rawMemberPreset) => {
   const overrides =
@@ -38,38 +28,12 @@ const createBlankMember = () => ({
   useUserBuild: false,
 });
 
-function applyStoredBuild(gameId, member, storedBuild) {
-  member.build = storedBuild;
-  member.useUserBuild = true;
-
-  if (storedBuild.rank != null) {
-    member.rank = storedBuild.rank;
-  }
-  
-  if (storedBuild.weaponId) {
-    member.weaponId = storedBuild.weaponId;
-
-    if (storedBuild.weaponRank) {
-      member.weaponRank = storedBuild.weaponRank;
-    } else {
-      member.weaponRank = getDefaultWeaponRank(gameId, member.weaponId);
-    }
-  }
-
-  if (storedBuild.equipList) {
-    member.setCounts = getSetCounts(storedBuild.equipList);
-  }
-}
-
 const initMember = (gameId, memberPreset, builds) => {
-  const member = createBlankMember();
-
-  member.memberId = memberPreset.memberId;
-  member.rank = getDefaultCharacterRank(gameId, member.memberId);
+  let member = getMember(gameId, memberPreset.memberId);
 
   if (memberPreset.weaponId) {
     member.weaponId = memberPreset.weaponId;
-    member.weaponRank = getDefaultWeaponRank(gameId, member.weaponId);
+    member.weaponRank = getDefaultWeaponRank(gameId, memberPreset.weaponId);
   }
 
   if (memberPreset.setCounts) {
@@ -82,7 +46,7 @@ const initMember = (gameId, memberPreset, builds) => {
 
   const storedBuild = builds[member.memberId];
   if (storedBuild) {
-    applyStoredBuild(gameId, member, storedBuild);
+    member = applyStoredBuild(gameId, member, storedBuild);
   }
 
   return member;

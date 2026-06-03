@@ -65,7 +65,13 @@ export function useSimulation(team) {
   const [result, setResult] = useState({});
   
   useEffect(() => {
-    const payload = { gameId, characterId, build, team };
+    // Use the team member's weaponId override (what-if scenario) for stat compilation.
+    // equipList always comes from the context build so trial generation is unaffected.
+    const mainMember = team.find(m => m.memberId === characterId);
+    const effectiveBuild = mainMember?.weaponId
+      ? { ...build, weaponId: mainMember.weaponId }
+      : build;
+    const payload = { gameId, characterId, build: effectiveBuild, team };
     const error = validatePayload(payload);
     if (error) {
       console.log(error);

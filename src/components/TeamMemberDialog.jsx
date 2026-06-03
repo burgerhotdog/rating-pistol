@@ -34,7 +34,7 @@ import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import { SortableContext, verticalListSortingStrategy, useSortable, sortableKeyboardCoordinates, arrayMove } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { CHARACTERS, MVS, WEAPONS, SETS, MISC } from '@/data';
-import { getMember, formatRotation, getSetCounts } from '@/utils';
+import { getMember, formatRotation, getDefaultWeaponRank, applyStoredBuild } from '@/utils';
 import { useBuild } from '@/contexts';
 
 function CharacterSelectDialog({ gameId, open, onClose, onSelect }) {
@@ -977,49 +977,22 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   const storedBuild = draft.memberId && draft.memberId !== characterId
     ? allBuilds[draft.memberId] ?? null
     : null;
+  const isMainCharacter = draft.memberId === characterId;
   const showToggle = storedBuild !== null;
-  const buildLocked = draft.useUserBuild === true;
-
-  const getDefaultRank = (memberId) => {
-    if (!memberId) return null;
-    return CHARACTERS[gameId][memberId]?.quality === '5' ? 0 : 6;
-  };
-
-  const getDefaultWeaponRank = (weaponId) => {
-    if (!weaponId) return null;
-    return WEAPONS[gameId][weaponId]?.quality === '5' ? 1 : 5;
-  };
+  const buildLocked = !isMainCharacter && draft.useUserBuild === true;
 
   const handleCharacterSelect = (charId) => {
-    const nextMember = getMember(gameId, charId);
+    let nextMember = getMember(gameId, charId);
     const nextStoredBuild = allBuilds[charId] ?? null;
-    const useUserBuild = nextStoredBuild !== null;
-    setDraft({
-      ...nextMember,
-      rank: getDefaultRank(nextMember.memberId),
-      weaponRank: getDefaultWeaponRank(nextMember.weaponId),
-      useUserBuild,
-      ...(useUserBuild ? {
-        build: nextStoredBuild,
-        weaponId: nextStoredBuild.weaponId,
-        setCounts: getSetCounts(nextStoredBuild.equipList),
-        weaponRank: nextStoredBuild.weaponRank ?? getDefaultWeaponRank(nextStoredBuild.weaponId),
-        rank: nextStoredBuild.rank ?? getDefaultRank(charId),
-      } : {}),
-    });
+    if (nextStoredBuild) {
+      nextMember = applyStoredBuild(gameId, nextMember, nextStoredBuild);
+    }
+    setDraft(nextMember);
   };
 
   const handleToggleUserBuild = (useUserBuild) => {
     if (useUserBuild && storedBuild) {
-      setDraft(prev => ({
-        ...prev,
-        useUserBuild: true,
-        build: storedBuild,
-        weaponId: storedBuild.weaponId,
-        setCounts: getSetCounts(storedBuild.equipList),
-        weaponRank: storedBuild.weaponRank ?? getDefaultWeaponRank(storedBuild.weaponId),
-        rank: storedBuild.rank ?? getDefaultRank(prev.memberId),
-      }));
+      setDraft(prev => applyStoredBuild(gameId, prev, storedBuild));
     } else {
       setDraft(prev => {
         const { build: _, ...rest } = prev;
@@ -1029,7 +1002,10 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
   };
 
   const handleSave = () => {
-    if (draft.useUserBuild && storedBuild) {
+    if (isMainCharacter) {
+      // Preserve build.equipList for simulation; weapon/rank/setCounts are what-if overrides.
+      onSave(draft);
+    } else if (draft.useUserBuild && storedBuild) {
       onSave({ ...draft, build: storedBuild });
     } else {
       const { build: _, ...rest } = draft;
@@ -1181,7 +1157,7 @@ export function TeamMemberDialog({ gameId, member, open, onClose, onSave }) {
         onSelect={(weaponId) => setDraft(prev => ({
           ...prev,
           weaponId,
-          weaponRank: getDefaultWeaponRank(weaponId),
+          weaponRank: getDefaultWeaponRank(gameId, weaponId),
         }))}
       />
     </>
